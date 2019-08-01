@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI_API;
 
-//Java import
-import java.awt.event.KeyEvent;
-
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -12,19 +9,22 @@ import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.rasterAPI.TopLeftPositionedRecangular;
 import ch.nolix.core.skillAPI.Recalculable;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
- * A {@link Widget} is an element on a {@link IGUI}.
+ * A {@link Widget} is an element on a {@link ILayerGUI}.
  * A {@link Widget} determines its width and height.
  * A {@link Widget} is a {@link ConfigurableElement}.
  * 
@@ -35,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements Recalculable, ISmartObject<W> {
+implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//constants
 	private static final String STATE_HEADER ="State";
@@ -83,9 +83,9 @@ implements Recalculable, ISmartObject<W> {
 	
 	//optional attribute
 	/**
-	 * The {@link IGUI} the current {@link Widget} belongs to.
+	 * The {@link ILayerGUI} the current {@link Widget} belongs to.
 	 */
-	private IGUI<?> parentGUI;
+	private LayerGUI<?> parentGUI;
 	
 	//optional attributes
 	private IFunction leftMouseButtonPressCommand;
@@ -271,7 +271,7 @@ implements Recalculable, ISmartObject<W> {
 	 * @return true if the current {@link Widget} belongs to the given GUI.
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	public final boolean belongsToGUI(final IGUI<?> aGUI) {
+	public final boolean belongsToGUI(final ILayerGUI<?> aGUI) {
 		
 		//Checks if the given GUI is not null.
 		Validator.suppose(aGUI).isNotNull();
@@ -491,23 +491,23 @@ implements Recalculable, ISmartObject<W> {
 	
 	//method
 	/**
-	 * @return the index of the current {@link Widget} on its {@link IGUI}.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link IGUI}.
+	 * @return the index of the current {@link Widget} on its {@link ILayerGUI}.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link ILayerGUI}.
 	 */
 	public final int getIndexOnGUI() {
-		return getParentGUI().getRefWidgetsRecursively().getIndexOf(this);
+		return getParentGUI().getRefWidgets().getIndexOf(this);
 	}
 	
 	//method
 	/**
 	 * Example: index path of a {@link Widget}
-	 * -Lets a {@link IGUI} A contains a {@link WidgetGUI} B.
+	 * -Lets a {@link ILayerGUI} A contains a {@link WidgetGUI} B.
 	 * -Lets B contain a {@link WidgetGUI} C.
 	 * -Lets C contain a {@link Widget} D.
 	 * ->The path of D is 'A.B.C.D'.
 	 * 
-	 * @return the index path of the current {@link Widget} on its root {@link IGUI}.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link IGUI}.
+	 * @return the index path of the current {@link Widget} on its root {@link ILayerGUI}.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link ILayerGUI}.
 	 */
 	@SuppressWarnings("unchecked")
 	public final List<Integer> getIndexPathOnRootGUI() {
@@ -543,7 +543,7 @@ implements Recalculable, ISmartObject<W> {
 	 * @return the GUI the current {@link Widget} belongs to.
 	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a GUI.
 	 */
-	public final IGUI<?> getParentGUI() {
+	public final LayerGUI<?> getParentGUI() {
 		
 		if (parentGUI == null) {
 			
@@ -772,13 +772,13 @@ implements Recalculable, ISmartObject<W> {
 	/**
 	 * Lets the current {@link Widget} note any key press.
 	 * 
-	 * @param keyEvent
+	 * @param key
 	 */
-	public final void noteAnyKeyPress(final KeyEvent keyEvent) {
+	public final void noteAnyKeyPress(final Key key) {
 		
 		//Handles the case that the current Widget is focused or hover focused.
 		if (isFocused() || isHoverFocused()) {
-			noteKeyPress(keyEvent);
+			noteKeyPress(key);
 		}
 	}
 	
@@ -786,13 +786,13 @@ implements Recalculable, ISmartObject<W> {
 	/**
 	 * Lets the current {@link Widget} note any key typing.
 	 * 
-	 * @param keyEvent
+	 * @param key
 	 */
-	public final void noteAnyKeyTyping(final KeyEvent keyEvent) {
+	public final void noteAnyKeyTyping(final Key key) {
 		
 		//Handles the case that the current Widget is focused or hover focused.
 		if (isFocused() || isHoverFocused()) {
-			noteKeyTyping(keyEvent);
+			noteKeyTyping(key);
 		}
 	}
 
@@ -930,7 +930,7 @@ implements Recalculable, ISmartObject<W> {
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyPress(final KeyEvent keyEvent) {}
+	public void noteKeyPress(final Key key) {}
 	
 	//method
 	/**
@@ -938,22 +938,15 @@ implements Recalculable, ISmartObject<W> {
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyTyping(final KeyEvent keyEvent) {}
+	public void noteKeyTyping(final Key keys) {}
 	
 	//method
 	/**
 	 * Lets the current {@link Widget} note a left mouse button press.
 	 */
-	public void noteLeftMouseButtonPress() {
-		
-		if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {
-				
+	public void noteLeftMouseButtonPress() {	
+		if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
 			leftMouseButtonPressCommand.run();
-			
-			//Handles the case that the GUI the current widget belongs to has a controller.
-			if (getParentGUI().hasController()) {
-				getParentGUI().getRefController().noteLeftMouseButtonPressCommand(this);
-			}
 		}
 	}
 	
@@ -964,13 +957,7 @@ implements Recalculable, ISmartObject<W> {
 	public void noteLeftMouseButtonRelease() {
 		
 		if (viewAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
-				
 			leftMouseButtonReleaseCommand.run();
-			
-			//Handles the case that the GUI the current widget belongs to has a controller.
-			if (getParentGUI().hasController()) {
-				getParentGUI().getRefController().noteLeftMouseButtonReleaseCommand(this);
-			}
 		}
 		
 		if (!isUnderCursor() && !keepsFocus()) {
@@ -1016,8 +1003,8 @@ implements Recalculable, ISmartObject<W> {
 	public final void paint(final IPainter painter) {
 		paint2(
 			painter.createPainter(
-				getXPositionOnParent(),
-				getYPositionOnParent()
+				getXPosition(),
+				getYPosition()
 			)
 		);
 	}
@@ -1565,43 +1552,45 @@ implements Recalculable, ISmartObject<W> {
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link Widget} on the {@link IGUI} it belongs to.
+	 * @return the x-position of the current {@link Widget} on the {@link ILayerGUI} it belongs to.
 	 */
 	protected final int getXPositionOnGUI() {
 		
 		if (!belongsToWidget()) {
-			return getXPositionOnParent();
+			return getXPosition();
 		}
 		
-		return (getParentWidget().getXPositionOnGUI() + getXPositionOnParent());
+		return (getParentWidget().getXPositionOnGUI() + getXPosition());
 	}
 	
 	//method
 	/**
 	 * @return the x-position of the current {@link Widget} on its parent container.
 	 */
-	protected final int getXPositionOnParent() {
+	@Override
+	public final int getXPosition() {
 		return xPositionOnParent;
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the current {@link Widget} on the {@link IGUI} it belongs to.
+	 * @return the y-position of the current {@link Widget} on the {@link ILayerGUI} it belongs to.
 	 */
 	protected final int getYPositionOnGUI() {
 		
 		if (!belongsToWidget()) {
-			return getYPositionOnParent();
+			return getYPosition();
 		}
 		
-		return (getParentWidget().getYPositionOnGUI() + getYPositionOnParent());
+		return (getParentWidget().getYPositionOnGUI() + getYPosition());
 	}
 	
 	//method
 	/**
 	 * @return the relative y-position of the current {@link Widget} on its parent container.
 	 */
-	public final int getYPositionOnParent() {
+	@Override
+	public final int getYPosition() {
 		return yPositionOnParent;
 	}
 	
@@ -1695,7 +1684,7 @@ implements Recalculable, ISmartObject<W> {
 	 * @param parentGUI
 	 * @throws NullArgumentException if the given parentGUI is null.
 	 */
-	public final void setParentGUI(final IGUI<?> parentGUI) {
+	public final void setParentGUI(final LayerGUI<?> parentGUI) {
 		
 		//Checks if the given parentGUI is not null.
 		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();

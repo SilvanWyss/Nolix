@@ -1,9 +1,10 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.containerWidget.AccordionTab;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Area;
 
 /**
@@ -16,7 +17,7 @@ import ch.nolix.element.widgets.Area;
 public final class AccordionTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link Accordion}.
+	 * Creates a {@link FrameVisualizer} with a {@link Accordion}.
 	 * 
 	 * @param args
 	 */
@@ -24,7 +25,7 @@ public final class AccordionTutorial {
 		
 		
 		//Creates a Frame.
-		final var frame = new Frame("Accordion Container Tutorial");
+		final var frame = new LayerFrame("Accordion Container Tutorial");
 		
 		//Creates an Accordion.
 		final var accordion =

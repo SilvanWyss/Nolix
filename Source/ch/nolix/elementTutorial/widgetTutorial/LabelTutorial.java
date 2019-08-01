@@ -1,8 +1,9 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.Label;
@@ -17,14 +18,14 @@ import ch.nolix.element.widgets.Label;
 public final class LabelTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with 2 {@link Label}s.
+	 * Creates a {@link FrameVisualizer} with 2 {@link Label}s.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Label Tutorial");
+		final var frame = new LayerFrame("Label Tutorial");
 		
 		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label("Time:");

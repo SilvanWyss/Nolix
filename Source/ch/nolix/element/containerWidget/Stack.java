@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.container.List;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.core.NonNegativeInteger;
 
@@ -41,8 +41,8 @@ implements Clearable<S> {
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
-			addWidget(GUI.createWidget(attribute));
+		if (LayerGUI.canCreateWidgetFrom(attribute)) {
+			addWidget(LayerGUI.createWidgetFrom(attribute));
 			return;
 		}
 		

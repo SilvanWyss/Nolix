@@ -1,7 +1,8 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Checkbox;
 
 /**
@@ -14,14 +15,14 @@ import ch.nolix.element.widgets.Checkbox;
 public final class CheckboxTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link Checkbox}.
+	 * Creates a {@link FrameVisualizer} with a {@link Checkbox}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Checkbox Tutorial");
+		final var frame = new LayerFrame("Checkbox Tutorial");
 		
 		//Creates a Checkbox.
 		final var checkBox = new Checkbox();

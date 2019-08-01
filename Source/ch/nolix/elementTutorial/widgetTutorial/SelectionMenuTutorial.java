@@ -1,7 +1,8 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.SelectionMenu;
 
 /**
@@ -14,14 +15,14 @@ import ch.nolix.element.widgets.SelectionMenu;
 public final class SelectionMenuTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link SelectionMenu}.
+	 * Creates a {@link FrameVisualizer} with a {@link SelectionMenu}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Selection Menu Tutorial");
+		final var frame = new LayerFrame("Selection Menu Tutorial");
 		
 		//Creates a SelectionMenu.
 		final var selectionMenu =

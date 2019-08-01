@@ -5,7 +5,7 @@ package ch.nolix.element.widgets;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.element.GUI.GUILayer;
+import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
@@ -70,7 +70,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		selectionMenu.recalculate();
 		
 		getParentGUI().addLayerOnTop(
-			new GUILayer()
+			new Layer()
 			.setContentPosition(ExtendedContentPosition.Free)
 			.setFreeContentPosition(
 				getXPositionOnGUI(),

@@ -1,7 +1,8 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Console;
 
 /**
@@ -14,14 +15,14 @@ import ch.nolix.element.widgets.Console;
 public final class ConsoleTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link Console}.
+	 * Creates a {@link FrameVisualizer} with a {@link Console}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Console Tutorial");
+		final var frame = new LayerFrame("Console Tutorial");
 		
 		//Creates a Console
 		final var console =	new Console();

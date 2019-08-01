@@ -18,39 +18,39 @@ import ch.nolix.element.GUI_API.Widget;
  * @month 2018-03
  * @lines 160
  */
-final class WidgetCreator {
+final class WidgetProvider {
 
 	//multiple attribute
 	private List<Class<?>> widgetClasses = new List<>();
 	
 	//constructor
 	/**
-	 * Creates a new {@link WidgetCreator}.
+	 * Creates a new {@link WidgetProvider}.
 	 */
-	public WidgetCreator() {}
+	public WidgetProvider() {}
 	
 	//constructor
 	/**
-	 * Creates a new {@link WidgetCreator} with the given widget classes.
+	 * Creates a new {@link WidgetProvider} with the given widget classes.
 	 * 
 	 * @param widgetClasses
 	 * @throws NullArgumentException if one of the given widget classes is null.
 	 * @throws InvalidArgumentException
-	 * if the current {@link WidgetCreator}
+	 * if the current {@link WidgetProvider}
 	 * can already create a {@link Widget} of the same type as one of the given widget classes.
 	 */
-	public WidgetCreator(final Class<?>... widgetClasses) {
-		addWidgetClass(widgetClasses);
+	public WidgetProvider(final Class<?>... widgetClasses) {
+		registerWidgetClass(widgetClasses);
 	}
 	
 	//method
 	/**
-	 * Adds the given widget class to the current {@link WidgetCreator}.
+	 * Adds the given widget class to the current {@link WidgetProvider}.
 	 * 
 	 * @param widgetClass
 	 * @throws NullArgumentException if the given widget class is null.
 	 * @throws InvalidArgumentException
-	 * if the current {@link WidgetCreator}
+	 * if the current {@link WidgetProvider}
 	 * can already create a {@link Widget} of the same type as the given widget class.
 	 */
 	public void registerWidgetClass(final Class<?> widgetClass) {
@@ -77,15 +77,15 @@ final class WidgetCreator {
 	
 	//method
 	/**
-	 * Adds the given widget clasess to the current {@link WidgetCreator}.
+	 * Adds the given widget clasess to the current {@link WidgetProvider}.
 	 * 
 	 * @param widgetClasses
 	 * @throws NullArgumentException if one of the given widget classes is null.
 	 * @throws InvalidArgumentException
-	 * if the current {@link WidgetCreator}
+	 * if the current {@link WidgetProvider}
 	 * can already create a {@link Widget} of the same type as one of the given widget classes.
 	 */
-	public void addWidgetClass(final Class<?>... widgetClasses) {
+	public void registerWidgetClass(final Class<?>... widgetClasses) {
 		
 		//Iterates the given widget classes.
 		for (final var wc : widgetClasses) {
@@ -96,7 +96,7 @@ final class WidgetCreator {
 	//method
 	/**
 	 * @param specification
-	 * @return true if the current {@link WidgetCreator} can create a {@link Widget} from the given specification.
+	 * @return true if the current {@link WidgetProvider} can create a {@link Widget} from the given specification.
 	 */
 	public boolean canCreateWidgetFrom(final DocumentNodeoid specification) {
 		return canCreateWidgetOf(specification.getHeader());
@@ -105,7 +105,7 @@ final class WidgetCreator {
 	//method
 	/**
 	 * @param type
-	 * @return true if the current {@link WidgetCreator}
+	 * @return true if the current {@link WidgetProvider}
 	 * can create a {@link Widget} of the given type.
 	 */
 	public boolean canCreateWidgetOf(final String type) {
@@ -115,10 +115,10 @@ final class WidgetCreator {
 	//method
 	/**
 	 * @param specification
-	 * @return a new {@link Widget} from the given specification from the current {@link WidgetCreator}.
+	 * @return a new {@link Widget} from the given specification from the current {@link WidgetProvider}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public Widget<?, ?> createWidget(final DocumentNodeoid specification) {
+	public Widget<?, ?> createWidgetFrom(final DocumentNodeoid specification) {
 		
 		final var widget = createWidget(specification.getHeader());
 		widget.addOrChangeAttributes(specification.getRefAttributes());
@@ -130,9 +130,9 @@ final class WidgetCreator {
 	/**
 	 * @param type
 	 * @return a new {@link Widget} of the given type with default values
-	 * from the current {@link WidgetCreator}.
+	 * from the current {@link WidgetProvider}.
 	 * @throws InvalidArgumentException
-	 * if the current {@link WidgetCreator} cannot create a {@link Widget} of the given type.
+	 * if the current {@link WidgetProvider} cannot create a {@link Widget} of the given type.
 	 */
 	public Widget<?, ?> createWidget(final String type) {
 		

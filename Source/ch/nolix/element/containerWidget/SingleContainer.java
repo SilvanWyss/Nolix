@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.painter.IPainter;
 
@@ -56,8 +56,8 @@ implements Clearable<SingleContainer> {
 	public void addOrChangeAttribute(DocumentNode attribute) {
 		
 		//Handles the case that the given attribute specicifies a widget.
-		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
-			setWidget(GUI.createWidget(attribute));
+		if (LayerGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(LayerGUI.createWidgetFrom(attribute));
 			return;
 		}
 		

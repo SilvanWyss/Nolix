@@ -1,6 +1,7 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Label;
 
 /**
@@ -13,14 +14,14 @@ import ch.nolix.element.widgets.Label;
 public final class LabelShorteningTextTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link Label}.
+	 * Creates a {@link FrameVisualizer} with a {@link Label}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Label Shortening Text Tutorial");
+		final var frame = new LayerFrame("Label Shortening Text Tutorial");
 		
 		//Creates a Label with a long text.
 		final var label = new Label("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");

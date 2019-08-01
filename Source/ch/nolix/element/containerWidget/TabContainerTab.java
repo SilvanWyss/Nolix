@@ -12,9 +12,9 @@ import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.CursorIcon;
-import ch.nolix.element.GUI_API.IGUI;
+import ch.nolix.element.GUI_API.ILayerGUI;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
@@ -122,8 +122,8 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
-		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
-			setWidget(GUI.createWidget(attribute));
+		if (LayerGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(LayerGUI.createWidgetFrom(attribute));
 		}
 		
 		//Handles the case that the given attribute does not specify a widget.
@@ -300,7 +300,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * @return the current {@link TabContainerTab}.
 	 * @throws NullArgumentException if the given widget is null.
 	 * @throws InvalidArgumentException
-	 * if the given widget belongs to another {@link IGUI}
+	 * if the given widget belongs to another {@link ILayerGUI}
 	 * than the current {@link TabContainerTab}.
 	 */
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {

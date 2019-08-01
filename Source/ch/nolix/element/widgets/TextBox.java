@@ -1,15 +1,13 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//Java imports
-import java.awt.event.KeyEvent;
-
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -79,42 +77,37 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Lets the current {@link TextBox} note a key typing.
-	 * 
-	 * @param keyEvent
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyTyping(final KeyEvent keyEvent) {
+	public void noteKeyTyping(final Key key) {
 		
 		//Enumerates the key code of the given key event.
-		switch (keyEvent.getKeyCode()) {
-			case KeyEvent.VK_LEFT:
+		switch (key) {
+			case ARROW_LEFT:
 				
 				if (getTextCursorPosition() > 0) {
 					textCursorPosition--;
 				}
 				
 				break;
-			case KeyEvent.VK_RIGHT:
+			case ARROW_RIGHT:
 				
 				if (getTextCursorPosition() < getText().length()) {
 					textCursorPosition++;
 				}
 				
 				break;
-			case KeyEvent.VK_BACK_SPACE:
-				
+			case BACKSPACE:				
 				deleteCharacterBeforeTextCursor();
-				
 				break;
-			case KeyEvent.VK_DELETE:
-				
+			case DELETE:				
 				deleteCharacterAfterTextCursor();
-				
 				break;
 			default:
-				if (Character.isDefined(keyEvent.getKeyChar())) {
-					insertCharacterAfterCursor(keyEvent.getKeyChar());
+				if (key.isCharacter()) {
+					//TODO
+					//insertCharacterAfterCursor(key.getKeyChar());
 				}
 		}
 	}

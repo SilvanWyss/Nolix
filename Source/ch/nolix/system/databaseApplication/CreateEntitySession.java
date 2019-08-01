@@ -139,7 +139,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					final var property = (Property<?>)p;
 			
 					final TextBox dataTextBox =
-					getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
+					getRefGUI().getRefWidgetByName(p.getHeader());
 					
 					property.setUntypedValue(dataTextBox.getText());
 					
@@ -171,7 +171,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		getParentClient().pushSession(
 			new ReferencePropertySession(referenceProperty),
 			() -> {
-				final Button label = getRefGUI().getRefWidgetByNameRecursively(referencePropertyHeader + "LinkButton");
+				final Button label = getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
 				
 				if (referenceProperty.referencesEntity()) {
 					label.setText(String.valueOf(referenceProperty.getEntity().getId()));

@@ -2,7 +2,7 @@ package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.tech.genericMath.Registrator;
@@ -22,7 +22,7 @@ public final class CustomFractalTutorial2 {
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
-		new Frame(
+		new LayerFrame(
 			"Custom Fractal Tutorial 2",
 			new ImageWidget(
 				CentralInstanceProvider.create(IFractalBuilder.class)

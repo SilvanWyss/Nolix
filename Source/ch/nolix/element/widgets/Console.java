@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//Java import
-import java.awt.event.KeyEvent;
-
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
@@ -18,6 +15,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.textFormat.TextFormat;
@@ -293,34 +291,35 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * Lets this console note a key typing.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyTyping(final KeyEvent keyEvent) {
+	public void noteKeyTyping(final Key key) {
 		
 		//Enumerates the key code of the given key event.
-		switch (keyEvent.getKeyCode()) {
-			case KeyEvent.VK_SPACE:
+		switch (key) {
+			case SPACE:
 				insertCharacterAfterCursor(CharacterCatalogue.SPACE);
 				break;
-			case KeyEvent.VK_ENTER:
+			case ENTER:
 				noteEnter();
 				break;
-			case KeyEvent.VK_LEFT:
+			case ARROW_LEFT:
 				moveTextCursorPositionToLeft();
 				break;
-			case KeyEvent.VK_RIGHT:
+			case ARROW_RIGHT:
 				moveTextCursorPositionToRight();
 				break;
-			case KeyEvent.VK_BACK_SPACE:
+			case BACKSPACE:
 				deleteCharacterBeforeTextCursor();
 				break;
-			case KeyEvent.VK_DELETE:
+			case DELETE:
 				deleteCharacterAfterTextCursor();
 				break;
 			default:
-				if (Character.isDefined(keyEvent.getKeyChar())) {
-					insertCharacterAfterCursor(keyEvent.getKeyChar());
+				if (key.isCharacter()) {
+					//TODO
+					//insertCharacterAfterCursor(keyEvent.toCharacter());
 				}
 		}
 	}

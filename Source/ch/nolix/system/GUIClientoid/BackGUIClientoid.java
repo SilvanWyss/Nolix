@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -255,7 +255,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	private <S extends DocumentNodeoid> void addOrChangeGUIWidgetsAttributes(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
 	) {
-		getRefGUI().addOrChangeInteractionAttributesOfWidgetsRecursively(interactionAttributesOfWidgetsOfGUI);
+		getRefGUI().addOrChangeInteractionAttributesOfWidgets(interactionAttributesOfWidgetsOfGUI);
 	}
 	
 	//method

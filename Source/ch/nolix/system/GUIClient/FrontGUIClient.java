@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
+//own imports
 import ch.nolix.core.constants.IPv6Catalogue;
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.system.GUIClientoid.FrontGUIClientoid;
 import ch.nolix.system.GUIClientoid.FrontGUIClientoidType;
 import ch.nolix.system.client.Application;
@@ -29,7 +30,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	public FrontGUIClient(Application<BackGUIClient> application) {
 		
 		//Calls other constructor.
-		this(new Frame());
+		this(new LayerFrame());
 		
 		internal_connectTo(application);
 	}
@@ -85,7 +86,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	) {
 		
 		//Calls other constructor.
-		this(new Frame());
+		this(new LayerFrame());
 		
 		internal_connectTo(port, name);
 	}
@@ -109,7 +110,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	) {
 		
 		//Calls other constructor.
-		this(new Frame());
+		this(new LayerFrame());
 		
 		internal_connectTo(ip, port);
 	}
@@ -134,7 +135,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	) {
 		
 		//Calls other constructor.
-		this(new Frame());
+		this(new LayerFrame());
 		
 		internal_connectTo(ip, port, name);
 	}

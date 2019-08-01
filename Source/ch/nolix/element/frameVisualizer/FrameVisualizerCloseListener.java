@@ -1,11 +1,13 @@
 //package declaration
-package ch.nolix.element.GUI;
+package ch.nolix.element.frameVisualizer;
 
 //Java imports
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+//own imports
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI.GUI;
 
 //package-visible class
 /**
@@ -13,26 +15,26 @@ import ch.nolix.core.validator.Validator;
  * @month 2015-12
  * @lines 60
  */
-final class FrameCloseListener implements WindowListener {
+final class FrameVisualizerCloseListener implements WindowListener {
 
 	//attribute
 	//frame this frame close listener belongs to.
-	private Frame frame;
+	private GUI<?> frameVisualizer;
 	
 	//constructor
 	/**
 	 * Creates a new frame close listener that belongs to the given frame.
 	 * 
-	 * @param frame
+	 * @param frameVisualizer
 	 * @throws NullArgumentException if the given frame is null.
 	 */
-	public FrameCloseListener(final Frame frame) {
+	public FrameVisualizerCloseListener(final GUI<?> frameVisualizer) {
 		
 		//Checks if the given frame is not null.
-		Validator.suppose(frame).isOfType(Frame.class);
+		Validator.suppose(frameVisualizer).isOfType(GUI.class);
 		
 		//Sets the frame of this frame close listener.
-		this.frame = frame;
+		this.frameVisualizer = frameVisualizer;
 	}
 	
 	//method
@@ -46,7 +48,7 @@ final class FrameCloseListener implements WindowListener {
 	//method
 	@Override
 	public void windowClosing(final WindowEvent windowEvent) {
-		frame.close();
+		frameVisualizer.close();
 	}
 
 	//method

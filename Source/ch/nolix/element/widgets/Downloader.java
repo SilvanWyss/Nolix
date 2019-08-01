@@ -11,7 +11,6 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.localComputer.PopupWindowProvider;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
@@ -112,18 +111,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	public byte[] readFileToBytes() {
-		if (!hasFileGetter()) {
-			
-			if (belongsToGUI() && getParentGUI().hasController()) {
-				final var fileProvider = getParentGUI().getRefController().getFileProvider(this);
-				return fileProvider.readFileToBytes();
-			}
-			
-			throw new InvalidArgumentException(this, "does not provide a file");
-		}
-		else {
-			return getFileGetter().getOutput();
-		}
+		return getFileGetter().getOutput();
 	}
 	
 	//method

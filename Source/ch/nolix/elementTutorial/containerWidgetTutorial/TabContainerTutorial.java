@@ -1,9 +1,10 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.containerWidget.TabContainerTab;
+import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Area;
 
 /**
@@ -16,14 +17,14 @@ import ch.nolix.element.widgets.Area;
 public final class TabContainerTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link TabContainer}.
+	 * Creates a {@link FrameVisualizer} with a {@link TabContainer}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Tab Container Tutorial");
+		final var frame = new LayerFrame("Tab Container Tutorial");
 		
 		//Creates a TabContainer.
 		final var tabContainer =

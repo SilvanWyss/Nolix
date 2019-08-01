@@ -9,7 +9,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IMutableElement;
@@ -57,8 +57,8 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		if (GUI.canCreateWidgetFrom(attribute)) {
-			setWidget(GUI.createWidget(attribute));
+		if (LayerGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(LayerGUI.createWidgetFrom(attribute));
 			return;
 		}
 		

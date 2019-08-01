@@ -1,26 +1,22 @@
-/*
- * file:	FrameResizeListener.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	30
- */
-
 //package declaration
-package ch.nolix.element.GUI;
+package ch.nolix.element.frameVisualizer;
 
 //Java imports
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
+//own import
+import ch.nolix.element.GUI.GUI;
+
 //class
-public class FrameResizeListener implements ComponentListener {
+public class FrameVisualizerResizeListener implements ComponentListener {
 	
 	//attributes
-	private Frame frame;
+	private GUI<?> frameVisualizer;
 	
 	//constructor
-	public FrameResizeListener(Frame frame) {
-		this.frame = frame;
+	public FrameVisualizerResizeListener(GUI<?> frameVisualizer) {
+		this.frameVisualizer = frameVisualizer;
 	}
 
 	//method
@@ -34,14 +30,13 @@ public class FrameResizeListener implements ComponentListener {
 	//method
 	@Override
 	public void componentResized(ComponentEvent arg0) {
-		getRefFrame().noteResizing();
+		this.frameVisualizer.noteResize(
+			arg0.getComponent().getWidth(),
+			arg0.getComponent().getHeight()
+		);
 	}
 
 	//method
 	@Override
 	public void componentShown(ComponentEvent arg0) {}
-	
-	private Frame getRefFrame() {
-		return frame;
-	}
 }

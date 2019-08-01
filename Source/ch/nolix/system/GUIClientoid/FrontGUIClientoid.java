@@ -8,8 +8,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.system.GUIClient.FrontBrowserGUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
@@ -25,7 +25,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	public FrontGUIClientoid() {
 		
 		//Calls other constructor.
-		this(new Frame());
+		this(new LayerFrame());
 	}
 	
 	//constructor
@@ -205,7 +205,6 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	private void resetGUI(final Iterable<? extends DocumentNodeoid> attributes) {
 		mGUI.reset(attributes);
 		mGUI.updateFromConfiguration();
-		mGUI.noteMouseMove();
 	}
 	
 	//method

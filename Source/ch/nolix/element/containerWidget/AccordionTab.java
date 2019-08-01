@@ -14,7 +14,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
@@ -120,8 +120,8 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
-			setWidget(GUI.createWidget(attribute));
+		if (LayerGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(LayerGUI.createWidgetFrom(attribute));
 		}
 		
 		else {

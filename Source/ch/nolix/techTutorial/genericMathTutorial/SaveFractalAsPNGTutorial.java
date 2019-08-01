@@ -1,7 +1,7 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.instanceProvider.CentralInstanceProvider;
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.widgets.Downloader;
 import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.element.widgets.Label;
@@ -18,7 +18,7 @@ public class SaveFractalAsPNGTutorial {
 		
 		//Creates a Frame.
 		final var frame =
-		new Frame(
+		new LayerFrame(
 			"Save Fractal as PNG Tutorial",
 			new Label("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100))
 		);

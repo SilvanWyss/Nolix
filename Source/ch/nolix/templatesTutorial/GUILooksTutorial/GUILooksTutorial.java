@@ -1,6 +1,6 @@
 package ch.nolix.templatesTutorial.GUILooksTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.widgets.Button;
@@ -31,7 +31,7 @@ public final class GUILooksTutorial {
 		.addItem("WhiteGreen", im -> im.getParentGUI().setConfiguration(new WhiteGreenGUILook()));	
 		
 		//Creates a Frame with several Widgets and the possibility to select a GUI look.
-		new Frame(
+		new LayerFrame(
 			"GUI Looks Tutorial",
 			new VerticalStack(
 				new Label("Configure your GUI !").setRole(LabelRole.Title),

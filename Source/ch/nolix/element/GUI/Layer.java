@@ -8,24 +8,28 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
-import ch.nolix.element.GUI_API.IGUI;
-import ch.nolix.element.GUI_API.IGUILayer;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.baseAPI.IMutableElement;
+import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.elementEnums.ContentPosition;
+import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
 /**
- * A {@link GUILayer} has:
+ * A {@link Layer} has:
  * -an optional background {@link Color} or background {@ColorGradient}
  * -an optional root {@link Widget}
  * 
@@ -33,7 +37,8 @@ import ch.nolix.element.painter.IPainter;
  * @month 2019-05
  * @lines 580
  */
-public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILayer> {
+public final class Layer extends Element<Layer>
+implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEventTaker {
 	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -47,21 +52,21 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//static method
 	/**
-	 * Creates a new {@link GUILayer} from the given specification.
+	 * Creates a new {@link Layer} from the given specification.
 	 * 
 	 * @param specification
-	 * @return a new {@link GUILayer} from the given specification that will belong to the given parentGUI.
+	 * @return a new {@link Layer} from the given specification that will belong to the given parentGUI.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static GUILayer createFromSpecification(final DocumentNodeoid specification) {
-		return new GUILayer().reset(specification);
+	public static Layer createFromSpecification(final DocumentNodeoid specification) {
+		return new Layer().reset(specification);
 	}
 	
 	//attribute
 	/**
-	 * The {@link GUI} the current {@link GUILayer} belongs to.
+	 * The {@link GUI} the current {@link Layer} belongs to.
 	 */
-	private IGUI<?> parentGUI;
+	private LayerGUI<?> parentGUI;
 	
 	//attribute
 	private final MutableOptionalProperty<Color> backgroundColor =
@@ -99,29 +104,29 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 		fcp -> fcp.getSpecification()
 	);
 	
-	//attribute
+	//optional attribute
 	private Widget<?, ?> rootWidget;
 	
 	//constructor
 	/**
-	 * Creates a new {@link GUILayer}.
+	 * Creates a new {@link Layer}.
 	 * 
 	 * @param parentGUI
 	 */
-	public GUILayer() {
+	public Layer() {
 		reset();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link GUILayer} with the given contentPosition and rootWidget.
+	 * Creates a new {@link Layer} with the given contentPosition and rootWidget.
 	 * 
 	 * @param contentPosition
 	 * @param rootWidget
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	public GUILayer(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
+	public Layer(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
 		
 		//Calls other constructor.
 		this(rootWidget);
@@ -131,13 +136,13 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//constructor
 	/**
-	 * Creates a new {@link GUILayer} with the given rootWidget.
+	 * Creates a new {@link Layer} with the given rootWidget.
 	 * 
 	 * @param rootWidget
 	 * @throws NullArgumentException if the given parentGUI is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	public GUILayer(final Widget<?, ?> rootWidget) {
+	public Layer(final Widget<?, ?> rootWidget) {
 		
 		//Calls other constructor.
 		this();
@@ -148,8 +153,8 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	//method
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
-		if (GUI.canCreateWidgetFrom(attribute)) {
-			setRootWidget(GUI.createWidget(attribute));
+		if (LayerGUI.canCreateWidgetFrom(attribute)) {
+			setRootWidget(LayerGUI.createWidgetFrom(attribute));
 		}
 		else {
 			super.addOrChangeAttribute(attribute);
@@ -158,18 +163,27 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * Removes the root {@link Widget} of the current {@link GUILayer}.
+	 * Removes the root {@link Widget} of the current {@link Layer}.
 	 * 
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 */
 	@Override
-	public GUILayer clear() {
+	public Layer clear() {
 		
 		rootWidget = null;
 		
 		return this;
 	}
 	
+	//method
+	/**
+	 * {@inheridDoc}
+	 */
+	@Override
+	public boolean containsElement(final String name) {
+		return getRefWidgets().contains(w -> w.hasName(name));
+	}
+
 	//method
 	@Override
 	public List<DocumentNode> getAttributes() {
@@ -185,7 +199,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the background {@link Color} of the current {@link GUILayer}.
+	 * @return the background {@link Color} of the current {@link Layer}.
 	 */
 	public Color getBackgroundColor() {
 		return backgroundColor.getValue();
@@ -193,7 +207,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the background {@link ColorGradient} of the current {@link GUILayer}.
+	 * @return the background {@link ColorGradient} of the current {@link Layer}.
 	 */
 	public ColorGradient getBackgroundColorGradient() {
 		return backgroundColorGradient.getValue();
@@ -206,7 +220,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the x-free-position of the current {@link GUILayer}.
+	 * @return the x-free-position of the current {@link Layer}.
 	 */
 	public int getContentXFreePosition() {
 		return freeContentPosition.getValue().getX();
@@ -214,7 +228,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the y-free-position of the current {@link GUILayer}.
+	 * @return the y-free-position of the current {@link Layer}.
 	 */
 	public int getContentYFreePosition() {
 		return freeContentPosition.getValue().getY();
@@ -222,7 +236,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the {@link CursorIcon} of the current {@link GUILayer}.
+	 * @return the {@link CursorIcon} of the current {@link Layer}.
 	 */
 	public CursorIcon getCursorIcon() {
 		
@@ -235,7 +249,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the root {@link Widget} of the current {@link GUILayer}.
+	 * @return the root {@link Widget} of the current {@link Layer}.
 	 */
 	public Widget<?, ?> getRefRootWidget() {
 		return rootWidget;
@@ -243,26 +257,9 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the {@link Widget}s of the current {@link GUILayer} recursively.
+	 * @return the triggerable {@link Widget}s of the current {@link Layer}.
 	 */
-	public List<Widget<?, ?>> getRefWidgetsRecursively() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current GUILayer does not have a root Widget.
-			if (rootWidget == null) {
-				return new List<>();
-			}
-			
-			//Handles the case that the current GUILayer has a root Widget.
-			return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
-	}
-	
-	//method
-	/**
-	 * @return the triggerable {@link Widget}s of the current {@link GUILayer} recursively.
-	 */
-	@Override
-	public List<Widget<?, ?>> getRefTriggerableWidgetsRecursively() {
+	public final List<Widget<?, ?>> getRefTriggerableWidgets() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
@@ -276,7 +273,23 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the background {@link Color} of the current {@link GUILayer}.
+	 * @return the triggerable {@link Widget}s of the current {@link Layer} recursively.
+	 */
+	public final List<Widget<?, ?>> getRefWidgets() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current Layer does not have a root Widget.
+			if (rootWidget == null) {
+				return new List<>();
+			}
+			
+			//Handles the case that the current Layer has a root Widget.
+			return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
+	}
+	
+	//method
+	/**
+	 * @return the background {@link Color} of the current {@link Layer}.
 	 */
 	public boolean hasBackgroundColor() {
 		return backgroundColor.containsAny();
@@ -284,7 +297,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return the background {@link ColorGradient} of the current {@link GUILayer}.
+	 * @return the background {@link ColorGradient} of the current {@link Layer}.
 	 */
 	public final boolean hasBackgroundColorGradient() {
 		return backgroundColorGradient.containsAny();
@@ -292,7 +305,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * @return true if the current {@link GUILayer} has a root {@link Widget}.
+	 * @return true if the current {@link Layer} has a root {@link Widget}.
 	 */
 	@Override
 	public boolean isEmpty() {
@@ -301,26 +314,196 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//method
 	/**
-	 * Removes any background of the current {@link GUILayer}.
-	 * 
-	 * @return the current {@link GUILayer}.
+	 * {@inheritDoc}
 	 */
-	public GUILayer removeBackground() {
+	@Override
+	public void noteKeyPress(Key key) {
+		if (rootWidget != null) {
+			rootWidget.noteKeyPress(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteKeyRelease(Key key) {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyKeyPressRecursively(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteKeyTyping(Key key) {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyKeyTypingRecursively(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteLeftMouseButtonClick() {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyLeftMouseButtonClickRecursively();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteLeftMouseButtonPress() {
+		if (rootWidget != null) {
+			rootWidget.noteAnyLeftMouseButtonPressRecursively();
+		}		
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteLeftMouseButtonRelease() {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyLeftMouseButtonReleaseRecursively();
+		}		
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseMove(int cursorXPosition, int cursorYPosition) {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyMouseMoveRecursively(cursorXPosition, cursorYPosition);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelClick() {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyMouseWheelClickRecursively();
+		}		
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelPress() {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyMouseWheelPressRecursively();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelRelease() {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyMouseWheelReleaseRecursively();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+		if (rootWidget != null) {
+			//TODO
+			//rootWidget.noteAnyMouseWheelRotationStepRecursively(directionOfRotation);
+		}		
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteRightMouseButtonClick() {
+		if (rootWidget != null) {
+			//TODO
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteRightMouseButtonPress() {
+		if (rootWidget != null) {
+			//TODO
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteRightMouseButtonRelease() {
+		if (rootWidget != null) {
+			//TODO
+		}
+	}
+	
+	//method
+	/**
+	 * Removes any background of the current {@link Layer}.
+	 * 
+	 * @return the current {@link Layer}.
+	 */
+	public Layer removeBackground() {
 		
 		backgroundColor.clear();
 		backgroundColorGradient.clear();
 		
 		return this;
 	}
-	
+
 	//method
 	/**
-	 * Resets the current {@link GUILayer}.
+	 * Resets the current {@link Layer}.
 	 * 
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 */
 	@Override
-	public GUILayer reset() {
+	public Layer reset() {
 		
 		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION);
 		clear();
@@ -328,12 +511,12 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 		
 		return this;
 	}
-	
+
 	//method
 	/**
-	 * Resets the configuration of the current {@link GUILayer}.
+	 * Resets the configuration of the current {@link Layer}.
 	 * 
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 */
 	public void resetConfiguration() {
 		
@@ -346,17 +529,17 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 			rootWidget.resetConfiguration();
 		}
 	}
-	
+
 	//method
 	/**
-	 * Sets the background {@link Color} of the current {@link GUILayer}.
-	 * Removes any former background of the current {@link GUILayer}.
+	 * Sets the background {@link Color} of the current {@link Layer}.
+	 * Removes any former background of the current {@link Layer}.
 	 * 
 	 * @param backgroundColor
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 * @throws NullArgumentException if the given backgroundColor is null.
 	 */
-	public GUILayer setBackgroundColor(final Color backgroundColor) {
+	public Layer setBackgroundColor(final Color backgroundColor) {
 		
 		removeBackground();
 		
@@ -364,17 +547,17 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 		
 		return this;
 	}
-	
+
 	//method
 	/**
-	 * Sets the background {@link ColorGradient} of the current {@link GUILayer}.
-	 * Removes any former background of the current {@link GUILayer}.
+	 * Sets the background {@link ColorGradient} of the current {@link Layer}.
+	 * Removes any former background of the current {@link Layer}.
 	 * 
 	 * @param backgroundColorGradient
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 * @throws NullArgumentException if the given backgroundColorGradient is null.
 	 */
-	public GUILayer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+	public Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
 		removeBackground();
 		
@@ -382,58 +565,58 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 		
 		return this;
 	}
-	
+
 	//method
 	/**
-	 * Sets the {@link ExtendedContentPosition} of the current {@link GUILayer}.
+	 * Sets the {@link ExtendedContentPosition} of the current {@link Layer}.
 	 * 
 	 * @param contentPosition
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 */
-	public GUILayer setContentPosition(final ExtendedContentPosition contentPosition) {
+	public Layer setContentPosition(final ExtendedContentPosition contentPosition) {
 		
 		this.contentPosition.setValue(contentPosition);
 		
 		return this;
 	}
-	
+
 	/**
-	 * Sets the free content position of the current {@link GUILayer}.
+	 * Sets the free content position of the current {@link Layer}.
 	 * 
 	 * @param freeContentPosition
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 * @throws NullArgumentException if the given freeContentPosition is null.
 	 */
-	public GUILayer setFreeContentPosition(final Discrete2DPoint freeContentPosition) {
+	public Layer setFreeContentPosition(final Discrete2DPoint freeContentPosition) {
 		
 		this.freeContentPosition.setValue(freeContentPosition);
 		
 		return this;
 	}
-	
+
 	/**
-	 * Sets the free content position of the current {@link GUILayer}.
+	 * Sets the free content position of the current {@link Layer}.
 	 * 
 	 * @param x
 	 * @param y
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 */
-	public GUILayer setFreeContentPosition(final int x, final int y) {
+	public Layer setFreeContentPosition(final int x, final int y) {
 		
 		//Calls other method.
 		return setFreeContentPosition(new Discrete2DPoint(x, y));
 	}
-	
+
 	//method
 	/**
-	 * Sets the root {@link Widget} of the current {@link GUILayer}.
+	 * Sets the root {@link Widget} of the current {@link Layer}.
 	 * 
 	 * @param rootWidget
-	 * @return the current {@link GUILayer}.
+	 * @return the current {@link Layer}.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	public GUILayer setRootWidget(final Widget<?, ?> rootWidget) {
+	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		this.rootWidget = Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
 		
@@ -443,10 +626,10 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 		
 		return this;
 	}
-	
+
 	//package-visible method
 	/**
-	 * Paints the current  {@link GUILayer} using the given painter.
+	 * Paints the current  {@link Layer} using the given painter.
 	 * 
 	 * @param painter
 	 */
@@ -456,13 +639,19 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 			//Handles the case that the current GUILayer has a background color.
 			if (hasBackgroundColor()) {
 				painter.setColor(getBackgroundColor());
-				painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
+				painter.paintFilledRectangle(
+					parentGUI.getViewAreaWidth(),
+					parentGUI.getViewAreaHeight()
+				);
 			}
 			
 			//Handles the case that the current GUILayer has a background color gradient.
 			else if (hasBackgroundColorGradient()) {
 				painter.setColorGradient(getBackgroundColorGradient());
-				painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
+				painter.paintFilledRectangle(
+					parentGUI.getViewAreaWidth(),
+					parentGUI.getViewAreaHeight()
+				);
 		}
 		
 		//Handles the case that the current GUILayer has a root Widget.
@@ -471,10 +660,10 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 			rootWidget.paint(painter);
 		}
 	}
-	
+
 	//package-visible method
 	/**
-	 * Recalculates the current  {@link GUILayer}.
+	 * Recalculates the current  {@link Layer}.
 	 */
 	public void recalculate() {
 		
@@ -568,9 +757,9 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 			rootWidget.recalculateRecursively();
 		}
 	}
-	
+
 	//package-visible method
-	public GUILayer setParentGUI(final IGUI<?> parentGUI) {
+	public Layer setParentGUI(final LayerGUI<?> parentGUI) {
 		
 		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.element.GUI.GUI;
+//own imports
+import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.system.client.Session;
 
 //abstract class
-public abstract class BackGUIClientoidSession<BGUIC extends BackGUIClientoid<BGUIC>>
-extends Session<BGUIC> {
+public abstract class BackGUIClientoidSession<BGUIC extends BackGUIClientoid<BGUIC>> extends Session<BGUIC> {
 	
 	//attribute
-	private GUI<?> mGUI = new BackGUIClientoidApplicationGUI();
+	private LayerGUI<?> mGUI = new InvisibleLayerGUI();
 	
 	//package-visible method
-	protected final GUI<?> getRefGUI() {
+	protected final LayerGUI<?> getRefGUI() {
 		return mGUI;
 	}
 }
