@@ -21,7 +21,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1110
+ * @lines 1140
  * @param <E> The type of the elements of a {@link List}.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -674,7 +674,27 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes all elements the given selector selects from the current {@link IList}.
+	 * Removes all elements from the current {@link List}
+	 * and adds the given elements at the end of the current {@link List}.
+	 * 
+	 * The complexity of this method is O(m + n) if:
+	 * -The current {@link List} contains m elements.
+	 * -There are given n elements.
+	 * 
+	 * @param elements
+	 * @throws NullArgumentException if the given elements is null.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 */
+	public void refill(final Iterable<E> elements) {
+		
+		//TODO: Improve performance of this implementation.
+		clear();
+		addAtEnd(elements);
+	}
+	
+	//method
+	/**
+	 * Removes all elements the given selector selects from the current {@link List}.
 	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
 	 * 
 	 * @param selector
@@ -810,7 +830,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * Removes the first appearance of all of the given elements from the current {@link List}.
 	 * 
 	 * The complexity of this method is O(m * n) if:
-	 * -m elements are given.
+	 * -There are given m elements.
 	 * -This list contains n elements.
 	 * 
 	 * @param elements
