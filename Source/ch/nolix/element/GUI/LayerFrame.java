@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
+//own imports
 import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.baseGUI_API.IEventTaker;
 
 //class
 public final class LayerFrame extends LayerGUI<LayerFrame> {
@@ -11,6 +12,16 @@ public final class LayerFrame extends LayerGUI<LayerFrame> {
 	public LayerFrame() {
 		
 		super(true);
+		
+		reset();
+		
+		initialize();
+	}
+	
+	//constructor
+	public LayerFrame(IEventTaker eventTaker) {
+		
+		super(true, eventTaker);
 		
 		reset();
 		
