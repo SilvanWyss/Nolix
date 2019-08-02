@@ -19,7 +19,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 490
+ * @lines 500
  */
 public final class DocumentNode extends DocumentNodeoid implements ISmartObject<DocumentNode> {
 	
@@ -50,6 +50,15 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		documentNode.reset(string);
 		
 		return documentNode;
+	}
+	
+	//static method
+	/**
+	 * @param pEnum
+	 * @return a new {@link DocumentNode} with a header from the given pEnum.
+	 */
+	public static DocumentNode createWithHeader(final Enum<?> pEnum) {
+		return createWithHeader(pEnum.toString());
 	}
 	
 	//static method
