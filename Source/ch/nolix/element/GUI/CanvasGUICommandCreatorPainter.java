@@ -1,13 +1,12 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.element.GUI;
 
-//Java import
-import java.io.Flushable;
-
-import ch.nolix.core.attributeAPI.Indexed;
 //own imports
+import ch.nolix.core.attributeAPI.Indexed;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.independentHelpers.ArrayHelper;
+import ch.nolix.core.statement.Statement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
@@ -15,34 +14,34 @@ import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
 
 //package-visible class
-final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushable {
+final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//attributes
-	private final BrowserGUIPainterBottom bottom;
+	private final CanvasGUIPainterPool bottom;
 	private final int index;
 	
 	//constructor
-	public BackBrowserGUIClientoidPainter(final BackGUIClientoid<?> parentBackGUIClient) {
-		bottom = new BrowserGUIPainterBottom(parentBackGUIClient);
+	public CanvasGUICommandCreatorPainter() {
+		bottom = new CanvasGUIPainterPool();
 		index = 1;
 	}
 	
 	//constructor
-	private BackBrowserGUIClientoidPainter(final BrowserGUIPainterBottom bottom) {
+	private CanvasGUICommandCreatorPainter(final CanvasGUIPainterPool bottom) {
 		this.bottom = bottom;
 		this.index = bottom.getNextIndexAndUpdateNextIndex();
 	}
 	
 	//method
 	@Override
-	public BackBrowserGUIClientoidPainter createPainter(
+	public CanvasGUICommandCreatorPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
 	) {
-		final var painter = new BackBrowserGUIClientoidPainter(bottom);
+		final var painter = new CanvasGUICommandCreatorPainter(bottom);
 		
 		appendPainterCommand(
-			Protocol.CREATE_PAINTER_HEADER
+			CanvasGUIProtocol.CREATE_PAINTER_HEADER
 			+ '('
 			+ xTranslation
 			+ ','
@@ -61,10 +60,10 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 		final int paintAreaWidth,
 		final int paintAreaHeight
 	) {
-		final var painter = new BackBrowserGUIClientoidPainter(bottom);
+		final var painter = new CanvasGUICommandCreatorPainter(bottom);
 		
 		appendPainterCommand(
-			Protocol.CREATE_PAINTER_HEADER
+			CanvasGUIProtocol.CREATE_PAINTER_HEADER
 			+ '('
 			+ xTranslation
 			+ ','
@@ -81,14 +80,13 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	
 	//method
 	@Override
-	public void flush() {
-		bottom.paintOnCounterpart();
+	public int getIndex() {
+		return index;
 	}
 	
 	//method
-	@Override
-	public int getIndex() {
-		return index;
+	public IContainer<Statement> getCommands() {
+		return bottom.getPainterCommands();
 	}
 	
 	//method
@@ -101,7 +99,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void paintFilledPolygon(final int[] x, final int[] y) {
 		appendPainterCommand(
-			Protocol.PAINT_FILLED_POLYGON_HEADER
+			CanvasGUIProtocol.PAINT_FILLED_POLYGON_HEADER
 			+ '('
 			+ ArrayHelper.createString(x)
 			+ ','
@@ -119,7 +117,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 		final int height
 	) {
 		appendPainterCommand(
-			Protocol.PAINT_FILLED_RECTANGLE_HEADER
+			CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER
 			+ "("
 			+ xPostiion
 			+ ","
@@ -136,7 +134,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void paintImage(final Image image) {
 		appendPainterCommand(
-			Protocol.PAINT_IMAGE_HEADER
+			CanvasGUIProtocol.PAINT_IMAGE_HEADER
 			+ '('
 			+ image.getSpecification()
 			+ ')'
@@ -147,7 +145,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void paintImage(final Image image, final int width, final int height) {
 		appendPainterCommand(
-			Protocol.PAINT_IMAGE_HEADER
+			CanvasGUIProtocol.PAINT_IMAGE_HEADER
 			+ '('
 			+ image.getSpecification()
 			+ ','
@@ -161,7 +159,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void paintText(String text, TextFormat textFormat) {
 		appendPainterCommand(
-			Protocol.PAINT_TEXT_HEADER
+			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
 			+ DocumentNodeoid.createReproducingString(text)
 			+ ','
@@ -174,7 +172,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void paintText(final String text, TextFormat textFormat, final int maxTextWidth) {
 		appendPainterCommand(
-			Protocol.PAINT_TEXT_HEADER
+			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
 			+ DocumentNodeoid.createReproducingString(text)
 			+ ','
@@ -189,7 +187,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void setColor(final Color color) {
 		appendPainterCommand(
-			Protocol.SET_COLOR_HEADER
+			CanvasGUIProtocol.SET_COLOR_HEADER
 			+ "("
 			+ color.getHexadecimalSpecification(true)
 			+ ")"
@@ -200,7 +198,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void setColorGradient(final ColorGradient colorGradient) {
 		appendPainterCommand(
-			Protocol.SET_COLOR_GRADIENT_HEADER
+			CanvasGUIProtocol.SET_COLOR_GRADIENT_HEADER
 			+ '('
 			+ colorGradient.getHexadecimalSpecification(true)
 			+ ')'
@@ -211,7 +209,7 @@ final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushab
 	@Override
 	public void translate(final int xTranslation, final int yTranslation) {
 		appendPainterCommand(
-			Protocol.TRANSLATE_HEADER
+			CanvasGUIProtocol.TRANSLATE_HEADER
 			+ '('
 			+ xTranslation
 			+ ','

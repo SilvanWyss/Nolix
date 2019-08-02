@@ -9,9 +9,9 @@ import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;
@@ -102,7 +102,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 		final String ip,
 		final int port,
 		final String targetApplication,
-		final GUI<?> GUI
+		final LayerGUI<?> GUI
 	) {
 		//Calls other constructor.
 		this(GUI);
@@ -117,7 +117,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param pGUI
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	private FrontConsoleClient(final GUI<?> pGUI) {
+	private FrontConsoleClient(final LayerGUI<?> pGUI) {
 		
 		//Checks if the given GUI is not null.
 		Validator.suppose(pGUI).isOfType(GUI.class);
@@ -139,7 +139,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	}
 	
 	public void quit() {
-		((FrameVisualizer)mGUI).close();
+		mGUI.close();
 	}
 	
 	//method

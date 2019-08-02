@@ -12,37 +12,36 @@ package ch.nolix.system.GUIClientoid;
 final class Protocol {
 	
 	//constants
-	static final String COUNTERPART_HEADER = "Counterpart";
-	static final String GUI_HEADER = "GUI";
-	static final String WIDGET_BY_INDEX_PATH_HEADER = "WidgetByIndexPath";
+	public static final String COUNTERPART_HEADER = "Counterpart";
+	public static final String GUI_HEADER = "GUI";
+	public static final String GUI_TYPE_HEADER = "GUI_Type";
 	
 	//constants
-	public static final String FRONT_END_TYPE_HEADER = "FrontEndType";
 	public static final String SHOW_ERROR_MESSAGE_COMMAND = "ShowErrorMessage";
 	public static final String CREATE_FILE_COMMAND = "CreateFile";
 	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
 	public static final String READ_FILE_HEADER = "ReadFile";
-	public static final String PAINT_HEADER = "Paint";
-	public static final String PAINTER_BY_INDEX_HEADER = "PainterByIndex";
-	
-	//constants
 	public static final String ADD_OR_CHANGE_ATTRIBUTES_HEADER = "AddOrChangeAttributes";
 	public static final String ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER = "AddOrChangeWidgetAttributes";
 	public static final String RESET_HEADER = "Reset";
-	public static final String NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER = "NoteLeftMouseButtonPress";
-	public static final String NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER = "NoteLeftMouseButtonRelease";
-	public static final String NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER = "NoteRightMouseButtonPress";
-	public static final String NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "NoteRightMouseButtonRelease";
+	public static final String SET_PAINT_COMMANDS_HEADER = "SetPaintCommands";
 	
 	//constants
-	public static final String CREATE_PAINTER_HEADER = "CreatePainter";
-	public static final String PAINT_FILLED_RECTANGLE_HEADER = "PaintFilledRectangle";
-	public static final String PAINT_FILLED_POLYGON_HEADER = "PaintFilledPolygon";
-	public static final String PAINT_IMAGE_HEADER = "PaintImage";
-	public static final String PAINT_TEXT_HEADER = "PaintText";
-	public static final String SET_COLOR_HEADER = "SetColor";
-	public static final String SET_COLOR_GRADIENT_HEADER = "SetColorGradient";
-	public static final String TRANSLATE_HEADER = "Translate";
+	public static final String NOTE_KEY_TYPING_HEADER = "NoteKeyTyping";
+	public static final String NOTE_KEY_PRESS_HEADER = "NoteKeyPress";
+	public static final String NOTE_KEY_RELEASE_HEADER = "NoteKeyRelease";
+	public static final String NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER = "NoteLeftMouseButtonClick";
+	public static final String NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER = "NoteLeftMouseButtonPress";
+	public static final String NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER = "NoteLeftMouseButtonRelease";
+	public static final String NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER = "NoteRightMouseButtonClick";
+	public static final String NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER = "NoteRightMouseButtonPress";
+	public static final String NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "NoteRightMouseButtonRelease";
+	public static final String NOTE_MOUSE_WHEEL_CLICK_HEADER = "NotetMouseWheelClick";
+	public static final String NOTE_MOUSE_WHEEL_PRESS_HEADER = "NotetMouseWheelPress";
+	public static final String NOTE_MOUSE_WHEEL_RELEASE_HEADER = "NoteMouseWheelRelease";
+	public static final String NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER = "NoteMouseWheelRotationStep";
+	public static final String NOTE_MOUSE_MOVE_HEADER = "NoteMouseMove";
+	public static final String NOTE_RESIZE_HEADER = "NoteResize";
 	
 	//private constructor
 	/**

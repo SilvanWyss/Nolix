@@ -11,6 +11,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.GUI_API.Widget;
@@ -378,6 +379,13 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		attributes.addAtEnd(backGround.getContentPosition().getSpecificationAs(ContentPosition.TYPE_NAME));
 		
 		return attributes;
+	}
+	
+	//method
+	public final IContainer<Statement> getPainterCommands() {
+		final var painter = new CanvasGUICommandCreatorPainter();
+		paint(painter);
+		return painter.getCommands();
 	}
 	
 	//method

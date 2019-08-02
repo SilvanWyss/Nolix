@@ -2,9 +2,7 @@
 package ch.nolix.system.GUIClientoid;
 
 //own imports
-import ch.nolix.core.commonTypeHelpers.StringHelper;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
@@ -12,8 +10,8 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.localComputer.PopupWindowProvider;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.GUI_API.Widget;
-import ch.nolix.element.widgets.Downloader;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 
@@ -22,11 +20,12 @@ import ch.nolix.system.client.Client;
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 420
+ * @param <BGUIC> The type of a {@link BackGUIClientoid}.
  */
 public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> extends Client<BGUIC> {
-
+	
 	//attribute
-	private FrontGUIClientoidType frontEndType;
+	private FrontGUIClientoidGUIType frontEndType;
 	
 	//method
 	/**
@@ -58,7 +57,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	/**
 	 * @return the type of the front-end of the current {@link BackGUIClientoid}.
 	 */
-	public FrontGUIClientoidType getFrontEndType() {
+	public FrontGUIClientoidGUIType getFrontGUIClientoidGUIType() {
 		
 		fetchFrontEndTypeFromCounterPartIfDoesNotKnowFrontEndType();
 		
@@ -133,17 +132,6 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case Protocol.READ_FILE_HEADER:
-				
-				final Downloader downloader =
-				getRefGUI().getRefWidgetByIndexPath(
-					new ReadContainer<String>(
-						request.getOneAttributeAsString().split("/.")).to(s -> StringHelper.toInt(s)
-					)
-				);
-				
-				return
-				DocumentNode.createWithHeader(DocumentNodeoid.createReproducingString(downloader.readFile()));
 			default:
 				
 				//Calls method of the base class.
@@ -197,6 +185,9 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			case Protocol.OPEN_FILE_EXPLORER_COMMAND:
 				internal_openFileExplorer();
 				break;
+			case Protocol.NOTE_MOUSE_MOVE_HEADER:
+				getRefGUI().noteMouseMove(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				break;
 			default:
 				
 				//Calls method of the base class.
@@ -226,7 +217,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	final void paintOnCounterpart(final IContainer<Statement> painterCommands) {
 		if (painterCommands.containsAny()) {	
 			internal_runOnCounterpart(
-				Protocol.PAINT_HEADER
+				Protocol.SET_PAINT_COMMANDS_HEADER
 				+ '('
 				+ painterCommands.to(pc -> DocumentNode.createReproducingString(pc.toString()))
 				+ ')'
@@ -268,8 +259,8 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		//Handles the case that the current back GUI cliendoid does not know its front end type.
 		if (!knowsFrontEndType()) {
 			frontEndType
-			= FrontGUIClientoidType.valueOf(
-				internal_getDataFromCounterpart(Protocol.FRONT_END_TYPE_HEADER).getHeader()
+			= FrontGUIClientoidGUIType.valueOf(
+				internal_getDataFromCounterpart(Protocol.GUI_TYPE_HEADER).getHeader()
 			);
 		}
 	}
@@ -278,7 +269,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	/**
 	 * @return the GUI of the current session of this back GUI client.
 	 */
-	private GUI<?> getRefGUI() {
+	private InvisibleLayerGUI getRefGUI() {
 		
 		final var session = (BackGUIClientSession)internal_getRefCurrentSession();
 		
@@ -362,15 +353,6 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 					GUICommand.getRefAttributes().to(a -> a.getRefAttributes())
 				);
 				break;
-			case Protocol.WIDGET_BY_INDEX_PATH_HEADER:				
-				runWidgetCommand(
-					getRefGUI().getRefWidgetByIndexPath(
-						new ReadContainer<String>(GUICommand.getOneAttributeAsString().split("/."))
-						.to(s -> StringHelper.toInt(s))
-					),
-					GUICommand.getRefNextStatement()
-				);
-				break;
 			default:
 				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
 		}
@@ -411,15 +393,12 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	private void updateGUIOnCounterpart() {
 		
 		//Enumerates the front end type of the current back GUI client.
-		switch (getFrontEndType()) {
-			case GUISpecificationConsumer:
+		switch (getFrontGUIClientoidGUIType()) {
+			case LayerGUI:
 				resetGUIOnCounterpart(getRefGUI().getAttributes());
 				break;
-			case PainterCommandsConsumer:
-				final var painter = new BackBrowserGUIClientoidPainter(this);
-				getRefGUI().refresh();
-				getRefGUI().paint(painter);
-				painter.flush();
+			case CanvasGUI:
+				paintOnCounterpart(getRefGUI().getPainterCommands());
 				break;
 		}
 	}

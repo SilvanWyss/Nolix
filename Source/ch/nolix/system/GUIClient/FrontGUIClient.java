@@ -2,55 +2,31 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.system.GUIClientoid.FrontGUIClientoid;
-import ch.nolix.system.GUIClientoid.FrontGUIClientoidType;
+import ch.nolix.system.GUIClientoid.FrontGUIClientoidGUIType;
 import ch.nolix.system.client.Application;
 
 //class
 /**
- * A {@link FrontGUIClient} provides a {@link GUI}
- * and is controlled by a {@link BackGUIClient}.
+ * A {@link FrontGUIClient} provides a {@link GUI} and is controlled by a {@link BackGUIClient}.
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 160
+ * @lines 100
  */
 public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient}
-	 * that will connect to the given application.
+	 * Creates a new {@link FrontGUIClient} that will connect to the given application.
 	 * 
 	 * @param application
 	 */
 	public FrontGUIClient(Application<BackGUIClient> application) {
 		
-		//Calls other constructor.
-		this(new LayerFrame());
-		
-		internal_connectTo(application);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link FrontGUIClient} with the given GUI
-	 * that will connect to the given application.
-	 * 
-	 * @param GUI_
-	 * @param application
-	 * @throws NullArgumentExcepiton if the given GUI is null.
-	 */
-	public FrontGUIClient(
-		final GUI<?> GUI_,
-		final Application<BackGUIClient> application
-	) {
-		
-		//Calls other constructor.
-		this(GUI_);
+		//Calls constructor of the base class.
+		super(FrontGUIClientoidGUIType.LayerGUI);
 		
 		internal_connectTo(application);
 	}
@@ -64,15 +40,16 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 */
 	public FrontGUIClient(final int port) {
 		
-		//Calls other constructor.
-		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
+		//Calls constructor of the base class.
+		super(FrontGUIClientoidGUIType.LayerGUI);
+		
+		internal_connectTo(port);
 	}
 	
 	//constructor
 	/**
 	 * Creates a new {@link FrontGUIClient} that will connect
-	 * to the application with the given name
-	 * on given port on the local machine
+	 * to the application with the given name on given port on the local machine
 	 * 
 	 * @param port
 	 * @param name
@@ -80,13 +57,10 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
-	public FrontGUIClient(
-		final int port,
-		final String name
-	) {
+	public FrontGUIClient(final int port, final String name) {
 		
-		//Calls other constructor.
-		this(new LayerFrame());
+		//Calls constructor of the base class.
+		super(FrontGUIClientoidGUIType.LayerGUI);
 		
 		internal_connectTo(port, name);
 	}
@@ -94,8 +68,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	//constructor
 	/**
 	 * Creates a new {@link FrontGUIClient} that will connect
-	 * to the default application
-	 * on the given port on the machine with the given ip.
+	 * to the default application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
@@ -104,13 +77,10 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
-	public FrontGUIClient(
-		final String ip,
-		final int port
-	) {
+	public FrontGUIClient(final String ip, final int port) {
 		
-		//Calls other constructor.
-		this(new LayerFrame());
+		//Calls constructor of the base class.
+		super(FrontGUIClientoidGUIType.LayerGUI);
 		
 		internal_connectTo(ip, port);
 	}
@@ -118,8 +88,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	//constructor
 	/**
 	 * Creates a new {@link FrontGUIClient} that will connect
-	 * to the application with the given name
-	 * on the given port on the machine with the given ip.
+	 * to the application with the given name on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
@@ -128,35 +97,11 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
-	public FrontGUIClient(
-		final String ip,
-		final int port,
-		final String name
-	) {
+	public FrontGUIClient(final String ip, final int port, final String name) {
 		
-		//Calls other constructor.
-		this(new LayerFrame());
+		//Calls constructor of the base class.
+		super(FrontGUIClientoidGUIType.LayerGUI);
 		
 		internal_connectTo(ip, port, name);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link FrontGUIClient} with the given GUI
-	 * 
-	 * @param GUI_
-	 * @throws NullArgumentExcepiton if the given GUI is null.
-	 */
-	private FrontGUIClient(final GUI<?> GUI_) {
-		
-		super(GUI_);
-		
-		
-	}
-
-	//method
-	@Override
-	public FrontGUIClientoidType getFrontEndType() {
-		return FrontGUIClientoidType.GUISpecificationConsumer;
 	}
 }

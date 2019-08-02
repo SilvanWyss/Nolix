@@ -217,6 +217,18 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
+	 * @param index
+	 * @return the attribute at the given index from the current {@link Statement}.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws ArgumentMissesAttributeException if the current {@link Statement}
+	 * does not contain an attribute at the given index.
+	 */
+	public DocumentNode getRefAttributeAt(final int index) {
+		return documentNode.getRefAttributeAt(index);
+	}
+	
+	//method
+	/**
 	 * @return the attributes of the current {@link Statement}.
 	 */
 	public IContainer<DocumentNode> getRefAttributes() {

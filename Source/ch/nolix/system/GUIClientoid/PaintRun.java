@@ -7,15 +7,15 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.element.painter.IPainter;
 
 //package-visible class
-final class FrontBrowserGUIClientoidPainting {
+public final class PaintRun {
 	
 	//multi-attribute
 	private List<IPainter> painters = new List<>();
 	
 	//constructor
-	public FrontBrowserGUIClientoidPainting(
+	public PaintRun(
 		final IPainter painter,
-		final List<IElementTaker<FrontBrowserGUIClientoidPainting>> painterCommands
+		final List<IElementTaker<PaintRun>> painterCommands
 	) {
 		addPainter(painter);
 		painterCommands.forEach(pc -> pc.run(this));
