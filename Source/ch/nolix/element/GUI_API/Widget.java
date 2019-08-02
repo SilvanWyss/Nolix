@@ -846,6 +846,17 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note any mouse button release recursively.
+	 */
+	public final void noteAnyLeftMouseButtonReleaseRecursively() {
+		
+		noteAnyLeftMouseButtonRelease();
+		
+		getTriggerableChildWidgets().forEach(w -> w.noteAnyLeftMouseButtonRelease());
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Widget} note any mouse move.
 	 */
 	public void noteAnyMouseMove() {
@@ -1235,7 +1246,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @param cursorXPosition
 	 * @param cursorYPosition
 	 */
-	public void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+	public void setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
@@ -1254,7 +1265,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 		final int parentCursorXPosition,
 		final int parentCursorYPosition
 	) {
-		setCursorPosition(parentCursorXPosition - xPositionOnParent, parentCursorYPosition - yPositionOnParent);
+		setCursorPositionRecursively(parentCursorXPosition - xPositionOnParent, parentCursorYPosition - yPositionOnParent);
 	}
 	
 	//method

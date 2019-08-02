@@ -847,7 +847,7 @@ extends Widget<BW, BWL> {
 	
 	//method
 	@Override
-	public final void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+	public final void setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;

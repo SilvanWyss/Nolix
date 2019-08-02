@@ -377,8 +377,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteLeftMouseButtonRelease() {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyLeftMouseButtonReleaseRecursively();
+			rootWidget.noteAnyLeftMouseButtonReleaseRecursively();
 		}		
 	}
 	
@@ -389,8 +388,9 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteMouseMove(int cursorXPosition, int cursorYPosition) {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyMouseMoveRecursively(cursorXPosition, cursorYPosition);
+			rootWidget.setParentCursorPosition(cursorXPosition, cursorYPosition);
+			rootWidget.recalculate();
+			rootWidget.noteAnyMouseMoveRecursively();
 		}
 	}
 	
