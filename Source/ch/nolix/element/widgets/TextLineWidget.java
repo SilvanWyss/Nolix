@@ -121,14 +121,14 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
-
+	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
 
 	//method
 	/**

@@ -477,7 +477,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	/**
 	 * {@inheritDoc}
 	 */
-	public final List<Widget<?, ?>> getRefTriggerableWidgets() {
+	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//Handles the case that the current GUI does not contain a layer.
 		if (isEmpty()) {
@@ -485,7 +485,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		
 		//Handles the case that the current GUI contains layers.
-		return topLayer.getRefTriggerableWidgets();
+		return topLayer.getRefWidgetsForPainting();
 	}
 	
 	//method

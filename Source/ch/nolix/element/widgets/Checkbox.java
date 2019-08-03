@@ -201,7 +201,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

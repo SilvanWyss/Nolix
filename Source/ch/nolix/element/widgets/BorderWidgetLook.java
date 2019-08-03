@@ -150,7 +150,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 				setTopBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
 				break;
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
-				setBackgroundColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				setBackgroundColor(Color.createFromSpecification(attribute));
 				break;
 			case BACKGROUND_COLOR_GRADIENT_HEADER:
 				setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute.getRefOneAttribute()));

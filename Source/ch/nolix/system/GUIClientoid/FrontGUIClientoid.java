@@ -2,6 +2,7 @@
 package ch.nolix.system.GUIClientoid;
 
 //own imports
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -200,27 +201,28 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 			}
 		}
 	}
-
+	
 	//method
 	/**
 	 * Lets the counterpart of the current {@link FrontGUIClient}
-	 * note the run of the command identified by the given command header on the given widget.
+	 * note a command with the given commandHeader and commandAttributes.
 	 * 
-	 * @param widget
 	 * @param commandHeader
+	 * @param commandAttributes
 	 */
 	private void noteCommandOnCounterpart(final String commandHeader, final String... commandAttributes) {
 		
-		final var command = commandHeader + "(" + commandAttributes + ")";
+		/*
+		 * This is important because a GUI could fire an event before the current FrontGUIClientoid is connected.
+		 *
+		 * The GUI of a FrontGUIClientoid must be ready before the FrontGUIClientoid is connected,
+		 * because everything of a a FrontGUIClientoid must be ready before connecting.
+		 */
+		internal_waitUntilIsConnected();
 		
-		if (!mGUIHandler.providesUpdateCommandForCounterpart()) {
-			internal_runOnCounterpart(command);
-		}
-		else {
-			internal_runOnCounterpart(mGUIHandler.getUpdateCommandForCounterpart(), command);
-		}
+		internal_runOnCounterpart(commandHeader + "(" + new ReadContainer<>(commandAttributes) + ")");
 	}
-
+	
 	//method
 	/**
 	 * Resets the GUI of the counterpart of the current {@link FrontGUIClient}

@@ -30,7 +30,8 @@ implements Clearable<TabContainer> {
 
 	//constant
 	public static final String TYPE_NAME = "TabContainer";
-
+	
+	//TODO: Use a main Widget.
 	//attribute
 	private final HorizontalStack menu = new HorizontalStack();
 	
@@ -388,10 +389,14 @@ implements Clearable<TabContainer> {
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		
-		list.addAtEnd(menu);
-		
-		if (containsSelectedTabWithWidget()) {
-			list.addAtEnd(getRefSelectedWidget());
+		//For a better performance, this implementation does not use all comfortable methods.
+		//Iterates the tabs of the current tab container.
+		for (final var t: tabs) {
+			
+			//Handles the case that the current tab contains a widget.
+			if (t.containsAny()) {
+				list.addAtEnd(t.getRefWidget());
+			}
 		}
 	}
 	
@@ -400,18 +405,16 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Iterates the tabs of the current tab container.
-			for (final var t: tabs) {
-				
-				//Handles the case that the current tab contains a widget.
-				if (t.containsAny()) {
-					list.addAtEnd(t.getRefWidget());
-				}
-			}
+		list.addAtEnd(menu);
+		
+		if (containsSelectedTabWithWidget()) {
+			list.addAtEnd(getRefSelectedWidget());
+		}
 	}
+	
+
 	
 	//method
 	/**

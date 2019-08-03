@@ -161,7 +161,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	

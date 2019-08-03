@@ -86,7 +86,7 @@ implements Clearable<ImageWidget> {
 	
 	//method
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
 	
 	//method
 	@Override

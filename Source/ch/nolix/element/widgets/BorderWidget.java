@@ -852,7 +852,7 @@ extends Widget<BW, BWL> {
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
 		
-		getTriggerableChildWidgets()
+		getRefWidgetsForPainting()
 		.forEach(
 			cw -> cw.setParentCursorPosition(getCursorXPositionOnContentArea(), getCursorYPositionOnContentArea())
 		);
@@ -1012,18 +1012,11 @@ extends Widget<BW, BWL> {
 		return asConcreteType();
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpTriggerableChildWidgets(final List<Widget<?, ?>> list) {
+	private void x() {
 				
 		//Handles the case that the view area of the current BorderWidget is under the cursor.
 		if (viewAreaIsUnderCursor() || !hasAnyScrollbar()) {
-			
-			//Calls method of the base class.
-			super.fillUpTriggerableChildWidgets(list);
+			//fillUpTriggerableChildWidgets2(list);
 		}
 	}
 	

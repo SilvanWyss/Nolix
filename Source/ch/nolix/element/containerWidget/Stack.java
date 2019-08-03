@@ -258,7 +258,7 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isEnabled()) {
 				list.addAtEnd(w);
@@ -271,7 +271,11 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
-		list.addAtEnd(widgets);
+	protected final void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+		for (final var w : widgets) {
+			if (w.isEnabled()) {
+				list.addAtEnd(w);
+			}
+		}
 	}
 }

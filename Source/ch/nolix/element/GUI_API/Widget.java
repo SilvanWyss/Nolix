@@ -420,7 +420,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/** 
-	 * @return all child {@link Widget} of the current {@link Widget}.
+	 * @return the child {@link Widget}s of the current {@link Widget}.
 	 */
 	public final List<Widget<?, ?>> getChildWidgets() {
 		
@@ -430,28 +430,15 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 		return childWidgets;
 	}
 	
-	//method
-	/** 
-	 * @return all configurable child {@link Widget} of the current {@link Widget}.
-	 */
-	public final List<Widget<?, ?>> getConfigurableChildWidgets() {
-		
-		final var configurableChildWidgets = new List<Widget<?, ?>>();
-		fillUpConfigurableChildWidgets(configurableChildWidgets);
-		
-		return configurableChildWidgets;
-	}
-	
 	//abstract method
 	/**
 	 * @return the cursor icon of the current {@link Widget}.
 	 */
 	public CursorIcon getCursorIcon() {
 		
-		final var childWidgetUnderCursor = getTriggerableChildWidgets().getRefFirstOrNull(cw -> cw.isUnderCursor());
-		
-		if (childWidgetUnderCursor != null) {
-			return childWidgetUnderCursor.getCursorIcon();
+		final var widgetUnderCursor = getRefWidgetsForPainting().getRefFirstOrNull(w -> w.isUnderCursor());
+		if (widgetUnderCursor != null) {
+			return widgetUnderCursor.getCursorIcon();
 		}
 		
 		return getCustomCursorIcon();
@@ -613,37 +600,35 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	}
 	
 	//method
+	/** 
+	 * @return the {@link Widget}s of the current {@link Widget}, that are for painting.
+	 */
+	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
+		
+		final var widgetsForPainting = new List<Widget<?, ?>>();
+		fillUpWidgetsForPainting(widgetsForPainting);
+		
+		return widgetsForPainting;
+	}
+	
+	//method
+	/** 
+	 * @return the {@link Widget}s of the current {@link Widget}, that are for painting, recursively.
+	 */
+	public final List<Widget<?, ?>> getRefWidgetsForPaintingRecursively() {
+		
+		final var widgetsForPainting = new List<Widget<?, ?>>();
+		fillUpWidgetsForPaintingRecursively(widgetsForPainting);
+		
+		return widgetsForPainting;
+	}
+	
+	//method
 	/**
 	 * @return the state of the current {@link Widget}.
 	 */
 	public final WidgetState getState() {
 		return state;
-	}
-	
-	//method
-	/**
-	 * @return the triggerable child {@link Widget}s of the current {@link Widget}.
-	 */
-	public final List<Widget<?, ?>> getTriggerableChildWidgets() {
-		
-		final var widgets = new List<Widget<?, ?>>();
-		
-		fillUpTriggerableChildWidgets(widgets);
-		
-		return widgets;
-	}
-	
-	//method
-	/**
-	 * @return the triggerable child {@link Widget}s of the current {@link Widget}.
-	 */
-	public final List<Widget<?, ?>> getTriggerableChildWidgetsRecursively() {
-		
-		final var widgets = new List<Widget<?, ?>>();
-		
-		fillUpTriggerableChildWidgetsRecursively(widgets);
-		
-		return widgets;
 	}
 	
 	//method
@@ -810,38 +795,54 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note any mouse button press recursively.
+	 * Lets the current {@link Widget} note any left mouse button press recursively.
 	 */
 	public final void noteAnyLeftMouseButtonPressRecursively() {
-		
-		noteAnyLeftMouseButtonPress();
-		
-		getTriggerableChildWidgets().forEach(w -> w.noteAnyLeftMouseButtonPress());
+		if (isEnabled()) {
+			noteAnyLeftMouseButtonPressRecursivelyWhenEnabled();
+		}
 	}
 	
+	private void noteAnyLeftMouseButtonPressRecursivelyWhenEnabled() {
+		
+		//Handles the case that the current Widget is not under the cursor.
+		if (!isUnderCursor()) {
+			switch (getState()) {
+				case Focused:
+				case HoverFocused:					
+					if (!keepsFocus()) {
+						setNormal();
+					}					
+					break;
+				default:
+			}
+		}
+				
+		//Handles the case that the current Widget is under the cursor.
+		else {
+			
+			switch (getState()) {
+				case Normal:
+				case Hovered:
+				case HoverFocused:
+					setHoverFocused();
+					break;
+				default:
+					break;
+			}
+			
+			noteLeftMouseButtonPress();
+			
+			getRefWidgetsForPainting().forEach(w -> w.noteAnyLeftMouseButtonPressRecursively());
+		}
+	}
+
 	//method
 	/**
 	 * Lets the current {@link Widget} note any mouse button release.
 	 */
 	public void noteAnyLeftMouseButtonRelease() {
-		if (isEnabled()) {
-			if (!isUnderCursor()) {
-				switch (getState()) {
-					case Focused:
-					case HoverFocused:
-						
-						if (!keepsFocus()) {
-							setNormal();
-						}
-						
-						break;
-					default:
-				}
-			}
-			else {
-				noteLeftMouseButtonRelease();
-			}
-		}
+		
 	}
 	
 	//method
@@ -849,17 +850,36 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * Lets the current {@link Widget} note any mouse button release recursively.
 	 */
 	public final void noteAnyLeftMouseButtonReleaseRecursively() {
+		if (isEnabled()) {
+			noteAnyLeftMouseButtonReleaseRecursivelyWhenEnabled();
+		}
 		
-		noteAnyLeftMouseButtonRelease();
-		
-		getTriggerableChildWidgets().forEach(w -> w.noteAnyLeftMouseButtonRelease());
 	}
 	
+	private void noteAnyLeftMouseButtonReleaseRecursivelyWhenEnabled() {
+
+		if (!isUnderCursor()) {
+			switch (getState()) {
+				case Focused:
+				case HoverFocused:						
+					if (!keepsFocus()) {
+						setNormal();
+					}						
+					break;
+				default:
+			}
+		}
+		else {
+			noteLeftMouseButtonRelease();
+			getRefWidgetsForPainting().forEach(w -> w.noteAnyLeftMouseButtonRelease());
+		}
+	}
+
 	//method
 	/**
 	 * Lets the current {@link Widget} note any mouse move.
 	 */
-	public void noteAnyMouseMove() {
+	public final void noteAnyMouseMove() {
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
 				
@@ -895,12 +915,16 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * Lets the current {@link Widget} note any mouse move recursively.
 	 */
 	public final void noteAnyMouseMoveRecursively() {
-		
-		noteAnyMouseMove();
-		
-		getTriggerableChildWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
+		if (isEnabled()) {
+			noteAnyMouseMoveRecursivelyWhenEnabled();
+		}
 	}
 	
+	private void noteAnyMouseMoveRecursivelyWhenEnabled() {
+		noteAnyMouseMove();
+		getRefWidgetsForPaintingRecursively().forEach(w -> w.noteAnyMouseMove());
+	}
+
 	//method
 	/**
 	 * Lets the current {@link Widget} note the given mouse wheel rotation steps.
@@ -1251,7 +1275,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
 		
-		getTriggerableChildWidgets().forEach(cw -> cw.setParentCursorPosition(cursorXPosition, cursorYPosition));
+		getRefWidgetsForPainting().forEach(cw -> cw.setParentCursorPosition(cursorXPosition, cursorYPosition));
 	}
 	
 	//method
@@ -1476,10 +1500,10 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//abstract method
 	/**
-	 * Fills up all child {@link Widget} of the current {@link Widget} into the given list.
+	 * Fills up the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} fills up all its child {@link Widget} into a list
-	 * and does not create a new list.
+	 * For a better performance, a {@link Widget} does not create a new {@link List}
+	 * and fills up its child {@link Widget}s into a given {@link List}.
 	 * 
 	 * @param list
 	 */
@@ -1487,27 +1511,14 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//abstract method
 	/**
-	 * Fills up all configurable child {@link Widget} of the current {@link Widget} into the given list.
+	 * Fills up the {@link Widget}s of the current {@link Widget}, that are for painting, into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} fills up all its configurable child {@link Widget} into a list
-	 * and does not create a new list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpConfigurableChildWidgets(List<Widget<?, ?>> list);
-	
-	//method
-	/**
-	 * Fills up the triggerable child {@link Widget}s of the current {@link Widget} into the given list.
-	 * 
-	 * For a better performance, a {@link Widget} fills up its triggerable child {@link Widget}s into a list
-	 * and does not create a new list.
+	 * For a better performance, a {@link Widget} does not create a new {@link List}
+	 * and fills up its {@link Widget}s for painting into a given {@link List}.
 	 * 
 	 * @param list
 	 */
-	protected void fillUpTriggerableChildWidgets(final List<Widget<?, ?>> list) {
-		fillUpChildWidgets(list);
-	}
+	protected abstract void fillUpWidgetsForPainting(List<Widget<?, ?>> list);
 	
 	//abstract method
 	/**
@@ -1749,11 +1760,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Fills up recursively the own widgets of the current {@link Widget} into the given list.
-	 * 
-	 * For a better performance,
-	 * a {@link Widget} fills up recursively its own widgets into a list
-	 * and does not create a new list with its own widgets.
+	 * Fills up recursively the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
 	 * @param list
 	 */
@@ -1764,17 +1771,14 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Fills up recursively the triggerable child {@link Widget}s of the current {@link Widget}.
-	 * 
-	 * For a better performance, a {@link Widget}
-	 * fills up recursively it striggerable child {@link Widget}s into a list
-	 * and does not create a new list with its triggerable child {@link Widget}s.
+	 * Fills up recursively the {@link Widget}s of the current {@link Widget},
+	 * that are for painting, into the given list.
 	 * 
 	 * @param list
 	 */
-	private void fillUpTriggerableChildWidgetsRecursively(final List<Widget<?, ?>> list) {
-		fillUpTriggerableChildWidgets(list);
-		getTriggerableChildWidgets().forEach(w -> w.fillUpTriggerableChildWidgetsRecursively(list));
+	private void fillUpWidgetsForPaintingRecursively(final List<Widget<?, ?>> list) {
+		fillUpWidgetsForPainting(list);
+		getRefWidgetsForPainting().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}
 	
 	//method
@@ -1831,30 +1835,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	private void noteAnyLeftMouseButtonPressWhenEnabled() {
 		
-		//Handles the case that the current Widget is not under the cursor.
-		if (!isUnderCursor()) {
-			switch (getState()) {
-				case Focused:
-				case HoverFocused:
-					
-					if (!keepsFocus()) {
-						setNormal();
-					}
-					
-					break;
-				default:
-			}
-		}
 		
-		//Handles the case that the current Widget is under the cursor.
-		else {
-			
-			if (isNormal() || isHovered() || isFocused()) {
-				setHoverFocused();
-			}
-			
-			noteLeftMouseButtonPress();
-		}
 	}
 
 	//method

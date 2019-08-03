@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.attributeAPI.OptionalLabelable;
 //own imports
+import ch.nolix.core.attributeAPI.OptionalLabelable;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -15,6 +15,7 @@ import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.generalSkillAPI.TypeRequestable;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.statement.Statement;
@@ -26,7 +27,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 740
+ * @lines 790
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -670,7 +671,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	
 	//method
 	/**
-	 * * 
+	 * 
 	 * @param endPoint
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws InvalidArgumentException if the current {@link Client} is connected.
@@ -688,6 +689,14 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		
 		//Sets the receiver controller of the duplex controller of the current client.
 		endPoint.setReceiverController(new ClientReceiverController(this));
+	}
+	
+	//method
+	/**
+	 * Waits until the current {@link Client}  is connected.
+	 */
+	protected final void internal_waitUntilIsConnected() {
+		Sequencer.waitUntil(() -> this.internal_isConnected());
 	}
 	
 	//package-visible method

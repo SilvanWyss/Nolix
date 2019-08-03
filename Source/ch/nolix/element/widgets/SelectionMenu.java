@@ -86,13 +86,13 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
-		list.addAtEnd(menu);
-	}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+		list.addAtEnd(menu);
+	}
 		
 	//method
 	@Override

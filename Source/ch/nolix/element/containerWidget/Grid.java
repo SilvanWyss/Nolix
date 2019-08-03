@@ -219,11 +219,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());

@@ -306,15 +306,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
-		list.addAtEnd(accordionVerticalStack);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
 		
 		//Iterates the tabs of the current Accordion.
 		for (final var t : getRefTabs()) {
@@ -324,6 +315,15 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 				list.addAtEnd(t.getRefWidget());
 			}
 		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+		list.addAtEnd(accordionVerticalStack);
 	}
 	
 	//method

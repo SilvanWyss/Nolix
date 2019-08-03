@@ -612,7 +612,7 @@ implements Clearable<Console> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

@@ -176,10 +176,10 @@ implements Clearable<SingleContainer> {
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current single container has a widget.	
-			if (widget != null) {
-				list.addAtEnd(widget);
-			}
+		//Handles the case that the current single container has a widget.	
+		if (widget != null) {
+			list.addAtEnd(widget);
+		}
 	}
 	
 	//method
@@ -187,13 +187,13 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current single container has a widget.	
-			if (widget != null) {
-				list.addAtEnd(widget);
-			}
+		//Handles the case that the current single container has a widget.	
+		if (widget != null) {
+			list.addAtEnd(widget);
+		}
 	}
 	
 	//method

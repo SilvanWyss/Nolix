@@ -157,7 +157,12 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 		//Handles the case that the current SingleProperty has a value.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (value != null) {
-			list.addAtEnd(specificationCreator.getOutput(value));
+			
+			//Creates a specification of the current value.
+			final var specification = specificationCreator.getOutput(value);
+			specification.setHeader(getName());
+			
+			list.addAtEnd(specification);
 		}
 	}
 }

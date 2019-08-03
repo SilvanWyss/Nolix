@@ -185,8 +185,17 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			case Protocol.OPEN_FILE_EXPLORER_COMMAND:
 				internal_openFileExplorer();
 				break;
+			case Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER:
+				getRefGUI().noteLeftMouseButtonPress();
+				break;
+			case Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER:
+				getRefGUI().noteLeftMouseButtonRelease();
+				break;
 			case Protocol.NOTE_MOUSE_MOVE_HEADER:
 				getRefGUI().noteMouseMove(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				break;
+			case Protocol.NOTE_RESIZE_HEADER:
+				getRefGUI().noteResize(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
 				break;
 			default:
 				

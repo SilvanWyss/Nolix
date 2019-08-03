@@ -259,7 +259,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	/**
 	 * @return the triggerable {@link Widget}s of the current {@link Layer}.
 	 */
-	public final List<Widget<?, ?>> getRefTriggerableWidgets() {
+	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
@@ -268,7 +268,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 			}
 			
 			//Handles the case that the current GUILayer has a root Widget.			
-			return rootWidget.getTriggerableChildWidgetsRecursively().addAtEnd(rootWidget);
+			return rootWidget.getRefWidgetsForPainting().addAtEnd(rootWidget);
 	}
 	
 	//method
