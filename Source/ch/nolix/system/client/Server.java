@@ -193,7 +193,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	final Application<?> getRefMainApplication() {
 		
 		//Checks if the current Server contains a main Application.
-		if (containsMainApplication()) {
+		if (!containsMainApplication()) {
 			throw new ArgumentMissesAttributeException(this, "main Application");
 		}
 		
