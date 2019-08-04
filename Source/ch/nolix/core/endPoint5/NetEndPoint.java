@@ -8,6 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.logger.Logger;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
@@ -195,8 +196,9 @@ public class NetEndPoint extends EndPoint {
 		//Checks if this net duplex controller is not aborted.
 		supposeIsAlive();
 		
+		//TODO: Make this more elegant.
 		//Creates message.
-		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
+		final String message = Protocol.COMMANDS + '(' + commands.to(c -> DocumentNode.createReproducingString(c.toString())).toString() + ')';
 		
 		//Sends the message and gets reply.
 		final DocumentNode reply = DocumentNode.createFromString(internalNetEndPoint.sendAndGetReply(message));
@@ -206,6 +208,9 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DONE:
 				break;
 			case Protocol.ERROR:
+				if (!reply.containsAttributes()) {
+					throw new RuntimeException();
+				}
 				throw new RuntimeException(reply.getOneAttributeAsString());
 			default:
 				throw new RuntimeException("Error occured by running the commands '" + commands + "'." );
@@ -217,6 +222,7 @@ public class NetEndPoint extends EndPoint {
 	 * Lets this net duplex controller receive the given message.
 	 * This method does not throw any exception and returns a reply in any case
 	 * because the protocol determines that error messages must be sent back.
+	 * The reply must not collide with representations of a {@link DocumentNode}.
 	 * 
 	 * @return the reply to the given message from this net duplex controller.
 	 */
@@ -225,7 +231,13 @@ public class NetEndPoint extends EndPoint {
 			return receiveAndGetReply(DocumentNode.createFromString(message));
 		}
 		catch (final Exception exception) {
-			return (Protocol.ERROR + '(' + exception.getMessage() + ')');
+			
+			Logger.logError(exception);
+			
+			if (exception.getMessage() == null) {
+				return Protocol.ERROR;
+			}
+			return (Protocol.ERROR + '(' + DocumentNode.createReproducingString(exception.getMessage()) + ')');
 		}
 	}
 	
@@ -244,8 +256,8 @@ public class NetEndPoint extends EndPoint {
 		
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {
-			case Protocol.COMMANDS:			
-				message.getRefAttributes().forEach(a -> receiverController.run(a.toString()));
+			case Protocol.COMMANDS:	
+				message.getRefAttributes().forEach(a -> receiverController.run(DocumentNode.createOriginStringFromReproducingString(a.toString())));
 				return Protocol.DONE;
 			case Protocol.DATA_REQUEST:
 				return (
