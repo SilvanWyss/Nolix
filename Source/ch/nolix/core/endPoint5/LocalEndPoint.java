@@ -197,7 +197,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	protected void run(final List<String> commands) {
+	protected void run(final List<Statement> commands) {
 		
 		//Checks if this local duplex controller is not aborted.
 		supposeIsAlive();

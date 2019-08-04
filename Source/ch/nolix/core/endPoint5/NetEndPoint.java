@@ -179,7 +179,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public void run(final Statement command) {
-		run(new List<String>(command.toString()));
+		run(new List<>(command));
 	}
 	
 	//method
@@ -190,14 +190,14 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this net duplex contorller is aborted.
 	 */
 	@Override
-	protected void run(final List<String> commands) {
+	protected void run(final List<Statement> commands) {
 			
 		//Checks if this net duplex controller is not aborted.
 		supposeIsAlive();
 		
 		//Creates message.
 		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
-				
+		
 		//Sends the message and gets reply.
 		final DocumentNode reply = DocumentNode.createFromString(internalNetEndPoint.sendAndGetReply(message));
 		

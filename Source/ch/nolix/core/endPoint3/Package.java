@@ -21,7 +21,7 @@ final class Package extends ch.nolix.core.messaging.Package<String> {
 	 * @param string
 	 * @return a new zeta package the given string represents.
 	 */
-	public static Package createZetaPackageFromString(final String string) {
+	public static Package createPackageFromString(final String string) {
 		return new Package(
 			Integer.parseInt(string.substring(0, 8)),
 			MessageRole.createMessageRole(string.charAt(8)),

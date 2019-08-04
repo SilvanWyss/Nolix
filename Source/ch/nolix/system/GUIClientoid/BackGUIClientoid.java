@@ -224,13 +224,8 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//package-visible method
 	final void paintOnCounterpart(final IContainer<Statement> painterCommands) {
-		if (painterCommands.containsAny()) {	
-			internal_runOnCounterpart(
-				Protocol.SET_PAINT_COMMANDS_HEADER
-				+ '('
-				+ painterCommands.to(pc -> DocumentNode.createReproducingString(pc.toString()))
-				+ ')'
-			);
+		if (painterCommands.containsAny()) {
+			internal_runOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + painterCommands + ")");
 		}
 	}
 	

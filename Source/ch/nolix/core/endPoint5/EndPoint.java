@@ -17,15 +17,13 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * @month 2015-12
  * @lines 200
  */
-public abstract class EndPoint
-extends OptionalClosableElement
-implements IDataProviderController {
+public abstract class EndPoint extends OptionalClosableElement implements IDataProviderController {
 	
 	//optional attribute
 	private IDataProviderController receiverController;
 	
 	//multiple attribute
-	private final List<String> appendedCommands = new List<>();
+	private final List<Statement> appendedCommands = new List<>();
 	
 	//method
 	/**
@@ -52,7 +50,7 @@ implements IDataProviderController {
 		//Checks if this duplex controller is not aborted.
 		supposeIsAlive();
 		
-		appendedCommands.using(c -> c.toString()).addAtEnd(commands);
+		appendedCommands.addAtEnd(commands);
 	}
 	
 	//method
@@ -68,7 +66,7 @@ implements IDataProviderController {
 		//Checks if this duplex controller is not aborted.
 		supposeIsAlive();
 		
-		appendedCommands.addAtEnd(command);
+		appendedCommands.addAtEnd(Statement.fromString(command));
 	}
 	
 	//method
@@ -84,7 +82,9 @@ implements IDataProviderController {
 		//Checks if this duplex controller is not aborted.
 		supposeIsAlive();
 		
-		appendedCommands.addAtEnd(commands);
+		for (final var c : commands) {
+			appendCommand(c);
+		}
 	}
 	
 	//abstract method
@@ -156,7 +156,7 @@ implements IDataProviderController {
 		//Checks if this local duplex controller is not aborted.
 		supposeIsAlive();
 		
-		final List<String> appendedCommands = this.appendedCommands.getCopy();
+		final var appendedCommands = this.appendedCommands.getCopy();
 		this.appendedCommands.clear();
 		run(appendedCommands);
 	}
@@ -205,5 +205,5 @@ implements IDataProviderController {
 	 * 
 	 * @param commands
 	 */
-	protected abstract void run(List<String> commands);
+	protected abstract void run(List<Statement> commands);
 }

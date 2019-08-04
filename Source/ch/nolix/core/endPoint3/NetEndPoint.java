@@ -141,7 +141,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param message
 	 */
 	void receive(final String message) {
-		receive(Package.createZetaPackageFromString(message));
+		receive(Package.createPackageFromString(message));
 	}
 	
 	//method
@@ -249,11 +249,10 @@ public class NetEndPoint extends EndPoint {
 	 * @param timeoutCheck
 	 * @return the reply to the given message.
 	 */
-	private String sendAndWaitToReply(
-		final String message
-	) {
+	private String sendAndWaitToReply(final String message) {
+		
 		//Sends message and receives reply.
-		final int index = getNextSentPackageIndex();
+		final var index = getNextSentPackageIndex();
 		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
 		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
 		
