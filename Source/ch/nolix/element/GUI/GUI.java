@@ -60,7 +60,6 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		
 		Validator.suppose(visualizer).thatIsNamed("visualizer").isNotNull();
 		
-		visualizer.initialize(this);
 		this.visualizer = visualizer;
 	}
 	

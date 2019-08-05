@@ -14,6 +14,8 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 		super(eventTaker, new FrameVisualizer());
 		
 		reset();
+		
+		initialize();
 	}
 	
 	//method

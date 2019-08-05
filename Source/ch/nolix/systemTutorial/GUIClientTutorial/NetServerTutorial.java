@@ -31,18 +31,15 @@ public final class NetServerTutorial {
 		
 		//Creates a NetServer, that will listen to net Clients on the default port,
 		//and that has the created main application.
+		@SuppressWarnings("unused")
 		final var netServer = new NetServer(port, new Application<>("Application", BackGUIClient.class, MainSession.class));
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
+		@SuppressWarnings("unused")
 		final var frontGUIClient = new FrontGUIClient(port);
 		
 		//Starts a browser that will connect to the NetServer.
 		ShellProvider.startFirefox(port);
-		
-		Sequencer.waitForSeconds(5);
-		
-		netServer.close();
-		frontGUIClient.close();
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {

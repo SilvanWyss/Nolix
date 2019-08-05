@@ -517,6 +517,8 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 */
 	protected final Session<C> internal_getRefCurrentSession() {
 		
+		Sequencer.waitUntil(() -> containsCurrentSession());
+		
 		//Checks if the current client contains a current session.
 		supposeContainsCurrentSession();
 		

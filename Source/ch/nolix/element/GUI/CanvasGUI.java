@@ -24,7 +24,7 @@ import ch.nolix.system.GUIClientoid.PaintRun;
 public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//attribute
-	private CursorIcon cursorIcon;
+	private CursorIcon cursorIcon = CursorIcon.Arrow;
 	
 	//attribute
 	private final IEventTaker eventTaker;
