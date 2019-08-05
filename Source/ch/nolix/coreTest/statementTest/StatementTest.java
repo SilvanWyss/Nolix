@@ -58,6 +58,19 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_4() {
 		
 		//execution
+		final var statement = Statement.fromString("a.b(c)");
+		
+		//verification
+		expect(statement.hasHeader());
+		expectNot(statement.containsAttributes());
+		expect(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("a.b(c)");
+	}
+	
+	//test case
+	public void testCase_fromString_5() {
+		
+		//execution
 		final var statement = Statement.fromString("a(b).c");
 		
 		//verification
@@ -65,5 +78,41 @@ public final class StatementTest extends Test {
 		expect(statement.containsAttributes());
 		expect(statement.hasNextStatement());
 		expect(statement.toString()).isEqualTo("a(b).c");
+	}
+	
+	//test case
+	public void testCase_fromString_6() {
+		
+		//execution
+		final var statement = Statement.fromString("a.(b.c)");
+		
+		//verification
+		expect(statement.hasHeader());
+		expectNot(statement.containsAttributes());
+		expect(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("a.(b$Dc)");
+	}
+	
+	//test case
+	public void testCase_fromString_7() {
+		
+		//execution
+		final var statement = Statement.fromString("(a.b).c");
+		
+		//verification
+		expectNot(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expect(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("(a$Db).c");
+	}
+	
+	//test case
+	public void testCase_fromString_8() {
+		
+		//execution
+		final var statement = Statement.fromString("a.b.c");
+		
+		//verification
+		expect(statement.toString()).isEqualTo("a.b.c");
 	}
 }
