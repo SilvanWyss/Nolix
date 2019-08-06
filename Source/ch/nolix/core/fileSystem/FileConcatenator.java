@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.fileSystem;
 
-import ch.nolix.core.invalidArgumentException.FrozenArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.FrozenArgumentException;
 import ch.nolix.core.skillAPI.Freezable;
 
 //class

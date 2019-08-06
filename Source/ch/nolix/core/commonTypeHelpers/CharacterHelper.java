@@ -3,7 +3,7 @@ package ch.nolix.core.commonTypeHelpers;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
 /**

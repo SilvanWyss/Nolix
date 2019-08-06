@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
 /**

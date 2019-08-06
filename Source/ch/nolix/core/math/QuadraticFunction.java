@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.math;
 
-//own imports
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 
 //class

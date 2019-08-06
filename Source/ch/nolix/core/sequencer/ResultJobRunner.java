@@ -4,8 +4,8 @@ package ch.nolix.core.sequencer;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.logger.Logger;
 import ch.nolix.core.validator.Validator;
 

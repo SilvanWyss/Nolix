@@ -1,20 +1,19 @@
 //package declaration
 package ch.nolix.core.validator;
 
-//own imports
-import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.EqualArgumentException;
-import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
-import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
-import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.core.invalidArgumentException.NonSmallerArgumentException;
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidArgumentException.OutOfRangeArgumentException;
-import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
-import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
-import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.BiggerArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.EqualArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NegativeArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonBiggerArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonNegativeArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonPositiveArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonSmallerArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.OutOfRangeArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.SmallerArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.UnequalArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.ZeroArgumentException;
 
 //class
 /**

@@ -2,9 +2,8 @@
 package ch.nolix.core.validator;
 
 import ch.nolix.core.independentHelpers.ArrayHelper;
-//own imports
-import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonPositiveArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
 
 //class
 /**

@@ -3,7 +3,7 @@ package ch.nolix.element._3DGUI;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 
 //class

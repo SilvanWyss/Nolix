@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 
 //abstract class

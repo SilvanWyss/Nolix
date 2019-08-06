@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.license;
 
-//own imports
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
 /**

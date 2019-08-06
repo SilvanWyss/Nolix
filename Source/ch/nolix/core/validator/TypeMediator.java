@@ -6,7 +6,7 @@ import java.lang.reflect.Modifier;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {

@@ -5,7 +5,7 @@ package ch.nolix.coreTest.endPointTest;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.endPoint.NetServer;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test.Test;
 import ch.nolix.core.validator.Validator;

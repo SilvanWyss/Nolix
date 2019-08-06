@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.test;
 
-import ch.nolix.core.invalidArgumentException.ArgumentDoesNotSupportMethodException;
-//own imports
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
+import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
 import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class

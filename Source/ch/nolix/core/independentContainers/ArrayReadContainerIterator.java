@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
 
 //package-visible class
 final class ArrayReadContainerIterator<E> implements Iterator<E> {

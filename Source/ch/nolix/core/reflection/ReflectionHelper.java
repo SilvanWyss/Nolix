@@ -4,8 +4,7 @@ package ch.nolix.core.reflection;
 //Java import
 import java.lang.reflect.Field;
 
-//own import
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 
 //class
 public final class ReflectionHelper {

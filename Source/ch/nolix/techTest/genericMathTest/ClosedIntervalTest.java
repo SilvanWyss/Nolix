@@ -4,8 +4,7 @@ package ch.nolix.techTest.genericMathTest;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
 import ch.nolix.core.test.Test;
 import ch.nolix.tech.genericMath.ClosedInterval;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.invalidArgumentException;
+package ch.nolix.core.invalidArgumentExceptions;
 
 //Java imports
 import java.math.BigDecimal;

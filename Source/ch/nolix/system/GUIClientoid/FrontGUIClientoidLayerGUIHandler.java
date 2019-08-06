@@ -4,7 +4,7 @@ package ch.nolix.system.GUIClientoid;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.LayerFrame;
 

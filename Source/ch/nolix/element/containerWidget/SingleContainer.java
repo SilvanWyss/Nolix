@@ -3,7 +3,7 @@ package ch.nolix.element.containerWidget;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;

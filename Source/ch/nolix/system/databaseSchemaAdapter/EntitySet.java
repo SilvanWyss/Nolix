@@ -6,7 +6,7 @@ import ch.nolix.core.SQL.SQLDatabaseEngine;
 import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySetState;
 import ch.nolix.system.databaseAdapter.EntityType;

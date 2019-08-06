@@ -14,12 +14,12 @@ import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerIntGetter;
 import ch.nolix.core.functionAPI.IElementTakerLongGetter;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.functionAPI.I2ElementTakerBooleanGetter;
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.pair.Pair;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //interface
 /**

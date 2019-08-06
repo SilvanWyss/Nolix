@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.invalidArgumentException;
+package ch.nolix.core.invalidArgumentExceptions;
 
 //Java imports
 import java.math.BigDecimal;
@@ -7,28 +7,62 @@ import java.math.BigInteger;
 
 //class
 /**
- * A {@link NonPositiveArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably not positive.
- * 
- * A {@link NonPositiveArgumentException} is not mutable.
+ * A {@link NegativeArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when a given argument is undesirably negative.
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 140
+ * @lines 130
  */
 @SuppressWarnings("serial")
-public final class NonPositiveArgumentException extends InvalidArgumentException {
+public final class NegativeArgumentException extends InvalidArgumentException {
 	
 	//constant
-	private static final String ERROR_PREDICATE = "is not positive";
+	private static final String ERROR_PREDICATE = "is negative";
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public NonPositiveArgumentException(final BigDecimal argument) {
+	public NegativeArgumentException(final BigDecimal argument) {
+		
+		//Calls constructor of the base class.
+		super(argument,ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
+	 * 
+	 * @param argument
+	 */
+	public NegativeArgumentException(final BigInteger argument) {
+		
+		//Calls constructor of the base class.
+		super(argument,ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
+	 * 
+	 * @param argument
+	 */
+	public NegativeArgumentException(final double argument) {
+		
+		//Calls constructor of the base class.
+		super(argument,ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
+	 * 
+	 * @param argument
+	 */
+	public NegativeArgumentException(final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
@@ -36,43 +70,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final BigInteger argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final double argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final long argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException}
+	 * Creates a new {@link NegativeArgumentException}
 	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
@@ -80,17 +78,15 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final BigDecimal argument
-	) {
+	public NegativeArgumentException(final String argumentName, final BigDecimal argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException}
+	 * Creates a new {@link NegativeArgumentException}
 	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
@@ -98,17 +94,15 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final BigInteger argument
-	) {
+	public NegativeArgumentException(final String argumentName, final BigInteger argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException}
+	 * Creates a new {@link NegativeArgumentException}
 	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
@@ -116,17 +110,15 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final double argument
-	) {
+	public NegativeArgumentException(final String argumentName, final double argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException}
+	 * Creates a new {@link NegativeArgumentException}
 	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
@@ -134,10 +126,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final long argument
-	) {
+	public NegativeArgumentException(final String argumentName, final long argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}

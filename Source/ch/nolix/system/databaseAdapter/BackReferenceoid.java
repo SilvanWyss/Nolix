@@ -4,8 +4,8 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
-import ch.nolix.core.invalidArgumentException.ArgumentWithoutParentException;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentWithoutParentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.reflection.ReflectionHelper;
 import ch.nolix.core.validator.Validator;
 

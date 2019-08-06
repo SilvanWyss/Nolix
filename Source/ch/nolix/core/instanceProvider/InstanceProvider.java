@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.processProperties.WriteMode;
 import ch.nolix.core.validator.Validator;
 

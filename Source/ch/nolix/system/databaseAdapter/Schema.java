@@ -3,7 +3,7 @@ package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 
 //abstract class
 public abstract class Schema {

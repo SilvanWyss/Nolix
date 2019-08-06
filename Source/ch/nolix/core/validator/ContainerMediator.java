@@ -8,11 +8,11 @@ import java.util.Iterator;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.independentContainers.ArrayReadContainer;
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.core.invalidArgumentException.NonEmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NegativeArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonEmptyArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
 
 //class
 /**

@@ -5,7 +5,7 @@ import ch.nolix.core.XML.XMLNode;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.generalSkillAPI.TypeRequestable;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 
 //interface
 /**

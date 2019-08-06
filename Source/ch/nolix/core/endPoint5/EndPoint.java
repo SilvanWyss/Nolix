@@ -3,11 +3,11 @@ package ch.nolix.core.endPoint5;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //class
 /**
