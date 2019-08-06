@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.containerWidgetTutorial;
 
 import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidget.FloatContainer;
+import ch.nolix.element.containerWidgets.FloatContainer;
 import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Label;

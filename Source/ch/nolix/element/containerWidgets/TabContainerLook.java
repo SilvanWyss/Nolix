@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.containerWidget;
+package ch.nolix.element.containerWidgets;
 
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerProperty;

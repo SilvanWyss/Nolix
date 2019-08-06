@@ -1,8 +1,8 @@
 package ch.nolix.templatesTutorial.GUILooksTutorial;
 
 import ch.nolix.element.GUI.LayerFrame;
-import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.containerWidgets.ContainerRole;
+import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.Checkbox;
 import ch.nolix.element.widgets.Console;

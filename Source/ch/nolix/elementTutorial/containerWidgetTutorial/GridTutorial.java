@@ -2,8 +2,8 @@ package ch.nolix.elementTutorial.containerWidgetTutorial;
 
 import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidget.Grid;
-import ch.nolix.element.containerWidget.GridLineType;
+import ch.nolix.element.containerWidgets.Grid;
+import ch.nolix.element.containerWidgets.GridLineType;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.widgets.Area;

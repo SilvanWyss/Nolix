@@ -11,7 +11,7 @@ import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidget.ContainerWidget;
+import ch.nolix.element.containerWidgets.ContainerWidget;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 

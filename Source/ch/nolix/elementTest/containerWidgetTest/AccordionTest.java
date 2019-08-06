@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetTest;
 
-import ch.nolix.element.containerWidget.Accordion;
-import ch.nolix.element.containerWidget.AccordionExpansionBehavior;
-import ch.nolix.element.containerWidget.AccordionTab;
+import ch.nolix.element.containerWidgets.Accordion;
+import ch.nolix.element.containerWidgets.AccordionExpansionBehavior;
+import ch.nolix.element.containerWidgets.AccordionTab;
 import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 
 //test class

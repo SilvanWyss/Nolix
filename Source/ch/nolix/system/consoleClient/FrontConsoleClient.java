@@ -11,7 +11,7 @@ import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;

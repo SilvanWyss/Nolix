@@ -2,8 +2,8 @@ package ch.nolix.templatesTutorial.textureCreatorsTutorial;
 
 import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidget.Accordion;
-import ch.nolix.element.containerWidget.AccordionTab;
+import ch.nolix.element.containerWidgets.Accordion;
+import ch.nolix.element.containerWidgets.AccordionTab;
 import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
 import ch.nolix.templates.textureCreators.JuteTextureCreator;

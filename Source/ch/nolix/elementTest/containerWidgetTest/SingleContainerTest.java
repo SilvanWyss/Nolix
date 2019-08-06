@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetTest;
 
-//own imports
-import ch.nolix.element.containerWidget.SingleContainer;
+import ch.nolix.element.containerWidgets.SingleContainer;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 

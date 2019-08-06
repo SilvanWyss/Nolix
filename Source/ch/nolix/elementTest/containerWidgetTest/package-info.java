@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.elementTest.containerWidgetTest} package
- * defines tests for the {@link ch.nolix.element.containerWidget} package.
+ * defines tests for the {@link ch.nolix.element.containerWidgets} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07
