@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial.widgetTutorial;
+package ch.nolix.elementTutorial.widgetsTutorial;
 
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.LayerFrame;

@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial.widgetTutorial;
+package ch.nolix.elementTutorial.widgetsTutorial;
 
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
