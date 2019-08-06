@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.widgetTest;
+package ch.nolix.elementTest.widgetsTest;
 
 import ch.nolix.core.test.Test;
 import ch.nolix.element.widgets.CaptionPosition;

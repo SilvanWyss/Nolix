@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.widgetTest;
+package ch.nolix.elementTest.widgetsTest;
 
 //class
 /**

@@ -6,7 +6,7 @@ import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.TextBox;
 import ch.nolix.element.widgets.VerticalStack;
-import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
+import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
 
 //test class
 /**

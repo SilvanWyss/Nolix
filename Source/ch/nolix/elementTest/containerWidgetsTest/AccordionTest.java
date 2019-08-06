@@ -4,7 +4,7 @@ package ch.nolix.elementTest.containerWidgetsTest;
 import ch.nolix.element.containerWidgets.Accordion;
 import ch.nolix.element.containerWidgets.AccordionExpansionBehavior;
 import ch.nolix.element.containerWidgets.AccordionTab;
-import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
+import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
 
 //test class
 /**

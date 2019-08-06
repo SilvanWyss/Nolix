@@ -6,7 +6,7 @@ import ch.nolix.elementTest.colorTest.ColorTestPool;
 import ch.nolix.elementTest.containerWidgetsTest.ContainerWidgetTestPool;
 import ch.nolix.elementTest.coreTest.CoreTestPool;
 import ch.nolix.elementTest.financeTest.FinanceTestPool;
-import ch.nolix.elementTest.widgetTest.WidgetTestPool;
+import ch.nolix.elementTest.widgetsTest.WidgetTestPool;
 import ch.nolix.techTest.projectTest.TaskTestPool;
 
 //class
