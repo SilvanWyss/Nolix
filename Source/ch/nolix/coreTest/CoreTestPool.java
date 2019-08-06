@@ -10,7 +10,7 @@ import ch.nolix.coreTest.mathTest.MathematicsTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
 import ch.nolix.coreTest.statementTest.StatementTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
-import ch.nolix.elementTest.elementEnumTest.ElementEnumTestPool;
+import ch.nolix.elementTest.elementEnumsTest.ElementEnumTestPool;
 import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
 
 //class
