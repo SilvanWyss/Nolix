@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testoid;
+package ch.nolix.core.baseTest;
 
 //Java import
 import java.lang.reflect.InvocationTargetException;
@@ -23,7 +23,7 @@ import ch.nolix.core.validator.Validator;
 public abstract class TestPool implements Runnable {
 
 	//multiple attribute
-	private final List<Class<Testoid>> testClasses = new List<>();
+	private final List<Class<BaseTest>> testClasses = new List<>();
 	private final List<TestPool> testPools = new List<>();
 	
 	//method
@@ -47,7 +47,7 @@ public abstract class TestPool implements Runnable {
 	 * @param testClass
 	 * @return true if this test pool contains the given test class recursively.
 	 */
-	public final boolean containsTestClassRecursively(final Class<Testoid> testClass) {
+	public final boolean containsTestClassRecursively(final Class<BaseTest> testClass) {
 		
 		for (final var tc : testClasses) {
 			if (tc == testClass) {
@@ -107,9 +107,9 @@ public abstract class TestPool implements Runnable {
 		Validator
 		.suppose(testClass)
 		.thatIsNamed(VariableNameCatalogue.TEST_CLASS)
-		.isSubClassOf(Testoid.class);
+		.isSubClassOf(BaseTest.class);
 		
-		testClasses.addAtEnd((Class<Testoid>)testClass);
+		testClasses.addAtEnd((Class<BaseTest>)testClass);
 	}
 	
 	//method

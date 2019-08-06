@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testoid;
+package ch.nolix.core.baseTest;
 
 //Java imports
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 final class TestCaseRunner extends Thread {
 	
 	//attributes
-	private final Testoid parentTest;
+	private final BaseTest parentTest;
 	private boolean finished = false;
 	private long startTime = System.currentTimeMillis();
 	private long runTimeInMilliseconds = 0;
@@ -19,7 +19,7 @@ final class TestCaseRunner extends Thread {
 	private Throwable fatalError;
 	
 	//constructor
-	public TestCaseRunner(final Testoid parentTest, final Method method) {
+	public TestCaseRunner(final BaseTest parentTest, final Method method) {
 		
 		this.parentTest = parentTest;
 		this.method = method;

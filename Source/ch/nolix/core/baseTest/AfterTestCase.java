@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testoid;
+package ch.nolix.core.baseTest;
 
 //Java imports
 import java.lang.annotation.ElementType;

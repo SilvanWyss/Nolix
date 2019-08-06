@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.test;
 
+import ch.nolix.core.baseTest.TestAccessor;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
-import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class
 /**

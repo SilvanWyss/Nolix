@@ -1,10 +1,10 @@
 //package delcaration
 package ch.nolix.coreTest.documentNodeTest;
 
+import ch.nolix.core.baseTest.AfterTestCase;
 //own imports
 import ch.nolix.core.documentNode.FileDocumentNode;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.core.testoid.AfterTestCase;
 
 //test class
 public final class FileDocumentNodeTest extends DocumentNodeoidTest {

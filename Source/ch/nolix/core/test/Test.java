@@ -4,10 +4,10 @@ package ch.nolix.core.test;
 //Java import
 import java.util.ArrayList;
 
+import ch.nolix.core.baseTest.TestAccessor;
 //own imports
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.skillAPI.ApproximativeEqualing;
-import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class
 /**
@@ -17,7 +17,7 @@ import ch.nolix.core.testoid.TestAccessor;
  * @month 2016-08
  * @lines 250
  */
-public abstract class Test extends ch.nolix.core.testoid.Testoid {
+public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	
 	//method
 	/**

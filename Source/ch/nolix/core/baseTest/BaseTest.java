@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testoid;
+package ch.nolix.core.baseTest;
 
 //Java imports
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +14,7 @@ import ch.nolix.core.independentContainers.List;
  * @month 2016-08
  * @lines 250
  */
-public abstract class Testoid {
+public abstract class BaseTest {
 	
 	//attribute
 	private static final long TEST_CASE_MAX_DURATION_IN_MILLISECONDS = 5000;
@@ -28,12 +28,12 @@ public abstract class Testoid {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Testoid}.
+	 * Creates a new {@link BaseTest}.
 	 */
-	public Testoid() {
+	public BaseTest() {
 		
 		Class<?> class_ = getClass();
-		while (!class_.equals(Testoid.class)) {
+		while (!class_.equals(BaseTest.class)) {
 			
 			for (final var m : class_.getDeclaredMethods()) {
 				if (m.getAnnotation(AfterTestCase.class) != null) {
@@ -49,7 +49,7 @@ public abstract class Testoid {
 	
 	//method
 	/**
-	 * @return true if the current {@link Testoid} has a afterTestCaseMethod.
+	 * @return true if the current {@link BaseTest} has a afterTestCaseMethod.
 	 */
 	public final boolean hasAfterTestCaseMethod() {
 		return (afterTestCaseMethod != null);
@@ -57,7 +57,7 @@ public abstract class Testoid {
 	
 	//method
 	/**
-	 * Runs the test cases of the current {@link Testoid} and prints out the test results to the console.
+	 * Runs the test cases of the current {@link BaseTest} and prints out the test results to the console.
 	 */
 	public final void run() {
 		
@@ -151,7 +151,7 @@ public abstract class Testoid {
 	
 	//method
 	/**
-	 * Lets the current {@link Testoid} register the given element to close.
+	 * Lets the current {@link BaseTest} register the given element to close.
 	 * 
 	 * @param element
 	 */
@@ -163,7 +163,7 @@ public abstract class Testoid {
 	
 	//package-visible method
 	/**
-	 * Adds the given current test case error to the current {@link Testoid}.
+	 * Adds the given current test case error to the current {@link BaseTest}.
 	 * 
 	 * @param currentTestMethodError
 	 */
@@ -219,14 +219,14 @@ public abstract class Testoid {
 	
 	//method
 	/**
-	 * @return the test cases of the current {@link Testoid}.
+	 * @return the test cases of the current {@link BaseTest}.
 	 */
 	private List<Method> getRefTestCases() {
 		
 		final var testCases = new List<Method>();
 				
 		Class<?> class_ = getClass();
-		while (!class_.equals(Testoid.class)) {
+		while (!class_.equals(BaseTest.class)) {
 			
 			for (final var m : class_.getDeclaredMethods()) {
 				if (!Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())) {
