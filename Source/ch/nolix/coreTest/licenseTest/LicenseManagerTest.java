@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.licenseTest;
 
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.license.License;
 import ch.nolix.core.license.LicenseManager;
 import ch.nolix.core.license.Permission;

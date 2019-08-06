@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own import
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 
 //class
 public final class MultiBackReference<E extends Entity> extends BackReferenceoid<E> {

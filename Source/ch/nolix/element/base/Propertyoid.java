@@ -4,7 +4,7 @@ package ch.nolix.element.base;
 //own imports
 import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;

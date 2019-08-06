@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container;
+package ch.nolix.core.containers;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;

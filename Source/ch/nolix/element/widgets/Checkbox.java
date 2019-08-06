@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.math.Calculator;

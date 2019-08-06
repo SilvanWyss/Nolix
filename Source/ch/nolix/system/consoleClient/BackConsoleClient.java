@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.validator.Validator;

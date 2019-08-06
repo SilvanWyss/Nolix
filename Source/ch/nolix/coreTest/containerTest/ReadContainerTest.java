@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.containerTest;
 
-//own imports
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.test.Test;
 
 //class

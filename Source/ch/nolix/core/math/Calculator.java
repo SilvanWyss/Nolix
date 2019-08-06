@@ -4,7 +4,7 @@ package ch.nolix.core.math;
 //own imports
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.pair.FPNPair;
 import ch.nolix.core.validator.Validator;
 

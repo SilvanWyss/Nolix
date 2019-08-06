@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;

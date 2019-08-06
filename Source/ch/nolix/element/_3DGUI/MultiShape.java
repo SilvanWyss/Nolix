@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element._3DGUI;
 
-//own imports
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.core.container.List;
 
 //class
 /**

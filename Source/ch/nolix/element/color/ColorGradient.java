@@ -4,8 +4,7 @@ package ch.nolix.element.color;
 //Java import
 import java.awt.GradientPaint;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;

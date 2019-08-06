@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.neuronoid;
 
-//own imports
-import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.ReadContainer;
 
 //class
 /**

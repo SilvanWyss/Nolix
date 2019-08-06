@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.jobPool;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.futureAPI.IFuture;
 

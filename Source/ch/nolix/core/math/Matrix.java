@@ -7,7 +7,7 @@ import java.util.Random;
 import ch.nolix.core.commonTypeHelpers.DoubleHelper;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.ApproximativeEqualing;
 import ch.nolix.core.validator.Validator;

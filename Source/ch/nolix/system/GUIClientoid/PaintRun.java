@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.element.painter.IPainter;
 

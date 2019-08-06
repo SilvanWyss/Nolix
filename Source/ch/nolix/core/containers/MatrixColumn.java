@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container;
+package ch.nolix.core.containers;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
@@ -7,14 +7,14 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class MatrixRow<E> implements IContainer<E> {
+public final class MatrixColumn<E> implements IContainer<E> {
 
 	//attributes
 	private final Matrix<E> parentMatrix;
-	private final int rowIndex;
+	private final int columnIndex;
 	
 	//package-visible constructor
-	MatrixRow(final Matrix<E> parentMatrix, final int rowIndex) {
+	MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
 		
 		Validator
 		.suppose(parentMatrix)
@@ -22,35 +22,35 @@ public final class MatrixRow<E> implements IContainer<E> {
 		.isNotNull();
 		
 		Validator
-		.suppose(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.suppose(columnIndex)
+		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
 		this.parentMatrix = parentMatrix;
-		this.rowIndex = rowIndex;
+		this.columnIndex = columnIndex;
 	}
 	
 	//method
 	@Override
 	public int getSize() {
-		return parentMatrix.getColumnCount();
+		return parentMatrix.getRowCount();
 	}
 	
 	//method
-	public int getRowIndex() {
-		return rowIndex;
-	}
-	
-	//method
-	@Override
-	public E getRefAt(final int columnIndex) {
-		return parentMatrix.getRefAt(getRowIndex(), columnIndex);
+	public int getColumnIndex() {
+		return columnIndex;
 	}
 	
 	//method
 	@Override
-	public MatrixRowIterator<E> iterator() {
-		return new MatrixRowIterator<>(this);
+	public E getRefAt(final int rowIndex) {
+		return parentMatrix.getRefAt(rowIndex, getColumnIndex());
+	}
+
+	//method
+	@Override
+	public MatrixColumnIterator<E> iterator() {
+		return new MatrixColumnIterator<>(this);
 	}
 	
 	//method

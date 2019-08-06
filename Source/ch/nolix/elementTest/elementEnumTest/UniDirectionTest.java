@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.elementEnumTest;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.test.Test;
 import ch.nolix.element.elementEnums.UniDirection;

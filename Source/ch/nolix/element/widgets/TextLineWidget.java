@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.GUI_API.Widget;

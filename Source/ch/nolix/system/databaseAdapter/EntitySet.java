@@ -2,10 +2,9 @@
 package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.core.attributeAPI.Named;
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 

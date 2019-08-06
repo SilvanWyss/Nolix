@@ -2,9 +2,8 @@
 package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.core.attributeAPI.Named;
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 
 //interface
 public interface IEntitySetAdapter<E extends Entity> extends Named {

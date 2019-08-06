@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;

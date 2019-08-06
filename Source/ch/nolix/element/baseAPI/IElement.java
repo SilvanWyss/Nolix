@@ -2,7 +2,7 @@
 package ch.nolix.element.baseAPI;
 
 import ch.nolix.core.XML.XMLNode;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.generalSkillAPI.TypeRequestable;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;

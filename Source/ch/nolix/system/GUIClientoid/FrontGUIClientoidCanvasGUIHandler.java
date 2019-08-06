@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;

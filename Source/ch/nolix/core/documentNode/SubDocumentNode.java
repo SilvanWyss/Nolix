@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.documentNode;
 
-//own imports
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;

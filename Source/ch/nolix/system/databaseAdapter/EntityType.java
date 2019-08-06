@@ -5,8 +5,7 @@ package ch.nolix.system.databaseAdapter;
 import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.core.attributeAPI.Named;
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 
 //class

@@ -4,8 +4,7 @@ package ch.nolix.core.moduleManager;
 //Java import
 import java.io.File;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 

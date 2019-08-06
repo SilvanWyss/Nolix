@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronalNet;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.neuronoid.BundleNeuron;
 import ch.nolix.system.neuronoid.FanoutNeuron;

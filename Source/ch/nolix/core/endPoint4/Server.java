@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 

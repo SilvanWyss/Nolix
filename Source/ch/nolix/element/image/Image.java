@@ -12,9 +12,9 @@ import javax.imageio.ImageIO;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.List;
-import ch.nolix.core.container.Matrix;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.Matrix;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator.Validator;

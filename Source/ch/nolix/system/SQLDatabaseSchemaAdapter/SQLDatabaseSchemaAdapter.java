@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.SQLDatabaseSchemaAdapter;
 
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
@@ -12,6 +9,8 @@ import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.SQL.SQLConnection;
 import ch.nolix.core.SQL.SQLDatabaseEngine;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 
 //abstract class
 public abstract class SQLDatabaseSchemaAdapter<SQLDSA extends SQLDatabaseSchemaAdapter<SQLDSA>>

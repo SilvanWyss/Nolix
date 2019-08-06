@@ -4,9 +4,8 @@ package ch.nolix.element.base;
 //Java import
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;

@@ -3,8 +3,8 @@ package ch.nolix.system.documentNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.Entity;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.container.IContainer;
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.statement.Statement;
 
 //package-visible class

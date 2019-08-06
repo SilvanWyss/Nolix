@@ -8,9 +8,8 @@
 //package declaration
 package ch.nolix.elementTutorial.financeTutorial;
 
-//own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.container.SequencePattern;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.SequencePattern;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;

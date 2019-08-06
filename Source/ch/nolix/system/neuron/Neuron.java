@@ -3,7 +3,7 @@ package ch.nolix.system.neuron;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;

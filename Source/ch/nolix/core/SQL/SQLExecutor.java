@@ -3,8 +3,8 @@ package ch.nolix.core.SQL;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.skillAPI.Resettable;
 import ch.nolix.core.validator.Validator;
 

@@ -6,7 +6,7 @@ import ch.nolix.core.attributeAPI.Headerable;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;

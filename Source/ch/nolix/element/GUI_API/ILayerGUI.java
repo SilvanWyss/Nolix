@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI_API;
 
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.configuration.IConfigurableElementWithOptionalConfiguration;
 

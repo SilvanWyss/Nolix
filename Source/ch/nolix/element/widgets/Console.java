@@ -4,14 +4,14 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;

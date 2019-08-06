@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;

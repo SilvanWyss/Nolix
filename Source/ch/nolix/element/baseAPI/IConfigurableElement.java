@@ -5,8 +5,8 @@ package ch.nolix.element.baseAPI;
 import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.attributeAPI.OptionalNamable;
 import ch.nolix.core.attributeAPI.Tokened;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 
 //interface
 /**

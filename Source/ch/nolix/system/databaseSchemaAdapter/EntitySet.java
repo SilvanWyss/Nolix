@@ -4,8 +4,8 @@ package ch.nolix.system.databaseSchemaAdapter;
 //own imports
 import ch.nolix.core.SQL.SQLDatabaseEngine;
 import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySetState;

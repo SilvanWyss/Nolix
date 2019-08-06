@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.attributeAPI.Indexed;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.independentHelpers.ArrayHelper;
 import ch.nolix.core.statement.Statement;

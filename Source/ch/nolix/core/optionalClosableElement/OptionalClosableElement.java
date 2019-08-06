@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.optionalClosableElement;
 
-//own imports
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.OptionalClosable;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileSystemAccessor;

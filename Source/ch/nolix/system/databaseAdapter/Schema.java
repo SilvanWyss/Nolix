@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //abstract class

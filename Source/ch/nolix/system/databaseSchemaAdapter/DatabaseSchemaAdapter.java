@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
-//own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.generalSkillAPI.IFluentObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.license.LicenseManager;

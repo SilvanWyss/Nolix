@@ -4,11 +4,11 @@ package ch.nolix.tech.resource;
 import ch.nolix.core.attributeAPI.Named;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.containers.List;
+import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.resourceAPI.IResource;
-import ch.nolix.core.container.List;
 
 //class
 /**

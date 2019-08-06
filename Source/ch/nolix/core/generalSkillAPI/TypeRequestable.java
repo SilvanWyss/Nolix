@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.generalSkillAPI;
 
-//own import
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 
 //interface
 /**

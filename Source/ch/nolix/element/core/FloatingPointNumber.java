@@ -2,8 +2,7 @@
 package ch.nolix.element.core;
 
 import ch.nolix.core.commonTypeHelpers.DoubleHelper;
-//own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.element.base.Element;
 

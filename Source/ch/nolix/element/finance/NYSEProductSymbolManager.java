@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.element.finance;
 
-//own import
-import ch.nolix.core.container.List;
+import ch.nolix.core.containers.List;
 
 //class
 /**

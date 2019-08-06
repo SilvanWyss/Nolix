@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.element.base;
 
+import ch.nolix.core.containers.IContainer;
+import ch.nolix.core.containers.List;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 

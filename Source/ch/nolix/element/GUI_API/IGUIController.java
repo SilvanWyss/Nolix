@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI_API;
 
-//own import
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containers.IContainer;
 
 //interface
 public interface IGUIController {
