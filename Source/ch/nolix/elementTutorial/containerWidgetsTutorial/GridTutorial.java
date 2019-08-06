@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial.containerWidgetTutorial;
+package ch.nolix.elementTutorial.containerWidgetsTutorial;
 
 import ch.nolix.element.GUI.LayerFrame;
 import ch.nolix.element.color.Color;
