@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.containerWidgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidgets.FloatContainer;
 import ch.nolix.element.elementEnums.ContentPosition;
@@ -24,7 +24,7 @@ public final class FloatContainerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Float Container Tutorial");
+		final var frame = new Frame("Float Container Tutorial");
 		
 		//Creates a FloatConatiner.
 		final var floatContainer =

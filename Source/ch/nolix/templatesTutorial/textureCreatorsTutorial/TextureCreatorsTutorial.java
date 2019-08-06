@@ -1,6 +1,6 @@
 package ch.nolix.templatesTutorial.textureCreatorsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidgets.Accordion;
 import ch.nolix.element.containerWidgets.AccordionTab;
@@ -25,7 +25,7 @@ public final class TextureCreatorsTutorial {
 		final var juteTexture = new JuteTextureCreator().createTexture(1000, 500);
 		
 		//Creates a Frame that will show the textures.
-		new LayerFrame(
+		new Frame(
 			"Texture Creator Tutorial",
 			new Accordion(
 				new AccordionTab(

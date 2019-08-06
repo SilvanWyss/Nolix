@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.widgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.image.Image;
@@ -23,7 +23,7 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Image Widget Tutorial");
+		final var frame = new Frame("Image Widget Tutorial");
 		
 		//Creates an Image.
 		final var image = new Image(800, 500);

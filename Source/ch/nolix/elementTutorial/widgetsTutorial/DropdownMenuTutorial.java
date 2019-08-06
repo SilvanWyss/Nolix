@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.widgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.DropdownMenu;
@@ -22,7 +22,7 @@ public final class DropdownMenuTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("DropdownMenu Tutorial");
+		final var frame = new Frame("DropdownMenu Tutorial");
 		
 		//Creates a DropdownMenu.
 		final var dropdownMenu =

@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.containerWidgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidgets.TabContainer;
 import ch.nolix.element.containerWidgets.TabContainerTab;
@@ -24,7 +24,7 @@ public final class TabContainerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Tab Container Tutorial");
+		final var frame = new Frame("Tab Container Tutorial");
 		
 		//Creates a TabContainer.
 		final var tabContainer =

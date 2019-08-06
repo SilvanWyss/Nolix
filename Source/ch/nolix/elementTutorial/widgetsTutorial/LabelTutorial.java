@@ -1,7 +1,7 @@
 package ch.nolix.elementTutorial.widgetsTutorial;
 
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.time.Time;
@@ -25,7 +25,7 @@ public final class LabelTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Label Tutorial");
+		final var frame = new Frame("Label Tutorial");
 		
 		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label("Time:");

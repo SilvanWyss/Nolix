@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.containerWidgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.containerWidgets.GridLineType;
@@ -26,7 +26,7 @@ public final class GridTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Grid Tutorial");
+		final var frame = new Frame("Grid Tutorial");
 		
 		//Creates a Grid
 		final var grid =

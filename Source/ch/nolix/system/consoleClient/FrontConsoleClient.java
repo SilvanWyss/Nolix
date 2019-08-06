@@ -8,7 +8,7 @@ import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidgets.ContainerRole;
@@ -43,7 +43,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	
 	public FrontConsoleClient(final int port) {
 		
-		this(new LayerFrame());
+		this(new Frame());
 		
 		internal_connectTo(port);
 	}
@@ -58,7 +58,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	public FrontConsoleClient(final Application<BackConsoleClient> application) {
 		
 		//Calls other constructor.
-		this(new LayerFrame());
+		this(new Frame());
 		
 		internal_connectTo(application);
 	}
@@ -81,7 +81,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 		final String targetApplication
 	) {
 		//Calls other constructor.
-		this(ip, port, targetApplication, new LayerFrame());
+		this(ip, port, targetApplication, new Frame());
 	}
 	
 	//constructor

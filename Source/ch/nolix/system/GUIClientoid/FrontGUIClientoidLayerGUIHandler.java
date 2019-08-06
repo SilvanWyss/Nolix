@@ -6,17 +6,17 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 
 //package-visible class
 final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler {
 	
 	//attribute
-	private final LayerFrame mGUI;
+	private final Frame mGUI;
 	
 	//constructor
 	public FrontGUIClientoidLayerGUIHandler(final FrontGUIClientoid<?> parentFrontGuiClientoid) {
-		mGUI = new LayerFrame(new FrontGUIClientoidEventTaker(parentFrontGuiClientoid));;
+		mGUI = new Frame(new FrontGUIClientoidEventTaker(parentFrontGuiClientoid));;
 	}
 	
 	//method

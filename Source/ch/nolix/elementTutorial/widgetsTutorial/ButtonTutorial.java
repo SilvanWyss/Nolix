@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.widgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
@@ -23,7 +23,7 @@ public final class ButtonTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Button Tutorial");
+		final var frame = new Frame("Button Tutorial");
 		
 		//Creates a Button.
 		final var button = new Button("Quit");

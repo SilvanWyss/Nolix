@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.widgetsTutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Console;
@@ -22,7 +22,7 @@ public final class ConsoleTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Console Tutorial");
+		final var frame = new Frame("Console Tutorial");
 		
 		//Creates a Console
 		final var console =	new Console();

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 
@@ -18,7 +18,7 @@ public final class LayerFrameTutorial {
 	 * Creates a {@link FrameVisualizer} with an alice blue background.
 	 */
 	public static void main(String[] args) {
-		new LayerFrame()
+		new Frame()
 		.setTitle("Frame Tutorial")
 		.setBackgroundColor(Color.ALICE_BLUE);
 	}

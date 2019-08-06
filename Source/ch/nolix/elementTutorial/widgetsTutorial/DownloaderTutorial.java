@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.widgetsTutorial;
 
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Downloader;
@@ -24,7 +24,7 @@ public final class DownloaderTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new LayerFrame("Downloader Tutorial");
+		final var frame = new Frame("Downloader Tutorial");
 		
 		//Creates a file for the downloader.
 		FileSystemAccessor.overwriteFile("tutorial.txt", "Tutorial");

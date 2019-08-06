@@ -1,7 +1,7 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.instanceProvider.CentralInstanceProvider;
-import ch.nolix.element.GUI.LayerFrame;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.tech.genericMath.Registrator;
@@ -16,7 +16,7 @@ public final class DefaultFractalTutorial {
 		
 		//Creates a Frame.
 		final var frame =
-		new LayerFrame(
+		new Frame(
 			"Default Fractal Tutorial",
 			new Label("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100))
 		);

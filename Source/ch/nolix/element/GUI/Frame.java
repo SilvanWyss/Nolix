@@ -6,10 +6,10 @@ import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.baseGUI_API.IEventTaker;
 
 //class
-public final class LayerFrame extends LayerGUI<LayerFrame> {
+public final class Frame extends LayerGUI<Frame> {
 	
 	//constructor
-	public LayerFrame() {
+	public Frame() {
 		
 		super(true);
 		
@@ -19,7 +19,7 @@ public final class LayerFrame extends LayerGUI<LayerFrame> {
 	}
 	
 	//constructor
-	public LayerFrame(IEventTaker eventTaker) {
+	public Frame(IEventTaker eventTaker) {
 		
 		super(true, eventTaker);
 		
@@ -29,7 +29,7 @@ public final class LayerFrame extends LayerGUI<LayerFrame> {
 	}
 	
 	//constructor
-	public LayerFrame(final String title) {
+	public Frame(final String title) {
 		
 		this();
 		
@@ -37,7 +37,7 @@ public final class LayerFrame extends LayerGUI<LayerFrame> {
 	}
 	
 	//constructor
-	public LayerFrame(final String title, final Widget<?, ?> rootWidget) {
+	public Frame(final String title, final Widget<?, ?> rootWidget) {
 		
 		this(title);
 		
