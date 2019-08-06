@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTutorial._3DGUITutorial;
+package ch.nolix.elementTutorial._3D_GUITutorial;
 
 //own imports
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
@@ -14,7 +14,7 @@ import ch.nolix.element.color.Color;
  * @month 2017-11
  * @lines 30
  */
-public final class _3DGUITutorial {
+public final class _3D_GUITutorial {
 
 	//main method
 	/**
@@ -37,5 +37,5 @@ public final class _3DGUITutorial {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private _3DGUITutorial() {}
+	private _3D_GUITutorial() {}
 }

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTutorial._3DGUITutorial;
+package ch.nolix.elementTutorial._3D_GUITutorial;
 
 //own imports
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
@@ -11,13 +11,13 @@ import ch.nolix.element.color.Color;
 
 //class
 /**
- * The {@link _3DGUITutorial2} is a tutorial for a {@link JMonkeyMainFrame}.
+ * The {@link _3D_GUITutorial2} is a tutorial for a {@link JMonkeyMainFrame}.
  * 
  * @author Silvan Wyss
  * @month 2017-10
  * @lines 60
  */
-public final class _3DGUITutorial2 {
+public final class _3D_GUITutorial2 {
 
 	//main method
 	/**
@@ -54,7 +54,7 @@ public final class _3DGUITutorial2 {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of the {@link _3DGUITutorial2} can be created.
+	 * Avoids that an instance of the {@link _3D_GUITutorial2} can be created.
 	 */
-	private _3DGUITutorial2() {}
+	private _3D_GUITutorial2() {}
 }
