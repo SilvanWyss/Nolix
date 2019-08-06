@@ -8,8 +8,7 @@ import com.jme3.scene.shape.Quad;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
-//own import
-import ch.nolix.element._3DGUI.Rectangle;
+import ch.nolix.element._3D_GUI.Rectangle;
 
 //package-visible class
 final class JMonkeyRectangleRenderer

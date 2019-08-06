@@ -9,7 +9,7 @@ import com.jme3.scene.Geometry;
 
 //own imports
 import ch.nolix.core.constants.NumberCatalogue;
-import ch.nolix.element._3DGUI.Cylinder;
+import ch.nolix.element._3D_GUI.Cylinder;
 
 //class
 public final class JMonkeyCylinderRenderer

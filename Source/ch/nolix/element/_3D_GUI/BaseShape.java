@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3DGUI;
+package ch.nolix.element._3D_GUI;
 
 //Java import
 import java.awt.image.BufferedImage;

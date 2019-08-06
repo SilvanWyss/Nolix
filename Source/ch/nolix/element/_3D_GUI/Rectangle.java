@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3DGUI;
+package ch.nolix.element._3D_GUI;
 
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.core.PositiveFloatingPointNumber;

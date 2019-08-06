@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3DGUI;
+package ch.nolix.element._3D_GUI;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
@@ -31,7 +31,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	private _3DPoint position = DEFAULT_POSITION;
 	
 	//optional attributes
-	private _3DGUI<?> mGUI;
+	private _3D_GUI<?> mGUI;
 	private ShapeRenderManager<S, ?, ?> shapeRenderManager;
 	
 	//method
@@ -187,7 +187,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return this shape.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final S setGUI(_3DGUI<?> pGUI) {
+	public final S setGUI(_3D_GUI<?> pGUI) {
 		
 		//Checks if the given GUI is not null.
 		Validator.suppose(pGUI).thatIsNamed("GUI").isNotNull();
@@ -299,7 +299,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the GUI this shape belongs to.
 	 * @throws InvalidArgumentException if this shape does not belong to a GUI.
 	 */
-	protected final _3DGUI<?> getRefGUI() {
+	protected final _3D_GUI<?> getRefGUI() {
 		
 		supposeBelongsToAGUI();
 		

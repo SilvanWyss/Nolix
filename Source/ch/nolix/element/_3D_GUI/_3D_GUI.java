@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3DGUI;
+package ch.nolix.element._3D_GUI;
 
 //Java import
 import java.lang.reflect.InvocationTargetException;
@@ -36,7 +36,7 @@ import ch.nolix.element.core.NonEmptyText;
  * @lines 390
  * @param <G> The type of a 3D GUI.
  */
-public abstract class _3DGUI<G extends _3DGUI<G>>
+public abstract class _3D_GUI<G extends _3D_GUI<G>>
 extends ConfigurationElement<G>
 implements Clearable<G>, OptionalClosable, Refreshable {
 	

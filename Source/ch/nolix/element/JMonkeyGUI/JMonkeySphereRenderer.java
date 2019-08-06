@@ -5,8 +5,7 @@ package ch.nolix.element.JMonkeyGUI;
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
 
-//own import
-import ch.nolix.element._3DGUI.Sphere;
+import ch.nolix.element._3D_GUI.Sphere;
 
 //class
 /**

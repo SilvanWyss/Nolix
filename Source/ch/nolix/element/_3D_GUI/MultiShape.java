@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3DGUI;
+package ch.nolix.element._3D_GUI;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;

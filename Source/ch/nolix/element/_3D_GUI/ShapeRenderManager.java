@@ -1,5 +1,5 @@
 //abstract class
-package ch.nolix.element._3DGUI;
+package ch.nolix.element._3D_GUI;
 
 import ch.nolix.core.validator.Validator;
 

@@ -15,14 +15,14 @@ import com.jme3.system.AppSettings;
 //own imports
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element._3DGUI.Cuboid;
-import ch.nolix.element._3DGUI.Cylinder;
-import ch.nolix.element._3DGUI.MainFrame;
-import ch.nolix.element._3DGUI.MultiShape;
-import ch.nolix.element._3DGUI.Pyramid;
-import ch.nolix.element._3DGUI.Rectangle;
-import ch.nolix.element._3DGUI.Shape;
-import ch.nolix.element._3DGUI.Sphere;
+import ch.nolix.element._3D_GUI.Cuboid;
+import ch.nolix.element._3D_GUI.Cylinder;
+import ch.nolix.element._3D_GUI.MainFrame;
+import ch.nolix.element._3D_GUI.MultiShape;
+import ch.nolix.element._3D_GUI.Pyramid;
+import ch.nolix.element._3D_GUI.Rectangle;
+import ch.nolix.element._3D_GUI.Shape;
+import ch.nolix.element._3D_GUI.Sphere;
 
 //class
 /**
