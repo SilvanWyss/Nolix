@@ -3,7 +3,7 @@ package ch.nolix.elementTest;
 
 import ch.nolix.core.baseTest.TestPool;
 import ch.nolix.elementTest.colorTest.ColorTestPool;
-import ch.nolix.elementTest.containerWidgetTest.ContainerWidgetTestPool;
+import ch.nolix.elementTest.containerWidgetsTest.ContainerWidgetTestPool;
 import ch.nolix.elementTest.coreTest.CoreTestPool;
 import ch.nolix.elementTest.financeTest.FinanceTestPool;
 import ch.nolix.elementTest.widgetTest.WidgetTestPool;

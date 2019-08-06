@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.containerWidgetTest;
+package ch.nolix.elementTest.containerWidgetsTest;
 
 import ch.nolix.core.baseTest.TestPool;
 
