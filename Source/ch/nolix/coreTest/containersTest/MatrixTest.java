@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.containerTest;
+package ch.nolix.coreTest.containersTest;
 
 import ch.nolix.core.containers.Matrix;
 import ch.nolix.core.test.Test;
