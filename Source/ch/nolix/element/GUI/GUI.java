@@ -21,7 +21,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 10
+ * @lines 240
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G>
@@ -46,19 +46,27 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	private final IVisualizer visualizer;
 	
 	//constructor
+	/**
+	 * Creates a new {@link GUI}.
+	 * The {@link GUI} will be visible if the given visible flag is true.
+	 * 
+	 * @param visible
+	 */
 	public GUI(final boolean visible) {
-		if (!visible) {
-			visualizer = null;
-		}
-		else {
-			visualizer = new FrameVisualizer();
-		}
+		visualizer = visible ? new FrameVisualizer() : null;
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link GUI}.
+	 * The {@link GUI} will be visible and have the given visualizer.
+	 * 
+	 * @param visible
+	 * @throws NullArgumentException if the given visualizer is null.
+	 */
 	public GUI(final IVisualizer visualizer) {
 		
-		Validator.suppose(visualizer).thatIsNamed("visualizer").isNotNull();
+		Validator.suppose(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
 		
 		this.visualizer = visualizer;
 	}
@@ -73,6 +81,10 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		visualizer.noteClose();
 	}
 	
+	//abstract method
+	/**
+	 * @return the cursor icon of the current {@link GUI}.
+	 */
 	public abstract CursorIcon getCursorIcon();
 	
 	//method
@@ -103,13 +115,31 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean isVisible() {
 		return (visualizer != null);
 	}
 	
 	//abstract method
+	/**
+	 * Paints the current {@link GUI} using the given painter.
+	 * 
+	 * @param painter
+	 */
 	public abstract void paint(IPainter painter);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void refresh() {
+		recalculate();
+		repaint();
+	}
 
 	//method
 	/**
@@ -142,15 +172,56 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		
 		return asConcreteType();
 	}
-		
+	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the {@link IVisualizer} of the current {@link GUI}.
+	 * @throws ArgumentMissesAttributeException if the current {@link GUI} does not have a {@link IVisualizer}.
 	 */
-	@Override
-	public final void refresh() {
-		recalculate();
-		repaint();
+	protected final IVisualizer getRefVisualizer() {
+		
+		if (visualizer == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.VISUALIZER);
+		}
+		
+		return visualizer;
+	}
+	
+	//abstract method
+	/**
+	 * @return the height of the view area of the current {@link GUI}.
+	 */
+	protected abstract int getViewAreaHeight();
+	
+	//abstract method
+	/**
+	 * @return the width of the view area of the current {@link GUI}.
+	 */
+	protected abstract int getViewAreaWidth();
+	
+	//abstract method
+	/**
+	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
+	 */
+	protected abstract int getViewAreaCursorXPosition();
+	
+	//abstract method
+	/**
+	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
+	 */
+	protected abstract int getViewAreaCursorYPosition();
+	
+	//method
+	/**
+	 * Initializes the current {@link GUI}.
+	 */
+	protected final void initialize() {
+		
+		reset();
+		
+		if (isVisible()) {
+			visualizer.initialize(this);
+		}
 	}
 	
 	//method
@@ -160,37 +231,11 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	protected final void noteResizing() {
 		refresh();
 	}
-	
-	//method
-	protected final IVisualizer getRefVisualizer() {
-		
-		if (visualizer == null) {
-			throw new ArgumentMissesAttributeException(this, "visualizer");
-		}
-		
-		return visualizer;
-	}
-	
-	//abstract method
-	protected abstract int getViewAreaHeight();
-	
-	//abstract method
-	protected abstract int getViewAreaWidth();
-	
-	//abstract method
-	protected abstract int getViewAreaCursorXPosition();
-	
-	//abstract method
-	protected abstract int getViewAreaCursorYPosition();
-	
-	//method
-	protected final void initialize() {
-		if (isVisible()) {
-			visualizer.initialize(this);
-		}
-	}
 
 	//method
+	/**
+	 * Repaints the current {@link GUI}.
+	 */
 	private void repaint() {
 		if (isVisible()) {
 			visualizer.repaint();

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
+//own imports
 import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 
@@ -12,8 +12,6 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 	public CanvasFrame(final IEventTaker eventTaker) {
 		
 		super(eventTaker, new FrameVisualizer());
-		
-		reset();
 		
 		initialize();
 	}

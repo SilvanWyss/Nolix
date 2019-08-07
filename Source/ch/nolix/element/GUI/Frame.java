@@ -13,17 +13,13 @@ public final class Frame extends LayerGUI<Frame> {
 		
 		super(true);
 		
-		reset();
-		
 		initialize();
 	}
 	
 	//constructor
-	public Frame(IEventTaker eventTaker) {
+	public Frame(final IEventTaker eventTaker) {
 		
 		super(true, eventTaker);
-		
-		reset();
 		
 		initialize();
 	}
