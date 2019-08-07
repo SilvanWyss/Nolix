@@ -14,6 +14,7 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.GUI_API.ILayerGUI;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
@@ -51,7 +52,7 @@ import ch.nolix.element.widgets.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 70
+ * @lines 860
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG> {
@@ -159,16 +160,17 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		l -> l.getSpecification()
 	);
 	
-	//optional attribute
-	/**
-	 * The top layer of the current {@link GUI} when the current {@link GUI} contains {@link ILayer}s.
-	 */
+	//optional attributes
 	private Layer topLayer;
-	
-	//optional attribute
 	private final IEventTaker eventTaker;
 	
 	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible if the given visible flag is true.
+	 * 
+	 * @param visible
+	 */
 	public LayerGUI(final boolean visible) {
 		
 		super(visible);
@@ -178,6 +180,15 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible if the given visible flag is true.
+	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * 
+	 * @param visible
+	 * @param eventTaker
+	 * @throws NullArgumentException if the given eventTaker is null.
+	 */
 	public LayerGUI(final boolean visible, final IEventTaker eventTaker) {
 		
 		super(visible);
@@ -189,6 +200,15 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible.
+	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * 
+	 * @param visible
+	 * @param eventTaker
+	 * @throws NullArgumentException if the given eventTaker is null.
+	 */
 	public LayerGUI(final IEventTaker eventTaker) {
 		
 		super(true);
@@ -200,6 +220,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible and have the given visualizer..
+	 * 
+	 * @param visible
+	 * @param eventTaker
+	 * @throws NullArgumentException if the given visualizer is null.
+	 */
 	public LayerGUI(IVisualizer visualizer) {
 		
 		super(visualizer);
@@ -209,6 +237,16 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible and have the given visualizer.
+	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * 
+	 * @param visible
+	 * @param eventTaker
+	 * @throws NullArgumentException if the given visualizer is null.
+	 * @throws NullArgumentException if the given eventTaker is null.
+	 */
 	public LayerGUI(IVisualizer visualizer, IEventTaker eventTaker) {
 		
 		super(visualizer);
@@ -256,19 +294,21 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * Adds a new {@link Layer} on the top of the current {@link ILayerGUI}.
+	 * The {@link Layer} will have the given rootWidget.
 	 * 
+	 * @param rootWidget
+	 * @return the current {@link ILayerGUI}.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
 	public final LG addLayerOnTop(final Widget<?, ?> rootWidget) {		
 		return addLayerOnTop(new Layer(rootWidget));
 	}
 	
-	
-	
-	
-	
-	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 				
@@ -382,30 +422,35 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	}
 	
 	//method
-	public final IContainer<Statement> getPainterCommands() {
-		final var painter = new CanvasGUICommandCreatorPainter();
-		paint(painter);
-		return painter.getCommands();
-	}
-	
-	//method
 	/**
 	 * @return the {@link CursorIcon} of the current GUI.
 	 */
 	public final CursorIcon getCursorIcon() {		
 		
-		//Handles the case that the current ViewAreaWidthWidget does not contain a Layer.
+		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {
 			return CursorIcon.Arrow;
 		}
 		
-		//Handles the case that the current ViewAreaWidthWidget contains Layers.
+		//Handles the case that the current LayerGUI contains Layers.
 		return topLayer.getCursorIcon();
  	}
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the painter commands of the current {@link LayerGUI}.
+	 */
+	public final IContainer<Statement> getPainterCommands() {
+		
+		final var painter = new CanvasGUICommandCreatorPainter();
+		paint(painter);
+		
+		return painter.getCommands();
+	}
+	
+	//method
+	/**
+	 * @return the {@link Layer}s of the current {@link LayerGUI}.
 	 */
 	public final IContainer<Layer> getRefLayers() {
 		return layers;
@@ -413,24 +458,318 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
+	 * @return the interaction attributes of the {@link Widget}s of the current {@link GUI}.
+	 */
+	public IContainer<IContainer<DocumentNode>> getInteractionAttributesOfWidgets() {
+		return getRefWidgets().to(w -> w.getInteractionAttributes());
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
+		return getRefWidgets().to(w -> w); //TODO
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @return the {@link Widget} with the given name from the current {@link LayerGUI}.
+	 * @throws ArgumentMissesAttributeException if the current {@link LayerGUI}
+	 * does not contain a {@link Widget} with the given name.
+	 */
+	@SuppressWarnings("unchecked")
+	public <W extends Widget<?, ?>> W getRefWidgetByName(final String name) {
+		//TODO: Implement toFromManyAtTime().
+		return (W)getRefWidgets().getRefFirst(w -> w.hasName(name));
+	}
+	
+	//method
+	/**
+	 * @return the {@link Widget}s of the current {@link LayerGUI}.
+	 */
+	public final IContainer<Widget<?, ?>> getRefWidgets() {
+		return layers.toFromMany(l -> l.getRefWidgets());
+	}
+
+	//method
+	/**
+	 * @return the {@link Widget}s, that are for painting, of the current {@link LayerGUI}.
+	 */
+	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
+		
+		//Handles the case that the current LayerGUI does not contain a Layer.
+		if (isEmpty()) {
+			return new List<>();
+		}
+		
+		//Handles the case that the current LayerGUI contains Layers.
+		return topLayer.getRefWidgetsForPainting();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link LayerGUI} does not contain a {@link Layer}.
+	 */
+	@Override
+	public final boolean isEmpty() {
+		return layers.isEmpty();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteKeyPress(final Key key) {		
+		if (hasEventTaker()) {
+			eventTaker.noteKeyPress(key);
+		}		
+		else {
+			getRefTopLayerOrBackgroundLayer().noteKeyPress(key);
+		}		
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteKeyRelease(final Key key) {		
+		if (hasEventTaker()) {
+			eventTaker.noteKeyRelease(key);
+		}		
+		else {
+			getRefTopLayerOrBackgroundLayer().noteKeyRelease(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteKeyTyping(final Key key) {		
+		if (hasEventTaker()) {
+			eventTaker.noteKeyTyping(key);
+		}		
+		else {
+			getRefTopLayerOrBackgroundLayer().noteKeyTyping(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteLeftMouseButtonClick() {		
+		if (hasEventTaker()) {
+			eventTaker.noteLeftMouseButtonClick();
+		}		
+		else {
+			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonClick();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteLeftMouseButtonPress() {
+		if (hasEventTaker()) {
+			eventTaker.noteLeftMouseButtonPress();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonPress();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteLeftMouseButtonRelease() {
+		if (hasEventTaker()) {
+			eventTaker.noteLeftMouseButtonRelease();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonRelease();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea) {
+		
+		if (hasEventTaker()) {
+			eventTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		}
+		
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelClick() {
+		if (hasEventTaker()) {
+			eventTaker.noteMouseWheelClick();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteMouseWheelClick();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelPress() {
+		if (hasEventTaker()) {
+			eventTaker.noteMouseWheelPress();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteMouseWheelPress();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelRelease() {
+		if (hasEventTaker()) {
+			eventTaker.noteMouseWheelRelease();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteMouseWheelRelease();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+		if (hasEventTaker()) {
+			eventTaker.noteMouseWheelRotationStep(directionOfRotation);
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+		if (hasEventTaker()) {
+			eventTaker.noteResize(viewAreaWidth, viewAreaHeight);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteRightMouseButtonClick() {
+		if (hasEventTaker()) {
+			eventTaker.noteRightMouseButtonClick();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonClick();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteRightMouseButtonPress() {
+		if (hasEventTaker()) {
+			eventTaker.noteRightMouseButtonPress();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonPress();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteRightMouseButtonRelease() {
+		if (hasEventTaker()) {
+			eventTaker.noteRightMouseButtonRelease();
+		}
+		else {
+			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonRelease();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void paint(final IPainter painter) {
+		backGround.paint(painter);
+		layers.forEach(l -> l.paint(painter));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void recalculate() {
+		if (containsAny()) {
+			topLayer.recalculate();
+		}
+	}
+	
+	//method
+	/**
+	 * Removes the top {@link Layer} from the current {@link LayerGUI}.
 	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
 	 */
 	public LG removeTopLayer() {
 		
-		//Checks if the current GUI is not empty.
+		//Checks if the current LayerGUI is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
 		
-		//Handles the case that the current GUI contains 1 layer.
+		//Handles the case that the current LayerGUI contains 1 layer.
 		if (layers.containsOne()) {
 			clear();
 		}
 		
 		//Handles the case that the current GUI contains several layers.
 		else {
+			//TODO: Extend MultiProperty.
 			topLayer = layers.getRefAt(layers.getSize() - 1);
 			layers.removeValue(layers.getRefAt(layers.getSize()));
 		}
@@ -454,282 +793,24 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the interaction attributes of the {@link Widget} of the current {@link GUI}.
-	 */
-	public IContainer<IContainer<DocumentNode>> getInteractionAttributesOfWidgets() {
-		return getRefWidgets().to(w -> w.getInteractionAttributes());
-	}
-	
-	//method
-	@Override
-	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
-		return getRefWidgets().to(w -> w); //TODO
-	}
-	
-	//method
-	@SuppressWarnings("unchecked")
-	public <W extends Widget<?, ?>> W getRefWidgetByName(final String name) {
-		//TODO: Implement layers.getRefFirstFromMany(l -> l.getRefWidgets().getRefFirstOrNull(w -> w.hasName(name));
-		return (W)getRefWidgets().getRefFirst(w -> w.hasName(name));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
-		
-		//Handles the case that the current GUI does not contain a layer.
-		if (isEmpty()) {
-			return new List<>();
-		}
-		
-		//Handles the case that the current GUI contains layers.
-		return topLayer.getRefWidgetsForPainting();
-	}
-	
-	//method
-	/**
-	 * @return the widgets of the current GUI.
-	 */
-	public final IContainer<Widget<?, ?>> getRefWidgets() {
-		return layers.to(l -> l.getRefRootWidget());
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link GUI} does not contain a GUI layer.
-	 */
-	@Override
-	public final boolean isEmpty() {
-		return layers.isEmpty();
-	}
-	
-	//method
-	@Override
-	public final void noteKeyPress(final Key key) {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteKeyPress(key);
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteKeyPress(key);
-		}		
-	}
-	
-	//method
-	@Override
-	public final void noteKeyRelease(final Key key) {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteKeyRelease(key);
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteKeyRelease(key);
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteKeyTyping(final Key key) {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteKeyTyping(key);
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteKeyTyping(key);
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonClick() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteLeftMouseButtonClick();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonClick();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonPress() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteLeftMouseButtonPress();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonPress();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonRelease() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteLeftMouseButtonRelease();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonRelease();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea) {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
-		}
-		
-		refresh();
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelClick() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelClick();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteMouseWheelClick();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelPress() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelPress();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteMouseWheelPress();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelRelease() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelRelease();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteMouseWheelRelease();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelRotationStep(directionOfRotation);
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
-		}
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteResize(viewAreaWidth, viewAreaHeight);
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonClick() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteRightMouseButtonClick();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonClick();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonPress() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteRightMouseButtonPress();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonPress();
-		}
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonRelease() {
-		
-		if (hasEventTaker()) {
-			eventTaker.noteRightMouseButtonRelease();
-		}
-		
-		else {
-			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonRelease();
-		}
-	}
-	
-	//method
-	@Override
-	public final void paint(final IPainter painter) {
-		backGround.paint(painter);
-		layers.forEach(l -> l.paint(painter));
-	}
-
-	public void recalculate() {
-		layers.forEach(l -> l.recalculate());
-	}
-
 	public LG resetConfiguration() {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
-		if (containsAny()) {
-			layers.forEach(l -> l.resetConfiguration());
-			topLayer.resetConfiguration();
-		}
+		layers.forEach(l -> l.resetConfiguration());
 		
 		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Sets the content position of the current {@link GUI}.
+	 * Sets the content position of the current {@link LayerGUI}.
 	 * 
 	 * @param contentPosition
-	 * @return the current {@link GUI}.
+	 * @return the current {@link LayerGUI}.
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 */
 	public LG setContentPosition(final ExtendedContentPosition contentPosition) {
@@ -741,11 +822,11 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Sets the background {@link Color} of the current {@link GUI}.
-	 * Removes any former background of the current {@link GUI}.
+	 * Sets the background {@link Color} of the current {@link LayerGUI}.
+	 * Removes any former background of the current {@link LayerGUI}.
 	 * 
 	 * @param backgroundColor
-	 * @return the current {@link GUI}.
+	 * @return the current {@link LayerGUI}.
 	 * @throws NullArgumentException if the given backgroundColor is null.
 	 */
 	public LG setBackgroundColor(final Color backgroundColor) {
@@ -756,16 +837,26 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	}
 	
 	//method
+	/**
+	 * @return the top {@link Layer} of the current {@link LayerGUI}
+	 * if the current {@link LayerGUI} contains {@link Layer}s,
+	 * otherwise the backround of the current {@link LayerGUI}.
+	 */
 	private Layer getRefTopLayerOrBackgroundLayer() {
 		
+		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {
 			return backGround;
 		}
 		
+		//Handles the case that the current LayerGUI contains Layers.
 		return topLayer;
 	}
 	
 	//method
+	/**
+	 * @return true if the current {@link LayerGUI} has a {@link IEventTaker}.
+	 */
 	private boolean hasEventTaker() {
 		return (eventTaker != null);
 	}
