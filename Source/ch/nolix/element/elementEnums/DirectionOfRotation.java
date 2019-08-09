@@ -3,13 +3,14 @@ package ch.nolix.element.elementEnums;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 30
+ * @lines 40
  */
 public enum DirectionOfRotation implements IElementEnum {
 	Forward,
@@ -26,5 +27,23 @@ public enum DirectionOfRotation implements IElementEnum {
 	 */
 	public static DirectionOfRotation createFromSpecification(final DocumentNodeoid specification) {
 		return valueOf(specification.getOneAttributeAsString());
+	}
+	
+	//method
+	/**
+	 * @return 1 if the current {@link DirectionOfRotation} is {@link DirectionOfRotation#Forward},
+	 * -1 if the current {@link DirectionOfRotation} is {@link DirectionOfRotation#Backward}.
+	 */
+	public int toInt() {
+		
+		//Enumerates the current DirectionOfRotation.
+		switch (this) {
+			case Forward:
+				return 1;
+			case Backward:
+				return -1;
+			default:
+				throw new InvalidArgumentException(this);
+		}
 	}
 }
