@@ -96,6 +96,7 @@ public final class VariableNameCatalogue {
 	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
 	public static final String PADDING = "padding";
+	public static final String PARENT = "parent";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
 	public static final String PERMISSION = "permission";
