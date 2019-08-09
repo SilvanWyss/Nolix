@@ -17,7 +17,7 @@ import ch.nolix.core.containers.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 70
+ * @lines 90
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>> extends OptionalNamable<C>, IMutableElement<C>, Tokened {
 	
@@ -72,4 +72,20 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	 * @return the current {@link IConfigurableElement}.
 	 */
 	public abstract C resetConfiguration();
+	
+	//default method
+	/**
+	 * Resets the configuration of the current {@link IConfigurableElement} recursively.
+	 * 
+	 * @return the current {@link IConfigurableElement}.
+	 */
+	@SuppressWarnings("unchecked")
+	public default C resetConfigurationRecursively() {
+		
+		resetConfiguration();
+		
+		getRefConfigurables().forEach(c -> c.resetConfigurationRecursively());
+		
+		return (C)this;
+	}
 }
