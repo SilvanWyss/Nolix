@@ -5,6 +5,7 @@ package ch.nolix.core.commonTypeHelpers;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator.Validator;
 
@@ -15,7 +16,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 320
+ * @lines 310
  */
 public final class StringHelper {
 	
@@ -95,23 +96,17 @@ public final class StringHelper {
 		//Enumerates the given string.
 		switch (string) {
 			case "0":
-				return false;
 			case "F":
-				return false;
 			case "False":
+			case "false":
 				return false;
 			case "1":
-				return true;
 			case "T":
-				return true;
 			case "True":
+			case "true":
 				return true;
 			default:
-				throw
-				new InvalidArgumentException(
-					string,
-					"does not represent a boolean"
-				);
+				throw new NonRepresentingArgumentException(string, Boolean.class);
 		}
 	}
 	
