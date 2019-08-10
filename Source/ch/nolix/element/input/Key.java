@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -211,13 +212,10 @@ public enum Key implements IElementEnum {
 			case COMMA:			
 			case DOLLAR_SYMBOL:
 			case DOT:
-			case END:
-			case ENTER:
-			case ESCAPE:
 			case EXCLAMATION_MARK:
 			case GRADE_SYMBOL:
-			case GRAVIS:			
-			case HYPHEN:			
+			case GRAVIS:
+			case HYPHEN:
 			case QUESTION_MARK:
 			case RELATIONS:
 			case SPACE:
@@ -233,13 +231,13 @@ public enum Key implements IElementEnum {
 			case A:
 			case B:
 			case C:
-			case D:				
+			case D:
 			case E:
 			case F:
 			case G:
 			case H:
 			case I:
-			case J:				
+			case J:	
 			case K:
 			case L:
 			case M:
@@ -258,7 +256,7 @@ public enum Key implements IElementEnum {
 			case Z:
 				return true;
 			default:
-				return false;				
+				return false;
 		}
 	}
 	
@@ -268,7 +266,7 @@ public enum Key implements IElementEnum {
 			case NUMBER_0:
 			case NUMBER_1:
 			case NUMBER_2:
-			case NUMBER_3:				
+			case NUMBER_3:
 			case NUMBER_4:
 			case NUMBER_5:
 			case NUMBER_6:
@@ -277,7 +275,107 @@ public enum Key implements IElementEnum {
 			case NUMBER_9:
 				return true;
 			default:
-				return false;				
+				return false;
+		}
+	}
+	
+	//method
+	public char toChar() {
+		switch(this) {
+			case A:
+				return 'a';
+			case B:
+				return 'b';
+			case C:
+				return 'c';
+			case D:
+				return 'd';
+			case E:
+				return 'e';
+			case F:
+				return 'f';
+			case G:
+				return 'g';
+			case H:
+				return 'h';
+			case I:
+				return 'i';
+			case J:
+				return 'j';
+			case K:
+				return 'k';
+			case L:
+				return 'l';
+			case M:
+				return 'm';
+			case N:
+				return 'n';
+			case O:
+				return 'o';
+			case P:
+				return 'p';
+			case Q:
+				return 'q';
+			case R:
+				return 'r';
+			case S:
+				return 's';
+			case T:
+				return 't';
+			case U:
+				return 'u';
+			case V:
+				return 'v';
+			case W:
+				return 'w';
+			case X:
+				return 'x';
+			case Y:
+				return 'y';
+			case Z:
+				return 'z';
+			case NUMBER_0:
+				return '0';
+			case NUMBER_1:
+				return '1';
+			case NUMBER_2:
+				return '2';
+			case NUMBER_3:
+				return '3';
+			case NUMBER_4:
+				return '4';
+			case NUMBER_5:
+				return '5';
+			case NUMBER_6:
+				return '6';
+			case NUMBER_7:
+				return '7';
+			case NUMBER_8:
+				return '8';
+			case NUMBER_9:
+				return '9';
+			case COMMA:
+				return ',';
+			case DOLLAR_SYMBOL:
+				return '$';
+			case DOT:
+				return '.';
+			case EXCLAMATION_MARK:
+				return '!';
+			case GRADE_SYMBOL:
+				return '°';
+			case GRAVIS:
+				return '`';
+			case HYPHEN:
+				return '-';
+			case QUESTION_MARK:
+				return '?';
+			case RELATIONS:
+				return '<';
+			case SPACE:
+				return ' ';
+		default:
+			throw new NonRepresentingArgumentException(this, Character.class);				
 		}
 	}
 }
