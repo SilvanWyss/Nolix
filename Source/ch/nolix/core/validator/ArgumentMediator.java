@@ -15,7 +15,7 @@ import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 120
+ * @lines 140
  * @param <A> The type of the argument of an argument mediator.
  */
 public class ArgumentMediator<A> extends Mediator {
@@ -79,6 +79,23 @@ public class ArgumentMediator<A> extends Mediator {
 				"does not fulfil the given condition"
 			);
 		}
+	}
+	
+	//method
+	/**
+	 * @return a new terminal argument mediator for the argument of this argument mediator.
+	 * @throws InvalidArgumentException if the argument of this argument mediator is the given object.
+	 */
+	public final TerminalArgumentMediator<A> isNot(final Object object) {
+		
+		//Checks if the argument of this argument mediator is not the given object.
+		if (argument == object) {
+			
+			//TODO: Create ArgumentIsSameException.
+			throw new InvalidArgumentException(argument, "is the given object");
+		}
+		
+		return new TerminalArgumentMediator<>(getRefArgument());
 	}
 	
 	//method
