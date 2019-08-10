@@ -74,8 +74,8 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * Creates a new {@link TabContainerTab}.
 	 */
 	public TabContainerTab() {
-		menuItem.setKeepsFocus();
 		reset();
+		//TODO: menu.setKeepsFocus();
 	}
 	
 	//constructor
@@ -309,7 +309,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		Validator.suppose(widget).isOfType(Widget.class);
 		
 		if (belongsToTabContainer()) {
-			widget.setParentWidget(getParentTabContainer());
+			parentTabContainer.internal_addChildWidget(widget);
 		}
 		
 		//Sets the widget of the current tab container tab.
@@ -357,36 +357,6 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		
 		//Sets the parent tab container of this tab container tab.
 		this.parentTabContainer = parentTabContainer;
-	}
-	
-	//method
-	/**
-	 * @return the {@link TabContainer} the current {@link TabContainerTab} belongs.
-	 * @throws InvalidArgumentException if the current {@link TabContainerTab}
-	 * does not belong to a {@link TabContainer}.
-	 */
-	private TabContainer getParentTabContainer() {
-		
-		//Checks if the current tab container tab belongs to a tab container.
-		supposeBelongsToTabContainer();
-		
-		return parentTabContainer;
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if the current {@link TabContainerTab}
-	 * does not belong to a {@link TabContainer}.
-	 */
-	private void supposeBelongsToTabContainer() {
-		
-		//Checks if the current tab container tab belongs to a tab container.
-		if (!belongsToTabContainer()) {
-			throw new InvalidArgumentException(
-				this,
-				"does not belong to a tab container"
-			);
-		}
 	}
 	
 	//method

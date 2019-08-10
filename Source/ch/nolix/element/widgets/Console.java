@@ -294,33 +294,40 @@ implements Clearable<Console> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyTyping(final Key key) {
+	protected void noteKeyTypingWhenEnabled(final Key key) {
 		
-		//Enumerates the key code of the given key event.
-		switch (key) {
-			case SPACE:
-				insertCharacterAfterCursor(CharacterCatalogue.SPACE);
-				break;
-			case ENTER:
-				noteEnter();
-				break;
-			case ARROW_LEFT:
-				moveTextCursorPositionToLeft();
-				break;
-			case ARROW_RIGHT:
-				moveTextCursorPositionToRight();
-				break;
-			case BACKSPACE:
-				deleteCharacterBeforeTextCursor();
-				break;
-			case DELETE:
-				deleteCharacterAfterTextCursor();
-				break;
-			default:
-				if (key.isCharacter()) {
-					//TODO
-					//insertCharacterAfterCursor(keyEvent.toCharacter());
-				}
+		//Calls method of the base class.
+		super.noteKeyTypingWhenEnabled(key);
+		
+		//Handles the case that the current Console is focues.
+		if (isFocused()) {
+		
+			//Enumerates the given key.
+			switch (key) {
+				case SPACE:
+					insertCharacterAfterCursor(CharacterCatalogue.SPACE);
+					break;
+				case ENTER:
+					noteEnter();
+					break;
+				case ARROW_LEFT:
+					moveTextCursorPositionToLeft();
+					break;
+				case ARROW_RIGHT:
+					moveTextCursorPositionToRight();
+					break;
+				case BACKSPACE:
+					deleteCharacterBeforeTextCursor();
+					break;
+				case DELETE:
+					deleteCharacterAfterTextCursor();
+					break;
+				default:
+					if (key.isCharacter()) {
+						//TODO: Distinguis lower case and upper case.
+						insertCharacterAfterCursor(key.toChar());
+					}
+			}
 		}
 	}
 	
@@ -596,7 +603,7 @@ implements Clearable<Console> {
 	 * @return a new widget look for this console.
 	 */
 	@Override
-	protected ConsoleLook createWidgetLook() {
+	protected ConsoleLook createLook() {
 		return new ConsoleLook();
 	}
 	
@@ -612,7 +619,7 @@ implements Clearable<Console> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

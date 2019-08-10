@@ -53,7 +53,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	public void noteLeftMouseButtonPressOnViewArea() {
+	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {
 		
 		var selectedItem = getItems().getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
 		
@@ -89,7 +89,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(menu);
 	}
 		

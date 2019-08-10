@@ -268,7 +268,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 			}
 			
 			//Handles the case that the current GUILayer has a root Widget.			
-			return rootWidget.getRefWidgetsForPainting().addAtEnd(rootWidget);
+			return rootWidget.getRefPaintableWidgets().addAtEnd(rootWidget);
 	}
 	
 	//method
@@ -340,10 +340,9 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyTyping(Key key) {
+	public void noteKeyTyping(final Key key) {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyKeyTypingRecursively(key);
+			rootWidget.noteKeyTypingRecursively(key);
 		}
 	}
 	
@@ -354,8 +353,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteLeftMouseButtonClick() {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyLeftMouseButtonClickRecursively();
+			rootWidget.noteLeftMouseButtonClickRecursively();
 		}
 	}
 	
@@ -366,7 +364,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteLeftMouseButtonPress() {
 		if (rootWidget != null) {
-			rootWidget.noteAnyLeftMouseButtonPressRecursively();
+			rootWidget.noteLeftMouseButtonPressRecursively();
 		}		
 	}
 	
@@ -377,7 +375,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteLeftMouseButtonRelease() {
 		if (rootWidget != null) {
-			rootWidget.noteAnyLeftMouseButtonReleaseRecursively();
+			rootWidget.noteLeftMouseButtonReleaseRecursively();
 		}		
 	}
 	
@@ -386,11 +384,11 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseMove(int cursorXPosition, int cursorYPosition) {
+	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		if (rootWidget != null) {
-			rootWidget.setParentCursorPosition(cursorXPosition, cursorYPosition);
+			rootWidget.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
 			rootWidget.recalculate();
-			rootWidget.noteAnyMouseMoveRecursively();
+			rootWidget.noteMouseMoveRecursively();
 		}
 	}
 	
@@ -437,8 +435,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyMouseWheelRotationStepRecursively(directionOfRotation);
+			rootWidget.noteMouseWheelRotationStepRecursively(directionOfRotation);
 		}		
 	}
 	
@@ -618,11 +615,12 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 */
 	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		this.rootWidget = Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
-		
+		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
+				
 		if (parentGUI != null) {
-			rootWidget.setParentGUI(parentGUI);
+			rootWidget.setParent(parentGUI);
 		}
+		this.rootWidget = rootWidget;
 		
 		return this;
 	}
@@ -657,7 +655,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (rootWidget != null) {
-			rootWidget.paint(painter);
+			rootWidget.paintRecursively(painter);
 		}
 	}
 
@@ -759,20 +757,18 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	}
 
 	//package-visible method
-	public Layer setParentGUI(final LayerGUI<?> parentGUI) {
+	void setParentGUI(final LayerGUI<?> parentGUI) {
 		
 		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		if (this.parentGUI != null && parentGUI != this.parentGUI) {
-			throw new InvalidArgumentException(this, "belongs already to another parent GUI");
+			//TODO: Create ArgumentBelongsToFixParentException.
+			throw new InvalidArgumentException(this, "belongs already to another GUI");
 		}
-		
-		this.parentGUI = parentGUI;
 		
 		if (rootWidget != null) {
-			rootWidget.setParentGUI(parentGUI);
+			rootWidget.setParent(parentGUI);
 		}
-		
-		return this;
+		this.parentGUI = parentGUI;
 	}
 }

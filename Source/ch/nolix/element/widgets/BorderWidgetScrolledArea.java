@@ -187,24 +187,24 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	}
 	
 	//package-visible method
-	void paint(final BWL borderWidgetLook, final IPainter painter) {
+	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
-		paintBackground(borderWidgetLook, painter);
+		paintBackground(painter, borderWidgetLook);
 		
 		final var contentArea = parentBorderWidget.getContentArea();	
 		contentArea.paint(
-			borderWidgetLook,
 			painter.createPainter(
 				contentArea.getXPositionOnScrolledArea(),
 				contentArea.getYPositionOnScrolledArea(),
 				getWidth(),
 				getHeight()
-			)
+			),
+			borderWidgetLook
 		);
 	}
 	
 	//method
-	private void paintBackground(BWL borderWidgetLook, IPainter painter) {
+	private void paintBackground(final IPainter painter, final BWL borderWidgetLook) {
 		
 		//Handles the case that the given borderWidgetLook has a recursive background color.
 		if (borderWidgetLook.hasRecursiveBackgroundColor()) {

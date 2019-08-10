@@ -71,34 +71,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	}
 	
 	//method
-	@Override
-	public void noteLeftMouseButtonRelease() {
-		
-		super.noteLeftMouseButtonRelease();
-		
-		if (providesFile()) {
-			final var fileChooser = new JFileChooser();
-			if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-				
-				final var destinationFilePath = fileChooser.getSelectedFile().getPath();
-				
-				if (FileSystemAccessor.exists(destinationFilePath)) {
-					if (PopupWindowProvider.showRequestWindow(
-							"The file '" + destinationFilePath + "' exists already. Do you want to overwrite it?")
-						) {
-						FileSystemAccessor.overwriteFile(destinationFilePath, readFile());
-						new FileAccessor(destinationFilePath).openParentFolder();
-					}
-				}
-				else {
-					FileSystemAccessor.createFile(destinationFilePath, readFile());
-					new FileAccessor(destinationFilePath).openParentFolder();
-				}
-			}
-		}
-	}
-	
-	//method
 	public boolean providesFile() {
 		return providesFile;
 	}
@@ -169,20 +141,49 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
+	protected void noteLeftMouseButtonReleaseWhenEnabled() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonReleaseWhenEnabled();
+		
+		//Handles the case that the view area of the current Downloader is under the cursor.
+		if (viewAreaIsUnderCursor()) {
+		
+			//TODO: Open file chooser on client side.
+			if (providesFile()) {
+				final var fileChooser = new JFileChooser();
+				if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+					
+					final var destinationFilePath = fileChooser.getSelectedFile().getPath();
+					
+					if (FileSystemAccessor.exists(destinationFilePath)) {
+						if (PopupWindowProvider.showRequestWindow(
+								"The file '" + destinationFilePath + "' exists already. Do you want to overwrite it?")
+							) {
+							FileSystemAccessor.overwriteFile(destinationFilePath, readFile());
+							new FileAccessor(destinationFilePath).openParentFolder();
+						}
+					}
+					else {
+						FileSystemAccessor.createFile(destinationFilePath, readFile());
+						new FileAccessor(destinationFilePath).openParentFolder();
+					}
+				}
+			}
+		}
+	}
+
+	//method
+	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		
-		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		
-		getRefBaseLook().setTextColor(Color.DARK_BLUE);
-		
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);	
+		getRefBaseLook().setTextColor(Color.DARK_BLUE);	
 		getRefHoverLook().setTextColor(Color.BLUE);
-		
-		getRefHoverFocusLook().setTextColor(Color.BLUE);
 	}
 	
 	//method
 	@Override
-	protected DownloaderLook createWidgetLook() {
+	protected DownloaderLook createLook() {
 		return new DownloaderLook();
 	}
 	

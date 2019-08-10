@@ -95,10 +95,10 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	/**
 	 * Paints the current {@link BorderWidgetBorderedArea} using the given borderWidgetLook and painter.
 	 * 
-	 * @param borderWidgetLook
 	 * @param painter
+	 * @param borderWidgetLook
 	 */
-	void paint(final BWL borderWidgetLook, final IPainter painter) {
+	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		//Paints the vertical scroll bar if the parent BorderWidget has a vertical scrollbar.
 		if (parentBorderWidget.hasVerticalScrollbar()) {
@@ -150,13 +150,13 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 		
 		//Paints the view area of the parent BorderWidget.
 		parentBorderWidget.getViewArea().paint(
-			borderWidgetLook,
 			painter.createPainter(
 				0,
 				0,
 				parentBorderWidget.getViewArea().getWidth(),	
 				parentBorderWidget.getViewArea().getHeight()
-			)
+			),
+			borderWidgetLook
 		);
 	}
 }

@@ -296,7 +296,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected AccordionLook createWidgetLook() {
+	protected AccordionLook createLook() {
 		return new AccordionLook();
 	}
 	
@@ -322,7 +322,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(accordionVerticalStack);
 	}
 	

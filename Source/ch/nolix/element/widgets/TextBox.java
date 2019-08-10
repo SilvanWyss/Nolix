@@ -76,47 +76,10 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteKeyTyping(final Key key) {
-		
-		//Enumerates the key code of the given key event.
-		switch (key) {
-			case ARROW_LEFT:
-				
-				if (getTextCursorPosition() > 0) {
-					textCursorPosition--;
-				}
-				
-				break;
-			case ARROW_RIGHT:
-				
-				if (getTextCursorPosition() < getText().length()) {
-					textCursorPosition++;
-				}
-				
-				break;
-			case BACKSPACE:				
-				deleteCharacterBeforeTextCursor();
-				break;
-			case DELETE:				
-				deleteCharacterAfterTextCursor();
-				break;
-			default:
-				if (key.isCharacter()) {
-					//TODO
-					//insertCharacterAfterCursor(key.getKeyChar());
-				}
-		}
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link TextBox} note a left mouse button press.
 	 */
 	@Override
-	public void noteLeftMouseButtonPressOnViewArea() {		
+	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {		
 		//Updates the text cursor position.
 			final var text = getText();
 			
@@ -198,7 +161,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected TextBoxLook createWidgetLook() {
+	protected TextBoxLook createLook() {
 		return new TextBoxLook();
 	}
 	
@@ -217,6 +180,51 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyTypingWhenEnabled(final Key key) {
+		
+		//Calls method of the base class.
+		super.noteKeyTypingWhenEnabled(key);
+		
+		//Handles the case that the view area of the current TextBox is under the cursor.
+		if (viewAreaIsUnderCursor()) {
+			
+			//Enumerates the given key.
+			switch (key) {
+				case ARROW_LEFT:
+					
+					if (getTextCursorPosition() > 0) {
+						textCursorPosition--;
+					}
+					
+					break;
+				case ARROW_RIGHT:
+					
+					if (getTextCursorPosition() < getText().length()) {
+						textCursorPosition++;
+					}
+					
+					break;
+				case BACKSPACE:				
+					deleteCharacterBeforeTextCursor();
+					break;
+				case DELETE:				
+					deleteCharacterAfterTextCursor();
+					break;
+				default:
+					if (key.isCharacter()) {
+						//TODO: Create KeyAndPressedKeyCombination
+						//TODO: Distinguish lower and upper case.
+						insertCharacterAfterCursor(key.toChar());
+					}
+			}
+		}
+	}
+
+	//method
+	/**
 	 * Paints the content area of the current {@link TextBox} using the given text line widget look and painter.
 	 * 
 	 * @param textBoxLook
@@ -231,8 +239,9 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		//Calls method of the base class.
 		super.paintContentArea(textBoxLook, painter);
 		
-		//Paints the text cursor if the current text box is focused or hover focused.
-		if (isFocused() || isHoverFocused()) {
+		//Paints the text cursor if the current text box is focused.
+		if (isFocused()) {
+			
 			painter.setColor(textBoxLook.getRecursiveOrDefaultTextColor());
 			
 			painter.paintFilledRectangle(

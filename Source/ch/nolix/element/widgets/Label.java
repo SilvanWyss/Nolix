@@ -170,7 +170,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected LabelLook createWidgetLook() {
+	protected LabelLook createLook() {
 		return new LabelLook();
 	}
 	

@@ -69,10 +69,6 @@ public final class BackGUIClientTutorial {
 			.getRefHoverLook()
 			.setTextSize(ValueCatalogue.BIG_TEXT_SIZE);
 			
-			button
-			.getRefHoverFocusLook()
-			.setTextSize(ValueCatalogue.BIG_TEXT_SIZE);
-			
 			getRefGUI()
 			.setTitle("Back GUI Client Tutorial")
 			.setBackgroundColor(Color.GREEN)

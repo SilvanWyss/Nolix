@@ -204,21 +204,21 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	/**
 	 * Paints the current {@link BorderWidgetViewArea} using the given borderWidgetLook and painter.
 	 * 
-	 * @param borderWidgetLook
 	 * @param painter
+	 * @param borderWidgetLook
 	 */
-	void paint(final BWL borderWidgetLook, final IPainter painter) {
+	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		final var scrolledArea = parentBorderWidget.getScrolledArea();
 		
 		scrolledArea.paint(
-			borderWidgetLook,
 			painter.createPainter(
 				-parentBorderWidget.getViewAreaXPositionOnScrolledArea(),
 				-parentBorderWidget.getViewAreaYPositionOnScrolledArea(),
 				scrolledArea.getWidth(),
 				scrolledArea.getHeight()
-			)
+			),
+			borderWidgetLook
 		);
 	}
 }

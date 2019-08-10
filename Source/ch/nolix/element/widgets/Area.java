@@ -289,6 +289,15 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean viewAreaIsUnderCursor() {
+		return isUnderCursor();
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		setBackgroundColor(Color.LIGHT_GREY);
 	}
@@ -298,7 +307,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected AreaLook createWidgetLook() {
+	protected AreaLook createLook() {
 		return new AreaLook();
 	}
 	
@@ -314,7 +323,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
@@ -339,24 +348,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paint(
-		final AreaLook areaLook,
-		final IPainter painter
-	) {
-		//Handles the case that the current area has a background color.
+	protected final void paint(final IPainter painter, final AreaLook areaLook) {
+		
+		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {
 			painter.setColor(getBackgroundColor());
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected boolean viewAreaIsUnderCursor() {
-		return isUnderCursor();
 	}
 	
 	//method

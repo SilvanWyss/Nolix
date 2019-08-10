@@ -140,10 +140,10 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	}
 	
 	//package-visible method
-	void paint(final BWL borderWidgetLook, final IPainter painter) {
+	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		parentBorderWidget.paintContentArea(borderWidgetLook, painter);
 		
-		parentBorderWidget.getChildWidgets().forEach(cw -> cw.paint(painter));
+		parentBorderWidget.getRefPaintableWidgets().forEach(cw -> cw.paintRecursively(painter));
 	}
 }

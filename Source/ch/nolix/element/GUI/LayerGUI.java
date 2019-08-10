@@ -529,7 +529,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}		
 		else {
 			getRefTopLayerOrBackgroundLayer().noteKeyPress(key);
-		}		
+			refresh();
+		}
 	}
 	
 	//method
@@ -543,6 +544,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}		
 		else {
 			getRefTopLayerOrBackgroundLayer().noteKeyRelease(key);
+			refresh();
 		}
 	}
 	
@@ -557,6 +559,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}		
 		else {
 			getRefTopLayerOrBackgroundLayer().noteKeyTyping(key);
+			refresh();
 		}
 	}
 	
@@ -571,6 +574,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}		
 		else {
 			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonClick();
+			refresh();
 		}
 	}
 	
@@ -585,6 +589,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonPress();
+			refresh();
 		}
 	}
 	
@@ -599,6 +604,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteLeftMouseButtonRelease();
+			refresh();
 		}
 	}
 	
@@ -614,9 +620,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+			refresh();
 		}
-		
-		refresh();
 	}
 	
 	//method
@@ -630,6 +635,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteMouseWheelClick();
+			refresh();
 		}
 	}
 	
@@ -644,6 +650,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteMouseWheelPress();
+			refresh();
 		}
 	}
 	
@@ -658,6 +665,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteMouseWheelRelease();
+			refresh();
 		}
 	}
 	
@@ -672,6 +680,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
+			refresh();
 		}
 	}
 	
@@ -683,6 +692,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
 		if (hasEventTaker()) {
 			eventTaker.noteResize(viewAreaWidth, viewAreaHeight);
+			refresh();
 		}
 	}
 	
@@ -697,6 +707,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonClick();
+			refresh();
 		}
 	}
 	
@@ -711,6 +722,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonPress();
+			refresh();
 		}
 	}
 	
@@ -725,6 +737,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		}
 		else {
 			getRefTopLayerOrBackgroundLayer().noteRightMouseButtonRelease();
+			refresh();
 		}
 	}
 	
@@ -834,6 +847,19 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		backGround.setBackgroundColor(backgroundColor);
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void updateFromConfiguration() {
+		
+		//Calls method of the base class.
+		super.updateFromConfiguration();
+		
+		refresh();
 	}
 	
 	//method

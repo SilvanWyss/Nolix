@@ -22,18 +22,18 @@ public final class AreaTest extends WidgetTest<Area> {
 		area.recalculate();
 		
 		//execution & verification
-		expect(area.coversPoint(1, 1));
-		expect(area.coversPoint(1, 200));
-		expect(area.coversPoint(500, 1));
-		expect(area.coversPoint(500, 100));
-		expectNot(area.coversPoint(0, 1));
-		expectNot(area.coversPoint(0, 200));
-		expectNot(area.coversPoint(1, 0));
-		expectNot(area.coversPoint(1, 201));
-		expectNot(area.coversPoint(500, 0));
-		expectNot(area.coversPoint(500, 201));
-		expectNot(area.coversPoint(501, 1));
-		expectNot(area.coversPoint(501, 200));
+		expect(area.containsPoint(1, 1));
+		expect(area.containsPoint(1, 200));
+		expect(area.containsPoint(500, 1));
+		expect(area.containsPoint(500, 100));
+		expectNot(area.containsPoint(0, 1));
+		expectNot(area.containsPoint(0, 200));
+		expectNot(area.containsPoint(1, 0));
+		expectNot(area.containsPoint(1, 201));
+		expectNot(area.containsPoint(500, 0));
+		expectNot(area.containsPoint(500, 201));
+		expectNot(area.containsPoint(501, 1));
+		expectNot(area.containsPoint(501, 200));
 	}
 	
 	//test case

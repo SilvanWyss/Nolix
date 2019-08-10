@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
-import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -145,7 +145,7 @@ implements Clearable<SingleContainer> {
 	 */
 	public SingleContainer setWidget(final Widget<?, ?> widget) {
 		
-		setParentWidget(this);
+		addChildWidget(widget);
 		this.widget = widget;
 		
 		return this;
@@ -163,7 +163,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected SingleContainerLook createWidgetLook() {
+	protected SingleContainerLook createLook() {
 		return new SingleContainerLook();
 	}
 	
@@ -186,7 +186,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		//Handles the case that the current single container has a widget.	
@@ -223,21 +223,5 @@ implements Clearable<SingleContainer> {
 		}
 		
 		return widget.getHeight();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void paintContentArea(
-		final SingleContainerLook singleContainerLook,
-		final IPainter painter
-	) {
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current single container has a widget.
-			if (widget != null) {
-				widget.paint(painter);
-			}
 	}
 }

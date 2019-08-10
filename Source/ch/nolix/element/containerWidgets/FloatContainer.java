@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -8,7 +9,6 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
-import ch.nolix.element.painter.IPainter;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>
@@ -53,7 +53,7 @@ implements Clearable<FloatContainer> {
 	//method
 	public FloatContainer addWidget(final Widget<?, ?> widget) {
 		
-		widget.setParentWidget(this);
+		addChildWidget(widget);
 		widgets.addAtEndRegardingSingularity(widget);
 		
 		return this;
@@ -148,7 +148,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	protected FloatContainerLook createWidgetLook() {
+	protected FloatContainerLook createLook() {
 		return new FloatContainerLook();
 	}
 
@@ -160,7 +160,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
@@ -206,14 +206,5 @@ implements Clearable<FloatContainer> {
 			getProposedContentAreaWidth(),
 			widgets.getMaxByInt(w -> w.getWidth())
 		);
-	}
-	
-	//method
-	@Override
-	protected void paintContentArea(
-		final FloatContainerLook borderWidgetLook,
-		final IPainter painter
-	) {
-		widgets.forEach(w -> w.paint(painter));
 	}
 }

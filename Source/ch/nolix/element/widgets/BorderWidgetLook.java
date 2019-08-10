@@ -135,28 +135,28 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 				setBottomBorderThickness(attribute.getOneAttributeAsInt());
 				break;
 			case BORDER_COLOR_HEADER:
-				setBorderColors(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				setBorderColors(Color.createFromSpecification(attribute));
 				break;
 			case LEFT_BORDER_COLOR_HEADER:
-				setLeftBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				setLeftBorderColor(Color.createFromSpecification(attribute));
 				break;
 			case RIGHT_BORDER_COLOR_HEADER:
-				setRightBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				setRightBorderColor(Color.createFromSpecification(attribute));
 				break;
 			case BOTTOM_BORDER_COLOR_HEADER:
-				setBottomBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				setBottomBorderColor(Color.createFromSpecification(attribute));
 				break;
 			case TOP_BORDER_COLOR_HEADER:
-				setTopBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				setTopBorderColor(Color.createFromSpecification(attribute));
 				break;
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
 				setBackgroundColor(Color.createFromSpecification(attribute));
 				break;
 			case BACKGROUND_COLOR_GRADIENT_HEADER:
-				setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute.getRefOneAttribute()));
+				setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute));
 				break;
 			case BACKGROUND_IMAGE_HEADER:
-				setBackgroundImage(Image.createFromSpecification(attribute.getRefOneAttribute()));
+				setBackgroundImage(Image.createFromSpecification(attribute));
 				break;
 			case PADDING_HEADER:
 				setPaddings(attribute.getOneAttributeAsInt());

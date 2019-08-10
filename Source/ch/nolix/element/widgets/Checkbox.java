@@ -59,6 +59,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 		switch (attribute.getHeader()) {
 			case CHECK_FLAG_HEADER:
 				setCheckFlag(attribute.getOneAttributeAsBoolean());
+				break;
 			default:
 				
 				//Calls method of the base class.
@@ -118,7 +119,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonPressOnViewArea() {
+	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {
 		setCheckFlag(!isChecked());
 	}
 	
@@ -184,7 +185,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * @return a new widget look for the current {@link Checkbox}.
 	 */
 	@Override
-	protected CheckboxLook createWidgetLook() {
+	protected CheckboxLook createLook() {
 		return new CheckboxLook();
 	}
 	
@@ -200,7 +201,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

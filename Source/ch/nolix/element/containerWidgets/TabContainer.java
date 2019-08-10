@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.math.Calculator;
@@ -260,7 +261,7 @@ implements Clearable<TabContainer> {
 	}
 	
 	@Override
-	public void noteLeftMouseButtonPressOnViewArea() {		
+	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {		
 		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 	}
 	
@@ -269,10 +270,10 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonRelease() {
+	protected void noteLeftMouseButtonReleaseWhenEnabled() {
 		
 		//Calls method of the base class.
-		super.noteLeftMouseButtonRelease();
+		super.noteLeftMouseButtonReleaseWhenEnabled();
 		
 		if (nextMenuItemLabel != null) {
 			if (!nextMenuItemLabel.isUnderCursor()) {
@@ -377,7 +378,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected TabContainerLook createWidgetLook() {
+	protected TabContainerLook createLook() {
 		return new TabContainerLook();
 	}
 	
@@ -404,7 +405,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		
 		list.addAtEnd(menu);
 		
@@ -520,11 +521,12 @@ implements Clearable<TabContainer> {
 				.setBackgroundColor(selectedMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 		}
+	}
+	
+	//package-visible method
+	void internal_addChildWidget(final Widget<?, ?> childWidget) {
 		
-		menu.paint(painter);
-		
-		if (containsSelectedTabWithWidget()) {
-			getRefSelectedWidget().paint(painter);
-		}
+		//Calls other method.
+		addChildWidget(childWidget);
 	}
 }

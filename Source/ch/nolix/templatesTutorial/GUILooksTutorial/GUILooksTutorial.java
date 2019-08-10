@@ -25,10 +25,10 @@ public final class GUILooksTutorial {
 		
 		final var selectionMenu =
 		new SelectionMenu()
-		.addItem("Anthrazit", im -> im.getParentGUI().setConfiguration(new AnthrazitGUILook()))
-		.addItem("BlackBlue", im -> im.getParentGUI().setConfiguration(new BlackBlueGUILook()))
-		.addItem("RedLine", im -> im.getParentGUI().setConfiguration(new RedLineGUILook()))
-		.addItem("WhiteGreen", im -> im.getParentGUI().setConfiguration(new WhiteGreenGUILook()));	
+		.addItem("Anthrazit", im -> im.getRefGUI().setConfiguration(new AnthrazitGUILook()))
+		.addItem("BlackBlue", im -> im.getRefGUI().setConfiguration(new BlackBlueGUILook()))
+		.addItem("RedLine", im -> im.getRefGUI().setConfiguration(new RedLineGUILook()))
+		.addItem("WhiteGreen", im -> im.getRefGUI().setConfiguration(new WhiteGreenGUILook()));	
 		
 		//Creates a Frame with several Widgets and the possibility to select a GUI look.
 		new Frame(

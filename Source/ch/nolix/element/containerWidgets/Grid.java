@@ -181,9 +181,9 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	public Grid setWidget(final int rowIndex, final int columnIndex, final Widget<?, ?> widget) {
 		
 		expandTo(rowIndex, columnIndex);
+		addChildWidget(widget);
 		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
-		widget.setParentWidget(this);
-		
+				
 		return this;
 	}
 	
@@ -204,7 +204,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected GridLook createWidgetLook() {
+	protected GridLook createLook() {
 		return new GridLook();
 	}
 	
@@ -220,7 +220,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());
@@ -285,7 +285,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		}
 		
 		//Paints the widgets of the current grid.
-		getChildWidgets().forEach(w -> w.paint(painter));
+		getChildWidgets().forEach(w -> w.paintRecursively(painter));
 	}
 	
 	//method

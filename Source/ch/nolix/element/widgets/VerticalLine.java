@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+import ch.nolix.element.GUI_API.Widget;
+
 //class
 /**
  * @author Silvan Wyss
@@ -27,6 +29,27 @@ public final class VerticalLine extends Line<VerticalLine> {
 	@Override
 	public int getHeightWhenNotCollapsed() {
 		return getLength();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getLength() {
+		
+		if (!belongsToParent()) {
+			return DEFAULT_LENGTH;
+		}
+		
+		//TODO: Ask a safer condition.
+		for (final var st : Thread.currentThread().getStackTrace()) {
+			if (st.getFileName() == Line.TYPE_NAME && st.getMethodName() == "getLength") {
+				return DEFAULT_LENGTH;
+			}
+		}
+			
+		return getParent().getRef().as(Widget.class).getHeight();
 	}
 	
 	//method

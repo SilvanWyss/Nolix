@@ -128,7 +128,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
+	protected final void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
 
 	//method
 	/**

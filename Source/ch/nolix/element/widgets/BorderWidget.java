@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.core.containers.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -17,6 +18,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.elementEnums.ContentPosition;
+import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
@@ -38,7 +40,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1460
+ * @lines 1470
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -592,115 +594,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button press.
-	 */
-	@Override
-	public final void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
-		//Handles the case that the cursor is over the view area.
-		if (viewAreaIsUnderCursor()) {
-			noteLeftMouseButtonPressOnViewArea();
-		}
-		
-		//Handles the case that the cursor is over the vertical scrollbar cursor.
-		else if (verticalScrollbarCursorIsUnderCursor()) {
-			
-			isMovingVerticalScrollbarCursor = true;
-			
-			verticalScrollingCursorStartYPosition =
-			getCursorYPosition()
-			- getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
-		}
-		
-		//Handles the case that the cursor is over the horizontal scrollbar cursor.
-		else if (horizontalScrollbarCursorIsUnderCursor()) {
-			
-			isMovingHorizontalScrollbarCursor = true;
-			
-			horizontalScrollingCursorStartXPosition =
-			getCursorXPosition()
-			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteAnyLeftMouseButtonRelease() {
-		
-		//Calls method of the base class.
-		super.noteAnyLeftMouseButtonRelease();
-		
-		if (isEnabled()) {
-			isMovingHorizontalScrollbarCursor = false;
-			isMovingVerticalScrollbarCursor = false;
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BorderWidget} note a mouse move
-	 */
-	@Override
-	public void noteMouseMove() {
-		
-		//Calls method of the base class.
-		super.noteMouseMove();
-		
-		if (isMovingVerticalScrollbarCursor) {
-			
-			final var verticalScrollbarCursorYDelta =
-			getCursorYPosition() - verticalScrollingCursorStartYPosition;
-			
-			final var viewAreaHeight = viewArea.getHeight();
-			
-			final var viewAreaYDelta =
-			(verticalScrollbarCursorYDelta * (scrolledArea.getHeight() - viewAreaHeight))
-			/ (viewAreaHeight - getVerticalScrollbarCursorHeight());
-			
-			setViewAreaYPositionOnScrolledArea(viewAreaYDelta);
-		}
-		
-		if (isMovingHorizontalScrollbarCursor) {
-			
-			final var horizontalScrollbarCursorXDelta =
-			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
-			
-			final var viewAreaWidth = viewArea.getWidth();
-			
-			final var viewAreaXDelta =
-			(horizontalScrollbarCursorXDelta * (scrolledArea.getWidth() - viewAreaWidth))
-			/ (viewAreaWidth - getHorizontalScrollbarCursorWidth());
-			
-			setViewAreaXPositionOnScrolledArea(viewAreaXDelta);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteAnyMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
-		
-		//Calls method of the base class.
-		super.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps);
-		
-		if (isEnabled() && (isFocused() || isHoverFocused())) {
-			setViewAreaYPositionOnScrolledArea(
-				getViewAreaYPositionOnScrolledArea()
-				+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
-			);
-		}
-	}
-
-	//method
-	/**
 	 * Removes the max height of the current {@link BorderWidget}.
 	 * 
 	 * @return the current {@link BorderWidget}.
@@ -845,16 +738,22 @@ extends Widget<BW, BWL> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public final void setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
+	public final BW setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
 		
-		getRefWidgetsForPainting()
-		.forEach(
-			cw -> cw.setParentCursorPosition(getCursorXPositionOnContentArea(), getCursorYPositionOnContentArea())
-		);
+		final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
+		final var cursorYPositionOnContentArea = getCursorYPositionOnContentArea();
+		for (final var w : getRefPaintableWidgets()) {
+			w.setParentCursorPositionRecursively(cursorXPositionOnContentArea, cursorYPositionOnContentArea);
+		}
+		
+		return asConcreteType();
 	}
 	
 	//method
@@ -1011,12 +910,13 @@ extends Widget<BW, BWL> {
 		return asConcreteType();
 	}
 	
-	private void x() {
-				
-		//Handles the case that the view area of the current BorderWidget is under the cursor.
-		if (viewAreaIsUnderCursor() || !hasAnyScrollbar()) {
-			//fillUpTriggerableChildWidgets2(list);
-		}
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean viewAreaIsUnderCursor() {
+		return viewArea.isUnderCursor();
 	}
 	
 	//abstract method
@@ -1163,83 +1063,178 @@ extends Widget<BW, BWL> {
 	/**
 	 * Lets the current {@link BorderWidget} note a left mouse button press on the view area.
 	 */
-	protected void noteLeftMouseButtonPressOnViewArea() {}
+	protected void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonPressWhenEnabled() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonPressWhenEnabled();
+		
+		//Handles the case that the view area is under the cursor.
+		if (viewAreaIsUnderCursor()) {
+			noteLeftMouseButtonPressOnViewAreaWhenEnabled();
+		}
+		
+		//Handles the case that the vertical scrollbar cursor is under the cursor.
+		else if (verticalScrollbarCursorIsUnderCursor()) {
+			
+			isMovingVerticalScrollbarCursor = true;
+			
+			verticalScrollingCursorStartYPosition =
+			getCursorYPosition()
+			- getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
+		}
+		
+		//Handles the case that the horizontal scrollbar cursor is under the cursor.
+		else if (horizontalScrollbarCursorIsUnderCursor()) {
+			
+			isMovingHorizontalScrollbarCursor = true;
+			
+			horizontalScrollingCursorStartXPosition =
+			getCursorXPosition()
+			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
+		}
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseWhenEnabled() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonReleaseWhenEnabled();
+		
+		isMovingHorizontalScrollbarCursor = false;
+		isMovingVerticalScrollbarCursor = false;
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteMouseMoveWhenEnabled() {
+		
+		//Calls method of the base class.
+		super.noteMouseMoveWhenEnabled();
+		
+		if (isMovingVerticalScrollbarCursor) {
+			
+			final var verticalScrollbarCursorYDelta =
+			getCursorYPosition() - verticalScrollingCursorStartYPosition;
+			
+			final var viewAreaHeight = viewArea.getHeight();
+			
+			final var viewAreaYDelta =
+			(verticalScrollbarCursorYDelta * (scrolledArea.getHeight() - viewAreaHeight))
+			/ (viewAreaHeight - getVerticalScrollbarCursorHeight());
+			
+			setViewAreaYPositionOnScrolledArea(viewAreaYDelta);
+		}
+		
+		else if (isMovingHorizontalScrollbarCursor) {
+			
+			final var horizontalScrollbarCursorXDelta =
+			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
+			
+			final var viewAreaWidth = viewArea.getWidth();
+			
+			final var viewAreaXDelta =
+			(horizontalScrollbarCursorXDelta * (scrolledArea.getWidth() - viewAreaWidth))
+			/ (viewAreaWidth - getHorizontalScrollbarCursorWidth());
+			
+			setViewAreaXPositionOnScrolledArea(viewAreaXDelta);
+		}
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteMouseWheelRotationStepWhenEnabled(final DirectionOfRotation directionOfRotation) {
+		
+		//Calls method of the base class.
+		super.noteMouseWheelRotationStepWhenEnabled(directionOfRotation);
+		
+		if (isFocused()) {
+			setViewAreaYPositionOnScrolledArea(
+				getViewAreaYPositionOnScrolledArea()
+				+ directionOfRotation.toInt() * VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
+			);
+		}
+	}
 	
 	//method
 	/**
-	 * Paints the current {@link BorderWidget} using the given widget structure and painter.
-	 * 
-	 * @param widgetStructure
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paint(
-		final BWL widgetStructure,
-		final IPainter painter
-	) {
+	protected final void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		//Paints the left border if the given widget structure has an active left border thickness.
-		if (widgetStructure.getRecursiveOrDefaultLeftBorderThickness() > 0) {
+		if (borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getRecursiveOrDefaultLeftBorderColor());
+			painter.setColor(borderWidgetLook.getRecursiveOrDefaultLeftBorderColor());
 			
 			painter.paintFilledRectangle(
-				widgetStructure.getRecursiveOrDefaultLeftBorderThickness(),
+				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
 		//Paints the right border if the given widget structure has an active right border thickness.
-		if (widgetStructure.getRecursiveOrDefaultRightBorderThickness() > 0) {
+		if (borderWidgetLook.getRecursiveOrDefaultRightBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getRecursiveOrDefaultRightBorderColor());
+			painter.setColor(borderWidgetLook.getRecursiveOrDefaultRightBorderColor());
 			
 			painter.paintFilledRectangle(
-				getWidth() - widgetStructure.getRecursiveOrDefaultLeftBorderThickness(),
+				getWidth() - borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
 				0,
-				widgetStructure.getRecursiveOrDefaultLeftBorderThickness(),
+				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
 		//Paints the top border if the given widget structure has an active top border thickness.
-		if (widgetStructure.getRecursiveOrDefaultTopBorderThickness() > 0) {
+		if (borderWidgetLook.getRecursiveOrDefaultTopBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getRecursiveOrDefaultTopBorderColor());
+			painter.setColor(borderWidgetLook.getRecursiveOrDefaultTopBorderColor());
 			
 			painter.paintFilledRectangle(
 				getWidth(),
-				widgetStructure.getRecursiveOrDefaultTopBorderThickness()
+				borderWidgetLook.getRecursiveOrDefaultTopBorderThickness()
 			);
 		}
 		
 		//Paints the bottom border if the given widget structure has an active bottom border thickness.
-		if (widgetStructure.getRecursiveOrDefaultBottomBorderThickness() > 0) {
+		if (borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getRecursiveOrDefaultBottomBorderColor());
+			painter.setColor(borderWidgetLook.getRecursiveOrDefaultBottomBorderColor());
 			
 			painter.paintFilledRectangle(
 				0,
-				getHeightWhenNotCollapsed() - widgetStructure.getRecursiveOrDefaultBottomBorderThickness(),
+				getHeightWhenNotCollapsed() - borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness(),
 				getWidth(),
-				widgetStructure.getRecursiveOrDefaultBottomBorderThickness()
+				borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness()
 			);
 		}
 		
 		//Paints the bordered area of the current border widget.
 		borderedArea.paint(
-			widgetStructure,
 			painter.createPainter(
 				borderedArea.getXPosition(),
 				borderedArea.getYPosition()
-			)
+			),
+			borderWidgetLook
 		);
-	}
-	
-	//method
-	@Override
-	protected void paint3(IPainter painter) {
-		paint(getRefLook(), painter);
 	}
 	
 	//abstract method
@@ -1256,10 +1251,19 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final boolean viewAreaIsUnderCursor() {
-		return viewArea.isUnderCursor();
+	protected boolean paintsPaintableWidgetAPriori() {
+		return false;
 	}
-	
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
+		return (isEnabled() && viewAreaIsUnderCursor());
+	}
+
 	//method
 	int getHorizontalScrollbarCursorWidth() {
 		return

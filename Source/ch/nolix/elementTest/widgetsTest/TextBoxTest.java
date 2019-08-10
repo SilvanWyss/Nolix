@@ -42,9 +42,6 @@ public class TextBoxTest extends BorderWidgetTest<TextBox> {
 			
 			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor())
 			.isEqualTo(Color.BLUE);
-			
-			expect(textBox.getRefHoverFocusLook().getRecursiveOrDefaultTextColor())
-			.isEqualTo(Color.BLUE);
 	}
 	
 	//test case

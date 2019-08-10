@@ -178,8 +178,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		.setRightPadding(10);
 		
 		getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
-		
-		getRefHoverFocusLook().setBackgroundColor(Color.LIGHT_GREY);
 	}
 	
 	//method
@@ -187,7 +185,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected ButtonLook createWidgetLook() {
+	protected ButtonLook createLook() {
 		return new ButtonLook();
 	}
 	

@@ -1,7 +1,6 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
 import ch.nolix.core.localComputer.ShellProvider;
-import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
@@ -31,12 +30,10 @@ public final class NetServerTutorial {
 		
 		//Creates a NetServer, that will listen to net Clients on the default port,
 		//and that has the created main application.
-		@SuppressWarnings("unused")
-		final var netServer = new NetServer(port, new Application<>("Application", BackGUIClient.class, MainSession.class));
+		new NetServer(port, new Application<>("Application", BackGUIClient.class, MainSession.class));
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		@SuppressWarnings("unused")
-		final var frontGUIClient = new FrontGUIClient(port);
+		new FrontGUIClient(port);
 		
 		//Starts a browser that will connect to the NetServer.
 		ShellProvider.startFirefox(port);

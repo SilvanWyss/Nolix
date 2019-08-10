@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+//own imports
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -10,7 +11,6 @@ import ch.nolix.core.localComputer.PopupWindowProvider;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
-import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 
@@ -358,34 +358,6 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				break;
 			default:
 				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BackGUIClientoid} run the given widget command.
-	 * 
-	 * @param widgetCommand
-	 * @throws InvalidArgumentException if the given widget command is not valid.
-	 */
-	private void runWidgetCommand(final Widget<?, ?> widget, final Statement widgetCommand) {
-		
-		//Enumerates the header of the given widget command.
-		switch (widgetCommand.getHeader()) {
-			case Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER:
-				widget.runLeftMouseButtonPressCommand();
-				break;
-			case Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER:
-				widget.runLeftMouseButtonReleaseCommand();
-				break;
-			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER:
-				widget.runRightMouseButtonPressCommand();
-				break;
-			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER:
-				widget.runRightMouseButtonReleaseCommand();
-				break;
-			default:
-				throw new InvalidArgumentException("widget command", widgetCommand, "is not valid");
 		}
 	}
 	

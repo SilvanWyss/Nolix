@@ -7,89 +7,78 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.rasterAPI.TopLeftPositionedRecangular;
 import ch.nolix.core.skillAPI.Recalculable;
-import ch.nolix.core.constants.FunctionCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
+import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
- * A {@link Widget} is an element on a {@link ILayerGUI}.
+ * A {@link Widget} is an element on a {@link LayerGUI}.
  * A {@link Widget} determines its width and height.
  * A {@link Widget} is a {@link ConfigurableElement}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1950
+ * @lines 1790
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
+implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
+	
+	//default value
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
 	
 	//constants
 	private static final String STATE_HEADER ="State";
-	private static final String NO_GREY_OUT_WHEN_DISABLED_HEADER = "NoGreyOutWhenDisabled";
+	private static final String GREY_OUT_WHEN_DISABLED_FLAG_HEADER = "GreyOutWhenDisabled";
 	
 	//constants
 	private static final String BASE_PREFIX = "Base";
 	private static final String FOCUS_PREFIX = "Focus";
 	private static final String HOVER_PREFIX = "Hover";
-	private static final String HOVER_FOCUS_PREFIX = "HoverFocus";
-	
-	//constants
-	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
-	private static final String LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "LeftMouseButtonReleaseCommand";
-	private static final String RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "RightMouseButtonPressCommand";
-	private static final String RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "RightMouseButtonReleaseCommand";
 	
 	//attributes
-	private WidgetState state = WidgetState.Normal;
-	private boolean keepsFocus = false;
-	private CursorIcon customCursorIcon = CursorIcon.Arrow;
-	private boolean greyOutWhenDisabled = true;
+	private WidgetState state;
+	private CursorIcon customCursorIcon;
+	private boolean greyOutWhenDisabled;
 	
 	//attributes
-	private final WL baseLook = createWidgetLook();
-	private final WL hoverLook = createWidgetLook();
-	private final WL focusLook = createWidgetLook();
-	private final WL hoverFocusLook = createWidgetLook();
+	private final WL baseLook = createLook();
+	private final WL hoverLook = createLook();
+	private final WL focusLook = createLook();
 	
 	//attributes
-	private int xPositionOnParent = 1;
-	private int yPositionOnParent = 1;
-	protected int cursorXPosition = 0;
-	protected int cursorYPosition = 0;
+	private int xPositionOnParent;
+	private int yPositionOnParent;
 	
 	//attributes
 	private int width;
 	private int height;
 	
-	//optional attribute
-	/**
-	 * The {@link Widget} the current {@link Widget} belongs to.
-	 */
-	private Widget<?, ?> parentWidget;
+	//attributes
+	protected int cursorXPosition;
+	protected int cursorYPosition;
 	
 	//optional attribute
-	/**
-	 * The {@link ILayerGUI} the current {@link Widget} belongs to.
-	 */
-	private LayerGUI<?> parentGUI;
+	private WidgetParent parent;
 	
 	//optional attributes
+	private IFunction leftMouseButtonClickCommand;
 	private IFunction leftMouseButtonPressCommand;
 	private IFunction leftMouseButtonReleaseCommand;
+	private IFunction rightMouseButtonClickCommand;
 	private IFunction rightMouseButtonPressCommand;
 	private IFunction rightMouseButtonReleaseCommand;
 	
@@ -98,9 +87,60 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * Creates a new {@link Widget}.
 	 */
 	public Widget() {
-		getRefHoverLook().setBaseLook(getRefBaseLook());
-		getRefFocusLook().setBaseLook(getRefBaseLook());
-		getRefHoverFocusLook().setBaseLook(getRefFocusLook());
+		hoverLook.setBaseLook(baseLook);
+		focusLook.setBaseLook(baseLook);
+	}
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to the current {@link Widget}.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	@Override
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case STATE_HEADER:
+				setState(WidgetState.createFromSpecification(attribute));
+				break;
+			case CursorIcon.TYPE_NAME:
+				setCustomCursorIcon(CursorIcon.createFromSpecification(attribute));
+				break;
+			case GREY_OUT_WHEN_DISABLED_FLAG_HEADER:
+				
+				if (!attribute.getOneAttributeAsBoolean()) {
+					removeGreyOutWhenDisabled();
+				}
+				else {
+					setGreyOutWhenDisabled();
+				}
+				
+				break;
+			default:
+				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
+					final var copy = attribute.getCopy();
+					copy.setHeader(attribute.getHeader().substring(BASE_PREFIX.length()));
+					baseLook.addOrChangeAttribute(copy);
+				}
+				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
+					final var copy = attribute.getCopy();
+					copy.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
+					hoverLook.addOrChangeAttribute(copy);
+				}
+				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
+					final var copy = attribute.getCopy();
+					copy.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
+					focusLook.addOrChangeAttribute(copy);
+				}
+				else {
+				
+					//Calls method of the base class.
+					super.addOrChangeAttribute(attribute);
+				}
+		}
 	}
 	
 	//method
@@ -120,68 +160,6 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link Widget}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case STATE_HEADER:
-				setState(WidgetState.createFromSpecification(attribute));
-				break;
-			case CursorIcon.TYPE_NAME:
-				setCustomCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeAsString()));
-				break;
-			case NO_GREY_OUT_WHEN_DISABLED_HEADER:
-				removeGreyOutWhenDisabled();
-				break;
-			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setLeftMouseButtonPressCommand(FunctionCatalogue.EMPTY);
-				break;
-			case LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				setLeftMouseButtonReleaseCommand(FunctionCatalogue.EMPTY);
-				break;
-			case RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setRightMouseButtonPressCommand(FunctionCatalogue.EMPTY);
-				break;
-			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:				
-				setRightMouseButtonReleaseCommand(FunctionCatalogue.EMPTY);
-				break;
-			default:
-				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
-					final var temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(BASE_PREFIX.length()));
-					getRefBaseLook().addOrChangeAttribute(temp);
-				}
-				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
-					final var temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
-					getRefHoverLook().addOrChangeAttribute(temp);
-				}
-				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
-					final var temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
-					getRefFocusLook().addOrChangeAttribute(temp);
-				}
-				else if (attribute.getHeader().startsWith(HOVER_FOCUS_PREFIX)) {
-					final var temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(HOVER_FOCUS_PREFIX.length()));
-					getRefFocusLook().addOrChangeAttribute(temp);
-				}
-				else {
-				
-					//Calls method of the base class.
-					super.addOrChangeAttribute(attribute);
-				}
-		}
-	}
-	
-	//method
-	/**
 	 * Applies the given base look mutator to the base look of the current {@link Widget}.
 	 * 
 	 * @param baseLookMutator
@@ -189,7 +167,6 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 */
 	public final W applyOnBaseLook(final IElementTaker<WL> baseLookMutator) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
 		baseLookMutator.run(baseLook);
 		
 		return asConcreteType();
@@ -204,23 +181,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 */
 	public final W applyOnFocusLook(final IElementTaker<WL> focusLookMutator) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
 		focusLookMutator.run(focusLook);
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Applies the given hover focus look mutator to the hover focus look of the current {@link Widget}.
-	 * 
-	 * @param hoverFocusLookMutator
-	 * @return the current {@link Widget}.
-	 */
-	public final W applyOnHoverFocusLook(final IElementTaker<WL> hoverFocusLookMutator) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		hoverFocusLookMutator.run(hoverFocusLook);
 		
 		return asConcreteType();
 	}
@@ -234,86 +195,53 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 */
 	public final W applyOnHoverLook(final IElementTaker<WL> hoverLookMutator) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
 		hoverLookMutator.run(hoverLook);
 		
 		return asConcreteType();
 	}
-
+	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs to a GUI.
+	 * @return true if the current {@link Widget} belongs directly to a {@link LayerGUI}.
+	 */
+	public final boolean belongsDirectltyToGUI() {
+		return (parent != null && parent.isGUI());
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} belongs to a {@link LayerGUI}, directly or indirectly.
 	 */
 	public final boolean belongsToGUI() {
-		
-		if (parentGUI != null) {
-			return true;
-		}
-		
-		if (belongsToWidget()) {
-			return getParentWidget().belongsToGUI();
-		}
-		
-		return false;
+		return (parent != null && parent.belongsToGUI());
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs to a {@link Widget}.
+	 * @return true if the current {@link Widget} belongs directly to a {@link LayerGUI} or another {@link Widget}.
 	 */
-	public final boolean belongsToWidget() {
-		return (parentWidget != null);
-	}
-	
-	//method
-	/**
-	 * @param GUI
-	 * @return true if the current {@link Widget} belongs to the given GUI.
-	 * @throws NullArgumentException if the given GUI is null.
-	 */
-	public final boolean belongsToGUI(final ILayerGUI<?> aGUI) {
-		
-		//Checks if the given GUI is not null.
-		Validator.suppose(aGUI).isNotNull();
-		
-		return (this.parentGUI != aGUI);
-	}
-	
-	//method
-	/**
-	 * @param xPosition
-	 * @param yPosition
-	 * @return true if the current {@link Widget} covers the point with the given x-position and y-position.
-	 */
-	public final boolean coversPoint(final int xPosition, final int yPosition) {
-		
-		//For a better performance, this implementation does the cheap comparisons at first.
-		return
-		xPosition > 0
-		&& yPosition > 0
-		&& xPosition <= getWidth()
-		&& yPosition <= getHeight();
+	public final boolean belongsToParent() {
+		return (parent != null);
 	}
 	
 	//method
 	/**
 	 * @param xPositionOnGUI
 	 * @param yPositionOnGUI
-	 * @return true if the current {@link Widget}
-	 * covers the point with the given x-position on GUI and y-position on GUI.
+	 * @return true if the current {@link Widget} contains the point, that has:
+	 * -the given x-position on the {@link LayerGUI} the current {@link Widget} belongs to
+	 * -the given y-position on the {@link LayerGUI} the current {@link Widget} belongs to
 	 */
-	public final boolean coversPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
+	public final boolean containsPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
 		
 		//For a better performance, this implementation does the cheap comparisons at first.
-		//For a better performance, this implementation does the cheap comparisons at first.
-			final var thisXPositionOnGUI = getXPositionOnGUI();
-			
-			if (xPositionOnGUI < thisXPositionOnGUI || xPositionOnGUI >= thisXPositionOnGUI + getWidth()) {
+			final var thisXPositionOnGUI = getXPositionOnGUI();		
+			if (xPositionOnGUI <= thisXPositionOnGUI || xPositionOnGUI > thisXPositionOnGUI + getWidth()) {
 				return false;
 			}
 			
 			final var thisYPositionOnGUI = getYPositionOnGUI();
-			if (yPositionOnGUI < thisYPositionOnGUI || yPositionOnGUI >= thisYPositionOnGUI + getHeight()) {
+			if (yPositionOnGUI <= thisYPositionOnGUI || yPositionOnGUI > thisYPositionOnGUI + getHeight()) {
 				return false;
 			}
 			
@@ -324,12 +252,12 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	/**
 	 * @param xPositionOnParent
 	 * @param yPositionOnParent
-	 * @return true if the current {@link Widget}
-	 * covers the point with the given x-position on parent and y-position on parent.
+	 * @return true if the current {@link Widget} contains the point, that has:
+	 * -the given x-position on the parent the current {@link Widget} belongs to
+	 * -the given y-position on the parent the current {@link Widget} belongs to
 	 */
-	public final boolean coversPointOnParent(final int xPositionOnParent, final int yPositionOnParent) {
+	public final boolean containsPointOnParent(final int xPositionOnParent, final int yPositionOnParent) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
 		//For a better performance, this implementation does the cheap comparisons at first.
 		return
 		xPositionOnParent >= this.xPositionOnParent
@@ -340,78 +268,41 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Widget}.
+	 * The free view area of a {@link Widget} is the part of the view area of the {@link Widget}
+	 * where does not lie a child {@link Widget}, that is for painting, of the {@link Widget}.
+	 * 
+	 * @return
+	 */
+	public final boolean freeViewAreaIsUnderCursor() {
+		return (isUnderCursor() && getRefPaintableWidgets().contains(w -> w.isUnderCursor()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}}
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final var attributes = super.getAttributes();
 		
 		attributes.addAtBegin(getInteractionAttributes());
+		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
+		attributes.addAtEnd(new DocumentNode(GREY_OUT_WHEN_DISABLED_FLAG_HEADER, greyOutWhenDisabled));
+			
+		//Extracts the base state attributes of the current Widget.
+		final var baseStateAttributes = getRefBaseLook().getAttributes();
+		baseStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
+		attributes.addAtEnd(baseStateAttributes);
 		
-		//Handles the case that the custom cursor icon of the current widget is not a arrow.
-		if (getCustomCursorIcon() != CursorIcon.Arrow) {
-			attributes.addAtEnd(getCustomCursorIcon().getSpecification());
-		}
-		
-		//Handles the case that the current widget has a left mouse button press command.
-		if (hasLeftMouseButtonPressCommand()) {
-			attributes.addAtEnd(
-				new DocumentNode(
-					LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
-					leftMouseButtonPressCommand.toString()
-				)
-			);
-		}
-		
-		//Handles the case that the current widget has a left mouse button release command.
-		if (hasLeftMouseButtonReleaseCommand()) {
-			attributes.addAtEnd(
-				new DocumentNode(
-					LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
-					leftMouseButtonReleaseCommand.toString()
-				)
-			);
-		}
-		
-		//Handles the case that the current widget has a right mouse button press command.
-		if (hasRightMouseButtonPressCommand()) {
-			attributes.addAtEnd(
-				new DocumentNode(
-					RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
-					rightMouseButtonPressCommand.toString()
-				)
-			);
-		}
-		
-		//Handles the case that the current widget has a right mouse button release command.
-		if (hasRightMouseButtonReleaseCommand()) {
-			attributes.addAtEnd(
-				new DocumentNode(
-					RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
-					rightMouseButtonReleaseCommand.toString()
-				)
-			);
-		}
-		
-		//Handles the case that the current widget does not grey out when it is disabled.
-		if (!greysOutWhenDisabled()) {
-			attributes.addAtEnd(DocumentNode.createFromString(NO_GREY_OUT_WHEN_DISABLED_HEADER));
-		}
-	
-		//Extracts the normal state attributes of the current widget.
-		final List<DocumentNode> normalStateAttributes = getRefBaseLook().getAttributes();
-		normalStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
-		attributes.addAtEnd(normalStateAttributes);
-		
-		//Extracts the hover state attributes of the current widget.
-		final List<DocumentNode> hoverStateAttributes = getRefHoverLook().getAttributes();
+		//Extracts the hover state attributes of the current Widget.
+		final var hoverStateAttributes = getRefHoverLook().getAttributes();
 		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
 		attributes.addAtEnd(hoverStateAttributes);
 		
-		//Extracts focus state attributes of the current widget.
-		final List<DocumentNode> focusStateAttributes = getRefFocusLook().getAttributes();
+		//Extracts focus state attributes of the current Widget.
+		final var focusStateAttributes = getRefFocusLook().getAttributes();
 		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
 		attributes.addAtEnd(focusStateAttributes);
 		
@@ -430,13 +321,25 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 		return childWidgets;
 	}
 	
+	//method
+	/** 
+	 * @return the child {@link Widget}s of the current {@link Widget} recursively.
+	 */
+	public final List<Widget<?, ?>> getChildWidgetsRecursively() {
+		
+		final var widgets = new List<Widget<?, ?>>();
+		fillUpChildWidgetsRecursively(widgets);
+		
+		return widgets;
+	}
+	
 	//abstract method
 	/**
-	 * @return the cursor icon of the current {@link Widget}.
+	 * @return the {@link CursorIcon} of the current {@link Widget}.
 	 */
 	public CursorIcon getCursorIcon() {
 		
-		final var widgetUnderCursor = getRefWidgetsForPainting().getRefFirstOrNull(w -> w.isUnderCursor());
+		final var widgetUnderCursor = getRefPaintableWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
 		if (widgetUnderCursor != null) {
 			return widgetUnderCursor.getCursorIcon();
 		}
@@ -462,7 +365,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the custom cursor icon of the current {@link Widget}.
+	 * @return the custom {@link CursorIcon} of the current {@link Widget}.
 	 */
 	public final CursorIcon getCustomCursorIcon() {
 		return customCursorIcon;
@@ -470,91 +373,46 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the height of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final int getHeight() {
 		return height;
 	}
 	
 	//method
 	/**
-	 * @return the index of the current {@link Widget} on its {@link ILayerGUI}.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link ILayerGUI}.
+	 * @return the index of the current {@link Widget} on the {@link LayerGUI} the current {@link Widget} belongs to.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link LayerGUI}.
 	 */
 	public final int getIndexOnGUI() {
-		return getParentGUI().getRefWidgets().getIndexOf(this);
+		return getRefGUI().getRefWidgets().getIndexOf(this);
 	}
 	
 	//method
 	/**
-	 * Example: index path of a {@link Widget}
-	 * -Lets a {@link ILayerGUI} A contains a {@link WidgetGUI} B.
-	 * -Lets B contain a {@link WidgetGUI} C.
-	 * -Lets C contain a {@link Widget} D.
-	 * ->The path of D is 'A.B.C.D'.
-	 * 
-	 * @return the index path of the current {@link Widget} on its root {@link ILayerGUI}.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link ILayerGUI}.
-	 */
-	@SuppressWarnings("unchecked")
-	public final List<Integer> getIndexPathOnRootGUI() {
-		
-		//Handles the case that the GUI, the current widget belongs to, is not a root GUI.
-		if (getParentGUI().isRootGUI()) {
-			return new List<>(getIndexOnGUI());
-		}
-		
-		//Handles the case that the GUI, the current widget belongs to, is a root GUI.
-		return
-		getParentGUI()
-		.as(Widget.class)
-		.getIndexPathOnRootGUI()
-		.addAtEnd(getIndexOnGUI());
-	}
-	
-	//method
-	/**
-	 * The interaction attributes of a {@link Widget} are those a user can change.
+	 * The interaction attributes of a {@link Widget} are those attributes a user can change.
 	 * 
 	 * @return the interaction attributes of the current {@link Widget}.
 	 */
 	public List<DocumentNode> getInteractionAttributes() {
-		return
-		new List<> (
-			getState().getSpecificationAs(STATE_HEADER)
-		);
+		return new List<> (getState().getSpecificationAs(STATE_HEADER));
 	}
 	
 	//method
 	/**
-	 * @return the GUI the current {@link Widget} belongs to.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a GUI.
+	 * @return the parent the current {@link Widget} belongs to.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a parent.
 	 */
-	public final LayerGUI<?> getParentGUI() {
+	public final WidgetParent getParent() {
 		
-		if (parentGUI == null) {
-			
-			if (parentWidget == null) {
-				throw new InvalidArgumentException(this, "does not belong to a GUI");
-			}
-			
-			parentGUI = getParentWidget().getParentGUI();
+		//Checks if the current Widget belongs to a parent.
+		if (parent == null) {
+			//TODO: CreateArgumentDoesNotBelongToParentException.
+			throw new InvalidArgumentException(this, "does not belong to a parent");
 		}
 		
-		return parentGUI;
-	}
-	
-	//method
-	/**
-	 * @return the {@link Widget} the current {@link Widget} belongs to.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link Widget}.
-	 */
-	public final Widget<?, ?> getParentWidget() {
-		
-		//Checks if the current widget belongs to a Widget.
-		supposeBelongsToWidget();
-		
-		return parentWidget;
+		return parent;
 	}
 	
 	//method
@@ -567,12 +425,12 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the configurable elements of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final List<IConfigurableElement<?>> getRefConfigurables() {		
-		return (List)(getChildWidgets());
+		return (List)getChildWidgets();
 	}
 	
 	//method
@@ -582,15 +440,22 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	public final WL getRefFocusLook() {
 		return focusLook;
 	}
-
+	
 	//method
 	/**
-	 * @return the hover focus structure of the current {@link Widget}.
+	 * @return the {@link LayerGUI} the current {@link Widget} belongs to, directly or indirectly.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link LayerGUI}.
 	 */
-	public final WL getRefHoverFocusLook() {
-		return hoverFocusLook;
+	public final LayerGUI<?> getRefGUI() {
+		
+		if (parent == null) {
+			//TODO: Create ArgumentMissesParentException.
+			throw new InvalidArgumentException(this, "does not belong to a GUI");
+		}
+		
+		return parent.getRefGUI();
 	}
-	
+
 	//method
 	/**
 	 * @return the hover look of the current {@link Widget}.
@@ -600,22 +465,43 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	}
 	
 	//method
-	/** 
-	 * @return the {@link Widget}s of the current {@link Widget}, that are for painting.
+	/**
+	 * @return the current look of the current {@link Widget}.
 	 */
-	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
+	public final WL getRefLook() {
+		
+		//Enumerates the state of the current Widget.
+		switch (state) {
+			case Normal:
+			case Disabled:
+			case Collapsed:
+				return getRefBaseLook();
+			case Hovered:
+				return getRefHoverLook();
+			case Focused:
+				return getRefFocusLook();
+			default:
+				throw new InvalidArgumentException(state);
+		}
+	}
+
+	//method
+	/** 
+	 * @return the paintable {@link Widget}s of the current {@link Widget}.
+	 */
+	public final List<Widget<?, ?>> getRefPaintableWidgets() {
 		
 		final var widgetsForPainting = new List<Widget<?, ?>>();
-		fillUpWidgetsForPainting(widgetsForPainting);
+		fillUpPaintableWidgets(widgetsForPainting);
 		
 		return widgetsForPainting;
 	}
 	
 	//method
 	/** 
-	 * @return the {@link Widget}s of the current {@link Widget}, that are for painting, recursively.
+	 * @return the paintable {@link Widget}s of the current {@link Widget} recursively.
 	 */
-	public final List<Widget<?, ?>> getRefWidgetsForPaintingRecursively() {
+	public final List<Widget<?, ?>> getRefPaintableWidgetsRecursively() {
 		
 		final var widgetsForPainting = new List<Widget<?, ?>>();
 		fillUpWidgetsForPaintingRecursively(widgetsForPainting);
@@ -633,18 +519,77 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the width of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final int getWidth() {
 		return width;
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} greys out when it is disabled.
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final int getXPosition() {
+		return xPositionOnParent;
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the current {@link Widget} on the {@link LayerGUI}
+	 * the current {@link Widget} belongs to.
+	 */
+	public final int getXPositionOnGUI() {
+				
+		//Handles the case that the current Widget does not belong to a parent.
+		if (parent == null) {
+			return xPositionOnParent;
+		}
+		
+		//Handles the case that the current Widget belongs to a parent.
+		return (parent.getXPositionOnGUI() + xPositionOnParent);
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final int getYPosition() {
+		return yPositionOnParent;
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link Widget} on the {@link LayerGUI}
+	 * the current {@link Widget} belongs to.
+	 */
+	public final int getYPositionOnGUI() {
+		
+		//Handles the case that the current Widget does not belong to a parent.
+		if (parent == null) {
+			return yPositionOnParent;
+		}
+		
+		//Handles the case that the current Widget belongs to a parent.
+		return (parent.getYPositionOnGUI() + yPositionOnParent);
+	}
+
+	//method
+	/**
+	 * @return true if the current {@link Widget} grays out when it is disabled.
 	 */
 	public final boolean greysOutWhenDisabled() {
 		return greyOutWhenDisabled;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} has a left mouse button click command.
+	 */
+	public final boolean hasLeftMouseButtonClickCommand() {
+		return (leftMouseButtonClickCommand != null);
 	}
 	
 	//method
@@ -661,6 +606,14 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 */
 	public final boolean hasLeftMouseButtonReleaseCommand() {
 		return (leftMouseButtonReleaseCommand != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} has a right mouse button click command.
+	 */
+	public final boolean hasRightMouseButtonClickCommand() {
+		return (rightMouseButtonClickCommand != null);
 	}
 	
 	//method
@@ -684,7 +637,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is collapsed.
 	 */
 	public final boolean isCollapsed() {
-		return (getState() == WidgetState.Collapsed);
+		return (state == WidgetState.Collapsed);
 	}
 	
 	//method
@@ -692,17 +645,26 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is disabled.
 	 */
 	public final boolean isDisabled() {
-		return (getState() == WidgetState.Disabled);
+		return (state == WidgetState.Disabled);
 	}
 	
 	//method
 	/**
-	 * A {@link Widget} is enables when it is normal, hovered, focused or hover focused.
+	 * A {@link Widget} is enabled when it is normal, hovered or focused.
 	 * 
 	 * @return true if the current {@link Widget} is enabled.
 	 */
 	public final boolean isEnabled() {
-		return (isNormal() || isHovered() || isFocused() || isHoverFocused());
+		
+		//Enumerates the state of the current Widget.
+		switch (state) {
+			case Normal:
+			case Hovered:
+			case Focused:
+				return true;
+			default:
+				return false;
+		}
 	}
 	
 	//method
@@ -710,7 +672,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is focused.
 	 */
 	public final boolean isFocused() {
-		return (getState() == WidgetState.Focused);
+		return (state == WidgetState.Focused);
 	}
 	
 	//method
@@ -718,15 +680,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is hovered.
 	 */
 	public final boolean isHovered() {
-		return (getState() == WidgetState.Hovered);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Widget} is hover-focused.
-	 */
-	public final boolean isHoverFocused() {
-		return (getState() == WidgetState.HoverFocused);
+		return (state == WidgetState.Hovered);
 	}
 	
 	//method
@@ -734,7 +688,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is normal.
 	 */
 	public final boolean isNormal() {
-		return (getState() == WidgetState.Normal);
+		return (state == WidgetState.Normal);
 	}
 	
 	//method
@@ -742,246 +696,133 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is under the cursor.
 	 */
 	public final boolean isUnderCursor() {
-		return coversPoint(cursorXPosition, cursorYPosition);
-	}
-	
-	//abstract method
-	/**
-	 * @return true if the current {@link Widget} keeps the focus.
-	 */
-	public final boolean keepsFocus() {
-		return keepsFocus;
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any key press.
-	 * 
-	 * @param key
-	 */
-	public final void noteAnyKeyPress(final Key key) {
-		
-		//Handles the case that the current Widget is focused or hover focused.
-		if (isFocused() || isHoverFocused()) {
-			noteKeyPress(key);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any key typing.
-	 * 
-	 * @param key
-	 */
-	public final void noteAnyKeyTyping(final Key key) {
-		
-		//Handles the case that the current Widget is focused or hover focused.
-		if (isFocused() || isHoverFocused()) {
-			noteKeyTyping(key);
-		}
-	}
-
-	//method
-	/**
-	 * Lets the current {@link Widget} note any mouse button press.
-	 */
-	public final void noteAnyLeftMouseButtonPress() {
-		
-		//Handles the case that the current Widget is enabled.
-		if (isEnabled()) {
-			noteAnyLeftMouseButtonPressWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any left mouse button press recursively.
-	 */
-	public final void noteAnyLeftMouseButtonPressRecursively() {
-		if (isEnabled()) {
-			noteAnyLeftMouseButtonPressRecursivelyWhenEnabled();
-		}
-	}
-	
-	private void noteAnyLeftMouseButtonPressRecursivelyWhenEnabled() {
-		
-		//Handles the case that the current Widget is not under the cursor.
-		if (!isUnderCursor()) {
-			switch (getState()) {
-				case Focused:
-				case HoverFocused:					
-					if (!keepsFocus()) {
-						setNormal();
-					}					
-					break;
-				default:
-			}
-		}
-				
-		//Handles the case that the current Widget is under the cursor.
-		else {
-			
-			switch (getState()) {
-				case Normal:
-				case Hovered:
-				case HoverFocused:
-					setHoverFocused();
-					break;
-				default:
-					break;
-			}
-			
-			noteLeftMouseButtonPress();
-			
-			getRefWidgetsForPainting().forEach(w -> w.noteAnyLeftMouseButtonPressRecursively());
-		}
-	}
-
-	//method
-	/**
-	 * Lets the current {@link Widget} note any mouse button release.
-	 */
-	public void noteAnyLeftMouseButtonRelease() {
-		
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any mouse button release recursively.
-	 */
-	public final void noteAnyLeftMouseButtonReleaseRecursively() {
-		if (isEnabled()) {
-			noteAnyLeftMouseButtonReleaseRecursivelyWhenEnabled();
-		}
-		
-	}
-	
-	private void noteAnyLeftMouseButtonReleaseRecursivelyWhenEnabled() {
-
-		if (!isUnderCursor()) {
-			switch (getState()) {
-				case Focused:
-				case HoverFocused:						
-					if (!keepsFocus()) {
-						setNormal();
-					}						
-					break;
-				default:
-			}
-		}
-		else {
-			noteLeftMouseButtonRelease();
-			getRefWidgetsForPainting().forEach(w -> w.noteAnyLeftMouseButtonRelease());
-		}
-	}
-
-	//method
-	/**
-	 * Lets the current {@link Widget} note any mouse move.
-	 */
-	public final void noteAnyMouseMove() {
-		if (isEnabled()) {
-			if (!isUnderCursor()) {
-				
-				if (isHovered()) {
-					setNormal();
-				}
-				
-				else if (isFocused()) {
-					noteMouseMove();
-				}
-				
-				else if (isHoverFocused()) {
-					setFocused();
-				}
-			}
-			else {
-				
-				if (isNormal()) {
-					setHovered();
-				}
-				
-				else if (isFocused()) {
-					setHoverFocused();
-				}
-				
-				noteMouseMove();
-			}
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any mouse move recursively.
-	 */
-	public final void noteAnyMouseMoveRecursively() {
-		if (isEnabled()) {
-			noteAnyMouseMoveRecursivelyWhenEnabled();
-		}
-	}
-	
-	private void noteAnyMouseMoveRecursivelyWhenEnabled() {
-		noteAnyMouseMove();
-		getRefWidgetsForPaintingRecursively().forEach(w -> w.noteAnyMouseMove());
-	}
-
-	//method
-	/**
-	 * Lets the current {@link Widget} note the given mouse wheel rotation steps.
-	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
-	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
-	 * 
-	 * @param rotationSteps
-	 */
-	public void noteAnyMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
-		if (isEnabled() && isUnderCursor()) {
-			noteMouseWheelRotationSteps(mouseWheelRotationSteps);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any right mouse button press.
-	 */
-	public final void noteAnyRightMouseButtonPress() {
-		if (isEnabled() && isUnderCursor()) {
-			noteRightMouseButtonPress();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note any right mouse button release.
-	 */
-	public final void noteAnyRightMouseButtonRelease() {
-		if (isEnabled() && isUnderCursor()) {
-			noteRightMouseButtonRelease();
-		}
+		return containsPointRelatively(cursorXPosition, cursorYPosition);
 	}
 	
 	//method
 	/**
 	 * Lets the current {@link Widget} note a key press.
 	 * 
-	 * @param keyEvent
+	 * @param key
 	 */
-	public void noteKeyPress(final Key key) {}
+	public final void noteKeyPress(final Key key) {
+		if (isEnabled()) {
+			noteKeyPressWhenEnabled(key);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a key press recursively.
+	 * 
+	 * @param key
+	 */
+	public final void noteKeyPressRecursively(final Key key) {
+		
+		noteKeyPress(key);
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteKeyPressRecursively(key));
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a key release.
+	 * 
+	 * @param key
+	 */
+	public final void noteKeyRelease(final Key key) {
+		if (isEnabled()) {
+			noteKeyReleaseWhenEnabled(key);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a key release recursively.
+	 * 
+	 * @param key
+	 */
+	public final void noteKeyReleaseRecursively(final Key key) {
+		
+		noteKeyRelease(key);
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteKeyReleaseRecursively(key));
+		}
+	}
 	
 	//method
 	/**
 	 * Lets the current {@link Widget} note a key typing.
 	 * 
-	 * @param keyEvent
+	 * @param key
 	 */
-	public void noteKeyTyping(final Key keys) {}
+	public final void noteKeyTyping(final Key key) {
+		if (isEnabled()) {
+			noteKeyTypingWhenEnabled(key);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a key typing recursively.
+	 * 
+	 * @param key
+	 */
+	public final void noteKeyTypingRecursively(final Key key) {
+		
+		noteKeyTyping(key);
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteKeyTypingRecursively(key));
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button click.
+	 */
+	public final void noteLeftMouseButtonClick() {
+		if (isEnabled()) {
+			noteLeftMouseButtonClickWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button click recursively.
+	 */
+	public final void noteLeftMouseButtonClickRecursively() {
+		
+		noteLeftMouseButtonClick();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonClickRecursively());
+		}
+	}
 	
 	//method
 	/**
 	 * Lets the current {@link Widget} note a left mouse button press.
 	 */
-	public void noteLeftMouseButtonPress() {	
-		if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
-			leftMouseButtonPressCommand.run();
+	public final void noteLeftMouseButtonPress() {
+		if (isEnabled()) {
+			noteLeftMouseButtonPressWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button press recursively.
+	 */
+	public final void noteLeftMouseButtonPressRecursively() {
+		
+		noteLeftMouseButtonPress();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonPressRecursively());
 		}
 	}
 	
@@ -989,14 +830,22 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a left mouse button release.
 	 */
-	public void noteLeftMouseButtonRelease() {
-		
-		if (viewAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
-			leftMouseButtonReleaseCommand.run();
+	public final void noteLeftMouseButtonRelease() {
+		if (isEnabled()) {
+			noteLeftMouseButtonReleaseWhenEnabled();
 		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button release recursively.
+	 */
+	public final void noteLeftMouseButtonReleaseRecursively() {
 		
-		if (!isUnderCursor() && !keepsFocus()) {
-			setNormal();
+		noteLeftMouseButtonRelease();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonReleaseRecursively());
 		}
 	}
 	
@@ -1004,50 +853,114 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse move.
 	 */
-	public void noteMouseMove() {}
+	public final void noteMouseMove() {
+		if (isEnabled()) {
+			noteMouseMoveWhenEnabled();
+		}
+	}
 	
 	//method
 	/**
-	 * Lets this GUI note the given mouse wheel rotation steps.
-	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
-	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
-	 * 
-	 * @param rotationSteps
+	 * Lets the current {@link Widget} note a mouse move recursively.
 	 */
-	public void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {}
+	public final void noteMouseMoveRecursively() {
+		
+		noteMouseMove();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteMouseMoveRecursively());
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel rotation step.
+	 * 
+	 * @param directionOfRotation
+	 */
+	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+		if (isEnabled()) {
+			noteMouseWheelRotationStepWhenEnabled(directionOfRotation);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel rotation step recursively.
+	 * 
+	 * @param directionOfRotation
+	 */
+	public void noteMouseWheelRotationStepRecursively(final DirectionOfRotation directionOfRotation) {
+		
+		noteMouseWheelRotationStep(directionOfRotation);
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStepRecursively(directionOfRotation));
+		}
+	}
 	
 	//method
 	/**
 	 * Lets the current {@link Widget} note a right mouse button press.
 	 */
-	public void noteRightMouseButtonPress() {}
+	public final void noteRightMouseButtonPress() {
+		if (isEnabled()) {
+			noteRightMouseButtonPressWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button press recursively.
+	 */
+	public final void noteRightMouseButtonPressRecursively() {
+		
+		noteRightMouseButtonPress();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonPressRecursively());
+		}
+	}
 	
 	//method
 	/**
 	 * Lets the current {@link Widget} note a right mouse button release.
 	 */
-	public void noteRightMouseButtonRelease() {}
+	public final void noteRightMouseButtonRelease() {
+		if (isEnabled()) {
+			noteRightMouseButtonReleaseWhenEnabled();
+		}
+	}
 	
 	//method
 	/**
-	 * Paints the current {@link Widget} using the position on its parent container using the given painter.
-	 * This method promises that the given painter has the same position at the end as at the beginning.
+	 * Lets the current {@link Widget} note a right mouse button release recursively.
+	 */
+	public final void noteRightMouseButtonReleaseRecursively() {
+		
+		noteRightMouseButtonRelease();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonReleaseRecursively());
+		}
+	}
+	
+	//method
+	/**
+	 * Paints the current {@link Widget} recursively using the position on its parent and the given painter.
+	 * This method ensures that the given painter has the same position at the end of the painting as the beginning.
 	 * 
 	 * @param painter
 	 */
-	public final void paint(final IPainter painter) {
-		paint2(
-			painter.createPainter(
-				getXPosition(),
-				getYPosition()
-			)
-		);
+	public final void paintRecursively(final IPainter painter) {
+		paintRecursivelyUsingPositionedPainter(painter.createPainter(getXPosition(), getYPosition()));
 	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void recalculate() {
 		width = calculatedWidth();
 		height = calculatedHeight();
@@ -1055,18 +968,18 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Recalculates the {@link Widget} recursively.
+	 * Recalculates the current {@link Widget} recursively.
 	 */
 	public final void recalculateRecursively() {
 		
-		getChildWidgets().forEach(cw -> cw.recalculateRecursively());
+		getRefPaintableWidgets().forEach(cw -> cw.recalculateRecursively());
 		
 		recalculate();
 	}
 	
 	//method
 	/**
-	 * Avoids that the current widget greys out when it is disabled.
+	 * Avoids that the current {@link Widget} greys out when it is disabled.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -1079,58 +992,107 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the left mouse button press command of the current {@link Widget}.
+	 * Removes the left mouse button click command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
 	 */
-	public final void removeLeftMouseButtonPressCommand() {
+	public final W removeLeftMouseButtonClickCommand() {
+		
+		leftMouseButtonClickCommand = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Removes the left mouse button press command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public final W removeLeftMouseButtonPressCommand() {
+		
 		leftMouseButtonPressCommand = null;
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
 	 * Removes the left mouse button release command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
 	 */
-	public final void removeLeftMouseButtonReleaseCommand() {
+	public final W removeLeftMouseButtonReleaseCommand() {
+		
 		leftMouseButtonReleaseCommand = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Removes the right mouse button click command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public final W removeRightMouseButtonClickCommand() {
+		
+		rightMouseButtonClickCommand = null;
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
 	 * Removes the right mouse button press command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
 	 */
-	public final void removeRightMouseButtonPressCommand() {
+	public final W removeRightMouseButtonPressCommand() {
+		
 		rightMouseButtonPressCommand = null;
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
 	 * Removes the right mouse button release command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
 	 */
-	public final void removeRightMouseButtonReleaseCommand() {
+	public final W removeRightMouseButtonReleaseCommand() {
+		
 		rightMouseButtonReleaseCommand = null;
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Resets the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public W reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
+				
 		setNormal();
-		setGreyOutWhenDisabled();
 		
+		removeLeftMouseButtonClickCommand();
 		removeLeftMouseButtonPressCommand();
 		removeLeftMouseButtonReleaseCommand();
+		removeRightMouseButtonClickCommand();
 		removeRightMouseButtonPressCommand();
 		removeRightMouseButtonReleaseCommand();
 		
-		resetConfiguration();
-		
+		/*
+		 * Calls method of the base class.
+		 * 
+		 * The base class' reset method is called at the end of the current class' reset method,
+		 * because the base class' reset method calls the resetConfiguration method,
+		 * that requires the result of the current class' reset method.
+		 */
+		super.reset();
+				
 		return asConcreteType();
 	}
 	
@@ -1141,7 +1103,7 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 */
 	public final W resetAndApplyDefaultConfiguration() {
-				
+		
 		reset();
 		applyDefaultConfigurationWhenHasBeenReset();
 		
@@ -1157,78 +1119,16 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	@Override
 	public W resetConfiguration() {
 		
-		getRefBaseLook().reset();
-		getRefHoverLook().reset();
-		getRefFocusLook().reset();
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
+		setGreyOutWhenDisabled();
 		
-		setCustomCursorIcon(CursorIcon.Arrow);
-		
-		//Resets the configuration of the widgets of the current widget.
-		getChildWidgets().forEach(r -> r.resetConfiguration());
-		
+		baseLook.reset();
+		hoverLook.reset();
+		focusLook.reset();
+				
 		return asConcreteType();
 	}
 	
-	//method
-	/**
-	 * Runs the left mouse button press command of the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a left mouse button press command.
-	 */
-	public final W runLeftMouseButtonPressCommand() {
-		
-		getLeftMouseButtonPressCommand().run();
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Runs the left mouse button release command of the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a left mouse button release command.
-	 */
-	public final W runLeftMouseButtonReleaseCommand() {
-		
-		getLeftMouseButtonReleaseCommand().run();
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Runs the right mouse button press command of the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a right mouse button press command.
-	 */
-	public final W runRightMouseButtonPressCommand() {
-		
-		getRightMouseButtonPressCommand().run();
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Runs the right mouse button release command of the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a right mouse button release command.
-	 */
-	public final W runRightMouseButtonReleaseCommand() {
-		
-		getRightMouseButtonReleaseCommand().run();
-		
-		return asConcreteType();
-	}
-
 	//method
 	/**
 	 * Sets the current {@link Widget} collapsed.
@@ -1244,20 +1144,18 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the custom cursor icon of the current {@link Widget}.
+	 * Sets the custom {@link CursorIcon} of the current {@link Widget}.
 	 * 
 	 * @param customCursorIcon
-	 * @throws NullArgumentException if the given custom cursor icon is null.
+	 * @return the current {@link Widget}.
+	 * @throws NullArgumentException if the given customCursorIcon is null.
 	 */
 	public final W setCustomCursorIcon(final CursorIcon customCursorIcon) {
 		
-		//Checks if the given custom cursor icon is not null.
-		Validator
-		.suppose(customCursorIcon)
-		.thatIsNamed("custom cursor icon")
-		.isNotNull();
+		//Checks if the given customCursorIcon is not null.
+		Validator.suppose(customCursorIcon).thatIsNamed("custom cursor icon").isNotNull();
 		
-		//Sets the custom cursor icon of the current widget.
+		//Sets the custom CursorIcon of the current Widget.
 		this.customCursorIcon = customCursorIcon;
 		
 		return asConcreteType();
@@ -1265,31 +1163,40 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the position of the cursor to the current {@link Widget}.
+	 * Sets the position of the cursor on the current {@link Widget} recursively.
 	 * 
 	 * @param cursorXPosition
 	 * @param cursorYPosition
+	 * @return the current {@link Widget}.
 	 */
-	public void setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
+	public W setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
 		
-		getRefWidgetsForPainting().forEach(cw -> cw.setParentCursorPosition(cursorXPosition, cursorYPosition));
+		for (final var w : getRefPaintableWidgets()) {
+			w.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
+		}
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Sets the cursor position of the parent of the current {@link Widget}.
+	 * Sets the position of the cursor on the parent of the current {@link Widget} recursively.
 	 * 
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
+	 * @return the current {@link Widget}.
 	 */
-	public final void setParentCursorPosition(
+	public final void setParentCursorPositionRecursively(
 		final int parentCursorXPosition,
 		final int parentCursorYPosition
 	) {
-		setCursorPositionRecursively(parentCursorXPosition - xPositionOnParent, parentCursorYPosition - yPositionOnParent);
+		setCursorPositionRecursively(
+			parentCursorXPosition - xPositionOnParent,
+			parentCursorYPosition - yPositionOnParent
+		);
 	}
 	
 	//method
@@ -1346,26 +1253,18 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the current {@link Widget} hover-focused.
+	 * Sets the left mouse button click command of the current {@link Widget}.
 	 * 
+	 * @param leftMouseButtonClickCommand
 	 * @return the current {@link Widget}.
+	 * @throws NullArgumentException if the given leftMouseButtonClickCommand is null.
 	 */
-	public final W setHoverFocused() {
+	public final W setLeftMouseButtonClickCommand(final IFunction leftMouseButtonClickCommand) {
 		
-		state = WidgetState.HoverFocused;
+		//Checks if the given leftMouseButtonClickCommand is not null.
+		Validator.suppose(leftMouseButtonClickCommand).thatIsNamed("left mouse button click command").isNotNull();
 		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets that the current {@link widget} keeps the focus.
-	 * 
-	 * @return the current {@link widget}.
-	 */
-	public final W setKeepsFocus() {
-		
-		keepsFocus = true;
+		this.leftMouseButtonClickCommand = leftMouseButtonClickCommand;
 		
 		return asConcreteType();
 	}
@@ -1376,38 +1275,74 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * 
 	 * @param leftMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given left mouse button press command is null.
+	 * @throws NullArgumentException if the given leftMouseButtonPressCommand is null.
 	 */
 	public final W setLeftMouseButtonPressCommand(final IFunction leftMouseButtonPressCommand) {
 		
-		//Checks if the given left mouse button press command is not null.
-		Validator
-		.suppose(leftMouseButtonPressCommand)
-		.thatIsNamed("left mouse button press command")
-		.isNotNull();
+		//Checks if the given leftMouseButtonPressCommand is not null.
+		Validator.suppose(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
 		return asConcreteType();
-	}
-	
+	}	
+		
 	//method
 	/**
 	 * Sets the left mouse button release command of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given left mouse button release command is null.
+	 * @throws NullArgumentException if the given leftMouseButtonReleaseCommand is null.
 	 */
 	public final W setLeftMouseButtonReleaseCommand(final IFunction leftMouseButtonReleaseCommand) {
 		
-		//Checks if the given left mouse button release command is not null.
-		Validator
-		.suppose(leftMouseButtonReleaseCommand)
-		.thatIsNamed("left mouse button release command")
-		.isNotNull();
+		//Checks if the given leftMouseButtonReleaseCommandd is not null.
+		Validator.suppose(leftMouseButtonReleaseCommand).thatIsNamed("left mouse button release command").isNotNull();
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Sets the {@link LayerGUI} the current {@link Widget} will belong.
+	 * 
+	 * @param parentGUI
+	 * @throws NullArgumentException if the given parentGUI is null.
+	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
+	 */
+	public final void setParent(final LayerGUI<?> parentGUI) {
+		setParent(new WidgetParent(parentGUI, this));
+	}
+	
+	//method
+	/**
+	 * Sets the position of the current {@link Widget} on its parent.
+	 * 
+	 * @param xPositionOnParent
+	 * @param yPositionOnParent
+	 */
+	public final void setPositionOnParent(final int xPositionOnParent,	final int yPositionOnParent) {				
+		this.xPositionOnParent = xPositionOnParent;
+		this.yPositionOnParent = yPositionOnParent;
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button click command of the current {@link Widget}.
+	 * 
+	 * @param rightMouseButtonClickCommand
+	 * @return the current {@link Widget}.
+	 * @throws NullArgumentException if the given rightMouseButtonClickCommand is null.
+	 */
+	public final W setRightMouseButtonClickCommand(final IFunction rightMouseButtonClickCommand) {
+		
+		//Checks if the given rightMouseButtonClickCommand is not null.
+		Validator.suppose(rightMouseButtonClickCommand).thatIsNamed("right mouse button click command").isNotNull();
+		
+		this.rightMouseButtonClickCommand = rightMouseButtonClickCommand;
 		
 		return asConcreteType();
 	}
@@ -1418,15 +1353,12 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * 
 	 * @param rightMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given right mouse button press command is null.
+	 * @throws NullArgumentException if the given rightMouseButtonPressCommand is null.
 	 */
 	public final W setRightMouseButtonPressCommand(final IFunction rightMouseButtonPressCommand) {
 		
-		//Checks if the given right mouse button press command is not null.
-		Validator
-		.suppose(rightMouseButtonPressCommand)
-		.thatIsNamed("right mouse button press command")
-		.isNotNull();
+		//Checks if the given rightMouseButtonPressCommand is not null.
+		Validator.suppose(rightMouseButtonPressCommand).thatIsNamed("right mouse button press command").isNotNull();
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
@@ -1439,15 +1371,12 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * 
 	 * @param rightMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given right mouse button release command is null.
+	 * @throws NullArgumentException if the given rightMouseButtonReleaseCommand is null.
 	 */
 	public final W setRightMouseButtonReleaseCommand(final IFunction rightMouseButtonReleaseCommand) {
 		
-		//Checks if the given right mouse button release command is not null.
-		Validator
-		.suppose(rightMouseButtonReleaseCommand)
-		.thatIsNamed("right mouse button release command")
-		.isNotNull();
+		//Checks if the given rightMouseButtonReleaseCommand is not null.
+		Validator.suppose(rightMouseButtonReleaseCommand).thatIsNamed("right mouse button release command").isNotNull();
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
@@ -1477,9 +1406,9 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	public final W setState(final WidgetState state) {
 		
 		//Checks if the given state is not null.
-		Validator.suppose(state).thatIsNamed("state").isNotNull();
+		Validator.suppose(state).thatIsNamed(VariableNameCatalogue.STATE).isNotNull();
 
-		//Sets the state of the current {@link Widget}.
+		//Sets the state of the current Widget.
 		this.state = state;
 		
 		return asConcreteType();
@@ -1487,23 +1416,44 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//abstract method
 	/**
-	 * Applies a usable configuration to the current {@link Widget}
-	 * when the configuration of the current {@link Widget} has been reset.
+	 * @return true if the view are of the current {@link Widget} is under the cursor.
+	 */
+	public abstract boolean viewAreaIsUnderCursor();
+	
+	//TODO
+	//method
+	/**
+	 * Adds the given childWidget to the current {@link Widget}.
+	 * 
+	 * @param childWidget
+	 * @throws NullArgumentException if the given childWidget is null.
+	 */
+	protected final void addChildWidget(final Widget<?, ?> childWidget) {
+		
+		Validator.suppose(childWidget).thatIsNamed("child Widget").isNotNull();
+		
+		childWidget.setParent(this);
+	}
+	
+	//abstract method
+	/**
+	 * Applies the default configuration to the current {@link Widget}
+	 * for the case when the configuration of the current {@link Widget} has been reset.
 	 */
 	protected abstract void applyDefaultConfigurationWhenHasBeenReset();
 	
 	//abstract method
 	/**
-	 * @return a new widget look for the current {@link Widget}.
+	 * @return a new look for the current {@link Widget}.
 	 */
-	protected abstract WL createWidgetLook();
+	protected abstract WL createLook();
 	
 	//abstract method
 	/**
 	 * Fills up the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} does not create a new {@link List}
-	 * and fills up its child {@link Widget}s into a given {@link List}.
+	 * For a better performance, a {@link Widget} fills up its child {@link Widget}s into a given {@link List}
+	 * and does not create a new {@link List}.
 	 * 
 	 * @param list
 	 */
@@ -1511,60 +1461,20 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//abstract method
 	/**
-	 * Fills up the {@link Widget}s of the current {@link Widget}, that are for painting, into the given list.
+	 * Fills up the paintable {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} does not create a new {@link List}
-	 * and fills up its {@link Widget}s for painting into a given {@link List}.
+	 * For a better performance, a {@link Widget} fills up its paintable {@link Widget}s into a given {@link List}
+	 * and does not create a new {@link List}.
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpWidgetsForPainting(List<Widget<?, ?>> list);
+	protected abstract void fillUpPaintableWidgets(List<Widget<?, ?>> list);
 	
 	//abstract method
 	/**
 	 * @return the height of the current {@link Widget} when it is s not collapsed.
 	 */
 	protected abstract int getHeightWhenNotCollapsed();
-	
-	//method
-	/**
-	 * @return the current look of the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget} does not have a current look.
-	 */
-	public final WL getRefLook() {
-		
-		//Enumerates the state of the current {@link Widget}.
-		switch (getState()) {
-			case Normal:
-			case Disabled:
-			case Collapsed:
-				return getRefBaseLook();
-			case Hovered:
-				return getRefHoverLook();
-			case Focused:
-				return getRefFocusLook();
-			case HoverFocused:
-				return getRefHoverFocusLook();
-			default:
-				throw new ArgumentMissesAttributeException(
-					this,
-					"current look"
-				);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the own widgets of the current {@link Widget} recursively.
-	 */
-	public final List<Widget<?, ?>> getChildWidgetsRecursively() {
-		
-		final var widgets = new List<Widget<?, ?>>();
-		
-		fillUpChildWidgetsRecursively(widgets);
-		
-		return widgets;
-	}
 	
 	//abstract method
 	/**
@@ -1574,158 +1484,183 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link Widget} on the {@link ILayerGUI} it belongs to.
-	 */
-	protected final int getXPositionOnGUI() {
-		
-		if (!belongsToWidget()) {
-			return getXPosition();
-		}
-		
-		return (getParentWidget().getXPositionOnGUI() + getXPosition());
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the current {@link Widget} on its parent container.
-	 */
-	@Override
-	public final int getXPosition() {
-		return xPositionOnParent;
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the current {@link Widget} on the {@link ILayerGUI} it belongs to.
-	 */
-	protected final int getYPositionOnGUI() {
-		
-		if (!belongsToWidget()) {
-			return getYPosition();
-		}
-		
-		return (getParentWidget().getYPositionOnGUI() + getYPosition());
-	}
-	
-	//method
-	/**
-	 * @return the relative y-position of the current {@link Widget} on its parent container.
-	 */
-	@Override
-	public final int getYPosition() {
-		return yPositionOnParent;
-	}
-	
-	//method
-	/**
-	 * Paints the current {@link Widget} using the given painter.
+	 * Lets the current {@link Widget} note a key press for the case when it is enabled.
 	 * 
-	 * @param painter
+	 * @param key
 	 */
-	protected final void paint2(final IPainter painter) {
-		
-		paint3(painter);
-		
-		//Handles the case that the current widget is disabled and would grey out.
-		if (isDisabled() && greysOutWhenDisabled()) {
-			painter.setColor(Color.GREY);
-			painter.paintFilledRectangle(getWidth(), getHeight());
+	protected void noteKeyPressWhenEnabled(final Key key) {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a key release for the case when it is enabled.
+	 * 
+	 * @param key
+	 */
+	protected void noteKeyReleaseWhenEnabled(final Key key) {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a key typing for the case when it is enabled.
+	 * 
+	 * @param key
+	 */
+	protected void noteKeyTypingWhenEnabled(final Key key) {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button click for the case when it is enabled.
+	 */
+	protected void noteLeftMouseButtonClickWhenEnabled() {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button press for the case when it is enabled.
+	 */
+	protected void noteLeftMouseButtonPressWhenEnabled() {		
+		if (!isUnderCursor()) {
+			
+			//Enumerates the state of the current Widget.
+			switch (state) {
+				case Hovered:
+				case Focused:
+					setNormal();
+					break;
+				default:
+					break;
+			}
+		}
+		else {
+			
+			//Enumerates the state of the current Widget.
+			switch (state) {
+				case Normal:
+				case Hovered:
+					setFocused();
+					break;
+				default:
+					break;
+			}
+			
+			if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
+				leftMouseButtonPressCommand.run();
+			}
 		}
 	}
 	
-	protected void paint3(final IPainter painter) {
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button release for the case when it is enabled.
+	 */
+	protected void noteLeftMouseButtonReleaseWhenEnabled() {
 		
-		paint(getRefLook(), painter);
-		
-		getChildWidgets().forEach(cw ->  cw.paint(painter));
+		if (!isUnderCursor()) {
+			
+			//Enumerates the state of the current Widget.
+			switch (state) {
+				case Hovered:
+				case Focused:
+					setNormal();
+					break;
+				default:
+					break;
+			}
+		}
+		else {
+			if (viewAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
+				leftMouseButtonReleaseCommand.run();
+			}
+		}
 	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse move for the case when it is enabled.
+	 */
+	protected void noteMouseMoveWhenEnabled() {
+		if (!isUnderCursor()) {
+			
+			//Enumerates the sate of the current Widget.
+			switch(state) {
+				case Hovered:
+					setNormal();
+					break;
+				default:
+					break;
+			}
+		}
+		else {
+			
+			//Enumerates the sate of the current Widget.
+			switch(state) {
+				case Normal:
+					setHovered();
+					break;
+				default:
+					break;
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel rotation step for the case when it is enabled.
+	 * 
+	 * @param directionOfRotation
+	 */
+	protected void noteMouseWheelRotationStepWhenEnabled(final DirectionOfRotation directionOfRotation) {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button click for the case when it is enabled.
+	 */
+	protected void noteRightMouseButtonClickWhenEnabled() {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button press for the case when it is enabled.
+	 */
+	protected void noteRightMouseButtonPressWhenEnabled() {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button release for the case when it is enabled.
+	 */
+	protected void noteRightMouseButtonReleaseWhenEnabled() {}
 	
 	//abstract method
 	/**
-	 * Paints the current {@link Widget} using the given widget structure and painter.
+	 * Paints the current {@link Widget}
+	 * using the given painter, that is supposed to be positioned, and look.
 	 * 
-	 * @param widgetStructure
 	 * @param painter
+	 * @param look
 	 */
-	protected abstract void paint(final WL widgetStructure, final IPainter painter);
+	protected abstract void paint(final IPainter painter, final WL look);
 	
 	//method
 	/**
-	 * Sets the {@link Widget} the current {@link Widget} will belong to.
-	 * 
-	 * @param parentWidget
-	 * @throws NullArgumentException if the given parent widget is null.
+	 * @return true if the current {@link Widget} paints its paintable {@link Widgets} a priori.
 	 */
-	public final void setParentWidget(final Widget<?, ?> parentWidget) {
-		
-		//Checks if the given parent widget is not null.
-		Validator
-		.suppose(parentWidget)
-		.thatIsNamed("parent widget")
-		.isNotNull();
-		
-		//Sets the parent widget of the current widget.
-		this.parentWidget = parentWidget;
+	protected boolean paintsPaintableWidgetAPriori() {
+		return true;
 	}
-	
+
 	//method
 	/**
-	 * Sets the position of the current {@link Widget} on its parent.
-	 * 
-	 * @param xPositionOnParent
-	 * @param yPositionOnParent
+	 * @return true if the current {@link Widget} redictes the events to its paintable {@link Widgets} a priori.
 	 */
-	public final void setPositionOnParent(
-		final int xPositionOnParent,
-		final int yPositionOnParent
-	) {				
-		this.xPositionOnParent = xPositionOnParent;
-		this.yPositionOnParent = yPositionOnParent;
+	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
+		return true;
 	}
-	
+
 	//method
 	/**
-	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a GUI that is closed.
+	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a {@link LayerGUI} that is closed.
 	 */
 	protected final void supposeGUIIsAlive() {
-		if (belongsToGUI() && getParentGUI().isClosed()) {
-			throw new ClosedArgumentException(getParentGUI());
+		if (belongsToGUI() && parent.GUIIsClosed()) {
+			throw new ClosedArgumentException(getRefGUI());
 		}
-	}
-	
-	//abstract method
-	/**
-	 * @return true if the view are of the current {@link Widget} is under the cursor.
-	 */
-	protected abstract boolean viewAreaIsUnderCursor();
-	
-	//method
-	/**
-	 * Sets the GUI the current {@link Widget} will belong to.
-	 * 
-	 * @param parentGUI
-	 * @throws NullArgumentException if the given parentGUI is null.
-	 */
-	public final void setParentGUI(final LayerGUI<?> parentGUI) {
-		
-		//Checks if the given parentGUI is not null.
-		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
-		
-		//Checks if the given parentGUI does not contain already a Widget with the same name than the current Widget.
-		if (parentGUI.containsElement(getName())) {
-			throw
-			new InvalidArgumentException(
-				"parent GUI",
-				parentGUI,
-				"contains already a Widget with the name " + getNameInQuotes()
-			);
-		}
-				
-		//Sets the parentGUI of the current Widget.
-		this.parentGUI = parentGUI;
-		
-		//Sets the parentGUI of the child Widgets of the current Widget.
-		getChildWidgets().forEach(cw -> cw.setParentGUI(parentGUI));
 	}
 	
 	//method
@@ -1734,12 +1669,12 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 */
 	private int calculatedHeight() {
 		
-		//Handles the case that the current widget is collapsed.
-		if (isCollapsed()) {
+		//Handles the case that the current Widget is collapsed.
+		if (state == WidgetState.Collapsed) {
 			return 0;
 		}
 		
-		//Handles the case that the current widget is not collapsed.
+		//Handles the case that the current Widget is not collapsed.
 		return getHeightWhenNotCollapsed();
 	}
 	
@@ -1749,12 +1684,12 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 */
 	private int calculatedWidth() {
 		
-		//Handles the case that the current widget is collapsed.
-		if (isCollapsed()) {
+		//Handles the case that the current Widget is collapsed.
+		if (state == WidgetState.Collapsed) {
 			return 0;
 		}
 		
-		//Handles the case that the current widget is not collapsed.
+		//Handles the case that the current Widget is not collapsed.
 		return getWidthWhenNotCollapsed();
 	}
 	
@@ -1777,147 +1712,83 @@ implements Recalculable, ISmartObject<W>, TopLeftPositionedRecangular {
 	 * @param list
 	 */
 	private void fillUpWidgetsForPaintingRecursively(final List<Widget<?, ?>> list) {
-		fillUpWidgetsForPainting(list);
-		getRefWidgetsForPainting().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
+		fillUpPaintableWidgets(list);
+		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}
-	
+		
 	//method
 	/**
-	 * @return the left mouse button press command of the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a left mouse button press command.
+	 * Paints a cover for the current {@link Widget} using the given painter, that is supposed to be positioned.
+	 * 
+	 * @param painter
 	 */
-	private IFunction getLeftMouseButtonPressCommand() {
-
-		supposeHasLeftMouseButtonPressCommad();
-		
-		return leftMouseButtonPressCommand;
+	private void paintCoverUsingPositionedPainter(IPainter painter) {
+		painter.setColor(Color.GREY);
+		painter.paintFilledRectangle(getWidth(), getHeight());
 	}
-	
+		
 	//method
 	/**
-	 * @return the left mouse button release command of the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a left mouse button release command.
+	 * Paints the current {@link Widget} recursively using the given painter, that is supposed to be positioned.
+	 * 
+	 * @param painter
 	 */
-	private IFunction getLeftMouseButtonReleaseCommand() {
-
-		supposeHasLeftMouseButtonReleaseCommad();
+	private void paintRecursivelyUsingPositionedPainter(final IPainter painter) {
 		
-		return leftMouseButtonReleaseCommand;
-	}
-	
-	//method
-	/**
-	 * @return the right mouse button press command of the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a right mouse button press command.
-	 */
-	private IFunction getRightMouseButtonPressCommand() {
-
-		supposeHasRightMouseButtonPressCommad();
-		
-		return rightMouseButtonPressCommand;
-	}
-	
-	//method
-	/**
-	 * @return the right mouse button release command of the current {@link Widget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a right mouse button release command.
-	 */
-	private IFunction getRightMouseButtonReleaseCommand() {
-
-		supposeHasRightMouseButtonReleaseCommad();
-		
-		return rightMouseButtonReleaseCommand;
-	}
-	
-	private void noteAnyLeftMouseButtonPressWhenEnabled() {
-		
-		
-	}
-
-	//method
-	/**
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link Widget}.
-	 */
-	private void supposeBelongsToWidget() {
-		
-		//Checks if the current widget belongs to a widget.
-		if (!belongsToWidget()) {
-			throw new InvalidArgumentException(
-				this,
-				"does not belong to a widget"
-			);
+		paintRecursivelyUsingPositionedPainterWhenNotDisabled(painter);
+				
+		//Handles the case that the current widget is disabled and would grey out.
+		if (isDisabled() && greysOutWhenDisabled()) {
+			paintCoverUsingPositionedPainter(painter);	
 		}
 	}
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a left mouse button press command.
+	 * Paints the current {@link Widget} recursively using the given painter, that is supposed to be positioned,
+	 * for the case when the current {@link Widget} is not disabled.
+	 * 
+	 * @param painter
 	 */
-	private void supposeHasLeftMouseButtonPressCommad() {
+	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
+				
+		paint(painter, getRefLook());
 		
-		//Checks if the current widget has a left mouse button press command.
-		if (!hasLeftMouseButtonPressCommand()) {
-			throw 
-			new ArgumentMissesAttributeException(
-				this,
-				"left mouse button press command"
-			);
-		}
+		if (paintsPaintableWidgetAPriori())
+		getRefPaintableWidgets().forEach(w ->  w.paintRecursively(painter));
 	}
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a left mouse button release command.
+	 * Sets the {@link Widget} the current {@link Widget} will belong to.
+	 * 
+	 * @param parentWidget
+	 * @throws NullArgumentException if the given parentWidget is null.
+	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
-	private void supposeHasLeftMouseButtonReleaseCommad() {
-		
-		//Checks if the current widget has a left mouse button release command.
-		if (!hasLeftMouseButtonReleaseCommand()) {
-			throw 
-			new ArgumentMissesAttributeException(
-				this,
-				"left mouse button release command"
-			);
-		}
+	private void setParent(final Widget<?, ?> parentWidget) {
+		setParent(new WidgetParent(parentWidget, this));
 	}
-	
+
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a right mouse button press command.
+	 * Sets the parent the current {@link Widget} will belong to.
+	 * 
+	 * @param parent
+	 * @throws NullArgumentException if the given parent is null.
+	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
-	private void supposeHasRightMouseButtonPressCommad() {
+	private void setParent(final WidgetParent parent) {
 		
-		//Checks if the current widget has a right mouse button press command.
-		if (!hasRightMouseButtonPressCommand()) {
-			throw 
-			new ArgumentMissesAttributeException(
-				this,
-				"right mouse button press command"
-			);
-		}
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
-	 * does not have a right mouse button release command.
-	 */
-	private void supposeHasRightMouseButtonReleaseCommad() {
+		//Checks if the given parent is not null.
+		Validator.suppose(parent).thatIsNamed(VariableNameCatalogue.PARENT).isNotNull();
 		
-		//Checks if the current widget has a right mouse button release command.
-		if (!hasRightMouseButtonReleaseCommand()) {
-			throw 
-			new ArgumentMissesAttributeException(
-				this,
-				"right mouse button release command"
-			);
+		//Checks if the current Widget does not already belong to a parent.
+		if (this.parent != null) {
+			throw new InvalidArgumentException(this, "belongs already to a " + this.parent.getTypeInQuotes());
 		}
+		
+		//Sets the parent of the current Widget.
+		this.parent = parent;
 	}
 }

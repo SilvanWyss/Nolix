@@ -18,7 +18,6 @@ public enum WidgetState implements IElementEnum {
 	Normal,
 	Hovered,
 	Focused,
-	HoverFocused,
 	Disabled,
 	Collapsed;
 	

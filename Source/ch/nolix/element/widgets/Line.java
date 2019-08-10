@@ -11,7 +11,6 @@ import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidgets.ContainerWidget;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 
@@ -64,10 +63,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		}
 	}
 	
-	public final boolean belongsToContainerWidget() {
-		return (belongsToWidget() && getParentWidget().isOfType(ContainerWidget.class));
-	}
-	
 	//method
 	/**
 	 * @return the attributes of this line.
@@ -97,26 +92,11 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		return color;
 	}
 	
-	//method
+	//abstract method
 	/**
 	 * @return the length of this line.
 	 */
-	public final int getLength() {
-		
-		if (belongsToContainerWidget()) {
-			
-			for (final var st : Thread.currentThread().getStackTrace()) {
-				if (st.getFileName() == Line.TYPE_NAME && st.getMethodName() == "getLength") {
-					return DEFAULT_LENGTH;
-				}
-			}
-			
-			return getParentWidget().as(ContainerWidget.class).getContentArea().getWidth();
-			
-		}
-		
-		return DEFAULT_LENGTH;
-	}
+	public abstract int getLength();
 	
 	//method
 	/**
@@ -202,6 +182,15 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean viewAreaIsUnderCursor() {
+		return isUnderCursor();
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final void applyDefaultConfigurationWhenHasBeenReset() {
 		setThickness(DEFAULT_THICKNESS);
 	}
@@ -211,7 +200,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @return a new widget look for this line.
 	 */
 	@Override
-	protected final LineLook createWidgetLook() {
+	protected final LineLook createLook() {
 		return new LineLook();
 	}
 	
@@ -227,7 +216,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
+	protected final void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
@@ -237,23 +226,11 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @param painter
 	 */
 	@Override
-	protected final void paint(
-		final LineLook lineLook,
-		final IPainter painter
-	) {
+	protected final void paint(final IPainter painter, final LineLook lineLook) {
 		painter.setColor(color);
 		painter.paintFilledRectangle(
 			getWidth(),
 			getHeight()
 		);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected boolean viewAreaIsUnderCursor() {
-		return isUnderCursor();
 	}
 }

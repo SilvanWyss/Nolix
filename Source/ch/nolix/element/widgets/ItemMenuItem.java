@@ -67,7 +67,6 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	public ItemMenuItem(final String text) {
 		setText(text);
 		unselect();
-		label.setKeepsFocus();
 	}
 	
 	//constructor
@@ -97,7 +96,6 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	//constructor
 	private ItemMenuItem(final DocumentNodeoid specification) {
 		unselect();
-		label.setKeepsFocus();
 		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}
 	

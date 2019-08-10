@@ -75,7 +75,7 @@ implements Clearable<ImageWidget> {
 	
 	//method
 	@Override
-	protected ImageWidgetLook createWidgetLook() {
+	protected ImageWidgetLook createLook() {
 		return new ImageWidgetLook();
 	}
 	
@@ -85,7 +85,7 @@ implements Clearable<ImageWidget> {
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {}
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	@Override

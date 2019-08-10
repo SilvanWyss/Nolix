@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -20,9 +21,7 @@ import ch.nolix.element.core.NonNegativeInteger;
  * @lines 310
  * @param <S> The type of a {@link Stack}.
  */
-public abstract class Stack<S extends Stack<S>> 
-extends ContainerWidget<S, StackLook>
-implements Clearable<S> {
+public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable<S> {
 	
 	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
@@ -72,7 +71,7 @@ implements Clearable<S> {
 		//Checks if the given widget is not null.
 		Validator.suppose(widget).isOfType(Widget.class);
 		
-		widget.setParentWidget(this);
+		addChildWidget(widget);
 		widgets.addAtEnd(widget);
 		
 		return asConcreteType();
@@ -248,7 +247,7 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final StackLook createWidgetLook() {
+	protected final StackLook createLook() {
 		return new StackLook();
 	}
 	
@@ -270,7 +269,7 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected final void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isEnabled()) {
 				list.addAtEnd(w);

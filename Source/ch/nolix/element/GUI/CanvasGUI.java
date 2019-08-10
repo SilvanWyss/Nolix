@@ -230,6 +230,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	private IElementTaker<PaintRun> createCreatePainerCommand(final Statement painterCommand) {
+		//TODO
 		return painting -> painting.addPainter(painting.getRefPainterByIndex(1).createPainter());
 	}
 	

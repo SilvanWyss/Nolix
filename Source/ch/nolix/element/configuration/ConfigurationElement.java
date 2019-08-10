@@ -127,7 +127,7 @@ implements ISmartObject<CE> {
 	/**
 	 * Updates this element from its configuration.
 	 */
-	public final void updateFromConfiguration() {
+	public void updateFromConfiguration() {
 		
 		//Handles the case that this configuraiton element has a configuration.
 		if (hasConfiguration()) {

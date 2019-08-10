@@ -283,7 +283,7 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	protected final ItemMenuLook createWidgetLook() {
+	protected final ItemMenuLook createLook() {
 		return new ItemMenuLook();
 	}
 	

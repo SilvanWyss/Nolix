@@ -52,12 +52,12 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		selectionMenu = new SelectionMenu(getItems().to(i -> i.getText()));
 		
 		selectionMenu.setSelectCommand(
-			i -> { select(i); getParentGUI().removeTopLayer(); selectionMenu = null; }
+			i -> { select(i); getRefGUI().removeTopLayer(); selectionMenu = null; }
 		);
 		
 		for (final var i : getItems()) {
 			i.getRefLabel().setLeftMouseButtonPressCommand(
-				() -> { select(i); getParentGUI().removeTopLayer(); selectionMenu = null; }
+				() -> { select(i); getRefGUI().removeTopLayer(); selectionMenu = null; }
 			);
 		}
 		
@@ -69,7 +69,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		originHorizontalStack.recalculate();
 		selectionMenu.recalculate();
 		
-		getParentGUI().addLayerOnTop(
+		getRefGUI().addLayerOnTop(
 			new Layer()
 			.setContentPosition(ExtendedContentPosition.Free)
 			.setFreeContentPosition(
@@ -120,7 +120,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(originHorizontalStack);
 	}
 	
