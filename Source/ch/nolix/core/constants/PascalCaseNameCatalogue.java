@@ -20,6 +20,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String BORDER_COLOR = "BorderColor";
 	public static final String CAPACITY = "Capacity";
 	public static final String CAPTION = "Caption";
+	public static final String CHARACTER = "Character";
 	public static final String CELL = "Cell";
 	public static final String CLASS = "Class";
 	public static final String COLOR = "Color";

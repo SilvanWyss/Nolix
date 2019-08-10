@@ -21,6 +21,7 @@ public final class VariableNameCatalogue {
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
 	public static final String CELL = "cell";
+	public static final String CHARACTER = "character";
 	public static final String CLASS = "class";
 	public static final String COLOR = "color";
 	public static final String COLUMN = "column";
