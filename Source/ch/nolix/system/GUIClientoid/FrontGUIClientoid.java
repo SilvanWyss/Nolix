@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+//own imports
 import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
@@ -15,7 +15,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 260
+ * @lines 300
  * @param <FGC> The type of a {@link FrontGUIClientoid}.
  */
 public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> extends Client<FGC> {
@@ -66,37 +66,61 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public void noteKeyPressOnCounterpart(final Key key) {
 		noteCommandOnCounterpart(Protocol.NOTE_KEY_PRESS_HEADER, key.toString());
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteKeyReleaseOnCounterpart(final Key key) {
 		noteCommandOnCounterpart(Protocol.NOTE_KEY_RELEASE_HEADER, key.toString());
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteKeyTypingOnCounterpart(final Key key) {
 		noteCommandOnCounterpart(Protocol.NOTE_KEY_TYPING_HEADER, key.toString());		
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteLeftMouseButtonClickOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER);
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteLeftMOuseButtonPressOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER);
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteLeftMouseButtonReleaseOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER);
 	}
 	
 	//method
-	public final void noteMouseMoveOnCounterpart(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
+	/**
+	 * {@inheritDoc}
+	 */
+	public final void noteMouseMoveOnCounterpart(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
 		noteCommandOnCounterpart(
 			Protocol.NOTE_MOUSE_MOVE_HEADER,
 			String.valueOf(cursorXPositionOnViewArea),
@@ -105,26 +129,41 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteMouseWheelClickOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER);
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteMouseWheelPressOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_PRESS_HEADER);		
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteMouseWheelReleaseOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_RELEASE_HEADER);
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteMouseWheelRotationStepOnCounterpart(final DirectionOfRotation directionOfRotation) {
 		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER, directionOfRotation.toString());
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteRightMouseButtonClickOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER);	
 	}
@@ -135,11 +174,17 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteRightMouseButtonReleaseOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final void noteResizeOnCounterpart(final int viewAreaWidth, final int viewAreaHeight) {
 		noteCommandOnCounterpart(
 			Protocol.NOTE_RESIZE_HEADER,
@@ -224,12 +269,11 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	
 	//method
 	/**
-	 * Resets the GUI of the counterpart of the current {@link FrontGUIClient}
-	 * with the given attributes.
+	 * Resets the GUI of the counterpart of the current {@link FrontGUIClient} with the given attributes.
 	 * 
 	 * @param attributes
 	 */
-	private void resetCounterpartGUI(final Iterable<? extends DocumentNodeoid> attributes) {
+	private void resetCounterpartGUI(final Iterable<DocumentNode> attributes) {
 		internal_runOnCounterpart(
 			Protocol.GUI_HEADER
 			+ '.'
@@ -251,11 +295,11 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 		
 		//Enumerates the header of the given counterpart command.
 		switch (counterpartCommand.getHeader()) {
-			case Protocol.RESET_HEADER:
+			case Protocol.GUI_HEADER:
 				resetCounterpartGUI(counterpartCommand.getRefAttributes());
 				break;
 			default:
-				throw new InvalidArgumentException("counterpart command",	counterpartCommand,	"is not valid");
+				throw new InvalidArgumentException("counterpart command", counterpartCommand, "is not valid");
 		}
 	}
 }

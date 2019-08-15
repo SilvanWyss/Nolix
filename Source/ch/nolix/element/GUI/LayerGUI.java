@@ -438,32 +438,24 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the painter commands of the current {@link LayerGUI}.
-	 */
-	public final IContainer<Statement> getPainterCommands() {
-		
-		final var painter = new CanvasGUICommandCreatorPainter();
-		paint(painter);
-		
-		return painter.getCommands();
-	}
-	
-	//method
-	/**
-	 * @return the {@link Layer}s of the current {@link LayerGUI}.
-	 */
-	public final IContainer<Layer> getRefLayers() {
-		return layers;
-	}
-	
-	//method
-	/**
 	 * @return the interaction attributes of the {@link Widget}s of the current {@link GUI}.
 	 */
 	public IContainer<IContainer<DocumentNode>> getInteractionAttributesOfWidgets() {
 		return getRefWidgets().to(w -> w.getInteractionAttributes());
 	}
 	
+	//method
+	/**
+	 * @return the painter commands of the current {@link LayerGUI}.
+	 */
+	public final IContainer<Statement> getPaintCommands() {
+		
+		final var painter = new CanvasGUICommandCreatorPainter();
+		paint(painter);
+		
+		return painter.getCommands();
+	}
+
 	//method
 	/**
 	 * {@inheritDoc}
@@ -473,6 +465,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		return getRefWidgets().to(w -> w); //TODO
 	}
 	
+	//method
+	/**
+	 * @return the {@link Layer}s of the current {@link LayerGUI}.
+	 */
+	public final IContainer<Layer> getRefLayers() {
+		return layers;
+	}
+
 	//method
 	/**
 	 * @param name

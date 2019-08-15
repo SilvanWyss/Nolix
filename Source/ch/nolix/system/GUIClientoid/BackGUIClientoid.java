@@ -5,9 +5,7 @@ package ch.nolix.system.GUIClientoid;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.localComputer.PopupWindowProvider;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
@@ -18,62 +16,23 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 420
+ * @lines 390
  * @param <BGUIC> The type of a {@link BackGUIClientoid}.
  */
 public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> extends Client<BGUIC> {
 	
 	//attribute
-	private FrontGUIClientoidGUIType frontEndType;
+	private FrontGUIClientoidGUIType counterpartGUIType;
 	
 	//method
 	/**
-	 * Lets the counterpart of this base GUI client
-	 * create a file with the given relative file path and content.
-	 * 
-	 * @param relativeFilePath
-	 * @param content
-	 * @return this base GUI client.
+	 * @return the type of the GUI of the counterpart current {@link BackGUIClientoid}.
 	 */
-	public final BGUIC createFile(
-		final String relativeFilePath,
-		final String content
-	) {
+	public final FrontGUIClientoidGUIType getCounterpartGUIType() {
 		
-		internal_runOnCounterpart(
-			Protocol.CREATE_FILE_COMMAND
-			+ "("
-			+ DocumentNodeoid.createReproducingString(relativeFilePath)
-			+ ","
-			+ DocumentNodeoid.createReproducingString(content)
-			+ ")"
-		);
+		fetchCounterpartGUITypeIfNeeded();
 		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * @return the type of the front-end of the current {@link BackGUIClientoid}.
-	 */
-	public FrontGUIClientoidGUIType getFrontGUIClientoidGUIType() {
-		
-		fetchFrontEndTypeFromCounterPartIfDoesNotKnowFrontEndType();
-		
-		return frontEndType;
-	}
-	
-	//method
-	/**
-	 * Lets the counterpart of this base GUI client open a file explorer.
-	 * 
-	 * @return this base GUI client.
-	 */
-	public BGUIC openFileExplorer() {
-		
-		internal_runOnCounterpart(Protocol.OPEN_FILE_EXPLORER_COMMAND);
-		
-		return asConcreteType();
+		return counterpartGUIType;
 	}
 	
 	//method
@@ -81,25 +40,28 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * Lets the current {@link BackGUIClientoid} run the given command locally.
 	 * 
 	 * @param command
-	 * @throws ArgumentMissesAttributeException if the current back GUI client does not have a current session.
+	 * @return the current {@link BackGUIClientoid}.
 	 */
-	public void runLocally(final String command) {
+	public  BGUIC runLocally(final String command) {
+		
 		internal_invokeSessionUserRunMethod(DocumentNode.createFromString(command));
 		updateGUIOnCounterpart();
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Lets this base GUI client show the given error message.
+	 * Shows the given errorMessage on the counterpart of the current {@link BackGUIClientoid}.
 	 * 
 	 * @param errorMessage
-	 * @return this base GUI client.
+	 * the current {@link BackGUIClientoid}
 	 * @throws NullArgumentException if the given error message is null.
 	 */
-	public final BGUIC showErrorMessage(final String errorMessage) {
+	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 		
 		internal_runOnCounterpart(
-			Protocol.SHOW_ERROR_MESSAGE_COMMAND
+			Protocol.SHOW_ERROR_MESSAGE_HEADER
 			+ "("
 			+ DocumentNodeoid.createReproducingString(errorMessage)
 			+ ")"
@@ -110,39 +72,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets this base GUI client create a file with the given relative file path and content.
-	 * 
-	 * @param relativeFilePath
-	 * @param content
-	 */
-	protected final void internal_createFile(
-		final String relativeFilePath,
-		final DocumentNodeoid content
-	) {
-		FileSystemAccessor.createFile(relativeFilePath, content.toString());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected DocumentNode internal_getData(final Statement request) {
-		
-		//Enumerates the header of the given request.
-		switch (request.getHeader()) {
-			default:
-				
-				//Calls method of the base class.
-				return super.internal_getData(request);
-		}
-	}
-	
-	//method
-	/**
 	 * Finishes the initialization of the session of the current {@link BackGUIClientoid}.
-	 * 
-	 * @throws ArgumentMissesAttributeException if the current {@link BackGUIClientoid} does not have a current session.
 	 */
 	@Override
 	protected final void internal_finishSessionInitialization() {
@@ -151,7 +81,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets this base GUI client run the given command.
+	 * Lets the current {@link BackGUIClientoid} run the given command.
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
@@ -162,39 +92,42 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.COUNTERPART_HEADER:
-				runCounterpartCommand(command.getRefNextStatement());
+				runCommandFromCounterpart(command.getRefNextStatement());
 				break;
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getRefNextStatement());
 				break;
-			case Protocol.SHOW_ERROR_MESSAGE_COMMAND:
-				internal_showErrorMessage(command.getOneAttributeAsString());
-				break;
-			case Protocol.CREATE_FILE_COMMAND:
-				
-				final var parameters
-				= command.getRefAttributes();
-				
-				internal_createFile(
-					parameters.getRefAt(1).toString(),
-					parameters.getRefAt(2)
-				);
-				
-				break;
-			case Protocol.OPEN_FILE_EXPLORER_COMMAND:
-				internal_openFileExplorer();
+			case Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER:
+				getRefGUI().noteLeftMouseButtonClick();
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER:
 				getRefGUI().noteLeftMouseButtonPress();
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER:
 				getRefGUI().noteLeftMouseButtonRelease();
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER:
+				getRefGUI().noteRightMouseButtonClick();
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER:
+				getRefGUI().noteRightMouseButtonPress();
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER:
+				getRefGUI().noteRightMouseButtonRelease();
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_MOUSE_MOVE_HEADER:
 				getRefGUI().noteMouseMove(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_RESIZE_HEADER:
 				getRefGUI().noteResize(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				updateGUIOnCounterpart();
 				break;
 			default:
 				
@@ -205,63 +138,26 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets this base GUI client open a file explorer.
-	 */
-	protected final void internal_openFileExplorer() {
-		FileSystemAccessor.openFolderOfRunningJarFileInExplorer();
-	}
-	
-	//method
-	/**
-	 * Lets this base GUI client show the given error message.
+	 * Adds or changes the given widgetsInteractionAttributes to the {@link Widget}s
+	 * of the GUI of the current {@link BackGUIClientoid}.
 	 * 
-	 * @param errorMessage
+	 * @param widgetsInteractionAttributes
+	 * @throws InvalidArgumentException if the given widgetsInteractionAttributes are not valid.
 	 */
-	protected final void internal_showErrorMessage(final String errorMessage) {
-		PopupWindowProvider.showErrorWindow(errorMessage);
-	}
-	
-	//package-visible method
-	final void paintOnCounterpart(final IContainer<Statement> painterCommands) {
-		if (painterCommands.containsAny()) {
-			internal_runOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + painterCommands + ")");
-		}
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given attributes to the {@link GUI} of the current {@link BackGUIClientoid}.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
-	 */
-	private <S extends DocumentNodeoid> void addOrChangeGUIAttributes(final IContainer<S> attributes) {
-		getRefGUI().addOrChangeAttributes(attributes);
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given interaction attributes to the widgets of this {@link BackGUIClientoid}.
-	 * 
-	 * @param interactionAttributesOfWidgetsOfGUI
-	 * @throws InvalidArgumentException if the given interaction attributes are not valid.
-	 */
-	private <S extends DocumentNodeoid> void addOrChangeGUIWidgetsAttributes(
-		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
+	private void addOrChangeGUIWidgetsAttributes(
+		final IContainer<IContainer<DocumentNode>> widgetsInteractionAttributes
 	) {
-		getRefGUI().addOrChangeInteractionAttributesOfWidgets(interactionAttributesOfWidgetsOfGUI);
+		getRefGUI().addOrChangeInteractionAttributesOfWidgets(widgetsInteractionAttributes);
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} fetch its front end type from its counterpart
-	 * if it does not know its front end type.
+	 * Lets the current {@link BackGUIClientoid} fetch the GUI type from the counterpart of the current {@link BackGUIClientoid}
+	 * if the current {@link BackGUIClientoid} does not know it.
 	 */
-	private void fetchFrontEndTypeFromCounterPartIfDoesNotKnowFrontEndType() {
-		
-		//Handles the case that the current back GUI cliendoid does not know its front end type.
-		if (!knowsFrontEndType()) {
-			frontEndType
+	private void fetchCounterpartGUITypeIfNeeded() {
+		if (!knowsCounterpartGUIType()) {
+			counterpartGUIType
 			= FrontGUIClientoidGUIType.valueOf(
 				internal_getDataFromCounterpart(Protocol.GUI_TYPE_HEADER).getHeader()
 			);
@@ -270,7 +166,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * @return the GUI of the current session of this back GUI client.
+	 * @return the {@link GUI} of the current {@link Session} of the current {@link BackGUIClientoid}.
 	 */
 	private InvisibleLayerGUI getRefGUI() {
 		
@@ -281,10 +177,11 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 
 	//method
 	/**
-	 * @return true if the current {@link BackGUIClientoidoid} knows its front end type.
+	 * @return true if the current {@link BackGUIClientoidoid}
+	 * knows the {@link GUI} type of the current {@link BackGUIClientoid}.
 	 */
-	private boolean knowsFrontEndType() {
-		return (frontEndType != null);
+	private boolean knowsCounterpartGUIType() {
+		return (counterpartGUIType != null);
 	}
 	
 	//method
@@ -317,37 +214,57 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given counterpart command.
+	 * Lets the current {@link BackGUIClientoid} run the given commandFromCounterpart.
 	 * 
-	 * @param counterpartCommand
-	 * @throws InvalidArgumentException if the given counterpart command is not valid.
+	 * @param commandFromCounterpart
+	 * @throws InvalidArgumentException if the given commandFromCounterpart is not valid.
 	 */
-	private void runCounterpartCommand(final Statement counterpartCommand) {
+	private void runCommandFromCounterpart(final Statement commandFromCounterpart) {
 		
-		//Enumerates the header of the given counterpart command.
-		switch (counterpartCommand.getHeader()) {
-			case Protocol.RESET_HEADER:
-				resetGUIOnCounterpart(counterpartCommand.getRefAttributes());
+		//Enumerates the header of the given counterpartCommand.
+		switch (commandFromCounterpart.getHeader()) {
+			case Protocol.GUI_HEADER:
+				runGUICommandFromCounterpart(commandFromCounterpart.getRefNextStatement());
+				resetGUIOnCounterpart(commandFromCounterpart.getRefAttributes());
 				break;
 			default:
-				throw new InvalidArgumentException("counterpart command", counterpartCommand, "is not valid");
+				throw new InvalidArgumentException("counterpart command", commandFromCounterpart, "is not valid");
 		}
 	}
 	
 	//method
+	private void runGUICommandOnCounterpart(String GUICommandOnCounterpart) {
+		internal_runOnCounterpart(Protocol.GUI_HEADER + "." + GUICommandOnCounterpart);
+	}
+
+	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given GUI command.
+	 * Lets the current {@link BackGUIClientoid} run the given GUICommandFromCounterpart.
+	 * 
+	 * @param GUICommandFromCounterpart
+	 * @throws InvalidArgumentException if the given GUICommandFromCounterpart is not valid.
+	 */
+	private void runGUICommandFromCounterpart(final Statement GUICommandFromCounterpart) {
+		switch (GUICommandFromCounterpart.getHeader()) {
+			case Protocol.RESET_HEADER:
+				getRefGUI().reset(GUICommandFromCounterpart.getRefAttributes());
+				break;
+			default:
+				throw new InvalidArgumentException("counterpart GUI command", GUICommandFromCounterpart, "is not valid");
+		}	
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BackGUIClientoid} run the given GUICommand.
 	 * 
 	 * @param GUICommand
-	 * @throws InvalidArgumentException if the given GUI command is not valid.
+	 * @throws InvalidArgumentException if the given GUICommand is not valid.
 	 */
 	private void runGUICommand(final Statement GUICommand) {
 		
-		//Enumerates the header of the given GUI command.
+		//Enumerates the header of the given GUICommand.
 		switch (GUICommand.getHeader()) {
-			case Protocol.ADD_OR_CHANGE_ATTRIBUTES_HEADER:
-				addOrChangeGUIAttributes(GUICommand.getRefAttributes());
-				break;
 			case Protocol.RESET_HEADER:
 				resetGUI(GUICommand.getRefAttributes());
 				break;
@@ -362,18 +279,42 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	}
 	
 	//method
+	private void setGUITitleOnCounterpart(final String title) {
+		runGUICommandOnCounterpart(
+			Protocol.SET_TITLE_HEADER
+			+ "("
+			+ DocumentNode.createReproducingString(title)
+			+ ")"
+		);
+	}
+	
+	//method
+	/**
+	 * Sets the given paint commands to the counterpart of the current {@link BackGUIClientoid}.
+	 * 
+	 * @param paintCommands
+	 */
+	private void setGUIPaintCommandsOnCounterpart(final IContainer<Statement> paintCommands) {
+		//TODO
+		if (paintCommands.containsAny()) {
+			runGUICommandOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands.to(pc -> DocumentNode.createReproducingString(pc.toString())) + ")");
+		}
+	}
+	
+	//method
 	/**
 	 * Resets the GUI on the counterpart of the current {@link BackGUIClientoid}. 
 	 */
 	private void updateGUIOnCounterpart() {
 		
 		//Enumerates the front end type of the current back GUI client.
-		switch (getFrontGUIClientoidGUIType()) {
+		switch (getCounterpartGUIType()) {
 			case LayerGUI:
 				resetGUIOnCounterpart(getRefGUI().getAttributes());
 				break;
 			case CanvasGUI:
-				paintOnCounterpart(getRefGUI().getPainterCommands());
+				setGUITitleOnCounterpart(getRefGUI().getTitle());
+				setGUIPaintCommandsOnCounterpart(getRefGUI().getPaintCommands());
 				break;
 		}
 	}

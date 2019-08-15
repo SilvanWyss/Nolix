@@ -18,14 +18,14 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	
 	//constructor
 	public FrontGUIClientoidCanvasGUIHandler(final FrontGUIClientoid<?> parentFrontGuiClientoid) {
-		mGUI = new CanvasFrame(new FrontGUIClientoidEventTaker(parentFrontGuiClientoid));;
+		mGUI = new CanvasFrame(new FrontGUIClientoidEventTaker(parentFrontGuiClientoid));
 	}
 	
 	//method
 	@Override
 	public boolean canRunCommandOfType(String command) {
 		switch (command) {
-			case Protocol.SET_PAINT_COMMANDS_HEADER:
+			case Protocol.GUI_HEADER:
 				return true;
 			default:
 				return false;
@@ -54,12 +54,8 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	@Override
 	public void run(Statement command) {
 		switch (command.getHeader()) {
-			case Protocol.SET_PAINT_COMMANDS_HEADER:
-				setPainterCommands(
-					command
-					.getRefAttributes()
-					.to(a -> Statement.fromString(DocumentNode.createOriginStringFromReproducingString(a.getHeader())))
-				);
+			case Protocol.GUI_HEADER:
+				runGUICommand(command.getRefNextStatement());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -73,7 +69,25 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	}
 	
 	//method
-	private void setPainterCommands(final IContainer<Statement> painterCommands) {
-		//TODO
+	private void runGUICommand(Statement GUICommand) {
+		switch (GUICommand.getHeader()) {
+			case Protocol.SET_TITLE_HEADER:
+				mGUI.setTitle(GUICommand.getOneAttributeAsString());
+				break;
+			case Protocol.SET_PAINT_COMMANDS_HEADER:
+				setPaintCommands(
+					GUICommand
+					.getRefAttributes()
+					.to(a -> Statement.fromString(DocumentNode.createOriginStringFromReproducingString(a.getHeader())))
+				);
+				break;
+			default:
+				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
+		}
+	}
+
+	//method
+	private void setPaintCommands(final IContainer<Statement> paintCommands) {
+		mGUI.setPaintCommandsFromStatements(paintCommands);
 	}
 }

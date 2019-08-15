@@ -17,13 +17,12 @@ final class Protocol {
 	public static final String GUI_TYPE_HEADER = "GUI_Type";
 	
 	//constants
-	public static final String SHOW_ERROR_MESSAGE_COMMAND = "ShowErrorMessage";
-	public static final String CREATE_FILE_COMMAND = "CreateFile";
-	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
-	public static final String READ_FILE_HEADER = "ReadFile";
+	public static final String SHOW_ERROR_MESSAGE_HEADER = "ShowErrorMessage";
+	public static final String OPEN_FILE_EXPLORER_HEADER = "OpenFileExplorer";
 	public static final String ADD_OR_CHANGE_ATTRIBUTES_HEADER = "AddOrChangeAttributes";
 	public static final String ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER = "AddOrChangeWidgetAttributes";
 	public static final String RESET_HEADER = "Reset";
+	public static final String SET_TITLE_HEADER = "SetTitle";
 	public static final String SET_PAINT_COMMANDS_HEADER = "SetPaintCommands";
 	
 	//constants

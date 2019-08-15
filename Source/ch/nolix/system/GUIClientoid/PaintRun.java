@@ -1,23 +1,22 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+//own imports
+import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.element.painter.IPainter;
 
-//package-visible class
+//class
 public final class PaintRun {
 	
 	//multi-attribute
 	private List<IPainter> painters = new List<>();
 	
 	//constructor
-	public PaintRun(
-		final IPainter painter,
-		final List<IElementTaker<PaintRun>> painterCommands
-	) {
+	public PaintRun(final IPainter painter,	final IContainer<IElementTaker<PaintRun>> paintCommands) {
 		addPainter(painter);
-		painterCommands.forEach(pc -> pc.run(this));
+		paintCommands.forEach(pc -> pc.run(this));
 	}
 	
 	//method

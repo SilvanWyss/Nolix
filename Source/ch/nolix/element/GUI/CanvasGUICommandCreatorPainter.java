@@ -22,8 +22,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//constructor
 	public CanvasGUICommandCreatorPainter() {
-		bottom = new CanvasGUIPainterPool();
-		index = 1;
+		this(new CanvasGUIPainterPool());
 	}
 	
 	//constructor
@@ -40,7 +39,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	) {
 		final var painter = new CanvasGUICommandCreatorPainter(bottom);
 		
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.CREATE_PAINTER_HEADER
 			+ '('
 			+ xTranslation
@@ -62,7 +61,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	) {
 		final var painter = new CanvasGUICommandCreatorPainter(bottom);
 		
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.CREATE_PAINTER_HEADER
 			+ '('
 			+ xTranslation
@@ -86,7 +85,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	public IContainer<Statement> getCommands() {
-		return bottom.getPainterCommands();
+		return bottom.getPaintCommands();
 	}
 	
 	//method
@@ -98,7 +97,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void paintFilledPolygon(final int[] x, final int[] y) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_FILLED_POLYGON_HEADER
 			+ '('
 			+ ArrayHelper.createString(x)
@@ -116,7 +115,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		final int width,
 		final int height
 	) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER
 			+ "("
 			+ xPostiion
@@ -133,7 +132,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void paintImage(final Image image) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_IMAGE_HEADER
 			+ '('
 			+ image.getSpecification()
@@ -144,7 +143,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void paintImage(final Image image, final int width, final int height) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_IMAGE_HEADER
 			+ '('
 			+ image.getSpecification()
@@ -158,7 +157,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 
 	@Override
 	public void paintText(String text, TextFormat textFormat) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
 			+ DocumentNodeoid.createReproducingString(text)
@@ -171,7 +170,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void paintText(final String text, TextFormat textFormat, final int maxTextWidth) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
 			+ DocumentNodeoid.createReproducingString(text)
@@ -186,7 +185,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void setColor(final Color color) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.SET_COLOR_HEADER
 			+ "("
 			+ color.getHexadecimalSpecification(true)
@@ -197,7 +196,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void setColorGradient(final ColorGradient colorGradient) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.SET_COLOR_GRADIENT_HEADER
 			+ '('
 			+ colorGradient.getHexadecimalSpecification(true)
@@ -208,7 +207,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public void translate(final int xTranslation, final int yTranslation) {
-		appendPainterCommand(
+		appendPaintCommand(
 			CanvasGUIProtocol.TRANSLATE_HEADER
 			+ '('
 			+ xTranslation
@@ -219,7 +218,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	}
 	
 	//method
-	private void appendPainterCommand(final String command) {
-		bottom.appendPainterCommand(this, command);
+	private void appendPaintCommand(final String command) {
+		bottom.appendPaintCommand(this, command);
 	}
 }

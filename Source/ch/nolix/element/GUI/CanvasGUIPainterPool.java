@@ -12,14 +12,11 @@ final class CanvasGUIPainterPool {
 	private int nextIndex = 1;
 	
 	//multi-attribute
-	private final List<Statement> painterCommands = new List<>();
+	private final List<Statement> paintCommands = new List<>();
 	
 	//method
-	public void appendPainterCommand(
-		final CanvasGUICommandCreatorPainter browserGUIPainter,
-		final String command
-	) {
-		painterCommands.addAtEnd(
+	public void appendPaintCommand(final CanvasGUICommandCreatorPainter browserGUIPainter,	final String command) {
+		paintCommands.addAtEnd(
 			Statement.fromString(
 				CanvasGUIProtocol.PAINTER_BY_INDEX_HEADER
 				+ '('
@@ -32,8 +29,8 @@ final class CanvasGUIPainterPool {
 	}
 	
 	//method
-	public IContainer<Statement> getPainterCommands() {
-		return painterCommands;
+	public IContainer<Statement> getPaintCommands() {
+		return paintCommands;
 	}
 	
 	//method

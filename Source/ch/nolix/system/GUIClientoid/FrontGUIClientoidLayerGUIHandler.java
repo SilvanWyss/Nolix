@@ -23,6 +23,7 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 	@Override
 	public boolean canRunCommandOfType(final String command) {
 		switch (command) {
+			case "GUI.SetTitle":
 			case Protocol.GUI_HEADER:
 				return true;
 			default:
@@ -83,6 +84,10 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 		switch (GUICommand.getHeader()) {
 			case Protocol.RESET_HEADER:
 				resetGUI(GUICommand.getRefAttributes());
+				break;
+			case "SetTitle":
+				mGUI.setTitle(GUICommand.getOneAttributeAsString());
+				mGUI.refresh();
 				break;
 			default:
 				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");

@@ -33,15 +33,6 @@ extends Session<BackConsoleClient> {
 	
 	//method
 	/**
-	 * Lets the counterpart of the client of this console back client session
-	 * open a file explorer.
-	 */
-	public final void openFileExplorer() {
-		getParentClient().openFileExplorer();
-	}
-	
-	//method
-	/**
 	 * @return the next character from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
