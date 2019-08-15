@@ -9,6 +9,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 
 /**
+ * A {@link NetServerTutorial} is a tutorial for {@link NetServer}s.
  * Of the {@link NetServerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
@@ -29,7 +30,7 @@ public final class NetServerTutorial {
 		final int port = 50000;
 		
 		//Creates a NetServer, that will listen to net Clients on the default port,
-		//and that has the created main application.
+		//and that has the given main application.
 		new NetServer(port, new Application<>("Application", BackGUIClient.class, MainSession.class));
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
@@ -43,8 +44,9 @@ public final class NetServerTutorial {
 		
 		@Override
 		public void initialize() {
-			getRefGUI().setTitle("NetServer Tutorial");
-			getRefGUI().addLayerOnTop(new Label("Hello World!"));
+			getRefGUI()
+			.setTitle("NetServer Tutorial")
+			.addLayerOnTop(new Label("Hello World!").applyOnBaseLook(bl -> bl.setTextSize(50)));
 		}
 	}
 	
