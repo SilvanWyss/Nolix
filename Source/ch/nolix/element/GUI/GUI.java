@@ -77,8 +77,12 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	 */
 	@Override
 	public final void close() {
+		
 		closed = true;
-		visualizer.noteClose();
+		
+		if (isVisible()) {
+			visualizer.noteClose();
+		}
 	}
 	
 	//abstract method
