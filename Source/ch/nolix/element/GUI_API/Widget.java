@@ -1754,8 +1754,9 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 				
 		paint(painter, getRefLook());
 		
-		if (paintsPaintableWidgetAPriori())
-		getRefPaintableWidgets().forEach(w ->  w.paintRecursively(painter));
+		if (paintsPaintableWidgetAPriori()) {
+			getRefPaintableWidgets().forEach(w ->  w.paintRecursively(painter));
+		}
 	}
 	
 	//method
