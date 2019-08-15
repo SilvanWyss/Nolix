@@ -3,30 +3,17 @@ package ch.nolix.coreTest.documentNodeTest;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
 import ch.nolix.core.test.ObjectTest;
 
 //abstract test class
 public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	
 	//test case
-	public void testCase_reset_8() {
-		
-		//execution
-		final var documentNode = createTestObject();
-		documentNode.reset("A(B1(C1,C2),B2(C3,C4))");
-		
-		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
-		expect(documentNode.toString()).isEqualTo("A(B1(C1,C2),B2(C3,C4))");
-	}
-	
-	//test case
 	public void testCase_getCopy() {
 		
 		//setup
 		final var documentNode = createTestObject();
-		createTestObject();
 		
 		//execution
 		final var copy = documentNode.getCopy();
@@ -41,8 +28,7 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	public void testCase_copy_2() {
 		
 		//setup
-		final var documentNode = 
-				createTestObject();documentNode.reset("");
+		final var documentNode = createTestObject();documentNode.reset("");
 		
 		//execution
 		final var copy = documentNode.getCopy();
@@ -169,8 +155,11 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
+		documentNode.reset();
 		
 		//verification
 		expectNot(documentNode.hasHeader());
@@ -181,8 +170,10 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset_2() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
 		documentNode.reset("");
 		
 		//verification
@@ -194,8 +185,10 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset_3() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
 		documentNode.reset("A");
 		
 		//verification
@@ -207,8 +200,10 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset_4() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
 		documentNode.reset("A(B)");
 		
 		//verification
@@ -220,8 +215,10 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset_5() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
 		documentNode.reset("A(B1,B2,B3)");
 		
 		//verification
@@ -233,8 +230,10 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset_6() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
 		documentNode.reset("A(B(C))");
 		
 		//verification
@@ -246,14 +245,43 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 	//test case
 	public void testCase_reset_7() {
 		
-		//execution
+		//setup
 		final var documentNode = createTestObject();
+		
+		//execution
 		documentNode.reset("A(B1(C1),B2(C2))");
 		
 		//verification
 		expect(documentNode.hasHeader());
 		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
 		expect(documentNode.toString()).isEqualTo("A(B1(C1),B2(C2))");
+	}
+	
+	//test case
+	public void testCase_reset_8() {
+		
+		//setup
+		final var documentNode = createTestObject();
+		
+		//execution
+		documentNode.reset("A(B1(C1,C2),B2(C3,C4))");
+		
+		//verification
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
+		expect(documentNode.toString()).isEqualTo("A(B1(C1,C2),B2(C3,C4))");
+	}
+
+	//test case
+	public void testCase_reset_whenTheGivenStringIsNotValid() {
+		
+		//setup
+		final var documentNode = createTestObject();
+		
+		//execution & verification
+		expect(() -> documentNode.reset("A(B).C"))
+		.throwsException()
+		.ofType(NonRepresentingArgumentException.class);
 	}
 	
 	//test case
