@@ -284,7 +284,7 @@ public final class Time implements IElement {
 	@Override
 	public List<Node> getAttributes() {
 		return new List<>(
-			Node.createFromString(String.format(
+			Node.fromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),
 				getMonthOfYear(),

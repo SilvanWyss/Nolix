@@ -71,7 +71,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			}
 		},
 		s -> s.getOneAttributeAsBoolean(),
-		e -> Node.createWithOneAttribute(e)
+		e -> Node.withOneAttribute(e)
 	);
 	
 	//attributes

@@ -210,7 +210,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.GUI_TYPE_HEADER:
-				return Node.createWithHeader(getGUIType());
+				return Node.withHeader(getGUIType());
 			default:
 				
 				//Calls method of the base class.

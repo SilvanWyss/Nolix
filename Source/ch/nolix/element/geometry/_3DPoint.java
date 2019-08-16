@@ -63,15 +63,15 @@ public class _3DPoint implements IElement {
 		return
 		new List<>(
 			Node
-			.createWithHeader(
+			.withHeader(
 				DoubleHelper.toString(getX())
 			),
 			Node
-			.createWithHeader(
+			.withHeader(
 				DoubleHelper.toString(getY())
 			),
 			Node
-			.createWithHeader(
+			.withHeader(
 				DoubleHelper.toString(getZ())
 			)
 		);

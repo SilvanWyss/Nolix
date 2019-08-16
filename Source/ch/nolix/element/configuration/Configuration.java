@@ -90,7 +90,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		return addAttachingAttribute(Node.createFromString(attachingAttribute));
+		return addAttachingAttribute(Node.fromString(attachingAttribute));
 	}
 	
 	//method
@@ -306,7 +306,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Handles the case that this configuration contains selector roles.		
 		if (containsSelectorRoles()) {
 			
-			final var specification = Node.createFromString(SELECTOR_ROLE_HEADER);
+			final var specification = Node.fromString(SELECTOR_ROLE_HEADER);
 			getSelectorRoles().forEach(sr -> specification.addAttribute(sr));
 			
 			attributes.addAtEnd(specification);

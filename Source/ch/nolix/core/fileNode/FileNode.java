@@ -45,7 +45,7 @@ public final class FileNode extends BaseNode {
 		}
 		
 		internalSpecification
-		= Node.createFromFile(filePath);
+		= Node.fromFile(filePath);
 	}
 	
 	//method

@@ -1021,7 +1021,7 @@ public class Color extends Element<Color> {
 	 */
 	@Override
 	public List<Node> getAttributes() {
-		return new List<>(Node.createFromString(getStringValue()));
+		return new List<>(Node.fromString(getStringValue()));
 	}
 	
 	//method

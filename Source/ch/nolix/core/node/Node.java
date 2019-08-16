@@ -30,7 +30,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @throws InvalidArgumentException if the given file path is not valid.
 	 * @throws InvalidArgumentException if the file with the given file path does not represent a {@link Node}.
 	 */
-	public static Node createFromFile(final String filePath) {
+	public static Node fromFile(final String filePath) {
 		
 		final var documentNode = new Node();
 		documentNode.resetFromFile(filePath);
@@ -44,7 +44,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @return a new {@link Node} from the given string.
 	 * @throws InvalidArgumentException if the given string does not represent a {@link Node}.
 	 */
-	public static Node createFromString(final String string) {
+	public static Node fromString(final String string) {
 		
 		final var documentNode = new Node();
 		documentNode.reset(string);
@@ -57,8 +57,8 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param pEnum
 	 * @return a new {@link Node} with a header from the given pEnum.
 	 */
-	public static Node createWithHeader(final Enum<?> pEnum) {
-		return createWithHeader(pEnum.toString());
+	public static Node withHeader(final Enum<?> pEnum) {
+		return withHeader(pEnum.toString());
 	}
 	
 	//static method
@@ -67,7 +67,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @return a new {@link Node} with the given header.
 	 * @throws NullArgumentException if the given header is null.
 	 */
-	public static Node createWithHeader(final String header) {
+	public static Node withHeader(final String header) {
 		
 		final var documentNode = new Node();
 		documentNode.setHeader(header);
@@ -80,7 +80,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static Node createWithOneAttribute(final boolean attribute) {
+	public static Node withOneAttribute(final boolean attribute) {
 		
 		final var documentNode = new Node();
 		documentNode.setHeader(String.valueOf(attribute));
@@ -94,7 +94,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @return a new {@link Node} with the given attribute.
 	 * @throws NullArgumentException if the given attribute is null.
 	 */
-	public static Node createWithOneAttribute(final BaseNode attribute) {
+	public static Node withOneAttribute(final BaseNode attribute) {
 		
 		final var documentNode = new Node();
 		documentNode.addAttribute(attribute);
@@ -107,7 +107,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static final Node createWithOneAttribute(final int attribute) {
+	public static final Node withOneAttribute(final int attribute) {
 		
 		final var documentNode = new Node();
 		documentNode.addAttribute(String.valueOf(attribute));
@@ -122,10 +122,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @throws NullArgumentException if the given attribute is null.
 	 * @throws InvalidArgumentException with the given attribute.
 	 */
-	public static Node createWithOneAttribute(final String attribute) {
+	public static Node withOneAttribute(final String attribute) {
 		
 		final var documentNode = new Node();
-		documentNode.addAttribute(createWithHeader(attribute));
+		documentNode.addAttribute(withHeader(attribute));
 		
 		return documentNode;
 	}
@@ -274,7 +274,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 			}
 			
 			else {
-				addAttribute(createWithHeader(a));
+				addAttribute(withHeader(a));
 			}
 		}
 	}
@@ -309,7 +309,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public void addAttribute(final String attribute) {
 		
 		//Calls other method
-		addAttribute(createFromString(attribute));
+		addAttribute(fromString(attribute));
 	}
 	
 	//method

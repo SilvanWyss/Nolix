@@ -44,7 +44,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 */
 	public  BGUIC runLocally(final String command) {
 		
-		internal_invokeSessionUserRunMethod(Node.createFromString(command));
+		internal_invokeSessionUserRunMethod(Node.fromString(command));
 		updateGUIOnCounterpart();
 		
 		return asConcreteType();

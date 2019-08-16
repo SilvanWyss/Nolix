@@ -48,7 +48,7 @@ public final class Task extends Element<Task> implements ITask {
 		TITLE_HEADER,
 		t -> setTitle(t),
 		s -> s.getOneAttributeAsString(),
-		t -> Node.createWithOneAttribute(t)
+		t -> Node.withOneAttribute(t)
 	);
 	
 	//attribute

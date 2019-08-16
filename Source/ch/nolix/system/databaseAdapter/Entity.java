@@ -160,7 +160,7 @@ public class Entity implements Identified, IElement {
 		rowSpecification.addAttribute(new Node(getId()));
 		
 		for (final var p : getRefProperties()) {
-			rowSpecification.addAttribute(Node.createFromString(p.internal_getValues().toString()));
+			rowSpecification.addAttribute(Node.fromString(p.internal_getValues().toString()));
 		}
 		
 		return rowSpecification;

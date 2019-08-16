@@ -32,7 +32,7 @@ implements Headered, IElement {
 	public final List<Node> getAttributes() {
 		return
 		internal_getValues()
-		.to(v -> Node.createFromString(v.toString()));
+		.to(v -> Node.fromString(v.toString()));
 	}
 	
 	//method

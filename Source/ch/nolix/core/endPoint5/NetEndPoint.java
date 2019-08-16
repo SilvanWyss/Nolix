@@ -122,7 +122,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final Node reply = Node.createFromString(internalNetEndPoint.sendAndGetReply(message));
+		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -201,7 +201,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.COMMANDS + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
 		
 		//Sends the message and gets reply.
-		final Node reply = Node.createFromString(internalNetEndPoint.sendAndGetReply(message));
+		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -228,7 +228,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	final String receiveAndGetReply(final String message) {
 		try {
-			return receiveAndGetReply(Node.createFromString(message));
+			return receiveAndGetReply(Node.fromString(message));
 		}
 		catch (final Exception exception) {
 			

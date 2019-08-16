@@ -22,7 +22,7 @@ public abstract class PropertyoidType<V> implements IElement {
 	//method
 	@Override
 	public List<Node> getAttributes() {
-		return new List<>(Node.createFromString(getValueTypeName())	);
+		return new List<>(Node.fromString(getValueTypeName())	);
 	}
 	
 	//abstract method

@@ -14,7 +14,7 @@ public final class LabelLook extends TextLineWidgetLook<LabelLook> {
 		SHORTENS_TEXT_WHEN_LIMIITED_HEADER,
 		DEFAULT_SHORTENS_TEXT_WHEN_LIMITED_FLAG,
 		s -> s.getOneAttributeAsBoolean(),
-		b -> Node.createWithOneAttribute(b)
+		b -> Node.withOneAttribute(b)
 	);
 	
 	public boolean getRecursiveOrDefaultShortensTextWhenLimitedFlag() {

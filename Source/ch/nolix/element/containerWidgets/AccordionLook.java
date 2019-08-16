@@ -37,7 +37,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_HEADER_TEXT_SIZE_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_SIZE,
 		s -> s.getOneAttributeAsInt(),
-		thts -> Node.createWithOneAttribute(thts)
+		thts -> Node.withOneAttribute(thts)
 	);
 	
 	//attribute

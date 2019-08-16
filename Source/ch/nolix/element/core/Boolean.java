@@ -76,12 +76,12 @@ public final class Boolean implements IElement {
 		
 		//Handles the case that this boolean is false.
 		if (isFalse()) {
-			attributes.addAtEnd(Node.createFromString(FALSE_HEADER));
+			attributes.addAtEnd(Node.fromString(FALSE_HEADER));
 		}
 		
 		//Handles the case that this boolean ist true.
 		else {
-			attributes.addAtEnd(Node.createFromString(TRUE_HEADER));
+			attributes.addAtEnd(Node.fromString(TRUE_HEADER));
 		}
 
 		return attributes;

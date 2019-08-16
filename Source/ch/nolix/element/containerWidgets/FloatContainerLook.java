@@ -23,7 +23,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		PROPOSE_CONTENT_WIDTH_HEADER,
 		DEFAULT_PROPOSE_CONTENT_WIDTH,
 		s -> s.getOneAttributeAsInt(),
-		pcw -> Node.createWithOneAttribute(pcw)
+		pcw -> Node.withOneAttribute(pcw)
 	);
 		
 	//attribute
@@ -32,7 +32,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		WIDGET_MARGIN_HEADER,
 		DEFAULT_WIDGET_MARGIN,
 		s -> s.getOneAttributeAsInt(),
-		wm -> Node.createWithOneAttribute(wm)
+		wm -> Node.withOneAttribute(wm)
 	);
 	
 	//method

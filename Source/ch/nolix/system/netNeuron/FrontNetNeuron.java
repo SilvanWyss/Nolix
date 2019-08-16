@@ -148,7 +148,7 @@ implements OptionalClosable {
 	 */
 	void setOutput(final String output) {
 		internal_setOutput(
-			transformator.getOutput(Node.createFromString(output))
+			transformator.getOutput(Node.fromString(output))
 		);
 	}
 }

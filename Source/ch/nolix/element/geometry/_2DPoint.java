@@ -59,11 +59,11 @@ public final class _2DPoint extends Element<_2DPoint> {
 		return
 		new List<>(
 			Node
-			.createWithHeader(
+			.withHeader(
 				DoubleHelper.toString(getX())
 			),
 			Node
-			.createWithHeader(
+			.withHeader(
 				DoubleHelper.toString(getY())
 			)
 		);

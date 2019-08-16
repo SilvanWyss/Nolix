@@ -116,7 +116,7 @@ public final class ChainedNode implements Headered {
 					break;
 				case CharacterCatalogue.DOT:
 					if (openBrackets == 0) {
-						node = Node.createFromString(string.substring(0, i));
+						node = Node.fromString(string.substring(0, i));
 						nextNode = new ChainedNode(string.substring(i + 1, string.length()));
 						return;
 					}
@@ -124,7 +124,7 @@ public final class ChainedNode implements Headered {
 			}
 		}
 		
-		node = Node.createFromString(string);
+		node = Node.fromString(string);
 		nextNode = null;
 	}
 	

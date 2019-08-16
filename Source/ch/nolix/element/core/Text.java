@@ -78,7 +78,7 @@ public class Text extends Element<Text> {
 			attributes.addAtEnd(new Node());
 		}
 		else {
-			attributes.addAtEnd(Node.createWithHeader(getValue()));
+			attributes.addAtEnd(Node.withHeader(getValue()));
 		}
 		
 		return attributes;

@@ -27,7 +27,7 @@ public final class DirectionTest extends Test {
 			expect(attributes.getSize()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
-			.isEqualTo(Node.createFromString("LeftToRight"));
+			.isEqualTo(Node.fromString("LeftToRight"));
 	}
 
 	//test case
@@ -35,7 +35,7 @@ public final class DirectionTest extends Test {
 		
 		//execution & verification
 		expect(Direction.LeftToRight.getSpecification())
-		.isEqualTo(Node.createFromString("Direction(LeftToRight)"));
+		.isEqualTo(Node.fromString("Direction(LeftToRight)"));
 	}
 	
 	//test case

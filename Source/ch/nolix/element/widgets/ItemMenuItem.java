@@ -45,7 +45,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 		PascalCaseNameCatalogue.ID,
 		id -> setId(id),
 		s -> s.getOneAttributeAsString(),
-		id -> Node.createWithHeader(id)
+		id -> Node.withHeader(id)
 	);
 	
 	//optional attribute

@@ -49,7 +49,7 @@ public class Integer implements IElement {
 	 */
 	@Override
 	public final List<Node> getAttributes() {
-		return new List<>(Node.createFromString(java.lang.Integer.toString(getValue())));
+		return new List<>(Node.fromString(java.lang.Integer.toString(getValue())));
 	}
 	
 	//method

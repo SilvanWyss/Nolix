@@ -69,7 +69,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public default void addOrChangeAttribute(final String attribute) {
-		addOrChangeAttribute(Node.createFromString(attribute));
+		addOrChangeAttribute(Node.fromString(attribute));
 	}
 	
 	//default method
@@ -126,7 +126,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public default S reset(final String specification) {
-		return reset(Node.createFromString(specification));
+		return reset(Node.fromString(specification));
 	}
 	
 	//default method
@@ -141,6 +141,6 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * if the file with the given file path does not represent a {@link Node}.
 	 */
 	public default S resetFrom(final String filePath) {
-		return reset(Node.createFromFile(filePath));
+		return reset(Node.fromFile(filePath));
 	}
 }
