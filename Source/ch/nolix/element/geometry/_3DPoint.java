@@ -62,18 +62,9 @@ public class _3DPoint implements IElement {
 	public List<Node> getAttributes() {
 		return
 		new List<>(
-			Node
-			.withHeader(
-				DoubleHelper.toString(getX())
-			),
-			Node
-			.withHeader(
-				DoubleHelper.toString(getY())
-			),
-			Node
-			.withHeader(
-				DoubleHelper.toString(getZ())
-			)
+			new Node(DoubleHelper.toString(getX())),
+			new Node(DoubleHelper.toString(getY())),
+			new Node(DoubleHelper.toString(getZ()))
 		);
 	}
 	

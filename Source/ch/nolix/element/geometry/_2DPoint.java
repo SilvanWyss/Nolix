@@ -56,17 +56,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	 */
 	@Override
 	public List<Node> getAttributes() {
-		return
-		new List<>(
-			Node
-			.withHeader(
-				DoubleHelper.toString(getX())
-			),
-			Node
-			.withHeader(
-				DoubleHelper.toString(getY())
-			)
-		);
+		return new List<>(new Node(DoubleHelper.toString(getX())),	new Node(DoubleHelper.toString(getY())));
 	}
 	
 	//method

@@ -19,7 +19,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 500
+ * @lines 490
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -48,29 +48,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var documentNode = new Node();
 		documentNode.reset(string);
-		
-		return documentNode;
-	}
-	
-	//static method
-	/**
-	 * @param pEnum
-	 * @return a new {@link Node} with a header from the given pEnum.
-	 */
-	public static Node withHeader(final Enum<?> pEnum) {
-		return withHeader(pEnum.toString());
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @return a new {@link Node} with the given header.
-	 * @throws NullArgumentException if the given header is null.
-	 */
-	public static Node withHeader(final String header) {
-		
-		final var documentNode = new Node();
-		documentNode.setHeader(header);
 		
 		return documentNode;
 	}
@@ -125,7 +102,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public static Node withOneAttribute(final String attribute) {
 		
 		final var documentNode = new Node();
-		documentNode.addAttribute(withHeader(attribute));
+		documentNode.addAttribute(new Node(attribute));
 		
 		return documentNode;
 	}
@@ -150,6 +127,20 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public Node(final char character) {
 		setHeader(Character.toString(character));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with a header that consists of the {@link String} representation of the given pEnum.
+	 * 
+	 * @param pEnum
+	 * @throws NullArgumentException if the given pEnum is null.
+	 */
+	public Node(final Enum<?> pEnum) {
+		
+		Validator.suppose(pEnum).thatIsNamed(VariableNameCatalogue.ENUM).isNotNull();
+		
+		setHeader(pEnum.toString());
 	}
 	
 	//constructor
@@ -274,7 +265,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 			}
 			
 			else {
-				addAttribute(withHeader(a));
+				addAttribute(new Node(a));
 			}
 		}
 	}

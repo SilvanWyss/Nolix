@@ -18,6 +18,6 @@ public interface IElementEnum extends IElement {
 	 */
 	@Override
 	public default List<Node> getAttributes() {
-		return Node.withHeader(toString()).intoList();
+		return new Node(toString()).intoList();
 	}
 }
