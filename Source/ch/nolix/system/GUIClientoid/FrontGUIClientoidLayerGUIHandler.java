@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.Frame;
 
 //package-visible class
@@ -63,10 +63,10 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 
 	//method
 	@Override
-	public void run(final Statement command) {
+	public void run(final ChainedNode command) {
 		switch (command.getHeader()) {
 			case Protocol.GUI_HEADER:
-				runGUICommand(command.getRefNextStatement());
+				runGUICommand(command.getRefNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -80,7 +80,7 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 	}
 	
 	//method
-	private void runGUICommand(final Statement GUICommand) {
+	private void runGUICommand(final ChainedNode GUICommand) {
 		switch (GUICommand.getHeader()) {
 			case Protocol.RESET_HEADER:
 				resetGUI(GUICommand.getRefAttributes());

@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -122,7 +122,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public Node getData(final Statement request) {
+	public Node getData(final ChainedNode request) {
 		return counterpart.getRefReceiverController().getData(request);
 	}
 	
@@ -179,7 +179,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public void run(final Statement command) {
+	public void run(final ChainedNode command) {
 		
 		//Checks if this local duplex controller is not aborted.
 		supposeIsAlive();
@@ -196,7 +196,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	protected void run(final List<Statement> commands) {
+	protected void run(final List<ChainedNode> commands) {
 		
 		//Checks if this local duplex controller is not aborted.
 		supposeIsAlive();

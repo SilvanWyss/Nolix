@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.system.GUIClient.FrontGUIClient;
@@ -205,7 +205,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Node internal_getData(final Statement request) {
+	protected Node internal_getData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -223,7 +223,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void internal_run(final Statement command) {
+	protected final void internal_run(final ChainedNode command) {
 		
 		//Handles the case that the GUI handler of the current FrontGUIClientoid can run the given command.
 		if (mGUIHandler.canRunCommand(command)) {
@@ -236,7 +236,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 			//Enumerates the header of the given command.
 			switch (command.getHeader()) {
 				case Protocol.COUNTERPART_HEADER:
-					runCounterpartCommand(command.getRefNextStatement());
+					runCounterpartCommand(command.getRefNextNode());
 					break;
 				default:
 				
@@ -291,7 +291,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * @param counterpartCommand
 	 * @throws InvalidArgumentException if the given counterpart command is not valid.
 	 */
-	private void runCounterpartCommand(final Statement counterpartCommand) {
+	private void runCounterpartCommand(final ChainedNode counterpartCommand) {
 		
 		//Enumerates the header of the given counterpart command.
 		switch (counterpartCommand.getHeader()) {

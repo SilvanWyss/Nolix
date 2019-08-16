@@ -3,10 +3,10 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.attributeAPI.Indexed;
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.independentHelpers.ArrayHelper;
 import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
@@ -84,7 +84,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	}
 	
 	//method
-	public IContainer<Statement> getCommands() {
+	public IContainer<ChainedNode> getCommands() {
 		return bottom.getPaintCommands();
 	}
 	

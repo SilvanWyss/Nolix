@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own import
-import ch.nolix.core.statement.Statement;
+import ch.nolix.core.chainedNode.ChainedNode;
 
 //package-visible abstract class
 abstract class FrontGUIClientoidGUIHandler {
 	
 	//abstract method
-	public final boolean canRunCommand(final Statement command) {
+	public final boolean canRunCommand(final ChainedNode command) {
 		return (command.hasHeader() && canRunCommandOfType(command.getHeader()));
 	}
 	
@@ -28,5 +27,5 @@ abstract class FrontGUIClientoidGUIHandler {
 	public abstract boolean providesUpdateCommandForCounterpart();
 
 	//abstract method
-	public abstract void run(Statement command);
+	public abstract void run(ChainedNode command);
 }

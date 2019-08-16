@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -9,7 +10,6 @@ import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.logger.Logger;
 import ch.nolix.core.node.Node;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -116,7 +116,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this net duplex controller is aborted.
 	 */
 	@Override
-	public Node getData(final Statement request) {
+	public Node getData(final ChainedNode request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
@@ -179,7 +179,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param command
 	 */
 	@Override
-	public void run(final Statement command) {
+	public void run(final ChainedNode command) {
 		run(new List<>(command));
 	}
 	
@@ -191,7 +191,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this net duplex contorller is aborted.
 	 */
 	@Override
-	protected void run(final List<Statement> commands) {
+	protected void run(final List<ChainedNode> commands) {
 			
 		//Checks if this net duplex controller is not aborted.
 		supposeIsAlive();

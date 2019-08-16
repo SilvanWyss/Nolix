@@ -3,6 +3,7 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.core.attributeAPI.OptionalLabelable;
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.endPoint5.EndPoint;
@@ -18,7 +19,6 @@ import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.skillAPI.OptionalClosable;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -475,7 +475,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @return the data the given request requests from the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Node internal_getData(final Statement request) {
+	protected Node internal_getData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -628,7 +628,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
-	protected void internal_run(final Statement command) {
+	protected void internal_run(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
@@ -646,7 +646,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * 
 	 * @param command
 	 */
-	protected final void internal_runOnCounterpart(final Statement command) {
+	protected final void internal_runOnCounterpart(final ChainedNode command) {
 		endPoint.run(command);
 	}
 	

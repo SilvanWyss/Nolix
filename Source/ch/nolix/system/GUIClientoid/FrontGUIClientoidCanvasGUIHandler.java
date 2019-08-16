@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.CanvasFrame;
 
 //package-visible class
@@ -52,10 +52,10 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	
 	//method
 	@Override
-	public void run(Statement command) {
+	public void run(ChainedNode command) {
 		switch (command.getHeader()) {
 			case Protocol.GUI_HEADER:
-				runGUICommand(command.getRefNextStatement());
+				runGUICommand(command.getRefNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -69,7 +69,7 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	}
 	
 	//method
-	private void runGUICommand(Statement GUICommand) {
+	private void runGUICommand(ChainedNode GUICommand) {
 		switch (GUICommand.getHeader()) {
 			case Protocol.SET_TITLE_HEADER:
 				mGUI.setTitle(GUICommand.getOneAttributeAsString());
@@ -78,7 +78,7 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 				setPaintCommands(
 					GUICommand
 					.getRefAttributes()
-					.to(a -> Statement.fromString(Node.createOriginStringFromReproducingString(a.getHeader())))
+					.to(a -> ChainedNode.fromString(Node.createOriginStringFromReproducingString(a.getHeader())))
 				);
 				break;
 			default:
@@ -87,7 +87,7 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	}
 
 	//method
-	private void setPaintCommands(final IContainer<Statement> paintCommands) {
+	private void setPaintCommands(final IContainer<ChainedNode> paintCommands) {
 		mGUI.setPaintCommandsFromStatements(paintCommands);
 	}
 }

@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Frame;
@@ -159,7 +159,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	@Override
-	protected Node internal_getData(final Statement request) {
+	protected Node internal_getData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -196,7 +196,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	@Override
-	protected void internal_run(final Statement command) {
+	protected void internal_run(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {

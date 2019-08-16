@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -11,7 +12,6 @@ import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.GUI_API.ILayerGUI;
@@ -448,7 +448,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	/**
 	 * @return the painter commands of the current {@link LayerGUI}.
 	 */
-	public final IContainer<Statement> getPaintCommands() {
+	public final IContainer<ChainedNode> getPaintCommands() {
 		
 		final var painter = new CanvasGUICommandCreatorPainter();
 		paint(painter);

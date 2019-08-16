@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.controllerAPI;
 
-import ch.nolix.core.statement.Statement;
+import ch.nolix.core.chainedNode.ChainedNode;
 
 //interface
 /**
@@ -17,7 +17,7 @@ public interface IController {
 	 * 
 	 * @param command
 	 */
-	public abstract void run(Statement command);
+	public abstract void run(ChainedNode command);
 	
 	//default method
 	/**
@@ -26,6 +26,6 @@ public interface IController {
 	 * @param command
 	 */
 	public default void run(final String command) {
-		run(Statement.fromString(command));
+		run(ChainedNode.fromString(command));
 	}
 }

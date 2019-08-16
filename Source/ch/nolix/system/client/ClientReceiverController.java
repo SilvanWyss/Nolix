@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.client;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.node.Node;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
@@ -43,7 +43,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	@Override
-	public Node getData(final Statement request) {
+	public Node getData(final ChainedNode request) {
 		return client.internal_getData(request);
 	}
 	
@@ -55,7 +55,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	@Override
-	public void run(Statement command) {
+	public void run(ChainedNode command) {
 		client.internal_run(command);
 	}
 }

@@ -1,30 +1,29 @@
 //package declaration
-package ch.nolix.coreTest.statementTest;
+package ch.nolix.coreTest.chainedNodeTest;
 
-//own imports
-import ch.nolix.core.statement.Statement;
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.test.Test;
 
 //test class
 /**
- * A {@link StatementTest} is a test for {@link Statement}.
+ * A {@link ChainedNodeTest} is a test for {@link ChainedNode}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 60
  */
-public final class StatementTest extends Test {
+public final class ChainedNodeTest extends Test {
 	
 	//test case
 	public void testCase_fromString() {
 		
 		//execution
-		final var statement = Statement.fromString("");
+		final var statement = ChainedNode.fromString("");
 		
 		//verification
 		expectNot(statement.hasHeader());
 		expectNot(statement.containsAttributes());
-		expectNot(statement.hasNextStatement());
+		expectNot(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("");
 	}
 
@@ -32,12 +31,12 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_2() {
 		
 		//execution
-		final var statement =Statement.fromString("a");
+		final var statement =ChainedNode.fromString("a");
 		
 		//verification
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
-		expectNot(statement.hasNextStatement());
+		expectNot(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("a");
 	}
 	
@@ -45,12 +44,12 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_3() {
 		
 		//execution
-		final var statement = Statement.fromString("a(b)");
+		final var statement = ChainedNode.fromString("a(b)");
 		
 		//verification
 		expect(statement.hasHeader());
 		expect(statement.containsAttributes());
-		expectNot(statement.hasNextStatement());
+		expectNot(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("a(b)");
 	}
 	
@@ -58,12 +57,12 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_4() {
 		
 		//execution
-		final var statement = Statement.fromString("a.b(c)");
+		final var statement = ChainedNode.fromString("a.b(c)");
 		
 		//verification
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
-		expect(statement.hasNextStatement());
+		expect(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("a.b(c)");
 	}
 	
@@ -71,12 +70,12 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_5() {
 		
 		//execution
-		final var statement = Statement.fromString("a(b).c");
+		final var statement = ChainedNode.fromString("a(b).c");
 		
 		//verification
 		expect(statement.hasHeader());
 		expect(statement.containsAttributes());
-		expect(statement.hasNextStatement());
+		expect(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("a(b).c");
 	}
 	
@@ -84,12 +83,12 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_6() {
 		
 		//execution
-		final var statement = Statement.fromString("a.(b.c)");
+		final var statement = ChainedNode.fromString("a.(b.c)");
 		
 		//verification
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
-		expect(statement.hasNextStatement());
+		expect(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("a.(b$Dc)");
 	}
 	
@@ -97,12 +96,12 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_7() {
 		
 		//execution
-		final var statement = Statement.fromString("(a.b).c");
+		final var statement = ChainedNode.fromString("(a.b).c");
 		
 		//verification
 		expectNot(statement.hasHeader());
 		expect(statement.containsAttributes());
-		expect(statement.hasNextStatement());
+		expect(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("(a$Db).c");
 	}
 	
@@ -110,7 +109,7 @@ public final class StatementTest extends Test {
 	public void testCase_fromString_8() {
 		
 		//execution
-		final var statement = Statement.fromString("a.b.c");
+		final var statement = ChainedNode.fromString("a.b.c");
 		
 		//verification
 		expect(statement.toString()).isEqualTo("a.b.c");

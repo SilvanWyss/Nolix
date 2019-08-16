@@ -2,13 +2,13 @@
 package ch.nolix.coreTest;
 
 import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.coreTest.chainedNodeTest.ChainedNodeTestPool;
 import ch.nolix.coreTest.commonTypesHelperTest.CommonTypeHelpersTestPool;
 import ch.nolix.coreTest.containersTest.ContainerTestPool;
 import ch.nolix.coreTest.licenseTest.LicenseTestPool;
 import ch.nolix.coreTest.mathTest.MathematicsTestPool;
 import ch.nolix.coreTest.nodeTest.NodeTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
-import ch.nolix.coreTest.statementTest.StatementTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
 import ch.nolix.elementTest.elementEnumsTest.ElementEnumTestPool;
 import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
@@ -38,7 +38,7 @@ public final class CoreTestPool extends TestPool {
 			new LicenseTestPool(),
 			new MathematicsTestPool(),
 			new SequencerTestPool(),
-			new StatementTestPool(),
+			new ChainedNodeTestPool(),
 			new ValidatorTestPool()
 		);
 	}

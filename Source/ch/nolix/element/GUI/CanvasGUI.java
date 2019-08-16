@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.baseAPI.IConfigurableElement;
@@ -187,14 +187,14 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
-	public final void setPaintCommandsFromStatements(final IContainer<Statement> paintCommands) {
+	public final void setPaintCommandsFromStatements(final IContainer<ChainedNode> paintCommands) {
 		setPaintCommands(paintCommands.to(pc -> createPaintCommand(pc)));
 	}
 	
     //method
 	private IElementTaker<PaintRun> createCreatePainterCommand(
 		final int painterIndex,
-		final Statement createPainterCommand
+		final ChainedNode createPainterCommand
 	) {
 		
 		final var attributes = createPainterCommand.getRefAttributes();
@@ -234,7 +234,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
-	private IElementTaker<PaintRun> createPaintCommand(final int painterIndex,	final Statement paintCommand) {
+	private IElementTaker<PaintRun> createPaintCommand(final int painterIndex,	final ChainedNode paintCommand) {
 		switch (paintCommand.getHeader()) {
 			case CanvasGUIProtocol.CREATE_PAINTER_HEADER:
 				return createCreatePainterCommand(painterIndex, paintCommand);
@@ -256,17 +256,17 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
-	private IElementTaker<PaintRun> createPaintCommand(final Statement paintCommand) {
+	private IElementTaker<PaintRun> createPaintCommand(final ChainedNode paintCommand) {
 	    		
 	    final var painterIndex = paintCommand.getOneAttributeAsInt();
 	    
-	    return createPaintCommand(painterIndex, paintCommand.getRefNextStatement());
+	    return createPaintCommand(painterIndex, paintCommand.getRefNextNode());
 	}
 
 	//method
 	private IElementTaker<PaintRun> createPaintFilledRectangleCommand(
 		final int painterIndex,
-		final Statement paintFilledRectangleCommand
+		final ChainedNode paintFilledRectangleCommand
 	) {
 		
 		final var attributes = paintFilledRectangleCommand.getRefAttributes();
@@ -302,7 +302,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createPaintImageCommand(
 		final int painterIndex,
-		final Statement paintImageCommand
+		final ChainedNode paintImageCommand
 	) {
 		
 		final var attributes = paintImageCommand.getRefAttributes();
@@ -325,7 +325,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createPaintTextCommand(
 		final int painterIndex,
-		final Statement paintTextCommand
+		final ChainedNode paintTextCommand
 	) {
 		
 		final var attributes = paintTextCommand.getRefAttributes();
@@ -351,7 +351,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
-	private IElementTaker<PaintRun> createSetColorCommand(final int painterIndex, final Statement setColorCommand) {
+	private IElementTaker<PaintRun> createSetColorCommand(final int painterIndex, final ChainedNode setColorCommand) {
 		
 		final var color = Color.createFromSpecification(setColorCommand.getRefOneAttribute());
 		
@@ -361,7 +361,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createSetColorGradientCommand(
 		final int painterIndex,
-		final Statement setColorGradientCommand
+		final ChainedNode setColorGradientCommand
 	) {
 		
 		final var colorGradient = ColorGradient.createFromSpecification(setColorGradientCommand.getRefOneAttribute());
@@ -369,7 +369,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColorGradient(colorGradient);
 	}
 	
-	private IElementTaker<PaintRun> createTranslateCommand(final int painterIndex, final Statement translateCommand) {
+	private IElementTaker<PaintRun> createTranslateCommand(final int painterIndex, final ChainedNode translateCommand) {
 		
 		final var attributes = translateCommand.getRefAttributes();
 		final var xTranslation = attributes.getRefAt(1).toInt();

@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 //own imports
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
@@ -87,15 +87,15 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	@Override
-	protected void internal_run(final Statement command) {
+	protected void internal_run(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.COUNTERPART_HEADER:
-				runCommandFromCounterpart(command.getRefNextStatement());
+				runCommandFromCounterpart(command.getRefNextNode());
 				break;
 			case Protocol.GUI_HEADER:
-				runGUICommand(command.getRefNextStatement());
+				runGUICommand(command.getRefNextNode());
 				break;
 			case Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER:
 				getRefGUI().noteLeftMouseButtonClick();
@@ -219,12 +219,12 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param commandFromCounterpart
 	 * @throws InvalidArgumentException if the given commandFromCounterpart is not valid.
 	 */
-	private void runCommandFromCounterpart(final Statement commandFromCounterpart) {
+	private void runCommandFromCounterpart(final ChainedNode commandFromCounterpart) {
 		
 		//Enumerates the header of the given counterpartCommand.
 		switch (commandFromCounterpart.getHeader()) {
 			case Protocol.GUI_HEADER:
-				runGUICommandFromCounterpart(commandFromCounterpart.getRefNextStatement());
+				runGUICommandFromCounterpart(commandFromCounterpart.getRefNextNode());
 				resetGUIOnCounterpart(commandFromCounterpart.getRefAttributes());
 				break;
 			default:
@@ -244,7 +244,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param GUICommandFromCounterpart
 	 * @throws InvalidArgumentException if the given GUICommandFromCounterpart is not valid.
 	 */
-	private void runGUICommandFromCounterpart(final Statement GUICommandFromCounterpart) {
+	private void runGUICommandFromCounterpart(final ChainedNode GUICommandFromCounterpart) {
 		switch (GUICommandFromCounterpart.getHeader()) {
 			case Protocol.RESET_HEADER:
 				getRefGUI().reset(GUICommandFromCounterpart.getRefAttributes());
@@ -261,7 +261,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param GUICommand
 	 * @throws InvalidArgumentException if the given GUICommand is not valid.
 	 */
-	private void runGUICommand(final Statement GUICommand) {
+	private void runGUICommand(final ChainedNode GUICommand) {
 		
 		//Enumerates the header of the given GUICommand.
 		switch (GUICommand.getHeader()) {
@@ -294,7 +294,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * 
 	 * @param paintCommands
 	 */
-	private void setGUIPaintCommandsOnCounterpart(final IContainer<Statement> paintCommands) {
+	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
 		//TODO
 		if (paintCommands.containsAny()) {
 			runGUICommandOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands.to(pc -> Node.createReproducingString(pc.toString())) + ")");

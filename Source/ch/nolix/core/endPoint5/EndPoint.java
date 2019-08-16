@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
-import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -23,7 +23,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	private IDataProviderController receiverController;
 	
 	//multiple attribute
-	private final List<Statement> appendedCommands = new List<>();
+	private final List<ChainedNode> appendedCommands = new List<>();
 	
 	//method
 	/**
@@ -33,7 +33,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * @throws NullArgumentException if the given command is null.
 	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
-	public final void appendCommand(final Statement command) {
+	public final void appendCommand(final ChainedNode command) {
 		appendCommand(command.toString());
 	}
 	
@@ -45,7 +45,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * @throws NullArgumentException if one of the given commands is null.
 	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
-	public final void appendCommand(final Statement... commands) {
+	public final void appendCommand(final ChainedNode... commands) {
 		
 		//Checks if this duplex controller is not aborted.
 		supposeIsAlive();
@@ -66,7 +66,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 		//Checks if this duplex controller is not aborted.
 		supposeIsAlive();
 		
-		appendedCommands.addAtEnd(Statement.fromString(command));
+		appendedCommands.addAtEnd(ChainedNode.fromString(command));
 	}
 	
 	//method
@@ -205,5 +205,5 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * 
 	 * @param commands
 	 */
-	protected abstract void run(List<Statement> commands);
+	protected abstract void run(List<ChainedNode> commands);
 }

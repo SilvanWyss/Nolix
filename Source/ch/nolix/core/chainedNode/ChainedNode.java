@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.statement;
+package ch.nolix.core.chainedNode;
 
 //own imports
 import ch.nolix.core.attributeAPI.Headered;
@@ -13,48 +13,48 @@ import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * A {@link Statement} consists of a {@link Node} and optionally a next {@link Statement}.
- * A {@link Statement} is not mutable as long as its document node or next statement are not mutated.
+ * A {@link ChainedNode} consists of a {@link Node} and optionally a next {@link ChainedNode}.
+ * A {@link ChainedNode} is not mutable as long as its document node or next statement are not mutated.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 280
  */
-public final class Statement implements Headered {
+public final class ChainedNode implements Headered {
 	
 	//static method
 	/**
 	 * @param string
-	 * @return a new {@link Statement} the given string represents.
+	 * @return a new {@link ChainedNode} the given string represents.
 	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
-	public static Statement fromString(final String string) {
-		return new Statement(string);
+	public static ChainedNode fromString(final String string) {
+		return new ChainedNode(string);
 	}
 	
 	//attribute
 	private final Node node;
 	
 	//optional attribute
-	private final Statement nextStatement;
+	private final ChainedNode nextNode;
 	
 	//constructor
 	/**
-	 * Creates a new {@link Statement}.
+	 * Creates a new {@link ChainedNode}.
 	 */
-	public Statement() {
+	public ChainedNode() {
 		node = new Node();
-		nextStatement = null;
+		nextNode = null;
 	}
 		
 	//constructor
 	/**
-	 * Creates a new {@link Statement} that consists of the given document node.
+	 * Creates a new {@link ChainedNode} that consists of the given document node.
 	 * 
 	 * @param node
 	 * @throws NullArgumentException if the given document node is null.
 	 */
-	public Statement(final Node node) {
+	public ChainedNode(final Node node) {
 		
 		//Checks if the given document node is not null.
 		Validator
@@ -63,19 +63,19 @@ public final class Statement implements Headered {
 		.isNotNull();
 		
 		this.node = node.getCopy();
-		nextStatement = null;
+		nextNode = null;
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Statement} that consists of the given document node and next statement.
+	 * Creates a new {@link ChainedNode} that consists of the given document node and next statement.
 	 * 
 	 * @param node
 	 * @param nextStatement
 	 * @throws NullArgumentException if the given document node is null.
 	 * @throws NullArgumentException if the given next statement is null.
 	 */
-	public Statement(final Node node, final Statement nextStatement) {
+	public ChainedNode(final Node node, final ChainedNode nextStatement) {
 		
 		//Checks if the given document node is not null.
 		Validator
@@ -90,17 +90,17 @@ public final class Statement implements Headered {
 		.isNotNull();
 		
 		this.node = node;
-		this.nextStatement = nextStatement;
+		this.nextNode = nextStatement;
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Statement} the given string represents
+	 * Creates a new {@link ChainedNode} the given string represents
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
-	private Statement(final String string) {
+	private ChainedNode(final String string) {
 		
 		//Iterates the given string.
 		var openBrackets = 0;
@@ -117,7 +117,7 @@ public final class Statement implements Headered {
 				case CharacterCatalogue.DOT:
 					if (openBrackets == 0) {
 						node = Node.createFromString(string.substring(0, i));
-						nextStatement = new Statement(string.substring(i + 1, string.length()));
+						nextNode = new ChainedNode(string.substring(i + 1, string.length()));
 						return;
 					}
 				default:
@@ -125,12 +125,12 @@ public final class Statement implements Headered {
 		}
 		
 		node = Node.createFromString(string);
-		nextStatement = null;
+		nextNode = null;
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Statement} contains attributes.
+	 * @return true if the current {@link ChainedNode} contains attributes.
 	 */
 	public boolean containsAttributes() {
 		return node.containsAttributes();
@@ -138,7 +138,7 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return the number of attributes of the current {@link Statement}.
+	 * @return the number of attributes of the current {@link ChainedNode}.
 	 */
 	public int getAttributeCount() {
 		return node.getAttributeCount();
@@ -146,7 +146,7 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return the string representations of the attributes of the current {@link Statement}.
+	 * @return the string representations of the attributes of the current {@link ChainedNode}.
 	 */
 	public List<String> getAttributesToStrings() {
 		return node.getAttributesToStrings();
@@ -154,23 +154,23 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return a copy of the current {@link Statement}.
+	 * @return a copy of the current {@link ChainedNode}.
 	 */
-	public Statement getCopy() {
+	public ChainedNode getCopy() {
 		
 		//Handles the case that the current statement does not have a next statement.
-		if (!hasNextStatement()) {
-			return new Statement(node);
+		if (!hasNextNode()) {
+			return new ChainedNode(node);
 		}
 		
 		//Handles the case that the current statement has a next statement.
-		return new Statement(node, getRefNextStatement());
+		return new ChainedNode(node, getRefNextNode());
 	}
 	
 	//method
 	/**
-	 * @return the header of the current {@link Statement}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Statement} does not have a header.
+	 * @return the header of the current {@link ChainedNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -186,20 +186,20 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return a string representation of the next {@link Statement} of the current {@link Statement}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Statement} does not have a next {@link Statement}.
+	 * @return a string representation of the next {@link ChainedNode} of the current {@link ChainedNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
 	 */
-	public String getNextStatementAsString() {
-		return getRefNextStatement().toString();
+	public String getNextNodeAsString() {
+		return getRefNextNode().toString();
 	}
 	
 	//method
 	/**
-	 * @return the integer the one attribute of the current {@link Statement} represents.
-	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
+	 * @return the integer the one attribute of the current {@link ChainedNode} represents.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link Statement} does not represent an integer.
+	 * if the one attribute of the current {@link ChainedNode} does not represent an integer.
 	 */
 	public int getOneAttributeAsInt() {
 		return node.getOneAttributeAsInt();
@@ -207,9 +207,9 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return a string representation of the one attribute of the current {@link Statement}.
-	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
+	 * @return a string representation of the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
 		return node.getOneAttributeAsString();
@@ -218,9 +218,9 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @param index
-	 * @return the attribute at the given index from the current {@link Statement}.
+	 * @return the attribute at the given index from the current {@link ChainedNode}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws ArgumentMissesAttributeException if the current {@link Statement}
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode}
 	 * does not contain an attribute at the given index.
 	 */
 	public Node getRefAttributeAt(final int index) {
@@ -229,7 +229,7 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Statement}.
+	 * @return the attributes of the current {@link ChainedNode}.
 	 */
 	public IContainer<Node> getRefAttributes() {
 		return node.getRefAttributes();
@@ -237,25 +237,25 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return the next {@link Statement} of the current {@link Statement}.
+	 * @return the next {@link ChainedNode} of the current {@link ChainedNode}.
 	 * @throws ArgumentMissesAttributeException
-	 * if the current {@link Statement} does not have a next {@link Statement}.
+	 * if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
 	 */
-	public Statement getRefNextStatement() {
+	public ChainedNode getRefNextNode() {
 		
 		//Checks if the current statement has a next statement.
-		if (!hasNextStatement()) {
+		if (!hasNextNode()) {
 			throw new ArgumentMissesAttributeException(this, "next statement");
 		}
 		
-		return nextStatement;
+		return nextNode;
 	}
 	
 	//method
 	/**
-	 * @return the one attribute of the current {@link Statement}.
-	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
+	 * @return the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
 	public Node getRefOneAttribute() {
 		return node.getRefOneAttribute();
@@ -263,7 +263,7 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link Statement} has a header.
+	 * @return true if the current {@link ChainedNode} has a header.
 	 */
 	public boolean hasHeader() {
 		return node.hasHeader();
@@ -271,15 +271,15 @@ public final class Statement implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link Statement} has a next {@link Statement}.
+	 * @return true if the current {@link ChainedNode} has a next {@link ChainedNode}.
 	 */
-	public boolean hasNextStatement() {
-		return (nextStatement != null);
+	public boolean hasNextNode() {
+		return (nextNode != null);
 	}
 	
 	//method
 	/**
-	 * @return a string representation of the current {@link Statement}.
+	 * @return a string representation of the current {@link ChainedNode}.
 	 */
 	@Override
 	public String toString() {
@@ -287,8 +287,8 @@ public final class Statement implements Headered {
 		var string = node.toString();
 		
 		//Handles the case that the current statement} has a next statement.
-		if (hasNextStatement()) {
-			string += CharacterCatalogue.DOT + getRefNextStatement().toString();
+		if (hasNextNode()) {
+			string += CharacterCatalogue.DOT + getRefNextNode().toString();
 		}
 		
 		return string;

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.controllerAPI;
 
+import ch.nolix.core.chainedNode.ChainedNode;
 import ch.nolix.core.node.Node;
-import ch.nolix.core.statement.Statement;
 
 //interface
 /**
@@ -17,7 +17,7 @@ public interface IDataProvider {
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
-	public abstract Node getData(Statement request);
+	public abstract Node getData(ChainedNode request);
 	
 	//default method
 	/**
@@ -25,6 +25,6 @@ public interface IDataProvider {
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
 	public default Node getData(final String request) {
-		return getData(Statement.fromString(request));
+		return getData(ChainedNode.fromString(request));
 	}
 }
