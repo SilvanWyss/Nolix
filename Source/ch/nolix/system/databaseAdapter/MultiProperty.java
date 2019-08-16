@@ -3,7 +3,7 @@ package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.skillAPI.Clearable;
 
 //class
@@ -54,8 +54,8 @@ implements Clearable<MultiProperty<V>> {
 	}
 	
 	//method
-	public List<DocumentNode> getAttributes0() {
-		return getValues().to(v -> DocumentNode.createFromString(v.toString()));
+	public List<Node> getAttributes0() {
+		return getValues().to(v -> Node.createFromString(v.toString()));
 	}
 	
 	//method

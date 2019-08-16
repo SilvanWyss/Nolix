@@ -5,13 +5,13 @@ package ch.nolix.element.widgets;
 import javax.swing.JFileChooser;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.localComputer.PopupWindowProvider;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.color.Color;
@@ -39,7 +39,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case FILE_GETTER_HEADER:
 				setProvideFile();
@@ -51,13 +51,13 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
 		if (providesFile()) {
 			attributes.addAtEnd(
-				DocumentNode.createWithHeader(FILE_GETTER_HEADER)
+				Node.createWithHeader(FILE_GETTER_HEADER)
 			);
 		}
 		

@@ -7,9 +7,9 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
@@ -86,7 +86,7 @@ implements Clearable<Console> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -156,14 +156,14 @@ implements Clearable<Console> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this console contains one or several lines.
 		if (containsAny()) {
-			attributes.addAtEnd(new DocumentNode(LINES_HEADER, lines.to(l -> DocumentNode.createWithHeader(l))));
+			attributes.addAtEnd(new Node(LINES_HEADER, lines.to(l -> Node.createWithHeader(l))));
 		}
 		
 		return attributes;

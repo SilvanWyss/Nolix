@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.documentNode;
+package ch.nolix.core.fileNode;
 
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.ReadContainer;
@@ -7,6 +7,8 @@ import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
+import ch.nolix.core.node.Node;
 
 //class
 /**
@@ -16,11 +18,11 @@ import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
  * @month 2017-07
  * @lines 130
  */
-public final class FileDocumentNode extends DocumentNodeoid {
+public final class FileNode extends BaseNode {
 
 	//attributes
 	private final FileAccessor fileAccessor;
-	private final DocumentNode internalSpecification;
+	private final Node internalSpecification;
 	
 	//constructor
 	/**
@@ -30,7 +32,7 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	 * 
 	 * @param filePath
 	 */
-	public FileDocumentNode(final String filePath) {
+	public FileNode(final String filePath) {
 		
 		//Handles the case that there does not exist a file with the given file path.
 		if (!FileSystemAccessor.isFile(filePath)) {
@@ -43,7 +45,7 @@ public final class FileDocumentNode extends DocumentNodeoid {
 		}
 		
 		internalSpecification
-		= DocumentNode.createFromFile(filePath);
+		= Node.createFromFile(filePath);
 	}
 	
 	//method
@@ -53,7 +55,7 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	 * @param attribute
 	 */
 	@Override
-	public void addAttribute(final DocumentNodeoid attribute) {
+	public void addAttribute(final BaseNode attribute) {
 		internalSpecification.addAttribute(attribute);
 		save();
 	}
@@ -84,10 +86,10 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public IContainer<SubDocumentNode> getRefAttributes() {
+	public IContainer<SubNode> getRefAttributes() {
 		return new ReadContainer<>(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubDocumentNode(this, a)
+				a -> new SubNode(this, a)
 			)
 		);
 	}
@@ -99,8 +101,8 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	 * does not contain an attribute or contains several attributes.
 	 */
 	@Override
-	public SubDocumentNode getRefOneAttribute() {
-		return new SubDocumentNode(
+	public SubNode getRefOneAttribute() {
+		return new SubNode(
 			this,
 			internalSpecification.getRefOneAttribute()
 		);
@@ -124,7 +126,7 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	 * if this simple persistent specification does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
 		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
 		save();
 	}

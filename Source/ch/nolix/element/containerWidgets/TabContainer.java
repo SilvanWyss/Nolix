@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
@@ -83,7 +82,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -199,7 +198,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

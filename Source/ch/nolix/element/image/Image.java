@@ -15,8 +15,8 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.Matrix;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
@@ -34,7 +34,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
 	//static method
-	public static Image createFromSpecification(final DocumentNodeoid specification) {
+	public static Image createFromSpecification(final BaseNode specification) {
 		
 		final var image =
 		new Image(
@@ -110,7 +110,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
 				setPixelArray(attribute.getRefAttributes().to(a -> Color.createFromSpecification(a)));
@@ -122,11 +122,11 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 				
-		final var pixelArraySpecification =	DocumentNode.createWithHeader(PIXEL_ARRAY_HEADER);
+		final var pixelArraySpecification =	Node.createWithHeader(PIXEL_ARRAY_HEADER);
 		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValue(true)));
 		attributes.addAtEnd(pixelArraySpecification);
 				

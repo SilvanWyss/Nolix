@@ -4,9 +4,9 @@ package ch.nolix.coreTest;
 import ch.nolix.core.baseTest.TestPool;
 import ch.nolix.coreTest.commonTypesHelperTest.CommonTypeHelpersTestPool;
 import ch.nolix.coreTest.containersTest.ContainerTestPool;
-import ch.nolix.coreTest.documentNodeTest.DocumentNodeTestPool;
 import ch.nolix.coreTest.licenseTest.LicenseTestPool;
 import ch.nolix.coreTest.mathTest.MathematicsTestPool;
+import ch.nolix.coreTest.nodeTest.NodeTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
 import ch.nolix.coreTest.statementTest.StatementTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
@@ -29,7 +29,7 @@ public final class CoreTestPool extends TestPool {
 		addTestPool(
 			new ContainerTestPool(),
 			new DatabaseAdapterTestPool(),
-			new DocumentNodeTestPool(),
+			new NodeTestPool(),
 			new ch.nolix.coreTest.endPointTest.EndPointTestPool(),
 			new ch.nolix.coreTest.endPoint2Test.EndPointTestPool(),
 			new ch.nolix.coreTest.endPoint3Test.EndPointTestPool(),

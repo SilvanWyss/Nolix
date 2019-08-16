@@ -3,9 +3,9 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
@@ -44,7 +44,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 */
 	public  BGUIC runLocally(final String command) {
 		
-		internal_invokeSessionUserRunMethod(DocumentNode.createFromString(command));
+		internal_invokeSessionUserRunMethod(Node.createFromString(command));
 		updateGUIOnCounterpart();
 		
 		return asConcreteType();
@@ -63,7 +63,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		internal_runOnCounterpart(
 			Protocol.SHOW_ERROR_MESSAGE_HEADER
 			+ "("
-			+ DocumentNodeoid.createReproducingString(errorMessage)
+			+ BaseNode.createReproducingString(errorMessage)
 			+ ")"
 		);
 		
@@ -145,7 +145,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @throws InvalidArgumentException if the given widgetsInteractionAttributes are not valid.
 	 */
 	private void addOrChangeGUIWidgetsAttributes(
-		final IContainer<IContainer<DocumentNode>> widgetsInteractionAttributes
+		final IContainer<IContainer<Node>> widgetsInteractionAttributes
 	) {
 		getRefGUI().addOrChangeInteractionAttributesOfWidgets(widgetsInteractionAttributes);
 	}
@@ -191,7 +191,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private <S extends DocumentNodeoid> void resetGUI(final IContainer<S> attributes) {
+	private <S extends BaseNode> void resetGUI(final IContainer<S> attributes) {
 		getRefGUI().reset(attributes);
 	}
 	
@@ -201,7 +201,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * 
 	 * @param attributes
 	 */
-	private void resetGUIOnCounterpart(final Iterable<DocumentNode> attributes) {
+	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
 		internal_runOnCounterpart(
 			Protocol.GUI_HEADER
 			+ "."
@@ -283,7 +283,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		runGUICommandOnCounterpart(
 			Protocol.SET_TITLE_HEADER
 			+ "("
-			+ DocumentNode.createReproducingString(title)
+			+ Node.createReproducingString(title)
 			+ ")"
 		);
 	}
@@ -297,7 +297,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	private void setGUIPaintCommandsOnCounterpart(final IContainer<Statement> paintCommands) {
 		//TODO
 		if (paintCommands.containsAny()) {
-			runGUICommandOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands.to(pc -> DocumentNode.createReproducingString(pc.toString())) + ")");
+			runGUICommandOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands.to(pc -> Node.createReproducingString(pc.toString())) + ")");
 		}
 	}
 	

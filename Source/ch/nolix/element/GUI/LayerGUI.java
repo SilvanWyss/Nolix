@@ -6,10 +6,10 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
@@ -98,7 +98,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param specification
 	 * @return true if a {@link LayerGUI} can create a {@link Widget} from the given specification.
 	 */
-	public static boolean canCreateWidgetFrom(final DocumentNodeoid specification) {
+	public static boolean canCreateWidgetFrom(final BaseNode specification) {
 		return widgetProvider.canCreateWidgetFrom(specification);
 	}
 
@@ -118,7 +118,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @return a new {@link Widget} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Widget<?, ?> createWidgetFrom(final DocumentNodeoid specification) {
+	public static Widget<?, ?> createWidgetFrom(final BaseNode specification) {
 		return widgetProvider.createWidgetFrom(specification);
 	}
 	
@@ -310,7 +310,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 				
 		//Handles the case that the given attribute specifies a Widget.
 		if (canCreateWidget(attribute.getHeader())) {
@@ -353,7 +353,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @return the current {@link GUI}.
 	 * @throws InvalidArgumentException if the given interactionAttributesOfWidgets are not valid.
 	 */
-	public <S extends DocumentNodeoid> LG addOrChangeInteractionAttributesOfWidgets(
+	public <S extends BaseNode> LG addOrChangeInteractionAttributesOfWidgets(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgets
 	) {
 		
@@ -401,7 +401,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<DocumentNode> getAttributes() {
+	public final List<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -440,7 +440,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	/**
 	 * @return the interaction attributes of the {@link Widget}s of the current {@link GUI}.
 	 */
-	public IContainer<IContainer<DocumentNode>> getInteractionAttributesOfWidgets() {
+	public IContainer<IContainer<Node>> getInteractionAttributesOfWidgets() {
 		return getRefWidgets().to(w -> w.getInteractionAttributes());
 	}
 	

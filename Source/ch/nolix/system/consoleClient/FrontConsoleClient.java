@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
@@ -160,25 +159,25 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	@Override
-	protected DocumentNode internal_getData(final Statement request) {
+	protected Node internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.READ_LINE_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createWithHeader(console.readLine());
+				return Node.createWithHeader(console.readLine());
 			case Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createWithHeader(console.readNonEmptyLine());
+				return Node.createWithHeader(console.readNonEmptyLine());
 			case Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createWithHeader(console.readSecretLine());
+				return Node.createWithHeader(console.readSecretLine());
 			case Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createWithHeader(String.valueOf(console.readCharacter()));
+				return Node.createWithHeader(String.valueOf(console.readCharacter()));
 			case Protocol.LINES_OF_CONSOLE_REQUEST:
 				
-				final DocumentNode data = new DocumentNode();
+				final Node data = new Node();
 				
 				//Iterates the lines of the main console of this console front client.
 				for (final var l : console.getLines()) {
-					data.addAttribute(DocumentNodeoid.createReproducingString(l));
+					data.addAttribute(BaseNode.createReproducingString(l));
 				}
 				
 				return data;

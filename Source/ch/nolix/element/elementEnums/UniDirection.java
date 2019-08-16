@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.elementEnums;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -28,7 +27,7 @@ public enum UniDirection implements IElementEnum {
 	 * @param specification
 	 * @return a new {@link UniDirection} from the given specification.
 	 */
-	public static UniDirection createFromSpecification(final DocumentNodeoid specification) {
+	public static UniDirection createFromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

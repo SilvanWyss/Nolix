@@ -3,8 +3,8 @@ package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -15,12 +15,12 @@ extends Referenceoid<E> {
 	private long referencedEntityId = -1;
 	
 	//method
-	public final List<DocumentNode> getAttributes0() {
+	public final List<Node> getAttributes0() {
 
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		
 		if (referencesEntity()) {
-			attributes.addAtEnd(new DocumentNode(getReferencedEntityId()));
+			attributes.addAtEnd(new Node(getReferencedEntityId()));
 		}
 		
 		return attributes;

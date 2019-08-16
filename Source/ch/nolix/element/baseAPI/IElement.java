@@ -3,9 +3,9 @@ package ch.nolix.element.baseAPI;
 
 import ch.nolix.core.XML.XMLNode;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.generalSkillAPI.TypeRequestable;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 
 //interface
 /**
@@ -19,14 +19,14 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return the attributes of the current {@link IElement}.
 	 */
-	public abstract List<DocumentNode> getAttributes();
+	public abstract List<Node> getAttributes();
 	
 	//default method
 	/**
 	 * @return the specification of the current {@link IElement}.
 	 */
-	public default DocumentNode getSpecification() {
-		return new DocumentNode(getType(), getAttributes());
+	public default Node getSpecification() {
+		return new Node(getType(), getAttributes());
 	}
 	
 	//default method
@@ -36,16 +36,16 @@ public interface IElement extends TypeRequestable {
 	 * @throws NullArgumentException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
-	public default DocumentNode getSpecificationAs(final String type) {
-		return new DocumentNode(type, getAttributes());
+	public default Node getSpecificationAs(final String type) {
+		return new Node(type, getAttributes());
 	}
 	
 	//default method
 	/**
 	 * @return the specification of the current {@link IElement} without header.
 	 */
-	public default DocumentNode getSpecificationWithoutHeader() {
-		return new DocumentNode(getAttributes());
+	public default Node getSpecificationWithoutHeader() {
+		return new Node(getAttributes());
 	}
 	
 	//default method

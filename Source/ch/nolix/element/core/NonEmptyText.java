@@ -3,7 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -29,7 +29,7 @@ public class NonEmptyText extends Text {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static NonEmptyText createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return new NonEmptyText(specification.getOneAttributeAsString());
 	}

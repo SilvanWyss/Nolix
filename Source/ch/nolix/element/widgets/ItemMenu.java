@@ -6,11 +6,11 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
@@ -91,7 +91,7 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case SELECTED_ITEM_HEADER:
 				selectItemByText(attribute.getOneAttributeAsString());
@@ -129,12 +129,12 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public final List<DocumentNode> getInteractionAttributes() {
+	public final List<Node> getInteractionAttributes() {
 		
 		final var interactionAttributes = super.getInteractionAttributes();
 		
 		if (containsSelectedItem()) {
-			interactionAttributes.addAtEnd(new DocumentNode(SELECTED_ITEM_HEADER,	getSelectedItemText()));
+			interactionAttributes.addAtEnd(new Node(SELECTED_ITEM_HEADER,	getSelectedItemText()));
 		}
 		
 		return interactionAttributes;

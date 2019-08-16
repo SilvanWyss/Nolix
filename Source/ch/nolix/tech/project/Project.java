@@ -4,7 +4,7 @@ package ch.nolix.tech.project;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MultiProperty;
@@ -29,7 +29,7 @@ public final class Project extends Element<Project> implements IProject {
 		VariableNameCatalogue.NAME,
 		n -> setName(n),
 		s -> s.getOneAttributeAsString(),
-		n -> new DocumentNode(VariableNameCatalogue.NAME, n)
+		n -> new Node(VariableNameCatalogue.NAME, n)
 	);
 	
 	//attribute

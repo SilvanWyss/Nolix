@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -20,7 +19,7 @@ public enum ContainerRole implements IElementEnum {
 	 * @param specification
 	 * @return a new {@link ContainerRole} from the given specification.
 	 */
-	public static ContainerRole createFromSpecification(final DocumentNodeoid specification) {
+	public static ContainerRole createFromSpecification(final BaseNode specification) {
 		return ContainerRole.valueOf(specification.getOneAttributeAsString());
 	}
 }

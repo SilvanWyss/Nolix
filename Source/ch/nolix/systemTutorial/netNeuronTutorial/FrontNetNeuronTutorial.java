@@ -4,7 +4,7 @@ package ch.nolix.systemTutorial.netNeuronTutorial;
 //own imports
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.system.netNeuron.BackNetNeuron;
 
 //class
@@ -34,7 +34,7 @@ public final class FrontNetNeuronTutorial {
 		
 		//Creates a back net neuron.
 		final var netBackNeuron =
-		new BackNetNeuron<String>(port, s -> DocumentNode.createFromString(s));
+		new BackNetNeuron<String>(port, s -> Node.createFromString(s));
 		
 		//Creates and adds an input neuron to the back net neuron.
 		netBackNeuron.addInputNeuron(new SourceNeuron<String>("Hello_World!"));

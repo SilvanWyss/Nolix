@@ -2,9 +2,9 @@
 package ch.nolix.element.widgets;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
@@ -53,7 +53,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -85,7 +85,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getInteractionAttributes() {
+	public List<Node> getInteractionAttributes() {
 		
 		//Calls method of the base class.
 		final var interactionAttributes = super.getInteractionAttributes();

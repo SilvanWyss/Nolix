@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.elementEnums;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -25,7 +24,7 @@ public enum DirectionOfRotation implements IElementEnum {
 	 * @return a new {@link DirectionOfRotation} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DirectionOfRotation createFromSpecification(final DocumentNodeoid specification) {
+	public static DirectionOfRotation createFromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 	

@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.element.GUI_API;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.rasterAPI.TopLeftPositionedRecangular;
 import ch.nolix.core.skillAPI.Recalculable;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -99,7 +98,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -282,14 +281,14 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * {@inheritDoc}}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
 		attributes.addAtBegin(getInteractionAttributes());
 		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
-		attributes.addAtEnd(new DocumentNode(GREY_OUT_WHEN_DISABLED_FLAG_HEADER, greyOutWhenDisabled));
+		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_FLAG_HEADER, greyOutWhenDisabled));
 			
 		//Extracts the base state attributes of the current Widget.
 		final var baseStateAttributes = getRefBaseLook().getAttributes();
@@ -395,7 +394,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the interaction attributes of the current {@link Widget}.
 	 */
-	public List<DocumentNode> getInteractionAttributes() {
+	public List<Node> getInteractionAttributes() {
 		return new List<> (getState().getSpecificationAs(STATE_HEADER));
 	}
 	

@@ -4,8 +4,8 @@ package ch.nolix.element.valueHolder;
 import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.base.Element;
 
 //class
@@ -37,7 +37,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	 * if the given specification is not valid.
 	 */
 	public static ValueOrPercentageHolder createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		
 		var attribute = specification.getOneAttributeAsString();

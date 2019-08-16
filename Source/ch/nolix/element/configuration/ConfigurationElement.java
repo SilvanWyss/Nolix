@@ -4,9 +4,9 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -31,7 +31,7 @@ implements ISmartObject<CE> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -50,10 +50,10 @@ implements ISmartObject<CE> {
 	 * @return the attributes of this configuration element.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		List<DocumentNode> attributes = super.getAttributes();
+		List<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this configuration element has a configuration.
 		if (hasConfiguration()) {

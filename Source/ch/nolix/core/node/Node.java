@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.documentNode;
+package ch.nolix.core.node;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -14,25 +14,25 @@ import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * A {@link DocumentNode} is a {@link DocumentNodeoid}
+ * A {@link Node} is a {@link BaseNode}
  * that is completely stored in the memory like a common object.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 500
  */
-public final class DocumentNode extends DocumentNodeoid implements ISmartObject<DocumentNode> {
+public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//static method
 	/**
 	 * @param filePath
-	 * @return a new {@link DocumentNode} from the file with the given file path.
+	 * @return a new {@link Node} from the file with the given file path.
 	 * @throws InvalidArgumentException if the given file path is not valid.
-	 * @throws InvalidArgumentException if the file with the given file path does not represent a {@link DocumentNode}.
+	 * @throws InvalidArgumentException if the file with the given file path does not represent a {@link Node}.
 	 */
-	public static DocumentNode createFromFile(final String filePath) {
+	public static Node createFromFile(final String filePath) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.resetFromFile(filePath);
 		
 		return documentNode;
@@ -41,12 +41,12 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	//static method
 	/**
 	 * @param string
-	 * @return a new {@link DocumentNode} from the given string.
-	 * @throws InvalidArgumentException if the given string does not represent a {@link DocumentNode}.
+	 * @return a new {@link Node} from the given string.
+	 * @throws InvalidArgumentException if the given string does not represent a {@link Node}.
 	 */
-	public static DocumentNode createFromString(final String string) {
+	public static Node createFromString(final String string) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.reset(string);
 		
 		return documentNode;
@@ -55,21 +55,21 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	//static method
 	/**
 	 * @param pEnum
-	 * @return a new {@link DocumentNode} with a header from the given pEnum.
+	 * @return a new {@link Node} with a header from the given pEnum.
 	 */
-	public static DocumentNode createWithHeader(final Enum<?> pEnum) {
+	public static Node createWithHeader(final Enum<?> pEnum) {
 		return createWithHeader(pEnum.toString());
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @return a new {@link DocumentNode} with the given header.
+	 * @return a new {@link Node} with the given header.
 	 * @throws NullArgumentException if the given header is null.
 	 */
-	public static DocumentNode createWithHeader(final String header) {
+	public static Node createWithHeader(final String header) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.setHeader(header);
 		
 		return documentNode;
@@ -78,11 +78,11 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	//static method
 	/**
 	 * @param attribute
-	 * @return a new {@link DocumentNode} with the given attribute.
+	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static DocumentNode createWithOneAttribute(final boolean attribute) {
+	public static Node createWithOneAttribute(final boolean attribute) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.setHeader(String.valueOf(attribute));
 		
 		return documentNode;
@@ -91,12 +91,12 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	//static method
 	/**
 	 * @param attribute
-	 * @return a new {@link DocumentNode} with the given attribute.
+	 * @return a new {@link Node} with the given attribute.
 	 * @throws NullArgumentException if the given attribute is null.
 	 */
-	public static DocumentNode createWithOneAttribute(final DocumentNodeoid attribute) {
+	public static Node createWithOneAttribute(final BaseNode attribute) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.addAttribute(attribute);
 		
 		return documentNode;
@@ -105,11 +105,11 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	//static method
 	/**
 	 * @param attribute
-	 * @return a new {@link DocumentNode} with the given attribute.
+	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static final DocumentNode createWithOneAttribute(final int attribute) {
+	public static final Node createWithOneAttribute(final int attribute) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.addAttribute(String.valueOf(attribute));
 		
 		return documentNode;
@@ -118,13 +118,13 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	//static method
 	/**
 	 * @param attribute
-	 * @return a new {@link DocumentNode} with the given attribute.
+	 * @return a new {@link Node} with the given attribute.
 	 * @throws NullArgumentException if the given attribute is null.
 	 * @throws InvalidArgumentException with the given attribute.
 	 */
-	public static DocumentNode createWithOneAttribute(final String attribute) {
+	public static Node createWithOneAttribute(final String attribute) {
 		
-		final var documentNode = new DocumentNode();
+		final var documentNode = new Node();
 		documentNode.addAttribute(createWithHeader(attribute));
 		
 		return documentNode;
@@ -134,60 +134,60 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	private String header;
 	
 	//multi-attribute
-	private final List<DocumentNode> attributes = new List<>();
+	private final List<Node> attributes = new List<>();
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} without header and without attributes.
+	 * Creates a new {@link Node} without header and without attributes.
 	 */
-	public DocumentNode() {}
+	public Node() {}
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with a header that consists of the given character.
+	 * Creates a new {@link Node} with a header that consists of the given character.
 	 * 
 	 * @param character
 	 */
-	public DocumentNode(final char character) {
+	public Node(final char character) {
 		setHeader(Character.toString(character));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given attributes.
+	 * Creates a new {@link Node} with the given attributes.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attribute is not valid.
 	 */
-	public <S extends DocumentNodeoid> DocumentNode(final Iterable<S> attributes) {
+	public <S extends BaseNode> Node(final Iterable<S> attributes) {
 		attributes.forEach(a -> a.addAttribute(a));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header.
+	 * Creates a new {@link Node} with the given header.
 	 * 
 	 * @param header
 	 */
-	public DocumentNode(final long header) {
+	public Node(final long header) {
 		setHeader(String.valueOf(header));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header.
+	 * Creates a new {@link Node} with the given header.
 	 * 
 	 * @param header
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public DocumentNode(final String header) {
+	public Node(final String header) {
 		setHeader(header);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header and attributes.
+	 * Creates a new {@link Node} with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -195,7 +195,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public DocumentNode(final String header, final DocumentNode... attributes) {
+	public Node(final String header, final Node... attributes) {
 		
 		//Calls other constructor.
 		this(header);
@@ -213,7 +213,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public DocumentNode(final String header, final Iterable<DocumentNode> attributes) {
+	public Node(final String header, final Iterable<Node> attributes) {
 		
 		//Calls other constructor.
 		this(header);
@@ -223,14 +223,14 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header and attribute.
+	 * Creates a new {@link Node} with the given header and attribute.
 	 * 
 	 * @param header
 	 * @param attribute
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public DocumentNode(final String header, final boolean attribute) {
+	public Node(final String header, final boolean attribute) {
 		
 		//Calls other constructor.
 		this(header, String.valueOf(attribute));
@@ -238,14 +238,14 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header and attribute.
+	 * Creates a new {@link Node} with the given header and attribute.
 	 * 
 	 * @param header
 	 * @param attribute
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public DocumentNode(final String header, final long attribute) {
+	public Node(final String header, final long attribute) {
 		
 		//Calls other constructor.
 		this(header, String.valueOf(attribute));
@@ -253,7 +253,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header and attributes.
+	 * Creates a new {@link Node} with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -261,7 +261,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public DocumentNode(final String header, final String... attributes) {
+	public Node(final String header, final String... attributes) {
 		
 		//Calls other constructor.
 		this(header);
@@ -270,7 +270,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		for (final String a : attributes) {
 			
 			if (a.isEmpty()) {
-				addAttribute(new DocumentNode());
+				addAttribute(new Node());
 			}
 			
 			else {
@@ -281,27 +281,27 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 
 	//method
 	/**
-	 * Adds the given attribute to the current {@link DocumentNode}.
+	 * Adds the given attribute to the current {@link Node}.
 	 */
 	@Override
-	public void addAttribute(final DocumentNodeoid attribute) {
+	public void addAttribute(final BaseNode attribute) {
 		addAttribute(attribute.getCopy());
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link DocumentNode}.
+	 * Adds the given attribute to the current {@link Node}.
 	 * 
 	 * @param attribute
 	 * @throws NullArgumentException if the given attribute is null.
 	 */
-	public void addAttribute(final DocumentNode attribute) {
+	public void addAttribute(final Node attribute) {
 		attributes.addAtEnd(attribute);
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link DocumentNode}.
+	 * Adds the given attribute to the current {@link Node}.
 	 * 
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
@@ -314,8 +314,8 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * Adds the given prefix to the header of the current {@link DocumentNode}.
-	 * Sets the given prefix has header to the current {@link DocumentNode} if it does not have a header.
+	 * Adds the given prefix to the header of the current {@link Node}.
+	 * Sets the given prefix has header to the current {@link Node} if it does not have a header.
 	 * 
 	 * @param prefix
 	 * @throws NullArgumentException if the given prefix is null.
@@ -339,8 +339,8 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * Adds the given postfix to the header of the current {@link DocumentNode}.
-	 * Sets the given postfix as header to the current {@link DocumentNode} if it does not have a header.
+	 * Adds the given postfix to the header of the current {@link Node}.
+	 * Sets the given postfix as header to the current {@link Node} if it does not have a header.
 	 * 
 	 * @param postfix
 	 * @throws NullArgumentException if the given postfix is null.
@@ -364,7 +364,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * @return the number of attributes of the current {@link DocumentNode}.
+	 * @return the number of attributes of the current {@link Node}.
 	 */
 	public int getAttributesCount() {
 		return attributes.getSize();
@@ -388,11 +388,11 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link DocumentNode}
+	 * @return the attributes of the current {@link Node}
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public IContainer<DocumentNode> getRefAttributes() {
+	public IContainer<Node> getRefAttributes() {
 		return new ReadContainer<>(attributes);
 	}
 	
@@ -400,20 +400,20 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	/**
 	 * @param header
 	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if the current {@link DocumentNode} does not contain an attribute with the given header
+	 * @throws Exception if the current {@link Node} does not contain an attribute with the given header
 	 */
-	public IContainer<DocumentNode> getRefAttributesOfFirstAttribute(String header) {
+	public IContainer<Node> getRefAttributesOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
 	}
 
 	//method
 	/**
-	 * @return the one attribute of the current {@link DocumentNode}
-	 * @throws EmptyArgumentException if the current {@link DocumentNode} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link DocumentNode} contains several attributes.
+	 * @return the one attribute of the current {@link Node}
+	 * @throws EmptyArgumentException if the current {@link Node} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
 	 */
 	@Override
-	public DocumentNode getRefOneAttribute() {
+	public Node getRefOneAttribute() {
 		return attributes.getRefOne();
 	}
 	
@@ -422,11 +422,11 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @param header
 	 * @return the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 * -the current {@link DocumentNode} does not contain an attribute with the given header
-	 * -the first attribute of the current {@link DocumentNode} with the given header
+	 * -the current {@link Node} does not contain an attribute with the given header
+	 * -the first attribute of the current {@link Node} with the given header
 	 * does not contain an attribute or contains several attributes
 	 */
-	public DocumentNode getRefOneAttributeOfFirstAttribute(String header) {
+	public Node getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
 	}
 	
@@ -434,7 +434,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	/**
 	 * @param header
 	 * @return a string representation
-	 * of the one attribute of the first attribute with the given header of the current {@link DocumentNode}.
+	 * of the one attribute of the first attribute with the given header of the current {@link Node}.
 	 */
 	public String getRefOneAttributeOfFirstAttributeAsString(String header) {
 		return getRefOneAttributeOfFirstAttribute(header).toString();
@@ -442,7 +442,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * @return true if the current {@link DocumentNode} has a header
+	 * @return true if the current {@link Node} has a header
 	 */
 	@Override
 	public boolean hasHeader() {
@@ -451,7 +451,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * Removes the attributes of the current {@link DocumentNode}.
+	 * Removes the attributes of the current {@link Node}.
 	 */
 	@Override
 	public void removeAttributes() {
@@ -460,20 +460,20 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from the current {@link DocumentNode}.
+	 * Removes the first attribute the given selector selects from the current {@link Node}.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if the current {@link DocumentNode} does not contain an attribute the given selector selects.
+	 * if the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
 		attributes.removeFirst(a -> selector.getOutput(a));
 	}
 	
 	//method
 	/**
-	 * Removes the header of the current {@link DocumentNode}.
+	 * Removes the header of the current {@link Node}.
 	 */
 	@Override
 	public void removeHeader() {
@@ -482,7 +482,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * Sets the header of the current {@link DocumentNode}.
+	 * Sets the header of the current {@link Node}.
 	 * 
 	 * @param header
 	 * @throws NullArgumentException if the given header is null.

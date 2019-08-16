@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.elementEnumsTest;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.test.Test;
 import ch.nolix.element.elementEnums.Direction;
 
@@ -20,14 +20,14 @@ public final class DirectionTest extends Test {
 	public void testCase_getAttributes() {
 		
 		//execution
-		final List<DocumentNode> attributes
+		final List<Node> attributes
 		= Direction.LeftToRight.getAttributes();
 		
 		//verification
 			expect(attributes.getSize()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
-			.isEqualTo(DocumentNode.createFromString("LeftToRight"));
+			.isEqualTo(Node.createFromString("LeftToRight"));
 	}
 
 	//test case
@@ -35,7 +35,7 @@ public final class DirectionTest extends Test {
 		
 		//execution & verification
 		expect(Direction.LeftToRight.getSpecification())
-		.isEqualTo(DocumentNode.createFromString("Direction(LeftToRight)"));
+		.isEqualTo(Node.createFromString("Direction(LeftToRight)"));
 	}
 	
 	//test case

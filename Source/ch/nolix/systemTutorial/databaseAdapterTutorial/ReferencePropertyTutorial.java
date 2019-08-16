@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
 import ch.nolix.system.databaseAdapter.Reference;
@@ -16,7 +16,7 @@ public final class ReferencePropertyTutorial {
 	public static void main(String[] args) {
 		
 		//Creates the cat database.
-		final var catDatabase = new DocumentNode();
+		final var catDatabase = new Node();
 		
 		//Creates a database schema adapter for the cat database.
 		final var catDatabaseSchemaAdapter = new DocumentNodeDatabaseSchemaAdapter(catDatabase);

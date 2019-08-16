@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -27,7 +26,7 @@ public enum LabelRole implements IElementEnum {
 	 * @return a new {@link LabelRole} from the given specification.
 	 */
 	public static LabelRole createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

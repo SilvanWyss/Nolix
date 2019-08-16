@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.core;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -27,7 +26,7 @@ public class PositiveFloatingPointNumber extends FloatingPointNumber {
 	 * @return a new positive floating point number from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static PositiveFloatingPointNumber createFromSpecification(final DocumentNodeoid specification) {
+	public static PositiveFloatingPointNumber createFromSpecification(final BaseNode specification) {
 		return new PositiveFloatingPointNumber(specification.getOneAttributeAsDouble());
 	}
 	

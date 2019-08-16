@@ -2,7 +2,7 @@
 package ch.nolix.element.baseAPI;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 
 //interface
 /**
@@ -17,7 +17,7 @@ public interface IElementEnum extends IElement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default List<DocumentNode> getAttributes() {
-		return DocumentNode.createWithHeader(toString()).intoList();
+	public default List<Node> getAttributes() {
+		return Node.createWithHeader(toString()).intoList();
 	}
 }

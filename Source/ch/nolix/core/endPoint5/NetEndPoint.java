@@ -6,9 +6,9 @@ import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.logger.Logger;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
@@ -116,13 +116,13 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this net duplex controller is aborted.
 	 */
 	@Override
-	public DocumentNode getData(final Statement request) {
+	public Node getData(final Statement request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final DocumentNode reply = DocumentNode.createFromString(internalNetEndPoint.sendAndGetReply(message));
+		final Node reply = Node.createFromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -198,10 +198,10 @@ public class NetEndPoint extends EndPoint {
 		
 		//TODO: Make this more elegant.
 		//Creates message.
-		final String message = Protocol.COMMANDS + '(' + commands.to(c -> DocumentNode.createReproducingString(c.toString())).toString() + ')';
+		final String message = Protocol.COMMANDS + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
 		
 		//Sends the message and gets reply.
-		final DocumentNode reply = DocumentNode.createFromString(internalNetEndPoint.sendAndGetReply(message));
+		final Node reply = Node.createFromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -222,13 +222,13 @@ public class NetEndPoint extends EndPoint {
 	 * Lets this net duplex controller receive the given message.
 	 * This method does not throw any exception and returns a reply in any case
 	 * because the protocol determines that error messages must be sent back.
-	 * The reply must not collide with representations of a {@link DocumentNode}.
+	 * The reply must not collide with representations of a {@link Node}.
 	 * 
 	 * @return the reply to the given message from this net duplex controller.
 	 */
 	final String receiveAndGetReply(final String message) {
 		try {
-			return receiveAndGetReply(DocumentNode.createFromString(message));
+			return receiveAndGetReply(Node.createFromString(message));
 		}
 		catch (final Exception exception) {
 			
@@ -237,7 +237,7 @@ public class NetEndPoint extends EndPoint {
 			if (exception.getMessage() == null) {
 				return Protocol.ERROR;
 			}
-			return (Protocol.ERROR + '(' + DocumentNode.createReproducingString(exception.getMessage()) + ')');
+			return (Protocol.ERROR + '(' + Node.createReproducingString(exception.getMessage()) + ')');
 		}
 	}
 	
@@ -249,7 +249,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the reply to the given message from this net duplex controller.
 	 * @throws UnexistringAttributeException if this net duplex contorller does not have a receiver.
 	 */
-	private final String receiveAndGetReply(final DocumentNode message) {
+	private final String receiveAndGetReply(final Node message) {
 		
 		//Gets the receiver controller of this net duplex controller.
 		final IDataProviderController receiverController = getRefReceiverController();
@@ -257,7 +257,7 @@ public class NetEndPoint extends EndPoint {
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {
 			case Protocol.COMMANDS:	
-				message.getRefAttributes().forEach(a -> receiverController.run(DocumentNode.createOriginStringFromReproducingString(a.toString())));
+				message.getRefAttributes().forEach(a -> receiverController.run(Node.createOriginStringFromReproducingString(a.toString())));
 				return Protocol.DONE;
 			case Protocol.DATA_REQUEST:
 				return (

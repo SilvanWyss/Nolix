@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 
 //class
@@ -42,7 +41,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public <S extends DocumentNodeoid> StandardConfiguration(final Iterable<? extends DocumentNodeoid> attributes) {
+	public <S extends BaseNode> StandardConfiguration(final Iterable<? extends BaseNode> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

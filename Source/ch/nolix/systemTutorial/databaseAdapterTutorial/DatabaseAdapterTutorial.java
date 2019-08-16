@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
 import ch.nolix.system.databaseAdapter.Schema;
@@ -15,7 +15,7 @@ public final class DatabaseAdapterTutorial {
 	public static void main(String[] args) {
 		
 		//Creates the pet database.
-		final var petDatabase = new DocumentNode();
+		final var petDatabase = new Node();
 		
 		//Creates a database schema adapter for the pet database.
 		final var petDatabaseSchemaAdapter =

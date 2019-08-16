@@ -3,11 +3,10 @@ package ch.nolix.element.base;
 
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
@@ -53,9 +52,9 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		getRefProperties().forEach(p -> p.fillUpSpecificationsOfValues(attributes));
 		
 		return attributes;
@@ -83,7 +82,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	protected void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Extracts the property with the name of the given attribute.
 		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));

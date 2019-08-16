@@ -4,8 +4,8 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.core.PositiveInteger;
 
 //class
@@ -30,7 +30,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -49,10 +49,10 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	 * @return the attributes of the current {@link CheckboxLook}.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		//Handles the case that the current check box look has a line thickness.
 		if (hasLineThickness()) {

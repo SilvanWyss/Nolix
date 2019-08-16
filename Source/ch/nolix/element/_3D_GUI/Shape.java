@@ -3,9 +3,9 @@ package ch.nolix.element._3D_GUI;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.configuration.ConfigurableElement;
@@ -47,10 +47,10 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the attributes of this shape.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(position.getSpecification());
 		

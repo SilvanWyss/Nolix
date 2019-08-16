@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -11,7 +10,7 @@ public enum GridLineType implements IElementEnum {
 	InnerAndOuterLines;
 
 	//static method
-	public static GridLineType createFromSpecification(final DocumentNodeoid specification) {
+	public static GridLineType createFromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

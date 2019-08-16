@@ -4,8 +4,8 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.attributeAPI.Indexed;
 import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.independentHelpers.ArrayHelper;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -160,7 +160,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
-			+ DocumentNodeoid.createReproducingString(text)
+			+ BaseNode.createReproducingString(text)
 			+ ','
 			+ textFormat.getSpecification()
 			+ ')'
@@ -173,7 +173,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
-			+ DocumentNodeoid.createReproducingString(text)
+			+ BaseNode.createReproducingString(text)
 			+ ','
 			+ textFormat.getSpecification()
 			+ ','

@@ -2,8 +2,8 @@
 package ch.nolix.element.discreteGeometry;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.base.Element;
 
 //class
@@ -24,7 +24,7 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	 * @param specification
 	 * @return a new {@link Discrete2DPoint} from the given specification.
 	 */
-	public static Discrete2DPoint createFromSpecification(final DocumentNodeoid specification) {
+	public static Discrete2DPoint createFromSpecification(final BaseNode specification) {
 		return
 		new Discrete2DPoint(specification.getRefAttributeAt(1).toInt(), specification.getRefAttributeAt(2).toInt());
 	}
@@ -50,8 +50,8 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
-		return new List<>(new DocumentNode(x), new DocumentNode(y));
+	public List<Node> getAttributes() {
+		return new List<>(new Node(x), new Node(y));
 	}
 	
 	//method

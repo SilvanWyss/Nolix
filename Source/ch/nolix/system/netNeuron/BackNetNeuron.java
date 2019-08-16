@@ -3,8 +3,8 @@ package ch.nolix.system.netNeuron;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.client.Application;
@@ -41,7 +41,7 @@ implements OptionalClosable {
 	//attributes
 	private final NetServer netServer;
 	private final Application<StandardClient> application;
-	private final IElementTakerElementGetter<I, DocumentNode> transformator;
+	private final IElementTakerElementGetter<I, Node> transformator;
 	
 	//constructor
 	/**
@@ -56,7 +56,7 @@ implements OptionalClosable {
 	 */
 	public BackNetNeuron(
 		final int port,
-		final IElementTakerElementGetter<I, DocumentNode> transformator)
+		final IElementTakerElementGetter<I, Node> transformator)
 	{
 		//Checks if the given transform is not null.
 		Validator
@@ -124,7 +124,7 @@ implements OptionalClosable {
 		else {
 			
 			internal_setOutput(getRefOneInput());
-			final DocumentNode output = transformator.getOutput(getRefOutput());
+			final Node output = transformator.getOutput(getRefOutput());
 			
 			//Iterates the clients of the application of this net back neuron.
 			for (final StandardClient c : application.getRefClients()) {

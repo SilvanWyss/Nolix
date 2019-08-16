@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.textFormat;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -31,7 +30,7 @@ public enum Font implements IElementEnum {
 	 * if the given specification is not valid.
 	 */
 	public static Font createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return Font.valueOf(specification.getOneAttributeAsString());
 	}

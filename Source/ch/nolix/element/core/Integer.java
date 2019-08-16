@@ -2,7 +2,7 @@
 package ch.nolix.element.core;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
@@ -48,8 +48,8 @@ public class Integer implements IElement {
 	 * @return the attributes of this integer.
 	 */
 	@Override
-	public final List<DocumentNode> getAttributes() {
-		return new List<>(DocumentNode.createFromString(java.lang.Integer.toString(getValue())));
+	public final List<Node> getAttributes() {
+		return new List<>(Node.createFromString(java.lang.Integer.toString(getValue())));
 	}
 	
 	//method

@@ -6,10 +6,10 @@ import java.util.Iterator;
 
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -44,8 +44,8 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	public MultiProperty(
 		final String name,
 		final IElementTaker<V> adderMethod,
-		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
-		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
 		//Calls constructor of the base class
@@ -142,7 +142,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpSpecificationsOfValues(final List<DocumentNode> list) {
+	final void fillUpSpecificationsOfValues(final List<Node> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : this) {

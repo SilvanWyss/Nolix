@@ -5,9 +5,9 @@ package ch.nolix.element.widgets;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.WidgetLook;
 import ch.nolix.element.color.Color;
@@ -115,7 +115,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -194,7 +194,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return the attributes of the current {@link BorderWidgetLook}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -1342,7 +1342,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpBorderColorsSpecifications(final List<DocumentNode> list) {
+	private void fillUpBorderColorsSpecifications(final List<Node> list) {
 		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
 			list.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
 		}
@@ -1372,7 +1372,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpBorderThicknessesSpecifications(final List<DocumentNode> list) {
+	private void fillUpBorderThicknessesSpecifications(final List<Node> list) {
 		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
 			list.addAtEnd(leftBorderThickness.getSpecificationAs(BORDER_THICKNESS_HEADER));
 		}
@@ -1402,7 +1402,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpPaddingSpecifications(final List<DocumentNode> list) {
+	private void fillUpPaddingSpecifications(final List<Node> list) {
 		if (hasAPadding() && hasSamePaddingAtEachSide()) {
 			list.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
 		}
@@ -1432,7 +1432,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpScrollbarLooksSpecifications(final List<DocumentNode> list) {
+	private void fillUpScrollbarLooksSpecifications(final List<Node> list) {
 		
 		if (hasBaseScrollbarLook()) {
 			list.addAtEnd(baseScrollbarLook.getSpecificationAs(BASE_SCROLLBAR_LOOK_HEADER));

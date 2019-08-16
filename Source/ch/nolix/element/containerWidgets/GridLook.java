@@ -3,7 +3,7 @@ package ch.nolix.element.containerWidgets;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerProperty;
@@ -27,7 +27,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.LINE_THICKNESS,
 		DEFAULT_LINE_THICKNESS,
 		s -> s.getOneAttributeAsInt(),
-		lt -> DocumentNode.createWithOneAttribute(lt)
+		lt -> Node.createWithOneAttribute(lt)
 	);
 	
 	//attribute
@@ -45,7 +45,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.ELEMENT_MARGIN,
 		DEFAULT_ELEMENT_MARGIN,
 		s -> s.getOneAttributeAsInt(),
-		em -> DocumentNode.createWithOneAttribute(em)
+		em -> Node.createWithOneAttribute(em)
 	);
 	
 	//attribute

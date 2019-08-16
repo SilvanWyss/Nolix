@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.elementEnumsTest;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.test.Test;
 import ch.nolix.element.elementEnums.UniDirection;
 
@@ -20,14 +20,14 @@ public final class UniDirectionTest extends Test {
 	public void testCase_getAttributes() {
 		
 		//execution
-		final List<DocumentNode> attributes
+		final List<Node> attributes
 		= UniDirection.Horizontal.getAttributes();
 		
 		//verification
 			expect(attributes.getSize()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
-			.isEqualTo(DocumentNode.createFromString("Horizontal"));
+			.isEqualTo(Node.createFromString("Horizontal"));
 	}
 
 	//test case
@@ -35,7 +35,7 @@ public final class UniDirectionTest extends Test {
 		
 		//execution & verification
 		expect(UniDirection.Horizontal.getSpecification())
-		.isEqualTo(DocumentNode.createFromString("UniDirection(Horizontal)"));
+		.isEqualTo(Node.createFromString("UniDirection(Horizontal)"));
 	}
 	
 	//test case

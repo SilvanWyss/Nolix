@@ -5,10 +5,10 @@ package ch.nolix.system.client;
 import java.lang.reflect.Method;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.reflection.MethodHelper;
 import ch.nolix.core.validator.Validator;
 
@@ -57,7 +57,7 @@ public abstract class Session<C extends Client<C>> {
 							userRunMethods.addAtEnd(m);
 						}
 						
-						else if (m.getReturnType().equals(DocumentNode.class)) {
+						else if (m.getReturnType().equals(Node.class)) {
 							
 							//Setting the method accessible is needed that it can be accessed.
 							m.setAccessible(true);
@@ -123,10 +123,10 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the data the given data method returns for the given parameters.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	final DocumentNode invokeUserDataMethod(String name, String... arguments) {
+	final Node invokeUserDataMethod(String name, String... arguments) {
 		try {
 			return
-			(DocumentNode)
+			(Node)
 			getUserDataMethod(name).invoke(this, (Object[])arguments);
 		}
 		catch (final Exception exception) {

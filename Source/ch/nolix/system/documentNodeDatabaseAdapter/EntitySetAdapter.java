@@ -5,7 +5,7 @@ package ch.nolix.system.documentNodeDatabaseAdapter;
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
@@ -16,10 +16,10 @@ public final class EntitySetAdapter<E extends Entity>
 implements IEntitySetAdapter<E> {
 
 	//attribute
-	private final DocumentNodeoid entitySetSpecification;
+	private final BaseNode entitySetSpecification;
 	
 	//package-visible constructor
-	EntitySetAdapter(final DocumentNodeoid entitySetSpecification) {
+	EntitySetAdapter(final BaseNode entitySetSpecification) {
 		
 		Validator
 		.suppose(entitySetSpecification)

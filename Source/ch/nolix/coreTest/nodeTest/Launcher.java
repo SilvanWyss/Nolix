@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.documentNodeTest;
+package ch.nolix.coreTest.nodeTest;
 
 //class
 /**
@@ -16,7 +16,7 @@ public final class Launcher {
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		new DocumentNodeTestPool().run();
+		new NodeTestPool().run();
 	}
 	
 	//private constructor

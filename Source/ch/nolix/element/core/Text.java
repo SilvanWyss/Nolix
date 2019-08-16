@@ -5,8 +5,8 @@ package ch.nolix.element.core;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 
@@ -32,7 +32,7 @@ public class Text extends Element<Text> {
 	 * @return a new text from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Text createFromSpecification(final DocumentNodeoid specification) {
+	public static Text createFromSpecification(final BaseNode specification) {
 		return new Text(specification.getOneAttributeAsString());
 	}
 	
@@ -70,15 +70,15 @@ public class Text extends Element<Text> {
 	 * @return the attributes of this text.
 	 */
 	@Override
-	public final List<DocumentNode> getAttributes() {
+	public final List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		
 		if (getValue().isEmpty()) {
-			attributes.addAtEnd(new DocumentNode());
+			attributes.addAtEnd(new Node());
 		}
 		else {
-			attributes.addAtEnd(DocumentNode.createWithHeader(getValue()));
+			attributes.addAtEnd(Node.createWithHeader(getValue()));
 		}
 		
 		return attributes;

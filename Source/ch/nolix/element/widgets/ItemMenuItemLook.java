@@ -3,7 +3,7 @@ package ch.nolix.element.widgets;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
@@ -21,7 +21,7 @@ extends LayerElement<ItemMenuItemLook> {
 		
 	//static method
 	public static ItemMenuItemLook createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		
 		final var selectionMenuItemLook = new ItemMenuItemLook();

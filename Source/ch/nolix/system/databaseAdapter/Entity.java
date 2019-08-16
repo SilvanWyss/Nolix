@@ -10,10 +10,10 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
@@ -48,12 +48,12 @@ public class Entity implements Identified, IElement {
 	
 	//method
 	@Override
-	public final List<DocumentNode> getAttributes() {
+	public final List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		
 		if (hasId()) {
-			attributes.addAtEnd(new DocumentNode(getId()));
+			attributes.addAtEnd(new Node(getId()));
 		}
 		
 		for (final var p : getRefProperties()) {
@@ -153,14 +153,14 @@ public class Entity implements Identified, IElement {
 	}
 	
 	//method
-	public final DocumentNode getRowSpecification() {
+	public final Node getRowSpecification() {
 		
-		final var rowSpecification = new DocumentNode();
+		final var rowSpecification = new Node();
 		
-		rowSpecification.addAttribute(new DocumentNode(getId()));
+		rowSpecification.addAttribute(new Node(getId()));
 		
 		for (final var p : getRefProperties()) {
-			rowSpecification.addAttribute(DocumentNode.createFromString(p.internal_getValues().toString()));
+			rowSpecification.addAttribute(Node.createFromString(p.internal_getValues().toString()));
 		}
 		
 		return rowSpecification;
@@ -339,7 +339,7 @@ public class Entity implements Identified, IElement {
 	}
 	
 	//package-visible method
-	final void setValues(final Iterable<DocumentNodeoid> valuesInOrder) {
+	final void setValues(final Iterable<BaseNode> valuesInOrder) {
 		
 		//Iterates the properties of the current entity and the given values in order synchronously.
 		final var propertiesIterator = getRefProperties().iterator();

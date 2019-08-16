@@ -7,7 +7,7 @@ import ch.nolix.core.attributeAPI.Headered;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 import ch.nolix.system.databaseAdapter.PropertyKind;
@@ -39,10 +39,10 @@ public final class Column implements Headered, IElement {
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		return 
 		new List<>(
-			new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader()),
+			new Node(PascalCaseNameCatalogue.HEADER, getHeader()),
 			valueType.getSpecification()
 		);
 	}

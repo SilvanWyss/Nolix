@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -32,7 +31,7 @@ public enum ButtonRole implements IElementEnum {
 	 * if the given specification is not valid.
 	 */
 	public static ButtonRole createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

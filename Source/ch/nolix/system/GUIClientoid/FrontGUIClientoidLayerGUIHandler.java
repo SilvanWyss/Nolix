@@ -3,8 +3,8 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.Frame;
 
@@ -74,7 +74,7 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 	}
 	
 	//method
-	private void resetGUI(final Iterable<? extends DocumentNodeoid> attributes) {
+	private void resetGUI(final Iterable<? extends BaseNode> attributes) {
 		mGUI.reset(attributes);
 		mGUI.updateFromConfiguration();
 	}

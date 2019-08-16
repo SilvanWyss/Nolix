@@ -7,13 +7,13 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * A {@link Statement} consists of a {@link DocumentNode} and optionally a next {@link Statement}.
+ * A {@link Statement} consists of a {@link Node} and optionally a next {@link Statement}.
  * A {@link Statement} is not mutable as long as its document node or next statement are not mutated.
  * 
  * @author Silvan Wyss
@@ -33,7 +33,7 @@ public final class Statement implements Headered {
 	}
 	
 	//attribute
-	private final DocumentNode documentNode;
+	private final Node node;
 	
 	//optional attribute
 	private final Statement nextStatement;
@@ -43,7 +43,7 @@ public final class Statement implements Headered {
 	 * Creates a new {@link Statement}.
 	 */
 	public Statement() {
-		documentNode = new DocumentNode();
+		node = new Node();
 		nextStatement = null;
 	}
 		
@@ -51,18 +51,18 @@ public final class Statement implements Headered {
 	/**
 	 * Creates a new {@link Statement} that consists of the given document node.
 	 * 
-	 * @param documentNode
+	 * @param node
 	 * @throws NullArgumentException if the given document node is null.
 	 */
-	public Statement(final DocumentNode documentNode) {
+	public Statement(final Node node) {
 		
 		//Checks if the given document node is not null.
 		Validator
-		.suppose(documentNode)
+		.suppose(node)
 		.thatIsNamed("document node")
 		.isNotNull();
 		
-		this.documentNode = documentNode.getCopy();
+		this.node = node.getCopy();
 		nextStatement = null;
 	}
 	
@@ -70,16 +70,16 @@ public final class Statement implements Headered {
 	/**
 	 * Creates a new {@link Statement} that consists of the given document node and next statement.
 	 * 
-	 * @param documentNode
+	 * @param node
 	 * @param nextStatement
 	 * @throws NullArgumentException if the given document node is null.
 	 * @throws NullArgumentException if the given next statement is null.
 	 */
-	public Statement(final DocumentNode documentNode, final Statement nextStatement) {
+	public Statement(final Node node, final Statement nextStatement) {
 		
 		//Checks if the given document node is not null.
 		Validator
-		.suppose(documentNode)
+		.suppose(node)
 		.thatIsNamed("document node")
 		.isNotNull();
 		
@@ -89,7 +89,7 @@ public final class Statement implements Headered {
 		.thatIsNamed("next statement")
 		.isNotNull();
 		
-		this.documentNode = documentNode;
+		this.node = node;
 		this.nextStatement = nextStatement;
 	}
 	
@@ -116,7 +116,7 @@ public final class Statement implements Headered {
 					break;
 				case CharacterCatalogue.DOT:
 					if (openBrackets == 0) {
-						documentNode = DocumentNode.createFromString(string.substring(0, i));
+						node = Node.createFromString(string.substring(0, i));
 						nextStatement = new Statement(string.substring(i + 1, string.length()));
 						return;
 					}
@@ -124,7 +124,7 @@ public final class Statement implements Headered {
 			}
 		}
 		
-		documentNode = DocumentNode.createFromString(string);
+		node = Node.createFromString(string);
 		nextStatement = null;
 	}
 	
@@ -133,7 +133,7 @@ public final class Statement implements Headered {
 	 * @return true if the current {@link Statement} contains attributes.
 	 */
 	public boolean containsAttributes() {
-		return documentNode.containsAttributes();
+		return node.containsAttributes();
 	}
 	
 	//method
@@ -141,7 +141,7 @@ public final class Statement implements Headered {
 	 * @return the number of attributes of the current {@link Statement}.
 	 */
 	public int getAttributeCount() {
-		return documentNode.getAttributeCount();
+		return node.getAttributeCount();
 	}
 	
 	//method
@@ -149,7 +149,7 @@ public final class Statement implements Headered {
 	 * @return the string representations of the attributes of the current {@link Statement}.
 	 */
 	public List<String> getAttributesToStrings() {
-		return documentNode.getAttributesToStrings();
+		return node.getAttributesToStrings();
 	}
 	
 	//method
@@ -160,11 +160,11 @@ public final class Statement implements Headered {
 		
 		//Handles the case that the current statement does not have a next statement.
 		if (!hasNextStatement()) {
-			return new Statement(documentNode);
+			return new Statement(node);
 		}
 		
 		//Handles the case that the current statement has a next statement.
-		return new Statement(documentNode, getRefNextStatement());
+		return new Statement(node, getRefNextStatement());
 	}
 	
 	//method
@@ -181,7 +181,7 @@ public final class Statement implements Headered {
 			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 		
-		return documentNode.getHeader();
+		return node.getHeader();
 	}
 	
 	//method
@@ -202,7 +202,7 @@ public final class Statement implements Headered {
 	 * if the one attribute of the current {@link Statement} does not represent an integer.
 	 */
 	public int getOneAttributeAsInt() {
-		return documentNode.getOneAttributeAsInt();
+		return node.getOneAttributeAsInt();
 	}
 	
 	//method
@@ -212,7 +212,7 @@ public final class Statement implements Headered {
 	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
-		return documentNode.getOneAttributeAsString();
+		return node.getOneAttributeAsString();
 	}
 	
 	//method
@@ -223,16 +223,16 @@ public final class Statement implements Headered {
 	 * @throws ArgumentMissesAttributeException if the current {@link Statement}
 	 * does not contain an attribute at the given index.
 	 */
-	public DocumentNode getRefAttributeAt(final int index) {
-		return documentNode.getRefAttributeAt(index);
+	public Node getRefAttributeAt(final int index) {
+		return node.getRefAttributeAt(index);
 	}
 	
 	//method
 	/**
 	 * @return the attributes of the current {@link Statement}.
 	 */
-	public IContainer<DocumentNode> getRefAttributes() {
-		return documentNode.getRefAttributes();
+	public IContainer<Node> getRefAttributes() {
+		return node.getRefAttributes();
 	}
 	
 	//method
@@ -257,8 +257,8 @@ public final class Statement implements Headered {
 	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
 	 */
-	public DocumentNode getRefOneAttribute() {
-		return documentNode.getRefOneAttribute();
+	public Node getRefOneAttribute() {
+		return node.getRefOneAttribute();
 	}
 	
 	//method
@@ -266,7 +266,7 @@ public final class Statement implements Headered {
 	 * @return true if the current {@link Statement} has a header.
 	 */
 	public boolean hasHeader() {
-		return documentNode.hasHeader();
+		return node.hasHeader();
 	}
 	
 	//method
@@ -284,7 +284,7 @@ public final class Statement implements Headered {
 	@Override
 	public String toString() {
 		
-		var string = documentNode.toString();
+		var string = node.toString();
 		
 		//Handles the case that the current statement} has a next statement.
 		if (hasNextStatement()) {

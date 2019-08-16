@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -29,7 +28,7 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static AccordionExpansionBehavior createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Resettable;
 
 //interface
@@ -27,7 +26,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attribute
 	 * @return the current {@link IMutableElement}.
 	 */
-	public abstract void addOrChangeAttribute(DocumentNodeoid attribute);
+	public abstract void addOrChangeAttribute(BaseNode attribute);
 	
 	//default method
 	/**
@@ -37,7 +36,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttribute(final DocumentNodeoid... attributes) {
+	public default void addOrChangeAttribute(final BaseNode... attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -53,7 +52,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttributes(final Iterable<? extends DocumentNodeoid> attributes) {
+	public default void addOrChangeAttributes(final Iterable<? extends BaseNode> attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -70,7 +69,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public default void addOrChangeAttribute(final String attribute) {
-		addOrChangeAttribute(DocumentNode.createFromString(attribute));
+		addOrChangeAttribute(Node.createFromString(attribute));
 	}
 	
 	//default method
@@ -97,7 +96,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @return the current {@link IMutableElement}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public default S reset(final DocumentNodeoid specification) {
+	public default S reset(final BaseNode specification) {
 		return reset(specification.getRefAttributes());
 	}
 	
@@ -110,7 +109,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
 	@SuppressWarnings("unchecked")
-	public default S reset(final Iterable<? extends DocumentNodeoid> attributes) {
+	public default S reset(final Iterable<? extends BaseNode> attributes) {
 		
 		reset();
 		addOrChangeAttributes(attributes);
@@ -127,7 +126,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public default S reset(final String specification) {
-		return reset(DocumentNode.createFromString(specification));
+		return reset(Node.createFromString(specification));
 	}
 	
 	//default method
@@ -139,9 +138,9 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @return the current {@link IMutableElement}.
 	 * @throws InvalidArgumentException if the given file path is not valid.
 	 * @throws InvalidArgumentException
-	 * if the file with the given file path does not represent a {@link DocumentNode}.
+	 * if the file with the given file path does not represent a {@link Node}.
 	 */
 	public default S resetFrom(final String filePath) {
-		return reset(DocumentNode.createFromFile(filePath));
+		return reset(Node.createFromFile(filePath));
 	}
 }

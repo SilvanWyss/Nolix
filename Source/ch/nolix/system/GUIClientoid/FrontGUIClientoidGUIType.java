@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -21,7 +20,7 @@ public enum FrontGUIClientoidGUIType implements IElementEnum {
 	 * @return a new {@link FrontGUIClientoidGUIType} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static FrontGUIClientoidGUIType createFromSpecification(final DocumentNodeoid specification) {
+	public static FrontGUIClientoidGUIType createFromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

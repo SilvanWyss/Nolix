@@ -3,7 +3,7 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.core.controllerAPI.IDataProviderController;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
@@ -43,7 +43,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	@Override
-	public DocumentNode getData(final Statement request) {
+	public Node getData(final Statement request) {
 		return client.internal_getData(request);
 	}
 	

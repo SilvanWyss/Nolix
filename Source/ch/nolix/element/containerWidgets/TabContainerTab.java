@@ -6,10 +6,10 @@ import ch.nolix.core.attributeAPI.Headerable;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
@@ -40,7 +40,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
 		s -> s.getOneAttributeAsString(),
-		h -> new DocumentNode(PascalCaseNameCatalogue.HEADER, h)
+		h -> new Node(PascalCaseNameCatalogue.HEADER, h)
 	);
 	
 	//method
@@ -48,7 +48,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * @param specification
 	 * @return a new {@link TabContainerTab} from the given specification.
 	 */
-	public static TabContainerTab createFromSpecification(final DocumentNodeoid specification) {
+	public static TabContainerTab createFromSpecification(final BaseNode specification) {
 		
 		final var tab = new TabContainerTab();
 		tab.reset(specification);
@@ -119,7 +119,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
@@ -161,7 +161,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

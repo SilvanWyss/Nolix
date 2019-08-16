@@ -4,8 +4,8 @@ package ch.nolix.element.containerWidgets;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.color.Color;
@@ -32,7 +32,7 @@ extends LayerElement<ItemMenuItemLook> {
 	
 	//static method
 	public static TabContainerMenuItemLook createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		
 		final var tabContainerMenuItemLook = new TabContainerMenuItemLook();
@@ -50,7 +50,7 @@ extends LayerElement<ItemMenuItemLook> {
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case MIN_WIDTH_HEADER:
 				setMinWidth(attribute.getOneAttributeAsInt());
@@ -75,9 +75,9 @@ extends LayerElement<ItemMenuItemLook> {
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		
 		if (hasMinWidth()) {
 			attributes.addAtEnd(

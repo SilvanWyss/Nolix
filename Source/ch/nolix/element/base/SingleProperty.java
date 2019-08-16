@@ -4,12 +4,12 @@ package ch.nolix.element.base;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //package-visible abstract class
@@ -43,8 +43,8 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 	public SingleProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
-		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -152,7 +152,7 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpSpecificationsOfValues(final List<DocumentNode> list) {
+	final void fillUpSpecificationsOfValues(final List<Node> list) {
 		
 		//Handles the case that the current SingleProperty has a value.
 		//For a better performance, this implementation does not use all comfortable methods.

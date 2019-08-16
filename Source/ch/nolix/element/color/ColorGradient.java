@@ -5,9 +5,9 @@ package ch.nolix.element.color;
 import java.awt.GradientPaint;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 import ch.nolix.element.elementEnums.UniDirection;
@@ -45,18 +45,18 @@ public class ColorGradient implements IElement {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ColorGradient createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		
 		final var attributes = specification.getRefAttributes();
 		
-		final var directionSpecification = new DocumentNode();
+		final var directionSpecification = new Node();
 		directionSpecification.addAttribute(attributes.getRefAt(1));
 		
-		final var color1Specification = new DocumentNode();
+		final var color1Specification = new Node();
 		color1Specification.addAttribute(attributes.getRefAt(2));
 		
-		final var color2Specification = new DocumentNode();
+		final var color2Specification = new Node();
 		color2Specification.addAttribute(attributes.getRefAt(3));
 		
 		return new ColorGradient(
@@ -212,12 +212,12 @@ public class ColorGradient implements IElement {
 	 * @return the attributes of this color gradient.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		return 
 		new List<>(
-			DocumentNode.createWithHeader(getDirection().toString()),
-			DocumentNode.createWithHeader(getColor1().getStringValue()),
-			DocumentNode.createWithHeader(getColor2().getStringValue())
+			Node.createWithHeader(getDirection().toString()),
+			Node.createWithHeader(getColor1().getStringValue()),
+			Node.createWithHeader(getColor2().getStringValue())
 		);
 	}
 	
@@ -250,10 +250,10 @@ public class ColorGradient implements IElement {
 	 * @param appendAlphaValueAlways
 	 * @return a hexadecimal specification of this color gradient.
 	 */
-	public DocumentNode getHexadecimalSpecification(
+	public Node getHexadecimalSpecification(
 		final boolean appendAlphaValueAlways
 	) {
-		return new DocumentNode(
+		return new Node(
 			getType(),
 			color1.getHexadecimalSpecification(appendAlphaValueAlways),
 			color2.getHexadecimalSpecification(appendAlphaValueAlways)

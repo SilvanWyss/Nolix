@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.controllerAPI;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.statement.Statement;
 
 //interface
@@ -18,14 +17,14 @@ public interface IDataProvider {
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
-	public abstract DocumentNode getData(Statement request);
+	public abstract Node getData(Statement request);
 	
 	//default method
 	/**
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
-	public default DocumentNode getData(final String request) {
+	public default Node getData(final String request) {
 		return getData(Statement.fromString(request));
 	}
 }

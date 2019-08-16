@@ -2,8 +2,8 @@
 package ch.nolix.element.core;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
@@ -36,7 +36,7 @@ public final class Boolean implements IElement {
 	 * @return a new boolean from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Boolean createFromSpecification(final DocumentNodeoid specification) {
+	public static Boolean createFromSpecification(final BaseNode specification) {
 		return new Boolean(specification.getOneAttributeAsBoolean());
 	}
 	
@@ -70,18 +70,18 @@ public final class Boolean implements IElement {
 	 * @return the attributes of this boolean.
 	 */
 	@Override
-	public final List<DocumentNode> getAttributes() {
+	public final List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		
 		//Handles the case that this boolean is false.
 		if (isFalse()) {
-			attributes.addAtEnd(DocumentNode.createFromString(FALSE_HEADER));
+			attributes.addAtEnd(Node.createFromString(FALSE_HEADER));
 		}
 		
 		//Handles the case that this boolean ist true.
 		else {
-			attributes.addAtEnd(DocumentNode.createFromString(TRUE_HEADER));
+			attributes.addAtEnd(Node.createFromString(TRUE_HEADER));
 		}
 
 		return attributes;

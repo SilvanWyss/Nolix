@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.elementEnums;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -32,7 +31,7 @@ public enum ExtendedContentPosition implements IElementEnum {
 	 * @return a new {@link ExtendedContentPosition} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ExtendedContentPosition createFromSpecification(final DocumentNodeoid specification) {
+	public static ExtendedContentPosition createFromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

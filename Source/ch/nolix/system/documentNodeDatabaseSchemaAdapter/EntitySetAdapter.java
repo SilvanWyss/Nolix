@@ -4,8 +4,8 @@ package ch.nolix.system.documentNodeDatabaseSchemaAdapter;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.Column;
 import ch.nolix.system.databaseSchemaAdapter.IColumnAdapter;
@@ -18,10 +18,10 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	private static final String ENTITY_SET_SPECIFICATION_VARIABLE_NAME = "entity set specification";
 	
 	//attribute
-	private final DocumentNodeoid entitySetSpecification;
+	private final BaseNode entitySetSpecification;
 	
 	//constructor
-	EntitySetAdapter(final DocumentNodeoid entitySetSpecification) {
+	EntitySetAdapter(final BaseNode entitySetSpecification) {
 		
 		Validator
 		.suppose(entitySetSpecification)

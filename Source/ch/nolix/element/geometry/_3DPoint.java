@@ -3,8 +3,8 @@ package ch.nolix.element.geometry;
 
 import ch.nolix.core.commonTypeHelpers.DoubleHelper;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.math.Vector;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
@@ -59,18 +59,18 @@ public class _3DPoint implements IElement {
 	 * @return the attribtues of this 3D point.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		return
 		new List<>(
-			DocumentNode
+			Node
 			.createWithHeader(
 				DoubleHelper.toString(getX())
 			),
-			DocumentNode
+			Node
 			.createWithHeader(
 				DoubleHelper.toString(getY())
 			),
-			DocumentNode
+			Node
 			.createWithHeader(
 				DoubleHelper.toString(getZ())
 			)

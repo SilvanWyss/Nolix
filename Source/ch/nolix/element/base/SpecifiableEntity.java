@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IMutableElement;
 
@@ -37,7 +36,7 @@ implements IMutableElement<SE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Calls method of the base class.
 		super.addOrChangeAttribute(attribute);

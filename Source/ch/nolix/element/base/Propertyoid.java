@@ -5,9 +5,9 @@ package ch.nolix.element.base;
 import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -21,8 +21,8 @@ public abstract class Propertyoid<V> implements Named {
 	
 	//attributes
 	private final String name;
-	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
-	final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
+	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//package-visible constructor
 	/**
@@ -38,8 +38,8 @@ public abstract class Propertyoid<V> implements Named {
 	 */
 	Propertyoid(
 		final String name,
-		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
-		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
 		//Checks if the given name is not null or blank.
@@ -91,7 +91,7 @@ public abstract class Propertyoid<V> implements Named {
 	 * 
 	 * @param specification
 	 */
-	final void addOrChangeValueFromSpecification(final DocumentNodeoid specification) {
+	final void addOrChangeValueFromSpecification(final BaseNode specification) {
 		addOrChangeValue(valueCreator.getOutput(specification));
 	}
 	
@@ -101,5 +101,5 @@ public abstract class Propertyoid<V> implements Named {
 	 * 
 	 * @param list
 	 */
-	abstract void fillUpSpecificationsOfValues(List<DocumentNode> list);
+	abstract void fillUpSpecificationsOfValues(List<Node> list);
 }

@@ -3,8 +3,8 @@ package ch.nolix.element.geometry;
 
 import ch.nolix.core.commonTypeHelpers.DoubleHelper;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.math.Vector;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.base.Element;
 
 //class
@@ -55,14 +55,14 @@ public final class _2DPoint extends Element<_2DPoint> {
 	 * @return the attributes of this 2D point.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		return
 		new List<>(
-			DocumentNode
+			Node
 			.createWithHeader(
 				DoubleHelper.toString(getX())
 			),
-			DocumentNode
+			Node
 			.createWithHeader(
 				DoubleHelper.toString(getY())
 			)

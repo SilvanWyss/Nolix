@@ -3,8 +3,8 @@ package ch.nolix.element.containerWidgets;
 
 //own imports
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
@@ -52,7 +52,7 @@ implements Clearable<SingleContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void addOrChangeAttribute(DocumentNode attribute) {
+	public void addOrChangeAttribute(Node attribute) {
 		
 		//Handles the case that the given attribute specicifies a widget.
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
@@ -81,7 +81,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

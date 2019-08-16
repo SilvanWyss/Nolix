@@ -7,10 +7,10 @@ import ch.nolix.core.attributeAPI.OptionalTokenable;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IConfigurableElement;
@@ -37,7 +37,7 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -59,18 +59,18 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
 		//Handles the case that the current configurbale element has a name.
 		if (hasName()) {
-			attributes.addAtEnd(new DocumentNode(PascalCaseNameCatalogue.NAME, name));
+			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.NAME, name));
 		}
 		
 		//Handles the case that the current configurbale element has a token.
 		if (hasToken()) {
-			attributes.addAtEnd(new DocumentNode(PascalCaseNameCatalogue.TOKEN, token));
+			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.TOKEN, token));
 		}
 		
 		return attributes;

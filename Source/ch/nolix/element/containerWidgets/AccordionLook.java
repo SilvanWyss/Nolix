@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerProperty;
@@ -38,7 +37,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_HEADER_TEXT_SIZE_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_SIZE,
 		s -> s.getOneAttributeAsInt(),
-		thts -> DocumentNode.createWithOneAttribute(thts)
+		thts -> Node.createWithOneAttribute(thts)
 	);
 	
 	//attribute

@@ -4,9 +4,9 @@ package ch.nolix.element.containerWidgets;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
@@ -55,7 +55,7 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
 			setWidget(LayerGUI.createWidgetFrom(attribute));
@@ -76,11 +76,11 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>(
-			new DocumentNode(getRowIndex()),
-			new DocumentNode(getColumnIndex())
+		final var attributes = new List<Node>(
+			new Node(getRowIndex()),
+			new Node(getColumnIndex())
 		);
 		
 		if (containsAny()) {

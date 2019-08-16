@@ -4,10 +4,9 @@ package ch.nolix.element.input;
 //Java import
 import java.awt.event.KeyEvent;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -197,7 +196,7 @@ public enum Key implements IElementEnum {
 	}
 	
 	//static method
-	public static Key fromSpecification(final DocumentNodeoid specification) {
+	public static Key fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 	

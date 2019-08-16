@@ -7,11 +7,11 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
@@ -41,7 +41,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	 * @param specification
 	 * @return a new {@link AccordionTab} from the given specification.
 	 */
-	public static AccordionTab createFromSpecification(final DocumentNodeoid specification) {
+	public static AccordionTab createFromSpecification(final BaseNode specification) {
 		
 		final var tab = new AccordionTab();
 		tab.reset(specification);
@@ -55,7 +55,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
 		s -> s.getOneAttributeAsString(),
-		h -> new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader())
+		h -> new Node(PascalCaseNameCatalogue.HEADER, getHeader())
 	);
 	
 	//attribute
@@ -71,7 +71,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			}
 		},
 		s -> s.getOneAttributeAsBoolean(),
-		e -> DocumentNode.createWithOneAttribute(e)
+		e -> Node.createWithOneAttribute(e)
 	);
 	
 	//attributes
@@ -118,7 +118,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
 			setWidget(LayerGUI.createWidgetFrom(attribute));
@@ -169,7 +169,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

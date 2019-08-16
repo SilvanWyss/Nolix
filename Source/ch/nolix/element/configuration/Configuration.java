@@ -7,10 +7,10 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -41,7 +41,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	private String name;
 	
 	//multi-attributes
-	private final List<DocumentNode> attachingAttributes = new List<>();
+	private final List<Node> attachingAttributes = new List<>();
 	protected final List<Configuration<?>> configurations = new List<>();
 	
 	//optional attributes
@@ -61,13 +61,13 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @throws NullArgumentException if the given attaching attribute is null.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
-	public final C addAttachingAttribute(final DocumentNodeoid attachingAttribute) {
+	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 				
 		attachingAttributes.addAtEnd(
-			new DocumentNode(
+			new Node(
 				attachingAttribute.getHeader(),
 				attachingAttribute.getRefAttributes())
 		);
@@ -90,7 +90,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		return addAttachingAttribute(DocumentNode.createFromString(attachingAttribute));
+		return addAttachingAttribute(Node.createFromString(attachingAttribute));
 	}
 	
 	//method
@@ -163,7 +163,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -288,14 +288,14 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @return the attributes of this configuration.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this configuration has a name
 		if (hasName()) {
-			attributes.addAtBegin(new DocumentNode(PascalCaseNameCatalogue.NAME, name));
+			attributes.addAtBegin(new Node(PascalCaseNameCatalogue.NAME, name));
 		}
 		
 		//Handles the case that this configuration has a selector type.
@@ -306,7 +306,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Handles the case that this configuration contains selector roles.		
 		if (containsSelectorRoles()) {
 			
-			final var specification = DocumentNode.createFromString(SELECTOR_ROLE_HEADER);
+			final var specification = Node.createFromString(SELECTOR_ROLE_HEADER);
 			getSelectorRoles().forEach(sr -> specification.addAttribute(sr));
 			
 			attributes.addAtEnd(specification);

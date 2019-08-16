@@ -3,8 +3,8 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
@@ -205,12 +205,12 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected DocumentNode internal_getData(final Statement request) {
+	protected Node internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.GUI_TYPE_HEADER:
-				return DocumentNode.createWithHeader(getGUIType());
+				return Node.createWithHeader(getGUIType());
 			default:
 				
 				//Calls method of the base class.
@@ -273,7 +273,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * 
 	 * @param attributes
 	 */
-	private void resetCounterpartGUI(final Iterable<DocumentNode> attributes) {
+	private void resetCounterpartGUI(final Iterable<Node> attributes) {
 		internal_runOnCounterpart(
 			Protocol.GUI_HEADER
 			+ '.'

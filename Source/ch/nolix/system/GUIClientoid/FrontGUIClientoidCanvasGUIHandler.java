@@ -4,9 +4,9 @@ package ch.nolix.system.GUIClientoid;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.CanvasFrame;
 
@@ -78,7 +78,7 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 				setPaintCommands(
 					GUICommand
 					.getRefAttributes()
-					.to(a -> Statement.fromString(DocumentNode.createOriginStringFromReproducingString(a.getHeader())))
+					.to(a -> Statement.fromString(Node.createOriginStringFromReproducingString(a.getHeader())))
 				);
 				break;
 			default:

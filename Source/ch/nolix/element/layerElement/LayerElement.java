@@ -7,11 +7,11 @@ import java.lang.reflect.Field;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IMutableElement;
 
@@ -41,7 +41,7 @@ implements
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Extracts the property with the name of the given attribute.
 		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
@@ -63,9 +63,9 @@ implements
 	 * @return the attributes of this entity.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
-		final var attributes = new List<DocumentNode>();
+		final var attributes = new List<Node>();
 		getRefProperties().forEach(p -> p.fillUpAttribute(attributes));
 		
 		return attributes;

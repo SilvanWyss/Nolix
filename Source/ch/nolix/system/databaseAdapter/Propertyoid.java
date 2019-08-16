@@ -6,8 +6,8 @@ import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.core.attributeAPI.Headered;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.reflection.ReflectionHelper;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
@@ -29,10 +29,10 @@ implements Headered, IElement {
 	
 	//method
 	@Override
-	public final List<DocumentNode> getAttributes() {
+	public final List<Node> getAttributes() {
 		return
 		internal_getValues()
-		.to(v -> DocumentNode.createFromString(v.toString()));
+		.to(v -> Node.createFromString(v.toString()));
 	}
 	
 	//method

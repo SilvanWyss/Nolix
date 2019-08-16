@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.baseAPI.IElement;
 
 //abstract class
@@ -21,8 +21,8 @@ public abstract class PropertyoidType<V> implements IElement {
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
-		return new List<>(DocumentNode.createFromString(getValueTypeName())	);
+	public List<Node> getAttributes() {
+		return new List<>(Node.createFromString(getValueTypeName())	);
 	}
 	
 	//abstract method

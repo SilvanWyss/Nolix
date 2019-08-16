@@ -10,10 +10,10 @@ import ch.nolix.core.commonTypeHelpers.StringHelper;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.pair.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -760,7 +760,7 @@ public class Color extends Element<Color> {
 	 * @return a new {@link Color} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Color createFromSpecification(final DocumentNodeoid specification) {
+	public static Color createFromSpecification(final BaseNode specification) {
 		return new Color(specification.getOneAttributeAsString());
 	}
 	
@@ -1020,8 +1020,8 @@ public class Color extends Element<Color> {
 	 * @return the attributes of the current {@link Color}.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
-		return new List<>(DocumentNode.createFromString(getStringValue()));
+	public List<Node> getAttributes() {
+		return new List<>(Node.createFromString(getStringValue()));
 	}
 	
 	//method
@@ -1045,8 +1045,8 @@ public class Color extends Element<Color> {
 	 * @param appendAlphaValueAlways
 	 * @return a hexadecimal specification of the current {@link Color}.
 	 */
-	public DocumentNode getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
-		return new DocumentNode(getType(), getHexadecimalValue(appendAlphaValueAlways));
+	public Node getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
+		return new Node(getType(), getHexadecimalValue(appendAlphaValueAlways));
 	}
 	
 	//method

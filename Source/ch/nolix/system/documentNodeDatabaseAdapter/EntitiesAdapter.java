@@ -2,7 +2,7 @@
 package ch.nolix.system.documentNodeDatabaseAdapter;
 
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
@@ -11,10 +11,10 @@ import ch.nolix.system.databaseAdapter.EntityType;
 public final class EntitiesAdapter<E extends Entity> {
 
 	//attribute
-	private final DocumentNodeoid entitiesSpecification;
+	private final BaseNode entitiesSpecification;
 	
 	//package-visible constructor
-	EntitiesAdapter(final DocumentNodeoid entitiesSpecification) {
+	EntitiesAdapter(final BaseNode entitiesSpecification) {
 		
 		Validator
 		.suppose(entitiesSpecification)

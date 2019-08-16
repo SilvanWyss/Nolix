@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI_API;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -29,7 +28,7 @@ public enum WidgetState implements IElementEnum {
 	 * @param specification
 	 * @return a new {@link WidgetState} from the given specification.
 	 */
-	public static WidgetState createFromSpecification(final DocumentNodeoid specification) {
+	public static WidgetState createFromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

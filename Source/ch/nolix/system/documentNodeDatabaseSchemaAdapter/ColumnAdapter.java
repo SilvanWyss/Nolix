@@ -3,7 +3,7 @@ package ch.nolix.system.documentNodeDatabaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.IColumnAdapter;
 
@@ -11,10 +11,10 @@ import ch.nolix.system.databaseSchemaAdapter.IColumnAdapter;
 public final class ColumnAdapter implements IColumnAdapter {
 
 	//attribute
-	private final DocumentNodeoid columnSpecification;
+	private final BaseNode columnSpecification;
 	
 	//package-visible constructor
-	ColumnAdapter(final DocumentNodeoid columnSpecification) {
+	ColumnAdapter(final BaseNode columnSpecification) {
 		
 		Validator
 		.suppose(columnSpecification)

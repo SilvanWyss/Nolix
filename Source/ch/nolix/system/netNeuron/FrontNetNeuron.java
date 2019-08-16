@@ -4,8 +4,8 @@ package ch.nolix.system.netNeuron;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.client.StandardClient;
@@ -33,7 +33,7 @@ implements OptionalClosable {
 	
 	//attributes
 	private final StandardClient client;
-	private final IElementTakerElementGetter<DocumentNode, O> transformator;
+	private final IElementTakerElementGetter<Node, O> transformator;
 	
 	//constructor
 	/**
@@ -48,7 +48,7 @@ implements OptionalClosable {
 	 */
 	public FrontNetNeuron(
 		final int port,
-		IElementTakerElementGetter<DocumentNode, O> transformator
+		IElementTakerElementGetter<Node, O> transformator
 	) {
 		
 		//Calls other constructor.
@@ -70,7 +70,7 @@ implements OptionalClosable {
 	public FrontNetNeuron(
 		final String ip,
 		final int port,
-		IElementTakerElementGetter<DocumentNode, O> transformator
+		IElementTakerElementGetter<Node, O> transformator
 	) {
 		
 		//Checks if the given transformer is not null.
@@ -136,7 +136,7 @@ implements OptionalClosable {
 	 * 
 	 * @param output
 	 */
-	void setOutput(final DocumentNode output) {
+	void setOutput(final Node output) {
 		internal_setOutput(transformator.getOutput(output));
 	}
 	
@@ -148,7 +148,7 @@ implements OptionalClosable {
 	 */
 	void setOutput(final String output) {
 		internal_setOutput(
-			transformator.getOutput(DocumentNode.createFromString(output))
+			transformator.getOutput(Node.createFromString(output))
 		);
 	}
 }

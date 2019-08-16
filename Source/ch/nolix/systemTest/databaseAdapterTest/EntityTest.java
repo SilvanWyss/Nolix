@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTest.databaseAdapterTest;
 
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.test.Test;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
@@ -23,7 +23,7 @@ public final class EntityTest extends Test {
 		//verification
 		expect(specification)
 		.isEqualTo(
-			DocumentNode.createFromString(
+			Node.createFromString(
 				"Cat(Name(Garfield),WeightInGram(20000))"
 			)
 		);

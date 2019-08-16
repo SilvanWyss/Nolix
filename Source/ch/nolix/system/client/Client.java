@@ -5,8 +5,6 @@ package ch.nolix.system.client;
 import ch.nolix.core.attributeAPI.OptionalLabelable;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
@@ -16,6 +14,8 @@ import ch.nolix.core.generalSkillAPI.TypeRequestable;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.statement.Statement;
@@ -475,7 +475,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @return the data the given request requests from the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected DocumentNode internal_getData(final Statement request) {
+	protected Node internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -492,7 +492,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * requests from the counterpart of the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected DocumentNode internal_getDataFromCounterpart(final String request) {
+	protected Node internal_getDataFromCounterpart(final String request) {
 		return endPoint.getData(request);
 	}
 	
@@ -542,8 +542,8 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @return the data the invoked user data method returns.
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final DocumentNode internal_invokeSessionUserDataMethod(
-			final DocumentNodeoid sessionUserDataMethodRequest
+	protected final Node internal_invokeSessionUserDataMethod(
+			final BaseNode sessionUserDataMethodRequest
 	) {
 		//Extracts the name of the session user data method.
 		final var sessionUserDataMethodName = sessionUserDataMethodRequest.getHeader();
@@ -568,7 +568,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @return the data the invoked user data method returns.
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final DocumentNode internal_invokeSessionUserDataMethod(
+	protected final Node internal_invokeSessionUserDataMethod(
 		final String name,
 		final String... arguments
 	) {
@@ -601,7 +601,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @param arguments
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final void internal_invokeSessionUserRunMethod(final DocumentNodeoid sessionUserRunMethodRequest) {
+	protected final void internal_invokeSessionUserRunMethod(final BaseNode sessionUserRunMethodRequest) {
 		
 		//Extracts the name of the session user run method.
 		final String sessionUserRunMethodName = sessionUserRunMethodRequest.getHeader();

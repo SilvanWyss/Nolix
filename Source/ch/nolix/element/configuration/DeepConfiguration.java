@@ -2,10 +2,9 @@
 package ch.nolix.element.configuration;
 
 import ch.nolix.core.containers.List;
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.core.PositiveInteger;
 
@@ -39,7 +38,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public DeepConfiguration(final Iterable<DocumentNodeoid> attributes) {
+	public DeepConfiguration(final Iterable<BaseNode> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	
@@ -52,7 +51,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -97,10 +96,10 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @return the attributes of this deep configuration.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this deep configuration has a max selector level.
 		if (hasMaxSelectorLevel()) {

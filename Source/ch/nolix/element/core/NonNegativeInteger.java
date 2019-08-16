@@ -3,8 +3,8 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.NegativeArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -61,7 +61,7 @@ public class NonNegativeInteger extends Integer {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static NonNegativeInteger createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return new NonNegativeInteger(specification.getOneAttributeAsInt());
 	}

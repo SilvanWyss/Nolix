@@ -9,9 +9,9 @@ import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
@@ -61,7 +61,7 @@ public final class Time implements IElement {
 	 * @return a new time from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Time createFromSpecification(final DocumentNodeoid specification) {
+	public static Time createFromSpecification(final BaseNode specification) {
 		return new Time(specification.getOneAttributeAsString());
 	}
 	
@@ -282,9 +282,9 @@ public final class Time implements IElement {
 	 * @return the attributes of this time.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		return new List<>(
-			DocumentNode.createFromString(String.format(
+			Node.createFromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),
 				getMonthOfYear(),

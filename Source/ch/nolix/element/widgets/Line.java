@@ -5,9 +5,9 @@ package ch.nolix.element.widgets;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
@@ -46,7 +46,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public final void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public final void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -68,10 +68,10 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @return the attributes of this line.
 	 */
 	@Override
-	public final List<DocumentNode> getAttributes() {
+	public final List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
 			attributes.addAtEnd(thickness.getSpecificationAs(PascalCaseNameCatalogue.THICKNESS));

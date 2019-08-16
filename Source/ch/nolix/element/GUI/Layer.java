@@ -4,10 +4,10 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.validator.Validator;
@@ -58,7 +58,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * @return a new {@link Layer} from the given specification that will belong to the given parentGUI.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Layer createFromSpecification(final DocumentNodeoid specification) {
+	public static Layer createFromSpecification(final BaseNode specification) {
 		return new Layer().reset(specification);
 	}
 	
@@ -152,7 +152,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
 			setRootWidget(LayerGUI.createWidgetFrom(attribute));
 		}
@@ -186,7 +186,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

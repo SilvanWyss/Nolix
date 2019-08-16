@@ -6,9 +6,9 @@ import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseState;
@@ -20,13 +20,13 @@ public final class DocumentNodeDatabaseSchemaAdapter
 extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	
 	//attribute
-	private final DocumentNodeoid documentNodeDatabase;
+	private final BaseNode documentNodeDatabase;
 	
 	//constant
 	private static final String DATABASE_PROPERTIES_HEADER = "DatabaseProperties";
 	
 	//constructor
-	public DocumentNodeDatabaseSchemaAdapter(final DocumentNodeoid documentNodeDatabase) {
+	public DocumentNodeDatabaseSchemaAdapter(final BaseNode documentNodeDatabase) {
 		
 		Validator
 		.suppose(documentNodeDatabase)
@@ -79,9 +79,9 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
 		
 		documentNodeDatabase.addAttribute(
-			new DocumentNode(
+			new Node(
 				DATABASE_PROPERTIES_HEADER,
-				new DocumentNode(
+				new Node(
 					PascalCaseNameCatalogue.STATE,
 					"Ready"
 				)
@@ -140,10 +140,10 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	//method
 	private void addEntitySetToDatabase(final EntitySet entitySet) {
 		
-		final var entitySetSpecification = DocumentNode.createFromString("EntitySet");
+		final var entitySetSpecification = Node.createFromString("EntitySet");
 		
 		entitySetSpecification.addAttribute(
-			new DocumentNode(
+			new Node(
 				PascalCaseNameCatalogue.NAME,
 				entitySet.getName()
 			)
@@ -154,7 +154,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		}
 		
 		entitySetSpecification
-		.addAttribute(DocumentNode.createFromString(MultiPascalCaseNameCatalogue.ENTITIES));
+		.addAttribute(Node.createFromString(MultiPascalCaseNameCatalogue.ENTITIES));
 		
 		documentNodeDatabase.addAttribute(entitySetSpecification);
 	}
@@ -174,7 +174,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
-	private DocumentNodeoid getDatabasePropertiesDocumentNode() {
+	private BaseNode getDatabasePropertiesDocumentNode() {
 		return documentNodeDatabase.getRefFirstAttribute(DATABASE_PROPERTIES_HEADER);
 	}
 	

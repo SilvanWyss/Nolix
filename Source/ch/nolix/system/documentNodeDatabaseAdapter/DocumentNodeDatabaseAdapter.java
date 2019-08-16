@@ -6,7 +6,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 import ch.nolix.system.databaseAdapter.Entity;
@@ -17,14 +17,14 @@ import ch.nolix.system.databaseAdapter.Schema;
 public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//attribute
-	private final DocumentNodeoid database;
+	private final BaseNode database;
 	
 	//multi-attribute
 	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<>();
 	
 	//constructor
 	public DocumentNodeDatabaseAdapter(
-		final DocumentNodeoid database,
+		final BaseNode database,
 		final Schema schema
 	) {
 		

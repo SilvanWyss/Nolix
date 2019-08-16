@@ -3,9 +3,9 @@ package ch.nolix.tech.project;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
@@ -38,7 +38,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * @return a new task from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Task createFromSpecification(final DocumentNodeoid specification) {
+	public static Task createFromSpecification(final BaseNode specification) {
 		return new Task(specification);
 	}
 	
@@ -48,7 +48,7 @@ public final class Task extends Element<Task> implements ITask {
 		TITLE_HEADER,
 		t -> setTitle(t),
 		s -> s.getOneAttributeAsString(),
-		t -> DocumentNode.createWithOneAttribute(t)
+		t -> Node.createWithOneAttribute(t)
 	);
 	
 	//attribute
@@ -177,7 +177,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private Task(final DocumentNodeoid specification) {
+	private Task(final BaseNode specification) {
 		reset();
 		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}
@@ -187,7 +187,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Calls method of the base class.
 		super.addOrChangeAttribute(attribute);

@@ -4,10 +4,10 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
@@ -23,7 +23,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static ItemMenuItem createFromSpecification(final DocumentNodeoid specification) {
+	public static ItemMenuItem createFromSpecification(final BaseNode specification) {
 		return new ItemMenuItem(specification);
 	}
 	
@@ -45,7 +45,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 		PascalCaseNameCatalogue.ID,
 		id -> setId(id),
 		s -> s.getOneAttributeAsString(),
-		id -> DocumentNode.createWithHeader(id)
+		id -> Node.createWithHeader(id)
 	);
 	
 	//optional attribute
@@ -94,7 +94,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//constructor
-	private ItemMenuItem(final DocumentNodeoid specification) {
+	private ItemMenuItem(final BaseNode specification) {
 		unselect();
 		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}

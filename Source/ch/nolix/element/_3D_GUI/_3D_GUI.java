@@ -10,10 +10,10 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.pair.Pair;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.OptionalClosable;
@@ -76,7 +76,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public final void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public final void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Handles the case that the given attribute specifies a shape.
 		if (canCreateShape(attribute.getHeader())) {
@@ -145,10 +145,10 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * @return the attributes of this 3D GUI.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final List<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {

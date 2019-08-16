@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 
 //class
 public final class EntityType<E extends Entity> implements Named {
@@ -50,7 +50,7 @@ public final class EntityType<E extends Entity> implements Named {
 	}
 	
 	//method
-	public E createPersistedEntity(final long id, final Iterable<DocumentNodeoid> valuesInOrder) {
+	public E createPersistedEntity(final long id, final Iterable<BaseNode> valuesInOrder) {
 		
 		final var entity = createDefaultEntity();
 		entity.setId(id);

@@ -5,11 +5,11 @@ import ch.nolix.core.attributeAPI.Named;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -24,8 +24,8 @@ public final class LayerProperty<V> implements Named {
 	//attributes
 	private final String name;
 	private final V defaultValue;
-	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
-	private final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
+	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//optional attributes
 	private V value;
@@ -48,8 +48,8 @@ public final class LayerProperty<V> implements Named {
 	public LayerProperty(
 		final String name,		
 		final V defaultValue,
-		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
-		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
 		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
@@ -191,12 +191,12 @@ public final class LayerProperty<V> implements Named {
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public void setValueFromSpecification(final DocumentNodeoid specification) {
+	public void setValueFromSpecification(final BaseNode specification) {
 		setValue(valueCreator.getOutput(specification));
 	}
 	
 	//package-visible method
-	void fillUpAttribute(final List<DocumentNode> attributes) {
+	void fillUpAttribute(final List<Node> attributes) {
 		
 		//Handles the case that the current property has a value.
 		if (hasValue()) {

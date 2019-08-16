@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.databaseApplicationTutorial.airportManager;
 
-//own imports
-import ch.nolix.core.documentNode.FileDocumentNode;
+import ch.nolix.core.fileNode.FileNode;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
 import ch.nolix.system.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
@@ -15,7 +14,7 @@ public final class Launcher {
 	public static void main(String[] args) {
 		
 		final var airportManagerDatabasePath = "airportManager.database";
-		final var airportManagerDatabase = new FileDocumentNode(airportManagerDatabasePath);
+		final var airportManagerDatabase = new FileNode(airportManagerDatabasePath);
 		final var airportManagerSchema = new AirportManagerSchema();
 		
 		final var airportManagerDatabaseSchemaAdapter =

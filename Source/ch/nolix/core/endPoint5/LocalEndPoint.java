@@ -3,9 +3,9 @@ package ch.nolix.core.endPoint5;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
@@ -122,7 +122,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public DocumentNode getData(final Statement request) {
+	public Node getData(final Statement request) {
 		return counterpart.getRefReceiverController().getData(request);
 	}
 	

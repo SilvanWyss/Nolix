@@ -1,6 +1,6 @@
 package ch.nolix.element.widgets;
 
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.layerElement.LayerProperty;
 
 public final class ButtonLook extends TextLineWidgetLook<ButtonLook> {
@@ -14,7 +14,7 @@ public final class ButtonLook extends TextLineWidgetLook<ButtonLook> {
 		SHORTENS_TEXT_WHEN_LIMIITED_HEADER,
 		DEFAULT_SHORTENS_TEXT_WHEN_LIMITED_FLAG,
 		s -> s.getOneAttributeAsBoolean(),
-		b -> DocumentNode.createWithOneAttribute(b)
+		b -> Node.createWithOneAttribute(b)
 	);
 	
 	public boolean getRecursiveOrDefaultShortensTextWhenLimitedFlag() {

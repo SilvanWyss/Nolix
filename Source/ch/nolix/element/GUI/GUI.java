@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.skillAPI.Recalculable;
@@ -39,7 +38,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		PascalCaseNameCatalogue.TITLE,
 		t -> setTitle(t),
 		s -> s.getOneAttributeAsString(),
-		t -> new DocumentNode(PascalCaseNameCatalogue.TITLE, t)
+		t -> new Node(PascalCaseNameCatalogue.TITLE, t)
 	);
 	
 	//optional attribute

@@ -4,8 +4,8 @@ package ch.nolix.system.databaseAdapter;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.IChangesSaver;
 import ch.nolix.core.validator.Validator;
 
@@ -15,7 +15,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	//static method
 	public static final Object createValue(
 		final String type,
-		final DocumentNodeoid input
+		final BaseNode input
 	) {
 		switch (type) {
 			case "Boolean":

@@ -5,7 +5,7 @@ package ch.nolix.element.widgets;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MutableProperty;
@@ -34,7 +34,7 @@ extends BorderWidget<TLW, TLWL> {
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t),
 		s -> s.getOneAttributeAsString(),
-		t -> new DocumentNode(PascalCaseNameCatalogue.TEXT, t)
+		t -> new Node(PascalCaseNameCatalogue.TEXT, t)
 	);
 	
 	//method
@@ -196,8 +196,8 @@ extends BorderWidget<TLW, TLWL> {
 	/**
 	 * @return a new specification of the text of the current {@link TextLineWidget}.
 	 */
-	protected final DocumentNode getTextSpecification() {
-		return new DocumentNode(PascalCaseNameCatalogue.NAME, getText());
+	protected final Node getTextSpecification() {
+		return new Node(PascalCaseNameCatalogue.NAME, getText());
 	}
 
 	//method

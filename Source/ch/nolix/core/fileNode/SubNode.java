@@ -1,10 +1,12 @@
 //package declaration
-package ch.nolix.core.documentNode;
+package ch.nolix.core.fileNode;
 
 import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.core.node.BaseNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -13,11 +15,11 @@ import ch.nolix.core.validator.Validator;
  * @month 2017-07
  * @lines 180
  */
-public final class SubDocumentNode extends DocumentNodeoid {
+public final class SubNode extends BaseNode {
 
 	//attribute
-	private final FileDocumentNode simplePersistentSpecification;
-	private final DocumentNode internalSpecification;
+	private final FileNode simplePersistentSpecification;
+	private final Node internalSpecification;
 	
 	//package-visible constructor
 	/**
@@ -28,14 +30,14 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @param simplePersistentSpecification
 	 * @param internalSpecification
 	 */
-	SubDocumentNode(
-		final FileDocumentNode simplePersistentSpecification,
-		final DocumentNode internalSpecification
+	SubNode(
+		final FileNode simplePersistentSpecification,
+		final Node internalSpecification
 	) {
 		//Checks if the given simple persistent specification is not null.
 		Validator
 		.suppose(simplePersistentSpecification)
-		.isOfType(FileDocumentNode.class);
+		.isOfType(FileNode.class);
 		
 		//Checks if the given internal specification is not null.
 		Validator.suppose(internalSpecification)
@@ -56,7 +58,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
-	public void addAttribute(final DocumentNodeoid attribute) {
+	public void addAttribute(final BaseNode attribute) {
 		internalSpecification.addAttribute(attribute);
 		simplePersistentSpecification.save();
 	}
@@ -87,10 +89,10 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public ReadContainer<SubDocumentNode> getRefAttributes() {
+	public ReadContainer<SubNode> getRefAttributes() {
 		return new ReadContainer<>(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubDocumentNode(simplePersistentSpecification, a)
+				a -> new SubNode(simplePersistentSpecification, a)
 			)
 		);
 	}
@@ -102,8 +104,8 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @throws InvalidArgumentException if this sub specification contains several attributes.
 	 */
 	@Override
-	public SubDocumentNode getRefOneAttribute() {
-		return new SubDocumentNode(
+	public SubNode getRefOneAttribute() {
+		return new SubNode(
 			simplePersistentSpecification, internalSpecification.getRefOneAttribute()
 		);
 	}
@@ -126,7 +128,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * if this sub specification does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
 		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
 		simplePersistentSpecification.save();
 	}
@@ -153,7 +155,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 
 	//method
 	/**
-	 * Removes the header of the current {@link SubDocumentNode}
+	 * Removes the header of the current {@link SubNode}
 	 */
 	@Override
 	public void removeHeader() {

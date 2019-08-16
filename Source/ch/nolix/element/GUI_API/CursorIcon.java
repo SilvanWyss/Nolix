@@ -4,8 +4,7 @@ package ch.nolix.element.GUI_API;
 //Java import
 import java.awt.Cursor;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
@@ -33,7 +32,7 @@ public enum CursorIcon implements IElementEnum {
 	 * if the given specification is not valid.
 	 */
 	public static CursorIcon createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

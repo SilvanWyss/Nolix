@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IMutableElement;
@@ -24,7 +23,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	
 	//static method
 	public static ScrollbarLook createFromSpecification(
-		final DocumentNodeoid specification
+		final BaseNode specification
 	) {
 		
 		final var scrollbarLook = new ScrollbarLook();
@@ -58,7 +57,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		super.addOrChangeAttribute(attribute);
 	}
 	

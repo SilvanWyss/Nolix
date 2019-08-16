@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.color.Color;
@@ -62,7 +62,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @return a new {@link TextFormat} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static TextFormat createFromSpecification(final DocumentNode specification) {
+	public static TextFormat createFromSpecification(final Node specification) {
 		
 		//Extracts the attributes of the given specification.
 		final var attributes = specification.getRefAttributes();
@@ -232,11 +232,11 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @return the attributes of the current {@link TextFormat}.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		return new List<>(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
-			new DocumentNode(BOLD_FLAG_HEADER, bold),
-			new DocumentNode(ITALIC_FLAG_HEADER, italic),
+			new Node(BOLD_FLAG_HEADER, bold),
+			new Node(ITALIC_FLAG_HEADER, italic),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);

@@ -3,9 +3,9 @@ package ch.nolix.element.containerWidgets;
 
 //own imports
 import ch.nolix.core.containers.List;
-import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.node.Node;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI_API.Widget;
@@ -40,7 +40,7 @@ implements Clearable<FloatContainer> {
 
 	//own imports
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
 			addWidget(LayerGUI.createWidgetFrom(attribute));
@@ -88,7 +88,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public List<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

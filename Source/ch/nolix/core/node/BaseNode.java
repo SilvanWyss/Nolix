@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.documentNode;
+package ch.nolix.core.node;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
@@ -19,18 +19,18 @@ import ch.nolix.core.commonTypeHelpers.StringHelper;
 
 //abstract class
 /**
- * A {@link DocumentNodeoid} can have:
+ * A {@link BaseNode} can have:
  * -1 header
- * -several attributes that are a {@link DocumentNodeoid} themselves
+ * -several attributes that are a {@link BaseNode} themselves
  * 
- * The methods of a {@link DocumentNodeoid} are not final
+ * The methods of a {@link BaseNode} are not final
  * that they can be overwritten by an implementation with a better performance.
  * 
  * @author Silvan Wyss
  * @month 2017-07
  * @lines 740
  */
-public abstract class DocumentNodeoid implements Headered {
+public abstract class BaseNode implements Headered {
 	
 	//constants
 	public static final String DOT_CODE = "$D";
@@ -89,31 +89,31 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//abstract method
 	/**
-	 * Adds the given attribute to the current {@link DocumentNodeoid}.
+	 * Adds the given attribute to the current {@link BaseNode}.
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addAttribute(DocumentNodeoid attribute);
+	public abstract void addAttribute(BaseNode attribute);
 	
 	//method
 	/**
-	 * Adds the given attributes to the current {@link DocumentNodeoid}.
+	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
 	 */
-	public void addAttribute(final DocumentNodeoid... attributes) {
+	public void addAttribute(final BaseNode... attributes) {
 		
 		//Calls other method.
-		addAttributes(new ReadContainer<DocumentNodeoid>(attributes));
+		addAttributes(new ReadContainer<BaseNode>(attributes));
 	}
 	
 	//method
 	/**
-	 * Adds the given attributes to the current {@link DocumentNodeoid}.
+	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
 	 */
-	public <S extends DocumentNodeoid> void addAttributes(final Iterable<S> attributes) {
+	public <S extends BaseNode> void addAttributes(final Iterable<S> attributes) {
 		
 		//Iterates the given attributes.
 		attributes.forEach(a -> addAttribute(a));
@@ -121,7 +121,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return true if all attributes of the current {@link DocumentNodeoid} do not have attributes
+	 * @return true if all attributes of the current {@link BaseNode} do not have attributes
 	 */
 	public boolean allAttributesDoNotHaveAttributes() {
 		return getRefAttributes().containsNone(s -> s.containsAttributes());
@@ -130,15 +130,15 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @param selector
-	 * @return true if the current {@link DocumentNodeoid} contains an attribute the given selector selects.
+	 * @return true if the current {@link BaseNode} contains an attribute the given selector selects.
 	 */
-	public boolean containsAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
+	public boolean containsAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
 		return getRefAttributes().contains(a -> selector.getOutput(a));
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link DocumentNodeoid} contains attributes.
+	 * @return true if the current {@link BaseNode} contains attributes.
 	 */
 	public boolean containsAttributes() {
 		return getRefAttributes().containsAny();
@@ -146,7 +146,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link DocumentNodeoid} contains exactly 1 attribute.
+	 * @return true if the current {@link BaseNode} contains exactly 1 attribute.
 	 */
 	public boolean containsOneAttribute() {
 		return getRefAttributes().containsOne();
@@ -154,7 +154,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link DocumentNodeoid} contains exactly 1 attribute, that has a header.
+	 * @return true if the current {@link BaseNode} contains exactly 1 attribute, that has a header.
 	 */
 	public boolean containsOneAttributeWithHeader() {
 		return (containsOneAttribute() && getRefOneAttribute().hasHeader());
@@ -162,11 +162,11 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return a new copy of the current {@link DocumentNodeoid}.
+	 * @return a new copy of the current {@link BaseNode}.
 	 */
-	public DocumentNode getCopy() {
+	public Node getCopy() {
 		
-		final var copy = new DocumentNode();
+		final var copy = new Node();
 		
 		//Handles the case that the current document node has a header.
 		if (hasHeader()) {
@@ -180,18 +180,18 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link DocumentNodeoid} equals the given object.
+	 * @return true if the current {@link BaseNode} equals the given object.
 	 */
 	@Override
 	public boolean equals(final Object object) {
 		
 		//Handles the case that the given object is not a document node.
-		if (!(object instanceof DocumentNode)) {
+		if (!(object instanceof Node)) {
 			return false;
 		}
 		
 		//Handles the case that the given object is a document node.
-			final var documentNode = (DocumentNodeoid)object;
+			final var documentNode = (BaseNode)object;
 			
 			//Handles the case that the current document node does not have a header.
 			if (!hasHeader()) {
@@ -224,7 +224,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the number of attributes of the current {@link DocumentNodeoid}.
+	 * @return the number of attributes of the current {@link BaseNode}.
 	 */
 	public int getAttributeCount() {
 		return getRefAttributes().getSize();
@@ -232,7 +232,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return string representations of the attributes of the current {@link DocumentNodeoid}.
+	 * @return string representations of the attributes of the current {@link BaseNode}.
 	 */
 	public List<String> getAttributesToStrings() {
 		return getRefAttributes().to(a -> a.toString());
@@ -240,10 +240,10 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the integer the first attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} does not have attributes.
+	 * @return the integer the first attribute of the current {@link BaseNode} represents.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} does not have attributes.
 	 * @throws InvalidArgumentException
-	 * if the first attribute of the current {@link DocumentNodeoid} does not represent an integer.
+	 * if the first attribute of the current {@link BaseNode} does not represent an integer.
 	 */
 	public int getFirstAttributeAsInt() {
 		return getRefFirstAttribute().toInt();
@@ -251,11 +251,11 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the boolean the one attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @return the boolean the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link DocumentNodeoid} does not represent a boolean.
+	 * if the one attribute of the current {@link BaseNode} does not represent a boolean.
 	 */
 	public final boolean getOneAttributeAsBoolean() {
 		return getRefOneAttribute().toBoolean();
@@ -263,11 +263,11 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the double the one attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @return the double the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link DocumentNodeoid} does not represent a double.
+	 * if the one attribute of the current {@link BaseNode} does not represent a double.
 	 */
 	public double getOneAttributeAsDouble() {
 		return getRefOneAttribute().toDouble();
@@ -275,11 +275,11 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the integer the one attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @return the integer the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link DocumentNodeoid} does not represent an integer.
+	 * if the one attribute of the current {@link BaseNode} does not represent an integer.
 	 */
 	public int getOneAttributeAsInt() {
 		return getRefOneAttribute().toInt();
@@ -287,9 +287,9 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return a string representation of the one attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @return a string representation of the one attribute of the current {@link BaseNode}.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
 		return getRefOneAttribute().toString();
@@ -297,9 +297,9 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the header of the one attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @return the header of the one attribute of the current {@link BaseNode}.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 */
 	public String getOneAttributeHeader() {
 		return getRefOneAttribute().getHeader();
@@ -307,7 +307,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return a reproducing string representation of the header of the current {@link DocumentNodeoid}.
+	 * @return a reproducing string representation of the header of the current {@link BaseNode}.
 	 */
 	public String getReproducingHeader() {
 		return createReproducingString(getHeader());
@@ -316,61 +316,61 @@ public abstract class DocumentNodeoid implements Headered {
 	//abstract method
 	/**
 	 * @param index
-	 * @return the attribute at the given index from the current {@link DocumentNodeoid}.
+	 * @return the attribute at the given index from the current {@link BaseNode}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws ArgumentMissesAttributeException if the current {@link DocumentNodeoid} does not contain an attribute at the given index.
+	 * @throws ArgumentMissesAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends DocumentNodeoid> S getRefAttributeAt(final int index) {
+	public <S extends BaseNode> S getRefAttributeAt(final int index) {
 		return (S)getRefAttributes().getRefAt(index);
 	}
 	
 	//abstract method
 	/**
-	 * @return the attributes of the current {@link DocumentNodeoid}.
+	 * @return the attributes of the current {@link BaseNode}.
 	 */
-	public abstract <S extends DocumentNodeoid> IContainer<S> getRefAttributes();
+	public abstract <S extends BaseNode> IContainer<S> getRefAttributes();
 	
 	//abstract method
 	/**
 	 * 
 	 * @param header
-	 * @return the attributes of the current {@link DocumentNodeoid} that have the given header.
+	 * @return the attributes of the current {@link BaseNode} that have the given header.
 	 */
-	public IContainer<DocumentNodeoid> getRefAttributes(final String header) {
+	public IContainer<BaseNode> getRefAttributes(final String header) {
 		return getRefAttributes(a -> a.hasHeader(header));
 	}
 	
 	//abstract method
 	/**
 	 * @param selector
-	 * @return the attributes the given selector selects from the current {@link DocumentNodeoid}.
+	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
-	public IContainer<DocumentNodeoid> getRefAttributes(
-		final IElementTakerBooleanGetter<DocumentNodeoid> selector
+	public IContainer<BaseNode> getRefAttributes(
+		final IElementTakerBooleanGetter<BaseNode> selector
 	) {
 		return getRefAttributes().getRefSelected(a -> selector.getOutput(a));
 	}
 	
 	//method
 	/**
-	 * @return the first attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @return the first attribute of the current {@link BaseNode}.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends DocumentNodeoid> S getRefFirstAttribute() {
+	public <S extends BaseNode> S getRefFirstAttribute() {
 		return (S)getRefAttributes().getRefFirst();
 	}
 	
 	//method
 	/**
 	 * @param selector
-	 * @return the first attribute the given selector selects from the current {@link DocumentNodeoid}.
-	 * @throws ArgumentMissesAttributeException if the current {@link DocumentNodeoid} does not contain an attribute the given selector selects.
+	 * @return the first attribute the given selector selects from the current {@link BaseNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends DocumentNodeoid> S getRefFirstAttribute(
-		IElementTakerBooleanGetter<DocumentNodeoid> selector
+	public <S extends BaseNode> S getRefFirstAttribute(
+		IElementTakerBooleanGetter<BaseNode> selector
 	) {
 		return (S)getRefAttributes().getRefFirst(a -> selector.getOutput(a));
 	}
@@ -378,19 +378,19 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @param header
-	 * @return the first attribute of the current {@link DocumentNodeoid} with the given header.
+	 * @return the first attribute of the current {@link BaseNode} with the given header.
 	 */
-	public <S extends DocumentNodeoid> S getRefFirstAttribute(final String header) {
+	public <S extends BaseNode> S getRefFirstAttribute(final String header) {
 		return getRefFirstAttribute(a -> a.hasHeader(header));
 	}
 	
 	//abstract method
 	/**
-	 * @return the one attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @return the one attribute of the current {@link BaseNode}.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 */
-	public DocumentNodeoid getRefOneAttribute() {
+	public BaseNode getRefOneAttribute() {
 		return getRefAttributes().getRefOne();
 	}
 	
@@ -402,14 +402,14 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//abstract method
 	/**
-	 * @return true if the current {@link DocumentNodeoid} has a header.
+	 * @return true if the current {@link BaseNode} has a header.
 	 */
 	public abstract boolean hasHeader();
 	
 	//method
 	/**
 	 * @param header
-	 * @return true if the current {@link DocumentNodeoid} has the given header.
+	 * @return true if the current {@link BaseNode} has the given header.
 	 */
 	@Override
 	public boolean hasHeader(final String header) {
@@ -425,21 +425,21 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//abstract method
 	/**
-	 * Removes the attributes of the current {@link DocumentNodeoid}.
+	 * Removes the attributes of the current {@link BaseNode}.
 	 */
 	public abstract void removeAttributes();
 	
 	//abstract method
 	/**
-	 * Removes the first attribute the given selector selects from the current {@link DocumentNodeoid}.
+	 * Removes the first attribute the given selector selects from the current {@link BaseNode}.
 	 * 
 	 * @param selector
 	 */
-	public abstract void removeFirstAttribute(IElementTakerBooleanGetter<DocumentNodeoid> selector);
+	public abstract void removeFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector);
 	
 	//method
 	/**
-	 * Removes the first attribute with the given header from the current {@link DocumentNodeoid}.
+	 * Removes the first attribute with the given header from the current {@link BaseNode}.
 	 * 
 	 * @param header
 	 */
@@ -449,13 +449,13 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//abstract method
 	/**
-	 * Removes the header of the current {@link DocumentNodeoid}.
+	 * Removes the header of the current {@link BaseNode}.
 	 */
 	public abstract void removeHeader();
 	
 	//method
 	/**
-	 * Removes the header and the attributes of the current {@link DocumentNodeoid}.
+	 * Removes the header and the attributes of the current {@link BaseNode}.
 	 */
 	public void reset() {
 		removeHeader();
@@ -464,7 +464,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * Resets the current {@link DocumentNodeoid} from the given string.
+	 * Resets the current {@link BaseNode} from the given string.
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string is not valid.
@@ -474,24 +474,24 @@ public abstract class DocumentNodeoid implements Headered {
         reset();
         
         if (setAndGetEndIndex(string, 0) != string.length() - 1) {
-        	throw new NonRepresentingArgumentException(string, DocumentNode.class);
+        	throw new NonRepresentingArgumentException(string, Node.class);
         }
 	}
 	
 	//method
 	/**
-	 * Resets the attributes of the current {@link DocumentNodeoid} with the given attributes.
+	 * Resets the attributes of the current {@link BaseNode} with the given attributes.
 	 * 
 	 * @param attributes
 	 */
-	public <S extends DocumentNodeoid> void resetAttributes(final Iterable<S> attributes) {
+	public <S extends BaseNode> void resetAttributes(final Iterable<S> attributes) {
 		removeAttributes();
 		addAttributes(attributes);
 	}
 	
 	//method
 	/**
-	 * Resets the current {@link DocumentNodeoid} from the file with the given file path.
+	 * Resets the current {@link BaseNode} from the file with the given file path.
 	 * 
 	 * @param filePath
 	 */
@@ -506,7 +506,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * Saves the current {@link DocumentNodeoid} to the file with the given file path.
+	 * Saves the current {@link BaseNode} to the file with the given file path.
 	 * 
 	 * @param filePath
 	 * @throws NullArgumentException if the given relative file path is null.
@@ -522,7 +522,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * Saves the current {@link DocumentNodeoid} to the file with the given path.
+	 * Saves the current {@link BaseNode} to the file with the given path.
 	 * 
 	 * If the given overwrite flag is true,
 	 * a file with the given file path, that exists already, will be overwritten.
@@ -540,7 +540,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//abstract method
 	/**
-	 * Sets the header of the current {@link DocumentNodeoid}.
+	 * Sets the header of the current {@link BaseNode}.
 	 * 
 	 * @param header
 	 */
@@ -548,8 +548,8 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the boolean the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumenException if the current {@link DocumentNodeoid} does not represent a boolean.
+	 * @return the boolean the current {@link BaseNode} represents.
+	 * @throws InvalidArgumenException if the current {@link BaseNode} does not represent a boolean.
 	 */
 	public boolean toBoolean() {
 		return StringHelper.toBoolean(toString());
@@ -557,8 +557,8 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the double the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} does not represent a double.
+	 * @return the double the current {@link BaseNode} represents.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a double.
 	 */
 	public double toDouble() {
 		return StringHelper.toDouble(toString());
@@ -566,7 +566,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return a formated string representation of the current {@link DocumentNodeoid}.
+	 * @return a formated string representation of the current {@link BaseNode}.
 	 */
 	public String toFormatedString() {
 		return toFormatedString(0);
@@ -574,8 +574,8 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return the integer the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} does not represent a int.
+	 * @return the integer the current {@link BaseNode} represents.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a int.
 	 */
 	public int toInt() {
 		return StringHelper.toInt(toString());
@@ -583,7 +583,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return a string representation of the current {@link DocumentNodeoid}.
+	 * @return a string representation of the current {@link BaseNode}.
 	 */
 	@Override
 	public String toString() {
@@ -608,7 +608,7 @@ public abstract class DocumentNodeoid implements Headered {
 	
 	//method
 	/**
-	 * @return a XML representation of the current {@link DocumentNodeoid}.
+	 * @return a XML representation of the current {@link BaseNode}.
 	 */
 	public final XMLNode toXML() {
 		
@@ -616,7 +616,7 @@ public abstract class DocumentNodeoid implements Headered {
 		final var XMLNode = new XMLNode(getHeader());
 		
 		//Iterates the attributes of the current specification.
-		for (final DocumentNodeoid a : getRefAttributes()) {
+		for (final BaseNode a : getRefAttributes()) {
 			
 			//Handles the case that the current attribute does not contain attributes.
 			if (!a.containsAttributes()) {
@@ -667,7 +667,7 @@ public abstract class DocumentNodeoid implements Headered {
         }              
         
         if (index < substring.length()) {
-            var documentNode = new DocumentNode();
+            var documentNode = new Node();
             index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
             this.addAttribute(documentNode);
         }
@@ -675,7 +675,7 @@ public abstract class DocumentNodeoid implements Headered {
         while (index < substring.length()) {
             switch (substring.charAt(index)) {
                 case ',':
-                    var documentNode = new DocumentNode();
+                    var documentNode = new Node();
                     index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
                     this.addAttribute(documentNode);
                     break;            
@@ -685,13 +685,13 @@ public abstract class DocumentNodeoid implements Headered {
             }
         }
         
-        throw new NonRepresentingArgumentException(substring, DocumentNode.class);
+        throw new NonRepresentingArgumentException(substring, Node.class);
 	}
 	
 	//method
 	/**
 	 * @param leadingTabulators
-	 * @return a formated string representation of the current {@link DocumentNodeoid}
+	 * @return a formated string representation of the current {@link BaseNode}
 	 * with as many leading tabulators as the given leading tabulator count says.
 	 */
 	private String toFormatedString(final int leadingTabulators) {
@@ -725,7 +725,7 @@ public abstract class DocumentNodeoid implements Headered {
 				//Iterates the attributes of the current specification.
 				final var attributeCount = getAttributeCount();
 				var index = 1;
-				for (final DocumentNodeoid a : getRefAttributes()) {
+				for (final BaseNode a : getRefAttributes()) {
 					
 					stringBuilder.append(a.toFormatedString(leadingTabulators + 1));
 					

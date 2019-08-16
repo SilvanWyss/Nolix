@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.coreTest.documentNodeTest;
+package ch.nolix.coreTest.nodeTest;
 
 //own imports
-import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.test.ObjectTest;
 
 //abstract test class
-public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
+public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//test case
 	public void testCase_getCopy() {
