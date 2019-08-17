@@ -183,7 +183,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyTypingWhenEnabled(final Key key) {
+	protected void noteKeyPressWhenEnabled(final Key key) {
 		
 		//Calls method of the base class.
 		super.noteKeyTypingWhenEnabled(key);
