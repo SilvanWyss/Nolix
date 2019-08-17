@@ -387,7 +387,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		if (rootWidget != null) {
 			rootWidget.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
-			rootWidget.recalculate();
+			rootWidget.recalculateRecursively();
 			rootWidget.noteMouseMoveRecursively();
 		}
 	}
