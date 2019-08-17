@@ -73,6 +73,13 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 		}
 	}
 	
+	//TODO
+	@Override
+	protected void noteResize() {
+		mGUI.noteResize(mGUI.getWidth(), mGUI.getHeight());
+		
+	}
+
 	//method
 	private void resetGUI(final Iterable<? extends BaseNode> attributes) {
 		mGUI.reset(attributes);

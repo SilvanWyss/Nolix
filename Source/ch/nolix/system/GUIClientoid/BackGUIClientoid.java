@@ -77,6 +77,10 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	@Override
 	protected final void internal_finishSessionInitialization() {
 		updateGUIOnCounterpart();
+		
+		//TODO: Let the current BackGUIClientoind note a resize.
+		//Reason: The size of the GUI is not transfered with its normal update.
+		internal_runOnCounterpart("NoteResize");
 	}
 	
 	//method
