@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.GUI_API;
+package ch.nolix.element.GUI;
 
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;

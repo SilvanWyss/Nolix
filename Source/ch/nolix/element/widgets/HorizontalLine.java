@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 
 //class
 /**

@@ -8,7 +8,7 @@ import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>

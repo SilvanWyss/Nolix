@@ -13,9 +13,6 @@ import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.CursorIcon;
-import ch.nolix.element.GUI_API.ILayerGUI;
-import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.baseGUI_API.IEventTaker;
@@ -294,7 +291,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Adds a new {@link Layer} on the top of the current {@link ILayerGUI}.
+	 * Adds a new {@link Layer} on the top of the current {@link LayerGUI}.
 	 * The {@link Layer} will have the given rootWidget.
 	 * 
 	 * @param rootWidget

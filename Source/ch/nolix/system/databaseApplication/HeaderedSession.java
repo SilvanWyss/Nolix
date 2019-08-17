@@ -4,7 +4,7 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.LabelRole;
 import ch.nolix.element.widgets.VerticalStack;

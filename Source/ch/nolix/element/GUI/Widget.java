@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.GUI_API;
+package ch.nolix.element.GUI;
 
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
@@ -13,7 +13,6 @@ import ch.nolix.core.skillAPI.Recalculable;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;

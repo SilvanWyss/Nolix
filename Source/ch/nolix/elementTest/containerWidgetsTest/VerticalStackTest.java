@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetsTest;
 
-import ch.nolix.element.GUI_API.WidgetState;
+import ch.nolix.element.GUI.WidgetState;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.TextBox;

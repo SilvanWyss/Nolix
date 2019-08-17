@@ -11,7 +11,7 @@ import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widgets.Label;
 

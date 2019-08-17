@@ -9,7 +9,7 @@ import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widgets.HorizontalStack;

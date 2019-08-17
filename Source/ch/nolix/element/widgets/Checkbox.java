@@ -5,7 +5,7 @@ import ch.nolix.core.containers.List;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.painter.IPainter;

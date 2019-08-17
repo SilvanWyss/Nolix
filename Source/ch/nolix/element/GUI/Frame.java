@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.baseGUI_API.IEventTaker;
 
 //class

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.GUI_API;
+package ch.nolix.element.GUI;
 
 //Java import
 import java.awt.Cursor;

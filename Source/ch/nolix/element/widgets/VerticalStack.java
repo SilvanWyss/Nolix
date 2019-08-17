@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 import ch.nolix.core.containers.IContainer;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidgets.Stack;
 
 //class

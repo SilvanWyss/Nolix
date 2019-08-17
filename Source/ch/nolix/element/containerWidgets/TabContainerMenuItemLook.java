@@ -7,7 +7,7 @@ import ch.nolix.core.containers.List;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.ValueCatalogue;
+import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerElement;

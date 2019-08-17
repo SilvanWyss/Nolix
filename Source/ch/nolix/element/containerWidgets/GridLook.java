@@ -4,7 +4,7 @@ package ch.nolix.element.containerWidgets;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.node.Node;
-import ch.nolix.element.GUI_API.ValueCatalogue;
+import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widgets.BorderWidgetLook;

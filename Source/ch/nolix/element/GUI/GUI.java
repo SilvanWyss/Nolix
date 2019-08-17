@@ -9,7 +9,6 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.skillAPI.Recalculable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.configuration.ConfigurationElement;

@@ -9,7 +9,7 @@ import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.WidgetLook;
+import ch.nolix.element.GUI.WidgetLook;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.core.NonNegativeInteger;

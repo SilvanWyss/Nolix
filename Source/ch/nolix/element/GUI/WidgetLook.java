@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.GUI_API;
+package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;

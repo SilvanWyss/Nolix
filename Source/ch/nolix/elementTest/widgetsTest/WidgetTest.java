@@ -3,7 +3,7 @@ package ch.nolix.elementTest.widgetsTest;
 
 //own imports
 import ch.nolix.core.test.ObjectTest;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 
 //abstract test class
 /**

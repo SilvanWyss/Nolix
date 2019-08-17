@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-import ch.nolix.element.GUI_API.ValueCatalogue;
+import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerProperty;
 

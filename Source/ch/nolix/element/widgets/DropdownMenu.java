@@ -6,7 +6,7 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.GUI.Layer;
-import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
 

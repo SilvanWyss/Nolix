@@ -11,8 +11,6 @@ import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.CursorIcon;
-import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;

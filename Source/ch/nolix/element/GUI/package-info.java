@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.element.GUI} package defines a GUI.
+ * The {@link ch.nolix.element.GUI} package defines a 2D GUI and a base Widget.
+ * A widget is a control element of a GUI.
  * 
  * @author Silvan Wyss
  * @month 2019-07

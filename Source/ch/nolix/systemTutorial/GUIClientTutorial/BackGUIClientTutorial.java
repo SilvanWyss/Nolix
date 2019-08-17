@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
-import ch.nolix.element.GUI_API.CursorIcon;
-import ch.nolix.element.GUI_API.ValueCatalogue;
+import ch.nolix.element.GUI.CursorIcon;
+import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.widgets.Button;

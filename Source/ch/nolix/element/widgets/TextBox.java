@@ -5,7 +5,7 @@ import ch.nolix.core.containers.List;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
