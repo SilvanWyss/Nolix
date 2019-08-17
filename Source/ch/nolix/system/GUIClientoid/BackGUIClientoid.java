@@ -9,6 +9,7 @@ import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.input.Key;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 
@@ -100,6 +101,15 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				break;
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getRefNextNode());
+				break;
+			case Protocol.NOTE_KEY_TYPING_HEADER:
+				getRefGUI().noteKeyTyping(Key.fromSpecification(command.getRefOneAttribute()));
+				break;
+			case Protocol.NOTE_KEY_PRESS_HEADER:
+				getRefGUI().noteKeyPress(Key.fromSpecification(command.getRefOneAttribute()));
+				break;
+			case Protocol.NOTE_KEY_RELEASE_HEADER:
+				getRefGUI().noteKeyRelease(Key.fromSpecification(command.getRefOneAttribute()));
 				break;
 			case Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER:
 				getRefGUI().noteLeftMouseButtonClick();

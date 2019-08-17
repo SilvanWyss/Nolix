@@ -70,7 +70,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * {@inheritDoc}
 	 */
 	public void noteKeyPressOnCounterpart(final Key key) {
-		noteCommandOnCounterpart(Protocol.NOTE_KEY_PRESS_HEADER, key.toString());
+		noteCommandOnCounterpart(Protocol.NOTE_KEY_PRESS_HEADER, key.getSpecification().toString());
 	}
 	
 	//method
@@ -78,7 +78,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * {@inheritDoc}
 	 */
 	public final void noteKeyReleaseOnCounterpart(final Key key) {
-		noteCommandOnCounterpart(Protocol.NOTE_KEY_RELEASE_HEADER, key.toString());
+		noteCommandOnCounterpart(Protocol.NOTE_KEY_RELEASE_HEADER, key.getSpecification().toString());
 	}
 	
 	//method
@@ -86,7 +86,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * {@inheritDoc}
 	 */
 	public final void noteKeyTypingOnCounterpart(final Key key) {
-		noteCommandOnCounterpart(Protocol.NOTE_KEY_TYPING_HEADER, key.toString());		
+		noteCommandOnCounterpart(Protocol.NOTE_KEY_TYPING_HEADER, key.getSpecification().toString());		
 	}
 	
 	//method
