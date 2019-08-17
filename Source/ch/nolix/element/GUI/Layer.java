@@ -317,7 +317,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteKeyPress(Key key) {
 		if (rootWidget != null) {
-			rootWidget.noteKeyPress(key);
+			rootWidget.noteKeyPressRecursively(key);
 		}
 	}
 	
@@ -328,8 +328,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteKeyRelease(Key key) {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyKeyPressRecursively(key);
+			rootWidget.noteKeyReleaseRecursively(key);
 		}
 	}
 	

@@ -104,12 +104,15 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				break;
 			case Protocol.NOTE_KEY_TYPING_HEADER:
 				getRefGUI().noteKeyTyping(Key.fromSpecification(command.getRefOneAttribute()));
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_KEY_PRESS_HEADER:
 				getRefGUI().noteKeyPress(Key.fromSpecification(command.getRefOneAttribute()));
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_KEY_RELEASE_HEADER:
 				getRefGUI().noteKeyRelease(Key.fromSpecification(command.getRefOneAttribute()));
+				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER:
 				getRefGUI().noteLeftMouseButtonClick();
