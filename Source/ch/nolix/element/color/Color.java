@@ -1200,7 +1200,9 @@ public class Color extends Element<Color> {
 		
 		//Handles the case that the current color has a color name.
 		if (pair != null) {
-			return pair.getRefElement1();
+			
+			//TODO: Return always hexadecimal until browser client is ready.
+			//return pair.getRefElement1();
 		}
 		
 		//Handles the case that the current color does not have a color name.
