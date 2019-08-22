@@ -1,8 +1,11 @@
+//package declaration
 package ch.nolix.element.baseGUI_API;
 
+//own imports
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 
+//interface
 public interface IEventTaker {
 	
 	//abstract method
@@ -85,6 +88,16 @@ public interface IEventTaker {
 	
 	//abstract method
 	/**
+	 * Lets the current {@link IEventTaker} note a resize.
+	 * The given viewAreaWidth and viewAreaHeight are the new size of the view area.
+	 * 
+	 * @param viewAreaWidth
+	 * @param viewAreaHeight
+	 */
+	public abstract void noteResize(int viewAreaWidth, int viewAreaHeight);
+
+	//abstract method
+	/**
 	 * Lets the current {@link IEventTaker} note a right mouse button click.
 	 */
 	public abstract void noteRightMouseButtonClick();
@@ -100,14 +113,4 @@ public interface IEventTaker {
 	 * Lets the current {@link IEventTaker} note a right mouse button release.
 	 */
 	public abstract void noteRightMouseButtonRelease();
-
-	//abstract method
-	/**
-	 * Lets the current {@link IEventTaker} note a resize.
-	 * The given viewAreaWidth and viewAreaHeight are the new size of the view area.
-	 * 
-	 * @param viewAreaWidth
-	 * @param viewAreaHeight
-	 */
-	public abstract void noteResize(int viewAreaWidth, int viewAreaHeight);
 }
