@@ -5,6 +5,7 @@ package ch.nolix.element.frameVisualizer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+import ch.nolix.core.sequencer.Sequencer;
 //own imports
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
@@ -13,25 +14,33 @@ import ch.nolix.element.GUI.GUI;
 public final class FrameVisualizerMouseMotionListener implements MouseMotionListener {
 	
 	//attribute
-	private final GUI<?> frameVisualizer;
+	private final GUI<?> mGUI;
+	private boolean isNew = true;
 	
 	//constructor
 	public FrameVisualizerMouseMotionListener(final GUI<?> frameVisualizer) {
 		
 		Validator.suppose(frameVisualizer).isOfType(FrameVisualizer.class);
 		
-		this.frameVisualizer = frameVisualizer;
+		this.mGUI = frameVisualizer;
 	}
-
+	
 	//method
 	@Override
 	public void mouseMoved(final MouseEvent mouseEvent) {
-		frameVisualizer.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
+		
+		//This is important because events can be fired before the GUI is created completely.
+		if (isNew) {
+			Sequencer.waitForMilliseconds(500);
+			isNew = false;
+		}
+		
+		mGUI.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
 	}
 	
 	//method
 	@Override
 	public void mouseDragged(final MouseEvent mouseEvent) {
-		frameVisualizer.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
+		mGUI.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
 	}
 }
