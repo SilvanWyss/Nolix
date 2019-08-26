@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.skillAPI} package is an API that defines types with acion skills.
+ * The {@link ch.nolix.core.skillAPI} package is an API that declares types with action skills.
  * 
  * @author Silvan Wyss
  * @month 2019-07
