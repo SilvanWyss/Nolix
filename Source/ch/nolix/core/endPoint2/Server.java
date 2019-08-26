@@ -139,6 +139,11 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
+		//TODO
+		if (endPoint.isClosed()) {
+			throw new InvalidArgumentException(endPoint, "is closed");
+		}
+		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
 			getRefMainEndPointTaker().takeEndPoint(endPoint);

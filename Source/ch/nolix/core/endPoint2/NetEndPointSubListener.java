@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 //own imports
+import ch.nolix.core.containers.List;
+import ch.nolix.core.logger.Logger;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator.Validator;
 
@@ -16,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 80
  */
 final class NetEndPointSubListener extends Thread {
 
@@ -51,6 +53,7 @@ final class NetEndPointSubListener extends Thread {
 			final BufferedReader bufferedReader
 			= new BufferedReader(new InputStreamReader(netEndPoint.getRefSocket().getInputStream()))
 		) {
+			var lines = new List<String>();
 			while (netEndPoint.isOpen()) {
 				
 				final var line = bufferedReader.readLine();
@@ -60,7 +63,19 @@ final class NetEndPointSubListener extends Thread {
 					break;
 				}
 				
-				Sequencer.runInBackground(() -> netEndPoint.receive(line));
+				if (line.isEmpty()) {
+					if (lines.isEmpty()) {
+						Logger.logWarning("NetServer received unneccessary empty line.");
+					}
+					else {					
+						final var lines2 = lines;
+						Sequencer.runInBackground(() -> netEndPoint.receiveRawMessages(lines2));
+						lines = new List<String>();
+					}
+				}
+				else {
+					lines.addAtEnd(line);
+				}
 			}
 		}
 		catch (final IOException exception) {

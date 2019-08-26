@@ -9,10 +9,12 @@ import java.net.Socket;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.core.webSocket.WebSocketHandShakeRequest;
 
 //class
 /**
@@ -21,16 +23,27 @@ import ch.nolix.core.validator.Validator;
  * -another process on the local computer
  * -another process on another computer
  * 
+ * A {@link NetEndPoint} supports the WebSocket protocol and can communicate with a WebSocket.
+ * The WebSocket protocol is an absolute crap! Because:
+ * -A WebSocket requires a HTTP handshake.
+ * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
+ * -A WebSocket sends messages, that belong together, in separate lines.
+ * -A WebSocket sends empty lines without a meaning.
+ * The WebSocket was designed this way because of security reasons.
+ * But criminals can use a WebSocket server as well, so WebSockets do not have a better security than regular Sockets.
+ * The persons, who designed or approved WebSockets, should stay in shame.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 370
+ * @lines 450
  */
 public final class NetEndPoint extends EndPoint {
 	
 	//attributes
-	private boolean receivedTargetInfo = false;
-	private boolean isBrowserEndPoint = false;
+	private NetEndPointCounterpartType counterpartType;
+	private boolean hasTargetInfo = false;;
 	private final String HTTPMessage;
+	private boolean receivedRawMessage = false;
 	private final Socket socket;
 	private final PrintWriter printWriter;
 	
@@ -85,6 +98,8 @@ public final class NetEndPoint extends EndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
+		hasTargetInfo = true;
 		HTTPMessage = null;
 		
 		try {
@@ -102,7 +117,7 @@ public final class NetEndPoint extends EndPoint {
 		//Creates and starts the listener of the current NetEndPoint.
 		new NetEndPointSubListener(this);
 		
-		send_internal(NetEndPointProtocol.MAIN_TARGET_PREFIX);
+		sendRawMessage(NetEndPointProtocol.MAIN_TARGET_PREFIX);
 	}
 	
 	//constructor
@@ -117,10 +132,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	public NetEndPoint(
-		final String ip,
-		final int port,
-		final String target) {
+	public NetEndPoint(final String ip, final int port, final String target) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -133,6 +145,8 @@ public final class NetEndPoint extends EndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
+		hasTargetInfo = true;
 		HTTPMessage = null;
 		
 		try {
@@ -150,7 +164,7 @@ public final class NetEndPoint extends EndPoint {
 		//Creates and starts the listener of this {@link NetEndPoint}.
 		new NetEndPointSubListener(this);
 		
-		send_internal(NetEndPointProtocol.TARGET_PREFIX + target);
+		sendRawMessage(NetEndPointProtocol.TARGET_PREFIX + getTarget());
 	}
 	
 	//package-visible constructor
@@ -174,6 +188,7 @@ public final class NetEndPoint extends EndPoint {
 		//Checks if the given HTTP message is not null or empty.
 		Validator.suppose(HTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
 		
+		//Sets the HTTPMessage of the current NetEndPoint.
 		this.HTTPMessage = HTTPMessage;
 		
 		//Sets the socket of the current NetEndPoint.
@@ -184,7 +199,7 @@ public final class NetEndPoint extends EndPoint {
 			//Creates the printWriter of the current NetEndPoint.
 			printWriter = new PrintWriter(socket.getOutputStream());
 		}
-		catch (IOException IOException) {
+		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
 		}
 		
@@ -196,6 +211,22 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * 
+	 * @return the type of the counterpart the current {@link NetEndPoint}.
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} does not know the type of its counterpart.
+	 */
+	public NetEndPointCounterpartType getCounterpartType() {
+		
+		//Checks if the current NetEndPoint knows the type of its counterpart.
+		if (counterpartType == null) {
+			throw new InvalidArgumentException(this, "does not know the type of its counterpart");
+		}
+		
+		return counterpartType;
+	}
+
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -205,11 +236,27 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * @return true if the current {@link NetEndPoint} knows the type of its counterpart.
+	 */
+	public boolean knowsCounterpartType() {
+		return (counterpartType != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link NetEndPoint} received a raw message.
+	 */
+	public boolean receivedAnyRawMessage() {
+		return receivedRawMessage;
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void send(final String message) {
-		send_internal("M" + message);
+		sendRawMessage("M" + message);
 	}
 	
 	//method
@@ -226,114 +273,158 @@ public final class NetEndPoint extends EndPoint {
 	
 	//package-visible method
 	/**
-	 * Lets the current {@link NetEndPoint} receive the given message.
-	 * 
-	 * @param message
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
-	 * @throws NullArgumentException if the given message is null.
-	 * @throws InvalidArgumentException if the given message is blank.
-	 */
-	@Override
-	protected void receive(final String message) {
-		
-		//Checks if the given message is not null or blank.
-		Validator
-		.suppose(message)
-		.thatIsNamed(VariableNameCatalogue.MESSAGE)
-		.isNotBlank();
-		
-		//Enumerates the first character of the given message.
-		switch (message.charAt(0)) {
-			case NetEndPointProtocol.MESSAGE_PREFIX:
-				
-				//Checks if the current NetEndPoint is alive.
-				supposeIsAlive();
-			
-				//Calls method of the base class.
-				super.receive(message.substring(1));
-				
-				break;
-			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
-				
-				//Checks if the current NetEndPoint is alive.
-				supposeIsAlive();
-				
-				receivedTargetInfo = true;
-				
-				break;
-			case NetEndPointProtocol.TARGET_PREFIX:
-				
-				//Checks if the current NetEndPoint is alive.
-				supposeIsAlive();
-				
-				receivedTargetInfo = true;
-				setTarget(message.substring(1));
-				
-				break;
-			case 'H':
-				isBrowserEndPoint = true;
-				send_internal(HTTPMessage);
-				receivedTargetInfo = true;
-				close();
-				break;
-			default:
-				
-				if (!isBrowserEndPoint) {
-					Sequencer.waitForASecond();
-				}
-				
-				if (!isBrowserEndPoint) {
-					throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message);
-				}
-		}
-	}
-	
-	//package-visible method
-	/**
 	 * @return the socket of the current {@link NetEndPoint}.
 	 */
 	Socket getRefSocket() {
 		return socket;
 	}
-	
-	//method
+
+	//package-visible method
 	/**
-	 * @return true if the current {@link NetEndPoint} has received a target info.
+	 * Lets the current {@link NetEndPoint} receive the given rawMessages.
+	 * 
+	 * @param rawMessages
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive
 	 */
-	private boolean receivedTargetInfo() {
-		return receivedTargetInfo;
+	void receiveRawMessages(final IContainer<String> rawMessages) {
+		
+		//TEMP
+		System.out.println(hashCode() + " received: " + rawMessages);
+		
+		receivedRawMessage = true;
+		
+		if (!knowsCounterpartType()) {
+			receiveInitialRawMessages(rawMessages);
+		}
+		else {
+			receiveCommonRawMessages(rawMessages);
+		}
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} send the given message.
-	 * 
-	 * @param message
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 * @return true if the current {@link NetEndPoint} has a target info.
 	 */
-	private void send_internal(final char message) {
-		
-		//Calls other method.
-		send_internal(String.valueOf(message));
+	private boolean hasTargetInfo() {
+		return hasTargetInfo;
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} send the given message.
+	 * Lets the current {@link NetEndPoint} receive the given commonRawMessages.
 	 * 
-	 * @param message
-	 * @throws NullArgumentException if the given message is null.
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 * @param commonRawMessages
 	 */
-	private void send_internal(final String message) {
+	private void receiveCommonRawMessages(final IContainer<String> commonRawMessages) {
+		if (commonRawMessages.containsOne()) {
+			receiveRawMessage(commonRawMessages.getRefOne());
+		}
+		else {
+			
+			//Checks if the current NetEndPoint is alive.
+			supposeIsAlive();
+			
+			//TODO
+		}
+	}
+
+	//method
+	/**
+	 * Lets the current {@link NetEndPoint} receive the given initialRawMessages.
+	 * 
+	 * @param initialRawMessages
+	 */
+	private void receiveInitialRawMessages(final IContainer<String> initialRawMessages) {
 		
-		//Checks if the given message is not null.
-		Validator.suppose(message).thatIsNamed(VariableNameCatalogue.MESSAGE).isNotNull();
+		if (initialRawMessages.containsOne()) {
+			receiveRawMessage(initialRawMessages.getRefOne());
+		}
+		else if (WebSocketHandShakeRequest.canBe(initialRawMessages)) {
+			
+			//Checks if the current NetEndPoint is alive.
+			supposeIsAlive();
+			
+			counterpartType = NetEndPointCounterpartType.WEBSOCKET_NET_END_POINT;
+			
+			final var webSocketHandshakeRequest = new WebSocketHandShakeRequest(initialRawMessages);
+			sendRawMessage(webSocketHandshakeRequest.getWebSocketHandShakeResponse().toString());
+		}
+		else {
+			
+			//Checks if the current NetEndPoint is alive.
+			supposeIsAlive();
+			
+			counterpartType = NetEndPointCounterpartType.BROWSER_INITIAL_NET_END_POINT;
+			sendRawMessage(HTTPMessage);
+			close();
+		}
+	}
+	
+	//method
+	private void receiveRawMessage(final String rawMessage) {
 		
 		//Checks if the current NetEndPoint is alive.
 		supposeIsAlive();
 		
-		printWriter.println(message);
+		//Enumerates the first character of the given rawMessage.
+		switch (rawMessage.charAt(0)) {
+			case NetEndPointProtocol.TARGET_PREFIX:
+				counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
+				setTarget(rawMessage.substring(1));
+				hasTargetInfo = true;
+				break;
+			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
+				counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
+				hasTargetInfo = true;
+				break;
+			case NetEndPointProtocol.MESSAGE_PREFIX:
+				
+				if (!knowsCounterpartType()) {
+					throw new InvalidArgumentException(this, "does not know the type of its counterpart");
+				}
+				
+				getRefReceiver().receive(rawMessage.substring(1));
+				
+				break;
+			default:
+				throw new InvalidArgumentException("first raw message", rawMessage, "is not valid");
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link NetEndPoint} send the given rawMessage.
+	 * 
+	 * @param rawMessage
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 */
+	private void sendRawMessage(final char rawMessage) {
+		
+		//Calls other method.
+		sendRawMessage(String.valueOf(rawMessage));
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link NetEndPoint} send the given rawMessage.
+	 * 
+	 * @param rawMessage
+	 * @throws NullArgumentException if the given rawMessage is null.
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 */
+	private void sendRawMessage(final String rawMessage) {
+		
+		//TEMP
+		System.out.println(hashCode() + " send: " + rawMessage);
+		
+		//Checks if the given message is not null.
+		Validator.suppose(rawMessage).thatIsNamed(VariableNameCatalogue.MESSAGE).isNotNull();
+		
+		//Checks if the current NetEndPoint is alive.
+		supposeIsAlive();
+		
+		printWriter.println(rawMessage);
+		printWriter.println(StringCatalogue.EMPTY_STRING);
 		printWriter.flush();
 	}
 	
@@ -346,21 +437,17 @@ public final class NetEndPoint extends EndPoint {
 	 */
 	private void waitToTarget() {
 		
-		//Checks if the current NetEndPoint is alive.
-		supposeIsAlive();
+		if (hasTargetInfo) {
+			return;
+		}
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
 		//This loop suffers from being optimized away by the compiler or the JVM.
-		while (!receivedTargetInfo()) {
+		while (!hasTargetInfo()) {
 			
-			//This statement, that is actually unnecessary,
-			//makes that the current loop is not optimized away.
+			//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
 			System.out.flush();
-			
-			if (isBrowserEndPoint) {
-				return;
-			}
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > 5000) {
 				throw new InvalidArgumentException("reached timeout while waiting to target.");

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint2;
 
+//own imports
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -16,7 +17,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 160
+ * @lines 150
  */
 public abstract class EndPoint extends OptionalClosableElement implements ISender {
 	
@@ -113,14 +114,20 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 	
 	//method
 	/**
-	 * Lets the current {@link EndPoint} receive the given message.
-	 * 
-	 * @param message
+	 * @return the receiver of the current {@link EndPoint}.
+	 * @throws ArgumentMissesAttributeException if the current {@link EndPoint} does not have a receiver.
 	 */
-	protected void receive(final String message) {
-		getRefReceiver().receive(message);
+	protected final IReceiver getRefReceiver() {
+		
+		//Checks if the current EndPoint has a receiver.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (receiver == null) {
+			throw new ArgumentMissesAttributeException(this, IReceiver.class);
+		}
+		
+		return receiver;
 	}
-	
+
 	//method
 	/**
 	 * Sets the target of the current {@link EndPoint}.
@@ -140,21 +147,5 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 		
 		//Sets the target of the current EndPoint.
 		this.target = target;
-	}
-	
-	//method
-	/**
-	 * @return the receiver of the current {@link EndPoint}.
-	 * @throws ArgumentMissesAttributeException if the current {@link EndPoint} does not have a receiver.
-	 */
-	private IReceiver getRefReceiver() {
-		
-		//Checks if the current EndPoint has a receiver.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (receiver == null) {
-			throw new ArgumentMissesAttributeException(this, IReceiver.class);
-		}
-		
-		return receiver;
 	}
 }

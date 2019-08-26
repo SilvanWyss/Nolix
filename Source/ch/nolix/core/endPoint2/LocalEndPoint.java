@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint2;
 
+//own import
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -129,7 +130,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Checks if this local end point is not aborted.
 		supposeIsAlive();
 		
-		counterpart.receive(message);
+		counterpart.receiveRawMessage(message);
 	}
 
 	//method
@@ -138,4 +139,14 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	protected void noteClose() {}
+	
+	//method
+	/**
+	 * Lets the current {@link EndPoint} receive the given message.
+	 * 
+	 * @param message
+	 */
+	private void receiveRawMessage(final String message) {
+		getRefReceiver().receive(message);
+	}
 }
