@@ -611,7 +611,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	@Override
 	public final void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea) {
-		
 		if (hasEventTaker()) {
 			eventTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		}
