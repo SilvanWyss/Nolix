@@ -53,6 +53,8 @@ public final class WebSocketHandShakeResponse {
 	public String toString() {
 		return
 		"HTTP/1.1 101 Switching Protocols\r\n"
+		+ "Upgrade: websocket\r\n"
+		+ "Connection: Upgrade\r\n"
 		+ SEC_WEBSOCKET_ACCEPT_HEADER + ": " + secWebSocketAccept + "\r\n"
 		+ "\r\n";
 	}
