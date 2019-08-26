@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest;
 
+//own imports
 import ch.nolix.core.baseTest.TestPool;
 import ch.nolix.coreTest.chainedNodeTest.ChainedNodeTestPool;
 import ch.nolix.coreTest.commonTypesHelperTest.CommonTypeHelpersTestPool;
@@ -10,6 +11,7 @@ import ch.nolix.coreTest.mathTest.MathematicsTestPool;
 import ch.nolix.coreTest.nodeTest.NodeTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
+import ch.nolix.coreTest.webSocketTest.WebSocketTestPool;
 import ch.nolix.elementTest.elementEnumsTest.ElementEnumTestPool;
 import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
 
@@ -39,7 +41,8 @@ public final class CoreTestPool extends TestPool {
 			new MathematicsTestPool(),
 			new SequencerTestPool(),
 			new ChainedNodeTestPool(),
-			new ValidatorTestPool()
+			new ValidatorTestPool(),
+			new WebSocketTestPool()
 		);
 	}
 }
