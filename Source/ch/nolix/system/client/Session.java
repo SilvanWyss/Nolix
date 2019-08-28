@@ -112,6 +112,32 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	public abstract void initialize();
 	
+	//method
+	//TODO: Write comment.
+	public final void popSession() {
+		getParentClient().popSession();
+	}
+	
+	//method
+	//TODO: Write comment.
+	public final void popSession(final boolean reInitialize) {
+		getParentClient().popSession(reInitialize);
+	}
+	
+	//method
+	/**
+	 * Pushes the given session to the {@link Client} the current {@link Session} belongs to.
+	 * 
+	 * @param session
+	 * @throws NullArgumentException if the given is null.
+	 */
+	public final void pushSession(final Session<C> session) {
+		getParentClient().pushSession(session);
+	}
+	
+	//method
+	protected void cleanBeforeInitialize() {}
+	
 	//package-visible method
 	/**
 	 * Invokes the user data method of the current {@link Session},
