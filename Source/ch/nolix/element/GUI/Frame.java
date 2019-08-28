@@ -70,13 +70,13 @@ public final class Frame extends LayerGUI<Frame> {
 	
 	//method
 	@Override
-	protected int getViewAreaHeight() {
+	public int getViewAreaHeight() {
 		return getRefVisualizer().getViewAreaHeight();
 	}
 	
 	//method
 	@Override
-	protected int getViewAreaWidth() {
+	public int getViewAreaWidth() {
 		return getRefVisualizer().getViewAreaWidth();
 	}
 }

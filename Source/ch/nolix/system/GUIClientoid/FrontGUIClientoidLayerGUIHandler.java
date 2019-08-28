@@ -73,13 +73,6 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 		}
 	}
 	
-	//TODO
-	@Override
-	protected void noteResize() {
-		mGUI.noteResize(mGUI.getWidth(), mGUI.getHeight());
-		
-	}
-
 	//method
 	private void resetGUI(final Iterable<? extends BaseNode> attributes) {
 		mGUI.reset(attributes);
@@ -99,5 +92,13 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 			default:
 				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
 		}
+	}
+	
+	
+	//TODO
+	@Override
+	String getSetViewAreaSizeCommand() {
+		System.out.println("front: " + mGUI.getViewAreaWidth());
+		return "SetViewAreaSize(" + mGUI.getViewAreaWidth()  + "," + mGUI.getViewAreaHeight() + ")";
 	}
 }

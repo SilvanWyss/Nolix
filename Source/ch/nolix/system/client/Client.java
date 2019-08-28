@@ -237,13 +237,18 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	}
 	
 	//method
+	public final void popSession() {
+		popSession(true);
+	}
+	
+	//method
 	/**
 	 * Pops the current session of the current {@link Client}.
 	 * 
 	 * @InvalidArgumentException if the current {@link Client} does not contain more than 1 session.
 	 * @InvalidArgumentException if the current session of the current {@link Client} is not the last session.
 	 */
-	public final void popSession() {
+	public final void popSession(final boolean reInitialize) {
 		
 		//Checks if the current client contains more than 1 session.
 		if (getSessionStackSize() < 2) {
@@ -264,6 +269,12 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 			lastSession.removeParentClient();
 			
 		currentSession = sessions.getRefLast();
+		
+		if (reInitialize) {
+			currentSession.cleanBeforeInitialize();
+			currentSession.initialize();
+		}
+		
 		internal_finishSessionInitialization();
 	}
 	

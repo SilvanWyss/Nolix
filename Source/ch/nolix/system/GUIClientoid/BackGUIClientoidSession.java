@@ -15,4 +15,10 @@ public abstract class BackGUIClientoidSession<BGUIC extends BackGUIClientoid<BGU
 	protected final InvisibleLayerGUI getRefGUI() {
 		return mGUI;
 	}
+	
+	//method
+	@Override
+	protected final void cleanBeforeInitialize() {
+		mGUI.reset();
+	}
 }

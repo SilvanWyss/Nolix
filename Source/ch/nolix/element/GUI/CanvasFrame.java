@@ -55,13 +55,13 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 	
 	//method
 	@Override
-	protected int getViewAreaHeight() {
+	public int getViewAreaHeight() {
 		return getRefVisualizer().getViewAreaHeight();
 	}
 	
 	//method
 	@Override
-	protected int getViewAreaWidth() {
+	public int getViewAreaWidth() {
 		return getRefVisualizer().getViewAreaWidth();
 	}
 }

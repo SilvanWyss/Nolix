@@ -289,7 +289,7 @@ public final class NetEndPoint extends EndPoint {
 	void receiveRawMessages(final IContainer<String> rawMessages) {
 		
 		//TEMP
-		System.out.println(hashCode() + " received: " + rawMessages);
+		//System.out.println(hashCode() + " received: " + rawMessages);
 		
 		receivedRawMessage = true;
 		
@@ -415,7 +415,7 @@ public final class NetEndPoint extends EndPoint {
 	private void sendRawMessage(final String rawMessage) {
 		
 		//TEMP
-		System.out.println(hashCode() + " send: " + rawMessage);
+		//System.out.println(hashCode() + " send: " + rawMessage);
 		
 		//Checks if the given message is not null.
 		Validator.suppose(rawMessage).thatIsNamed(VariableNameCatalogue.MESSAGE).isNotNull();

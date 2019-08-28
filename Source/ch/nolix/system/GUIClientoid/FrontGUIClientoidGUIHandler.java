@@ -28,7 +28,7 @@ abstract class FrontGUIClientoidGUIHandler {
 
 	//abstract method
 	public abstract void run(ChainedNode command);
-
+	
 	//TODO
-	protected abstract void noteResize();
+	abstract String getSetViewAreaSizeCommand();
 }

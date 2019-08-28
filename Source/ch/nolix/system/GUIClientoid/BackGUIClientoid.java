@@ -77,11 +77,13 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 */
 	@Override
 	protected final void internal_finishSessionInitialization() {
+		getRefGUI().refresh();
+		getRefGUI().refresh();
 		updateGUIOnCounterpart();
 		
 		//TODO: Let the current BackGUIClientoind note a resize.
 		//Reason: The size of the GUI is not transfered with its normal update.
-		internal_runOnCounterpart("NoteResize");
+		//internal_runOnCounterpart("NoteResize");
 	}
 	
 	//method
@@ -145,6 +147,11 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			case Protocol.NOTE_RESIZE_HEADER:
 				getRefGUI().noteResize(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
 				updateGUIOnCounterpart();
+				break;
+			case "SetViewAreaSize": //TODO
+				System.out.println("back: " + command.getRefAttributeAt(1).toInt());
+				getRefGUI().setViewAreaWidth(command.getRefAttributeAt(1).toInt());
+				getRefGUI().setViewAreaHeight(command.getRefAttributeAt(2).toInt());
 				break;
 			default:
 				

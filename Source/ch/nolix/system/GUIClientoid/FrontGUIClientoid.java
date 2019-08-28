@@ -225,14 +225,9 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	@Override
 	protected final void internal_run(final ChainedNode command) {
 		
-		//TODO
-		if (command.hasHeader("NoteResize")) {
-			mGUIHandler.noteResize();
-			return;
-		}
-		
 		//Handles the case that the GUI handler of the current FrontGUIClientoid can run the given command.
 		if (mGUIHandler.canRunCommand(command)) {
+			internal_runOnCounterpart(mGUIHandler.getSetViewAreaSizeCommand());
 			mGUIHandler.run(command);
 		}
 		

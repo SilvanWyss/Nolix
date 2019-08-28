@@ -68,12 +68,6 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 		return false;
 	}
 	
-	//TODO
-	@Override
-	protected void noteResize() {
-		mGUI.noteResize(mGUI.getWidth(), mGUI.getHeight());
-	}
-
 	//method
 	private void runGUICommand(ChainedNode GUICommand) {
 		switch (GUICommand.getHeader()) {
@@ -95,5 +89,11 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	//method
 	private void setPaintCommands(final IContainer<ChainedNode> paintCommands) {
 		mGUI.setPaintCommandsFromStatements(paintCommands);
+	}
+	
+	//TODO
+	@Override
+	String getSetViewAreaSizeCommand() {
+			return "SetViewAreaSize(" + mGUI.getViewAreaWidth()  + "," + mGUI.getViewAreaHeight() + ")";
 	}
 }
