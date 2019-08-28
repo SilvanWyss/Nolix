@@ -4,6 +4,7 @@ package ch.nolix.core.reflection;
 //Java import
 import java.lang.reflect.Field;
 
+//own import
 import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
 
 //class
@@ -17,18 +18,23 @@ public final class ReflectionHelper {
 	//static method
 	public static Field getRefField(final Object object, final Object attribute) {
 		
-		for (final var f : object.getClass().getFields()) {
+		var lClass = object.getClass();
+		while (lClass != null) {
+			for (final var f : lClass.getDeclaredFields()) {
+					
+				f.setAccessible(true);
 				
-			f.setAccessible(true);
-			
-			try {
-				if (f.get(object) == attribute) {
-					return f;
+				try {
+					if (f.get(object) == attribute) {
+						return f;
+					}
+				}
+				catch (final IllegalArgumentException | IllegalAccessException exception) {
+					throw new RuntimeException(exception);
 				}
 			}
-			catch (final IllegalArgumentException | IllegalAccessException exception) {
-				throw new RuntimeException(exception);
-			}
+			
+			lClass = lClass.getSuperclass();
 		}
 		
 		throw new ArgumentMissesAttributeException(object, attribute.getClass());
