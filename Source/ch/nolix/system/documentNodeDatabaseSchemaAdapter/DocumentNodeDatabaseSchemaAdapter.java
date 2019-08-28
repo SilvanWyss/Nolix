@@ -6,6 +6,7 @@ import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
+import ch.nolix.core.fileNode.FileNode;
 import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.core.node.Node;
 import ch.nolix.core.node.BaseNode;
@@ -36,6 +37,11 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		this.documentNodeDatabase = documentNodeDatabase;
 		
 		reset();
+	}
+	
+	//constructor
+	public DocumentNodeDatabaseSchemaAdapter(final String nodeFilePath) {
+		this(new FileNode(nodeFilePath));
 	}
 	
 	//method

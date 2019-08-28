@@ -47,18 +47,48 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//method
+	public final <E extends Entity> DatabaseAdapter addEntity(final E... entities) {
+		
+		if (entities.length > 0) {
+			final var entitySet = (EntitySet<E>)getRefEntitySet(entities[0].getClass());
+			entitySet.addEntity(entities);
+		}
+		
+		return this;
+	}
+	
+	//method
 	public final boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
+	}
+	
+	//method
+	public final <E extends Entity> DatabaseAdapter deleteEntity(final E entity) {
+		
+		getRefEntitySet(entity).deleteEntity(entity);
+		
+		return this;
 	}
 	
 	//abstract method
 	public abstract String getDatabaseName();
 	
 	//method
+	public final <E extends Entity> IContainer<E> getRefEntities(final Class<E> entityClass) {
+		return getRefEntitySet(entityClass).getRefEntities();
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public final <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {
 		return
 		(EntitySet<E>)entitySets.getRefFirst(es -> es.hasName(entityClass.getSimpleName()));
+	}
+	
+	//method
+	public final <E extends Entity> EntitySet<E> getRefEntitySet(final E entity) {
+		final var entityClass = (Class<E>)entity.getClass();
+		return getRefEntitySet(entityClass);
 	}
 	
 	//method

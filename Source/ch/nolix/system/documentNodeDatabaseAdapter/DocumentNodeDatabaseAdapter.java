@@ -6,6 +6,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
+import ch.nolix.core.fileNode.FileNode;
 import ch.nolix.core.node.BaseNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
@@ -23,19 +24,13 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<>();
 	
 	//constructor
-	public DocumentNodeDatabaseAdapter(
-		final BaseNode database,
-		final Schema schema
-	) {
+	public DocumentNodeDatabaseAdapter(final BaseNode database, final Schema schema) {
 		
 		//Calls constructor of the base class.
 		super(schema);
 		
-		//Checks if the given database is not null.
-		Validator
-		.suppose(database)
-		.thatIsNamed(VariableNameCatalogue.DATABASE)
-		.isNotNull();
+		//Checks if the given database if not null.
+		Validator.suppose(database).thatIsNamed(VariableNameCatalogue.DATABASE).isNotNull();
 		
 		//Sets the database of the current document node database adapter.
 		this.database = database;
@@ -43,6 +38,13 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 		database
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
 		.forEach(a -> entitySetAdapters.addAtEnd(new EntitySetAdapter<>(a)));
+	}
+	
+	//constructor
+	public DocumentNodeDatabaseAdapter(final String fileNodePath, final Schema schema) {
+		
+		//Calls other constructor.
+		this(new FileNode(fileNodePath), schema);
 	}
 	
 	//method
