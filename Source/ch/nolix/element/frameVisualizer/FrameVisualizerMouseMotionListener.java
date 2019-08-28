@@ -31,7 +31,7 @@ public final class FrameVisualizerMouseMotionListener implements MouseMotionList
 		
 		//This is important because events can be fired before the GUI is created completely.
 		if (isNew) {
-			Sequencer.waitForMilliseconds(500);
+			Sequencer.waitForMilliseconds(200);
 			isNew = false;
 		}
 		
