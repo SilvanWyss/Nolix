@@ -195,6 +195,8 @@ public enum Key implements IElementEnum {
 				return Key.ENTER;
 			case KeyEvent.VK_ESCAPE:
 				return ESCAPE;
+			case KeyEvent.VK_SPACE:
+				return Key.SPACE;
 			default:
 				throw new InvalidArgumentException(keyEvent);
 		}
