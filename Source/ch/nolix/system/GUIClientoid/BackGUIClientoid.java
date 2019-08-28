@@ -149,7 +149,6 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				updateGUIOnCounterpart();
 				break;
 			case "SetViewAreaSize": //TODO
-				System.out.println("back: " + command.getRefAttributeAt(1).toInt());
 				getRefGUI().setViewAreaWidth(command.getRefAttributeAt(1).toInt());
 				getRefGUI().setViewAreaHeight(command.getRefAttributeAt(2).toInt());
 				break;

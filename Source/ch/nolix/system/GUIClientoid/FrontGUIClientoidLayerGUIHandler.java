@@ -98,7 +98,6 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 	//TODO
 	@Override
 	String getSetViewAreaSizeCommand() {
-		System.out.println("front: " + mGUI.getViewAreaWidth());
 		return "SetViewAreaSize(" + mGUI.getViewAreaWidth()  + "," + mGUI.getViewAreaHeight() + ")";
 	}
 }
