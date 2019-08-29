@@ -97,18 +97,11 @@ public final class EntitySet<E extends Entity> implements Named {
 	}
 	
 	//method
-	public EntitySet<E> deleteEntity(final E entity) {
-				
-		entity.setDeleted();
-		loadedAndCreatedEntities.removeFirst(entity);
-		getParentDatabaseAdapter().noteMutatedEntity(entity);
+	public EntitySet<E> deleteEntity(final long id) {
+		
+		getRefEntityById(id).setDeleted();
 		
 		return this;
-	}
-	
-	//method
-	public EntitySet<E> deleteEntity(final long id) {
-		return deleteEntity(getRefEntityById(id));
 	}
 	
 	//method
@@ -212,5 +205,14 @@ public final class EntitySet<E extends Entity> implements Named {
 		}
 		
 		return getRefEntities().contains(e -> e.references(header, entity));
+	}
+	
+	//method
+	EntitySet<E> deleteEntity(final E entity) {
+		
+		loadedAndCreatedEntities.removeFirst(entity);
+		getParentDatabaseAdapter().noteMutatedEntity(entity);
+		
+		return this;
 	}
 }

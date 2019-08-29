@@ -252,6 +252,29 @@ public class Entity implements Identified, IElement {
 		return getRefProperties().contains(p -> p.hasHeader(header) && p.references(entity));
 	}
 	
+	//package-visible method
+	public final void setDeleted() {
+		switch (getState()) {
+			case PERSISTED:
+			case CONCERNED:
+			case CHANGED:
+				
+				if (belongsToEntitySet()) {
+					getParentEntitySet().deleteEntity(this);
+				}
+				
+				state = EntityState.DELETED;
+				
+				break;
+			case CREATED:
+				throw new InvalidArgumentException(this, "is created");
+			case DELETED:
+				break;
+			case REJECTED:
+				throw new InvalidArgumentException(this, "is rejected");
+		}
+	}
+
 	//method
 	public final void setId(final long id) {
 		
@@ -284,23 +307,6 @@ public class Entity implements Identified, IElement {
 				break;
 			case DELETED:
 				throw new InvalidArgumentException(this, "is deleted");
-			case REJECTED:
-				throw new InvalidArgumentException(this, "is rejected");
-		}
-	}
-	
-	//package-visible method
-	final void setDeleted() {
-		switch (getState()) {
-			case PERSISTED:
-			case CONCERNED:
-			case CHANGED:
-				state = EntityState.DELETED;
-				break;
-			case CREATED:
-				throw new InvalidArgumentException(this, "is created");
-			case DELETED:
-				break;
 			case REJECTED:
 				throw new InvalidArgumentException(this, "is rejected");
 		}

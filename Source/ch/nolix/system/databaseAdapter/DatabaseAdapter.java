@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
+import ch.nolix.core.constants.MultiVariableNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.containers.IContainer;
 import ch.nolix.core.containers.List;
@@ -47,7 +49,10 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	public final <E extends Entity> DatabaseAdapter addEntity(final E... entities) {
+		
+		Validator.suppose(entities).thatIsNamed(MultiVariableNameCatalogue.ENTITIES).isNotNull();
 		
 		if (entities.length > 0) {
 			final var entitySet = (EntitySet<E>)getRefEntitySet(entities[0].getClass());
@@ -60,14 +65,6 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	//method
 	public final boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
-	}
-	
-	//method
-	public final <E extends Entity> DatabaseAdapter deleteEntity(final E entity) {
-		
-		getRefEntitySet(entity).deleteEntity(entity);
-		
-		return this;
 	}
 	
 	//abstract method
@@ -83,12 +80,6 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	public final <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {
 		return
 		(EntitySet<E>)entitySets.getRefFirst(es -> es.hasName(entityClass.getSimpleName()));
-	}
-	
-	//method
-	public final <E extends Entity> EntitySet<E> getRefEntitySet(final E entity) {
-		final var entityClass = (Class<E>)entity.getClass();
-		return getRefEntitySet(entityClass);
 	}
 	
 	//method
