@@ -63,7 +63,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ROLE:
-				setRole(ButtonRole.createFromSpecification(attribute));
+				setRole(ButtonRole.fromSpecification(attribute));
 				break;
 			default:
 				

@@ -17,7 +17,7 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		h -> h.getSpecification()
 	);
 	

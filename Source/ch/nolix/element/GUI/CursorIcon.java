@@ -31,7 +31,7 @@ public enum CursorIcon implements IElementEnum {
 	 * @throws InvalidArgumentException
 	 * if the given specification is not valid.
 	 */
-	public static CursorIcon createFromSpecification(
+	public static CursorIcon fromSpecification(
 		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());

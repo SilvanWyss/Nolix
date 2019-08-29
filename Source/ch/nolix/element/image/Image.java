@@ -34,7 +34,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
 	//static method
-	public static Image createFromSpecification(final BaseNode specification) {
+	public static Image fromSpecification(final BaseNode specification) {
 		
 		final var image =
 		new Image(
@@ -55,7 +55,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	new Property<>(
 		PascalCaseNameCatalogue.WIDTH,
 		w -> setWidth(w.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s),
+		s -> NonNegativeInteger.fromSpecification(s),
 		w -> w.getSpecification()
 	);
 	
@@ -64,7 +64,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	new Property<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s),
+		s -> NonNegativeInteger.fromSpecification(s),
 		h -> h.getSpecification()
 	);
 	
@@ -113,7 +113,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
-				setPixelArray(attribute.getRefAttributes().to(a -> Color.createFromSpecification(a)));
+				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(a)));
 				break;
 			default:
 				super.addOrChangeAttribute(attribute);

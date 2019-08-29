@@ -27,7 +27,7 @@ public class PositiveInteger extends Integer {
 	 * @throws InvalidArgumentException
 	 * if the given specification is not valid.
 	 */
-	public static PositiveInteger createFromSpecification(
+	public static PositiveInteger fromSpecification(
 		final BaseNode specification
 	) {
 		return new PositiveInteger(

@@ -60,7 +60,7 @@ public class NonNegativeInteger extends Integer {
 	 * @return a new {@link NonNegativeInteger} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static NonNegativeInteger createFromSpecification(
+	public static NonNegativeInteger fromSpecification(
 		final BaseNode specification
 	) {
 		return new NonNegativeInteger(specification.getOneAttributeAsInt());

@@ -74,7 +74,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MIN_WIDTH_HEADER,
 		mw -> setMinWidth(mw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		mw -> mw.getSpecification()
 	);
 	
@@ -83,7 +83,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MIN_HEIGHT_HEADER,
 		mh -> setMinHeight(mh.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		mh -> mh.getSpecification()
 	);
 	
@@ -92,7 +92,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MAX_WIDTH_HEADER,
 		mw -> setMaxWidth(mw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		mw -> mw.getSpecification()
 	);
 	
@@ -101,7 +101,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MAX_HEIGHT_HEADER,
 		mh -> setMaxHeight(mh.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		mh -> mh.getSpecification()
 	);
 	
@@ -110,7 +110,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		PROPOSAL_WIDTH_HEADER,
 		pw -> setProposalWidth(pw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		pw -> pw.getSpecification()
 	);
 	
@@ -119,7 +119,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		PROPOSAL_HEIGHT_HEADER,
 		ph -> setProposalHeight(ph.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		ph -> ph.getSpecification()
 	);
 	
@@ -128,7 +128,7 @@ extends Widget<BW, BWL> {
 	new MutableProperty<>(
 		VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
 		x -> setViewAreaXPositionOnScrolledArea(x.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s),
+		s -> NonNegativeInteger.fromSpecification(s),
 		x -> x.getSpecification()
 	);
 	
@@ -137,7 +137,7 @@ extends Widget<BW, BWL> {
 	new MutableProperty<>(
 		VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
 		y -> setViewAreaYPositionOnScrolledArea(y.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s),
+		s -> NonNegativeInteger.fromSpecification(s),
 		y -> y.getSpecification()
 	);
 	
@@ -171,7 +171,7 @@ extends Widget<BW, BWL> {
 			case ContentPosition.TYPE_NAME:
 				
 				setContentPosition(
-					ContentPosition.createFromSpecification(attribute)
+					ContentPosition.fromSpecification(attribute)
 				);
 				
 				break;

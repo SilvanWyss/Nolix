@@ -87,7 +87,7 @@ implements Clearable<TabContainer> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.TAB:
-				addTab(TabContainerTab.createFromSpecification(attribute));
+				addTab(TabContainerTab.fromSpecification(attribute));
 				break;
 			default:		
 				

@@ -24,7 +24,7 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	 * @param specification
 	 * @return a new {@link Discrete2DPoint} from the given specification.
 	 */
-	public static Discrete2DPoint createFromSpecification(final BaseNode specification) {
+	public static Discrete2DPoint fromSpecification(final BaseNode specification) {
 		return
 		new Discrete2DPoint(specification.getRefAttributeAt(1).toInt(), specification.getRefAttributeAt(2).toInt());
 	}

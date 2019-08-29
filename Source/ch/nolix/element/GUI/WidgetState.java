@@ -28,7 +28,7 @@ public enum WidgetState implements IElementEnum {
 	 * @param specification
 	 * @return a new {@link WidgetState} from the given specification.
 	 */
-	public static WidgetState createFromSpecification(final BaseNode specification) {
+	public static WidgetState fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

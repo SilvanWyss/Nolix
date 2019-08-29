@@ -305,7 +305,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {
 		
 		final var attributes = paintImageCommand.getRefAttributes();
-		final var image = Image.createFromSpecification(attributes.getRefAt(1));
+		final var image = Image.fromSpecification(attributes.getRefAt(1));
 		
 		switch (attributes.getSize()) {
 			case 1:	
@@ -335,12 +335,12 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text);
 			case 2:
 					
-				final var textFormat = TextFormat.createFromSpecification(attributes.getRefAt(2));
+				final var textFormat = TextFormat.fromSpecification(attributes.getRefAt(2));
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text, textFormat);
 			case 3:
 				
-				final var textFormat2 = TextFormat.createFromSpecification(attributes.getRefAt(2));
+				final var textFormat2 = TextFormat.fromSpecification(attributes.getRefAt(2));
 				final var maxLength = attributes.getRefAt(3).toInt();
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text, textFormat2, maxLength);
@@ -352,7 +352,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createSetColorCommand(final int painterIndex, final ChainedNode setColorCommand) {
 		
-		final var color = Color.createFromSpecification(setColorCommand.getRefOneAttribute());
+		final var color = Color.fromSpecification(setColorCommand.getRefOneAttribute());
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColor(color);
 	}
@@ -363,7 +363,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode setColorGradientCommand
 	) {
 		
-		final var colorGradient = ColorGradient.createFromSpecification(setColorGradientCommand.getRefOneAttribute());
+		final var colorGradient = ColorGradient.fromSpecification(setColorGradientCommand.getRefOneAttribute());
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColorGradient(colorGradient);
 	}

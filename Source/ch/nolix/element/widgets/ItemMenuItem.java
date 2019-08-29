@@ -23,7 +23,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static ItemMenuItem createFromSpecification(final BaseNode specification) {
+	public static ItemMenuItem fromSpecification(final BaseNode specification) {
 		return new ItemMenuItem(specification);
 	}
 	
@@ -35,7 +35,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	new Property<>(
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t.getValue()),
-		s -> NonEmptyText.createFromSpecification(s),
+		s -> NonEmptyText.fromSpecification(s),
 		t -> t.getSpecification()
 	);
 	
@@ -56,7 +56,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	new MutableProperty<>(
 		SELECTION_FLAG_HEADER,
 		sf -> setSelectionFlag(sf.getValue()),
-		s -> Boolean.createFromSpecification(s),
+		s -> Boolean.fromSpecification(s),
 		b -> b.getSpecification()
 	);
 	

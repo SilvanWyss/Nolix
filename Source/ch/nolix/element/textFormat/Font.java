@@ -29,7 +29,7 @@ public enum Font implements IElementEnum {
 	 * @throws InvalidArgumentException
 	 * if the given specification is not valid.
 	 */
-	public static Font createFromSpecification(
+	public static Font fromSpecification(
 		final BaseNode specification
 	) {
 		return Font.valueOf(specification.getOneAttributeAsString());

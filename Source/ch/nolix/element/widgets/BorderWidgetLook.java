@@ -135,28 +135,28 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 				setBottomBorderThickness(attribute.getOneAttributeAsInt());
 				break;
 			case BORDER_COLOR_HEADER:
-				setBorderColors(Color.createFromSpecification(attribute));
+				setBorderColors(Color.fromSpecification(attribute));
 				break;
 			case LEFT_BORDER_COLOR_HEADER:
-				setLeftBorderColor(Color.createFromSpecification(attribute));
+				setLeftBorderColor(Color.fromSpecification(attribute));
 				break;
 			case RIGHT_BORDER_COLOR_HEADER:
-				setRightBorderColor(Color.createFromSpecification(attribute));
+				setRightBorderColor(Color.fromSpecification(attribute));
 				break;
 			case BOTTOM_BORDER_COLOR_HEADER:
-				setBottomBorderColor(Color.createFromSpecification(attribute));
+				setBottomBorderColor(Color.fromSpecification(attribute));
 				break;
 			case TOP_BORDER_COLOR_HEADER:
-				setTopBorderColor(Color.createFromSpecification(attribute));
+				setTopBorderColor(Color.fromSpecification(attribute));
 				break;
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
-				setBackgroundColor(Color.createFromSpecification(attribute));
+				setBackgroundColor(Color.fromSpecification(attribute));
 				break;
 			case BACKGROUND_COLOR_GRADIENT_HEADER:
-				setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute));
+				setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
 				break;
 			case BACKGROUND_IMAGE_HEADER:
-				setBackgroundImage(Image.createFromSpecification(attribute));
+				setBackgroundImage(Image.fromSpecification(attribute));
 				break;
 			case PADDING_HEADER:
 				setPaddings(attribute.getOneAttributeAsInt());
@@ -174,13 +174,13 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 				setBottomPadding(attribute.getOneAttributeAsInt());
 				break;
 			case BASE_SCROLLBAR_LOOK_HEADER:
-				setBaseScrollbarLook(ScrollbarLook.createFromSpecification(attribute));
+				setBaseScrollbarLook(ScrollbarLook.fromSpecification(attribute));
 				break;
 			case HOVER_SCROLLBAR_LOOK_HEADER:
-				setHoverScrollbarLook(ScrollbarLook.createFromSpecification(attribute));
+				setHoverScrollbarLook(ScrollbarLook.fromSpecification(attribute));
 				break;
 			case SELECTION_SCROLLBAR_LOOK_HEADER:
-				setSelectionScrollbarLook(ScrollbarLook.createFromSpecification(attribute));
+				setSelectionScrollbarLook(ScrollbarLook.fromSpecification(attribute));
 				break;
 			default:
 				

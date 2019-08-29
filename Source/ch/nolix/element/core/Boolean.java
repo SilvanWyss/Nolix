@@ -36,7 +36,7 @@ public final class Boolean implements IElement {
 	 * @return a new boolean from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Boolean createFromSpecification(final BaseNode specification) {
+	public static Boolean fromSpecification(final BaseNode specification) {
 		return new Boolean(specification.getOneAttributeAsBoolean());
 	}
 	

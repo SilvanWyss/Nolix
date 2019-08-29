@@ -24,7 +24,7 @@ public final class Sphere extends BaseShape<Sphere> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.RADIUS,
 		r -> setRadius(r.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		r -> r.getSpecification()
 	);
 	

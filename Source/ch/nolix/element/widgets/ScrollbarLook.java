@@ -22,7 +22,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	private static final String SCROLLBAR_CURSOR_COLOR_HEADER = "ScrollbarCursorColor";
 	
 	//static method
-	public static ScrollbarLook createFromSpecification(
+	public static ScrollbarLook fromSpecification(
 		final BaseNode specification
 	) {
 		
@@ -37,7 +37,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	new MutableProperty<>(
 			SCROLLBAR_COLOR_HEADER,
 		c -> setScrollbarColor(c),
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		c -> c.getSpecification()
 	);
 	
@@ -46,7 +46,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	new MutableProperty<>(
 		SCROLLBAR_CURSOR_COLOR_HEADER,
 		c -> setScrollbarCursorColor(c),
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		c -> c.getSpecification()
 	);
 	

@@ -113,7 +113,7 @@ public final class Area extends Widget<Area, AreaLook> {
 				setHeight(attribute.getOneAttributeAsInt());
 				break;
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
-				setBackgroundColor(Color.createFromSpecification(attribute));
+				setBackgroundColor(Color.fromSpecification(attribute));
 				break;
 			default:
 				

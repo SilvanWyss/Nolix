@@ -25,7 +25,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	new MutableProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		xl -> xl.getSpecification()
 	);
 	
@@ -34,7 +34,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	new MutableProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		yl -> yl.getSpecification()
 	);
 	

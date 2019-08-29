@@ -36,7 +36,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	 * @throws InvalidArgumentException
 	 * if the given specification is not valid.
 	 */
-	public static ValueOrPercentageHolder createFromSpecification(
+	public static ValueOrPercentageHolder fromSpecification(
 		final BaseNode specification
 	) {
 		

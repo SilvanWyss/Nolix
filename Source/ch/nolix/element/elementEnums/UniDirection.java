@@ -27,7 +27,7 @@ public enum UniDirection implements IElementEnum {
 	 * @param specification
 	 * @return a new {@link UniDirection} from the given specification.
 	 */
-	public static UniDirection createFromSpecification(final BaseNode specification) {
+	public static UniDirection fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

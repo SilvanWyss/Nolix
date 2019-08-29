@@ -44,7 +44,7 @@ public class ColorGradient implements IElement {
 	 * @return a new color gradient from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ColorGradient createFromSpecification(
+	public static ColorGradient fromSpecification(
 		final BaseNode specification
 	) {
 		
@@ -60,9 +60,9 @@ public class ColorGradient implements IElement {
 		color2Specification.addAttribute(attributes.getRefAt(3));
 		
 		return new ColorGradient(
-			UniDirection.createFromSpecification(directionSpecification),
-			Color.createFromSpecification(color1Specification),
-			Color.createFromSpecification(color2Specification)
+			UniDirection.fromSpecification(directionSpecification),
+			Color.fromSpecification(color1Specification),
+			Color.fromSpecification(color2Specification)
 		);
 	}
 	

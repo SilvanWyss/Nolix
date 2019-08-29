@@ -56,7 +56,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * @return a new {@link Layer} from the given specification that will belong to the given parentGUI.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Layer createFromSpecification(final BaseNode specification) {
+	public static Layer fromSpecification(final BaseNode specification) {
 		return new Layer().reset(specification);
 	}
 	
@@ -71,7 +71,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	new MutableOptionalProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		bc -> bc.getSpecification()
 	);
 	
@@ -80,7 +80,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	new MutableOptionalProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER, 
 		bcg -> setBackgroundColorGradient(bcg),
-		s -> ColorGradient.createFromSpecification(s),
+		s -> ColorGradient.fromSpecification(s),
 		bcg -> bcg.getSpecification()
 	);
 	
@@ -89,7 +89,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	new MutableProperty<>(
 		ContentPosition.TYPE_NAME,
 		cp -> setContentPosition(cp),
-		s -> ExtendedContentPosition.createFromSpecification(s),
+		s -> ExtendedContentPosition.fromSpecification(s),
 		cp -> cp.getSpecification()
 	);
 	
@@ -98,7 +98,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	new MutableProperty<>(
 		FREE_CONTENT_POSITION_HEADER,
 		fcp -> setFreeContentPosition(fcp.getX(), fcp.getY()),
-		s -> Discrete2DPoint.createFromSpecification(s),
+		s -> Discrete2DPoint.fromSpecification(s),
 		fcp -> fcp.getSpecification()
 	);
 	

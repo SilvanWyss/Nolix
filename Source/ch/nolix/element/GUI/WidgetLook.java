@@ -43,7 +43,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		Font.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
-		s -> Font.createFromSpecification(s),
+		s -> Font.fromSpecification(s),
 		f -> f.getSpecification()
 	);
 	
@@ -52,7 +52,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
 		new Boolean(false),
-		s -> Boolean.createFromSpecification(s),
+		s -> Boolean.fromSpecification(s),
 		bts -> bts.getSpecification()
 	);
 	
@@ -61,7 +61,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		new PositiveInteger(DEFAULT_TEXT_SIZE),
-		s -> PositiveInteger.createFromSpecification(s),
+		s -> PositiveInteger.fromSpecification(s),
 		ts -> ts.getSpecification()
 	);
 	
@@ -70,7 +70,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		tc -> tc.getSpecification()
 	);
 	

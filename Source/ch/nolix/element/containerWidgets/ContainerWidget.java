@@ -44,7 +44,7 @@ extends BorderWidget<C, BWS> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ROLE:
-				setRole(ContainerRole.createFromSpecification(attribute));
+				setRole(ContainerRole.fromSpecification(attribute));
 				break;
 			default:
 				

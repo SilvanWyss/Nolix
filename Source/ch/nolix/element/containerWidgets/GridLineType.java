@@ -10,7 +10,7 @@ public enum GridLineType implements IElementEnum {
 	InnerAndOuterLines;
 
 	//static method
-	public static GridLineType createFromSpecification(final BaseNode specification) {
+	public static GridLineType fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

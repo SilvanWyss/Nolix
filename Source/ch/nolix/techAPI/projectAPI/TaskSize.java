@@ -21,7 +21,7 @@ public enum TaskSize implements IElementEnum {
 	 * @return a new {@link TaskSize} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static TaskSize createFromSpecification(final BaseNode specification) {
+	public static TaskSize fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

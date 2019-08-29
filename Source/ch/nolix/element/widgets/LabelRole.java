@@ -25,7 +25,7 @@ public enum LabelRole implements IElementEnum {
 	 * @param specification
 	 * @return a new {@link LabelRole} from the given specification.
 	 */
-	public static LabelRole createFromSpecification(
+	public static LabelRole fromSpecification(
 		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());

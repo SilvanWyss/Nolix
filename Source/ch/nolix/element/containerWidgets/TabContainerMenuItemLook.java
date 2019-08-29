@@ -31,7 +31,7 @@ extends LayerElement<ItemMenuItemLook> {
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	
 	//static method
-	public static TabContainerMenuItemLook createFromSpecification(
+	public static TabContainerMenuItemLook fromSpecification(
 		final BaseNode specification
 	) {
 		
@@ -59,7 +59,7 @@ extends LayerElement<ItemMenuItemLook> {
 				setPadding(attribute.getOneAttributeAsInt());
 				break;
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
-				setBackgroundColor(Color.createFromSpecification(attribute));
+				setBackgroundColor(Color.fromSpecification(attribute));
 				break;
 			case PascalCaseNameCatalogue.TEXT_SIZE:
 				setTextSize(attribute.getOneAttributeAsInt());

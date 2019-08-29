@@ -20,7 +20,7 @@ extends LayerElement<ItemMenuItemLook> {
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 		
 	//static method
-	public static ItemMenuItemLook createFromSpecification(
+	public static ItemMenuItemLook fromSpecification(
 		final BaseNode specification
 	) {
 		
@@ -35,7 +35,7 @@ extends LayerElement<ItemMenuItemLook> {
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		bc -> bc.getSpecification()
 	);
 	
@@ -44,7 +44,7 @@ extends LayerElement<ItemMenuItemLook> {
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		tc -> tc.getSpecification()
 	);
 	

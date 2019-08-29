@@ -27,7 +27,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new LayerProperty<>(
 		TAB_HEADER_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		thbc -> thbc.getSpecification()
 	);
 	
@@ -45,7 +45,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new LayerProperty<>(
 		TAB_HEADER_TEXT_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		thtc -> thtc.getSpecification()
 	);
 	
@@ -54,7 +54,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new LayerProperty<>(
 		TAB_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		tbc -> tbc.getSpecification()
 	);
 	

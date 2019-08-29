@@ -37,7 +37,7 @@ public final class Project extends Element<Project> implements IProject {
 	new MultiProperty<>(
 		Task.TYPE_NAME,
 		t -> addTask(t),
-		s -> Task.createFromSpecification(s),
+		s -> Task.fromSpecification(s),
 		t -> t.getSpecification()
 	);
 		

@@ -18,7 +18,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.SIDE_LENGTH,
 		sl -> setSideLength(sl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		sl -> sl.getSpecification()
 	);
 	
@@ -27,7 +27,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		h -> h.getSpecification()
 	);
 	

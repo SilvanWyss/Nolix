@@ -38,7 +38,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * @return a new task from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Task createFromSpecification(final BaseNode specification) {
+	public static Task fromSpecification(final BaseNode specification) {
 		return new Task(specification);
 	}
 	
@@ -56,7 +56,7 @@ public final class Task extends Element<Task> implements ITask {
 	new Property<>(
 		CREATION_DATE_HEADER,
 		cd -> setCreationDate(cd),
-		s -> Time.createFromSpecification(s),
+		s -> Time.fromSpecification(s),
 		cd -> cd.getSpecification()
 	);
 	
@@ -65,7 +65,7 @@ public final class Task extends Element<Task> implements ITask {
 	new MutableOptionalProperty<>(
 		SOLVE_DATE_HEADER,
 		st -> setSolved(st),
-		s -> Time.createFromSpecification(s),
+		s -> Time.fromSpecification(s),
 		st -> st.getSpecification()
 	);
 	
@@ -74,7 +74,7 @@ public final class Task extends Element<Task> implements ITask {
 	new MutableOptionalProperty<>(
 		SIZE_HEADER,
 		s -> setSize(s),
-		s -> TaskSize.createFromSpecification(s),
+		s -> TaskSize.fromSpecification(s),
 		s -> s.getSpecification()
 	);
 	

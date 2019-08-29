@@ -760,7 +760,7 @@ public class Color extends Element<Color> {
 	 * @return a new {@link Color} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Color createFromSpecification(final BaseNode specification) {
+	public static Color fromSpecification(final BaseNode specification) {
 		return new Color(specification.getOneAttributeAsString());
 	}
 	

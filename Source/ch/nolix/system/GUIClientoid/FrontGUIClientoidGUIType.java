@@ -20,7 +20,7 @@ public enum FrontGUIClientoidGUIType implements IElementEnum {
 	 * @return a new {@link FrontGUIClientoidGUIType} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static FrontGUIClientoidGUIType createFromSpecification(final BaseNode specification) {
+	public static FrontGUIClientoidGUIType fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

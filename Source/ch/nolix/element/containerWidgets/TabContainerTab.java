@@ -47,7 +47,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * @param specification
 	 * @return a new {@link TabContainerTab} from the given specification.
 	 */
-	public static TabContainerTab createFromSpecification(final BaseNode specification) {
+	public static TabContainerTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new TabContainerTab();
 		tab.reset(specification);

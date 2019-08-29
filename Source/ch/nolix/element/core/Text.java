@@ -32,7 +32,7 @@ public class Text extends Element<Text> {
 	 * @return a new text from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Text createFromSpecification(final BaseNode specification) {
+	public static Text fromSpecification(final BaseNode specification) {
 		return new Text(specification.getOneAttributeAsString());
 	}
 	

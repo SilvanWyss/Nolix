@@ -60,7 +60,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ROLE:
-				setRole(LabelRole.createFromSpecification(attribute));
+				setRole(LabelRole.fromSpecification(attribute));
 				break;
 			default:
 				

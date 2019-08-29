@@ -18,7 +18,7 @@ implements Clearable<ImageWidget> {
 	new MutableOptionalProperty<>(
 		Image.TYPE_NAME,
 		i -> setImage(i),
-		s -> Image.createFromSpecification(s),
+		s -> Image.fromSpecification(s),
 		i -> i.getSpecification()
 	);
 	

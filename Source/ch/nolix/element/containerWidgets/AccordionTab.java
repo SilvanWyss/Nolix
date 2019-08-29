@@ -41,7 +41,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	 * @param specification
 	 * @return a new {@link AccordionTab} from the given specification.
 	 */
-	public static AccordionTab createFromSpecification(final BaseNode specification) {
+	public static AccordionTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new AccordionTab();
 		tab.reset(specification);

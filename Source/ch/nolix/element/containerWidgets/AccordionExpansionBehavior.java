@@ -27,7 +27,7 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	 * @return a new {@link AccordionExpansionBehavior} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static AccordionExpansionBehavior createFromSpecification(
+	public static AccordionExpansionBehavior fromSpecification(
 		final BaseNode specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());

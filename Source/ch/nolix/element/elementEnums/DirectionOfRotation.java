@@ -24,7 +24,7 @@ public enum DirectionOfRotation implements IElementEnum {
 	 * @return a new {@link DirectionOfRotation} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DirectionOfRotation createFromSpecification(final BaseNode specification) {
+	public static DirectionOfRotation fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 	

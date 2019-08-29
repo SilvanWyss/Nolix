@@ -61,7 +61,7 @@ public final class Time implements IElement {
 	 * @return a new time from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Time createFromSpecification(final BaseNode specification) {
+	public static Time fromSpecification(final BaseNode specification) {
 		return new Time(specification.getOneAttributeAsString());
 	}
 	

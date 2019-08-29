@@ -23,7 +23,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	new LayerProperty<>(
 		ITEM_PADDING_HEADER,
 		new NonNegativeInteger(),
-		s -> NonNegativeInteger.createFromSpecification(s),
+		s -> NonNegativeInteger.fromSpecification(s),
 		ipp -> ipp.getSpecification()
 	);
 	
@@ -32,7 +32,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	new LayerProperty<>(
 		NORMAL_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
-		s -> ItemMenuItemLook.createFromSpecification(s),
+		s -> ItemMenuItemLook.fromSpecification(s),
 		bilp -> bilp.getSpecification()
 	);
 	
@@ -41,7 +41,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	new LayerProperty<>(
 		HOVER_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
-		s -> ItemMenuItemLook.createFromSpecification(s),
+		s -> ItemMenuItemLook.fromSpecification(s),
 		hilp -> hilp.getSpecification()
 	);
 	
@@ -50,7 +50,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	new LayerProperty<>(
 		SELECTION_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
-		s -> ItemMenuItemLook.createFromSpecification(s),
+		s -> ItemMenuItemLook.fromSpecification(s),
 		silp -> silp.getSpecification()
 	);
 	

@@ -35,7 +35,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.COLOR,
 		DEFAULT_LINE_COLOR,
-		s -> Color.createFromSpecification(s),
+		s -> Color.fromSpecification(s),
 		lc -> lc.getSpecification()
 	);
 	
@@ -53,7 +53,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new LayerProperty<>(
 		LINE_TYPE_HEADER,
 		DEFAULT_LINE_TYPE,
-		s -> GridLineType.createFromSpecification(s),
+		s -> GridLineType.fromSpecification(s),
 		lt -> lt.getSpecification()
 	);
 	

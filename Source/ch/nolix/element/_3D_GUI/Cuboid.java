@@ -27,7 +27,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	new MutableProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		xl -> xl.getSpecification()
 	);
 	
@@ -36,7 +36,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	new MutableProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		yl -> yl.getSpecification()
 	);
 	
@@ -45,7 +45,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	new MutableProperty<>(
 		Z_LENGTH_HEADER,
 		zl -> setZLength(zl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.fromSpecification(s),
 		zl -> zl.getSpecification()
 	);
 	

@@ -28,7 +28,7 @@ public class NonEmptyText extends Text {
 	 * @return a new non-empty text from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static NonEmptyText createFromSpecification(
+	public static NonEmptyText fromSpecification(
 		final BaseNode specification
 	) {
 		return new NonEmptyText(specification.getOneAttributeAsString());

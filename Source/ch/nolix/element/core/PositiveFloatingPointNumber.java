@@ -26,7 +26,7 @@ public class PositiveFloatingPointNumber extends FloatingPointNumber {
 	 * @return a new positive floating point number from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static PositiveFloatingPointNumber createFromSpecification(final BaseNode specification) {
+	public static PositiveFloatingPointNumber fromSpecification(final BaseNode specification) {
 		return new PositiveFloatingPointNumber(specification.getOneAttributeAsDouble());
 	}
 	

@@ -102,10 +102,10 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case STATE_HEADER:
-				setState(WidgetState.createFromSpecification(attribute));
+				setState(WidgetState.fromSpecification(attribute));
 				break;
 			case CursorIcon.TYPE_NAME:
-				setCustomCursorIcon(CursorIcon.createFromSpecification(attribute));
+				setCustomCursorIcon(CursorIcon.fromSpecification(attribute));
 				break;
 			case GREY_OUT_WHEN_DISABLED_FLAG_HEADER:
 				

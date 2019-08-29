@@ -153,7 +153,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	new MultiProperty<>(
 		PascalCaseNameCatalogue.LAYER,
 		l -> addLayerOnTop(l),
-		s -> Layer.createFromSpecification(s),
+		s -> Layer.fromSpecification(s),
 		l -> l.getSpecification()
 	);
 	
@@ -326,13 +326,13 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {				
 				case PascalCaseNameCatalogue.BACKGROUND_COLOR:
-					backGround.setBackgroundColor(Color.createFromSpecification(attribute));
+					backGround.setBackgroundColor(Color.fromSpecification(attribute));
 					break;		
 				case Layer.BACKGROUND_COLOR_GRADIENT_HEADER:
-					backGround.setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute));
+					backGround.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
 					break;
 				case ContentPosition.TYPE_NAME:
-					backGround.setContentPosition(ExtendedContentPosition.createFromSpecification(attribute));
+					backGround.setContentPosition(ExtendedContentPosition.fromSpecification(attribute));
 					break;
 				default:
 					

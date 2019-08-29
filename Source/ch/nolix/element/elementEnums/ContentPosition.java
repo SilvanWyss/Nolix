@@ -30,7 +30,7 @@ public enum ContentPosition implements IElementEnum {
 	 * @return a new {@link ContentPosition} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ContentPosition createFromSpecification(final BaseNode specification) {
+	public static ContentPosition fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

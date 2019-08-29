@@ -37,7 +37,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	new MutableProperty<>(
 		AccordionExpansionBehavior.TYPE_NAME,
 		eb -> setExpansionBehavior(eb),
-		s -> AccordionExpansionBehavior.createFromSpecification(s),
+		s -> AccordionExpansionBehavior.fromSpecification(s),
 		eb -> eb.getSpecification()
 	);
 	
@@ -46,7 +46,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	new MultiProperty<>(
 		PascalCaseNameCatalogue.TAB,
 		t -> addTab(t),
-		s -> AccordionTab.createFromSpecification(s),
+		s -> AccordionTab.fromSpecification(s),
 		t -> t.getSpecification()
 	);
 	
