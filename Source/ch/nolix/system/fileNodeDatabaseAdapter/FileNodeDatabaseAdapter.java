@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.documentNodeDatabaseAdapter;
+package ch.nolix.system.fileNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -15,7 +15,7 @@ import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.databaseAdapter.Schema;
 
 //class
-public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
+public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//attribute
 	private final BaseNode database;
@@ -24,7 +24,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<>();
 	
 	//constructor
-	public DocumentNodeDatabaseAdapter(final BaseNode database, final Schema schema) {
+	public FileNodeDatabaseAdapter(final BaseNode database, final Schema schema) {
 		
 		//Calls constructor of the base class.
 		super(schema);
@@ -41,7 +41,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//constructor
-	public DocumentNodeDatabaseAdapter(final String fileNodePath, final Schema schema) {
+	public FileNodeDatabaseAdapter(final String fileNodePath, final Schema schema) {
 		
 		//Calls other constructor.
 		this(new FileNode(fileNodePath), schema);

@@ -3,8 +3,8 @@ package ch.nolix.systemTutorial.databaseApplicationTutorial.movieManager;
 
 import ch.nolix.core.fileNode.FileNode;
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
-import ch.nolix.system.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
+import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
+import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
 //class
@@ -18,7 +18,7 @@ public final class Launcher {
 		final var movieManagerSchema = new MovieManagerSchema();
 		
 		final var movieManagerDatabaseSchemaAdapter =
-		new DocumentNodeDatabaseSchemaAdapter(movieManagerDatabase);
+		new FileNodeDatabaseSchemaAdapter(movieManagerDatabase);
 		
 		if (!movieManagerDatabaseSchemaAdapter.databaseIsInitialized()) {
 			
@@ -28,7 +28,7 @@ public final class Launcher {
 			.saveChanges();
 		
 			new DataGenerator().generateAndSaveSampleData(
-				new DocumentNodeDatabaseAdapter(
+				new FileNodeDatabaseAdapter(
 					movieManagerDatabase,
 					movieManagerSchema
 				)
@@ -38,7 +38,7 @@ public final class Launcher {
 		final var movieManager =
 		new MovieManager(
 			() ->
-			new DocumentNodeDatabaseAdapter(
+			new FileNodeDatabaseAdapter(
 				movieManagerDatabase,
 				movieManagerSchema
 			),

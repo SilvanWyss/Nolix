@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.documentNodeDatabaseSchemaAdapter} package
+ * The {@link ch.nolix.system.fileNodeDatabaseSchemaAdapter} package
  * defines a {@link ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter}
  * for databases that are {@link ch.nolix.core.node.Node}s.
  * 
@@ -8,4 +8,4 @@
  * @month 2019-07
  * @lines 10
  */
-package ch.nolix.system.documentNodeDatabaseSchemaAdapter;
+package ch.nolix.system.fileNodeDatabaseSchemaAdapter;

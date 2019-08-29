@@ -6,8 +6,8 @@ import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
 import ch.nolix.system.databaseAdapter.Reference;
 import ch.nolix.system.databaseAdapter.Schema;
-import ch.nolix.system.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
-import ch.nolix.system.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
+import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
+import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 
 //class
 public final class ReferencePropertyTutorial {
@@ -19,7 +19,7 @@ public final class ReferencePropertyTutorial {
 		final var catDatabase = new Node();
 		
 		//Creates a database schema adapter for the cat database.
-		final var catDatabaseSchemaAdapter = new DocumentNodeDatabaseSchemaAdapter(catDatabase);
+		final var catDatabaseSchemaAdapter = new FileNodeDatabaseSchemaAdapter(catDatabase);
 		
 		//Applies the schema to the cat database.
 		catDatabaseSchemaAdapter
@@ -28,7 +28,7 @@ public final class ReferencePropertyTutorial {
 		.saveChanges();
 		
 		//Created a database adapter for the cat database.
-		final var catDatabaseAdapter = new DocumentNodeDatabaseAdapter(
+		final var catDatabaseAdapter = new FileNodeDatabaseAdapter(
 			catDatabase,
 			new CatDatabaseSchema()
 		);

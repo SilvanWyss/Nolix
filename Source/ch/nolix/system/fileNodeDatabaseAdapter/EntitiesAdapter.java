@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.documentNodeDatabaseAdapter;
+package ch.nolix.system.fileNodeDatabaseAdapter;
 
 import ch.nolix.core.containers.List;
 import ch.nolix.core.node.BaseNode;

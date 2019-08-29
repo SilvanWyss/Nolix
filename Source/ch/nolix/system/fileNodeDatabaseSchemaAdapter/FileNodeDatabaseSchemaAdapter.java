@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.documentNodeDatabaseSchemaAdapter;
+package ch.nolix.system.fileNodeDatabaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
@@ -17,43 +17,43 @@ import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.databaseSchemaAdapter.IEntitySetAdapter;
 
 //class
-public final class DocumentNodeDatabaseSchemaAdapter
-extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
+public final class FileNodeDatabaseSchemaAdapter
+extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 	
 	//attribute
-	private final BaseNode documentNodeDatabase;
+	private final BaseNode fileNodeDatabase;
 	
 	//constant
 	private static final String DATABASE_PROPERTIES_HEADER = "DatabaseProperties";
 	
 	//constructor
-	public DocumentNodeDatabaseSchemaAdapter(final BaseNode documentNodeDatabase) {
+	public FileNodeDatabaseSchemaAdapter(final BaseNode fileNodeDatabase) {
 		
 		Validator
-		.suppose(documentNodeDatabase)
+		.suppose(fileNodeDatabase)
 		.thatIsNamed("document node database")
 		.isNotNull();
 		
-		this.documentNodeDatabase = documentNodeDatabase;
+		this.fileNodeDatabase = fileNodeDatabase;
 		
 		reset();
 	}
 	
 	//constructor
-	public DocumentNodeDatabaseSchemaAdapter(final String nodeFilePath) {
-		this(new FileNode(nodeFilePath));
+	public FileNodeDatabaseSchemaAdapter(final String fileNodeFilePath) {
+		this(new FileNode(fileNodeFilePath));
 	}
 	
 	//method
 	public DatabaseState getDatabaseState() {
 		
-		if (!documentNodeDatabase.hasHeader()) {
+		if (!fileNodeDatabase.hasHeader()) {
 			return DatabaseState.Uninitialized;
 		}
 		
 		return
 		DatabaseState.valueOf(		
-			getDatabasePropertiesDocumentNode()
+			getDatabasePropertiesNode()
 			.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
 			.getOneAttributeAsString()
 		);
@@ -73,7 +73,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	@Override
 	protected List<IEntitySetAdapter> getEntitySetAdapters() {
 		return
-		documentNodeDatabase
+		fileNodeDatabase
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
 		.to(a -> new EntitySetAdapter(a));
 	}
@@ -82,9 +82,9 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	@Override
 	protected void initializeDatabaseWhenNotInitialized() {
 		
-		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
+		fileNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
 		
-		documentNodeDatabase.addAttribute(
+		fileNodeDatabase.addAttribute(
 			new Node(
 				DATABASE_PROPERTIES_HEADER,
 				new Node(
@@ -98,7 +98,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	//method
 	@Override
 	protected void lockDatabase() {
-		getDatabasePropertiesDocumentNode()
+		getDatabasePropertiesNode()
 		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
 		.getRefOneAttribute()
 		.setHeader(DatabaseState.Locked.toString());
@@ -162,7 +162,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		entitySetSpecification
 		.addAttribute(Node.fromString(MultiPascalCaseNameCatalogue.ENTITIES));
 		
-		documentNodeDatabase.addAttribute(entitySetSpecification);
+		fileNodeDatabase.addAttribute(entitySetSpecification);
 	}
 
 	//method
@@ -172,7 +172,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	
 	//method
 	private void deleteEntitySetFromDatabase(final EntitySet es) {
-		documentNodeDatabase.removeFirstAttribute(
+		fileNodeDatabase.removeFirstAttribute(
 			a ->
 				a.hasHeader("EntitySet")
 				&& new EntitySetAdapter(a).hasName(es.getName())
@@ -180,13 +180,13 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
-	private BaseNode getDatabasePropertiesDocumentNode() {
-		return documentNodeDatabase.getRefFirstAttribute(DATABASE_PROPERTIES_HEADER);
+	private BaseNode getDatabasePropertiesNode() {
+		return fileNodeDatabase.getRefFirstAttribute(DATABASE_PROPERTIES_HEADER);
 	}
 	
 	//method
 	private void setDatabaseReady() {
-		getDatabasePropertiesDocumentNode()
+		getDatabasePropertiesNode()
 		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
 		.getRefOneAttribute()
 		.setHeader(DatabaseState.Ready.toString());	

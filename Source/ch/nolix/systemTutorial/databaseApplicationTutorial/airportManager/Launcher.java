@@ -3,8 +3,8 @@ package ch.nolix.systemTutorial.databaseApplicationTutorial.airportManager;
 
 import ch.nolix.core.fileNode.FileNode;
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
-import ch.nolix.system.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
+import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
+import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
 //class
@@ -18,7 +18,7 @@ public final class Launcher {
 		final var airportManagerSchema = new AirportManagerSchema();
 		
 		final var airportManagerDatabaseSchemaAdapter =
-		new DocumentNodeDatabaseSchemaAdapter(airportManagerDatabase);
+		new FileNodeDatabaseSchemaAdapter(airportManagerDatabase);
 		
 		if (!airportManagerDatabaseSchemaAdapter.databaseIsInitialized()) {
 			
@@ -28,7 +28,7 @@ public final class Launcher {
 			.saveChanges();
 			
 			new DataGenerator().generateAndSaveSampleData(
-				new DocumentNodeDatabaseAdapter(
+				new FileNodeDatabaseAdapter(
 					airportManagerDatabase,
 					airportManagerSchema
 				)
@@ -38,7 +38,7 @@ public final class Launcher {
 		final var airportManager =
 		new AirportManager(
 			() ->
-			new DocumentNodeDatabaseAdapter(
+			new FileNodeDatabaseAdapter(
 				airportManagerDatabase,
 				airportManagerSchema
 			),
