@@ -91,6 +91,32 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
+	public void testCase_getHexadecimalValueOrColorName() {
+		
+		//setup
+		final var color = new Color(Color.ALICE_BLUE_INT);
+		
+		//execution
+		final var result = color.getHexadecimalValueOrColorName();
+		
+		//verification
+		expect(result).isEqualTo("AliceBlue");
+	}
+
+	//test case
+	public void testCase_getHexadecimalValueOrColorName_2() {
+		
+		//setup
+		final var color = new Color(Color.YELLOW_GREEN_INT);
+		
+		//execution
+		final var result = color.getHexadecimalValueOrColorName();
+		
+		//verification
+		expect(result).isEqualTo("YellowGreen");
+	}
+
+	//test case
 	public void testCase_getInvertedColor_whenTheGivenColorIsBlack() {
 		
 		//setup
@@ -192,31 +218,5 @@ public final class ColorTest extends Test {
 		
 		//verification
 		expect(colorWithFullAlphaValue.getAlphaValue()).isEqualTo(255);
-	}
-	
-	//test case
-	public void testCase_toString() {
-		
-		//setup
-		final var color = new Color(Color.ALICE_BLUE_INT);
-		
-		//execution
-		final var string = color.toString();
-		
-		//verification
-		expect(string).isEqualTo("Color(AliceBlue)");
-	}
-	
-	//test case
-	public void testCase_toString_2() {
-		
-		//setup
-		final var color = new Color(Color.YELLOW_GREEN_INT);
-		
-		//execution
-		final var string = color.toString();
-		
-		//verification
-		expect(string).isEqualTo("Color(YellowGreen)");
 	}
 }

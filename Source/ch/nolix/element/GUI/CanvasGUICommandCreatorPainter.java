@@ -188,7 +188,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUIProtocol.SET_COLOR_HEADER
 			+ "("
-			+ color.getHexadecimalSpecification(true)
+			+ color.getSpecification()
 			+ ")"
 		);
 	}
@@ -199,7 +199,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUIProtocol.SET_COLOR_GRADIENT_HEADER
 			+ '('
-			+ colorGradient.getHexadecimalSpecification(true)
+			+ colorGradient.getSpecification()
 			+ ')'
 		);
 	}

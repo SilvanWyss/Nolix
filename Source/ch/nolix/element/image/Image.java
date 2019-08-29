@@ -127,7 +127,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		final var attributes = super.getAttributes();
 				
 		final var pixelArraySpecification =	new Node(PIXEL_ARRAY_HEADER);
-		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValue(true)));
+		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue()));
 		attributes.addAtEnd(pixelArraySpecification);
 				
 		return attributes;

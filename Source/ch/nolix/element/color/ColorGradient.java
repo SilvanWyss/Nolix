@@ -216,8 +216,8 @@ public class ColorGradient implements IElement {
 		return 
 		new List<>(
 			new Node(getDirection().toString()),
-			new Node(getColor1().getStringValue()),
-			new Node(getColor2().getStringValue())
+			new Node(getColor1().getHexadecimalValue()),
+			new Node(getColor2().getHexadecimalValue())
 		);
 	}
 	
@@ -243,20 +243,5 @@ public class ColorGradient implements IElement {
 	 */
 	public UniDirection getDirection() {
 		return direction;
-	}
-
-	//method
-	/**
-	 * @param appendAlphaValueAlways
-	 * @return a hexadecimal specification of this color gradient.
-	 */
-	public Node getHexadecimalSpecification(
-		final boolean appendAlphaValueAlways
-	) {
-		return new Node(
-			getType(),
-			color1.getHexadecimalSpecification(appendAlphaValueAlways),
-			color2.getHexadecimalSpecification(appendAlphaValueAlways)
-		);
 	}
 }

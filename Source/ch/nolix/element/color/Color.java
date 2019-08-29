@@ -5,8 +5,8 @@ package ch.nolix.element.color;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.containers.List;
 import ch.nolix.core.containers.ReadContainer;
@@ -1017,11 +1017,11 @@ public class Color extends Element<Color> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public List<Node> getAttributes() {
-		return new List<>(Node.fromString(getStringValue()));
+		return new List<>(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method
@@ -1042,19 +1042,9 @@ public class Color extends Element<Color> {
 	
 	//method
 	/**
-	 * @param appendAlphaValueAlways
-	 * @return a hexadecimal specification of the current {@link Color}.
-	 */
-	public Node getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
-		return new Node(getType(), getHexadecimalValue(appendAlphaValueAlways));
-	}
-	
-	//method
-	/**
-	 * @param appendAlphaValueAlways
 	 * @return the hexadecimal value of the current {@link Color}.
 	 */
-	public String getHexadecimalValue(final boolean appendAlphaValueAlways) {
+	public String getHexadecimalValue() {
 		
 		var string =
 		StringCatalogue.HEXADECIMAL_PREFIX
@@ -1062,12 +1052,41 @@ public class Color extends Element<Color> {
 		+ String.format("%02X", greenValue)
 		+ String.format("%02X", blueValue);
 		
-		//Handles the case that the current color has a full alpha value.
-		if (appendAlphaValueAlways || !hasFullAlphaValue()) {
+		//Handles the case that the current color does not have a full alpha value.
+		if (!hasFullAlphaValue()) {
 			string += String.format("%02X", alphaValue);
 		}
 		
 		return string;
+	}
+	
+	//method
+	/**
+	 * @return the hexadecimal value of the current {@link Color} always with alpha value.
+	 */
+	public String getHexadecimalValueAlwaysWithAlphaValue() {
+		return
+		StringCatalogue.HEXADECIMAL_PREFIX
+		+ String.format("%02X", redValue)
+		+ String.format("%02X", greenValue)
+		+ String.format("%02X", blueValue)
+		+ String.format("%02X", alphaValue);
+	}
+	
+	//method
+	/**
+	 * @return the hexadecimal value of the current {@link Color} or its color name.
+	 */
+	public String getHexadecimalValueOrColorName() {
+		
+		final var pair = getWebColorPairs().getRefFirstOrNull(wc -> wc.getRefElement2().equals(getIntValue()));
+		
+		//Handles the case that the current Color has a color name.
+		if (pair != null) {
+			return pair.getRefElement1();
+		}
+		
+		return getHexadecimalValue();
 	}
 	
 	//method
@@ -1187,26 +1206,6 @@ public class Color extends Element<Color> {
 	 */
 	public int getRedValue() {
 		return redValue;
-	}
-	
-	//method
-	/**
-	 * @return the string value of the current {@link Color}.
-	 */
-	public String getStringValue() {
-		
-		final Pair<String, Long> pair =
-		getWebColorPairs().getRefFirstOrNull(wc -> wc.getRefElement2().equals(getIntValue()));
-		
-		//Handles the case that the current color has a color name.
-		if (pair != null) {
-			
-			//TODO: Return always hexadecimal until browser client is ready.
-			//return pair.getRefElement1();
-		}
-		
-		//Handles the case that the current color does not have a color name.
-		return getHexadecimalValue(false);
 	}
 	
 	//method
