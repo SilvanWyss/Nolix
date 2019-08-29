@@ -32,10 +32,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static Node fromFile(final String filePath) {
 		
-		final var documentNode = new Node();
-		documentNode.resetFromFile(filePath);
+		final var node = new Node();
+		node.resetFromFile(filePath);
 		
-		return documentNode;
+		return node;
 	}
 	
 	//static method
@@ -46,10 +46,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static Node fromString(final String string) {
 		
-		final var documentNode = new Node();
-		documentNode.reset(string);
+		final var node = new Node();
+		node.reset(string);
 		
-		return documentNode;
+		return node;
 	}
 	
 	//static method
@@ -59,10 +59,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static Node withOneAttribute(final boolean attribute) {
 		
-		final var documentNode = new Node();
-		documentNode.setHeader(String.valueOf(attribute));
+		final var node = new Node();
+		node.setHeader(String.valueOf(attribute));
 		
-		return documentNode;
+		return node;
 	}
 	
 	//static method
@@ -73,10 +73,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static Node withOneAttribute(final BaseNode attribute) {
 		
-		final var documentNode = new Node();
-		documentNode.addAttribute(attribute);
+		final var node = new Node();
+		node.addAttribute(attribute);
 		
-		return documentNode;
+		return node;
 	}
 	
 	//static method
@@ -86,10 +86,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static final Node withOneAttribute(final int attribute) {
 		
-		final var documentNode = new Node();
-		documentNode.addAttribute(String.valueOf(attribute));
+		final var node = new Node();
+		node.addAttribute(String.valueOf(attribute));
 		
-		return documentNode;
+		return node;
 	}
 	
 	//static method
@@ -101,10 +101,10 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static Node withOneAttribute(final String attribute) {
 		
-		final var documentNode = new Node();
-		documentNode.addAttribute(new Node(attribute));
+		final var node = new Node();
+		node.addAttribute(new Node(attribute));
 		
-		return documentNode;
+		return node;
 	}
 	
 	//optional attribute
@@ -317,12 +317,12 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		//Checks if the given prefix is not null or blank.
 		Validator.suppose(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
 		
-		//Handles the case that the current DocumentNode does not have a header.
+		//Handles the case that the current Node does not have a header.
 		if (!hasHeader()) {
 			setHeader(prefix);
 		}
 		
-		//Handles the case that the current DocumentNode has a header.
+		//Handles the case that the current Node has a header.
 		else {
 			setHeader(prefix + getHeader());
 		}
@@ -342,12 +342,12 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		//Checks if the given postfix is not null or blank.
 		Validator.suppose(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
 		
-		//Handles the case that the current DocumentNode does not have a header.
+		//Handles the case that the current Node does not have a header.
 		if (hasHeader()) {
 			setHeader(postfix);
 		}
 		
-		//Handles the case that the current DocumentNode has a header.
+		//Handles the case that the current Node has a header.
 		else {
 			setHeader(getHeader() + postfix);
 		}
@@ -369,7 +369,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	@Override
 	public String getHeader() {
 		
-		//Checks if the current DocumentNode has a header.
+		//Checks if the current Node has a header.
 		if (!hasHeader()) {
 			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
 		}
@@ -485,7 +485,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		//Checks if the given header is not null or blank.
 		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
-		//Sets the header of the current DocumentNode.
+		//Sets the header of the current Node.
 		this.header = header;
 	}
 }

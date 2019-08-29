@@ -191,28 +191,28 @@ public abstract class BaseNode implements Headered {
 		}
 		
 		//Handles the case that the given object is a document node.
-			final var documentNode = (BaseNode)object;
+			final var baseNode = (BaseNode)object;
 			
 			//Handles the case that the current document node does not have a header.
 			if (!hasHeader()) {
-				if (documentNode.hasHeader()) {
+				if (baseNode.hasHeader()) {
 					return false;
 				}
 			}
 			
 			//Handles the case that the current document node has a header.
 			else {
-				if (!documentNode.hasHeader(getHeader())) {
+				if (!baseNode.hasHeader(getHeader())) {
 					return false;
 				}
 			}
 			
-			if (getAttributeCount() != documentNode.getAttributeCount()) {
+			if (getAttributeCount() != baseNode.getAttributeCount()) {
 				return false;
 			}
 									
 			//Iterates the attributes of the current document node.
-			final var iterator = documentNode.getRefAttributes().iterator();
+			final var iterator = baseNode.getRefAttributes().iterator();
 			for (final var a : getRefAttributes()) {
 				if (!a.equals(iterator.next())) {
 					return false;
@@ -667,17 +667,17 @@ public abstract class BaseNode implements Headered {
         }              
         
         if (index < substring.length()) {
-            var documentNode = new Node();
-            index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
-            this.addAttribute(documentNode);
+            var node = new Node();
+            index = node.setAndGetEndIndex(substring, index + 1) + 1;
+            this.addAttribute(node);
         }
         
         while (index < substring.length()) {
             switch (substring.charAt(index)) {
                 case ',':
-                    var documentNode = new Node();
-                    index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
-                    this.addAttribute(documentNode);
+                    var node = new Node();
+                    index = node.setAndGetEndIndex(substring, index + 1) + 1;
+                    this.addAttribute(node);
                     break;            
                 case ')':
                     return index;
