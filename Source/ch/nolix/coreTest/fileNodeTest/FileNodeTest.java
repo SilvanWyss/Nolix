@@ -11,11 +11,11 @@ public final class FileNodeTest extends BaseNodeTest {
 	
 	@Override
 	protected FileNode createTestObject() {
-		return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/documentNode");
+		return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
 	}
 	
 	@AfterTestCase
 	private void afterTestCase() {
-		FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("documentNode");
+		FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
 	}
 }
