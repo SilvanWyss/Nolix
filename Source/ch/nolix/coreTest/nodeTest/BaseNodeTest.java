@@ -13,10 +13,10 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getCopy() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expectNot(copy.hasHeader());
@@ -28,10 +28,10 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_2() {
 		
 		//setup
-		final var documentNode = createTestObject();documentNode.reset("");
+		final var node = createTestObject();node.reset("");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expectNot(copy.hasHeader());
@@ -43,11 +43,11 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_3() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.reset("A");
+		final var node = createTestObject();
+		node.reset("A");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expect(copy.hasHeader());
@@ -59,11 +59,11 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_4() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.reset("A(B)");
+		final var node = createTestObject();
+		node.reset("A(B)");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expect(copy.hasHeader());
@@ -75,11 +75,11 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_5() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.reset("A(B1,B2,B3)");
+		final var node = createTestObject();
+		node.reset("A(B1,B2,B3)");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expect(copy.hasHeader());
@@ -91,11 +91,11 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_6() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.reset("A(B(C))");
+		final var node = createTestObject();
+		node.reset("A(B(C))");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expect(copy.hasHeader());
@@ -107,11 +107,11 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_7() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.reset("A(B1(C1),B2(C2))");
+		final var node = createTestObject();
+		node.reset("A(B1(C1),B2(C2))");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expect(copy.hasHeader());
@@ -123,11 +123,11 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_8() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.reset("A(B1(C1,C2),B2(C3,C4))");
+		final var node = createTestObject();
+		node.reset("A(B1(C1,C2),B2(C3,C4))");
 		
 		//execution
-		final var copy = documentNode.getCopy();
+		final var copy = node.getCopy();
 		
 		//verification
 		expect(copy.hasHeader());
@@ -139,147 +139,147 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_removeHeader() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.setHeader("Lorem");
+		final var node = createTestObject();
+		node.setHeader("Lorem");
 		
 		//setup verification
-		expect(documentNode.hasHeader());
+		expect(node.hasHeader());
 		
 		//execution
-		documentNode.removeHeader();
+		node.removeHeader();
 		
 		//verification
-		expectNot(documentNode.hasHeader());
+		expectNot(node.hasHeader());
 	}
 	
 	//test case
 	public void testCase_reset() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset();
+		node.reset();
 		
 		//verification
-		expectNot(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(0);
-		expect(documentNode.toString()).isEqualTo("");
+		expectNot(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(0);
+		expect(node.toString()).isEqualTo("");
 	}
 	
 	//test case
 	public void testCase_reset_2() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("");
+		node.reset("");
 		
 		//verification
-		expectNot(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(0);
-		expect(documentNode.toString()).isEqualTo("");
+		expectNot(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(0);
+		expect(node.toString()).isEqualTo("");
 	}
 	
 	//test case
 	public void testCase_reset_3() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("A");
+		node.reset("A");
 		
 		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(0);
-		expect(documentNode.toString()).isEqualTo("A");
+		expect(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(0);
+		expect(node.toString()).isEqualTo("A");
 	}
 	
 	//test case
 	public void testCase_reset_4() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("A(B)");
+		node.reset("A(B)");
 		
 		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(1);
-		expect(documentNode.toString()).isEqualTo("A(B)");
+		expect(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(1);
+		expect(node.toString()).isEqualTo("A(B)");
 	}
 	
 	//test case
 	public void testCase_reset_5() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("A(B1,B2,B3)");
+		node.reset("A(B1,B2,B3)");
 		
 		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(3);
-		expect(documentNode.toString()).isEqualTo("A(B1,B2,B3)");
+		expect(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(3);
+		expect(node.toString()).isEqualTo("A(B1,B2,B3)");
 	}
 	
 	//test case
 	public void testCase_reset_6() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("A(B(C))");
+		node.reset("A(B(C))");
 		
 		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(1);
-		expect(documentNode.toString()).isEqualTo("A(B(C))");
+		expect(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(1);
+		expect(node.toString()).isEqualTo("A(B(C))");
 	}
 	
 	//test case
 	public void testCase_reset_7() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("A(B1(C1),B2(C2))");
+		node.reset("A(B1(C1),B2(C2))");
 		
 		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
-		expect(documentNode.toString()).isEqualTo("A(B1(C1),B2(C2))");
+		expect(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(2);
+		expect(node.toString()).isEqualTo("A(B1(C1),B2(C2))");
 	}
 	
 	//test case
 	public void testCase_reset_8() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution
-		documentNode.reset("A(B1(C1,C2),B2(C3,C4))");
+		node.reset("A(B1(C1,C2),B2(C3,C4))");
 		
 		//verification
-		expect(documentNode.hasHeader());
-		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
-		expect(documentNode.toString()).isEqualTo("A(B1(C1,C2),B2(C3,C4))");
+		expect(node.hasHeader());
+		expect(node.getRefAttributes().getSize()).isEqualTo(2);
+		expect(node.toString()).isEqualTo("A(B1(C1,C2),B2(C3,C4))");
 	}
 
 	//test case
 	public void testCase_reset_whenTheGivenStringIsNotValid() {
 		
 		//setup
-		final var documentNode = createTestObject();
+		final var node = createTestObject();
 		
 		//execution & verification
-		expect(() -> documentNode.reset("A(B).C"))
+		expect(() -> node.reset("A(B).C"))
 		.throwsException()
 		.ofType(NonRepresentingArgumentException.class);
 	}
@@ -288,38 +288,38 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_setHeader() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.setHeader("Lorem");
+		final var node = createTestObject();
+		node.setHeader("Lorem");
 		
 		//setup verification
-		expect(documentNode.hasHeader());
+		expect(node.hasHeader());
 		
 		//execution
-		documentNode.setHeader("Ipsum");
+		node.setHeader("Ipsum");
 		
 		//verification
-		expect(documentNode.getHeader()).isEqualTo("Ipsum");
+		expect(node.getHeader()).isEqualTo("Ipsum");
 	}
 	
 	//test case
 	public void testCase_toString() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.setHeader("Lorem(");
+		final var node = createTestObject();
+		node.setHeader("Lorem(");
 		
 		//execution & verification
-		expect(documentNode.toString()).isEqualTo("Lorem$O");
+		expect(node.toString()).isEqualTo("Lorem$O");
 	}
 	
 	//test case
 	public void testCase_toString_2() {
 		
 		//setup
-		final var documentNode = createTestObject();
-		documentNode.setHeader("Lorem,");
+		final var node = createTestObject();
+		node.setHeader("Lorem,");
 		
 		//execution & verification
-		expect(documentNode.toString()).isEqualTo("Lorem$M");
+		expect(node.toString()).isEqualTo("Lorem$M");
 	}
 }
