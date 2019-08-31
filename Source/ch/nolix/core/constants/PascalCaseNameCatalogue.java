@@ -109,6 +109,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String REASON = "Reason";
 	public static final String REQUEST = "Request";
 	public static final String RESOURCE = "Resource";
+	public static final String RESULT = "Result";
 	public static final String ROLE = "Role";
 	public static final String ROOT = "Root";
 	public static final String ROOT_FOLDER = "RootFolder";

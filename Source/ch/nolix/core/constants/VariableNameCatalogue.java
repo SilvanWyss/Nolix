@@ -109,6 +109,7 @@ public final class VariableNameCatalogue {
 	public static final String REASON = "reason";
 	public static final String REQUEST = "reqest";
 	public static final String RESOURCE = "resource";
+	public static final String RESULT = "result";
 	public static final String ROLE = "role";
 	public static final String ROOT = "root";
 	public static final String ROOT_FOLDER = "root folder";
