@@ -3,7 +3,7 @@ package ch.nolix.common.invalidArgumentExceptions;
 
 //class
 @SuppressWarnings("serial")
-public final class ArgumentWithoutParentException extends InvalidArgumentException {
+public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {
 	
 	//constant
 	private static final String ERROR_PREDICATE = "does not belong to a parent";
@@ -46,11 +46,11 @@ public final class ArgumentWithoutParentException extends InvalidArgumentExcepti
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentWithoutParentException} for the given object.
+	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object.
 	 * 
 	 * @param object
 	 */
-	public ArgumentWithoutParentException(Object argument) {
+	public ArgumentDoesNotBelongToParentException(Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
@@ -58,13 +58,13 @@ public final class ArgumentWithoutParentException extends InvalidArgumentExcepti
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentWithoutParentException} for the given object and parent type.
+	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object and parent type.
 	 * 
 	 * @param object
 	 * @param parent type
 	 * @throws RuntimeException if the given parent type is null.
 	 */
-	public ArgumentWithoutParentException(final Object object, final Class<?> parentType) {
+	public ArgumentDoesNotBelongToParentException(final Object object, final Class<?> parentType) {
 		
 		//Calls constructor of the base class.
 		super(object, "does not belong to a " + getParentTypeName(parentType));
@@ -72,14 +72,14 @@ public final class ArgumentWithoutParentException extends InvalidArgumentExcepti
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentWithoutParentException} for the given object and parent type.
+	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object and parent type.
 	 * 
 	 * @param object
 	 * @param parent type
 	 * @throws RuntimeException if the given parent type is null.
 	 * @throws RuntimeException if the given parent type is blank.
 	 */
-	public ArgumentWithoutParentException(final Object object, final String parentType) {
+	public ArgumentDoesNotBelongToParentException(final Object object, final String parentType) {
 		
 		//Calls constructor of the base class.
 		super(object, "does not belong to a " + getParentTypeName(parentType));

@@ -4,7 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentWithoutParentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.reflection.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
@@ -44,7 +44,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 		
 		//Checks if the current back reference belongs to an entity.
 		if (parentEntity == null) {
-			throw new ArgumentWithoutParentException(this, Entity.class);
+			throw new ArgumentDoesNotBelongToParentException(this, Entity.class);
 		}
 		
 		return parentEntity;
