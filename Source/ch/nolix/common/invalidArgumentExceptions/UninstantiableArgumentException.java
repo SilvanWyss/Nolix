@@ -3,7 +3,7 @@ package ch.nolix.common.invalidArgumentExceptions;
 
 //class
 /**
-* A {@link UninstantiableClassException} is a {@link InvalidArgumentException}
+* A {@link UninstantiableArgumentException} is a {@link InvalidArgumentException}
 * that is supposed to be thrown when a given class was undesirably tried to be instantiated.
 * 
 * @author Silvan Wyss
@@ -11,7 +11,7 @@ package ch.nolix.common.invalidArgumentExceptions;
 * @lines 40
 */
 @SuppressWarnings("serial")
-public final class UninstantiableClassException extends InvalidArgumentException {
+public final class UninstantiableArgumentException extends InvalidArgumentException {
 	
 	//static method
 	/**
@@ -31,12 +31,12 @@ public final class UninstantiableClassException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates a new {@link UninstantiableClassException} for the given class.
+	 * Creates a new {@link UninstantiableArgumentException} for the given class.
 	 * 
 	 * @param _class
 	 * @throws RuntimeException if the given class is null.
 	 */
-	public UninstantiableClassException(final Class<?> _class) {
+	public UninstantiableArgumentException(final Class<?> _class) {
 		
 		//Calls constructor of the base class.
 		super(createSafeClass(_class));
