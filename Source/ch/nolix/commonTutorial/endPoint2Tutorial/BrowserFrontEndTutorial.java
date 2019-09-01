@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTutorial.endPoint2Tutorial;
+package ch.nolix.commonTutorial.endPoint2Tutorial;
 
 import ch.nolix.common.constants.IPv4Catalogue;
 import ch.nolix.common.endPoint2.NetServer;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTutorial.sequencerTutorial;
+package ch.nolix.commonTutorial.sequencerTutorial;
 
 import ch.nolix.common.math.Matrix;
 import ch.nolix.common.sequencer.ResultFuture;
