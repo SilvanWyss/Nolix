@@ -137,7 +137,7 @@ public final class SubNode extends BaseNode {
 	/**
 	 * Sets the given header to this sub specification.
 	 * 
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */

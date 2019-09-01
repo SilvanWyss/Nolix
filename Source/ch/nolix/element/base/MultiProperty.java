@@ -35,11 +35,11 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 * @param valueCreator
 	 * @param adderMethod
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given adderMethod is null.
-	 * @throws NullArgumentException if the given valueCreator is null.
-	 * @throws NullArgumentException if the given specificationCreator is null.
+	 * @throws ArgumentIsNullException if the given adderMethod is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
 	public MultiProperty(
 		final String name,
@@ -66,7 +66,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 * Adds the given value to the current {@link MultiProperty}.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws ArgumentIsNullException if the given value is null.
 	 * @throws InvalidArgumentException if the current {@link MultiProperty} contains already the given value.
 	 */
 	public void addValue(final V value) {

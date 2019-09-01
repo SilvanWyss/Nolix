@@ -31,7 +31,7 @@ implements RawInputListener {
 	 * for the given JMonkey main frame.
 	 * 
 	 * @param JMonkeyMainFrame_
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if the given JMonkey main frame is null.
 	 */
 	public JMonkeyMainFrameRawInputListener(

@@ -30,7 +30,7 @@ public final class Resource implements IResource, Named {
 	 * Creates a new {@link Resource} with the given name.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public Resource(final String name) {
@@ -45,7 +45,7 @@ public final class Resource implements IResource, Named {
 	 * 
 	 * @param name
 	 * @param baseResources
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
 	 * equals the name of one of the given base resources.
@@ -64,7 +64,7 @@ public final class Resource implements IResource, Named {
 	 * 
 	 * @param name
 	 * @param baseResources
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
 	 * equals the name of one of the given base resources.

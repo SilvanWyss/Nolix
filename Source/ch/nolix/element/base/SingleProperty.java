@@ -34,10 +34,10 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given valueCreator is null.
-	 * @throws NullArgumentException if the given specificationCreator is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
 	public SingleProperty(
 		final String name,
@@ -110,7 +110,7 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 	 * Sets the value of the current {@link SingleProperty}.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws ArgumentIsNullException if the given value is null.
 	 * @throws InvalidArgumentException if the current {@link SingleProperty} is not mutable and has already a value.
 	 */
 	public final void setValue(final V value) {

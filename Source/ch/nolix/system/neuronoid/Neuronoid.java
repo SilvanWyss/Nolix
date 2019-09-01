@@ -47,7 +47,7 @@ implements ISmartObject<N> {
 	 * @param weight
 	 * @param inputNeuron
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws ArgumentIsNullException if the given input neuron is null.
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
@@ -65,7 +65,7 @@ implements ISmartObject<N> {
 	 * 
 	 * @param inputNeuron
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws ArgumentIsNullException if the given input neuron is null.
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
@@ -277,7 +277,7 @@ implements ISmartObject<N> {
 	 * 
 	 * @param inputConnection
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given input connection is null.
+	 * @throws ArgumentIsNullException if the given input connection is null.
 	 * @throws NonSmallerArgumentException if this neuron has not less input neurons than its maximal input neurons count says.
 	 * @throws InvalidArgumentException if this neuron contains already the input neuron of the given input connection.
 	 */

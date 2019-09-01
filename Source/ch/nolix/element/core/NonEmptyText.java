@@ -48,7 +48,7 @@ public class NonEmptyText extends Text {
 	 * Creates a new non empty text with the given value.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws ArgumentIsNullException if the given value is null.
 	 * @throws EmptyArgumentException if the given value is empty.
 	 */
 	public NonEmptyText(final String value) {

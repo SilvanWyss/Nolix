@@ -22,7 +22,7 @@ final class NetServerEndPointTaker implements ch.nolix.common.endPoint2.IEndPoin
 	 * Creates a new {@NetServerEndPointTaker} that will belong to the given parentNetServer.
 	 * 
 	 * @param parentNetServer
-	 * @throws NullArgumentException if the given parentNetServer is null.
+	 * @throws ArgumentIsNullException if the given parentNetServer is null.
 	 */
 	public NetServerEndPointTaker(final NetServer parentNetServer) {
 		

@@ -42,7 +42,7 @@ public abstract class BaseNode implements Headered {
 	/**
 	 * @param string
 	 * @return a reproducing string for the given string on the specification context.
-	 * @throws NullArgumentException if the given string is null.
+	 * @throws ArgumentIsNullException if the given string is null.
 	 */
 	public static String createReproducingString(final String string) {
 		
@@ -65,7 +65,7 @@ public abstract class BaseNode implements Headered {
 	/**
 	 * @param reproducingString
 	 * @return an origin string from the given reproducing string on the specification context.
-	 * @throws NullArgumentException if the given reproducingString is null.
+	 * @throws ArgumentIsNullException if the given reproducingString is null.
 	 */
 	public static String createOriginStringFromReproducingString(final String reproducingString) {
 		
@@ -508,7 +508,7 @@ public abstract class BaseNode implements Headered {
 	 * Saves the current {@link BaseNode} to the file with the given file path.
 	 * 
 	 * @param filePath
-	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws ArgumentIsNullException if the given relative file path is null.
 	 * @throws EmptyArgumentException if the given relative file path is empty.
 	 * @throws InvalidArgumentException
 	 * if a file system item with the given file path exists already.
@@ -528,7 +528,7 @@ public abstract class BaseNode implements Headered {
 	 * 
 	 * @param filePath
 	 * @param overwrite
-	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws ArgumentIsNullException if the given relative file path is null.
 	 * @throws EmptyArgumentException if the given relative file path is empty.
 	 * @throws InvalidArgumentException if the given overwrite flag is false
 	 * and a file system item with the given file path exists already.

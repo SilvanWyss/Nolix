@@ -282,7 +282,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * Pushes the given session to the current {@link Client}.
 	 * 
 	 * @param session
-	 * @throws NullArgumentException if the given session is null.
+	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final void pushSession(final Session<C> session) {
 		
@@ -310,8 +310,8 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * 
 	 * @param session
 	 * @param popFunction
-	 * @throws NullArgumentException if the given session is null.
-	 * @throws NullArgumentException if the given pop function is null.
+	 * @throws ArgumentIsNullException if the given session is null.
+	 * @throws ArgumentIsNullException if the given pop function is null.
 	 */
 	public final void pushSession(
 		final Session<C> session,
@@ -390,7 +390,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
@@ -464,7 +464,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
@@ -685,7 +685,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	/**
 	 * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws ArgumentIsNullException if the given duplex controller is null.
 	 * @throws InvalidArgumentException if the current {@link Client} is connected.
 	 */
 	protected final void internal_setDuplexController(final EndPoint endPoint) {
@@ -716,7 +716,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * Sets the {@link Application} the current {@link Client} will belong to.
 	 * 
 	 * @param parentApplication
-	 * @throws NullArgumentException if the given parent application is null.
+	 * @throws ArgumentIsNullException if the given parent application is null.
 	 * @throws InvalidArgumentException if the current {@link Client}
 	 * references already a parent application.
 	 */

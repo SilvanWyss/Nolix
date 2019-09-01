@@ -24,7 +24,7 @@ final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	 * Creates a new net server sub duplex controller taker with the given net server.
 	 * 
 	 * @param netServer
-	 * @throws NullArgumentException if the given net server is null.
+	 * @throws ArgumentIsNullException if the given net server is null.
 	 */
 	public NetServerSubDuplexControllerTaker(final NetServer netServer) {
 		

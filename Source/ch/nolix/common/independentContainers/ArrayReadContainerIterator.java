@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //package-visible class
 final class ArrayReadContainerIterator<E> implements Iterator<E> {
@@ -20,7 +20,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		
 		//Checks if the given array is not null.
 		if (array == null) {
-			throw new NullArgumentException(VariableNameCatalogue.ARRAY);
+			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
 		}
 		
 		//Sets the array of the current array read container iterator.

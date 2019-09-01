@@ -91,7 +91,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * Creates a new {@link TextFormat} with the given text color.
 	 * 
 	 * @param textColor
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(final Color textColor) {
 		
@@ -104,7 +104,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * Creates a new {@link TextFormat} with the given text font.
 	 * 
 	 * @param textFont
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given text font is null.
 	 */
 	public TextFormat(final Font textFont) {
 		
@@ -120,9 +120,9 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @param bold
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(
 		final Font textFont,
@@ -143,9 +143,9 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @param italic
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(
 		final Font textFont,
@@ -199,9 +199,9 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @param textFont
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(
 		final Font textFont,

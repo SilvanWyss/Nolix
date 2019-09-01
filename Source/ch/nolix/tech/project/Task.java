@@ -83,7 +83,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * The task will have the current time as creation date.
 	 * 
 	 * @param title
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 */
 	public Task(final String title) {
 		setTitle(title);
@@ -97,8 +97,8 @@ public final class Task extends Element<Task> implements ITask {
 	 * @param title
 	 * @param creationDate
 	 * @param solveDate
-	 * @throws NullArgumentException if the given title is null.
-	 * @throws NullArgumentException if the given size is null.
+	 * @throws ArgumentIsNullException if the given title is null.
+	 * @throws ArgumentIsNullException if the given size is null.
 	 */
 	public Task(final String title,	final TaskSize size) {
 		setTitle(title);
@@ -111,8 +111,8 @@ public final class Task extends Element<Task> implements ITask {
 	 * 
 	 * @param title
 	 * @param creationDate
-	 * @throws NullArgumentException if the given title is null.
-	 * @throws NullArgumentException if the given creation date is null.
+	 * @throws ArgumentIsNullException if the given title is null.
+	 * @throws ArgumentIsNullException if the given creation date is null.
 	 */
 	public Task(final String title, final Time creationDate) {
 		setTitle(title);
@@ -126,9 +126,9 @@ public final class Task extends Element<Task> implements ITask {
 	 * @param title
 	 * @param creationDate
 	 * @param solveDate
-	 * @throws NullArgumentException if the given title is null.
-	 * @throws NullArgumentException if the given creation date is null.
-	 * @throws NullArgumentException if the given solve date is null.
+	 * @throws ArgumentIsNullException if the given title is null.
+	 * @throws ArgumentIsNullException if the given creation date is null.
+	 * @throws ArgumentIsNullException if the given solve date is null.
 	 * @throws InvalidArgumentException
 	 * if the given solve date is before the given creation date.
 	 */
@@ -150,10 +150,10 @@ public final class Task extends Element<Task> implements ITask {
 	 * @param size
 	 * @param creationDate
 	 * @param solveDate
-	 * @throws NullArgumentException if the given title is null.
-	 * @throws NullArgumentException if the given size is null.
-	 * @throws NullArgumentException if the given creation date is null.
-	 * @throws NullArgumentException if the given solve date is null.
+	 * @throws ArgumentIsNullException if the given title is null.
+	 * @throws ArgumentIsNullException if the given size is null.
+	 * @throws ArgumentIsNullException if the given creation date is null.
+	 * @throws ArgumentIsNullException if the given solve date is null.
 	 * @throws InvalidArgumentException
 	 * if the given solve date is before the given creation date.
 	 */
@@ -331,7 +331,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * 
 	 * @param size
 	 * @return this task.
-	 * @throws NullArgumentException if the given size is null.
+	 * @throws ArgumentIsNullException if the given size is null.
 	 */
 	@Override
 	public Task setSize(final TaskSize size) {
@@ -347,7 +347,7 @@ public final class Task extends Element<Task> implements ITask {
 	 * 
 	 * @param title
 	 * @return this task.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 */
 	@Override
 	public Task setTitle(final String title) {

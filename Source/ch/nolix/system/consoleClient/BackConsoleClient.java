@@ -24,7 +24,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * Creates a new console client with the given duplex controller.
 	 * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws ArgumentIsNullException if the given duplex controller is null.
 	 */
 	public BackConsoleClient(final EndPoint endPoint) {
 		
@@ -175,7 +175,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param title
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 */
 	public BackConsoleClient setTitle(final String title) {
 		
@@ -224,8 +224,8 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param lines
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line container is null.
-	 * @throws NullArgumentException if one of the given line is null.
+	 * @throws ArgumentIsNullException if the given line container is null.
+	 * @throws ArgumentIsNullException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLinesToConsole(final Iterable<String> lines) {
 		
@@ -246,8 +246,8 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param lines
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line container is null.
-	 * @throws NullArgumentException if one of the given line is null.
+	 * @throws ArgumentIsNullException if the given line container is null.
+	 * @throws ArgumentIsNullException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLinesToInfoPanel(final Iterable<String> lines) {
 		
@@ -280,7 +280,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param line
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line is null.
+	 * @throws ArgumentIsNullException if the given line is null.
 	 */
 	public BackConsoleClient writeLineToConsole(final String line) {
 		
@@ -304,7 +304,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param lines
 	 * @return this console back client.
- * @throws NullArgumentException if one of the given line is null.
+ * @throws ArgumentIsNullException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLineToConsole(final String... lines) {
 				
@@ -325,7 +325,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param line
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line is null.
+	 * @throws ArgumentIsNullException if the given line is null.
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String line) {
 		
@@ -345,7 +345,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * of the counterpart of this console back client.
 	 * 
 	 * @param lines
- * @throws NullArgumentException if one of the given line is null.
+ * @throws ArgumentIsNullException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String... lines) {
 				

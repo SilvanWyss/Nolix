@@ -26,7 +26,7 @@ public final class InputConnection<O> {
 	 * Creates a new input connection with a default weight and the given input neuron.
 	 * 
 	 * @param inputNeuron
-	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws ArgumentIsNullException if the given input neuron is null.
 	 */
 	public InputConnection(final Neuronoid<?, ?, O> inputNeuron) {
 		
@@ -46,7 +46,7 @@ public final class InputConnection<O> {
 	 * 
 	 * @param weight
 	 * @param inputNeuron
-	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws ArgumentIsNullException if the given input neuron is null.
 	 */
 	public InputConnection(
 		final double weight,

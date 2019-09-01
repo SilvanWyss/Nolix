@@ -24,7 +24,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 * Creates a new {@link BorderWidgetViewArea} that will belong to the given parentBorderWidget.
 	 * 
 	 * @param parentBorderWidget
-	 * @throws NullArgumentException if the given parentBorderWidget is null.
+	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
 	BorderWidgetViewArea(final BorderWidget<BW, BWL> parentBorderWidget) {
 		

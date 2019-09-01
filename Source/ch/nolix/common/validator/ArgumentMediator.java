@@ -5,7 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -43,7 +43,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	ArgumentMediator(final String argumentName, final A argument) {
@@ -58,14 +58,14 @@ public class ArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws InvalidArgumentException if the argument of this argument mediator is null.
 	 */
 	public final void fulfils(IElementTakerBooleanGetter<A> condition) {
 		
 		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 		
 		//Checks if the argument of this argument mediator is not null.
@@ -100,13 +100,13 @@ public class ArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @return a new terminal argument mediator for the argument of this argument mediator.
-	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 * @throws ArgumentIsNullException if the argument of this argument mediator is null.
 	 */
 	public TerminalArgumentMediator<A> isNotNull() {
 		
 		//Checks if the argument of this argument mediator is not null.
 		if (argument == null) {
-			throw new NullArgumentException(getArgumentName());
+			throw new ArgumentIsNullException(getArgumentName());
 		}
 		
 		return new TerminalArgumentMediator<>(getRefArgument());
@@ -115,7 +115,7 @@ public class ArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param type
-	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 * @throws ArgumentIsNullException if the argument of this argument mediator is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of this argument mediator is null of the given type.
 	 */

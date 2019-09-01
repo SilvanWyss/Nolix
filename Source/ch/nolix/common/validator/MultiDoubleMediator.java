@@ -6,7 +6,7 @@ import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonNegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonSmallerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -23,7 +23,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * Creates a new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	MultiDoubleMediator(final Iterable<Double> arguments) {
 		
@@ -36,7 +36,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * Creates a new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	MultiDoubleMediator(final double[] arguments) {
 		
@@ -47,7 +47,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	//method
 	/**
 	 * @param value
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonNBiggerArgumentExceotion
 	 * if one of the arguments of this multi double mediator is not bigger than the given value.
@@ -73,7 +73,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonNegativeArgumentExceotion
 	 * if one of the arguments of this multi double mediator is not positive.
@@ -99,7 +99,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
 	//method
 	/**
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonPositiveArgumentExceotion
 	 * if one of the arguments of this multi double mediator is not positive.
@@ -125,7 +125,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
 	 * @param value
 	 * @throws NonSmallerArgumentException

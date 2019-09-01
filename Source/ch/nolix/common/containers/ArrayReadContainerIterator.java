@@ -37,7 +37,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	 * the given array belongs to.
 	 * 
 	 * @param array
-	 * @throws NullArgumentException if the given array is null.
+	 * @throws ArgumentIsNullException if the given array is null.
 	 */
 	public ArrayReadContainerIterator(final E[] array) {
 		

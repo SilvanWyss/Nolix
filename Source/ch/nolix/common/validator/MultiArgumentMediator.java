@@ -4,7 +4,7 @@ package ch.nolix.common.validator;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -26,13 +26,13 @@ public class MultiArgumentMediator<A> {
 	 * Creates a new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null..
+	 * @throws ArgumentIsNullException if the given arguments is null..
 	 */
 	MultiArgumentMediator(final Iterable<A> arguments) {
 
 		//Checks if the given arguments is not null.
 		if (arguments == null) {
-			throw new NullArgumentException("arguments");
+			throw new ArgumentIsNullException("arguments");
 		}
 		
 		//Sets the arguments of this multi argument mediator.
@@ -44,7 +44,7 @@ public class MultiArgumentMediator<A> {
 	 * Creates a new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	MultiArgumentMediator(final A[] arguments) {
 
@@ -54,7 +54,7 @@ public class MultiArgumentMediator<A> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if one of the arguments of this multi argument mediator is null.
+	 * @throws ArgumentIsNullException if one of the arguments of this multi argument mediator is null.
 	 */
 	public final void areNotNull() {
 		
@@ -64,7 +64,7 @@ public class MultiArgumentMediator<A> {
 			
 			//Checks if the current argument is not null.
 			if (a == null) {
-				throw new NullArgumentException(index + "th argument");
+				throw new ArgumentIsNullException(index + "th argument");
 			}
 			
 			//Increments the index.
@@ -75,7 +75,7 @@ public class MultiArgumentMediator<A> {
 	//method
 	/**
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws InvalidArgumentException if an argument of this argument container does not fulfill the given condition.
 	 */
 	public final void fulfill(final IElementTakerBooleanGetter<A> condition) {

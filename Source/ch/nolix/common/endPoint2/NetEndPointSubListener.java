@@ -29,7 +29,7 @@ final class NetEndPointSubListener extends Thread {
 	 * Creates a new net end point sub listener that belongs to the given net end point.
 	 * 
 	 * @param netEndPoint
-	 * @throws NullArgumentException if the given net end point is null.
+	 * @throws ArgumentIsNullException if the given net end point is null.
 	 */
 	public NetEndPointSubListener(final NetEndPoint netEndPoint) {
 		

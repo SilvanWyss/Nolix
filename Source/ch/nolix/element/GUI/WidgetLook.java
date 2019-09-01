@@ -197,7 +197,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * 
 	 * @param textColor
 	 * @return the current {@link WidgetLook}.
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public final WL setTextColor(final Color textColor) {
 		
@@ -212,7 +212,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * 
 	 * @param font
 	 * @return the current {@link WidgetLook}.
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given text font is null.
 	 */
 	public final WL setTextFont(final Font font) {
 		
@@ -263,7 +263,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * Sets the base look of the current {@link WidgetLook}.
 	 * 
 	 * @param baseLook
-	 * @throws NullArgumentException if the given base look is null.
+	 * @throws ArgumentIsNullException if the given base look is null.
 	 */
 	final void setBaseLook(final WL baseLook) {
 		

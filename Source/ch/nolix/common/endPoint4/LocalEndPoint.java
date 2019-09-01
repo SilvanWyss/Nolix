@@ -102,8 +102,8 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given counterpart is null.
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given counterpart is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalEndPoint(

@@ -30,10 +30,10 @@ public abstract class Propertyoid<V> implements Named {
 	 * @param name
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given valueCreator is null.
-	 * @throws NullArgumentException if the given specificationCreator is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
 	Propertyoid(
 		final String name,

@@ -52,7 +52,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * Creates a new front console client that connects to the given application.
 	 * 
 	 * @param application
-	 * @throws NullArgumentException if the given target application is null.
+	 * @throws ArgumentIsNullException if the given target application is null.
 	 */
 	public FrontConsoleClient(final Application<BackConsoleClient> application) {
 		
@@ -70,9 +70,9 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param ip
 	 * @param port
 	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
+	 * @throws ArgumentIsNullException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
-	 * @throws NullArgumentException if the given GUI is null.
+	 * @throws ArgumentIsNullException if the given GUI is null.
 	 */
 	public FrontConsoleClient(
 		final String ip,
@@ -93,9 +93,9 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param port
 	 * @param targetApplication
 	 * @param GUI
-	 * @throws NullArgumentException if the given target application is null.
+	 * @throws ArgumentIsNullException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
-	 * @throws NullArgumentException if the given GUI is null.
+	 * @throws ArgumentIsNullException if the given GUI is null.
 	 */
 	public FrontConsoleClient(
 		final String ip,
@@ -114,7 +114,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * /Creates new console front client with the given GUI.
 	 * 
 	 * @param pGUI
-	 * @throws NullArgumentException if the given GUI is null.
+	 * @throws ArgumentIsNullException if the given GUI is null.
 	 */
 	private FrontConsoleClient(final LayerGUI<?> pGUI) {
 		

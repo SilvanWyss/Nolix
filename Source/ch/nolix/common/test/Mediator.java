@@ -3,7 +3,7 @@ package ch.nolix.common.test;
 
 import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //abstract class
 /**
@@ -21,13 +21,13 @@ public abstract class Mediator {
 	 * Creates a new mediator that belongs to the given test.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	Mediator(final Test test) {
 		
 		//Checks if the given test is not null.
 		if (test == null) {
-			throw new NullArgumentException("test");
+			throw new ArgumentIsNullException("test");
 		}
 		
 		//Sets the test of this mediator.

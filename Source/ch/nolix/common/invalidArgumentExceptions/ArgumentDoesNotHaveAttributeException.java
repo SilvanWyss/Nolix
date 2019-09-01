@@ -66,7 +66,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * 
 	 * @param argument
 	 * @param attributeType
-	 * @throws NullArgumentException if the given argument is null.
+	 * @throws ArgumentIsNullException if the given argument is null.
 	 */
 	public ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
 		

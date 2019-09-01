@@ -54,7 +54,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public FrontGUIClient(final int port, final String name) {
@@ -74,7 +74,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public FrontGUIClient(final String ip, final int port) {
@@ -94,7 +94,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public FrontGUIClient(final String ip, final int port, final String name) {

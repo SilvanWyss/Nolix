@@ -1775,7 +1775,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param separator
 	 * @return a String representation of the current {@link IContainer} using the given separator.
-	 * @throws NullArgumentException if the given separator is null.
+	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
 	public default String toString(final String separator)
 	{

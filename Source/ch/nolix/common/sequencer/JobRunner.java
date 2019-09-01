@@ -33,7 +33,7 @@ final class JobRunner extends Thread {
 	 * The {@link JobRunner} will start automatically.
 	 * 
 	 * @param job
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public JobRunner(final IFunction job) {
 		
@@ -55,8 +55,8 @@ final class JobRunner extends Thread {
 	 * 
 	 * @param job
 	 * @param condition
-	 * @throws NullArgumentException if the given job is null.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given job is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public JobRunner(final IFunction job, final IBooleanGetter condition) {
 		
@@ -82,8 +82,8 @@ final class JobRunner extends Thread {
 	 * @param job
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given job is null.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given job is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is negative.
 	 */
 	public JobRunner(
@@ -115,7 +115,7 @@ final class JobRunner extends Thread {
 	 * 
 	 * @param job
 	 * @param maxRunCount
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 * @throws NegativeArgumentException if the given maxRunCount is negative.
 	 */
 	public JobRunner(
@@ -145,9 +145,9 @@ final class JobRunner extends Thread {
 	 * @param job
 	 * @param maxRunCount
 	 * @param condition
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 * @throws NegativeArgumentException if the given maxRunCount is negative.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public JobRunner(
 		final IFunction job,
@@ -181,9 +181,9 @@ final class JobRunner extends Thread {
 	 * @param maxRunCount
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 * @throws NegativeArgumentException if the given maxRunCount is negative.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws NegativeArgumenteException if the given timeIntervalInMilliseconds is negative.
 	 */
 	public JobRunner(
@@ -220,7 +220,7 @@ final class JobRunner extends Thread {
 	 * @param job
 	 * @param maxRunCount
 	 * @param timeIntervalInMilliseonds
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 * @throws NegativeArgumentException if the given maxRunCount is negative.
 	 * @throws NegativeArgumenteException if the given timeIntervalInMilliseconds is negative.
 	 */

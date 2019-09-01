@@ -94,8 +94,8 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * @param shapeClass
 	 * @param shapeRenderer
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given shape class is null.
-	 * @throws NullArgumentException if the given shape renderer is null.
+	 * @throws ArgumentIsNullException if the given shape class is null.
+	 * @throws ArgumentIsNullException if the given shape renderer is null.
 	 * @throws InvalidArgumentException if this 3D GUI contains already
 	 * a shape class with the same name as the given shape class.
 	 */
@@ -308,7 +308,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * 
 	 * @param backgroundColor
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
 				
@@ -323,7 +323,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * 
 	 * @param rootShape
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
 	public G setRootShape(final Shape<?> rootShape) {
 		
@@ -342,7 +342,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * 
 	 * @param title
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is empty.
 	 */
 	public final G setTitle(final String title) {

@@ -129,7 +129,7 @@ public abstract class Session<C extends Client<C>> {
 	 * Pushes the given session to the {@link Client} the current {@link Session} belongs to.
 	 * 
 	 * @param session
-	 * @throws NullArgumentException if the given is null.
+	 * @throws ArgumentIsNullException if the given is null.
 	 */
 	public final void pushSession(final Session<C> session) {
 		getParentClient().pushSession(session);
@@ -192,7 +192,7 @@ public abstract class Session<C extends Client<C>> {
 	 * Sets the parent client of the current {@link Session}.
 	 * 
 	 * @param parentClient
-	 * @throws NullArgumentException if the given parent client is null.
+	 * @throws ArgumentIsNullException if the given parent client is null.
 	 * @throws InvalidArgumentException if the current {@link Session} belongs to a client.
 	 */
 	final void setParentClient(C parentClient) {
@@ -226,7 +226,7 @@ public abstract class Session<C extends Client<C>> {
 	 * Sets the pop function of the current {@link Session}.
 	 * 
 	 * @param popFunction
-	 * @throws NullArgumentException if the given pop function is null.
+	 * @throws ArgumentIsNullException if the given pop function is null.
 	 */
 	final void setPopFunction(final IFunction popFunction) {
 		

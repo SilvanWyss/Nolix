@@ -9,7 +9,7 @@ import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonNegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonSmallerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.OutOfRangeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
@@ -47,7 +47,7 @@ public class DoubleMediator extends Mediator {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	DoubleMediator(final String argumentName, final double argument) {

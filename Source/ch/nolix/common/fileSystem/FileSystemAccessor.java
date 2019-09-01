@@ -67,7 +67,7 @@ public final class FileSystemAccessor {
 	 * 
 	 * @param path
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given path is null.
+	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws EmptyArgumentException if the given path is empty.
 	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
@@ -87,7 +87,7 @@ public final class FileSystemAccessor {
 	 * @param path
 	 * @param overwrite
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given path is null.
+	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws EmptyArgumentException if the given path is empty.
 	 * @throws InvalidArgumentException if the given overwrite flag is false
 	 * and there exists already a file system item with the given path.
@@ -128,11 +128,11 @@ public final class FileSystemAccessor {
 	 * @param overwrite
 	 * @param content
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given path is null.
+	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws EmptyArgumentException if the given path is empty.
 	 * @throws InvalidArgumentException if the given overwrite flag is false
 	 * and there exists already a file system item with the given path.
-	 * @throws NullArgumentException if the given content is null.
+	 * @throws ArgumentIsNullException if the given content is null.
 	 */
 	public static FileAccessor createFile(
 		final String path,
@@ -155,7 +155,7 @@ public final class FileSystemAccessor {
 	 * @param path
 	 * @param overwrite
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given path is null.
+	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws EmptyArgumentException if the given path is empty.
 	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */

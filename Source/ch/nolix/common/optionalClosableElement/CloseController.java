@@ -26,7 +26,7 @@ final class CloseController implements OptionalClosable {
 	 * Creates a new {@link CloseController} with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public CloseController(final OptionalClosableElement element) {
 		elements.addAtEnd(element);
@@ -37,7 +37,7 @@ final class CloseController implements OptionalClosable {
 	 * Adds the given element to the current {@link CloseController}.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws InvalidArgumentException if the current {@link CloseController} contains already the given element.
 	 * @throws InvalidArgumentException if the current {@link CloseController} is already closed.
 	 */

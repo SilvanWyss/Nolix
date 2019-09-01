@@ -137,7 +137,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * 
 	 * @param color
 	 * @return this line.
-	 * @throws NullArgumentException if the given color is null.
+	 * @throws ArgumentIsNullException if the given color is null.
 	 */
 	public final L setColor(final Color color) {
 		

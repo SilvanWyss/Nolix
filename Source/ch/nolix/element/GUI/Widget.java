@@ -1146,7 +1146,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param customCursorIcon
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given customCursorIcon is null.
+	 * @throws ArgumentIsNullException if the given customCursorIcon is null.
 	 */
 	public final W setCustomCursorIcon(final CursorIcon customCursorIcon) {
 		
@@ -1255,7 +1255,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param leftMouseButtonClickCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given leftMouseButtonClickCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonClickCommand is null.
 	 */
 	public final W setLeftMouseButtonClickCommand(final IFunction leftMouseButtonClickCommand) {
 		
@@ -1273,7 +1273,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param leftMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given leftMouseButtonPressCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressCommand is null.
 	 */
 	public final W setLeftMouseButtonPressCommand(final IFunction leftMouseButtonPressCommand) {
 		
@@ -1291,7 +1291,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param leftMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given leftMouseButtonReleaseCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseCommand is null.
 	 */
 	public final W setLeftMouseButtonReleaseCommand(final IFunction leftMouseButtonReleaseCommand) {
 		
@@ -1308,7 +1308,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * Sets the {@link LayerGUI} the current {@link Widget} will belong.
 	 * 
 	 * @param parentGUI
-	 * @throws NullArgumentException if the given parentGUI is null.
+	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
 	public final void setParent(final LayerGUI<?> parentGUI) {
@@ -1333,7 +1333,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param rightMouseButtonClickCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given rightMouseButtonClickCommand is null.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonClickCommand is null.
 	 */
 	public final W setRightMouseButtonClickCommand(final IFunction rightMouseButtonClickCommand) {
 		
@@ -1351,7 +1351,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param rightMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given rightMouseButtonPressCommand is null.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonPressCommand is null.
 	 */
 	public final W setRightMouseButtonPressCommand(final IFunction rightMouseButtonPressCommand) {
 		
@@ -1369,7 +1369,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param rightMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given rightMouseButtonReleaseCommand is null.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseCommand is null.
 	 */
 	public final W setRightMouseButtonReleaseCommand(final IFunction rightMouseButtonReleaseCommand) {
 		
@@ -1399,7 +1399,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * Sets the state of the current {@link Widget}.
 	 * 
 	 * @param state
-	 * @throws NullArgumentException if the given state is null.
+	 * @throws ArgumentIsNullException if the given state is null.
 	 */
 	public final W setState(final WidgetState state) {
 		
@@ -1424,7 +1424,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * Adds the given childWidget to the current {@link Widget}.
 	 * 
 	 * @param childWidget
-	 * @throws NullArgumentException if the given childWidget is null.
+	 * @throws ArgumentIsNullException if the given childWidget is null.
 	 */
 	protected final void addChildWidget(final Widget<?, ?> childWidget) {
 		
@@ -1762,7 +1762,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * Sets the {@link Widget} the current {@link Widget} will belong to.
 	 * 
 	 * @param parentWidget
-	 * @throws NullArgumentException if the given parentWidget is null.
+	 * @throws ArgumentIsNullException if the given parentWidget is null.
 	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
 	private void setParent(final Widget<?, ?> parentWidget) {
@@ -1774,7 +1774,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * Sets the parent the current {@link Widget} will belong to.
 	 * 
 	 * @param parent
-	 * @throws NullArgumentException if the given parent is null.
+	 * @throws ArgumentIsNullException if the given parent is null.
 	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
 	private void setParent(final WidgetParent parent) {

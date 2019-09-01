@@ -25,7 +25,7 @@ public final class SequencePatternNextMediator<E> {
 	 * 
 	 * @param sequencePattern
 	 * @param count
-	 * @throws NullArgumentException if the given sequence pattern is null.
+	 * @throws ArgumentIsNullException if the given sequence pattern is null.
 	 * @throws NegativeArgumentException if the given count is negative.
 	 */
 	SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
@@ -62,7 +62,7 @@ public final class SequencePatternNextMediator<E> {
 	 * 
 	 * @param condition
 	 * @return the sequence pattern of this sequence pattern next mediator.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public SequencePattern<E> addCondition(final IElementTakerBooleanGetter<E> condition) {
 		

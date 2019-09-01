@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.FalseArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
 
 //class
@@ -65,14 +65,14 @@ public final class Validator {
 	//static method
 	/** 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 * @throws FalseArgumentException if one of the given arguments is false.
 	 */
 	public static void suppose(final boolean... arguments) {
 		
 		//Checks if the given arguments is not null.
 		if (arguments == null) {
-			throw new NullArgumentException("arguments");
+			throw new ArgumentIsNullException("arguments");
 		}
 		
 		//Iterates the given arguments.
@@ -218,14 +218,14 @@ public final class Validator {
 	//static method
 	/** 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 * @throws TrueArgumentException if one of the given arguments is true.
 	 */
 	public static void supposeNot(final boolean... arguments) {
 		
 		//Checks if the given arguments is not null.
 		if (arguments == null) {
-			throw new NullArgumentException("arguments");
+			throw new ArgumentIsNullException("arguments");
 		}
 		
 		//Iterates the given arguments.
@@ -245,7 +245,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi double mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {
 		return new MultiDoubleMediator(arguments);
@@ -255,7 +255,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi double mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiDoubleMediator supposeTheDoubles(final Iterable<Double> arguments) {
 		return new MultiDoubleMediator(arguments);
@@ -265,7 +265,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi argument mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
 		return new MultiArgumentMediator<>(arguments);
@@ -275,7 +275,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi argument mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
 		return new MultiArgumentMediator<>(arguments);
@@ -285,7 +285,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi long mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiLongMediator supposeTheLongs(final long... arguments) {
 		return new MultiLongMediator(arguments);
@@ -295,7 +295,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi long mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiLongMediator supposeTheLongs(final Iterable<Long> arguments) {
 		return new MultiLongMediator(arguments);
@@ -305,7 +305,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi string mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiStringMediator supposeTheStrings(final String... arguments) {
 		return new MultiStringMediator(arguments);
@@ -315,7 +315,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new string container mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiStringMediator supposeTheStrings(final Iterable<String> arguments) {
 		return new MultiStringMediator(arguments);

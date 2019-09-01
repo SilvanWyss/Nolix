@@ -48,7 +48,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * Creates a new {@link Area} with the given backgroundColor.
 	 * 
 	 * @param backgroundColor
-	 * @throws NullArgumentException if the given backgroundColor is null.
+	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
 	public Area(final Color backgroundColor) {
 		
@@ -82,7 +82,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @param backgroundColor
 	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 * @throws NonPositiveArgumentException if the given height is not positive.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public Area(
 		final int width,
@@ -214,7 +214,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * 
 	 * @param backgroundColor
 	 * @return the current {@link Area}.
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if the given background color is null.
 	 */
 	public Area setBackgroundColor(final Color backgroundColor) {

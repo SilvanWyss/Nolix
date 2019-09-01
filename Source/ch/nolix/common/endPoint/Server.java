@@ -23,7 +23,7 @@ public class Server extends OptionalClosableElement {
 	 * Creates a new server with the given end point taker.
 	 * 
 	 * @param endPointTaker
-	 * @throws NullArgumentException if the given end point taker is null.
+	 * @throws ArgumentIsNullException if the given end point taker is null.
 	 */
 	public Server(final IElementTaker<EndPoint> endPointTaker) {
 		

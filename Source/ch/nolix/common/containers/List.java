@@ -45,7 +45,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public List(final E element) {
 		addAtEnd(element);
@@ -57,8 +57,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given element container is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public List(final E... elements) {
@@ -71,8 +71,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given element container is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public <E2 extends E> List(final Iterable<E2> elements) {
 		addAtEnd(elements);
@@ -85,7 +85,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public List<E> addAtBegin(E element) {
 		
@@ -112,8 +112,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<E> addAtBegin(final E... elements) {
@@ -136,8 +136,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given element container is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public <E2 extends E> List<E> addAtBegin(final Iterable<E2> elements) {
 		
@@ -176,7 +176,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public List<E> addAtBeginIfNotContained(final E element) {
 		
@@ -199,7 +199,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<E> addAtBeginIfNotContained(final E... elements) {
@@ -219,7 +219,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws InvalidArgumentException if the current {@link List} contains already the given element.
 	 */
 	public List<E> addAtBeginRegardingSingularity(final E element) {
@@ -243,7 +243,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public List<E> addAtEnd(final E element) {
 		
@@ -270,8 +270,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given element container is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<E> addAtEnd(final E... elements) {
@@ -294,8 +294,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public <E2 extends E> List<E> addAtEnd(final Iterable<E2> elements) {
 		
@@ -335,7 +335,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public List<E> addAtEndIfNotContained(final E element) {
 		
@@ -358,7 +358,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<E> addAtEndIfNotContained(final E... elements) {
@@ -378,7 +378,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws InvalidArgumentException if the current {@link List} contains already the given element.
 	 */
 	public List<E> addAtEndRegardingSingularity(final E element) {
@@ -681,8 +681,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * -There are given n elements.
 	 * 
 	 * @param elements
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public void refill(final Iterable<E> elements) {
 		
@@ -954,7 +954,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @param element
 	 * @return the current {@link List}.
 	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public List<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
 		
@@ -1031,7 +1031,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * @param extractor
 	 * @return a new {@link ListUsingMediator} with the current {@link List} and the given extractor.
-	 * @throws NullArgumentException if the given extractor is null.
+	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
 	public ListUsingMediator<E> using(final IElementTakerElementGetter<Object, E> extractor) {
 		return new ListUsingMediator<>(this, extractor);
@@ -1121,7 +1121,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * Removes the next node of the given node.
 	 * 
 	 * @param node
-	 * @throws NullArgumentException if the given node is null.
+	 * @throws ArgumentIsNullException if the given node is null.
 	 * @throws UnexistingPropertyException if the given node does not have a next node.
 	 */
 	private void removeNextNode(final ListNode<E> node) {

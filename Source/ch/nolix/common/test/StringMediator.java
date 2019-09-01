@@ -3,7 +3,7 @@ package ch.nolix.common.test;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -21,7 +21,7 @@ public class StringMediator extends ValueMediator<String> {
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	StringMediator(final Test test, final String value) {
 		
@@ -93,13 +93,13 @@ public class StringMediator extends ValueMediator<String> {
 	 * Generates an error if the value of this string mediator does not start with the given sequence.
 	 * 
 	 * @param sequence
-	 * @throws NullArgumentException if the given sequence is null.
+	 * @throws ArgumentIsNullException if the given sequence is null.
 	 */
 	public void startsWith(final String sequence) {
 		
 		//Checks if the given sequence is not null.
 		if (sequence == null) {
-			throw new NullArgumentException(VariableNameCatalogue.SEQUENCE);
+			throw new ArgumentIsNullException(VariableNameCatalogue.SEQUENCE);
 		}
 		
 		if (getRefValue() == null || !getRefValue().startsWith(sequence)) {

@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -24,8 +24,8 @@ public final class ClosureMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param closure
-	 * @throws NullArgumentException if the given test is null.
-	 * @throws NullArgumentException if the given closure is null.
+	 * @throws ArgumentIsNullException if the given test is null.
+	 * @throws ArgumentIsNullException if the given closure is null.
 	 */
 	ClosureMediator(final Test test, final IFunction closure) {
 		
@@ -34,7 +34,7 @@ public final class ClosureMediator extends Mediator {
 		
 		//Checks if the given closure is not nul.
 		if (closure == null) {
-			throw new NullArgumentException("closure");
+			throw new ArgumentIsNullException("closure");
 		}
 		
 		//Sets the closure of the current closure mediator.

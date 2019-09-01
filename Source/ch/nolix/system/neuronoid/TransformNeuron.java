@@ -31,8 +31,8 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	 * 
 	 * @param inputNeuron
 	 * @param transformator
-	 * @throws NullArgumentException if the given input neuron is null.
-	 * @throws NullArgumentException if the given transformator is null.
+	 * @throws ArgumentIsNullException if the given input neuron is null.
+	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
 	public TransformNeuron(
 		final Neuronoid<?, ?, I> inputNeuron,

@@ -43,7 +43,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * Creates a new {@link Button} with the given text.
 	 * 
 	 * @param text
-	 * @throws NullArgumentException if the given text is null.
+	 * @throws ArgumentIsNullException if the given text is null.
 	 */
 	public Button(final String text) {
 		
@@ -138,7 +138,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * 
 	 * @param role
 	 * @return the current {@link Button}.
-	 * @throws NullArgumentException if the given role is null.
+	 * @throws ArgumentIsNullException if the given role is null.
 	 */
 	public Button setRole(final ButtonRole role) {
 		

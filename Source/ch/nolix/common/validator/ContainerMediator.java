@@ -11,7 +11,7 @@ import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonEmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -56,7 +56,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument is empty.
 	 */
 	ContainerMediator(
@@ -74,7 +74,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument is empty.
 	 */
 	ContainerMediator(
@@ -88,7 +88,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	//method
 	/**
 	 * @param condition
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if the given condition is null.
 	 * @throws NullArgmentException
 	 * if the argument of this container mediator is null.
@@ -100,7 +100,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 		
 		//Iterates the elements of the argument of this container mediator.
@@ -180,7 +180,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	//method
 	/**
 	 * @param array
-	 * @throws NullArgumentException if the given array is null.
+	 * @throws ArgumentIsNullException if the given array is null.
 	 * @throws InvalidArgumentException if the argument of this container mediator
 	 * contains less or more elements than the given array.
 	 */
@@ -188,7 +188,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Checks if the given array is not null.
 		if (array == null) {
-			throw new NullArgumentException(VariableNameCatalogue.ARRAY);
+			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
 		}
 		
 		//Calls other method.
@@ -197,7 +197,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this container mediator is null.
+	 * @throws ArgumentIsNullException if the argument of this container mediator is null.
 	 * @throws NonEmptyArgumentException if the argument of this container mediator is empty.
 	 */
 	public void isEmpty() {
@@ -213,7 +213,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this container mediator is null.
+	 * @throws ArgumentIsNullException if the argument of this container mediator is null.
 	 * @throws EmptyArgumentException if the argument of this container mediator is empty.
 	 */
 	public void isNotEmpty() {

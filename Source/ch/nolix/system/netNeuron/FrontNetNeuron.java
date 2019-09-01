@@ -43,7 +43,7 @@ implements OptionalClosable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is null.
+	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
 	public FrontNetNeuron(
 		final int port,
@@ -64,7 +64,7 @@ implements OptionalClosable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is null.
+	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
 	public FrontNetNeuron(
 		final String ip,

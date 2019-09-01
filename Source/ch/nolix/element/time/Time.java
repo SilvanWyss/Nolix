@@ -242,7 +242,7 @@ public final class Time implements IElement {
 	 * Creates a new time the given string represents.
 	 * 
 	 * @param string
-	 * @throws NullArgumentException if the given string is null.
+	 * @throws ArgumentIsNullException if the given string is null.
 	 */
 	public Time(final String string) {
 		

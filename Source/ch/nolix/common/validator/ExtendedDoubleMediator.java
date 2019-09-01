@@ -2,7 +2,7 @@
 package ch.nolix.common.validator;
 
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -30,7 +30,7 @@ public class ExtendedDoubleMediator extends DoubleMediator {
 	/**
 	 * @param argumentName
 	 * @return a new double mediator with the given argument name for the argument of this extended double mediator.
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public DoubleMediator thatIsNamed(final String argumentName) {

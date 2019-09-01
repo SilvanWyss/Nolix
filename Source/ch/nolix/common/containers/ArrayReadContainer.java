@@ -36,7 +36,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 * Creates a new {@link ArrayReadContainer} for the given array.
 	 * 
 	 * @param array
-	 * @throws NullArgumentException if the given array is null.
+	 * @throws ArgumentIsNullException if the given array is null.
 	 */
 	public ArrayReadContainer(final E[] array) {
 		

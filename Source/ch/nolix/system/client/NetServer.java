@@ -57,7 +57,7 @@ public final class NetServer extends Server {
 	 * The {@link NetServer} will have the given mainApplication.
 	 * 
 	 * @param mainApplication.
-	 * @throws NullArgumentException if the given mainApplication is null.
+	 * @throws ArgumentIsNullException if the given mainApplication is null.
 	 */
 	public NetServer(final Application<?> mainApplication) {
 		
@@ -93,7 +93,7 @@ public final class NetServer extends Server {
 	 * @param port
 	 * @param mainApplication.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given mainApplication is null.
+	 * @throws ArgumentIsNullException if the given mainApplication is null.
 	 */
 	public NetServer(final int port, final Application<?> mainApplication) {
 		

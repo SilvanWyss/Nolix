@@ -96,7 +96,7 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 	 * Sets the receiver of the current {@link EndPoint}.
 	 * 
 	 * @param receiver
-	 * @throws NullArgumentException if the given receiver is null.
+	 * @throws ArgumentIsNullException if the given receiver is null.
 	 * @throws InvalidArgumentException if the current {@link EndPoint} is closed.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
@@ -132,7 +132,7 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 	 * Sets the target of the current {@link EndPoint}.
 	 * 
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 * @throws InvalidArgumentException if the current net {@link EndPoint} is closed.
 	 */

@@ -69,7 +69,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local duplex controller with the given counterpart.
 	 * 
 	 * @param counterpart
-	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws ArgumentIsNullException if the given counterpart is null.
 	 */
 	private LocalEndPoint(LocalEndPoint counterpart) {
 		
@@ -92,7 +92,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalEndPoint(

@@ -28,7 +28,7 @@ implements Named {
 	 * Creates a new module that belongs to the given central controller.
 	 * 
 	 * @param moduleManager
-	 * @throws NullArgumentException if the given central controller is null.
+	 * @throws ArgumentIsNullException if the given central controller is null.
 	 * @throws InvalidArgumentException
 	 * if the given central controller contains already a module with the same name as this module.
 	 */

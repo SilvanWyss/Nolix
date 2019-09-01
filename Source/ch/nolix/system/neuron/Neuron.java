@@ -72,7 +72,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given output function is null.
+	 * @throws ArgumentIsNullException if the given output function is null.
 	 */
 	public Neuron<IO> setOutputFunction(
 		final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction
@@ -99,7 +99,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given output function is null.
+	 * @throws ArgumentIsNullException if the given output function is null.
 	 */
 	public Neuron<IO> setOutputFunction2(
 		final IElementTakerElementGetter<IContainer<IO>, IO> outputFunction
@@ -126,7 +126,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given weight output function is null.
+	 * @throws ArgumentIsNullException if the given weight output function is null.
 	 */
 	public Neuron<IO> setOutputFunction3(
 		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction
@@ -153,7 +153,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given weight output function is null.
+	 * @throws ArgumentIsNullException if the given weight output function is null.
 	 */
 	public Neuron<IO> setOutputFunction4(
 		final IElementTakerElementGetter<IContainer<InputConnection<IO>>, IO> outputFunction

@@ -60,7 +60,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	 * The {@link GUI} will be visible and have the given visualizer.
 	 * 
 	 * @param visible
-	 * @throws NullArgumentException if the given visualizer is null.
+	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
 	public GUI(final IVisualizer visualizer) {
 		
@@ -163,7 +163,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	 * 
 	 * @param title
 	 * @return the current {@link GUI}.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws InvalidArgumentException if the given title is blank.
 	 */
 	public final G setTitle(final String title) {

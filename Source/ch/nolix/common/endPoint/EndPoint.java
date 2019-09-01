@@ -56,7 +56,7 @@ implements ISender {
 	 * Sets the receiver of this end point.
 	 * 
 	 * @param receiver
-	 * @throws NullArgumentException if the given receiver is null.
+	 * @throws ArgumentIsNullException if the given receiver is null.
 	 * @throws InvalidArgumentException if this end point is aborted.
 	 */
 	public final void setReceiver(final IReceiver receiver) {

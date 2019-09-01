@@ -77,7 +77,7 @@ public final class NetEndPoint extends EndPoint {
 	 * Creates a new net end point with the given socket.
 	 * 
 	 * @param socket
-	 * @throws NullArgumentException if the given socket is null.
+	 * @throws ArgumentIsNullException if the given socket is null.
 	 */
 	NetEndPoint(final Socket socket) {
 		
@@ -107,7 +107,7 @@ public final class NetEndPoint extends EndPoint {
 	 * Lets this net end point send the given message.
 	 * 
 	 * @param message
-	 * @throws NullArgumentException if the given message is null.
+	 * @throws ArgumentIsNullException if the given message is null.
 	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */
 	@Override

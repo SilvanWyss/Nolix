@@ -5,7 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -40,13 +40,13 @@ public final class LongMediator extends Mediator {
 	 * Generates an error if the value of this long mediator does not fulfil the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public void fulfils(final IElementTakerBooleanGetter<Long> condition) {
 		
 		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(value)) {

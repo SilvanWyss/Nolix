@@ -38,7 +38,7 @@ implements Clearable<SingleContainer> {
 	 * Creates a new {@link SingleContainer} with the given widget.
 	 * 
 	 * @param widget
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws ArgumentIsNullException if the given widget is null.
 	 */
 	public SingleContainer(final Widget<?, ?> widget) {
 		
@@ -140,7 +140,7 @@ implements Clearable<SingleContainer> {
 	 * 
 	 * @param widget
 	 * @return the current {@link SingleContainer}.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws ArgumentIsNullException if the given widget is null.
 	 */
 	public SingleContainer setWidget(final Widget<?, ?> widget) {
 		

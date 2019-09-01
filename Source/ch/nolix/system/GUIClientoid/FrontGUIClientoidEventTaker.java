@@ -25,7 +25,7 @@ final class FrontGUIClientoidEventTaker implements IEventTaker {
 	 * Creates a new {@link FrontGUIClientoidEventTaker} that will belong to the given parentFrontGuiClientoid.
 	 * 
 	 * @param parentFrontGuiClientoid
-	 * @throws NullArgumentException if the given parentFrontGuiClientoid is null.
+	 * @throws ArgumentIsNullException if the given parentFrontGuiClientoid is null.
 	 */
 	public FrontGUIClientoidEventTaker(final FrontGUIClientoid<?> parentFrontGuiClientoid) {
 		

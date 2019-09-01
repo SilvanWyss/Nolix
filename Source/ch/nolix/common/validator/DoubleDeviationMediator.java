@@ -3,7 +3,7 @@ package ch.nolix.common.validator;
 
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
 
 //class
@@ -25,7 +25,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * @param argumentName
 	 * @param argument
 	 * @param maxDeviation
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */

@@ -23,10 +23,10 @@ public final class OptionalProperty<V> extends SingleProperty<V> {
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given valueCreator is null.
-	 * @throws NullArgumentException if the given specificationCreator is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
 	public OptionalProperty(
 		final String name,

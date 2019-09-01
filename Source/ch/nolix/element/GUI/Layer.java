@@ -120,8 +120,8 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @param contentPosition
 	 * @param rootWidget
-	 * @throws NullArgumentException if the given contentPosition is null.
-	 * @throws NullArgumentException if the given rootWidget is null.
+	 * @throws ArgumentIsNullException if the given contentPosition is null.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public Layer(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
 		
@@ -136,8 +136,8 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * Creates a new {@link Layer} with the given rootWidget.
 	 * 
 	 * @param rootWidget
-	 * @throws NullArgumentException if the given parentGUI is null.
-	 * @throws NullArgumentException if the given rootWidget is null.
+	 * @throws ArgumentIsNullException if the given parentGUI is null.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public Layer(final Widget<?, ?> rootWidget) {
 		
@@ -530,7 +530,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @param backgroundColor
 	 * @return the current {@link Layer}.
-	 * @throws NullArgumentException if the given backgroundColor is null.
+	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
 	public Layer setBackgroundColor(final Color backgroundColor) {
 		
@@ -548,7 +548,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @param backgroundColorGradient
 	 * @return the current {@link Layer}.
-	 * @throws NullArgumentException if the given backgroundColorGradient is null.
+	 * @throws ArgumentIsNullException if the given backgroundColorGradient is null.
 	 */
 	public Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
@@ -565,7 +565,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @param contentPosition
 	 * @return the current {@link Layer}.
-	 * @throws NullArgumentException if the given contentPosition is null.
+	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 */
 	public Layer setContentPosition(final ExtendedContentPosition contentPosition) {
 		
@@ -579,7 +579,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @param freeContentPosition
 	 * @return the current {@link Layer}.
-	 * @throws NullArgumentException if the given freeContentPosition is null.
+	 * @throws ArgumentIsNullException if the given freeContentPosition is null.
 	 */
 	public Layer setFreeContentPosition(final Discrete2DPoint freeContentPosition) {
 		
@@ -607,7 +607,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @param rootWidget
 	 * @return the current {@link Layer}.
-	 * @throws NullArgumentException if the given rootWidget is null.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		

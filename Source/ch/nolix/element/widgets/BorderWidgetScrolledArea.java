@@ -24,7 +24,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * Creates a new {@link BorderWidgetScrolledArea} that will belong to the given parentBorderWidget.
 	 * 
 	 * @param parentBorderWidget
-	 * @throws NullArgumentException if the given parentBorderWidget is null.
+	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
 	BorderWidgetScrolledArea(final BorderWidget<BW, BWL> parentBorderWidget) {
 		

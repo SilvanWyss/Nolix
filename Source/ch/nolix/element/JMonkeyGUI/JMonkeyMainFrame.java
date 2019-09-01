@@ -85,7 +85,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * Creates a new {@link JMonkeyMainFrame} with the given root shape.
 	 * 
 	 * @param rootShape
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
 	public JMonkeyMainFrame(final Shape<?> rootShape) {
 		
@@ -100,7 +100,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * Creates a new {@link JMonkeyMainFrame} with the given title.
 	 * 
 	 * @param title
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is empty.
 	 */
 	public JMonkeyMainFrame(final String title) {
@@ -117,9 +117,9 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * 
 	 * @param title
 	 * @param rootShape
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is empty.
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
 	public JMonkeyMainFrame(final String title, final Shape<?> rootShape) {
 		
@@ -227,7 +227,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * 
 	 * @param rootShape
 	 * @return this main frame.
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
 	@Override
 	public JMonkeyMainFrame setRootShape(final Shape<?> rootShape) {
@@ -266,7 +266,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * Sets the root shape of this 3D GUI.
 	 * 
 	 * @param rootShape
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
 	private void direct_attachRootShape(final Shape<?> rootShape) {
 		simpleApplication

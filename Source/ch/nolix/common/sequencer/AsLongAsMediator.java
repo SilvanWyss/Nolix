@@ -26,7 +26,7 @@ public final class AsLongAsMediator {
 	 * Creates a new as long as mediator with the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	AsLongAsMediator(final IBooleanGetter condition) {
 		
@@ -87,7 +87,7 @@ public final class AsLongAsMediator {
 	 * 
 	 * @param job
 	 * @return a new future.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public Future runInBackground(final IFunction job) {
 		

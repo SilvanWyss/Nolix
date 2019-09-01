@@ -25,7 +25,7 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	MultiLongMediator(final Test test, final int[] values) {
 		
@@ -49,7 +49,7 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	MultiLongMediator(final Test test, final Iterable<Long> values) {
 		
@@ -66,7 +66,7 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	MultiLongMediator(final Test test, final long[] values) {
 		

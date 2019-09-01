@@ -79,7 +79,7 @@ public class Candlestick extends Element<Candlestick> {
 	 * @param closingPrice
 	 * @param lowestPrice
 	 * @param highestPrice
-	 * @throws NullArgumentException if the given time is null.
+	 * @throws ArgumentIsNullException if the given time is null.
 	 * @throws NegativeArgumentException if the given opening price is negative.
 	 * @throws NegativeArgumentException if the given closing price is negative.
 	 * @throws NegativeArgumentException if the given lowest price is negative.

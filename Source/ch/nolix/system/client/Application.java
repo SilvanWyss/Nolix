@@ -41,10 +41,10 @@ public class Application<C extends Client<C>> implements Named {
 	 * @param name
 	 * @param clientClass
 	 * @param initialSessionClass
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given clientClass is null.
-	 * @throws NullArgumentException if the given initialSessionClass is null.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public Application(final String name, final Class<C> clientClass, final Class<?> initialSessionClass) {
 		
@@ -72,10 +72,10 @@ public class Application<C extends Client<C>> implements Named {
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given clientClass is null.
-	 * @throws NullArgumentException if the given initialSessionClass is null.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	public Application(
@@ -100,11 +100,11 @@ public class Application<C extends Client<C>> implements Named {
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param context
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blak.
-	 * @throws NullArgumentException if the given clientClass is null.
-	 * @throws NullArgumentException if the given initialSessionClass is null.
-	 * @throws NullArgumentException if the given context is null.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 * @throws ArgumentIsNullException if the given context is null.
 	 */
 	public Application(
 		final String name,
@@ -140,11 +140,11 @@ public class Application<C extends Client<C>> implements Named {
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws NullArgumentException if the given clientClass is null.
-	 * @throws NullArgumentException if the given initialSessionClass is null.
-	 * @throws NullArgumentException if the given context is null.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 * @throws ArgumentIsNullException if the given context is null.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	public Application(

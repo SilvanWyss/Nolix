@@ -36,7 +36,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * Creates a new {@link Label} with the given text.
 	 * 
 	 * @param text
-	 * @throws NullArgumentException if the given text is null.
+	 * @throws ArgumentIsNullException if the given text is null.
 	 */
 	public Label(final String text) {
 		
@@ -132,7 +132,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * 
 	 * @param role
 	 * @return the current {@link Label}.
-	 * @throws NullArgumentException if the given role is null.
+	 * @throws ArgumentIsNullException if the given role is null.
 	 */
 	public Label setRole(final LabelRole role) {
 		

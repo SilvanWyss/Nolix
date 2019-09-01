@@ -77,7 +77,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param port
 	 * @parma target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	public NetEndPoint(final String ip, final int port, final String target) {
@@ -91,7 +91,7 @@ public class NetEndPoint extends EndPoint {
 	 * Creates a new net duplex controller with the given net end point.
 	 * 
 	 * @param netEndPoint
-	 * @throws NullArgumentException if the given net end point is null.
+	 * @throws ArgumentIsNullException if the given net end point is null.
 	 */
 	NetEndPoint(final ch.nolix.common.endPoint3.NetEndPoint netEndPoint) {
 		

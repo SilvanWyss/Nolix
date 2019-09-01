@@ -24,7 +24,7 @@ public class Package<C> {
 	 * 
 	 * @param index
 	 * @param context
-	 * @throws NullArgumentException if the given context is null.
+	 * @throws ArgumentIsNullException if the given context is null.
 	 */
 	public Package(final int index, final C context) {
 		

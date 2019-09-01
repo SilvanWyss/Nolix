@@ -24,7 +24,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 * Creates a new receiver controller with the given client.
 	 * 
 	 * @param client
-	 * @throws NullArgumentException if the given client is null.
+	 * @throws ArgumentIsNullException if the given client is null.
 	 */
 	public ClientReceiverController(final Client<?> client) {
 		

@@ -115,7 +115,7 @@ extends BorderWidget<C, BWS> {
 	 * 
 	 * @param role
 	 * @return the current {@link ContainerWidget}.
-	 * @throws NullArgumentException if the given role is null.
+	 * @throws ArgumentIsNullException if the given role is null.
 	 */
 	public final C setRole(final ContainerRole role) {
 		

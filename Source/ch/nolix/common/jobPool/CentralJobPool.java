@@ -29,7 +29,7 @@ public final class CentralJobPool {
 	 * 
 	 * @param job
 	 * @return a {@link IFuture} for the given job.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public static IFuture enqueue(final IFunction job) {
 		return jobPool.enqueue(job);

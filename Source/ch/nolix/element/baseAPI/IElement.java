@@ -33,7 +33,7 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @param type
 	 * @return the specification of the current specified as the given type.
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
 	public default Node getSpecificationAs(final String type) {
@@ -55,7 +55,7 @@ public interface IElement extends TypeRequestable {
 	 * 
 	 * @param type
 	 * @param filePath
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 * @throws InvalidArgumentException
 	 * if a file system item with the given file path exists already.
@@ -74,7 +74,7 @@ public interface IElement extends TypeRequestable {
 	 * @param type
 	 * @param filePath
 	 * @param overwrite
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 * @throws InvalidArgumentException if the given overwrite flag is false
 	 * and a file system item with the given file path exists already.
@@ -134,7 +134,7 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return a XML representation of the current {@link IElement} as the given type.
 	 * @param type
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
 	public default XMLNode toXMLAs(final String type) {

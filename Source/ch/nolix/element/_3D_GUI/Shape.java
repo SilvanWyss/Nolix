@@ -226,7 +226,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * 
 	 * @param position
 	 * @return this frame.
-	 * @throws NullArgumentException if the given position is null.
+	 * @throws ArgumentIsNullException if the given position is null.
 	 */
 	public final S setPosition(final _3DPoint position) {
 		

@@ -61,7 +61,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * 
 	 * @param widget
 	 * @return the current {@link Stack}.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws ArgumentIsNullException if the given widget is null.
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
@@ -82,7 +82,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * 
 	 * @param widgets
 	 * @return the current {@link Stack}.
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws ArgumentIsNullException if one of the given widgets is null.
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
@@ -96,7 +96,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * 
 	 * @param widgets
 	 * @return the current {@link Stack}.
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws ArgumentIsNullException if one of the given widgets is null.
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */

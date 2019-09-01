@@ -32,7 +32,7 @@ final class WidgetProvider {
 	 * Creates a new {@link WidgetProvider} with the given widget classes.
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws ArgumentIsNullException if one of the given widget classes is null.
 	 * @throws InvalidArgumentException
 	 * if the current {@link WidgetProvider}
 	 * can already create a {@link Widget} of the same type as one of the given widget classes.
@@ -46,7 +46,7 @@ final class WidgetProvider {
 	 * Adds the given widget class to the current {@link WidgetProvider}.
 	 * 
 	 * @param widgetClass
-	 * @throws NullArgumentException if the given widget class is null.
+	 * @throws ArgumentIsNullException if the given widget class is null.
 	 * @throws InvalidArgumentException
 	 * if the current {@link WidgetProvider}
 	 * can already create a {@link Widget} of the same type as the given widget class.
@@ -78,7 +78,7 @@ final class WidgetProvider {
 	 * Adds the given widget clasess to the current {@link WidgetProvider}.
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws ArgumentIsNullException if one of the given widget classes is null.
 	 * @throws InvalidArgumentException
 	 * if the current {@link WidgetProvider}
 	 * can already create a {@link Widget} of the same type as one of the given widget classes.

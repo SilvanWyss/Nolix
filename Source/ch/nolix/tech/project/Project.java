@@ -46,7 +46,7 @@ public final class Project extends Element<Project> implements IProject {
 	 * 
 	 * @param task
 	 * @return this tableau.
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if the given task is null.
 	 */
 	public Project addTask(final ITask task) {
@@ -62,7 +62,7 @@ public final class Project extends Element<Project> implements IProject {
 	 * 
 	 * @param tasks
 	 * @return this Tableau.
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if one of the given tasks is null.
 	 */
 	public Project addTask(final Task...tasks) {
@@ -149,7 +149,7 @@ public final class Project extends Element<Project> implements IProject {
 	 * 
 	 * @param name
 	 * @return this tableau.
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	@Override

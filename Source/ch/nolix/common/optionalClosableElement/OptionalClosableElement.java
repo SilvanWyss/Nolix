@@ -111,7 +111,7 @@ public abstract class OptionalClosableElement implements OptionalClosable {
 	 * Sets the close controller the current {@link OptionalClosableElement} will belong to.
 	 * 
 	 * @param parentCloseController
-	 * @throws NullArgumentException if the given parent close controller is null.
+	 * @throws ArgumentIsNullException if the given parent close controller is null.
 	 */
 	final void setParentCloseController(final CloseController parentCloseController) {
 		

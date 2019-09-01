@@ -33,8 +33,8 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * 
 	 * @param inputLayerNeurons
 	 * @param internalOutputNeurons
-	 * @throws NullArgumentException if the given input layer neurons is null.
-	 * @throws NullArgumentException if the given output layer neurons is null.
+	 * @throws ArgumentIsNullException if the given input layer neurons is null.
+	 * @throws ArgumentIsNullException if the given output layer neurons is null.
 	 */
 	public <N extends Neuronoid<N, IO, IO>> NeuronalNet(
 		final Iterable<N> inputLayerNeurons,

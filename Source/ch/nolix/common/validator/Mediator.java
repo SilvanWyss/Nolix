@@ -2,7 +2,7 @@
 package ch.nolix.common.validator;
 
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //package-visible abstract class
 /**
@@ -35,14 +35,14 @@ abstract class Mediator {
 	 * Creates a new argument mediator with the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	Mediator(final String argumentName) {
 		
 		//Checks if the given argument name is not null.
 		if (argumentName == null) {
-			throw new NullArgumentException("argument name");
+			throw new ArgumentIsNullException("argument name");
 		}
 		
 		//Checks if the given argument name is not empty.

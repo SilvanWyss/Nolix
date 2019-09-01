@@ -53,7 +53,7 @@ public class Text extends Element<Text> {
 	 * Creates a new text with the given value.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws ArgumentIsNullException if the given value is null.
 	 */
 	public Text(final String value) {
 		

@@ -3,7 +3,7 @@ package ch.nolix.common.test;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -25,7 +25,7 @@ public class ValueMediator<V> extends Mediator {
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	public ValueMediator(final Test test, final V value) {
 		
@@ -75,13 +75,13 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator does not fulfil the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public final void fulfils(final IElementTakerBooleanGetter<V> condition) {
 		
 		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(getRefValue())) {
@@ -94,13 +94,13 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator fulfils the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public final void fulfilsNot(final IElementTakerBooleanGetter<V> condition) {
 	
 		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 		
 		if (condition.getOutput(getRefValue())) {

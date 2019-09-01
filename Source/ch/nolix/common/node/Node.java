@@ -68,7 +68,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
-	 * @throws NullArgumentException if the given attribute is null.
+	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
 	public static Node withOneAttribute(final BaseNode attribute) {
 		
@@ -95,7 +95,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
-	 * @throws NullArgumentException if the given attribute is null.
+	 * @throws ArgumentIsNullException if the given attribute is null.
 	 * @throws InvalidArgumentException with the given attribute.
 	 */
 	public static Node withOneAttribute(final String attribute) {
@@ -133,7 +133,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Creates a new {@link Node} with a header that consists of the {@link String} representation of the given pEnum.
 	 * 
 	 * @param pEnum
-	 * @throws NullArgumentException if the given pEnum is null.
+	 * @throws ArgumentIsNullException if the given pEnum is null.
 	 */
 	public Node(final Enum<?> pEnum) {
 		
@@ -168,7 +168,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Creates a new {@link Node} with the given header.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public Node(final String header) {
@@ -181,9 +181,9 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	public Node(final String header, final Node... attributes) {
 		
@@ -199,9 +199,9 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	public Node(final String header, final Iterable<Node> attributes) {
 		
@@ -217,7 +217,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * 
 	 * @param header
 	 * @param attribute
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public Node(final String header, final boolean attribute) {
@@ -232,7 +232,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * 
 	 * @param header
 	 * @param attribute
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public Node(final String header, final long attribute) {
@@ -247,9 +247,9 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	public Node(final String header, final String... attributes) {
 		
@@ -283,7 +283,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Adds the given attribute to the current {@link Node}.
 	 * 
 	 * @param attribute
-	 * @throws NullArgumentException if the given attribute is null.
+	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
 	public void addAttribute(final Node attribute) {
 		attributes.addAtEnd(attribute);
@@ -308,7 +308,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Sets the given prefix has header to the current {@link Node} if it does not have a header.
 	 * 
 	 * @param prefix
-	 * @throws NullArgumentException if the given prefix is null.
+	 * @throws ArgumentIsNullException if the given prefix is null.
 	 * @throws InvalidArgumentException if the given prefix is blank.
 	 */
 	public void addPrefixToHeader(final String prefix) {
@@ -333,7 +333,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Sets the given postfix as header to the current {@link Node} if it does not have a header.
 	 * 
 	 * @param postfix
-	 * @throws NullArgumentException if the given postfix is null.
+	 * @throws ArgumentIsNullException if the given postfix is null.
 	 * @throws InvalidArgumentArgumentException if the given postfix is blank.
 	 */
 	public void addPostfixToHeader(final String postfix) {
@@ -475,7 +475,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Sets the header of the current {@link Node}.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	@Override

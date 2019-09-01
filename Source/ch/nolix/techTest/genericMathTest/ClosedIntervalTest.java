@@ -4,7 +4,7 @@ package ch.nolix.techTest.genericMathTest;
 //Java import
 import java.math.BigDecimal;
 
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.genericMath.ClosedInterval;
 
@@ -15,7 +15,7 @@ public final class ClosedIntervalTest extends Test {
 	public void testCase_creation_whenTheGivenMinIsNull() {
 		expect(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given minimum is null.");
 	}
 	
@@ -23,7 +23,7 @@ public final class ClosedIntervalTest extends Test {
 	public void testCase_creation_whenTheGivenMaxIsNull() {
 		expect(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given maximum is null.");
 	}
 	

@@ -56,7 +56,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * 
 	 * @param errorMessage
 	 * the current {@link BackGUIClientoid}
-	 * @throws NullArgumentException if the given error message is null.
+	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 		

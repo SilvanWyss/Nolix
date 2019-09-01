@@ -35,7 +35,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	 * Creates a new {@link IterableReadContainer} for the given container.
 	 * 
 	 * @param container
-	 * @throws NullArgumentException if the given container is null.
+	 * @throws ArgumentIsNullException if the given container is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> IterableReadContainer(final Iterable<E2> container) {

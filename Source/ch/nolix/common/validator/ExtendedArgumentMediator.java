@@ -2,7 +2,7 @@
 package ch.nolix.common.validator;
 
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -43,7 +43,7 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 	 * @param argumentName
 	 * @return a new generic argument mediator
 	 * with the given argument name and for the argument of this extended generic argument mediator.
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public ArgumentMediator<A> thatIsNamed(final String argumentName) {

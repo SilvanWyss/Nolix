@@ -42,7 +42,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point that will connect to the given target
 	 * 
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 */
 	public LocalEndPoint(final IEndPointTaker target) {
 		
@@ -85,7 +85,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point with the given counterpart.
 	 * 
 	 * @param counterPart
-	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws ArgumentIsNullException if the given counterpart is null.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterPart) {
 		
@@ -108,8 +108,8 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given counterpart is null.
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given counterpart is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterpart, final String target) {

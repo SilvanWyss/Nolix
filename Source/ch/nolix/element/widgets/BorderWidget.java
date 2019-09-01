@@ -723,7 +723,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param contentPosition
 	 * @return the current {@link BorderWidget}.
-	 * @throws NullArgumentException if the given content position is null.
+	 * @throws ArgumentIsNullException if the given content position is null.
 	 */
 	public final BW setContentPosition(final ContentPosition contentPosition) {
 		

@@ -49,7 +49,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @param shape
 	 * @return this multi shape.
-	 * @throws NullArgumentException if the given shape is null.
+	 * @throws ArgumentIsNullException if the given shape is null.
 	 * @throws InvalidArgumentException if the given shape belongs to a GUI.
 	 */
 	public MultiShape addShape(final Shape<?> shape) {
@@ -79,7 +79,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @param shapes
 	 * @return this multi shape.
-	 * @throws NullArgumentException if one of the given shapes is null.
+	 * @throws ArgumentIsNullException if one of the given shapes is null.
 	 * @throws InvalidArgumentException if one of the given shapes belongs to a GUI.
 	 */
 	public MultiShape addShape(final Shape<?>... shapes) {
@@ -98,7 +98,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @param shapes
 	 * @return this multi shape.
-	 * @throws NullArgumentException if one of the given shapes is null.
+	 * @throws ArgumentIsNullException if one of the given shapes is null.
 	 * @throws InvalidArgumentException if one of the given shapes belongs to a GUI.
 	 */
 	public MultiShape addShapes(final Iterable<Shape<?>> shapes) {

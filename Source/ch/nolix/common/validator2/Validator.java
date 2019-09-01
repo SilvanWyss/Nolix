@@ -10,7 +10,7 @@ package ch.nolix.common.validator2;
 
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ZeroArgumentException;
@@ -233,7 +233,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsNull(String name, Object value) {
 		if (value == null) {
-			throw new NullArgumentException(name);
+			throw new ArgumentIsNullException(name);
 		}
 	}
 	

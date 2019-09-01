@@ -21,7 +21,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 * Creates a new {@link ResultFuture} with the given resultJobRunner.
 	 * 
 	 * @param resultJobRunner
-	 * @throws NullArgumentException if the given resultJobRunner is null.
+	 * @throws ArgumentIsNullException if the given resultJobRunner is null.
 	 */
 	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
 		

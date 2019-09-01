@@ -120,7 +120,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	 * 
 	 * @param defaultColor
 	 * @return the current {@link BaseShape}.
-	 * @throws NullArgumentException if the given default color is null.
+	 * @throws ArgumentIsNullException if the given default color is null.
 	 */
 	public final BS setDefaultColor(final Color defaultColor) {
 	
@@ -135,7 +135,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	 * 
 	 * @param defaultTexture
 	 * @return the current {@link BaseShape}.
-	 * @throws NullArgumentException if the given default texture is null.
+	 * @throws ArgumentIsNullException if the given default texture is null.
 	 */
 	public final BS setDefaultTexture(final Image defaultTexture) {
 		

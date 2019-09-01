@@ -3,7 +3,7 @@ package ch.nolix.common.invalidArgumentExceptions;
 
 //class
 /**
- * A {@link NullArgumentException} is a {@link InvalidArgumentException}
+ * A {@link ArgumentIsNullException} is a {@link InvalidArgumentException}
  * that is intended to be thrown when an argument is undesired null.
  * 
  * @author Silvan Wyss
@@ -11,7 +11,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * @lines 70
  */
 @SuppressWarnings("serial")
-public final class NullArgumentException extends InvalidArgumentException {
+public final class ArgumentIsNullException extends InvalidArgumentException {
 	
 	//constant
 	private static final String ERROR_PREDICATE = "is null";
@@ -33,9 +33,9 @@ public final class NullArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NullArgumentException}.
+	 * Creates a new {@link ArgumentIsNullException}.
 	 */
-	public NullArgumentException() {
+	public ArgumentIsNullException() {
 		
 		//Calls constructor of the base class.
 		super(null, ERROR_PREDICATE);
@@ -43,12 +43,12 @@ public final class NullArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NullArgumentException} for an argument of the given argument type.
+	 * Creates a new {@link ArgumentIsNullException} for an argument of the given argument type.
 	 * 
 	 * @param argumentType
 	 * @throws RuntimeException if the given argument type is null.
 	 */
-	public NullArgumentException(final Class<?> argumentType) {
+	public ArgumentIsNullException(final Class<?> argumentType) {
 		
 		//Calls constructor of the base class.
 		super(createSafeArgumentName(argumentType), null, ERROR_PREDICATE);
@@ -62,7 +62,7 @@ public final class NullArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public NullArgumentException(final String argumentName) {
+	public ArgumentIsNullException(final String argumentName) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, null, ERROR_PREDICATE);

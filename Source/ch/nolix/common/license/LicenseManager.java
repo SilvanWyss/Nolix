@@ -25,7 +25,7 @@ public class LicenseManager {
 	 * 
 	 * @param type
 	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws RuntimeException if there was not found a file with the key for a License of the given type.
 	 * @throws InvalidArgumentException 
 	 * if the given type does not contain an accessible constructor with 1 String parameter.
@@ -43,7 +43,7 @@ public class LicenseManager {
 	 * 
 	 * @param license
 	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws NullArgumentException if the given license is null.
+	 * @throws ArgumentIsNullException if the given license is null.
 	 * @throws InvalidArgumentException
 	 * if the {@link LicenseManager} contains already a {@link License} of the same type.
 	 * @throws InvalidArgumentException
@@ -59,7 +59,7 @@ public class LicenseManager {
 	 * 
 	 * @param permission
 	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws NullArgumentException if the given permission is null.
+	 * @throws ArgumentIsNullException if the given permission is null.
 	 * @throws InvalidArgumentException if the {@link LicenseManager}
 	 * contains already a permission of the same type the given permission is.
 	 */

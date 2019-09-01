@@ -20,7 +20,7 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	ApproximativeEqualingMediator(
 		final Test test,

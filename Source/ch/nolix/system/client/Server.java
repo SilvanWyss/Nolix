@@ -36,7 +36,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 * Creates a new {@link Server} with the given applications.
 	 * 
 	 * @param applications
-	 * @throws NullArgumentException if one of the given applications is null.
+	 * @throws ArgumentIsNullException if one of the given applications is null.
 	 * @throws InvalidArgumentException
 	 * if the given applications contains several {@link Application}s with the same name.
 	 */
@@ -49,7 +49,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 * Adds the given {@link application} to the current {@link Server}.
 	 * 
 	 * @param application
-	 * @throws NullArgumentException if the given application is null.
+	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link Application}
 	 * with the same name as the given application.
 	 */
@@ -77,7 +77,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 * A main {@link Application} will take all {@link Client}s without target.
 	 * 
 	 * @param mainApplication
-	 * @throws NullArgumentException if the given mainApplication is null.
+	 * @throws ArgumentIsNullException if the given mainApplication is null.
 	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link Application}
 	 * with the same name as the given mainApplication.
 	 */
@@ -98,7 +98,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 * Adds the given applications to the current {@link Server}.
 	 * 
 	 * @param applications
-	 * @throws NullArgumentException if one of the given applications is null.
+	 * @throws ArgumentIsNullException if one of the given applications is null.
 	 * @throws InvalidArgumentException if the current {@link Server}
 	 * contains already an other application with the same name as one of the given applications.
 	 */

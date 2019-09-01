@@ -81,7 +81,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * Creates a new {@link TabContainerTab} with the given header.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
 	public TabContainerTab(final String header) {
@@ -99,9 +99,9 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * 
 	 * @param header
 	 * @param widget
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws ArgumentIsNullException if the given widget is null.
 	 */
 	public TabContainerTab(final String header, final Widget<?,? > widget) {
 		
@@ -275,7 +275,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	/**
 	 * @param header
 	 * @return the current {@link TabContainerTab}.
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	@Override
@@ -296,7 +296,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * 
 	 * @param widget
 	 * @return the current {@link TabContainerTab}.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws ArgumentIsNullException if the given widget is null.
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another {@link ILayerGUI}
 	 * than the current {@link TabContainerTab}.
@@ -343,7 +343,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * Sets the tab container the current {@link TabContainerTab} will belong to.
 	 * 
 	 * @param parentTabContainer
-	 * @throws NullArgumentException if the given parent tab container is null.
+	 * @throws ArgumentIsNullException if the given parent tab container is null.
 	 */
 	void setParentTabContainer(final TabContainer parentTabContainer) {
 		

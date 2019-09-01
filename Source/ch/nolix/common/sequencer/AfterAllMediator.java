@@ -28,7 +28,7 @@ public final class AfterAllMediator {
 	 * 
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	AfterAllMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
@@ -75,7 +75,7 @@ public final class AfterAllMediator {
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
 	 * @throws NegativeArgumentException if the given max run count is negative.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	AfterAllMediator(
@@ -124,7 +124,7 @@ public final class AfterAllMediator {
 	 * 
 	 * @param job
 	 * @return a new future.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public final Future runInBackground(final IFunction job) {
 		

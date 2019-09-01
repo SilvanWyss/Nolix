@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.widgetsTest;
 
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.BorderWidget;
 
@@ -66,7 +66,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		//execution & verification
 		expect(() -> createTestObject().getRefBaseLook().setBorderColors(null))
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given border color is null.");
 	}
 	

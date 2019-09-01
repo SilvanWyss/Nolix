@@ -68,7 +68,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @param port
 	 * @param target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
 	public NetEndPoint(final int port, final String target) {
@@ -128,7 +128,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @param port
 	 * @param target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
 	public NetEndPoint(final String ip, final int port, final String target) {
@@ -172,8 +172,8 @@ public final class NetEndPoint extends EndPoint {
 	 * 
 	 * @param socket
 	 * @param HTTPMessage
-	 * @throws NullArgumentException if the given socket is null.
-	 * @throws NullArgumentException if the given HTTPMessage is null.
+	 * @throws ArgumentIsNullException if the given socket is null.
+	 * @throws ArgumentIsNullException if the given HTTPMessage is null.
 	 * @throws InvalidArgumentException if the given HTTPMessage is blank.
 	 */
 	NetEndPoint(final Socket socket, final String HTTPMessage) {
@@ -408,7 +408,7 @@ public final class NetEndPoint extends EndPoint {
 	 * Lets the current {@link NetEndPoint} send the given rawMessage.
 	 * 
 	 * @param rawMessage
-	 * @throws NullArgumentException if the given rawMessage is null.
+	 * @throws ArgumentIsNullException if the given rawMessage is null.
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
 	 */
 	private void sendRawMessage(final String rawMessage) {

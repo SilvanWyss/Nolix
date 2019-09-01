@@ -25,7 +25,7 @@ final class FrameVisualizerMouseListener implements MouseListener {
 	 * Creates a new frame mouse listener that belongs to the given frame.
 	 * 
 	 * @param frameVisualizer
-	 * @throws NullArgumentException if the given frame is null.
+	 * @throws ArgumentIsNullException if the given frame is null.
 	 */
 	public FrameVisualizerMouseListener(final GUI<?> frameVisualizer) {
 		

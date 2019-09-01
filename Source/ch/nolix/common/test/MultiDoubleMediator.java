@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.independentHelpers.ArrayHelper;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -38,7 +38,7 @@ public final class MultiDoubleMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	MultiDoubleMediator(final Test test, final Iterable<Double> values) {
 		

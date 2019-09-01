@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -20,7 +20,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * that will belong to the given test.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	ExtendedThrownExceptionMediator(final Test test) {
 
@@ -35,7 +35,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * 
 	 * @param test
 	 * @param exception
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws NullArgumentExcepiton if the given exception is null.
 	 */
 	ExtendedThrownExceptionMediator(final Test test, final Throwable exception) {
@@ -52,13 +52,13 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * @return a new {@link ExtendedThrownExceptionMediator}
 	 * that belongs to the test of the current {@link ThrownExceptionMediator}
 	 * and is for the exception of the current {@link ThrownExceptionMediator}.
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 */
 	public <E extends Exception> ExtendedThrownExceptionMediator ofType(final Class<E> type) {
 		
 		//Checks if the given type is not null.
 		if (type == null) {
-			throw new NullArgumentException(VariableNameCatalogue.TYPE);
+			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
 		}
 		
 		//Handles the case that the current extended thrown exception mediator

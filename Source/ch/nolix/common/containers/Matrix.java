@@ -4,7 +4,7 @@ package ch.nolix.common.containers;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 
@@ -32,8 +32,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 * @throws UnequalArgumentException
 	 * if the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
@@ -54,8 +54,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 * @throws UnequalArgumentException
 	 * if the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
@@ -125,8 +125,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 * @throws UnequalArgumentException
 	 * the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
@@ -147,8 +147,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 * @throws UnequalArgumentException
 	 * the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
@@ -483,7 +483,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public Matrix<E> setAt(final int index, final E element) {
 				
@@ -516,7 +516,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws NonPositiveArgumentException if the given column index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public Matrix<E> setAt(
 		final int rowIndex,

@@ -30,7 +30,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * Appends the given command to this duplex controller.
 	 * 
 	 * @param command
-	 * @throws NullArgumentException if the given command is null.
+	 * @throws ArgumentIsNullException if the given command is null.
 	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final ChainedNode command) {
@@ -42,7 +42,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * Appends the given commands to this duplex controller.
 	 * 
 	 * @param commands
-	 * @throws NullArgumentException if one of the given commands is null.
+	 * @throws ArgumentIsNullException if one of the given commands is null.
 	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final ChainedNode... commands) {
@@ -58,7 +58,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * Appends the given command to this duplex controller.
 	 * 
 	 * @param command
-	 * @throws NullArgumentException if the given command is null.
+	 * @throws ArgumentIsNullException if the given command is null.
 	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final String command) {
@@ -74,7 +74,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * Appends the given commands to this duplex controller.
 	 * 
 	 * @param commands
-	 * @throws NullArgumentException if one of the given commands is null.
+	 * @throws ArgumentIsNullException if one of the given commands is null.
 	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(String... commands) {
@@ -166,7 +166,7 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	 * Sets the receiver controller of this duplex controller.
 	 * 
 	 * @param receiverController
-	 * @throws NullArgumentException if the given receiver controller is null.
+	 * @throws ArgumentIsNullException if the given receiver controller is null.
 	 */
 	public final void setReceiverController(final IDataProviderController receiverController) {
 		

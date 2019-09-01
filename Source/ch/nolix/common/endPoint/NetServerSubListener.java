@@ -30,7 +30,7 @@ final class NetServerSubListener extends Thread {
 	 * The net server sub listener will start automatically.
 	 * 
 	 * @param netServer
-	 * @throws NullArgumentException if the given net server is null.
+	 * @throws ArgumentIsNullException if the given net server is null.
 	 */
 	public NetServerSubListener(final NetServer netServer) {
 		

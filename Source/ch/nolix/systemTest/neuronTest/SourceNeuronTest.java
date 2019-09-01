@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTest.neuronTest;
 
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.neuronoid.SourceNeuron;
 
@@ -27,7 +27,7 @@ public final class SourceNeuronTest extends Test {
 		//execution & verification
 		expect(() -> new SourceNeuron<String>(null))
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given output is null.");
 	}
 	

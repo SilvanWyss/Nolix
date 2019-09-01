@@ -29,7 +29,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * Creates a new {@link VerticalStack} with the given widgets
 	 * 
 	 * @param widgets
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws ArgumentIsNullException if one of the given widgets is null.
 	 */
 	public VerticalStack(final IContainer<Widget<?, ?>> widgets) {
 		
@@ -43,7 +43,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * Creates a new {@link VerticalStack} with the given widgets
 	 * 
 	 * @param widgets
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws ArgumentIsNullException if one of the given widgets is null.
 	 */
 	public VerticalStack(final Widget<?, ?>... widgets) {
 		

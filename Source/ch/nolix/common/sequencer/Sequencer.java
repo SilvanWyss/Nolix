@@ -57,7 +57,7 @@ public final class Sequencer {
 	/**
 	 * @param condition
 	 * @return a new {@link AsLongAsMediator} with the given condition.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static AsLongAsMediator asLongAs(final IBooleanGetter condition) {
 		return new AsLongAsMediator(condition);
@@ -69,7 +69,7 @@ public final class Sequencer {
 	 * 
 	 * @param job
 	 * @return a {@link IFuture} for the given job.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public static IFuture enqueue(final IFunction job) {
 		return jobPool.enqueue(job);
@@ -90,7 +90,7 @@ public final class Sequencer {
 	 * Runs the given job forever catching any error.
 	 * 
 	 * @param job
-	 * @throws NullArgumentException if the given result job is null.
+	 * @throws ArgumentIsNullException if the given result job is null.
 	 */
 	public static void runForeverCatchingAnyError(final IFunction job) {
 		
@@ -114,7 +114,7 @@ public final class Sequencer {
 	 * 
 	 * @param job
 	 * @return a new {@link Future}.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public static Future runInBackground(final IFunction job) {
 		return new Future(new JobRunner(job, 1));
@@ -127,7 +127,7 @@ public final class Sequencer {
 	 * 
 	 * @param resultJob
 	 * @return a new {@link ResultFuture}.
-	 * @throws NullArgumentException if the given result job is null.
+	 * @throws ArgumentIsNullException if the given result job is null.
 	 */
 	public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
 		return new ResultFuture<>(new ResultJobRunner<R>(resultJob));
@@ -138,7 +138,7 @@ public final class Sequencer {
 	 * Waits as long as the given condition is fulfilled.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static void waitAsLongAs(final IBooleanGetter condition) {
 		
@@ -193,7 +193,7 @@ public final class Sequencer {
 	 * Waits until the given condition is fulfilled.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static void waitUntil(final IBooleanGetter condition) {
 		waitAsLongAs(() -> !condition.getOutput());

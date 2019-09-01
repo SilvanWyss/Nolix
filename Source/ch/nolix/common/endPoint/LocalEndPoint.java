@@ -44,7 +44,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point with the given counterpart.
 	 * 
 	 * @param counterPart
-	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws ArgumentIsNullException if the given counterpart is null.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterPart) {
 		
@@ -62,7 +62,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local end point send the given message.
 	 * 
-	 * @throws NullArgumentException if the given message is null.
+	 * @throws ArgumentIsNullException if the given message is null.
 	 * @throws InvalidArgumentException if this local end point is aborted.
 	 * @throws ArgumentDoesNotHaveAttributeException if the counterpart of this local end point does not have a receiver.
 	 */

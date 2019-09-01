@@ -22,7 +22,7 @@ public final class BorderWidgetMainArea {
 	 * Creates a new {@link BorderWidgetMainArea} that will belong to the given parentBorderWidget.
 	 * 
 	 * @param parentBorderWidget
-	 * @throws NullArgumentException if the given parentBorderWidget is null.
+	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
 	public BorderWidgetMainArea(final BorderWidget<?, ?> parentBorderWidget) {
 		

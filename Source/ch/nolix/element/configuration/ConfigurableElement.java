@@ -165,7 +165,7 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	/**
 	 * @param name
 	 * @return the current {@link ConfigurableElement}.
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	@Override
@@ -181,7 +181,7 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * Sets the token of the current {@link ConfigurableElement}.
 	 * 
 	 * @param token
-	 * @throws NullArgumentException if the given token is null.
+	 * @throws ArgumentIsNullException if the given token is null.
 	 * @throws EmptyArgumentException if the given token is empty.
 	 */
 	@Override

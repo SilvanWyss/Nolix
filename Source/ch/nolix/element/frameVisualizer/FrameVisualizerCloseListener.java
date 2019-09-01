@@ -25,7 +25,7 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	 * Creates a new frame close listener that belongs to the given frame.
 	 * 
 	 * @param frameVisualizer
-	 * @throws NullArgumentException if the given frame is null.
+	 * @throws ArgumentIsNullException if the given frame is null.
 	 */
 	public FrameVisualizerCloseListener(final GUI<?> frameVisualizer) {
 		

@@ -53,8 +53,8 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
+	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer(final Iterable<TabContainerTab> tabs) {
 		
@@ -68,8 +68,8 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
+	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer(final TabContainerTab... tabs) {
 		
@@ -102,8 +102,8 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
+	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
 		
@@ -125,7 +125,7 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tab
 	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tab is null.
+	 * @throws ArgumentIsNullException if the given tab is null.
 	 * @throws InvalidArgumentException if the given tab belongs already to a {@link TabContainer}.
 	 */
 	public TabContainer addTab(final TabContainerTab tab) {
@@ -156,8 +156,8 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
+	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer addTab(TabContainerTab... tabs) {
 		return addTabs(new ReadContainer<TabContainerTab>(tabs));

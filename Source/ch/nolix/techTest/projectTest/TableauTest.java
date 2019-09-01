@@ -2,7 +2,7 @@
 package ch.nolix.techTest.projectTest;
 
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Project;
 import ch.nolix.tech.project.Task;
@@ -45,7 +45,7 @@ public final class TableauTest extends Test {
 		//execution & verification
 		expect(() -> project.addTask(task))
 		.throwsException()
-		.ofType(NullArgumentException.class);
+		.ofType(ArgumentIsNullException.class);
 	}
 	
 	//test case

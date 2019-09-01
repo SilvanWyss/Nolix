@@ -18,7 +18,7 @@ public final class BackGUIClient extends BackGUIClientoid<BackGUIClient> {
 	 * This constructor is public that it can be found by reflection.
 	 * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws ArgumentIsNullException if the given duplex controller is null.
 	 */
 	public BackGUIClient(final EndPoint endPoint) {
 		internal_setDuplexController(endPoint);

@@ -20,7 +20,7 @@ public final class Future implements IFuture {
 	 * Creates a new {@link Future} with the given jobRunner.
 	 * 
 	 * @param jobRunner
-	 * @throws NullArgumentException if the given jobRunner is null.
+	 * @throws ArgumentIsNullException if the given jobRunner is null.
 	 */
 	Future(final JobRunner jobRunner) {
 		

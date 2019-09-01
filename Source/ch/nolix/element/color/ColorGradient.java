@@ -88,9 +88,9 @@ public class ColorGradient implements IElement {
 	 * @param direction
 	 * @param color1
 	 * @param color2
-	 * @throws NullArgumentException if the given direction is null.
-	 * @throws NullArgumentException if the given color 1 is null.
-	 * @throws NullArgumentException if the given color 2 is null.
+	 * @throws ArgumentIsNullException if the given direction is null.
+	 * @throws ArgumentIsNullException if the given color 1 is null.
+	 * @throws ArgumentIsNullException if the given color 2 is null.
 	 */
 	public ColorGradient(
 		final Color color1,
@@ -105,7 +105,7 @@ public class ColorGradient implements IElement {
 	 * Creates a new color gradient with the given direction.
 	 * 
 	 * @param direction
-	 * @throws NullArgumentException if the given direction is null.
+	 * @throws ArgumentIsNullException if the given direction is null.
 	 */
 	public ColorGradient(final UniDirection direction) {
 		
@@ -120,9 +120,9 @@ public class ColorGradient implements IElement {
 	 * @param direction
 	 * @param color1
 	 * @param color2
-	 * @throws NullArgumentException if the given direction is null.
-	 * @throws NullArgumentException if the given color 1 is null.
-	 * @throws NullArgumentException if the given color 2 is null.
+	 * @throws ArgumentIsNullException if the given direction is null.
+	 * @throws ArgumentIsNullException if the given color 1 is null.
+	 * @throws ArgumentIsNullException if the given color 2 is null.
 	 */
 	public ColorGradient(
 		final UniDirection direction,

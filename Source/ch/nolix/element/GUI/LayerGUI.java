@@ -123,7 +123,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * Registers the given widgetClass.
 	 * 
 	 * @param widgetClass
-	 * @throws NullArgumentException if the given widgetClass is null.
+	 * @throws ArgumentIsNullException if the given widgetClass is null.
 	 * @throws InvalidArgumentException
 	 * if a {@link LayerGUI} contains already a {@link Widget} class wit the same type as the given widgetClass.
 	 */
@@ -136,7 +136,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * Registers the given widgetClasses
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widgetClasses is null.
+	 * @throws ArgumentIsNullException if one of the given widgetClasses is null.
 	 * @throws InvalidArgumentException
 	 * if a {@link LayerGUI} contains already a {@link Widget} class with the same type as one of the given widgetClasses.
 	 */
@@ -183,7 +183,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param visible
 	 * @param eventTaker
-	 * @throws NullArgumentException if the given eventTaker is null.
+	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
 	public LayerGUI(final boolean visible, final IEventTaker eventTaker) {
 		
@@ -203,7 +203,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param visible
 	 * @param eventTaker
-	 * @throws NullArgumentException if the given eventTaker is null.
+	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
 	public LayerGUI(final IEventTaker eventTaker) {
 		
@@ -222,7 +222,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param visible
 	 * @param eventTaker
-	 * @throws NullArgumentException if the given visualizer is null.
+	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
 	public LayerGUI(IVisualizer visualizer) {
 		
@@ -240,8 +240,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param visible
 	 * @param eventTaker
-	 * @throws NullArgumentException if the given visualizer is null.
-	 * @throws NullArgumentException if the given eventTaker is null.
+	 * @throws ArgumentIsNullException if the given visualizer is null.
+	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
 	public LayerGUI(IVisualizer visualizer, IEventTaker eventTaker) {
 		
@@ -261,8 +261,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param contentPosition.
 	 * @param rootWidget
 	 * @return the current {@link LayerGUI}.
-	 * @throws NullArgumentException if the given contentPosition is null.
-	 * @throws NullArgumentException if the given rootWidget is null.
+	 * @throws ArgumentIsNullException if the given contentPosition is null.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public LG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
 		return addLayerOnTop(new Layer(contentPosition, rootWidget));
@@ -274,7 +274,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param layer
 	 * @return the current {@link LayerGUI}.
-	 * @throws NullArgumentException if the given layer is null.
+	 * @throws ArgumentIsNullException if the given layer is null.
 	 */
 	public LG addLayerOnTop(final Layer layer) {
 		
@@ -295,7 +295,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param rootWidget
 	 * @return the current {@link ILayerGUI}.
-	 * @throws NullArgumentException if the given rootWidget is null.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public final LG addLayerOnTop(final Widget<?, ?> rootWidget) {		
 		return addLayerOnTop(new Layer(rootWidget));
@@ -819,7 +819,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param contentPosition
 	 * @return the current {@link LayerGUI}.
-	 * @throws NullArgumentException if the given contentPosition is null.
+	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 */
 	public LG setContentPosition(final ExtendedContentPosition contentPosition) {
 		
@@ -835,7 +835,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * 
 	 * @param backgroundColor
 	 * @return the current {@link LayerGUI}.
-	 * @throws NullArgumentException if the given backgroundColor is null.
+	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
 	public LG setBackgroundColor(final Color backgroundColor) {
 		

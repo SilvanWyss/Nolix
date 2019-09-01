@@ -7,7 +7,7 @@ import java.util.Iterator;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.SequencePattern;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
@@ -32,7 +32,7 @@ public final class ListTest extends Test {
 		final String string = null;
 		expect(() -> list.addAtBegin(string))
 		.throwsException()
-		.ofType(NullArgumentException.class);
+		.ofType(ArgumentIsNullException.class);
 	}
 	
 	//test case
@@ -45,7 +45,7 @@ public final class ListTest extends Test {
 		final String string = null;
 		expect(() -> list.addAtEnd(string))
 		.throwsException()
-		.ofType(NullArgumentException.class);
+		.ofType(ArgumentIsNullException.class);
 	}
 	
 	//test case

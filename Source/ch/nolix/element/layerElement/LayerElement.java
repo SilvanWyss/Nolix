@@ -123,7 +123,7 @@ implements
 	 * Sets the base entity of this entity.
 	 * 
 	 * @param baseEntity
-	 * @throws NullArgumentException if the given base entity is null.
+	 * @throws ArgumentIsNullException if the given base entity is null.
 	 */
 	protected final void setBaseEntity(final E baseEntity) {
 		

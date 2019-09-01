@@ -57,7 +57,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param attachingAttribute
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given attaching attribute is null.
+	 * @throws ArgumentIsNullException if the given attaching attribute is null.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
@@ -121,7 +121,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param configuration
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given configuration is null.
+	 * @throws ArgumentIsNullException if the given configuration is null.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final Configuration<?> configuration) {
@@ -140,7 +140,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param configurations
 	 * @return this configuration.
-	 * @throws NullArgumentException if one of the given configurations is null.
+	 * @throws ArgumentIsNullException if one of the given configurations is null.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final Configuration<?>...configurations) {
@@ -621,7 +621,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param name
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
@@ -642,7 +642,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param selectorName
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given selector name is null.
+	 * @throws ArgumentIsNullException if the given selector name is null.
 	 * @throws EmptyArgumentException if the given selector name is empty.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
@@ -662,7 +662,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param selectorToken
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given selector token is null.
+	 * @throws ArgumentIsNullException if the given selector token is null.
 	 * @throws EmptyArgumentException if the given selector token is empty.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
@@ -682,7 +682,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * 
 	 * @param selectorType
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given type selector type is null.
+	 * @throws ArgumentIsNullException if the given type selector type is null.
 	 * @throws EmptyArgumentException if the given selector type is empty.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
@@ -737,7 +737,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * Adds the given selector role to this configuration.
 	 * 
 	 * @param selectorRole
-	 * @throws NullArgumentException if the given selector role is null.
+	 * @throws ArgumentIsNullException if the given selector role is null.
 	 * @throws EmptyArgumentException if the given selector role is empty.
 	 * @throws InvalidArgumentException if this configuration contains already the given selector role.
 	 * @throws InvalidArgumentException if this configuration is frozen.

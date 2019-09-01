@@ -9,7 +9,7 @@ import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonEmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -40,7 +40,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws ArgumentIsNullException if the given argument name is null.
 	 * @throws InvalidArgumentException if the given argument name is blank.
 	 */
 	StringMediator(final String argumentName, final String argument) {
@@ -54,7 +54,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @param length
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
 	 * @throws NegativeArgumentException if the given length is negative.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link StringMediator} does not have the given length.
 	 */
@@ -84,7 +84,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is not blank.
 	 */
 	public TerminalArgumentMediator<String> isBlank() {
@@ -103,7 +103,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws NonEmptyArgumentException if the argument of the current {@link StringMediator} is not empty.
 	 */
 	public TerminalArgumentMediator<String> isEmpty() {
@@ -122,7 +122,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws EmptyArgumentException if the argument of the current {@link StringMediator} is empty.
 	 */
 	public TerminalArgumentMediator<String> isNotEmpty() {
@@ -141,7 +141,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is blank.
 	 */
 	public TerminalArgumentMediator<String> isNotBlank() {
@@ -166,7 +166,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	/**
 	 * @param maxLength
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link StringMediator} is longer than the given max length says.
 	 */
@@ -192,7 +192,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	/**
 	 * @param minLength
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link StringMediator} is shorter than the given min length says.
 	 */
@@ -218,7 +218,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	/**
 	 * @param directory
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
-	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException
 	 * if the given directory does not exist on the local machine or cannot be created on the local machine.
 	 */

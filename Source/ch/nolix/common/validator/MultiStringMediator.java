@@ -3,7 +3,7 @@ package ch.nolix.common.validator;
 
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -20,7 +20,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	 * Creates a new string container mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @throws ArgumentIsNullException if the given argument container is null.
 	 */
 	MultiStringMediator(final Iterable<String> arguments) {
 		
@@ -33,7 +33,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	 * Creates a new string container mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @throws ArgumentIsNullException if the given argument container is null.
 	 */
 	MultiStringMediator(final String[] arguments) {
 		
@@ -45,7 +45,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	/**
 	 * @return a new {@link TerminalArgumentMediator}
 	 * for the arguments of the current {@link MultiStringMediator}.
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if one of the arguments of the current {@link MultiStringMediator} is null.
 	 * @throws InvalidArgumentException
 	 * if one of the arguments of the current {@link MultiStringMediator} is blank.
@@ -74,7 +74,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if one of the arguments of this strinc container mediator is null.
+	 * @throws ArgumentIsNullException if one of the arguments of this strinc container mediator is null.
 	 * @throws EmptyArgumentException if one of the arguments of this string container mediator is empty.
 	 */
 	public void areNotEmpty() {

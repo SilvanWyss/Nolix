@@ -49,7 +49,7 @@ implements IReplyingSender {
 	 * Sets the replier of this end point.
 	 * 
 	 * @param replier
-	 * @throws NullArgumentException if the given replier is null.
+	 * @throws ArgumentIsNullException if the given replier is null.
 	 */
 	public void setReplier(final IReplier replier) {
 		

@@ -26,7 +26,7 @@ public final class ValidatorTutorial {
 	 * 
 	 * @param productName
 	 * @param amount
-	 * @throws NullArgumentException if the given product name is null.
+	 * @throws ArgumentIsNullException if the given product name is null.
 	 * @throws EmptyArgumentException if the given product name is empty.
 	 * @throws NegativArgumentException if the given amount is negative.
 	 */

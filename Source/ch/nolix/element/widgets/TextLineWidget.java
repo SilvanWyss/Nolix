@@ -90,7 +90,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * 
 	 * @param text
 	 * @return the current {@link TextLineWidget}.
-	 * @throws NullArgumentException if the given text is null.
+	 * @throws ArgumentIsNullException if the given text is null.
 	 */
 	public TLW setText(final String text) {
 		

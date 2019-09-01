@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.baseTest;
 
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -24,13 +24,13 @@ public final class TestAccessor {
 	 * Creates a new test accessor for the given test.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	public TestAccessor(final BaseTest test) {
 		
 		//Checks if the given test is not null.
 		if (test == null) {
-			throw new NullArgumentException("test");
+			throw new ArgumentIsNullException("test");
 		}
 		
 		//Sets the test of htis test accessor.

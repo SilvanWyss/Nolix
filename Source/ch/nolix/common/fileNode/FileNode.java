@@ -152,7 +152,7 @@ public final class FileNode extends BaseNode {
 	 * Sets the header of this simple persistent specification.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */

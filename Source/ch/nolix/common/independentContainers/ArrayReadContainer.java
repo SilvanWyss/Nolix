@@ -5,7 +5,7 @@ package ch.nolix.common.independentContainers;
 import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 public final class ArrayReadContainer<E> implements Iterable<E> {
@@ -18,7 +18,7 @@ public final class ArrayReadContainer<E> implements Iterable<E> {
 		
 		//Checks if the given array is not null.
 		if (array == null) {
-			throw new NullArgumentException(VariableNameCatalogue.ARRAY);
+			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
 		}
 		
 		//Sets the array of the current array read container.

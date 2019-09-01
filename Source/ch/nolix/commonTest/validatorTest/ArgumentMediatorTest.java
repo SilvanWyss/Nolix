@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.validatorTest;
 
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;
 
@@ -28,7 +28,7 @@ public final class ArgumentMediatorTest extends Test {
 		//execution & verification
 		expect(() -> Validator.suppose(object).isNotNull())
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given argument is null.");
 	}
 	
@@ -41,7 +41,7 @@ public final class ArgumentMediatorTest extends Test {
 		//execution & verification
 		expect(() -> Validator.suppose(object).thatIsNamed("test object").isNotNull())
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given test object is null.");
 	}
 	
@@ -54,7 +54,7 @@ public final class ArgumentMediatorTest extends Test {
 		//execution & verification
 		expect(() -> Validator.suppose(object).thatIsNamed(Object.class).isNotNull())
 		.throwsException()
-		.ofType(NullArgumentException.class)
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given Object is null.");
 	}
 }

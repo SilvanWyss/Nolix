@@ -106,7 +106,7 @@ implements ISmartObject<CE> {
 	 * 
 	 * @param configuration
 	 * @return this configuration element.
-	 * @throws NullArgumentException if the given configuration is null.
+	 * @throws ArgumentIsNullException if the given configuration is null.
 	 */
 	public CE setConfiguration(StandardConfiguration configuration) {
 		

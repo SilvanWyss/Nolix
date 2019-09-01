@@ -952,7 +952,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param backgroundColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public final BWL setBackgroundColor(final Color backgroundColor) {
 		
@@ -971,7 +971,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param backgroundColorGradient
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
@@ -990,7 +990,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param backgroundImage
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given background image is null.
+	 * @throws ArgumentIsNullException if the given background image is null.
 	 */
 	public final BWL setBackgroundImage(final Image backgroundImage) {
 		
@@ -1008,7 +1008,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param baseScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given base scrollbar look is null.
+	 * @throws ArgumentIsNullException if the given base scrollbar look is null.
 	 */
 	public final BWL setBaseScrollbarLook(final ScrollbarLook baseScrollbarLook) {
 		
@@ -1030,7 +1030,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param borderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given border color is null.
+	 * @throws ArgumentIsNullException if the given border color is null.
 	 */
 	public final BWL setBorderColors(final Color borderColor) {
 		
@@ -1071,7 +1071,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param bottomBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given bottom border color is null.
+	 * @throws ArgumentIsNullException if the given bottom border color is null.
 	 */
 	public final BWL setBottomBorderColor(final Color bottomBorderColor) {
 		
@@ -1123,7 +1123,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param hoverScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given hover scrollbar look is null.
+	 * @throws ArgumentIsNullException if the given hover scrollbar look is null.
 	 */
 	public final BWL setHoverScrollbarLook(final ScrollbarLook hoverScrollbarLook) {
 		
@@ -1145,7 +1145,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param leftBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given left border color is null.
+	 * @throws ArgumentIsNullException if the given left border color is null.
 	 */
 	public final BWL setLeftBorderColor(final Color leftBorderColor) {
 		
@@ -1215,7 +1215,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param rightBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given right border color is null.
+	 * @throws ArgumentIsNullException if the given right border color is null.
 	 */
 	public final BWL setRightBorderColor(final Color rightBorderColor) {
 		
@@ -1267,7 +1267,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param selectionScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given selection scrollbar look is null.
+	 * @throws ArgumentIsNullException if the given selection scrollbar look is null.
 	 */
 	public final BWL setSelectionScrollbarLook(final ScrollbarLook selectionScrollbarLook) {
 		
@@ -1289,7 +1289,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param topBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given top border color is null.
+	 * @throws ArgumentIsNullException if the given top border color is null.
 	 */
 	public final BWL setTopBorderColor(final Color topBorderColor) {
 		

@@ -4,7 +4,7 @@ package ch.nolix.common.test;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -24,7 +24,7 @@ public final class DoubleMediator extends Mediator {
 	 * Creates a new double mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	DoubleMediator(final Test test, final double value) {
 		
@@ -40,13 +40,13 @@ public final class DoubleMediator extends Mediator {
 	 * Generates an error if the value of this double mediator does not fulfil the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public void fulfils(final IElementTakerBooleanGetter<Double> condition) {
 		
 		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(value)) {

@@ -42,7 +42,7 @@ public final class NetServer extends Server {
 	 * @param port
 	 * @param HTTPMessage
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given HTTP message is null.
+	 * @throws ArgumentIsNullException if the given HTTP message is null.
 	 * @throws EmptyArgumentException if the given HTTP message is blank.
 	 */
 	public NetServer(final int port, final String HTTPMessage) {

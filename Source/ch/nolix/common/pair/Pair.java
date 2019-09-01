@@ -26,8 +26,8 @@ public class Pair<E1, E2> {
 	 * 
 	 * @param element1
 	 * @param element2
-	 * @throws NullArgumentException if the given element 1 is null.
-	 * @throws NullArgumentException if the given element 2 is null.
+	 * @throws ArgumentIsNullException if the given element 1 is null.
+	 * @throws ArgumentIsNullException if the given element 2 is null.
 	 */
 	public Pair(final E1 element1, final E2 element2) {
 		

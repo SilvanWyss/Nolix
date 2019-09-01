@@ -3,7 +3,7 @@ package ch.nolix.common.test;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
@@ -27,7 +27,7 @@ public class ThrownExceptionMediator extends Mediator {
 	 * Creates a new {@link ThrownExceptionMediator} that will belong to the given test.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	ThrownExceptionMediator(final Test test) {
 		
@@ -45,7 +45,7 @@ public class ThrownExceptionMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param exception
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws NullArgumentExcepiton if the given exception is null.
 	 */
 	ThrownExceptionMediator(final Test test, final Throwable exception) {
@@ -55,7 +55,7 @@ public class ThrownExceptionMediator extends Mediator {
 		
 		//Checks if the given exception is not null.
 		if (exception == null) {
-			throw new NullArgumentException(Exception.class);
+			throw new ArgumentIsNullException(Exception.class);
 		}
 		
 		//Sets the exception of the current thrown exception mediator.
@@ -96,13 +96,13 @@ public class ThrownExceptionMediator extends Mediator {
 	 * Generates an error if the exception of the current {@link ThrownExceptionMediator}
 	 * does not have the given message.
 	 * 
-	 * @throws NullArgumentException if the given message is null.
+	 * @throws ArgumentIsNullException if the given message is null.
 	 */
 	public final void withMessage(final String message) {
 		
 		//Checks if the given message is not null.
 		if (message == null) {
-			throw new NullArgumentException(VariableNameCatalogue.MESSAGE);
+			throw new ArgumentIsNullException(VariableNameCatalogue.MESSAGE);
 		}
 		
 		//Handles the case that the current thrown exception mediator has an exception.

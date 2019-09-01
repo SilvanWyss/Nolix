@@ -50,7 +50,7 @@ implements IGenericReplyingSender<M, R> {
 	 * Sets the replier of this end point.
 	 * 
 	 * @param replier
-	 * @throws NullArgumentException if the given replier is null.
+	 * @throws ArgumentIsNullException if the given replier is null.
 	 */
 	public void setReplier(final IGenericReplier<M, R> replier) {
 		

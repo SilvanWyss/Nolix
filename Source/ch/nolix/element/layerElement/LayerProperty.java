@@ -38,11 +38,11 @@ public final class LayerProperty<V> implements Named {
 	 * @param defaultValue
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given default value is null.
-	 * @throws NullArgumentException if the given value creator is null.
-	 * @throws NullArgumentException if the given specification creator is null.
+	 * @throws ArgumentIsNullException if the given default value is null.
+	 * @throws ArgumentIsNullException if the given value creator is null.
+	 * @throws ArgumentIsNullException if the given specification creator is null.
 	 */
 	public LayerProperty(
 		final String name,		
@@ -169,7 +169,7 @@ public final class LayerProperty<V> implements Named {
 	 * Sets the value of this property.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws ArgumentIsNullException if the given value is null.
 	 */
 	public void setValue(final V value) {
 		
@@ -212,7 +212,7 @@ public final class LayerProperty<V> implements Named {
 	 * Sets the base property of this property.
 	 * 
 	 * @param baseProperty
-	 * @throws NullArgumentException if the given base property is null.
+	 * @throws ArgumentIsNullException if the given base property is null.
 	 * @throws InvalidArgumentException if this property has a base property.
 	 */
 	@SuppressWarnings("unchecked")

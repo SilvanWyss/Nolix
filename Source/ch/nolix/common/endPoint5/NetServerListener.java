@@ -22,7 +22,7 @@ final class NetServerListener implements ch.nolix.common.endPoint3.IEndPointTake
 	 * Creates a new net server sub end point taker with the given duplex contorller taker.
 	 * 
 	 * @param duplexControllerTaker
-	 * @throws NullArgumentException
+	 * @throws ArgumentIsNullException
 	 * if the given net server is null.
 	 */
 	public NetServerListener(final NetServer netServer) {
@@ -48,7 +48,7 @@ final class NetServerListener implements ch.nolix.common.endPoint3.IEndPointTake
 	 * Lets this net server sub end point taker take the given end point.
 	 * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given end point is null.
+	 * @throws ArgumentIsNullException if the given end point is null.
 	 * @throws InvalidArgumentException if the given end point is not a NetEndPoint.
 	 */
 	@Override

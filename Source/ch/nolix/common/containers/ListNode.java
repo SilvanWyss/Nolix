@@ -29,7 +29,7 @@ final class ListNode<E> {
 	 * Creates a new {@link ListNode} with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public ListNode(final E element) {
 		setElement(element);
@@ -99,7 +99,7 @@ final class ListNode<E> {
 	 * Sets the element of the current {@link ListNode}.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public void setElement(final E element) {
 		
@@ -118,7 +118,7 @@ final class ListNode<E> {
 	 * Sets the next node of the current {@link ListNode}.
 	 * 
 	 * @param nextNode
-	 * @throws NullArgumentException if the given next node is null.
+	 * @throws ArgumentIsNullException if the given next node is null.
 	 */
 	public void setNextNode(final ListNode<E> nextNode) {
 		

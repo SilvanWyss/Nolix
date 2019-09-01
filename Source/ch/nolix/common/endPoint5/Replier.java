@@ -20,7 +20,7 @@ final class Replier implements IReplier {
 	 * Creates a new receiver that belongs to the given net duplex controller.
 	 * 
 	 * @param netEndPoint
-	 * @throws NullArgumentException if the given net duplex controller is null.
+	 * @throws ArgumentIsNullException if the given net duplex controller is null.
 	 */
 	public Replier(final NetEndPoint netEndPoint) {
 		

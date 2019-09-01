@@ -23,8 +23,8 @@ public final class ListUsingMediator<E> {
 	 * 
 	 * @param list
 	 * @param extractor
-	 * @throws NullArgumentException if the given list is null.
-	 * @throws NullArgumentException if the given extractor is null.
+	 * @throws ArgumentIsNullException if the given list is null.
+	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
 	ListUsingMediator(List<E> list, IElementTakerElementGetter<Object, E> extractor) {
 		

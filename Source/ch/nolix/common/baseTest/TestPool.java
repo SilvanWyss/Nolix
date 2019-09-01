@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.skillAPI.Runnable;
 import ch.nolix.common.validator.Validator;
 
@@ -92,7 +92,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test class to this test pool.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws InvalidArgumentException if the given test class is not a testoid class.
 	 */
 	@SuppressWarnings("unchecked")
@@ -116,7 +116,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test classes to this test pool.
 	 * 
 	 * @param tests
-	 * @throws NullArgumentException if one of the given test is null.
+	 * @throws ArgumentIsNullException if one of the given test is null.
 	 */
 	protected final void addTestClass(final Class<?>... testClasses) {
 		
@@ -131,14 +131,14 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test pool to this test pool.
 	 * 
 	 * @param testPool
-	 * @throws NullArgumentException if the given test pool is null.
+	 * @throws ArgumentIsNullException if the given test pool is null.
 	 * @throws InvalidArgumentException if the given test pool contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool testPool) {
 		
 		//Checks if the given test pool is not null.
 		if (testPool == null) {
-			throw new NullArgumentException("test pool");
+			throw new ArgumentIsNullException("test pool");
 		}
 		
 		//Checks if the given test pool does not contain this test pool recursively.
@@ -157,7 +157,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test pools to this test pool.
 	 * 
 	 * @param testPools
-	 * @throws NullArgumentException if one of the given test pools is null.
+	 * @throws ArgumentIsNullException if one of the given test pools is null.
 	 * @throws InvalidArgumentException if one of the given test pools contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool... testPools) {

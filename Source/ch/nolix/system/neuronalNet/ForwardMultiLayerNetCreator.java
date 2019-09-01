@@ -120,7 +120,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	 * 
 	 * @param outputFunction
 	 * @return this forward multi layer net creator.
-	 * @throws NullArgumentException if the given output function is null.
+	 * @throws ArgumentIsNullException if the given output function is null.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setOutputFunction(final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction) {
 		
@@ -149,7 +149,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	 * 
 	 * @param weightOutputFunction
 	 * @return this forward multi layer net creator.
-	 * @throws NullArgumentException if the given weight output function is null.
+	 * @throws ArgumentIsNullException if the given weight output function is null.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setWeightOutputFunction(
 		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> weightOutputFunction

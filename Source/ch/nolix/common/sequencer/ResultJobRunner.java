@@ -31,7 +31,7 @@ final class ResultJobRunner<R> extends Thread {
 	 * The {@link ResultJobRunner} will start automatically.
 	 * 
 	 * @param resultJob
-	 * @throws NullArgumentException if the given resultJob is null.
+	 * @throws ArgumentIsNullException if the given resultJob is null.
 	 */
 	public ResultJobRunner(final IElementGetter<R> resultJob) {
 		

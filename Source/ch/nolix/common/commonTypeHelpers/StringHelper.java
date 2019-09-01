@@ -24,7 +24,7 @@ public final class StringHelper {
 	 * @param string
 	 * @param length
 	 * @return a new string that is the given string extended to the given length with spaces.
-	 * @throws NullArgumentException if the given string is null.
+	 * @throws ArgumentIsNullException if the given string is null.
 	 * @throws NegativeArgumentException if the given length is negative.
 	 * @throws InvalidArgumentException if the given string is longer than the given length.
 	 */

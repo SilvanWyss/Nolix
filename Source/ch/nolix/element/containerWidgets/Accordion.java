@@ -65,7 +65,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * Creates a new {@link Accordion} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
 	 * @throws NullArgumetnException if one of the given tabs is null.
 	 */
 	public Accordion(final AccordionTab... tabs) {
@@ -81,7 +81,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * 
 	 * @param tab
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given tab is null.
+	 * @throws ArgumentIsNullException if the given tab is null.
 	 */
 	public Accordion addTab(final AccordionTab tab) {
 		
@@ -108,7 +108,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * 
 	 * @param tabs
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
 	 * @throws NullArgumetnException if one of the given tabs is null.
 	 */
 	public Accordion addTab(final AccordionTab... tabs) {
@@ -128,7 +128,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * 
 	 * @param tabs
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given tabs is null.
+	 * @throws ArgumentIsNullException if the given tabs is null.
 	 * @throws NullArgumetnException if one of the given tabs is null.
 	 */
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
@@ -271,7 +271,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * 
 	 * @param expansionBehavior
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given expansion behavior is null.
+	 * @throws ArgumentIsNullException if the given expansion behavior is null.
 	 */
 	public Accordion setExpansionBehavior(final AccordionExpansionBehavior expansionBehavior) {
 		

@@ -23,7 +23,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	/**
 	 * Creates a new {@link FrontBrowserGUIClient} that will connect to the given application.
 	 * 
-	 * @throws NullArgumentException if the given application is null.
+	 * @throws ArgumentIsNullException if the given application is null.
 	 */
 	public FrontBrowserGUIClient(final Application<BackGUIClient> application) {
 		
@@ -57,7 +57,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	 * @param port
 	 * @param application
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given application is null.
+	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontBrowserGUIClient(final int port, final String application) {
@@ -94,7 +94,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	 * @param port
 	 * @param application
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given application is null.
+	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontBrowserGUIClient(final String ip, final int port, final String application) {

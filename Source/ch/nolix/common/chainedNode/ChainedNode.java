@@ -51,7 +51,7 @@ public final class ChainedNode implements Headered {
 	 * Creates a new {@link ChainedNode} that consists of the given document node.
 	 * 
 	 * @param node
-	 * @throws NullArgumentException if the given document node is null.
+	 * @throws ArgumentIsNullException if the given document node is null.
 	 */
 	public ChainedNode(final Node node) {
 		
@@ -71,8 +71,8 @@ public final class ChainedNode implements Headered {
 	 * 
 	 * @param node
 	 * @param nextStatement
-	 * @throws NullArgumentException if the given document node is null.
-	 * @throws NullArgumentException if the given next statement is null.
+	 * @throws ArgumentIsNullException if the given document node is null.
+	 * @throws ArgumentIsNullException if the given next statement is null.
 	 */
 	public ChainedNode(final Node node, final ChainedNode nextStatement) {
 		
