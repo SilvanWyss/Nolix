@@ -2,7 +2,7 @@
 package ch.nolix.system.client;
 
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.skillAPI.Clearable;
@@ -156,7 +156,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 * Lets the current {@link Server} take the given client.
 	 * 
 	 * @param client
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the given client does not have a target
 	 * and if the current {@link Server} does not contain a main {@link Applicaiton}.
 	 */
@@ -177,7 +177,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	/**
 	 * @param name
 	 * @return the {@link Application} with the given name from the current {@link Server}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Server} does not contain a {@link Application} with the given name.
 	 */
 	final Application<?> getRefApplicationByName(final String name) {
@@ -187,14 +187,14 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	//package-visible method
 	/**
 	 * @return the main {@link Application} of the current {@link Server}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Server} does not contain a main {@link Application}.
 	 */
 	final Application<?> getRefMainApplication() {
 		
 		//Checks if the current Server contains a main Application.
 		if (!containsMainApplication()) {
-			throw new ArgumentMissesAttributeException(this, "main Application");
+			throw new ArgumentDoesNotHaveAttributeException(this, "main Application");
 		}
 		
 		return mainApplication;

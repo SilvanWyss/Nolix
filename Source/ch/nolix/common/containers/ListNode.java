@@ -3,7 +3,7 @@ package ch.nolix.common.containers;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -72,7 +72,7 @@ final class ListNode<E> {
 		
 		//Checks if the current list node has a next node.
 		if (!hasNextNode()) {
-			throw new ArgumentMissesAttributeException(this, "next node");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}
 		
 		return nextNode;
@@ -134,14 +134,14 @@ final class ListNode<E> {
 	 * Swaps the element of the current {@link ListNode}
 	 * with the element of the next node of the current {@link ListNode}.
 	 * 
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link ListNode} does not have a next node.
 	 */
 	public void swapElementWithNextNode() {
 		
 		//Checks if the current list node has a next node.
 		if (!hasNextNode()) {
-			throw new ArgumentMissesAttributeException(this, "next node");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}
 				
 		final E element = nextNode.getElement();

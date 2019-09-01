@@ -4,7 +4,7 @@ package ch.nolix.element.containerWidgets;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -75,7 +75,7 @@ extends BorderWidget<C, BWS> {
 	//method
 	/**
 	 * @return the role of the current {@link ContainerWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ContainerWidget} does not have a role.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ContainerWidget} does not have a role.
 	 */
 	public final ContainerRole getRole() {
 		
@@ -133,13 +133,13 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link ContainerWidget} does not have a role.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ContainerWidget} does not have a role.
 	 */
 	private void supposeHasRole() {
 		
 		//Checks if the current container has a role.
 		if (!hasRole()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ROLE);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
 }

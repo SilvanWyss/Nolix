@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.license;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
@@ -94,7 +94,7 @@ public class LicenseManager {
 	 * 
 	 * @param type
 	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws ArgumentMissesAttributeException if the {@link LicenseManager}
+	 * @throws ArgumentDoesNotHaveAttributeException if the {@link LicenseManager}
 	 * does not contain a {@link Permission} of the given type.
 	 */
 	public static <P extends Permission> InternalLicenseManager requirePermission(final Class<P> type) {

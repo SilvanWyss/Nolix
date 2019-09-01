@@ -4,7 +4,7 @@ package ch.nolix.common.containers;
 //Java import
 import java.util.Iterator;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //package visible class
@@ -80,14 +80,14 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of this sub container iterator.
-	 * @throws ArgumentMissesAttributeException if this sub container iterator does not have a next element.
+	 * @throws ArgumentDoesNotHaveAttributeException if this sub container iterator does not have a next element.
 	 */
 	@Override
 	public E next() {
 		
 		//Checks if this sub container iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(this, "next element");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
 		}
 		
 		currentIndex++;

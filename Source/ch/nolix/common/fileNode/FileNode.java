@@ -72,7 +72,7 @@ public final class FileNode extends BaseNode {
 	//method
 	/**
 	 * @return true if this simple persistent specification has a header.
-	 * @throws ArgumentMissesAttributeException if this simple persistent specification
+	 * @throws ArgumentDoesNotHaveAttributeException if this simple persistent specification
 	 * does not have a header.
 	 */
 	@Override

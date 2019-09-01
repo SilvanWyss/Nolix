@@ -5,7 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.sequencer.Future;
 import ch.nolix.common.sequencer.Sequencer;
@@ -209,7 +209,7 @@ implements ISmartObject<N> {
 	//method
 	/**
 	 * @return the output of this neuron.
-	 * @throws ArgumentMissesAttributeException if this neuron does not have an output after firing.
+	 * @throws ArgumentDoesNotHaveAttributeException if this neuron does not have an output after firing.
 	 */
 	public final O getRefOutput() {
 		
@@ -218,7 +218,7 @@ implements ISmartObject<N> {
 		}
 		
 		if (output == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.OUTPUT);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.OUTPUT);
 		}
 		
 		return output;

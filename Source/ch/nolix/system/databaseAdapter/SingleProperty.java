@@ -4,7 +4,7 @@ package ch.nolix.system.databaseAdapter;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -129,7 +129,7 @@ extends DataPropertyoid<V> {
 	//method
 	private void supposeHasValue() {
 		if (!hasValue()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);

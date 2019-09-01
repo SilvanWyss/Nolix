@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Recalculable;
@@ -178,12 +178,12 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	//method
 	/**
 	 * @return the {@link IVisualizer} of the current {@link GUI}.
-	 * @throws ArgumentMissesAttributeException if the current {@link GUI} does not have a {@link IVisualizer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link GUI} does not have a {@link IVisualizer}.
 	 */
 	protected final IVisualizer getRefVisualizer() {
 		
 		if (visualizer == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.VISUALIZER);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VISUALIZER);
 		}
 		
 		return visualizer;

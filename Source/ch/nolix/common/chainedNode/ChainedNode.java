@@ -6,7 +6,7 @@ import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
@@ -169,7 +169,7 @@ public final class ChainedNode implements Headered {
 	//method
 	/**
 	 * @return the header of the current {@link ChainedNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -177,7 +177,7 @@ public final class ChainedNode implements Headered {
 		//Checks if the current statement has a header.
 		//This pre-check provides a more suitable error message than the common checks.
 		if (!hasHeader()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 		
 		return node.getHeader();
@@ -186,7 +186,7 @@ public final class ChainedNode implements Headered {
 	//method
 	/**
 	 * @return a string representation of the next {@link ChainedNode} of the current {@link ChainedNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
 	 */
 	public String getNextNodeAsString() {
 		return getRefNextNode().toString();
@@ -219,7 +219,7 @@ public final class ChainedNode implements Headered {
 	 * @param index
 	 * @return the attribute at the given index from the current {@link ChainedNode}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode}
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode}
 	 * does not contain an attribute at the given index.
 	 */
 	public Node getRefAttributeAt(final int index) {
@@ -237,14 +237,14 @@ public final class ChainedNode implements Headered {
 	//method
 	/**
 	 * @return the next {@link ChainedNode} of the current {@link ChainedNode}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
 	 */
 	public ChainedNode getRefNextNode() {
 		
 		//Checks if the current statement has a next statement.
 		if (!hasNextNode()) {
-			throw new ArgumentMissesAttributeException(this, "next statement");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next statement");
 		}
 		
 		return nextNode;

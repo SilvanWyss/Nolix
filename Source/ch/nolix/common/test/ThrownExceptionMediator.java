@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
 
 //class
@@ -187,7 +187,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 * }
 			 */
 			if (exception == null) {
-				throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.EXCEPTION);
+				throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.EXCEPTION);
 			}
 		
 		return exception;

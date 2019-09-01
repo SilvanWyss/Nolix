@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.SequencePattern;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.sequencer.Sequencer;
@@ -224,7 +224,7 @@ public final class ListTest extends Test {
 			
 			expect(() -> iterator.next())
 			.throwsException()
-			.ofType(ArgumentMissesAttributeException.class);
+			.ofType(ArgumentDoesNotHaveAttributeException.class);
 	}
 	
 	//test case

@@ -3,7 +3,7 @@ package ch.nolix.common.fileNode;
 
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -75,7 +75,7 @@ public final class SubNode extends BaseNode {
 	//method
 	/**
 	 * @return the header of this sub specification.
-	 * @throws ArgumentMissesAttributeException if this sub specification
+	 * @throws ArgumentDoesNotHaveAttributeException if this sub specification
 	 * does not have a header.
 	 */
 	@Override

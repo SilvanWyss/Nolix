@@ -11,7 +11,7 @@ import ch.nolix.common.endPoint5.NetEndPoint;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -120,7 +120,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	public final String getInfoString() {
 		
 		if (infoString == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.INFO_STRING);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.INFO_STRING);
 		}
 		
 		return infoString;
@@ -131,7 +131,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @return the context of the {@link Application} the current {@link Client} belongs to.
 	 * @throws InvalidArgumentException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
-	 * @throws ArgumentMissesAttributeException if the {@link Application},
+	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application},
 	 * the current {@link Client} belongs to, does not have a context.
 	 */
 	public final Object getRefApplicationContext() {
@@ -209,7 +209,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	/**
 	 * Opens the next session of the current {@link Client}.
 	 * 
-	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a next session.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a next session.
 	 */
 	public final void openNextSession() {
 		
@@ -224,7 +224,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	/**
 	 * Opens the previous session of the current {@link Client}.
 	 * 
-	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a previous session.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a previous session.
 	 */
 	public final void openPreviousSession() {
 		
@@ -743,37 +743,37 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a current session.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a current session.
 	 */	
 	private void supposeContainsCurrentSession() {
 		
 		//Checks if the current client contains a current session.
 		if (!containsCurrentSession()) {
-			throw new ArgumentMissesAttributeException(this, "current session");
+			throw new ArgumentDoesNotHaveAttributeException(this, "current session");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a next session.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a next session.
 	 */	
 	private void supposeContainsNextSession() {
 		
 		//Checks if the current client contains a next session.
 		if (!containsNextSession()) {
-			throw new ArgumentMissesAttributeException(this, "next session");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next session");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a previous session.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a previous session.
 	 */	
 	private void supposeContainsPreviousSession() {
 		
 		//Checks if the current client contains a previous session.
 		if (!containsPreviousSession()) {
-			throw new ArgumentMissesAttributeException(this, "previous session");
+			throw new ArgumentDoesNotHaveAttributeException(this, "previous session");
 		}
 	}
 	

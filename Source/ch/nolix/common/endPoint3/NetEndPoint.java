@@ -82,7 +82,7 @@ public class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this end point.
-	 * @throws ArgumentMissesAttributeException if this net end point does not have a target.
+	 * @throws ArgumentDoesNotHaveAttributeException if this net end point does not have a target.
 	 */
 	@Override
 	public String getTarget() {

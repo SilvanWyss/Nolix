@@ -5,7 +5,7 @@ package ch.nolix.common.containers;
 import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -63,7 +63,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of the current {@link ArrayReadContainerIterator}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link ArrayReadContainerIterator} iterator does not have a next element.
 	 */
 	@Override
@@ -72,7 +72,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		//Checks if the current ArrayReadContainerIterator has a next element.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (nextElementIndex >= array.length) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
 		}
 		
 		final var element = array[nextElementIndex];

@@ -8,7 +8,7 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -100,7 +100,7 @@ implements
 	//method
 	/**
 	 * @return the base entity of this entity.
-	 * @throws ArgumentMissesAttributeException if this entity does not have a base entity.
+	 * @throws ArgumentDoesNotHaveAttributeException if this entity does not have a base entity.
 	 */
 	protected final E getRefBaseEntity() {
 		
@@ -208,13 +208,13 @@ implements
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if this entity does not have a base entity.
+	 * @throws ArgumentDoesNotHaveAttributeException if this entity does not have a base entity.
 	 */
 	private void supposeHasBaseEntity() {
 		
 		//Checks if this entity has a base entity.
 		if (!hasBaseEntity()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				"base entity"
 			);

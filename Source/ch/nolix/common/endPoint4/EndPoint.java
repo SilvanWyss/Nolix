@@ -4,7 +4,7 @@ package ch.nolix.common.endPoint4;
 import ch.nolix.common.communicationAPI.IGenericReplier;
 import ch.nolix.common.communicationAPI.IGenericReplyingSender;
 import ch.nolix.common.communicationAPI.IReplier;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
 
@@ -67,7 +67,7 @@ implements IGenericReplyingSender<M, R> {
 	//method
 	/**
 	 * @return the replier of this end point.
-	 * @throws ArgumentMissesAttributeException if this end point does not have a replier.
+	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a replier.
 	 */
 	protected final IGenericReplier<M, R> getRefReplier() {
 		
@@ -81,7 +81,7 @@ implements IGenericReplyingSender<M, R> {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
-				throw new ArgumentMissesAttributeException(this, IReplier.class);
+				throw new ArgumentDoesNotHaveAttributeException(this, IReplier.class);
 			}
 		}
 		

@@ -2,7 +2,7 @@
 package ch.nolix.element.configuration;
 
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.baseAPI.IConfigurableElement;
@@ -112,13 +112,13 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	//method
 	/**
 	 * @return the max selector level of this deep configuration.
-	 * @throws ArgumentMissesAttributeException if this deep configuration does not have a max selector level.
+	 * @throws ArgumentDoesNotHaveAttributeException if this deep configuration does not have a max selector level.
 	 */
 	public int getMaxSelectorLevel() {
 		
 		//Checks if this deep configuration has a max selector level.
 		if (!hasMaxSelectorLevel()) {
-			throw new ArgumentMissesAttributeException(this, "max selector level");
+			throw new ArgumentDoesNotHaveAttributeException(this, "max selector level");
 		}
 		
 		return maxSelectorLevel.getValue();

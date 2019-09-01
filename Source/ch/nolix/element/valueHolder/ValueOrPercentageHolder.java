@@ -3,7 +3,7 @@ package ch.nolix.element.valueHolder;
 
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 
@@ -92,7 +92,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		
 		//Checks if this value or percentage holder has a value.
 		if (!hasValue) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);
@@ -111,7 +111,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		
 		//Checks if this value or percentage holder has a percentage.
 		if (hasValue) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.PERCENTAGE
 			);

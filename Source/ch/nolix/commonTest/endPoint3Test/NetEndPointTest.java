@@ -6,7 +6,7 @@ import ch.nolix.common.endPoint3.EndPoint;
 import ch.nolix.common.endPoint3.IEndPointTaker;
 import ch.nolix.common.endPoint3.NetEndPoint;
 import ch.nolix.common.endPoint3.NetServer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
 
 //test class
@@ -93,7 +93,7 @@ public final class NetEndPointTest extends Test {
 		public EndPoint getLastEndPoint() {
 			
 			if (!hasLastEndPoint()) {
-				throw new ArgumentMissesAttributeException(this, "last end point");
+				throw new ArgumentDoesNotHaveAttributeException(this, "last end point");
 			}
 			
 			return lastEndPoint;

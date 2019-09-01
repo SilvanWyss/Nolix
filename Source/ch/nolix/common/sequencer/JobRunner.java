@@ -4,7 +4,7 @@ package ch.nolix.common.sequencer;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 
@@ -258,14 +258,14 @@ final class JobRunner extends Thread {
 	//method
 	/**
 	 * @return the error of the current {@link JobRunner}.
-	 * @throws ArgumentMissesAttributeException if the current  {@link JobRunner} does not have an error.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current  {@link JobRunner} does not have an error.
 	 */
 	public Throwable getError() {
 		
 		//Checks if the current JobRunner has an error.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (error == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
 		}
 		
 		return error;

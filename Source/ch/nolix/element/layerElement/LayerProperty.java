@@ -5,7 +5,7 @@ import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -110,7 +110,7 @@ public final class LayerProperty<V> implements Named {
 	//method
 	/**
 	 * @return the value of this property.
-	 * @throws ArgumentMissesAttributeException if this property does not have a value.
+	 * @throws ArgumentDoesNotHaveAttributeException if this property does not have a value.
 	 */
 	public V getValue() {
 		
@@ -248,13 +248,13 @@ public final class LayerProperty<V> implements Named {
 
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if this property does not have a value.
+	 * @throws ArgumentDoesNotHaveAttributeException if this property does not have a value.
 	 */
 	private void supposeHasValue() {
 		
 		//Checks if this property has a value.
 		if (!hasValue()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);

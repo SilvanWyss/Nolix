@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
@@ -239,7 +239,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	//method
 	/**
 	 * @return the base look of the current {@link WidgetLook}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link WidgetLook} does not have a base look.
 	 */
 	protected final WL getRefBaseLook() {
@@ -278,12 +278,12 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link WidgetLook} does not have a base look.
 	 */
 	private void supposeHasBaseLook() {
 		if (!hasBaseLook()) {
-			throw new ArgumentMissesAttributeException(this, "base look");
+			throw new ArgumentDoesNotHaveAttributeException(this, "base look");
 		}
 	}
 }

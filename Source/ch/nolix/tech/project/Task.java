@@ -204,7 +204,7 @@ public final class Task extends Element<Task> implements ITask {
 	//method
 	/**
 	 * @return the size of this task.
-	 * @throws ArgumentMissesAttributeException if this task is not assigned a size.
+	 * @throws ArgumentDoesNotHaveAttributeException if this task is not assigned a size.
 	 */
 	@Override
 	public TaskSize getSize() {

@@ -5,7 +5,7 @@ package ch.nolix.common.containers;
 import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 
 //package-visible class
 final class MultiReadContainerIterator<E> implements Iterator<E> {
@@ -41,7 +41,7 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 	public E next() {
 		
 		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.NEXT_ELEMENT
 			);

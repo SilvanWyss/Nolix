@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -168,14 +168,14 @@ public final class LocalEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this local end point.
-	 * @throws ArgumentMissesAttributeException if this local end point does not have a target.
+	 * @throws ArgumentDoesNotHaveAttributeException if this local end point does not have a target.
 	 */
 	@Override
 	public String getTarget() {
 		
 		//Checks if this local end point has a target.
 		if (!hasTarget()) {
-			throw new ArgumentMissesAttributeException(this, "target");
+			throw new ArgumentDoesNotHaveAttributeException(this, "target");
 		}
 		
 		return target;

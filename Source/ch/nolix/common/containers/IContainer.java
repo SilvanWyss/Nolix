@@ -14,7 +14,7 @@ import ch.nolix.common.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IElementTakerIntGetter;
 import ch.nolix.common.functionAPI.IElementTakerLongGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.pair.Pair;
@@ -815,7 +815,7 @@ public interface IContainer<E> extends Iterable<E> {
 			i++;
 		}
 		
-		throw new ArgumentMissesAttributeException(this, "element at " + index);
+		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
 	}
 	
 	//default method
@@ -1067,7 +1067,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
@@ -1081,7 +1081,7 @@ public interface IContainer<E> extends Iterable<E> {
 			}
 		}
 		
-		throw new ArgumentMissesAttributeException(this, "element the given selector selects");
+		throw new ArgumentDoesNotHaveAttributeException(this, "element the given selector selects");
 	}
 	
 	//default method

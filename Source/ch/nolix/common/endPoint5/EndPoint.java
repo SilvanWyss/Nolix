@@ -4,7 +4,7 @@ package ch.nolix.common.endPoint5;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.controllerAPI.IDataProviderController;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
@@ -180,13 +180,13 @@ public abstract class EndPoint extends OptionalClosableElement implements IDataP
 	//method
 	/**
 	 * @return the receiver controller of this duplex controller.
-	 * @throws ArgumentMissesAttributeException if this duplex controller does not have a receiver controller.
+	 * @throws ArgumentDoesNotHaveAttributeException if this duplex controller does not have a receiver controller.
 	 */
 	protected IDataProviderController getRefReceiverController() {
 		
 		//Checks if this duplex controller has a receiver controller.
 		if (!hasReceiverController()) {
-			throw new ArgumentMissesAttributeException(this, "receiver controller");
+			throw new ArgumentDoesNotHaveAttributeException(this, "receiver controller");
 		}
 		
 		return receiverController;

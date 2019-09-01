@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -150,7 +150,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	//method
 	/**
 	 * @return the background color of the current {@link Area}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Area} does not have a background color.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Area} does not have a background color.
 	 */
 	public Color getBackgroundColor() {
 		
@@ -358,14 +358,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Area} does not have a background color.
 	 */
 	private void supposeHasBackgroundColor() {
 		
 		//Checks if the current area has a background color.
 		if (!hasBackgroundColor()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.BACKGROUND_COLOR
 			);

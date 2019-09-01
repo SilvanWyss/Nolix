@@ -7,7 +7,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
@@ -363,14 +363,14 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//method
 	/**
 	 * @return the header of this specification.
-	 * @throws ArgumentMissesAttributeException if this specification does not have a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if this specification does not have a header.
 	 */
 	@Override
 	public String getHeader() {
 		
 		//Checks if the current Node has a header.
 		if (!hasHeader()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 		
 		return header;

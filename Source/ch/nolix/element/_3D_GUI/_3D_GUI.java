@@ -9,7 +9,7 @@ import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -177,13 +177,13 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	//method
 	/**
 	 * @return the root shape of this 3D GUI.
-	 * @throws ArgumentMissesAttributeException if this 3D GUI does not have a root shape.
+	 * @throws ArgumentDoesNotHaveAttributeException if this 3D GUI does not have a root shape.
 	 */
 	public final Shape<?> getRefRootShape() {
 		
 		//Checks if this 3D GUI has a root shape.
 		if (!hasRootShape()) {
-			throw new ArgumentMissesAttributeException(this, "root shape");
+			throw new ArgumentDoesNotHaveAttributeException(this, "root shape");
 		}
 		
 		return rootShape;
@@ -355,7 +355,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	/**
 	 * @param shape
 	 * @return a new shape renderer for the given shape from this 3D GUI.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if this 3D GUI does not contain a shape renderer for the given shape.
 	 */
 	protected final IShapeRenderer<?, ?, ?> getShapeRendererFor(final Shape<?> shape) {

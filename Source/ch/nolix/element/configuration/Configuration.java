@@ -6,7 +6,7 @@ import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -330,14 +330,14 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @return the name of this configuration.
-	 * @throws ArgumentMissesAttributeException if this configuration does not have a name.
+	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a name.
 	 */
 	public final String getName() {
 		
 		//Checks if this configuration has a a name.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (name == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
 		}
 		
 		return name;
@@ -346,13 +346,13 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @return the selector name of this configuration.
-	 * @throws ArgumentMissesAttributeException if this configuration does not have a selector name.
+	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector name.
 	 */
 	public final String getSelectorName() {
 		
 		//Checks if this configuration has a selector name.
 		if (!hasSelectorName()) {
-			throw new ArgumentMissesAttributeException(this, "selector name");
+			throw new ArgumentDoesNotHaveAttributeException(this, "selector name");
 		}
 		
 		return selectorName.getValue();
@@ -369,13 +369,13 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @return the selector token of this configuration.
-	 * @throws ArgumentMissesAttributeException if this configuration does not have a selector token.
+	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector token.
 	 */
 	public final String getSelectorToken() {
 		
 		//Checks if this configuration has a selector token.
 		if (!hasSelectorToken()) {
-			throw new ArgumentMissesAttributeException(this, "selector token");
+			throw new ArgumentDoesNotHaveAttributeException(this, "selector token");
 		}
 		
 		return selectorToken.getValue();
@@ -392,13 +392,13 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @return the selector type of this configuration.
-	 * @throws ArgumentMissesAttributeException if this configuration does not have a selector type.
+	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector type.
 	 */
 	public final String getSelectorType() {
 		
 		//Checks if this configuration has a selector type.
 		if (!hasSelectorType()) {
-			throw new ArgumentMissesAttributeException(this, "selector type");
+			throw new ArgumentDoesNotHaveAttributeException(this, "selector type");
 		}
 		
 		return selectorType.getValue();

@@ -175,7 +175,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	//method
 	/**
 	 * @return the header of the current {@link TabContainerTab}.
-	 * @throws ArgumentMissesAttributeException if the current {@link TabContainerTab} does not have a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link TabContainerTab} does not have a header.
 	 */
 	@Override
 	public String getHeader() {

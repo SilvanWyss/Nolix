@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 import ch.nolix.common.containers.List;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflection.MethodHelper;
@@ -99,7 +99,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
 	 * @throws InvalidArgumentException if the {@link Client} of the current {@link Session}
 	 * does not reference the {@link Application} it belongs to.
-	 * @throws ArgumentMissesAttributeException if the {@link Application},
+	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application},
 	 * the {@link Client} of the current {@link Session} belongs to, does not have a context.
 	 */
 	public final Object getRefApplicationContext() {
@@ -242,7 +242,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @param name
 	 * @return the user data method with the given name from the current {@link Session}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Session} does not contain a user data method with the given name.
 	 */
 	private Method getUserDataMethod(final String name) {
@@ -253,7 +253,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @param name
 	 * @return the user run method with the given name from the current {@link Session}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Session} does not contain a user run method with the given name.
 	 */
 	private Method getUserRunMethod(final String name) {

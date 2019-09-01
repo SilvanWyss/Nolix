@@ -7,7 +7,7 @@ import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -201,14 +201,14 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link ConfigurableElement} does not have a token.
 	 */
 	private void supposeHasToken() {
 		
 		//Checks if the current configurable element has a token.
 		if (!hasToken()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.TOKEN);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TOKEN);
 		}
 	}
 }

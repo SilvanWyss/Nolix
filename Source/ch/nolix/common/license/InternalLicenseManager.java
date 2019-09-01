@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.fileSystem.FolderAccessor;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
@@ -185,14 +185,14 @@ public final class InternalLicenseManager {
 	 * 
 	 * @param type
 	 * @return the current {@link InternalLicenseManager}.
-	 * @throws ArgumentMissesAttributeException if the current {@link InternalLicenseManager}
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link InternalLicenseManager}
 	 * does not contain a {@link Permission} of the given type.
 	 */
 	public <FP extends Permission> InternalLicenseManager requirePermission(final Class<FP> type) {
 		
 		//Checks if the current InternalLicenseManager contains a permission of the given type.
 		if (!containsPermission(type)) {
-			throw new ArgumentMissesAttributeException(this, type.getSimpleName());
+			throw new ArgumentDoesNotHaveAttributeException(this, type.getSimpleName());
 		}
 		
 		return this;

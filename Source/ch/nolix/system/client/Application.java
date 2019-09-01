@@ -10,7 +10,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.endPoint5.EndPoint;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
@@ -190,7 +190,7 @@ public class Application<C extends Client<C>> implements Named {
 	//method
 	/**
 	 * @return the context of the current {@link Application}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Application}.does not have a context.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application}.does not have a context.
 	 */
 	public final Object getRefContext() {
 		
@@ -315,13 +315,13 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Application} does not have a context.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a context.
 	 */
 	private void supposeHasContext() {
 		
 		//Checks if the current Application has a context.
 		if (!hasContext()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.CONTEXT);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONTEXT);
 		}
 	}
 }

@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -305,7 +305,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the max height of the current {@link BorderWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BorderWidget} does not have a max height.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max height.
 	 */
 	public final int getMaxHeight() {
 		return maxHeight.getValue().getValue();
@@ -314,7 +314,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the max width of the current {@link BorderWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BorderWidget} does not have a max widt.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max widt.
 	 */
 	public final int getMaxWidth() {
 		return maxWidth.getValue().getValue();
@@ -323,7 +323,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the min height of the current {@link BorderWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BorderWidget} does not have a min height.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a min height.
 	 */
 	public final int getMinHeight() {
 		return minHeight.getValue().getValue();
@@ -332,7 +332,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the min width of the current {@link BorderWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BorderWidget} does not have a min width.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a min width.
 	 */
 	public final int getMinWidth() {
 		return minWidth.getValue().getValue();
@@ -381,7 +381,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the proposal height of the current {@link BorderWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BorderWidget} does not have a proposal height.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a proposal height.
 	 */
 	public final int getProposalHeight() {
 		return proposalHeight.getValue().getValue();
@@ -390,7 +390,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the proposal width of the current {@link BorderWidget}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BorderWidget} does not have a proposal width.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a proposal width.
 	 */
 	public final int getProposalWidth() {
 		return proposalWidth.getValue().getValue();

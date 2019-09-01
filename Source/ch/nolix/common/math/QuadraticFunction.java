@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.math;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -87,14 +87,14 @@ public final class QuadraticFunction {
 	//method
 	/**
 	 * @return the maximum of the current {@link QuadraticFunction}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link QuadraticFunction} does not have a maximum.
 	 */
 	public double getMax() {
 		
 		//Checks if the current quadratic function has a maximum.
 		if (!hasMax()) {
-			throw new ArgumentMissesAttributeException(this, "maximum");
+			throw new ArgumentDoesNotHaveAttributeException(this, "maximum");
 		}
 		
 		return (-b / (2 * a));
@@ -103,14 +103,14 @@ public final class QuadraticFunction {
 	//method
 	/**
 	 * @return the minimum of the current {@link QuadraticFunction}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current{@link QuadraticFunction} does not have a minimum.
 	 */
 	public double getMin() {
 		
 		//Checks if the current quadratic function has a minimum.
 		if (hasMin()) {
-			throw new ArgumentMissesAttributeException(this, "minimum");
+			throw new ArgumentDoesNotHaveAttributeException(this, "minimum");
 		}
 		
 		return (-b / (2 * a));

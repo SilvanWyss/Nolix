@@ -5,7 +5,7 @@ package ch.nolix.common.containers;
 import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -46,7 +46,7 @@ final class MatrixRowIterator<E> implements Iterator<E> {
 	//method
 	private void supposeHasNextElement() {
 		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.NEXT_ELEMENT
 			);

@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -177,7 +177,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private ItemMenu<?> getParentItemMenu() {
 		
 		if (parentItemMenu == null) {
-			throw new ArgumentMissesAttributeException(this, "parent item menu");
+			throw new ArgumentDoesNotHaveAttributeException(this, "parent item menu");
 		}
 		
 		return parentItemMenu;

@@ -4,7 +4,7 @@ package ch.nolix.common.endPoint2;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
@@ -40,14 +40,14 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 	//method
 	/**
 	 * @return the target of the current {@link EndPoint}.
-	 * @throws ArgumentMissesAttributeException if the current {@link EndPoint} does not have a target.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a target.
 	 */
 	public final String getTarget() {
 		
 		//Checks if the current EndPoint has a target.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (this.target == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.TARGET);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TARGET);
 		}
 		
 		return target;
@@ -114,14 +114,14 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 	//method
 	/**
 	 * @return the receiver of the current {@link EndPoint}.
-	 * @throws ArgumentMissesAttributeException if the current {@link EndPoint} does not have a receiver.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver.
 	 */
 	protected final IReceiver getRefReceiver() {
 		
 		//Checks if the current EndPoint has a receiver.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (receiver == null) {
-			throw new ArgumentMissesAttributeException(this, IReceiver.class);
+			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
 		}
 		
 		return receiver;

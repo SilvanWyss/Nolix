@@ -9,7 +9,7 @@ import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -876,7 +876,7 @@ public class Color extends Element<Color> {
 	 * 
 	 * @param webColorStringField
 	 * @return the web color int field that corresponds to the given web color string field.
-	 * @throws ArgumentMissesAttributeException if the {@link Color} class
+	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Color} class
 	 * does not contain a web color int field for the given web color string field.
 	 */
 	private static Field getWebColorIntField(final Field webColorStringField) {
@@ -896,7 +896,7 @@ public class Color extends Element<Color> {
 		}
 		
 		throw
-		new ArgumentMissesAttributeException(
+		new ArgumentDoesNotHaveAttributeException(
 			Color.class,
 			"web color int field for the given web color string field '"
 			+ webColorStringField.getName()

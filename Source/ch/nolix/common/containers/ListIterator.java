@@ -4,7 +4,7 @@ package ch.nolix.common.containers;
 //Java import
 import java.util.Iterator;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 
 //package-visible class
 /**
@@ -49,14 +49,14 @@ final class ListIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of the current {@link ListIterator}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ListIterator} does not have a next element.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ListIterator} does not have a next element.
 	 */
 	@Override
 	public E next() {
 		
 		//Checks if the current list iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(this, "next element");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
 		}
 		
 		final var element = nextNode.getElement();

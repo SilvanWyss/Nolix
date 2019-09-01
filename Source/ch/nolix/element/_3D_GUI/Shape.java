@@ -3,7 +3,7 @@ package ch.nolix.element._3D_GUI;
 
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -77,7 +77,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the render object of this shape.
-	 * @throws ArgumentMissesAttributeException if this shape does not have a render object.
+	 * @throws ArgumentDoesNotHaveAttributeException if this shape does not have a render object.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <RO> RO getRefRenderObject() {
@@ -309,7 +309,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the shape render manager of this shape.
-	 * @throws ArgumentMissesAttributeException if this shape does not have a shape render manager.
+	 * @throws ArgumentDoesNotHaveAttributeException if this shape does not have a shape render manager.
 	 */
 	protected final ShapeRenderManager<S, ?, ?> getRefShapeRenderManager() {
 		
@@ -349,11 +349,11 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if this shape does not have a shape render manager.
+	 * @throws ArgumentDoesNotHaveAttributeException if this shape does not have a shape render manager.
 	 */
 	private void supposeHasShapeRenderManager() {
 		if (!hasShapeRenderManager()) {
-			throw new ArgumentMissesAttributeException(this, ShapeRenderManager.class);
+			throw new ArgumentDoesNotHaveAttributeException(this, ShapeRenderManager.class);
 		}
 	}
 }

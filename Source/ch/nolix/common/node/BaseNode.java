@@ -317,7 +317,7 @@ public abstract class BaseNode implements Headered {
 	 * @param index
 	 * @return the attribute at the given index from the current {@link BaseNode}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws ArgumentMissesAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends BaseNode> S getRefAttributeAt(final int index) {
@@ -365,7 +365,7 @@ public abstract class BaseNode implements Headered {
 	/**
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link BaseNode} does not contain an attribute the given selector selects.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends BaseNode> S getRefFirstAttribute(

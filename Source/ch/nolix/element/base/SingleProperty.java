@@ -5,7 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -70,13 +70,13 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 	//method
 	/**
 	 * @return the value of the current {@link SingleProperty}.
-	 * @throws ArgumentMissesAttributeException if the current {@link SingleProperty} does not have a value.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleProperty} does not have a value.
 	 */
 	public final V getValue() {
 		
 		//Checks if the current SingleProperty has a value.
 		if (value == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.VALUE);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VALUE);
 		}
 		
 		return value;

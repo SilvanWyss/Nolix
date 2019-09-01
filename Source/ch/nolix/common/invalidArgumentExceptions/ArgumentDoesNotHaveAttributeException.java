@@ -3,17 +3,17 @@ package ch.nolix.common.invalidArgumentExceptions;
 
 //class
 /**
- * A {@link ArgumentMissesAttributeException} is a {@link InvalidArgumentException}
+ * A {@link ArgumentDoesNotHaveAttributeException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when an object does undesirably not have a specific attribute.
  * 
- * A {@link ArgumentMissesAttributeException} is not mutable.
+ * A {@link ArgumentDoesNotHaveAttributeException} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-02
  * @lines 90
  */
 @SuppressWarnings("serial")
-public final class ArgumentMissesAttributeException extends InvalidArgumentException {
+public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {
 	
 	//static method
 	/**
@@ -61,14 +61,14 @@ public final class ArgumentMissesAttributeException extends InvalidArgumentExcep
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentMissesAttributeException}
+	 * Creates a new {@link ArgumentDoesNotHaveAttributeException}
 	 * for the given argument that does not have the attribute of the given attribute type.
 	 * 
 	 * @param argument
 	 * @param attributeType
 	 * @throws NullArgumentException if the given argument is null.
 	 */
-	public ArgumentMissesAttributeException(final Object argument, final Class<?> attributeType) {
+	public ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not have a " + createSafeAttributeType(attributeType));
@@ -76,7 +76,7 @@ public final class ArgumentMissesAttributeException extends InvalidArgumentExcep
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentMissesAttributeException}
+	 * Creates a new {@link ArgumentDoesNotHaveAttributeException}
 	 * for the given argument that does not have the desired attribute that has the given attribute name.
 	 * 
 	 * @param argument
@@ -85,7 +85,7 @@ public final class ArgumentMissesAttributeException extends InvalidArgumentExcep
 	 * @throws RuntimeException if the given attribute name is empty.
 	 * @throws RuntimeException if the given attribute name is blank.
 	 */
-	public ArgumentMissesAttributeException(final Object argument, final String attributeName) {
+	public ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not have a " + createSafeAttribtueName(attributeName));

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.sequencer.Future;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -50,7 +50,7 @@ public final class ImageBuilder implements IImageBuilder {
 		final var futureWithError = futures.getRefFirstOrNull(f -> f.caughtError());
 		
 		if (futureWithError == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
 		}
 		
 		return futureWithError.getError();

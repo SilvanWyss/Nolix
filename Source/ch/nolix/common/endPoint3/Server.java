@@ -2,7 +2,7 @@
 package ch.nolix.common.endPoint3;
 
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.skillAPI.Clearable;
@@ -132,7 +132,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 	 * Lets the current {@link Server} take the given endPoint.
 	 * 
 	 * @param endPoint
-	 * @throws ArgumentMissesAttributeException if
+	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link Server} does not have an arbitrary endPointTaker
 	 * or does not contain an endPointTaker
 	 * with the same name as the target of the given endPointTaker. 
@@ -168,7 +168,7 @@ public class Server extends OptionalClosableElement implements Clearable<Server>
 		//Checks if the current Server has a main IEndPointTaker.
 		//For a better performance, this method does not use all comfortable methods.
 		if (mainEndPointTaker == null) {
-			throw new ArgumentMissesAttributeException(this, "main IEndPointTaker");
+			throw new ArgumentDoesNotHaveAttributeException(this, "main IEndPointTaker");
 		}
 		
 		return mainEndPointTaker;

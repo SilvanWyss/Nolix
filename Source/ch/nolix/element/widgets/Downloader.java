@@ -8,7 +8,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -208,7 +208,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	//method
 	private void supposeHasFileGetter() {
 		if (!hasFileGetter()) {
-			throw new ArgumentMissesAttributeException(this, "file getter");
+			throw new ArgumentDoesNotHaveAttributeException(this, "file getter");
 		}
 	}
 }

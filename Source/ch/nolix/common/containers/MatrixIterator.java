@@ -5,7 +5,7 @@ package ch.nolix.common.containers;
 import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -52,7 +52,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of the current {@link MatrixIterator}.
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link MatrixIterator} does not have a next element.
 	 */
 	@Override
@@ -68,14 +68,14 @@ final class MatrixIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link MatrixIterator} does not have a next element.
 	 */
 	private void supposeHasNextElement() {
 		
 		//Checks if this matrix iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.NEXT_ELEMENT
 			);

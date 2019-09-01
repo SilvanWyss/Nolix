@@ -9,7 +9,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Freezable;
 import ch.nolix.common.validator.Validator;
@@ -149,7 +149,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	public String getName() {
 		
 		if (name == null) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
 		}
 		
 		return name;
@@ -292,7 +292,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	//method
 	private void supposeHasValue() {
 		if (!hasValue()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.VALUE);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VALUE);
 		}
 	}
 	

@@ -6,7 +6,7 @@ import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
@@ -735,7 +735,7 @@ implements Clearable<Console> {
 		
 		//Checks if this console has a secret edit line.
 		if (!isReadingSecretLine()) {
-			throw new ArgumentMissesAttributeException(this, "secret edit line");
+			throw new ArgumentDoesNotHaveAttributeException(this, "secret edit line");
 		}
 		
 		return secretEditLine;

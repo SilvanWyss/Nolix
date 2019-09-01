@@ -3,7 +3,7 @@ package ch.nolix.common.endPoint3;
 
 import ch.nolix.common.communicationAPI.IReplier;
 import ch.nolix.common.communicationAPI.IReplyingSender;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
 
@@ -70,7 +70,7 @@ implements IReplyingSender {
 	//method
 	/**
 	 * @return the replier of this end point.
-	 * @throws ArgumentMissesAttributeException if this end point does not have a replier.
+	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a replier.
 	 */
 	protected final IReplier getRefReplier() {
 		
@@ -84,7 +84,7 @@ implements IReplyingSender {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
-				throw new ArgumentMissesAttributeException(this, IReplier.class);
+				throw new ArgumentDoesNotHaveAttributeException(this, IReplier.class);
 			}
 		}
 		

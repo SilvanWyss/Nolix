@@ -4,7 +4,7 @@ package ch.nolix.system.neuron;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.neuronoid.InputConnection;
 import ch.nolix.system.neuronoid.Neuronoid;
@@ -175,7 +175,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	/**
 	 * Lets this neuron fire.
 	 * 
-	 * @throws ArgumentMissesAttributeException if this neuron does not have an output function.
+	 * @throws ArgumentDoesNotHaveAttributeException if this neuron does not have an output function.
 	 */
 	@Override
 	public void fire() {
@@ -185,7 +185,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	//method
 	/**
 	 * @return the output function of this neuron. 
-	 * @throws ArgumentMissesAttributeException if this neuron does not have an output function.
+	 * @throws ArgumentDoesNotHaveAttributeException if this neuron does not have an output function.
 	 */
 	private IElementTakerElementGetter<Neuron<IO>, IO> getOutputFunction() {
 		
@@ -205,11 +205,11 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if this neuron does not have an output function.
+	 * @throws ArgumentDoesNotHaveAttributeException if this neuron does not have an output function.
 	 */
 	private void supposeHasOutputFunction() {
 		if (!hasOutputFunction()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.OUTPUT_FUNCTION);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.OUTPUT_FUNCTION);
 		}
 	}
 }

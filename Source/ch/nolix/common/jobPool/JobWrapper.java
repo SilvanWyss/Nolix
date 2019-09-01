@@ -3,7 +3,7 @@ package ch.nolix.common.jobPool;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Runnable;
 import ch.nolix.common.validator.Validator;
@@ -33,7 +33,7 @@ final class JobWrapper implements Runnable {
 	public Throwable getError() {
 		
 		if (!caughtError()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
 		}
 		
 		return error;

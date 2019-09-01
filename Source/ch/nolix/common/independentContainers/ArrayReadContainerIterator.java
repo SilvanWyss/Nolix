@@ -5,7 +5,7 @@ package ch.nolix.common.independentContainers;
 import java.util.Iterator;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
 
 //package-visible class
@@ -39,7 +39,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		
 		//Checks if the current array read container iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(
+			throw new ArgumentDoesNotHaveAttributeException(
 				this,
 				VariableNameCatalogue.NEXT_ELEMENT
 			);

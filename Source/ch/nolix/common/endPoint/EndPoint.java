@@ -3,7 +3,7 @@ package ch.nolix.common.endPoint;
 
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
 
@@ -77,7 +77,7 @@ implements ISender {
 	 * 
 	 * @param message
 	 * @throws InvalidArgumentException if this end point is aborted.
-	 * @throws ArgumentMissesAttributeException if this end point does not have a receiver.
+	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a receiver.
 	 */
 	protected final void receive(final String message) {
 		
@@ -90,13 +90,13 @@ implements ISender {
 	//method
 	/**
 	 * @return the receiver of this end point.
-	 * @throws ArgumentMissesAttributeException if this end point does not have a receiver.
+	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a receiver.
 	 */
 	private IReceiver getRefReceiver() {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
-			throw new ArgumentMissesAttributeException(this, IReceiver.class);
+			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
 		}
 		
 		return receiver;

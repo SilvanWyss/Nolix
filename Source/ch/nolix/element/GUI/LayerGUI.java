@@ -473,7 +473,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	/**
 	 * @param name
 	 * @return the {@link Widget} with the given name from the current {@link LayerGUI}.
-	 * @throws ArgumentMissesAttributeException if the current {@link LayerGUI}
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LayerGUI}
 	 * does not contain a {@link Widget} with the given name.
 	 */
 	@SuppressWarnings("unchecked")

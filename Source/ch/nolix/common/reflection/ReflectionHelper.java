@@ -4,7 +4,7 @@ package ch.nolix.common.reflection;
 //Java import
 import java.lang.reflect.Field;
 
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 
 //class
 public final class ReflectionHelper {
@@ -36,7 +36,7 @@ public final class ReflectionHelper {
 			lClass = lClass.getSuperclass();
 		}
 		
-		throw new ArgumentMissesAttributeException(object, attribute.getClass());
+		throw new ArgumentDoesNotHaveAttributeException(object, attribute.getClass());
 	}
 	
 	//private constructor

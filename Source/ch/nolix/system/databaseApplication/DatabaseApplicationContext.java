@@ -3,7 +3,7 @@ package ch.nolix.system.databaseApplication;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
@@ -91,7 +91,7 @@ public final class DatabaseApplicationContext {
 	//method
 	private void supposeHasGUILook() {
 		if (!hasGUILook()) {
-			throw new ArgumentMissesAttributeException(this, "GUI look");
+			throw new ArgumentDoesNotHaveAttributeException(this, "GUI look");
 		}
 	}
 }
