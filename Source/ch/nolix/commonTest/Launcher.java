@@ -11,7 +11,7 @@ public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates a new core test pool and runs it.
+	 * Creates a new {@link CommonTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
@@ -21,7 +21,7 @@ public final class Launcher {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }
