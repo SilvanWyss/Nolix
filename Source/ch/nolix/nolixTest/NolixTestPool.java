@@ -2,7 +2,7 @@
 package ch.nolix.nolixTest;
 
 import ch.nolix.common.baseTest.TestPool;
-import ch.nolix.coreTest.CoreTestPool;
+import ch.nolix.commonTest.CommonTestPool;
 import ch.nolix.elementTest.ElementTestPool;
 import ch.nolix.systemTest.SystemTestPool;
 import ch.nolix.techTest.TechTestPool;
@@ -23,7 +23,7 @@ public final class NolixTestPool extends TestPool {
 	 */
 	public NolixTestPool() {
 		addTestPool(
-			new CoreTestPool(),
+			new CommonTestPool(),
 			new ElementTestPool(),
 			new SystemTestPool(),
 			new TechTestPool()
