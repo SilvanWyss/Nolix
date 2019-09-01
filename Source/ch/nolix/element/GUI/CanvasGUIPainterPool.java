@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.chainedNode.ChainedNode;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
 
 //package-visible class
 final class CanvasGUIPainterPool {

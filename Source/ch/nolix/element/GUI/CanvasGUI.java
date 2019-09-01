@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.chainedNode.ChainedNode;
-//own imports
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.functionAPI.IElementTaker;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.color.Color;

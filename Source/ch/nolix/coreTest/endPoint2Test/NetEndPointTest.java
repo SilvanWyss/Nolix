@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.coreTest.endPoint2Test;
 
-//own imports
-import ch.nolix.core.endPoint2.NetServer;
-import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.endPoint2.EndPoint;
-import ch.nolix.core.endPoint2.IEndPointTaker;
-import ch.nolix.core.endPoint2.NetEndPoint;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.endPoint2.EndPoint;
+import ch.nolix.common.endPoint2.IEndPointTaker;
+import ch.nolix.common.endPoint2.NetEndPoint;
+import ch.nolix.common.endPoint2.NetServer;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.test.Test;
 
 //test class
 public final class NetEndPointTest extends Test {

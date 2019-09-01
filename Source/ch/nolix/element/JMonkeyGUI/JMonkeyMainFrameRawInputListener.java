@@ -11,7 +11,7 @@ import com.jme3.input.event.MouseButtonEvent;
 import com.jme3.input.event.MouseMotionEvent;
 import com.jme3.input.event.TouchEvent;
 
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.validator.Validator;
 
 //package-visible class
 /**

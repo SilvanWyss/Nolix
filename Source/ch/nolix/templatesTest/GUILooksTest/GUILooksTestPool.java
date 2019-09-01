@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.templatesTest.GUILooksTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.common.baseTest.TestPool;
 
 //class
 public final class GUILooksTestPool extends TestPool {

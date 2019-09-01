@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.endPointTest;
 
-//own imports
-import ch.nolix.core.endPoint.NetServer;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.endPoint.NetServer;
+import ch.nolix.common.test.Test;
 
 //test class
 /**

@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.endPoint5.EndPoint;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;
 

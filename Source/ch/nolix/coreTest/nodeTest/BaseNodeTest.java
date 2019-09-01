@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.coreTest.nodeTest;
 
-//own imports
-import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.test.ObjectTest;
+import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.test.ObjectTest;
 
 //abstract test class
 public abstract class BaseNodeTest extends ObjectTest<BaseNode> {

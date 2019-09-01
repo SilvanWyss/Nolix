@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.techAPI.resourceAPI;
 
-import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.containers.IContainer;
+import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.containers.IContainer;
 
 //interface
 /**

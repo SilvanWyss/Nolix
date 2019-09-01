@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.techTest.projectTest;
 
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Project;
 import ch.nolix.tech.project.Task;
 

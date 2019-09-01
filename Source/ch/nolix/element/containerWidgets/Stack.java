@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.core.NonNegativeInteger;

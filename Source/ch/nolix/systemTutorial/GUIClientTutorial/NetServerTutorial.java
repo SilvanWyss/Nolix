@@ -1,6 +1,6 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
-import ch.nolix.core.localComputer.ShellProvider;
+import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.BackGUIClientSession;

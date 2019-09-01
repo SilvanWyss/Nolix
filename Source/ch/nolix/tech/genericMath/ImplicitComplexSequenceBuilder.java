@@ -4,8 +4,7 @@ package ch.nolix.tech.genericMath;
 //Java import
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
 

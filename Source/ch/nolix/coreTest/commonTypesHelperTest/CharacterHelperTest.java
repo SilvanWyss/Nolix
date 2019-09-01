@@ -8,8 +8,8 @@
 //package declaration
 package ch.nolix.coreTest.commonTypesHelperTest;
 
-import ch.nolix.core.commonTypeHelpers.CharacterHelper;
-import ch.nolix.core.test2.Test;
+import ch.nolix.common.commonTypeHelpers.CharacterHelper;
+import ch.nolix.common.test2.Test;
 
 //test class
 /**

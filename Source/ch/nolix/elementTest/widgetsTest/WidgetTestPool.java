@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.common.baseTest.TestPool;
 
 //class
 /**

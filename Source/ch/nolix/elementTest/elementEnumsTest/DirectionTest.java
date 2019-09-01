@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.elementEnumsTest;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.test.Test;
 import ch.nolix.element.elementEnums.Direction;
 
 //test class

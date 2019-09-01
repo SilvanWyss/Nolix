@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own import
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**

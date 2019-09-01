@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.baseGUI_API;
 
-//own import
-import ch.nolix.core.rasterAPI.TopLeftPositionedRecangular;
+import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
 
 //interface
 /**

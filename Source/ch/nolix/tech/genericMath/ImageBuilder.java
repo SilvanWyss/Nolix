@@ -4,13 +4,12 @@ package ch.nolix.tech.genericMath;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.sequencer.Future;
-import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.sequencer.Future;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;

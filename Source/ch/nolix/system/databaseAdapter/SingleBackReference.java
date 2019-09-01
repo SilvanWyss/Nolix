@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //abstract class
 public abstract class SingleBackReference<E extends Entity> extends BackReferenceoid<E> {

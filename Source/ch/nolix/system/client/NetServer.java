@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.core.constants.PortCatalogue;
-import ch.nolix.core.endPoint5.EndPoint;
+import ch.nolix.common.constants.PortCatalogue;
+import ch.nolix.common.endPoint5.EndPoint;
 
 //class
 /**
@@ -37,7 +36,7 @@ public final class NetServer extends Server {
 	+ "</html>\r\n";
 	
 	//attribute
-	private ch.nolix.core.endPoint5.NetServer internalNetServer;
+	private ch.nolix.common.endPoint5.NetServer internalNetServer;
 	
 	//constructor
 	/**
@@ -78,7 +77,7 @@ public final class NetServer extends Server {
 	public NetServer(final int port) {
 		
 		//Creates the internalNetServer of the current NetServer.
-		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port, HTTP_MESSAGE);
+		internalNetServer = new ch.nolix.common.endPoint5.NetServer(port, HTTP_MESSAGE);
 		
 		internalNetServer.addMainEndPointTaker(new NetServerSubDuplexControllerTaker(this));
 		

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.databaseApplicationTutorial.airportManager;
 
-import ch.nolix.core.fileNode.FileNode;
+import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;

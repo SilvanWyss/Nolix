@@ -7,12 +7,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.core.constants.MultiVariableNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.pair.Pair;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.MultiVariableNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.pair.Pair;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.IImplicitSequence;
 
 //class

@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.coreTest.containersTest} package defines tests for the {@link ch.nolix.core.containers} package.
+ * The {@link ch.nolix.coreTest.containersTest} package defines tests for the {@link ch.nolix.common.containers} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

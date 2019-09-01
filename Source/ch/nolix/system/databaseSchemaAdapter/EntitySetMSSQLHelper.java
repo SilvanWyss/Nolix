@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
-//own import
-import ch.nolix.core.SQL.SQLDatabaseEngine;
+import ch.nolix.common.SQL.SQLDatabaseEngine;
 
 //class
 public final class EntitySetMSSQLHelper extends EntitySetSQLHelper {

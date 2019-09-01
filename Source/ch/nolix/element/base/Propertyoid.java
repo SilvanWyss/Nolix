@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own imports
-import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 
 //abstract class
 /**

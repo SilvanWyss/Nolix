@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.elementTest.colorTest.ColorTestPool;
 import ch.nolix.elementTest.containerWidgetsTest.ContainerWidgetTestPool;
 import ch.nolix.elementTest.coreTest.CoreTestPool;

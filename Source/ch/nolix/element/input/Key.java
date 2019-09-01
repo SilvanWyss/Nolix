@@ -4,10 +4,9 @@ package ch.nolix.element.input;
 //Java import
 import java.awt.event.KeyEvent;
 
-//own imports
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.invalidArgumentExceptions.NonRepresentingArgumentException;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum

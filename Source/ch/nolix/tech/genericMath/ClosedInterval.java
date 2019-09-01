@@ -5,11 +5,10 @@ package ch.nolix.tech.genericMath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.math.Calculator;
-import ch.nolix.core.pair.Pair;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.math.Calculator;
+import ch.nolix.common.pair.Pair;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.IClosedInterval;
 
 //class

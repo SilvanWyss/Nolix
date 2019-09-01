@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.chainedNode.ChainedNode;
+import ch.nolix.common.chainedNode.ChainedNode;
 
 //package-visible abstract class
 abstract class FrontGUIClientoidGUIHandler {

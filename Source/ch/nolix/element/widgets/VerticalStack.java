@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-import ch.nolix.core.containers.IContainer;
+import ch.nolix.common.containers.IContainer;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidgets.Stack;
 

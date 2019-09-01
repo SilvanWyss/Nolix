@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.discreteGeometry;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
 
 //class

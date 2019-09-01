@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
-import ch.nolix.core.attributeAPI.Named;
+import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.system.databaseAdapter.EntityType;
 
 //interface

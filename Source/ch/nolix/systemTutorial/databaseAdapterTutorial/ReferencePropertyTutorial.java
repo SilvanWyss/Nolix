@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
-import ch.nolix.core.node.Node;
+import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
 import ch.nolix.system.databaseAdapter.Reference;

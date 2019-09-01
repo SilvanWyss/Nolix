@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own imports
-import ch.nolix.core.constants.MultiVariableNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.skillAPI.IChangesSaver;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.MultiVariableNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.skillAPI.IChangesSaver;
+import ch.nolix.common.validator.Validator;
 
 //abstract class
 public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {

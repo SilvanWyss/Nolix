@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.core;
 
-//own imports
-import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 
 //class

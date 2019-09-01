@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.base;
 
-import ch.nolix.core.functionAPI.IElementTaker;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 
 //class
 /**

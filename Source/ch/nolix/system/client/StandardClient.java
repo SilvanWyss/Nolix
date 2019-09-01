@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.node.Node;
+import ch.nolix.common.endPoint5.EndPoint;
+import ch.nolix.common.node.Node;
 
 //class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.systemTutorial.netNeuronTutorial;
 //own imports
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
-import ch.nolix.core.node.Node;
+import ch.nolix.common.node.Node;
 import ch.nolix.system.netNeuron.BackNetNeuron;
 
 //class

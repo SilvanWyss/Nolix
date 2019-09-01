@@ -1,6 +1,6 @@
 package ch.nolix.element.widgets;
 
-import ch.nolix.core.node.Node;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.layerElement.LayerProperty;
 
 public final class ButtonLook extends TextLineWidgetLook<ButtonLook> {

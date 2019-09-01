@@ -4,9 +4,9 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.node.BaseNode;
 
 //class
 public final class EntityType<E extends Entity> implements Named {

@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.chainedNode.ChainedNode;
-//own imports
-import ch.nolix.core.controllerAPI.IDataProviderController;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.controllerAPI.IDataProviderController;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 
 //package-visible class
 /**

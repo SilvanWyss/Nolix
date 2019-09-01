@@ -4,15 +4,15 @@ package ch.nolix.element.widgets;
 //Java import
 import javax.swing.JFileChooser;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.fileSystem.FileAccessor;
-import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.localComputer.PopupWindowProvider;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.fileSystem.FileAccessor;
+import ch.nolix.common.fileSystem.FileSystemAccessor;
+import ch.nolix.common.functionAPI.IElementGetter;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.localComputer.PopupWindowProvider;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.color.Color;
 

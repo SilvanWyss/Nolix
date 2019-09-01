@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.neuronoid;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**

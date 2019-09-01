@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own imports
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;

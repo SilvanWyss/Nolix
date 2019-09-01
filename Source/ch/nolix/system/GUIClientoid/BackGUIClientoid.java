@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.chainedNode.ChainedNode;
-//own imports
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.input.Key;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.techTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.techTest.genericMathTest.GenericMathTestPool;
 
 //class

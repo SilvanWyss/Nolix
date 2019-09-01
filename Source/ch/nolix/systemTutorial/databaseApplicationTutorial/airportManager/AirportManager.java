@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.databaseApplicationTutorial.airportManager;
 
-import ch.nolix.core.functionAPI.IElementGetter;
+import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 import ch.nolix.system.databaseApplication.DatabaseApplication;

@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.tech.project;
 
-//own imports
-import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;

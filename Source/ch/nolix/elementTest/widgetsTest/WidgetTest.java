@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
-//own imports
-import ch.nolix.core.test.ObjectTest;
+import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.Widget;
 
 //abstract test class

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.mathTest;
 
-//own import
-import ch.nolix.core.math.Calculator;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.math.Calculator;
+import ch.nolix.common.test.Test;
 
 //test class
 /**

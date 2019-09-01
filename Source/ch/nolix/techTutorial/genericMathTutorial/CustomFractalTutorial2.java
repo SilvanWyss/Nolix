@@ -1,7 +1,7 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.instanceProvider.CentralInstanceProvider;
-import ch.nolix.core.sequencer.Sequencer;
+import ch.nolix.common.instanceProvider.CentralInstanceProvider;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.ImageWidget;

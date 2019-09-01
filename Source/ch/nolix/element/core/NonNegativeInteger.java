@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.core;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentExceptions.NegativeArgumentException;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**

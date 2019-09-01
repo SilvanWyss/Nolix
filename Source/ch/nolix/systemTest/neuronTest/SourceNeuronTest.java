@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemTest.neuronTest;
 
-import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.test.Test;
 import ch.nolix.system.neuronoid.SourceNeuron;
 
 //test class

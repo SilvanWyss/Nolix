@@ -4,17 +4,16 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.core.attributeAPI.Identified;
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.attributeAPI.Identified;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
 //class

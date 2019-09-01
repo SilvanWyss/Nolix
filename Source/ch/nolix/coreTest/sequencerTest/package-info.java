@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.coreTest.sequencerTest} package defines tests for the {@link ch.nolix.core.sequencer} package.
+ * The {@link ch.nolix.coreTest.sequencerTest} package defines tests for the {@link ch.nolix.common.sequencer} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

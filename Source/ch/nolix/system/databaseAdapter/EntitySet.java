@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 
 //class
 public final class EntitySet<E extends Entity> implements Named {

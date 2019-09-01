@@ -4,13 +4,13 @@ package ch.nolix.coreTest.containersTest;
 //Java import
 import java.util.Iterator;
 
-import ch.nolix.core.pair.Pair;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.SequencePattern;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
-import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.SequencePattern;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.pair.Pair;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.test.Test;
 
 //class
 /**

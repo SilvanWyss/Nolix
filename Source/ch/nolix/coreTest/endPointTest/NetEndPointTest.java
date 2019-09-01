@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.coreTest.endPointTest;
 
-//own imports
-import ch.nolix.core.communicationAPI.IReceiver;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.endPoint.NetServer;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.test.Test;
-import ch.nolix.core.validator.Validator;
-import ch.nolix.core.endPoint.NetEndPoint;
+import ch.nolix.common.communicationAPI.IReceiver;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.endPoint.NetEndPoint;
+import ch.nolix.common.endPoint.NetServer;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.test.Test;
+import ch.nolix.common.validator.Validator;
 
 //test class
 /**

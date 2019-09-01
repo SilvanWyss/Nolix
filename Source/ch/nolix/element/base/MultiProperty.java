@@ -4,13 +4,13 @@ package ch.nolix.element.base;
 //Java import
 import java.util.Iterator;
 
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.functionAPI.IElementTaker;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**

@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.node.Node;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableProperty;

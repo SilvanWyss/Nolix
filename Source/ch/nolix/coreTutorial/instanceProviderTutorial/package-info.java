@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.coreTutorial.instanceProviderTutorial} package
- * defines tutorials for the {@link ch.nolix.core.instanceProvider} package.
+ * defines tutorials for the {@link ch.nolix.common.instanceProvider} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

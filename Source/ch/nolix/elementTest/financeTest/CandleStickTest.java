@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.financeTest;
 
-import ch.nolix.core.test.Test;
+import ch.nolix.common.test.Test;
 import ch.nolix.element.finance.Candlestick;
 import ch.nolix.element.time.Time;
 

@@ -4,13 +4,12 @@ package ch.nolix.techAPI.genericMathAPI;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.functionAPI.I3ElementTakerElementGetter;
-import ch.nolix.core.functionAPI.I4ElementTakerElementGetter;
-import ch.nolix.core.functionAPI.I5ElementTakerElementGetter;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.functionAPI.IIntTakerElementGetter;
-import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
+import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
+import ch.nolix.common.functionAPI.I3ElementTakerElementGetter;
+import ch.nolix.common.functionAPI.I4ElementTakerElementGetter;
+import ch.nolix.common.functionAPI.I5ElementTakerElementGetter;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.functionAPI.IIntTakerElementGetter;
 import ch.nolix.element.color.Color;
 
 //interface

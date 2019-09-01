@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.elementEnums;
 
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum

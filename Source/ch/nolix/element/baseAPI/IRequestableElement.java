@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.node.BaseNode;
 
 //interface
 /**

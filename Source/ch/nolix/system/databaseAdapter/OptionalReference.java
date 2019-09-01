@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own import
-import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.common.skillAPI.Clearable;
 
 //class
 public final class OptionalReference<E extends Entity>

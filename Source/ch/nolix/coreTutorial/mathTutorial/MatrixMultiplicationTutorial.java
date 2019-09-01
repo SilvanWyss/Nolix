@@ -1,6 +1,6 @@
 package ch.nolix.coreTutorial.mathTutorial;
 
-import ch.nolix.core.math.Matrix;
+import ch.nolix.common.math.Matrix;
 
 public final class MatrixMultiplicationTutorial {
 	

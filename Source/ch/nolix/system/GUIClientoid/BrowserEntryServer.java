@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.endPoint.EndPoint;
-import ch.nolix.core.endPoint.NetServer;
-import ch.nolix.core.fileSystem.FileAccessor;
-import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.endPoint.EndPoint;
+import ch.nolix.common.endPoint.NetServer;
+import ch.nolix.common.fileSystem.FileAccessor;
+import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
+import ch.nolix.common.validator.Validator;
 
 //class
 public final class BrowserEntryServer extends OptionalClosableElement {

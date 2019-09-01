@@ -1,9 +1,9 @@
 //package delcaration
 package ch.nolix.coreTest.fileNodeTest;
 
-import ch.nolix.core.baseTest.AfterTestCase;
-import ch.nolix.core.fileNode.FileNode;
-import ch.nolix.core.fileSystem.FileSystemAccessor;
+import ch.nolix.common.baseTest.AfterTestCase;
+import ch.nolix.common.fileNode.FileNode;
+import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.coreTest.nodeTest.BaseNodeTest;
 
 //test class

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.coreTutorial.endPoint2Tutorial;
 
-//own imports
-import ch.nolix.core.constants.IPv4Catalogue;
-import ch.nolix.core.endPoint2.NetServer;
-import ch.nolix.core.localComputer.ShellProvider;
+import ch.nolix.common.constants.IPv4Catalogue;
+import ch.nolix.common.endPoint2.NetServer;
+import ch.nolix.common.localComputer.ShellProvider;
 
 //tutorial class
 public final class BrowserFrontEndTutorial {

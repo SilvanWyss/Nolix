@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.functionAPI.IElementGetter;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 

@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.chainedNode.ChainedNode;
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.CanvasFrame;
 
 //package-visible class

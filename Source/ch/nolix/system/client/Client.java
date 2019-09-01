@@ -1,25 +1,24 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.core.attributeAPI.OptionalLabelable;
-import ch.nolix.core.chainedNode.ChainedNode;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.endPoint5.LocalEndPoint;
-import ch.nolix.core.endPoint5.NetEndPoint;
-import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.generalSkillAPI.TypeRequestable;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.ClosedArgumentException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.skillAPI.OptionalClosable;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.attributeAPI.OptionalLabelable;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.endPoint5.EndPoint;
+import ch.nolix.common.endPoint5.LocalEndPoint;
+import ch.nolix.common.endPoint5.NetEndPoint;
+import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.generalSkillAPI.ISmartObject;
+import ch.nolix.common.generalSkillAPI.TypeRequestable;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.skillAPI.OptionalClosable;
+import ch.nolix.common.validator.Validator;
 
 //abstract class
 /**

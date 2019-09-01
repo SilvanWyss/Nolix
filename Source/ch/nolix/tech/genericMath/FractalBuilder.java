@@ -4,10 +4,9 @@ package ch.nolix.tech.genericMath;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.functionAPI.IIntTakerElementGetter;
-import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.functionAPI.IIntTakerElementGetter;
 import ch.nolix.element.color.Color;
 import ch.nolix.techAPI.genericMathAPI.IClosedInterval;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;

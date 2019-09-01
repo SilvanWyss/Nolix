@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
-//own imports
-import ch.nolix.core.SQL.SQLDatabaseEngine;
-import ch.nolix.core.attributeAPI.Headered;
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.SQL.SQLDatabaseEngine;
+import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 import ch.nolix.system.databaseAdapter.PropertyKind;
 import ch.nolix.system.databaseAdapter.PropertyoidType;

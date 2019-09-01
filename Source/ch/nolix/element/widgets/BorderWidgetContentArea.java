@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painter.IPainter;
 
 //class

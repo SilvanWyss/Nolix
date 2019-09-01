@@ -1,14 +1,14 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.skillAPI.Recalculable;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.generalSkillAPI.ISmartObject;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.skillAPI.Recalculable;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.configuration.ConfigurationElement;

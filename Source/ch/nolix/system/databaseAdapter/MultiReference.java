@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 
 //class
 public final class MultiReference<E extends Entity> extends Referenceoid<E> {

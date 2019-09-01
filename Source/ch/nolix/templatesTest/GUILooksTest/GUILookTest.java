@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templatesTest.GUILooksTest;
 
-//own imports
-import ch.nolix.core.test.ObjectTest;
+import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.configuration.StandardConfiguration;
 

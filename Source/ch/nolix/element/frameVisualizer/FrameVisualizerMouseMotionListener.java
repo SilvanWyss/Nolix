@@ -5,9 +5,8 @@ package ch.nolix.element.frameVisualizer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-import ch.nolix.core.sequencer.Sequencer;
-//own imports
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 
 //class

@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.coreTest.webSocketTest} package defines tests for the {@link ch.nolix.core.webSocket} package.
+ * The {@link ch.nolix.coreTest.webSocketTest} package defines tests for the {@link ch.nolix.common.webSocket} package.
  * 
  * @author Silvan Wyss
  * @month 2019-08

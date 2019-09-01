@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.webSocketTest;
 
-//own imports
-import ch.nolix.core.test.Test;
-import ch.nolix.core.webSocket.WebSocketHandShakeResponse;
+import ch.nolix.common.test.Test;
+import ch.nolix.common.webSocket.WebSocketHandShakeResponse;
 
 //test class
 public final class WebSocketHandShakeResponseTest extends Test {

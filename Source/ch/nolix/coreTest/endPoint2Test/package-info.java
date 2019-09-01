@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.coreTest.endPoint2Test} package defines tests for the {@link ch.nolix.core.endPoint2} package.
+ * The {@link ch.nolix.coreTest.endPoint2Test} package defines tests for the {@link ch.nolix.common.endPoint2} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

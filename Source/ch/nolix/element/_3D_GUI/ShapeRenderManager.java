@@ -1,7 +1,7 @@
 //abstract class
 package ch.nolix.element._3D_GUI;
 
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.validator.Validator;
 
 //package-visible class
 /**

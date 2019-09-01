@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.base;
 
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IMutableElement;
 
 //abstract class

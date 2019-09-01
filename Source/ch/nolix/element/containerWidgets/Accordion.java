@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.core.constants.MultiVariableNameCatalogue;
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.MultiVariableNameCatalogue;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;

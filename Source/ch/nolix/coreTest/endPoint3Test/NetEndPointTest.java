@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.coreTest.endPoint3Test;
 
-//own imports
-import ch.nolix.core.communicationAPI.IReplier;
-import ch.nolix.core.endPoint3.EndPoint;
-import ch.nolix.core.endPoint3.NetEndPoint;
-import ch.nolix.core.endPoint3.IEndPointTaker;
-import ch.nolix.core.endPoint3.NetServer;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.communicationAPI.IReplier;
+import ch.nolix.common.endPoint3.EndPoint;
+import ch.nolix.common.endPoint3.IEndPointTaker;
+import ch.nolix.common.endPoint3.NetEndPoint;
+import ch.nolix.common.endPoint3.NetServer;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.test.Test;
 
 //test class
 /**

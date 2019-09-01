@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.validatorTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.common.baseTest.TestPool;
 
 //class
 public class ValidatorTestPool extends TestPool {

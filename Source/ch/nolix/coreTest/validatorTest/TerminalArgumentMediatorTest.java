@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.validatorTest;
 
-//own imports
-import ch.nolix.core.test.Test;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.test.Test;
+import ch.nolix.common.validator.Validator;
 
 //test class
 public final class TerminalArgumentMediatorTest extends Test {

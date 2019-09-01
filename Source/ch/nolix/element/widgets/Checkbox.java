@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.math.Calculator;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.math.Calculator;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;

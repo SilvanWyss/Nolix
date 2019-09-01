@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
-import ch.nolix.core.test.Test;
+import ch.nolix.common.test.Test;
 import ch.nolix.element.widgets.CaptionPosition;
 
 //test class

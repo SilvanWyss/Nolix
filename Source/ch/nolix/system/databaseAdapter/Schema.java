@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //abstract class
 public abstract class Schema {

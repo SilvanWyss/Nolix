@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.tech.project;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;

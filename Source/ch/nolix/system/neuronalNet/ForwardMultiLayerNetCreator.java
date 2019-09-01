@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.neuronalNet;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.system.neuron.Neuron;
 import ch.nolix.system.neuronoid.InputConnection;
 

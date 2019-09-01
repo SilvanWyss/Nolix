@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.chainedNodeTest;
 
-import ch.nolix.core.chainedNode.ChainedNode;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.test.Test;
 
 //test class
 /**

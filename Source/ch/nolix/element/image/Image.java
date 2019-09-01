@@ -9,15 +9,14 @@ import java.io.IOError;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-//own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.Matrix;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.Matrix;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
 import ch.nolix.element.baseAPI.IMutableElement;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element._3D_GUI;
 
-//own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
 

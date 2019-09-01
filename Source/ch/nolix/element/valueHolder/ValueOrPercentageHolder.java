@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.valueHolder;
 
-import ch.nolix.core.commonTypeHelpers.StringHelper;
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.commonTypeHelpers.StringHelper;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 
 //class

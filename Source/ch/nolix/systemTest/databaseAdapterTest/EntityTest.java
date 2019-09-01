@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemTest.databaseAdapterTest;
 
-import ch.nolix.core.node.Node;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.test.Test;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
 

@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 
 //abstract class
 public abstract class SingleProperty<V>

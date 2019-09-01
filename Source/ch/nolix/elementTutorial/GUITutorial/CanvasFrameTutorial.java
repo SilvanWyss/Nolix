@@ -1,7 +1,7 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.functionAPI.IElementTaker;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.color.Color;

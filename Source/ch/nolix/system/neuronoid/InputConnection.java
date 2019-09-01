@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronoid;
 
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**

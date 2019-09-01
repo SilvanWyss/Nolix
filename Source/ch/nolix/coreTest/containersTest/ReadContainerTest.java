@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.containersTest;
 
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.test.Test;
 
 //class
 public final class ReadContainerTest extends Test {

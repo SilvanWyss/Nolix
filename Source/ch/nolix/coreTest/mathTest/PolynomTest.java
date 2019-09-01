@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coreTest.mathTest;
 
-import ch.nolix.core.math.Polynom;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.math.Polynom;
+import ch.nolix.common.test.Test;
 
 //class
 /**

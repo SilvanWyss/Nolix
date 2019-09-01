@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.coreTest.XMLTest;
 
-import ch.nolix.core.XML.XMLAttribute;
-import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.XML.XMLAttribute;
+import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.test.Test;
 
 //test class
 public final class XMLAttributeTest extends Test {

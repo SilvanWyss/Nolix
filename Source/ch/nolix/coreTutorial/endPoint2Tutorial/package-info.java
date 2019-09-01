@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.coreTutorial.endPoint2Tutorial} package
- * defines tutorials for the {@link ch.nolix.core.endPoint2} package.
+ * defines tutorials for the {@link ch.nolix.common.endPoint2} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;

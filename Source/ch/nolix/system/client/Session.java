@@ -4,13 +4,13 @@ package ch.nolix.system.client;
 //Java import
 import java.lang.reflect.Method;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.reflection.MethodHelper;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.reflection.MethodHelper;
+import ch.nolix.common.validator.Validator;
 
 //abstract class
 /**

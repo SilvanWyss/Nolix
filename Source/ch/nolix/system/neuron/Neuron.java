@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.neuron;
 
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.system.neuronoid.InputConnection;
 import ch.nolix.system.neuronoid.Neuronoid;
 

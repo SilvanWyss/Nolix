@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.coreTest.validatorTest;
 
-import ch.nolix.core.invalidArgumentExceptions.NullArgumentException;
-import ch.nolix.core.test.Test;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.invalidArgumentExceptions.NullArgumentException;
+import ch.nolix.common.test.Test;
+import ch.nolix.common.validator.Validator;
 
 //test class
 public final class ArgumentMediatorTest extends Test {

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.endPoint2Test;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.common.baseTest.TestPool;
 
 //class
 public final class EndPointTestPool extends TestPool {

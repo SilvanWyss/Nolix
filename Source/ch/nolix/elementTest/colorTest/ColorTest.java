@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.colorTest;
 
-//own imports
-import ch.nolix.core.test.Test;
+import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;
 
 //test class

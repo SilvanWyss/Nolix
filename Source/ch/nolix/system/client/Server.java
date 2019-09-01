@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentExceptions.ArgumentMissesAttributeException;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentMissesAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
+import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**

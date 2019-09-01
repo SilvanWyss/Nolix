@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.tech.resource;
 
-import ch.nolix.core.attributeAPI.Named;
-//own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.containers.ReadContainer;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.techAPI.resourceAPI.IResource;
 
 //class

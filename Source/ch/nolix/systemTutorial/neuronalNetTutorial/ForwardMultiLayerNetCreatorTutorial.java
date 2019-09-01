@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemTutorial.neuronalNetTutorial;
 
-import ch.nolix.core.containers.List;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.math.Calculator;
 import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
 import ch.nolix.system.neuronoid.SourceNeuron;
 

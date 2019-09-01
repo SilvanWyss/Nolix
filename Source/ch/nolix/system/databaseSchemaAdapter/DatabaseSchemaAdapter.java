@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.generalSkillAPI.IFluentObject;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.license.LicenseManager;
-import ch.nolix.core.skillAPI.IChangesSaver;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.generalSkillAPI.IFluentObject;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.license.LicenseManager;
+import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Schema;
 

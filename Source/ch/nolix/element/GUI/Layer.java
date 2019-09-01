@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.math.Calculator;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.skillAPI.IRequestableContainer;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.math.Calculator;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.skillAPI.IRequestableContainer;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
-//own imports
-import ch.nolix.core.license.Permission;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.common.license.Permission;
+import ch.nolix.common.validator.Validator;
 
 //class
 public final class FullDatabasePermission extends Permission {

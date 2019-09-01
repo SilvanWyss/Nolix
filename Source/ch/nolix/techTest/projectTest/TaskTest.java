@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.techTest.projectTest;
 
-import ch.nolix.core.test.Test;
+import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Task;
 
 //test class

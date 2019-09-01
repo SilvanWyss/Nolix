@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.instanceProvider.CentralInstanceProvider;
+import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.widgets.Downloader;
 import ch.nolix.element.widgets.ImageWidget;

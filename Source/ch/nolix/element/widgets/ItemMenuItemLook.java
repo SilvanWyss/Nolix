@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.node.BaseNode;
+import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;

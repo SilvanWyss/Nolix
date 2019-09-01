@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-import ch.nolix.core.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.core.node.Node;
-import ch.nolix.core.node.BaseNode;
-import ch.nolix.core.skillAPI.Resettable;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.skillAPI.Resettable;
 
 //interface
 /**

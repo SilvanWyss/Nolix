@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element._3D_GUI;
 
-import ch.nolix.core.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 
 //interface
 /**

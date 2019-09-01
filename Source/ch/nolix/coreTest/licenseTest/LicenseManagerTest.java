@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.coreTest.licenseTest;
 
-import ch.nolix.core.containers.IContainer;
-import ch.nolix.core.containers.List;
-import ch.nolix.core.license.License;
-import ch.nolix.core.license.LicenseManager;
-import ch.nolix.core.license.Permission;
-import ch.nolix.core.test.Test;
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.license.License;
+import ch.nolix.common.license.LicenseManager;
+import ch.nolix.common.license.Permission;
+import ch.nolix.common.test.Test;
 
 //test class
 public final class LicenseManagerTest extends Test {

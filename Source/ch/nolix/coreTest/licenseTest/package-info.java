@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.coreTest.licenseTest} package defines tests for the {@link ch.nolix.core.license} package.
+ * The {@link ch.nolix.coreTest.licenseTest} package defines tests for the {@link ch.nolix.common.license} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07
