@@ -5,7 +5,7 @@ package ch.nolix.element.input;
 import java.awt.event.KeyEvent;
 
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
@@ -380,7 +380,7 @@ public enum Key implements IElementEnum {
 			case SPACE:
 				return ' ';
 		default:
-			throw new NonRepresentingArgumentException(this, Character.class);				
+			throw new UnrepresentingArgumentException(this, Character.class);				
 		}
 	}
 }

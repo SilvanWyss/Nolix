@@ -13,7 +13,7 @@ import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //abstract class
@@ -473,7 +473,7 @@ public abstract class BaseNode implements Headered {
         reset();
         
         if (setAndGetEndIndex(string, 0) != string.length() - 1) {
-        	throw new NonRepresentingArgumentException(string, Node.class);
+        	throw new UnrepresentingArgumentException(string, Node.class);
         }
 	}
 	
@@ -684,7 +684,7 @@ public abstract class BaseNode implements Headered {
             }
         }
         
-        throw new NonRepresentingArgumentException(substring, Node.class);
+        throw new UnrepresentingArgumentException(substring, Node.class);
 	}
 	
 	//method

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.nodeTest;
 
-import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.test.ObjectTest;
 
@@ -280,7 +280,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		//execution & verification
 		expect(() -> node.reset("A(B).C"))
 		.throwsException()
-		.ofType(NonRepresentingArgumentException.class);
+		.ofType(UnrepresentingArgumentException.class);
 	}
 	
 	//test case

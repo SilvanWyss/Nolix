@@ -10,7 +10,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * @lines 20
  */
 @SuppressWarnings("serial")
-public final class NonRepresentingArgumentException extends InvalidArgumentException {
+public final class UnrepresentingArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
@@ -19,7 +19,7 @@ public final class NonRepresentingArgumentException extends InvalidArgumentExcep
 	 * @param argument
 	 * @param type
 	 */
-	public NonRepresentingArgumentException(final Object argument, final Class<?> type) {
+	public UnrepresentingArgumentException(final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not represent a " + type);

@@ -2,7 +2,7 @@
 package ch.nolix.common.endPoint3;
 
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 
 //enum
 /**
@@ -41,7 +41,7 @@ public enum MessageRole {
 			case ERROR_RESPONSE_PREFIX:
 				return ERROR_RESPONSE;
 			default:
-				throw new NonRepresentingArgumentException(prefix, MessageRole.class);
+				throw new UnrepresentingArgumentException(prefix, MessageRole.class);
 		}
 	}
 	

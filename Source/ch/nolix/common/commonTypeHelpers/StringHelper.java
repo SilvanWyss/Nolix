@@ -4,7 +4,7 @@ package ch.nolix.common.commonTypeHelpers;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonRepresentingArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
@@ -105,7 +105,7 @@ public final class StringHelper {
 			case "true":
 				return true;
 			default:
-				throw new NonRepresentingArgumentException(string, Boolean.class);
+				throw new UnrepresentingArgumentException(string, Boolean.class);
 		}
 	}
 	
