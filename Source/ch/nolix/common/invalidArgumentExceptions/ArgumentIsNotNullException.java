@@ -10,7 +10,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public class NotNullArgumentException extends InvalidArgumentException {
+public class ArgumentIsNotNullException extends InvalidArgumentException {
 
 	//constant
 	private static final String ERROR_PREDICATE = "is not null";
@@ -22,7 +22,7 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public NotNullArgumentException(final Object argument) {
+	public ArgumentIsNotNullException(final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
@@ -38,7 +38,7 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is empty.
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public NotNullArgumentException(final String argumentName, final Object argument) {
+	public ArgumentIsNotNullException(final String argumentName, final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
