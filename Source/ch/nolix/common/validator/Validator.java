@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.independentHelpers.ArrayHelper;
-import ch.nolix.common.invalidArgumentExceptions.FalseArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsFalseException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
 
@@ -52,13 +52,13 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @throws FalseArgumentException if the given argument is false.
+	 * @throws ArgumentIsFalseException if the given argument is false.
 	 */
 	public static void suppose(final boolean argument) {
 		
 		//Checks if the given argument is true.
 		if (!argument) {
-			throw new FalseArgumentException(argument);
+			throw new ArgumentIsFalseException(argument);
 		}
 	}
 	
@@ -66,7 +66,7 @@ public final class Validator {
 	/** 
 	 * @param arguments
 	 * @throws ArgumentIsNullException if the given arguments is null.
-	 * @throws FalseArgumentException if one of the given arguments is false.
+	 * @throws ArgumentIsFalseException if one of the given arguments is false.
 	 */
 	public static void suppose(final boolean... arguments) {
 		
@@ -81,7 +81,7 @@ public final class Validator {
 				
 			//Checks if the current argument is true.
 			if (!a) {
-				throw new FalseArgumentException(i + "th argument");
+				throw new ArgumentIsFalseException(i + "th argument");
 			}
 			
 			i++;
