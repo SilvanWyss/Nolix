@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.independentHelpers.ArrayHelper;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsFalseException;
+import ch.nolix.common.invalidArgumentExceptions.FalseArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsTrueException;
+import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
 
 //class
 /**
@@ -52,13 +52,13 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @throws ArgumentIsFalseException if the given argument is false.
+	 * @throws FalseArgumentException if the given argument is false.
 	 */
 	public static void suppose(final boolean argument) {
 		
 		//Checks if the given argument is true.
 		if (!argument) {
-			throw new ArgumentIsFalseException(argument);
+			throw new FalseArgumentException(argument);
 		}
 	}
 	
@@ -66,7 +66,7 @@ public final class Validator {
 	/** 
 	 * @param arguments
 	 * @throws ArgumentIsNullException if the given arguments is null.
-	 * @throws ArgumentIsFalseException if one of the given arguments is false.
+	 * @throws FalseArgumentException if one of the given arguments is false.
 	 */
 	public static void suppose(final boolean... arguments) {
 		
@@ -81,7 +81,7 @@ public final class Validator {
 				
 			//Checks if the current argument is true.
 			if (!a) {
-				throw new ArgumentIsFalseException(i + "th argument");
+				throw new FalseArgumentException(i + "th argument");
 			}
 			
 			i++;
@@ -211,7 +211,7 @@ public final class Validator {
 		
 		//Checks if the given argument is false.
 		if (argument) {
-			throw new ArgumentIsTrueException(argument);
+			throw new TrueArgumentException(argument);
 		}
 	}
 	
@@ -219,7 +219,7 @@ public final class Validator {
 	/** 
 	 * @param arguments
 	 * @throws ArgumentIsNullException if the given arguments is null.
-	 * @throws ArgumentIsTrueException if one of the given arguments is true.
+	 * @throws TrueArgumentException if one of the given arguments is true.
 	 */
 	public static void supposeNot(final boolean... arguments) {
 		
@@ -234,7 +234,7 @@ public final class Validator {
 				
 			//Checks if the current argument is false.
 			if (a) {
-				throw new ArgumentIsTrueException(i + "th argument");
+				throw new TrueArgumentException(i + "th argument");
 			}
 			
 			i++;
