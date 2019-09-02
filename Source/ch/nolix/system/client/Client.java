@@ -270,7 +270,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		currentSession = sessions.getRefLast();
 		
 		if (reInitialize) {
-			currentSession.cleanBeforeInitialize();
+			currentSession.internal_cleanBeforeInitialize();
 			currentSession.initialize();
 		}
 		

@@ -11,14 +11,14 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	//attribute
 	private final InvisibleLayerGUI mGUI = new InvisibleLayerGUI();
 	
-	//package-visible method
-	protected final InvisibleLayerGUI getRefGUI() {
+	//method
+	protected final InvisibleLayerGUI internal_getRefGUI() {
 		return mGUI;
 	}
 	
 	//method
 	@Override
-	protected final void cleanBeforeInitialize() {
+	protected final void internal_cleanBeforeInitialize() {
 		mGUI.reset();
 	}
 }

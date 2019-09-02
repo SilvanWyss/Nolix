@@ -22,7 +22,7 @@ public final class FrontBrowserGUIClientTutorial {
 		
 		@Override
 		public void initialize() {
-			getRefGUI()
+			internal_getRefGUI()
 			.setTitle("FrontBrowserGUIClient Tutorial")
 			.setBackgroundColor(Color.STEEL_BLUE)
 			.addLayerOnTop(new Label("Hello World!").applyOnBaseLook(bl -> bl.setTextSize(50)));

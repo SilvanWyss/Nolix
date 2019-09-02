@@ -194,7 +194,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		final var session = (BackGUIClientSession)internal_getRefCurrentSession();
 		
-		return session.getRefGUI();
+		return session.internal_getRefGUI();
 	}
 
 	//method

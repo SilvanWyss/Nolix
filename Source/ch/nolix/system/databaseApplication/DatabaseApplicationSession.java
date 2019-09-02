@@ -20,7 +20,7 @@ extends BackGUIClientSession {
 	@Override
 	public final void initialize() {
 		
-		getRefGUI()
+		internal_getRefGUI()
 		.setTitle(((DatabaseApplicationContext)getRefApplicationContext()).getTitle())
 		.addLayerOnTop(
 			new VerticalStack(
@@ -31,7 +31,7 @@ extends BackGUIClientSession {
 		);
 		
 		if (((DatabaseApplicationContext)getRefApplicationContext()).hasGUILook()) {
-			getRefGUI().setConfiguration(
+			internal_getRefGUI().setConfiguration(
 				((DatabaseApplicationContext)getRefApplicationContext()).getGUILook()
 			);
 		}

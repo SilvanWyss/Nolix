@@ -207,7 +207,7 @@ public final class EntitySession extends HeaderedSession {
 		getParentClient().pushSession(
 			new ReferencePropertySession(referenceProperty),
 			() -> {
-				final Button label = getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
+				final Button label = internal_getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
 				label.setText(String.valueOf(referenceProperty.getEntity().getId()));
 			}
 		);
@@ -226,7 +226,7 @@ public final class EntitySession extends HeaderedSession {
 					final var property = (Property<?>)p;
 			
 					final TextBox dataTextBox =
-					getRefGUI().getRefWidgetByName(p.getHeader());
+					internal_getRefGUI().getRefWidgetByName(p.getHeader());
 					
 					property.setUntypedValue(dataTextBox.getText());
 					

@@ -136,7 +136,7 @@ public abstract class Session<C extends Client<C>> {
 	}
 	
 	//method
-	protected void cleanBeforeInitialize() {}
+	protected void internal_cleanBeforeInitialize() {}
 	
 	//package-visible method
 	/**
