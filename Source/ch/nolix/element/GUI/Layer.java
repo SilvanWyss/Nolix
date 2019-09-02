@@ -3,6 +3,7 @@ package ch.nolix.element.GUI;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -757,9 +758,8 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		if (this.parentGUI != null && parentGUI != this.parentGUI) {
-			//TODO: Create ArgumentBelongsToFixParentException.
-			throw new InvalidArgumentException(this, "belongs already to another GUI");
+		if (this.parentGUI != null) {
+			throw new ArgumentBelongsToUnexchangeableParentException(this, this.parentGUI);
 		}
 		
 		if (rootWidget != null) {
