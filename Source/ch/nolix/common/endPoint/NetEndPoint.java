@@ -43,7 +43,7 @@ public final class NetEndPoint extends EndPoint {
 	 * 
 	 * @param ip
 	 * @param port
-	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		

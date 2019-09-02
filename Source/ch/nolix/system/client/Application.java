@@ -76,7 +76,7 @@ public class Application<C extends Client<C>> implements Named {
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
 	 */
 	public Application(
 		final String name,
@@ -145,7 +145,7 @@ public class Application<C extends Client<C>> implements Named {
 	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 * @throws ArgumentIsNullException if the given context is null.
-	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
 	 */
 	public Application(
 		final String name,

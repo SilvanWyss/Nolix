@@ -21,7 +21,7 @@ public final class NetServer extends Server {
 	 * that will listen to {@link NetEndPoint} on the given port.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
 	 */
 	public NetServer(final int port) {
 		
@@ -44,7 +44,7 @@ public final class NetServer extends Server {
 	 * 
 	 * @param port
 	 * @param HTTPMessage
-	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
 	 * @throws ArgumentIsNullException if the given HTTP message is null.
 	 * @throws EmptyArgumentException if the given HTTP message is empty.
 	 */

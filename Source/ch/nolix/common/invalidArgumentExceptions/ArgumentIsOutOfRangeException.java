@@ -13,7 +13,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * @lines 110
  */
 @SuppressWarnings("serial")
-public final class OutOfRangeArgumentException extends InvalidArgumentException {
+public final class ArgumentIsOutOfRangeException extends InvalidArgumentException {
 	
 	//constructor
 	/**
@@ -24,7 +24,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 	 * @param min
 	 * @param max
 	 */
-	public OutOfRangeArgumentException(
+	public ArgumentIsOutOfRangeException(
 		final double argument,
 		final double min,
 		final double max
@@ -49,7 +49,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public OutOfRangeArgumentException(
+	public ArgumentIsOutOfRangeException(
 		final String argumentName,
 		final double argument,
 		final double min,
@@ -72,7 +72,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 	 * @param min
 	 * @param max
 	 */
-	public OutOfRangeArgumentException(
+	public ArgumentIsOutOfRangeException(
 		final long argument,
 		final long min,
 		final long max
@@ -94,7 +94,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public OutOfRangeArgumentException(
+	public ArgumentIsOutOfRangeException(
 		final String argumentName,
 		final long argument,
 		final long min,

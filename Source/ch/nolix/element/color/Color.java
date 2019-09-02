@@ -948,7 +948,7 @@ public class Color extends Element<Color> {
 	 * Creates a new {@link Color} with the given value.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeArgumentException if the given value is not a true color value with an optional alpha value.
+	 * @throws ArgumentIsOutOfRangeException if the given value is not a true color value with an optional alpha value.
 	 */
 	public Color(final long value) {
 		setValue(value);

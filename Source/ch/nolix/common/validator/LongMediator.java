@@ -13,7 +13,7 @@ import ch.nolix.common.invalidArgumentExceptions.NonNegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonSmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.OutOfRangeArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidArgumentExceptions.PositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
@@ -109,7 +109,7 @@ public class LongMediator extends Mediator {
 	 * @param min
 	 * @param max
 	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
-	 * @throws OutOfRangeArgumentException
+	 * @throws ArgumentIsOutOfRangeException
 	 * if the argument of this long mediator is not between the given min and max.
 	 */
 	public TerminalLongMediator isBetween(final long min, final long max) {
@@ -117,7 +117,7 @@ public class LongMediator extends Mediator {
 		//Checks if the argument of this long mediator
 		//is between the given min and max.
 		if (argument < min || argument > max) {
-			throw new OutOfRangeArgumentException(
+			throw new ArgumentIsOutOfRangeException(
 				getArgumentName(),
 				argument,
 				min,
