@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.invalidArgumentExceptions;
 
+//own import
 import ch.nolix.common.constants.CharacterCatalogue;
 
 /**
@@ -10,9 +11,15 @@ import ch.nolix.common.constants.CharacterCatalogue;
  * A {@link InvalidArgumentException} stores the name of the argument it was created for.
  * A {@link InvalidArgumentException} stores the argument it was created for.
  * 
+ * The name of a {@link InvalidArgumentException} should be either:
+ * -[A]ArgumentException
+ * -Non[PA]ArgumentException
+ * -Argument[P]Exception
+ * Whereas [A] is an adjective, [PA] is a grammatically positive adjective and [P] is a predicate.
+ * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 200
+ * @lines 210
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
@@ -51,7 +58,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * 
 	 * @return a safe argument name for the given argument.
 	 */
-	private static String createSafeArgumentName2(final Object argument) {
+	private static String createSafeArgumentNameWithFallback(final Object argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -66,9 +73,9 @@ public class InvalidArgumentException extends RuntimeException {
 	/**
 	 * The given argument can be null.
 	 * 
-	 * @return a safe string representation of the given argument.
+	 * @return a safe {@link String} representation of the given argument.
 	 */
-	private static String createSafeArgumentString(final Object argument) {
+	private static String createSafeArgumentStringWithFallback(final Object argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -91,7 +98,7 @@ public class InvalidArgumentException extends RuntimeException {
 			 * Handles the case that the length of the string representation is bigger
 			 * than the maximum argument name length.
 			 */
-			return " '" + string.substring(0, 99) + CharacterCatalogue.ELLIPSIS + "' ";
+			return " '" + string.substring(0, MAX_ARGUMENT_NAME_LENGTH) + CharacterCatalogue.ELLIPSIS + "' ";
 	}
 	
 	//static method
@@ -130,7 +137,7 @@ public class InvalidArgumentException extends RuntimeException {
 	public InvalidArgumentException(final Object argument) {
 		
 		//Calls other constructor.
-		this(createSafeArgumentName2(argument), argument, DEFAULT_ERROR_PREDICATE);
+		this(createSafeArgumentNameWithFallback(argument), argument, DEFAULT_ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -146,7 +153,7 @@ public class InvalidArgumentException extends RuntimeException {
 	public InvalidArgumentException(final Object argument, final String errorPredicate) {
 		
 		//Calls other constructor.
-		this(createSafeArgumentName2(argument), argument, errorPredicate);
+		this(createSafeArgumentNameWithFallback(argument), argument, errorPredicate);
 	}
 		
 	//constructor
@@ -170,7 +177,7 @@ public class InvalidArgumentException extends RuntimeException {
 		super(
 			"The given "
 			+ createSafeArgumentName(argumentName)
-			+ createSafeArgumentString(argument)
+			+ createSafeArgumentStringWithFallback(argument)
 			+ createSafeErrorPredicate(errorPredicate)
 			+ "."
 		);
