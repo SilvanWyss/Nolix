@@ -10,7 +10,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class ZeroArgumentException extends InvalidArgumentException {
+public final class ArgumentIsZeroException extends InvalidArgumentException {
 	
 	//constant
 	private static final String ERROR_PREDICATE = "is 0";
@@ -21,7 +21,7 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argument
 	 */
-	public ZeroArgumentException(final long argument) {
+	public ArgumentIsZeroException(final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
@@ -36,7 +36,7 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public ZeroArgumentException(final String argumentName, final double argument) {
+	public ArgumentIsZeroException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
@@ -51,7 +51,7 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public ZeroArgumentException(final String argumentName, final long argument) {
+	public ArgumentIsZeroException(final String argumentName, final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);

@@ -13,7 +13,7 @@ import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ZeroArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsZeroException;
 
 //class
 /**
@@ -284,7 +284,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsZero(String name, double value) {
 		if (value == 0) {
-			throw new ZeroArgumentException(name, value);
+			throw new ArgumentIsZeroException(name, value);
 		}
 	}
 
@@ -296,7 +296,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsZero(String name, int value) {
 		if (value == 0) {
-			throw new ZeroArgumentException(name, value);
+			throw new ArgumentIsZeroException(name, value);
 		}
 	}
 
@@ -308,7 +308,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsZero(String name, long value) {
 		if (value == 0) {
-			throw new ZeroArgumentException(name, value);
+			throw new ArgumentIsZeroException(name, value);
 		}
 	}
 

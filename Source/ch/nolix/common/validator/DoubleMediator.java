@@ -13,7 +13,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ZeroArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsZeroException;
 
 //class
 /**
@@ -191,7 +191,7 @@ public class DoubleMediator extends Mediator {
 	
 	//method
 	/**
-	 * @throws ZeroArgumentException
+	 * @throws ArgumentIsZeroException
 	 * if the argument of this double mediator is 0.
 	 */
 	public void isNotZero() {

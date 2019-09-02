@@ -218,7 +218,7 @@ public class Polynom {
 	 * 
 	 * @param factor
 	 * @return this polynom.
-	 * @throws ZeroArgumentException if the given factor is 0.0.
+	 * @throws ArgumentIsZeroException if the given factor is 0.0.
 	 */
 	public Polynom multiplyCoefficientsWith(final double factor) {
 		
@@ -254,7 +254,7 @@ public class Polynom {
 	 * 
 	 * @param value
 	 * @return this polynom.
-	 * @throws ZeroArgumentException if the given value is 0.0.
+	 * @throws ArgumentIsZeroException if the given value is 0.0.
 	 */
 	public Polynom setAllCoefficients(double value) {
 		
@@ -280,7 +280,7 @@ public class Polynom {
 	 * 
 	 * @param coefficients
 	 * @return this polynom.
-	 * @throws ZeroArgumentException if the given highest coefficient is 0.0.
+	 * @throws ArgumentIsZeroException if the given highest coefficient is 0.0.
 	 */
 	public Polynom setCoefficients(double... coefficients) {
 		

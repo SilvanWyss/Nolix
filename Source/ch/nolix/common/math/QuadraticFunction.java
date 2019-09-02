@@ -25,7 +25,7 @@ public final class QuadraticFunction {
 	 * The b and c of the {@link QuadraticFunction} will be 0.0.
 	 * 
 	 * @param a
-	 * @throws ZeroArgumentException if the given a is 0.0.
+	 * @throws ArgumentIsZeroException if the given a is 0.0.
 	 */
 	public QuadraticFunction(final double a) {
 		
@@ -40,7 +40,7 @@ public final class QuadraticFunction {
 	 * @param a
 	 * @param b
 	 * @param c
-	 * @throws ZeroArgumentException if the given a is 0.0.
+	 * @throws ArgumentIsZeroException if the given a is 0.0.
 	 */
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
