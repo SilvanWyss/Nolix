@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -8,14 +8,14 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.GUI.Frame;
 
 //package-visible class
-final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler {
+final class BaseFrontGUIClientLayerGUIHandler extends BaseFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final Frame mGUI;
 	
 	//constructor
-	public FrontGUIClientoidLayerGUIHandler(final FrontGUIClientoid<?> parentFrontGuiClientoid) {
-		mGUI = new Frame(new FrontGUIClientoidEventTaker(parentFrontGuiClientoid));;
+	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+		mGUI = new Frame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));;
 	}
 	
 	//method
@@ -32,8 +32,8 @@ final class FrontGUIClientoidLayerGUIHandler extends FrontGUIClientoidGUIHandler
 	
 	//method
 	@Override
-	public FrontGUIClientoidGUIType getGUIType() {
-		return FrontGUIClientoidGUIType.LayerGUI;
+	public BaseFrontGUIClientGUIType getGUIType() {
+		return BaseFrontGUIClientGUIType.LayerGUI;
 	}
 	
 	//method

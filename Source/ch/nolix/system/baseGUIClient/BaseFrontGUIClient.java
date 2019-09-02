@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.ReadContainer;
@@ -15,28 +15,28 @@ import ch.nolix.system.client.Client;
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 300
- * @param <FGC> The type of a {@link FrontGUIClientoid}.
+ * @param <FGC> The type of a {@link BaseFrontGUIClient}.
  */
-public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> extends Client<FGC> {
+public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
 	
 	//attribute
-	private final FrontGUIClientoidGUIHandler mGUIHandler;
+	private final BaseFrontGUIClientGUIHandler mGUIHandler;
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClientoid} that will have the given GUIType.
+	 * Creates a new {@link BaseFrontGUIClient} that will have the given GUIType.
 	 * 
 	 * @param GUIType
 	 */
-	public FrontGUIClientoid(final FrontGUIClientoidGUIType GUIType) {		
+	public BaseFrontGUIClient(final BaseFrontGUIClientGUIType GUIType) {		
 		
 		//Enumerates the given GUIType.
 		switch (GUIType) {
 			case LayerGUI:
-				mGUIHandler = new FrontGUIClientoidLayerGUIHandler(this);
+				mGUIHandler = new BaseFrontGUIClientLayerGUIHandler(this);
 				break;
 			case CanvasGUI:
-				mGUIHandler = new FrontGUIClientoidCanvasGUIHandler(this);
+				mGUIHandler = new BaseFrontGUIClientCanvasGUIHandler(this);
 				break;
 			default:
 				throw new InvalidArgumentException(GUIType);
@@ -58,9 +58,9 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	
 	//method
 	/**
-	 * @return the type of the GUI of the current {@link FrontGUIClientoid}.
+	 * @return the type of the GUI of the current {@link BaseFrontGUIClient}.
 	 */
-	public final FrontGUIClientoidGUIType getGUIType() {
+	public final BaseFrontGUIClientGUIType getGUIType() {
 		return mGUIHandler.getGUIType();
 	}
 	

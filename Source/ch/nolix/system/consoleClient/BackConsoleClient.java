@@ -6,7 +6,7 @@ import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.system.GUIClientoid.BackGUIClientoid;
+import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 
 //class
 /**
@@ -17,7 +17,7 @@ import ch.nolix.system.GUIClientoid.BackGUIClientoid;
  * @month 2017-03
  * @lines 360
  */
-public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient> {
+public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient> {
 		
 	//constructor
 	/**

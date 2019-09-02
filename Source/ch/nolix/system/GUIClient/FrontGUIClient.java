@@ -3,8 +3,8 @@ package ch.nolix.system.GUIClient;
 
 //own imports
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.system.GUIClientoid.FrontGUIClientoid;
-import ch.nolix.system.GUIClientoid.FrontGUIClientoidGUIType;
+import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
+import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
 
 //class
@@ -15,7 +15,7 @@ import ch.nolix.system.client.Application;
  * @month 2016-11
  * @lines 100
  */
-public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
+public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	
 	//constructor
 	/**
@@ -26,7 +26,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	public FrontGUIClient(Application<BackGUIClient> application) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(application);
 	}
@@ -41,7 +41,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	public FrontGUIClient(final int port) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(port);
 	}
@@ -60,7 +60,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	public FrontGUIClient(final int port, final String name) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(port, name);
 	}
@@ -80,7 +80,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	public FrontGUIClient(final String ip, final int port) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(ip, port);
 	}
@@ -100,7 +100,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	public FrontGUIClient(final String ip, final int port, final String name) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(ip, port, name);
 	}

@@ -13,7 +13,7 @@ import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
-import ch.nolix.system.GUIClientoid.BackGUIClientoid;
+import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 import ch.nolix.system.client.Application;
 import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook;
 
@@ -25,7 +25,7 @@ import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook
 * @month 2017-03
 * @lines 260
 */
-public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClient> {
+public final class FrontConsoleClient extends BaseBackGUIClient<FrontConsoleClient> {
 
 	//attributes
 		private final GUI<?> mGUI;

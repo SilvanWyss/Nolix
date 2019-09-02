@@ -16,7 +16,7 @@ import ch.nolix.element.image.Image;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
-import ch.nolix.system.GUIClientoid.PaintRun;
+import ch.nolix.system.baseGUIClient.PaintRun;
 
 //class
 public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {

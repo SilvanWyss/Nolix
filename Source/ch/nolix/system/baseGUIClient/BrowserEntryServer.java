@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.endPoint.EndPoint;
 import ch.nolix.common.endPoint.NetServer;

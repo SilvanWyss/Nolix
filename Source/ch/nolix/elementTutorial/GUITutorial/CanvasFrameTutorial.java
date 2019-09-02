@@ -11,7 +11,7 @@ import ch.nolix.element.elementEnums.UniDirection;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.textFormat.TextFormat;
-import ch.nolix.system.GUIClientoid.PaintRun;
+import ch.nolix.system.baseGUIClient.PaintRun;
 
 /**
  * The {@link CanvasFrameTutorial} provides a tutorial for {@link CanvasFrame}s.

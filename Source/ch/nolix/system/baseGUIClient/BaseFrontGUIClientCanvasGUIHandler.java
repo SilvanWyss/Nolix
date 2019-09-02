@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -10,14 +10,14 @@ import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.CanvasFrame;
 
 //package-visible class
-final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandler {
+final class BaseFrontGUIClientCanvasGUIHandler extends BaseFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final CanvasFrame mGUI;
 	
 	//constructor
-	public FrontGUIClientoidCanvasGUIHandler(final FrontGUIClientoid<?> parentFrontGuiClientoid) {
-		mGUI = new CanvasFrame(new FrontGUIClientoidEventTaker(parentFrontGuiClientoid));
+	public BaseFrontGUIClientCanvasGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+		mGUI = new CanvasFrame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));
 	}
 	
 	//method
@@ -39,8 +39,8 @@ final class FrontGUIClientoidCanvasGUIHandler extends FrontGUIClientoidGUIHandle
 	
 	//method
 	@Override
-	public FrontGUIClientoidGUIType getGUIType() {
-		return FrontGUIClientoidGUIType.CanvasGUI;
+	public BaseFrontGUIClientGUIType getGUIType() {
+		return BaseFrontGUIClientGUIType.CanvasGUI;
 	}
 	
 	//method

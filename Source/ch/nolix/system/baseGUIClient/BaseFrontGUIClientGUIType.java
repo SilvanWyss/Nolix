@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
@@ -10,17 +10,17 @@ import ch.nolix.element.baseAPI.IElementEnum;
  * @month 2018-09
  * @lines 20
  */
-public enum FrontGUIClientoidGUIType implements IElementEnum {
+public enum BaseFrontGUIClientGUIType implements IElementEnum {
 	LayerGUI,
 	CanvasGUI;
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link FrontGUIClientoidGUIType} from the given specification.
+	 * @return a new {@link BaseFrontGUIClientGUIType} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static FrontGUIClientoidGUIType fromSpecification(final BaseNode specification) {
+	public static BaseFrontGUIClientGUIType fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

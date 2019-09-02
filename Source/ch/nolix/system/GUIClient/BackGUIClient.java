@@ -2,7 +2,7 @@
 package ch.nolix.system.GUIClient;
 
 import ch.nolix.common.endPoint5.EndPoint;
-import ch.nolix.system.GUIClientoid.BackGUIClientoid;
+import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 
 //class
 /**
@@ -10,7 +10,7 @@ import ch.nolix.system.GUIClientoid.BackGUIClientoid;
  * @month 2015-12
  * @lines 20
  */
-public final class BackGUIClient extends BackGUIClientoid<BackGUIClient> {
+public final class BackGUIClient extends BaseBackGUIClient<BackGUIClient> {
 	
 	//constructor
 	/**

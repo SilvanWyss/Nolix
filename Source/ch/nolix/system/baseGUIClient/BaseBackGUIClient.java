@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
@@ -17,18 +17,18 @@ import ch.nolix.system.client.Client;
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 390
- * @param <BGUIC> The type of a {@link BackGUIClientoid}.
+ * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
-public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> extends Client<BGUIC> {
+public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
 	
 	//attribute
-	private FrontGUIClientoidGUIType counterpartGUIType;
+	private BaseFrontGUIClientGUIType counterpartGUIType;
 	
 	//method
 	/**
-	 * @return the type of the GUI of the counterpart current {@link BackGUIClientoid}.
+	 * @return the type of the GUI of the counterpart current {@link BaseBackGUIClient}.
 	 */
-	public final FrontGUIClientoidGUIType getCounterpartGUIType() {
+	public final BaseFrontGUIClientGUIType getCounterpartGUIType() {
 		
 		fetchCounterpartGUITypeIfNeeded();
 		
@@ -37,10 +37,10 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given command locally.
+	 * Lets the current {@link BaseBackGUIClient} run the given command locally.
 	 * 
 	 * @param command
-	 * @return the current {@link BackGUIClientoid}.
+	 * @return the current {@link BaseBackGUIClient}.
 	 */
 	public  BGUIC runLocally(final String command) {
 		
@@ -52,10 +52,10 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Shows the given errorMessage on the counterpart of the current {@link BackGUIClientoid}.
+	 * Shows the given errorMessage on the counterpart of the current {@link BaseBackGUIClient}.
 	 * 
 	 * @param errorMessage
-	 * the current {@link BackGUIClientoid}
+	 * the current {@link BaseBackGUIClient}
 	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
@@ -72,7 +72,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Finishes the initialization of the session of the current {@link BackGUIClientoid}.
+	 * Finishes the initialization of the session of the current {@link BaseBackGUIClient}.
 	 */
 	@Override
 	protected final void internal_finishSessionInitialization() {
@@ -87,7 +87,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given command.
+	 * Lets the current {@link BaseBackGUIClient} run the given command.
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
@@ -161,7 +161,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	//method
 	/**
 	 * Adds or changes the given widgetsInteractionAttributes to the {@link Widget}s
-	 * of the GUI of the current {@link BackGUIClientoid}.
+	 * of the GUI of the current {@link BaseBackGUIClient}.
 	 * 
 	 * @param widgetsInteractionAttributes
 	 * @throws InvalidArgumentException if the given widgetsInteractionAttributes are not valid.
@@ -174,13 +174,13 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} fetch the GUI type from the counterpart of the current {@link BackGUIClientoid}
-	 * if the current {@link BackGUIClientoid} does not know it.
+	 * Lets the current {@link BaseBackGUIClient} fetch the GUI type from the counterpart of the current {@link BaseBackGUIClient}
+	 * if the current {@link BaseBackGUIClient} does not know it.
 	 */
 	private void fetchCounterpartGUITypeIfNeeded() {
 		if (!knowsCounterpartGUIType()) {
 			counterpartGUIType
-			= FrontGUIClientoidGUIType.valueOf(
+			= BaseFrontGUIClientGUIType.valueOf(
 				internal_getDataFromCounterpart(Protocol.GUI_TYPE_HEADER).getHeader()
 			);
 		}
@@ -188,7 +188,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * @return the {@link GUI} of the current {@link Session} of the current {@link BackGUIClientoid}.
+	 * @return the {@link GUI} of the current {@link Session} of the current {@link BaseBackGUIClient}.
 	 */
 	private InvisibleLayerGUI getRefGUI() {
 		
@@ -200,7 +200,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	//method
 	/**
 	 * @return true if the current {@link BackGUIClientoidoid}
-	 * knows the {@link GUI} type of the current {@link BackGUIClientoid}.
+	 * knows the {@link GUI} type of the current {@link BaseBackGUIClient}.
 	 */
 	private boolean knowsCounterpartGUIType() {
 		return (counterpartGUIType != null);
@@ -208,7 +208,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Resets the {@link GUI} of the current {@link BackGUIClientoid} with the given attributes.
+	 * Resets the {@link GUI} of the current {@link BaseBackGUIClient} with the given attributes.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
@@ -236,7 +236,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given commandFromCounterpart.
+	 * Lets the current {@link BaseBackGUIClient} run the given commandFromCounterpart.
 	 * 
 	 * @param commandFromCounterpart
 	 * @throws InvalidArgumentException if the given commandFromCounterpart is not valid.
@@ -261,7 +261,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given GUICommandFromCounterpart.
+	 * Lets the current {@link BaseBackGUIClient} run the given GUICommandFromCounterpart.
 	 * 
 	 * @param GUICommandFromCounterpart
 	 * @throws InvalidArgumentException if the given GUICommandFromCounterpart is not valid.
@@ -278,7 +278,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets the current {@link BackGUIClientoid} run the given GUICommand.
+	 * Lets the current {@link BaseBackGUIClient} run the given GUICommand.
 	 * 
 	 * @param GUICommand
 	 * @throws InvalidArgumentException if the given GUICommand is not valid.
@@ -312,7 +312,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Sets the given paint commands to the counterpart of the current {@link BackGUIClientoid}.
+	 * Sets the given paint commands to the counterpart of the current {@link BaseBackGUIClient}.
 	 * 
 	 * @param paintCommands
 	 */
@@ -325,7 +325,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Resets the GUI on the counterpart of the current {@link BackGUIClientoid}. 
+	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}. 
 	 */
 	private void updateGUIOnCounterpart() {
 		

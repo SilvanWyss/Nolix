@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseGUI_API.IEventTaker;
@@ -12,22 +12,22 @@ import ch.nolix.element.input.Key;
  * @month 2019-08
  * @lines 170
  */
-final class FrontGUIClientoidEventTaker implements IEventTaker {
+final class BaseFrontGUIClientEventTaker implements IEventTaker {
 	
 	//attribute
 	/**
-	 * The {@link FrontGUIClientoid} the current {@link FrontGUIClientoidEventTaker} belongs to.
+	 * The {@link BaseFrontGUIClient} the current {@link BaseFrontGUIClientEventTaker} belongs to.
 	 */
-	private final FrontGUIClientoid<?> parentFrontGuiClientoid;
+	private final BaseFrontGUIClient<?> parentFrontGuiClientoid;
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClientoidEventTaker} that will belong to the given parentFrontGuiClientoid.
+	 * Creates a new {@link BaseFrontGUIClientEventTaker} that will belong to the given parentFrontGuiClientoid.
 	 * 
 	 * @param parentFrontGuiClientoid
 	 * @throws ArgumentIsNullException if the given parentFrontGuiClientoid is null.
 	 */
-	public FrontGUIClientoidEventTaker(final FrontGUIClientoid<?> parentFrontGuiClientoid) {
+	public BaseFrontGUIClientEventTaker(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		
 		Validator.suppose(parentFrontGuiClientoid).thatIsNamed("parent FrontGUIClientoid").isNotNull();
 		

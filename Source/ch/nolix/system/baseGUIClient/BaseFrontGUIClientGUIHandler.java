@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.system.GUIClientoid;
+package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 
 //package-visible abstract class
-abstract class FrontGUIClientoidGUIHandler {
+abstract class BaseFrontGUIClientGUIHandler {
 	
 	//abstract method
 	public final boolean canRunCommand(final ChainedNode command) {
@@ -18,7 +18,7 @@ abstract class FrontGUIClientoidGUIHandler {
 	public abstract void noteClose();
 	
 	//abstract method
-	public abstract FrontGUIClientoidGUIType getGUIType();
+	public abstract BaseFrontGUIClientGUIType getGUIType();
 	
 	//abstract method
 	public abstract String getUpdateCommandForCounterpart();

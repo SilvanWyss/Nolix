@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
-//own imports
-import ch.nolix.system.GUIClientoid.FrontGUIClientoid;
-import ch.nolix.system.GUIClientoid.FrontGUIClientoidGUIType;
+import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
+import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
 
 //class
@@ -17,7 +16,7 @@ import ch.nolix.system.client.Application;
  * @month 2018-09
  * @lines 100
  */
-public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserGUIClient> {
+public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowserGUIClient> {
 	
 	//constructor
 	/**
@@ -28,7 +27,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	public FrontBrowserGUIClient(final Application<BackGUIClient> application) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(application);
 	}
@@ -44,7 +43,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	public FrontBrowserGUIClient(final int port) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port);
 	}
@@ -63,7 +62,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	public FrontBrowserGUIClient(final int port, final String application) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port, application);
 	}
@@ -80,7 +79,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	public FrontBrowserGUIClient(final String ip, final int port) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port);
 	}
@@ -100,7 +99,7 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	public FrontBrowserGUIClient(final String ip, final int port, final String application) {
 		
 		//Calls constructor of the base class.
-		super(FrontGUIClientoidGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port, application);
 	}
