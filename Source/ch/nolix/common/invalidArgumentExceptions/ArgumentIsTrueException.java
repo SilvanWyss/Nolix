@@ -11,7 +11,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class TrueArgumentException extends InvalidArgumentException {
+public final class ArgumentIsTrueException extends InvalidArgumentException {
 
 	//constant
 	private static final String ERROR_PREDICATE = "is true";
@@ -20,7 +20,7 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	/**
 	 * Creates a new true argument exception.
 	 */
-	public TrueArgumentException(final Object argument) {
+	public ArgumentIsTrueException(final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
@@ -35,7 +35,7 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public TrueArgumentException(final Object argument, final String argumentName) {
+	public ArgumentIsTrueException(final Object argument, final String argumentName) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);

@@ -8,7 +8,7 @@ import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsFalseException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsTrueException;
 
 //class
 /**
@@ -211,7 +211,7 @@ public final class Validator {
 		
 		//Checks if the given argument is false.
 		if (argument) {
-			throw new TrueArgumentException(argument);
+			throw new ArgumentIsTrueException(argument);
 		}
 	}
 	
@@ -219,7 +219,7 @@ public final class Validator {
 	/** 
 	 * @param arguments
 	 * @throws ArgumentIsNullException if the given arguments is null.
-	 * @throws TrueArgumentException if one of the given arguments is true.
+	 * @throws ArgumentIsTrueException if one of the given arguments is true.
 	 */
 	public static void supposeNot(final boolean... arguments) {
 		
@@ -234,7 +234,7 @@ public final class Validator {
 				
 			//Checks if the current argument is false.
 			if (a) {
-				throw new TrueArgumentException(i + "th argument");
+				throw new ArgumentIsTrueException(i + "th argument");
 			}
 			
 			i++;
