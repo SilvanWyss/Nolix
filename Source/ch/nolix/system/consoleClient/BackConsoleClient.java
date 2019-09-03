@@ -29,7 +29,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	public BackConsoleClient(final EndPoint endPoint) {
 		
 		//Calls constructor of the base class.
-		internal_setDuplexController(endPoint);
+		internal_setEndPoint(endPoint);
 	}
 	
 	//method

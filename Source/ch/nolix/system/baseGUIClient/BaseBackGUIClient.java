@@ -37,21 +37,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} run the given command locally.
-	 * 
-	 * @param command
-	 * @return the current {@link BaseBackGUIClient}.
-	 */
-	public  BGUIC runLocally(final String command) {
-		
-		internal_invokeSessionUserRunMethod(Node.fromString(command));
-		updateGUIOnCounterpart();
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
 	 * Shows the given errorMessage on the counterpart of the current {@link BaseBackGUIClient}.
 	 * 
 	 * @param errorMessage
@@ -327,7 +312,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	/**
 	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}. 
 	 */
-	private void updateGUIOnCounterpart() {
+	void updateGUIOnCounterpart() {
 		
 		//Enumerates the front end type of the current back GUI client.
 		switch (getCounterpartGUIType()) {

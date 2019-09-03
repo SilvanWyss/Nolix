@@ -92,7 +92,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final EndPoint endPoint) {
 		
 		//Calls constructor of the base class.
-		internal_setDuplexController(endPoint);
+		internal_setEndPoint(endPoint);
 	}
 
 	//constructor
@@ -137,7 +137,9 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final String runMethodCommand) {
-		internal_runOnCounterpart(Client.SESSION_USER_RUN_METHOD_HEADER + "(" + runMethodCommand + ")");
+		internal_runOnCounterpart(
+			Protocol.SESSION_HEADER + "." + Protocol.RUN_METHOD_HEADER + "(" + runMethodCommand + ")"
+		);
 	}
 
 	//method

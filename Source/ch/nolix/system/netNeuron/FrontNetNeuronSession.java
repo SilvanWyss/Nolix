@@ -2,6 +2,7 @@
 package ch.nolix.system.netNeuron;
 
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.client.RunMethod;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardClient;
 
@@ -47,6 +48,7 @@ extends Session<StandardClient> {
 	/**
 	 * Runs the net front neuron of this net front neuron session.
 	 */
+	@RunMethod
 	public void Fire() {
 		frontNetNeuron.fireTransitively();
 	}
@@ -57,6 +59,7 @@ extends Session<StandardClient> {
 	 * 
 	 * @param output
 	 */
+	@RunMethod
 	public void SetOutput(final String output) {
 		frontNetNeuron.setOutput(output);
 	}

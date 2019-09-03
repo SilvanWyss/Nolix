@@ -57,6 +57,14 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	
 	//method
 	/**
+	 * @return true if the current {@link Client} belongs to a {@link Application}.
+	 */
+	public final boolean belongsToApplication() {
+		return (parentApplication != null);
+	}
+
+	//method
+	/**
 	 * Closes the current {@link Client}.
 	 */
 	@Override
@@ -206,36 +214,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		return endPoint.isNetDuplexController();
 	}
 	
-	//method
-	/**
-	 * Opens the next session of the current {@link Client}.
-	 * 
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a next session.
-	 */
-	public final void openNextSession() {
-		
-		supposeContainsNextSession();
-		
-		final var nextSessionIndex = sessions.getIndexOf(internal_getRefCurrentSession()) + 1;
-		this.currentSession = sessions.getRefAt(nextSessionIndex);
-		internal_finishSessionInitialization();
-	}
-	
-	//method
-	/**
-	 * Opens the previous session of the current {@link Client}.
-	 * 
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a previous session.
-	 */
-	public final void openPreviousSession() {
-		
-		supposeContainsPreviousSession();
-		
-		final var previousSessionIndex = sessions.getIndexOf(internal_getRefCurrentSession()) - 1;
-		this.currentSession = sessions.getRefAt(previousSessionIndex);
-		internal_finishSessionInitialization();
-	}
-	
 	//TODO: Make this method not public.
 	//method
 	/**
@@ -262,14 +240,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 			
 			//A client swallows always a closed state exception.
 			catch (final ClosedArgumentException closedStateException) {}
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Client} references a parent application.
-	 */
-	public final boolean referencesParentApplication() {
-		return (parentApplication != null);
 	}
 	
 	//method
@@ -364,7 +334,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(final Application<?> application) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new LocalEndPoint());
+		internal_setEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the given application.
 		application.takeEndPoint(
@@ -384,7 +354,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPoint(port));
+		internal_setEndPoint(new NetEndPoint(port));
 	}
 	
 	//method
@@ -402,7 +372,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(final int port, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPoint(port, name));
+		internal_setEndPoint(new NetEndPoint(port, name));
 	}
 	
 	//method
@@ -416,7 +386,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(final Server server) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new LocalEndPoint());
+		internal_setEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
 		server.getRefMainApplication().takeEndPoint(
@@ -436,7 +406,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(final Server server, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new LocalEndPoint());
+		internal_setEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
 		server.getRefApplicationByName(name).takeEndPoint(
@@ -457,7 +427,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(final String ip, final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPoint(ip, port));
+		internal_setEndPoint(new NetEndPoint(ip, port));
 	}
 	
 	//method
@@ -476,7 +446,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	protected final void internal_connectTo(String ip, int port, String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPoint(ip, port, name));
+		internal_setEndPoint(new NetEndPoint(ip, port, name));
 	}
 	
 	//abstract method
@@ -494,8 +464,8 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case SESSION_USER_DATA_METHOD_HEADER:
-				return internal_invokeSessionUserDataMethod(request.getRefOneAttribute());
+			case Protocol.SESSION_HEADER:
+				return internal_getRefCurrentSession().internal_invokeSessionUserDataMethod(request.getRefOneAttribute());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
 		}
@@ -550,86 +520,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	
 	//method
 	/**
-	 * Invokes the user data method of the current session of the current {@link Client},
-	 * the given session user data method request requests.
-	 * 
-	 * @param sessionUserDataMethodRequest
-	 * @return the data the invoked user data method returns.
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final Node internal_invokeSessionUserDataMethod(
-			final BaseNode sessionUserDataMethodRequest
-	) {
-		//Extracts the name of the session user data method.
-		final var sessionUserDataMethodName = sessionUserDataMethodRequest.getHeader();
-		
-		//Extracts the arguments of the given session user data method request.
-		final var arguments = sessionUserDataMethodRequest.getRefAttributes().toStringArray();
-		
-		//Invokes the session user data method.
-		return internal_getRefCurrentSession().invokeUserDataMethod(
-			sessionUserDataMethodName, arguments
-		);
-	}
-	
-	//method
-	/**
-	 * Invokes the user data method of the current session of the current {@link Client},
-	 * that has the given name,
-	 * with the given arguments.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @return the data the invoked user data method returns.
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final Node internal_invokeSessionUserDataMethod(
-		final String name,
-		final String... arguments
-	) {
-		return internal_getRefCurrentSession().invokeUserDataMethod(name, arguments);
-	}
-
-	//method
-	/**
-	 * Invokes the user run method of the current session of the current {@link Client},
-	 * that has the given name,
-	 * with the given arguments.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final void internal_invokeSessionUserRunMethod(
-		final String name,
-		final String... arguments
-	) {
-		internal_getRefCurrentSession().invokeUserRunMethod(name, arguments);
-	}
-	
-	//method
-	/**
-	 * Invokes the user run method of the current session of the current {@link Client}
-	 * the given session user run method request requests.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final void internal_invokeSessionUserRunMethod(final BaseNode sessionUserRunMethodRequest) {
-		
-		//Extracts the name of the session user run method.
-		final String sessionUserRunMethodName = sessionUserRunMethodRequest.getHeader();
-		
-		//Extracts the arguments of the given session user run method request.
-		final var arguments = sessionUserRunMethodRequest.getRefAttributes().toStringArray();
-		
-		//Extracts the session user run method.
-		internal_invokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link Client} is connected.
 	 */
 	protected final boolean internal_isConnected() {
@@ -647,8 +537,8 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case SESSION_USER_RUN_METHOD_HEADER:
-				internal_invokeSessionUserRunMethod(command.getRefOneAttribute());
+			case Protocol.SESSION_HEADER:
+				internal_getRefCurrentSession().run(command.getRefNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -665,13 +555,14 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		endPoint.run(command);
 	}
 	
+	//TODO
 	//method
 	/**
 	 * Runs the given command on the counterpart of the current {@link Client}.
 	 * 
 	 * @param command
 	 */
-	protected final void internal_runOnCounterpart(final String command) {
+	public final void internal_runOnCounterpart(final String command) {
 		endPoint.run(command);
 	}
 	
@@ -693,7 +584,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @throws ArgumentIsNullException if the given duplex controller is null.
 	 * @throws InvalidArgumentException if the current {@link Client} is connected.
 	 */
-	protected final void internal_setDuplexController(final EndPoint endPoint) {
+	protected final void internal_setEndPoint(final EndPoint endPoint) {
 		
 		//Checks if the given duplex controller is not null.
 		Validator.suppose(endPoint).isOfType(EndPoint.class);
@@ -734,7 +625,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		.isNotNull();
 		
 		//Checks if the current client does not reference already a parent application.
-		if (referencesParentApplication()) {
+		if (belongsToApplication()) {
 			throw
 			new InvalidArgumentException(
 				this,
@@ -782,30 +673,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	
 	//method
 	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a next session.
-	 */	
-	private void supposeContainsNextSession() {
-		
-		//Checks if the current client contains a next session.
-		if (!containsNextSession()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next session");
-		}
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a previous session.
-	 */	
-	private void supposeContainsPreviousSession() {
-		
-		//Checks if the current client contains a previous session.
-		if (!containsPreviousSession()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "previous session");
-		}
-	}
-	
-	//method
-	/**
 	 * @throws InvalidArgumentException if the current {@link Client} is connected.
 	 */
 	private void supposeIsNotConnected() {
@@ -824,7 +691,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	private void supposeReferencesParentApplication() {
 		
 		//Checks if the current client references the application it belongs to.
-		if (!referencesParentApplication()) {
+		if (!belongsToApplication()) {
 			throw
 			new InvalidArgumentException(
 				this,
