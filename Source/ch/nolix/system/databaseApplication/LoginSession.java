@@ -21,7 +21,6 @@ public final class LoginSession extends DatabaseApplicationSession {
 	
 	//method
 	private void login() {
-		getParentClient()
-		.pushSession(new HomeSession());
+		push(new HomeSession());
 	}
 }

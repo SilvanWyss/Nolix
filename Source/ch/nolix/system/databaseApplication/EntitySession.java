@@ -58,8 +58,7 @@ public final class EntitySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		getParentClient()
-		.pushSession(new EntitySession(entitySetName, entityId));
+		push(new EntitySession(entitySetName, entityId));
 	}
 	
 	//method
@@ -180,37 +179,31 @@ public final class EntitySession extends HeaderedSession {
 	
 	//method
 	private void openEntitySetSession() {
-		getParentClient().pushSession(
-			new EntitySetSession(entitySetName)
-		);
+		push(new EntitySetSession(entitySetName));
 	}
 	
 	//method
 	private void openEntitySession(final String entitySetName, final long entityId) {
-		getParentClient().pushSession(
-			new EntitySession(
-				entitySetName,
-				entityId
-			)	
-		);
+		push(new EntitySession(entitySetName, entityId));
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
 	private void openReferencePropertySession(final String referencePropertyHeader) {
 		
-		final var referenceProperty = 
-		(Reference<Entity>)getRefEntity()
-		.getRefProperties()
-		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
+		//TODO
+//		final var referenceProperty = 
+//		(Reference<Entity>)getRefEntity()
+//		.getRefProperties()
+//		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
 		
-		getParentClient().pushSession(
-			new ReferencePropertySession(referenceProperty),
-			() -> {
-				final Button label = internal_getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
-				label.setText(String.valueOf(referenceProperty.getEntity().getId()));
-			}
-		);
+		
+//		push(
+//			new ReferencePropertySession(referenceProperty),
+//			() -> {
+//				final Button label = internal_getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
+//				label.setText(String.valueOf(referenceProperty.getEntity().getId()));
+//			}
+//		);
 	}
 	
 	//method
@@ -238,8 +231,6 @@ public final class EntitySession extends HeaderedSession {
 		
 		getRefDatabaseAdapter().saveChanges();
 		
-		getParentClient().pushSession(
-			new MessageSession("The changes have been changed.")	
-		);
+		push(new MessageSession("The changes have been changed."));
 	}
 }

@@ -160,31 +160,21 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	private void openCreateEntitySession() {
-		getParentClient().pushSession(
-			new CreateEntitySession(entitySetName),
-			() -> initialize()
-		);
+		push(new CreateEntitySession(entitySetName));
 	}
 	
 	//method
 	private void openDeleteEntitySession(final long entityId) {
-		getParentClient().pushSession(
-			new DeleteEntitySession(entitySetName, entityId)	
-		);
+		push(new DeleteEntitySession(entitySetName, entityId));
 	}
 	
 	//method
 	private void openEntitySession(final String entitySetName, final long entityId) {
-		getParentClient().pushSession(
-			new EntitySession(
-				entitySetName,
-				entityId
-			)
-		);
+		push(new EntitySession(entitySetName,	entityId));
 	}
 	
 	//method
 	private void openHomeSession() {
-		getParentClient().pushSession(new HomeSession());
+		push(new HomeSession());
 	}
 }

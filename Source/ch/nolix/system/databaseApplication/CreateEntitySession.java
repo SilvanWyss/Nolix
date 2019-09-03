@@ -58,7 +58,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		getParentClient().popSession();
+		pop();
 	}
 
 	//method
@@ -150,7 +150,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		
 		getRefDatabaseAdapter().saveChanges();
 		
-		getParentClient().popSession();
+		pop();
 	}
 	
 	//method
@@ -167,15 +167,8 @@ public final class CreateEntitySession extends HeaderedSession {
 		.getRefProperties()
 		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
 		
-		getParentClient().pushSession(
-			new ReferencePropertySession(referenceProperty),
-			() -> {
-				final Button label = internal_getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
-				
-				if (referenceProperty.referencesEntity()) {
-					label.setText(String.valueOf(referenceProperty.getEntity().getId()));
-				}
-			}
-		);
+		final Button label = internal_getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
+		final var referencedId = pushAndGetResult(new ReferencePropertySession(referenceProperty), Integer.class);
+		label.setText(String.valueOf(referencedId));
 	}
 }

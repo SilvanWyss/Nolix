@@ -65,7 +65,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		getParentClient().popSession();
+		pop();
 	}
 	
 	//method
@@ -74,7 +74,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 		getRefEntitySet().deleteEntity(entityId);
 		getRefDatabaseAdapter().saveChanges();
 		
-		getParentClient().popSession();
+		pop();
 	}
 	
 	//method

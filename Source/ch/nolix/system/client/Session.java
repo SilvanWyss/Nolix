@@ -4,9 +4,11 @@ package ch.nolix.system.client;
 //Java import
 import java.lang.reflect.Method;
 
+//own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflection.MethodHelper;
@@ -27,8 +29,8 @@ public abstract class Session<C extends Client<C>> {
 	private C parentClient;
 	
 	//optional attribute
-	private IFunction popFunction;
-
+	private Object result;
+	
 	//multi-attribute
 	private final List<Method> userRunMethods = new List<>();
 	private final List<Method> userDataMethods = new List<>();
@@ -113,30 +115,73 @@ public abstract class Session<C extends Client<C>> {
 	public abstract void initialize();
 	
 	//method
-	//TODO: Write comment.
-	public final void popSession() {
-		getParentClient().popSession();
-	}
-	
-	//method
-	//TODO: Write comment.
-	public final void popSession(final boolean reInitialize) {
-		getParentClient().popSession(reInitialize);
+	/**
+	 * Pops the current {@link Session} from its parent {@link Client}.
+	 */
+	public final void pop() {
+		getParentClient().popCurrentSession();
 	}
 	
 	//method
 	/**
-	 * Pushes the given session to the {@link Client} the current {@link Session} belongs to.
+	 * Pops the current {@link Session} from its parent {@link Client} with the given result.
 	 * 
-	 * @param session
-	 * @throws ArgumentIsNullException if the given is null.
+	 * @param result
+	 * @throws ArgumentIsNullException if the given result is null.
 	 */
-	public final void pushSession(final Session<C> session) {
-		getParentClient().pushSession(session);
+	public final void pop(final Object result) {
+		getParentClient().popCurrentSession(result);
 	}
 	
 	//method
-	protected void internal_cleanBeforeInitialize() {}
+	/**
+	 * Pushes the given session to the parent {@link Client} of the current {@link Session}.
+	 * 
+	 * @param session
+	 * @throws ArgumentIsNullException if the given session is null.
+	 */
+	public final void push(final Session<C> session) {
+		getParentClient().push(session);
+	}
+	
+	//method
+	/**
+	 * Pushes the given session to the parent {@link Client} of the current {@link Session}.
+	 * 
+	 * @param session
+	 * @param resultType - The type of the result of the given session.
+	 * @return the result from the given session.
+	 * @throws ArgumentIsNullException if the given session is null.
+	 * @throws ArgumentIsNullException if the given resultType is null.
+	 */
+	public final <R> R pushAndGetResult(final Session<C> session, final Class<R> resultType) {
+		return getParentClient().pushAndGetResult(session, resultType);
+	}
+	
+	//method
+	/**
+	 * Sets the next session of the parent {@link Client} of the current {@link Session}.
+	 * That means the current {@link Session} will be popped from its parent {@link Client}
+	 * and the given session is pushed to the parent {@link Client} of the current {@link Session}.
+	 * 
+	 * @param session
+	 * @throws ArgumentIsNullException if the given session is null.
+	 */
+	public final void setNext(final Session<C> session) {
+		getParentClient().setNext(session);
+	}
+	
+	//method
+	protected void internal_cleanForInitialization() {}
+	
+	final Object getRefResult() {
+		
+		if (result == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.RESULT);
+		}
+		
+		return result;
+	}
 	
 	//package-visible method
 	/**
@@ -210,32 +255,12 @@ public abstract class Session<C extends Client<C>> {
 		this.parentClient = parentClient;
 	}
 	
-	//package-visible method
-	/**
-	 * Runs the pop function of the current {@link Session}
-	 * if the current {@link Session} has a pop function.
-	 */
-	final void runProbabalePopFunction() {
-		if (hasPopFunction()) {
-			popFunction.run();
-		}
-	}
-	
-	//package-visible method
-	/**
-	 * Sets the pop function of the current {@link Session}.
-	 * 
-	 * @param popFunction
-	 * @throws ArgumentIsNullException if the given pop function is null.
-	 */
-	final void setPopFunction(final IFunction popFunction) {
+	//package-visibel method
+	final void setResult(final Object result) {
 		
-		Validator
-		.suppose(popFunction)
-		.thatIsNamed("pop function")
-		.isNotNull();
+		Validator.suppose(result).thatIsNamed(VariableNameCatalogue.RESULT).isNotNull();
 		
-		this.popFunction = popFunction;
+		this.result = result;
 	}
 	
 	//method
@@ -258,14 +283,6 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	private Method getUserRunMethod(final String name) {
 		return userRunMethods.getRefFirst(m -> m.getName().equals(name));
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Session} has a pop function.
-	 */
-	private boolean hasPopFunction() {
-		return (popFunction != null);
 	}
 	
 	//method

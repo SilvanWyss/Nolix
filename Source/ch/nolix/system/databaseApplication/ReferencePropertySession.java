@@ -50,7 +50,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		getParentClient().popSession();
+		pop(reference.getEntity().getId());
 	}
 
 	//method
@@ -81,6 +81,6 @@ public final class ReferencePropertySession extends HeaderedSession {
 			.getRefEntityById(Long.valueOf(referencesSelectionMenu.getSelectedItemId()))
 		);
 		
-		getParentClient().popSession();
+		pop(reference.getEntity().getId());
 	}
 }

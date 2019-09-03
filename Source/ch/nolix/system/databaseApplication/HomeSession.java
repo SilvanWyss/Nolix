@@ -56,8 +56,6 @@ public final class HomeSession extends HeaderedSession {
 	
 	//method
 	private void openEntitySetSession(final String entitySetName) {
-		getParentClient().pushSession(
-			new EntitySetSession(entitySetName)
-		);
+		push(new EntitySetSession(entitySetName));
 	}
 }

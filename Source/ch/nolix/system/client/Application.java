@@ -219,7 +219,7 @@ public class Application<C extends Client<C>> implements Named {
 		final var client_ = ((C)client);
 		client_.setParentApplication(this);
 		clients.addAtEnd(client_);
-		Sequencer.runInBackground(() -> client_.pushSession(createInitialSession()));
+		Sequencer.runInBackground(() -> client_.push(createInitialSession()));
 	}
 	
 	//method

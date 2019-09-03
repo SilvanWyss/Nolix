@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.common.attributeAPI.OptionalLabelable;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -8,10 +9,10 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.endPoint5.LocalEndPoint;
 import ch.nolix.common.endPoint5.NetEndPoint;
-import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -235,48 +236,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		internal_finishSessionInitialization();
 	}
 	
-	//method
-	public final void popSession() {
-		popSession(true);
-	}
-	
-	//method
-	/**
-	 * Pops the current session of the current {@link Client}.
-	 * 
-	 * @InvalidArgumentException if the current {@link Client} does not contain more than 1 session.
-	 * @InvalidArgumentException if the current session of the current {@link Client} is not the last session.
-	 */
-	public final void popSession(final boolean reInitialize) {
-		
-		//Checks if the current client contains more than 1 session.
-		if (getSessionStackSize() < 2) {
-			throw new InvalidArgumentException(this, "does not contain more than 1 session");
-		}
-		
-		//Checks if the current session of the current client is the last session
-		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
-			throw
-			new InvalidArgumentException(
-				this, "cannot pop a session that is not the last session."
-			);
-		}
-		
-		//Removes the last session of the current client.
-			final var lastSession = sessions.removeAndGetRefLast();
-			lastSession.runProbabalePopFunction();
-			lastSession.removeParentClient();
-			
-		currentSession = sessions.getRefLast();
-		
-		if (reInitialize) {
-			currentSession.internal_cleanBeforeInitialize();
-			currentSession.initialize();
-		}
-		
-		internal_finishSessionInitialization();
-	}
-	
+	//TODO: Make this method not public.
 	//method
 	/**
 	 * Pushes the given session to the current {@link Client}.
@@ -284,7 +244,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final void pushSession(final Session<C> session) {
+	public final void push(final Session<C> session) {
 		
 		//Checks if the given session is not null.
 		Validator.suppose(session).isOfType(Session.class);
@@ -302,23 +262,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 			
 			//A client swallows always a closed state exception.
 			catch (final ClosedArgumentException closedStateException) {}
-	}
-	
-	//method
-	/**
-	 * Pushes the given session to the current {@link Client} with the given pop function.
-	 * 
-	 * @param session
-	 * @param popFunction
-	 * @throws ArgumentIsNullException if the given session is null.
-	 * @throws ArgumentIsNullException if the given pop function is null.
-	 */
-	public final void pushSession(
-		final Session<C> session,
-		final IFunction popFunction
-	) {
-		session.setPopFunction(popFunction);
-		pushSession(session);
 	}
 	
 	//method
@@ -348,6 +291,68 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		return asConcreteType();
 	}
 	
+	//package-visible method
+	/**
+	 * Pops the current {@link Session} from the current {@link Client}.
+	 */
+	final void popCurrentSession() {
+		popCurrentSessionFirstPart();
+		internal_getRefCurrentSession().internal_cleanForInitialization();
+		internal_getRefCurrentSession().initialize();
+		internal_finishSessionInitialization();
+	}
+
+	//package-visible method
+	/**
+	 * Pops the current {@link Session} from the current {@link Client} with the given result.
+	 * 
+	 * @param result
+	 * @InvalidArgumentException if the current {@link Client} does not contain more than 1 session.
+	 * @InvalidArgumentException if the current session of the current {@link Client} is not the last session.
+	 */
+	final void popCurrentSession(final Object result) {
+		internal_getRefCurrentSession().setResult(result);
+		popCurrentSessionFirstPart();
+	}
+
+	//method
+	/**
+	 * Pushes the given session to the current {@link Client} with the given pop function.
+	 * 
+	 * @param session
+	 * @param popFunction
+	 * @throws ArgumentIsNullException if the given session is null.
+	 * @throws ArgumentIsNullException if the given pop function is null.
+	 */
+	@SuppressWarnings("unchecked")
+	final <R> R pushAndGetResult(final Session<C> session, final Class<R> resultType) {
+		
+		push(session);
+		
+		Sequencer.waitUntil(() -> isClosed() || !session.belongsToClient());
+		
+		if (isClosed()) {
+			throw new ClosedArgumentException(this);
+		}
+		
+		return (R)session.getRefResult();
+	}
+	
+	//package-visible method
+	/**
+	 * Sets the next session of the current {@link Client}.
+	 * That means the current {@link Session} of the current {@link Client}
+	 * will be popped from the current{@link Client}
+	 * and the given session willl be pushed to the current {@link Client}.
+	 * 
+	 * @param session
+	 * @throws ArgumentIsNullException if the given session is null.
+	 */
+	final void setNext(final Session<C> session) {
+		popCurrentSession();
+		push(session);
+	}
+
 	//method
 	/**
 	 * Connects the current {@link Client} to the given application.
@@ -739,6 +744,28 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		
 		//Sets the parent application of the current client.
 		this.parentApplication = parentApplication;
+	}
+	
+	//method
+	private void popCurrentSessionFirstPart() {
+		
+		//Checks if the current Client contains more than 1 Session.
+		if (getSessionStackSize() < 2) {
+			throw new InvalidArgumentException(this, "does not contain more than 1 Session");
+		}
+		
+		//Checks if the current Session of the current Client is the top Session of the current Client.
+		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
+			throw
+			new InvalidArgumentException(
+				this, "cannot pop a session that is not the last session."
+			);
+		}
+		
+		//Removes the top Session of the current Client.
+		final var topSession = sessions.removeAndGetRefLast();
+		topSession.removeParentClient();
+		currentSession = sessions.getRefLast();
 	}
 	
 	//method
