@@ -15,7 +15,6 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.OptionalClosable;
