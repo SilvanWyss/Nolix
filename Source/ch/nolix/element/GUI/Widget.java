@@ -29,7 +29,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1820
+ * @lines 1880
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -896,6 +896,52 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note a mouse wheel press.
+	 */
+	public void noteMouseWheelPress() {
+		if (isEnabled()) {
+			noteMouseWheelPressWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel press recursively.
+	 */
+	public void noteMouseWheelPressRecursively() {
+		
+		noteMouseWheelPress();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelPressRecursively());
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel release.
+	 */
+	public void noteMouseWheelRelease() {
+		if (isEnabled()) {
+			noteMouseWheelReleaseWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel release recursively.
+	 */
+	public void noteMouseWheelReleaseRecursively() {
+		
+		noteMouseWheelRelease();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelReleaseRecursively());
+		}
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Widget} note a mouse wheel rotation step.
 	 * 
 	 * @param directionOfRotation
@@ -1628,6 +1674,18 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * Lets the current {@link Widget} note a mouse wheel click for the case when it is enabled.
 	 */
 	protected void noteMouseWheelClickWhenEnabled() {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel press for the case when it is enabled.
+	 */
+	protected void noteMouseWheelPressWhenEnabled() {}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel release for the case when it is enabled.
+	 */
+	protected void noteMouseWheelReleaseWhenEnabled() {}
 	
 	//method
 	/**
