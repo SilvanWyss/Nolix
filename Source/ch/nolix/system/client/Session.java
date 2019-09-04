@@ -174,7 +174,7 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	public void runLocally(final String command) {
 		internal_invokeSessionUserRunMethod(Node.fromString(command));
-		getParentClient().internal_finishSessionInitialization();
+		updateCounterpart();
 	}
 	
 	//method
@@ -271,6 +271,12 @@ public abstract class Session<C extends Client<C>> {
 		internal_invokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
 	}
 	
+	//abstract method
+	/**
+	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
+	 */
+	protected abstract void updateCounterpart();
+
 	Node getData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.

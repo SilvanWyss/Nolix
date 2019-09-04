@@ -10,8 +10,7 @@ import ch.nolix.system.client.Session;
  * @month 2017-08
  * @lines 130
  */
-public abstract class BackConsoleClientSession
-extends Session<BackConsoleClient> {
+public abstract class BackConsoleClientSession extends Session<BackConsoleClient> {
 
 	//method
 	/**
@@ -121,5 +120,14 @@ extends Session<BackConsoleClient> {
 	 */
 	public final void writeNextLineToInfoPanel(final String... lines) {
 		getParentClient().writeLineToInfoPanel(lines);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void updateCounterpart() {
+		//TODO
 	}
 }

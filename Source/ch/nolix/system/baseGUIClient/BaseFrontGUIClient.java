@@ -197,13 +197,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void internal_finishSessionInitialization() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected Node internal_getData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.

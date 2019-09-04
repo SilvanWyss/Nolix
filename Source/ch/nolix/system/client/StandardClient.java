@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.node.Node;
 
@@ -141,11 +142,4 @@ public final class StandardClient extends Client<StandardClient> {
 			Protocol.SESSION_HEADER + "." + Protocol.RUN_METHOD_HEADER + "(" + runMethodCommand + ")"
 		);
 	}
-
-	//method
-	/**
-	 * Finishes the initialization of the session of this standard client.
-	 */
-	@Override
-	protected void internal_finishSessionInitialization() {}
 }

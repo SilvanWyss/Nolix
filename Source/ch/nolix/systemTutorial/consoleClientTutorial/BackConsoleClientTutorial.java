@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemTutorial.consoleClientTutorial;
 
+//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.Application;
-import ch.nolix.system.client.Session;
 import ch.nolix.system.consoleClient.BackConsoleClient;
+import ch.nolix.system.consoleClient.BackConsoleClientSession;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
 import ch.nolix.templates.frontConsoleClientLooks.BlackRedFrontConsoleClientLook;
 
@@ -40,7 +41,7 @@ public final class BackConsoleClientTutorial {
 	}
 	
 	//inner class
-	private static final class MainSession extends Session<BackConsoleClient> {
+	private static final class MainSession extends BackConsoleClientSession {
 		
 		//method
 		/**

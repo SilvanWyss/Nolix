@@ -19,4 +19,13 @@ final class BackNetNeuronSession extends Session<StandardClient> {
 	 */
 	@Override
 	public void initialize() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void updateCounterpart() {
+		//TODO
+	}
 }

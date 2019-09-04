@@ -28,4 +28,15 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	protected final InvisibleLayerGUI internal_getRefGUI() {
 		return mGUI;
 	}
+	
+	//method
+	@Override
+	protected final void updateCounterpart() {
+		mGUI.refresh();
+		getParentClient().updateGUIOnCounterpart();
+		
+		//TODO: Let the current BackGUIClientoind note a resize.
+		//Reason: The size of the GUI is not transfered with its normal update.
+		//internal_runOnCounterpart("NoteResize");
+	}
 }

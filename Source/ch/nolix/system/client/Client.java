@@ -234,7 +234,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		//Initializes the given session.
 			try {
 				session.initialize();
-				internal_finishSessionInitialization();
+				session.updateCounterpart();
 			}
 			
 			//A client swallows always a closed state exception.
@@ -268,7 +268,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		popCurrentSessionFirstPart();
 		internal_getRefCurrentSession().internal_cleanForInitialization();
 		internal_getRefCurrentSession().initialize();
-		internal_finishSessionInitialization();
+		internal_getRefCurrentSession().updateCounterpart();
 	}
 
 	//package-visible method
@@ -447,12 +447,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		//Creates the duplex controller of the current client.
 		internal_setEndPoint(new NetEndPoint(ip, port, name));
 	}
-	
-	//abstract method
-	/**
-	 * Finishes the initialization of the session of the current {@link Client}.
-	 */
-	protected abstract void internal_finishSessionInitialization();
 	
 	//method
 	/**

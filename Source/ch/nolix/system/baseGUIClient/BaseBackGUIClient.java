@@ -57,21 +57,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	/**
-	 * Finishes the initialization of the session of the current {@link BaseBackGUIClient}.
-	 */
-	@Override
-	protected final void internal_finishSessionInitialization() {
-		getRefGUI().refresh();
-		getRefGUI().refresh();
-		updateGUIOnCounterpart();
-		
-		//TODO: Let the current BackGUIClientoind note a resize.
-		//Reason: The size of the GUI is not transfered with its normal update.
-		//internal_runOnCounterpart("NoteResize");
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link BaseBackGUIClient} run the given command.
 	 * 
 	 * @param command

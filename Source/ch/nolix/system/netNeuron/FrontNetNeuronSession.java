@@ -14,8 +14,7 @@ import ch.nolix.system.client.StandardClient;
  * @param <O> The type of the output
  * of the net front neuron of a net front neuron session.
  */
-final class FrontNetNeuronSession<O>
-extends Session<StandardClient> {
+final class FrontNetNeuronSession<O> extends Session<StandardClient> {
 	
 	//attribute
 	private final FrontNetNeuron<O> frontNetNeuron;
@@ -62,5 +61,14 @@ extends Session<StandardClient> {
 	@RunMethod
 	public void SetOutput(final String output) {
 		frontNetNeuron.setOutput(output);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void updateCounterpart() {
+		//TODO
 	}
 }
