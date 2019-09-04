@@ -225,17 +225,9 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Handles the case that the GUI handler of the current FrontGUIClientoid cannot run the given command.
 		else {
-					
-			//Enumerates the header of the given command.
-			switch (command.getHeader()) {
-				case Protocol.COUNTERPART_HEADER:
-					runCounterpartCommand(command.getRefNextNode());
-					break;
-				default:
-				
-					//Calls method of the base class.
-					super.internal_run(command);
-			}
+			
+			//Calls method of the base class.
+			super.internal_run(command);
 		}
 	}
 	
@@ -258,41 +250,5 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		internal_waitUntilIsConnected();
 		
 		internal_runOnCounterpart(commandHeader + "(" + new ReadContainer<>(commandAttributes) + ")");
-	}
-	
-	//method
-	/**
-	 * Resets the GUI of the counterpart of the current {@link FrontGUIClient} with the given attributes.
-	 * 
-	 * @param attributes
-	 */
-	private void resetCounterpartGUI(final Iterable<Node> attributes) {
-		internal_runOnCounterpart(
-			Protocol.GUI_HEADER
-			+ '.'
-			+ Protocol.RESET_HEADER
-			+ '('
-			+ attributes
-			+ ')'
-		);
-	}
-
-	//method
-	/**
-	 * Lets the current {@link FrontGUIClient} run the given counterpart command.
-	 * 
-	 * @param counterpartCommand
-	 * @throws InvalidArgumentException if the given counterpart command is not valid.
-	 */
-	private void runCounterpartCommand(final ChainedNode counterpartCommand) {
-		
-		//Enumerates the header of the given counterpart command.
-		switch (counterpartCommand.getHeader()) {
-			case Protocol.GUI_HEADER:
-				resetCounterpartGUI(counterpartCommand.getRefAttributes());
-				break;
-			default:
-				throw new InvalidArgumentException("counterpart command", counterpartCommand, "is not valid");
-		}
 	}
 }

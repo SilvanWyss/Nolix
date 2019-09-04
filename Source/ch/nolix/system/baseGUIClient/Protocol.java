@@ -12,7 +12,6 @@ package ch.nolix.system.baseGUIClient;
 final class Protocol {
 	
 	//constants
-	public static final String COUNTERPART_HEADER = "Counterpart";
 	public static final String GUI_HEADER = "GUI";
 	public static final String GUI_TYPE_HEADER = "GUI_Type";
 	

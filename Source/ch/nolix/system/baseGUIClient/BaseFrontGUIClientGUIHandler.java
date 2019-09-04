@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//own import
 import ch.nolix.common.chainedNode.ChainedNode;
 
 //package-visible abstract class

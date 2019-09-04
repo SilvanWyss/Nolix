@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -67,9 +68,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case Protocol.COUNTERPART_HEADER:
-				runCommandFromCounterpart(command.getRefNextNode());
-				break;
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getRefNextNode());
 				break;
@@ -205,45 +203,8 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	/**
-	 * Lets the current {@link BaseBackGUIClient} run the given commandFromCounterpart.
-	 * 
-	 * @param commandFromCounterpart
-	 * @throws InvalidArgumentException if the given commandFromCounterpart is not valid.
-	 */
-	private void runCommandFromCounterpart(final ChainedNode commandFromCounterpart) {
-		
-		//Enumerates the header of the given counterpartCommand.
-		switch (commandFromCounterpart.getHeader()) {
-			case Protocol.GUI_HEADER:
-				runGUICommandFromCounterpart(commandFromCounterpart.getRefNextNode());
-				resetGUIOnCounterpart(commandFromCounterpart.getRefAttributes());
-				break;
-			default:
-				throw new InvalidArgumentException("counterpart command", commandFromCounterpart, "is not valid");
-		}
-	}
-	
-	//method
 	private void runGUICommandOnCounterpart(String GUICommandOnCounterpart) {
 		internal_runOnCounterpart(Protocol.GUI_HEADER + "." + GUICommandOnCounterpart);
-	}
-
-	//method
-	/**
-	 * Lets the current {@link BaseBackGUIClient} run the given GUICommandFromCounterpart.
-	 * 
-	 * @param GUICommandFromCounterpart
-	 * @throws InvalidArgumentException if the given GUICommandFromCounterpart is not valid.
-	 */
-	private void runGUICommandFromCounterpart(final ChainedNode GUICommandFromCounterpart) {
-		switch (GUICommandFromCounterpart.getHeader()) {
-			case Protocol.RESET_HEADER:
-				getRefGUI().reset(GUICommandFromCounterpart.getRefAttributes());
-				break;
-			default:
-				throw new InvalidArgumentException("counterpart GUI command", GUICommandFromCounterpart, "is not valid");
-		}	
 	}
 	
 	//method
