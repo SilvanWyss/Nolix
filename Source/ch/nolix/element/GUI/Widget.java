@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.functionAPI.IElementTaker;
@@ -28,7 +29,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1790
+ * @lines 1820
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -872,6 +873,29 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note a mouse wheel click.
+	 */
+	public void noteMouseWheelClick() {
+		if (isEnabled()) {
+			noteMouseWheelClickWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel click recursively.
+	 */
+	public void noteMouseWheelClickRecursively() {
+		
+		noteMouseWheelClick();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelClickRecursively());
+		}
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Widget} note a mouse wheel rotation step.
 	 * 
 	 * @param directionOfRotation
@@ -1598,6 +1622,12 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			}
 		}
 	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel click for the case when it is enabled.
+	 */
+	protected void noteMouseWheelClickWhenEnabled() {}
 	
 	//method
 	/**
