@@ -8,6 +8,9 @@ public final class WebSocketTestPool extends TestPool {
 	
 	//constructor
 	public WebSocketTestPool() {
-		addTestClass(WebSocketHandShakeResponseTest.class);
+		addTestClass(
+			WebSocketHandShakeRequestTest.class,
+			WebSocketHandShakeResponseTest.class
+		);
 	}
 }
