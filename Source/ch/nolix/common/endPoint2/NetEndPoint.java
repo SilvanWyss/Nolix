@@ -3,9 +3,11 @@ package ch.nolix.common.endPoint2;
 
 //Java imports
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.OutputStream;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
@@ -27,16 +29,18 @@ import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
  * -A WebSocket requires a HTTP handshake.
  * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
  * -A WebSocket sends messages, that belong together, in separate lines.
- * -A WebSocket sends empty lines without a meaning.
  * The WebSocket was designed this way because of security reasons.
  * But criminals can use a WebSocket server as well, so WebSockets do not have a better security than regular Sockets.
  * The persons, who designed or approved WebSockets, should stay in shame.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 450
+ * @lines 460
  */
 public final class NetEndPoint extends EndPoint {
+	
+	//default value
+	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
 	
 	//attributes
 	private NetEndPointCounterpartType counterpartType;
@@ -44,7 +48,7 @@ public final class NetEndPoint extends EndPoint {
 	private final String HTTPMessage;
 	private boolean receivedRawMessage = false;
 	private final Socket socket;
-	private final PrintWriter printWriter;
+	private final OutputStream outputStream;
 	
 	//constructor
 	/**
@@ -106,8 +110,8 @@ public final class NetEndPoint extends EndPoint {
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
 			
-			//Creates the printWriter of the current NetEndPoint.
-			printWriter = new PrintWriter(socket.getOutputStream());
+			//Sets the outputStream of the current NetEndPoint.
+			outputStream = socket.getOutputStream();
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
@@ -153,8 +157,8 @@ public final class NetEndPoint extends EndPoint {
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
 			
-			//Creates the printWriter of the current NetEndPoint.
-			printWriter = new PrintWriter(socket.getOutputStream());
+			//Sets the outputStream of the current NetEndPoint.
+			outputStream = socket.getOutputStream();
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
@@ -195,8 +199,8 @@ public final class NetEndPoint extends EndPoint {
 		
 		try {
 			
-			//Creates the printWriter of the current NetEndPoint.
-			printWriter = new PrintWriter(socket.getOutputStream());
+			//Sets the outputStream of the current NetEndPoint.
+			outputStream = socket.getOutputStream();
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
@@ -288,7 +292,7 @@ public final class NetEndPoint extends EndPoint {
 	void receiveRawMessages(final IContainer<String> rawMessages) {
 		
 		//TEMP
-		//System.out.println(hashCode() + " received: " + rawMessages);
+		System.out.println(hashCode() + " received: " + rawMessages);
 		
 		receivedRawMessage = true;
 		
@@ -422,9 +426,15 @@ public final class NetEndPoint extends EndPoint {
 		//Checks if the current NetEndPoint is alive.
 		supposeIsAlive();
 		
-		printWriter.println(rawMessage);
-		printWriter.println(StringCatalogue.EMPTY_STRING);
-		printWriter.flush();
+		//Send messages in bytes to allow interactions with WebSockets.
+		try {
+			outputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
+			outputStream.write(StringCatalogue.EMPTY_STRING.getBytes(StandardCharsets.UTF_8));
+			outputStream.flush();
+		}
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
 	}
 	
 	//method
@@ -448,7 +458,7 @@ public final class NetEndPoint extends EndPoint {
 			//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
 			System.out.flush();
 			
-			if (System.currentTimeMillis() - startTimeInMilliseconds > 5000) {
+			if (System.currentTimeMillis() - startTimeInMilliseconds > DEFAULT_TIMEOUT_IN_MILLISECONDS) {
 				throw new InvalidArgumentException("reached timeout while waiting to target.");
 			}
 		}
