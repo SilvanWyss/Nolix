@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.webSocket;
 
+//own import
 import ch.nolix.common.containers.IContainer;
 
 //class
@@ -22,7 +23,7 @@ public final class WebSocketHandShakeRequest {
 		secWebSocketKey =
 		lines
 		.getRefFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
-		.substring(SEC_WEBSOCKET_KEY_HEADER.length() + 1);
+		.substring(SEC_WEBSOCKET_KEY_HEADER.length() + 2);
 	}
 	
 	//method
