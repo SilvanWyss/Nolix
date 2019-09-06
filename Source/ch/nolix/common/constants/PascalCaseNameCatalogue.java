@@ -23,6 +23,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String CHARACTER = "Character";
 	public static final String CELL = "Cell";
 	public static final String CLASS = "Class";
+	public static final String CODE = "Code";
 	public static final String COLOR = "Color";
 	public static final String COLUMN = "Column";
 	public static final String COLUMN_COUNT = "ColumnCount";
@@ -94,6 +95,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String NAME = "Name";
 	public static final String NEXT_ELEMENT = "NextElement";
 	public static final String NODE = "Node";
+	public static final String NUMBER = "Number";
 	public static final String OUTPUT = "Output";
 	public static final String OUTPUT_FUNCTION = "OutputFunction";
 	public static final String PADDING = "Padding";

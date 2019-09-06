@@ -23,6 +23,7 @@ public final class VariableNameCatalogue {
 	public static final String CELL = "cell";
 	public static final String CHARACTER = "character";
 	public static final String CLASS = "class";
+	public static final String CODE = "code";
 	public static final String COLOR = "color";
 	public static final String COLUMN = "column";
 	public static final String COLUMN_COUNT = "column count";
@@ -94,6 +95,7 @@ public final class VariableNameCatalogue {
 	public static final String NAME = "name";
 	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
+	public static final String NUMBER = "number";
 	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
 	public static final String PADDING = "padding";
