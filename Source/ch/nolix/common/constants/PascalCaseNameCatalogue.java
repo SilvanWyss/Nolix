@@ -102,6 +102,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String PERCENTAGE = "Percentage";
 	public static final String PERMISSION = "Permission";
 	public static final String PORT = "Port";
+	public static final String POSITION = "Position";
 	public static final String POSTFIX = "Postfix";
 	public static final String PREFIX = "Prefix";
 	public static final String PRICE = "Price";
