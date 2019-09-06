@@ -3,7 +3,7 @@ package ch.nolix.commonTest;
 
 import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.commonTest.chainedNodeTest.ChainedNodeTestPool;
-import ch.nolix.commonTest.commonTypesHelperTest.CommonTypeHelpersTestPool;
+import ch.nolix.commonTest.commonTypeHelpersTest.CommonTypeHelpersTestPool;
 import ch.nolix.commonTest.containersTest.ContainerTestPool;
 import ch.nolix.commonTest.licenseTest.LicenseTestPool;
 import ch.nolix.commonTest.mathTest.MathematicsTestPool;
