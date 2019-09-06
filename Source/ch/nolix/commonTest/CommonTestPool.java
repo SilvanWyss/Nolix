@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.commonTest;
 
+//own imports
 import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.commonTest.chainedNodeTest.ChainedNodeTestPool;
 import ch.nolix.commonTest.commonTypeHelpersTest.CommonTypeHelpersTestPool;
+import ch.nolix.commonTest.commonTypeWrappersTest.CommonTypeWrapperTestPool;
 import ch.nolix.commonTest.containersTest.ContainerTestPool;
 import ch.nolix.commonTest.licenseTest.LicenseTestPool;
 import ch.nolix.commonTest.mathTest.MathematicsTestPool;
@@ -18,7 +20,7 @@ import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 40
+ * @lines 50
  */
 public final class CommonTestPool extends TestPool {
 	
@@ -28,20 +30,21 @@ public final class CommonTestPool extends TestPool {
 	 */
 	public CommonTestPool() {
 		addTestPool(
+			new CommonTypeHelpersTestPool(),
+			new CommonTypeWrapperTestPool(),
 			new ContainerTestPool(),
 			new DatabaseAdapterTestPool(),
 			new NodeTestPool(),
-			new ch.nolix.commonTest.endPointTest.EndPointTestPool(),
-			new ch.nolix.commonTest.endPoint2Test.EndPointTestPool(),
-			new ch.nolix.commonTest.endPoint3Test.EndPointTestPool(),
 			new ElementEnumTestPool(),
-			new CommonTypeHelpersTestPool(),
 			new LicenseTestPool(),
 			new MathematicsTestPool(),
 			new SequencerTestPool(),
 			new ChainedNodeTestPool(),
 			new ValidatorTestPool(),
-			new WebSocketTestPool()
+			new WebSocketTestPool(),
+			new ch.nolix.commonTest.endPointTest.EndPointTestPool(),
+			new ch.nolix.commonTest.endPoint2Test.EndPointTestPool(),
+			new ch.nolix.commonTest.endPoint3Test.EndPointTestPool()
 		);
 	}
 }
