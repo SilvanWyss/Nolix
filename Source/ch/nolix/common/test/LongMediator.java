@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
@@ -13,7 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 260
+ * @lines 270
  */
 public final class LongMediator extends Mediator {
 
@@ -114,6 +115,18 @@ public final class LongMediator extends Mediator {
 		
 		if (this.value % value != 0) {
 			addCurrentTestCaseError("A value that is dividable by " + value + " was expected, but " + this.value + " was received.");
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this long mediator does not equal the given value.
+	 * 
+	 * @param value
+	 */
+	public void isEqualTo(final int value) {
+		if (this.value != value) {
+			addCurrentTestCaseError(value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
