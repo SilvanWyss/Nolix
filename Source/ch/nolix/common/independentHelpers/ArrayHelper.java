@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.independentHelpers;
 
+//own import
 import ch.nolix.common.independentContainers.List;
 
 //class
@@ -10,9 +11,34 @@ import ch.nolix.common.independentContainers.List;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 230
+ * @lines 260
  */
 public final class ArrayHelper {
+	
+	//static method
+	/**
+	 * Creates a new iterable object with the given values.
+	 * 
+	 * @param values
+	 * @return a new iterable object with the given values.
+	 * @throws NullArgumentExcetpion if the given values is null.
+	 */
+	public static Iterable<Byte> createIterable(final byte[] values) {
+		
+		//Checks if the given values is not null.
+		if (values == null) {
+			throw new RuntimeException("The given values is null.");
+		}
+		
+		final var valueList = new List<Byte>();
+		
+		//Iterates the given elements.
+		for (final byte v : values) {
+			valueList.addAtEnd(v);
+		}
+		
+		return valueList;
+	}
 	
 	//static method
 	/**
