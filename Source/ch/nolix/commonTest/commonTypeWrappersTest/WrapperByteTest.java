@@ -169,6 +169,21 @@ public final class WrapperByteTest extends Test {
 	}
 	
 	//test case
+	public void testCase_toByte() {
+		for (var i = 0; i <= 255; i++) {
+			
+			//setup
+			final var testUnit = WrapperByte.fromNumber(i);
+			
+			//execution
+			final var resullt = testUnit.toByte();
+			
+			//verification
+			expect(resullt).isEqualTo(i - 128);
+		}
+	}
+	
+	//test case
 	public void testCase_toInt() {
 		
 		//setup
