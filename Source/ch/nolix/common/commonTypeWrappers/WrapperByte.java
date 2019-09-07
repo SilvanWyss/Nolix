@@ -11,9 +11,23 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-09
- * @lines 110
+ * @lines 120
  */
 public final class WrapperByte {
+	
+	//static method
+	/**
+	 * @param number
+	 * @return a new {@link WrapperByte} from the given number.
+	 * @throws ArgumentIsOutOfRangeException if the given number is not in [0, 255].
+	 */
+	public static WrapperByte fromNumber(final int number) {
+		
+		//Checks if the given number is in [0, 255].
+		Validator.suppose(number).thatIsNamed(VariableNameCatalogue.NUMBER).isBetween(0, 255);
+		
+		return new WrapperByte((byte)(number - 128));
+	}
 	
 	//attribute
 	/**
