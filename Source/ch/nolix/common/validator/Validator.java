@@ -4,6 +4,7 @@ package ch.nolix.common.validator;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.FalseArgumentException;
@@ -86,6 +87,15 @@ public final class Validator {
 			
 			i++;
 		}
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
+	 */
+	public static ExtendedContainerMediator<Byte> suppose(final byte[] argument) {
+		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method
