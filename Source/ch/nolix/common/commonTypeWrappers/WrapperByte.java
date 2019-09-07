@@ -11,7 +11,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-09
- * @lines 100
+ * @lines 110
  */
 public final class WrapperByte {
 	
@@ -95,6 +95,14 @@ public final class WrapperByte {
 			getBitAtAsInt(7),
 			getBitAtAsInt(8)
 		);
+	}
+	
+	//method
+	/**
+	 * @return the current {@link WrapperByte} as byte.
+	 */
+	public byte toByte() {
+		return (byte)mByte;
 	}
 	
 	//method
