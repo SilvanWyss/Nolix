@@ -5,6 +5,7 @@ package ch.nolix.system.client;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
@@ -18,7 +19,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 330
+ * @lines 320
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Named {
@@ -189,15 +190,23 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//method
 	/**
-	 * @return the context of the current {@link Application}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application}.does not have a context.
+	 * @param type
+	 * @return the context of the current {@link Application} as the given type.
+	 * @throws ArgumentIsNullException if the given type is null.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a context.
 	 */
-	public final Object getRefContext() {
+	@SuppressWarnings("unchecked")
+	public final <CO> CO getRefContextAs(final Class<CO> type) {
+		
+		//Checks if the given type is not null.
+		Validator.suppose(type).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
 		
 		//Checks if the current Application has a context.
-		supposeHasContext();
+		if (!hasContext()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONTEXT);
+		}
 		
-		return context;
+		return (CO)context;
 	}
 	
 	//method
@@ -311,17 +320,5 @@ public class Application<C extends Client<C>> implements Named {
 		final var constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
 		return constructor;
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a context.
-	 */
-	private void supposeHasContext() {
-		
-		//Checks if the current Application has a context.
-		if (!hasContext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONTEXT);
-		}
 	}
 }

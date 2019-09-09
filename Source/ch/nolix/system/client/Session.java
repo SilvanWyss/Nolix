@@ -23,7 +23,7 @@ import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 260
+ * @lines 430
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {
@@ -103,16 +103,17 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
-	 * @return the context of the {@link Application}
-	 * the {@link Client} of the current {@link Session} belongs to.
+	 * @return the context of the parent {@link Application}
+	 * of the parent {@link Client} of the current {@link Session} as the given type.
+	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
-	 * @throws InvalidArgumentException if the {@link Client} of the current {@link Session}
-	 * does not reference the {@link Application} it belongs to.
-	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application},
-	 * the {@link Client} of the current {@link Session} belongs to, does not have a context.
+	 * @throws InvalidArgumentException if the parent {@link Client} of the current {@link Session}
+	 * does not belong to a {@link Application}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application}
+	 * of the parent {@link Client} of the current {@link Session} does not have a context.
 	 */
-	public final Object getRefApplicationContext() {
-		return getParentClient().getRefApplicationContext();
+	public final <CO> CO getRefApplicationContextAs(final Class<CO> type) {
+		return getParentClient().getRefApplicationContextAs(type);
 	}
 	
 	//abstract method

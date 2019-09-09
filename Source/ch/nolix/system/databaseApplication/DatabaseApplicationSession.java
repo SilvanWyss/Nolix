@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Label;
@@ -21,7 +22,7 @@ extends BackGUIClientSession {
 	public final void initialize() {
 		
 		internal_getRefGUI()
-		.setTitle(((DatabaseApplicationContext)getRefApplicationContext()).getTitle())
+		.setTitle(getRefApplicationContextAs(DatabaseApplicationContext.class).getTitle())
 		.addLayerOnTop(
 			new VerticalStack(
 				createTitleWidget(),
@@ -30,9 +31,9 @@ extends BackGUIClientSession {
 			.setRole(ContainerRole.OverallContainer)
 		);
 		
-		if (((DatabaseApplicationContext)getRefApplicationContext()).hasGUILook()) {
+		if (getRefApplicationContextAs(DatabaseApplicationContext.class).hasGUILook()) {
 			internal_getRefGUI().setConfiguration(
-				((DatabaseApplicationContext)getRefApplicationContext()).getGUILook()
+				getRefApplicationContextAs(DatabaseApplicationContext.class).getGUILook()
 			);
 		}
 	}
@@ -45,7 +46,7 @@ extends BackGUIClientSession {
 		
 		if (!hasDatabaseAdapter()) {
 			databaseAdapter = 
-			((DatabaseApplicationContext)getRefApplicationContext()).createDatabaseAdapter();
+			getRefApplicationContextAs(DatabaseApplicationContext.class).createDatabaseAdapter();
 		}
 		
 		return databaseAdapter;
@@ -55,7 +56,7 @@ extends BackGUIClientSession {
 	private Label createTitleWidget() {
 		return
 		new Label()
-		.setText(((DatabaseApplicationContext)getRefApplicationContext()).getTitle())
+		.setText(getRefApplicationContextAs(DatabaseApplicationContext.class).getTitle())
 		.setRole(LabelRole.Title);
 	}
 	
