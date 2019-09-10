@@ -96,6 +96,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String NEXT_ELEMENT = "NextElement";
 	public static final String NODE = "Node";
 	public static final String NUMBER = "Number";
+	public static final String OPCODE = "Opcode";
 	public static final String OUTPUT = "Output";
 	public static final String OUTPUT_FUNCTION = "OutputFunction";
 	public static final String PADDING = "Padding";

@@ -96,6 +96,7 @@ public final class VariableNameCatalogue {
 	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
 	public static final String NUMBER = "number";
+	public static final String OPCODE = "opcode";
 	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
 	public static final String PADDING = "padding";
