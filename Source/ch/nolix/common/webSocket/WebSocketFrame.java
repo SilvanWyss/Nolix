@@ -6,11 +6,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 
-//own import
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 
 //class
 public final class WebSocketFrame {
+	
+	//static method
+	public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
+		
+		if (!pingFrame.isPingFrame()) {
+			throw new InvalidArgumentException("ping frame", pingFrame, "is actually not a ping frame");
+		}
+		
+		return new WebSocketFrame(true, WebSocketFrameOpcode.PONG,	false, pingFrame.getPayload());
+	}
 	
 	//attributes
 	private final WebSocketFrameFirstNibble firstNibble;
@@ -20,6 +31,29 @@ public final class WebSocketFrame {
 	//optional attribute
 	private final byte[] maskingKey;
 	
+	//constructor
+	public WebSocketFrame(
+		final boolean mFINBit,
+		final WebSocketFrameOpcode opcode,
+		final boolean maskBit,
+		final byte[] payload
+	) {
+		
+		Validator.suppose(payload).thatIsNamed("payload").isNotNull();
+		
+		firstNibble =
+		new WebSocketFrameFirstNibble(
+			mFINBit,
+			opcode,
+			maskBit,
+			payload.length
+		);
+		
+		payloadLength = BigDecimal.valueOf(payload.length);
+		this.payload = payload;
+		maskingKey = null;
+	}
+
 	//constructor
 	public WebSocketFrame(final InputStream inputStream) {
 		try {

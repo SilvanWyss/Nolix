@@ -3,6 +3,7 @@ package ch.nolix.common.webSocket;
 
 //own imports
 import ch.nolix.common.commonTypeWrappers.WrapperByte;
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -22,6 +23,26 @@ final class WebSocketFrameFirstNibble {
 		
 		return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
 	}
+	
+	//constructor
+	public WebSocketFrameFirstNibble(
+		final boolean mFINBit,
+		final WebSocketFrameOpcode opcode,
+		final boolean maskBit,
+		final int payloadLength
+	) {
+		
+		Validator.suppose(opcode).thatIsNamed(VariableNameCatalogue.OPCODE).isNotNull();
+		
+		this.mFINBit = mFINBit;
+		this.opcode = opcode;
+		this.maskBit = maskBit;		
+		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromNumber(payloadLength);
+		
+		this.m7BitPayloadLength =
+		payloadLengthSpecification == WebSocketFramePayloadLengthSpecification.IN_7_BITS ? payloadLength : 0;
+	}
+	
 	
 	//constructor
 	public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
