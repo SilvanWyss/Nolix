@@ -7,7 +7,7 @@ package ch.nolix.common.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 160
+ * @lines 170
  */
 public final class VariableNameCatalogue {
 	
@@ -87,6 +87,7 @@ public final class VariableNameCatalogue {
 	public static final String LENGTH = "length";
 	public static final String LETTER = "letter";
 	public static final String LICENSE = "license";
+	public static final String LINE = "line";
 	public static final String LINE_COLOR = "line color";
 	public static final String LINE_THICKNESS = "line thickness";
 	public static final String MAXIMUM = "maximum";
