@@ -27,7 +27,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1940
+ * @lines 1960
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -84,6 +84,31 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return false;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n selectors are given.
+	 * 
+	 * @param selectors
+	 * @return true if for each of the given selectors,
+	 * the current {@link IContainer} contains an element the selector selects.
+	 */
+	@SuppressWarnings("unchecked")
+	public default boolean containsAll(final IElementTakerBooleanGetter<E>... selectors) {
+		
+		//Iterates the given selectors.
+		for (final var s : selectors) {
+			
+			//Handles the case that the current IContainer does not contain an element the current selector selects.
+			if (!contains(s)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//default method
