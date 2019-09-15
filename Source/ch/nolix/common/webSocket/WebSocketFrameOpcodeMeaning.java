@@ -6,7 +6,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //enum
-public enum WebSocketFrameOpcode {
+public enum WebSocketFrameOpcodeMeaning {
 	CONTINUATION_FRAME,
 	TEXT_FRAME,
 	BINARY_FRAME,
@@ -16,7 +16,7 @@ public enum WebSocketFrameOpcode {
 	RESERVED;
 	
 	//static method
-	public static WebSocketFrameOpcode fromNumber(final int number) {
+	public static WebSocketFrameOpcodeMeaning fromNumber(final int number) {
 		switch (number) {
 			case 0x0:
 				return CONTINUATION_FRAME;
@@ -44,6 +44,28 @@ public enum WebSocketFrameOpcode {
 				return RESERVED;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.NUMBER, number, "is not valid");
+		}
+	}
+	
+	//method
+	public int toNumber() {
+		switch (this) {
+			case CONTINUATION_FRAME:
+				return 0x0;
+			case TEXT_FRAME:
+				return 0x1;
+			case BINARY_FRAME:
+				return 0x2;
+			case CONNECTION_CLOSE:
+				return 0x8;
+			case PING:
+				return 0x9;
+			case PONG:
+				return 0xA;
+			case RESERVED:
+				throw new InvalidArgumentException(this, "does not represent a single number");
+			default:
+				throw new InvalidArgumentException(this);
 		}
 	}
 }

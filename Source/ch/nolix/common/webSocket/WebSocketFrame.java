@@ -20,7 +20,7 @@ public final class WebSocketFrame {
 			throw new InvalidArgumentException("ping frame", pingFrame, "is actually not a ping frame");
 		}
 		
-		return new WebSocketFrame(true, WebSocketFrameOpcode.PONG,	false, pingFrame.getPayload());
+		return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG,	false, pingFrame.getPayload());
 	}
 	
 	//attributes
@@ -34,7 +34,7 @@ public final class WebSocketFrame {
 	//constructor
 	public WebSocketFrame(
 		final boolean mFINBit,
-		final WebSocketFrameOpcode opcode,
+		final WebSocketFrameOpcodeMeaning opcode,
 		final boolean maskBit,
 		final byte[] payload
 	) {
@@ -87,8 +87,8 @@ public final class WebSocketFrame {
 	}
 	
 	//method
-	public WebSocketFrameOpcode getOpcode() {
-		return firstNibble.getOpcode();
+	public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
+		return firstNibble.getOpcodeMeaning();
 	}
 		
 	//method
@@ -108,7 +108,7 @@ public final class WebSocketFrame {
 	
 	//method
 	public boolean isControlFrame() {
-		switch (getOpcode()) {
+		switch (getOpcodeMeaning()) {
 			case CONNECTION_CLOSE:
 			case PING:
 			case PONG:
@@ -120,7 +120,7 @@ public final class WebSocketFrame {
 	
 	//method
 	public boolean isDataFrame() {
-		switch (getOpcode()) {
+		switch (getOpcodeMeaning()) {
 			case TEXT_FRAME:
 			case BINARY_FRAME:
 				return true;
@@ -136,12 +136,12 @@ public final class WebSocketFrame {
 	
 	//method
 	public boolean isPingFrame() {
-		return (getOpcode() == WebSocketFrameOpcode.PING);
+		return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PING);
 	}
 	
 	//method
 	public boolean isPongFrame() {
-		return (getOpcode() == WebSocketFrameOpcode.PONG);
+		return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PONG);
 	}
 	
 	//method
@@ -149,6 +149,56 @@ public final class WebSocketFrame {
 		return getMaskBit();
 	}
 	
+	//method
+	public byte[] toBytes() {
+		
+		final var bytes = new byte[calculateByteRepresentationLength().intValue()];
+		
+		bytes[0] = firstNibble.getByte1();
+		bytes[1] = firstNibble.getByte2();
+		
+		//TODO: Use: ArrayHelper.on(bytes).fromIndex(2).write(maskingKey)
+		var i = 2;
+		if (firstNibble.getMaskBit()) {
+			for (final var b : maskingKey) {
+				bytes[i] = b;
+				i++;
+			}
+		}
+		
+		//TODO: Use: ArrayHelper.on(bytes).fromIndex(nextIndex).write(maskingKey)
+		for (final var b : payload) {
+			bytes[i] = b;
+			i++;
+		}
+				
+		return bytes;
+	}
+	
+	//method
+	private BigDecimal calculateByteRepresentationLength() {
+		
+		var byteRepresentationLength = BigDecimal.valueOf(2);
+		
+		switch (getPayloadLengthSpecification()) {
+			case IN_16_BITS:
+				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
+				break;
+			case IN_64_BITS:
+				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(4));
+				break;
+			default:
+		}
+		
+		if (masksPayload()) {
+			byteRepresentationLength =  byteRepresentationLength.add(BigDecimal.valueOf(2));
+		}
+		
+		byteRepresentationLength = byteRepresentationLength.add(getPayloadLength());
+		
+		return byteRepresentationLength;
+	}
+
 	//method
 	private BigDecimal determinePayloadLength(final InputStream inputStream) throws IOException {
 		switch (getPayloadLengthSpecification()) {

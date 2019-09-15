@@ -3,7 +3,6 @@ package ch.nolix.common.webSocket;
 
 //own imports
 import ch.nolix.common.commonTypeWrappers.WrapperByte;
-import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -11,7 +10,7 @@ final class WebSocketFrameFirstNibble {
 	
 	//attributes
 	private final boolean mFINBit;
-	private final WebSocketFrameOpcode opcode;
+	private final int opcode;
 	private final boolean maskBit;
 	private final WebSocketFramePayloadLengthSpecification payloadLengthSpecification;
 	private final int m7BitPayloadLength;
@@ -27,15 +26,15 @@ final class WebSocketFrameFirstNibble {
 	//constructor
 	public WebSocketFrameFirstNibble(
 		final boolean mFINBit,
-		final WebSocketFrameOpcode opcode,
+		final WebSocketFrameOpcodeMeaning opcodeMeaning,
 		final boolean maskBit,
 		final int payloadLength
 	) {
 		
-		Validator.suppose(opcode).thatIsNamed(VariableNameCatalogue.OPCODE).isNotNull();
+		Validator.suppose(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
 		
 		this.mFINBit = mFINBit;
-		this.opcode = opcode;
+		this.opcode = opcodeMeaning.toNumber();
 		this.maskBit = maskBit;		
 		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromNumber(payloadLength);
 		
@@ -61,7 +60,7 @@ final class WebSocketFrameFirstNibble {
 		Validator.supposeNot(RSV2BIt);
 		Validator.supposeNot(RSV3BIt);
 		
-		opcode = WebSocketFrameOpcode.fromNumber(byte1 & 0xF);
+		opcode = byte1 & 0b1111;
 		maskBit = wrapperByte2.getBitAt(1);
 		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromNumber(byte2 & 0x7F);
 		m7BitPayloadLength = byte2 & 0x7F;
@@ -70,6 +69,34 @@ final class WebSocketFrameFirstNibble {
 	//method
 	public int get7BitsPayloadLength() {
 		return m7BitPayloadLength;
+	}
+	
+	//method
+	public byte getByte1() {
+		
+		var byte1 = 0;
+		
+		if (getFINBit()) {
+			byte1 |= 0b10000000;
+		}
+		
+		byte1 |= opcode;
+		
+		return (byte)byte1;
+	}
+	
+	//method
+	public byte getByte2() {
+
+		var byte2 = 0;
+		
+		if (getMaskBit()) {
+			byte2 |= 0b1000000;
+		}
+		
+		byte2 |= m7BitPayloadLength;
+		
+		return (byte)byte2;
 	}
 	
 	//method
@@ -83,12 +110,22 @@ final class WebSocketFrameFirstNibble {
 	}
 	
 	//method
-	public WebSocketFrameOpcode getOpcode() {
+	public int getOpcode() {
 		return opcode;
+	}
+	
+	//method
+	public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
+		return WebSocketFrameOpcodeMeaning.fromNumber(opcode);
 	}
 	
 	//method
 	public WebSocketFramePayloadLengthSpecification getPayloadLengthSpecification() {
 		return payloadLengthSpecification;
+	}
+	
+	//method
+	public byte[] toBytes() {
+		return new byte[] {getByte1(), getByte2()};
 	}
 }
