@@ -43,7 +43,7 @@ public final class WrapperByte {
 	 * @param pByte
 	 */
 	public WrapperByte(final byte pByte) {
-		mByte = pByte & 0xFF;
+		mByte = pByte & 0b11111111;
 	}
 	
 	//constructor
