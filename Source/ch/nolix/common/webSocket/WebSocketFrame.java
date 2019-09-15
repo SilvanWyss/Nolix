@@ -5,6 +5,7 @@ package ch.nolix.common.webSocket;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -53,7 +54,17 @@ public final class WebSocketFrame {
 		this.payload = payload;
 		maskingKey = null;
 	}
-
+	
+	//constructor
+	public WebSocketFrame(
+		final boolean mFINBit,
+		final WebSocketFrameOpcodeMeaning opcode,
+		final boolean maskBit,
+		final String payload
+	) {
+		this(mFINBit, opcode, maskBit, payload.getBytes(StandardCharsets.UTF_8));
+	}
+	
 	//constructor
 	public WebSocketFrame(final InputStream inputStream) {
 		try {
