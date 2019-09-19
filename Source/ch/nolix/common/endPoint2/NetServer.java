@@ -101,7 +101,7 @@ public final class NetServer extends Server {
 		}
 		
 		//Creates a NetServerSubListenerfor the current NetServer.
-		new NetServerSubListener(this);
+		new NetServerListener(this);
 	}
 	
 	//constructor

@@ -9,6 +9,6 @@ package ch.nolix.common.endPoint2;
  */
 public enum NetEndPointCounterpartType {
 	REGULAR_NET_END_POINT,
-	BROWSER_INITIAL_NET_END_POINT,
 	WEBSOCKET_NET_END_POINT,
+	HTTP_NET_END_POINT
 }

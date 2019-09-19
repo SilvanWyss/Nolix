@@ -2,18 +2,21 @@
 package ch.nolix.common.endPoint2;
 
 //Java imports
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
 //own imports
+import ch.nolix.common.HTTP.HTTPRequest;
 import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.PortCatalogue;
-import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
 
@@ -25,17 +28,15 @@ import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
  * -another process on another computer
  * 
  * A {@link NetEndPoint} supports the WebSocket protocol and can communicate with a WebSocket.
- * The WebSocket protocol is an absolute crap! Because:
+ * The WebSocket protocol is complicated. Because:
  * -A WebSocket requires a HTTP handshake.
  * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
  * -A WebSocket sends messages, that belong together, in separate lines.
  * The WebSocket was designed this way because of security reasons.
- * But criminals can use a WebSocket server as well, so WebSockets do not have a better security than regular Sockets.
- * The persons, who designed or approved WebSockets, should stay in shame.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 460
+ * @lines 410
  */
 public final class NetEndPoint extends EndPoint {
 	
@@ -43,12 +44,10 @@ public final class NetEndPoint extends EndPoint {
 	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
 	
 	//attributes
-	private NetEndPointCounterpartType counterpartType;
-	private boolean hasTargetInfo = false;;
+	private final INetEndPointProcessor processor;
+	private boolean hasTargetInfo = false;
 	private final String HTTPMessage;
-	private boolean receivedRawMessage = false;
 	private final Socket socket;
-	private final OutputStream outputStream;
 	
 	//constructor
 	/**
@@ -101,24 +100,18 @@ public final class NetEndPoint extends EndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
-		hasTargetInfo = true;
-		HTTPMessage = null;
-		
 		try {
 			
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
-			
-			//Sets the outputStream of the current NetEndPoint.
-			outputStream = socket.getOutputStream();
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
 		}
 		
-		//Creates and starts the listener of the current NetEndPoint.
-		new NetEndPointSubListener(this);
+		processor = new NetEndPointProcessorForRegularCounterpart(this);		
+		hasTargetInfo = true;
+		HTTPMessage = null;
 		
 		sendRawMessage(NetEndPointProtocol.MAIN_TARGET_PREFIX);
 	}
@@ -148,7 +141,7 @@ public final class NetEndPoint extends EndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
+		processor = new NetEndPointProcessorForRegularCounterpart(this);
 		hasTargetInfo = true;
 		HTTPMessage = null;
 		
@@ -156,16 +149,10 @@ public final class NetEndPoint extends EndPoint {
 			
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
-			
-			//Sets the outputStream of the current NetEndPoint.
-			outputStream = socket.getOutputStream();
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
 		}
-		
-		//Creates and starts the listener of this {@link NetEndPoint}.
-		new NetEndPointSubListener(this);
 		
 		sendRawMessage(NetEndPointProtocol.TARGET_PREFIX + getTarget());
 	}
@@ -197,19 +184,14 @@ public final class NetEndPoint extends EndPoint {
 		//Sets the socket of the current NetEndPoint.
 		this.socket = socket;
 		
-		try {
-			
-			//Sets the outputStream of the current NetEndPoint.
-			outputStream = socket.getOutputStream();
-		}
-		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
-		}
 		
-		//Creates and starts the listener of the current NetEndPoint.
-		new NetEndPointSubListener(this);
+		final var future = Sequencer.runInBackground(() -> listenToFirstMessage());
 		
-		waitToTarget();
+		//TODO: Use timeout.
+		future.waintUntilIsFinishedSuccessfully();
+		
+		processor = future.getResult();
+		waitToTargetInfo();
 	}
 	
 	//method
@@ -219,13 +201,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} does not know the type of its counterpart.
 	 */
 	public NetEndPointCounterpartType getCounterpartType() {
-		
-		//Checks if the current NetEndPoint knows the type of its counterpart.
-		if (counterpartType == null) {
-			throw new InvalidArgumentException(this, "does not know the type of its counterpart");
-		}
-		
-		return counterpartType;
+		return processor.getCounterpartType();
 	}
 
 	//method
@@ -235,22 +211,6 @@ public final class NetEndPoint extends EndPoint {
 	@Override
 	public boolean isNetEndPoint() {
 		return true;
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link NetEndPoint} knows the type of its counterpart.
-	 */
-	public boolean knowsCounterpartType() {
-		return (counterpartType != null);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link NetEndPoint} received a raw message.
-	 */
-	public boolean receivedAnyRawMessage() {
-		return receivedRawMessage;
 	}
 	
 	//method
@@ -281,27 +241,15 @@ public final class NetEndPoint extends EndPoint {
 	Socket getRefSocket() {
 		return socket;
 	}
-
+	
 	//package-visible method
 	/**
-	 * Lets the current {@link NetEndPoint} receive the given rawMessages.
+	 * Lets the current {@link NetEndPoint} receive the given rawMessage asynchronously.
 	 * 
-	 * @param rawMessages
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive
+	 * @param rawMessage
 	 */
-	void receiveRawMessages(final IContainer<String> rawMessages) {
-		
-		//TEMP
-		System.out.println(hashCode() + " received: " + rawMessages);
-		
-		receivedRawMessage = true;
-		
-		if (!knowsCounterpartType()) {
-			receiveInitialRawMessages(rawMessages);
-		}
-		else {
-			receiveCommonRawMessages(rawMessages);
-		}
+	void receiveRawMessageInBackground(final String rawMessage) {
+		Sequencer.runInBackground(() -> receiveRawMessage(rawMessage));
 	}
 	
 	//method
@@ -313,21 +261,44 @@ public final class NetEndPoint extends EndPoint {
 	}
 	
 	//method
-	/**
-	 * Lets the current {@link NetEndPoint} receive the given commonRawMessages.
-	 * 
-	 * @param commonRawMessages
-	 */
-	private void receiveCommonRawMessages(final IContainer<String> commonRawMessages) {
-		if (commonRawMessages.containsOne()) {
-			receiveRawMessage(commonRawMessages.getRefOne());
+	private INetEndPointProcessor listenToFirstMessage() {
+		try (
+			final BufferedReader bufferedReader =
+			new BufferedReader(new InputStreamReader(getRefSocket().getInputStream()))
+		) {
+			
+			final var firstLine = bufferedReader.readLine();
+			
+			//Enumerates the first character of the first line.
+			switch (firstLine.charAt(0)) {
+				case NetEndPointProtocol.TARGET_PREFIX:
+				case NetEndPointProtocol.MAIN_TARGET_PREFIX:
+					receiveRawMessage(firstLine);
+					return new NetEndPointProcessorForRegularCounterpart(this);
+				case 'G':
+					final var lines = new List<>(firstLine);
+					while (true) {
+						
+						final var line = bufferedReader.readLine();
+						
+						if (line == null) {
+							throw new ArgumentIsNullException(VariableNameCatalogue.LINE);
+						}
+						
+						if (line.isEmpty()) {
+							break;
+						}
+						
+						lines.addAtEnd(line);
+					}
+					return receiveFirstHTTPOrWebSocketMessages(lines);
+			default:
+				throw new InvalidArgumentException("first line", firstLine, "is not valid");
+			}
 		}
-		else {
-			
-			//Checks if the current NetEndPoint is alive.
-			supposeIsAlive();
-			
-			//TODO
+		catch (final IOException IOException) {
+			close();
+			throw new RuntimeException(IOException);
 		}
 	}
 
@@ -335,32 +306,31 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * Lets the current {@link NetEndPoint} receive the given initialRawMessages.
 	 * 
-	 * @param initialRawMessages
+	 * @param messages
 	 */
-	private void receiveInitialRawMessages(final IContainer<String> initialRawMessages) {
+	private INetEndPointProcessor receiveFirstHTTPOrWebSocketMessages(final IContainer<String> messages) {
 		
-		if (initialRawMessages.containsOne()) {
-			receiveRawMessage(initialRawMessages.getRefOne());
+		//Handles the case that the given messages are a HTTP request.
+		if (HTTPRequest.canBe(messages)) {
+			final var processor = new NetEndPointProcessorForHTTPCounterpart(this);
+			processor.sendRawMessage(HTTPMessage);
+			return processor;
 		}
-		else if (WebSocketHandShakeRequest.canBe(initialRawMessages)) {
-			
-			//Checks if the current NetEndPoint is alive.
-			supposeIsAlive();
-			
-			counterpartType = NetEndPointCounterpartType.WEBSOCKET_NET_END_POINT;
-			
-			final var webSocketHandshakeRequest = new WebSocketHandShakeRequest(initialRawMessages);
-			sendRawMessage(webSocketHandshakeRequest.getWebSocketHandShakeResponse().toString());
+		
+		//Handles the case that the given messages are a WebSocket handshake request.
+		if (WebSocketHandShakeRequest.canBe(messages)) {
+			final var processor = new NetEndPointProcessorForWebSocketCounterpart(this);
+			final var webSocketHandshakeRequest = new WebSocketHandShakeRequest(messages);
+			processor.sendRawMessage(webSocketHandshakeRequest.getWebSocketHandShakeResponse().toString());
+			return processor;
 		}
-		else {
-			
-			//Checks if the current NetEndPoint is alive.
-			supposeIsAlive();
-			
-			counterpartType = NetEndPointCounterpartType.BROWSER_INITIAL_NET_END_POINT;
-			sendRawMessage(HTTPMessage);
-			close();
-		}
+		
+		throw new InvalidArgumentException("first HTTP or WebSocket message", messages, "is not valid");
+	}
+	
+	//method
+	private void receiveMessage(final String message) {
+		getRefReceiver().receive(message);
 	}
 	
 	//method
@@ -372,25 +342,17 @@ public final class NetEndPoint extends EndPoint {
 		//Enumerates the first character of the given rawMessage.
 		switch (rawMessage.charAt(0)) {
 			case NetEndPointProtocol.TARGET_PREFIX:
-				counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
 				setTarget(rawMessage.substring(1));
 				hasTargetInfo = true;
 				break;
 			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
-				counterpartType = NetEndPointCounterpartType.REGULAR_NET_END_POINT;
 				hasTargetInfo = true;
 				break;
 			case NetEndPointProtocol.MESSAGE_PREFIX:
-				
-				if (!knowsCounterpartType()) {
-					throw new InvalidArgumentException(this, "does not know the type of its counterpart");
-				}
-				
-				getRefReceiver().receive(rawMessage.substring(1));
-				
+				receiveMessage(rawMessage.substring(1));				
 				break;
 			default:
-				throw new InvalidArgumentException("first raw message", rawMessage, "is not valid");
+				throw new InvalidArgumentException("raw message", rawMessage, "is not valid");
 		}
 	}
 	
@@ -402,9 +364,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
 	 */
 	private void sendRawMessage(final char rawMessage) {
-		
-		//Calls other method.
-		sendRawMessage(String.valueOf(rawMessage));
+		processor.sendRawMessage(rawMessage);
 	}
 	
 	//method
@@ -416,25 +376,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
 	 */
 	private void sendRawMessage(final String rawMessage) {
-		
-		//TEMP
-		//System.out.println(hashCode() + " send: " + rawMessage);
-		
-		//Checks if the given message is not null.
-		Validator.suppose(rawMessage).thatIsNamed(VariableNameCatalogue.MESSAGE).isNotNull();
-		
-		//Checks if the current NetEndPoint is alive.
-		supposeIsAlive();
-		
-		//Send messages in bytes to allow interactions with WebSockets.
-		try {
-			outputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
-			outputStream.write(StringCatalogue.EMPTY_STRING.getBytes(StandardCharsets.UTF_8));
-			outputStream.flush();
-		}
-		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
-		}
+		processor.sendRawMessage(rawMessage);
 	}
 	
 	//method
@@ -444,20 +386,21 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws RuntimeException if the current {@link NetEndPoint} reaches the timeout before it receives a target.
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
 	 */
-	private void waitToTarget() {
-		
+	private void waitToTargetInfo() {
+
+		//For a better performance, there is made a first simple check.
 		if (hasTargetInfo) {
 			return;
 		}
 		
-		final long startTimeInMilliseconds = System.currentTimeMillis();
-		
 		//This loop suffers from being optimized away by the compiler or the JVM.
+		final long startTimeInMilliseconds = System.currentTimeMillis();
 		while (!hasTargetInfo()) {
 			
 			//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
 			System.out.flush();
 			
+			//TODO: Use getTimeoutInMilliseconds method.
 			if (System.currentTimeMillis() - startTimeInMilliseconds > DEFAULT_TIMEOUT_IN_MILLISECONDS) {
 				throw new InvalidArgumentException("reached timeout while waiting to target.");
 			}

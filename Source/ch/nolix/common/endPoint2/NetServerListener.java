@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-04
  * @lines 60
  */
-final class NetServerSubListener extends Thread {
+final class NetServerListener extends Thread {
 
 	//attributes
 	private final NetServer netServer;
@@ -33,7 +33,7 @@ final class NetServerSubListener extends Thread {
 	 * @throws ArgumentIsNullException if the given net server is null.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public NetServerSubListener(final NetServer netServer) {
+	public NetServerListener(final NetServer netServer) {
 		
 		//Checks if the given net server is not null.
 		Validator.suppose(netServer).isOfType(NetServer.class);
