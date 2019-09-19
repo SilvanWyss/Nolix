@@ -88,6 +88,16 @@ public final class WebSocketFrame {
 	}
 	
 	//method
+	public WebSocketFrame createPongFrame() {
+		
+		if (!isPingFrame()) {
+			throw new InvalidArgumentException(this, "is not a ping frame"); 
+		}
+		
+		return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, payload);
+	}
+	
+	//method
 	public boolean getFINBit() {
 		return firstNibble.getFINBit();
 	}
