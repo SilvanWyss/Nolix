@@ -8,8 +8,9 @@ import ch.nolix.common.containers.IContainer;
 public final class HTTPRequest {
 	
 	//constants
-	private static final String CONTENT_TYPE_HEADER = "Content-Type";
-	private static final String HTTP_HEADER = "HTTP";	
+	public static final String CONTENT_TYPE_HEADER = "Content-Type";
+	public static final String HOST_HEADER = "Host";
+	public static final String HTTP_HEADER = "HTTP";	
 	
 	//TODO: Get rid of SuppressWarnings.
 	//static method
@@ -17,6 +18,6 @@ public final class HTTPRequest {
 	public static boolean canBe(final IContainer<String> lines) {
 		
 		//TODO: Improve check.
-		return lines.containsAll(l -> l.contains(HTTP_HEADER), l -> l.contains(CONTENT_TYPE_HEADER));
+		return lines.containsAll(l -> l.contains(HTTP_HEADER), l -> l.contains(HOST_HEADER));
 	}
 }
