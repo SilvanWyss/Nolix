@@ -4,6 +4,7 @@ package ch.nolix.common.test;
 //Java import
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.skillAPI.ApproximativeEqualing;
@@ -14,7 +15,7 @@ import ch.nolix.common.skillAPI.ApproximativeEqualing;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 250
+ * @lines 260
  */
 public abstract class Test extends ch.nolix.common.baseTest.BaseTest {
 	
@@ -194,6 +195,24 @@ public abstract class Test extends ch.nolix.common.baseTest.BaseTest {
 				//Increments index.
 				index++;
 			}
+	}
+	
+	//method
+	/**
+	 * @param bit
+	 * @return a new {@link BitMediator} that belongs to the current {@link Test} and is for the given bit.
+	 */
+	protected final BitMediator expectTheBit(final boolean bit) {
+		return new BitMediator(this, bit);
+	}
+	
+	//method
+	/**
+	 * @param bit
+	 * @return a new {@link BitMediator} that belongs to the current {@link Test} and is for the given bit.
+	 */
+	protected final BitMediator expectTheBit(final int bit) {
+		return new BitMediator(this, bit);
 	}
 	
 	//method
