@@ -178,7 +178,7 @@ public final class WebSocketFrame {
 		bytes[0] = firstNibble.getByte1();
 		bytes[1] = firstNibble.getByte2();
 		
-		//TODO: Use: ArrayHelper.on(bytes).fromIndex(2).write(maskingKey)
+		//TODO: Use: nextInded = ArrayHelper.on(bytes).fromIndex(2).write(maskingKey).andGetNextIndex();
 		var i = 2;
 		if (firstNibble.getMaskBit()) {
 			for (final var b : maskingKey) {
@@ -230,17 +230,17 @@ public final class WebSocketFrame {
 				final var headerNext2Bytes = inputStream.readNBytes(2);
 				
 				return
-				BigDecimal.valueOf(0x100 * (headerNext2Bytes[0] & 0xFF))
-				.add(BigDecimal.valueOf(headerNext2Bytes[1] & 0xFF));
+				BigDecimal.valueOf(0x100l * (headerNext2Bytes[0] & 0b11111111))
+				.add(BigDecimal.valueOf(headerNext2Bytes[1] & 0b11111111));
 			case IN_64_BITS:
 				
 				final var headerNext4Bytes = inputStream.readNBytes(2);
 				
 				return
 				BigDecimal.valueOf(headerNext4Bytes[0] & 0xFF)
-				.add(BigDecimal.valueOf(0x100 * (headerNext4Bytes[1] & 0xFF)))
-				.add(BigDecimal.valueOf(0x10000 * (headerNext4Bytes[2] & 0xFF)))
-				.add(BigDecimal.valueOf(0x1000000 * (headerNext4Bytes[3] & 0xFF)));
+				.add(BigDecimal.valueOf(0x100l * (headerNext4Bytes[1] & 0b11111111)))
+				.add(BigDecimal.valueOf(0x10000l * (headerNext4Bytes[2] & 0b11111111)))
+				.add(BigDecimal.valueOf(0x1000000l * (headerNext4Bytes[3] & 0b11111111)));
 			default:
 				throw
 				new InvalidArgumentException(
