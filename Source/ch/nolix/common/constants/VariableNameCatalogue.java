@@ -17,7 +17,9 @@ public final class VariableNameCatalogue {
 	public static final String ARRAY = "array";
 	public static final String ATTRIBUTE = "attribute";
 	public static final String BACKGROUND_COLOR = "background color";
+	public static final String BIT = "bit";
 	public static final String BORDER_COLOR = "border color";
+	public static final String BYTE = "byte";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
 	public static final String CELL = "cell";
