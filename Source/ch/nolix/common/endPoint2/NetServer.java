@@ -5,6 +5,7 @@ package ch.nolix.common.endPoint2;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+//own imports
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.validator.Validator;
 
@@ -34,7 +35,7 @@ public final class NetServer extends Server {
 	
 	//attributes
 	private final int port;
-	private final String HTTPMessage;
+	private final String mHTTPMessage;
 	private final ServerSocket serverSocket;
 	
 	//constructor
@@ -85,7 +86,7 @@ public final class NetServer extends Server {
 		this.port = port;
 		
 		//Sets the HTTP message of the current NetServer.
-		this.HTTPMessage = HTTPMessage;
+		this.mHTTPMessage = HTTPMessage;
 		
 		try {
 			
@@ -150,7 +151,7 @@ public final class NetServer extends Server {
 	 * @return the HTTP message of the current {@link NetServer}.
 	 */
 	String getHTTPMessage() {
-		return HTTPMessage;
+		return mHTTPMessage;
 	}
 	
 	//package-visible method
