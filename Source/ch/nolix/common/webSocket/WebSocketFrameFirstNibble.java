@@ -36,7 +36,7 @@ final class WebSocketFrameFirstNibble {
 		this.mFINBit = mFINBit;
 		this.opcode = opcodeMeaning.toNumber();
 		this.maskBit = maskBit;		
-		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromNumber(payloadLength);
+		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromPayloadLength(payloadLength);
 		
 		this.m7BitPayloadLength =
 		payloadLengthSpecification == WebSocketFramePayloadLengthSpecification.IN_7_BITS ? payloadLength : 0;
@@ -62,7 +62,7 @@ final class WebSocketFrameFirstNibble {
 		
 		opcode = byte1 & 0b1111;
 		maskBit = wrapperByte2.getBitAt(1);
-		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromNumber(byte2 & 0x7F);
+		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromCode(byte2 & 0b01111111);
 		m7BitPayloadLength = byte2 & 0x7F;
 	}
 	

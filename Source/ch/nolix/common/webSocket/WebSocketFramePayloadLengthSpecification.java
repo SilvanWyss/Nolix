@@ -13,7 +13,7 @@ public enum WebSocketFramePayloadLengthSpecification {
 	IN_64_BITS;
 	
 	//static method
-	public static WebSocketFramePayloadLengthSpecification fromNumber(final int number) {
+	public static WebSocketFramePayloadLengthSpecification fromCode(final int number) {
 		
 		Validator.suppose(number).thatIsNamed(VariableNameCatalogue.NUMBER).isNotNegative();
 		
@@ -30,5 +30,21 @@ public enum WebSocketFramePayloadLengthSpecification {
 		}
 		
 		throw new InvalidArgumentException(VariableNameCatalogue.NUMBER, "number", "is not valid");
+	}
+	
+	//static method
+	public static WebSocketFramePayloadLengthSpecification fromPayloadLength(final int payloadLength) {
+		
+		Validator.suppose(payloadLength).thatIsNamed("payload length").isNotNegative();
+		
+		if (payloadLength <= 125) {
+			return IN_7_BITS;
+		}
+		
+		if (payloadLength <= 65536) {
+			return IN_16_BITS;
+		}
+		
+		return WebSocketFramePayloadLengthSpecification.IN_64_BITS;
 	}
 }
