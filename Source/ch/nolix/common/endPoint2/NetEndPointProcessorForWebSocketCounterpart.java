@@ -58,11 +58,12 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 			final var bufferedReader =
 			new BufferedReader(new InputStreamReader(parentNetEndPoint.getRefSocket().getInputStream()))
 		) {
+			final var inputStream = parentNetEndPoint.getRefSocket().getInputStream();
 			while (parentNetEndPoint.isOpen()) {
 				parentNetEndPoint.receiveRawMessageInBackground(
 					new String(
 						new WebSocketCompleteMessage(
-							parentNetEndPoint.getRefSocket().getInputStream(),
+							inputStream,
 							cf -> receiveControlFrame(cf)
 						)
 						.getMessageAsByteArray(),
