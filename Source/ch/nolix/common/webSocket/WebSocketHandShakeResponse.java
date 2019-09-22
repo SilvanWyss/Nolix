@@ -2,11 +2,12 @@
 package ch.nolix.common.webSocket;
 
 //Java imports
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+//own import
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -30,11 +31,11 @@ public final class WebSocketHandShakeResponse {
 		final var secWebSocketKeyAndWebSocketGUID = secWebSocketKey + WEB_SOCKET_GUID;	
 		try {
 			final var messageDigest = MessageDigest.getInstance("SHA-1");
-			var bytes = messageDigest.digest(secWebSocketKeyAndWebSocketGUID.getBytes("UTF-8"));
+			var bytes = messageDigest.digest(secWebSocketKeyAndWebSocketGUID.getBytes(StandardCharsets.UTF_8));
 	        secWebSocketAccept = Base64.getEncoder().encodeToString(bytes);
 		}
-		catch (final NoSuchAlgorithmException | UnsupportedEncodingException exception) {
-			throw new RuntimeException(exception);
+		catch (final NoSuchAlgorithmException noSuchAlgorithmException) {
+			throw new RuntimeException(noSuchAlgorithmException);
 		}
 	}
 	
