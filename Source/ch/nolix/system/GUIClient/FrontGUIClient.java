@@ -29,6 +29,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(application);
+		noteResizeOnCounterpart();
 	}
 	
 	/**
@@ -44,6 +45,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(port);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -63,6 +65,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(port, name);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -83,6 +86,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(ip, port);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -103,5 +107,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(ip, port, name);
+		noteResizeOnCounterpart();
 	}
 }

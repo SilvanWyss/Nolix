@@ -1,21 +1,23 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.GUI;
 
 //package-visible class
-final class BaseFrontGUIClientLayerGUIHandler extends BaseFrontGUIClientGUIHandler {
+final class BaseFrontGUIClientLayerGUIHandler implements BaseFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final Frame mGUI;
 	
 	//constructor
 	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
-		mGUI = new Frame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));;
+		mGUI = new Frame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));
 	}
 	
 	//method
@@ -38,28 +40,16 @@ final class BaseFrontGUIClientLayerGUIHandler extends BaseFrontGUIClientGUIHandl
 	
 	//method
 	@Override
-	public String getUpdateCommandForCounterpart() {
-		return
-		Protocol.GUI_HEADER
-		+ '.'
-		+ Protocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER
-		+ '('
-		+ mGUI.getInteractionAttributesOfWidgets().to(ias -> '(' + ias.toString() + ')')
-		+ ')';
+	public GUI<?> getRefGUI() {
+		return mGUI;
 	}
-
+	
 	//method
 	@Override
 	public void noteClose() {
 		mGUI.close();
 	}
 	
-	//method
-	@Override
-	public boolean providesUpdateCommandForCounterpart() {
-		return true;
-	}
-
 	//method
 	@Override
 	public void run(final ChainedNode command) {
@@ -91,12 +81,5 @@ final class BaseFrontGUIClientLayerGUIHandler extends BaseFrontGUIClientGUIHandl
 			default:
 				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
 		}
-	}
-	
-	
-	//TODO
-	@Override
-	String getSetViewAreaSizeCommand() {
-		return "SetViewAreaSize(" + mGUI.getViewAreaWidth()  + "," + mGUI.getViewAreaHeight() + ")";
 	}
 }

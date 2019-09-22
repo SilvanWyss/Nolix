@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own import
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -68,10 +69,10 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 		
 		super.noteResize(viewAreaWidth, viewAreaHeight);
 		
+		Validator.suppose(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
+		Validator.suppose(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
+		
 		this.viewAreaWidth = viewAreaWidth;
-		
-		Validator.suppose(viewAreaHeight).thatIsNamed("view arew height").isNotNegative();
-		
 		this.viewAreaHeight = viewAreaHeight;
 	}
 	
@@ -83,21 +84,5 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 	//method
 	public void setViewAreaCursorYPosition(final int viewAreaCursorYPosition) {
 		this.viewAreaCursorYPosition = viewAreaCursorYPosition;
-	}
-	
-	//method
-	public void setViewAreaHeight(final int viewAreaHeight) {
-		
-		Validator.suppose(viewAreaHeight).thatIsNamed("view arew height").isNotNegative();
-		
-		this.viewAreaHeight = viewAreaHeight;
-	}
-
-	//method
-	public void setViewAreaWidth(final int viewAreaWidth) {
-		
-		Validator.suppose(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
-		
-		this.viewAreaWidth = viewAreaWidth;
 	}
 }

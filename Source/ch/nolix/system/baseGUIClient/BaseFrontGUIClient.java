@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
+import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.system.GUIClient.FrontGUIClient;
@@ -14,7 +16,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 300
+ * @lines 260
  * @param <FGC> The type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
@@ -181,6 +183,11 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	}
 	
 	//method
+	public final void noteResizeOnCounterpart() {
+		noteResizeOnCounterpart(getRefGUI().getViewAreaWidth(), getRefGUI().getViewAreaHeight());
+	}
+	
+	//method
 	/**
 	 * {@inheritDoc}
 	 */
@@ -219,7 +226,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Handles the case that the GUI handler of the current FrontGUIClientoid can run the given command.
 		if (mGUIHandler.canRunCommand(command)) {
-			internal_runOnCounterpart(mGUIHandler.getSetViewAreaSizeCommand());
 			mGUIHandler.run(command);
 		}
 		
@@ -250,5 +256,13 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		internal_waitUntilIsConnected();
 		
 		internal_runOnCounterpart(commandHeader + "(" + new ReadContainer<>(commandAttributes) + ")");
+	}
+	
+	//method
+	/**
+	 * @return the {@link GUI} of the current {@link FrontGUIClient}.
+	 */
+	private GUI<?> getRefGUI() {
+		return mGUIHandler.getRefGUI();
 	}
 }

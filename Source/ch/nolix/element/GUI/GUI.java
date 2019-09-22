@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
@@ -175,6 +176,18 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return asConcreteType();
 	}
 	
+	//abstract method
+	/**
+	 * @return the height of the view area of the current {@link GUI}.
+	 */
+	public abstract int getViewAreaHeight();
+	
+	//abstract method
+	/**
+	 * @return the width of the view area of the current {@link GUI}.
+	 */
+	public abstract int getViewAreaWidth();
+	
 	//method
 	/**
 	 * @return the {@link IVisualizer} of the current {@link GUI}.
@@ -188,19 +201,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		
 		return visualizer;
 	}
-	
-	//abstract method
-	/**
-	 * @return the height of the view area of the current {@link GUI}.
-	 */
-	protected abstract int getViewAreaHeight();
-	
-	//abstract method
-	/**
-	 * @return the width of the view area of the current {@link GUI}.
-	 */
-	protected abstract int getViewAreaWidth();
-	
+
 	//abstract method
 	/**
 	 * @return the x-position of the cursor on the view area of the current {@link GUI}.

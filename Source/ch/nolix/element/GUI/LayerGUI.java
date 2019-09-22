@@ -863,7 +863,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * if the current {@link LayerGUI} contains {@link Layer}s,
 	 * otherwise the backround of the current {@link LayerGUI}.
 	 */
-	private Layer getRefTopLayerOrBackgroundLayer() {
+	protected Layer getRefTopLayerOrBackgroundLayer() {
 		
 		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {

@@ -115,10 +115,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				getRefGUI().noteResize(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
 				updateGUIOnCounterpart();
 				break;
-			case "SetViewAreaSize": //TODO
-				getRefGUI().setViewAreaWidth(command.getRefAttributeAt(1).toInt());
-				getRefGUI().setViewAreaHeight(command.getRefAttributeAt(2).toInt());
-				break;
 			default:
 				
 				//Calls method of the base class.

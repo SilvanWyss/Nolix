@@ -3,12 +3,13 @@ package ch.nolix.system.baseGUIClient;
 
 //own import
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.element.GUI.GUI;
 
-//package-visible abstract class
-abstract class BaseFrontGUIClientGUIHandler {
+//package-visible interface
+abstract interface BaseFrontGUIClientGUIHandler {
 	
-	//abstract method
-	public final boolean canRunCommand(final ChainedNode command) {
+	//default method
+	public default boolean canRunCommand(final ChainedNode command) {
 		return (command.hasHeader() && canRunCommandOfType(command.getHeader()));
 	}
 	
@@ -16,20 +17,14 @@ abstract class BaseFrontGUIClientGUIHandler {
 	public abstract boolean canRunCommandOfType(String command);
 	
 	//abstract method
-	public abstract void noteClose();
-	
-	//abstract method
 	public abstract BaseFrontGUIClientGUIType getGUIType();
 	
 	//abstract method
-	public abstract String getUpdateCommandForCounterpart();
-
+	public abstract GUI<?> getRefGUI();
+	
 	//abstract method
-	public abstract boolean providesUpdateCommandForCounterpart();
+	public abstract void noteClose();
 
 	//abstract method
 	public abstract void run(ChainedNode command);
-	
-	//TODO
-	abstract String getSetViewAreaSizeCommand();
 }

@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.CanvasFrame;
+import ch.nolix.element.GUI.GUI;
 
 //package-visible class
-final class BaseFrontGUIClientCanvasGUIHandler extends BaseFrontGUIClientGUIHandler {
+final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final CanvasFrame mGUI;
@@ -45,8 +46,8 @@ final class BaseFrontGUIClientCanvasGUIHandler extends BaseFrontGUIClientGUIHand
 	
 	//method
 	@Override
-	public String getUpdateCommandForCounterpart() {
-		throw new ArgumentDoesNotSupportMethodException(this, "getUpdateCommandForCounterpart");
+	public GUI<?> getRefGUI() {
+		return mGUI;
 	}
 	
 	//method
@@ -59,12 +60,6 @@ final class BaseFrontGUIClientCanvasGUIHandler extends BaseFrontGUIClientGUIHand
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
 		}
-	}
-	
-	//method
-	@Override
-	public boolean providesUpdateCommandForCounterpart() {
-		return false;
 	}
 	
 	//method
@@ -88,11 +83,5 @@ final class BaseFrontGUIClientCanvasGUIHandler extends BaseFrontGUIClientGUIHand
 	//method
 	private void setPaintCommands(final IContainer<ChainedNode> paintCommands) {
 		mGUI.setPaintCommandsFromStatements(paintCommands);
-	}
-	
-	//TODO
-	@Override
-	String getSetViewAreaSizeCommand() {
-			return "SetViewAreaSize(" + mGUI.getViewAreaWidth()  + "," + mGUI.getViewAreaHeight() + ")";
 	}
 }

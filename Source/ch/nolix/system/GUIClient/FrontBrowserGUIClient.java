@@ -30,6 +30,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(application);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -46,6 +47,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -65,6 +67,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port, application);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -82,6 +85,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port);
+		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -102,5 +106,6 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port, application);
+		noteResizeOnCounterpart();
 	}
 }
