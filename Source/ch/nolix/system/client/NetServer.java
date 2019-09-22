@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.endPoint5.EndPoint;
+import ch.nolix.common.localComputer.LocalComputer;
 
 //class
 /**
@@ -10,30 +12,12 @@ import ch.nolix.common.endPoint5.EndPoint;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 130
+ * @lines 120
  */
 public final class NetServer extends Server {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
-	
-	//constant
-	private static final String HTTP_MESSAGE =
-	"HTTP/1.1 200 OK\r\n"
-	+ "Content-Type: text/html; charset=UTF-8\r\n"
-	+ "\r\n"
-	+ "<!DOCTYPE html>"
-	+ "<html>"
-	+ "<head>"
-	+ "<script src=\"http://www.nolix.ch/Launcher/require.js\"></script>"
-	+ "<script src=\"http://www.nolix.ch/Launcher/nolix.js\"></script>"
-	+ "<script src=\"http://www.nolix.ch/Launcher/main.js\"></script>"
-	+ "<title>Nolix</title>"
-	+ "<style>*{font-family: Calibri;}</style>"
-	+ "</head>"
-	+ "<h1>Nolix</h1>"
-	+ "</body>"
-	+ "</html>\r\n";
 	
 	//attribute
 	private ch.nolix.common.endPoint5.NetServer internalNetServer;
@@ -77,7 +61,11 @@ public final class NetServer extends Server {
 	public NetServer(final int port) {
 		
 		//Creates the internalNetServer of the current NetServer.
-		internalNetServer = new ch.nolix.common.endPoint5.NetServer(port, HTTP_MESSAGE);
+		internalNetServer =
+		new ch.nolix.common.endPoint5.NetServer(
+			port, 
+			new NetServerHTTPMessage(LocalComputer.getLANIP(), port).toString()
+		);
 		
 		internalNetServer.addMainEndPointTaker(new NetServerSubDuplexControllerTaker(this));
 		
