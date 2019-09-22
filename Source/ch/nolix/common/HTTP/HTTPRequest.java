@@ -8,6 +8,7 @@ import ch.nolix.common.containers.IContainer;
 public final class HTTPRequest {
 	
 	//constants
+	public static final String ACCEPT_HEADER = "Accept";
 	public static final String CONTENT_TYPE_HEADER = "Content-Type";
 	public static final String HOST_HEADER = "Host";
 	public static final String HTTP_HEADER = "HTTP";	
@@ -18,6 +19,10 @@ public final class HTTPRequest {
 	public static boolean canBe(final IContainer<String> lines) {
 		
 		//TODO: Improve check.
-		return lines.containsAll(l -> l.contains(HTTP_HEADER), l -> l.contains(HOST_HEADER));
+		return lines.containsAll(
+			l -> l.contains(HTTP_HEADER),
+			l -> l.contains(HOST_HEADER),
+			l -> l.contains(ACCEPT_HEADER + ": text/html")
+		);
 	}
 }
