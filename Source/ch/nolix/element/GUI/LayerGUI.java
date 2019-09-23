@@ -319,7 +319,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			layers.getRefFirst().setRootWidget(createWidgetFrom(attribute));
 		}
 		
-		
 		//Handles the case that the given attribute does not specify a widget.
 		else {
 			//Enumerates the header of the given attribute.
@@ -329,9 +328,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 					break;		
 				case Layer.BACKGROUND_COLOR_GRADIENT_HEADER:
 					backGround.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
-					break;
-				case ContentPosition.TYPE_NAME:
-					backGround.setContentPosition(ExtendedContentPosition.fromSpecification(attribute));
 					break;
 				default:
 					
@@ -411,8 +407,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		if (backGround.hasBackgroundColorGradient()) {
 			attributes.addAtEnd(backGround.getBackgroundColorGradient().getSpecificationAs(Layer.BACKGROUND_COLOR_GRADIENT_HEADER));
 		}
-		
-		attributes.addAtEnd(backGround.getContentPosition().getSpecificationAs(ContentPosition.TYPE_NAME));
 		
 		return attributes;
 	}
