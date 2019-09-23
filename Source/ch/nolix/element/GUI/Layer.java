@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;
@@ -33,7 +34,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 580
+ * @lines 770
  */
 public final class Layer extends Element<Layer>
 implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEventTaker {
@@ -476,6 +477,140 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		}
 	}
 	
+	//package-visible method
+	/**
+	 * Paints the current  {@link Layer} using the given painter.
+	 * 
+	 * @param painter
+	 */
+	public void paint(final IPainter painter) {
+		
+		//Paints the background of the current GUILayer.
+			//Handles the case that the current GUILayer has a background color.
+			if (hasBackgroundColor()) {
+				painter.setColor(getBackgroundColor());
+				painter.paintFilledRectangle(
+					parentGUI.getViewAreaWidth(),
+					parentGUI.getViewAreaHeight()
+				);
+			}
+			
+			//Handles the case that the current GUILayer has a background color gradient.
+			else if (hasBackgroundColorGradient()) {
+				painter.setColorGradient(getBackgroundColorGradient());
+				painter.paintFilledRectangle(
+					parentGUI.getViewAreaWidth(),
+					parentGUI.getViewAreaHeight()
+				);
+		}
+		
+		//Handles the case that the current GUILayer has a root Widget.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (rootWidget != null) {
+			rootWidget.paintRecursively(painter);
+		}
+	}
+	
+	//package-visible method
+	/**
+	 * Recalculates the current  {@link Layer}.
+	 */
+	public void recalculate() {
+		
+		//Handles the case that the current GUILayer has a root Widget.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (rootWidget != null) {
+			
+			//For updating the size of the root widget.
+			rootWidget.recalculateRecursively();
+									
+			//Enumerates the content position of the current GUILayer.
+			switch (contentPosition.getValue()) {
+				case LeftTop:
+					
+					getRefRootWidget().setPositionOnParent(0, 0);
+					
+					break;
+				case Left:
+					
+					getRefRootWidget().setPositionOnParent(
+						0,
+						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					);
+					
+					break;
+				case LeftBottom:
+					
+					getRefRootWidget().setPositionOnParent(
+						0,
+						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+					);
+					
+					break;
+				case Top:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+						0
+					);
+					
+					break;
+				case Center:
+								
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					);
+					
+					break;
+				case Bottom:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+					);
+					
+					break;
+				case RightTop:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+						0
+					);
+					
+					break;
+				case Right:
+				
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					);
+				
+					break;
+				case RightBottom:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+					);
+					
+					break;
+				case Free:
+					
+					final var freeContentPositionValue = this.freeContentPosition.getValue();	
+					
+					getRefRootWidget().setPositionOnParent(
+						freeContentPositionValue.getX(),
+						freeContentPositionValue.getY()
+					);
+					
+					break;
+			}
+			
+			rootWidget.recalculateRecursively();
+		}
+	}
+	
 	//method
 	/**
 	 * Removes any background of the current {@link Layer}.
@@ -489,7 +624,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	//method
 	/**
 	 * Resets the current {@link Layer}.
@@ -505,7 +640,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	//method
 	/**
 	 * Resets the configuration of the current {@link Layer}.
@@ -620,137 +755,6 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		this.rootWidget = rootWidget;
 		
 		return this;
-	}
-
-	//package-visible method
-	/**
-	 * Paints the current  {@link Layer} using the given painter.
-	 * 
-	 * @param painter
-	 */
-	public void paint(final IPainter painter) {
-		
-		//Paints the background of the current GUILayer.
-			//Handles the case that the current GUILayer has a background color.
-			if (hasBackgroundColor()) {
-				painter.setColor(getBackgroundColor());
-				painter.paintFilledRectangle(
-					parentGUI.getViewAreaWidth(),
-					parentGUI.getViewAreaHeight()
-				);
-			}
-			
-			//Handles the case that the current GUILayer has a background color gradient.
-			else if (hasBackgroundColorGradient()) {
-				painter.setColorGradient(getBackgroundColorGradient());
-				painter.paintFilledRectangle(
-					parentGUI.getViewAreaWidth(),
-					parentGUI.getViewAreaHeight()
-				);
-		}
-		
-		//Handles the case that the current GUILayer has a root Widget.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget != null) {
-			rootWidget.paintRecursively(painter);
-		}
-	}
-
-	//package-visible method
-	/**
-	 * Recalculates the current  {@link Layer}.
-	 */
-	public void recalculate() {
-		
-		//Handles the case that the current GUILayer has a root Widget.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget != null) {
-									
-			//Enumerates the content position of the current GUILayer.
-			switch (contentPosition.getValue()) {
-				case LeftTop:
-					
-					getRefRootWidget().setPositionOnParent(0, 0);
-					
-					break;
-				case Left:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case LeftBottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case Top:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-						0
-					);
-					
-					break;
-				case Center:
-								
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case Bottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case RightTop:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-						0
-					);
-					
-					break;
-				case Right:
-				
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-				
-					break;
-				case RightBottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case Free:
-					
-					final var freeContentPositionValue = this.freeContentPosition.getValue();	
-					
-					getRefRootWidget().setPositionOnParent(
-						freeContentPositionValue.getX(),
-						freeContentPositionValue.getY()
-					);
-					
-					break;
-			}
-			
-			rootWidget.recalculateRecursively();
-		}
 	}
 
 	//package-visible method
