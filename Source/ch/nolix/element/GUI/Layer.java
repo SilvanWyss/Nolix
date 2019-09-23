@@ -397,8 +397,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteMouseWheelClick() {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyMouseWheelClickRecursively();
+			rootWidget.noteMouseWheelClickRecursively();
 		}		
 	}
 	
@@ -409,8 +408,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteMouseWheelPress() {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyMouseWheelPressRecursively();
+			rootWidget.noteMouseWheelPressRecursively();
 		}
 	}
 	
@@ -421,8 +419,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteMouseWheelRelease() {
 		if (rootWidget != null) {
-			//TODO
-			//rootWidget.noteAnyMouseWheelReleaseRecursively();
+			rootWidget.noteMouseWheelReleaseRecursively();
 		}
 	}
 	
@@ -451,7 +448,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteRightMouseButtonClick() {
 		if (rootWidget != null) {
-			//TODO
+			rootWidget.noteRightMouseButtonClickRecursively();
 		}
 	}
 	
@@ -462,7 +459,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteRightMouseButtonPress() {
 		if (rootWidget != null) {
-			//TODO
+			rootWidget.noteRightMouseButtonPressRecursively();
 		}
 	}
 	
@@ -473,7 +470,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	@Override
 	public void noteRightMouseButtonRelease() {
 		if (rootWidget != null) {
-			//TODO
+			rootWidget.noteRightMouseButtonReleaseRecursively();
 		}
 	}
 	

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -22,7 +23,6 @@ import ch.nolix.element.containerWidgets.FloatContainer;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.containerWidgets.SingleContainer;
 import ch.nolix.element.containerWidgets.TabContainer;
-import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.input.Key;

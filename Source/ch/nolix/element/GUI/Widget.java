@@ -969,6 +969,29 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note a right mouse button click.
+	 */
+	public final void noteRightMouseButtonClick() {
+		if (isEnabled()) {
+			noteRightMouseButtonClickWhenEnabled();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button click recursively.
+	 */
+	public final void noteRightMouseButtonClickRecursively() {
+		
+		noteRightMouseButtonClick();
+		
+		if (redirectsEventsToPaintableWidgetsAPriori()) {
+			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonClickRecursively());
+		}
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Widget} note a right mouse button press.
 	 */
 	public final void noteRightMouseButtonPress() {
