@@ -22,7 +22,7 @@ extends BackGUIClientSession {
 	public final void initialize() {
 		
 		internal_getRefGUI()
-		.setTitle(getRefApplicationContextAs(DatabaseApplicationContext.class).getTitle())
+		.setTitle(getApplicationName())
 		.addLayerOnTop(
 			new VerticalStack(
 				createTitleWidget(),
@@ -56,7 +56,7 @@ extends BackGUIClientSession {
 	private Label createTitleWidget() {
 		return
 		new Label()
-		.setText(getRefApplicationContextAs(DatabaseApplicationContext.class).getTitle())
+		.setText(getApplicationName())
 		.setRole(LabelRole.Title);
 	}
 	

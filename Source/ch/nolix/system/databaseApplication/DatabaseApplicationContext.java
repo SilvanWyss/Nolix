@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-import ch.nolix.common.constants.VariableNameCatalogue;
+//own imports
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
@@ -11,63 +11,37 @@ import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 //class
 public final class DatabaseApplicationContext {
 
-	//attributes
-	private final String title;
-	private final IElementGetter<DatabaseAdapter> databaseAdapterFactory;
+	//attribute
+	private final IElementGetter<DatabaseAdapter> databaseAdapterCreator;
 	
 	//optional attribute
-	private final StandardConfiguration GUILook;
+	private final StandardConfiguration mGUILook;
+	
+	//constructor
+	public DatabaseApplicationContext(final IElementGetter<DatabaseAdapter> databaseAdapterCreator) {
+			
+		Validator.suppose(databaseAdapterCreator).thatIsNamed("database adapter creator").isNotNull();
+		
+		this.databaseAdapterCreator = databaseAdapterCreator;
+		mGUILook = null;
+	}
 	
 	//constructor
 	public DatabaseApplicationContext(
-		final String title,
-		final IElementGetter<DatabaseAdapter> databaseAdapterFactory
+		final IElementGetter<DatabaseAdapter> databaseAdapterCreator,
+		final StandardConfiguration pGUILook
 	) {
+			
+		Validator.suppose(databaseAdapterCreator).thatIsNamed("database adapter creator").isNotNull();
+		Validator.suppose(pGUILook).thatIsNamed("GUI look").isNotNull();
 		
-		Validator
-		.suppose(title)
-		.thatIsNamed(VariableNameCatalogue.TITLE)
-		.isNotEmpty();
-		
-		Validator
-		.suppose(databaseAdapterFactory)
-		.thatIsNamed("database adapter factory")
-		.isNotNull();
-		
-		this.title = title;
-		this.databaseAdapterFactory = databaseAdapterFactory;
-		this.GUILook = null;
+		this.databaseAdapterCreator = databaseAdapterCreator;
+		this.mGUILook = pGUILook;
 	}
-	
-	public DatabaseApplicationContext(
-			final String title,
-			final IElementGetter<DatabaseAdapter> databaseAdapterFactory,
-			final StandardConfiguration GUILook
-		) {
-			
-			Validator
-			.suppose(title)
-			.thatIsNamed(VariableNameCatalogue.TITLE)
-			.isNotEmpty();
-			
-			Validator
-			.suppose(databaseAdapterFactory)
-			.thatIsNamed("database adapter factory")
-			.isNotNull();
-			
-			Validator
-			.suppose(GUILook)
-			.thatIsNamed("GUI look")
-			.isNotNull();
-			
-			this.title = title;
-			this.databaseAdapterFactory = databaseAdapterFactory;
-			this.GUILook = GUILook;
-		}
 	
 	//method
 	public DatabaseAdapter createDatabaseAdapter() {
-		return databaseAdapterFactory.getOutput();
+		return databaseAdapterCreator.getOutput();
 	}
 	
 	//method
@@ -75,17 +49,12 @@ public final class DatabaseApplicationContext {
 		
 		supposeHasGUILook();
 		
-		return GUILook;
-	}
-
-	//method
-	public String getTitle() {
-		return title;
+		return mGUILook;
 	}
 	
 	//method
 	public boolean hasGUILook() {
-		return (GUILook != null);
+		return (mGUILook != null);
 	}
 	
 	//method

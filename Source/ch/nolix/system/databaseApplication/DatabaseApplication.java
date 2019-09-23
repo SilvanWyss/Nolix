@@ -2,23 +2,36 @@
 package ch.nolix.system.databaseApplication;
 
 //own imports
+import ch.nolix.common.functionAPI.IElementGetter;
+import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.Application;
+import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //abstract class
-public abstract class DatabaseApplication
-extends Application<BackGUIClient> {
+public abstract class DatabaseApplication extends Application<BackGUIClient> {
 
+	//constructor
+	public DatabaseApplication(final String name, final IElementGetter<DatabaseAdapter> databaseAdapterFactory) {
+		super(
+			name,
+			BackGUIClient.class,
+			LoginSession.class,
+			new DatabaseApplicationContext(databaseAdapterFactory)
+		);
+	}
+	
 	//constructor
 	public DatabaseApplication(
 		final String name,
-		final DatabaseApplicationContext context
+		final IElementGetter<DatabaseAdapter> databaseAdapterFactory,
+		final StandardConfiguration pGUILook
 	) {
 		super(
 			name,
 			BackGUIClient.class,
 			LoginSession.class,
-			context
+			new DatabaseApplicationContext(databaseAdapterFactory, pGUILook)
 		);
 	}
 }
