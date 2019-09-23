@@ -26,7 +26,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 690
+ * @lines 700
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -116,6 +116,14 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		}
 		
 		return true;
+	}
+	
+	//method
+	/**
+	 * @return the name of the {@link Application} the current {@link Client} belongs to.
+	 */
+	public final String getApplicationName() {
+		return internal_getParentApplication().getName();
 	}
 	
 	//method

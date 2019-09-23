@@ -23,7 +23,7 @@ import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 430
+ * @lines 440
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {
@@ -86,6 +86,14 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	public final boolean belongsToClient() {
 		return (parentClient != null);
+	}
+	
+	//method
+	/**
+	 * @return the name of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
+	 */
+	public final String getApplicationName() {
+		return getParentClient().getApplicationName();
 	}
 	
 	//method
