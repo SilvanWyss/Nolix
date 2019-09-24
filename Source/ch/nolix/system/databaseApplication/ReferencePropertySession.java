@@ -73,7 +73,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	private void select() {
 		
 		final SelectionMenu referencesSelectionMenu =
-		internal_getRefGUI().getRefWidgetByName("ReferencesSelectionMenu");
+		getRefGUI().getRefWidgetByName("ReferencesSelectionMenu");
 		
 		reference.set(
 			reference

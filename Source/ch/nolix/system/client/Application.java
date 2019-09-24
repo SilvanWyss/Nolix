@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 320
+ * @lines 340
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Named {
@@ -186,6 +186,22 @@ public class Application<C extends Client<C>> implements Named {
 	 */
 	public final IContainer<C> getRefClients() {
 		return clients;
+	}
+	
+	//method
+	/**
+	 * @return the context of the current {@link Application}
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a context.
+	 */
+	@SuppressWarnings("unchecked")
+	public final <CO> CO getRefContext() {
+		
+		//Checks if the current Application has a context.
+		if (!hasContext()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONTEXT);
+		}
+		
+		return (CO)context;
 	}
 	
 	//method

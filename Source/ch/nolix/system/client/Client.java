@@ -26,7 +26,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 700
+ * @lines 710
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -140,6 +140,17 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		}
 		
 		return infoString;
+	}
+	
+	//method
+	/**
+	 * @return the context of the parent {@link Application} of the current {@link Client} as the given type.
+	 * @throws InvalidArgumentException if the current {@link Client} does not belongs to a {@link Application}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the parent {@link Application} of the current {@link Client}
+	 * does not have a context.
+	 */
+	public final <CO> CO getRefApplicationContext() {
+		return internal_getParentApplication().getRefContext();
 	}
 	
 	//method

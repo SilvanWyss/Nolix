@@ -112,6 +112,20 @@ public abstract class Session<C extends Client<C>> {
 	//method
 	/**
 	 * @return the context of the parent {@link Application}
+	 * of the parent {@link Client} of the current {@link Session}..
+	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
+	 * @throws InvalidArgumentException if the parent {@link Client} of the current {@link Session}
+	 * does not belong to a {@link Application}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application}
+	 * of the parent {@link Client} of the current {@link Session} does not have a context.
+	 */
+	public final <CO> CO getRefApplicationContext() {
+		return getParentClient().getRefApplicationContext();
+	}
+	
+	//method
+	/**
+	 * @return the context of the parent {@link Application}
 	 * of the parent {@link Client} of the current {@link Session} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.

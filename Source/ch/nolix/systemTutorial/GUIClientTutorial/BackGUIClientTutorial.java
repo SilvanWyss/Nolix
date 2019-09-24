@@ -69,7 +69,7 @@ public final class BackGUIClientTutorial {
 			.getRefHoverLook()
 			.setTextSize(ValueCatalogue.BIG_TEXT_SIZE);
 			
-			internal_getRefGUI()
+			getRefGUI()
 			.setTitle("Back GUI Client Tutorial")
 			.setBackgroundColor(Color.GREEN)
 			.addLayerOnTop(ExtendedContentPosition.Center, button);
@@ -79,10 +79,10 @@ public final class BackGUIClientTutorial {
 		public void changeColor() {
 						
 			if (counter % 2 == 0) {
-				internal_getRefGUI().setBackgroundColor(Color.GREEN);
+				getRefGUI().setBackgroundColor(Color.GREEN);
 			}
 			else {
-				internal_getRefGUI().setBackgroundColor(Color.BLUE);
+				getRefGUI().setBackgroundColor(Color.BLUE);
 			}
 			
 			counter++;

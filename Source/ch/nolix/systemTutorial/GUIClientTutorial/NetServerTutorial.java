@@ -44,7 +44,7 @@ public final class NetServerTutorial {
 		
 		@Override
 		public void initialize() {
-			internal_getRefGUI()
+			getRefGUI()
 			.setTitle("NetServer Tutorial")
 			.addLayerOnTop(new Label("Hello World!").applyOnBaseLook(bl -> bl.setTextSize(50)));
 		}

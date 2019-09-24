@@ -219,7 +219,7 @@ public final class EntitySession extends HeaderedSession {
 					final var property = (Property<?>)p;
 			
 					final TextBox dataTextBox =
-					internal_getRefGUI().getRefWidgetByName(p.getHeader());
+					getRefGUI().getRefWidgetByName(p.getHeader());
 					
 					property.setUntypedValue(dataTextBox.getText());
 					

@@ -17,16 +17,16 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 		internal_invokeSessionUserRunMethod(Node.fromString(command));
 		getParentClient().updateGUIOnCounterpart();
 	}
+
+	//method
+	protected final InvisibleLayerGUI getRefGUI() {
+		return mGUI;
+	}
 	
 	//method
 	@Override
 	protected final void internal_cleanForInitialization() {
 		mGUI.reset();
-	}
-	
-	//method
-	protected final InvisibleLayerGUI internal_getRefGUI() {
-		return mGUI;
 	}
 	
 	//method
