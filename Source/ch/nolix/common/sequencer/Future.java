@@ -1,14 +1,16 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.futureAPI.IFuture;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 70
+ * @lines 90
  */
 public final class Future implements IFuture {
 	
@@ -73,5 +75,24 @@ public final class Future implements IFuture {
 	@Override
 	public void waitUntilIsFinished() {
 		Sequencer.waitUntil(() -> isFinished());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void waitUntilIsFinished(final int timeoutInMilliseconds) {
+		
+		final var startTimeInMilliseconds = System.currentTimeMillis();
+		
+		Sequencer.asLongAs(
+			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+			&& isRunning()
+		);
+		
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "reached timeout before having finished");
+		}
 	}
 }

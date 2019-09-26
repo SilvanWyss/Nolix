@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.futureAPI;
 
+//own import
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //interface
@@ -10,7 +11,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2019-04
- * @lines 80
+ * @lines 110
  */
 public interface IFuture {
 	
@@ -55,19 +56,54 @@ public interface IFuture {
 	 */
 	public abstract void waitUntilIsFinished();
 	
+	//abstract method
+	/**
+	 * Lets the current {@link IFuture} wait until it is finished within the given timeoutInMilliseconds.
+	 * 
+	 * @param timeoutInMilliseconds
+	 * @throws Exception if the current {@link IFuture} reaches the given timeoutInMilliseconds before it finishes.
+	 */
+	public abstract void waitUntilIsFinished(final int timeoutInMilliseconds);
+	
 	//default method
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished successfully.
 	 * 
-	 * @throws InvalidArgumentException if the current {@link IFuture} will catch an error.
+	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
 	 */
-	public default void waintUntilIsFinishedSuccessfully() {
+	public default void waitUntilIsFinishedSuccessfully() {
 		
 		waitUntilIsFinished();
 		
 		if (caughtError()) {
 			
 			if (getError().getMessage() == null) {
+				throw new InvalidArgumentException(this, "has caught a '" + getError().getClass().getName() + "'");
+			}
+			
+			throw
+			new InvalidArgumentException(
+				this,
+				"has caught the error '" + getError().getClass().getName() + ": " + getError().getMessage() + "'"
+			);
+		}
+	}
+	
+	//default method
+	/**
+	 * Lets the current {@link IFuture} wait until it is finished successfully within the given timeoutInMilliseconds.
+	 * 
+	 * @param timeoutInMilliseconds
+	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
+	 * @throws Exception if the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
+	 */
+	public default void waitUntilIsFinishedSuccessfully(final int timeoutInMilliseconds) {
+		
+		waitUntilIsFinished(timeoutInMilliseconds);
+		
+		if (caughtError()) {
+			
+			if (getError().getMessage() == null || getError().getMessage().isBlank()) {
 				throw new InvalidArgumentException(this, "has caught a '" + getError().getClass().getName() + "'");
 			}
 			

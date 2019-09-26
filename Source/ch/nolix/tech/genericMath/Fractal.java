@@ -217,7 +217,7 @@ public final class Fractal implements IFractal {
 	public Image toImage() {
 		
 		final var imageBuilder = startImageBuild();
-		imageBuilder.waintUntilIsFinishedSuccessfully();
+		imageBuilder.waitUntilIsFinishedSuccessfully();
 		
 		return imageBuilder.getRefImage();
 	}

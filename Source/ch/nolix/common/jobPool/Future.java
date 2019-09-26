@@ -39,4 +39,10 @@ final class Future implements IFuture {
 	public void waitUntilIsFinished() {
 		jobWrapper.waitUntilIsFinished();
 	}
+	
+	//method
+	@Override
+	public void waitUntilIsFinished(final int timeoutInMilliseconds) {
+		jobWrapper.waitUntilIsFinished(timeoutInMilliseconds);
+	}
 }

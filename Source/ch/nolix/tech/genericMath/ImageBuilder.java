@@ -4,9 +4,11 @@ package ch.nolix.tech.genericMath;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.sequencer.Future;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -79,8 +81,24 @@ public final class ImageBuilder implements IImageBuilder {
 	
 	//method
 	@Override
-	public void waintUntilIsFinishedSuccessfully() {
-		futures.forEach(f -> f.waintUntilIsFinishedSuccessfully());
+	public void waitUntilIsFinished(final int timeoutInMilliseconds) {
+		
+		final var startTimeInMilliseconds = System.currentTimeMillis();
+		
+		Sequencer.waitAsLongAs(
+			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+			&& isRunning()
+		);
+		
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "reached timeout before having finished");
+		}
+	}
+	
+	//method
+	@Override
+	public void waitUntilIsFinishedSuccessfully() {
+		futures.forEach(f -> f.waitUntilIsFinishedSuccessfully());
 	}
 	
 	//method

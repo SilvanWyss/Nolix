@@ -5,6 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.Runnable;
 import ch.nolix.common.validator.Validator;
 
@@ -71,11 +72,21 @@ final class JobWrapper implements Runnable {
 	
 	//method
 	public void waitUntilIsFinished() {
-		while (!isFinished()) {
-			try {
-				Thread.currentThread().wait(10);
-			}
-			catch (final InterruptedException interruptedException) {}
+		Sequencer.waitUntil(() -> isFinished());
+	}
+	
+	//method
+	public void waitUntilIsFinished(final int timeoutInMilliseconds) {
+		
+		final var startTimeInMilliseconds = System.currentTimeMillis();
+		
+		Sequencer.waitAsLongAs(
+			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+			&& !isFinished()
+		);
+		
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "reached timeout before having finished");
 		}
 	}
 }
