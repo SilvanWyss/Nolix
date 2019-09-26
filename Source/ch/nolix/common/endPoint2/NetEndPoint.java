@@ -104,12 +104,13 @@ public final class NetEndPoint extends EndPoint {
 			
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
+			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
 		}
 		
-		processor = new NetEndPointProcessorForRegularCounterpart(this);		
+			
 		hasTargetInfo = true;
 		HTTPMessage = null;
 		
@@ -141,7 +142,7 @@ public final class NetEndPoint extends EndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		processor = new NetEndPointProcessorForRegularCounterpart(this);
+		
 		hasTargetInfo = true;
 		HTTPMessage = null;
 		
@@ -149,6 +150,7 @@ public final class NetEndPoint extends EndPoint {
 			
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
+			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
@@ -188,7 +190,7 @@ public final class NetEndPoint extends EndPoint {
 		final var future = Sequencer.runInBackground(() -> listenToFirstMessage());
 		
 		//TODO: Use timeout.
-		future.waintUntilIsFinishedSuccessfully();
+		future.waitUntilIsFinished(DEFAULT_TIMEOUT_IN_MILLISECONDS);
 		
 		processor = future.getResult();
 		waitToTargetInfo();
@@ -262,10 +264,10 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	private INetEndPointProcessor listenToFirstMessage() {
-		try (
-			final BufferedReader bufferedReader =
-			new BufferedReader(new InputStreamReader(getRefSocket().getInputStream()))
-		) {
+		try {
+			
+			final var bufferedReader =
+			new BufferedReader(new InputStreamReader(getRefSocket().getInputStream()));
 			
 			final var firstLine = bufferedReader.readLine();
 			
@@ -274,7 +276,7 @@ public final class NetEndPoint extends EndPoint {
 				case NetEndPointProtocol.TARGET_PREFIX:
 				case NetEndPointProtocol.MAIN_TARGET_PREFIX:
 					receiveRawMessage(firstLine);
-					return new NetEndPointProcessorForRegularCounterpart(this);
+					return new NetEndPointProcessorForRegularCounterpart(this, bufferedReader);
 				case 'G':
 					final var lines = new List<>(firstLine);
 					while (true) {
@@ -282,6 +284,7 @@ public final class NetEndPoint extends EndPoint {
 						final var line = bufferedReader.readLine();
 						
 						if (line == null) {
+							bufferedReader.close();
 							throw new ArgumentIsNullException(VariableNameCatalogue.LINE);
 						}
 						
@@ -400,7 +403,7 @@ public final class NetEndPoint extends EndPoint {
 			//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
 			System.out.flush();
 			
-			//TODO: Use getTimeoutInMilliseconds method.
+			//TODO: Use: getTimeoutInMilliseconds().
 			if (System.currentTimeMillis() - startTimeInMilliseconds > DEFAULT_TIMEOUT_IN_MILLISECONDS) {
 				throw new InvalidArgumentException("reached timeout while waiting to target.");
 			}

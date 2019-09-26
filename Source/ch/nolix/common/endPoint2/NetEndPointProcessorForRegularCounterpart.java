@@ -4,7 +4,6 @@ package ch.nolix.common.endPoint2;
 //Java imports
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
@@ -19,13 +18,19 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 	//attributes
 	private final NetEndPoint parentNetEndPoint;
 	private final OutputStream outputStream;
+	private final BufferedReader bufferedReader;
 	
 	//constructor
-	public NetEndPointProcessorForRegularCounterpart(final NetEndPoint parentNetEndPoint) {
+	public NetEndPointProcessorForRegularCounterpart(
+		final NetEndPoint parentNetEndPoint,
+		final BufferedReader bufferedReader
+	) {
 		
 		Validator.suppose(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+		Validator.suppose(bufferedReader).thatIsNamed(BufferedReader.class).isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
+		this.bufferedReader = bufferedReader;
 		try {
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
@@ -51,7 +56,7 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 		}
 		
 		try {
-			outputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
+			outputStream.write((rawMessage + "\r\n").getBytes(StandardCharsets.UTF_8));
 			outputStream.flush();
 		}
 		catch (final IOException IOException) {
@@ -61,12 +66,17 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 	
 	//method
 	private void listenToMessages() {
-		try (
-			final var bufferedReader =
-			new BufferedReader(new InputStreamReader(parentNetEndPoint.getRefSocket().getInputStream()))
-		) {
+		try {
 			while (parentNetEndPoint.isOpen()) {
-				parentNetEndPoint.receiveRawMessageInBackground(bufferedReader.readLine());
+				
+				final var line = bufferedReader.readLine();
+				
+				if (line == null) {
+					parentNetEndPoint.close();
+					break;
+				}
+				
+				parentNetEndPoint.receiveRawMessageInBackground(line);
 			}
 		}
 		catch (final IOException IOException) {

@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
+//own imports
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
 //abstract class
@@ -16,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 150
+ * @lines 160
  */
 public abstract class EndPoint extends OptionalClosableElement implements ISender {
 	
@@ -118,9 +120,17 @@ public abstract class EndPoint extends OptionalClosableElement implements ISende
 	 */
 	protected final IReceiver getRefReceiver() {
 		
+		if (hasReceiver()) {
+			return receiver;
+		}
+		
+		final var startTimeInMilliseconds = System.currentTimeMillis();
+		
+		//TODO: Use: getTimeoutInMilliseconds()
+		Sequencer.waitAsLongAs(() -> System.currentTimeMillis() - startTimeInMilliseconds < 500 && !hasReceiver());
+		
 		//Checks if the current EndPoint has a receiver.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (receiver == null) {
+		if (!hasReceiver()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
 		}
 		
