@@ -2,9 +2,8 @@
 package ch.nolix.common.endPoint2;
 
 //Java imports
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
@@ -23,11 +22,17 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 	//attributes
 	private final NetEndPoint parentNetEndPoint;
 	private final OutputStream outputStream;
+	private final InputStream inputStream;
 	
 	//constructor
-	public NetEndPointProcessorForWebSocketCounterpart(final NetEndPoint parentNetEndPoint) {
+	public NetEndPointProcessorForWebSocketCounterpart(
+		final NetEndPoint parentNetEndPoint,
+		final InputStream inputStream,
+		String x
+	) {
 		
 		Validator.suppose(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+		Validator.suppose(inputStream).thatIsNamed(InputStream.class).isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
 		try {
@@ -36,7 +41,8 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
 		}
-		
+		this.inputStream = inputStream;
+		sendRawMessageUnframed(x);
 		Sequencer.runInBackground(() -> listenToMessages());
 	}
 	
@@ -51,14 +57,26 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 	public void sendRawMessage(final String rawMessage) {
 		sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));
 	}
+
+	//method
+	public void sendRawMessageUnframed(final String message) {
+		
+		if (parentNetEndPoint.isClosed()) {
+			throw new ClosedArgumentException(parentNetEndPoint);
+		}
+		
+		try {
+			outputStream.write(message.getBytes(StandardCharsets.UTF_8));
+			outputStream.flush();
+		}
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
+	}
 	
 	//method
 	private void listenToMessages() {
-		try (
-			final var bufferedReader =
-			new BufferedReader(new InputStreamReader(parentNetEndPoint.getRefSocket().getInputStream()))
-		) {
-			final var inputStream = parentNetEndPoint.getRefSocket().getInputStream();
+		try {
 			while (parentNetEndPoint.isOpen()) {
 				parentNetEndPoint.receiveRawMessageInBackground(
 					new String(
@@ -72,7 +90,7 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 				);
 			}
 		}
-		catch (final IOException IOException) {
+		catch (final Exception IOException) {
 			parentNetEndPoint.close();
 		}
 	}
@@ -90,7 +108,6 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 	
 	//method
 	private void sendFrame(final WebSocketFrame frame) {
-		
 		if (parentNetEndPoint.isClosed()) {
 			throw new ClosedArgumentException(parentNetEndPoint);
 		}

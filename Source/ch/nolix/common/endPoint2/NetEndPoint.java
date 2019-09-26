@@ -4,6 +4,7 @@ package ch.nolix.common.endPoint2;
 //Java imports
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
@@ -36,7 +37,7 @@ import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 410
+ * @lines 420
  */
 public final class NetEndPoint extends EndPoint {
 	
@@ -266,8 +267,10 @@ public final class NetEndPoint extends EndPoint {
 	private INetEndPointProcessor listenToFirstMessage() {
 		try {
 			
+			final var inputStream = getRefSocket().getInputStream();
+			
 			final var bufferedReader =
-			new BufferedReader(new InputStreamReader(getRefSocket().getInputStream()));
+			new BufferedReader(new InputStreamReader(inputStream));
 			
 			final var firstLine = bufferedReader.readLine();
 			
@@ -294,7 +297,7 @@ public final class NetEndPoint extends EndPoint {
 						
 						lines.addAtEnd(line);
 					}
-					return receiveFirstHTTPOrWebSocketMessages(lines);
+					return receiveFirstHTTPOrWebSocketMessages(lines, inputStream);
 			default:
 				throw new InvalidArgumentException("first line", firstLine, "is not valid");
 			}
@@ -311,7 +314,10 @@ public final class NetEndPoint extends EndPoint {
 	 * 
 	 * @param messages
 	 */
-	private INetEndPointProcessor receiveFirstHTTPOrWebSocketMessages(final IContainer<String> messages) {
+	private INetEndPointProcessor receiveFirstHTTPOrWebSocketMessages(
+		final IContainer<String> messages,
+		final InputStream inputStream
+	) {
 		
 		//Handles the case that the given messages are a HTTP request.
 		if (HTTPRequest.canBe(messages)) {
@@ -322,10 +328,12 @@ public final class NetEndPoint extends EndPoint {
 		
 		//Handles the case that the given messages are a WebSocket handshake request.
 		if (WebSocketHandShakeRequest.canBe(messages)) {
-			final var processor = new NetEndPointProcessorForWebSocketCounterpart(this);
-			final var webSocketHandshakeRequest = new WebSocketHandShakeRequest(messages);
-			processor.sendRawMessage(webSocketHandshakeRequest.getWebSocketHandShakeResponse().toString());
-			return processor;
+			return
+			new NetEndPointProcessorForWebSocketCounterpart(
+				this,
+				inputStream,
+				new WebSocketHandShakeRequest(messages).getWebSocketHandShakeResponse().toString()
+			);
 		}
 		
 		throw new InvalidArgumentException("first HTTP or WebSocket message", messages, "is not valid");
