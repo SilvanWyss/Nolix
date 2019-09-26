@@ -50,10 +50,8 @@ final class NetServerHTTPMessage {
 		+ "<script src=\"http://www.nolix.ch/Launcher/nolix.js\"></script>"
 		+ getMainScript()
 		+ "<title>Nolix</title>"
-		+ "<style>*{font-family: Calibri;}</style>"
 		+ "</head>"
-		+ "<h1>Nolix</h1>"
-		+ "</body>"
+		+ "<body></body>"
 		+ "</html>\r\n";
 	}
 	
