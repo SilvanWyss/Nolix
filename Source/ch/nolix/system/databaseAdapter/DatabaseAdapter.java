@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
@@ -48,14 +49,23 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
-	public final <E extends Entity> DatabaseAdapter addEntity(final E... entities) {
+	public final DatabaseAdapter addEntity(final Entity entity) {
+				
+		@SuppressWarnings("unchecked")
+		final var entitySet = (EntitySet<Entity>)getRefEntitySet(entity.getClass());
+		
+		entitySet.addEntity(entity);
+		
+		return this;
+	}
+	
+	//method
+	public final DatabaseAdapter addEntity(final Entity... entities) {
 		
 		Validator.suppose(entities).thatIsNamed(MultiVariableNameCatalogue.ENTITIES).isNotNull();
 		
-		if (entities.length > 0) {
-			final var entitySet = (EntitySet<E>)getRefEntitySet(entities[0].getClass());
-			entitySet.addEntity(entities);
+		for (final var e : entities) {
+			addEntity(e);
 		}
 		
 		return this;
