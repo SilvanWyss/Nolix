@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
 import ch.nolix.common.node.Node;
@@ -8,106 +7,67 @@ import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 
-//class
 public final class DatabaseAdapterTutorial {
-
-	//main method
+	
 	public static void main(String[] args) {
 		
-		//Creates the pet database.
+		//Creates petDatabase.
 		final var petDatabase = new Node();
 		
-		//Creates a database schema adapter for the pet database.
-		final var petDatabaseSchemaAdapter =
-		new FileNodeDatabaseSchemaAdapter(petDatabase);
+		//Creates a DatabaseSchemaAdapter for the petDatabase.
+		final var petDatabaseSchemaAdapter = new FileNodeDatabaseSchemaAdapter(petDatabase);
 		
-		//Applies the schema to the pet database.
+		//Applies a PetDatabaseSchema to the petDatabase.
 		petDatabaseSchemaAdapter
-		.initializeDatabase()
 		.addSchema(new PetDatabaseSchema())
 		.saveChanges();
-			
-		//Creates a database adapter for the pet database.
+		
+		//Creates a DatabaseAdapter for the petDatabase.
 		final var petDatabaseAdapter = new FileNodeDatabaseAdapter(
 			petDatabase,
 			new PetDatabaseSchema()
 		);
 		
-		//Fills up some data into the pet database.
+		//Fills up initial data into the petDatabase.
 			final var garfield = new Cat();
-			garfield.Name.setValue("Garfield");
-			garfield.WeightInGram.setValue(20000);
+			garfield.name.setValue("Garfield");
+			garfield.weightInGram.setValue(20000);
 			
 			final var wallace = new Cat();
-			wallace.Name.setValue("Wallace");
-			wallace.WeightInGram.setValue(4500);
-			
-			petDatabaseAdapter
-			.getRefEntitySet(Cat.class)
-			.addEntity(
-				garfield,
-				wallace
-			);
+			wallace.name.setValue("Wallace");
+			wallace.weightInGram.setValue(4500);
 			
 			final var plasticChicken = new PetToy();
-			plasticChicken.Name.setValue("Rubber chicken");
-			plasticChicken.Material.setValue("Plastic");
+			plasticChicken.name.setValue("Rubber chicken");
+			plasticChicken.material.setValue("Plastic");
 			
 			final var plasticBone = new PetToy();
-			plasticBone.Name.setValue("Rubber bone");
-			plasticBone.Material.setValue("Plastic");
+			plasticBone.name.setValue("Rubber bone");
+			plasticBone.material.setValue("Plastic");
 			
 			petDatabaseAdapter
-			.getRefEntitySet(PetToy.class)
-			.addEntity(
-				plasticChicken,
-				plasticBone
-			);
-			
-			petDatabaseAdapter.saveChanges();
-		
-		//Changes some data of the pet database.
-			petDatabaseAdapter
-			.getRefEntitySet(Cat.class)
-			.getRefEntities()
-			.getRefFirst(c -> c.Name.getValue().equals("Garfield"))
-			.WeightInGram
-			.setValue(21000);
-			
-			petDatabaseAdapter.saveChanges();
+			.addEntity(garfield, wallace, plasticChicken, plasticBone)
+			.saveChanges();
 			
 		//Prints the pet database out to the console.
 		System.out.println(petDatabase.toFormatedString());
 	}
 	
-	//inner class
 	private static final class PetDatabaseSchema extends Schema {
-		
-		//constructor
 		public PetDatabaseSchema() {
-			super(
-				Cat.class,
-				PetToy.class
-			);
+			super(Cat.class, PetToy.class);
 		}
 	}
 	
-	//private constructor
-	private DatabaseAdapterTutorial() {}
-	
-	//inner class
 	private static final class Cat extends Entity {
-		
-		//attributes
-		public final Property<String> Name = new Property<>();
-		public final Property<Integer> WeightInGram = new Property<>();
+		public final Property<String> name = new Property<>();
+		public final Property<Integer> weightInGram = new Property<>();
 	}
 	
-	//inner class
 	private static final class PetToy extends Entity {
-		
-		//attributes
-		public final Property<String> Name = new Property<>();
-		public final Property<String> Material = new Property<>();
+		public final Property<String> name = new Property<>();
+		public final Property<String> material = new Property<>();
 	}
+	
+	private DatabaseAdapterTutorial() {}
 }

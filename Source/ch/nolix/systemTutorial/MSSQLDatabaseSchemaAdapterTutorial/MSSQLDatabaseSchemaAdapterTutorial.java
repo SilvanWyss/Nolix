@@ -16,7 +16,6 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		
 		if (!sqlDatabaseSchemaAdapter.databaseIsInitialized()) {
 			sqlDatabaseSchemaAdapter
-			.initializeDatabase()
 			.addEntitySet(Person.class)
 			.saveChanges();
 		}

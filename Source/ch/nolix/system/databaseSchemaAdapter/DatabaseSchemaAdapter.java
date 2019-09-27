@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.generalSkillAPI.IFluentObject;
@@ -102,22 +103,18 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	}
 	
 	//method
-	public final DSA initializeDatabase() {
-		
-		supposeDatabaseIsNotInitialized();
-		
-		initializeDatabaseWhenNotInitialized();
-		
-		return asConcreteType();
-	}
-	
-	//method
 	@Override
 	public final DSA reset() {
 		
 		loadedAndCreatedEntitySets.forEach(es -> es.setRejected());
+		mutatedEntitySetsInOrder.forEach(es -> es.setRejected());
 		loadedAndCreatedEntitySets.clear();
 		mutatedEntitySetsInOrder.clear();
+		
+		if (!databaseIsInitialized()) {
+			initializeDatabaseWhenNotInitialized();
+		}
+		
 		loadedAndCreatedEntitySets.addAtEnd(getEntitySetsFromDatabase());
 		
 		return asConcreteType();
@@ -179,13 +176,6 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 				"cannot be deleted because it is referenced by "
 				+ referencingEntitySet.getNameInQuotes()
 			);
-		}
-	}
-	
-	//method
-	private void supposeDatabaseIsNotInitialized() {
-		if (databaseIsInitialized()) {
-			throw new RuntimeException("The database is initialized.");
 		}
 	}
 	
