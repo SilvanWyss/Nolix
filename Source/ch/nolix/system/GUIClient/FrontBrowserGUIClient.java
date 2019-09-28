@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
+//own imports
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
@@ -14,7 +16,7 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 100
+ * @lines 130
  */
 public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowserGUIClient> {
 	
@@ -30,6 +32,10 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(application);
+		
+		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
+		Sequencer.waitForMilliseconds(200);
+		
 		noteResizeOnCounterpart();
 	}
 	
@@ -47,6 +53,10 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port);
+		
+		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
+		Sequencer.waitForMilliseconds(200);
+		
 		noteResizeOnCounterpart();
 	}
 	
@@ -67,6 +77,10 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port, application);
+		
+		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
+		Sequencer.waitForMilliseconds(200);
+		
 		noteResizeOnCounterpart();
 	}
 	
@@ -85,6 +99,10 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port);
+		
+		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
+		Sequencer.waitForMilliseconds(200);
+		
 		noteResizeOnCounterpart();
 	}
 	
@@ -106,6 +124,10 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port, application);
+		
+		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
+		Sequencer.waitForMilliseconds(200);
+		
 		noteResizeOnCounterpart();
 	}
 }
