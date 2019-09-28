@@ -11,6 +11,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.endPoint5.EndPoint;
+import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -19,7 +20,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 340
+ * @lines 390
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Named {
@@ -60,6 +61,61 @@ public class Application<C extends Client<C>> implements Named {
 		
 		this.initialSessionClass = initialSessionClass;
 		this.context = null;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and context.
+	 * 
+	 * @param name
+	 * @param clientClass
+	 * @param initialSessionClass
+	 * @param context
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blak.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 * @throws ArgumentIsNullException if the given context is null.
+	 */
+	public Application(
+		final String name,
+		final Class<C> clientClass,
+		final Class<?> initialSessionClass,
+		final IElementGetter<?> context
+	) {
+		
+		//Calls other constructor.
+		this(name, clientClass, initialSessionClass, (Object)context);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Application} that:
+	 * -Has the given name, clientClass, initialSessionClass and context.
+	 * -Will create a {@link NetServer} for itself, and for itself only,
+	 * that will listen to {@link Clients} on the given port.
+	 * 
+	 * @param name
+	 * @param clientClass
+	 * @param initialSessionClass
+	 * @param port
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 * @throws ArgumentIsNullException if the given context is null.
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 */
+	public Application(
+		final String name,
+		final Class<C> clientClass,
+		final Class<?> initialSessionClass,
+		final IElementGetter<?> context,
+		final int port
+	) {
+		
+		//Calls other constructor.
+		this(name, clientClass, initialSessionClass, (Object)context, port);
 	}
 	
 	//constructor

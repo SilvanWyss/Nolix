@@ -10,7 +10,7 @@ import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //abstract class
 public abstract class DatabaseApplication extends Application<BackGUIClient> {
-
+	
 	//constructor
 	public DatabaseApplication(final String name, final IElementGetter<DatabaseAdapter> databaseAdapterFactory) {
 		super(
