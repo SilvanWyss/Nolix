@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own import
 import ch.nolix.common.attributeAPI.Named;
 
 //class
