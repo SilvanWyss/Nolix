@@ -23,7 +23,7 @@ import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 440
+ * @lines 460
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {

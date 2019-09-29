@@ -26,7 +26,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 710
+ * @lines 720
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -163,6 +163,15 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 */
 	public final <CO> CO getRefApplicationContextAs(final Class<CO> type) {
 		return internal_getParentApplication().getRefContextAs(type);
+	}
+	
+	//method
+	/**
+	 * @return the second top {@link Session} of the current {@link Client}.
+	 * @throws InvalidArgumentException if the current {@link Client} contains less than 2 {@link Session}s.
+	 */
+	public final Session<C> getRefSecondTopSession() {
+		return sessions.getRefSecondLast();
 	}
 	
 	//method
