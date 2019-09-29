@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.containers;
 
+//own imports
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -20,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1140
+ * @lines 1160
  * @param <E> The type of the elements of a {@link List}.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -572,6 +573,23 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Handles the case that the current list is not empty.
 		return getRefLast();
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * 
+	 * @return the second last element of the current {@link List}.
+	 * @throws InvalidArgumentException if the current {@link List} contains less than 2 elements.
+	 */
+	public E getRefSecondLast() {
+		
+		//Checks if the current List contains more than 1 element.
+		if (getSize() < 2) {
+			throw new InvalidArgumentException(this, "contains less than 2 elements");
+		}
+		
+		return getRefAt(getSize() - 1);
 	}
 	
 	//method

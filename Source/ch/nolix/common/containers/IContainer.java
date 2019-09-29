@@ -1219,7 +1219,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefOne() {
 		
-		//Checks if the current {@link IContainer} contains exactly 1 element.
+		//Checks if the current IContainer contains exactly 1 element.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
