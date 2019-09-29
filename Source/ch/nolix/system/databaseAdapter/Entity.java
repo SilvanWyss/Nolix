@@ -4,12 +4,16 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.Field;
 
-import ch.nolix.common.attributeAPI.Identified;
+//own imports
+import ch.nolix.common.attributeAPI.OptionalIdentified;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentHasAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -17,7 +21,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
-public class Entity implements Identified, IElement {
+public class Entity implements OptionalIdentified, IElement {
 	
 	//attribute
 	private EntityState state = EntityState.CREATED;
@@ -29,6 +33,11 @@ public class Entity implements Identified, IElement {
 	//multi-attributes
 	private List<Propertyoid<?>> properties;
 	private List<BackReferenceoid<?>> backReferences;
+	
+	//method
+	public final boolean belongsToDatabaseAdapter() {
+		return belongsToEntitySet();
+	}
 	
 	//method
 	public final boolean belongsToEntitySet() {
@@ -65,20 +74,15 @@ public class Entity implements Identified, IElement {
 	//method
 	public final List<Column<?>> getColumns() {
 		
-		if (!propertiesAndBackReferencesAreExtracted()) {
-			extractPropertiesAndBackReferences();
-		}
+		extractPropertiesAndBackReferencesIfNotExtracted();
 		
-		final var columns
-		= new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()));
+		final var columns = new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()));
 		
-		Class<?> cl = getClass();
-		while (cl != null) {
+		Class<?> lClass = getClass();
+		while (lClass != null) {
 			
-			for (final var f : cl.getDeclaredFields()) {
-				
+			for (final var f : lClass.getDeclaredFields()) {
 				if (Propertyoid.class.isAssignableFrom(f.getType())) {
-					
 					try {
 						
 						f.setAccessible(true);
@@ -94,16 +98,13 @@ public class Entity implements Identified, IElement {
 							)
 						);
 					}
-					catch (
-						final IllegalArgumentException
-						| IllegalAccessException exception
-					) {
+					catch (final IllegalArgumentException | IllegalAccessException exception) {
 						throw new RuntimeException(exception);
 					}
 				}
 			}
 			
-			cl = cl.getSuperclass();
+			lClass = lClass.getSuperclass();
 		}
 		
 		return columns;
@@ -134,9 +135,7 @@ public class Entity implements Identified, IElement {
 	//method
 	public final IContainer<BackReferenceoid<?>> getRefBackReferences() {
 		
-		if (!propertiesAndBackReferencesAreExtracted()) {
-			extractPropertiesAndBackReferences();
-		}
+		extractPropertiesAndBackReferencesIfNotExtracted();
 		
 		return backReferences;
 	}
@@ -144,9 +143,7 @@ public class Entity implements Identified, IElement {
 	//method
 	public final IContainer<Propertyoid<?>> getRefProperties() {
 		
-		if (!propertiesAndBackReferencesAreExtracted()) {
-			extractPropertiesAndBackReferences();
-		}
+		extractPropertiesAndBackReferencesIfNotExtracted();
 		
 		return properties;
 	}
@@ -182,20 +179,6 @@ public class Entity implements Identified, IElement {
 	}
 	
 	//method
-	@Override
-	public final boolean hasId(final long id) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current entity does not have an id.
-			if (this.id < 0) {
-				return false;
-			}
-			
-			//Handles the case that the current entity has an id.
-			return (this.id == id);
-	}
-	
-	//method
 	public final boolean isChanged() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -225,20 +208,21 @@ public class Entity implements Identified, IElement {
 	
 	//method
 	public final boolean isReferenced() {
-		return
-		getParentDatabaseAdapter()
-		.getRefEntitySets()
-		.contains(es -> es.references(this));
+		return getParentDatabaseAdapter().getRefEntitySets().contains(es -> es.references(this));
 	}
 	
 	//method
 	public final boolean isPersisted() {
-		return (getState() == EntityState.PERSISTED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.PERSISTED);
 	}
 	
 	//method
 	public final boolean isRejected() {
-		return (getState() == EntityState.REJECTED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.REJECTED);
 	}
 	
 	//method
@@ -251,7 +235,7 @@ public class Entity implements Identified, IElement {
 		return getRefProperties().contains(p -> p.hasHeader(header) && p.references(entity));
 	}
 	
-	//package-visible method
+	//method
 	public final void setDeleted() {
 		switch (getState()) {
 			case PERSISTED:
@@ -268,25 +252,22 @@ public class Entity implements Identified, IElement {
 			case CREATED:
 				throw new InvalidArgumentException(this, "is created");
 			case DELETED:
-				break;
+				throw new InvalidArgumentException(this, "is deleted");
 			case REJECTED:
 				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
-
+	
 	//method
 	public final void setId(final long id) {
 		
-		Validator
-		.suppose(id)
-		.thatIsNamed(VariableNameCatalogue.ID)
-		.isPositive();
+		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
 		
 		supposeHasNoId();
 		
 		this.id = id;
 	}
-	
+
 	//package-visible method
 	final void setChanged() {
 		switch (getState()) {
@@ -313,6 +294,8 @@ public class Entity implements Identified, IElement {
 	
 	//package-visible method
 	final void setParentEntitySet(final EntitySet<Entity> parentEntitySet) {
+		
+		Validator.suppose(parentEntitySet).thatIsNamed("parent EntitySet").isNotNull();
 		
 		supposeDoesNotBelongToEntitySet();
 		
@@ -346,7 +329,7 @@ public class Entity implements Identified, IElement {
 	//package-visible method
 	final void setValues(final Iterable<BaseNode> valuesInOrder) {
 		
-		//Iterates the properties of the current entity and the given values in order synchronously.
+		//Iterates the properties of the current entity and the given valuesInOrder together.
 		final var propertiesIterator = getRefProperties().iterator();
 		for (final var v : valuesInOrder) {
 			
@@ -400,11 +383,39 @@ public class Entity implements Identified, IElement {
 		}
 	}
 	
+	//TODO: Refactor.
 	//package-visible method
 	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
 		.forEach(br -> br.supposeCanReferenceBackAdditionally(entity, referencingPropertyHeader));
+	}
+	
+	//method
+	private void extractProbablePropertyOrBackReferencesFromField(final Field field) {
+		
+		field.setAccessible(true);
+		
+		if (Propertyoid.class.isAssignableFrom(field.getType())) {
+			try {
+				final var property = (Propertyoid<?>)(field.get(this));
+				property.internal_setParentEntity(this);
+				properties.addAtEnd(property);
+			}
+			catch (final IllegalArgumentException | IllegalAccessException exception) {
+				throw new RuntimeException(exception);
+			}
+		}
+		else if (BackReferenceoid.class.isAssignableFrom(field.getType())) {
+			try {
+				final var backReference = (BackReferenceoid<?>)(field.get(this));
+				backReference.setParentEntity(this);
+				backReferences.addAtEnd(backReference);
+			}
+			catch (final IllegalArgumentException | IllegalAccessException exception) {
+				throw new RuntimeException(exception);
+			}
+		}
 	}
 	
 	//method
@@ -415,83 +426,55 @@ public class Entity implements Identified, IElement {
 		
 		Class<?> cl = getClass();
 		while (cl != null) {
-			
-			for (final Field f : cl.getDeclaredFields()) {
-				
-				f.setAccessible(true);
-				
-				if (Propertyoid.class.isAssignableFrom(f.getType())) {
-					try {
-						final var property = (Propertyoid<?>)(f.get(this));
-						property.internal_setParentEntity(this);
-						properties.addAtEnd(property);
-					}
-					catch (
-						final IllegalArgumentException | IllegalAccessException exception
-					) {
-						throw new RuntimeException(exception);
-					}
-				}
-				else if (BackReferenceoid.class.isAssignableFrom(f.getType())) {
-					try {
-						final var backReference = (BackReferenceoid<?>)(f.get(this));
-						backReference.setParentEntity(this);
-						backReferences.addAtEnd(backReference);
-					}
-					catch (
-						final IllegalArgumentException | IllegalAccessException exception
-					) {
-						throw new RuntimeException(exception);
-					}
-				}
-			}
-			
+			extractPropertiesAndBackReferencesFromClass(cl);		
 			cl = cl.getSuperclass();
 		}
 	}
 	
 	//method
+	private void extractPropertiesAndBackReferencesFromClass(final Class<?> pClass) {
+		for (final var f : pClass.getDeclaredFields()) {
+			extractProbablePropertyOrBackReferencesFromField(f);
+		}
+	}
+	
+	//method
+	private void extractPropertiesAndBackReferencesIfNotExtracted() {
+		if (!propertiesAndBackReferencesAreExtracted()) {
+			extractPropertiesAndBackReferences();
+		}
+	}
+	
+	//method
 	private boolean propertiesAndBackReferencesAreExtracted() {
-		return (properties != null);
+		return (properties != null && backReferences != null);
 	}
 	
 	//method
 	private void supposeBelongsToEntitySet() {
 		if (!belongsToEntitySet()) {
-			throw new InvalidArgumentException(
-				this,
-				"does not belong to a entity set"
-			);
+			throw new ArgumentDoesNotBelongToParentException(this, EntitySet.class);
 		}
 	}
 	
 	//method
 	private void supposeDoesNotBelongToEntitySet() {
 		if (belongsToEntitySet()) {
-			throw new InvalidArgumentException(
-				this,
-				"belongs to entity"
-			);
+			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentEntitySet());
 		}
 	}
 	
 	//method
 	private void supposeHasId() {
 		if (!hasId()) {
-			throw new ArgumentDoesNotHaveAttributeException(
-				this,
-				VariableNameCatalogue.ID
-			);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
 		}
 	}
 	
 	//method
 	private void supposeHasNoId() {
 		if (hasId()) {
-			throw new InvalidArgumentException(
-				this,
-				"has an id"
-			);
+			throw new ArgumentHasAttributeException(this, VariableNameCatalogue.ID);
 		}
 	}
 }
