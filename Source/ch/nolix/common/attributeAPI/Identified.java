@@ -27,9 +27,9 @@ public interface Identified {
 	
 	//default method
 	/**
-	 * @return the id of the current {@link Identified} as {@link String} in quotes.
+	 * @return the id of the current {@link Identified} in quotes.
 	 */
-	public default String getIdAsStringInQuotes() {
+	public default String getIdInQuotes() {
 		return ("'" + getIdAsString() + "'");
 	}
 	
