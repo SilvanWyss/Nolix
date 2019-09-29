@@ -4,6 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+//own imports
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -13,15 +14,24 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
 //abstract class
-public abstract class Propertyoid<V>
-implements Headered, IElement {
+public abstract class Propertyoid<V> implements Headered, IElement {
 	
 	//optional attribute
 	private Entity parentEntity;
 	
 	//method
+	public final boolean belongsToDatabaseAdapter() {
+		return (belongsToEntity() && getParentEntity().belongsToDatabaseAdapter());
+	}
+	
+	//method
 	public final boolean belongsToEntity() {
 		return (parentEntity != null);
+	}
+	
+	//method
+	public final boolean belongsToEntitySet() {
+		return (belongsToEntity() && getParentEntity().belongsToEntitySet());
 	}
 	
 	//abstract method
