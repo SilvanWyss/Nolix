@@ -35,13 +35,8 @@ public final class ValueCreator {
 		return specificValueCreator.getRefCreateMediator();
 	}
 	
-	//package-visible method
-	boolean containsCreatorsForType(final Class<?> type) {
-		return specificValueCreators.contains(svc -> svc.hasType(type));
-	}
-
-	//package-visible method
-	void registerSpecificValueCreator(final SpecificValueCreator<?> specificValueCreator) {
+	//method
+	public void registerSpecificValueCreator(final SpecificValueCreator<?> specificValueCreator) {
 		
 		if (forType(specificValueCreator.getValueClass()).containsCreators()) {
 			throw
@@ -52,5 +47,17 @@ public final class ValueCreator {
 		}
 		
 		specificValueCreators.addAtEnd(specificValueCreator);
+	}
+	
+	//method
+	public void registerSpecificValueCreator(final SpecificValueCreator<?>... specificValueCreators) {
+		for (final var svc : specificValueCreators) {
+			registerSpecificValueCreator(svc);
+		}
+	}
+	
+	//package-visible method
+	boolean containsCreatorsForType(final Class<?> type) {
+		return specificValueCreators.contains(svc -> svc.hasType(type));
 	}
 }

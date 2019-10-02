@@ -4,7 +4,7 @@ package ch.nolix.common.valueCreator;
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.node.Node;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -32,7 +32,7 @@ public final class RegisterMediator<V> {
 	//method
 	public void registerCreators(
 		final IElementTakerElementGetter<String, V> fromStringCreator,
-		final IElementTakerElementGetter<Node, V> fromSpecificationCreator
+		final IElementTakerElementGetter<BaseNode, V> fromSpecificationCreator
 	) {
 		parentValueCreator.registerSpecificValueCreator(
 			new SpecificValueCreator<>(type, fromStringCreator, fromSpecificationCreator)

@@ -4,23 +4,23 @@ package ch.nolix.common.valueCreator;
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.node.Node;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
-final class SpecificValueCreator<V> {
+//class
+public final class SpecificValueCreator<V> {
 	
 	//attributes
 	private final Class<V> type;
 	private final IElementTakerElementGetter<String, V> fromStringCreator;
-	private final IElementTakerElementGetter<Node, V> fromSpecificationCreator;
+	private final IElementTakerElementGetter<BaseNode, V> fromSpecificationCreator;
 	private final CreateMediator<V> createMediator;
 	
-	//package-visible mediator
-	SpecificValueCreator(
+	//constructor
+	public SpecificValueCreator(
 		final Class<V> type,
 		final IElementTakerElementGetter<String, V> fromStringCreator,
-		final IElementTakerElementGetter<Node, V> fromSpecificationCreator
+		final IElementTakerElementGetter<BaseNode, V> fromSpecificationCreator
 	) {
 		
 		Validator.suppose(type).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
@@ -35,7 +35,7 @@ final class SpecificValueCreator<V> {
 	}
 	
 	//method
-	public V createFromSpecification(final Node specification) {
+	public V createFromSpecification(final BaseNode specification) {
 		return fromSpecificationCreator.getOutput(specification);
 	}
 	

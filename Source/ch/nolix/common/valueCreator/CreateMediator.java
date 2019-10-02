@@ -2,7 +2,7 @@
 package ch.nolix.common.valueCreator;
 
 //own imports
-import ch.nolix.common.node.Node;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -20,7 +20,7 @@ public final class CreateMediator<V> {
 	}
 	
 	//method
-	public V createFromSpecification(final Node specification) {
+	public V createFromSpecification(final BaseNode specification) {
 		return parentSpecificValueCreator.createFromSpecification(specification);
 	}
 	
