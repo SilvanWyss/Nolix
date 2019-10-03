@@ -62,6 +62,9 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 		return this;
 	}
 	
+	//abstract method
+	public abstract DatabaseAdapter createNewDatabaseAdapter();
+	
 	//method
 	public final boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
@@ -142,6 +145,11 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	protected abstract <E extends Entity> BaseEntitySetAdapter<E> getEntitySetAdapter(
 		EntitySet<E> entitySet
 	);
+	
+	//method
+	protected final Schema getSchema() {
+		return schema;
+	}
 	
 	//method
 	protected final ValueCreator getValueCreator() {

@@ -54,6 +54,12 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//method
 	@Override
+	public DatabaseAdapter createNewDatabaseAdapter() {
+		return new FileNodeDatabaseAdapter(database, getSchema());
+	}
+
+	//method
+	@Override
 	public String getDatabaseName() {
 		return
 		database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
