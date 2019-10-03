@@ -9,6 +9,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
@@ -17,7 +18,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 390
+ * @lines 280
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -109,6 +110,22 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				break;
 			case Protocol.NOTE_MOUSE_MOVE_HEADER:
 				getRefGUI().noteMouseMove(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER:
+				getRefGUI().noteMouseWheelClick();
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_MOUSE_WHEEL_PRESS_HEADER:
+				getRefGUI().noteMouseWheelPress();
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_MOUSE_WHEEL_RELEASE_HEADER:
+				getRefGUI().noteMouseWheelRelease();
+				updateGUIOnCounterpart();
+				break;
+			case Protocol.NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER:
+				getRefGUI().noteMouseWheelRotationStep(DirectionOfRotation.valueOf(command.getOneAttributeAsString()));
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_RESIZE_HEADER:
