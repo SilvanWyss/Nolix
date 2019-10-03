@@ -15,12 +15,6 @@ extends PropertyoidType<V> {
 	public final boolean captionsPropertyThatCanReference(final Entity entity) {
 		return false;
 	}
-
-	//method
-	@Override
-	public final PropertyKind getPropertyKind() {
-		return PropertyKind.DATA;
-	}
 	
 	//method
 	@Override

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -29,6 +30,11 @@ public abstract class Schema {
 		return entityTypes.contains(et -> et.hasName(name));
 	}
 	
+	//method
+	public EntityType<Entity> getRefEntityTypeByName(final String name) {
+		return entityTypes.getRefFirst(et -> et.hasName(name));
+	}
+
 	//method
 	public ReadContainer<EntityType<Entity>> getRefEntityTypes() {
 		return new ReadContainer<>(entityTypes);

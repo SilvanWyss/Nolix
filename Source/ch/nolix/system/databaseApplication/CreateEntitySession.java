@@ -140,7 +140,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					final TextBox dataTextBox =
 					getRefGUI().getRefWidgetByName(p.getHeader());
 					
-					property.setUntypedValue(dataTextBox.getText());
+					property.setValueFromString(dataTextBox.getText());
 					
 					break;
 				default:

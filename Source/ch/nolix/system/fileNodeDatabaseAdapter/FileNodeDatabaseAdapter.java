@@ -34,9 +34,15 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 		//Sets the database of the current document node database adapter.
 		this.database = database;
 		
-		database
-		.getRefAttributes(a -> a.hasHeader("EntitySet"))
-		.forEach(a -> entitySetAdapters.addAtEnd(new EntitySetAdapter<>(a)));
+		for (final var a : database.getRefAttributes(a -> a.hasHeader("EntitySet"))) {
+			entitySetAdapters.addAtEnd(
+				new EntitySetAdapter<>(
+					a,
+					schema.getRefEntityTypeByName(a.getRefFirstAttribute().getOneAttributeAsString()),
+					getValueCreator()
+				)
+			);
+		}
 	}
 	
 	//constructor

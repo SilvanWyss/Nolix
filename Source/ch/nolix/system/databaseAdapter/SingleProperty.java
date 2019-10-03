@@ -70,12 +70,6 @@ extends DataPropertyoid<V> {
 	public abstract boolean isOptional();
 	
 	//method
-	@SuppressWarnings("unchecked")
-	public final void setUntypedValue(final Object value) {
-		setValue((V)value);
-	}
-	
-	//method
 	public final void setValue(final V value) {
 		
 		Validator
@@ -86,6 +80,16 @@ extends DataPropertyoid<V> {
 		this.value = value;
 		
 		internal_noteUpdate();
+	}
+	
+	//method
+	public final void setValueFromSpecification(final Node specification) {
+		setValue(createValueFromSpecification(specification));
+	}
+	
+	//method
+	public final void setValueFromString(final String string) {
+		setValue(createValueFromString(string));
 	}
 	
 	//method

@@ -18,12 +18,6 @@ extends PropertyoidType<E> {
 	
 	//method
 	@Override
-	public final PropertyKind getPropertyKind() {
-		return PropertyKind.REFERENCE;
-	}
-	
-	//method
-	@Override
 	public boolean referencesEntitySet(final String name) {
 		return getValueClass().getSimpleName().equals(name);
 	}

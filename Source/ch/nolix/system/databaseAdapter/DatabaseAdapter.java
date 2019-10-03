@@ -3,36 +3,20 @@ package ch.nolix.system.databaseAdapter;
 
 //own imports
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.valueCreator.SpecificValueCreatorCatalogue;
+import ch.nolix.common.valueCreator.ValueCreator;
 
 //abstract class
 public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	
-	//static method
-	public static final Object createValue(
-		final String type,
-		final BaseNode input
-	) {
-		switch (type) {
-			case "Boolean":
-				return input.toBoolean();
-			case "Integer":
-				return input.toInt();
-			case "String":
-				return input.toString();
-			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.TYPE, type, "is not known");
-		}
-	}
-	
 	//attributes
 	private final Schema schema;
+	private final ValueCreator valueCreator = new ValueCreator();
 	
 	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<>();
@@ -44,6 +28,13 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 		Validator.suppose(schema).isOfType(Schema.class);
 		
 		this.schema = schema;
+		
+		valueCreator.registerSpecificValueCreator(
+			SpecificValueCreatorCatalogue.BIG_DECIMAL_CREATOR,
+			SpecificValueCreatorCatalogue.BOOLEAN_CREATOR,
+			SpecificValueCreatorCatalogue.INTEGER_CREATOR,
+			SpecificValueCreatorCatalogue.STRING_CREATOR
+		);
 		
 		reset();
 	}
@@ -137,10 +128,25 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 		}
 	}
 	
+	//method
+	protected final <V> V createValueFromSpecification(final Class<V> type, final BaseNode specificaiton) {
+		return valueCreator.ofType(type).createFromSpecification(specificaiton);
+	}
+	
+	//method
+	protected final <V> V createValueFromString(final Class<V> type, final String string) {
+		return valueCreator.ofType(type).createFromString(string);
+	}
+	
 	//abstract method
-	protected abstract <E extends Entity> IEntitySetAdapter<E> getEntitySetAdapter(
+	protected abstract <E extends Entity> BaseEntitySetAdapter<E> getEntitySetAdapter(
 		EntitySet<E> entitySet
 	);
+	
+	//method
+	protected final ValueCreator getValueCreator() {
+		return valueCreator;
+	}
 	
 	//abstract method
 	protected abstract void saveChangesToDatabase(IContainer<Entity> mutatedEntitiesInOrder);

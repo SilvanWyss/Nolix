@@ -2,8 +2,7 @@
 package ch.nolix.system.databaseAdapter;
 
 //abstract class
-public abstract class Referenceoid<E extends Entity>
-extends Propertyoid<E> {
+public abstract class Referenceoid<E extends Entity> extends Propertyoid<E> {
 	
 	//method
 	@Override
@@ -18,7 +17,7 @@ extends Propertyoid<E> {
 		.getRefEntitySet(getValueClass());
 	}
 	
-	//method
+	//package-visible method
 	final void supposeCanReferenceAdditionally(final E entity) {
 		entity.supposeCanReferenceBackAdditionally(getParentEntity(), getHeader());
 	}

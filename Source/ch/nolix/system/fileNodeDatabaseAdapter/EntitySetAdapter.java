@@ -1,24 +1,30 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
+//own imports
 import ch.nolix.common.constants.MultiPascalCaseNameCatalogue;
-import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
-import ch.nolix.system.databaseAdapter.IEntitySetAdapter;
+import ch.nolix.system.databaseAdapter.BaseEntitySetAdapter;
 
 //class
-public final class EntitySetAdapter<E extends Entity>
-implements IEntitySetAdapter<E> {
+public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapter<E> {
 
 	//attribute
 	private final BaseNode entitySetSpecification;
 	
 	//package-visible constructor
-	EntitySetAdapter(final BaseNode entitySetSpecification) {
+	EntitySetAdapter(
+		final BaseNode entitySetSpecification,
+		final EntityType<E> entityType,
+		final ValueCreator valueCreator
+	) {
+		
+		super(entityType, valueCreator);
 		
 		Validator
 		.suppose(entitySetSpecification)
@@ -47,31 +53,21 @@ implements IEntitySetAdapter<E> {
 	public EntitiesAdapter<E> getEntitiesAdapter() {
 		return
 		new EntitiesAdapter<>(
-			entitySetSpecification.getRefFirstAttribute(
-				MultiPascalCaseNameCatalogue.ENTITIES
-			)
+			entitySetSpecification.getRefFirstAttribute(MultiPascalCaseNameCatalogue.ENTITIES),
+			getValueCreator()
 		);
 	}
 	
 	//method
 	@Override
-	public List<E> getEntities(final EntityType<E> entityType) {
-		return getEntitiesAdapter().getEntities(entityType);
+	public List<E> getEntities() {
+		return getEntitiesAdapter().getEntities(getEntityType());
 	}
 	
 	//method
 	@Override
-	public List<E> getEntities(IContainer<Long> ids, EntityType<E> entityType) {
-		
-		final var entitiesAdapter = getEntitiesAdapter();
-		
-		return ids.to(id -> entitiesAdapter.getEntity(id, entityType));
-	}
-	
-	//method
-	@Override
-	public E getEntity(final long id, final EntityType<E> entityType) {
-		return getEntitiesAdapter().getEntity(id, entityType);
+	public E getEntity(final long id) {
+		return getEntitiesAdapter().getEntity(id, getEntityType());
 	}
 	
 	//method

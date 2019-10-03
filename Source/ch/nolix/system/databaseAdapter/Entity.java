@@ -18,6 +18,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
@@ -267,7 +268,7 @@ public class Entity implements OptionalIdentified, IElement {
 		
 		this.id = id;
 	}
-
+	
 	//package-visible method
 	final void setChanged() {
 		switch (getState()) {
@@ -293,13 +294,14 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//package-visible method
-	final void setParentEntitySet(final EntitySet<Entity> parentEntitySet) {
+	@SuppressWarnings("unchecked")
+	final <E extends Entity> void setParentEntitySet(final EntitySet<E> parentEntitySet) {
 		
 		Validator.suppose(parentEntitySet).thatIsNamed("parent EntitySet").isNotNull();
 		
 		supposeDoesNotBelongToEntitySet();
 		
-		this.parentEntitySet = parentEntitySet;
+		this.parentEntitySet = (EntitySet<Entity>)parentEntitySet;
 	}
 
 	//package-visible method
@@ -327,7 +329,7 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//package-visible method
-	final void setValues(final Iterable<BaseNode> valuesInOrder) {
+	final void setValues(final Iterable<BaseNode> valuesInOrder, final ValueCreator valueCreator) {
 		
 		//Iterates the properties of the current entity and the given valuesInOrder together.
 		final var propertiesIterator = getRefProperties().iterator();
@@ -338,23 +340,21 @@ public class Entity implements OptionalIdentified, IElement {
 			//Enumerates the kind of the current property.
 			switch (property.getPropertyKind()) {
 				case DATA:
-					property.internal_setValue(DatabaseAdapter.createValue(property.getValueType(), v));					
+					property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFromSpecification(v));					
 					break;
 				case OPTIONAL_DATA:
 					
 					if (v.containsAttributes()) {
-						property.internal_setValue(DatabaseAdapter.createValue(property.getValueType(), v));
+						property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFromSpecification(v));
 					}
 					
 					break;
 				case MULTI_DATA:
 					
-					final var valueType = property.getValueType();
+					final var valueClass = property.getValueClass();
 					
 					property.internal_setValues(
-						v.getRefAttributes().to(
-							a -> DatabaseAdapter.createValue(valueType, a)
-						)						
+						v.getRefAttributes().to(a -> valueCreator.ofType(valueClass).createFromSpecification(a))						
 					);
 					
 					break;

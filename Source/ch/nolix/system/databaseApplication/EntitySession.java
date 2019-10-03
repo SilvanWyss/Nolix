@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;
@@ -13,28 +14,26 @@ import ch.nolix.element.widgets.TextBox;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySet;
+import ch.nolix.system.databaseAdapter.OptionalProperty;
 import ch.nolix.system.databaseAdapter.Property;
 import ch.nolix.system.databaseAdapter.Reference;
 
 //class
 public final class EntitySession extends HeaderedSession {
 	
-	//attribute
+	//attributes
 	private final String entitySetName;
 	private final long entityId;
 	
 	//constructor
-	public EntitySession(
-		final String entitySetName,
-		final long entityId
-	) {
+	public EntitySession(final String entitySetName, final long entityId) {
 		
 		super(entitySetName);
 		
 		this.entitySetName = entitySetName;
 		this.entityId = entityId;
 	}
-
+	
 	//method
 	@Override
 	protected List<Button> createLinkButtons() {
@@ -100,6 +99,25 @@ public final class EntitySession extends HeaderedSession {
 					rowIndex++;
 					
 					break;
+				case OPTIONAL_DATA:
+					
+					final var optionalProperty = (OptionalProperty<?>)p;
+					
+					dataGrid.setWidget(rowIndex, 1,	new Label(p.getHeader()));
+					
+					if (optionalProperty.hasValue()) {
+						dataGrid.setWidget(
+							rowIndex,
+							2,
+							new TextBox(optionalProperty.getValue().toString())
+							.setName(optionalProperty.getHeader())
+						);
+					}
+					
+					rowIndex++;
+					
+					break;
+					
 				case REFERENCE:
 					
 					@SuppressWarnings("unchecked")
@@ -117,7 +135,7 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new HorizontalStack(
-							new Button(String.valueOf(referenceProperty.getEntity().getId()))
+							new Button(referenceProperty.getEntity().getIdAsString())
 							.setRole(ButtonRole.LinkButton)
 							.setName(referenceProperty.getHeader() + "LinkButton")
 							.setLeftMouseButtonPressCommand(
@@ -212,16 +230,28 @@ public final class EntitySession extends HeaderedSession {
 		final var entity = getRefEntity();
 		
 		for (final var p : entity.getRefProperties()) {
-			
 			switch (p.getPropertyKind()) {
 				case DATA:
 					
 					final var property = (Property<?>)p;
-			
-					final TextBox dataTextBox =
-					getRefGUI().getRefWidgetByName(p.getHeader());
 					
-					property.setUntypedValue(dataTextBox.getText());
+					final TextBox dataTextBox =	getRefGUI().getRefWidgetByName(p.getHeader());
+					
+					property.setValueFromString(dataTextBox.getText());
+					
+					break;
+				case OPTIONAL_DATA:
+					
+					final var optionalProperty = (OptionalProperty<?>)p;
+					
+					final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetByName(p.getHeader());
+					
+					if (optionalDataTextBox.getText().isBlank()) {
+						optionalProperty.clear();
+					}
+					else {
+						optionalProperty.setValueFromString(optionalDataTextBox.getText());
+					}
 					
 					break;
 				default:

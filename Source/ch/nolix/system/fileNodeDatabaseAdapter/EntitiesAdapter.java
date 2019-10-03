@@ -4,24 +4,25 @@ package ch.nolix.system.fileNodeDatabaseAdapter;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
 
 //class
 public final class EntitiesAdapter<E extends Entity> {
 
-	//attribute
+	//attributes
 	private final BaseNode entitiesSpecification;
+	private final ValueCreator valueCreator;
 	
 	//package-visible constructor
-	EntitiesAdapter(final BaseNode entitiesSpecification) {
+	EntitiesAdapter(final BaseNode entitiesSpecification, ValueCreator valueCreator) {
 		
-		Validator
-		.suppose(entitiesSpecification)
-		.thatIsNamed("entities specification")
-		.isNotNull();
+		Validator.suppose(entitiesSpecification).thatIsNamed("entities specification").isNotNull();
+		Validator.suppose(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();
 		
 		this.entitiesSpecification = entitiesSpecification;
+		this.valueCreator = valueCreator;
 	}
 
 	//method
@@ -52,7 +53,7 @@ public final class EntitiesAdapter<E extends Entity> {
 		
 		for (final var a : entitiesSpecification.getRefAttributes()) {
 			entities.addAtEnd(
-				new EntityAdapter<E>(a).createPersistedEntity(entityType)
+				new EntityAdapter<E>(a).createPersistedEntity(entityType, valueCreator)
 			);
 		}
 		
@@ -61,7 +62,7 @@ public final class EntitiesAdapter<E extends Entity> {
 	
 	//method
 	public E getEntity(final long id, final EntityType<E> entityType) {
-		return getEntityAdapter(id).createPersistedEntity(entityType);
+		return getEntityAdapter(id).createPersistedEntity(entityType, valueCreator);
 	}
 	
 	//method

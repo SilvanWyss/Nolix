@@ -4,6 +4,7 @@ package ch.nolix.system.fileNodeDatabaseAdapter;
 import ch.nolix.common.attributeAPI.Identified;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
 
@@ -25,10 +26,11 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	}
 	
 	//method
-	public E createPersistedEntity(final EntityType<E> entityType) {
+	public E createPersistedEntity(final EntityType<E> entityType, final ValueCreator valueCreator) {
 		return entityType.createPersistedEntity(
 			getId(),
-			entitySpecification.getRefAttributes().withoutFirst()
+			entitySpecification.getRefAttributes().withoutFirst(),
+			valueCreator
 		);
 	}
 	

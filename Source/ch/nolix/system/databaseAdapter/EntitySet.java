@@ -140,7 +140,7 @@ public final class EntitySet<E extends Entity> implements Named {
 			final var e :
 			parentDatabaseAdapter
 			.getEntitySetAdapter(this)
-			.getEntities(getEntityType())
+			.getEntities()
 		) {
 			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
 			
@@ -170,7 +170,7 @@ public final class EntitySet<E extends Entity> implements Named {
 		final var entity
 		= parentDatabaseAdapter
 		.getEntitySetAdapter(this)
-		.getEntity(id, getEntityType());
+		.getEntity(id);
 		
 		if (!entity.isPersisted()) {
 			throw new InvalidArgumentException(entity, "is not persisted");
