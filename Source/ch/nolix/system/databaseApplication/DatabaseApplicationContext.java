@@ -2,7 +2,6 @@
 package ch.nolix.system.databaseApplication;
 
 //own imports
-import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
@@ -10,38 +9,38 @@ import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //class
 public final class DatabaseApplicationContext {
-
+	
 	//attribute
-	private final IElementGetter<DatabaseAdapter> databaseAdapterCreator;
+	private final DatabaseAdapter databaseAdapter;
 	
 	//optional attribute
 	private final StandardConfiguration mGUILook;
 	
 	//constructor
-	public DatabaseApplicationContext(final IElementGetter<DatabaseAdapter> databaseAdapterCreator) {
+	public DatabaseApplicationContext(final DatabaseAdapter databaseAdapter) {
 			
-		Validator.suppose(databaseAdapterCreator).thatIsNamed("database adapter creator").isNotNull();
+		Validator.suppose(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
 		
-		this.databaseAdapterCreator = databaseAdapterCreator;
+		this.databaseAdapter = databaseAdapter;
 		mGUILook = null;
 	}
 	
 	//constructor
 	public DatabaseApplicationContext(
-		final IElementGetter<DatabaseAdapter> databaseAdapterCreator,
+		final DatabaseAdapter databaseAdapter,
 		final StandardConfiguration pGUILook
 	) {
 			
-		Validator.suppose(databaseAdapterCreator).thatIsNamed("database adapter creator").isNotNull();
+		Validator.suppose(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
 		Validator.suppose(pGUILook).thatIsNamed("GUI look").isNotNull();
 		
-		this.databaseAdapterCreator = databaseAdapterCreator;
+		this.databaseAdapter = databaseAdapter;
 		this.mGUILook = pGUILook;
 	}
 	
 	//method
 	public DatabaseAdapter createDatabaseAdapter() {
-		return databaseAdapterCreator.getOutput();
+		return databaseAdapter.createNewDatabaseAdapter();
 	}
 	
 	//method

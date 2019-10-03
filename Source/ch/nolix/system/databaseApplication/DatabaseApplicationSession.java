@@ -11,8 +11,7 @@ import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //abstract class
-public abstract class DatabaseApplicationSession
-extends BackGUIClientSession {
+public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 	
 	//attribute
 	private DatabaseAdapter databaseAdapter;
@@ -20,6 +19,8 @@ extends BackGUIClientSession {
 	//method
 	@Override
 	public final void initialize() {
+		
+		createNewDatabaseAdapter();
 		
 		getRefGUI()
 		.setTitle(getApplicationName())
@@ -45,13 +46,17 @@ extends BackGUIClientSession {
 	protected final DatabaseAdapter getRefDatabaseAdapter() {
 		
 		if (!hasDatabaseAdapter()) {
-			databaseAdapter = 
-			getRefApplicationContextAs(DatabaseApplicationContext.class).createDatabaseAdapter();
+			createNewDatabaseAdapter();
 		}
 		
 		return databaseAdapter;
 	}
 	
+	//method
+	private void createNewDatabaseAdapter() {
+		databaseAdapter = getRefApplicationContextAs(DatabaseApplicationContext.class).createDatabaseAdapter();
+	}
+
 	//method
 	private Label createTitleWidget() {
 		return
