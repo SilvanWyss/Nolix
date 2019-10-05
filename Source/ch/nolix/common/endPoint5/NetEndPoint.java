@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint5;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -17,10 +18,10 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 250
+ * @lines 270
  */
 public class NetEndPoint extends EndPoint {
-		
+	
 	//attribute
 	private final ch.nolix.common.endPoint3.NetEndPoint internalNetEndPoint;
 		
@@ -118,16 +119,16 @@ public class NetEndPoint extends EndPoint {
 	public Node getData(final ChainedNode request) {
 		
 		//Creates message.
-		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
+		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
 		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
-			case Protocol.DATA:
+			case Protocol.DATA_HEADER:
 				return reply.getRefOneAttribute();
-			case Protocol.ERROR:
+			case Protocol.ERROR_HEADER:
 				throw new RuntimeException(reply.getOneAttributeAsString());
 			default:
 				throw new RuntimeException("Error occured.");
@@ -197,16 +198,16 @@ public class NetEndPoint extends EndPoint {
 		
 		//TODO: Make this more elegant.
 		//Creates message.
-		final String message = Protocol.COMMANDS + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
+		final String message = Protocol.COMMANDS_HEADER + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
 		
 		//Sends the message and gets reply.
 		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
-			case Protocol.DONE:
+			case Protocol.DONE_HEADER:
 				break;
-			case Protocol.ERROR:
+			case Protocol.ERROR_HEADER:
 				if (!reply.containsAttributes()) {
 					throw new RuntimeException();
 				}
@@ -234,9 +235,9 @@ public class NetEndPoint extends EndPoint {
 			Logger.logError(exception);
 			
 			if (exception.getMessage() == null) {
-				return Protocol.ERROR;
+				return Protocol.ERROR_HEADER;
 			}
-			return (Protocol.ERROR + '(' + Node.createReproducingString(exception.getMessage()) + ')');
+			return (Protocol.ERROR_HEADER + '(' + Node.createReproducingString(exception.getMessage()) + ')');
 		}
 	}
 	
@@ -255,12 +256,12 @@ public class NetEndPoint extends EndPoint {
 		
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {
-			case Protocol.COMMANDS:	
+			case Protocol.COMMANDS_HEADER:	
 				message.getRefAttributes().forEach(a -> receiverController.run(Node.createOriginStringFromReproducingString(a.toString())));
-				return Protocol.DONE;
-			case Protocol.DATA_REQUEST:
+				return Protocol.DONE_HEADER;
+			case Protocol.DATA_REQUEST_HEADER:
 				return (
-					Protocol.DATA
+					Protocol.DATA_HEADER
 					+ '('
 					+ receiverController.getData(message.getOneAttributeAsString()).toString()
 					+ ')'

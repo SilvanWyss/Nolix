@@ -3,26 +3,24 @@ package ch.nolix.common.endPoint5;
 
 //package-visible class
 /**
- * Of this class an instance cannot be created.
+ * Of the {@link Protocol} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
  */
 final class Protocol {
-		
-	//message headers
-	public static final String COMMANDS = "Commands";
-	public static final String DATA_REQUEST = "DataRequest";
 	
-	//reply headers
-	public static final String DONE = "Done";
-	public static final String DATA = "Data";
-	public static final String ERROR = "Error";
-
+	//constants
+	public static final String COMMANDS_HEADER = "Commands";
+	public static final String DATA_REQUEST_HEADER = "DataRequest";
+	public static final String DONE_HEADER = "Done";
+	public static final String DATA_HEADER = "Data";
+	public static final String ERROR_HEADER = "Error";
+	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Protocol} can be created.
 	 */
 	private Protocol() {}
 }
