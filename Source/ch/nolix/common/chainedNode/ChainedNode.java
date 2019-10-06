@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.common.chainedNode;
 
+//own imports
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
@@ -17,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 280
+ * @lines 310
  */
 public final class ChainedNode implements Headered {
 	
@@ -28,7 +30,7 @@ public final class ChainedNode implements Headered {
 	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
 	public static ChainedNode fromString(final String string) {
-		return new ChainedNode(string);
+		return new ChainedNode(string, true);
 	}
 	
 	//attribute
@@ -94,12 +96,27 @@ public final class ChainedNode implements Headered {
 	
 	//constructor
 	/**
+	 * Creates a new {@link ChainedNode} with the given header.
+	 * 
+	 * @param header
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public ChainedNode(final String header) {
+		node = new Node(header);
+		nextNode = null;
+	}
+	
+	//constructor
+	/**
 	 * Creates a new {@link ChainedNode} the given string represents
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
-	private ChainedNode(final String string) {
+	private ChainedNode(final String string, boolean internCall) {
+		
+		Validator.suppose(internCall);
 		
 		//Iterates the given string.
 		var openBrackets = 0;
@@ -116,7 +133,7 @@ public final class ChainedNode implements Headered {
 				case CharacterCatalogue.DOT:
 					if (openBrackets == 0) {
 						node = Node.fromString(string.substring(0, i));
-						nextNode = new ChainedNode(string.substring(i + 1, string.length()));
+						nextNode = new ChainedNode(string.substring(i + 1, string.length()), true);
 						return;
 					}
 				default:
