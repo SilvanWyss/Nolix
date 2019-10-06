@@ -7,11 +7,12 @@ package ch.nolix.common.constants;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 30
+ * @lines 20
  */
 public final class MultiPascalCaseNameCatalogue {
 	
 	//constants
+	public static final String COMMANDS = "Commands";
 	public static final String ELEMENTS = "Elements";
 	public static final String ENTITIES = "Entities";
 	public static final String INPUT_VALUES = "InputValues";
