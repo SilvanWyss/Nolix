@@ -4,6 +4,7 @@ package ch.nolix.system.baseGUIClient;
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -46,12 +47,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
-		
+				
 		internal_runOnCounterpart(
-			Protocol.SHOW_ERROR_MESSAGE_HEADER
-			+ "("
-			+ BaseNode.createReproducingString(errorMessage)
-			+ ")"
+				
+			//TODO
+			new ChainedNode(
+				Protocol.SHOW_ERROR_MESSAGE_HEADER
+				+ "("
+				+ BaseNode.createReproducingString(errorMessage)
+				+ ")"
+			)
 		);
 		
 		return asConcreteType();
@@ -70,18 +75,18 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.GUI_HEADER:
-				runGUICommand(command.getRefNextNode());
+				runGUICommand(command.getNextNode());
 				break;
 			case Protocol.NOTE_KEY_TYPING_HEADER:
-				getRefGUI().noteKeyTyping(Key.fromSpecification(command.getRefOneAttribute()));
+				getRefGUI().noteKeyTyping(Key.fromSpecification(command.getOneAttributeAsNode()));
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_KEY_PRESS_HEADER:
-				getRefGUI().noteKeyPress(Key.fromSpecification(command.getRefOneAttribute()));
+				getRefGUI().noteKeyPress(Key.fromSpecification(command.getOneAttributeAsNode()));
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_KEY_RELEASE_HEADER:
-				getRefGUI().noteKeyRelease(Key.fromSpecification(command.getRefOneAttribute()));
+				getRefGUI().noteKeyRelease(Key.fromSpecification(command.getOneAttributeAsNode()));
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER:
@@ -109,7 +114,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_MOUSE_MOVE_HEADER:
-				getRefGUI().noteMouseMove(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				getRefGUI().noteMouseMove(command.getAttributeAt(1).toInt(), command.getAttributeAt(2).toInt());
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER:
@@ -129,7 +134,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_RESIZE_HEADER:
-				getRefGUI().noteResize(command.getRefAttributeAt(1).toInt(), command.getRefAttributeAt(2).toInt());
+				getRefGUI().noteResize(command.getAttributeAt(1).toInt(), command.getAttributeAt(2).toInt());
 				updateGUIOnCounterpart();
 				break;
 			default:
@@ -162,7 +167,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		if (!knowsCounterpartGUIType()) {
 			counterpartGUIType
 			= BaseFrontGUIClientGUIType.valueOf(
-				internal_getDataFromCounterpart(Protocol.GUI_TYPE_HEADER).getHeader()
+				internal_getDataFromCounterpart(new ChainedNode(Protocol.GUI_TYPE_HEADER)).getHeader()
 			);
 		}
 	}
@@ -206,18 +211,43 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
 		internal_runOnCounterpart(
-			Protocol.GUI_HEADER
-			+ "."
-			+ Protocol.RESET_HEADER
-			+ "("
-			+ attributes
-			+ ")"
+			
+			//TODO
+			new ChainedNode(Protocol.GUI_HEADER, new List<>(), new ChainedNode(Protocol.RESET_HEADER, attributes))
+				
+			//TODO
+			/*
+			new ChainedNode(
+				new Node(Protocol.GUI_HEADER),
+				new ChainedNode(new Node(Protocol.RESET_HEADER, attributes))
+			)
+			*/
+			
+			//TODO
+				/*
+			new ChainedNode(
+				Protocol.GUI_HEADER
+				+ "."
+				+ Protocol.RESET_HEADER
+				+ "("
+				+ attributes
+				+ ")"
+			)
+			*/
 		);
 	}
 	
 	//method
-	private void runGUICommandOnCounterpart(String GUICommandOnCounterpart) {
-		internal_runOnCounterpart(Protocol.GUI_HEADER + "." + GUICommandOnCounterpart);
+	private void runGUICommandOnCounterpart(final ChainedNode GUICommandOnCounterpart) {
+		
+		//TODO
+		internal_runOnCounterpart(
+			new ChainedNode(
+				Protocol.GUI_HEADER,
+				new List<>(),
+				GUICommandOnCounterpart
+			)
+		);
 	}
 	
 	//method
@@ -232,11 +262,11 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		//Enumerates the header of the given GUICommand.
 		switch (GUICommand.getHeader()) {
 			case Protocol.RESET_HEADER:
-				resetGUI(GUICommand.getRefAttributes());
+				resetGUI(GUICommand.getAttributesAsNodes());
 				break;
 			case Protocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER:
 				addOrChangeGUIWidgetsAttributes(						
-					GUICommand.getRefAttributes().to(a -> a.getRefAttributes())
+					GUICommand.getAttributes().to(a -> a.getAttributesAsNodes())
 				);
 				break;
 			default:
@@ -247,10 +277,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	//method
 	private void setGUITitleOnCounterpart(final String title) {
 		runGUICommandOnCounterpart(
-			Protocol.SET_TITLE_HEADER
-			+ "("
-			+ Node.createReproducingString(title)
-			+ ")"
+			new ChainedNode(Protocol.SET_TITLE_HEADER, new Node(title))
 		);
 	}
 	
@@ -262,8 +289,14 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
 		//TODO
-		if (paintCommands.containsAny()) {
-			runGUICommandOnCounterpart(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands.to(pc -> Node.createReproducingString(pc.toString())) + ")");
+		if (paintCommands.containsAny()) {			
+			runGUICommandOnCounterpart(
+				new ChainedNode(
+					Protocol.SET_PAINT_COMMANDS_HEADER,
+					paintCommands,
+					false
+				)
+			);
 		}
 	}
 	

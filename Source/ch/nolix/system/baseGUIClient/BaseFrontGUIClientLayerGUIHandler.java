@@ -55,7 +55,7 @@ final class BaseFrontGUIClientLayerGUIHandler implements BaseFrontGUIClientGUIHa
 	public void run(final ChainedNode command) {
 		switch (command.getHeader()) {
 			case Protocol.GUI_HEADER:
-				runGUICommand(command.getRefNextNode());
+				runGUICommand(command.getNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -72,7 +72,7 @@ final class BaseFrontGUIClientLayerGUIHandler implements BaseFrontGUIClientGUIHa
 	private void runGUICommand(final ChainedNode GUICommand) {
 		switch (GUICommand.getHeader()) {
 			case Protocol.RESET_HEADER:
-				resetGUI(GUICommand.getRefAttributes());
+				resetGUI(GUICommand.getAttributesAsNodes());
 				break;
 			case "SetTitle":
 				mGUI.setTitle(GUICommand.getOneAttributeAsString());

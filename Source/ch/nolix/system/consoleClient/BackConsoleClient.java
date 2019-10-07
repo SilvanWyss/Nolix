@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
+//own imports
+import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.endPoint5.EndPoint;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
@@ -15,7 +16,7 @@ import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 360
+ * @lines 380
  */
 public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient> {
 		
@@ -41,7 +42,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient clearConsole() {
 		
-		internal_runOnCounterpart(Protocol.CLEAR_CONSOLE_COMMAND);
+		internal_runOnCounterpart(new ChainedNode(Protocol.CLEAR_CONSOLE_COMMAND));
 		
 		return this;
 	}
@@ -55,7 +56,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient clearInfoPanel() {
 		
-		internal_runOnCounterpart(Protocol.CLEAR_INFO_PANEL_COMMAND);
+		internal_runOnCounterpart(new ChainedNode(Protocol.CLEAR_INFO_PANEL_COMMAND));
 		
 		return this;
 	}
@@ -67,7 +68,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public List<String> getLinesOfConsole() {
 		return
-		internal_getDataFromCounterpart(Protocol.LINES_OF_CONSOLE_REQUEST)
+		internal_getDataFromCounterpart(new ChainedNode(Protocol.LINES_OF_CONSOLE_REQUEST))
 		.getRefAttributes()
 		.to(a -> a.toString());
 	}
@@ -77,7 +78,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 * Quits the counterpart of this console back client.
 	 */
 	public void quit() {
-		internal_runOnCounterpart(Protocol.QUIT_COMMAND);
+		internal_runOnCounterpart(new ChainedNode(Protocol.QUIT_COMMAND));
 	}
 	
 	//method
@@ -87,7 +88,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public char readCharacterFromConsole() {
 		return
-		internal_getDataFromCounterpart(Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST)
+		internal_getDataFromCounterpart(new ChainedNode(Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST))
 		.toString()
 		.charAt(0);
 	}
@@ -98,7 +99,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 * of the counterpart of this console back client.
 	 */
 	public void readEnterFromConsole() {
-		internal_runOnCounterpart(Protocol.READ_ENTER_FROM_CONSOLE_COMMAND);
+		internal_runOnCounterpart(new ChainedNode(Protocol.READ_ENTER_FROM_CONSOLE_COMMAND));
 	}
 	
 	//method
@@ -109,7 +110,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public String readLineFromConsole() {
 		return
-		internal_getDataFromCounterpart(Protocol.READ_LINE_FROM_CONSOLE_REQUEST)
+		internal_getDataFromCounterpart(new ChainedNode(Protocol.READ_LINE_FROM_CONSOLE_REQUEST))
 		.toString();
 	}
 	
@@ -120,7 +121,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public String readNonEmptyLineFromConsole() {
 		return
-		internal_getDataFromCounterpart(Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST)
+		internal_getDataFromCounterpart(new ChainedNode(Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST))
 		.toString();
 	}
 	
@@ -131,7 +132,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public String readSecretLineFromConsole() {
 		return
-		internal_getDataFromCounterpart(Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST)
+		internal_getDataFromCounterpart(new ChainedNode(Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST))
 		.toString();
 	}
 	
@@ -158,12 +159,15 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient setDesign(final StandardConfiguration design) {
 		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.SET_DESIGN_COMMAND
 			+ "("
 			+ design.toString()
 			+ ")"
 		);
+		*/
 		
 		return this;
 	}
@@ -179,12 +183,15 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient setTitle(final String title) {
 		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.SET_TITLE_COMMAND
 			+ "("
 			+ BaseNode.createReproducingString(title)
 			+")"
 		);
+		*/
 		
 		return this;
 	}
@@ -198,7 +205,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient writeEmptyLineToConsole() {
 		
-		internal_runOnCounterpart(Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND);
+		internal_runOnCounterpart(new ChainedNode(Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND));
 		
 		return this;
 	}
@@ -212,7 +219,7 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient writeEmptyLineToInfoPanel() {
 		
-		internal_runOnCounterpart(Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND);
+		internal_runOnCounterpart(new ChainedNode(Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND));
 		
 		return this;
 	}
@@ -229,12 +236,15 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient writeLinesToConsole(final Iterable<String> lines) {
 		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
 			+ '('
 			+ new List<String>(lines).to(s -> BaseNode.createReproducingString(s))
 			+ ')'
 		);
+		*/
 		
 		return this;
 	}
@@ -251,12 +261,15 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient writeLinesToInfoPanel(final Iterable<String> lines) {
 		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
 			+ '('
 			+ new List<String>(lines).to(s -> BaseNode.createReproducingString(s))
 			+ ')'
 		);
+		*/
 		
 		return this;
 	}
@@ -286,13 +299,16 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 		
 		//Checks if the given line is not null.
 		Validator.suppose(line).thatIsNamed("line").isNotNull();
-	
+		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_CONSOLE_COMMAND
 			+ "("
 			+ BaseNode.createReproducingString(line)
 			+ ")"
 		);
+		*/
 		
 		return this;
 	}
@@ -307,13 +323,16 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
  * @throws ArgumentIsNullException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLineToConsole(final String... lines) {
-				
+		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
 			+ '('
 			+ new List<String>(lines).to(s -> BaseNode.createReproducingString(s))
 			+ ')'
 		);
+		*/
 		
 		return this;
 	}
@@ -329,12 +348,15 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String line) {
 		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND
 			+ "("
 			+ BaseNode.createReproducingString(line)
 			+ ")"
 		);
+		*/
 		
 		return this;
 	}
@@ -345,16 +367,19 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 * of the counterpart of this console back client.
 	 * 
 	 * @param lines
- * @throws ArgumentIsNullException if one of the given line is null.
+	 * @throws ArgumentIsNullException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String... lines) {
-				
+		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
 			+ '('
 			+ new List<String>(lines).to(s -> BaseNode.createReproducingString(s))
 			+ ')'
 		);
+		*/
 		
 		return this;
 	}

@@ -89,7 +89,7 @@ public final class ChainedNodeTest extends Test {
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
 		expect(statement.hasNextNode());
-		expect(statement.toString()).isEqualTo("a.(b$Dc)");
+		expect(statement.toString()).isEqualTo("a.(b.c)");
 	}
 	
 	//test case
@@ -102,7 +102,7 @@ public final class ChainedNodeTest extends Test {
 		expectNot(statement.hasHeader());
 		expect(statement.containsAttributes());
 		expect(statement.hasNextNode());
-		expect(statement.toString()).isEqualTo("(a$Db).c");
+		expect(statement.toString()).isEqualTo("(a.b).c");
 	}
 	
 	//test case
@@ -113,5 +113,15 @@ public final class ChainedNodeTest extends Test {
 		
 		//verification
 		expect(statement.toString()).isEqualTo("a.b.c");
+	}
+	
+	//test case
+	public void testCase_fromString_9() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a(b(c),d(e))");
+		
+		//verification
+		expect(statement.toString()).isEqualTo("a(b(c),d(e))");
 	}
 }

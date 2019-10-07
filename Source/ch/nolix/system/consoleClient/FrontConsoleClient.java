@@ -213,7 +213,7 @@ public final class FrontConsoleClient extends BaseBackGUIClient<FrontConsoleClie
 				
 				break;
 			case Protocol.SET_DESIGN_COMMAND:				
-				setDesign(new StandardConfiguration(command.getRefOneAttribute().getRefAttributes()));
+				setDesign(new StandardConfiguration(command.getOneAttribute().getAttributesAsNodes()));
 				break;
 			case Protocol.SET_TITLE_COMMAND:
 				mGUI.setTitle(command.getOneAttributeAsString());
@@ -236,7 +236,7 @@ public final class FrontConsoleClient extends BaseBackGUIClient<FrontConsoleClie
 				mGUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_CONSOLE_COMMAND:
-				console.writeLines(command.getAttributesToStrings());
+				console.writeLines(command.getAttributesAsStrings());
 				break;
 			
 			//Handles info panel commands.
@@ -253,7 +253,7 @@ public final class FrontConsoleClient extends BaseBackGUIClient<FrontConsoleClie
 				mGUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND:
-				infoPanel.writeLines(command.getAttributesToStrings());
+				infoPanel.writeLines(command.getAttributesAsStrings());
 				mGUI.refresh();
 				break;
 				

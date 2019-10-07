@@ -11,7 +11,7 @@ import ch.nolix.common.node.Node;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 80
+ * @lines 150
  */
 public final class StandardClient extends Client<StandardClient> {
 	
@@ -117,8 +117,14 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @return the data the given data method request requests from a data method of the other side of this standard client.
 	 */
 	public Node getData(final String dataMethodRequest) {
+		
+		//TODO
+		return null;
+		
+		/*
 		return
 		internal_getDataFromCounterpart(SESSION_USER_DATA_METHOD_HEADER + "(" + dataMethodRequest + ")");
+		*/
 	}
 	
 	//method
@@ -138,8 +144,12 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final String runMethodCommand) {
+		
+		//TODO
+		/*
 		internal_runOnCounterpart(
 			Protocol.SESSION_HEADER + "." + Protocol.RUN_METHOD_HEADER + "(" + runMethodCommand + ")"
 		);
+		*/
 	}
 }

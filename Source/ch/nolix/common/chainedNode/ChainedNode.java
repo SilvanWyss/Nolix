@@ -3,144 +3,123 @@ package ch.nolix.common.chainedNode;
 
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link ChainedNode} consists of a {@link Node} and optionally a next {@link ChainedNode}.
- * A {@link ChainedNode} is not mutable as long as its document node or next statement are not mutated.
+ * A {@link ChainedNode} can have:
+ * -1 header
+ * -several attributes that are {@link ChainedNode}
+ * -a next node that is a {@link ChainedNode}
+ * 
+ * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 390
  */
 public final class ChainedNode implements Headered {
+	
+	//constants
+	public static final String DOT_CODE = "$D";
+	public static final String COMMA_CODE = "$M";
+	public static final String DOLLAR_SYMBOL_CODE = "$X";
+	public static final String OPEN_BRACKET_CODE = "$O";
+	public static final String CLOSED_BRACKET_CODE = "$C";
+	
+	//static method
+	/**
+	 * @param string
+	 * @return a reproducing {@link String} for the given string.
+	 * @throws NullArgumentException if the given string is null.
+	 */
+	public static String createReproducingString(final String string) {
+		
+		//Checks if the given string is not null.
+		if (string == null) {
+			throw new ArgumentIsNullException(String.class);
+		}
+		
+		return
+		string
+		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
+		.replace(String.valueOf(CharacterCatalogue.COMMA), Node.COMMA_CODE)
+		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+	}
 	
 	//static method
 	/**
 	 * @param string
 	 * @return a new {@link ChainedNode} the given string represents.
-	 * @throws InvalidArgumentException if the given string is not valid.
+	 * @throws NonRepresentingArgumentException if the given string does not represent a {@link ChainedNode}.
 	 */
 	public static ChainedNode fromString(final String string) {
-		return new ChainedNode(string, true);
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.reset(string);
+		
+		return chainedNode;
 	}
 	
-	//attribute
-	private final Node node;
+	//optional attribute
+	private String header;
 	
 	//optional attribute
-	private final ChainedNode nextNode;
+	private ChainedNode nextNode;
+	
+	//multi-attribute
+	private final List<ChainedNode> attributes = new List<>();
 	
 	//constructor
 	/**
 	 * Creates a new {@link ChainedNode}.
 	 */
 	public ChainedNode() {
-		node = new Node();
-		nextNode = null;
-	}
-		
-	//constructor
-	/**
-	 * Creates a new {@link ChainedNode} that consists of the given document node.
-	 * 
-	 * @param node
-	 * @throws ArgumentIsNullException if the given document node is null.
-	 */
-	public ChainedNode(final Node node) {
-		
-		//Checks if the given document node is not null.
-		Validator
-		.suppose(node)
-		.thatIsNamed("document node")
-		.isNotNull();
-		
-		this.node = node.getCopy();
+		header = null;
 		nextNode = null;
 	}
 	
-	//constructor
-	/**
-	 * Creates a new {@link ChainedNode} that consists of the given document node and next statement.
-	 * 
-	 * @param node
-	 * @param nextStatement
-	 * @throws ArgumentIsNullException if the given document node is null.
-	 * @throws ArgumentIsNullException if the given next statement is null.
-	 */
-	public ChainedNode(final Node node, final ChainedNode nextStatement) {
-		
-		//Checks if the given document node is not null.
-		Validator
-		.suppose(node)
-		.thatIsNamed("document node")
-		.isNotNull();
-		
-		//Checks if the given next statement is not null.
-		Validator
-		.suppose(nextStatement)
-		.thatIsNamed("next statement")
-		.isNotNull();
-		
-		this.node = node;
-		this.nextNode = nextStatement;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link ChainedNode} with the given header.
-	 * 
-	 * @param header
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public ChainedNode(final String header) {
-		node = new Node(header);
+	//TODO
+	public ChainedNode(String header, IContainer<BaseNode> attributes) {
+		this.header = header;
+		this.attributes.addAtEnd(attributes.to(a -> fromString(a.toString())));
 		nextNode = null;
 	}
 	
-	//constructor
-	/**
-	 * Creates a new {@link ChainedNode} the given string represents
-	 * 
-	 * @param string
-	 * @throws InvalidArgumentException if the given string is not valid.
-	 */
-	private ChainedNode(final String string, boolean internCall) {
-		
-		Validator.suppose(internCall);
-		
-		//Iterates the given string.
-		var openBrackets = 0;
-		for (var i = 0; i < string.length() - 1; i++) {
-			
-			//Enumerates the current character.
-			switch (string.charAt(i)) {
-				case CharacterCatalogue.OPEN_BRACKET:
-					openBrackets++;
-					break;
-				case CharacterCatalogue.CLOSED_BRACKET:
-					openBrackets--;
-					break;
-				case CharacterCatalogue.DOT:
-					if (openBrackets == 0) {
-						node = Node.fromString(string.substring(0, i));
-						nextNode = new ChainedNode(string.substring(i + 1, string.length()), true);
-						return;
-					}
-				default:
-			}
-		}
-		
-		node = Node.fromString(string);
+	//TODO
+	public ChainedNode(String header, IContainer<BaseNode> attributes, ChainedNode nextNode) {
+		this.header = header;
+		this.attributes.addAtEnd(attributes.to(a -> fromString(a.toString())));
+		this.nextNode = nextNode;
+	}
+	
+	//TODO
+	public <N extends BaseNode> ChainedNode(String header, Iterable<N> attributes) {
+		this(header, new ReadContainer<>(attributes));
+	}
+	
+	//TODO
+	public ChainedNode(String header, BaseNode... attributes) {
+		this(header, new ReadContainer<>(attributes));
+	}
+	
+	//TODO
+	public ChainedNode(String header, Iterable<ChainedNode> attributes, boolean unused) {
+		this.header = header;
+		this.attributes.addAtEnd(attributes);
 		nextNode = null;
 	}
 	
@@ -149,7 +128,7 @@ public final class ChainedNode implements Headered {
 	 * @return true if the current {@link ChainedNode} contains attributes.
 	 */
 	public boolean containsAttributes() {
-		return node.containsAttributes();
+		return attributes.containsAny();
 	}
 	
 	//method
@@ -157,114 +136,99 @@ public final class ChainedNode implements Headered {
 	 * @return the number of attributes of the current {@link ChainedNode}.
 	 */
 	public int getAttributeCount() {
-		return node.getAttributeCount();
-	}
-	
-	//method
-	/**
-	 * @return the string representations of the attributes of the current {@link ChainedNode}.
-	 */
-	public List<String> getAttributesToStrings() {
-		return node.getAttributesToStrings();
-	}
-	
-	//method
-	/**
-	 * @return a copy of the current {@link ChainedNode}.
-	 */
-	public ChainedNode getCopy() {
-		
-		//Handles the case that the current statement does not have a next statement.
-		if (!hasNextNode()) {
-			return new ChainedNode(node);
-		}
-		
-		//Handles the case that the current statement has a next statement.
-		return new ChainedNode(node, getRefNextNode());
-	}
-	
-	//method
-	/**
-	 * @return the header of the current {@link ChainedNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
-	 */
-	@Override
-	public String getHeader() {
-		
-		//Checks if the current statement has a header.
-		//This pre-check provides a more suitable error message than the common checks.
-		if (!hasHeader()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
-		}
-		
-		return node.getHeader();
-	}
-	
-	//method
-	/**
-	 * @return a string representation of the next {@link ChainedNode} of the current {@link ChainedNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
-	 */
-	public String getNextNodeAsString() {
-		return getRefNextNode().toString();
-	}
-	
-	//method
-	/**
-	 * @return the integer the one attribute of the current {@link ChainedNode} represents.
-	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
-	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link ChainedNode} does not represent an integer.
-	 */
-	public int getOneAttributeAsInt() {
-		return node.getOneAttributeAsInt();
-	}
-	
-	//method
-	/**
-	 * @return a string representation of the one attribute of the current {@link ChainedNode}.
-	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
-	 */
-	public String getOneAttributeAsString() {
-		return node.getOneAttributeAsString();
+		return attributes.getSize();
 	}
 	
 	//method
 	/**
 	 * @param index
-	 * @return the attribute at the given index from the current {@link ChainedNode}.
+	 * @return the attribute at the given index of the current {@link ChainedNode}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode}
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode}
 	 * does not contain an attribute at the given index.
 	 */
-	public Node getRefAttributeAt(final int index) {
-		return node.getRefAttributeAt(index);
+	public ChainedNode getAttributeAt(final int index) {
+		return attributes.getRefAt(index);
 	}
-	
+
 	//method
 	/**
 	 * @return the attributes of the current {@link ChainedNode}.
 	 */
-	public IContainer<Node> getRefAttributes() {
-		return node.getRefAttributes();
+	public IContainer<ChainedNode> getAttributes() {
+		return attributes;
 	}
 	
 	//method
 	/**
-	 * @return the next {@link ChainedNode} of the current {@link ChainedNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ChainedNode} does not have a next {@link ChainedNode}.
+	 * @return the {@link Node} representations of the attributes of the current {@link ChainedNode}.
+	 * @throws NonRepresentingArgumentException
+	 * if one of the attributes of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
-	public ChainedNode getRefNextNode() {
+	public List<Node> getAttributesAsNodes() {
+		return attributes.to(a -> a.toNode());
+	}
+
+	//method
+	/**
+	 * @return a {@link String} representation of the attributes of the current {@link ChainedNode}.
+	 */
+	public String getAttributesAsString() {
+		return attributes.toString();
+	}
+	
+	//method
+	/**
+	 * @return the {@link String} representations of the attributes of the current {@link ChainedNode}.
+	 */
+	public List<String> getAttributesAsStrings() {
+		return attributes.toStrings();
+	}
+	
+	//method
+	/**
+	 * @return the header of the current {@link ChainedNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a header.
+	 */
+	@Override
+	public String getHeader() {
 		
-		//Checks if the current statement has a next statement.
-		if (!hasNextNode()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next statement");
+		//Checks if the current ChainedNode has a header.
+		if (header == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
+		}
+		
+		return header;
+	}
+	
+	//method
+	/**
+	 * @return the next node of the current {@link ChainedNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a next node.
+	 */
+	public ChainedNode getNextNode() {
+		
+		//Checks if the current ChanedNode has a next statement.
+		if (nextNode == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}
 		
 		return nextNode;
+	}
+
+	//method
+	/**
+	 * @return a {@link String} representation of the next node of the current {@link ChainedNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a next node.
+	 */
+	public String getNextNodeAsString() {
+		
+		//Checks if the current ChainedNode has a next node.
+		if (nextNode == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
+		}
+		
+		return nextNode.toString();
 	}
 	
 	//method
@@ -273,8 +237,57 @@ public final class ChainedNode implements Headered {
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
-	public Node getRefOneAttribute() {
-		return node.getRefOneAttribute();
+	public ChainedNode getOneAttribute() {
+		return attributes.getRefOne();
+	}
+	
+	//method
+	/**
+	 * @return a {@link Integer} representation of the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
+	 * @throws NonRepresentingArgumentException
+	 * if the one attribute of the current {@link ChainedNode} does not represent a {@link Integer}.
+	 */
+	public int getOneAttributeAsInt() {
+		return getOneAttribute().toInt();
+	}
+	
+	//method
+	/**
+	 * @return a {@link Node} representation of the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
+	 * @throws NonRepresentingArgumentException
+	 * if the one attribute of the current {@link ChainedNode} does not represent a {@link Node}.
+	 */
+	public Node getOneAttributeAsNode() {
+		return getOneAttribute().toNode();
+	}
+	
+	//method
+	/**
+	 * @return a {@link String} representation of the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
+	 */
+	public String getOneAttributeAsString() {
+		return getOneAttribute().toString();
+	}
+	
+	//method
+	/**
+	 * @return a reproducing {@link String} representation of the header of the current {@link BaseNode}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a header.
+	 */
+	public String getReproducingHeader() {
+		
+		//Checks if the current ChainedNode has a header.
+		if (header == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
+		}
+		
+		return createReproducingString(header);
 	}
 	
 	//method
@@ -282,12 +295,12 @@ public final class ChainedNode implements Headered {
 	 * @return true if the current {@link ChainedNode} has a header.
 	 */
 	public boolean hasHeader() {
-		return node.hasHeader();
+		return (header != null);
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link ChainedNode} has a next {@link ChainedNode}.
+	 * @return true if the current {@link ChainedNode} has a next node.
 	 */
 	public boolean hasNextNode() {
 		return (nextNode != null);
@@ -295,18 +308,206 @@ public final class ChainedNode implements Headered {
 	
 	//method
 	/**
-	 * @return a string representation of the current {@link ChainedNode}.
+	 * @return a {@link Integer} representation of the current {@link ChainedNode}.
+	 * @throws NonRepresentingArgumentException
+	 * if the current {@link ChainedNode} does not represent a {@link Integer}.
+	 */
+	public int toInt() {
+		
+		//Checks if the current ChainedNode can represent an Integer.
+		if (header == null) {
+			throw new UnrepresentingArgumentException(this, Integer.class);
+		}
+		
+		return StringHelper.toInt(header);
+	}
+	
+	//method
+	/**
+	 * A {@link ChainedNode} represents a {@link Node} if:
+	 * -The {@link ChainedNode} does not have a next node.
+	 * -Each attribute of the {@link ChainedNode} represents a {@link Node}.
+	 * 
+	 * @return a {@link Node} representation of the current {@link ChainedNode}.
+	 * @throws NonRepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Node}.
+	 */
+	public Node toNode() {
+		
+		//Checks if the current ChainedNode can represent a Node.
+		if (nextNode != null) {
+			throw new UnrepresentingArgumentException(this, Node.class);
+		}
+		
+		//Creates a Node.
+		final var node = new Node();
+		
+		//Handles the case that the current ChainedNode has a header.
+		if (header != null) {
+			node.setHeader(header);
+		}
+		
+		//Iterates the attributes of the current ChainedNode.
+		for (final var a : attributes) {
+			node.addAttribute(a.toNode());
+		}
+		
+		return node;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() {
+		final var stringBuilder = new StringBuilder();
+		appendStringRepresentationTo(stringBuilder);
+		return stringBuilder.toString();
+	}
+	
+	//method
+	//startIndex = index of first read char in the substring array (zero-based)
+	//nextIndex = index of the next non-read char in the substring array (zero-based)
+	private int setAndGetNextIndex(final String substring, final int startIndex) {
 		
-		var string = node.toString();
+		var nextIndex = startIndex;
 		
-		//Handles the case that the current statement} has a next statement.
-		if (hasNextNode()) {
-			string += CharacterCatalogue.DOT + getRefNextNode().toString();
+        var taskAfterSetProbableHeader = "nothing"; //TODO
+        var headerLength = 0;
+        while (nextIndex < substring.length()) {
+        	
+            var character = substring.charAt(nextIndex);
+                        
+            if (character == '(') {
+            	taskAfterSetProbableHeader = "readAttributesAndProbableNextNode";
+            	nextIndex++;
+                break;
+            }
+            
+            if (character == ',') {
+            	break;
+            }
+            
+            if (character == ')') {
+            	break;
+            }
+            
+            if (character == '.') {
+            	taskAfterSetProbableHeader = "readNextNode";
+            	nextIndex++;
+            	break;
+            }
+            
+            nextIndex++;
+            headerLength++;
+        }
+        
+        //Sets probable header.
+        if (headerLength > 0) {
+            this.header = Node.createOriginStringFromReproducingString(substring.substring(startIndex, startIndex + headerLength));
+        }
+        
+        var readNextNode = false;
+        switch (taskAfterSetProbableHeader) {
+        	case "readAttributesAndProbableNextNode":
+        		
+        		final var node = new ChainedNode();
+                nextIndex = node.setAndGetNextIndex(substring, nextIndex);
+                this.attributes.addAtEnd(node);
+                
+                while (nextIndex < substring.length()) {
+                	
+                	final var character = substring.charAt(nextIndex);
+                	
+                	if (character == ',') {
+                		final var node2 = new ChainedNode();
+                		nextIndex = node2.setAndGetNextIndex(substring, nextIndex + 1);
+                        this.attributes.addAtEnd(node2);
+                	}
+                	
+                	else if (character == ')') {
+                		nextIndex++;
+                		break;
+                	}
+                }
+                
+                if (nextIndex < substring.length() - 1 && substring.charAt(nextIndex) == '.') {
+                	nextIndex++;
+                	readNextNode = true;
+                }
+                
+                break;
+        	case "nothing":
+        		return nextIndex;
+        	case "readProbableNextNode":
+        		
+        		if (nextIndex < substring.length()) {
+        		
+	        		if (substring.charAt(nextIndex) != '.') {
+	        			throw new UnrepresentingArgumentException(substring, ChainedNode.class);
+	        		}
+        		
+	        		nextIndex++;
+	        		readNextNode = true;
+        		}
+        		
+        		break;
+        	case "readNextNode":
+        		readNextNode = true;
+        	
+        }
+        
+        if (!readNextNode) {
+        	return nextIndex;
+        }
+        
+        nextNode = new ChainedNode();
+        return nextNode.setAndGetNextIndex(substring, nextIndex);
+	}
+	
+	private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
+		
+		//Handles the case that the current ChainedNode has a header.
+		if (header != null) {
+			//TODO
+			stringBuilder.append(BaseNode.createReproducingString(header));
 		}
 		
-		return string;
+		//Handles the case that the current ChainedNode contains attributes.
+		if (attributes.containsAny()) {
+			
+			stringBuilder.append("(");
+			
+			boolean atBegin = true;
+			for (final var a : attributes) {
+				
+				if (atBegin) {
+					atBegin = false;
+				}
+				else {
+					stringBuilder.append(",");
+				}
+				
+				a.appendStringRepresentationTo(stringBuilder);
+			}
+			
+			stringBuilder.append(")");
+		}
+		
+		//Handles the case that the current ChainedNode contains a next node.
+		if (nextNode != null) {
+			stringBuilder.append(".");
+			nextNode.appendStringRepresentationTo(stringBuilder);
+		}
+	}
+	
+	private void reset(final String string) {
+		
+		//TODO
+        //reset();
+        
+        if (setAndGetNextIndex(string, 0) != string.length()) {
+        	throw new UnrepresentingArgumentException(string, ChainedNode.class);
+        }
 	}
 }

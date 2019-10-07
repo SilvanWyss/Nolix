@@ -305,7 +305,7 @@ public abstract class Session<C extends Client<C>> {
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.DATA_METHOD_HEADER:
-				return internal_invokeSessionUserDataMethod(request.getRefOneAttribute());
+				return internal_invokeSessionUserDataMethod(request.getOneAttributeAsNode());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
 		}
@@ -375,7 +375,7 @@ public abstract class Session<C extends Client<C>> {
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.RUN_METHOD_HEADER:
-				internal_invokeSessionUserRunMethod(command.getRefOneAttribute());
+				internal_invokeSessionUserRunMethod(command.getOneAttributeAsNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");

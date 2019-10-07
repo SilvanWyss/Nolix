@@ -7,5 +7,4 @@ package ch.nolix.common.controllerAPI;
  * @month 2017-10
  * @lines 10
  */
-public interface IDataProviderController
-extends IController, IDataProvider {}
+public interface IDataProviderController extends IController, IDataProvider {}

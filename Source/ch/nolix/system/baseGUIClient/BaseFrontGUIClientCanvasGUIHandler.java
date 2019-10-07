@@ -6,7 +6,6 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.GUI.GUI;
 
@@ -55,7 +54,7 @@ final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIH
 	public void run(ChainedNode command) {
 		switch (command.getHeader()) {
 			case Protocol.GUI_HEADER:
-				runGUICommand(command.getRefNextNode());
+				runGUICommand(command.getNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -71,8 +70,7 @@ final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIH
 			case Protocol.SET_PAINT_COMMANDS_HEADER:
 				setPaintCommands(
 					GUICommand
-					.getRefAttributes()
-					.to(a -> ChainedNode.fromString(Node.createOriginStringFromReproducingString(a.getHeader())))
+					.getAttributes()
 				);
 				break;
 			default:

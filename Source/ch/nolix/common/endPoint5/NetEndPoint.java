@@ -103,7 +103,7 @@ public class NetEndPoint extends EndPoint {
 		this.internalNetEndPoint = netEndPoint;
 		
 		//Creates the replier of the net end point.
-		netEndPoint.setReplier(new Replier(this));
+		netEndPoint.setReplier(m -> receiveAndGetReply(m));
 		
 		//Creates an abort dependency from this net duplex controller to its net end point.
 		createCloseDependency(netEndPoint);
@@ -198,7 +198,8 @@ public class NetEndPoint extends EndPoint {
 		
 		//TODO: Make this more elegant.
 		//Creates message.
-		final String message = Protocol.COMMANDS_HEADER + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
+		//final String message = Protocol.COMMANDS_HEADER + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
+		final String message = Protocol.COMMANDS_HEADER + '(' + commands + ')';
 		
 		//Sends the message and gets reply.
 		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
@@ -226,9 +227,9 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @return the reply to the given message from this net duplex controller.
 	 */
-	final String receiveAndGetReply(final String message) {
+	private final String receiveAndGetReply(final String message) {
 		try {
-			return receiveAndGetReply(Node.fromString(message));
+			return receiveAndGetReply(ChainedNode.fromString(message));
 		}
 		catch (final Exception exception) {
 			
@@ -249,23 +250,38 @@ public class NetEndPoint extends EndPoint {
 	 * @return the reply to the given message from this net duplex controller.
 	 * @throws UnexistringAttributeException if this net duplex contorller does not have a receiver.
 	 */
-	private final String receiveAndGetReply(final Node message) {
+	private final String receiveAndGetReply(final ChainedNode message) {
 		
 		//Gets the receiver controller of this net duplex controller.
 		final IDataProviderController receiverController = getRefReceiverController();
 		
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {
-			case Protocol.COMMANDS_HEADER:	
-				message.getRefAttributes().forEach(a -> receiverController.run(Node.createOriginStringFromReproducingString(a.toString())));
+			case Protocol.COMMANDS_HEADER:
+				
+				//TODO
+				/*
+				message
+				.getRefAttributes()
+				.forEach(a -> receiverController.run(Node.createOriginStringFromReproducingString(a.toString())));
+				*/
+				
+				for (final var a : message.getAttributes()) {
+					receiverController.run(a);
+				}
+				
 				return Protocol.DONE_HEADER;
 			case Protocol.DATA_REQUEST_HEADER:
+				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
+				//TODO
+				/*
 				return (
 					Protocol.DATA_HEADER
 					+ '('
-					+ receiverController.getData(message.getOneAttributeAsString()).toString()
+					+ receiverController.getData(new ChainedNode(message.getRefOneAttribute())) //TODO
 					+ ')'
 				);
+				*/
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message, "is not valid");
 		}

@@ -255,7 +255,14 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		 */
 		internal_waitUntilIsConnected();
 		
-		internal_runOnCounterpart(commandHeader + "(" + new ReadContainer<>(commandAttributes) + ")");
+		//TODO
+		//internal_runOnCounterpart(commandHeader + "(" + new ReadContainer<>(commandAttributes) + ")");
+		
+		internal_runOnCounterpart(
+			new ChainedNode(
+				commandHeader,
+				new ReadContainer<>(commandAttributes).to(ca -> Node.fromString(ca)))
+			);
 	}
 	
 	//method

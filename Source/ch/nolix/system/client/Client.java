@@ -26,7 +26,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 720
+ * @lines 710
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -486,7 +486,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.SESSION_HEADER:
-				return internal_getRefCurrentSession().internal_invokeSessionUserDataMethod(request.getRefOneAttribute());
+				return internal_getRefCurrentSession().internal_invokeSessionUserDataMethod(request.getOneAttributeAsNode());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
 		}
@@ -498,7 +498,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * requests from the counterpart of the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Node internal_getDataFromCounterpart(final String request) {
+	protected Node internal_getDataFromCounterpart(final ChainedNode request) {
 		return endPoint.getData(request);
 	}
 	
@@ -559,7 +559,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.SESSION_HEADER:
-				internal_getRefCurrentSession().run(command.getRefNextNode());
+				internal_getRefCurrentSession().run(command.getNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -576,24 +576,13 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		endPoint.run(command);
 	}
 	
-	//TODO
-	//method
-	/**
-	 * Runs the given command on the counterpart of the current {@link Client}.
-	 * 
-	 * @param command
-	 */
-	public final void internal_runOnCounterpart(final String command) {
-		endPoint.run(command);
-	}
-	
 	//method
 	/**
 	 * Runs the given commands on the counterpart of the current {@link Client}.
 	 * 
 	 * @param commands
 	 */
-	protected final void internal_runOnCounterpart(final String... commands) {
+	protected final void internal_runOnCounterpart(final ChainedNode... commands) {
 		endPoint.appendCommand(commands);
 		endPoint.runAppendedCommands();
 	}
