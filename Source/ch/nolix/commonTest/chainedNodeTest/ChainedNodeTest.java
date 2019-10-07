@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.chainedNodeTest;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.test.Test;
 
@@ -10,12 +11,12 @@ import ch.nolix.common.test.Test;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 210
  */
 public final class ChainedNodeTest extends Test {
 	
 	//test case
-	public void testCase_fromString() {
+	public void testCase_fromString_1A() {
 		
 		//execution
 		final var statement = ChainedNode.fromString("");
@@ -26,9 +27,9 @@ public final class ChainedNodeTest extends Test {
 		expectNot(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("");
 	}
-
+	
 	//test case
-	public void testCase_fromString_2() {
+	public void testCase_fromString_1B() {
 		
 		//execution
 		final var statement =ChainedNode.fromString("a");
@@ -41,7 +42,7 @@ public final class ChainedNodeTest extends Test {
 	}
 	
 	//test case
-	public void testCase_fromString_3() {
+	public void testCase_fromString_1C() {
 		
 		//execution
 		final var statement = ChainedNode.fromString("a(b)");
@@ -54,20 +55,20 @@ public final class ChainedNodeTest extends Test {
 	}
 	
 	//test case
-	public void testCase_fromString_4() {
+	public void testCase_fromString_2A() {
 		
 		//execution
-		final var statement = ChainedNode.fromString("a.b(c)");
+		final var statement = ChainedNode.fromString("a.b");
 		
 		//verification
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
 		expect(statement.hasNextNode());
-		expect(statement.toString()).isEqualTo("a.b(c)");
+		expect(statement.toString()).isEqualTo("a.b");
 	}
 	
 	//test case
-	public void testCase_fromString_5() {
+	public void testCase_fromString_2B() {
 		
 		//execution
 		final var statement = ChainedNode.fromString("a(b).c");
@@ -80,20 +81,20 @@ public final class ChainedNodeTest extends Test {
 	}
 	
 	//test case
-	public void testCase_fromString_6() {
+	public void testCase_fromString_2C() {
 		
 		//execution
-		final var statement = ChainedNode.fromString("a.(b.c)");
+		final var statement = ChainedNode.fromString("a.b(c)");
 		
 		//verification
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
 		expect(statement.hasNextNode());
-		expect(statement.toString()).isEqualTo("a.(b.c)");
+		expect(statement.toString()).isEqualTo("a.b(c)");
 	}
 	
 	//test case
-	public void testCase_fromString_7() {
+	public void testCase_fromString_2D() {
 		
 		//execution
 		final var statement = ChainedNode.fromString("(a.b).c");
@@ -106,22 +107,106 @@ public final class ChainedNodeTest extends Test {
 	}
 	
 	//test case
-	public void testCase_fromString_8() {
+	public void testCase_fromString_2E() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a.(b.c)");
+		
+		//verification
+		expect(statement.hasHeader());
+		expectNot(statement.containsAttributes());
+		expect(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a.(b.c)");
+	}
+	
+	//test case
+	public void testCase_fromString_2F() {
 		
 		//execution
 		final var statement = ChainedNode.fromString("a.b.c");
 		
 		//verification
+		expect(statement.hasHeader());
+		expectNot(statement.containsAttributes());
+		expect(statement.hasNextNode());
 		expect(statement.toString()).isEqualTo("a.b.c");
 	}
 	
 	//test case
-	public void testCase_fromString_9() {
+	public void testCase_fromString_3A() {
 		
 		//execution
-		final var statement = ChainedNode.fromString("a(b(c),d(e))");
+		final var statement = ChainedNode.fromString("a(b,c,d)");
 		
 		//verification
-		expect(statement.toString()).isEqualTo("a(b(c),d(e))");
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a(b,c,d)");
+	}
+	
+	//test case
+	public void testCase_fromString_3B() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a(b(c),d(e),f(g))");
+		
+		//verification
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a(b(c),d(e),f(g))");
+	}
+	
+	//test case
+	public void testCase_fromString_3C() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a(b.c,d.e,f.g)");
+		
+		//verification
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a(b.c,d.e,f.g)");
+	}
+	
+	//test case
+	public void testCase_fromString_3D() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a(b(c).d,e(f).g,h(i).j)");
+		
+		//verification
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a(b(c).d,e(f).g,h(i).j)");
+	}
+	
+	//test case
+	public void testCase_fromString_3E() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a(b.c(d),e.(f.g),h.(i,j))");
+		
+		//verification
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a(b.c(d),e.(f.g),h.(i,j))");
+	}
+	
+	//test case
+	public void testCase_fromString_3F() {
+		
+		//execution
+		final var statement = ChainedNode.fromString("a(b.c.d,e.f.g,h.i.j)");
+		
+		//verification
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextNode());
+		expect(statement.toString()).isEqualTo("a(b.c.d,e.f.g,h.i.j)");
 	}
 }
