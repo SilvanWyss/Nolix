@@ -288,13 +288,11 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * @param paintCommands
 	 */
 	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
-		//TODO
 		if (paintCommands.containsAny()) {			
 			runGUICommandOnCounterpart(
-				new ChainedNode(
+				ChainedNode.withHeaderAndAttributes(
 					Protocol.SET_PAINT_COMMANDS_HEADER,
-					paintCommands,
-					false
+					paintCommands
 				)
 			);
 		}
