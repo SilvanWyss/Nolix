@@ -3,7 +3,7 @@ package ch.nolix.commonTest.endPoint3Test;
 
 //class
 /**
- * Of this class an instance cannot be created.
+ * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02
@@ -13,7 +13,7 @@ public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates a new end point test pool and runs it.
+	 * Creates a new {@link EndPointTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
@@ -23,7 +23,7 @@ public final class Launcher {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }

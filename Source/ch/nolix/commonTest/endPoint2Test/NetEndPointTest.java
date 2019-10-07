@@ -70,11 +70,11 @@ public final class NetEndPointTest extends Test {
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
-		netEndPoint.send("TEST_MESSAGE");
+		netEndPoint.send("MESSAGE");
 		Sequencer.waitForMilliseconds(200);
 		
 		//verification
-		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("TEST_MESSAGE");
+		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
 		
 		//cleanup
 		netEndPoint.close();

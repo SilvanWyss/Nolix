@@ -1,138 +1,91 @@
 //package declaration
 package ch.nolix.commonTest.endPoint3Test;
 
-import ch.nolix.common.communicationAPI.IReplier;
+//own imports
 import ch.nolix.common.endPoint3.EndPoint;
 import ch.nolix.common.endPoint3.IEndPointTaker;
 import ch.nolix.common.endPoint3.NetEndPoint;
 import ch.nolix.common.endPoint3.NetServer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
 
 //test class
 /**
- * This class is a test class for the end point class.
+ * A {@link NetEndPointTest} is a test for {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 120
+ * @lines 90
  */
 public final class NetEndPointTest extends Test {
-
-	//test case
-	public void testCase_creation() throws InterruptedException {
-		
-		//test parameters
-		final int port = 50000;
-		final String reply = "ok";
-				
-		//setup
-		final NetServer netServer = new NetServer(port);
-		final EndPointTakerMock endPointTakerMock
-		= new EndPointTakerMock(new ReplierMock(reply));
-		netServer.addEndPointTaker(endPointTakerMock);
-		
-		//execution
-		final var netEndPoint = new NetEndPoint(port, endPointTakerMock.getName());
-		Thread.sleep(200);
-		
-		//verification
-		expect(endPointTakerMock.hasLastEndPoint());
-		expect(endPointTakerMock.getLastEndPoint().isOpen());
-		
-		//cleanup
-		netServer.close();
-		netEndPoint.close();
-	}
-	
-	//test case
-	public void testCase_send() throws InterruptedException {
-		
-		//test parameters
-		final int port = 50000;
-		final String reply = "ok";
-		
-		//setup
-		final NetServer netServer = new NetServer(port);
-		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock(new ReplierMock(reply));
-		netServer.addEndPointTaker(endPointTakerMock);
-		
-		//execution
-		final NetEndPoint netEndPoint = new NetEndPoint(port, endPointTakerMock.getName());
-		final String received_reply = netEndPoint.sendAndGetReply("test");
-		Thread.sleep(200);
-		
-		//verification
-		expect(endPointTakerMock.hasLastEndPoint());
-		expect(endPointTakerMock.getLastEndPoint().isOpen());
-		expect(received_reply).isEqualTo(reply);
-		
-		//cleanup
-		netServer.close();
-		netEndPoint.close();
-	}
 	
 	//mock class
-	private class EndPointTakerMock implements IEndPointTaker {
-
-		//name
-		private static final String NAME = "Target";
-		
-		//attribute
-		final IReplier replier;
-		
-		//constructor
-		public EndPointTakerMock(final IReplier replier) {
-			this.replier = replier;
-		}
+	private static class EndPointTakerMock implements IEndPointTaker {
 		
 		//optional attribute
-		private EndPoint lastEndPoint;
-
-		//method
-		public EndPoint getLastEndPoint() {
-			
-			if (!hasLastEndPoint()) {
-				throw new ArgumentDoesNotHaveAttributeException(this, "last end point");
-			}
-			
-			return lastEndPoint;
-		}
+		private String receivedMessage;
 		
 		//method
 		@Override
 		public String getName() {
-			return NAME;
+			return "EndPointTaker";
 		}
 		
 		//method
-		public boolean hasLastEndPoint() {
-			return (lastEndPoint != null);
+		public String getReceivedMessageOrNull() {
+			return receivedMessage;
 		}
 		
 		//method
 		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
-			endPoint.setReplier(replier);
-			lastEndPoint = endPoint;
-		}
-	}
-	
-	//mock class
-	private class ReplierMock implements IReplier {
-
-		//attribute
-		private final String reply;
-		
-		//constructor
-		public ReplierMock(final String reply) {
-			this.reply = reply;
+			endPoint.setReplier(m -> getReply(m));
 		}
 		
 		//method
-		@Override
-		public String getReply(final String message) {
-			return reply;
+		private String getReply(final String message) {
+			receivedMessage = message;
+			return "REPLY";
 		}
+	}
+	
+	//test case
+	public void testCase_creation() {
+		
+		//test parameter
+		final var port = 50000;
+		
+		//setup
+		final var netServer = new NetServer(port);
+		netServer.addMainEndPointTaker(new EndPointTakerMock());
+		
+		//execution & verification
+		expect(() -> new NetEndPoint(port).close()).doesNotThrowException();
+		
+		//cleanup
+		netServer.close();
+	}
+	
+	//test case
+	public void testCase_send() throws InterruptedException {
+		
+		//test parameter
+		final var port = 50000;
+		
+		//setup
+		final var netServer = new NetServer(port);
+		final var endPointTakerMock = new EndPointTakerMock();
+		netServer.addMainEndPointTaker(endPointTakerMock);
+		final var netEndPoint = new NetEndPoint(port);
+		
+		//execution
+		final var reply = netEndPoint.sendAndGetReply("MESSAGE");
+		
+		//verification
+		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
+		expect(reply).isEqualTo("REPLY");
+		
+		//cleanup
+		netEndPoint.close();
+		netServer.close();
 	}
 }

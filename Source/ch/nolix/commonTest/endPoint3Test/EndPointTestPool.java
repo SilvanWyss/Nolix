@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.endPoint3Test;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -10,13 +11,12 @@ import ch.nolix.common.baseTest.TestPool;
  * @lines 20
  */
 public final class EndPointTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new end point test pool.
+	 * Creates a new {@link EndPointTestPool}.
 	 */
 	public EndPointTestPool() {
-		//TODO: Make NetEndPoint stop.
-		//addTestClass(NetEndPointTest.class);
+		addTestClass(NetEndPointTest.class);
 	}
 }
