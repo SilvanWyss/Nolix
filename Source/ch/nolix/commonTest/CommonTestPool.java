@@ -44,7 +44,8 @@ public final class CommonTestPool extends TestPool {
 			new WebSocketTestPool(),
 			new ch.nolix.commonTest.endPointTest.EndPointTestPool(),
 			new ch.nolix.commonTest.endPoint2Test.EndPointTestPool(),
-			new ch.nolix.commonTest.endPoint3Test.EndPointTestPool()
+			new ch.nolix.commonTest.endPoint3Test.EndPointTestPool(),
+			new ch.nolix.commonTest.endPoint5Test.EndPointTestPool()
 		);
 	}
 }
