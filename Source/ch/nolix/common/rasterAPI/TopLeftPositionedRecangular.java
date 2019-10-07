@@ -3,9 +3,23 @@ package ch.nolix.common.rasterAPI;
 
 //interface
 /**
+ * A {@link TopLeftPositionedRecangular} contains (!) its top left position.
+ * 
+ * Example of a {@link TopLeftPositionedRecangular} with the top-left-position = (3, 2), width = 4, height = 3
+ *   0  1  2  3  4  5  6  7  8
+ * 0 -------------------------
+ * 1 -------------------------
+ * 2 ---------XXXXXXXXXXXX----
+ * 3 ---------XXXXXXXXXXXX----
+ * 4 ---------XXXXXXXXXXXX----
+ * 5 -------------------------
+ * 6 -------------------------
+ * 7 -------------------------
+ * 8 -------------------------
+ * 
  * @author Silvan Wyss
  * @month 2019-09
- * @lines 40
+ * @lines 50
  */
 public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositioned {
 	
@@ -18,10 +32,10 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 	 */
 	public default boolean containsPoint(final int xPosition, final int yPosition) {
 		return
-		getXPosition() < xPosition
-		&& getYPosition() < yPosition
-		&& getXPosition() + getWidth() >= xPosition
-		&& getYPosition() + getHeight() >= yPosition;
+		getXPosition() <= xPosition
+		&& getYPosition() <= yPosition
+		&& getXPosition() + getWidth() > xPosition
+		&& getYPosition() + getHeight() > yPosition;
 	}
 	
 	//default method
@@ -33,9 +47,9 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 	 */
 	public default boolean containsPointRelatively(final int relativeXPosition, final int relativeYPosition) {
 		return
-		relativeXPosition >= 1
-		&& relativeYPosition >= 1
-		&& relativeXPosition <= getWidth()
-		&& relativeYPosition <= getHeight();
+		relativeXPosition >= 0
+		&& relativeYPosition >= 0
+		&& relativeXPosition < getWidth()
+		&& relativeYPosition < getHeight();
 	}
 }
