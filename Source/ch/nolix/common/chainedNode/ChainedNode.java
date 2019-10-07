@@ -20,14 +20,14 @@ import ch.nolix.common.node.Node;
 /**
  * A {@link ChainedNode} can have:
  * -1 header
- * -several attributes that are {@link ChainedNode}
+ * -several attributes that are {@link ChainedNode}s
  * -a next node that is a {@link ChainedNode}
  * 
  * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 390
+ * @lines 550
  */
 public final class ChainedNode implements Headered {
 	
@@ -129,6 +129,51 @@ public final class ChainedNode implements Headered {
 	 */
 	public boolean containsAttributes() {
 		return attributes.containsAny();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object object) {
+		
+		if (!(object instanceof ChainedNode)) {
+			return false;
+		}
+		
+		final var chainedNode = (ChainedNode)object;
+		
+		if (!hasSameHeaderAs(chainedNode)) {
+			return false;
+		}
+		
+		if (getAttributeCount() != chainedNode.getAttributeCount()) {
+			return false;
+		}
+		
+		var i = 1;
+		for (final var a : getAttributes()) {
+			if (!a.equals(chainedNode.getAttributeAt(i++))) {
+				return false;
+			}
+		}
+		
+		if (!hasNextNode()) {
+			if (chainedNode.hasNextNode()) {
+				return false;
+			}
+		}
+		else {
+			if (!chainedNode.hasNextNode()) {
+				return false;
+			}
+			if (!getNextNode().equals(chainedNode.getNextNode())) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//method
