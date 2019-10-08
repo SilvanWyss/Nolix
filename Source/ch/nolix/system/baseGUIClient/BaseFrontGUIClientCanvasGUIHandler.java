@@ -80,6 +80,6 @@ final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIH
 
 	//method
 	private void setPaintCommands(final IContainer<ChainedNode> paintCommands) {
-		mGUI.setPaintCommandsFromStatements(paintCommands);
+		mGUI.setPaintCommandsFromChainedNodes(paintCommands);
 	}
 }

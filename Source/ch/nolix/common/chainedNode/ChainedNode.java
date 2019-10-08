@@ -297,7 +297,7 @@ public final class ChainedNode implements Headered {
 	 */
 	public ChainedNode getNextNode() {
 		
-		//Checks if the current ChanedNode has a next statement.
+		//Checks if the current ChanedNode has a next node.
 		if (nextNode == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}
