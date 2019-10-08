@@ -171,6 +171,7 @@ public final class WebSocketFrame {
 	}
 	
 	//method
+	@SuppressWarnings("incomplete-switch")
 	public byte[] toBytes() {
 		
 		final var bytes = new byte[calculateByteRepresentationLength().intValue()];
@@ -178,8 +179,32 @@ public final class WebSocketFrame {
 		bytes[0] = firstNibble.getByte1();
 		bytes[1] = firstNibble.getByte2();
 		
-		//TODO: Use: nextInded = ArrayHelper.on(bytes).fromIndex(2).write(maskingKey).andGetNextIndex();
 		var i = 2;
+		final var extendedPayloadLengthBytes = getPayloadLength().toBigInteger().toByteArray();
+		switch (getPayloadLengthSpecification()) {
+			case IN_16_BITS:
+				
+				var j = 0;
+				while (j < extendedPayloadLengthBytes.length) {
+					bytes[i + j] = extendedPayloadLengthBytes[j];
+					j++;
+				}
+				
+				i += 2;
+				break;
+			case IN_64_BITS:
+				
+				var j2 = 0;
+				while (j2 < extendedPayloadLengthBytes.length) {
+					bytes[i + j2] = extendedPayloadLengthBytes[j2];
+					j2++;
+				}
+				
+				i += 8;
+				break;
+		}
+		
+		//TODO: Use: nextInded = ArrayHelper.on(bytes).fromIndex(2).write(maskingKey).andGetNextIndex();
 		if (firstNibble.getMaskBit()) {
 			for (final var b : maskingKey) {
 				bytes[i] = b;
