@@ -548,14 +548,14 @@ public final class ChainedNode implements Headered {
 		
 		var nextIndex = startIndex;
 		
-		var taskAfterSetProbableHeader = "nothing"; //TODO
+		var taskAfterSetProbableHeader = Task.DO_NOTHING;
 		var headerLength = 0;
 		while (nextIndex < substring.length()) {
 			
 			var character = substring.charAt(nextIndex);
 			
 			if (character == '(') {
-				taskAfterSetProbableHeader = "readAttributesAndProbableNextNode";
+				taskAfterSetProbableHeader = Task.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE;
 				nextIndex++;
 				break;
 			}
@@ -569,7 +569,7 @@ public final class ChainedNode implements Headered {
 			}
 			
 			if (character == '.') {
-				taskAfterSetProbableHeader = "readNextNode";
+				taskAfterSetProbableHeader =Task.READ_NEXT_NODE;
 				nextIndex++;
 				break;
 			}
@@ -585,7 +585,7 @@ public final class ChainedNode implements Headered {
 		
 		var readNextNode = false;
 		switch (taskAfterSetProbableHeader) {
-			case "readAttributesAndProbableNextNode":
+			case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
 				
 				final var node = new ChainedNode();
 				nextIndex = node.setAndGetNextIndex(substring, nextIndex);
@@ -613,22 +613,9 @@ public final class ChainedNode implements Headered {
 				}
 				
 				break;
-			case "nothing":
+			case DO_NOTHING:
 				return nextIndex;
-			case "readProbableNextNode":
-				
-				if (nextIndex < substring.length()) {
-					
-					if (substring.charAt(nextIndex) != '.') {
-						throw new UnrepresentingArgumentException(substring, ChainedNode.class);
-					}
-					
-					nextIndex++;
-					readNextNode = true;
-				}
-				
-				break;
-			case "readNextNode":
+			case READ_NEXT_NODE:
 				readNextNode = true;
 		}
 		
