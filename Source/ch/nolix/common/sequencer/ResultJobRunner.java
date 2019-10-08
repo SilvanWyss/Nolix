@@ -56,7 +56,7 @@ final class ResultJobRunner<R> extends Thread {
 	//method
 	/**
 	 * @return the error of the current {@link ResultJobRunner}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current  {@link ResultJobRunner} does not have an error.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ResultJobRunner} does not have an error.
 	 */
 	public Throwable getError() {
 		

@@ -212,7 +212,7 @@ public final class WebSocketFrame {
 		}
 		
 		if (masksPayload()) {
-			byteRepresentationLength =  byteRepresentationLength.add(BigDecimal.valueOf(2));
+			byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
 		}
 		
 		byteRepresentationLength = byteRepresentationLength.add(getPayloadLength());

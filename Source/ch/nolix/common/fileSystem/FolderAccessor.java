@@ -64,7 +64,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * in the folder of the current {@link FolderAccessor}.
 	 */
 	public FileAccessor createFile(final String relativePath) {
-		return (FileSystemAccessor.createFile(getPath() + "/" +  relativePath));
+		return (FileSystemAccessor.createFile(getPath() + "/" + relativePath));
 	}
 	
 	//method

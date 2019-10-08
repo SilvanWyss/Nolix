@@ -470,11 +470,11 @@ public abstract class BaseNode implements Headered {
 	 */
 	public void reset(final String string) {
 		
-        reset();
-        
-        if (setAndGetEndIndex(string, 0) != string.length() - 1) {
-        	throw new UnrepresentingArgumentException(string, Node.class);
-        }
+		reset();
+		
+		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
+			throw new UnrepresentingArgumentException(string, Node.class);
+		}
 	}
 	
 	//method
@@ -636,55 +636,55 @@ public abstract class BaseNode implements Headered {
 		
 		var index = startIndex;
 		
-        var endIndex = -1;
-        while (index < substring.length()) {
-        	
-            var character = substring.charAt(index);
-
-            if (character == '(') {
-                break;
-            }
-
-            else if (character == ',' || character == ')') {
-                endIndex = index - 1;
-                break;
-            }
-
-            index++;
-        }
-        
-        if (index > startIndex) {
-            this.setHeader(createOriginStringFromReproducingString(substring.substring(startIndex, index)));
-        }
-        
-        if (index == substring.length()) {
-            return (index - 1);
-        }
-        
-        if (endIndex != -1) {
-            return endIndex;
-        }              
-        
-        if (index < substring.length()) {
-            var node = new Node();
-            index = node.setAndGetEndIndex(substring, index + 1) + 1;
-            this.addAttribute(node);
-        }
-        
-        while (index < substring.length()) {
-            switch (substring.charAt(index)) {
-                case ',':
-                    var node = new Node();
-                    index = node.setAndGetEndIndex(substring, index + 1) + 1;
-                    this.addAttribute(node);
-                    break;            
-                case ')':
-                    return index;
-                default:
-            }
-        }
-        
-        throw new UnrepresentingArgumentException(substring, Node.class);
+		var endIndex = -1;
+		while (index < substring.length()) {
+			
+			var character = substring.charAt(index);
+			
+			if (character == '(') {
+				break;
+			}
+			
+			else if (character == ',' || character == ')') {
+				endIndex = index - 1;
+				break;
+			}
+			
+			index++;
+		}
+		
+		if (index > startIndex) {
+			this.setHeader(createOriginStringFromReproducingString(substring.substring(startIndex, index)));
+		}
+		
+		if (index == substring.length()) {
+			return (index - 1);
+		}
+		
+		if (endIndex != -1) {
+			return endIndex;
+		}
+		
+		if (index < substring.length()) {
+			var node = new Node();
+			index = node.setAndGetEndIndex(substring, index + 1) + 1;
+			this.addAttribute(node);
+		}
+		
+		while (index < substring.length()) {
+			switch (substring.charAt(index)) {
+				case ',':
+					var node = new Node();
+					index = node.setAndGetEndIndex(substring, index + 1) + 1;
+					this.addAttribute(node);
+					break;
+				case ')':
+					return index;
+				default:
+			}
+		}
+		
+		throw new UnrepresentingArgumentException(substring, Node.class);
 	}
 	
 	//method

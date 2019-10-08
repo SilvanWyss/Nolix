@@ -476,7 +476,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	
 	//package-visible method
 	/**
-	 * Paints the current  {@link Layer} using the given painter.
+	 * Paints the current {@link Layer} using the given painter.
 	 * 
 	 * @param painter
 	 */
@@ -510,7 +510,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	
 	//package-visible method
 	/**
-	 * Recalculates the current  {@link Layer}.
+	 * Recalculates the current {@link Layer}.
 	 */
 	public void recalculate() {
 		

@@ -71,9 +71,9 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		
 		endPoint.close();
 		
-	    if (parentApplication != null) {
-	    	parentApplication.removeClient(this);
-	    }
+		if (parentApplication != null) {
+			parentApplication.removeClient(this);
+		}
 	}
 	
 	//method
@@ -611,7 +611,7 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	
 	//method
 	/**
-	 * Waits until the current {@link Client}  is connected.
+	 * Waits until the current {@link Client} is connected.
 	 */
 	protected final void internal_waitUntilIsConnected() {
 		Sequencer.waitUntil(() -> this.internal_isConnected());

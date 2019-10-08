@@ -20,7 +20,7 @@ import ch.nolix.element.elementEnums.ContentPosition;
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//default value
-	public static final String DEFAULT_TEXT  = "-";
+	public static final String DEFAULT_TEXT = "-";
 	
 	//constant
 	public static final String TYPE_NAME = "Button";

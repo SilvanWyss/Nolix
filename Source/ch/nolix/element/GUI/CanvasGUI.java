@@ -189,7 +189,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		setPaintCommands(paintCommands.to(pc -> createPaintCommand(pc)));
 	}
 	
-    //method
+	//method
 	private IElementTaker<PaintRun> createCreatePainterCommand(
 		final int painterIndex,
 		final ChainedNode createPainterCommand
@@ -255,10 +255,10 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	private IElementTaker<PaintRun> createPaintCommand(final ChainedNode paintCommand) {
-	    		
-	    final var painterIndex = paintCommand.getOneAttributeAsInt();
-	    
-	    return createPaintCommand(painterIndex, paintCommand.getNextNode());
+		
+		final var painterIndex = paintCommand.getOneAttributeAsInt();
+		
+		return createPaintCommand(painterIndex, paintCommand.getNextNode());
 	}
 
 	//method

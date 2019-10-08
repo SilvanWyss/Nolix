@@ -535,10 +535,10 @@ public final class ChainedNode implements Headered {
 	private void reset(final String string) {
 		
 		reset();
-	    
-	    if (setAndGetNextIndex(string, 0) != string.length()) {
-	    	throw new UnrepresentingArgumentException(string, ChainedNode.class);
-	    }
+		
+		if (setAndGetNextIndex(string, 0) != string.length()) {
+			throw new UnrepresentingArgumentException(string, ChainedNode.class);
+		}
 	}
 
 	//method
@@ -548,97 +548,96 @@ public final class ChainedNode implements Headered {
 		
 		var nextIndex = startIndex;
 		
-        var taskAfterSetProbableHeader = "nothing"; //TODO
-        var headerLength = 0;
-        while (nextIndex < substring.length()) {
-        	
-            var character = substring.charAt(nextIndex);
-                        
-            if (character == '(') {
-            	taskAfterSetProbableHeader = "readAttributesAndProbableNextNode";
-            	nextIndex++;
-                break;
-            }
-            
-            if (character == ',') {
-            	break;
-            }
-            
-            if (character == ')') {
-            	break;
-            }
-            
-            if (character == '.') {
-            	taskAfterSetProbableHeader = "readNextNode";
-            	nextIndex++;
-            	break;
-            }
-            
-            nextIndex++;
-            headerLength++;
-        }
-        
-        //Sets probable header.
-        if (headerLength > 0) {
-            this.header = Node.createOriginStringFromReproducingString(substring.substring(startIndex, startIndex + headerLength));
-        }
-        
-        var readNextNode = false;
-        switch (taskAfterSetProbableHeader) {
-        	case "readAttributesAndProbableNextNode":
-        		
-        		final var node = new ChainedNode();
-                nextIndex = node.setAndGetNextIndex(substring, nextIndex);
-                this.attributes.addAtEnd(node);
-                
-                while (nextIndex < substring.length()) {
-                	
-                	final var character = substring.charAt(nextIndex);
-                	
-                	if (character == ',') {
-                		final var node2 = new ChainedNode();
-                		nextIndex = node2.setAndGetNextIndex(substring, nextIndex + 1);
-                        this.attributes.addAtEnd(node2);
-                	}
-                	
-                	else if (character == ')') {
-                		nextIndex++;
-                		break;
-                	}
-                }
-                
-                if (nextIndex < substring.length() - 1 && substring.charAt(nextIndex) == '.') {
-                	nextIndex++;
-                	readNextNode = true;
-                }
-                
-                break;
-        	case "nothing":
-        		return nextIndex;
-        	case "readProbableNextNode":
-        		
-        		if (nextIndex < substring.length()) {
-        		
-	        		if (substring.charAt(nextIndex) != '.') {
-	        			throw new UnrepresentingArgumentException(substring, ChainedNode.class);
-	        		}
-        		
-	        		nextIndex++;
-	        		readNextNode = true;
-        		}
-        		
-        		break;
-        	case "readNextNode":
-        		readNextNode = true;
-        	
-        }
-        
-        if (!readNextNode) {
-        	return nextIndex;
-        }
-        
-        nextNode = new ChainedNode();
-        return nextNode.setAndGetNextIndex(substring, nextIndex);
+		var taskAfterSetProbableHeader = "nothing"; //TODO
+		var headerLength = 0;
+		while (nextIndex < substring.length()) {
+			
+			var character = substring.charAt(nextIndex);
+			
+			if (character == '(') {
+				taskAfterSetProbableHeader = "readAttributesAndProbableNextNode";
+				nextIndex++;
+				break;
+			}
+			
+			if (character == ',') {
+				break;
+			}
+			
+			if (character == ')') {
+				break;
+			}
+			
+			if (character == '.') {
+				taskAfterSetProbableHeader = "readNextNode";
+				nextIndex++;
+				break;
+			}
+			
+			nextIndex++;
+			headerLength++;
+		}
+		
+		//Sets probable header.
+		if (headerLength > 0) {
+			this.header = Node.createOriginStringFromReproducingString(substring.substring(startIndex, startIndex + headerLength));
+		}
+		
+		var readNextNode = false;
+		switch (taskAfterSetProbableHeader) {
+			case "readAttributesAndProbableNextNode":
+				
+				final var node = new ChainedNode();
+				nextIndex = node.setAndGetNextIndex(substring, nextIndex);
+				this.attributes.addAtEnd(node);
+				
+				while (nextIndex < substring.length()) {
+					
+					final var character = substring.charAt(nextIndex);
+					
+					if (character == ',') {
+						final var node2 = new ChainedNode();
+						nextIndex = node2.setAndGetNextIndex(substring, nextIndex + 1);
+						this.attributes.addAtEnd(node2);
+					}
+					
+					else if (character == ')') {
+						nextIndex++;
+						break;
+					}
+				}
+				
+				if (nextIndex < substring.length() - 1 && substring.charAt(nextIndex) == '.') {
+					nextIndex++;
+					readNextNode = true;
+				}
+				
+				break;
+			case "nothing":
+				return nextIndex;
+			case "readProbableNextNode":
+				
+				if (nextIndex < substring.length()) {
+					
+					if (substring.charAt(nextIndex) != '.') {
+						throw new UnrepresentingArgumentException(substring, ChainedNode.class);
+					}
+					
+					nextIndex++;
+					readNextNode = true;
+				}
+				
+				break;
+			case "readNextNode":
+				readNextNode = true;
+		}
+		
+		if (!readNextNode) {
+			return nextIndex;
+		}
+		
+		nextNode = new ChainedNode();
+		return nextNode.setAndGetNextIndex(substring, nextIndex);
 	}
 	
 	//method

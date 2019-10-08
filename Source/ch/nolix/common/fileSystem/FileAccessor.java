@@ -130,10 +130,10 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		final var lines = new List<String>();
 		
 		try (final BufferedReader bufferedReader = new BufferedReader(new FileReader(getInternalAccessor()))) {
-		    String line;
-		    while ((line = bufferedReader.readLine()) != null) {
-		       lines.addAtEnd(line);
-		    }
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				lines.addAtEnd(line);
+			}
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);

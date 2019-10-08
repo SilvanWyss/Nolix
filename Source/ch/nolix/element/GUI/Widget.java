@@ -1860,11 +1860,11 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @param painter
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
-				
+		
 		paint(painter, getRefLook());
 		
 		if (paintsPaintableWidgetAPriori()) {
-			getRefPaintableWidgets().forEach(w ->  w.paintRecursively(painter));
+			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));
 		}
 	}
 	
