@@ -17,7 +17,7 @@ import ch.nolix.common.independentContainers.List;
 public abstract class BaseTest {
 	
 	//attribute
-	private static final long TEST_CASE_MAX_DURATION_IN_MILLISECONDS = 5000000;
+	private static final long TEST_CASE_MAX_DURATION_IN_MILLISECONDS = 5000;
 
 	//optional attribute
 	private Method afterTestCaseMethod;
