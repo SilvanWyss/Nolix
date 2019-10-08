@@ -114,6 +114,7 @@ public final class VariableNameCatalogue {
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
+	public static final String REPLY = "reply";
 	public static final String REQUEST = "reqest";
 	public static final String RESOURCE = "resource";
 	public static final String RESULT = "result";

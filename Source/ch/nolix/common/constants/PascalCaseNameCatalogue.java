@@ -114,6 +114,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String PRICE = "Price";
 	public static final String RADIUS = "Radius";
 	public static final String REASON = "Reason";
+	public static final String REPLY = "Reply";
 	public static final String REQUEST = "Request";
 	public static final String RESOURCE = "Resource";
 	public static final String RESULT = "Result";
