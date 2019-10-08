@@ -3,7 +3,6 @@ package ch.nolix.system.baseGUIClient;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.GUI.CanvasFrame;
@@ -40,18 +39,7 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	
 	//method
 	@Override
-	public void run(ChainedNode command) {
-		switch (command.getHeader()) {
-			case Protocol.GUI_HEADER:
-				runGUICommand(command.getNextNode());
-				break;
-			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
-		}
-	}
-	
-	//method
-	private void runGUICommand(ChainedNode pGUICommand) {
+	public void runGUICommand(ChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
 			case Protocol.SET_TITLE_HEADER:
 				mGUI.setTitle(pGUICommand.getOneAttributeAsString());

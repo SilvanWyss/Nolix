@@ -3,7 +3,6 @@ package ch.nolix.system.baseGUIClient;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.GUI.Frame;
@@ -37,27 +36,10 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 	public void noteClose() {
 		mGUI.close();
 	}
-	
+		
 	//method
 	@Override
-	public void run(final ChainedNode command) {
-		switch (command.getHeader()) {
-			case Protocol.GUI_HEADER:
-				runGUICommand(command.getNextNode());
-				break;
-			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
-		}
-	}
-	
-	//method
-	private void resetGUI(final Iterable<? extends BaseNode> attributes) {
-		mGUI.reset(attributes);
-		mGUI.updateFromConfiguration();
-	}
-	
-	//method
-	private void runGUICommand(final ChainedNode pGUICommand) {
+	public void runGUICommand(final ChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
 			case Protocol.SET_TITLE_HEADER:
 				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
@@ -69,5 +51,11 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 			default:
 				throw new InvalidArgumentException("GUI command", pGUICommand, "is not valid");
 		}
+	}
+	
+	//method
+	private void resetGUI(final Iterable<? extends BaseNode> attributes) {
+		mGUI.reset(attributes);
+		mGUI.updateFromConfiguration();
 	}
 }

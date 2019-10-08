@@ -227,7 +227,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.GUI_HEADER:
-				mGUIHandler.run(command);
+				mGUIHandler.runGUICommand(command.getNextNode());
 				break;
 			default:
 				

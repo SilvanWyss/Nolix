@@ -18,5 +18,5 @@ abstract interface IFrontGUIClientGUIHandler {
 	public abstract void noteClose();
 	
 	//abstract method
-	public abstract void run(ChainedNode pGUICommand);
+	public abstract void runGUICommand(ChainedNode pGUICommand);
 }
