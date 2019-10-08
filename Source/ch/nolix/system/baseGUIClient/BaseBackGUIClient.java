@@ -19,7 +19,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 280
+ * @lines 270
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -47,17 +47,8 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
-				
-		internal_runOnCounterpart(
-				
-			//TODO
-			new ChainedNode(
-				Protocol.SHOW_ERROR_MESSAGE_HEADER
-				+ "("
-				+ BaseNode.createReproducingString(errorMessage)
-				+ ")"
-			)
-		);
+			
+		internal_runOnCounterpart(new ChainedNode(Protocol.SHOW_ERROR_MESSAGE_HEADER, new Node(errorMessage)));
 		
 		return asConcreteType();
 	}
@@ -144,6 +135,24 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		}
 	}
 	
+	//package-visible method
+	/**
+	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}. 
+	 */
+	void updateGUIOnCounterpart() {
+		
+		//Enumerates the front end type of the current back GUI client.
+		switch (getCounterpartGUIType()) {
+			case LayerGUI:
+				resetGUIOnCounterpart(getRefGUI().getAttributes());
+				break;
+			case CanvasGUI:
+				setGUITitleOnCounterpart(getRefGUI().getTitle());
+				setGUIPaintCommandsOnCounterpart(getRefGUI().getPaintCommands());
+				break;
+		}
+	}
+
 	//method
 	/**
 	 * Adds or changes the given widgetsInteractionAttributes to the {@link Widget}s
@@ -211,43 +220,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
 		internal_runOnCounterpart(
-			
-			//TODO
 			new ChainedNode(Protocol.GUI_HEADER, new List<>(), new ChainedNode(Protocol.RESET_HEADER, attributes))
-				
-			//TODO
-			/*
-			new ChainedNode(
-				new Node(Protocol.GUI_HEADER),
-				new ChainedNode(new Node(Protocol.RESET_HEADER, attributes))
-			)
-			*/
-			
-			//TODO
-				/*
-			new ChainedNode(
-				Protocol.GUI_HEADER
-				+ "."
-				+ Protocol.RESET_HEADER
-				+ "("
-				+ attributes
-				+ ")"
-			)
-			*/
 		);
 	}
 	
 	//method
-	private void runGUICommandOnCounterpart(final ChainedNode GUICommandOnCounterpart) {
-		
-		//TODO
-		internal_runOnCounterpart(
-			new ChainedNode(
-				Protocol.GUI_HEADER,
-				new List<>(),
-				GUICommandOnCounterpart
-			)
-		);
+	private void runGUICommandOnCounterpart(final ChainedNode pGUICommandOnCounterpart) {
+		internal_runOnCounterpart(new ChainedNode(Protocol.GUI_HEADER, new List<>(), pGUICommandOnCounterpart));
 	}
 	
 	//method
@@ -295,24 +274,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 					paintCommands
 				)
 			);
-		}
-	}
-	
-	//method
-	/**
-	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}. 
-	 */
-	void updateGUIOnCounterpart() {
-		
-		//Enumerates the front end type of the current back GUI client.
-		switch (getCounterpartGUIType()) {
-			case LayerGUI:
-				resetGUIOnCounterpart(getRefGUI().getAttributes());
-				break;
-			case CanvasGUI:
-				setGUITitleOnCounterpart(getRefGUI().getTitle());
-				setGUIPaintCommandsOnCounterpart(getRefGUI().getPaintCommands());
-				break;
 		}
 	}
 }
