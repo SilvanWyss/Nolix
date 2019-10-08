@@ -10,7 +10,7 @@ import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.GUI.GUI;
 
 //package-visible class
-final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIHandler {
+final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final CanvasFrame mGUI;
@@ -18,17 +18,6 @@ final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIH
 	//constructor
 	public BaseFrontGUIClientCanvasGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		mGUI = new CanvasFrame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));
-	}
-	
-	//method
-	@Override
-	public boolean canRunCommandOfType(String command) {
-		switch (command) {
-			case Protocol.GUI_HEADER:
-				return true;
-			default:
-				return false;
-		}
 	}
 	
 	//method
@@ -62,22 +51,21 @@ final class BaseFrontGUIClientCanvasGUIHandler implements BaseFrontGUIClientGUIH
 	}
 	
 	//method
-	private void runGUICommand(ChainedNode GUICommand) {
-		switch (GUICommand.getHeader()) {
+	private void runGUICommand(ChainedNode pGUICommand) {
+		switch (pGUICommand.getHeader()) {
 			case Protocol.SET_TITLE_HEADER:
-				mGUI.setTitle(GUICommand.getOneAttributeAsString());
+				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
+				mGUI.refresh();
 				break;
 			case Protocol.SET_PAINT_COMMANDS_HEADER:
-				setPaintCommands(
-					GUICommand
-					.getAttributes()
-				);
+				setPaintCommands(pGUICommand.getAttributes());
+				mGUI.refresh();
 				break;
 			default:
-				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
+				throw new InvalidArgumentException("GUI command", pGUICommand, "is not valid");
 		}
 	}
-
+	
 	//method
 	private void setPaintCommands(final IContainer<ChainedNode> paintCommands) {
 		mGUI.setPaintCommandsFromChainedNodes(paintCommands);

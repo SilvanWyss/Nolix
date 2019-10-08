@@ -10,7 +10,7 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 
 //package-visible class
-final class BaseFrontGUIClientLayerGUIHandler implements BaseFrontGUIClientGUIHandler {
+final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final Frame mGUI;
@@ -18,18 +18,6 @@ final class BaseFrontGUIClientLayerGUIHandler implements BaseFrontGUIClientGUIHa
 	//constructor
 	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		mGUI = new Frame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));
-	}
-	
-	//method
-	@Override
-	public boolean canRunCommandOfType(final String command) {
-		switch (command) {
-			case "GUI.SetTitle":
-			case Protocol.GUI_HEADER:
-				return true;
-			default:
-				return false;
-			}
 	}
 	
 	//method
@@ -69,17 +57,17 @@ final class BaseFrontGUIClientLayerGUIHandler implements BaseFrontGUIClientGUIHa
 	}
 	
 	//method
-	private void runGUICommand(final ChainedNode GUICommand) {
-		switch (GUICommand.getHeader()) {
-			case Protocol.RESET_HEADER:
-				resetGUI(GUICommand.getAttributesAsNodes());
-				break;
-			case "SetTitle":
-				mGUI.setTitle(GUICommand.getOneAttributeAsString());
+	private void runGUICommand(final ChainedNode pGUICommand) {
+		switch (pGUICommand.getHeader()) {
+			case Protocol.SET_TITLE_HEADER:
+				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
 				mGUI.refresh();
 				break;
+			case Protocol.RESET_HEADER:
+				resetGUI(pGUICommand.getAttributesAsNodes());
+				break;
 			default:
-				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
+				throw new InvalidArgumentException("GUI command", pGUICommand, "is not valid");
 		}
 	}
 }

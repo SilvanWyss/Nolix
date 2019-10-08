@@ -16,13 +16,13 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 260
+ * @lines 270
  * @param <FGC> The type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
 	
 	//attribute
-	private final BaseFrontGUIClientGUIHandler mGUIHandler;
+	private final IFrontGUIClientGUIHandler mGUIHandler;
 	
 	//constructor
 	/**
@@ -224,16 +224,15 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	@Override
 	protected final void internal_run(final ChainedNode command) {
 		
-		//Handles the case that the GUI handler of the current FrontGUIClientoid can run the given command.
-		if (mGUIHandler.canRunCommand(command)) {
-			mGUIHandler.run(command);
-		}
-		
-		//Handles the case that the GUI handler of the current FrontGUIClientoid cannot run the given command.
-		else {
-			
-			//Calls method of the base class.
-			super.internal_run(command);
+		//Enumerates the header of the given command.
+		switch (command.getHeader()) {
+			case Protocol.GUI_HEADER:
+				mGUIHandler.run(command);
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.internal_run(command);
 		}
 	}
 	
