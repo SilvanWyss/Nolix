@@ -122,7 +122,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
+		final var reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -131,7 +131,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.ERROR_HEADER:
 				throw new RuntimeException(reply.getOneAttributeAsString());
 			default:
-				throw new RuntimeException("Error occured.");
+				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, reply, "is not valid");
 		}
 	}
 	
@@ -196,10 +196,8 @@ public class NetEndPoint extends EndPoint {
 		//Checks if this net duplex controller is not aborted.
 		supposeIsAlive();
 		
-		//TODO: Make this more elegant.
 		//Creates message.
-		//final String message = Protocol.COMMANDS_HEADER + '(' + commands.to(c -> Node.createReproducingString(c.toString())).toString() + ')';
-		final String message = Protocol.COMMANDS_HEADER + '(' + commands + ')';
+		final var message = Protocol.COMMANDS_HEADER + '(' + commands + ')';
 		
 		//Sends the message and gets reply.
 		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
@@ -217,7 +215,7 @@ public class NetEndPoint extends EndPoint {
 				throw new RuntimeException("Error occured by running the commands '" + commands + "'." );
 		}
 	}
-		
+	
 	//package-visible method
 	/**
 	 * Lets this net duplex controller receive the given message.
@@ -259,13 +257,6 @@ public class NetEndPoint extends EndPoint {
 		switch (message.getHeader()) {
 			case Protocol.COMMANDS_HEADER:
 				
-				//TODO
-				/*
-				message
-				.getRefAttributes()
-				.forEach(a -> receiverController.run(Node.createOriginStringFromReproducingString(a.toString())));
-				*/
-				
 				for (final var a : message.getAttributes()) {
 					receiverController.run(a);
 				}
@@ -273,15 +264,6 @@ public class NetEndPoint extends EndPoint {
 				return Protocol.DONE_HEADER;
 			case Protocol.DATA_REQUEST_HEADER:
 				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
-				//TODO
-				/*
-				return (
-					Protocol.DATA_HEADER
-					+ '('
-					+ receiverController.getData(new ChainedNode(message.getRefOneAttribute())) //TODO
-					+ ')'
-				);
-				*/
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message, "is not valid");
 		}
