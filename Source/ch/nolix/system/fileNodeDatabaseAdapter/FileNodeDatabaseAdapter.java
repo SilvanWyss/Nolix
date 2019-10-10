@@ -81,10 +81,10 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	@Override
 	protected void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {
 		
-		final var createdEntities =
-		mutatedEntitiesInOrder.getRefSelected(e -> e.isCreated());
+		final var newEntities =
+		mutatedEntitiesInOrder.getRefSelected(e -> e.isNew());
 		
-		for (final var e : createdEntities) {
+		for (final var e : newEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).add(e);
 		}
 		
@@ -96,10 +96,10 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
 		
-		final var changedEntities =
-		mutatedEntitiesInOrder.getRefSelected(e -> e.isChanged());
+		final var editedEntities =
+		mutatedEntitiesInOrder.getRefSelected(e -> e.isEdited());
 		
-		for (final var e : changedEntities) {
+		for (final var e : editedEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
 		

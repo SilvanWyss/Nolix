@@ -60,9 +60,7 @@ public final class EntitySet<E extends Entity> implements Named {
 	@SuppressWarnings("unchecked")
 	public EntitySet<E> addEntity(final E entity) {
 		
-		if (!entity.isCreated()) {
-			throw new InvalidArgumentException(entity, "is not created");
-		}
+		entity.supposeIsNew();
 		
 		entity.setParentEntitySet((EntitySet<Entity>)this);
 		
@@ -126,8 +124,8 @@ public final class EntitySet<E extends Entity> implements Named {
 	}
 	
 	//method
-	public List<E> getRefChangedEntities() {
-		return loadedAndCreatedEntities.getRefSelected(e -> e.isChanged());
+	public List<E> getRefEditedEntities() {
+		return loadedAndCreatedEntities.getRefSelected(e -> e.isEdited());
 	}
 	
 	//method

@@ -25,7 +25,7 @@ import ch.nolix.element.baseAPI.IElement;
 public class Entity implements OptionalIdentified, IElement {
 	
 	//attribute
-	private EntityState state = EntityState.CREATED;
+	private EntityState state = EntityState.NEW;
 	
 	//optional attributes
 	private long id = -1;
@@ -179,12 +179,7 @@ public class Entity implements OptionalIdentified, IElement {
 		return (id > -1);
 	}
 	
-	//method
-	public final boolean isChanged() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (state == EntityState.CHANGED);
-	}
+
 	
 	//method
 	public final boolean isConcerned() {
@@ -194,17 +189,24 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//method
-	public final boolean isCreated() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (state == EntityState.CREATED);
-	}
-	
-	//method
 	public final boolean isDeleted() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntityState.DELETED);
+	}
+	
+	//method
+	public final boolean isEdited() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.EDITED);
+	}
+	
+	//method
+	public final boolean isNew() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.NEW);
 	}
 	
 	//method
@@ -239,9 +241,11 @@ public class Entity implements OptionalIdentified, IElement {
 	//method
 	public final void setDeleted() {
 		switch (getState()) {
+			case NEW:
+				throw new InvalidArgumentException(this, "is new");
 			case PERSISTED:
+			case EDITED:
 			case CONCERNED:
-			case CHANGED:
 				
 				if (belongsToEntitySet()) {
 					getParentEntitySet().deleteEntity(this);
@@ -250,10 +254,9 @@ public class Entity implements OptionalIdentified, IElement {
 				state = EntityState.DELETED;
 				
 				break;
-			case CREATED:
-				throw new InvalidArgumentException(this, "is created");
+			
 			case DELETED:
-				throw new InvalidArgumentException(this, "is deleted");
+				break;
 			case REJECTED:
 				throw new InvalidArgumentException(this, "is rejected");
 		}
@@ -270,21 +273,22 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//package-visible method
-	final void setChanged() {
+	final void setEdited() {
 		switch (getState()) {
+			case NEW:
+				throw new InvalidArgumentException(this, "is new");
 			case PERSISTED:
 			case CONCERNED:
 				
-				state = EntityState.CHANGED;
+				state = EntityState.EDITED;
 				
 				if (belongsToEntitySet()) {
 					getParentDatabaseAdapter().noteMutatedEntity(this);
 				}
 				
 				break;
-			case CREATED:
-				break;
-			case CHANGED:
+			
+			case EDITED:
 				break;
 			case DELETED:
 				throw new InvalidArgumentException(this, "is deleted");
@@ -307,15 +311,15 @@ public class Entity implements OptionalIdentified, IElement {
 	//package-visible method
 	final void setPersisted() {
 		switch (getState()) {
-			case PERSISTED:
-				break;
-			case CREATED:
+			case NEW:
 				state = EntityState.PERSISTED;
 				break;
+			case PERSISTED:
+				break;
+			case EDITED:
+				throw new InvalidArgumentException(this, "is changed");
 			case CONCERNED:
 				throw new InvalidArgumentException(this, "is concerned");
-			case CHANGED:
-				throw new InvalidArgumentException(this, "is changed");
 			case DELETED:
 				throw new InvalidArgumentException(this, "is deleted");
 			case REJECTED:
@@ -389,6 +393,13 @@ public class Entity implements OptionalIdentified, IElement {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
 		.forEach(br -> br.supposeCanReferenceBackAdditionally(entity, referencingPropertyHeader));
+	}
+	
+	//package-visible methods
+	final void supposeIsNew() {
+		if (!isNew()) {
+			throw new InvalidArgumentException(this, "is not new");
+		}
 	}
 	
 	//method

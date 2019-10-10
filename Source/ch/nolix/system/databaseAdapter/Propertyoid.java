@@ -141,8 +141,8 @@ public abstract class Propertyoid<V> implements Headered, IElement {
 	
 	//method
 	protected void internal_noteUpdate() {
-		if (belongsToEntity()) {
-			parentEntity.setChanged();
+		if (belongsToEntity() && !parentEntity.isNew()) {
+			parentEntity.setEdited();
 		}
 	}
 	

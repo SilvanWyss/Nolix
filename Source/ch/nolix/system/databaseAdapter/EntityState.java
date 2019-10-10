@@ -3,10 +3,10 @@ package ch.nolix.system.databaseAdapter;
 
 //enum
 public enum EntityState {
+	NEW,
 	PERSISTED,
-	CREATED,
+	EDITED,
 	CONCERNED,
-	CHANGED,
 	DELETED,
 	REJECTED
 }
