@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
+import ch.nolix.common.containers.List;
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
@@ -22,10 +24,23 @@ implements Clearable<OptionalReference<E>> {
 	public OptionalPropertyType<E> getPropertyType() {
 		return new OptionalPropertyType<>(getValueClass());
 	}
-	
+
 	//method
 	@Override
 	public boolean isOptional() {
 		return true;
+	}
+	
+	//method
+	@Override
+	protected final List<Object> internal_getValues() {
+		
+		final var values = new List<Object>();
+		
+		if (referencesEntity()) {
+			values.addAtEnd(getReferencedEntityId());
+		}
+		
+		return values;
 	}
 }

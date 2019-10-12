@@ -32,8 +32,8 @@ public class Entity implements OptionalIdentified, IElement {
 	private EntitySet<Entity> parentEntitySet;
 	
 	//multi-attributes
-	private List<Propertyoid<?>> properties;
-	private List<BackReferenceoid<?>> backReferences;
+	private List<Propertyoid<Entity>> properties;
+	private List<BackReferenceoid<Entity>> backReferences;
 	
 	//method
 	public final boolean belongsToDatabaseAdapter() {
@@ -46,8 +46,8 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//method
-	public final boolean canReferenceEntity(final Entity entity) {
-		return getRefProperties().contains(p -> p.canReferenceEntity(entity));
+	public final boolean canReference(final Entity entity) {
+		return getRefProperties().contains(p -> p.canReference(entity));
 	}
 	
 	//method
@@ -134,19 +134,33 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//method
-	public final IContainer<BackReferenceoid<?>> getRefBackReferences() {
+	public final IContainer<BackReferenceoid<Entity>> getRefBackReferences() {
 		
 		extractPropertiesAndBackReferencesIfNotExtracted();
 		
 		return backReferences;
 	}
 	
+
+	
 	//method
-	public final IContainer<Propertyoid<?>> getRefProperties() {
+	public final IContainer<Propertyoid<Entity>> getRefProperties() {
 		
 		extractPropertiesAndBackReferencesIfNotExtracted();
 		
 		return properties;
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final IContainer<Referenceoid<Entity>> getRefReferences() {
+		return getRefProperties().getRefOfType(Referenceoid.class);
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final IContainer<SingleBackReference<Entity>> getRefSingleBackReferences() {
+		return getRefBackReferences().getRefOfType(SingleBackReference.class);
 	}
 	
 	//method
@@ -179,7 +193,32 @@ public class Entity implements OptionalIdentified, IElement {
 		return (id > -1);
 	}
 	
-
+	//method
+	public final <E extends Entity> boolean isAllowedToReferenceBack(final Referenceoid<E> reference) {
+		
+		if (reference == null) {
+			return false;
+		}
+		
+		final var backReference = getRefBackReferenceForOrNull(reference);
+		
+		if (backReference == null) {
+			return false;
+		}
+		
+		if (backReference.canReferenceBackSeveralEntities()) {
+			return true;
+		}
+		
+		for (final var e : reference.getParentEntitySet().getRefEntities()) {
+			final var r = e.getRefRefenceByHeader(reference.getHeader());
+			if (r.referencesEntity() && !r.references(this)) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
 	
 	//method
 	public final boolean isConcerned() {
@@ -409,7 +448,10 @@ public class Entity implements OptionalIdentified, IElement {
 		
 		if (Propertyoid.class.isAssignableFrom(field.getType())) {
 			try {
-				final var property = (Propertyoid<?>)(field.get(this));
+				
+				@SuppressWarnings("unchecked")
+				final var property = (Propertyoid<Entity>)(field.get(this));
+				
 				property.internal_setParentEntity(this);
 				properties.addAtEnd(property);
 			}
@@ -419,7 +461,10 @@ public class Entity implements OptionalIdentified, IElement {
 		}
 		else if (BackReferenceoid.class.isAssignableFrom(field.getType())) {
 			try {
-				final var backReference = (BackReferenceoid<?>)(field.get(this));
+				
+				@SuppressWarnings("unchecked")
+				final var backReference = (BackReferenceoid<Entity>)(field.get(this));
+				
 				backReference.setParentEntity(this);
 				backReferences.addAtEnd(backReference);
 			}
@@ -454,6 +499,18 @@ public class Entity implements OptionalIdentified, IElement {
 		if (!propertiesAndBackReferencesAreExtracted()) {
 			extractPropertiesAndBackReferences();
 		}
+	}
+	
+	//method
+	private Referenceoid<Entity> getRefRefenceByHeader(final String header) {
+		return getRefReferences().getRefFirst(r -> r.hasHeader(header));
+	}
+	
+	//method
+	private <E extends Entity> BackReferenceoid<Entity> getRefBackReferenceForOrNull(final Referenceoid<E> reference) {
+		return
+		getRefBackReferences()
+		.getRefFirstOrNull(br -> br.getReferencingPropertyHeader().equals(reference.getHeader()));
 	}
 	
 	//method

@@ -120,7 +120,6 @@ public final class EntitySession extends HeaderedSession {
 					
 				case REFERENCE:
 					
-					@SuppressWarnings("unchecked")
 					final var referenceProperty = (Reference<Entity>)p;
 					
 					dataGrid
@@ -135,11 +134,11 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new HorizontalStack(
-							new Button(referenceProperty.getEntity().getIdAsString())
+							new Button(referenceProperty.getRefEntity().getIdAsString())
 							.setRole(ButtonRole.LinkButton)
 							.setName(referenceProperty.getHeader() + "LinkButton")
 							.setLeftMouseButtonPressCommand(
-								() -> openEntitySession(referenceProperty.getReferencedEntitySet().getName(), referenceProperty.getEntity().getId())
+								() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
 							),
 							new Button("Select")
 							.setLeftMouseButtonPressCommand(

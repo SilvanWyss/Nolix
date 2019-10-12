@@ -21,7 +21,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 		final Reference<Entity> referenceProperty
 	) {
 		super(
-			referenceProperty.getReferencedEntitySet().getName()
+			referenceProperty.getRefEntitySetOfReferencedEntities().getName()
 		);
 		
 		this.reference = referenceProperty;
@@ -50,7 +50,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		pop(reference.getEntity().getId());
+		pop(reference.getRefEntity().getId());
 	}
 
 	//method
@@ -58,12 +58,12 @@ public final class ReferencePropertySession extends HeaderedSession {
 		
 		final var referencesSelectionMenu = new SelectionMenu().setName("ReferencesSelectionMenu");
 		
-		for (final var e : reference.getReferencedEntitySet().getRefEntities()) {
-			referencesSelectionMenu.addItem(String.valueOf(e.getId()), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
+		for (final var e : reference.getRefEntitySetOfReferencedEntities().getRefEntities()) {
+			referencesSelectionMenu.addItem(String.valueOf(e.getId()), e.getIdAsString());
 		}
 		
 		if (reference.referencesEntity()) {
-			referencesSelectionMenu.selectItemById(String.valueOf(reference.getEntity().getId()));
+			referencesSelectionMenu.selectItemById(String.valueOf(reference.getRefEntity().getId()));
 		}
 		
 		return referencesSelectionMenu;
@@ -77,10 +77,10 @@ public final class ReferencePropertySession extends HeaderedSession {
 		
 		reference.set(
 			reference
-			.getReferencedEntitySet()
+			.getRefEntitySetOfReferencedEntities()
 			.getRefEntityById(Long.valueOf(referencesSelectionMenu.getSelectedItemId()))
 		);
 		
-		pop(reference.getEntity().getId());
+		pop(reference.getRefEntity().getId());
 	}
 }

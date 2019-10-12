@@ -4,6 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.reflection.ReflectionHelper;
@@ -30,10 +31,18 @@ public abstract class BackReferenceoid<E extends Entity> {
 	}
 	
 	//method
-	public final boolean canReferenceBack(final Entity entity) {
-		return getReferencingEntityClass().isAssignableFrom(entity.getClass());
+	public final boolean canReferenceBackOnlyOneEntity() {
+		return !canReferenceBackSeveralEntities();
 	}
 	
+	//method
+	public final boolean canReferenceBack(final Entity entity) {
+		return (entity != null && getReferencingEntityClass() == entity.getClass());
+	}
+	
+	//abstract method
+	public abstract boolean canReferenceBackSeveralEntities();
+
 	//method
 	public final DatabaseAdapter getParentDatabaseAdapter() {
 		return getParentEntitySet().getParentDatabaseAdapter();

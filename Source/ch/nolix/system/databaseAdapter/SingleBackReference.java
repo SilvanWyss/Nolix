@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own import
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //abstract class
@@ -14,8 +15,9 @@ public abstract class SingleBackReference<E extends Entity> extends BackReferenc
 	}
 	
 	//method
-	public boolean canReferenceBackActuallyEntity(final E entity) {
-		return !referencesBackEntity();
+	@Override
+	public final boolean canReferenceBackSeveralEntities() {
+		return false;
 	}
 	
 	//method
@@ -30,16 +32,16 @@ public abstract class SingleBackReference<E extends Entity> extends BackReferenc
 	public abstract boolean isOptional();
 	
 	//method
+	public final boolean referencesBack(final E entity) {
+		return entity.references(getReferencingPropertyHeader(), entity);
+	}
+	
+	//method
 	public final boolean referencesBackEntity() {
 		return
 		getReferencingEntitySet()
 		.getRefEntities()
 		.contains(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
-	}
-	
-	//method
-	public final boolean referencesBackEntity(final E entity) {
-		return entity.references(getReferencingPropertyHeader(), entity);
 	}
 	
 	//package-visible method

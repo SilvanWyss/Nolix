@@ -59,7 +59,7 @@ public final class ReferencePropertyTutorial {
 			.getRefEntities()
 			.getRefFirst(c -> c.Name.getValue().equals("Garfield"));
 			
-			final var garfieldOwner = garfield.Person.getEntity();
+			final var garfieldOwner = garfield.Person.getRefEntity();
 			garfieldOwner.Name.setValue("Jon Arbuckle");
 			
 			catDatabaseAdapter.saveChanges();

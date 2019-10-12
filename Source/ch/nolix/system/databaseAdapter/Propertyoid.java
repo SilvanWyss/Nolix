@@ -35,7 +35,7 @@ public abstract class Propertyoid<V> implements Headered, IElement {
 	}
 	
 	//abstract method
-	public abstract boolean canReferenceEntity(Entity entity);
+	public abstract boolean canReference(Entity entity);
 	
 	//method
 	@Override

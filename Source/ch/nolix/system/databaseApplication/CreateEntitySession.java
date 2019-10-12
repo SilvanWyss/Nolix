@@ -92,7 +92,6 @@ public final class CreateEntitySession extends HeaderedSession {
 					break;
 				case REFERENCE:
 					
-					@SuppressWarnings("unchecked")
 					final var referenceProperty = (Reference<Entity>)p;
 					
 					dataGrid
@@ -159,7 +158,6 @@ public final class CreateEntitySession extends HeaderedSession {
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
 	private void openReferencePropertySession(final String referencePropertyHeader) {
 		
 		final var referenceProperty = 

@@ -2,8 +2,7 @@
 package ch.nolix.system.databaseAdapter;
 
 //class
-public final class OptionalBackReference<E extends Entity>
-extends SingleBackReference<E> {
+public final class OptionalBackReference<E extends Entity> extends SingleBackReference<E> {
 	
 	//constructor
 	public OptionalBackReference(final String referencingFieldName) {

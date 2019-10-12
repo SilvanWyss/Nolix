@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//owm import
 import ch.nolix.common.containers.List;
 
 //class
@@ -11,6 +12,12 @@ public final class MultiBackReference<E extends Entity> extends BackReferenceoid
 		
 		//Calls constructor of the base class.
 		super(referencingFieldName);
+	}
+	
+	//method
+	@Override
+	public final boolean canReferenceBackSeveralEntities() {
+		return true;
 	}
 	
 	//method

@@ -113,16 +113,15 @@ public final class EntitySetSession extends HeaderedSession {
 							break;
 						case REFERENCE:						
 							
-							@SuppressWarnings("unchecked")
 							final var referenceProperty = (Reference<Entity>)p;
 							
 							entitiesGrid.setWidget(
 								rowIndex,
 								columnIndex,
-								new Button(String.valueOf(referenceProperty.getEntity().getId()))
+								new Button(String.valueOf(referenceProperty.getRefEntity().getId()))
 								.setRole(ButtonRole.LinkButton)
 								.setLeftMouseButtonPressCommand(
-									() -> openEntitySession(referenceProperty.getReferencedEntitySet().getName(), referenceProperty.getEntity().getId())
+									() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
 								)
 							);
 							

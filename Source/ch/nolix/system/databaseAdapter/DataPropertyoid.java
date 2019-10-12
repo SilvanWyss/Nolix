@@ -9,7 +9,7 @@ public abstract class DataPropertyoid<V> extends Propertyoid<V> {
 	
 	//method
 	@Override
-	public final boolean canReferenceEntity(final Entity entity) {
+	public final boolean canReference(final Entity entity) {
 		return false;
 	}
 	

@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
+//TODO: Allow MultiReference reference Entitys of a base class.
 //class
 public final class MultiReference<E extends Entity> extends Referenceoid<E> {
-
+	
 	//multi-attribute
 	private final List<Long> referencedEntityIds = new List<>();
-
+	
 	//method
 	public MultiReference<E> add(final E entity) {
 		
@@ -23,42 +24,36 @@ public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 	}
 	
 	//method
-	public List<Node> getAttributes0() {
-		return
-		referencedEntityIds
-		.to(rei -> new Node(rei));
-	}
-	
-	//method
-	public List<E> getEntities() {
-		return
-		referencedEntityIds
-		.to(rei -> getReferencedEntitySet().getRefEntityById(rei));
-	}
-
-	//method
 	@Override
 	public PropertyoidType<E> getPropertyType() {
 		return new MultiReferenceType<>(getValueClass());
 	}
 	
 	//method
-	@Override
-	public final boolean references(final Entity entity) {
+	public List<E> getRefEntities() {
 		
-		for (final var e : getEntities()) {
-			
-			if (
-				e.getClass() == entity.getClass()
-				&& e.getId() == entity.getId()
-			) {
-				return true;
-			}
+		final var entitySet = getRefEntitySetOfReferencedEntities();
+		
+		return referencedEntityIds.to(rei -> entitySet.getRefEntityById(rei));
+	}
+	
+	//method
+	@Override
+	public boolean references(final Entity entity) {
+		
+		if (getValueClass() != entity.getClass()) {
+			return false;
 		}
 		
-		return false;
+		return referencedEntityIds.contains(rei -> rei.equals(entity.getId()));
 	}
-
+	
+	//method
+	@Override
+	public boolean referencesEntity() {
+		return referencedEntityIds.containsAny();
+	}
+	
 	//method
 	@Override
 	protected void internal_clear() {
