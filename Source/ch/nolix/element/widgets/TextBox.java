@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
@@ -13,7 +14,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 320
+ * @lines 340
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
@@ -215,11 +216,11 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 					break;
 				default:
 					if (key.isCharacter()) {
-						if (!getRefGUI().isPressed(Key.SHIFT)) {
-							insertCharacterAfterCursor(key.toLowerCaseChar());
+						if (getRefGUI().isPressed(Key.SHIFT) ^ getRefGUI().shiftIsLocked()) {
+							insertCharacterAfterCursor(key.toUpperCaseChar());	
 						}
 						else {
-							insertCharacterAfterCursor(key.toUpperCaseChar());
+							insertCharacterAfterCursor(key.toLowerCaseChar());
 						}
 					}
 			}

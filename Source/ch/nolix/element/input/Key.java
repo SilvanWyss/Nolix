@@ -4,6 +4,7 @@ package ch.nolix.element.input;
 //Java import
 import java.awt.event.KeyEvent;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -69,7 +70,7 @@ public enum Key implements IElementEnum {
 	ALTERNATIVE,
 	BACKSPACE,
 	BREAK,
-	CAPS_LOOK,
+	CAPS_LOCK,
 	COMMA,
 	CONTROL,
 	DELETE,
@@ -186,6 +187,8 @@ public enum Key implements IElementEnum {
 				return COMMA;
 			case KeyEvent.VK_CONTROL:
 				return CONTROL;
+			case KeyEvent.VK_CAPS_LOCK:
+				return Key.CAPS_LOCK;
 			case KeyEvent.VK_DELETE:
 				return Key.DELETE;
 			case KeyEvent.VK_DOLLAR:

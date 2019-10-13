@@ -7,6 +7,9 @@ import ch.nolix.common.containers.List;
 //class
 public final class KeyBoard {
 	
+	//attribute
+	private boolean shiftIsLocked = false;
+	
 	//multi-attribute
 	private final List<Key> pressedKeys = new List<>();
 	
@@ -17,13 +20,23 @@ public final class KeyBoard {
 	
 	//method
 	public void noteKeyPress(final Key key) {
+		
 		if (!pressedKeys.containsEqualing(key)) {
 			pressedKeys.addAtEnd(key);
+		}
+		
+		if (key == Key.CAPS_LOCK) {
+			shiftIsLocked = !shiftIsLocked;
 		}
 	}
 	
 	//method
 	public void noteKeyRelease(final Key key) {
 		pressedKeys.removeFirst(k -> k.equals(key));
+	}
+	
+	//method
+	public boolean shiftIsLocked() {
+		return shiftIsLocked;
 	}
 }

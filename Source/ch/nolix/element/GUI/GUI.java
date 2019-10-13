@@ -22,7 +22,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 260
+ * @lines 270
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G>
@@ -126,7 +126,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	 * @return true if the given key is pressed on the current {@link GUI}.
 	 */
 	public final boolean isPressed(final Key key) {
-		return getRefKeyBoard().isPressed(key);
+		return keyBoard.isPressed(key);
 	}
 	
 	//method
@@ -186,6 +186,14 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		this.title.setValue(title);
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * @return true if shift is locked on the current {@link GUI}.
+	 */
+	public final boolean shiftIsLocked() {
+		return keyBoard.shiftIsLocked();
 	}
 	
 	//abstract method
