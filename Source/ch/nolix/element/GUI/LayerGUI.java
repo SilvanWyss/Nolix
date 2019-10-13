@@ -764,6 +764,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			throw new EmptyArgumentException(this);
 		}
 		
+		final var previousTopLayer = getRefTopLayerOrBackgroundLayer();
+		
 		//Handles the case that the current LayerGUI contains 1 layer.
 		if (layers.containsOne()) {
 			clear();
@@ -775,6 +777,11 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			topLayer = layers.getRefAt(layers.getSize() - 1);
 			layers.removeValue(layers.getRefAt(layers.getSize()));
 		}
+		
+		getRefTopLayerOrBackgroundLayer().noteMouseMove(
+			previousTopLayer.getCursorXPosition(),
+			previousTopLayer.getCursorYPosition()
+		);
 		
 		return asConcreteType();
 	}

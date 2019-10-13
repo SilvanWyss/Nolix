@@ -103,6 +103,10 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		fcp -> fcp.getSpecification()
 	);
 	
+	//attribute
+	private int cursorXPosition = 0;
+	private int cursorYPosition = 0;
+	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
 	
@@ -248,6 +252,22 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	
 	//method
 	/**
+	 * @return the x-position of the cursor on the current {@link Layer}.
+	 */
+	public int getCursorXPosition() {
+		return cursorXPosition;
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the cursor on the current {@link Layer}.
+	 */
+	public int getCursorYPosition() {
+		return cursorYPosition;
+	}
+	
+	//method
+	/**
 	 * @return the root {@link Widget} of the current {@link Layer}.
 	 */
 	public Widget<?, ?> getRefRootWidget() {
@@ -383,6 +403,10 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 */
 	@Override
 	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
+		
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+		
 		if (rootWidget != null) {
 			rootWidget.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
 			rootWidget.recalculateRecursively();
