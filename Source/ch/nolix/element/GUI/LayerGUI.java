@@ -48,7 +48,7 @@ import ch.nolix.element.widgets.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 860
+ * @lines 880
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG> {
@@ -513,11 +513,12 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyPress(final Key key) {		
+	public final void noteKeyPress(final Key key) {
 		if (hasEventTaker()) {
 			eventTaker.noteKeyPress(key);
 		}		
 		else {
+			getRefKeyBoard().noteKeyPress(key);
 			getRefTopLayerOrBackgroundLayer().noteKeyPress(key);
 			refresh();
 		}
@@ -533,6 +534,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			eventTaker.noteKeyRelease(key);
 		}		
 		else {
+			getRefKeyBoard().noteKeyRelease(key);
 			getRefTopLayerOrBackgroundLayer().noteKeyRelease(key);
 			refresh();
 		}

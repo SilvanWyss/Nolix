@@ -323,8 +323,12 @@ implements Clearable<Console> {
 					break;
 				default:
 					if (key.isCharacter()) {
-						//TODO: Distinguis lower case and upper case.
-						insertCharacterAfterCursor(key.toChar());
+						if (!getRefGUI().isPressed(Key.SHIFT)) {
+							insertCharacterAfterCursor(key.toLowerCaseChar());
+						}
+						else {
+							insertCharacterAfterCursor(key.toUpperCaseChar());
+						}
 					}
 			}
 		}

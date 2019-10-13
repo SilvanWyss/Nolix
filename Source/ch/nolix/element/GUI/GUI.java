@@ -14,13 +14,15 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
+import ch.nolix.element.input.Key;
+import ch.nolix.element.input.KeyBoard;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 240
+ * @lines 260
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G>
@@ -30,9 +32,6 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	public static final String DEFAULT_TITLE = "GUI";
 	
 	//attribute
-	private boolean closed = false;
-	
-	//attribute
 	private final MutableProperty<String> title =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
@@ -40,6 +39,10 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		s -> s.getOneAttributeAsString(),
 		t -> new Node(PascalCaseNameCatalogue.TITLE, t)
 	);
+	
+	//attributes
+	private final KeyBoard keyBoard = new KeyBoard();
+	private boolean closed = false;
 	
 	//optional attribute
 	private final IVisualizer visualizer;
@@ -119,10 +122,19 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	
 	//method
 	/**
+	 * @param key
+	 * @return true if the given key is pressed on the current {@link GUI}.
+	 */
+	public final boolean isPressed(final Key key) {
+		return getRefKeyBoard().isPressed(key);
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isVisible() {
+	public final boolean isVisible() {
 		return (visualizer != null);
 	}
 	
@@ -187,6 +199,14 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	 * @return the width of the view area of the current {@link GUI}.
 	 */
 	public abstract int getViewAreaWidth();
+	
+	//method
+	/**
+	 * @return the {@link KeyBoard} of the current {@link GUI}.
+	 */
+	protected final KeyBoard getRefKeyBoard() {
+		return keyBoard;
+	}
 	
 	//method
 	/**

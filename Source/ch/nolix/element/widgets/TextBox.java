@@ -215,9 +215,12 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 					break;
 				default:
 					if (key.isCharacter()) {
-						//TODO: Create KeyAndPressedKeyCombination
-						//TODO: Distinguish lower and upper case.
-						insertCharacterAfterCursor(key.toChar());
+						if (!getRefGUI().isPressed(Key.SHIFT)) {
+							insertCharacterAfterCursor(key.toLowerCaseChar());
+						}
+						else {
+							insertCharacterAfterCursor(key.toUpperCaseChar());
+						}
 					}
 			}
 		}

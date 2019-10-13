@@ -194,6 +194,8 @@ public enum Key implements IElementEnum {
 				return Key.ENTER;
 			case KeyEvent.VK_ESCAPE:
 				return ESCAPE;
+			case KeyEvent.VK_SHIFT:
+				return SHIFT;
 			case KeyEvent.VK_SPACE:
 				return Key.SPACE;
 			default:
@@ -285,7 +287,7 @@ public enum Key implements IElementEnum {
 	}
 	
 	//method
-	public char toChar() {
+	public char toLowerCaseChar() {
 		switch(this) {
 			case A:
 				return 'a';
@@ -339,6 +341,106 @@ public enum Key implements IElementEnum {
 				return 'y';
 			case Z:
 				return 'z';
+			case NUMBER_0:
+				return '0';
+			case NUMBER_1:
+				return '1';
+			case NUMBER_2:
+				return '2';
+			case NUMBER_3:
+				return '3';
+			case NUMBER_4:
+				return '4';
+			case NUMBER_5:
+				return '5';
+			case NUMBER_6:
+				return '6';
+			case NUMBER_7:
+				return '7';
+			case NUMBER_8:
+				return '8';
+			case NUMBER_9:
+				return '9';
+			case COMMA:
+				return ',';
+			case DOLLAR_SYMBOL:
+				return '$';
+			case DOT:
+				return '.';
+			case EXCLAMATION_MARK:
+				return '!';
+			case GRADE_SYMBOL:
+				return '°';
+			case GRAVIS:
+				return '`';
+			case HYPHEN:
+				return '-';
+			case QUESTION_MARK:
+				return '?';
+			case RELATIONS:
+				return '<';
+			case SPACE:
+				return ' ';
+		default:
+			throw new UnrepresentingArgumentException(this, Character.class);				
+		}
+	}
+	
+	//method
+	public char toUpperCaseChar() {
+		switch(this) {
+			case A:
+				return 'A';
+			case B:
+				return 'B';
+			case C:
+				return 'C';
+			case D:
+				return 'D';
+			case E:
+				return 'E';
+			case F:
+				return 'F';
+			case G:
+				return 'G';
+			case H:
+				return 'H';
+			case I:
+				return 'I';
+			case J:
+				return 'J';
+			case K:
+				return 'K';
+			case L:
+				return 'L';
+			case M:
+				return 'M';
+			case N:
+				return 'N';
+			case O:
+				return 'O';
+			case P:
+				return 'P';
+			case Q:
+				return 'Q';
+			case R:
+				return 'R';
+			case S:
+				return 'S';
+			case T:
+				return 'T';
+			case U:
+				return 'U';
+			case V:
+				return 'V';
+			case W:
+				return 'W';
+			case X:
+				return 'X';
+			case Y:
+				return 'Y';
+			case Z:
+				return 'Z';
 			case NUMBER_0:
 				return '0';
 			case NUMBER_1:
