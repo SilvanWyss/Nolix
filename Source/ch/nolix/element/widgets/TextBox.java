@@ -188,8 +188,8 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		//Calls method of the base class.
 		super.noteKeyTypingWhenEnabled(key);
 		
-		//Handles the case that the view area of the current TextBox is under the cursor.
-		if (viewAreaIsUnderCursor()) {
+		//Handles the case that the current TextBox is focused.
+		if (isFocused()) {
 			
 			//Enumerates the given key.
 			switch (key) {
