@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.nodeTest;
 
+//own import
 import ch.nolix.common.node.Node;
 
 //test class

@@ -3,15 +3,17 @@ package ch.nolix.commonTest.nodeTest;
 
 //class
 /**
+ * Of the {@link Launcher} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  * @month 2017-02
  * @lines 20
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
-	 * Creates a new specification test pool and executes it.
+	 * Creates a new {@link NodeTestPool} and runs it.
 	 * 
 	 * @param arguments
 	 */
@@ -21,7 +23,7 @@ public final class Launcher {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }
