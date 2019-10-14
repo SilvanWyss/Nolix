@@ -8,8 +8,10 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.valueCreator.SpecificValueCreator;
 import ch.nolix.common.valueCreator.SpecificValueCreatorCatalogue;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.element.image.Image;
 
 //abstract class
 public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
@@ -31,9 +33,11 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 		
 		valueCreator.registerSpecificValueCreator(
 			SpecificValueCreatorCatalogue.BIG_DECIMAL_CREATOR,
+			SpecificValueCreatorCatalogue.BINARY_OBJECT_CREATOR,
 			SpecificValueCreatorCatalogue.BOOLEAN_CREATOR,
 			SpecificValueCreatorCatalogue.INTEGER_CREATOR,
-			SpecificValueCreatorCatalogue.STRING_CREATOR
+			SpecificValueCreatorCatalogue.STRING_CREATOR,
+			new SpecificValueCreator<>(Image.class, Image::fromString, Image::fromSpecification)
 		);
 		
 		reset();
