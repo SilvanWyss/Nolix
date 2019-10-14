@@ -150,7 +150,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @throws InvalidArgumentException if one of the given attribute is not valid.
 	 */
 	public <S extends BaseNode> Node(final Iterable<S> attributes) {
-		attributes.forEach(a -> a.addAttribute(a));
+		addAttributes(attributes);
 	}
 	
 	//constructor
