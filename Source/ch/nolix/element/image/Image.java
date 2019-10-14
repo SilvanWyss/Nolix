@@ -9,6 +9,7 @@ import java.io.IOError;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.List;
@@ -44,6 +45,11 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		image.addOrChangeAttribute(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
 		return image;
+	}
+	
+	//static method
+	public static Image fromString(final String string) {
+		return fromSpecification(Node.fromString(string));
 	}
 
 	//attribute
