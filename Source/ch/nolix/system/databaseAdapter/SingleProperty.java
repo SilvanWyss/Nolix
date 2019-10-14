@@ -23,22 +23,6 @@ extends DataPropertyoid<V> {
 	}
 	
 	//method
-	public final List<Node> getAttributes0() {
-		
-		final var attributes = new List<Node>();
-		
-		if (hasValue()) {
-			attributes.addAtEnd(
-				Node.fromString(
-					getValue().toString()
-				)
-			);
-		}
-		
-		return attributes;
-	}
-	
-	//method
 	public final V getValue() {
 		
 		supposeHasValue();

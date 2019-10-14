@@ -54,11 +54,6 @@ implements Clearable<MultiProperty<V>> {
 	}
 	
 	//method
-	public List<Node> getAttributes0() {
-		return getValues().to(v -> Node.fromString(v.toString()));
-	}
-	
-	//method
 	@Override
 	public PropertyoidType<V> getPropertyType() {
 		return new MultiPropertyType<>(getValueClass());
