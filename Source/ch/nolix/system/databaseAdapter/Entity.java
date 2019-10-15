@@ -171,7 +171,7 @@ public class Entity implements OptionalIdentified, IElement {
 		rowSpecification.addAttribute(new Node(getId()));
 		
 		for (final var p : getRefProperties()) {
-			rowSpecification.addAttribute(Node.fromString(p.internal_getValues().toString()));
+			rowSpecification.addAttribute(p.getCellSpecification());
 		}
 		
 		return rowSpecification;
@@ -475,7 +475,7 @@ public class Entity implements OptionalIdentified, IElement {
 	}
 	
 	//method
-	private void extractPropertiesAndBackReferences() {
+	public final void extractPropertiesAndBackReferences() {
 		
 		properties = new List<>();
 		backReferences = new List<>();

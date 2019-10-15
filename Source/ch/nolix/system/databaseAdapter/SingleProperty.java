@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
@@ -10,11 +11,21 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //abstract class
-public abstract class SingleProperty<V>
-extends DataPropertyoid<V> {
+public abstract class SingleProperty<V> extends DataPropertyoid<V> {
 
 	//optional attribute
 	private V value;
+	
+	//method
+	@Override
+	public final Node getCellSpecification() {
+		
+		if (value == null) {
+			return new Node();
+		}
+		
+		return new Node(value.toString());
+	}
 	
 	//method
 	@SuppressWarnings("unchecked")

@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
-public final class MultiProperty<V>
-extends DataPropertyoid<V>
-implements Clearable<MultiProperty<V>> {
+public final class MultiProperty<V> extends DataPropertyoid<V> implements Clearable<MultiProperty<V>> {
 	
 	//multi-attribute
 	private final List<V> values = new List<>();
@@ -51,6 +50,18 @@ implements Clearable<MultiProperty<V>> {
 		internal_clear();
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public Node getCellSpecification() {
+		
+		final var cellSpecification = new Node();
+		for (final var v : getValues()) {
+			cellSpecification.addAttribute(Node.fromString(v.toString()));
+		}
+		
+		return cellSpecification;
 	}
 	
 	//method

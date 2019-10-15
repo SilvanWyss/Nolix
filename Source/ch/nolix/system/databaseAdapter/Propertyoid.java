@@ -46,6 +46,12 @@ public abstract class Propertyoid<V> implements Headered, IElement {
 	}
 	
 	//method
+	/**
+	 * @return the cell specification of the current {@link Propertyoid}.
+	 */
+	public abstract Node getCellSpecification();
+	
+	//method
 	@Override
 	public final String getHeader() {
 		return ReflectionHelper.getFieldName(getParentEntity(), this);

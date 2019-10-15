@@ -4,6 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //TODO: Allow MultiReference reference Entitys of a base class.
@@ -21,6 +22,18 @@ public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 		internal_noteUpdate();
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public Node getCellSpecification() {
+		
+		final var cellSpecification = new Node();
+		for (final var rei : referencedEntityIds) {
+			cellSpecification.addAttribute(new Node(rei));
+		}
+		
+		return cellSpecification;
 	}
 	
 	//method
