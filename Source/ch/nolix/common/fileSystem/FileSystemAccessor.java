@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOError;
 import java.io.IOException;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
@@ -18,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 320
+ * @lines 340
  */
 public final class FileSystemAccessor {
 	
@@ -153,7 +154,23 @@ public final class FileSystemAccessor {
 	 * The file will have the given content.
 	 * 
 	 * @param path
-	 * @param overwrite
+	 * @return a new {@link FileAccessor} to the created file.
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws EmptyArgumentException if the given path is empty.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
+	 */
+	public static FileAccessor createFile(final String path, final byte[] content) {
+		
+		//Calls other method.
+		return createFile(path, new String(content));
+	}
+	
+	//static method
+	/**
+	 * Creates a new file with the given path.
+	 * The file will have the given content.
+	 * 
+	 * @param path
 	 * @return a new {@link FileAccessor} to the created file.
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws EmptyArgumentException if the given path is empty.
