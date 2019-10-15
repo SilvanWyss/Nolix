@@ -51,6 +51,16 @@ public enum Key implements IElementEnum {
 	NUMBER_7,
 	NUMBER_8,
 	NUMBER_9,
+	NUMBERPAD_0,
+	NUMBERPAD_1,
+	NUMBERPAD_2,
+	NUMBERPAD_3,
+	NUMBERPAD_4,
+	NUMBERPAD_5,
+	NUMBERPAD_6,
+	NUMBERPAD_7,
+	NUMBERPAD_8,
+	NUMBERPAD_9,
 	F1,
 	F2,
 	F3,
@@ -173,6 +183,26 @@ public enum Key implements IElementEnum {
 				return NUMBER_8;
 			case KeyEvent.VK_9:
 				return NUMBER_9;
+			case KeyEvent.VK_NUMPAD0:
+				return NUMBERPAD_0;
+			case KeyEvent.VK_NUMPAD1:
+				return NUMBERPAD_1;
+			case KeyEvent.VK_NUMPAD2:
+				return NUMBERPAD_2;
+			case KeyEvent.VK_NUMPAD3:
+				return NUMBERPAD_3;
+			case KeyEvent.VK_NUMPAD4:
+				return NUMBERPAD_4;
+			case KeyEvent.VK_NUMPAD5:
+				return NUMBERPAD_5;
+			case KeyEvent.VK_NUMPAD6:
+				return NUMBERPAD_6;
+			case KeyEvent.VK_NUMPAD7:
+				return NUMBERPAD_7;
+			case KeyEvent.VK_NUMPAD8:
+				return NUMBERPAD_8;
+			case KeyEvent.VK_NUMPAD9:
+				return NUMBERPAD_9;
 			case KeyEvent.VK_LEFT:
 				return ARROW_LEFT;
 			case KeyEvent.VK_RIGHT:
@@ -283,6 +313,35 @@ public enum Key implements IElementEnum {
 			case NUMBER_7:
 			case NUMBER_8:
 			case NUMBER_9:
+			case NUMBERPAD_0:
+			case NUMBERPAD_1:
+			case NUMBERPAD_2:
+			case NUMBERPAD_3:
+			case NUMBERPAD_4:
+			case NUMBERPAD_5:
+			case NUMBERPAD_6:
+			case NUMBERPAD_7:
+			case NUMBERPAD_8:
+			case NUMBERPAD_9:
+				return true;
+			default:
+				return false;
+		}
+	}
+	
+	//method
+	public boolean isOnNumberPad() {
+		switch(this) {
+			case NUMBERPAD_0:
+			case NUMBERPAD_1:
+			case NUMBERPAD_2:
+			case NUMBERPAD_3:
+			case NUMBERPAD_4:
+			case NUMBERPAD_5:
+			case NUMBERPAD_6:
+			case NUMBERPAD_7:
+			case NUMBERPAD_8:
+			case NUMBERPAD_9:
 				return true;
 			default:
 				return false;
@@ -344,48 +403,8 @@ public enum Key implements IElementEnum {
 				return 'y';
 			case Z:
 				return 'z';
-			case NUMBER_0:
-				return '0';
-			case NUMBER_1:
-				return '1';
-			case NUMBER_2:
-				return '2';
-			case NUMBER_3:
-				return '3';
-			case NUMBER_4:
-				return '4';
-			case NUMBER_5:
-				return '5';
-			case NUMBER_6:
-				return '6';
-			case NUMBER_7:
-				return '7';
-			case NUMBER_8:
-				return '8';
-			case NUMBER_9:
-				return '9';
-			case COMMA:
-				return ',';
-			case DOLLAR_SYMBOL:
-				return '$';
-			case DOT:
-				return '.';
-			case EXCLAMATION_MARK:
-				return '!';
-			case GRADE_SYMBOL:
-				return '°';
-			case GRAVIS:
-				return '`';
-			case HYPHEN:
-				return '-';
-			case QUESTION_MARK:
-				return '?';
-			case RELATIONS:
-				return '<';
-			case SPACE:
-				return ' ';
-		default:
-			throw new UnrepresentingArgumentException(this, Character.class);				
+			default:
+				return toNonNumberChar();
 		}
 	}
 	
@@ -444,6 +463,14 @@ public enum Key implements IElementEnum {
 				return 'Y';
 			case Z:
 				return 'Z';
+			default:
+				return toNonNumberChar();
+		}
+	}
+	
+	//method
+	private char toNonNumberChar() {
+		switch (this) {
 			case NUMBER_0:
 				return '0';
 			case NUMBER_1:
@@ -463,6 +490,26 @@ public enum Key implements IElementEnum {
 			case NUMBER_8:
 				return '8';
 			case NUMBER_9:
+				return '9';
+			case NUMBERPAD_0:
+				return '0';
+			case NUMBERPAD_1:
+				return '1';
+			case NUMBERPAD_2:
+				return '2';
+			case NUMBERPAD_3:
+				return '3';
+			case NUMBERPAD_4:
+				return '4';
+			case NUMBERPAD_5:
+				return '5';
+			case NUMBERPAD_6:
+				return '6';
+			case NUMBERPAD_7:
+				return '7';
+			case NUMBERPAD_8:
+				return '8';
+			case NUMBERPAD_9:
 				return '9';
 			case COMMA:
 				return ',';
