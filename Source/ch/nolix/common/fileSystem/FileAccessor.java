@@ -3,6 +3,7 @@ package ch.nolix.common.fileSystem;
 
 //Java imports
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -63,9 +64,9 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	public void overwriteFile(final byte[] bytes) {
-		try (final PrintWriter printWriter = new PrintWriter(getInternalAccessor())) {
-			printWriter.print(bytes);
-			printWriter.flush();
+		try (final var fileOutputStream = new FileOutputStream(getInternalAccessor())) {
+			fileOutputStream.write(bytes);
+			fileOutputStream.flush();
 		}
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);

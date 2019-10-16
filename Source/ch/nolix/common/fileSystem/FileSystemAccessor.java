@@ -161,8 +161,11 @@ public final class FileSystemAccessor {
 	 */
 	public static FileAccessor createFile(final String path, final byte[] content) {
 		
-		//Calls other method.
-		return createFile(path, new String(content));
+		final var fileAccessor = createFile(path);
+		
+		fileAccessor.overwriteFile(content);
+		
+		return fileAccessor;
 	}
 	
 	//static method
@@ -295,6 +298,22 @@ public final class FileSystemAccessor {
 	 */
 	public static boolean isFolder(final String path) {
 		return new File(path).isDirectory();
+	}
+	
+	//static method
+	public static void overwriteFile(final String path, final byte[] content) {
+		
+		//Checks if there does not exist a folder with the given path.
+		if (isFolder(path)) {
+			throw new InvalidArgumentException(path, "is a folder");
+		}
+		
+		//Handles the case that there does not exist a file with the given path.
+		if (!isFile(path)) {
+			createFile(path);
+		}
+		
+		new FileAccessor(path).overwriteFile(content);
 	}
 	
 	//static method
