@@ -22,7 +22,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 270
+ * @lines 290
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G>
@@ -42,6 +42,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	
 	//attributes
 	private final KeyBoard keyBoard = new KeyBoard();
+	private IFrontEnd frontEnd = new LocalFrontEnd();
 	private boolean closed = false;
 	
 	//optional attribute
@@ -138,6 +139,14 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return (visualizer != null);
 	}
 	
+	//method
+	/**
+	 * @return the {@link IFrontEnd} of the current {@link GUI}.
+	 */
+	public final IFrontEnd onFrontEnd() {
+		return frontEnd;
+	}
+	
 	//abstract method
 	/**
 	 * Paints the current {@link GUI} using the given painter.
@@ -207,6 +216,20 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	 * @return the width of the view area of the current {@link GUI}.
 	 */
 	public abstract int getViewAreaWidth();
+	
+	//method
+	/**
+	 * Sets the frontend of the current {@link GUI}.
+	 * 
+	 * @param frontEnd
+	 * @throws ArgumentIsNullException if the given frontEnd is null.
+	 */
+	public final void setFrontEnd(final IFrontEnd frontEnd) {
+		
+		Validator.suppose(frontEnd).thatIsNamed("front end").isNotNull();
+		
+		this.frontEnd = frontEnd;
+	}
 	
 	//method
 	/**

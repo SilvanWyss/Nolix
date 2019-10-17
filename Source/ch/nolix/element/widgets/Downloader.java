@@ -1,15 +1,11 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//Java import
-import javax.swing.JFileChooser;
-
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.fileSystem.FileAccessor;
-import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -146,30 +142,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		//Calls method of the base class.
 		super.noteLeftMouseButtonReleaseWhenEnabled();
 		
-		//Handles the case that the view area of the current Downloader is under the cursor.
-		if (viewAreaIsUnderCursor()) {
-		
-			//TODO: Open file chooser on client side.
-			if (providesFile()) {
-				final var fileChooser = new JFileChooser();
-				if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-					
-					final var destinationFilePath = fileChooser.getSelectedFile().getPath();
-					
-					if (FileSystemAccessor.exists(destinationFilePath)) {
-						if (PopupWindowProvider.showRequestWindow(
-								"The file '" + destinationFilePath + "' exists already. Do you want to overwrite it?")
-							) {
-							FileSystemAccessor.overwriteFile(destinationFilePath, readFile());
-							new FileAccessor(destinationFilePath).openParentFolder();
-						}
-					}
-					else {
-						FileSystemAccessor.createFile(destinationFilePath, readFile());
-						new FileAccessor(destinationFilePath).openParentFolder();
-					}
-				}
-			}
+		if (viewAreaIsUnderCursor() && providesFile) {
+			getRefGUI().onFrontEnd().saveFile(readFileToBytes());
 		}
 	}
 

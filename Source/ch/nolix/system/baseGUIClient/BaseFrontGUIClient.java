@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+import java.nio.charset.StandardCharsets;
+
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.ReadContainer;
@@ -210,13 +212,15 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		switch (request.getHeader()) {
 			case Protocol.GUI_TYPE_HEADER:
 				return new Node(getGUIType());
+			case Protocol.GET_FILE_HEADER:
+				return new Node(new String(readFileToBytes(), StandardCharsets.UTF_8));
 			default:
 				
 				//Calls method of the base class.
 				return super.internal_getData(request);
 		}
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -229,11 +233,22 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			case Protocol.GUI_HEADER:
 				mGUIHandler.runGUICommand(command.getNextNode());
 				break;
+			case Protocol.SAVE_FILE_HEADER:
+				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
+				break;
 			default:
 				
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
+	}
+	
+	//method
+	/**
+	 * @return the {@link GUI} of the current {@link FrontGUIClient}.
+	 */
+	private GUI<?> getRefGUI() {
+		return mGUIHandler.getRefGUI();
 	}
 	
 	//method
@@ -265,10 +280,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	}
 	
 	//method
-	/**
-	 * @return the {@link GUI} of the current {@link FrontGUIClient}.
-	 */
-	private GUI<?> getRefGUI() {
-		return mGUIHandler.getRefGUI();
+	private byte[] readFileToBytes() {
+		return getRefGUI().onFrontEnd().readFile();
+	}
+	
+	//method
+	private void saveFile(final byte[] content) {
+		getRefGUI().onFrontEnd().saveFile(content);
 	}
 }

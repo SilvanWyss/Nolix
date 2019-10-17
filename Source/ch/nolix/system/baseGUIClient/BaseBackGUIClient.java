@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+import java.nio.charset.StandardCharsets;
+
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
@@ -133,6 +135,21 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
+	}
+	
+	//package-visible method
+	byte[] getFileFromCounterpart() {
+		return
+		internal_getDataFromCounterpart(
+			new ChainedNode(Protocol.GET_FILE_HEADER)).toString().getBytes(StandardCharsets.UTF_8
+		);
+	}
+	
+	//package-visible method
+	void saveFileOnCounterpart(final byte[] content) {
+		internal_runOnCounterpart(
+			new ChainedNode(Protocol.SAVE_FILE_HEADER, new Node(new String(content, StandardCharsets.UTF_8)))
+		);
 	}
 	
 	//package-visible method
