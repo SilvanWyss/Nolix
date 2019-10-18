@@ -83,6 +83,10 @@ public final class MultiProperty<V> extends DataPropertyoid<V> implements Cleara
 	
 	//method
 	@Override
+	public void supposeCanBeSaved() {}
+	
+	//method
+	@Override
 	protected void internal_clear() {
 		values.clear();
 	}

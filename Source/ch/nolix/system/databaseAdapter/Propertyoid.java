@@ -140,6 +140,9 @@ public abstract class Propertyoid<V> implements Headered, IElement {
 	public abstract boolean references(final Entity entity);
 	
 	//abstract method
+	public abstract void supposeCanBeSaved();
+	
+	//abstract method
 	protected abstract void internal_clear();
 	
 	//abstract method

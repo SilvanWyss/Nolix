@@ -69,6 +69,10 @@ public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 	
 	//method
 	@Override
+	public void supposeCanBeSaved() {}
+	
+	//method
+	@Override
 	protected void internal_clear() {
 		
 		referencedEntityIds.clear();

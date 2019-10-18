@@ -33,6 +33,10 @@ implements Clearable<OptionalReference<E>> {
 	
 	//method
 	@Override
+	public void supposeCanBeSaved() {}
+	
+	//method
+	@Override
 	protected final List<Object> internal_getValues() {
 		
 		final var values = new List<Object>();

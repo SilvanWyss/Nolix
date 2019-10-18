@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own import
+//own imports
 import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 
 //class
 public final class Reference<E extends Entity> extends SingleReference<E> {
@@ -17,6 +18,14 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	@Override
 	public boolean isOptional() {
 		return false;
+	}
+	
+	//method
+	@Override
+	public void supposeCanBeSaved() {
+		if (isEmpty()) {
+			throw new EmptyArgumentException(this);
+		}
 	}
 	
 	//method

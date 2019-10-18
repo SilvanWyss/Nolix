@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own import
+import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
+
 //class
 public final class Property<V> extends SingleProperty<V> {
 	
@@ -14,5 +17,13 @@ public final class Property<V> extends SingleProperty<V> {
 	@Override
 	public boolean isOptional() {
 		return false;
+	}
+	
+	//method
+	@Override
+	public void supposeCanBeSaved() {
+		if (isEmpty()) {
+			throw new EmptyArgumentException(this);
+		}
 	}
 }

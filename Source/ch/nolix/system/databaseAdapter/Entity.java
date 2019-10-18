@@ -315,6 +315,11 @@ public class Entity implements OptionalIdentified, IElement {
 		this.id = id;
 	}
 	
+	//method
+	public final void supposeCanBeSaved() {
+		getRefProperties().forEach(Propertyoid::supposeCanBeSaved);
+	}
+	
 	//package-visible method
 	final void setEdited() {
 		switch (getState()) {

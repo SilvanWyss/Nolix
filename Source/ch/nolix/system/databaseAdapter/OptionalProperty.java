@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own import
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
-public class OptionalProperty<V>
-extends SingleProperty<V>
-implements Clearable<OptionalProperty<V>> {
+public class OptionalProperty<V> extends SingleProperty<V> implements Clearable<OptionalProperty<V>> {
 
 	//method
 	@Override
@@ -22,10 +21,14 @@ implements Clearable<OptionalProperty<V>> {
 	public boolean isOptional() {
 		return true;
 	}
-
+	
 	//method
 	@Override
 	public PropertyoidType<V> getPropertyType() {
 		return new OptionalPropertyType<>(getValueClass());
 	}
+	
+	//method
+	@Override
+	public void supposeCanBeSaved() {}
 }

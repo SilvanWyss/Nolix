@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
@@ -80,6 +81,8 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	//method
 	@Override
 	protected void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {
+		
+		mutatedEntitiesInOrder.forEach(Entity::supposeCanBeSaved);
 		
 		final var newEntities =
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isNew());
