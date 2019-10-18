@@ -9,6 +9,7 @@ OpenAL64.dll
 /Javadoc/
 
 #Eclipse
+*.classpath
 /.settings/
 
 #data files
