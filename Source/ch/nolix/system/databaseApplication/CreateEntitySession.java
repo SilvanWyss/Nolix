@@ -5,6 +5,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
+import ch.nolix.element.widgets.DropdownMenu;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.TextBox;
@@ -99,22 +100,17 @@ public final class CreateEntitySession extends HeaderedSession {
 						rowIndex,
 						1,
 						new Label(p.getHeader())
-						.setName(referenceProperty.getHeader())
 					);
 					
-					dataGrid.setWidget(
-						rowIndex,
-						2,
-						new HorizontalStack(
-							new Button()
-							.setRole(ButtonRole.LinkButton)
-							.setName(referenceProperty.getHeader() + "LinkButton"),
-							new Button("Select")
-							.setLeftMouseButtonPressCommand(
-							 () -> openReferencePropertySession(referenceProperty.getHeader())
-							)
-						)
+					final var dropdownMenu = new DropdownMenu();
+					dropdownMenu.setSelectCommand(
+						i -> referenceProperty.set(referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
 					);
+					for (final var e : referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
+						dropdownMenu.addItem(e.getIdAsString(), e.getIdAsString());
+					}
+					
+					dataGrid.setWidget(rowIndex, 2, dropdownMenu);
 					
 					rowIndex++;
 					
@@ -159,18 +155,5 @@ public final class CreateEntitySession extends HeaderedSession {
 	//method
 	private EntitySet<Entity> getRefEntitySet() {
 		return getRefDatabaseAdapter().getRefEntitySet(entitySetName);
-	}
-	
-	//method
-	private void openReferencePropertySession(final String referencePropertyHeader) {
-		
-		final var referenceProperty = 
-		(Reference<Entity>)newEntity
-		.getRefProperties()
-		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
-		
-		final Button label = getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
-		final var referencedId = pushAndGetResult(new ReferencePropertySession(referenceProperty), Integer.class);
-		label.setText(String.valueOf(referencedId));
 	}
 }

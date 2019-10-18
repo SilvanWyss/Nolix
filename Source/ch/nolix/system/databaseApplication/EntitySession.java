@@ -10,6 +10,7 @@ import ch.nolix.element.containerWidgets.TabContainer;
 import ch.nolix.element.containerWidgets.TabContainerTab;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
+import ch.nolix.element.widgets.DropdownMenu;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.TextBox;
@@ -129,25 +130,20 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						1,
 						new Label(p.getHeader())
-						.setName(referenceProperty.getHeader())
 					);
 					
-					dataGrid.setWidget(
-						rowIndex,
-						2,
-						new HorizontalStack(
-							new Button(referenceProperty.getRefEntity().getIdAsString())
-							.setRole(ButtonRole.LinkButton)
-							.setName(referenceProperty.getHeader() + "LinkButton")
-							.setLeftMouseButtonPressCommand(
-								() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
-							),
-							new Button("Select")
-							.setLeftMouseButtonPressCommand(
-								() -> openReferencePropertySession(referenceProperty.getHeader())
-							)
-						)
+					final var dropdownMenu = new DropdownMenu();
+					
+					dropdownMenu.setSelectCommand(
+						i -> referenceProperty.set(referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
 					);
+					
+					for (final var e : referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
+						dropdownMenu.addItem(e.getIdAsString(), e.getIdAsString());
+					}
+					dropdownMenu.selectItemById(String.valueOf(referenceProperty.getReferencedEntityId()));
+					
+					dataGrid.setWidget(rowIndex, 2, dropdownMenu);
 					
 					rowIndex++;
 					
@@ -213,30 +209,6 @@ public final class EntitySession extends HeaderedSession {
 	//method
 	private void openEntitySetSession() {
 		push(new EntitySetSession(entitySetName));
-	}
-	
-	//method
-	private void openEntitySession(final String entitySetName, final long entityId) {
-		push(new EntitySession(entitySetName, entityId));
-	}
-	
-	//method
-	private void openReferencePropertySession(final String referencePropertyHeader) {
-		
-		//TODO
-//		final var referenceProperty = 
-//		(Reference<Entity>)getRefEntity()
-//		.getRefProperties()
-//		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
-		
-		
-//		push(
-//			new ReferencePropertySession(referenceProperty),
-//			() -> {
-//				final Button label = internal_getRefGUI().getRefWidgetByName(referencePropertyHeader + "LinkButton");
-//				label.setText(String.valueOf(referenceProperty.getEntity().getId()));
-//			}
-//		);
 	}
 	
 	//method

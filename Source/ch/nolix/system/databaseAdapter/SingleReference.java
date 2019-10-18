@@ -30,6 +30,14 @@ public abstract class SingleReference<E extends Entity> extends Referenceoid<E> 
 	}
 	
 	//method
+	public final long getReferencedEntityId() {
+		
+		supposeReferencesEntity();
+		
+		return referencedEntityId;
+	}
+	
+	//method
 	public abstract boolean isOptional();
 	
 	//method
@@ -56,14 +64,6 @@ public abstract class SingleReference<E extends Entity> extends Referenceoid<E> 
 			setValue(entity.getId());
 			internal_noteUpdate();
 		}
-	}
-	
-	//method
-	protected final long getReferencedEntityId() {
-		
-		supposeReferencesEntity();
-		
-		return referencedEntityId;
 	}
 	
 	//method
