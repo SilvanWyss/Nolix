@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
@@ -235,6 +236,9 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				break;
 			case Protocol.SAVE_FILE_HEADER:
 				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
+				break;
+			case Protocol.SHOW_ERROR_MESSAGE_HEADER:
+				PopupWindowProvider.showErrorWindow(command.getOneAttributeAsString());
 				break;
 			default:
 				
