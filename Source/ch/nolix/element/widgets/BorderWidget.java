@@ -1260,7 +1260,7 @@ extends Widget<BW, BWL> {
 	 */
 	@Override
 	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
-		return (isEnabled() && viewAreaIsUnderCursor());
+		return (isEnabled() && (!hasAnyScrollbar() || viewAreaIsUnderCursor()));
 	}
 
 	//method
