@@ -141,7 +141,11 @@ public class Entity implements OptionalIdentified, IElement {
 		return backReferences;
 	}
 	
-
+	//method
+	@SuppressWarnings("unchecked")
+	public final IContainer<MultiReference<Entity>> getRefMultiReferences() {
+		return getRefProperties().getRefOfType(MultiReference.class);
+	}
 	
 	//method
 	public final IContainer<Propertyoid<Entity>> getRefProperties() {
