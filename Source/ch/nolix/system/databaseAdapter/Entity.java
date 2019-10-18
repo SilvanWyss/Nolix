@@ -207,7 +207,7 @@ public class Entity implements OptionalIdentified, IElement {
 		final var backReference = getRefBackReferenceForOrNull(reference);
 		
 		if (backReference == null) {
-			return false;
+			return true;
 		}
 		
 		if (backReference.canReferenceBackSeveralEntities()) {
