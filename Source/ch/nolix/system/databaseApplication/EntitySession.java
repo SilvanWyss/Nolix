@@ -2,10 +2,12 @@
 package ch.nolix.system.databaseApplication;
 
 //own imports
+import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.containerWidgets.TabContainer;
+import ch.nolix.element.containerWidgets.TabContainerTab;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
 import ch.nolix.element.widgets.HorizontalStack;
@@ -105,14 +107,14 @@ public final class EntitySession extends HeaderedSession {
 					
 					dataGrid.setWidget(rowIndex, 1,	new Label(p.getHeader()));
 					
-					if (optionalProperty.hasValue()) {
-						dataGrid.setWidget(
-							rowIndex,
-							2,
-							new TextBox(optionalProperty.getValue().toString())
-							.setName(optionalProperty.getHeader())
-						);
-					}
+					final var value =
+					optionalProperty.isEmpty() ? StringCatalogue.EMPTY_STRING : optionalProperty.getValue().toString();
+					dataGrid.setWidget(
+						rowIndex,
+						2,
+						new TextBox(value)
+						.setName(optionalProperty.getHeader())
+					);
 					
 					rowIndex++;
 					
@@ -179,7 +181,21 @@ public final class EntitySession extends HeaderedSession {
 		
 		final var referenceDataTabContainer = new TabContainer();
 		
-		//TODO: Fill up reference data tab container.
+		for (final var mr : getRefEntity().getRefMultiReferences()) {
+			
+			final var multiReferenceHorizontalStack = new HorizontalStack();
+			for (final var e : mr.getRefEntities()) {
+				final var entitySetName = e.getParentEntitySet().getName();
+				final var entityId = e.getId();
+				multiReferenceHorizontalStack.addWidget(
+					new Button(e.getIdAsString())
+					.setLeftMouseButtonPressCommand(() -> push(new EntitySession(entitySetName, entityId)))
+				);
+			}
+			final var tab = new TabContainerTab(mr.getHeader(), multiReferenceHorizontalStack);
+			
+			referenceDataTabContainer.addTab(tab);
+		}
 		
 		return referenceDataTabContainer;
 	}
