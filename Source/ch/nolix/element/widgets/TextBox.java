@@ -14,7 +14,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 340
+ * @lines 350
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
@@ -64,6 +64,14 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		interactionAttributes.addAtEnd(getTextSpecification());
 		
 		return interactionAttributes;
+	}
+	
+	//method
+	/**
+	 * @return the width of the text cursor of the current {@link TextBox}.
+	 */
+	public int getTextCursorWidth() {
+		return Calculator.getMax(1, (int)(0.08 * getRefLook().getRecursiveOrDefaultTextSize()));
 	}
 	
 	//method
@@ -251,7 +259,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 			painter.paintFilledRectangle(
 				getTextCursorXPositionOnContentArea(),
 				0,
-				1,
+				getTextCursorWidth(),
 				(int)(1.2 * textBoxLook.getRecursiveOrDefaultTextSize())
 			);
 		}
@@ -309,7 +317,12 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @return the x-position of the text cursor of the current {@link TextBox} on the content area.
 	 */
 	private final int getTextCursorXPositionOnContentArea() {
-		return getTextFormat().getSwingTextWidth(getTextBeforeTextCursor());
+		
+		if (getTextBeforeTextCursor().isEmpty()) {
+			return 2;
+		}
+		
+		return getTextFormat().getSwingTextWidth(getTextBeforeTextCursor()) - getTextCursorWidth() / 2;
 	}
 	
 	//method
