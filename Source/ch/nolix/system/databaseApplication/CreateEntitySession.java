@@ -147,9 +147,13 @@ public final class CreateEntitySession extends HeaderedSession {
 			}
 		}
 		
-		getRefDatabaseAdapter().saveChanges();
-		
-		pop();
+		try {
+			getRefDatabaseAdapter().saveChanges();
+			pop();
+		}
+		catch (final Exception exception) {
+			getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
+		}
 	}
 	
 	//method

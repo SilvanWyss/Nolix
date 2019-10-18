@@ -274,8 +274,12 @@ public final class EntitySession extends HeaderedSession {
 			}
 		}
 		
-		getRefDatabaseAdapter().saveChanges();
-		
-		push(new MessageSession("The changes have been changed."));
+		try {
+			getRefDatabaseAdapter().saveChanges();
+			setNext(new MessageSession("The changes have been saved."));
+		}
+		catch (final Exception exception) {
+			getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
+		}
 	}
 }
