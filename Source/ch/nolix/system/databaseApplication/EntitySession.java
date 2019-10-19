@@ -8,12 +8,15 @@ import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.containerWidgets.TabContainer;
 import ch.nolix.element.containerWidgets.TabContainerTab;
+import ch.nolix.element.image.Image;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
 import ch.nolix.element.widgets.DropdownMenu;
 import ch.nolix.element.widgets.HorizontalStack;
+import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.TextBox;
+import ch.nolix.element.widgets.Uploader;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySet;
@@ -107,6 +110,28 @@ public final class EntitySession extends HeaderedSession {
 					final var optionalProperty = (OptionalProperty<?>)p;
 					
 					dataGrid.setWidget(rowIndex, 1,	new Label(p.getHeader()));
+					
+					//TODO
+					if (optionalProperty.getValueClass() == Image.class) {				
+						
+						if (optionalProperty.hasValue()) {
+							dataGrid.setWidget(rowIndex, 2, new ImageWidget((Image)optionalProperty.getValue()));
+						}
+						
+						dataGrid.setWidget(
+							rowIndex,
+							3,
+							new Uploader().setLeftMouseButtonPressCommand(
+								() -> {
+									final Object image = Image.fromBytes(getRefGUI().onFrontEnd().readFile());
+									optionalProperty.setValueUnsafe(image);
+								}
+							)
+						);
+						
+						rowIndex++;
+						break;
+					}
 					
 					final var value =
 					optionalProperty.isEmpty() ? StringCatalogue.EMPTY_STRING : optionalProperty.getValue().toString();

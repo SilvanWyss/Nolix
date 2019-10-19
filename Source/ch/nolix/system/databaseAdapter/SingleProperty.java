@@ -24,7 +24,8 @@ public abstract class SingleProperty<V> extends DataPropertyoid<V> {
 			return new Node();
 		}
 		
-		return new Node(value.toString());
+		//return new Node(value.toString());
+		return Node.fromString(value.toString());
 	}
 	
 	//method
@@ -75,6 +76,13 @@ public abstract class SingleProperty<V> extends DataPropertyoid<V> {
 		this.value = value;
 		
 		internal_noteUpdate();
+	}
+	
+	//TODO
+	//method
+	@SuppressWarnings("unchecked")
+	public final void setValueUnsafe(final Object value) {
+		this.value = (V)value;
 	}
 	
 	//method
