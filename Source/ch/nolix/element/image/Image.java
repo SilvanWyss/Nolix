@@ -35,13 +35,13 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
 	//TODO
-	//method
+	//static method
 	public static Image fromBytes(final byte[] bytes) {
 		try {
 			
 			final var path = "tempImage" + System.currentTimeMillis();
 			FileSystemAccessor.createFile(path).overwriteFile(bytes);			
-			var bufferedImage = ImageIO.read(new File(path));
+			final var bufferedImage = ImageIO.read(new File(path));
 			FileSystemAccessor.deleteFileSystemItem(path);
 			
 			return fromBufferedImage(bufferedImage);
@@ -52,7 +52,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//TODO
-	//method
+	//static method
 	public static Image fromBufferedImage(final BufferedImage bufferedImage) {
 		
 		final var image = new Image(bufferedImage.getWidth(), bufferedImage.getHeight());
@@ -65,6 +65,20 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		}
 		
 		return image;
+	}
+	
+	//TODO
+	//static method
+	public static Image fromFile(final String path) {
+		try {		
+			final var bufferedImage = ImageIO.read(new File(path));
+			FileSystemAccessor.deleteFileSystemItem(path);
+			
+			return fromBufferedImage(bufferedImage);
+			
+		} catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
 	}
 	
 	//TODO
