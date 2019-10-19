@@ -70,9 +70,9 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//TODO
 	//static method
 	public static Image fromFile(final String path) {
-		try {		
+		try {
+			
 			final var bufferedImage = ImageIO.read(new File(path));
-			FileSystemAccessor.deleteFileSystemItem(path);
 			
 			return fromBufferedImage(bufferedImage);
 			
