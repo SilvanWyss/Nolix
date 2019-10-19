@@ -15,6 +15,7 @@ import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -32,6 +33,39 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
+	
+	//TODO
+	//method
+	public static Image fromBytes(final byte[] bytes) {
+		try {
+			
+			final var path = "tempImage" + System.currentTimeMillis();
+			FileSystemAccessor.createFile(path).overwriteFile(bytes);			
+			var bufferedImage = ImageIO.read(new File(path));
+			FileSystemAccessor.deleteFileSystemItem(path);
+			
+			return fromBufferedImage(bufferedImage);
+			
+		} catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
+	}
+	
+	//TODO
+	//method
+	public static Image fromBufferedImage(final BufferedImage bufferedImage) {
+		
+		final var image = new Image(bufferedImage.getWidth(), bufferedImage.getHeight());
+		
+		for (var i = 1; i <= image.getWidth(); i++) {
+			for (var j = 1; j <= image.getHeight(); j++) {
+				final var pixel = bufferedImage.getRGB(i - 1, j - 1);
+				image.setPixel(i, j, new Color((pixel>>16) & 0xff, (pixel>>8) & 0xff, pixel & 0xFF, (pixel>>24) & 0xff));
+			}
+		}
+		
+		return image;
+	}
 	
 	//static method
 	public static Image fromSpecification(final BaseNode specification) {
