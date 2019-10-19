@@ -311,7 +311,12 @@ public final class EntitySession extends HeaderedSession {
 			setNext(new MessageSession("The changes have been saved."));
 		}
 		catch (final Exception exception) {
-			getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
+			if (exception.getMessage() == null) {
+				getParentClient().showErrorMessageOnCounterpart("An error occured.");
+			}
+			else {
+				getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
+			}
 		}
 	}
 }
