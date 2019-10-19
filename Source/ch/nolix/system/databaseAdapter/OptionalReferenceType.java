@@ -12,7 +12,7 @@ public final class OptionalReferenceType<E extends Entity> extends SingleReferen
 	//method
 	@Override
 	public final PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_REFERENCE;
+		return PropertyKind.OPTIONAL_REFERENCE;
 	}
 	
 	//method

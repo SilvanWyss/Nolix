@@ -21,8 +21,8 @@ implements Clearable<OptionalReference<E>> {
 	
 	//method
 	@Override
-	public OptionalPropertyType<E> getPropertyType() {
-		return new OptionalPropertyType<>(getValueClass());
+	public OptionalReferenceType<E> getPropertyType() {
+		return new OptionalReferenceType<E>(getValueClass());
 	}
 
 	//method

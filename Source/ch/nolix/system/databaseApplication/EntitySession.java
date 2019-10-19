@@ -21,6 +21,7 @@ import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.databaseAdapter.OptionalProperty;
+import ch.nolix.system.databaseAdapter.OptionalReference;
 import ch.nolix.system.databaseAdapter.Property;
 import ch.nolix.system.databaseAdapter.Reference;
 
@@ -173,6 +174,35 @@ public final class EntitySession extends HeaderedSession {
 					rowIndex++;
 					
 					break;
+				case OPTIONAL_REFERENCE:
+					
+					final var optionalReferenceProperty = (OptionalReference<Entity>)p;
+					
+					dataGrid
+					.setWidget(
+						rowIndex,
+						1,
+						new Label(p.getHeader())
+					);
+					
+					final var dropdownMenu2 = new DropdownMenu();
+					
+					dropdownMenu2.setSelectCommand(
+						i -> optionalReferenceProperty.set(optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
+					);
+					
+					for (final var e : optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
+						dropdownMenu2.addItem(e.getIdAsString(), e.getIdAsString());
+					}
+					if (optionalReferenceProperty.containsAny()) {
+						dropdownMenu2.selectItemById(String.valueOf(optionalReferenceProperty.getReferencedEntityId()));
+					}
+					
+					dataGrid.setWidget(rowIndex, 2, dropdownMenu2);
+					
+					rowIndex++;
+					
+					break;
 				default:
 					break;
 			}
@@ -255,6 +285,11 @@ public final class EntitySession extends HeaderedSession {
 				case OPTIONAL_DATA:
 					
 					final var optionalProperty = (OptionalProperty<?>)p;
+					
+					//TODO
+					if (optionalProperty.getValueClass() == Image.class) {
+						break;
+					}
 					
 					final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetByName(p.getHeader());
 					
