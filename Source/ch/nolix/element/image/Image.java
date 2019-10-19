@@ -67,13 +67,14 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		return image;
 	}
 	
+	//TODO
 	//static method
 	public static Image fromSpecification(final BaseNode specification) {
 		
 		final var image =
 		new Image(
-			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.WIDTH)).toInt(),
-			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.HEIGHT)).toInt()
+			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.WIDTH)).getOneAttributeAsInt(),
+			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.HEIGHT)).getOneAttributeAsInt()
 		);
 		
 		image.addOrChangeAttribute(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
@@ -152,7 +153,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
-				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(a)));
+				//TODO
+				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(Node.withOneAttribute(a))));
 				break;
 			default:
 				super.addOrChangeAttribute(attribute);
