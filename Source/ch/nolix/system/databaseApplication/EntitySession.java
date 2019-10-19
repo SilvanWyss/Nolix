@@ -46,6 +46,10 @@ public final class EntitySession extends HeaderedSession {
 	protected List<Button> createLinkButtons() {
 		return new List<>(
 			new Button()
+			.setText("<--")
+			.setRole(ButtonRole.LinkButton)
+			.setLeftMouseButtonReleaseCommand(() -> pop()),
+			new Button()
 			.setText(entitySetName)
 			.setRole(ButtonRole.LinkButton)
 			.setLeftMouseButtonPressCommand(() -> openEntitySetSession())
