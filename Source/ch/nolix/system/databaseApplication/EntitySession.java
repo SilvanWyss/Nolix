@@ -185,20 +185,23 @@ public final class EntitySession extends HeaderedSession {
 						new Label(p.getHeader())
 					);
 					
-					final var dropdownMenu2 = new DropdownMenu();
+					if (optionalReferenceProperty.getRefEntitySetOfReferencedEntities().containsAny()) {
 					
-					dropdownMenu2.setSelectCommand(
-						i -> optionalReferenceProperty.set(optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
-					);
-					
-					for (final var e : optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-						dropdownMenu2.addItem(e.getIdAsString(), e.getIdAsString());
+						final var dropdownMenu2 = new DropdownMenu();
+						
+						dropdownMenu2.setSelectCommand(
+							i -> optionalReferenceProperty.set(optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
+						);
+						
+						for (final var e : optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
+							dropdownMenu2.addItem(e.getIdAsString(), e.getIdAsString());
+						}
+						if (optionalReferenceProperty.containsAny()) {
+							dropdownMenu2.selectItemById(String.valueOf(optionalReferenceProperty.getReferencedEntityId()));
+						}
+						
+						dataGrid.setWidget(rowIndex, 2, dropdownMenu2);
 					}
-					if (optionalReferenceProperty.containsAny()) {
-						dropdownMenu2.selectItemById(String.valueOf(optionalReferenceProperty.getReferencedEntityId()));
-					}
-					
-					dataGrid.setWidget(rowIndex, 2, dropdownMenu2);
 					
 					rowIndex++;
 					
