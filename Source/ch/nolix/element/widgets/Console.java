@@ -291,52 +291,6 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void noteKeyTypingWhenEnabled(final Key key) {
-		
-		//Calls method of the base class.
-		super.noteKeyTypingWhenEnabled(key);
-		
-		//Handles the case that the current Console is focues.
-		if (isFocused()) {
-		
-			//Enumerates the given key.
-			switch (key) {
-				case SPACE:
-					insertCharacterAfterCursor(CharacterCatalogue.SPACE);
-					break;
-				case ENTER:
-					noteEnter();
-					break;
-				case ARROW_LEFT:
-					moveTextCursorPositionToLeft();
-					break;
-				case ARROW_RIGHT:
-					moveTextCursorPositionToRight();
-					break;
-				case BACKSPACE:
-					deleteCharacterBeforeTextCursor();
-					break;
-				case DELETE:
-					deleteCharacterAfterTextCursor();
-					break;
-				default:
-					if (key.isCharacter()) {
-						if (getRefGUI().isPressed(Key.SHIFT) ^ getRefGUI().shiftIsLocked()) {
-							insertCharacterAfterCursor(key.toUpperCaseChar());	
-						}
-						else {
-							insertCharacterAfterCursor(key.toLowerCaseChar());
-						}
-					}
-			}
-		}
-	}
-	
-	//method
-	/**
 	 * Reads the next character from this console. 
 	 * Attention: Clears the edit line of this console.
 	 * Attention: Lasts until this console receives a character.
@@ -704,6 +658,52 @@ implements Clearable<Console> {
 					2,
 					font.getTextSize()
 				);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressWhenEnabled(final Key key) {
+		
+		//Calls method of the base class.
+		super.noteKeyPressWhenEnabled(key);
+		
+		//Handles the case that the current Console is focues.
+		if (isFocused()) {
+		
+			//Enumerates the given key.
+			switch (key) {
+				case SPACE:
+					insertCharacterAfterCursor(CharacterCatalogue.SPACE);
+					break;
+				case ENTER:
+					noteEnter();
+					break;
+				case ARROW_LEFT:
+					moveTextCursorPositionToLeft();
+					break;
+				case ARROW_RIGHT:
+					moveTextCursorPositionToRight();
+					break;
+				case BACKSPACE:
+					deleteCharacterBeforeTextCursor();
+					break;
+				case DELETE:
+					deleteCharacterAfterTextCursor();
+					break;
+				default:
+					if (key.isCharacter()) {
+						if (getRefGUI().isPressed(Key.SHIFT) ^ getRefGUI().shiftIsLocked()) {
+							insertCharacterAfterCursor(key.toUpperCaseChar());	
+						}
+						else {
+							insertCharacterAfterCursor(key.toLowerCaseChar());
+						}
+					}
+			}
 		}
 	}
 	
