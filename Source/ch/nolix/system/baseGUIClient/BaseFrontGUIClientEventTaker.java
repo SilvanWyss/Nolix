@@ -76,7 +76,7 @@ final class BaseFrontGUIClientEventTaker implements IEventTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonPress() {
-		parentFrontGuiClientoid.noteLeftMOuseButtonPressOnCounterpart();		
+		parentFrontGuiClientoid.noteLeftMouseButtonPressOnCounterpart();		
 	}
 	
 	//method

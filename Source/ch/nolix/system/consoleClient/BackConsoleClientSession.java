@@ -1,133 +1,173 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//own import
-import ch.nolix.system.client.Session;
+import ch.nolix.element.configuration.StandardConfiguration;
+//own imports
+import ch.nolix.element.containerWidgets.ContainerRole;
+import ch.nolix.element.widgets.Console;
+import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.system.baseGUIClient.BaseBackGUIClientSession;
+import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 130
+ * @lines 160
  */
-public abstract class BackConsoleClientSession extends Session<BackConsoleClient> {
-
-	//method
-	/**
-	 * Clears the console
-	 * of the counterpart of the client of this console back client session.
-	 */
-	public final void clearConsole() {
-		getParentClient().clearConsole();
+public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
+	
+	//attributes
+	private final Console infoPanel = new Console().setUneditable();
+	private final Console console = new Console().setFocused();
+	
+	//constructor
+	public BackConsoleClientSession() {
+		getRefGUI().addLayerOnTop(
+			new VerticalStack(
+				infoPanel,
+				console
+			)
+			.setRole(ContainerRole.MainContainer)
+		)
+		.setConfiguration(new GreyBlueFrontConsoleClientLook());
 	}
 	
 	//method
 	/**
-	 * Clears the info panel
-	 * of the counterpart of the client of this console back client session.
+	 * Clears the console of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final void clearInfoPanel() {
-		getParentClient().clearInfoPanel();
+	public final BackConsoleClientSession clearConsole() {
+		
+		console.clear();
+		updateCounterpart();
+		
+		return this;
 	}
 	
 	//method
 	/**
-	 * @return the next character from the console
-	 * of the counterpart of the client of this console back client session.
+	 * Clears the info panel of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @return the current {@link BackConsoleClientSession}.
+	 */
+	public final BackConsoleClientSession clearInfoPanel() {
+		
+		infoPanel.clear();
+		updateCounterpart();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return the next character from the console of the current {@link BackConsoleClientSession}.
 	 */
 	public final char readCharacterFromConsole() {
-		return getParentClient().readCharacterFromConsole();
+		return console.readCharacter();
 	}
 	
 	//method
 	/**
-	 * Reads the next enter from the console
-	 * of the counterpart of the client of this console back client session.
+	 * Reads the next enter from the console of the current {@link BackConsoleClientSession}.
 	 */
 	public void readEnterFromConsole() {
-		getParentClient().readEnterFromConsole();
+		console.readEnter();
 	}
 	
 	//method
 	/**
-	 * @return the next line from the console
-	 * of the counterpart of the client of this console back client session.
+	 * @return the next line from the console of the current {@link BackConsoleClientSession}.
 	 */
 	public final String readLineFromConsole() {
-		return getParentClient().readLineFromConsole();
+		return console.readLine();
 	}
 	
 	//method
 	/**
-	 * @return the next line, that is not empty, from the console
-	 * of the counterpart of the client of this console back client session.
+	 * @return the next line, that is not empty, from the console of the current {@link BackConsoleClientSession}.
 	 */
 	public final String readNonEmptyLineFromConsole() {
-		return getParentClient().readNonEmptyLineFromConsole();
+		return console.readNonEmptyLine();
 	}
 	
-	//method
-	/**
-	 * Sets the title of the console
-	 * of the counterpart of the client of this console back client session.
-	 * 
-	 * @param title
-	 */
-	public final void setTitle(final String title) {
-		getParentClient().setTitle(title);
-	}
-	
-	//method
-	/**
-	 * Writes the given line to the console
-	 * of the counterpart of the client of this console back client session.
-	 * 
-	 * @param line
-	 */
-	public final void writeLineToConsole(final String line) {
-		getParentClient().writeLineToConsole(line);
-	}
-	
-	//method
-	/**
-	 * Writes the given lines to the console
-	 * of the counterpart of the client of this console back client session.
-	 * 
-	 * @param lines
-	 */
-	public final void writeLineToConsole(final String... lines) {
-		getParentClient().writeLineToConsole(lines);
-	}
-	
-	//method
-	/**
-	 * Writes the given line to the info panel
-	 * of the counterpart of the client of this console back client session.
-	 * 
-	 * @param line
-	 * @return this console back client session.
-	 */
-	public final void writeLineToInfoPanel(final String line) {
-		getParentClient().writeLineToInfoPanel(line);
-	}
-	
-	//method
-	/**
-	 * Writes the given lines to the info panel
-	 * of the counterpart of the client of this console back client session.
-	 * 
-	 * @param lines
-	 */
-	public final void writeNextLineToInfoPanel(final String... lines) {
-		getParentClient().writeLineToInfoPanel(lines);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void updateCounterpart() {
+	public void setLook(StandardConfiguration look) {
 		//TODO
+	}
+	
+	//method
+	/**
+	 * Writes an empty line to the console of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @return the current {@link BackConsoleClientSession}.
+	 */
+	public final BackConsoleClientSession writeEmptyLineToConsole() {
+		
+		console.writeEmptyLine();
+		updateCounterpart();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given line to the console of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @param line
+	 * @return the current {@link BackConsoleClientSession}.
+	 */
+	public final BackConsoleClientSession writeLineToConsole(final String line) {
+		
+		console.writeLine(line);
+		updateCounterpart();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given lines to the console of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @param lines
+	 * @return the current {@link BackConsoleClientSession}.
+	 */
+	public final BackConsoleClientSession writeLineToConsole(final String... lines) {
+		
+		console.writeLine(lines);
+		updateCounterpart();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given line to the info panel of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @param line
+	 * @return the current {@link BackConsoleClientSession}.
+	 */
+	public final BackConsoleClientSession writeLineToInfoPanel(final String line) {
+		
+		infoPanel.writeLine(line);
+		updateCounterpart();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given lines to the info panel of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @param lines
+	 * @return the current {@link BackConsoleClientSession}.
+	 */
+	public final BackConsoleClientSession writeLineToInfoPanel(final String... lines) {
+		
+		infoPanel.writeLine(lines);
+		updateCounterpart();
+		
+		return this;
 	}
 }

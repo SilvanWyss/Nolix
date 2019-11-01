@@ -14,7 +14,6 @@ import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
-import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 
 //abstract class
@@ -204,7 +203,8 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private InvisibleLayerGUI getRefGUI() {
 		
-		final var session = (BackGUIClientSession)internal_getRefCurrentSession();
+		@SuppressWarnings("rawtypes")
+		final var session = (BaseBackGUIClientSession)internal_getRefCurrentSession();
 		
 		return session.getRefGUI();
 	}

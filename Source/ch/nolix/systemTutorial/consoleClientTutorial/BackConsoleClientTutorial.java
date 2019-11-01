@@ -50,31 +50,31 @@ public final class BackConsoleClientTutorial {
 		@Override
 		public void initialize() {
 			
-			getParentClient().setDesign(new BlackRedFrontConsoleClientLook());
+			setLook(new BlackRedFrontConsoleClientLook());
 			
-			getParentClient().writeLineToInfoPanel(
+			writeLineToInfoPanel(
 				"This is the info panel of the console.",
 				"On the info panel informatiosn can be displayed.",
 				"The info panel cannot be edited."
 			);
 			
-			getParentClient().writeLineToConsole("Enter your name.");
-			final String name = getParentClient().readLineFromConsole();
-			getParentClient().writeLineToConsole("Hello " + name + ".");
+			writeLineToConsole("Enter your name.");
+			final String name = readLineFromConsole();
+			writeLineToConsole("Hello " + name + ".");
 						
 			boolean answerIsValid = false;
 			do {
 				
-				getParentClient().writeLineToConsole("Are you fine? Press y for yes, press n for no.");
+				writeLineToConsole("Are you fine? Press y for yes, press n for no.");
 				
-				switch (getParentClient().readCharacterFromConsole()) {
+				switch (readCharacterFromConsole()) {
 					case 'y':
 						answerIsValid = true;
-						getParentClient().writeLineToConsole("Oh good!");
+						writeLineToConsole("Oh good!");
 						break;
 					case 'n':
 						answerIsValid = true;
-						getParentClient().writeLineToConsole("Oh sad!");
+						writeLineToConsole("Oh sad!");
 						break;
 					default:
 				}
@@ -82,12 +82,11 @@ public final class BackConsoleClientTutorial {
 			
 			Sequencer.waitForASecond();
 			
-			getParentClient()
-			.writeEmptyLineToConsole()
-			.writeLineToConsole("Press enter to quit the program.")
-			.readEnterFromConsole();
+			writeEmptyLineToConsole();
+			writeLineToConsole("Press enter to quit the program.");
+			readEnterFromConsole();
 			
-			getParentClient().quit();
+			getParentClient().close();
 		}
 	}
 	

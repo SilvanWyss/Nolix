@@ -105,7 +105,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	/**
 	 * {@inheritDoc}
 	 */
-	public final void noteLeftMOuseButtonPressOnCounterpart() {
+	public final void noteLeftMouseButtonPressOnCounterpart() {
 		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER);
 	}
 	
