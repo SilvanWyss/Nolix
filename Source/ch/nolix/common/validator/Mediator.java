@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.common.validator;
 
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
+//own imports
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //package-visible abstract class
 /**
- * A mediator is not mutable.
+ * A {@link Mediator} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-11
@@ -14,17 +15,17 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 abstract class Mediator {
 	
-	//default argument name
-	private static final String DEFAULT_ARGUMENT_NAME = "Argument";
+	//default value
+	public static final String DEFAULT_ARGUMENT_NAME = "Argument";
 	
 	//attribute
 	private final String argumentName;
 	
 	//constructor
 	/**
-	 * Creates a new mediator with a default argument name.
+	 * Creates a new {@link Mediator} with a default argument name.
 	 */
-	Mediator() {
+	public Mediator() {
 		
 		//Calls other constructor.
 		this(DEFAULT_ARGUMENT_NAME);
@@ -32,31 +33,31 @@ abstract class Mediator {
 	
 	//constructor
 	/**
-	 * Creates a new argument mediator with the given argument name.
+	 * Creates a new argument {@link Mediator} with the given argumentName.
 	 * 
 	 * @param argumentName
-	 * @throws ArgumentIsNullException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is empty.
+	 * @throws ArgumentIsNullException if the given argumentName is null.
+	 * @throws InvalidArgumentException if the given argumentName is blank.
 	 */
-	Mediator(final String argumentName) {
+	public Mediator(final String argumentName) {
 		
-		//Checks if the given argument name is not null.
+		//Checks if the given argumentName is not null.
 		if (argumentName == null) {
 			throw new ArgumentIsNullException("argument name");
 		}
 		
-		//Checks if the given argument name is not empty.
-		if (argumentName.isEmpty()) {
-			throw new EmptyArgumentException("argument name", argumentName);
+		//Checks if the given argumentName is not blank.
+		if (argumentName.isBlank()) {
+			throw new InvalidArgumentException("argument name", argumentName, "is blank");
 		}
 		
-		//Sets the argument name of this mediator.
+		//Sets the argumentName of the current Mediator.
 		this.argumentName = argumentName;
 	}
 	
 	//method
 	/**
-	 * @return the argument name of this argument mediator.
+	 * @return the argument name of the current {@link Mediator}.
 	 */
 	protected final String getArgumentName() {
 		return argumentName;
