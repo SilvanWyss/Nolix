@@ -29,7 +29,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1880
+ * @lines 1900
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1511,7 +1511,6 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public abstract boolean viewAreaIsUnderCursor();
 	
-	//TODO
 	//method
 	/**
 	 * Adds the given childWidget to the current {@link Widget}.
@@ -1521,6 +1520,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected final void addChildWidget(final Widget<?, ?> childWidget) {
 		
+		//Checks if the given childWidget is not null.
 		Validator.suppose(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		childWidget.setParent(this);
