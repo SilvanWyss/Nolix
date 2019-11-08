@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.common.HTTP;
 
-//own import
+//own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.validator.Validator;
 
 //class
 public final class HTTPRequest {
@@ -11,18 +13,34 @@ public final class HTTPRequest {
 	public static final String ACCEPT_HEADER = "Accept";
 	public static final String CONTENT_TYPE_HEADER = "Content-Type";
 	public static final String HOST_HEADER = "Host";
-	public static final String HTTP_HEADER = "HTTP";	
+	public static final String HTTP_HEADER = "HTTP";
 	
-	//TODO: Get rid of SuppressWarnings.
+	//attribute
+	private final String content;
+	
 	//static method
-	@SuppressWarnings("unchecked")
-	public static boolean canBe(final IContainer<String> lines) {
+	public static boolean canBe(final IContainer<String> lines) {	
+		return
+		lines.contains(l -> l.contains(HTTP_HEADER))
+		&& lines.contains(l -> l.contains(HOST_HEADER))
+		&& lines.contains(l -> l.contains(ACCEPT_HEADER + ": text/html"));
+	}
+	
+	//constructor
+	public HTTPRequest(final String content) {
 		
-		//TODO: Improve check.
-		return lines.containsAll(
-			l -> l.contains(HTTP_HEADER),
-			l -> l.contains(HOST_HEADER),
-			l -> l.contains(ACCEPT_HEADER + ": text/html")
-		);
+		Validator.suppose(content).thatIsNamed(VariableNameCatalogue.CONTENT).isNotBlank();
+		
+		this.content = content;
+	}
+	
+	//method
+	public String getContent() {
+		return content;
+	}
+	
+	//method
+	public String toString() {
+		return HTTP_HEADER + "\n";
 	}
 }
