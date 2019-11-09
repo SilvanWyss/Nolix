@@ -1,20 +1,20 @@
 //package declaration
-package ch.nolix.common.communicationAPI;
+package ch.nolix.common.genericCommunicationAPI;
 
 //interface
 /**
- * A {@link IGenericSender} can send messages of a certain type.
+ * A {@link ISender} can send messages of a certain type.
  * 
  * @author Silvan Wyss
  * @month 2017-06
  * @lines 30
- * @param <M> The type of the messages a {@link IGenericSender} can send.
+ * @param <M> The type of the messages a {@link ISender} can send.
  */
-public interface IGenericSender<M> {
+public interface ISender<M> {
 	
 	//abstract method
 	/**
-	 * Lets the current {@link IGenericSender} send the given message.
+	 * Lets the current {@link ISender} send the given message.
 	 * 
 	 * @param message
 	 */
@@ -22,7 +22,7 @@ public interface IGenericSender<M> {
 	
 	//default method
 	/**
-	 * Lets the current {@link IGenericSender} send the given messages.
+	 * Lets the current {@link ISender} send the given messages.
 	 * 
 	 * @param messages
 	 */

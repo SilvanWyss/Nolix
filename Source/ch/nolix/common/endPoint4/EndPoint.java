@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.common.endPoint4;
 
-import ch.nolix.common.communicationAPI.IGenericReplier;
-import ch.nolix.common.communicationAPI.IGenericReplyingSender;
+//own imports
 import ch.nolix.common.communicationAPI.IReplier;
+import ch.nolix.common.genericCommunicationAPI.IReplyingSender;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
@@ -19,13 +19,13 @@ import ch.nolix.common.validator.Validator;
  */
 public abstract class EndPoint<M, R>
 extends OptionalClosableElement
-implements IGenericReplyingSender<M, R> {
+implements IReplyingSender<M, R> {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 	
 	//optional attribute
-	private IGenericReplier<M, R> replier;
+	private ch.nolix.common.genericCommunicationAPI.IReplier<M, R> replier;
 	
 	//abstract method
 	/**
@@ -52,7 +52,7 @@ implements IGenericReplyingSender<M, R> {
 	 * @param replier
 	 * @throws ArgumentIsNullException if the given replier is null.
 	 */
-	public void setReplier(final IGenericReplier<M, R> replier) {
+	public void setReplier(final ch.nolix.common.genericCommunicationAPI.IReplier<M, R> replier) {
 		
 		//Checks if the given replier is not null.
 		Validator.suppose(replier).isOfType(IReplier.class);
@@ -69,7 +69,7 @@ implements IGenericReplyingSender<M, R> {
 	 * @return the replier of this end point.
 	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a replier.
 	 */
-	protected final IGenericReplier<M, R> getRefReplier() {
+	protected final ch.nolix.common.genericCommunicationAPI.IReplier<M, R> getRefReplier() {
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
