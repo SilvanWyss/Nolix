@@ -2,7 +2,7 @@
 package ch.nolix.common.webSocket;
 
 //own imports
-import ch.nolix.common.commonTypeWrappers.WrapperByte;
+import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -45,8 +45,8 @@ final class WebSocketFrameFirstNibble {
 	//constructor
 	public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
 		
-		final var wrapperByte1 = new WrapperByte(byte1);
-		final var wrapperByte2 = new WrapperByte(byte2);
+		final var wrapperByte1 = new ByteWrapper(byte1);
+		final var wrapperByte2 = new ByteWrapper(byte2);
 		
 		mFINBit = wrapperByte1.getBitAt(1);
 		

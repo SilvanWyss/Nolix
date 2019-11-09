@@ -2,7 +2,7 @@
 package ch.nolix.commonTest.commonTypeWrappersTest;
 
 //own imports
-import ch.nolix.common.commonTypeWrappers.WrapperByte;
+import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.test.Test;
 
 //test class
@@ -12,7 +12,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_getBitAtAsInt() {
 		
 		//setup
-		final var testUnit = new WrapperByte(0, 0, 0, 0, 0, 0, 0, 0);
+		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 0, 0, 0);
 		
 		//execution
 		final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -39,7 +39,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_getBitAtAsInt_2() {
 		
 		//setup
-		final var testUnit = new WrapperByte(0, 0, 0, 0, 0, 1, 1, 1);
+		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 1, 1, 1);
 		
 		//execution
 		final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -66,7 +66,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_getBitAtAsInt_3() {
 		
 		//setup
-		final var testUnit = new WrapperByte(1, 1, 1, 0, 0, 0, 0, 0);
+		final var testUnit = new ByteWrapper(1, 1, 1, 0, 0, 0, 0, 0);
 		
 		//execution
 		final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -93,7 +93,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_getBitAtAsInt_4() {
 		
 		//setup
-		final var testUnit = new WrapperByte(1, 1, 1, 1, 1, 1, 1, 1);
+		final var testUnit = new ByteWrapper(1, 1, 1, 1, 1, 1, 1, 1);
 		
 		//execution
 		final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -120,7 +120,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toBitString() {
 		
 		//setup
-		final var testUnit = new WrapperByte(0, 0, 0, 0, 0, 0, 0, 0);
+		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 0, 0, 0);
 		
 		//execution
 		final var result = testUnit.toBitString();
@@ -133,7 +133,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toBitString_2() {
 		
 		//setup
-		final var testUnit = new WrapperByte(0, 0, 0, 0, 0, 1, 1, 1);
+		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 1, 1, 1);
 		
 		//execution
 		final var result = testUnit.toBitString();
@@ -146,7 +146,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toBitString_3() {
 		
 		//setup
-		final var testUnit = new WrapperByte(1, 1, 1, 0, 0, 0, 0, 0);
+		final var testUnit = new ByteWrapper(1, 1, 1, 0, 0, 0, 0, 0);
 		
 		//execution
 		final var result = testUnit.toBitString();
@@ -159,7 +159,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toBitString_4() {
 		
 		//setup
-		final var testUnit = new WrapperByte(1, 1, 1, 1, 1, 1, 1, 1);
+		final var testUnit = new ByteWrapper(1, 1, 1, 1, 1, 1, 1, 1);
 		
 		//execution
 		final var result = testUnit.toBitString();
@@ -173,7 +173,7 @@ public final class WrapperByteTest extends Test {
 		for (var i = 0; i <= 255; i++) {
 			
 			//setup
-			final var testUnit = WrapperByte.fromNumber(i);
+			final var testUnit = ByteWrapper.fromNumber(i);
 			
 			//execution
 			final var resullt = testUnit.toByte();
@@ -187,7 +187,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toInt() {
 		
 		//setup
-		final var testUnit = new WrapperByte(0, 0, 0, 0, 0, 0, 0, 0);
+		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 0, 0, 0);
 		
 		//execution
 		final var result = testUnit.toInt();
@@ -200,7 +200,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toInt_2() {
 		
 		//setup
-		final var testUnit = new WrapperByte(0, 0, 0, 0, 0, 1, 1, 1);
+		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 1, 1, 1);
 		
 		//execution
 		final var result = testUnit.toInt();
@@ -213,7 +213,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toInt_3() {
 		
 		//setup
-		final var testUnit = new WrapperByte(1, 1, 1, 0, 0, 0, 0, 0);
+		final var testUnit = new ByteWrapper(1, 1, 1, 0, 0, 0, 0, 0);
 		
 		//execution
 		final var result = testUnit.toInt();
@@ -226,7 +226,7 @@ public final class WrapperByteTest extends Test {
 	public void testCase_toInt_4() {
 		
 		//setup
-		final var testUnit = new WrapperByte(1, 1, 1, 1, 1, 1, 1, 1);
+		final var testUnit = new ByteWrapper(1, 1, 1, 1, 1, 1, 1, 1);
 		
 		//execution
 		final var result = testUnit.toInt();

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 //own imports
-import ch.nolix.common.commonTypeWrappers.WrapperByte;
+import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketFrame;
 import ch.nolix.common.webSocket.WebSocketFrameOpcodeMeaning;
@@ -20,10 +20,10 @@ public final class WebSocketFrameTest extends Test {
 		//setup
 			final var bytes =
 			new byte[] {
-				new WrapperByte(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
-				new WrapperByte(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
-				new WrapperByte(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
-				new WrapperByte(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
+				new ByteWrapper(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
+				new ByteWrapper(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
+				new ByteWrapper(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
+				new ByteWrapper(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
 			};
 			
 			final var webSocketFrame = new WebSocketFrame(
@@ -64,8 +64,8 @@ public final class WebSocketFrameTest extends Test {
 		
 		//verification
 		expect(result.length).isEqualTo(2);
-		expect(new WrapperByte(result[0]).toBitString()).isEqualTo("00000001");
-		expect(new WrapperByte(result[1]).toBitString()).isEqualTo("00000000");
+		expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("00000001");
+		expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000000");
 	}
 	
 	//test case
@@ -79,8 +79,8 @@ public final class WebSocketFrameTest extends Test {
 		
 		//verification
 		expect(result.length).isEqualTo(2);
-		expect(new WrapperByte(result[0]).toBitString()).isEqualTo("10000001");
-		expect(new WrapperByte(result[1]).toBitString()).isEqualTo("00000000");
+		expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
+		expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000000");
 	}
 	
 	//test case
@@ -99,11 +99,11 @@ public final class WebSocketFrameTest extends Test {
 		
 		//verification
 		expect(result.length).isEqualTo(6);
-		expect(new WrapperByte(result[0]).toBitString()).isEqualTo("10000001");
-		expect(new WrapperByte(result[1]).toBitString()).isEqualTo("00000100");
-		expect(new WrapperByte(result[2]).toBitString()).isEqualTo("00000001");
-		expect(new WrapperByte(result[3]).toBitString()).isEqualTo("00000010");
-		expect(new WrapperByte(result[4]).toBitString()).isEqualTo("00000011");
-		expect(new WrapperByte(result[5]).toBitString()).isEqualTo("00000100");
+		expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
+		expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000100");
+		expect(new ByteWrapper(result[2]).toBitString()).isEqualTo("00000001");
+		expect(new ByteWrapper(result[3]).toBitString()).isEqualTo("00000010");
+		expect(new ByteWrapper(result[4]).toBitString()).isEqualTo("00000011");
+		expect(new ByteWrapper(result[5]).toBitString()).isEqualTo("00000100");
 	}
 }

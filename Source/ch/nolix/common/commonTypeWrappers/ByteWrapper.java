@@ -7,48 +7,48 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link WrapperByte} is not mutable.
+ * A {@link ByteWrapper} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2019-09
  * @lines 120
  */
-public final class WrapperByte {
+public final class ByteWrapper {
 	
 	//static method
 	/**
 	 * @param number
-	 * @return a new {@link WrapperByte} from the given number.
+	 * @return a new {@link ByteWrapper} from the given number.
 	 * @throws ArgumentIsOutOfRangeException if the given number is not in [0, 255].
 	 */
-	public static WrapperByte fromNumber(final int number) {
+	public static ByteWrapper fromNumber(final int number) {
 		
 		//Checks if the given number is in [0, 255].
 		Validator.suppose(number).thatIsNamed(VariableNameCatalogue.NUMBER).isBetween(0, 255);
 		
-		return new WrapperByte((byte)(number - 128));
+		return new ByteWrapper((byte)(number - 128));
 	}
 	
 	//attribute
 	/**
-	 * A {@link WrapperByte} stores its value in an unsigned int
+	 * A {@link ByteWrapper} stores its value in an unsigned int
 	 * because for any transformation it would be needed to transform the value to an int anyway.
 	 */
 	private final int mByte;
 	
 	//constructor
 	/**
-	 * Creates a new {@link WrapperByte} with the given pByte.
+	 * Creates a new {@link ByteWrapper} with the given pByte.
 	 * 
 	 * @param pByte
 	 */
-	public WrapperByte(final byte pByte) {
+	public ByteWrapper(final byte pByte) {
 		mByte = pByte & 0b11111111;
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link WrapperByte} with the given bits.
+	 * Creates a new {@link ByteWrapper} with the given bits.
 	 * 
 	 * @param bit1
 	 * @param bit2
@@ -59,7 +59,7 @@ public final class WrapperByte {
 	 * @param bit7
 	 * @param bit8
 	 */
-	public WrapperByte(
+	public ByteWrapper(
 		final int bit1,
 		final int bit2,
 		final int bit3,
@@ -75,7 +75,7 @@ public final class WrapperByte {
 	//method
 	/**
 	 * @param index
-	 * @return the bit at the given index from the current {@link WrapperByte}.
+	 * @return the bit at the given index from the current {@link ByteWrapper}.
 	 */
 	public boolean getBitAt(final int index) {
 		return (getBitAtAsInt(index) == 1);
@@ -84,7 +84,7 @@ public final class WrapperByte {
 	//method
 	/**
 	 * @param index
-	 * @return the bit at the given index from the current {@link WrapperByte} as int.
+	 * @return the bit at the given index from the current {@link ByteWrapper} as int.
 	 */
 	public int getBitAtAsInt(final int index) {
 		
@@ -95,7 +95,7 @@ public final class WrapperByte {
 	
 	//method
 	/**
-	 * @return a {@link String} with the bits of the current {@link WrapperByte}.
+	 * @return a {@link String} with the bits of the current {@link ByteWrapper}.
 	 */
 	public String toBitString() {
 		return String.format(
@@ -113,7 +113,7 @@ public final class WrapperByte {
 	
 	//method
 	/**
-	 * @return the current {@link WrapperByte} as byte.
+	 * @return the current {@link ByteWrapper} as byte.
 	 */
 	public byte toByte() {
 		return (byte)mByte;
@@ -121,7 +121,7 @@ public final class WrapperByte {
 	
 	//method
 	/**
-	 * @return the current {@link WrapperByte} as int.
+	 * @return the current {@link ByteWrapper} as int.
 	 */
 	public int toInt() {
 		return mByte;
