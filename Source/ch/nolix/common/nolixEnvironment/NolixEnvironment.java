@@ -12,7 +12,7 @@ public final class NolixEnvironment {
 	
 	//static method
 	public static String getLocalNolixFolderPath() {
-		return getLocalAppDataFolderPath() + "/" + LOCAL_NOLIX_FOLDER_NAME;
+		return (getLocalAppDataFolderPath() + "/" + LOCAL_NOLIX_FOLDER_NAME);
 	}
 	
 	//static method
