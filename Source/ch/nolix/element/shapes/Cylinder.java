@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.element.shapes;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
 public final class Cylinder extends Prisma<Cylinder> {
@@ -14,12 +15,12 @@ public final class Cylinder extends Prisma<Cylinder> {
 	public static final double DEFAULT_RADIUS = 1.0;
 	
 	//attribute	
-	private final MutableProperty<PositiveFloatingPointNumber> radius =
+	private final MutableProperty<Double> radius =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.RADIUS,
-		r -> setRadius(r.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		r -> r.getSpecification()
+		r -> setRadius(r),
+		s -> s.getOneAttributeAsDouble(),
+		r -> Node.withOneAttribute(r)
 	);
 	
 	//constructor
@@ -34,7 +35,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	
 	//method
 	public double getRadius() {
-		return radius.getValue().getValue();
+		return radius.getValue();
 	}
 	
 	//method
@@ -69,7 +70,9 @@ public final class Cylinder extends Prisma<Cylinder> {
 	//method
 	public Cylinder setRadius(final double radius) {
 		
-		this.radius.setValue(new PositiveFloatingPointNumber(radius));
+		Validator.suppose(radius).thatIsNamed(VariableNameCatalogue.RADIUS).isPositive();
+		
+		this.radius.setValue(radius);
 		
 		return this;
 	}
