@@ -4,10 +4,12 @@ package ch.nolix.element.base;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -16,7 +18,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 150
+ * @lines 170
  * @param <V> The type of the values of a {@link MultiProperty}.
  */
 public final class MultiProperty<V> extends Propertyoid<V> implements IContainer<V> {
@@ -115,6 +117,17 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	@Override
 	public Iterator<V> iterator() {
 		return values.iterator();
+	}
+	
+	//method
+	/**
+	 * Removes and returns the last value from the current {@link MultiProperty}.
+	 * 
+	 * @return the last element of the current {@link MultiProperty}.
+	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
+	 */
+	public V removeAndGetRefLastValue() {
+		return values.removeAndGetRefLast();
 	}
 	
 	//method
