@@ -4,6 +4,7 @@ package ch.nolix.element._3D_GUI;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own import
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -22,7 +23,6 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
-import ch.nolix.element.core.NonEmptyText;
 
 //abstract class
 /**
@@ -32,7 +32,7 @@ import ch.nolix.element.core.NonEmptyText;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 390
+ * @lines 410
  * @param <G> The type of a 3D GUI.
  */
 public abstract class _3D_GUI<G extends _3D_GUI<G>>
@@ -42,14 +42,14 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	//default values
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
-
+	
 	//attribute
-	private final MutableProperty<NonEmptyText> title =
+	private final MutableProperty<String> title =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
-		s -> setTitle(s.toString()),
-		s -> NonEmptyText.fromSpecification(s),
-		s -> s.getSpecification()
+		s -> setTitle(s),
+		s -> s.getOneAttributeAsString(),
+		s -> Node.withOneAttribute(s)
 	);
 	
 	//attribute
@@ -194,7 +194,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * @return the title of this 3D GUI.
 	 */
 	public final String getTitle() {
-		return title.getValue().getValue();
+		return title.getValue();
 	}
 	
 	//method
@@ -343,11 +343,15 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * @param title
 	 * @return this 3D GUI.
 	 * @throws ArgumentIsNullException if the given title is null.
-	 * @throws EmptyArgumentException if the given title is empty.
+	 * @throws EmptyArgumentException if the given title is blank.
 	 */
 	public final G setTitle(final String title) {
 		
-		this.title.setValue(new NonEmptyText(title));
+		//Checks if the given title is not blank.
+		Validator.suppose(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		
+		//Sets the title of the current 3D_GUI.
+		this.title.setValue(title);
 		
 		return asConcreteType();
 	}
