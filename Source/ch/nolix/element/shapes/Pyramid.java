@@ -46,7 +46,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	
 	//method
 	public float getHeightAsFloat() {
-		return (float)sideLength.getValue();
+		return sideLength.getValue().floatValue();
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	
 	//method
 	public float getSideLengthAsFloat() {
-		return (float)sideLength.getValue();
+		return sideLength.getValue().floatValue();
 	}
 	
 	//method
