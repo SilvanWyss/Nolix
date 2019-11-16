@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.element.finance;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.core.FloatingPointNumber;
 import ch.nolix.element.time.Time;
 
 //class
@@ -25,10 +25,10 @@ public class Candlestick extends Element<Candlestick> {
 	public static final double DEFAULT_INVERTED_HAMMER_MIN_UPPER_WICK_LENGT_RATIO = 0.5;
 
 	//attribute names
-	private static final String OPENING_PRICE_NAME = "OpeningPrice";
-	private static final String CLOSING_PRICE_NAME = "ClosingPrice";
-	private static final String LOWEST_PRICE_NAME = "LowestPrice";
-	private static final String HIGHEST_PRICE_NAME = "HighestPrice";
+	private static final String OPENING_PRICE_HEADER = "OpeningPrice";
+	private static final String CLOSING_PRICE_HEADER = "ClosingPrice";
+	private static final String LOWEST_PRICE_HEADER = "LowestPrice";
+	private static final String HIGHEST_PRICE_HEADER = "HighestPrice";
 	
 	public static Candlestick createCandleStick(final Iterable<Node> attributes) {
 		
@@ -43,16 +43,16 @@ public class Candlestick extends Element<Candlestick> {
 				case Time.TYPE_NAME:
 					time = Time.fromSpecification(a);
 					break;
-				case OPENING_PRICE_NAME:
+				case OPENING_PRICE_HEADER:
 					openingPrice = a.getOneAttributeAsDouble();
 					break;
-				case CLOSING_PRICE_NAME:
+				case CLOSING_PRICE_HEADER:
 					closingPrice = a.getOneAttributeAsDouble();
 					break;
-				case LOWEST_PRICE_NAME:
+				case LOWEST_PRICE_HEADER:
 					lowestPrice = a.getOneAttributeAsDouble();
 					break;
-				case HIGHEST_PRICE_NAME:
+				case HIGHEST_PRICE_HEADER:
 					highestPrice = a.getOneAttributeAsDouble();
 					break;
 				default:
@@ -144,10 +144,10 @@ public class Candlestick extends Element<Candlestick> {
 		return
 		new List<>(
 			time.getSpecification(),
-			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
-			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),
-			new FloatingPointNumber(getLowestPrice()).getSpecificationAs(LOWEST_PRICE_NAME),
-			new FloatingPointNumber(getHighestPrice()).getSpecificationAs(HIGHEST_PRICE_NAME)
+			new Node(OPENING_PRICE_HEADER, getOpeningPrice()),
+			new Node(CLOSING_PRICE_HEADER, getClosingPrice()),
+			new Node(LOWEST_PRICE_HEADER, getLowestPrice()),
+			new Node(HIGHEST_PRICE_HEADER, getHighestPrice())
 		);
 	}
 	
