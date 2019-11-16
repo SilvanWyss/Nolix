@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.common.license;
 
+//own import
 import ch.nolix.common.validator.Validator;
 
 //class
 public final class ConditionMediator {
 	
 	//attributes
-	private final InternalLicenseManager parentLicenseManager;
+	private final LicenseManager parentLicenseManager;
 	private final boolean condition;
 	
 	//package-visible constructor
-	ConditionMediator(final InternalLicenseManager parentLicenseManager, final boolean condition) {
+	ConditionMediator(final LicenseManager parentLicenseManager, final boolean condition) {
 		
 		Validator.suppose(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 		
@@ -20,9 +21,9 @@ public final class ConditionMediator {
 	}
 	
 	//method
-	public <P extends Permission> void thenRequirePermission(final Class<P> type) {
+	public <F extends Feature> void thenRequireFeature(final Class<F> type) {
 		if (condition) {
-			parentLicenseManager.requirePermission(type);
+			parentLicenseManager.requireFeature(type);
 		}
 	}
 }

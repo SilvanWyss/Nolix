@@ -8,6 +8,6 @@ public final class LicenseTestPool extends TestPool {
 	
 	//constructor
 	public LicenseTestPool() {
-		addTestClass(LicenseManagerTest.class);
+		addTestClass(CentralLicenseManagerTest.class);
 	}
 }

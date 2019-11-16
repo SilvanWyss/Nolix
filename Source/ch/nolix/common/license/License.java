@@ -1,33 +1,42 @@
 //package declaration
 package ch.nolix.common.license;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //abstract class
 /**
- * A {@link License} contains specific {@link Permission}s.
+ * A {@link License} contains {@link Feature}s.
  * 
  * @author Silvan Wyss
- * @month 2019-04
+ * @month 2019-11
  * @lines 40
  */
 public abstract class License implements Named {
-	
-	//method
+		
+	//constructor
 	/**
-	 * @param type
-	 * @return true if the current {@link License} contains a {@link Permission} of the given type.
+	 * Creates a new {@link License} using the given key.
+	 * 
+	 * @param key
+	 * @throws InvalidArgumentException if the given key is not valid.
 	 */
-	public final <FP extends Permission> boolean containsPermission(final Class<FP> type) {
-		return getPermissions().contains(fp -> fp.getClass().isAssignableFrom(type));
+	public License(final String key) {
+		
+		//Checks if the current License accepts the given key.
+		if (!accepts(key)) {
+			throw new InvalidArgumentException(VariableNameCatalogue.KEY, key, "is not valid");
+		}
 	}
 	
 	//abstract method
 	/**
-	 * @return the {@link Permission}s of the current {@link License}.
+	 * @param key
+	 * @return true if the current {@link License} accepts the given key.
 	 */
-	public abstract IContainer<Permission> getPermissions();
+	public abstract boolean accepts(String key);
 	
 	//method
 	/**

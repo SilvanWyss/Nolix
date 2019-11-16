@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.common.license;
 
+//own import
 import ch.nolix.common.validator.Validator;
 
 //class
 public final class LongMediator {
 	
 	//attributes
-	private final InternalLicenseManager parentLicenseManager;
+	private final LicenseManager parentLicenseManager;
 	private final long value;
 	
 	//package-visible constructor
-	LongMediator(final InternalLicenseManager parentLicenseManager, final long value) {
+	LongMediator(final LicenseManager parentLicenseManager, final long value) {
 		
 		Validator.suppose(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 		

@@ -6,7 +6,7 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.generalSkillAPI.IFluentObject;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.license.LicenseManager;
+import ch.nolix.common.license.CentralLicenseManager;
 import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Schema;
@@ -31,10 +31,10 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	//method
 	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {
 		
-		LicenseManager
+		CentralLicenseManager
 		.when(loadedAndCreatedEntitySets.getSize())
 		.isBiggerThan(10)
-		.thenRequirePermission(FullDatabasePermission.class);
+		.thenRequireFeature(FullDatabase.class);
 		
 		final var entitySet = new EntitySet(this, entityClass);
 		

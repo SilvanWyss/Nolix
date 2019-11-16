@@ -1,118 +1,212 @@
 //package declaration
 package ch.nolix.common.license;
 
+//Java import
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+//own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.List;
+import ch.nolix.common.fileSystem.FolderAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * The {@link LicenseManager} manages {@link License}s.
- * Of the {@link LicenseManager} an instance cannot be created.
+ * A {@link LicenseManager} contains {@link License}s.
  * 
  * @author Silvan Wyss
- * @month 2019-04
- * @lines 120
+ * @month 2019-11
+ * @lines 210
  */
-public class LicenseManager {
+public final class LicenseManager {
 	
-	//static attribute
-	private static final InternalLicenseManager internalLicenseManager = new InternalLicenseManager();
+	//multi-attribute
+	private final List<License> licenses = new List<>();
 	
-	//static method
+	//method
 	/**
-	 * Creates and adds a new {@link License} of the given type to the {@link LicenseManager}
-	 * if the {@link LicenseManager} does not contain already a {@link License} of that type.
-	 * 
-	 * @param type
-	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws RuntimeException if there was not found a file with the key for a License of the given type.
-	 * @throws InvalidArgumentException 
-	 * if the given type does not contain an accessible constructor with 1 String parameter.
+	 * Creates and adds a new {@link License} of the given licenseType to the current {@link LicenseManager}
+	 * 	 * 
+	 * @param licenseType
+	 * @return the current {@link LicenseManager}.
+	 * @throws ArgumentIsNullException if the given licenseType is null.
+	 * @throws RuntimeException if if there was not found a file with the key for a License of the given licenseType.
+	 * @throws InvalidArgumentException
+	 * if the given licenseType does not contain a constructor with 1 {@link String} parameter.
 	 * @throws InvalidArgumentException if the found key is not valid.
-	 * @throws InvalidArgumentException
-	 * if the {@link LicenseManager} contains already a {@link License} of the given type.
+	 * @throws InvalidArgumentException if the current {@link LicenseManager}
+	 * does contain already a {@link License} of the given licenseType.
 	 */
-	public static <L extends License> InternalLicenseManager addLicense(final Class<L> type) {
-		return internalLicenseManager.addLicense(type);
+	public <L extends License> LicenseManager addLicense(final Class<L> licenseType) {
+		
+		//Extracts the key of the license of the given licenseType.
+		final var key = readKeyFromLicenseFile(licenseType);	
+		
+		//TODO: Use ClassHelper.
+		//Extracts the constructor for the license.
+		final Constructor<L> constructor;
+		try {
+			constructor = licenseType.getConstructor(String.class);
+		}
+		catch (final Exception exception) {
+			
+			//Handles the case that the given licenseType does not contain a constructor with 1 String parameter.
+			throw
+			new InvalidArgumentException(licenseType, "does not contain a constructor with 1 String parameter");
+		}
+		
+		//Creates license.
+		final L license;
+		try {
+			license = constructor.newInstance(key);
+		}
+		catch (final Exception exception) {
+			
+			//Handles the case that the given key is not valid.
+			throw new InvalidArgumentException("found key", key, "is not valid");
+		}
+		
+		//Adds the license to the current LicenseManager.
+		addLicense(license);
+		
+		return this;
 	}
 	
-	//static method
+	//method
 	/**
-	 * Adds the given license to the {@link LicenseManager}.
+	 * Adds the given license to the current {@link LicenseManager}.
 	 * 
 	 * @param license
-	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
+	 * @return the current {@link LicenseManager}.
 	 * @throws ArgumentIsNullException if the given license is null.
-	 * @throws InvalidArgumentException
-	 * if the {@link LicenseManager} contains already a {@link License} of the same type.
-	 * @throws InvalidArgumentException
-	 * if the {@link LicenseManager} contains already a {@link License} of the type the given license is.
+	 * @throws InvalidArgumentException if the current {@link InternalLicenseManager}
+	 * contains already a {@link License} of the type the given license is.
 	 */
-	public static InternalLicenseManager addLicense(final License license) {
-		return internalLicenseManager.addLicense(license);
+	public LicenseManager addLicense(final License license) {
+		
+		//Checks if the given license is not null.
+		Validator.suppose(license).thatIsNamed(VariableNameCatalogue.LICENSE).isNotNull();
+		
+		//Handles the case that the current LicenseManager
+		//does not contain already a License of the type the given license is.
+		if (!containsLicense(license.getClass())) {
+			licenses.addAtEnd(license);
+		}
+		
+		return this;
+	}
+
+	//method
+	/**
+	 * @param featureType
+	 * @return true if the current {@link InternalLicenseManager} contains a {@link Feature} of the given featureType.
+	 */
+	public <F extends Feature> boolean containsFeature(final Class<F> featureType) {
+		try {
+			final var feature = featureType.getConstructor().newInstance();
+			return feature.getAuthorizedLicenseTypes().containsAny(licenses);
+		}
+		catch (
+			final 
+			InstantiationException
+			| IllegalAccessException
+			| IllegalArgumentException
+			| InvocationTargetException
+			| NoSuchMethodException
+			| SecurityException
+			exception
+		) {
+			throw new RuntimeException(exception);
+		}
 	}
 	
 	//method
 	/**
-	 * Adds the given permission to the {@link LicenseManager}.
-	 * 
-	 * @param permission
-	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws ArgumentIsNullException if the given permission is null.
-	 * @throws InvalidArgumentException if the {@link LicenseManager}
-	 * contains already a permission of the same type the given permission is.
+	 * @param licenseType
+	 * @return true if the current {@link LicenseManager} contains a {@link License} of the given licenseType.
 	 */
-	public InternalLicenseManager addPermission(final Permission permission) {
-		return internalLicenseManager.addPermission(permission);
+	public <L extends License> boolean containsLicense(final Class<L> licenseType) {
+		return licenses.contains(l -> l.getClass() == licenseType);
 	}
 	
 	//method
 	/**
-	 * @param type
-	 * @return true if the {@link LicenseManager} contains a {@link License} of the given type.
-	 */
-	public static <L extends License> boolean containsLicense(final Class<L> type) {
-		return internalLicenseManager.containsLicense(type);
-	}
-	
-	//static method
-	/**
-	 * Removes the given license from the {@link LicenseManager}.
+	 * Removes the given license from the {@link CentralLicenseManager}.
 	 * 
 	 * @param license
-	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws InvalidArgumentException if the {@link LicenseManager} does not contain the given license.
+	 * @throws InvalidArgumentException if the {@link CentralLicenseManager} does not contain the given license.
 	 */
-	public static <L extends License> InternalLicenseManager removeLicense(final L license) {
-		return internalLicenseManager.removeLicense(license);
+	public LicenseManager removeLicense(final License license) {
+		
+		licenses.removeFirst(license);
+		
+		return this;
 	}
 	
-	//static method
+	//method
 	/**
-	 * Let the {@link LicenseManager} require a {@link Permission} of the given type.
+	 * Requires the current {@link lLicenseManager} to contain a {@link Feature} of the given featureType.
 	 * 
-	 * @param type
-	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the {@link LicenseManager}
-	 * does not contain a {@link Permission} of the given type.
+	 * @param featureType
+	 * @return the current {@link LicenseManager}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LicenseManager}
+	 * does not contain a {@link Feature} of the given featureType.
 	 */
-	public static <P extends Permission> InternalLicenseManager requirePermission(final Class<P> type) {
-		return internalLicenseManager.requirePermission(type);
+	public <F extends Feature> LicenseManager requireFeature(final Class<F> featureType) {
+		
+		//Checks if the current LicenseManager contains a feature of the given featureType.
+		if (!containsFeature(featureType)) {
+			throw new ArgumentDoesNotHaveAttributeException(this, featureType.getSimpleName());
+		}
+		
+		return this;
 	}
 	
-	//static method
 	/**
 	 * @param value
 	 * @return a new {@link LongMediator} for the given value.
 	 */
-	public static LongMediator when(final long value) {
-		return internalLicenseManager.when(value);
+	public LongMediator when(final long value) {
+		return new LongMediator(this, value);
 	}
 	
-	//private constructor
+	//method
 	/**
-	 * Avoids that an instance of the {@link LicenseManager} can be created.
+	 * @param licenseType
+	 * @return the key of the license of the given licenseType from the license file.
+	 * The license file is on the local computer.
+	 * @throws ArgumentIsNullException if the given licenseType is null.
 	 */
-	private LicenseManager() {}
+	private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
+		
+		//Checks if the given licenseType is not null.
+		Validator.suppose(licenseType).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
+		
+		return readKeyFromLicenseFile(licenseType.getName());
+	}
+	
+	//method
+	/**
+	 * @param licenseName
+	 * @return the key of the license with the given licenseName from the license file.
+	 * The license file is on the local computer.
+	 * @throws RuntimeException if there does not exist a license file
+	 * with the key for the license with the given licenseName.
+	 */
+	private String readKeyFromLicenseFile(final String licenseName) {
+		try {
+			return
+			new FolderAccessor(LicenseEnvironment.LOCAL_LICENSE_FOLDER_NAME)
+			.readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
+		}
+		catch (final Exception exception) {
+			throw
+			new RuntimeException(
+				"There does not exist a license file with the key for the License '" + licenseName + "'"
+			);
+		}
+	}
 }
