@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.coreTest;
+package ch.nolix.elementTest.timeTest;
 
 //class
 /**
@@ -18,7 +18,7 @@ public final class Launcher {
 	 * @param args
 	 */
 	public static final void main(String[] args) {
-		new CoreTestPool().run();
+		new TimeTestPool().run();
 	}
 	
 	//private constructor

@@ -1,12 +1,13 @@
 //package declaration
-package ch.nolix.elementTest.coreTest;
+package ch.nolix.elementTest.timeTest;
 
+//own imports
 import ch.nolix.common.test.Test;
 import ch.nolix.element.time.Time;
 
 //test class
 /**
- * This class is a test class for the time class.
+ * A {@link TimeTest} is a test for {@link Time}s.
  * 
  * @author Silvan Wyss
  * @month 2017-02

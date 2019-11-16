@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.coreTest;
+package ch.nolix.elementTest.timeTest;
 
 import ch.nolix.common.baseTest.TestPool;
 
@@ -9,13 +9,13 @@ import ch.nolix.common.baseTest.TestPool;
  * @month 2017-11
  * @lines 20
  */
-public final class CoreTestPool extends TestPool {
+public final class TimeTestPool extends TestPool {
 
 	//constructor
 	/**
 	 * Creates a new core test pool.
 	 */
-	public CoreTestPool() {
+	public TimeTestPool() {
 		addTestClass(TimeTest.class);
 	}
 }
