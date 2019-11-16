@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 170
+ * @lines 180
  * @param <V> The type of the values of a {@link MultiProperty}.
  */
 public final class MultiProperty<V> extends Propertyoid<V> implements IContainer<V> {
@@ -128,6 +128,20 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 */
 	public V removeAndGetRefLastValue() {
 		return values.removeAndGetRefLast();
+	}
+	
+	//method
+	/**
+	 * Removes the last value from the current {@link MultiProperty}.
+	 * 
+	 * @return the current {@link MultiProperty}.
+	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
+	 */
+	public MultiProperty<V> removeLastValue() {
+		
+		values.removeLast();
+		
+		return this;
 	}
 	
 	//method
