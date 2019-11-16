@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.element.planarShapes;
 
+//own imports
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
@@ -22,12 +25,12 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	private static final String Y_LENGTH_HEADER = "YLength";
 
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> xLength =
+	private final MutableProperty<Double> xLength =
 	new MutableProperty<>(
 		X_LENGTH_HEADER,
-		xl -> setXLength(xl.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		xl -> xl.getSpecification()
+		xl -> setXLength(xl),
+		s -> s.getOneAttributeAsDouble(),
+		xl -> Node.withOneAttribute(xl)
 	);
 	
 	//attribute
@@ -44,7 +47,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 * @return the x-length of the current {@link Rectangle}.
 	 */
 	public double getXLength() {
-		return xLength.getValue().getValue();
+		return xLength.getValue();
 	}
 	
 	//method
@@ -120,7 +123,9 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 */
 	public Rectangle setXLength(final double xLength) {
 		
-		this.xLength.setValue(new PositiveFloatingPointNumber(xLength));
+		Validator.suppose(xLength).thatIsNamed("x length").isNotNegative();
+		
+		this.xLength.setValue(xLength);
 		
 		return this;
 	}
