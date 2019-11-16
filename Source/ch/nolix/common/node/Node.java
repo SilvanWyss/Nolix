@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 510
+ * @lines 520
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -75,6 +75,19 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var node = new Node();
 		node.addAttribute(attribute);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attribute
+	 * @return a new {@link Node} with the given attribute.
+	 */
+	public static final Node withOneAttribute(final double attribute) {
+		
+		final var node = new Node();
+		node.addAttribute(String.valueOf(attribute));
 		
 		return node;
 	}
