@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.nolixTest;
 
+//own imports
 import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.commonTest.CommonTestPool;
 import ch.nolix.elementTest.ElementTestPool;
 import ch.nolix.systemTest.SystemTestPool;
 import ch.nolix.techTest.TechTestPool;
+import ch.nolix.templatesTest.TemplatesTestPool;
 
 //class
 /**
@@ -26,7 +28,8 @@ public final class NolixTestPool extends TestPool {
 			new CommonTestPool(),
 			new ElementTestPool(),
 			new SystemTestPool(),
-			new TechTestPool()
+			new TechTestPool(),
+			new TemplatesTestPool()
 		);
 	}
 }
