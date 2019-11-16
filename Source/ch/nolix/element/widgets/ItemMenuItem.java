@@ -13,7 +13,6 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.base.OptionalProperty;
 import ch.nolix.element.base.Property;
-import ch.nolix.element.core.NonEmptyText;
 
 //class
 public final class ItemMenuItem extends Element<ItemMenuItem> {
@@ -30,12 +29,12 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private ItemMenu<?> parentItemMenu;
 	
 	//attribute
-	private final Property<NonEmptyText> text =
+	private final Property<String> text =
 	new Property<>(
 		PascalCaseNameCatalogue.TEXT,
-		t -> setText(t.getValue()),
-		s -> NonEmptyText.fromSpecification(s),
-		t -> t.getSpecification()
+		t -> setText(t),
+		s -> s.getOneAttributeAsString(),
+		t -> new Node(t)
 	);
 	
 	//attribute
@@ -105,7 +104,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//method
 	public String getText() {
-		return text.getValue().getValue();
+		return text.getValue();
 	}
 	
 	//method
@@ -198,7 +197,11 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//method
 	private void setText(final String text) {
-		this.text.setValue(new NonEmptyText(text));
+		
+		Validator.suppose(text).thatIsNamed(VariableNameCatalogue.TEXT).isNotBlank();
+		
+		this.text.setValue(text);
+		
 		label.setText(text);
 	}
 }
