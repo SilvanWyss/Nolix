@@ -81,7 +81,6 @@ public final class EntitySet<E extends Entity> implements Named {
 		return getColumns().contains(c -> c.canReference(entity));
 	}
 	
-	//TODO: Make EntitySet clearable.
 	//method
 	public boolean containsAny() {
 		return getRefEntities().containsAny();
