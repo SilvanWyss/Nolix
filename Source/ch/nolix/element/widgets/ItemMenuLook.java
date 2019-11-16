@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.ValueCatalogue;
-import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerProperty;
 
 //class
-public final class ItemMenuLook
-extends BorderWidgetLook<ItemMenuLook> {
-
+public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
+	
 	//default value
 	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
 	
@@ -19,21 +20,21 @@ extends BorderWidgetLook<ItemMenuLook> {
 	private static final String SELECTION_ITEM_LOOK_HEADER = "SelectionItemLook";
 	
 	//attribute
-	private final LayerProperty<NonNegativeInteger> itemPaddingProperty =
+	private final LayerProperty<Integer> itemPadding =
 	new LayerProperty<>(
 		ITEM_PADDING_HEADER,
-		new NonNegativeInteger(),
-		s -> NonNegativeInteger.fromSpecification(s),
-		ipp -> ipp.getSpecification()
+		DEFAULT_ITEM_PADDING,
+		s -> s.getOneAttributeAsInt(),
+		ip -> Node.withOneAttribute(ip)
 	);
 	
 	//attribute
-	private final LayerProperty<ItemMenuItemLook> baseItemLookProperty =
+	private final LayerProperty<ItemMenuItemLook> baseItemLook =
 	new LayerProperty<>(
 		NORMAL_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
 		s -> ItemMenuItemLook.fromSpecification(s),
-		bilp -> bilp.getSpecification()
+		bil -> bil.getSpecification()
 	);
 	
 	//attribute
@@ -56,12 +57,12 @@ extends BorderWidgetLook<ItemMenuLook> {
 	
 	//method
 	public int getRecursiveOrDefaultItemPadding() {
-		return itemPaddingProperty.getRecursiveOrDefaultValue().getValue();
+		return itemPadding.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public ItemMenuItemLook getRefRecursiveOrDefaultBaseItemLook() {
-		return baseItemLookProperty.getRecursiveOrDefaultValue();
+		return baseItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -77,7 +78,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	//method
 	public ItemMenuLook setBaseItemLook(final ItemMenuItemLook itemMenuItemLook) {
 		
-		baseItemLookProperty.setValue(itemMenuItemLook);
+		baseItemLook.setValue(itemMenuItemLook);
 		
 		return this;
 	}
@@ -93,7 +94,9 @@ extends BorderWidgetLook<ItemMenuLook> {
 	//method
 	public ItemMenuLook setItemPadding(final int itemPadding) {
 		
-		itemPaddingProperty.setValue(new NonNegativeInteger(itemPadding));
+		Validator.suppose(itemPadding).thatIsNamed("item padding").isNotNegative();
+		
+		this.itemPadding.setValue(itemPadding);
 		
 		return this;
 	}
