@@ -1,20 +1,20 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.Boolean;
 import ch.nolix.element.painter.IPainter;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 280
+ * @lines 270
  */
 public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 
@@ -90,9 +90,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 		//Calls method of the base class.
 		final var interactionAttributes = super.getInteractionAttributes();
 		
-		interactionAttributes.addAtEnd(
-			new Boolean(isChecked()).getSpecificationAs(CHECK_FLAG_HEADER)
-		);
+		interactionAttributes.addAtEnd(new Node(CHECK_FLAG_HEADER, isChecked()));
 		
 		return interactionAttributes;
 	}
