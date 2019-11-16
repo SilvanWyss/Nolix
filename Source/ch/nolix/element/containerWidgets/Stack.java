@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.node.BaseNode;
@@ -9,7 +10,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.base.MutableOptionalProperty;
 
 //abstract class
 /**
@@ -17,7 +18,7 @@ import ch.nolix.element.core.NonNegativeInteger;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 280
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable<S> {
@@ -25,8 +26,14 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
-	//optional attribute
-	private NonNegativeInteger elementMargin;
+	//attribute
+	private final MutableOptionalProperty<Integer> elementMargin =
+	new MutableOptionalProperty<>(
+		ELEMENT_MARGIN_HEADER,
+		em -> setElementMargin(em),
+		s -> s.getOneAttributeAsInt(),
+		em -> Node.withOneAttribute(em)
+	);
 	
 	//multi-attribute
 	private final List<Widget<?, ?>> widgets = new List<>();
@@ -144,13 +151,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		//Calls method of the base class.
 		final List<Node> attributes = super.getAttributes();
 		
-		//Handles the case that the current {@link Stack} has an element margin.
-		if (hasElementMargin()) {
-			attributes.addAtEnd(
-				elementMargin.getSpecificationAs(ELEMENT_MARGIN_HEADER)
-			);
-		}
-		
 		getChildWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
 		
 		return attributes;
@@ -181,7 +181,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final S removeElementMargin() {
 		
-		elementMargin = null;
+		elementMargin.clear();
 		
 		return asConcreteType();
 	}
@@ -227,7 +227,9 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final S setElementMargin(final int elementMargin) {
 		
-		this.elementMargin = new NonNegativeInteger(elementMargin);
+		Validator.suppose(elementMargin).thatIsNamed("element margin").isPositive();
+		
+		this.elementMargin.setValue(elementMargin);
 		
 		return asConcreteType();
 	}
