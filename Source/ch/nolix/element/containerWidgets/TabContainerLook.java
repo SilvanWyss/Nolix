@@ -152,7 +152,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setMenuItemMargin(final int menuItemMargin) {
 		
-		Validator.suppose(menuItemMargin).thatIsNamed("menu item margin").isPositive();
+		Validator.suppose(menuItemMargin).thatIsNamed("menu item margin").isNotNegative();
 		
 		this.menuItemMargin.setValue(menuItemMargin);
 		
@@ -162,7 +162,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setMenuMargin(final int menuMargin) {
 		
-		Validator.suppose(menuMargin).thatIsNamed("menu margin").isPositive();
+		Validator.suppose(menuMargin).thatIsNamed("menu margin").isNotNegative();
 		
 		this.menuMargin.setValue(menuMargin);
 		

@@ -466,11 +466,8 @@ implements Clearable<TabContainer> {
 		final IPainter painter
 	) {
 		
-		//TODO
-		if (tabContainerLook.getRecursiveOrDefaultMenuItemMargin() > 0) {
-			menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
-		}
-		
+		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
+				
 		final var baseMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultBaseMenuItemLook();
 		final var hoverMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultHoverMenuItemLook();
 		final var selectedMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultSelectionMenuItemLook();

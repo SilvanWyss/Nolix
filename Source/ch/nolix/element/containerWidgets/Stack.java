@@ -227,7 +227,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final S setElementMargin(final int elementMargin) {
 		
-		Validator.suppose(elementMargin).thatIsNamed("element margin").isPositive();
+		Validator.suppose(elementMargin).thatIsNamed("element margin").isNotNegative();
 		
 		this.elementMargin.setValue(elementMargin);
 		
