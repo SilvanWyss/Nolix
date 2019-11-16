@@ -2,7 +2,6 @@
 package ch.nolix.common.license;
 
 //Java import
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
@@ -11,6 +10,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.fileSystem.FolderAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.reflectionWrappers.ClassWrapper;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-11
- * @lines 210
+ * @lines 180
  */
 public final class LicenseManager {
 	
@@ -42,35 +42,8 @@ public final class LicenseManager {
 	 */
 	public <L extends License> LicenseManager addLicense(final Class<L> licenseType) {
 		
-		//Extracts the key of the license of the given licenseType.
-		final var key = readKeyFromLicenseFile(licenseType);	
-		
-		//TODO: Use ClassHelper.
-		//Extracts the constructor for the license.
-		final Constructor<L> constructor;
-		try {
-			constructor = licenseType.getConstructor(String.class);
-		}
-		catch (final Exception exception) {
-			
-			//Handles the case that the given licenseType does not contain a constructor with 1 String parameter.
-			throw
-			new InvalidArgumentException(licenseType, "does not contain a constructor with 1 String parameter");
-		}
-		
-		//Creates license.
-		final L license;
-		try {
-			license = constructor.newInstance(key);
-		}
-		catch (final Exception exception) {
-			
-			//Handles the case that the given key is not valid.
-			throw new InvalidArgumentException("found key", key, "is not valid");
-		}
-		
-		//Adds the license to the current LicenseManager.
-		addLicense(license);
+		final var key = readKeyFromLicenseFile(licenseType);
+		addLicense(new ClassWrapper<>(License.class).createInstance(key));
 		
 		return this;
 	}
