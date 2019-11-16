@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
@@ -12,7 +13,6 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.base.OptionalProperty;
 import ch.nolix.element.base.Property;
-import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.NonEmptyText;
 
 //class
@@ -54,9 +54,9 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private final MutableProperty<Boolean> selectionFlag =
 	new MutableProperty<>(
 		SELECTION_FLAG_HEADER,
-		sf -> setSelectionFlag(sf.getValue()),
-		s -> Boolean.fromSpecification(s),
-		b -> b.getSpecification()
+		sf -> setSelectionFlag(sf),
+		s -> s.toBoolean(),
+		sf -> Node.withOneAttribute(sf)
 	);
 	
 	//attribute
@@ -130,13 +130,13 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//method
 	public boolean isSelected() {
-		return selectionFlag.getValue().getValue();
+		return selectionFlag.getValue();
 	}
 	
 	//method
 	public void select() {
 		
-		selectionFlag.setValue(new Boolean(true));
+		selectionFlag.setValue(true);
 		label.setFocused();
 		
 		if (hasSelectCommand()) {
@@ -146,7 +146,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//method
 	public void unselect() {
-		selectionFlag.setValue(new Boolean(false));
+		selectionFlag.setValue(false);
 		label.setNormal();
 	}
 	
