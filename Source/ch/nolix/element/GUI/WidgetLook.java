@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
@@ -50,9 +51,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	private final LayerProperty<Boolean> boldTextFlag =
 	new LayerProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
-		new Boolean(false),
-		s -> Boolean.fromSpecification(s),
-		bts -> bts.getSpecification()
+		Boolean.FALSE,
+		s -> s.toBoolean(),
+		btf -> new Node(btf)
 	);
 	
 	//attribute
@@ -79,7 +80,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * of the current {@link WidgetLook}.
 	 */
 	public final boolean getRecursiveOrDefaultBoldTextFlag() {
-		return boldTextFlag.getRecursiveOrDefaultValue().getValue();
+		return boldTextFlag.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -186,7 +187,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 */
 	public final WL setBoldTextFlag(final boolean boldTextFlag) {
 		
-		this.boldTextFlag.setValue(new Boolean(boldTextFlag));
+		this.boldTextFlag.setValue(boldTextFlag);
 		
 		return asConcreteType();
 	}
