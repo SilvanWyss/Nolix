@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.ReadContainer;
@@ -23,7 +24,6 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
 import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.NonNegativeInteger;
 
 //class
 public final class Image extends Element<Image> implements IMutableElement<Image> {
@@ -105,21 +105,21 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	private final Matrix<Color> pixels;
 	
 	//attribute
-	private final Property<NonNegativeInteger> width =
+	private final Property<Integer> width =
 	new Property<>(
 		PascalCaseNameCatalogue.WIDTH,
-		w -> setWidth(w.getValue()),
-		s -> NonNegativeInteger.fromSpecification(s),
-		w -> w.getSpecification()
+		w -> setWidth(w),
+		s -> s.getOneAttributeAsInt(),
+		w -> Node.withOneAttribute(w)
 	);
 	
 	//attribute
-	private final Property<NonNegativeInteger> height =
+	private final Property<Integer> height =
 	new Property<>(
 		PascalCaseNameCatalogue.HEIGHT,
-		h -> setHeight(h.getValue()),
-		s -> NonNegativeInteger.fromSpecification(s),
-		h -> h.getSpecification()
+		h -> setHeight(h),
+		s -> s.getOneAttributeAsInt(),
+		h -> Node.withOneAttribute(h)
 	);
 	
 	//constructor
@@ -190,7 +190,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	public int getHeight() {
-		return height.getValue().getValue();
+		return height.getValue();
 	}
 	
 	//method
@@ -205,7 +205,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	public int getWidth() {
-		return width.getValue().getValue();
+		return width.getValue();
 	}
 	
 	//method
@@ -301,12 +301,18 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	private void setHeight(final int height) {
-		this.height.setValue(new NonNegativeInteger(height));
+		
+		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		
+		this.height.setValue(height);
 	}
 	
 	//method
 	private void setWidth(final int width) {
-		this.width.setValue(new NonNegativeInteger(width));
+		
+		Validator.suppose(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
+		
+		this.width.setValue(width);
 	}
 	
 	//method
