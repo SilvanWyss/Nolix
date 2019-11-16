@@ -6,7 +6,6 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
 /**
@@ -34,12 +33,12 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	);
 	
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> yLength =
+	private final MutableProperty<Double> yLength =
 	new MutableProperty<>(
 		Y_LENGTH_HEADER,
-		yl -> setYLength(yl.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		yl -> yl.getSpecification()
+		yl -> setYLength(yl),
+		s -> s.getOneAttributeAsDouble(),
+		yl -> Node.withOneAttribute(yl)
 	);
 	
 	//method
@@ -63,7 +62,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 * @return the y-length of the current {@link Rectangle}.
 	 */
 	public double getYLength() {
-		return yLength.getValue().getValue();
+		return yLength.getValue();
 	}
 	
 	//method
@@ -119,7 +118,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 * 
 	 * @param xLength
 	 * @return the current {@link Rectangle}.
-	 * @throws NonPositiveArgumentException if the given x-length is not positive.
+	 * @throws NegativeArgumentException if the given x-length is negative.
 	 */
 	public Rectangle setXLength(final double xLength) {
 		
@@ -136,11 +135,13 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 * 
 	 * @param yLength
 	 * @return the current {@link Rectangle}.
-	 * @throws NonPositiveArgumentException if the given y-length is not positive.
+	 * @throws NegativeArgumentException if the given y-length is negative.
 	 */
 	public Rectangle setYLength(final double yLength) {
 		
-		this.yLength.setValue(new PositiveFloatingPointNumber(yLength));
+		Validator.suppose(yLength).thatIsNamed("y length").isNotNegative();
+		
+		this.yLength.setValue(yLength);
 		
 		return this;
 	}
