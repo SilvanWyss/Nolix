@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+//own imports
 import ch.nolix.common.attributeAPI.OptionalNamable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -15,13 +16,12 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.baseAPI.IMutableElement;
-import ch.nolix.element.core.NonEmptyText;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 770
+ * @lines 780
  * @param <C> The type of a configuration.
  */
 public abstract class Configuration<C extends Configuration<C>> extends Element<C>
@@ -44,9 +44,9 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	protected final List<Configuration<?>> configurations = new List<>();
 	
 	//optional attributes
-	private NonEmptyText selectorType;
-	private NonEmptyText selectorToken;
-	private NonEmptyText selectorName;
+	private String selectorType;
+	private String selectorToken;
+	private String selectorName;
 	
 	//multi-attribute
 	private final List<String> selectorRoles = new List<>();
@@ -299,7 +299,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType()) {
-			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE_HEADER));
+			attributes.addAtEnd(new Node(SELECTOR_TYPE_HEADER, selectorType));
 		}
 		
 		//Handles the case that this configuration contains selector roles.		
@@ -313,12 +313,12 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		//Handles the case that this configuration has a selector token.
 		if (hasSelectorToken()) {
-			attributes.addAtEnd(selectorToken.getSpecificationAs(SELECTOR_TOKEN_HEADER));
+			attributes.addAtEnd(new Node(SELECTOR_TOKEN_HEADER, selectorToken));
 		}
 		
 		//Handles the case that this configuration has a selector name.
 		if (hasSelectorName()) {
-			attributes.addAtEnd(selectorName.getSpecificationAs(SELECTOR_NAME_HEADER));
+			attributes.addAtEnd(new Node(SELECTOR_NAME_HEADER, selectorName));
 		}
 		
 		attributes.addAtEnd(attachingAttributes);
@@ -355,7 +355,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector name");
 		}
 		
-		return selectorName.getValue();
+		return selectorName;
 	}
 	
 	//method
@@ -378,7 +378,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector token");
 		}
 		
-		return selectorToken.getValue();
+		return selectorToken;
 	}
 	
 	//method
@@ -401,7 +401,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector type");
 		}
 		
-		return selectorType.getValue();
+		return selectorType;
 	}
 	
 	//method
@@ -643,15 +643,19 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @param selectorName
 	 * @return this configuration.
 	 * @throws ArgumentIsNullException if the given selector name is null.
-	 * @throws EmptyArgumentException if the given selector name is empty.
+	 * @throws InvalidArgumentException if the given selector name is blank.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorName(final String selectorName) {
 		
+		//Checks if the given selectorName is not null or blank.
+		Validator.suppose(selectorName).thatIsNamed("selectorName").isNotBlank();
+		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		this.selectorName = new NonEmptyText(selectorName);
+		//Sets the selectorName of the current Configuration.
+		this.selectorName = selectorName;
 		
 		return asConcreteType();
 	}
@@ -663,15 +667,19 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @param selectorToken
 	 * @return this configuration.
 	 * @throws ArgumentIsNullException if the given selector token is null.
-	 * @throws EmptyArgumentException if the given selector token is empty.
+	 * @throws InvalidArgumentException if the given selector token is blank.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorToken(final String selectorToken) {
 		
+		//Checks if the given selectorToken is not null or blank.
+		Validator.suppose(selectorToken).thatIsNamed("selectorToken").isNotBlank();
+		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		this.selectorToken = new NonEmptyText(selectorToken);
+		//Sets the selectorToken of the current Configuration.
+		this.selectorToken = selectorToken;
 		
 		return asConcreteType();
 	}
@@ -683,15 +691,19 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @param selectorType
 	 * @return this configuration.
 	 * @throws ArgumentIsNullException if the given type selector type is null.
-	 * @throws EmptyArgumentException if the given selector type is empty.
+	 * @throws InvalidArgumentException if the given selector type is blank.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorType(final String selectorType) {
 		
+		//Checks if the given selectorType is not null or blank.
+		Validator.suppose(selectorType).thatIsNamed("selectorType").isNotBlank();
+		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		this.selectorType = new NonEmptyText(selectorType);
+		//Sets the selectorType of the current Configuration.
+		this.selectorType = selectorType;
 		
 		return asConcreteType();
 	}
