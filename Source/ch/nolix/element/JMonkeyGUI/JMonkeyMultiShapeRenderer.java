@@ -5,7 +5,7 @@ package ch.nolix.element.JMonkeyGUI;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
-import ch.nolix.element._3D_GUI.MultiShape;
+import ch.nolix.element.shapes.MultiShape;
 
 //class
 /**

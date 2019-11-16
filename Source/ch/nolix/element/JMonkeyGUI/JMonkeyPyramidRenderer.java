@@ -7,7 +7,7 @@ import com.jme3.scene.Geometry;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
-import ch.nolix.element._3D_GUI.Pyramid;
+import ch.nolix.element.shapes.Pyramid;
 
 //package-visible class
 final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geometry> {

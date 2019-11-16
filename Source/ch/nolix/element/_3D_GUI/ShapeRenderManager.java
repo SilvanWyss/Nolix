@@ -3,7 +3,7 @@ package ch.nolix.element._3D_GUI;
 
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-11
@@ -11,7 +11,7 @@ import ch.nolix.common.validator.Validator;
  * @param <S> The type of the shape of a shape renderer.
  * @param <RO> The type of the render object of a shape renderer.
  */
-final class ShapeRenderManager<S extends Shape<S>, RO, SRO> {
+public final class ShapeRenderManager<S extends Shape<S>, RO, SRO> {
 
 	//attribute
 	private final S shape;

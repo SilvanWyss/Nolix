@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3D_GUI;
+package ch.nolix.element.shapes;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;

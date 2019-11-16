@@ -3,11 +3,11 @@ package ch.nolix.elementTutorial._3D_GUITutorial;
 
 //own imports
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
-import ch.nolix.element._3D_GUI.Cuboid;
-import ch.nolix.element._3D_GUI.Cylinder;
-import ch.nolix.element._3D_GUI.MultiShape;
-import ch.nolix.element._3D_GUI.Sphere;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.shapes.Cuboid;
+import ch.nolix.element.shapes.Cylinder;
+import ch.nolix.element.shapes.MultiShape;
+import ch.nolix.element.shapes.Sphere;
 
 //class
 /**

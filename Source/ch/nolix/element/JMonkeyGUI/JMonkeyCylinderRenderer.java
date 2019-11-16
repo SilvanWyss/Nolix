@@ -8,7 +8,7 @@ import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 
 import ch.nolix.common.constants.NumberCatalogue;
-import ch.nolix.element._3D_GUI.Cylinder;
+import ch.nolix.element.shapes.Cylinder;
 
 //class
 public final class JMonkeyCylinderRenderer

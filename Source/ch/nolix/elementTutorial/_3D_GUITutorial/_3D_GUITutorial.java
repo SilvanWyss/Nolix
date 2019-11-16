@@ -3,8 +3,8 @@ package ch.nolix.elementTutorial._3D_GUITutorial;
 
 //own imports
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
-import ch.nolix.element._3D_GUI.Sphere;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.shapes.Sphere;
 
 //class
 /**
