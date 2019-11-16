@@ -158,11 +158,11 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @param xLength
 	 * @return the current {@link Cuboid}.
-	 * @throws NonPositiveArgumentException if the given x-length is negative.
+	 * @throws NonPositiveArgumentException if the given x-length is not positive.
 	 */
 	public Cuboid setXLength(final double xLength) {
 		
-		Validator.suppose(xLength).thatIsNamed("x length").isNotNegative();
+		Validator.suppose(xLength).thatIsNamed("x length").isPositive();
 		
 		this.xLength.setValue(xLength);
 		
@@ -175,11 +175,11 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @param yLength
 	 * @return the current {@link Cuboid}.
-	 * @throws NonPositiveArgumentException if the given y-length is negative.
+	 * @throws NonPositiveArgumentException if the given y-length is not positive.
 	 */
 	public Cuboid setYLength(final double yLength) {
 		
-		Validator.suppose(yLength).thatIsNamed("y length").isNotNegative();
+		Validator.suppose(yLength).thatIsNamed("y length").isPositive();
 		
 		this.yLength.setValue(yLength);
 		
@@ -192,11 +192,11 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @param zLength
 	 * @return the current {@link Cuboid}.
-	 * @throws NonPositiveArgumentException if the given z-length is negative.
+	 * @throws NonPositiveArgumentException if the given z-length is not positive.
 	 */
 	public Cuboid setZLength(final double zLength) {
 		
-		Validator.suppose(zLength).thatIsNamed("z length").isNotNegative();
+		Validator.suppose(zLength).thatIsNamed("z length").isPositive();
 		
 		this.zLength.setValue((zLength));
 		
