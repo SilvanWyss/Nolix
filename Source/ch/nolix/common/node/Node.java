@@ -2,7 +2,6 @@
 package ch.nolix.common.node;
 
 //own imports
-import ch.nolix.common.commonTypeHelpers.BooleanHelper;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
@@ -127,7 +126,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param pBoolean
 	 */
 	public Node(final boolean pBoolean) {
-		setHeader(BooleanHelper.toString(pBoolean));
+		setHeader(String.valueOf(pBoolean));
 	}
 	
 	//constructor
@@ -235,9 +234,9 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public Node(final String header, final boolean attribute) {
 		
 		//Calls other constructor.
-		this(header, String.valueOf(attribute));
+		this(header, new Node(attribute));
 	}
-
+	
 	//constructor
 	/**
 	 * Creates a new {@link Node} with the given header and attribute.
