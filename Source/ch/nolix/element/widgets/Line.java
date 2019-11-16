@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
@@ -10,14 +11,13 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 250
+ * @lines 230
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -34,7 +34,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	public static final Color DEFAULT_COLOR = Color.BLACK;
 	
 	//attributes
-	private PositiveInteger thickness;
+	private int thickness;
 	private Color color;
 	
 	//method
@@ -73,7 +73,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		final List<Node> attributes = super.getAttributes();
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
-			attributes.addAtEnd(thickness.getSpecificationAs(PascalCaseNameCatalogue.THICKNESS));
+			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.THICKNESS, thickness));
 		}
 		
 		if (!getColor().equals(DEFAULT_COLOR)) {
@@ -102,7 +102,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @return the thickness of this line.
 	 */
 	public final int getThickness() {
-		return thickness.getValue();
+		return thickness;
 	}
 	
 	//method
@@ -171,7 +171,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 			);
 		}
 		
-		this.thickness = new PositiveInteger(thickness);
+		this.thickness = thickness;
 		
 		return asConcreteType();
 	}
