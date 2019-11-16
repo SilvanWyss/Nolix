@@ -1,10 +1,13 @@
 //package declaration
 package ch.nolix.element.shapes;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //abstract class
 public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
@@ -13,17 +16,17 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> height =
+	private final MutableProperty<Double> height =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
-		h -> setHeight(h.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		h -> h.getSpecification()
+		h -> setHeight(h),
+		s -> s.getOneAttributeAsDouble(),
+		h -> Node.withOneAttribute(h)
 	);
 	
 	//method
 	public final double getHeight() {
-		return height.getValue().getValue();
+		return height.getValue();
 	}
 	
 	//method
@@ -46,7 +49,9 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	//method
 	public final P setHeight(final double height) {
 		
-		this.height.setValue(new PositiveFloatingPointNumber(height));
+		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		
+		this.height.setValue(height);
 		
 		return asConcreteType();
 	}
