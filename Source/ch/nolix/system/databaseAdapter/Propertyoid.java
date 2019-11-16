@@ -9,7 +9,7 @@ import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.reflection.ReflectionHelper;
+import ch.nolix.common.reflectionHelpers.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 

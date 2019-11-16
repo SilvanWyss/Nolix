@@ -7,7 +7,7 @@ import java.lang.reflect.ParameterizedType;
 //own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.reflection.ReflectionHelper;
+import ch.nolix.common.reflectionHelpers.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 
 //abstract class

@@ -13,7 +13,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.reflection.MethodHelper;
+import ch.nolix.common.reflectionHelpers.MethodHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 
