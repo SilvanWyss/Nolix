@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
@@ -19,7 +21,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	public static final int DEFAULT_LINE_THICKNESS = 1;
 	
 	//optional attributes
-	private PositiveInteger lineThickness;
+	private int lineThickness;
 	
 	//method
 	/**
@@ -55,7 +57,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 		
 		//Handles the case that the current check box look has a line thickness.
 		if (hasLineThickness()) {
-			attributes.addAtEnd(lineThickness.getSpecificationAs(PascalCaseNameCatalogue.LINE_THICKNESS));
+			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.LINE_THICKNESS, lineThickness));
 		}
 		
 		return attributes;
@@ -69,7 +71,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 		
 		//Handles the case that the current check box look has a line thickness.
 		if (hasLineThickness()) {
-			return lineThickness.getValue();
+			return lineThickness;
 		}
 		
 		//Handles the case that the current check box look
@@ -88,7 +90,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	 * @return true if the current {@link CheckboxLook} has a line thickness.
 	 */
 	public boolean hasLineThickness() {
-		return (lineThickness != null);
+		return (lineThickness != -1);
 	}
 	
 	//method
@@ -99,7 +101,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	 */
 	public CheckboxLook removeLineThickness() {
 		
-		lineThickness = null;
+		lineThickness = -1;
 		
 		return this;
 	}
@@ -131,8 +133,11 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	 */
 	public CheckboxLook setLineThickness(final int lineThickness) {
 		
-		//Sets the line thickness of the current {@link CheckBoxLook}.
-		this.lineThickness = new PositiveInteger(lineThickness);
+		//Checks if the given lineThickness is positive.
+		Validator.suppose(lineThickness).thatIsNamed(VariableNameCatalogue.LINE_THICKNESS).isPositive();
+		
+		//Sets the line thickness of the current CheckBoxLook.
+		this.lineThickness = lineThickness;
 		
 		return this;
 	}
