@@ -277,7 +277,7 @@ public final class TextFormat extends Element<TextFormat> {
 		
 		//Handles the case that the given text is null.
 		if (text == null) {
-			text = StringCatalogue.NULL_NAME;
+			text = StringCatalogue.NULL_HEADER;
 		}
 		
 		//Extracts the first part of the given text.

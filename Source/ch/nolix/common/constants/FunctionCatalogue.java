@@ -83,7 +83,7 @@ public final class FunctionCatalogue {
 		
 		//Handles the case that the given object is null.
 		if (o == null) {
-			return StringCatalogue.NULL_NAME;
+			return StringCatalogue.NULL_HEADER;
 		}
 		
 		//Handles the case that the given object is not null.
