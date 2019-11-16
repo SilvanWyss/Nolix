@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
@@ -10,7 +11,6 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -29,8 +29,8 @@ public final class Area extends Widget<Area, AreaLook> {
 	public static final String TYPE_NAME = "Area";
 	
 	//attributes
-	private PositiveInteger width = new PositiveInteger();
-	private PositiveInteger height = new PositiveInteger();
+	private int width;
+	private int height;
 	
 	//optional attribute
 	private Color backgroundColor;
@@ -132,8 +132,8 @@ public final class Area extends Widget<Area, AreaLook> {
 		final List<Node> attributes = super.getAttributes();
 		
 		attributes
-		.addAtEnd(width.getSpecificationAs(PascalCaseNameCatalogue.HEIGHT))
-		.addAtEnd(height.getSpecificationAs(PascalCaseNameCatalogue.WIDTH));
+		.addAtEnd(new Node(PascalCaseNameCatalogue.HEIGHT, height))
+		.addAtEnd(new Node(PascalCaseNameCatalogue.WIDTH, width));
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {
@@ -237,12 +237,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * 
 	 * @param height
 	 * @return the current {@link Area}.
-	 * @throws NonPositiveArgumentException
-	 * if the given height is not positive.
+	 * @throws NonPositiveArgumentException if the given height is not positive.
 	 */
 	public Area setHeight(final int height) {
 		
-		this.height = new PositiveInteger(height);
+		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		
+		this.height = height;
 		
 		return this;
 	}
@@ -278,7 +279,9 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setWidth(final int width) {
 		
-		this.width = new PositiveInteger(width);
+		Validator.suppose(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
+		
+		this.width = width;
 		
 		return this;
 	}
@@ -330,7 +333,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected int getHeightWhenNotCollapsed() {
-		return height.getValue();
+		return height;
 	}
 	
 	//method
@@ -339,7 +342,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected int getWidthWhenNotCollapsed() {
-		return width.getValue();
+		return width;
 	}
 	
 	//method
