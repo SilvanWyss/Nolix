@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -14,8 +15,6 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.painter.IPainter;
@@ -69,75 +68,75 @@ extends Widget<BW, BWL> {
 	private ContentPosition contentPosition;
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> minWidth =
+	private final MutableOptionalProperty<Integer> minWidth =
 	new MutableOptionalProperty<>(
 		MIN_WIDTH_HEADER,
-		mw -> setMinWidth(mw.getValue()),
-		s -> PositiveInteger.fromSpecification(s),
-		mw -> mw.getSpecification()
+		mw -> setMinWidth(mw),
+		s -> s.getOneAttributeAsInt(),
+		mw -> Node.withOneAttribute(mw)
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> minHeight =
+	private final MutableOptionalProperty<Integer> minHeight =
 	new MutableOptionalProperty<>(
 		MIN_HEIGHT_HEADER,
-		mh -> setMinHeight(mh.getValue()),
-		s -> PositiveInteger.fromSpecification(s),
-		mh -> mh.getSpecification()
+		mh -> setMinHeight(mh),
+		s -> s.getOneAttributeAsInt(),
+		mh -> Node.withOneAttribute(mh)
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> maxWidth =
+	private final MutableOptionalProperty<Integer> maxWidth =
 	new MutableOptionalProperty<>(
 		MAX_WIDTH_HEADER,
-		mw -> setMaxWidth(mw.getValue()),
-		s -> PositiveInteger.fromSpecification(s),
-		mw -> mw.getSpecification()
+		mw -> setMaxWidth(mw),
+		s -> s.getOneAttributeAsInt(),
+		mw -> Node.withOneAttribute(mw)
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> maxHeight =
+	private final MutableOptionalProperty<Integer> maxHeight =
 	new MutableOptionalProperty<>(
 		MAX_HEIGHT_HEADER,
-		mh -> setMaxHeight(mh.getValue()),
-		s -> PositiveInteger.fromSpecification(s),
-		mh -> mh.getSpecification()
+		mh -> setMaxHeight(mh),
+		s -> s.getOneAttributeAsInt(),
+		mh -> Node.withOneAttribute(mh)
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> proposalWidth =
+	private final MutableOptionalProperty<Integer> proposalWidth =
 	new MutableOptionalProperty<>(
 		PROPOSAL_WIDTH_HEADER,
-		pw -> setProposalWidth(pw.getValue()),
-		s -> PositiveInteger.fromSpecification(s),
-		pw -> pw.getSpecification()
+		pw -> setProposalWidth(pw),
+		s -> s.getOneAttributeAsInt(),
+		pw ->  Node.withOneAttribute(pw)
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> proposalHeight =
+	private final MutableOptionalProperty<Integer> proposalHeight =
 	new MutableOptionalProperty<>(
 		PROPOSAL_HEIGHT_HEADER,
-		ph -> setProposalHeight(ph.getValue()),
-		s -> PositiveInteger.fromSpecification(s),
-		ph -> ph.getSpecification()
+		ph -> setProposalHeight(ph),
+		s -> s.getOneAttributeAsInt(),
+		ph ->  Node.withOneAttribute(ph)
 	);
 	
 	//attribute
-	private final MutableProperty<NonNegativeInteger> viewAreaXPositionOnScrolledArea =
+	private final MutableProperty<Integer> viewAreaXPositionOnScrolledArea =
 	new MutableProperty<>(
 		VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
-		x -> setViewAreaXPositionOnScrolledArea(x.getValue()),
-		s -> NonNegativeInteger.fromSpecification(s),
-		x -> x.getSpecification()
+		x -> setViewAreaXPositionOnScrolledArea(x),
+		s -> s.getOneAttributeAsInt(),
+		x -> Node.withOneAttribute(x)
 	);
 	
 	//attribute
-	private final MutableProperty<NonNegativeInteger> viewAreaYPositionOnScrolledArea =
+	private final MutableProperty<Integer> viewAreaYPositionOnScrolledArea =
 	new MutableProperty<>(
 		VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
-		y -> setViewAreaYPositionOnScrolledArea(y.getValue()),
-		s -> NonNegativeInteger.fromSpecification(s),
-		y -> y.getSpecification()
+		y -> setViewAreaYPositionOnScrolledArea(y),
+		s -> s.getOneAttributeAsInt(),
+		y -> Node.withOneAttribute(y)
 	);
 	
 	//attributes
@@ -308,7 +307,7 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max height.
 	 */
 	public final int getMaxHeight() {
-		return maxHeight.getValue().getValue();
+		return maxHeight.getValue();
 	}
 	
 	//method
@@ -317,7 +316,7 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max widt.
 	 */
 	public final int getMaxWidth() {
-		return maxWidth.getValue().getValue();
+		return maxWidth.getValue();
 	}
 	
 	//method
@@ -326,7 +325,7 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a min height.
 	 */
 	public final int getMinHeight() {
-		return minHeight.getValue().getValue();
+		return minHeight.getValue();
 	}
 	
 	//method
@@ -335,7 +334,7 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a min width.
 	 */
 	public final int getMinWidth() {
-		return minWidth.getValue().getValue();
+		return minWidth.getValue();
 	}
 	
 	//method
@@ -384,7 +383,7 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a proposal height.
 	 */
 	public final int getProposalHeight() {
-		return proposalHeight.getValue().getValue();
+		return proposalHeight.getValue();
 	}
 	
 	//method
@@ -393,7 +392,7 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a proposal width.
 	 */
 	public final int getProposalWidth() {
-		return proposalWidth.getValue().getValue();
+		return proposalWidth.getValue();
 	}
 	
 	//method
@@ -474,7 +473,7 @@ extends Widget<BW, BWL> {
 	 * @return x-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
 	public final int getViewAreaXPositionOnScrolledArea() {
-		return viewAreaXPositionOnScrolledArea.getValue().getValue();
+		return viewAreaXPositionOnScrolledArea.getValue();
 	}
 	
 	//method
@@ -482,7 +481,7 @@ extends Widget<BW, BWL> {
 	 * @return the y-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
 	public final int getViewAreaYPositionOnScrolledArea() {
-		return viewAreaYPositionOnScrolledArea.getValue().getValue();
+		return viewAreaYPositionOnScrolledArea.getValue();
 	}
 	
 	//method
@@ -648,8 +647,8 @@ extends Widget<BW, BWL> {
 		
 		super.reset();
 		
-		viewAreaXPositionOnScrolledArea.setValue(new NonNegativeInteger(1));
-		viewAreaYPositionOnScrolledArea.setValue(new NonNegativeInteger(1));
+		viewAreaXPositionOnScrolledArea.setValue(0);
+		viewAreaYPositionOnScrolledArea.setValue(0);
 		
 		return asConcreteType();
 	}
@@ -765,7 +764,9 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxHeight(final int maxHeight) {
 		
-		this.maxHeight.setValue(new PositiveInteger(maxHeight));
+		Validator.suppose(maxHeight).thatIsNamed("max height").isPositive();
+		
+		this.maxHeight.setValue(maxHeight);
 		
 		return asConcreteType();
 	}
@@ -780,7 +781,9 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
 		
-		this.maxWidth.setValue(new PositiveInteger(maxWidth));
+		Validator.suppose(maxWidth).thatIsNamed("max with").isPositive();
+		
+		this.maxWidth.setValue(maxWidth);
 		
 		return asConcreteType();
 	}
@@ -791,11 +794,10 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param minHeight
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given min height is not positive.
 	 */
 	public final BW setMinHeight(final int minHeight) {
 		
-		this.minHeight.setValue(new PositiveInteger(minHeight));
+		this.minHeight.setValue(minHeight);
 		
 		return asConcreteType();
 	}
@@ -806,11 +808,10 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param minWidth
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given min width is not positive.
 	 */
 	public final BW setMinWidth(final int minWidth) {
 		
-		this.minWidth.setValue(new PositiveInteger(minWidth));
+		this.minWidth.setValue(minWidth);
 		
 		return asConcreteType();
 	}
@@ -825,7 +826,9 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalHeight(final int proposalHeight) {
 		
-		this.proposalHeight.setValue(new PositiveInteger(proposalHeight));
+		Validator.suppose(proposalHeight).thatIsNamed("proposal height").isPositive();
+		
+		this.proposalHeight.setValue(proposalHeight);
 		
 		return asConcreteType();
 	}
@@ -858,7 +861,9 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
-		this.proposalWidth.setValue(new PositiveInteger(proposalWidth));
+		Validator.suppose(proposalWidth).thatIsNamed("proposal with").isPositive();
+		
+		this.proposalWidth.setValue(proposalWidth);
 		
 		return asConcreteType();
 	}
@@ -879,9 +884,7 @@ extends Widget<BW, BWL> {
 			scrolledArea.getWidth() - viewArea.getWidth()
 		);
 		
-		this
-		.viewAreaXPositionOnScrolledArea
-		.setValue(new NonNegativeInteger(viewAreaXPositionOnScrolledArea));
+		this.viewAreaXPositionOnScrolledArea.setValue(viewAreaXPositionOnScrolledArea);
 		
 		return asConcreteType();
 	}
@@ -902,9 +905,7 @@ extends Widget<BW, BWL> {
 			scrolledArea.getHeight() - viewArea.getHeight()
 		);
 		
-		this
-		.viewAreaYPositionOnScrolledArea
-		.setValue(new NonNegativeInteger(viewAreaYPositionOnScrolledArea));
+		this.viewAreaYPositionOnScrolledArea.setValue(viewAreaYPositionOnScrolledArea);
 		
 		return asConcreteType();
 	}
