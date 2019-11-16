@@ -775,9 +775,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		//Handles the case that the current GUI contains several layers.
 		else {
-			//TODO: Extend MultiProperty.
-			topLayer = layers.getRefAt(layers.getSize() - 1);
-			layers.removeValue(layers.getRefAt(layers.getSize()));
+			layers.removeLastValue();
+			topLayer = layers.getRefLast();
 		}
 		
 		getRefTopOrBackgroundLayer().noteMouseMove(
