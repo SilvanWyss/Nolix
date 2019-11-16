@@ -3,11 +3,11 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.textFormat.Font;
@@ -57,12 +57,12 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	);
 	
 	//attribute
-	private final LayerProperty<PositiveInteger> textSize =
+	private final LayerProperty<Integer> textSize =
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
-		new PositiveInteger(DEFAULT_TEXT_SIZE),
-		s -> PositiveInteger.fromSpecification(s),
-		ts -> ts.getSpecification()
+		DEFAULT_TEXT_SIZE,
+		s -> s.getOneAttributeAsInt(),
+		ts -> Node.withOneAttribute(ts)
 	);
 	
 	//attribute
@@ -107,7 +107,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * of the current {@link WidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTextSize() {
-		return textSize.getRecursiveOrDefaultValue().getValue();
+		return textSize.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -232,7 +232,10 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 */
 	public final WL setTextSize(final int textSize) {
 		
-		this.textSize.setValue(new PositiveInteger(textSize));
+		//Checks if the given textSize is positive.
+		Validator.suppose(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
+		
+		this.textSize.setValue(textSize);
 		
 		return asConcreteType();
 	}
