@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-import ch.nolix.element.core.NonNegativeInteger;
+//own imports
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widgets.BorderWidgetLook;
 
 //class
-public final class TabContainerLook
-extends BorderWidgetLook<TabContainerLook> {
+public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	
 	//default values
 	public static final int DEFAULT_MENU_MARGIN = 0;
@@ -23,21 +24,21 @@ extends BorderWidgetLook<TabContainerLook> {
 	private static final String SELECTION_MENU_ITEM_LOOK_HEADER = "SelectionMenuItemLook";
 	
 	//attribute
-	private final LayerProperty<NonNegativeInteger> menuItemMargin =
+	private final LayerProperty<Integer> menuItemMargin =
 	new LayerProperty<>(
 		MENU_ITEM_MARGIN_HEADER,
-		new NonNegativeInteger(DEFAULT_MENU_ITEM_MARGIN),
-		s -> NonNegativeInteger.fromSpecification(s),
-		mim -> mim.getSpecification()
+		DEFAULT_MENU_ITEM_MARGIN,
+		s -> s.getOneAttributeAsInt(),
+		mim -> Node.withOneAttribute(mim)
 	);
 	
 	//attribute
-	private final LayerProperty<NonNegativeInteger> menuMargin =
+	private final LayerProperty<Integer> menuMargin =
 	new LayerProperty<>(
 		MENU_MARGIN_HEADER,
-		new NonNegativeInteger(DEFAULT_MENU_MARGIN),
-		s -> NonNegativeInteger.fromSpecification(s),
-		mm -> mm.getSpecification()
+		DEFAULT_MENU_MARGIN,
+		s -> s.getOneAttributeAsInt(),
+		mm -> Node.withOneAttribute(mm)
 	);
 	
 	//attribute
@@ -79,12 +80,12 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//method
 	public int getRecursiveOrDefaultMenuItemMargin() {
-		return menuItemMargin.getRecursiveOrDefaultValue().getValue();
+		return menuItemMargin.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public int getRecursiveOrDefaultMenuMargin() {
-		return menuMargin.getRecursiveOrDefaultValue().getValue();
+		return menuMargin.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -151,7 +152,9 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setMenuItemMargin(final int menuItemMargin) {
 		
-		this.menuItemMargin.setValue(new NonNegativeInteger(menuItemMargin));
+		Validator.suppose(menuItemMargin).thatIsNamed("menu item margin").isPositive();
+		
+		this.menuItemMargin.setValue(menuItemMargin);
 		
 		return this;
 	}
@@ -159,7 +162,9 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setMenuMargin(final int menuMargin) {
 		
-		this.menuMargin.setValue(new NonNegativeInteger(menuMargin));
+		Validator.suppose(menuMargin).thatIsNamed("menu margin").isPositive();
+		
+		this.menuMargin.setValue(menuMargin);
 		
 		return this;
 	}
