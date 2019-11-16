@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+//own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IConfigurableElement;
-import ch.nolix.element.core.PositiveInteger;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 190
+ * @lines 200
  */
 public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 
@@ -23,7 +24,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	private static final String MAX_SELECTOR_LEVEL_HEADER = "MaxSelectorLevel";
 	
 	//optional attribute
-	private PositiveInteger maxSelectorLevel;
+	private int maxSelectorLevel = -1;
 	
 	//constructor
 	/**
@@ -103,7 +104,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 		
 		//Handles the case that this deep configuration has a max selector level.
 		if (hasMaxSelectorLevel()) {
-			attributes.addAtEnd(maxSelectorLevel.getSpecificationAs(MAX_SELECTOR_LEVEL_HEADER));
+			attributes.addAtEnd(new Node(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
 		}
 		
 		return attributes;
@@ -121,7 +122,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 			throw new ArgumentDoesNotHaveAttributeException(this, "max selector level");
 		}
 		
-		return maxSelectorLevel.getValue();
+		return maxSelectorLevel;
 	}
 	
 	//method
@@ -129,7 +130,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @return true if this deep configuration has a max selector level.
 	 */
 	public boolean hasMaxSelectorLevel() {
-		return (maxSelectorLevel != null);
+		return (maxSelectorLevel != -1);
 	}
 	
 	//method
@@ -144,7 +145,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 		//Checks if this deep configuration is not frozen.
 		supposeNotFrozen();
 		
-		maxSelectorLevel = null;
+		maxSelectorLevel = -1;
 		
 		return this;
 	}
@@ -175,10 +176,13 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public void setMaxSelectorLevel(int maxSelectorLevel) {
 		
+		//Checks if the given maxSelectorLevel is positive.
+		Validator.suppose(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
+		
 		//Checks if this deep configuration is not frozen.
 		supposeNotFrozen();
 		
-		this.maxSelectorLevel = new PositiveInteger(maxSelectorLevel);
+		this.maxSelectorLevel = maxSelectorLevel;
 	}
 	
 	//method
