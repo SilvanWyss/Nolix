@@ -161,7 +161,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * @return true if the current {@link Stack} container has an element margin.
 	 */
 	public final boolean hasElementMargin() {
-		return (elementMargin != null);
+		return elementMargin.hasValue();
 	}
 	
 	//method
