@@ -1,15 +1,17 @@
 //package declaration
 package ch.nolix.element.shapes;
 
+//own imports
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 190
+ * @lines 200
  */
 public final class Cuboid extends BaseShape<Cuboid> {
 	
@@ -24,30 +26,30 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	private static final String Z_LENGTH_HEADER = "ZLength";
 	
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> xLength =
+	private final MutableProperty<Double> xLength =
 	new MutableProperty<>(
 		X_LENGTH_HEADER,
-		xl -> setXLength(xl.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		xl -> xl.getSpecification()
+		xl -> setXLength(xl),
+		s -> s.getOneAttributeAsDouble(),
+		xl -> Node.withOneAttribute(xl)
 	);
 	
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> yLength =
+	private final MutableProperty<Double> yLength =
 	new MutableProperty<>(
 		Y_LENGTH_HEADER,
-		yl -> setYLength(yl.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		yl -> yl.getSpecification()
+		yl -> setYLength(yl),
+		s -> s.getOneAttributeAsDouble(),
+		yl -> Node.withOneAttribute(yl)
 	);
 	
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> zLength =
+	private final MutableProperty<Double> zLength =
 	new MutableProperty<>(
 		Z_LENGTH_HEADER,
-		zl -> setZLength(zl.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		zl -> zl.getSpecification()
+		zl -> setZLength(zl),
+		s -> s.getOneAttributeAsDouble(),
+		zl -> Node.withOneAttribute(zl)
 	);
 	
 	//constructor
@@ -63,7 +65,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * @return the x-length of the current {@link Cuboid}.
 	 */
 	public double getXLength() {
-		return xLength.getValue().getValue();
+		return xLength.getValue();
 	}
 	
 	//method
@@ -79,7 +81,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * @return the y-length of the current {@link Cuboid}.
 	 */
 	public double getYLength() {
-		return yLength.getValue().getValue();
+		return yLength.getValue();
 	}
 	
 	//method
@@ -95,7 +97,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * @return the z-length of the current {@link Cuboid}.
 	 */
 	public double getZLength() {
-		return zLength.getValue().getValue();
+		return zLength.getValue();
 	}
 	
 	//method
@@ -156,11 +158,13 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @param xLength
 	 * @return the current {@link Cuboid}.
-	 * @throws NonPositiveArgumentException if the given x-length is not positive.
+	 * @throws NonPositiveArgumentException if the given x-length is negative.
 	 */
 	public Cuboid setXLength(final double xLength) {
 		
-		this.xLength.setValue(new PositiveFloatingPointNumber(xLength));
+		Validator.suppose(xLength).thatIsNamed("x length").isNotNegative();
+		
+		this.xLength.setValue(xLength);
 		
 		return this;
 	}
@@ -171,11 +175,13 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @param yLength
 	 * @return the current {@link Cuboid}.
-	 * @throws NonPositiveArgumentException if the given y-length is not positive.
+	 * @throws NonPositiveArgumentException if the given y-length is negative.
 	 */
 	public Cuboid setYLength(final double yLength) {
 		
-		this.yLength.setValue(new PositiveFloatingPointNumber(yLength));
+		Validator.suppose(yLength).thatIsNamed("y length").isNotNegative();
+		
+		this.yLength.setValue(yLength);
 		
 		return this;
 	}
@@ -186,11 +192,13 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @param zLength
 	 * @return the current {@link Cuboid}.
-	 * @throws NonPositiveArgumentException if the given z-length is not positive.
+	 * @throws NonPositiveArgumentException if the given z-length is negative.
 	 */
 	public Cuboid setZLength(final double zLength) {
 		
-		this.zLength.setValue(new PositiveFloatingPointNumber(zLength));
+		Validator.suppose(zLength).thatIsNamed("z length").isNotNegative();
+		
+		this.zLength.setValue((zLength));
 		
 		return this;
 	}
