@@ -1,10 +1,13 @@
 //package declaration
 package ch.nolix.element.shapes;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
 public final class Pyramid extends BaseShape<Pyramid> {
@@ -14,21 +17,21 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> sideLength =
+	private final MutableProperty<Double> sideLength =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.SIDE_LENGTH,
-		sl -> setSideLength(sl.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		sl -> sl.getSpecification()
+		sl -> setSideLength(sl),
+		s -> s.getOneAttributeAsDouble(),
+		sl -> Node.withOneAttribute(sl)
 	);
 	
 	//attribute
-	private final MutableProperty<PositiveFloatingPointNumber> height =
+	private final MutableProperty<Double> height =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
-		h -> setHeight(h.getValue()),
-		s -> PositiveFloatingPointNumber.fromSpecification(s),
-		h -> h.getSpecification()
+		h -> setHeight(h),
+		s -> s.getOneAttributeAsDouble(),
+		h -> Node.withOneAttribute(h)
 	);
 	
 	//constructor
@@ -38,26 +41,22 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	
 	//method
 	public double getHeight() {
-		return height.getValue().getValue();
+		return height.getValue();
 	}
 	
 	//method
 	public float getHeightAsFloat() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (float)sideLength.getValue().getValue();
+		return (float)sideLength.getValue();
 	}
 	
 	//method
 	public double getSideLength() {
-		return sideLength.getValue().getValue();
+		return sideLength.getValue();
 	}
 	
 	//method
 	public float getSideLengthAsFloat() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (float)sideLength.getValue().getValue();
+		return (float)sideLength.getValue();
 	}
 	
 	//method
@@ -76,7 +75,9 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	//method
 	public Pyramid setHeight(final double height) {
 		
-		this.height.setValue(new PositiveFloatingPointNumber(height));
+		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		
+		this.height.setValue(height);
 		
 		return this;
 	}
@@ -84,7 +85,9 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	//method
 	public Pyramid setSideLength(final double sideLength) {
 		
-		this.sideLength.setValue(new PositiveFloatingPointNumber(sideLength));
+		Validator.suppose(sideLength).thatIsNamed(VariableNameCatalogue.SIDE_LENGTH).isPositive();
+		
+		this.sideLength.setValue(sideLength);
 		
 		return this;
 	}
