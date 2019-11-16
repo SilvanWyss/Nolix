@@ -1,20 +1,20 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.widgets.ItemMenuItemLook;
 
 //class
-public final class TabContainerMenuItemLook
-extends LayerElement<ItemMenuItemLook> {
+public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "MenuItemLook";
@@ -41,10 +41,10 @@ extends LayerElement<ItemMenuItemLook> {
 	}
 	
 	//optional attributes
-	private NonNegativeInteger minWidth;
+	private int minWidth = -1;
 	private Color backgroundColor;
-	private NonNegativeInteger padding;
-	private NonNegativeInteger textSize;
+	private int padding = -1;
+	private int textSize = -1;
 	private Color textColor;
 	
 	//method
@@ -80,7 +80,7 @@ extends LayerElement<ItemMenuItemLook> {
 		
 		if (hasMinWidth()) {
 			attributes.addAtEnd(
-				minWidth.getSpecificationAs(MIN_WIDTH_HEADER)
+				new Node(MIN_WIDTH_HEADER, minWidth)
 			);
 		}
 		
@@ -92,13 +92,13 @@ extends LayerElement<ItemMenuItemLook> {
 		
 		if (hasPadding()) {
 			attributes.addAtEnd(
-				padding.getSpecificationAs(PascalCaseNameCatalogue.PADDING)
+				new Node(PascalCaseNameCatalogue.PADDING, padding)
 			);
 		}
 		
 		if (hasTextSize()) {
 			attributes.addAtEnd(
-				textSize.getSpecificationAs(PascalCaseNameCatalogue.TEXT_SIZE)
+				new Node(PascalCaseNameCatalogue.TEXT_SIZE, textSize)
 			);
 		}
 		
@@ -125,7 +125,7 @@ extends LayerElement<ItemMenuItemLook> {
 	public int getOwnOrDefaultMinWidth() {
 		
 		if (hasMinWidth()) {
-			return minWidth.getValue();
+			return minWidth;
 		}
 		
 		return DEFAULT_MIN_WIDTH;
@@ -135,7 +135,7 @@ extends LayerElement<ItemMenuItemLook> {
 	public int getOwnOrDefaultPadding() {
 		
 		if (hasPadding()) {
-			return padding.getValue();
+			return padding;
 		}
 		
 		return DEFAULT_PADDING;
@@ -155,7 +155,7 @@ extends LayerElement<ItemMenuItemLook> {
 	public int getOwnOrDefaultTextSize() {
 		
 		if (hasTextSize()) {
-			return textSize.getValue();
+			return textSize;
 		}
 		
 		return DEFAULT_TEXT_SIZE;
@@ -174,12 +174,12 @@ extends LayerElement<ItemMenuItemLook> {
 	
 	//method
 	public boolean hasMinWidth() {
-		return (minWidth != null);
+		return (minWidth != -1);
 	}
 	
 	//method
 	public boolean hasPadding() {
-		return (padding != null);
+		return (padding != -1);
 	}
 	
 	//method
@@ -189,7 +189,7 @@ extends LayerElement<ItemMenuItemLook> {
 	
 	//method
 	public boolean hasTextSize() {
-		return (textSize != null);
+		return (textSize != -1);
 	}
 	
 	//method
@@ -203,7 +203,7 @@ extends LayerElement<ItemMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook removeMinWidth() {
 		
-		minWidth = null;
+		minWidth = -1;
 		
 		return this;
 	}
@@ -211,7 +211,7 @@ extends LayerElement<ItemMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook removePadding() {
 		
-		padding = null;
+		padding = -1;
 		
 		return this;
 	}
@@ -227,7 +227,7 @@ extends LayerElement<ItemMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook removeTextSize() {
 		
-		textSize = null;
+		textSize = -1;
 		
 		return this;
 	}
@@ -248,7 +248,9 @@ extends LayerElement<ItemMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook setMinWidth(final int minWidth) {
 		
-		this.minWidth = new NonNegativeInteger(minWidth);
+		Validator.suppose(minWidth).thatIsNamed("min width").isPositive();
+		
+		this.minWidth = minWidth;
 		
 		return this;
 	}
@@ -256,7 +258,9 @@ extends LayerElement<ItemMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook setPadding(final int padding) {
 		
-		this.padding = new NonNegativeInteger(padding);
+		Validator.suppose(padding).thatIsNamed(VariableNameCatalogue.PADDING).isPositive();
+		
+		this.padding = padding;
 		
 		return this;
 	}
@@ -277,7 +281,9 @@ extends LayerElement<ItemMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook setTextSize(final int textSize) {
 		
-		this.textSize = new NonNegativeInteger(textSize);
+		Validator.suppose(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
+		
+		this.textSize = textSize;
 		
 		return this;
 	}
