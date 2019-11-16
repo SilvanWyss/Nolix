@@ -5,6 +5,7 @@ package ch.nolix.element.textFormat;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+//own imports
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.List;
@@ -12,7 +13,6 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
 
 //class
 /**
@@ -47,7 +47,7 @@ public final class TextFormat extends Element<TextFormat> {
 	private final Font textFont;
 	private final boolean bold;
 	private final boolean italic;
-	private final PositiveInteger textSize;
+	private final int textSize;
 	private final Color textColor;
 	private final java.awt.Font swingFont;
 	private final Canvas canvas = new Canvas();
@@ -167,7 +167,7 @@ public final class TextFormat extends Element<TextFormat> {
 		this.textFont = textFont;
 		this.bold = bold;
 		this.italic = italic;
-		this.textSize = new PositiveInteger(textSize);
+		this.textSize = textSize;
 		this.textColor = textColor;
 		
 		//Extracts the swing text style of the current text format.
@@ -236,7 +236,7 @@ public final class TextFormat extends Element<TextFormat> {
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
 			new Node(BOLD_FLAG_HEADER, bold),
 			new Node(ITALIC_FLAG_HEADER, italic),
-			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
+			new Node(TEXT_SIZE_HEADER, textSize),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
 	}
@@ -354,7 +354,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @return the text size of the current {@link TextFormat}.
 	 */
 	public int getTextSize() {
-		return textSize.getValue();
+		return textSize;
 	}
 	
 	//method
