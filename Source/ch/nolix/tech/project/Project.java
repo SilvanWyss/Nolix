@@ -51,7 +51,7 @@ public final class Project extends Element<Project> implements IProject {
 	 */
 	public Project addTask(final ITask task) {
 		
-		tasks.addValue(task);
+		tasks.add(task);
 		
 		return this;
 	}
@@ -124,7 +124,7 @@ public final class Project extends Element<Project> implements IProject {
 	 */
 	public Project removeTask(final ITask task) {
 		
-		tasks.removeValue(task);
+		tasks.remove(task);
 		
 		return this;
 	}

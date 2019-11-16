@@ -282,7 +282,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		Validator.suppose(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
 		
 		layer.setParentGUI(this);
-		layers.addValue(layer);
+		layers.add(layer);
 		topLayer = layer;	
 		
 		return asConcreteType();
@@ -775,7 +775,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		//Handles the case that the current GUI contains several layers.
 		else {
-			layers.removeLastValue();
+			layers.removeLast();
 			topLayer = layers.getRefLast();
 		}
 		

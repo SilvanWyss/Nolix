@@ -92,7 +92,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		.isNotNull();
 		
 		tab.setParentAccordion(this);
-		tabs.addValue(tab);
+		tabs.add(tab);
 		accordionVerticalStack.addWidget(tab.getRefTabVerticalStack());
 		
 		if (expandsAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {

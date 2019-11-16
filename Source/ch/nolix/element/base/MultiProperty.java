@@ -71,7 +71,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 * @throws ArgumentIsNullException if the given value is null.
 	 * @throws InvalidArgumentException if the current {@link MultiProperty} contains already the given value.
 	 */
-	public void addValue(final V value) {
+	public void add(final V value) {
 		values.addAtEndRegardingSingularity(value);
 	}
 	
@@ -130,38 +130,38 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	
 	//method
 	/**
-	 * Removes and returns the last value from the current {@link MultiProperty}.
+	 * Removes the given value of the current {@link MultiProperty}.
+	 * 
+	 * @param value
+	 * @throws InvalidArgumentException if the current {@link MultiProperty} does not contain the given value.
+	 */
+	public void remove(final V value) {
+		values.removeFirst(value);
+	}
+	
+	//method
+	/**
+	 * Removes and returns the last value of the current {@link MultiProperty}.
 	 * 
 	 * @return the last element of the current {@link MultiProperty}.
 	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
 	 */
-	public V removeAndGetRefLastValue() {
+	public V removeAndGetRefLast() {
 		return values.removeAndGetRefLast();
 	}
 	
 	//method
 	/**
-	 * Removes the last value from the current {@link MultiProperty}.
+	 * Removes the last value of the current {@link MultiProperty}.
 	 * 
 	 * @return the current {@link MultiProperty}.
 	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
 	 */
-	public MultiProperty<V> removeLastValue() {
+	public MultiProperty<V> removeLast() {
 		
 		values.removeLast();
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the given value from the current {@link MultiProperty}.
-	 * 
-	 * @param value
-	 * @throws InvalidArgumentException if the current {@link MultiProperty} does not contain the given value.
-	 */
-	public void removeValue(final V value) {
-		values.removeFirst(value);
 	}
 	
 	//package-visible method
@@ -172,7 +172,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	void addOrChangeValue(final V value) {
 		adderMethod.run(value);
 	}
-
+	
 	//package-visible method
 	/**
 	 * {@inheritDoc}

@@ -39,7 +39,7 @@ implements Clearable<IM> {
 		supposeDoesNotContainItemWithText(item.getText());
 		
 		item.setParentMenu(this);
-		items.addValue(item);
+		items.add(item);
 		noteAddItem(item);
 		
 		return asConcreteType();
