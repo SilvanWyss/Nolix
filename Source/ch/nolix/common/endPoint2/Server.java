@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
+import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
@@ -16,7 +16,7 @@ import ch.nolix.common.skillAPI.Clearable;
  * @month 2017-05
  * @lines 170
  */
-public class Server extends OptionalClosableElement implements Clearable<Server> {
+public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
 	private IEndPointTaker mainEndPointTaker;

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.common.endPoint;
 
+import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-05
  * @lines 50
  */
-public class Server extends OptionalClosableElement {
+public class Server extends ClosableElement {
 
 	//attribute
 	private final IElementTaker<EndPoint> endPointTaker;

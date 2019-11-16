@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.optionalClosableElement;
+package ch.nolix.common.closableElement;
 
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
@@ -19,7 +19,7 @@ final class CloseController implements OptionalClosable {
 	private boolean closed = false;
 	
 	//multi-attribute
-	private final List<OptionalClosableElement> elements = new List<>();
+	private final List<ClosableElement> elements = new List<>();
 	
 	//constructor
 	/**
@@ -28,7 +28,7 @@ final class CloseController implements OptionalClosable {
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public CloseController(final OptionalClosableElement element) {
+	public CloseController(final ClosableElement element) {
 		elements.addAtEnd(element);
 	}
 	
@@ -41,7 +41,7 @@ final class CloseController implements OptionalClosable {
 	 * @throws InvalidArgumentException if the current {@link CloseController} contains already the given element.
 	 * @throws InvalidArgumentException if the current {@link CloseController} is already closed.
 	 */
-	public synchronized void addElement(final OptionalClosableElement element) {
+	public synchronized void addElement(final ClosableElement element) {
 				
 		//Checks if the given element is not null.
 		Validator.suppose(element).thatIsNamed("element").isNotNull();
@@ -85,7 +85,7 @@ final class CloseController implements OptionalClosable {
 	 * @param element
 	 * @return true if the current {@link CloseController} contains the given element.
 	 */
-	public boolean containsElement(final OptionalClosableElement element) {
+	public boolean containsElement(final ClosableElement element) {
 		return elements.contains(element);
 	}
 	
@@ -93,7 +93,7 @@ final class CloseController implements OptionalClosable {
 	/**
 	 * @return the elements of the current {@link CloseController}.
 	 */
-	public ReadContainer<OptionalClosableElement> getRefElements() {
+	public ReadContainer<ClosableElement> getRefElements() {
 		return new ReadContainer<>(elements);
 	}
 	

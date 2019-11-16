@@ -3,11 +3,11 @@ package ch.nolix.common.endPoint5;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2015-12
  * @lines 170
  */
-public abstract class EndPoint extends OptionalClosableElement implements IDataProviderController {
+public abstract class EndPoint extends ClosableElement implements IDataProviderController {
 	
 	//optional attribute
 	private IDataProviderController receiverController;
