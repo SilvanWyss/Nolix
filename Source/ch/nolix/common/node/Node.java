@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 500
+ * @lines 510
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -235,6 +235,21 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		//Calls other constructor.
 		this(header, new Node(attribute));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with the given header and attribute.
+	 * 
+	 * @param header
+	 * @param attribute
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public Node(final String header, final double attribute) {
+		
+		//Calls other constructor.
+		this(header, String.valueOf(attribute));
 	}
 	
 	//constructor
