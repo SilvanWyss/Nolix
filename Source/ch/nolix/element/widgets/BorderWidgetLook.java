@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
@@ -11,14 +12,13 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.WidgetLook;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.image.Image;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1660
+ * @lines 1720
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
@@ -78,10 +78,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private static final String SELECTION_SCROLLBAR_LOOK_HEADER = "SelectionScrollbarLook";
 	
 	//optional attributes
-	private NonNegativeInteger leftBorderThickness;
-	private NonNegativeInteger rightBorderThickness;
-	private NonNegativeInteger topBorderThickness;
-	private NonNegativeInteger bottomBorderThickness;
+	private int leftBorderThickness = -1;
+	private int rightBorderThickness = -1;
+	private int topBorderThickness = -1;
+	private int bottomBorderThickness = -1;
 	
 	//optional attributes
 	private Color leftBorderColor;
@@ -96,10 +96,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private Image backgroundImage;
 	
 	//optional attributes
-	private NonNegativeInteger leftPadding;
-	private NonNegativeInteger rightPadding;
-	private NonNegativeInteger topPadding;
-	private NonNegativeInteger bottomPadding;
+	private int leftPadding = -1;
+	private int rightPadding = -1;
+	private int topPadding = -1;
+	private int bottomPadding = -1;
 	
 	//optional attributes
 	private ScrollbarLook baseScrollbarLook;
@@ -324,7 +324,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a bottom border thickness.
 		if (hasBottomBorderThickness()) {
-			return bottomBorderThickness.getValue();
+			return bottomBorderThickness;
 		}
 		
 		//Handles the case that the current border widget look
@@ -346,7 +346,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a bottom padding.
 		if (hasBottomPadding()) {
-			return bottomPadding.getValue();
+			return bottomPadding;
 		}
 		
 		//Handles the case that the current border widget look
@@ -412,7 +412,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a left border thickness.
 		if (hasLeftBorderThickness()) {
-			return leftBorderThickness.getValue();
+			return leftBorderThickness;
 		}
 		
 		//Handles the case that the current border widget look
@@ -434,7 +434,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a left padding.
 		if (hasLeftPadding()) {
-			return leftPadding.getValue();
+			return leftPadding;
 		}
 		
 		//Handles the case that the current border widget look
@@ -478,7 +478,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a right border thickness.
 		if (hasRightBorderThickness()) {
-			return rightBorderThickness.getValue();
+			return rightBorderThickness;
 		}
 		
 		//Handles the case that the current border widget look
@@ -500,7 +500,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a right padding.
 		if (hasRightPadding()) {
-			return rightPadding.getValue();
+			return rightPadding;
 		}
 		
 		//Handles the case that the current border widget look
@@ -566,7 +566,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look does not have a top border thickness.
 		if (hasTopBorderThickness()) {
-			return topBorderThickness.getValue();
+			return topBorderThickness;
 		}
 		
 		//Handles the case that the current border widget look
@@ -588,7 +588,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Handles the case that the current border widget look has a top padding.
 		if (hasTopPadding()) {
-			return topPadding.getValue();
+			return topPadding;
 		}
 		
 		//Handles the case that the current border widget look
@@ -734,7 +734,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeBottomBorderThickness() {
 		
-		bottomBorderThickness = null;
+		bottomBorderThickness = -1;
 		
 		return asConcreteType();
 	}
@@ -747,7 +747,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeBottomPadding() {
 		
-		bottomPadding = null;
+		bottomPadding = -1;
 		
 		return asConcreteType();
 	}
@@ -786,7 +786,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeLeftBorderThickness() {
 		
-		leftBorderThickness = null;
+		leftBorderThickness = -1;
 		
 		return asConcreteType();
 	}
@@ -799,7 +799,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeLeftPadding() {
 		
-		leftPadding = null;
+		leftPadding = -1;
 		
 		return asConcreteType();
 	}
@@ -841,7 +841,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeRightBorderThickness() {
 		
-		rightBorderThickness = null;
+		rightBorderThickness = -1;
 		
 		return asConcreteType();
 	}
@@ -854,7 +854,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeRightPadding() {
 		
-		rightPadding = null;
+		rightPadding = -1;
 		
 		return asConcreteType();
 	}
@@ -908,7 +908,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeTopBorderThickness() {
 		
-		topBorderThickness = null;
+		topBorderThickness = -1;
 		
 		return asConcreteType();
 	}
@@ -921,7 +921,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeTopPadding() {
 		
-		topPadding = null;
+		topPadding = -1;
 		
 		return asConcreteType();
 	}
@@ -1096,8 +1096,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @throws NegativeArgumentException if the given bottom border thickness is negative.
 	 */
 	public final BWL setBottomBorderThickness(final int bottomBorderThickness) {
-
-		this.bottomBorderThickness = new NonNegativeInteger(bottomBorderThickness);
+		
+		Validator.suppose(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
+		
+		this.bottomBorderThickness = bottomBorderThickness;
 		
 		return asConcreteType();
 	}
@@ -1112,7 +1114,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBottomPadding(final int bottomPadding) {
 		
-		this.bottomPadding = new NonNegativeInteger(bottomPadding);
+		Validator.suppose(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
+		
+		this.bottomPadding = bottomPadding;
 		
 		return asConcreteType();
 	}
@@ -1169,9 +1173,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return the current {@link BorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given left border thickness is negative.
 	 */
-	public final BWL setLeftBorderThickness(final int leftBordersize) {
+	public final BWL setLeftBorderThickness(final int leftBorderThickness) {
 		
-		this.leftBorderThickness = new NonNegativeInteger(leftBordersize);
+		Validator.suppose(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
+		
+		this.leftBorderThickness = leftBorderThickness;
 		
 		return asConcreteType();
 	}
@@ -1186,7 +1192,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setLeftPadding(final int leftPadding) {
 		
-		this.leftPadding = new NonNegativeInteger(leftPadding);
+		Validator.suppose(leftPadding).thatIsNamed("left padding").isNotNegative();
+		
+		this.leftPadding = leftPadding;
 		
 		return asConcreteType();
 	}
@@ -1241,7 +1249,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setRightBorderThickness(final int rightBorderThickness) {
 		
-		this.rightBorderThickness = new NonNegativeInteger(rightBorderThickness);
+		Validator.suppose(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
+		
+		this.rightBorderThickness = rightBorderThickness;
 		
 		return asConcreteType();
 	}
@@ -1256,7 +1266,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setRightPadding(final int rightPadding) {
 		
-		this.rightPadding = new NonNegativeInteger(rightPadding);
+		Validator.suppose(rightPadding).thatIsNamed("right padding").isNotNegative();
+		
+		this.rightPadding = rightPadding;
 		
 		return asConcreteType();
 	}
@@ -1315,7 +1327,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setTopBorderThickness(final int topBorderThickness) {
 		
-		this.topBorderThickness = new NonNegativeInteger(topBorderThickness);
+		Validator.suppose(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
+		
+		this.topBorderThickness = topBorderThickness;
 		
 		return asConcreteType();
 	}
@@ -1330,7 +1344,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setTopPadding(final int topPadding) {
 		
-		this.topPadding = new NonNegativeInteger(topPadding);
+		Validator.suppose(topPadding).thatIsNamed("top padding").isNotNegative();
+		
+		this.topPadding = topPadding;
 		
 		return asConcreteType();
 	}
@@ -1373,24 +1389,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	private void fillUpBorderThicknessesSpecifications(final List<Node> list) {
 		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
-			list.addAtEnd(leftBorderThickness.getSpecificationAs(BORDER_THICKNESS_HEADER));
+			list.addAtEnd(new Node(BORDER_THICKNESS_HEADER, leftBorderThickness));
 		}
 		else {
 			
 			if (hasLeftBorderThickness()) {
-				list.addAtEnd(leftBorderThickness.getSpecificationAs(LEFT_BORDER_THICKNESS_HEADER));
+				list.addAtEnd(new Node(LEFT_BORDER_THICKNESS_HEADER, leftBorderThickness));
 			}
 			
 			if (hasRightBorderThickness()) {
-				list.addAtEnd(rightBorderThickness.getSpecificationAs(RIGHT_BORDER_THICKNESS_HEADER));
+				list.addAtEnd(new Node(RIGHT_BORDER_THICKNESS_HEADER, rightBorderThickness));
 			}
 			
 			if (hasTopBorderThickness()) {
-				list.addAtEnd(topBorderThickness.getSpecificationAs(TOP_BORDER_THICKNESS_HEADER));
+				list.addAtEnd(new Node(TOP_BORDER_THICKNESS_HEADER, topBorderThickness));
 			}
 			
 			if (hasBottomBorderThickness()) {
-				list.addAtEnd(bottomBorderThickness.getSpecificationAs(BOTTOM_BORDER_THICKNESS_HEADER));
+				list.addAtEnd(new Node(BOTTOM_BORDER_THICKNESS_HEADER, bottomBorderThickness));
 			}
 		}
 	}
@@ -1403,24 +1419,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	private void fillUpPaddingSpecifications(final List<Node> list) {
 		if (hasAPadding() && hasSamePaddingAtEachSide()) {
-			list.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
+			list.addAtEnd(new Node(PADDING_HEADER, leftPadding));
 		}
 		else {
 			
 			if (hasLeftPadding()) {
-				list.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
+				list.addAtEnd(new Node(LEFT_PADDING_HEADER, leftPadding));
 			}
 			
 			if (hasRightPadding()) {
-				list.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
+				list.addAtEnd(new Node(RIGHT_PADDING_HEADER, rightPadding));
 			}
 			
 			if (hasTopPadding()) {
-				list.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
+				list.addAtEnd(new Node(TOP_PADDING_HEADER, topPadding));
 			}
 			
 			if (hasBottomPadding()) {
-				list.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
+				list.addAtEnd(new Node(BOTTOM_PADDING_HEADER, bottomPadding));
 			}
 		}
 	}
@@ -1530,7 +1546,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a bottom border thickness.
 	 */
 	private boolean hasBottomBorderThickness() {
-		return (bottomBorderThickness != null);
+		return (bottomBorderThickness != -1);
 	}
 	
 	//method
@@ -1538,7 +1554,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a bottom padding.
 	 */
 	private boolean hasBottomPadding() {
-		return (bottomPadding != null);
+		return (bottomPadding != -1);
 	}
 	
 	//method
@@ -1562,7 +1578,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a left border thickness.
 	 */
 	private boolean hasLeftBorderThickness() {
-		return (leftBorderThickness != null);
+		return (leftBorderThickness != -1);
 	}
 	
 	//method
@@ -1570,7 +1586,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a left padding.
 	 */
 	private boolean hasLeftPadding() {
-		return (leftPadding != null);
+		return (leftPadding != -1);
 	}
 	
 	//method
@@ -1586,7 +1602,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a right border thickness.
 	 */
 	private boolean hasRightBorderThickness() {
-		return (rightBorderThickness != null);
+		return (rightBorderThickness != -1);
 	}
 	
 	//method
@@ -1594,7 +1610,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a right padding.
 	 */
 	private boolean hasRightPadding() {
-		return (rightPadding != null);
+		return (rightPadding != -1);
 	}
 	
 	//method
@@ -1641,9 +1657,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Handles the case that the current border widget look has a border thickness.
 		return (
 			hasLeftBorderThickness()
-			&& leftBorderThickness.equals(rightBorderThickness)
-			&& leftBorderThickness.equals(topBorderThickness)
-			&& leftBorderThickness.equals(bottomBorderThickness)
+			&& leftBorderThickness == rightBorderThickness
+			&& leftBorderThickness == topBorderThickness
+			&& leftBorderThickness == bottomBorderThickness
 		);
 	}
 	
@@ -1666,9 +1682,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Handles the case that the current {@link BorderWidgetLook} has a padding.
 		return (
 			hasLeftPadding()
-			&& hasRightPadding() && rightPadding.equals(leftPadding)
-			&& hasTopPadding() && topPadding.equals(leftPadding)
-			&& hasBottomPadding() && bottomPadding.equals(leftPadding)
+			&& hasRightPadding() && rightPadding == leftPadding
+			&& hasTopPadding() && topPadding == leftPadding
+			&& hasBottomPadding() && bottomPadding == leftPadding
 		);
 	}
 	
@@ -1693,7 +1709,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a top border thickness.
 	 */
 	private boolean hasTopBorderThickness() {
-		return (topBorderThickness != null);
+		return (topBorderThickness != -1);
 	}
 	
 	//method
@@ -1701,6 +1717,6 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return true if the current {@link BorderWidgetLook} has a top padding.
 	 */
 	private boolean hasTopPadding() {
-		return (topPadding != null);
+		return (topPadding != -1);
 	}
 }
