@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
@@ -15,7 +16,7 @@ import ch.nolix.element.elementEnums.ContentPosition;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 190
+ * @lines 220
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -30,12 +31,10 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Button} with a default text.
+	 * Creates a new {@link Button}.
 	 */
 	public Button() {
-		
-		//Calls other constructor.
-		this(DEFAULT_TEXT);
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -47,7 +46,8 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button(final String text) {
 		
-		resetAndApplyDefaultConfiguration();
+		//Calls other constructor.
+		this();
 		
 		setText(text);
 	}
@@ -83,9 +83,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		
 		//Handles the case that the current Button has a role.
 		if (hasRole()) {
-			attributes.addAtEnd(
-				getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE)
-			);
+			attributes.addAtEnd(getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE));
 		}
 		
 		return attributes;
@@ -121,6 +119,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		return (hasRole() && getRole().toString().equals(role));
 	}
 	
+	//method
 	/**
 	 * Removes the role of the current {@link Button}.
 	 * 
@@ -133,6 +132,22 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		return this;
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Button reset() {
+		
+		//Calls method of the base class.
+		super.reset();
+		
+		setText(DEFAULT_TEXT);
+		
+		return this;
+	}
+	
+	//method
 	/**
 	 * Sets the role of the current {@link Button}.
 	 * 
@@ -142,7 +157,11 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		this.role = Validator.suppose(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull().andReturn();
+		//Checks if the given role is not null.
+		Validator.suppose(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull();
+		
+		//Sets the role of the current Button.
+		this.role = role;
 		
 		return this;
 	}
