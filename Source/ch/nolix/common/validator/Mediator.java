@@ -16,7 +16,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 abstract class Mediator {
 	
 	//default value
-	public static final String DEFAULT_ARGUMENT_NAME = "Argument";
+	public static final String DEFAULT_ARGUMENT_NAME = "argument";
 	
 	//attribute
 	private final String argumentName;
