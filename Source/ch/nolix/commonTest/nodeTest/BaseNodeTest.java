@@ -137,6 +137,62 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
+	public void testCase_getHeader_1A() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.setHeader("Lorem(");
+		
+		//execution
+		final var result = testUnit.getHeader();
+		
+		//verification
+		expect(result).isEqualTo("Lorem(");
+	}
+	
+	//test case
+	public void testCase_getHeader_1B() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.setHeader("Lorem)");
+		
+		//execution
+		final var result = testUnit.getHeader();
+		
+		//verification
+		expect(result).isEqualTo("Lorem)");
+	}
+	
+	//test case
+	public void testCase_getHeader_1C() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.setHeader("Lorem.");
+		
+		//execution
+		final var result = testUnit.getHeader();
+		
+		//verification
+		expect(result).isEqualTo("Lorem.");
+	}
+	
+	//test case
+	public void testCase_getHeader_1D() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.setHeader("Lorem,");
+		
+		//execution
+		final var result = testUnit.getHeader();
+		
+		//verification
+		expect(result).isEqualTo("Lorem,");
+	}
+	
+	//test case
 	public void testCase_removeHeader() {
 		
 		//setup
@@ -154,7 +210,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_A1() {
+	public void testCase_reset_1A() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -169,7 +225,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_A2() {
+	public void testCase_reset_1B() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -184,7 +240,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_B1() {
+	public void testCase_reset_2A() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -199,7 +255,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_B2() {
+	public void testCase_reset_2B() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -214,7 +270,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_B3() {
+	public void testCase_reset_2C() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -229,7 +285,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_B4() {
+	public void testCase_reset_2D() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -244,7 +300,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_C1() {
+	public void testCase_reset_3A() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -259,7 +315,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_reset_C2() {
+	public void testCase_reset_3B() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -303,7 +359,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
-	public void testCase_toString_1A() {
+	public void testCase_toString_1() {
 		
 		//setup
 		final var testUnit = createTestObject();
@@ -332,6 +388,34 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//test case
 	public void testCase_toString_2B() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.setHeader("Lorem)");
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("Lorem$C");
+	}
+	
+	//test case
+	public void testCase_toString_2C() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.setHeader("Lorem.");
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("Lorem$D");
+	}
+	
+	//test case
+	public void testCase_toString_2D() {
 		
 		//setup
 		final var testUnit = createTestObject();
