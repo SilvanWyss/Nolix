@@ -33,8 +33,8 @@ public final class CentralLicenseManagerTest extends Test {
 		CentralLicenseManager.removeLicense(testLicense);
 	}
 	
-	//inner class
-	private final class TestLicense extends License {
+	//static class
+	private static final class TestLicense extends License {
 		
 		//constructor
 		public TestLicense(final String key) {
@@ -47,8 +47,9 @@ public final class CentralLicenseManagerTest extends Test {
 		}
 	}
 	
-	//inner class
-	private final class TestFeature extends Feature {
+	//static class
+	//This class must be public that it can be processed by reflection.
+	public static final class TestFeature extends Feature {
 		
 		@Override
 		public IContainer<Class<?>> getAuthorizedLicenseTypes() {

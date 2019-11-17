@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-11
- * @lines 180
+ * @lines 190
  */
 public final class LicenseManager {
 	
@@ -80,7 +80,7 @@ public final class LicenseManager {
 	public <F extends Feature> boolean containsFeature(final Class<F> featureType) {
 		try {
 			final var feature = featureType.getConstructor().newInstance();
-			return feature.getAuthorizedLicenseTypes().containsAny(licenses);
+			return feature.getAuthorizedLicenseTypes().containsAnyFrom(getLicenseTypes());
 		}
 		catch (
 			final 
@@ -107,10 +107,18 @@ public final class LicenseManager {
 	
 	//method
 	/**
-	 * Removes the given license from the {@link CentralLicenseManager}.
+	 * @return the types of the licenses of the current {@link LicenseManager}.
+	 */
+	public List<Class<?>> getLicenseTypes() {
+		return licenses.to(License::getClass);
+	}
+	
+	//method
+	/**
+	 * Removes the given license from the current {@link LicenseManager}.
 	 * 
 	 * @param license
-	 * @throws InvalidArgumentException if the {@link CentralLicenseManager} does not contain the given license.
+	 * @throws InvalidArgumentException if the current {@link LicenseManager} does not contain the given license.
 	 */
 	public LicenseManager removeLicense(final License license) {
 		
