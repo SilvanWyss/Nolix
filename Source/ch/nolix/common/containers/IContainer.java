@@ -28,7 +28,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1940
+ * @lines 1960
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -153,6 +153,29 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains any of the given elements.
 	 */
 	public default boolean containsAny(final Object... elements) {
+		
+		//Iterates the given elements.
+		for (final var e : elements) {
+			
+			//Handles the case that the current IContainer contains the current element.
+			if (contains(e)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n elements are given.
+	 * 
+	 * @param elements
+	 * @return true if the current {@link IContainer} contains any of the given elements.
+	 */
+	public default boolean containsAnyFrom(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
