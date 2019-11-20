@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
@@ -10,17 +11,16 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  * 
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 70
+ * @lines 80
  */
 public final class ClosureMediator extends Mediator {
-
+	
 	//attribute
 	final IFunction closure;
 	
 	//package-visible constructor
 	/**
-	 * Creates a new {@link ClosureMediator}
-	 * that belongs to the given test and is for the given closure.
+	 * Creates a new {@link ClosureMediator} that belongs to the given test and is for the given closure.
 	 * 
 	 * @param test
 	 * @param closure
@@ -32,19 +32,18 @@ public final class ClosureMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Checks if the given closure is not nul.
+		//Checks if the given closure is not null.
 		if (closure == null) {
 			throw new ArgumentIsNullException("closure");
 		}
 		
-		//Sets the closure of the current closure mediator.
+		//Sets the closure of the current ClosureMediator.
 		this.closure = closure;
 	}
 	
 	//method
 	/**
-	 * Generates an error if the closure of the current {@link ClosureMediator}
-	 * does not throw an exception.
+	 * Generates an error if the closure of the current {@link ClosureMediator} does not throw an exception.
 	 */
 	public ExtendedThrownExceptionMediator throwsException() {
 		try {
@@ -59,19 +58,32 @@ public final class ClosureMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the closure of the current {@link ClosureMediator}
-	 * throws an exception.
+	 * Generates an error if the closure of the current {@link ClosureMediator} throws an exception.
 	 */
 	public void doesNotThrowException() {
 		try {
 			closure.run();
 		}
 		catch (final Throwable exception) {
-			addCurrentTestCaseError(
-				"An exception was not expected, but a "
-				+ exception.getClass().getName()
-				+ " was thrown."
-			);
+			
+			final var message = exception.getMessage();
+			
+			if (message == null || message.isBlank()) {
+				addCurrentTestCaseError(
+					"An exception was not expected, but a "
+					+ exception.getClass().getName()
+					+ " was thrown."
+				);
+			}
+			else {
+				addCurrentTestCaseError(
+					"An exception was not expected, but a "
+					+ exception.getClass().getName()
+					+ " was thrown with the message '"
+					+ message
+					+ "'"
+				);
+			}
 		}
 	}
 }
