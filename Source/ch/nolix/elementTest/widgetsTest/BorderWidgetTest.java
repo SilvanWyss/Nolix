@@ -90,6 +90,6 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		expect(() -> createTestObject().setMaxWidth(-100))
 		.throwsException()
 		.ofType(NonPositiveArgumentException.class)
-		.withMessage("The given value '-100' is not positive.");
+		.withMessage("The given max width '-100' is not positive.");
 	}
 }
