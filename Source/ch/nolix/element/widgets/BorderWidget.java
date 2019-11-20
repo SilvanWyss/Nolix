@@ -781,7 +781,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
 		
-		Validator.suppose(maxWidth).thatIsNamed("max with").isPositive();
+		Validator.suppose(maxWidth).thatIsNamed("max width").isPositive();
 		
 		this.maxWidth.setValue(maxWidth);
 		
