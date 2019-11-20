@@ -5,6 +5,7 @@ package ch.nolix.nolixTest;
 import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.commonTest.CommonTestPool;
 import ch.nolix.elementTest.ElementTestPool;
+import ch.nolix.nolixLicensesTest.NolixLicensesTestPool;
 import ch.nolix.systemTest.SystemTestPool;
 import ch.nolix.techTest.TechTestPool;
 import ch.nolix.templatesTest.TemplatesTestPool;
@@ -29,7 +30,8 @@ public final class NolixTestPool extends TestPool {
 			new ElementTestPool(),
 			new SystemTestPool(),
 			new TechTestPool(),
-			new TemplatesTestPool()
+			new TemplatesTestPool(),
+			new NolixLicensesTestPool()
 		);
 	}
 }
