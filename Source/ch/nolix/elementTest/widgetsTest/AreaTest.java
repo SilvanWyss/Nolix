@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.Area;
 
@@ -15,25 +16,25 @@ import ch.nolix.element.widgets.Area;
 public final class AreaTest extends WidgetTest<Area> {
 	
 	//test case
-	public void testCase_coversPoint() {
+	public void testCase_containsPoint() {
 		
 		//setup
 		final var area = new Area(500, 200);
 		area.recalculate();
 		
 		//execution & verification
-		expect(area.containsPoint(1, 1));
-		expect(area.containsPoint(1, 200));
-		expect(area.containsPoint(500, 1));
-		expect(area.containsPoint(500, 100));
-		expectNot(area.containsPoint(0, 1));
-		expectNot(area.containsPoint(0, 200));
-		expectNot(area.containsPoint(1, 0));
-		expectNot(area.containsPoint(1, 201));
+		expect(area.containsPoint(0, 0));
+		expect(area.containsPoint(0, 199));
+		expect(area.containsPoint(499, 0));
+		expect(area.containsPoint(499, 199));
+		expectNot(area.containsPoint(-1, 0));
+		expectNot(area.containsPoint(-1, 199));
+		expectNot(area.containsPoint(1, -1));
+		expectNot(area.containsPoint(1, 200));
+		expectNot(area.containsPoint(500, -1));
+		expectNot(area.containsPoint(500, 200));
 		expectNot(area.containsPoint(500, 0));
-		expectNot(area.containsPoint(500, 201));
-		expectNot(area.containsPoint(501, 1));
-		expectNot(area.containsPoint(501, 200));
+		expectNot(area.containsPoint(500, 199));
 	}
 	
 	//test case
