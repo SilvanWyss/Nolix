@@ -22,12 +22,12 @@ public final class BlackBlueGUILook extends StandardConfiguration {
 	 */
 	public BlackBlueGUILook() {
 		
-		addAttachingAttribute(
-			"ContentPosition(Top)",
-			"BackgroundColor(Black)"
-		);
+		addAttachingAttribute("BackgroundColor(Black)");
 		
-		addConfiguration(			
+		addConfiguration(
+			new DeepConfiguration()
+			.setSelectorType("Layer")
+			.addAttachingAttribute("ContentPosition(Top)"),
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(

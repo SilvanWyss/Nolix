@@ -3,8 +3,12 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -15,7 +19,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.baseAPI.IMutableElement;
+import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -34,10 +38,10 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 770
+ * @lines 880
  */
 public final class Layer extends Element<Layer>
-implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEventTaker {
+implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IEventTaker {
 	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -186,7 +190,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	public boolean containsElement(final String name) {
 		return getRefWidgets().contains(w -> w.hasName(name));
 	}
-
+	
 	//method
 	@Override
 	public List<Node> getAttributes() {
@@ -248,7 +252,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		}
 				
 		return CursorIcon.Arrow;
- 	}
+	}
 	
 	//method
 	/**
@@ -264,6 +268,31 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 */
 	public int getCursorYPosition() {
 		return cursorYPosition;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getName() {
+		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
+		
+		final var configurables = new List<IConfigurableElement<?>>();
+		
+		if (containsAny()) {
+			configurables.addAtEnd(rootWidget);
+		}
+		
+		return configurables;
 	}
 	
 	//method
@@ -308,6 +337,15 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getToken() {
+		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TOKEN);
+	}
+	
+	//method
+	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
 	 */
 	public boolean hasBackgroundColor() {
@@ -320,6 +358,33 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 */
 	public final boolean hasBackgroundColorGradient() {
 		return backgroundColorGradient.containsAny();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasName() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasToken(final String token) {
+		return false;
 	}
 	
 	//method
@@ -648,6 +713,15 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Layer removeName() {
+		return this;
+	}
+	
+	//method
+	/**
 	 * Resets the current {@link Layer}.
 	 * 
 	 * @return the current {@link Layer}.
@@ -668,7 +742,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 	 * 
 	 * @return the current {@link Layer}.
 	 */
-	public void resetConfiguration() {
+	public Layer resetConfiguration() {
 		
 		removeBackground();
 		setContentPosition(DEFAULT_CONTENT_POSITION);
@@ -678,8 +752,10 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		if (rootWidget != null) {
 			rootWidget.resetConfiguration();
 		}
+		
+		return this;
 	}
-
+	
 	//method
 	/**
 	 * Sets the background {@link Color} of the current {@link Layer}.
@@ -697,7 +773,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	//method
 	/**
 	 * Sets the background {@link ColorGradient} of the current {@link Layer}.
@@ -715,7 +791,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	//method
 	/**
 	 * Sets the {@link ExtendedContentPosition} of the current {@link Layer}.
@@ -730,7 +806,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	/**
 	 * Sets the free content position of the current {@link Layer}.
 	 * 
@@ -744,7 +820,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	/**
 	 * Sets the free content position of the current {@link Layer}.
 	 * 
@@ -757,7 +833,16 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		//Calls other method.
 		return setFreeContentPosition(new Discrete2DPoint(x, y));
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Layer setName(final String name) {
+		throw new ArgumentDoesNotSupportMethodException(this, "setName");
+	}
+	
 	//method
 	/**
 	 * Sets the root {@link Widget} of the current {@link Layer}.
@@ -777,8 +862,14 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		
 		return this;
 	}
-
+	
 	//package-visible method
+	/**
+	 * Sets the {@link GUI} the current {@link Layer} will belong to.
+	 * 
+	 * @param parentGUI
+	 * @throws ArgumentIsNullException if the given parentGUI is null.
+	 */
 	void setParentGUI(final LayerGUI<?> parentGUI) {
 		
 		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
@@ -790,6 +881,7 @@ implements Clearable<Layer>, IMutableElement<Layer>, IRequestableContainer, IEve
 		if (rootWidget != null) {
 			rootWidget.setParent(parentGUI);
 		}
+		
 		this.parentGUI = parentGUI;
 	}
 }

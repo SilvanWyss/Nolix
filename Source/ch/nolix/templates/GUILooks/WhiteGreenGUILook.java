@@ -23,12 +23,12 @@ public final class WhiteGreenGUILook extends StandardConfiguration {
 	public WhiteGreenGUILook() {
 		
 		setName("Green");
-		addAttachingAttribute(
-			"ContentPosition(Top)",
-			"BackgroundColor(DarkGreen)"
-		);
+		addAttachingAttribute("BackgroundColor(DarkGreen)");
 		
-		addConfiguration(			
+		addConfiguration(
+			new DeepConfiguration()
+			.setSelectorType("Layer")
+			.addAttachingAttribute("ContentPosition(Top)"),
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(

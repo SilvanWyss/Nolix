@@ -13,13 +13,14 @@ public final class RedLineGUILook extends StandardConfiguration {
 	//constructor
 	public RedLineGUILook() {
 		
-		addAttachingAttribute(
-			"BackgroundColorGradient(Vertical,0x400080,0x100080)",
-			"ContentPosition(LeftTop)"
-		);
+		addAttachingAttribute("BackgroundColorGradient(Vertical,0x400080,0x100080)");
 		
 		addConfiguration(
 			new DeepConfiguration()
+			.setSelectorType("Layer")
+			.addAttachingAttribute("ContentPosition(LeftTop)"),
+			new DeepConfiguration()
+			.setSelectorType("Widget")
 			.addAttachingAttribute(
 				"BaseFont(Arial)",
 				"BaseTextSize(25)",

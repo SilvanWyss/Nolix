@@ -48,10 +48,10 @@ import ch.nolix.element.widgets.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 880
+ * @lines 890
  * @param <LG> The type of a {@link LayerGUI}.
  */
-public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG> {
+public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
 	
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -445,14 +445,25 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		return painter.getCommands();
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
-		return getRefWidgets().to(w -> w); //TODO
+		
+		final var configurables = new List<IConfigurableElement<?>>();
+		
+		for (final var l : layers) {
+			configurables.addAtEnd(l);
+		}
+		
+		for (final var w : getRefWidgets()) {
+			configurables.addAtEnd(w);
+		}
+		
+		return configurables;
 	}
 	
 	//method

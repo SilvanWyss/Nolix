@@ -16,6 +16,7 @@ public final class AnthrazitGUILook extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
+			.setSelectorType("Widget")
 			.addAttachingAttribute(
 				"BaseFont(Arial)",
 				"BaseTextSize(20)",
