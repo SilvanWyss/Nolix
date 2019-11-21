@@ -9,6 +9,7 @@ import ch.nolix.common.endPoint5.IEndPointTaker;
 import ch.nolix.common.endPoint5.NetEndPoint;
 import ch.nolix.common.endPoint5.NetServer;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
 //test class
@@ -85,7 +86,14 @@ public final class NetEndPointTest extends Test {
 		netServer.addMainEndPointTaker(new EndPointTakerMock());
 		
 		//execution & verification
-		expect(() -> new NetEndPoint(port).close()).doesNotThrowException();
+		expect(
+			() -> {
+				final var netEndPoint = new NetEndPoint(port);
+				Sequencer.waitForMilliseconds(500);
+				netEndPoint.close();
+			}
+		)
+		.doesNotThrowException();
 		
 		//cleanup
 		netServer.close();
