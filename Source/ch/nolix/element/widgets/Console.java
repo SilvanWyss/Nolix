@@ -24,7 +24,7 @@ import ch.nolix.element.textFormat.TextFormat;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 790
+ * @lines 780
  */
 public final class Console
 extends BorderWidget<Console, ConsoleLook>
@@ -32,6 +32,12 @@ implements Clearable<Console> {
 	
 	//constant
 	public static final String TYPE_NAME = "Console";
+	
+	//constant
+	/**
+	 * The line prefix is displayed at the begin of each line.
+	 */
+	public static final String LINE_PREFIX = "> ";
 	
 	//constant
 	/**
@@ -610,11 +616,11 @@ implements Clearable<Console> {
 		final var font = getFont();
 		
 		if (isEmpty()) {
-			return font.getSwingTextWidth(getLinePrefix());
+			return font.getSwingTextWidth(LINE_PREFIX);
 		}
 		
 		return
-		font.getSwingTextWidth(getLinePrefix())
+		font.getSwingTextWidth(LINE_PREFIX)
 		+ getLines().getMax(l -> font.getSwingTextWidth(l));
 	}
 	
@@ -636,20 +642,18 @@ implements Clearable<Console> {
 		
 		//Iterates the lines of this console.
 		for (final var l : getLines()) {
-			painter.paintText(getLinePrefix() + l, font);
+			painter.paintText(LINE_PREFIX + l, font);
 			painter.translate(0, textSize);
 		}
 		
 		if (isEditable()) {
-		
+			
 			//Paints the edit line of this console.;
-			painter.paintText(getLinePrefix() + getEditLine(), font);
-				
+			painter.paintText(LINE_PREFIX + getEditLine(), font);
+			
 			//Paints the text cursor of this console.
-				final int textCursorXPosition =
-				font.getSwingTextWidth(getLinePrefix()
-				+ getEditLineBeforeTextCursor())
-				- 1;
+				final var textCursorXPosition =
+				font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
 				
 				painter.setColor(widgetStructure.getRecursiveOrDefaultTextColor());
 				painter.paintFilledRectangle(
@@ -717,16 +721,6 @@ implements Clearable<Console> {
 			look.getRecursiveOrDefaultTextSize(),
 			look.getRecursiveOrDefaultTextColor()
 		);
-	}
-
-	//method
-	/**
-	 * The line prefix is a prefix that is written at the beginning of each line of this console.
-	 * 
-	 * @return the line prefix of this console.
-	 */
-	private String getLinePrefix() {
-		return "> ";
 	}
 	
 	//method
