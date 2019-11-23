@@ -22,7 +22,7 @@ import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
-public class Entity implements OptionalIdentified, IElement {
+public class Entity implements IElement, OptionalIdentified {
 	
 	//attribute
 	private EntityState state = EntityState.NEW;
