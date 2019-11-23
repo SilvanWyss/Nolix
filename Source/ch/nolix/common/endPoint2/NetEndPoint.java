@@ -17,6 +17,7 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.logger.Logger;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
@@ -234,7 +235,9 @@ public final class NetEndPoint extends EndPoint {
 		try {
 			socket.close();
 		}
-		catch (final IOException IOException) {}
+		catch (final IOException IOException) {
+			Logger.logError(IOException);
+		}
 	}
 	
 	//package-visible method
