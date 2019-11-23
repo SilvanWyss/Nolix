@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.tech.genericMath;
 
-//Java import
+//Java imports
 import java.util.ArrayList;
+import java.util.Arrays;
 
+//own imports
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
@@ -69,11 +71,7 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	@Override
 	public ImplicitComplexSequenceBuilder setStartValues(final IComplexNumber... startValues) {
 		
-		this.startValues = new IComplexNumber[startValues.length];
-		
-		for (var i = 0; i < startValues.length; i++) {
-			this.startValues[i] = startValues[i];
-		}
+		this.startValues = Arrays.copyOf(startValues, startValues.length);
 		
 		return this;
 	}
