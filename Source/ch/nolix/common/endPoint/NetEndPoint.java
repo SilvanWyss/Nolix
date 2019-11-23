@@ -1,13 +1,15 @@
 //package declaration
 package ch.nolix.common.endPoint;
 
-//Java import
+//Java imports
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+//own imports
 import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.PortCatalogue;
+import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -140,6 +142,8 @@ public final class NetEndPoint extends EndPoint {
 		try {
 			socket.close();
 		}
-		catch (final IOException exception) {}
+		catch (final IOException IOException) {
+			Logger.logError(IOException);
+		}
 	}
 }
