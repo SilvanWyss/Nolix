@@ -5,8 +5,10 @@ package ch.nolix.common.endPoint;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+//own imports
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -15,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 80
+ * @lines 90
  */
 public final class NetServer extends Server {
 	
@@ -85,6 +87,8 @@ public final class NetServer extends Server {
 		try {
 			serverSocket.close();
 		}
-		catch (IOException exception) {}
+		catch (final IOException IOException) {
+			Logger.logError(IOException);
+		}
 	}
 }
