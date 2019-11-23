@@ -9,6 +9,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
@@ -236,7 +237,7 @@ public class NetEndPoint extends EndPoint {
 			if (exception.getMessage() == null) {
 				return Protocol.ERROR_HEADER;
 			}
-			return (Protocol.ERROR_HEADER + '(' + Node.createReproducingString(exception.getMessage()) + ')');
+			return (Protocol.ERROR_HEADER + '(' + BaseNode.createReproducingString(exception.getMessage()) + ')');
 		}
 	}
 	

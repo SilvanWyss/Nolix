@@ -48,7 +48,7 @@ public final class ChainedNode implements Headered {
 		string
 		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
 		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-		.replace(String.valueOf(CharacterCatalogue.COMMA), Node.COMMA_CODE)
+		.replace(String.valueOf(CharacterCatalogue.COMMA), BaseNode.COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
 		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
 	}
@@ -580,7 +580,7 @@ public final class ChainedNode implements Headered {
 		
 		//Sets probable header.
 		if (headerLength > 0) {
-			this.header = Node.createOriginStringFromReproducingString(substring.substring(startIndex, startIndex + headerLength));
+			this.header = BaseNode.createOriginStringFromReproducingString(substring.substring(startIndex, startIndex + headerLength));
 		}
 		
 		var readNextNode = false;
