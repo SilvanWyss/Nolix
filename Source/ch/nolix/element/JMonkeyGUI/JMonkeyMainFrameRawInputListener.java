@@ -11,19 +11,19 @@ import com.jme3.input.event.MouseButtonEvent;
 import com.jme3.input.event.MouseMotionEvent;
 import com.jme3.input.event.TouchEvent;
 
+//own import
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 100
+ * @lines 110
  */
-final class JMonkeyMainFrameRawInputListener
-implements RawInputListener {
-
+final class JMonkeyMainFrameRawInputListener implements RawInputListener {
+	
 	//attribute
-	private final JMonkeyMainFrame JMonkeyMainFrame_;
+	private final JMonkeyMainFrame mJMonkeyMainFrame_;
 	
 	//constructor
 	/**
@@ -44,7 +44,7 @@ implements RawInputListener {
 		
 		//Sets the JMonkey main frame
 		//of this JMonkey main frame raw input listener.
-		this.JMonkeyMainFrame_ = JMonkeyMainFrame_;
+		this.mJMonkeyMainFrame_ = JMonkeyMainFrame_;
 	}
 
 	//method
@@ -66,7 +66,7 @@ implements RawInputListener {
 	//method
 	@Override
 	public void onKeyEvent(KeyInputEvent keyInputEvent) {
-		JMonkeyMainFrame_.noteKeyPress(keyInputEvent);
+		mJMonkeyMainFrame_.noteKeyPress(keyInputEvent);
 	}
 
 	//method
@@ -79,12 +79,12 @@ implements RawInputListener {
 				
 				//Handles the case that the given mouse button event is a left mouse button press.
 				if (mouseButtonEvent.isPressed()) {
-					JMonkeyMainFrame_.noteLeftMouseButtonPress();
+					mJMonkeyMainFrame_.noteLeftMouseButtonPress();
 				}
 				
 				//Handles the case that the given mouse button event is a right mouse button release.
 				if (mouseButtonEvent.isReleased()) {
-					JMonkeyMainFrame_.noteLeftMouseButtonRelease();
+					mJMonkeyMainFrame_.noteLeftMouseButtonRelease();
 				}
 				
 				break;
@@ -92,11 +92,11 @@ implements RawInputListener {
 				
 				if (mouseButtonEvent.isPressed()) {
 					
-					JMonkeyMainFrame_.noteRightMouseButtonPress();
+					mJMonkeyMainFrame_.noteRightMouseButtonPress();
 				}
 				
 				if (mouseButtonEvent.isReleased()) {
-					JMonkeyMainFrame_.noteRightMouseButtonRelease();
+					mJMonkeyMainFrame_.noteRightMouseButtonRelease();
 				}
 				
 				break;
