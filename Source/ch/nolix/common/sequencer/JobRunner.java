@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IFunction;
@@ -12,11 +13,11 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 410
+ * @lines 370
  */
 final class JobRunner extends Thread {
-
-	//attribute
+	
+	//attributes
 	private final IFunction job;
 	private int finishedJobCount = 0;
 	private boolean running = true;
@@ -335,36 +336,13 @@ final class JobRunner extends Thread {
 	public void run() {
 		
 		//main loop
-		while (true) {
-			
-			//Handles the case that the current {@link JobRunner} does not have a max run count.
-			if (!hasMaxRunCount()) {
-				
-				//Handles the case that the current {@link JobRunner} has a condition that is fulfilled.
-				if (hasCondition() && !condition.getOutput()) {
-					break;
-				}
-			}
-			
-			//Handles the case that the current {@link JobRunner} has a max run count.
-			else {
-				
-				//Handles the case that the current {@link JobRunner} has reached its max run count.
-				if (finishedJobCount >= maxRunCount) {
-					break;
-				}
-				
-				//Handles the case that the current {@link JobRunner} has a condition that is fulfilled.
-				if (hasCondition() && !condition.getOutput()) {
-					break;
-				}
-			}
-			
+		while (!reachedProbableMaxRunCount() && !violatesProbableCondition()) {
 			try {
+				
 				finishedJobCount++;
 				job.run();
 				
-				//Handles the case that the current {@link JobRunner} has a time interval.
+				//Handles the case that the current JobRunner has a time interval.
 				if (hasTimeInterval()) {
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}
@@ -377,5 +355,21 @@ final class JobRunner extends Thread {
 		}
 		
 		running = false;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link JobRunner} has a condition and violates it.
+	 */
+	private boolean violatesProbableCondition() {
+		return (hasCondition() && !condition.getOutput());
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link JobRunner} has a max run count and has reached it.
+	 */
+	private boolean reachedProbableMaxRunCount() {
+		return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
 	}
 }
