@@ -100,7 +100,7 @@ public final class NetEndPointTest extends Test {
 	}
 	
 	//test case
-	public void testCase_run() throws InterruptedException {
+	public void testCase_run() {
 		
 		//test parameter
 		final var port = 50000;
@@ -123,7 +123,7 @@ public final class NetEndPointTest extends Test {
 	}
 	
 	//test case
-	public void testCase_getData() throws InterruptedException {
+	public void testCase_getData() {
 		
 		//test parameter
 		final var port = 50000;

@@ -74,7 +74,7 @@ public final class NetEndPointTest extends Test {
 	}
 	
 	//test case
-	public void testCase_sendAndGetReply() throws InterruptedException {
+	public void testCase_sendAndGetReply() {
 		
 		//test parameter
 		final var port = 50000;
