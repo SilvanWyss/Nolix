@@ -4,10 +4,13 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.system.entity.Column;
+import ch.nolix.system.entity.Entity;
 
 //class
 public final class EntityType<E extends Entity> implements Named {

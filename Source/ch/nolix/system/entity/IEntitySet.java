@@ -7,7 +7,6 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.skillAPI.Clearable;
-import ch.nolix.system.databaseAdapter.Entity;
 
 //interface
 public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, Named {

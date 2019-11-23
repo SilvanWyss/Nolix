@@ -2,8 +2,8 @@
 package ch.nolix.systemTutorial.MSSQLDatabaseSchemaAdapterTutorial;
 
 import ch.nolix.system.MSSQLDatabaseSchemaAdapter.MSSQLDatabaseSchemaAdapter;
-import ch.nolix.system.databaseAdapter.Entity;
-import ch.nolix.system.databaseAdapter.Property;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.Property;
 
 //class
 public final class MSSQLDatabaseSchemaAdapterTutorial {

@@ -6,15 +6,17 @@ import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.SpecificValueCreator;
 import ch.nolix.common.valueCreator.SpecificValueCreatorCatalogue;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.element.image.Image;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.IDatabaseAdapter;
+import ch.nolix.system.entity.IEntitySet;
 
 //abstract class
-public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
+public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	
 	//attributes
 	private final Schema schema;
@@ -70,6 +72,12 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	public abstract DatabaseAdapter createNewDatabaseAdapter();
 	
 	//method
+	@Override
+	public final <V> V createValueFromSpecification(final Class<V> type, final BaseNode specificaiton) {
+		return valueCreator.ofType(type).createFromSpecification(specificaiton);
+	}
+
+	//method
 	public final boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
 	}
@@ -83,6 +91,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//method
+	@Override
 	@SuppressWarnings("unchecked")
 	public final <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {
 		return
@@ -95,6 +104,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	public final IContainer<EntitySet<Entity>> getRefEntitySets() {
 		return entitySets;
 	}
@@ -136,18 +146,13 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//method
-	protected final <V> V createValueFromSpecification(final Class<V> type, final BaseNode specificaiton) {
-		return valueCreator.ofType(type).createFromSpecification(specificaiton);
-	}
-	
-	//method
 	protected final <V> V createValueFromString(final Class<V> type, final String string) {
 		return valueCreator.ofType(type).createFromString(string);
 	}
 	
 	//abstract method
-	protected abstract <E extends Entity> BaseEntitySetAdapter<E> getEntitySetAdapter(
-		EntitySet<E> entitySet
+	protected abstract <E extends Entity, ES extends IEntitySet<E>> BaseEntitySetAdapter<E> getEntitySetAdapter(
+		ES entitySet
 	);
 	
 	//method

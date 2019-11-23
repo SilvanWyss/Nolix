@@ -18,12 +18,12 @@ import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.TextBox;
 import ch.nolix.element.widgets.Uploader;
 import ch.nolix.element.widgets.VerticalStack;
-import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySet;
-import ch.nolix.system.databaseAdapter.OptionalProperty;
-import ch.nolix.system.databaseAdapter.OptionalReference;
-import ch.nolix.system.databaseAdapter.Property;
-import ch.nolix.system.databaseAdapter.Reference;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.OptionalProperty;
+import ch.nolix.system.entity.OptionalReference;
+import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.Reference;
 
 //class
 public final class EntitySession extends HeaderedSession {

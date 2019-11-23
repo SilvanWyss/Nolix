@@ -2,10 +2,10 @@
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
 import ch.nolix.common.node.Node;
-import ch.nolix.system.databaseAdapter.Entity;
-import ch.nolix.system.databaseAdapter.Property;
-import ch.nolix.system.databaseAdapter.Reference;
 import ch.nolix.system.databaseAdapter.Schema;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.Reference;
 import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 

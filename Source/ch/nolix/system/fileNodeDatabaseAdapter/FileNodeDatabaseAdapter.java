@@ -10,9 +10,9 @@ import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
-import ch.nolix.system.databaseAdapter.Entity;
-import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.databaseAdapter.Schema;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.IEntitySet;
 
 //class
 public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
@@ -70,8 +70,8 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected <E extends Entity> EntitySetAdapter<E> getEntitySetAdapter(
-		final EntitySet<E> entitySet
+	protected <E extends Entity, ES extends IEntitySet<E>> EntitySetAdapter<E> getEntitySetAdapter(
+		final ES entitySet
 	) {
 		return
 		(EntitySetAdapter<E>)

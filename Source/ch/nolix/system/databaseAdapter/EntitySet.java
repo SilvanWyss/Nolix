@@ -1,16 +1,20 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-import ch.nolix.common.attributeAPI.Named;
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.entity.Column;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.IEntitySet;
 
 //class
-public final class EntitySet<E extends Entity> implements Named {
-
+public final class EntitySet<E extends Entity> implements IEntitySet<E> {
+	
 	//attributes
 	private final String name;
 	private final DatabaseAdapter parentDatabaseAdapter;
@@ -49,6 +53,7 @@ public final class EntitySet<E extends Entity> implements Named {
 	}
 	
 	//method
+	@Override
 	public EntitySet<E> addEntities(final Iterable<E> entities) {
 		
 		entities.forEach(e -> addEntity(e));
@@ -72,6 +77,7 @@ public final class EntitySet<E extends Entity> implements Named {
 	
 	//method
 	@SuppressWarnings("unchecked")
+	@Override
 	public EntitySet<E> addEntity(final E... entities) {
 		return addEntities(new ReadContainer<E>(entities));
 	}
@@ -82,6 +88,16 @@ public final class EntitySet<E extends Entity> implements Named {
 	}
 	
 	//method
+	@Override
+	public IEntitySet<E> clear() {
+		
+		getRefEntities().toList().forEach(this::deleteEntity);
+		
+		return this;
+	}
+	
+	//method
+	@Override
 	public boolean containsAny() {
 		return getRefEntities().containsAny();
 	}
@@ -97,6 +113,16 @@ public final class EntitySet<E extends Entity> implements Named {
 	//method
 	public E createDefaultEntity() {
 		return getEntityType().createDefaultEntity();
+	}
+	
+	//method
+	@Override
+	public EntitySet<E> deleteEntity(final E entity) {
+		
+		loadedAndCreatedEntities.removeFirst(entity);
+		getParentDatabaseAdapter().noteMutatedEntity(entity);
+		
+		return this;
 	}
 	
 	//method
@@ -196,6 +222,12 @@ public final class EntitySet<E extends Entity> implements Named {
 	}
 	
 	//method
+	@Override
+	public void noteMutatedEntity(E entity) {
+		getParentDatabaseAdapter().noteMutatedEntity(entity);
+	}
+	
+	//method
 	public boolean references(final Entity entity) {
 		
 		if (!canReference(entity)) {
@@ -215,12 +247,9 @@ public final class EntitySet<E extends Entity> implements Named {
 		return getRefEntities().contains(e -> e.references(header, entity));
 	}
 	
-	//method
-	EntitySet<E> deleteEntity(final E entity) {
-		
-		loadedAndCreatedEntities.removeFirst(entity);
-		getParentDatabaseAdapter().noteMutatedEntity(entity);
-		
-		return this;
+	@Override
+	public boolean references(final IElementTakerBooleanGetter<Entity> selector) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

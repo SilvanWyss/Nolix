@@ -8,8 +8,8 @@ import ch.nolix.element.widgets.ButtonRole;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.VerticalStack;
-import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySet;
+import ch.nolix.system.entity.Entity;
 
 //class
 public final class DeleteEntitySession extends HeaderedSession {

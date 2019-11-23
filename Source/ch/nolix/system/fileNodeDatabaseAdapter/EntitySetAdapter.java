@@ -7,8 +7,8 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
-import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
+import ch.nolix.system.entity.Entity;
 import ch.nolix.system.databaseAdapter.BaseEntitySetAdapter;
 
 //class

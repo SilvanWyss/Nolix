@@ -8,8 +8,8 @@ import ch.nolix.common.generalSkillAPI.IFluentObject;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.license.CentralLicenseManager;
 import ch.nolix.common.skillAPI.IChangesSaver;
-import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Schema;
+import ch.nolix.system.entity.Entity;
 
 //abstract class
 /**

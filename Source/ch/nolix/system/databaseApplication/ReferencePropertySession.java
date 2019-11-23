@@ -7,8 +7,8 @@ import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.SelectionMenu;
 import ch.nolix.element.widgets.VerticalStack;
-import ch.nolix.system.databaseAdapter.Entity;
-import ch.nolix.system.databaseAdapter.Reference;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.Reference;
 
 //class
 public final class ReferencePropertySession extends HeaderedSession {

@@ -3,8 +3,8 @@ package ch.nolix.systemTest.databaseAdapterTest;
 
 //own imports
 import ch.nolix.common.test.Test;
-import ch.nolix.system.databaseAdapter.Entity;
-import ch.nolix.system.databaseAdapter.OptionalProperty;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.OptionalProperty;
 
 //test class
 public final class OptionalPropertyTest extends Test {

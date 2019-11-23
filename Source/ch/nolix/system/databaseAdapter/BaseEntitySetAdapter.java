@@ -6,6 +6,7 @@ import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.system.entity.Entity;
 
 //abstract class
 public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {

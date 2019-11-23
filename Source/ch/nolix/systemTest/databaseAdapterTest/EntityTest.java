@@ -3,8 +3,8 @@ package ch.nolix.systemTest.databaseAdapterTest;
 
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
-import ch.nolix.system.databaseAdapter.Entity;
-import ch.nolix.system.databaseAdapter.Property;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.Property;
 
 //test class
 public final class EntityTest extends Test {

@@ -5,8 +5,8 @@ import ch.nolix.common.attributeAPI.Identified;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
-import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;
+import ch.nolix.system.entity.Entity;
 
 //class
 public final class EntityAdapter<E extends Entity> implements Identified {

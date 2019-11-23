@@ -5,6 +5,7 @@ package ch.nolix.system.databaseAdapter;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.system.entity.Entity;
 
 //abstract class
 public abstract class Schema {
