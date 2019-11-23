@@ -47,7 +47,7 @@ public final class NetEndPoint extends EndPoint {
 	//attributes
 	private final INetEndPointProcessor processor;
 	private boolean hasTargetInfo = false;
-	private final String HTTPMessage;
+	private final String mHTTPMessage;
 	private final Socket socket;
 	
 	//constructor
@@ -113,7 +113,7 @@ public final class NetEndPoint extends EndPoint {
 		
 			
 		hasTargetInfo = true;
-		HTTPMessage = null;
+		mHTTPMessage = null;
 		
 		sendRawMessage(NetEndPointProtocol.MAIN_TARGET_PREFIX);
 	}
@@ -145,7 +145,7 @@ public final class NetEndPoint extends EndPoint {
 		
 		
 		hasTargetInfo = true;
-		HTTPMessage = null;
+		mHTTPMessage = null;
 		
 		try {
 			
@@ -165,12 +165,12 @@ public final class NetEndPoint extends EndPoint {
 	 * Creates a new {@link NetEndPoint} with the given socket and HTTP message.
 	 * 
 	 * @param socket
-	 * @param HTTPMessage
+	 * @param pHTTPMessage
 	 * @throws ArgumentIsNullException if the given socket is null.
 	 * @throws ArgumentIsNullException if the given HTTPMessage is null.
 	 * @throws InvalidArgumentException if the given HTTPMessage is blank.
 	 */
-	NetEndPoint(final Socket socket, final String HTTPMessage) {
+	NetEndPoint(final Socket socket, final String pHTTPMessage) {
 		
 		//Calls constructor of the base class.
 		super(false);
@@ -179,10 +179,10 @@ public final class NetEndPoint extends EndPoint {
 		Validator.suppose(socket).isOfType(Socket.class);
 		
 		//Checks if the given HTTP message is not null or empty.
-		Validator.suppose(HTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
+		Validator.suppose(pHTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
 		
 		//Sets the HTTPMessage of the current NetEndPoint.
-		this.HTTPMessage = HTTPMessage;
+		this.mHTTPMessage = pHTTPMessage;
 		
 		//Sets the socket of the current NetEndPoint.
 		this.socket = socket;
@@ -322,7 +322,7 @@ public final class NetEndPoint extends EndPoint {
 		//Handles the case that the given messages are a HTTP request.
 		if (HTTPRequest.canBe(messages)) {
 			final var processor = new NetEndPointProcessorForHTTPCounterpart(this);
-			processor.sendRawMessage(HTTPMessage);
+			processor.sendRawMessage(mHTTPMessage);
 			return processor;
 		}
 		
