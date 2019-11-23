@@ -1,44 +1,38 @@
 //package declaration
 package ch.nolix.commonTest.endPointTest;
 
+//own imports
 import ch.nolix.common.endPoint.NetServer;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
 //test class
 /**
- * This class is a test class for the net server test class.
- * A net server test is not mutable.
+ * A {@link NetServerTest} is a test for {@link NetServer}.
+ * A {@link NetServerTest} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 10
+ * @lines 40
  */
 public final class NetServerTest extends Test {
-
+	
 	//test case
-	public void testCase_abort() {
+	public void testCase_close() {
 		
 		//test parameter
 		final int port = 27900;
 		
-		//execution
+		//execution part 1
+		final var netServer	= new NetServer(port, ep -> {});
+		Sequencer.waitForMilliseconds(500);
+		netServer.close();
 		
-			final NetServer netServer
-			= new NetServer(port, ep -> {});
-			try {
-				Thread.sleep(500);
-			}
-			catch (InterruptedException e) {}
-			netServer.close();
-			
-			final NetServer netServer2
-			= new NetServer(port, ep -> {});
-			try {
-				Thread.sleep(500);
-			}
-			catch (InterruptedException e) {}
-			netServer2.close();
-				
+		//execution part 2
+		final var netServer2 = new NetServer(port, ep -> {});
+		Sequencer.waitForMilliseconds(500);
+		netServer2.close();
+		
 		//verification
 		expect(netServer.isClosed());
 		expect(netServer2.isClosed());
