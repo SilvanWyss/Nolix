@@ -8,6 +8,7 @@ import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
+//own import
 import ch.nolix.element.shapes.Cuboid;
 
 //class
@@ -18,9 +19,8 @@ import ch.nolix.element.shapes.Cuboid;
  * @month 2017-11
  * @lines 90
  */
-public final class JMonkeyCuboidRenderer
-implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
-
+public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
+	
 	//method
 	/**
 	 * @return a new render object for the cuboid of this JMonkey cuboid renderer.
@@ -30,13 +30,13 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 		
 		//Creates box.
 		final Box box = new Box(1, 1, 1);
- 
+		
 		//Creates geometry.
- final Geometry geometry = new Geometry("Box", box);
+		final Geometry geometry = new Geometry("Box", box);
 		
 		return geometry;
 	}
-
+	
 	//method
 	/**
 	 * Lets this JMonkey cuboid renderer
