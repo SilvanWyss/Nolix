@@ -6,7 +6,6 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.common.attributeAPI.OptionalIdentified;
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
@@ -70,45 +69,6 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 		
 		return attributes;
-	}
-	
-	//method
-	public final List<Column<?>> getColumns() {
-		
-		extractPropertiesAndBackReferencesIfNotExtracted();
-		
-		final var columns = new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()));
-		
-		Class<?> lClass = getClass();
-		while (lClass != null) {
-			
-			for (final var f : lClass.getDeclaredFields()) {
-				if (Propertyoid.class.isAssignableFrom(f.getType())) {
-					try {
-						
-						f.setAccessible(true);
-						
-						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
-						
-						Validator.suppose(property).isOfType(Propertyoid.class);
-						
-						columns.addAtEnd(
-							new Column<>(
-								f.getName(),
-								property.getPropertyType()
-							)
-						);
-					}
-					catch (final IllegalArgumentException | IllegalAccessException exception) {
-						throw new RuntimeException(exception);
-					}
-				}
-			}
-			
-			lClass = lClass.getSuperclass();
-		}
-		
-		return columns;
 	}
 	
 	//method

@@ -8,7 +8,6 @@ import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.entity.Column;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IEntitySet;
 

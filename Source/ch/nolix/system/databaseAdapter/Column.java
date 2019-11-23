@@ -1,6 +1,7 @@
 //package-declaration
-package ch.nolix.system.entity;
+package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -8,6 +9,9 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.PropertyKind;
+import ch.nolix.system.entity.PropertyoidType;
 
 //class
 public final class Column<V> implements Headered, IElement {
