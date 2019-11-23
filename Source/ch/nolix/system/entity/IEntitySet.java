@@ -30,6 +30,9 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	}
 	
 	//abstract method
+	public abstract IEntitySet<E> deleteEntity(E entity);
+	
+	//abstract method
 	public abstract IDatabaseAdapter getParentDatabaseAdapter();
 	
 	//abstract method
@@ -49,7 +52,4 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	
 	//abstract method
 	public abstract void noteMutatedEntity(E entity);
-	
-	//abstract method
-	public abstract IEntitySet<E> removeEntity(Entity entity);
 }
