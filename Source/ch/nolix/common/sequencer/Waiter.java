@@ -1,49 +1,50 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.constants.TimeUnitCatalogue;
 import ch.nolix.common.validator.Validator;
 
-//package-visibel class
+//package-visible class
 /**
- * This class provides methods to wait for specific durations.
- * Of this class an instance cannot be created.
+ * The {@link Waiter} provides methods to wait for specific durations.
+ * Of the {@link Waiter} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-06
  * @lines 50
  */
 final class Waiter {
-
+	
 	//static method
 	/**
-	 * Waits for the given number of seconds.
+	 * Waits for the given duractionInSeconds.
 	 * 
-	 * @param seconds
-	 * @throws NegativeArgumentException if the given seconds is negative.
+	 * @param duractionInSeconds
+	 * @throws NegativeArgumentException if the given duractionInSeconds is negative.
 	 */
-	public static void waitForSeconds(int seconds) {
+	public static void waitForSeconds(final int duractionInSeconds) {
 		
 		//Checks if the given seconds is not negative.
-		Validator.suppose(seconds).thatIsNamed("seconds").isNotNegative();
+		Validator.suppose(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 		
-		waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * seconds);
+		waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
 	}
 	
 	//static method
 	/**
-	 * Waits for the given number of milliseconds.
+	 * Waits for the given durationInMilliseconds.
 	 * 
-	 * @param milliseconds
-	 * @throws NegativeArgumentException if the given milliseconds is negative.
+	 * @param durationInMilliseconds
+	 * @throws NegativeArgumentException if the given durationInMilliseconds is negative.
 	 */
-	public static void waitForMilliseconds(final int milliseconds) {
+	public static void waitForMilliseconds(final int durationInMilliseconds) {
 		
 		//Checks if the given milliseconds is not negative.
-		Validator.suppose(milliseconds).thatIsNamed("milliseconds").isNotNegative();
+		Validator.suppose(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 		
 		try {
-			Thread.sleep(milliseconds);
+			Thread.sleep(durationInMilliseconds);
 		}
 		catch (final InterruptedException ie) {
 			throw new RuntimeException(ie);
@@ -52,7 +53,7 @@ final class Waiter {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Waiter} can be created.
 	 */
 	private Waiter() {}
 }

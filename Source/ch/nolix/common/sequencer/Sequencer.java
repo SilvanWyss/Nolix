@@ -8,6 +8,7 @@ import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.futureAPI.IFuture;
+import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 import ch.nolix.common.jobPool.JobPool;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
@@ -19,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 210
+ * @lines 230
  */
 public final class Sequencer {
 	
@@ -84,6 +85,26 @@ public final class Sequencer {
 	 */
 	public static ForCountMediator forCount(final int maxRunCount) {
 		return new ForCountMediator(maxRunCount);
+	}
+	
+	//static method
+	/**
+	 * @param maxDurationInMilliseconds
+	 * @return a new {@link ForMaxMillisecondsMediator} for the given maxDurationInMilliseconds.
+	 * @throws NegativeArgumentException if the given maxDurationInMilliseconds is negative.
+	 */
+	public static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
+		return ForMaxMillisecondsMediator.forMaxMilliseconds(maxDurationInMilliseconds);
+	}
+	
+	//static method
+	/**
+	 * @param maxDurationInSeconds
+	 * @return a new {@link ForMaxMillisecondsMediator} for the given maxDurationInSeconds.
+	 * @throws NegativeArgumentException if the given maxDurationInSeconds is negative.
+	 */
+	public static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
+		return ForMaxMillisecondsMediator.forMaxSeconds(maxDurationInSeconds);
 	}
 	
 	//static method
@@ -179,24 +200,24 @@ public final class Sequencer {
 	
 	//static method
 	/**
-	 * Waits for the given number of milliseconds.
+	 * Waits for the given durationInMilliseconds.
 	 * 
-	 * @param milliseconds
-	 * @throws NegativeArgumentException if the given milliseconds is negative.
+	 * @param durationInMilliseconds
+	 * @throws NegativeArgumentException if the given durationInMilliseconds is negative.
 	 */
-	public static void waitForMilliseconds(final int milliseconds) {
-		Waiter.waitForMilliseconds(milliseconds);
+	public static void waitForMilliseconds(final int durationInMilliseconds) {
+		Waiter.waitForMilliseconds(durationInMilliseconds);
 	}
 	
 	//static method
 	/**
-	 * Waits for the given number of seconds.
+	 * Waits for the given durationInSeconds.
 	 * 
-	 * @param seconds
-	 * @throws NegativeArgumentException if the given seconds is negative.
+	 * @param durationInSeconds
+	 * @throws NegativeArgumentException if the given durationInSeconds is negative.
 	 */
-	public static void waitForSeconds(final int seconds) {
-		Waiter.waitForSeconds(seconds);
+	public static void waitForSeconds(final int durationInSeconds) {
+		Waiter.waitForSeconds(durationInSeconds);
 	}
 	
 	//static method
