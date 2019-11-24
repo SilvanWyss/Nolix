@@ -7,6 +7,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -448,8 +449,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final LayerGUI<?> getRefGUI() {
 		
 		if (parent == null) {
-			//TODO: Create ArgumentMissesParentException.
-			throw new InvalidArgumentException(this, "does not belong to a GUI");
+			throw new ArgumentDoesNotBelongToParentException(this, GUI.class);
 		}
 		
 		return parent.getRefGUI();
