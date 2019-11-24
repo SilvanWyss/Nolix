@@ -68,7 +68,5 @@ final class FrontNetNeuronSession<O> extends Session<StandardClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void updateCounterpart() {
-		//TODO
-	}
+	protected void updateCounterpart() {}
 }
