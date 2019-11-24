@@ -5,7 +5,6 @@ package ch.nolix.system.databaseAdapter;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.entity.Entity;
@@ -244,11 +243,5 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 		}
 		
 		return getRefEntities().contains(e -> e.references(header, entity));
-	}
-	
-	@Override
-	public boolean references(final IElementTakerBooleanGetter<Entity> selector) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

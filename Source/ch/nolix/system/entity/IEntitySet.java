@@ -5,7 +5,6 @@ package ch.nolix.system.entity;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.skillAPI.Clearable;
 
 //interface
@@ -45,9 +44,6 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 		
 	//abstract method
 	public abstract boolean references(Entity entity);
-	
-	//abstract method
-	public abstract boolean references(IElementTakerBooleanGetter<Entity> selector);
 	
 	//abstract method
 	public abstract void noteMutatedEntity(E entity);
