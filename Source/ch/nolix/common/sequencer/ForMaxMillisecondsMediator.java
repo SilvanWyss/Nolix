@@ -66,7 +66,7 @@ public final class ForMaxMillisecondsMediator {
 		this.maxDurationInMilliseconds = maxDurationInMilliseconds;
 	}
 	
-	//package-visible constructor
+	//method
 	/**
 	 * Creates a new {@link AsLongAsMediator}
 	 * for the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} and for the given condition.
@@ -82,10 +82,10 @@ public final class ForMaxMillisecondsMediator {
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 		
-		return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getOutput());
+		return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getOutput());
 	}
 	
-	//package-visible constructor
+	//method
 	/**
 	 * Creates a new {@link AsLongAsMediator}
 	 * for the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} and for the given condition.
@@ -97,5 +97,35 @@ public final class ForMaxMillisecondsMediator {
 		
 		//Calls other method.
 		return asLongAs(IBooleanGetter.createNegator(condition));
+	}
+	
+	//method
+	/**
+	 * Waits until the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} is reached
+	 * or as long as the given condition is fulfilled.
+	 * 
+	 * @param condition
+	 * @throws ArgumentIsNullException if the given condition is null.
+	 */
+	public void waitAsLongAs(final IBooleanGetter condition) {
+		
+		final var startTimeInMilliseconds = System.currentTimeMillis();
+		final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
+		
+		Sequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getOutput());
+	}
+	
+	//method
+	/**
+	 * Waits until the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} is reached
+	 * or until the given condition is fulfilled.
+	 * 
+	 * @param condition
+	 * @throws ArgumentIsNullException if the given condition is null.
+	 */
+	public void waitUntil(final IBooleanGetter condition) {
+		
+		//Calls other method.
+		waitAsLongAs(IBooleanGetter.createNegator(condition));
 	}
 }
