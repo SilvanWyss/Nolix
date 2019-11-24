@@ -15,6 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.logger.Logger;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.OptionalClosable;
@@ -241,34 +242,6 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		return endPoint.isNetDuplexController();
 	}
 	
-	//TODO: Make this method not public.
-	//method
-	/**
-	 * Pushes the given session to the current {@link Client}.
-	 * 
-	 * @param session
-	 * @throws ArgumentIsNullException if the given session is null.
-	 */
-	public final void push(final Session<C> session) {
-		
-		//Checks if the given session is not null.
-		Validator.suppose(session).isOfType(Session.class);
-		
-		//Sets the given session to the current {@link Client}.
-		session.setParentClient(asConcreteType());
-		sessions.addAtEnd(session);
-		currentSession = session;
-		
-		//Initializes the given session.
-			try {
-				session.initialize();
-				session.updateCounterpart();
-			}
-			
-			//A client swallows always a closed state exception.
-			catch (final ClosedArgumentException closedStateException) {}
-	}
-	
 	//method
 	@Override
 	public final C removeInfoString() {
@@ -311,7 +284,36 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 		internal_getRefCurrentSession().setResult(result);
 		popCurrentSessionFirstPart();
 	}
-
+	
+	//method
+	/**
+	 * Pushes the given session to the current {@link Client}.
+	 * 
+	 * @param session
+	 * @throws ArgumentIsNullException if the given session is null.
+	 */
+	final void push(final Session<C> session) {
+		
+		//Checks if the given session is not null.
+		Validator.suppose(session).isOfType(Session.class);
+		
+		//Sets the given session to the current Client.
+		session.setParentClient(asConcreteType());
+		sessions.addAtEnd(session);
+		currentSession = session;
+		
+		//Initializes the given session.
+		try {
+			session.initialize();
+			session.updateCounterpart();
+		}
+		
+		//A client swallows always a closed state exception.
+		catch (final ClosedArgumentException cae) {
+			Logger.logError(cae);
+		}
+	}
+	
 	//method
 	/**
 	 * Pushes the given session to the current {@link Client} with the given pop function.

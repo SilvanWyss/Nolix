@@ -11,7 +11,7 @@ import ch.nolix.common.node.Node;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 150
+ * @lines 170
  */
 public final class StandardClient extends Client<StandardClient> {
 	
@@ -38,6 +38,22 @@ public final class StandardClient extends Client<StandardClient> {
 	 */
 	public StandardClient(String ip, int port) {
 		internal_connectTo(ip, port);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link StandardClient} that will connect to the main application
+	 * on the given port on the machine with the given ip.
+	 * The {@link StandardClient} will have the given initialSession
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param initialSession
+	 * @throws ArgumentIsNullException if the given initialSession is null.
+	 */
+	public StandardClient(final String ip, final int port, final Session<StandardClient> initialSession) {
+		internal_connectTo(ip, port);
+		push(initialSession);
 	}
 	
 	//constructor

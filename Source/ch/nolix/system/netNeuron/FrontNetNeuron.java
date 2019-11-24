@@ -82,8 +82,7 @@ implements OptionalClosable {
 		this.transformator = transformator;
 		
 		//Creates the client of this net front neuron.
-		client = new StandardClient(ip, port);
-		client.push(new FrontNetNeuronSession<O>(this));
+		client = new StandardClient(ip, port, new FrontNetNeuronSession<O>(this));
 	}
 
 	//method
