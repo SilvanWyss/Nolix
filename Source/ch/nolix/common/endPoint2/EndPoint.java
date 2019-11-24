@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
-import ch.nolix.common.closableElement.ClosableElement;
 //own imports
+import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
@@ -124,12 +125,10 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 			return receiver;
 		}
 		
-		final var startTimeInMilliseconds = System.currentTimeMillis();
+		Sequencer
+		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
+		.waitUntil(() -> hasReceiver());
 		
-		//TODO: Use: getTimeoutInMilliseconds()
-		Sequencer.waitAsLongAs(() -> System.currentTimeMillis() - startTimeInMilliseconds < 500 && !hasReceiver());
-		
-		//Checks if the current EndPoint has a receiver.
 		if (!hasReceiver()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
 		}
