@@ -8,6 +8,9 @@ public final class NolixEnvironment {
 	public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
 	
 	//constant
+	public static final int DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS = 250;
+	
+	//constant
 	private static final String APPDATA_HEADER = "APPDATA";
 	
 	//static method
