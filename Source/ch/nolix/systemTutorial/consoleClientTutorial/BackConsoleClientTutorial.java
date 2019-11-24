@@ -7,7 +7,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleClient.BackConsoleClient;
 import ch.nolix.system.consoleClient.BackConsoleClientSession;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
-import ch.nolix.templates.frontConsoleClientLooks.BlackRedFrontConsoleClientLook;
+import ch.nolix.templates.consoleClientLooks.BlackRedFrontConsoleClientLook;
 
 //class
 /**

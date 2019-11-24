@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.templates.frontConsoleClientLooks;
+package ch.nolix.templates.consoleClientLooks;
 
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
