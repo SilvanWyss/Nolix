@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//Java import
 import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
@@ -74,7 +74,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public void noteKeyPressOnCounterpart(final Key key) {
-		noteCommandOnCounterpart(Protocol.NOTE_KEY_PRESS_HEADER, key.getSpecification().toString());
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_KEY_PRESS_HEADER, key.getSpecification()));
 	}
 	
 	//method
@@ -82,7 +82,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteKeyReleaseOnCounterpart(final Key key) {
-		noteCommandOnCounterpart(Protocol.NOTE_KEY_RELEASE_HEADER, key.getSpecification().toString());
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_KEY_RELEASE_HEADER, key.getSpecification()));
 	}
 	
 	//method
@@ -90,7 +90,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteKeyTypingOnCounterpart(final Key key) {
-		noteCommandOnCounterpart(Protocol.NOTE_KEY_TYPING_HEADER, key.getSpecification().toString());		
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_KEY_TYPING_HEADER, key.getSpecification()));		
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteLeftMouseButtonClickOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER);
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER));
 	}
 	
 	//method
@@ -106,7 +106,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteLeftMouseButtonPressOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER);
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER));
 	}
 	
 	//method
@@ -114,7 +114,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteLeftMouseButtonReleaseOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER);
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER));
 	}
 	
 	//method
@@ -125,10 +125,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
-		noteCommandOnCounterpart(
-			Protocol.NOTE_MOUSE_MOVE_HEADER,
-			String.valueOf(cursorXPositionOnViewArea),
-			String.valueOf(cursorYPositionOnViewArea)
+		internal_runOnCounterpart(
+			new ChainedNode(
+				Protocol.NOTE_MOUSE_MOVE_HEADER,
+				new Node(cursorXPositionOnViewArea),
+				new Node(cursorYPositionOnViewArea)
+			)
 		);		
 	}
 	
@@ -137,7 +139,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteMouseWheelClickOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER);
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER));
 	}
 	
 	//method
@@ -145,7 +147,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteMouseWheelPressOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_PRESS_HEADER);		
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_MOUSE_WHEEL_PRESS_HEADER));		
 	}
 	
 	//method
@@ -153,7 +155,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteMouseWheelReleaseOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_RELEASE_HEADER);
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_MOUSE_WHEEL_RELEASE_HEADER));
 	}
 	
 	//method
@@ -161,7 +163,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteMouseWheelRotationStepOnCounterpart(final DirectionOfRotation directionOfRotation) {
-		noteCommandOnCounterpart(Protocol.NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER, directionOfRotation.toString());
+		internal_runOnCounterpart(
+			new ChainedNode(
+				Protocol.NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER,
+				directionOfRotation.getSpecification()
+			)
+		);
 	}
 	
 	//method
@@ -169,12 +176,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteRightMouseButtonClickOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER);	
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER));	
 	}
 	
 	//method
 	public final void noteRightMouseButtonPressOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER);	
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER));	
 	}
 	
 	//method
@@ -182,7 +189,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteRightMouseButtonReleaseOnCounterpart() {
-		noteCommandOnCounterpart(Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER));
 	}
 	
 	//method
@@ -195,10 +202,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	public final void noteResizeOnCounterpart(final int viewAreaWidth, final int viewAreaHeight) {
-		noteCommandOnCounterpart(
-			Protocol.NOTE_RESIZE_HEADER,
-			String.valueOf(viewAreaWidth),
-			String.valueOf(viewAreaHeight)
+		internal_runOnCounterpart(
+			new ChainedNode(
+				Protocol.NOTE_RESIZE_HEADER,
+				new Node(viewAreaWidth),
+				new Node(viewAreaHeight)
+			)
 		);
 	}
 	
@@ -253,34 +262,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 */
 	private GUI<?> getRefGUI() {
 		return mGUIHandler.getRefGUI();
-	}
-	
-	//method
-	/**
-	 * Lets the counterpart of the current {@link FrontGUIClient}
-	 * note a command with the given commandHeader and commandAttributes.
-	 * 
-	 * @param commandHeader
-	 * @param commandAttributes
-	 */
-	private void noteCommandOnCounterpart(final String commandHeader, final String... commandAttributes) {
-		
-		/*
-		 * This is important because a GUI could fire an event before the current FrontGUIClientoid is connected.
-		 *
-		 * The GUI of a FrontGUIClientoid must be ready before the FrontGUIClientoid is connected,
-		 * because everything of a a FrontGUIClientoid must be ready before connecting.
-		 */
-		internal_waitUntilIsConnected();
-		
-		//TODO
-		//internal_runOnCounterpart(commandHeader + "(" + new ReadContainer<>(commandAttributes) + ")");
-		
-		internal_runOnCounterpart(
-			new ChainedNode(
-				commandHeader,
-				new ReadContainer<>(commandAttributes).to(ca -> Node.fromString(ca)))
-			);
 	}
 	
 	//method

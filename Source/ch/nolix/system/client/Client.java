@@ -573,6 +573,11 @@ implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequesta
 	 * @param command
 	 */
 	protected final void internal_runOnCounterpart(final ChainedNode command) {
+		
+		if (!internal_isConnected()) {
+			throw new InvalidArgumentException(this, "is not connected");
+		}
+		
 		endPoint.run(command);
 	}
 	
