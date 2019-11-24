@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.common.constants;
 
-import ch.nolix.common.functionAPI.I2ElementTakerBooleanGetter;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.functionAPI.IElementTakerDoubleGetter;
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.functionAPI.IElementTakerLongGetter;
-import ch.nolix.common.functionAPI.IFunction;
+//Java import
+import java.util.Objects;
+
+//own imports
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
@@ -18,98 +18,107 @@ import ch.nolix.common.functionAPI.IFunction;
  */
 public final class FunctionCatalogue {
 	
-	//function
+	//static method
 	/**
-	 * This function does not do anything.
+	 * @param object1
+	 * @param object2
+	 * @return true if the given object1 and the given object2 are equal.
 	 */
-	public static final IFunction EMPTY =
-	() -> {};
+	public static boolean areEqual(final Object object1, final Object object2) {
+		return Objects.equals(object1, object2);
+	}
 	
-	//function
+	//static method
 	/**
-	 * This function returns true if 2 given objects are equal.
+	 * Does nothing.
 	 */
-	public static final I2ElementTakerBooleanGetter<Object> EQUALITY =
-	(o1, o2) -> o1 != null ? o1.equals(o2) : o2 == null;
+	public static void doNothing() {}
 	
-	//function
+	//static method
 	/**
-	 * This function returns false for a given object.
+	 * @return false
 	 */
-	public static final IElementTakerBooleanGetter<Object> FALSE =
-	o -> false;
+	public static boolean getFalse() {
+		return false;
+	}
 	
-	//function
+	//static method
 	/**
-	 * This function returns the hash code of a given object.
+	 * @param object
+	 * @return the hash code of the given object.
+	 * @throws ArgumentIsNullException if the given object is null.
 	 */
-	public static final IElementTakerLongGetter<Object> HASH_CODE =
-	o -> o.hashCode();
-	
-	//function
-	/**
-	 * This function returns true if 2 given objects are the same.
-	 */
-	public static final I2ElementTakerBooleanGetter<Object> IDENTITY =
-	(o1, o2) -> o1 == o2;
-	
-	//function
-	/**
-	 * This function returns null for a given object.
-	 */
-	public static final IElementTakerElementGetter<Object, Object> NULL =
-	o -> null;
-	
-	//function
-	/**
-	 * This function returns 1.0 for a given object.
-	 */
-	public static final IElementTakerDoubleGetter<Object> ONE =
-	o -> 1.0;
-	
-	//function
-	/**
-	 * This function returns a given object.
-	 */
-	public static final IElementTakerElementGetter<Object, Object> SELF =
-	o -> o;
-	
-	//function
-	/**
-	 * This function returns the String representation of a given object.
-	 */
-	public static final IElementTakerElementGetter<Object, String> TO_STRING =
-	o -> {
+	public static int getHashCode(final Object object) {
 		
-		//Handles the case that the given object is null.
-		if (o == null) {
-			return StringCatalogue.NULL_HEADER;
-		}
+		//Checks if the given object is not null.
+		Validator.suppose(object).thatIsNamed(Object.class).isNotNull();
 		
-		//Handles the case that the given object is not null.
-		return o.toString();
-	};
+		return object.hashCode();
+	}
 	
-	//function
+	//static method
 	/**
-	 * This function returns true for a given object.
+	 * @return null.
 	 */
-	public static final IElementTakerBooleanGetter<Object> TRUE =
-	o -> true;
+	public static Object getNull() {
+		return null;
+	}
 	
-	//function
+	//static method
 	/**
-	 * This function returns the type of a given object.
+	 * @return 1.
 	 */
-	public static final IElementTakerElementGetter<Class<?>, Object> TYPE =
-	o -> o.getClass();
+	public static long getOne() {
+		return 1l;
+	}
 	
-	//function
+	//static method
 	/**
-	 * This function returns 0.0 for a given object.
+	 * @param object
+	 * @return the given object.
 	 */
-	public static final IElementTakerDoubleGetter<Object> ZERO =
-	o -> 0.0;
+	public static Object getSelf(final Object object) {
+		return object;
+	}
+	
+	//static method
+	/**
+	 * @param object
+	 * @return the {@link String} of the given object.
+	 * @throws ArgumentIsNullException if the given object is null.
+	 */
+	public static String getString(final Object object) {
+		
+		//Checks if the given object is not null.
+		Validator.suppose(object).thatIsNamed(Object.class).isNotNull();
+		
+		return object.toString();
+	}
+	
+	//static method
+	/**
+	 * @return true.
+	 */
+	public static boolean getTrue() {
+		return true;
+	}
+	
+	//static method
+	/**
+	 * @param object
+	 * @return the type of the given object.
+	 */
+	public static Class<?> getType(final Object object) {
+		return object.getClass();
+	}
+	
+	//static method
+	/**
+	 * @return 0.
+	 */
+	public static long getZero() {
+		return 0l;
+	}
 	
 	//private constructor
 	/**
