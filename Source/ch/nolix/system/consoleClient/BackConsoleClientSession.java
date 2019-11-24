@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-import ch.nolix.element.configuration.StandardConfiguration;
 //own imports
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
@@ -13,7 +14,7 @@ import ch.nolix.templates.consoleClientLooks.GreyBlueFrontConsoleClientLook;
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 160
+ * @lines 180
  */
 public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
 	
@@ -93,8 +94,19 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 		return console.readNonEmptyLine();
 	}
 	
-	public void setLook(StandardConfiguration look) {
-		//TODO
+	//method
+	/**
+	 * Setst the look of the GUI of the current {@link BackConsoleClientSession}.
+	 * 
+	 * @param look
+	 * @return the current {@link BackConsoleClientSession}.
+	 * @throws ArgumentIsNullException if the given look is null.
+	 */
+	public BackConsoleClientSession setLook(final StandardConfiguration look) {
+		
+		getRefGUI().setConfiguration(look);
+		
+		return this;
 	}
 	
 	//method
