@@ -5,6 +5,7 @@ package ch.nolix.element.frameVisualizer;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+//own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.input.Key;
@@ -24,7 +25,7 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	public FrameVisualizerKeyListener(final GUI<?> frameVisualizer) {
 		
 		//Checks if the given frame is not null.
-		Validator.suppose(frameVisualizer).isOfType(GUI.class);
+		Validator.suppose(frameVisualizer).thatIsNamed(GUI.class).isNotNull();
 		
 		//Sets the frame of the current FrameKeyListener.
 		this.parentFrame = frameVisualizer;
@@ -45,7 +46,6 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	//method
 	@Override
 	public void keyTyped(final KeyEvent keyEvent) {
-		//TODO
-		//parentFrame.noteKeyTyping(Key.fromAWTKeyEvent(keyEvent));
+		parentFrame.noteKeyTyping(Key.fromAWTKeyEvent(keyEvent));
 	}
 }
