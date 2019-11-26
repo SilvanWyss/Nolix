@@ -78,13 +78,6 @@ public abstract class SingleProperty<V> extends DataPropertyoid<V> {
 		internal_noteUpdate();
 	}
 	
-	//TODO
-	//method
-	@SuppressWarnings("unchecked")
-	public final void setValueUnsafe(final Object value) {
-		this.value = (V)value;
-	}
-	
 	//method
 	public final void setValueFromSpecification(final Node specification) {
 		setValue(createValueFromSpecification(specification));

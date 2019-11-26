@@ -82,6 +82,7 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	private Grid createDataGrid() {
 		
 		final var dataGrid = new Grid();
@@ -128,8 +129,8 @@ public final class EntitySession extends HeaderedSession {
 							3,
 							new Uploader().setLeftMouseButtonPressCommand(
 								() -> {
-									final Object image = Image.fromBytes(getRefGUI().onFrontEnd().readFile());
-									optionalProperty.setValueUnsafe(image);
+									final var image = Image.fromBytes(getRefGUI().onFrontEnd().readFile());
+									((OptionalProperty<Image>)optionalProperty).setValue(image);
 								}
 							)
 						);
