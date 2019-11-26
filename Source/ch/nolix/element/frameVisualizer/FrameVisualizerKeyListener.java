@@ -22,13 +22,13 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	private final GUI<?> parentFrame;
 	
 	//constructor
-	public FrameVisualizerKeyListener(final GUI<?> frameVisualizer) {
+	public FrameVisualizerKeyListener(final GUI<?> parentFrame) {
 		
 		//Checks if the given frame is not null.
-		Validator.suppose(frameVisualizer).thatIsNamed(GUI.class).isNotNull();
+		Validator.suppose(parentFrame).thatIsNamed("parent Frame").isNotNull();
 		
 		//Sets the frame of the current FrameKeyListener.
-		this.parentFrame = frameVisualizer;
+		this.parentFrame = parentFrame;
 	}
 	
 	//method
