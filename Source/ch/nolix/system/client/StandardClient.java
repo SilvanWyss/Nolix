@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
+//own import
 import ch.nolix.common.endPoint5.EndPoint;
-import ch.nolix.common.node.Node;
 
 //class
 /**
@@ -78,29 +77,6 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates a new standard client that:
-	 * -Connects to the given target application on the given port on the machine with the given ip.
-	 * -Has the given initial session.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @param initialSession
-	 */
-	/*
-	public StandardClient(
-		final String ip,
-		final int port,
-		final String targetApplication,
-		final Session<StandardClient> initialSession
-	) {
-		
-		//Calls constructor of the base class.
-		super(ip, port, targetApplication, initialSession);
-	}
-	
-	//constructor
-	/**
 	 * Creates a new standard client with the given duplex controller.
 	 * 
 	 * @param controller
@@ -111,36 +87,13 @@ public final class StandardClient extends Client<StandardClient> {
 		//Calls constructor of the base class.
 		internal_setEndPoint(endPoint);
 	}
-
-	//constructor
-	/**
-	 * Creates a new standard client with the given duplex controller and initial session.
-	 * 
-	 * @param controller
-	 * @param initialSession
-	 * @throws ArgumentIsNullException if the given duplex controller is null.
-	 * @throws ArgumentIsNullException if the given initial session is null.
-	 */
-	/*
-	public StandardClient(final Controller controller, final Session<StandardClient> initialSession) {
-		
-		super(controller, initialSession);
-	}
 	
 	//method
 	/**
-	 * @param request
-	 * @return the data the given data method request requests from a data method of the other side of this standard client.
+	 * @return the current {@link Session} of the current {@link StandardClient}.
 	 */
-	public Node getData(final String dataMethodRequest) {
-		
-		//TODO
-		return null;
-		
-		/*
-		return
-		internal_getDataFromCounterpart(SESSION_USER_DATA_METHOD_HEADER + "(" + dataMethodRequest + ")");
-		*/
+	public StandardClientSession getRefCurrentSession() {
+		return (StandardClientSession)internal_getRefCurrentSession();
 	}
 	
 	//method
@@ -151,21 +104,5 @@ public final class StandardClient extends Client<StandardClient> {
 	 */
 	public StandardClient reset() {
 		return this;
-	}
-	
-	//method
-	/**
-	 * Runs a run method on the other side of this standard client.
-	 * 
-	 * @param runMethodCommand
-	 */
-	public void run(final String runMethodCommand) {
-		
-		//TODO
-		/*
-		internal_runOnCounterpart(
-			Protocol.SESSION_HEADER + "." + Protocol.RUN_METHOD_HEADER + "(" + runMethodCommand + ")"
-		);
-		*/
 	}
 }

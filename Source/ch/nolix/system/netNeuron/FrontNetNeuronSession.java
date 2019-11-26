@@ -1,20 +1,19 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
+//own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.client.RunMethod;
-import ch.nolix.system.client.Session;
-import ch.nolix.system.client.StandardClient;
+import ch.nolix.system.client.StandardClientSession;
 
 //package-visible class
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 50
- * @param <O> The type of the output
- * of the net front neuron of a net front neuron session.
+ * @lines 70
+ * @param <O> The type of the output of the net front neuron of a net front neuron session.
  */
-final class FrontNetNeuronSession<O> extends Session<StandardClient> {
+final class FrontNetNeuronSession<O> extends StandardClientSession {
 	
 	//attribute
 	private final FrontNetNeuron<O> frontNetNeuron;

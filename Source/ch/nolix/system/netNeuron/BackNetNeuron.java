@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.Node;
@@ -127,8 +128,8 @@ implements OptionalClosable {
 			
 			//Iterates the clients of the application of this net back neuron.
 			for (final StandardClient c : application.getRefClients()) {
-				c.run("SetOutput(" + output + ")");
-				c.run("Fire");
+				c.getRefCurrentSession().run("SetOutput", output.toString());
+				c.getRefCurrentSession().run("Fire");
 			}
 		}
 	}

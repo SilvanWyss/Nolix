@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
-//own imports
-import ch.nolix.system.client.Session;
-import ch.nolix.system.client.StandardClient;
+//own import
+import ch.nolix.system.client.StandardClientSession;
 
 //package-visible class
 /**
@@ -11,7 +10,7 @@ import ch.nolix.system.client.StandardClient;
  * @month 2017-01
  * @lines 20
  */
-final class BackNetNeuronSession extends Session<StandardClient> {
+final class BackNetNeuronSession extends StandardClientSession {
 
 	//method
 	/**
