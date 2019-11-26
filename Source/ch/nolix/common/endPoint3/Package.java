@@ -11,7 +11,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2016-09
  * @lines 70
  */
-final class Package extends ch.nolix.common.messaging.Package<String> {
+final class Package extends ch.nolix.common.messaging.IndexedPackage<String> {
 	
 	//attribute
 	private final MessageRole messageRole;
