@@ -1,11 +1,14 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
+//own imports
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
@@ -14,7 +17,7 @@ import ch.nolix.common.skillAPI.Clearable;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 170
+ * @lines 180
  */
 public class Server extends ClosableElement implements Clearable<Server> {
 	
@@ -132,6 +135,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Lets the current {@link Server} take the given endPoint.
 	 * 
 	 * @param endPoint
+	 * @throws ArgumentIsNullException if the given endPoint is null.
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link Server} does not have an arbitrary endPointTaker
 	 * or does not contain an endPointTaker
@@ -139,7 +143,10 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
-		//TODO
+		//Checks if the given endPoint is not null.
+		Validator.suppose(endPoint).thatIsNamed(EndPoint.class).isNotNull();
+		
+		//Checks if the given endPoint is alive.
 		if (endPoint.isClosed()) {
 			throw new InvalidArgumentException(endPoint, "is closed");
 		}
