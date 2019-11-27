@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
 import ch.nolix.common.node.Node;
@@ -9,10 +8,8 @@ import ch.nolix.system.entity.Reference;
 import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 
-//class
 public final class ReferencePropertyTutorial {
-
-	//main method
+	
 	public static void main(String[] args) {
 		
 		//Creates the cat database.
@@ -34,7 +31,7 @@ public final class ReferencePropertyTutorial {
 		
 		//Fills up some data into the cat database.
 			var jon = new Person();
-			jon.Name.setValue("Jon");
+			jon.name.setValue("Jon");
 			catDatabaseAdapter.getRefEntitySet(Person.class).addEntity(jon);
 			catDatabaseAdapter.saveChanges();
 			
@@ -45,9 +42,9 @@ public final class ReferencePropertyTutorial {
 			catDatabaseAdapter
 			.getRefEntitySet(Person.class)
 			.getRefEntities()
-			.getRefFirst(e -> e.Name.getValue().equals("Jon"));
+			.getRefFirst(e -> e.name.getValue().equals("Jon"));
 			
-			garfield.Person.set(jon);
+			garfield.person.set(jon);
 			catDatabaseAdapter.getRefEntitySet(Cat.class).addEntity(garfield);
 			
 			catDatabaseAdapter.saveChanges();
@@ -59,8 +56,8 @@ public final class ReferencePropertyTutorial {
 			.getRefEntities()
 			.getRefFirst(c -> c.Name.getValue().equals("Garfield"));
 			
-			final var garfieldOwner = garfield.Person.getRefEntity();
-			garfieldOwner.Name.setValue("Jon Arbuckle");
+			final var garfieldOwner = garfield.person.getRefEntity();
+			garfieldOwner.name.setValue("Jon Arbuckle");
 			
 			catDatabaseAdapter.saveChanges();
 			
@@ -68,10 +65,6 @@ public final class ReferencePropertyTutorial {
 		System.out.println(catDatabase.toFormatedString());
 	}
 	
-	//private constructor
-	private ReferencePropertyTutorial() {}
-	
-	//inner class
 	private static final class CatDatabaseSchema extends Schema {
 		
 		//constructor
@@ -82,19 +75,19 @@ public final class ReferencePropertyTutorial {
 			);
 		}
 	}
-
-	//inner class
+	
 	private static final class Person extends Entity {
 		
 		//attribute
-		public final Property<String> Name = new Property<>();
+		public final Property<String> name = new Property<>();
 	}
 	
-	//inner class
 	private static final class Cat extends Entity {
 		
 		//attributes
 		public final Property<String> Name = new Property<>();
-		public final Reference<Person> Person = new Reference<>();
+		public final Reference<Person> person = new Reference<>();
 	}
+	
+	private ReferencePropertyTutorial() {}
 }
