@@ -90,7 +90,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private Color bottomBorderColor;
 	
 	//optional attributes
-	//TODO: Create Union type.
+	//TODO: Implement Union.
 	private Color backgroundColor;
 	private ColorGradient backgroundColorGradient;
 	private Image backgroundImage;

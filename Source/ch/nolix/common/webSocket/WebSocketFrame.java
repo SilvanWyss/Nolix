@@ -73,7 +73,7 @@ public final class WebSocketFrame {
 			payloadLength = determinePayloadLength(inputStream);
 			maskingKey = getMaskBit() ? inputStream.readNBytes(4) : null;
 			
-			//TODO Handle payload length > MAX_INT.
+			//TODO Handle payloadLength > MAX_INT.
 			payload = inputStream.readNBytes(getPayloadLength().intValue());
 			
 			if (masksPayload()) {
@@ -204,7 +204,7 @@ public final class WebSocketFrame {
 				break;
 		}
 		
-		//TODO: Use: nextInded = ArrayHelper.on(bytes).fromIndex(2).write(maskingKey).andGetNextIndex();
+		//TODO: Implement ArrayHelper.on(byte[]).fromIndex(int).write(byte).andGetNextIndex().
 		if (firstNibble.getMaskBit()) {
 			for (final var b : maskingKey) {
 				bytes[i] = b;
@@ -212,7 +212,7 @@ public final class WebSocketFrame {
 			}
 		}
 		
-		//TODO: Use: ArrayHelper.on(bytes).fromIndex(nextIndex).write(maskingKey)
+		//TODO: Implement ArrayHelper.on(byte[]).fromIndex(int).write(byte).
 		for (final var b : payload) {
 			bytes[i] = b;
 			i++;

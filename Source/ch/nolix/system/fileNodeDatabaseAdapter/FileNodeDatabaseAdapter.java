@@ -94,7 +94,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 		final var concernedEntities =
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isConcerned());
 		
-		//TODO: Handle concerned entities more suitable.
+		//TODO: Handle concernedEntities more suitable.
 		for (final var e : concernedEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}

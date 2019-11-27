@@ -322,8 +322,8 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 	}
 	
+	//TODO: Implement EntityAccessor.setPersisted(entity).
 	//method
-	//TODO: Create special accessor, because this method should not be visible.
 	public final void setPersisted() {
 		switch (getState()) {
 			case NEW:
@@ -347,8 +347,8 @@ public class Entity implements IElement, OptionalIdentified {
 		state = EntityState.REJECTED;
 	}
 	
+	//TODO: Implement EntityAccessor.setValues(Iterable<BaseNode>, ValueCreator).
 	//package-visible method
-	//TODO: Create special accessor, because this method should not be visible.
 	public final void setValues(final Iterable<BaseNode> valuesInOrder, final ValueCreator valueCreator) {
 		
 		//Iterates the properties of the current entity and the given valuesInOrder together.
@@ -403,7 +403,7 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 	}
 	
-	//TODO: Refactor.
+	//TODO: Refactor this method.
 	//package-visible method
 	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
 		getRefBackReferences()

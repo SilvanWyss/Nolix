@@ -23,8 +23,7 @@ public abstract class ColumnSQLHelper {
 	
 	//method
 	public final String getSQLDataType() {
-		//TODO: Add getValueType method to Column.
-		//return column.getValueType().getSQLHelper(getDatabaseEngine()).getSQLDataType();
+		//TODO: Implement column.getValueType().getSQLHelper(DatabaseEngine).getSQLDataType().
 		return null;
 	}
 }

@@ -160,7 +160,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//abstract method
 	private List<EntitySet> getEntitySetsFromDatabase() {
-		//TODO: Create a general entity class.
+		//TODO: Implement GeneralEntity.
 		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));
 	}
 	

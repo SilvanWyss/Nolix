@@ -114,9 +114,9 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			SQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getCreateSQLStatement());
 		}
 		
-		//TODO: Handle changed entity sets.
+		//TODO: Handle changedEntitySets.
 		
-		//TODO: Check if all of the given entity sets are allowed to be deleted.
+		//TODO: Check if all of the given deletedEntitySets are allowed to be deleted.
 		for (final var es : deletedEntitySets) {
 			SQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getDeleteSQLStatement());
 		}

@@ -34,9 +34,10 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
-	//TODO
 	//static method
 	public static Image fromBytes(final byte[] bytes) {
+		
+		//TODO: Refactor this implementation.
 		try {
 			
 			final var path = "tempImage" + System.currentTimeMillis();
@@ -51,10 +52,10 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		}
 	}
 	
-	//TODO
 	//static method
 	public static Image fromBufferedImage(final BufferedImage bufferedImage) {
 		
+		//TODO: Refactor this implementation.
 		final var image = new Image(bufferedImage.getWidth(), bufferedImage.getHeight());
 		
 		for (var i = 1; i <= image.getWidth(); i++) {
@@ -67,9 +68,10 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		return image;
 	}
 	
-	//TODO
 	//static method
 	public static Image fromFile(final String path) {
+		
+		//TODO: Refactor this implementation.
 		try {
 			
 			final var bufferedImage = ImageIO.read(new File(path));
@@ -81,10 +83,10 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		}
 	}
 	
-	//TODO
 	//static method
 	public static Image fromSpecification(final BaseNode specification) {
 		
+		//TODO: Refactor this implementation.
 		final var image =
 		new Image(
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.WIDTH)).getOneAttributeAsInt(),
@@ -167,7 +169,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
-				//TODO
+				//TODO: Refactor this implementation.
 				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(Node.withOneAttribute(a))));
 				break;
 			default:

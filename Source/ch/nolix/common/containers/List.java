@@ -704,7 +704,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public void refill(final Iterable<E> elements) {
 		
-		//TODO: Improve performance of this implementation.
+		//TODO: Improve the performance of this implementation.
 		clear();
 		addAtEnd(elements);
 	}

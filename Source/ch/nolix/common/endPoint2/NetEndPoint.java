@@ -18,6 +18,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
@@ -38,7 +39,7 @@ import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 420
+ * @lines 410
  */
 public final class NetEndPoint extends EndPoint {
 	
@@ -187,12 +188,10 @@ public final class NetEndPoint extends EndPoint {
 		
 		//Sets the socket of the current NetEndPoint.
 		this.socket = socket;
-		
-		
+				
 		final var future = Sequencer.runInBackground(() -> listenToFirstMessage());
 		
-		//TODO: Use timeout.
-		future.waitUntilIsFinished(DEFAULT_TIMEOUT_IN_MILLISECONDS);
+		future.waitUntilIsFinished(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
 		
 		processor = future.getResult();
 		waitToTargetInfo();
@@ -401,23 +400,18 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
 	 */
 	private void waitToTargetInfo() {
-
-		//For a better performance, there is made a first simple check.
-		if (hasTargetInfo) {
+		
+		//For a better performance, there is made a first check.
+		if (hasTargetInfo()) {
 			return;
 		}
 		
-		//This loop suffers from being optimized away by the compiler or the JVM.
-		final long startTimeInMilliseconds = System.currentTimeMillis();
-		while (!hasTargetInfo()) {
-			
-			//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
-			System.out.flush();
-			
-			//TODO: Use: getTimeoutInMilliseconds().
-			if (System.currentTimeMillis() - startTimeInMilliseconds > DEFAULT_TIMEOUT_IN_MILLISECONDS) {
-				throw new InvalidArgumentException("reached timeout while waiting to target.");
-			}
+		Sequencer
+		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
+		.waitUntil(() -> hasTargetInfo());
+		
+		if (!hasTargetInfo()) {
+			throw new InvalidArgumentException(this, "reached timeout while waiting to target.");
 		}
 	}
 }

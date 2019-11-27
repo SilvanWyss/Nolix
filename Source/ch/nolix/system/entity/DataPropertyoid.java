@@ -31,7 +31,7 @@ public abstract class DataPropertyoid<V> extends Propertyoid<V> {
 		return getParentDatabaseAdapter().createValueFromSpecification(getValueClass(), specificaiton);
 	}
 	
-	//TODO: Delete the feature for creating values from Strings.
+	//TODO: Delete this method.
 	//method
 	protected final V createValueFromString(final String string) {
 		return getParentDatabaseAdapter().createValueFromSpecification(getValueClass(), Node.fromString(string));

@@ -73,7 +73,6 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 */
 	public TabContainerTab() {
 		reset();
-		//TODO: menu.setKeepsFocus();
 	}
 	
 	//constructor

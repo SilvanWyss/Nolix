@@ -76,11 +76,12 @@ public final class EntitySession extends HeaderedSession {
 		
 		final var backReferenceDataTabContainer = new TabContainer();
 		
-		//TODO: Fill up back reference data tab container.
+		//TODO: Fill up backReferenceDataTabContainer.
 		
 		return backReferenceDataTabContainer;
 	}
 	
+	//TODO: Refactor this method.
 	//method
 	@SuppressWarnings("unchecked")
 	private Grid createDataGrid() {
@@ -117,7 +118,6 @@ public final class EntitySession extends HeaderedSession {
 					
 					dataGrid.setWidget(rowIndex, 1,	new Label(p.getHeader()));
 					
-					//TODO
 					if (optionalProperty.getValueClass() == Image.class) {				
 						
 						if (optionalProperty.hasValue()) {
@@ -274,6 +274,7 @@ public final class EntitySession extends HeaderedSession {
 		push(new EntitySetSession(entitySetName));
 	}
 	
+	//TODO: Refactor this method.
 	//method
 	private void save() {
 		
@@ -294,7 +295,6 @@ public final class EntitySession extends HeaderedSession {
 					
 					final var optionalProperty = (OptionalProperty<?>)p;
 					
-					//TODO
 					if (optionalProperty.getValueClass() == Image.class) {
 						break;
 					}

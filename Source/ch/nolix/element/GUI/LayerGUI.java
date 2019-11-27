@@ -473,7 +473,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	public final IContainer<Layer> getRefLayers() {
 		return layers;
 	}
-
+	
 	//method
 	/**
 	 * @param name
@@ -483,7 +483,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	@SuppressWarnings("unchecked")
 	public <W extends Widget<?, ?>> W getRefWidgetByName(final String name) {
-		//TODO: Implement toFromManyAtTime().
 		return (W)getRefWidgets().getRefFirst(w -> w.hasName(name));
 	}
 	

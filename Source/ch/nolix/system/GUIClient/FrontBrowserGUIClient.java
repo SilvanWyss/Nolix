@@ -32,10 +32,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(application);
-		
-		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
-		Sequencer.waitForMilliseconds(200);
-		
+				
 		noteResizeOnCounterpart();
 	}
 	
@@ -53,10 +50,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(port);
-		
-		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
-		Sequencer.waitForMilliseconds(200);
-		
+				
 		noteResizeOnCounterpart();
 	}
 	
@@ -78,9 +72,6 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		
 		internal_connectTo(port, application);
 		
-		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
-		Sequencer.waitForMilliseconds(200);
-		
 		noteResizeOnCounterpart();
 	}
 	
@@ -99,10 +90,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port);
-		
-		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
-		Sequencer.waitForMilliseconds(200);
-		
+				
 		noteResizeOnCounterpart();
 	}
 	
@@ -124,9 +112,6 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internal_connectTo(ip, port, application);
-		
-		//TODO: The connection seems to need a delay, otherwise the GUI is probably frozen from beginning.
-		Sequencer.waitForMilliseconds(200);
 		
 		noteResizeOnCounterpart();
 	}

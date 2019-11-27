@@ -42,7 +42,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 			return DEFAULT_LENGTH;
 		}
 		
-		//TODO: Ask a safer condition.
+		//TODO: Use a safer condition.
 		for (final var st : Thread.currentThread().getStackTrace()) {
 			if (st.getFileName() == Line.TYPE_NAME && st.getMethodName() == "getLength") {
 				return DEFAULT_LENGTH;

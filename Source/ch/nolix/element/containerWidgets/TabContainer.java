@@ -30,7 +30,7 @@ implements Clearable<TabContainer> {
 	//constant
 	public static final String TYPE_NAME = "TabContainer";
 	
-	//TODO: Use a main Widget.
+	//TODO: Use a mainWidget.
 	//attribute
 	private final HorizontalStack menu = new HorizontalStack();
 	

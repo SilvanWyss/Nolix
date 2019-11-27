@@ -14,6 +14,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
+//TODO: Add timeZone to Time.
 //class
 /**
  * A time stores a point in time with a precision of 1 millisecond.

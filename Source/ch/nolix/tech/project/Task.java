@@ -276,7 +276,6 @@ public final class Task extends Element<Task> implements ITask {
 	 */
 	@Override
 	public Task setSolved() {
-		//TODO: Use UTC time.
 		return setSolved(Time.createCurrentTime());
 	}
 	

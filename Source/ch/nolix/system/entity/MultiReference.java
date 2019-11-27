@@ -7,7 +7,6 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
-//TODO: Allow MultiReference reference Entitys of a base class.
 //class
 public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 	

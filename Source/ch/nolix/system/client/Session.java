@@ -55,8 +55,8 @@ public abstract class Session<C extends Client<C>> {
 				) {
 					
 					if (m.getAnnotation(RunMethod.class) != null) {
-					
-						//TODO: Check signature of the current method.
+						
+						//TODO: Check the signature of the current method.
 						
 						//Setting the method accessible is needed that it can be accessed.
 						m.setAccessible(true);
@@ -66,7 +66,7 @@ public abstract class Session<C extends Client<C>> {
 					
 					else if (m.getAnnotation(DataMethod.class) != null) {
 						
-						//TODO: Check signature of the current method.
+						//TODO: Check the signature of the current method.
 						
 						//Setting the method accessible is needed that it can be accessed.
 						m.setAccessible(true);

@@ -402,14 +402,13 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	//method
 	/**
 	 * @return the parent the current {@link Widget} belongs to.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a parent.
+	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a parent.
 	 */
 	public final WidgetParent getParent() {
 		
 		//Checks if the current Widget belongs to a parent.
 		if (parent == null) {
-			//TODO: CreateArgumentDoesNotBelongToParentException.
-			throw new InvalidArgumentException(this, "does not belong to a parent");
+			throw new ArgumentDoesNotBelongToParentException(this);
 		}
 		
 		return parent;

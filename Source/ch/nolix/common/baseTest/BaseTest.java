@@ -149,7 +149,7 @@ public abstract class BaseTest {
 		System.out.flush();
 	}
 	
-	//TODO: Implement: registerToClose(element: Closable);
+	//TODO: Implement registerToClose(Closable).
 	//method
 	/**
 	 * Lets the current {@link BaseTest} register the given element to close.
