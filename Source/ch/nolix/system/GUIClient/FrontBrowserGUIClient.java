@@ -2,7 +2,6 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
@@ -16,7 +15,7 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 130
+ * @lines 110
  */
 public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowserGUIClient> {
 	
