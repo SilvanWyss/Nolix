@@ -5,7 +5,7 @@ package ch.nolix.system.netNeuron;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillAPI.OptionalClosable;
+import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
@@ -29,7 +29,7 @@ import ch.nolix.system.neuronoid.Neuronoid;
  */
 public final class BackNetNeuron<I>
 extends Neuronoid<BackNetNeuron<I>, I, I>
-implements OptionalClosable {
+implements Closable {
 	
 	//limits
 	private static final int MIN_INPUT_NEURON_COUNT = 0;

@@ -4,7 +4,7 @@ package ch.nolix.common.closableElement;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.skillAPI.OptionalClosable;
+import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
 
 //package-visible class
@@ -13,7 +13,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-06
  * @lines 120
  */
-final class CloseController implements OptionalClosable {
+final class CloseController implements Closable {
 	
 	//attribute
 	private boolean closed = false;

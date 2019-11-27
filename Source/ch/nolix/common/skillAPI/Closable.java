@@ -7,23 +7,23 @@ package ch.nolix.common.skillAPI;
  * @month 2015-12
  * @lines 30
  */
-public interface OptionalClosable {
+public interface Closable {
 	
 	//abstract method
 	/**
-	 * Closes the current {@link OptionalClosable}.
+	 * Closes the current {@link Closable}.
 	 */
 	public abstract void close();
 	
 	//abstract method
 	/**
-	 * @return true if the current {@link OptionalClosable} is closed.
+	 * @return true if the current {@link Closable} is closed.
 	 */
 	public abstract boolean isClosed();
 	
 	//default method
 	/**
-	 * @return true if the current {@link OptionalClosable} is not closed.
+	 * @return true if the current {@link Closable} is not closed.
 	 */
 	public default boolean isOpen() {
 		return !isClosed();

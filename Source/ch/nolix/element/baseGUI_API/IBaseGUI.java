@@ -4,7 +4,7 @@ package ch.nolix.element.baseGUI_API;
 import ch.nolix.common.attributeAPI.Titleble;
 import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.skillAPI.IRequestableContainer;
-import ch.nolix.common.skillAPI.OptionalClosable;
+import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.skillAPI.Refreshable;
 
 //interface
@@ -15,7 +15,7 @@ import ch.nolix.common.skillAPI.Refreshable;
  * @param <G> The type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
-extends IEventTaker, IRequestableContainer, OptionalClosable, Rectangular, Refreshable, Titleble<G> {
+extends IEventTaker, IRequestableContainer, Closable, Rectangular, Refreshable, Titleble<G> {
 	
 	//abstract method
 	/**
