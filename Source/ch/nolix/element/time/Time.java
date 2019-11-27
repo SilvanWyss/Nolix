@@ -5,6 +5,7 @@ package ch.nolix.element.time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+//own imports
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.TimeUnitCatalogue;
 import ch.nolix.common.containers.List;
@@ -43,7 +44,7 @@ public final class Time implements IElement {
 	public static final int DEFAULT_MILLISECOND_OF_SECOND = 0;
 	
 	//attribute
-	private final GregorianCalendar time = new GregorianCalendar();
+	private final GregorianCalendar gregorianCalendar = new GregorianCalendar();
 	
 	//static method
 	/**
@@ -51,7 +52,7 @@ public final class Time implements IElement {
 	 */
 	public static Time createCurrentTime() {
 		final Time time = new Time();
-		time.time.setTimeInMillis(new GregorianCalendar().getTimeInMillis());
+		time.gregorianCalendar.setTimeInMillis(new GregorianCalendar().getTimeInMillis());
 		return time;
 	}
 	
@@ -72,7 +73,7 @@ public final class Time implements IElement {
 	 */
 	public static Time createFromUnixTimeStamp(final long unixTimeStamp) {
 		final Time time = new Time();
-		time.time.setTimeInMillis(1000 * unixTimeStamp);
+		time.gregorianCalendar.setTimeInMillis(1000 * unixTimeStamp);
 		return time;
 	}
 	
@@ -81,7 +82,7 @@ public final class Time implements IElement {
 	 * Creates a new time with default values.
 	 */
 	public Time() {
-		time.setLenient(true);
+		gregorianCalendar.setLenient(true);
 		reset();
 	}
 	
@@ -315,7 +316,7 @@ public final class Time implements IElement {
 	 * @return the day of the month of this time.
 	 */
 	public int getDayOfMonth() {
-		return time.get(Calendar.DAY_OF_MONTH);
+		return gregorianCalendar.get(Calendar.DAY_OF_MONTH);
 	}
 	
 	//method
@@ -348,7 +349,7 @@ public final class Time implements IElement {
 	 * @return the hour of the month of this time.
 	 */
 	public int getHourOfDay() {
-		return time.get(Calendar.HOUR_OF_DAY);
+		return gregorianCalendar.get(Calendar.HOUR_OF_DAY);
 	}
 	
 	//method
@@ -356,7 +357,7 @@ public final class Time implements IElement {
 	 * @return the milliseconds of this time.
 	 */
 	public long getMilliseconds() {
-		return time.getTimeInMillis();
+		return gregorianCalendar.getTimeInMillis();
 	}
 	
 	//method
@@ -364,7 +365,7 @@ public final class Time implements IElement {
 	 * @return the millisecond of the second of this time.
 	 */
 	public int getMillisecondOfSecond() {
-		return time.get(Calendar.MILLISECOND);
+		return gregorianCalendar.get(Calendar.MILLISECOND);
 	}
 	
 	//method
@@ -398,7 +399,7 @@ public final class Time implements IElement {
 	 * @return the minute of the hour of this time.
 	 */
 	public int getMinuteOfHour() {
-		return time.get(Calendar.MINUTE);
+		return gregorianCalendar.get(Calendar.MINUTE);
 	}
 	
 	//method
@@ -414,7 +415,7 @@ public final class Time implements IElement {
 	 * @return the month of the year of this time.
 	 */
 	public int getMonthOfYear() {
-		return (time.get(Calendar.MONTH) + 1);
+		return (gregorianCalendar.get(Calendar.MONTH) + 1);
 	}
 		
 	//method
@@ -493,7 +494,7 @@ public final class Time implements IElement {
 	 * @return the second of the minute of this time.
 	 */
 	public int getSecondOfMinute() {
-		return time.get(Calendar.SECOND);
+		return gregorianCalendar.get(Calendar.SECOND);
 	}
 	
 	//method
@@ -560,7 +561,7 @@ public final class Time implements IElement {
 	 * @return the year of this time.
 	 */
 	public int getYearAsInt() {
-		return time.get(Calendar.YEAR);
+		return gregorianCalendar.get(Calendar.YEAR);
 	}
 	
 	//method
@@ -586,7 +587,7 @@ public final class Time implements IElement {
 	 * @return true if this time is in a leap year.
 	 */
 	public boolean isInLeapYear() {
-		return time.isLeapYear(getYearAsInt());
+		return gregorianCalendar.isLeapYear(getYearAsInt());
 	}
 	
 	//method
@@ -616,7 +617,7 @@ public final class Time implements IElement {
 	 * @param milliseconds
 	 */
 	private void addMilliseconds(final int millisceconds) {
-		time.setTimeInMillis(getMilliseconds() + millisceconds);
+		gregorianCalendar.setTimeInMillis(getMilliseconds() + millisceconds);
 	}
 
 	//method
@@ -645,7 +646,7 @@ public final class Time implements IElement {
 	 */
 	private Time getCopy() {
 		final Time time = new Time();
-		time.time.setTimeInMillis(this.time.getTimeInMillis());
+		time.gregorianCalendar.setTimeInMillis(this.gregorianCalendar.getTimeInMillis());
 		return time;
 	}
 	
@@ -674,7 +675,7 @@ public final class Time implements IElement {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	private void setDayOfMonth(final int dayOfMonth) {
-		time.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+		gregorianCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 	}
 	
 	//method
@@ -685,7 +686,7 @@ public final class Time implements IElement {
 	 * @return this time.
 	 */
 	private void setHourOfDay(final int hourOfDay) {
-		time.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		gregorianCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
 	}
 	
 	//method
@@ -697,7 +698,7 @@ public final class Time implements IElement {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	private void setMillisecondOfSecond(final int millisecondOfSecond) {
-		time.set(Calendar.MILLISECOND, millisecondOfSecond);
+		gregorianCalendar.set(Calendar.MILLISECOND, millisecondOfSecond);
 	}
 	
 	//method
@@ -708,7 +709,7 @@ public final class Time implements IElement {
 	 * @return this time.
 	 */
 	private void setMinuteOfHour(final int minuteOfHour) {
-		time.set(Calendar.MINUTE, minuteOfHour);
+		gregorianCalendar.set(Calendar.MINUTE, minuteOfHour);
 	}
 	
 	//method
@@ -720,7 +721,7 @@ public final class Time implements IElement {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	private void setMonthOfYear(final int monthOfYear) {
-		time.set(Calendar.MONTH, monthOfYear - 1);
+		gregorianCalendar.set(Calendar.MONTH, monthOfYear - 1);
 	}
 	
 	//method
@@ -731,7 +732,7 @@ public final class Time implements IElement {
 	 * @return this time.
 	 */
 	private void setSecondOfMinute(final int secondOfMinute) {
-		time.set(Calendar.SECOND, secondOfMinute);
+		gregorianCalendar.set(Calendar.SECOND, secondOfMinute);
 	}
 	
 	//method
@@ -742,6 +743,6 @@ public final class Time implements IElement {
 	 * @return this time.
 	 */
 	private void setYear(final int year) {
-		time.set(Calendar.YEAR, year);
+		gregorianCalendar.set(Calendar.YEAR, year);
 	}
 }
