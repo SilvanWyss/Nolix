@@ -27,7 +27,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 650
+ * @lines 660
  */
 public final class ChainedNode implements Headered {
 	
@@ -377,6 +377,14 @@ public final class ChainedNode implements Headered {
 		}
 		
 		return createReproducingString(header);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public int hashCode() {
+		return toString().hashCode();
 	}
 	
 	//method
