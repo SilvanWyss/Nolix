@@ -2,6 +2,8 @@
 package ch.nolix.commonTest.nodeTest;
 
 //own imports
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -137,6 +139,29 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	}
 	
 	//test case
+	public void testCase_getRefAttributeAt() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.addAttribute(new Node("a"), new Node("b"), new Node("c"));
+		
+		//execution
+		final var result1 = testUnit.getRefAttributeAt(1);
+		final var result2 = testUnit.getRefAttributeAt(2);
+		final var result3 = testUnit.getRefAttributeAt(3);
+		
+		//verification part 1
+		expect(result1.toString()).isEqualTo("a");
+		expect(result2.toString()).isEqualTo("b");
+		expect(result3.toString()).isEqualTo("c");
+		
+		//verification part 2
+		expect(() -> testUnit.getRefAttributeAt(-1)).throwsException().ofType(NonPositiveArgumentException.class);
+		expect(() -> testUnit.getRefAttributeAt(0)).throwsException().ofType(NonPositiveArgumentException.class);
+		expect(() -> testUnit.getRefAttributeAt(4)).throwsException().ofType(InvalidArgumentException.class);
+	}
+	
+	//test case
 	public void testCase_getHeader_1A() {
 		
 		//setup
@@ -190,6 +215,32 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result).isEqualTo("Lorem,");
+	}
+	
+	//test case
+	public void testCase_getRefOneAttribute_1A() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.addAttribute(new Node("a"));
+		
+		//execution
+		final var result = testUnit.getRefOneAttribute();
+		
+		
+		//verification
+		expect(result.toString()).isEqualTo("a");
+	}
+	
+	//test case
+	public void testCase_getRefOneAttribute_1B() {
+		
+		//setup
+		final var testUnit = createTestObject();
+		testUnit.reset();
+		
+		//execution
+		expect(() -> testUnit.getRefOneAttribute()).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//test case
