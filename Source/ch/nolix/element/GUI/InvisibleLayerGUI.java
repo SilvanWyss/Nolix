@@ -21,6 +21,14 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 		reset();
 	}
 	
+	//constructor
+	public InvisibleLayerGUI(final Widget<?, ?> rootWidget) {
+		
+		this();
+		
+		addLayerOnTop(rootWidget);
+	}
+	
 	//method
 	@Override
 	public int getHeight() {
