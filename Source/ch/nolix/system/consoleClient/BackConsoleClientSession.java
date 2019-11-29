@@ -8,7 +8,7 @@ import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClientSession;
-import ch.nolix.templates.consoleClientLooks.GreyBlueFrontConsoleClientLook;
+import ch.nolix.templates.consoleClientLooks.GreyBlueConsoleClientLook;
 
 //abstract class
 /**
@@ -31,7 +31,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 			)
 			.setRole(ContainerRole.MainContainer)
 		)
-		.setConfiguration(new GreyBlueFrontConsoleClientLook());
+		.setConfiguration(new GreyBlueConsoleClientLook());
 	}
 	
 	//method

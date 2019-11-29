@@ -9,46 +9,42 @@ import ch.nolix.system.consoleClient.WidgetNameCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-08
+ * @month 2017-09
  * @lines 50
  */
-public final class GreyBlueFrontConsoleClientLook extends StandardConfiguration {
+public final class BlackRedConsoleClientLook extends StandardConfiguration {
 
 	//constructor
 	/**
 	 * Creates a new console client.
 	 */
-	public GreyBlueFrontConsoleClientLook() {
+	public BlackRedConsoleClientLook() {
 		
-		addAttachingAttribute("BackgroundColor(LightSteelBlue)");
+		addAttachingAttribute("BackgroundColor(Black)");
 		
 		addConfiguration(
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
-				"BaseBackgroundColor(White)",
-				"BaseLeftPadding(20)",
-				"BaseRightPadding(20)",
-				"BaseBottomPadding(20)",
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
-				"ProposalHeight(200)",
-				"BaseBackgroundColor(Lavender)",
+				"ProposalHeight(300)",
+				"BaseBackgroundColor(0x202020)",
 				"BasePadding(10)",
-				"BaseTextColor(DarkBlue)"
+				"BaseTextColor(OrangeRed)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
-				"ProposalHeight(300)",
-				"BaseBackgroundColor(WhiteSmoke)",
+				"ProposalHeight(400)",
+				"BaseBackgroundColor(0x101010)",
 				"BasePadding(10)",
-				"BaseTextColor(DarkBlue)"		
+				"BaseTextColor(Red)"
 			)
 		);
 	}

@@ -7,7 +7,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleClient.BackConsoleClient;
 import ch.nolix.system.consoleClient.BackConsoleClientSession;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
-import ch.nolix.templates.consoleClientLooks.BlackRedFrontConsoleClientLook;
+import ch.nolix.templates.consoleClientLooks.BlackRedConsoleClientLook;
 
 //class
 /**
@@ -50,7 +50,7 @@ public final class BackConsoleClientTutorial {
 		@Override
 		public void initialize() {
 			
-			setLook(new BlackRedFrontConsoleClientLook());
+			setLook(new BlackRedConsoleClientLook());
 			
 			writeLineToInfoPanel(
 				"This is the info panel of the console.",
