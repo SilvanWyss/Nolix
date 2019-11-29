@@ -1,7 +1,12 @@
 //package declaration
 package ch.nolix.common.math;
 
+//Java import
+import java.util.Arrays;
+
+//own imports
 import ch.nolix.common.commonTypeHelpers.DoubleHelper;
+import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -12,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 400
+ * @lines 410
  */
 public class Polynom {
 
@@ -270,39 +275,34 @@ public class Polynom {
 	
 	//method
 	/**
-	 * Sets the coefficients of this polynom.
+	 * Sets the coefficients of the current {@link Polynom}.
 	 * 
-	 * If less coefficients are given than the incremented degree of this polynom,
-	 * the given coefficients are set as the highest coefficients of this polynom.
+	 * If less coefficients are given than the incremented degree of the current {@link Polynom},
+	 * the current {@link Polynom} will be decreased.
 	 * 
-	 * If more coefficients are given than the incremented degree of this polynom,
-	 * this polynom is extended.
+	 * If more coefficients are given than the incremented degree of the current {@link Polynom},
+	 * the current {@link Polynom} will be increased.
 	 * 
 	 * @param coefficients
-	 * @return this polynom.
+	 * @return the current {@link Polynom}.
+	 * @throws NullArgumentException if the given coefficients is null.
+	 * @throws EmptyArgumentException if the given coefficients is empty.
 	 * @throws ArgumentIsZeroException if the given highest coefficient is 0.0.
 	 */
 	public Polynom setCoefficients(double... coefficients) {
 		
+		//Checks if the given coefficients is not null or empty.
+		Validator.suppose(coefficients).thatIsNamed(MultiVariableNameCatalogue.COEFFICIENTS).isNotEmpty();
+		
 		//Checks if the given highest coefficient is not 0.0.
-		if (coefficients.length > 0) {
-			Validator.suppose(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
-		}
+		Validator.suppose(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
 		
-		if (coefficients.length <= getDegree() + 1) {
-			reset();
-		}
-		else {
-			this.coefficients = new double[coefficients.length];
-		}
-		
-		for (int i = 0; i < coefficients.length; i++) {
-			this.coefficients[i] = coefficients[i];
-		}
+		//Sets the coefficients of the current Polynom.
+		this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
 		
 		return this;
 	}
-		
+	
 	//method
 	/**
 	 * @return a new array with the coefficients of this polynom.
