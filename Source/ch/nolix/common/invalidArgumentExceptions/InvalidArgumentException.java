@@ -4,6 +4,7 @@ package ch.nolix.common.invalidArgumentExceptions;
 //own import
 import ch.nolix.common.constants.CharacterCatalogue;
 
+//class
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException}
  * that is intended to be thrown when an argument is not valid.
@@ -83,11 +84,16 @@ public class InvalidArgumentException extends RuntimeException {
 		}
 		
 		//Handles the case that the given argument is not null.
-			//Gets the string representation of the given argument.
+			//Gets the String representation of the given argument.
 			final var string = argument.toString();
 			
+			//Handles the case that the String representation is null or blank.
+			if (string == null || string.isBlank()) {
+				return " ";
+			}
+			
 			/*
-			 * Handles the case that the length of the string representation is not bigger
+			 * Handles the case that the length of the String representation is not bigger
 			 * than the maximum argument name length.
 			 */
 			if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
@@ -95,7 +101,7 @@ public class InvalidArgumentException extends RuntimeException {
 			}
 			
 			/*
-			 * Handles the case that the length of the string representation is bigger
+			 * Handles the case that the length of the String representation is bigger
 			 * than the maximum argument name length.
 			 */
 			return " '" + string.substring(0, MAX_ARGUMENT_NAME_LENGTH) + CharacterCatalogue.ELLIPSIS + "' ";
