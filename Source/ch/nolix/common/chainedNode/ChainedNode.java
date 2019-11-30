@@ -412,7 +412,7 @@ public final class ChainedNode implements Headered {
 	public int toInt() {
 		
 		//Checks if the current ChainedNode can represent an Integer.
-		if (header == null) {
+		if (header == null || attributes.containsAny()) {
 			throw new UnrepresentingArgumentException(this, Integer.class);
 		}
 		
