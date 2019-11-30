@@ -3,6 +3,7 @@ package ch.nolix.commonTest.chainedNodeTest;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.test.Test;
 
 //test class
@@ -11,7 +12,7 @@ import ch.nolix.common.test.Test;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 270
  */
 public final class ChainedNodeTest extends Test {
 	
@@ -208,5 +209,70 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.containsAttributes());
 		expectNot(chainedNode.hasNextNode());
 		expect(chainedNode.toString()).isEqualTo("a(b.c.d,e.f.g,h.i.j)");
+	}
+	
+	//test case
+	public void testCase_toInt_1A() {
+		
+		//setup
+		final var testUnit = new ChainedNode("-100");
+		
+		//execution
+		final var result = testUnit.toInt();
+		
+		//verification
+		expect(result).isEqualTo(-100);
+	}
+	
+	//test case
+	public void testCase_toInt_1B() {
+		
+		//setup
+		final var testUnit = new ChainedNode("0");
+		
+		//execution
+		final var result = testUnit.toInt();
+		
+		//verification
+		expect(result).isEqualTo(0);
+	}
+	
+	//test case
+	public void testCase_toInt_1C() {
+		
+		//setup
+		final var testUnit = new ChainedNode("100");
+		
+		//execution
+		final var result = testUnit.toInt();
+		
+		//verification
+		expect(result).isEqualTo(100);
+	}
+	
+	//test case
+	public void testCase_toInt_whenTheChainedNodeDoesNotRepresentAnInt_1A() {
+		
+		//setup
+		final var testUnit = new ChainedNode();
+		
+		//execution & verification
+		expect(() -> testUnit.toInt())
+		.throwsException()
+		.ofType(UnrepresentingArgumentException.class)
+		.withMessage("The given ChainedNode does not represent an Integer.");
+	}
+	
+	//test case
+	public void testCase_toInt_whenTheChainedNodeDoesNotRepresentAnInt_1B() {
+		
+		//setup
+		final var testUnit = ChainedNode.fromString("100(x)");
+				
+		//execution & verification
+		expect(() -> testUnit.toInt())
+		.throwsException()
+		.ofType(UnrepresentingArgumentException.class)
+		.withMessage("The given ChainedNode '100(x)' does not represent an Integer.");
 	}
 }
