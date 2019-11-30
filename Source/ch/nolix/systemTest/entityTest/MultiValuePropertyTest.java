@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemTest.databaseAdapterTest;
+package ch.nolix.systemTest.entityTest;
 
 //own imports
 import ch.nolix.common.test.Test;
@@ -7,7 +7,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.MultiValueProperty;
 
 //test class
-public final class MultiPropertyTest extends Test {
+public final class MultiValuePropertyTest extends Test {
 	
 	//test case
 	public void testCase_getSpecification_whenMultiPropertyIsEmpty() {

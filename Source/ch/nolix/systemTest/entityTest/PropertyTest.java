@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemTest.databaseAdapterTest;
+package ch.nolix.systemTest.entityTest;
 
 //own imports
 import ch.nolix.common.test.Test;

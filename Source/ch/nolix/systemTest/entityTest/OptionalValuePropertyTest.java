@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemTest.databaseAdapterTest;
+package ch.nolix.systemTest.entityTest;
 
 //own imports
 import ch.nolix.common.test.Test;
@@ -7,7 +7,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.OptionalValueProperty;
 
 //test class
-public final class OptionalPropertyTest extends Test {
+public final class OptionalValuePropertyTest extends Test {
 	
 	//test case
 	public void testCase_getSpecification_whenOptionalPropertyIsEmpty() {

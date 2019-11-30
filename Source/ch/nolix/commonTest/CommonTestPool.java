@@ -14,7 +14,7 @@ import ch.nolix.commonTest.sequencerTest.SequencerTestPool;
 import ch.nolix.commonTest.validatorTest.ValidatorTestPool;
 import ch.nolix.commonTest.webSocketTest.WebSocketTestPool;
 import ch.nolix.elementTest.elementEnumsTest.ElementEnumTestPool;
-import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
+import ch.nolix.systemTest.entityTest.EntityTestPool;
 
 //class
 /**
@@ -33,7 +33,7 @@ public final class CommonTestPool extends TestPool {
 			new CommonTypeHelpersTestPool(),
 			new CommonTypeWrapperTestPool(),
 			new ContainerTestPool(),
-			new DatabaseAdapterTestPool(),
+			new EntityTestPool(),
 			new NodeTestPool(),
 			new ElementEnumTestPool(),
 			new LicenseTestPool(),
