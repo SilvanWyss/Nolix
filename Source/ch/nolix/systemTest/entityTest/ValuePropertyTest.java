@@ -7,7 +7,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.ValueProperty;
 
 //test class
-public final class PropertyTest extends Test {
+public final class ValuePropertyTest extends Test {
 		
 	//test case
 	public void testCase_getSpecification() {
