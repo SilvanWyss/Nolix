@@ -11,7 +11,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //abstract class
-public abstract class SingleProperty<V> extends DataPropertyoid<V> {
+public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 
 	//optional attribute
 	private V value;

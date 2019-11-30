@@ -9,12 +9,12 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.system.databaseAdapter.EntitySetState;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.MultiPropertyType;
+import ch.nolix.system.entity.MultiValuePropertyType;
 import ch.nolix.system.entity.MultiReferenceType;
-import ch.nolix.system.entity.OptionalPropertyType;
+import ch.nolix.system.entity.OptionalValuePropertyType;
 import ch.nolix.system.entity.OptionalReferenceType;
+import ch.nolix.system.entity.ValuePropertyType;
 import ch.nolix.system.entity.PropertyType;
-import ch.nolix.system.entity.PropertyoidType;
 import ch.nolix.system.entity.ReferenceType;
 
 //class
@@ -50,7 +50,7 @@ public final class EntitySet implements Named {
 	//method
 	public EntitySet addColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new PropertyType<>(valueClass));
+		addColumn(header, new ValuePropertyType<>(valueClass));
 		
 		return this;
 	}
@@ -58,7 +58,7 @@ public final class EntitySet implements Named {
 	//method
 	public EntitySet addMultiColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new MultiPropertyType<>(valueClass));
+		addColumn(header, new MultiValuePropertyType<>(valueClass));
 		
 		return this;
 	}
@@ -74,7 +74,7 @@ public final class EntitySet implements Named {
 	//method
 	public EntitySet addOptionalColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new OptionalPropertyType<>(valueClass));
+		addColumn(header, new OptionalValuePropertyType<>(valueClass));
 		
 		return this;
 	}
@@ -235,8 +235,8 @@ public final class EntitySet implements Named {
 	}
 	
 	//method
-	private void addColumn(final String header, final PropertyoidType<?> propertyoidType) {
-		addColumn(new Column(this, header, propertyoidType));
+	private void addColumn(final String header, final PropertyType<?> propertyType) {
+		addColumn(new Column(this, header, propertyType));
 	}
 	
 	//method

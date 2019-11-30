@@ -5,7 +5,7 @@ package ch.nolix.systemTest.databaseAdapterTest;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.ValueProperty;
 
 //test class
 public final class EntityTest extends Test {
@@ -14,8 +14,8 @@ public final class EntityTest extends Test {
 	private static final class Cat extends Entity {
 		
 		//attributes
-		public final Property<String> name = new Property<>();
-		public final Property<Integer> weightInGram = new Property<>();
+		public final ValueProperty<String> name = new ValueProperty<>();
+		public final ValueProperty<Integer> weightInGram = new ValueProperty<>();
 	}
 	
 	//test case

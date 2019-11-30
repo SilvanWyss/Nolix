@@ -3,7 +3,7 @@ package ch.nolix.system.entity;
 
 //class
 public abstract class SingleReferenceType<E extends Entity>
-extends ReferenceoidType<E>{
+extends BaseReferenceType<E>{
 
 	//constructor
 	public SingleReferenceType(final Class<E> entityClass) {

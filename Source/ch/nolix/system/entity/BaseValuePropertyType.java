@@ -2,11 +2,11 @@
 package ch.nolix.system.entity;
 
 //abstract class
-public abstract class DataPropertyoidType<V>
-extends PropertyoidType<V> {
+public abstract class BaseValuePropertyType<V>
+extends PropertyType<V> {
 	
 	//constructor
-	public DataPropertyoidType(final Class<V> valueClass) {
+	public BaseValuePropertyType(final Class<V> valueClass) {
 		super(valueClass);
 	}
 	

@@ -3,7 +3,7 @@ package ch.nolix.system.entity;
 
 //class
 public final class IdPropertyType
-extends PropertyoidType<Integer> {
+extends PropertyType<Integer> {
 
 	//constructor
 	public IdPropertyType() {
@@ -18,8 +18,8 @@ extends PropertyoidType<Integer> {
 
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.ID;
+	public PropertyCategory getPropertyKind() {
+		return PropertyCategory.ID;
 	}
 
 	//method

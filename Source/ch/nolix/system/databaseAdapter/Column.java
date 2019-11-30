@@ -10,18 +10,18 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.PropertyKind;
-import ch.nolix.system.entity.PropertyoidType;
+import ch.nolix.system.entity.PropertyCategory;
+import ch.nolix.system.entity.PropertyType;
 
 //class
 public final class Column<V> implements Headered, IElement {
 
 	//attributes
 	private final String header;
-	private final PropertyoidType<V> propertyType;
+	private final PropertyType<V> propertyType;
 	
 	//constructor
-	public Column(final String header, final PropertyoidType<V> propertyType) {
+	public Column(final String header, final PropertyType<V> propertyType) {
 		
 		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
 		
@@ -58,12 +58,12 @@ public final class Column<V> implements Headered, IElement {
 	}
 	
 	//method
-	public PropertyKind getPropertyKind() {
+	public PropertyCategory getPropertyKind() {
 		return getPropertyType().getPropertyKind();
 	}
 	
 	//method
-	public PropertyoidType<V> getPropertyType() {
+	public PropertyType<V> getPropertyType() {
 		return propertyType;
 	}
 	

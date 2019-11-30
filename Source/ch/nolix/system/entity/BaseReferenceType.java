@@ -2,11 +2,11 @@
 package ch.nolix.system.entity;
 
 //abstract class
-public abstract class ReferenceoidType<E extends Entity>
-extends PropertyoidType<E> {
+public abstract class BaseReferenceType<E extends Entity>
+extends PropertyType<E> {
 	
 	//constructor
-	public ReferenceoidType(final Class<E> entityClass) {
+	public BaseReferenceType(final Class<E> entityClass) {
 		super(entityClass);
 	}
 	

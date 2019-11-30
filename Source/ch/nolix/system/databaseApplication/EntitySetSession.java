@@ -104,7 +104,7 @@ public final class EntitySetSession extends HeaderedSession {
 				for (final var p : e.getRefProperties()) {
 					
 					switch (p.getPropertyKind()) {
-						case DATA:
+						case VALUE:
 							
 							entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
 							

@@ -9,8 +9,8 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
-import ch.nolix.system.entity.PropertyKind;
-import ch.nolix.system.entity.PropertyoidType;
+import ch.nolix.system.entity.PropertyCategory;
+import ch.nolix.system.entity.PropertyType;
 
 //class
 public final class Column implements Headered, IElement {
@@ -18,19 +18,19 @@ public final class Column implements Headered, IElement {
 	//attributes
 	private final String header;
 	private final EntitySet entitySet;
-	private final PropertyoidType<?> valueType;
+	private final PropertyType<?> valueType;
 		
 	//package-visible constructor
 	Column(
 		final EntitySet entitySet,
 		final String header,
-		final PropertyoidType<?> valueType
+		final PropertyType<?> valueType
 	) {
 		
 		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
 		
 		Validator.suppose(entitySet).isOfType(EntitySet.class);
-		Validator.suppose(valueType).isOfType(PropertyoidType.class);
+		Validator.suppose(valueType).isOfType(PropertyType.class);
 		
 		this.entitySet = entitySet;
 		this.valueType = valueType;
@@ -53,7 +53,7 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	public PropertyKind getPropertyKind() {
+	public PropertyCategory getPropertyKind() {
 		return valueType.getPropertyKind();
 	}
 	
@@ -87,7 +87,7 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	public PropertyoidType<?> getValueType() {
+	public PropertyType<?> getValueType() {
 		return valueType;
 	}
 	

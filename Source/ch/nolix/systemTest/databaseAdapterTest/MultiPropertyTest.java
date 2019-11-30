@@ -4,7 +4,7 @@ package ch.nolix.systemTest.databaseAdapterTest;
 //own imports
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.MultiProperty;
+import ch.nolix.system.entity.MultiValueProperty;
 
 //test class
 public final class MultiPropertyTest extends Test {
@@ -16,7 +16,7 @@ public final class MultiPropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiProperty<String> testUnit = new MultiProperty<>();
+			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
 		};
 		entity.extractPropertiesAndBackReferences();
 		entity.testUnit.clear();
@@ -37,7 +37,7 @@ public final class MultiPropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiProperty<String> testUnit = new MultiProperty<>();
+			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
 		};
 		entity.extractPropertiesAndBackReferences();
 		entity.testUnit.addValue("a", "b", "c");
@@ -58,7 +58,7 @@ public final class MultiPropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiProperty<String> testUnit = new MultiProperty<>();
+			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
 		};
 		entity.testUnit.clear();
 		
@@ -78,7 +78,7 @@ public final class MultiPropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiProperty<String> testUnit = new MultiProperty<>();
+			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
 		};
 		entity.testUnit.addValue("a", "b", "c");
 		

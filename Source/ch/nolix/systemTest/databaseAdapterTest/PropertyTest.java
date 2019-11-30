@@ -4,7 +4,7 @@ package ch.nolix.systemTest.databaseAdapterTest;
 //own imports
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.ValueProperty;
 
 //test class
 public final class PropertyTest extends Test {
@@ -16,7 +16,7 @@ public final class PropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final Property<String> testUnit = new Property<>();
+			public final ValueProperty<String> testUnit = new ValueProperty<>();
 		};
 		entity.extractPropertiesAndBackReferences();
 		entity.testUnit.setValue("x");
@@ -37,7 +37,7 @@ public final class PropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final Property<String> testUnit = new Property<>();
+			public final ValueProperty<String> testUnit = new ValueProperty<>();
 		};
 		entity.testUnit.setValue("x");
 		

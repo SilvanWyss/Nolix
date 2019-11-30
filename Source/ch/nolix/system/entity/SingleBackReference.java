@@ -5,7 +5,7 @@ package ch.nolix.system.entity;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //abstract class
-public abstract class SingleBackReference<E extends Entity> extends BackReferenceoid<E> {
+public abstract class SingleBackReference<E extends Entity> extends BaseBackReference<E> {
 	
 	//constructor
 	public SingleBackReference(final String referencingFieldName) {

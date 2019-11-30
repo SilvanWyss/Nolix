@@ -13,7 +13,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IdPropertyType;
-import ch.nolix.system.entity.Propertyoid;
+import ch.nolix.system.entity.Property;
 
 //class
 public final class EntityType<E extends Entity> implements Named {
@@ -107,14 +107,14 @@ public final class EntityType<E extends Entity> implements Named {
 			while (lClass != null) {
 				
 				for (final var f : lClass.getDeclaredFields()) {
-					if (Propertyoid.class.isAssignableFrom(f.getType())) {
+					if (Property.class.isAssignableFrom(f.getType())) {
 						try {
 							
 							f.setAccessible(true);
 							
-							final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
+							final Property<?> property = (Property<?>)(f.get(this));
 							
-							Validator.suppose(property).isOfType(Propertyoid.class);
+							Validator.suppose(property).isOfType(Property.class);
 							
 							columns.addAtEnd(
 								new Column<>(

@@ -20,9 +20,9 @@ import ch.nolix.element.widgets.Uploader;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.OptionalProperty;
+import ch.nolix.system.entity.OptionalValueProperty;
 import ch.nolix.system.entity.OptionalReference;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.ValueProperty;
 import ch.nolix.system.entity.Reference;
 
 //class
@@ -92,9 +92,9 @@ public final class EntitySession extends HeaderedSession {
 		for (final var p : getRefEntity().getRefProperties()) {
 			
 			switch (p.getPropertyKind()) {
-				case DATA:
+				case VALUE:
 					
-					final var property = (Property<?>)p;
+					final var property = (ValueProperty<?>)p;
 					
 					dataGrid
 					.setWidget(
@@ -112,9 +112,9 @@ public final class EntitySession extends HeaderedSession {
 					rowIndex++;
 					
 					break;
-				case OPTIONAL_DATA:
+				case OPTIONAL_VALUE:
 					
-					final var optionalProperty = (OptionalProperty<?>)p;
+					final var optionalProperty = (OptionalValueProperty<?>)p;
 					
 					dataGrid.setWidget(rowIndex, 1,	new Label(p.getHeader()));
 					
@@ -130,7 +130,7 @@ public final class EntitySession extends HeaderedSession {
 							new Uploader().setLeftMouseButtonPressCommand(
 								() -> {
 									final var image = Image.fromBytes(getRefGUI().onFrontEnd().readFile());
-									((OptionalProperty<Image>)optionalProperty).setValue(image);
+									((OptionalValueProperty<Image>)optionalProperty).setValue(image);
 								}
 							)
 						);
@@ -282,18 +282,18 @@ public final class EntitySession extends HeaderedSession {
 		
 		for (final var p : entity.getRefProperties()) {
 			switch (p.getPropertyKind()) {
-				case DATA:
+				case VALUE:
 					
-					final var property = (Property<?>)p;
+					final var property = (ValueProperty<?>)p;
 					
 					final TextBox dataTextBox =	getRefGUI().getRefWidgetByName(p.getHeader());
 					
 					property.setValueFromString(dataTextBox.getText());
 					
 					break;
-				case OPTIONAL_DATA:
+				case OPTIONAL_VALUE:
 					
-					final var optionalProperty = (OptionalProperty<?>)p;
+					final var optionalProperty = (OptionalValueProperty<?>)p;
 					
 					if (optionalProperty.getValueClass() == Image.class) {
 						break;

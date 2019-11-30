@@ -5,7 +5,7 @@ package ch.nolix.system.entity;
 import ch.nolix.common.containers.List;
 
 //class
-public final class MultiBackReference<E extends Entity> extends BackReferenceoid<E> {
+public final class MultiBackReference<E extends Entity> extends BaseBackReference<E> {
 	
 	//constructor
 	public MultiBackReference(final String referencingFieldName) {

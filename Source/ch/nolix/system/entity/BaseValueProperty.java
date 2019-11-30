@@ -6,7 +6,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 
 //abstract class
-public abstract class DataPropertyoid<V> extends Propertyoid<V> {
+public abstract class BaseValueProperty<V> extends Property<V> {
 	
 	//method
 	@Override

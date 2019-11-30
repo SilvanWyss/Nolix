@@ -31,8 +31,8 @@ public class Entity implements IElement, OptionalIdentified {
 	private IEntitySet<Entity> parentEntitySet;
 	
 	//multi-attributes
-	private List<Propertyoid<Entity>> properties;
-	private List<BackReferenceoid<Entity>> backReferences;
+	private List<Property<Entity>> properties;
+	private List<BaseBackReference<Entity>> backReferences;
 	
 	//method
 	public final boolean belongsToDatabaseAdapter() {
@@ -94,7 +94,7 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final IContainer<BackReferenceoid<Entity>> getRefBackReferences() {
+	public final IContainer<BaseBackReference<Entity>> getRefBackReferences() {
 		
 		extractPropertiesAndBackReferencesIfNotExtracted();
 		
@@ -108,7 +108,7 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final IContainer<Propertyoid<Entity>> getRefProperties() {
+	public final IContainer<Property<Entity>> getRefProperties() {
 		
 		extractPropertiesAndBackReferencesIfNotExtracted();
 		
@@ -117,8 +117,8 @@ public class Entity implements IElement, OptionalIdentified {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public final IContainer<Referenceoid<Entity>> getRefReferences() {
-		return getRefProperties().getRefOfType(Referenceoid.class);
+	public final IContainer<BaseReference<Entity>> getRefReferences() {
+		return getRefProperties().getRefOfType(BaseReference.class);
 	}
 	
 	//method
@@ -158,7 +158,7 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final <E extends Entity> boolean isAllowedToReferenceBack(final Referenceoid<E> reference) {
+	public final <E extends Entity> boolean isAllowedToReferenceBack(final BaseReference<E> reference) {
 		
 		if (reference == null) {
 			return false;
@@ -288,7 +288,7 @@ public class Entity implements IElement, OptionalIdentified {
 	
 	//method
 	public final void supposeCanBeSaved() {
-		getRefProperties().forEach(Propertyoid::supposeCanBeSaved);
+		getRefProperties().forEach(Property::supposeCanBeSaved);
 	}
 	
 	//method
@@ -359,17 +359,17 @@ public class Entity implements IElement, OptionalIdentified {
 			
 			//Enumerates the kind of the current property.
 			switch (property.getPropertyKind()) {
-				case DATA:
+				case VALUE:
 					property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFromSpecification(v));					
 					break;
-				case OPTIONAL_DATA:
+				case OPTIONAL_VALUE:
 					
 					if (v.containsAttributes()) {
 						property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFromSpecification(v));
 					}
 					
 					break;
-				case MULTI_DATA:
+				case MULTI_VALUE:
 					
 					final var valueClass = property.getValueClass();
 					
@@ -416,11 +416,11 @@ public class Entity implements IElement, OptionalIdentified {
 		
 		field.setAccessible(true);
 		
-		if (Propertyoid.class.isAssignableFrom(field.getType())) {
+		if (Property.class.isAssignableFrom(field.getType())) {
 			try {
 				
 				@SuppressWarnings("unchecked")
-				final var property = (Propertyoid<Entity>)(field.get(this));
+				final var property = (Property<Entity>)(field.get(this));
 				
 				property.internal_setParentEntity(this);
 				properties.addAtEnd(property);
@@ -429,11 +429,11 @@ public class Entity implements IElement, OptionalIdentified {
 				throw new RuntimeException(exception);
 			}
 		}
-		else if (BackReferenceoid.class.isAssignableFrom(field.getType())) {
+		else if (BaseBackReference.class.isAssignableFrom(field.getType())) {
 			try {
 				
 				@SuppressWarnings("unchecked")
-				final var backReference = (BackReferenceoid<Entity>)(field.get(this));
+				final var backReference = (BaseBackReference<Entity>)(field.get(this));
 				
 				backReference.setParentEntity(this);
 				backReferences.addAtEnd(backReference);
@@ -472,12 +472,12 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	private Referenceoid<Entity> getRefRefenceByHeader(final String header) {
+	private BaseReference<Entity> getRefRefenceByHeader(final String header) {
 		return getRefReferences().getRefFirst(r -> r.hasHeader(header));
 	}
 	
 	//method
-	private <E extends Entity> BackReferenceoid<Entity> getRefBackReferenceForOrNull(final Referenceoid<E> reference) {
+	private <E extends Entity> BaseBackReference<Entity> getRefBackReferenceForOrNull(final BaseReference<E> reference) {
 		return
 		getRefBackReferences()
 		.getRefFirstOrNull(br -> br.getReferencingPropertyHeader().equals(reference.getHeader()));

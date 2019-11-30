@@ -8,7 +8,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //class
-public final class MultiReference<E extends Entity> extends Referenceoid<E> {
+public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	
 	//multi-attribute
 	private final List<Long> referencedEntityIds = new List<>();
@@ -37,7 +37,7 @@ public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 	
 	//method
 	@Override
-	public PropertyoidType<E> getPropertyType() {
+	public PropertyType<E> getPropertyType() {
 		return new MultiReferenceType<>(getValueClass());
 	}
 	

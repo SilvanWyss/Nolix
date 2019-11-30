@@ -3,7 +3,7 @@ package ch.nolix.systemTutorial.databaseAdapterTutorial;
 import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.ValueProperty;
 import ch.nolix.system.entity.Reference;
 import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
@@ -79,13 +79,13 @@ public final class ReferencePropertyTutorial {
 	private static final class Person extends Entity {
 		
 		//attribute
-		public final Property<String> name = new Property<>();
+		public final ValueProperty<String> name = new ValueProperty<>();
 	}
 	
 	private static final class Cat extends Entity {
 		
 		//attributes
-		public final Property<String> Name = new Property<>();
+		public final ValueProperty<String> Name = new ValueProperty<>();
 		public final Reference<Person> person = new Reference<>();
 	}
 	

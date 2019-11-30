@@ -11,7 +11,7 @@ import ch.nolix.common.reflectionHelpers.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 
 //abstract class
-public abstract class BackReferenceoid<E extends Entity> {
+public abstract class BaseBackReference<E extends Entity> {
 	
 	//attribute
 	private final String referencingPropertyHeader;
@@ -20,7 +20,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 	private Entity parentEntity;
 	
 	//constructor
-	public BackReferenceoid(final String referencingPropertyHeader) {
+	public BaseBackReference(final String referencingPropertyHeader) {
 		
 		Validator
 		.suppose(referencingPropertyHeader)

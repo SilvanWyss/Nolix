@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 //class
-public final class MultiReferenceType<E extends Entity> extends ReferenceoidType<E> {
+public final class MultiReferenceType<E extends Entity> extends BaseReferenceType<E> {
 
 	//constructor
 	public MultiReferenceType(final Class<E> entityClass) {
@@ -11,7 +11,7 @@ public final class MultiReferenceType<E extends Entity> extends ReferenceoidType
 	
 	//method
 	@Override
-	public final PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_REFERENCE;
+	public final PropertyCategory getPropertyKind() {
+		return PropertyCategory.MULTI_REFERENCE;
 	}
 }

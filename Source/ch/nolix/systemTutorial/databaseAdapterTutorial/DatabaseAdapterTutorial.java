@@ -3,7 +3,7 @@ package ch.nolix.systemTutorial.databaseAdapterTutorial;
 import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.entity.ValueProperty;
 import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 
@@ -60,13 +60,13 @@ public final class DatabaseAdapterTutorial {
 	}
 	
 	private static final class Cat extends Entity {
-		public final Property<String> name = new Property<>();
-		public final Property<Integer> weightInGram = new Property<>();
+		public final ValueProperty<String> name = new ValueProperty<>();
+		public final ValueProperty<Integer> weightInGram = new ValueProperty<>();
 	}
 	
 	private static final class PetToy extends Entity {
-		public final Property<String> name = new Property<>();
-		public final Property<String> material = new Property<>();
+		public final ValueProperty<String> name = new ValueProperty<>();
+		public final ValueProperty<String> material = new ValueProperty<>();
 	}
 	
 	private DatabaseAdapterTutorial() {}

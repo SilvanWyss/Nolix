@@ -8,7 +8,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
-public final class MultiProperty<V> extends DataPropertyoid<V> implements Clearable<MultiProperty<V>> {
+public final class MultiValueProperty<V> extends BaseValueProperty<V> implements Clearable<MultiValueProperty<V>> {
 	
 	//multi-attribute
 	private final List<V> values = new List<>();
@@ -45,7 +45,7 @@ public final class MultiProperty<V> extends DataPropertyoid<V> implements Cleara
 	
 	//method
 	@Override
-	public MultiProperty<V> clear() {
+	public MultiValueProperty<V> clear() {
 		
 		internal_clear();
 		
@@ -66,8 +66,8 @@ public final class MultiProperty<V> extends DataPropertyoid<V> implements Cleara
 	
 	//method
 	@Override
-	public PropertyoidType<V> getPropertyType() {
-		return new MultiPropertyType<>(getValueClass());
+	public PropertyType<V> getPropertyType() {
+		return new MultiValuePropertyType<>(getValueClass());
 	}
 	
 	//method
