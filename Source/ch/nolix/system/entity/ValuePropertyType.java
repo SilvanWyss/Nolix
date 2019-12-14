@@ -11,7 +11,7 @@ public final class ValuePropertyType<V> extends SinglePropertyType<V> {
 	
 	//method
 	@Override
-	public final PropertyCategory getPropertyKind() {
-		return PropertyCategory.VALUE;
+	public final PropertyKind getPropertyKind() {
+		return PropertyKind.VALUE;
 	}
 }

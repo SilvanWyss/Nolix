@@ -11,7 +11,7 @@ public final class OptionalValuePropertyType<V> extends SinglePropertyType<V> {
 	
 	//method
 	@Override
-	public final PropertyCategory getPropertyKind() {
-		return PropertyCategory.OPTIONAL_VALUE;
+	public final PropertyKind getPropertyKind() {
+		return PropertyKind.OPTIONAL_VALUE;
 	}
 }

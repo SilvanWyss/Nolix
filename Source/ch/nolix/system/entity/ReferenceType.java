@@ -11,8 +11,8 @@ public final class ReferenceType<E extends Entity> extends SingleReferenceType<E
 	
 	//method
 	@Override
-	public final PropertyCategory getPropertyKind() {
-		return PropertyCategory.REFERENCE;
+	public final PropertyKind getPropertyKind() {
+		return PropertyKind.REFERENCE;
 	}
 	
 	//method

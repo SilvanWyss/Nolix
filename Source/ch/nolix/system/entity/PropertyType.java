@@ -26,7 +26,7 @@ public abstract class PropertyType<V> implements IElement {
 	}
 	
 	//abstract method
-	public abstract PropertyCategory getPropertyKind();
+	public abstract PropertyKind getPropertyKind();
 	
 	//method
 	@Override
@@ -90,37 +90,37 @@ public abstract class PropertyType<V> implements IElement {
 	
 	//method
 	public final boolean isDataType() {
-		return (getPropertyKind() == PropertyCategory.VALUE);
+		return (getPropertyKind() == PropertyKind.VALUE);
 	}
 	
 	//method
 	public final boolean isIdType() {
-		return (getPropertyKind() == PropertyCategory.ID);
+		return (getPropertyKind() == PropertyKind.ID);
 	}
 	
 	//method
 	public final boolean isOptionalDataType() {
-		return (getPropertyKind() == PropertyCategory.OPTIONAL_VALUE);
+		return (getPropertyKind() == PropertyKind.OPTIONAL_VALUE);
 	}
 	
 	//method
 	public final boolean isOptionalReferenceType() {
-		return (getPropertyKind() == PropertyCategory.OPTIONAL_REFERENCE);
+		return (getPropertyKind() == PropertyKind.OPTIONAL_REFERENCE);
 	}
 	
 	//method
 	public final boolean isMultiDataType() {
-		return (getPropertyKind() == PropertyCategory.MULTI_VALUE);
+		return (getPropertyKind() == PropertyKind.MULTI_VALUE);
 	}
 	
 	//method
 	public final boolean isMultiReferenceType() {
-		return (getPropertyKind() == PropertyCategory.MULTI_REFERENCE);
+		return (getPropertyKind() == PropertyKind.MULTI_REFERENCE);
 	}
 	
 	//method
 	public final boolean isReferenceType() {
-		return (getPropertyKind() == PropertyCategory.REFERENCE);
+		return (getPropertyKind() == PropertyKind.REFERENCE);
 	}
 	
 	//method

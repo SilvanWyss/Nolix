@@ -11,7 +11,7 @@ public final class MultiReferenceType<E extends Entity> extends BaseReferenceTyp
 	
 	//method
 	@Override
-	public final PropertyCategory getPropertyKind() {
-		return PropertyCategory.MULTI_REFERENCE;
+	public final PropertyKind getPropertyKind() {
+		return PropertyKind.MULTI_REFERENCE;
 	}
 }

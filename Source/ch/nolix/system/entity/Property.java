@@ -76,7 +76,7 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method
-	public final PropertyCategory getPropertyKind() {
+	public final PropertyKind getPropertyKind() {
 		return getPropertyType().getPropertyKind();
 	}
 	

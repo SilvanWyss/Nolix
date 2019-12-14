@@ -11,7 +11,7 @@ public final class MultiValuePropertyType<V> extends BaseValuePropertyType<V> {
 	
 	//method
 	@Override
-	public final PropertyCategory getPropertyKind() {
-		return PropertyCategory.MULTI_VALUE;
+	public final PropertyKind getPropertyKind() {
+		return PropertyKind.MULTI_VALUE;
 	}
 }

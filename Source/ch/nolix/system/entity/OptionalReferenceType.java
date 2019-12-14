@@ -11,8 +11,8 @@ public final class OptionalReferenceType<E extends Entity> extends SingleReferen
 	
 	//method
 	@Override
-	public final PropertyCategory getPropertyKind() {
-		return PropertyCategory.OPTIONAL_REFERENCE;
+	public final PropertyKind getPropertyKind() {
+		return PropertyKind.OPTIONAL_REFERENCE;
 	}
 	
 	//method

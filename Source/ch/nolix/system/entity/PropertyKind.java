@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 //enum
-public enum PropertyCategory {
+public enum PropertyKind {
 	ID,
 	VALUE,
 	OPTIONAL_VALUE,

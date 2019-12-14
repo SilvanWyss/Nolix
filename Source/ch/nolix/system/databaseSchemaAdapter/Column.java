@@ -9,7 +9,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
-import ch.nolix.system.entity.PropertyCategory;
+import ch.nolix.system.entity.PropertyKind;
 import ch.nolix.system.entity.PropertyType;
 
 //class
@@ -53,7 +53,7 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	public PropertyCategory getPropertyKind() {
+	public PropertyKind getPropertyKind() {
 		return valueType.getPropertyKind();
 	}
 	

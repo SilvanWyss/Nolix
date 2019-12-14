@@ -18,8 +18,8 @@ extends PropertyType<Integer> {
 
 	//method
 	@Override
-	public PropertyCategory getPropertyKind() {
-		return PropertyCategory.ID;
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.ID;
 	}
 
 	//method
