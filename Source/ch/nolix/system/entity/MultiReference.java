@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
+import ch.nolix.common.containers.IContainer;
 //own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -36,10 +37,10 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	}
 	
 	//method
-	@Override
-	public PropertyType<E> getPropertyType() {
-		return new MultiReferenceType<>(getValueClass());
-	}
+		@Override
+		public PropertyKind getPropertyKind() {
+			return PropertyKind.MULTI_REFERENCE;
+		}
 	
 	//method
 	public List<E> getRefEntities() {
@@ -93,7 +94,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 
 	//method
 	@Override
-	protected void internal_setValues(Iterable<Object> values) {
+	protected void internal_setValues(IContainer<Object> values) {
 		values.forEach(v -> addValue((int)v));
 	}
 	

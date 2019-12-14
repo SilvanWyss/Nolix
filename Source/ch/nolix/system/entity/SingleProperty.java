@@ -3,6 +3,7 @@ package ch.nolix.system.entity;
 
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -122,7 +123,7 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected final void internal_setValues(final Iterable<Object> values) {
+	protected final void internal_setValues(final IContainer<Object> values) {
 		setValue((V)(new ReadContainer<>(values).getRefOne()));
 	}
 	

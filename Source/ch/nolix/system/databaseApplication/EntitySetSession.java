@@ -13,6 +13,7 @@ import ch.nolix.element.widgets.LabelRole;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.PropertyKind;
 import ch.nolix.system.entity.Reference;
 
 //class
@@ -61,7 +62,7 @@ public final class EntitySetSession extends HeaderedSession {
 		//Sets the header of the entities grid.
 			int columnIndex = 2;
 			for (final var c : getRefEntitySet().getColumns()) {
-				if (c.isDataColumn()) {
+				if (c.getDataType().getPropertyKind() == PropertyKind.VALUE) {
 					
 					entitiesGrid.setWidget(
 						1,
@@ -73,7 +74,7 @@ public final class EntitySetSession extends HeaderedSession {
 					columnIndex++;
 				}
 				
-				if (c.isReferenceColumn()) {
+				if (c.getDataType().getPropertyKind() == PropertyKind.REFERENCE) {
 					
 					entitiesGrid.setWidget(
 						1,

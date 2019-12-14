@@ -21,10 +21,10 @@ implements Clearable<OptionalReference<E>> {
 	
 	//method
 	@Override
-	public OptionalReferenceType<E> getPropertyType() {
-		return new OptionalReferenceType<E>(getValueClass());
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.OPTIONAL_REFERENCE;
 	}
-
+	
 	//method
 	@Override
 	public boolean isOptional() {

@@ -167,6 +167,8 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	//method
 	private void supposeCanDelete(EntitySet entitySet) {
 		
+		//TODO
+		/*
 		final var referencingEntitySet =
 		loadedAndCreatedEntitySets.getRefFirstOrNull(es -> es.references(entitySet));
 		
@@ -177,6 +179,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 				+ referencingEntitySet.getNameInQuotes()
 			);
 		}
+		*/
 	}
 	
 	//method

@@ -13,7 +13,17 @@ public final class OptionalBackReference<E extends Entity> extends SingleBackRef
 	
 	//method
 	@Override
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.OPTIONAL_BACK_REFERENCE;
+	}
+	
+	//method
+	@Override
 	public boolean isOptional() {
 		return true;
 	}
+	
+	//method
+	@Override
+	public void supposeCanBeSaved() {}
 }

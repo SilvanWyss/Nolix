@@ -1,21 +1,22 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.system.dataTypes.DataType;
+import ch.nolix.system.dataTypes.MultiReferenceType;
+import ch.nolix.system.dataTypes.MultiValueType;
+import ch.nolix.system.dataTypes.OptionalReferenceType;
+import ch.nolix.system.dataTypes.OptionalValueType;
+import ch.nolix.system.dataTypes.ReferenceType;
+import ch.nolix.system.dataTypes.ValueType;
 import ch.nolix.system.databaseAdapter.EntitySetState;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.MultiValuePropertyType;
-import ch.nolix.system.entity.MultiReferenceType;
-import ch.nolix.system.entity.OptionalValuePropertyType;
-import ch.nolix.system.entity.OptionalReferenceType;
-import ch.nolix.system.entity.ValuePropertyType;
-import ch.nolix.system.entity.PropertyType;
-import ch.nolix.system.entity.ReferenceType;
 
 //class
 public final class EntitySet implements Named {
@@ -44,13 +45,13 @@ public final class EntitySet implements Named {
 		columns =
 		entityType
 		.getColumns()
-		.to(c -> new Column(this, c.getHeader(), c.getPropertyType()));
+		.to(c -> new Column(this, c.getHeader(), c.getDataType()));
 	}
 	
 	//method
 	public EntitySet addColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new ValuePropertyType<>(valueClass));
+		addColumn(header, new ValueType<>(valueClass));
 		
 		return this;
 	}
@@ -58,7 +59,7 @@ public final class EntitySet implements Named {
 	//method
 	public EntitySet addMultiColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new MultiValuePropertyType<>(valueClass));
+		addColumn(header, new MultiValueType<>(valueClass));
 		
 		return this;
 	}
@@ -74,7 +75,7 @@ public final class EntitySet implements Named {
 	//method
 	public EntitySet addOptionalColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new OptionalValuePropertyType<>(valueClass));
+		addColumn(header, new OptionalValueType<>(valueClass));
 		
 		return this;
 	}
@@ -90,7 +91,7 @@ public final class EntitySet implements Named {
 	//method
 	public EntitySet addReferenceColumn(final String header, final Class<Entity> entityClass) {
 				
-		addColumn(header, new ReferenceType<>(entityClass));
+		addColumn(header, new ReferenceType<Entity>(entityClass));
 		
 		return this;
 	}
@@ -161,11 +162,6 @@ public final class EntitySet implements Named {
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.REJECTED);
 	}
-		
-	//method
-	public boolean references(final EntitySet entitySet) {
-		return columns.contains(c -> c.references(entitySet));
-	}
 	
 	//package-visible method
 	final void setChanged() {
@@ -235,7 +231,7 @@ public final class EntitySet implements Named {
 	}
 	
 	//method
-	private void addColumn(final String header, final PropertyType<?> propertyType) {
+	private void addColumn(final String header, final DataType<?> propertyType) {
 		addColumn(new Column(this, header, propertyType));
 	}
 	

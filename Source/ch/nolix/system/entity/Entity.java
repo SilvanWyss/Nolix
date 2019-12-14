@@ -50,8 +50,8 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final boolean canReferenceOtherEntities() {
-		return getRefProperties().contains(p -> p.isReferenceProperty());
+	public final boolean canReferenceEntities() {
+		return getRefProperties().contains(Property::canReferenceEntity);
 	}
 	
 	//method
@@ -412,7 +412,7 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	private void extractProbablePropertyOrBackReferencesFromField(final Field field) {
+	private void extractProbablePropertyFromField(final Field field) {
 		
 		field.setAccessible(true);
 		
@@ -429,19 +429,6 @@ public class Entity implements IElement, OptionalIdentified {
 				throw new RuntimeException(exception);
 			}
 		}
-		else if (BaseBackReference.class.isAssignableFrom(field.getType())) {
-			try {
-				
-				@SuppressWarnings("unchecked")
-				final var backReference = (BaseBackReference<Entity>)(field.get(this));
-				
-				backReference.setParentEntity(this);
-				backReferences.addAtEnd(backReference);
-			}
-			catch (final IllegalArgumentException | IllegalAccessException exception) {
-				throw new RuntimeException(exception);
-			}
-		}
 	}
 	
 	//method
@@ -452,15 +439,15 @@ public class Entity implements IElement, OptionalIdentified {
 		
 		Class<?> cl = getClass();
 		while (cl != null) {
-			extractPropertiesAndBackReferencesFromClass(cl);		
+			extractPropertiesFromClass(cl);		
 			cl = cl.getSuperclass();
 		}
 	}
 	
 	//method
-	private void extractPropertiesAndBackReferencesFromClass(final Class<?> pClass) {
+	private void extractPropertiesFromClass(final Class<?> pClass) {
 		for (final var f : pClass.getDeclaredFields()) {
-			extractProbablePropertyOrBackReferencesFromField(f);
+			extractProbablePropertyFromField(f);
 		}
 	}
 	

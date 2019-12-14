@@ -8,10 +8,10 @@ import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 public final class ValueProperty<V> extends SingleProperty<V> {
 	
 	//method
-	@Override
-	public PropertyType<V> getPropertyType() {
-		return new ValuePropertyType<>(getValueClass());
-	}
+		@Override
+		public PropertyKind getPropertyKind() {
+			return PropertyKind.VALUE;
+		}
 	
 	//method
 	@Override

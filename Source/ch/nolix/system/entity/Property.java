@@ -6,6 +6,7 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
@@ -36,6 +37,9 @@ public abstract class Property<V> implements Headered, IElement {
 	
 	//abstract method
 	public abstract boolean canReference(Entity entity);
+	
+	//method
+	public abstract boolean canReferenceEntity();
 	
 	//method
 	@Override
@@ -76,12 +80,7 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method
-	public final PropertyKind getPropertyKind() {
-		return getPropertyType().getPropertyKind();
-	}
-	
-	//abstract method
-	public abstract PropertyType<V> getPropertyType();
+	public abstract PropertyKind getPropertyKind();
 	
 	//method
 	@Override
@@ -104,36 +103,6 @@ public abstract class Property<V> implements Headered, IElement {
 	//method
 	public final String getValueType() {
 		return getValueClass().getSimpleName();
-	}
-	
-	//method
-	public final boolean isDataProperty() {
-		return getPropertyType().isDataType();
-	}
-	
-	//method
-	public final boolean isMultiDataProperty() {
-		return getPropertyType().isMultiDataType();
-	}
-	
-	//method
-	public final boolean isMultiReferenceProperty() {
-		return getPropertyType().isMultiReferenceType();
-	}
-	
-	//method
-	public final boolean isOptionalDataProperty() {
-		return getPropertyType().isOptionalDataType();
-	}
-	
-	//method
-	public final boolean isOptionalReferenceProperty() {
-		return getPropertyType().isOptionalReferenceType();
-	}
-	
-	//method
-	public final boolean isReferenceProperty() {
-		return getPropertyType().isReferenceType();
 	}
 	
 	//abstract method
@@ -159,7 +128,7 @@ public abstract class Property<V> implements Headered, IElement {
 	protected abstract void internal_setValue(Object value);
 	
 	//abstract method
-	protected abstract void internal_setValues(Iterable<Object> values);
+	protected abstract void internal_setValues(IContainer<Object> values);
 	
 	//method
 	protected void internal_setParentEntity(final Entity parentEntity) {

@@ -16,6 +16,12 @@ public abstract class BaseValueProperty<V> extends Property<V> {
 	
 	//method
 	@Override
+	public final boolean canReferenceEntity() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public final boolean references(final Entity entity) {
 		return false;
 	}

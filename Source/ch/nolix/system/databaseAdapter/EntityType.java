@@ -11,8 +11,8 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.system.dataTypes.IdType;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.IdPropertyType;
 import ch.nolix.system.entity.Property;
 
 //class
@@ -72,11 +72,6 @@ public final class EntityType<E extends Entity> implements Named {
 	}
 	
 	//method
-	public List<Column<?>> getAnyDataAndReferenceColumns() {
-		return columns.getRefSelected(c -> c.isAnyDataOrReferenceColumn());
-	}
-	
-	//method
 	public List<Column<?>> getColumns() {
 		return columns;
 	}
@@ -101,7 +96,7 @@ public final class EntityType<E extends Entity> implements Named {
 			final var entity = (Entity)constructor.newInstance();
 			entity.getRefProperties();
 			
-			final var columns = new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()));
+			final var columns = new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdType()));
 			
 			Class<?> lClass = entityClass.getClass();
 			while (lClass != null) {
@@ -119,7 +114,7 @@ public final class EntityType<E extends Entity> implements Named {
 							columns.addAtEnd(
 								new Column<>(
 									f.getName(),
-									property.getPropertyType()
+									null //TODO
 								)
 							);
 						}

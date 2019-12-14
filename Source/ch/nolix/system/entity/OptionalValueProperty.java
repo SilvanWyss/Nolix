@@ -18,14 +18,14 @@ public class OptionalValueProperty<V> extends SingleProperty<V> implements Clear
 	
 	//method
 	@Override
-	public boolean isOptional() {
-		return true;
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.OPTIONAL_VALUE;
 	}
 	
 	//method
 	@Override
-	public PropertyType<V> getPropertyType() {
-		return new OptionalValuePropertyType<>(getValueClass());
+	public boolean isOptional() {
+		return true;
 	}
 	
 	//method

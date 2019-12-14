@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
+import ch.nolix.common.containers.IContainer;
 //own imports
 import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
@@ -66,8 +67,8 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	
 	//method
 	@Override
-	public PropertyType<V> getPropertyType() {
-		return new MultiValuePropertyType<>(getValueClass());
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.MULTI_VALUE;
 	}
 	
 	//method
@@ -108,7 +109,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected void internal_setValues(final Iterable<Object> values) {
+	protected void internal_setValues(final IContainer<Object> values) {
 		clear();
 		values.forEach(v -> addValue((V)v));
 	}

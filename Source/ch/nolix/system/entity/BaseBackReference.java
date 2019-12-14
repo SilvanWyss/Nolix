@@ -4,20 +4,20 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.containers.List;
 //own imports
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionHelpers.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 
 //abstract class
-public abstract class BaseBackReference<E extends Entity> {
+public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	
-	//attribute
+	//attributes
 	private final String referencingPropertyHeader;
-	
-	//optional attribute
-	private Entity parentEntity;
+	private int backReferenceCount = 0;
 	
 	//constructor
 	public BaseBackReference(final String referencingPropertyHeader) {
@@ -28,6 +28,12 @@ public abstract class BaseBackReference<E extends Entity> {
 		.isNotBlank();
 		
 		this.referencingPropertyHeader = referencingPropertyHeader;
+	}
+	
+	//mehtod
+	@Override
+	public final boolean canReference(final Entity entity) {
+		return false;
 	}
 	
 	//method
@@ -42,26 +48,22 @@ public abstract class BaseBackReference<E extends Entity> {
 	
 	//abstract method
 	public abstract boolean canReferenceBackSeveralEntities();
-
+	
 	//method
-	public final IDatabaseAdapter getParentDatabaseAdapter() {
-		return getParentEntitySet().getParentDatabaseAdapter();
+	@Override
+	public final boolean canReferenceEntity() {
+		return false;
 	}
 	
 	//method
-	public final Entity getParentEntity() {
-		
-		//Checks if the current back reference belongs to an entity.
-		if (parentEntity == null) {
-			throw new ArgumentDoesNotBelongToParentException(this, Entity.class);
-		}
-		
-		return parentEntity;
+	public int getBackReferenceCount() {
+		return backReferenceCount;
 	}
 	
 	//method
-	public final IEntitySet<Entity> getParentEntitySet() {
-		return getParentEntity().getParentEntitySet();
+	@Override
+	public Node getCellSpecification() {
+		return new Node(getBackReferenceCount());
 	}
 	
 	//method
@@ -95,21 +97,34 @@ public abstract class BaseBackReference<E extends Entity> {
 		return this.referencingPropertyHeader.equals(referencingPropertyHeader);
 	}
 	
-	//package-visible method
-	final void setParentEntity(final Entity parentEntity) {
-		
-		//Checks if the given parent entity is not null.
-		Validator
-		.suppose(parentEntity)
-		.thatIsNamed("parent entity")
-		.isNotNull();
-		
-		//Checks if the current back reference does not belong to an entity.
-		if (parentEntity != null) {
-			throw new InvalidArgumentException(this, "belongs already to an entity");
-		}
-		
-		this.parentEntity = parentEntity;
+	//method
+	@Override
+	public final boolean references(final Entity entity) {
+		return false;
+	}
+	
+	//method
+	@Override
+	protected final void internal_clear() {
+		backReferenceCount = 0;
+	}
+	
+	//method
+	@Override
+	protected final List<Object> internal_getValues() {
+		return new List<>(getBackReferenceCount());
+	}
+	
+	//method
+	@Override
+	protected void internal_setValue(final Object value) {
+		backReferenceCount = (int)value;
+	}
+
+	//method
+	@Override
+	protected void internal_setValues(IContainer<Object> values) {
+		internal_setValue(values.getRefOne());
 	}
 	
 	//package-visible method

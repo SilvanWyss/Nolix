@@ -21,12 +21,22 @@ public final class MultiBackReference<E extends Entity> extends BaseBackReferenc
 	}
 	
 	//method
+	@Override
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.MULTI_BACK_REFERENCE;
+	}
+	
+	//method
 	public List<E> getReferencingEntities() {
 		return
 		getReferencingEntitySet()
 		.getRefEntities()
 		.getRefSelected(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
 	}
+	
+	//method
+	@Override
+	public void supposeCanBeSaved() {}
 	
 	//package-visible method
 	@Override

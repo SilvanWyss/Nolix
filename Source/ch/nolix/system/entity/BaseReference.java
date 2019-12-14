@@ -26,6 +26,12 @@ public abstract class BaseReference<E extends Entity> extends Property<E> {
 	}
 	
 	//method
+	@Override
+	public final boolean canReferenceEntity() {
+		return true;
+	}
+	
+	//method
 	public final IEntitySet<E> getRefEntitySetOfReferencedEntities() {
 		return getParentDatabaseAdapter().getRefEntitySet(getValueClass());
 	}

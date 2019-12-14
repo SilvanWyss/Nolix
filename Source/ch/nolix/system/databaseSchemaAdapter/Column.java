@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
@@ -9,8 +10,8 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.entity.PropertyKind;
-import ch.nolix.system.entity.PropertyType;
 
 //class
 public final class Column implements Headered, IElement {
@@ -18,19 +19,19 @@ public final class Column implements Headered, IElement {
 	//attributes
 	private final String header;
 	private final EntitySet entitySet;
-	private final PropertyType<?> valueType;
+	private final DataType<?> valueType;
 		
 	//package-visible constructor
 	Column(
 		final EntitySet entitySet,
 		final String header,
-		final PropertyType<?> valueType
+		final DataType<?> valueType
 	) {
 		
 		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
 		
 		Validator.suppose(entitySet).isOfType(EntitySet.class);
-		Validator.suppose(valueType).isOfType(PropertyType.class);
+		Validator.suppose(valueType).isOfType(DataType.class);
 		
 		this.entitySet = entitySet;
 		this.valueType = valueType;
@@ -42,7 +43,7 @@ public final class Column implements Headered, IElement {
 		return 
 		new List<>(
 			new Node(PascalCaseNameCatalogue.HEADER, getHeader()),
-			valueType.getSpecification()
+			new Node(valueType.getPropertyKind().toString())
 		);
 	}
 	
@@ -83,26 +84,21 @@ public final class Column implements Headered, IElement {
 	public Class<?> getValueClass() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-		return valueType.getValueClass();
+		return valueType.getRefContentClass();
 	}
 	
 	//method
-	public PropertyType<?> getValueType() {
+	public DataType<?> getValueType() {
 		return valueType;
 	}
 	
 	//method
 	public boolean isDataColumn() {
-		return valueType.isDataType();
+		return valueType.isAnyValueType();
 	}
 	
 	//method
 	public boolean isReferenceColumn() {
-		return valueType.isReferenceType();
-	}
-	
-	//method
-	public boolean references(final EntitySet entitySet) {
-		return valueType.referencesEntitySet(entitySet.getName());
+		return valueType.isAnyReferenceType();
 	}
 }

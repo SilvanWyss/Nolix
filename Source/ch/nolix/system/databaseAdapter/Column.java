@@ -9,19 +9,19 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
-import ch.nolix.system.entity.PropertyType;
 
 //class
 public final class Column<V> implements Headered, IElement {
 
 	//attributes
 	private final String header;
-	private final PropertyType<V> propertyType;
+	private final DataType<V> propertyType;
 	
 	//constructor
-	public Column(final String header, final PropertyType<V> propertyType) {
+	public Column(final String header, final DataType<V> propertyType) {
 		
 		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
 		
@@ -35,7 +35,7 @@ public final class Column<V> implements Headered, IElement {
 	
 	//method
 	public final boolean canReference(final Entity entity) {
-		return getPropertyType().captionsPropertyThatCanReference(entity);
+		return getDataType().canReference(entity);
 	}
 	
 	//method
@@ -47,7 +47,7 @@ public final class Column<V> implements Headered, IElement {
 				PascalCaseNameCatalogue.HEADER,
 				getHeader()
 			),
-			getPropertyType().getSpecification()
+			new Node(getDataType().getPropertyKind().toString())
 		);
 	}
 	
@@ -59,11 +59,11 @@ public final class Column<V> implements Headered, IElement {
 	
 	//method
 	public PropertyKind getPropertyKind() {
-		return getPropertyType().getPropertyKind();
+		return getDataType().getPropertyKind();
 	}
 	
 	//method
-	public PropertyType<V> getPropertyType() {
+	public DataType<V> getDataType() {
 		return propertyType;
 	}
 	
@@ -75,56 +75,16 @@ public final class Column<V> implements Headered, IElement {
 	
 	//method
 	public Class<V> getValueClass() {
-		return getPropertyType().getValueClass();
+		return getDataType().getRefContentClass();
 	}
 	
 	//method
 	public boolean isAnyDataColumn() {
-		return getPropertyType().isAnyDataType();
-	}
-	
-	//method
-	public boolean isAnyDataOrReferenceColumn() {
-		return getPropertyType().isAnyDataOrReferenceType();
+		return getDataType().isAnyValueType();
 	}
 	
 	//method
 	public boolean isAnyReferenceColumn() {
-		return getPropertyType().isAnyReferenceType();
-	}
-	
-	//method
-	public boolean isDataColumn() {
-		return getPropertyType().isDataType();
-	}
-	
-	//method
-	public boolean isIdColumn() {
-		return getPropertyType().isIdType();
-	}
-	
-	//method
-	public boolean isMultiDataColumn() {
-		return getPropertyType().isMultiDataType();
-	}
-	
-	//method
-	public boolean isMultiReferenceColumn() {
-		return getPropertyType().isMultiReferenceType();
-	}
-	
-	//method
-	public boolean isOptionalDataColumn() {
-		return getPropertyType().isOptionalDataType();
-	}
-	
-	//method
-	public boolean isOptionalReferenceColumn() {
-		return getPropertyType().isOptionalReferenceType();
-	}
-	
-	//method
-	public boolean isReferenceColumn() {
-		return getPropertyType().isReferenceType();
+		return getDataType().isAnyReferenceType();
 	}
 }

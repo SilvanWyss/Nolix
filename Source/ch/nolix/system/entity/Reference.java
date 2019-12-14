@@ -10,8 +10,8 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	
 	//method
 	@Override
-	public ReferenceType<E> getPropertyType() {
-		return new ReferenceType<>(getValueClass());
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.REFERENCE;
 	}
 	
 	//method
