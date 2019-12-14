@@ -6,7 +6,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
-public final class BackReferenceType<E extends Entity> extends BaseReferenceType<E> {
+public final class BackReferenceType<E extends Entity> extends BaseBackReferenceType<E> {
 	
 	//constructor
 	public BackReferenceType(final Class<E> contentClass) {

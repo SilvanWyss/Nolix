@@ -3,6 +3,7 @@ package ch.nolix.system.dataTypes;
 
 //own imports
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
@@ -18,6 +19,9 @@ public abstract class DataType<C> {
 		
 		this.contentClass = contentClass;
 	}
+	
+	//method
+	public abstract boolean canReference(Entity entity);
 	
 	//method
 	public abstract PropertyKind getPropertyKind();

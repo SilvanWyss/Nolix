@@ -13,6 +13,11 @@ public abstract class BaseBackReferenceType<E extends Entity> extends DataType<E
 	}
 	
 	//method
+	public final boolean canReference(final Entity entity) {
+		return false;
+	}
+	
+	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
 		return true;

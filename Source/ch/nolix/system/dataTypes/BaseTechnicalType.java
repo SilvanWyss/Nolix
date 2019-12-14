@@ -1,12 +1,19 @@
 //package declaration
 package ch.nolix.system.dataTypes;
 
+import ch.nolix.system.entity.Entity;
+
 //class
 public abstract class BaseTechnicalType<C> extends DataType<C> {
 	
 	//constructor
 	public BaseTechnicalType(final Class<C> contentClass) {
 		super(contentClass);
+	}
+	
+	//method
+	public final boolean canReference(final Entity entity) {
+		return false;
 	}
 	
 	//method
