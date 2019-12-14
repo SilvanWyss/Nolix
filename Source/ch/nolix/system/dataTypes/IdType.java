@@ -8,8 +8,8 @@ import ch.nolix.system.entity.PropertyKind;
 public final class IdType extends BaseTechnicalType<Long> {
 	
 	//constructor
-	public IdType(final Class<Long> contentClass) {
-		super(contentClass);
+	public IdType() {
+		super(Long.class);
 	}
 	
 	//method
