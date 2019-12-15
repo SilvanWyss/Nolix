@@ -8,7 +8,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * A configuration elemenet is a configuration element that can have a configuration.
  * 

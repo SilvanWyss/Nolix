@@ -10,7 +10,7 @@ import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClientSession;
 import ch.nolix.templates.consoleClientLooks.GreyBlueConsoleClientLook;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-08

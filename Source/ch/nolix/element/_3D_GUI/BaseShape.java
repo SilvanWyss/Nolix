@@ -11,7 +11,7 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
 
-//abstract class
+//class
 /**
  * A {@link BaseShape} is a {@link Shape} that does not contain other shapes.
  * 

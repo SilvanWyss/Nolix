@@ -4,7 +4,7 @@ package ch.nolix.system.databaseSchemaAdapter;
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 public abstract class EntitySetSQLHelper {
 	
 	//attribute

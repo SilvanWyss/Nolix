@@ -8,7 +8,7 @@ import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.LabelRole;
 import ch.nolix.element.widgets.VerticalStack;
 
-//abstract class
+//class
 public abstract class HeaderedSession extends UserSession {
 
 	//attribute

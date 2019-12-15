@@ -3,7 +3,7 @@ package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.system.entity.ValueClassBox;
 
-//abstract class
+//class
 public abstract class ValueTypeSQLHelper<V> {
 	
 	//attribute

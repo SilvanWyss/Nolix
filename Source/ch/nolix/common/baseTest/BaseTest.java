@@ -8,7 +8,7 @@ import java.lang.reflect.Modifier;
 
 import ch.nolix.common.independentContainers.List;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2016-08

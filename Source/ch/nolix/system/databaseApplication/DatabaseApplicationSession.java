@@ -10,7 +10,7 @@ import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
-//abstract class
+//class
 public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 	
 	//attribute

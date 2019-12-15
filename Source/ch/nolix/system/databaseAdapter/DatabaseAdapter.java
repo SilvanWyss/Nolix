@@ -15,7 +15,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IDatabaseAdapter;
 import ch.nolix.system.entity.IEntitySet;
 
-//abstract class
+//class
 public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	
 	//attributes

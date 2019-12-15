@@ -19,7 +19,7 @@ import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.painter.IPainter;
 
-//abstract class
+//class
 /**
  * A {@link BorderWidget} is a {@link BackgroundWidget} that:
  * -Can have an individual border at each of its 4 sides.

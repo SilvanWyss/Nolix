@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//abstract class
+//class
 public abstract class StandardClientSession extends Session<StandardClient> {
 	
 	//method

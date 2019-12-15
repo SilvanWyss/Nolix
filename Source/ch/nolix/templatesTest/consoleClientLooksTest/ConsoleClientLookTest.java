@@ -9,7 +9,7 @@ import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 
-//abstract test class
+//test class
 public abstract class ConsoleClientLookTest<CCL extends StandardConfiguration> extends ObjectTest<CCL> {
 	
 	//test case

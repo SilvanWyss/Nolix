@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12

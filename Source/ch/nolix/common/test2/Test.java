@@ -11,7 +11,7 @@ package ch.nolix.common.test2;
 import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.skillAPI.ApproximativeEqualing;
 
-//abstract class
+//class
 /**
  * A test contains test cases and can run them.
  */

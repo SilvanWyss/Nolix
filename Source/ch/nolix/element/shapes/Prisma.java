@@ -9,7 +9,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
 import ch.nolix.element.base.MutableProperty;
 
-//abstract class
+//class
 public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	
 	//default value

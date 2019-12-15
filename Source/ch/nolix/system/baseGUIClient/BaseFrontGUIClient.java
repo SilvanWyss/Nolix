@@ -15,7 +15,7 @@ import ch.nolix.element.input.Key;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2018-09

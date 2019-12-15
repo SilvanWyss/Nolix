@@ -5,7 +5,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IMutableElement;
 
-//abstract class
+//class
 /**
  * 
  * A {@link SpecifiableEntity} is a {@link Element} that is specifiable..

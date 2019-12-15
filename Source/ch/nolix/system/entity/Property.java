@@ -14,7 +14,7 @@ import ch.nolix.common.reflectionHelpers.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
-//abstract class
+//class
 public abstract class Property<V> implements Headered, IElement {
 	
 	//optional attribute

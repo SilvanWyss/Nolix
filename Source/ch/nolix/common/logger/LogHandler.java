@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.logger;
 
-//abstract class
+//class
 public abstract class LogHandler {
 
 	//default value

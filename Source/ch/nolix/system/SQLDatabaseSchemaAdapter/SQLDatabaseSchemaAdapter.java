@@ -12,7 +12,7 @@ import ch.nolix.system.databaseSchemaAdapter.DatabaseState;
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.databaseSchemaAdapter.IEntitySetAdapter;
 
-//abstract class
+//class
 public abstract class SQLDatabaseSchemaAdapter<SQLDSA extends SQLDatabaseSchemaAdapter<SQLDSA>>
 extends DatabaseSchemaAdapter<SQLDSA> {
 	

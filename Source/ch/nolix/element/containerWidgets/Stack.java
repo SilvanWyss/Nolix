@@ -12,7 +12,7 @@ import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
 
-//abstract class
+//class
 /**
  * A {@link Stack} is a {@link ContainerWidget} that places its widgets linearly.
  * 

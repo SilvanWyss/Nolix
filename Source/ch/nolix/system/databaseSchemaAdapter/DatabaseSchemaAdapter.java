@@ -11,7 +11,7 @@ import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.entity.Entity;
 
-//abstract class
+//class
 /**
  * A {@link DatabaseSchemaAdapter} loads the current database scheme
  * from its connected database when it is created or reset. 

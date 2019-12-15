@@ -16,7 +16,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * A {@link BaseNode} can have:
  * -1 header

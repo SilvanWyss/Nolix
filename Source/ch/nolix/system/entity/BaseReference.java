@@ -4,7 +4,7 @@ package ch.nolix.system.entity;
 //own import
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
-//abstract class
+//class
 /**
  * There exist 3 levels of relationship a {@link BaseReference} can have to a {@link Entity}.
  * -Level 1: A {@link BaseReference} can reference a {@link Entity} if that is basically possible.

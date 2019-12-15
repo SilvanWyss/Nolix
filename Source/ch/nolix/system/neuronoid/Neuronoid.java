@@ -11,7 +11,7 @@ import ch.nolix.common.sequencer.Future;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * This class represents a neuron.
  * A neuron has several input neurons, that all provides an input of a certain type.

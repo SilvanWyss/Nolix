@@ -24,7 +24,7 @@ import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
 
-//abstract class
+//class
 /**
  * A 3D GUI is clearable.
  * A 3D GUI is closable.

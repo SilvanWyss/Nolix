@@ -4,7 +4,7 @@ package ch.nolix.elementTest.widgetsTest;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.Widget;
 
-//abstract test class
+//test class
 /**
  * A {@link WidgetTest} is a test for {@link Widget}.
  * 

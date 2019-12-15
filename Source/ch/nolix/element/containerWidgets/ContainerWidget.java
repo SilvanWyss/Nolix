@@ -11,7 +11,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.widgets.BorderWidget;
 import ch.nolix.element.widgets.BorderWidgetLook;
 
-//abstract class
+//class
 /**
  * A {@link ContainerWidget} is a {@link BorderWidget} that can contain other widgets.
  * 

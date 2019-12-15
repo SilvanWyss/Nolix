@@ -12,7 +12,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
 
-//abstract class
+//class
 /**
  * A {@link TextLineWidget} is a {@link Widget} that contains 1 text line.
  * 

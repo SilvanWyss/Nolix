@@ -9,7 +9,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
 * @author Silvan Wyss
 * @month 2017-10

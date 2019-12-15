@@ -12,7 +12,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionHelpers.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	
 	//attributes

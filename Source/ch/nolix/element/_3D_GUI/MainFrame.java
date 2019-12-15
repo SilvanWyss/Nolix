@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element._3D_GUI;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-11

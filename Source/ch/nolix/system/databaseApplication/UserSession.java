@@ -7,7 +7,7 @@ import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.VerticalStack;
 
-//abstract class
+//class
 public abstract class UserSession extends DatabaseApplicationSession {
 	
 	//method

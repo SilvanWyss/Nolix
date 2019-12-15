@@ -17,7 +17,7 @@ import ch.nolix.common.reflectionHelpers.MethodHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 
-//abstract class
+//class
 /**
  * A {@link Session} manages user run methods and user data methods.
  * 

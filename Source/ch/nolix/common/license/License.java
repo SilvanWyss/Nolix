@@ -6,7 +6,7 @@ import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
-//abstract class
+//class
 /**
  * A {@link License} contains {@link Feature}s.
  * 

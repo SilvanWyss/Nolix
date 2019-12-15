@@ -10,7 +10,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
-//abstract class
+//class
 /**
  * A {@link Element} is specified.
  * 

@@ -8,7 +8,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.entity.Entity;
 
-//abstract class
+//class
 public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {
 	
 	//attributes

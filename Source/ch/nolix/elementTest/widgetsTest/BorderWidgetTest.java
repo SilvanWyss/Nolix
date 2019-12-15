@@ -6,7 +6,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.BorderWidget;
 
-//abstract test class
+//test class
 /**
  * A {@link BorderWidgetTest} is a test for {@link BorderWidget}.
  * 

@@ -15,7 +15,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.baseAPI.IMutableElement;
 
-//abstract class
+//class
 /**
  * A {@link ConfigurableElement} is a {@link OptionalNamableElement}
  * that is configurable.

@@ -12,7 +12,7 @@ import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * A {@link EndPoint} can send messages to an other {@link EndPoint} of the same type.
  * A {@link EndPoint} is closable.

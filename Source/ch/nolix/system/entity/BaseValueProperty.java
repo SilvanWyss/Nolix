@@ -5,7 +5,7 @@ package ch.nolix.system.entity;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 
-//abstract class
+//class
 public abstract class BaseValueProperty<V> extends Property<V> {
 	
 	//method

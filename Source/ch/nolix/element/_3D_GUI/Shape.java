@@ -12,7 +12,7 @@ import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.geometry._2DPoint;
 import ch.nolix.element.geometry._3DPoint;
 
-//abstract class
+//class
 /**
  * The position of a shape
  * is its smallest (!) position in a left-hand (!) coordination system.

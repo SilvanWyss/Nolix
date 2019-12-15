@@ -12,7 +12,7 @@ import ch.nolix.common.containers.List;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 public abstract class SQLConnection implements AutoCloseable {
 	
 	//attributes

@@ -7,7 +7,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
 
-//abstract class
+//class
 /**
  * A {@link Server} contains {@link IEndPointTaker}s.
  * A {@link Server} is clearable and closable.

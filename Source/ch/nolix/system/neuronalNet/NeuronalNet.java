@@ -7,7 +7,7 @@ import ch.nolix.system.neuronoid.BundleNeuron;
 import ch.nolix.system.neuronoid.FanoutNeuron;
 import ch.nolix.system.neuronoid.Neuronoid;
 
-//abstract class
+//class
 /**
  * A neuronal net is a neuron that contains neurons that are connected to a network.
  * 

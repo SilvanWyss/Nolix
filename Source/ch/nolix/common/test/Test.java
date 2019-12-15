@@ -9,7 +9,7 @@ import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.skillAPI.ApproximativeEqualing;
 
-//abstract class
+//class
 /**
  * A test is a test that provides the fluent pattern for writing expectations.
  * 

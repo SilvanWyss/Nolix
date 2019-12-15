@@ -5,7 +5,7 @@ package ch.nolix.common.license;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.IContainer;
 
-//abstract class
+//class
 /**
 * A {@link Feature} can be required for certain functionalities.
 * 

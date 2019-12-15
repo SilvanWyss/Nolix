@@ -8,7 +8,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 public abstract class SingleReference<E extends Entity> extends BaseReference<E> {
 	
 	//optional attribute

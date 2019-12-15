@@ -7,7 +7,7 @@ import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.system.entity.Entity;
 
-//abstract class
+//class
 public abstract class Schema {
 
 	//multi-attribute

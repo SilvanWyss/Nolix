@@ -5,7 +5,7 @@ import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-01

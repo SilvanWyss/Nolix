@@ -12,7 +12,7 @@ import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.textFormat.Font;
 
-//abstract class
+//class
 /**
  * A {@link WidgetLook} stores the state-dependent attributes of a {@link Widget}.
  * 

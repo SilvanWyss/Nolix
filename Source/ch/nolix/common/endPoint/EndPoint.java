@@ -7,7 +7,7 @@ import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * An end point can send messages to an other end point of the same type.
  * 

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
-//abstract class
+//class
 /**
  * A {@link ObjectTest} is a test for objects of a certain type.
  * 

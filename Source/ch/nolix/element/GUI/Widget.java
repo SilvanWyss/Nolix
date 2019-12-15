@@ -22,7 +22,7 @@ import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
-//abstract class
+//class
 /**
  * A {@link Widget} is an element on a {@link LayerGUI}.
  * A {@link Widget} determines its width and height.

@@ -18,7 +18,7 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.input.KeyBoard;
 import ch.nolix.element.painter.IPainter;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12

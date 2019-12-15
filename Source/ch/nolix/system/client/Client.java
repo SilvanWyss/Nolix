@@ -21,7 +21,7 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * A {@link Client} is like an end point with comfortable functionalities.
  * 

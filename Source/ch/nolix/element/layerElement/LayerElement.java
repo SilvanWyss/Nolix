@@ -15,7 +15,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IMutableElement;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-09

@@ -7,7 +7,7 @@ import java.io.File;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * A module is a level 3 controller that has:
  * -a name

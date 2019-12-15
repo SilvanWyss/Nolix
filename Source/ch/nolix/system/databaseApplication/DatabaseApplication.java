@@ -7,7 +7,7 @@ import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
-//abstract class
+//class
 public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	
 	//constructor

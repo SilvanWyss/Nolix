@@ -17,7 +17,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.baseAPI.IMutableElement;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2016-01

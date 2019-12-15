@@ -42,7 +42,7 @@ import ch.nolix.element.widgets.TextBox;
 import ch.nolix.element.widgets.VerticalLine;
 import ch.nolix.element.widgets.VerticalStack;
 
-//abstract class
+//class
 /**
  * A {@link LayerGUI} is a {@link GUI} that can contain several {@link ILayer}s, that are stacked.
  * 

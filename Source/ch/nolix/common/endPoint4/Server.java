@@ -5,7 +5,7 @@ import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
-//abstract class
+//class
 /**
  * A server manages end point taker.
  * A server is abortable.

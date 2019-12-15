@@ -13,7 +13,7 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12

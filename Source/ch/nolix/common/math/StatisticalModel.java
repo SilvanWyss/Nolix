@@ -5,7 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2016-08

@@ -11,7 +11,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
-//abstract class
+//class
 public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 
 	//optional attribute
