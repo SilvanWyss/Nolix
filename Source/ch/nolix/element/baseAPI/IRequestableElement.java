@@ -14,7 +14,7 @@ import ch.nolix.common.node.BaseNode;
  */
 public interface IRequestableElement extends IElement {
 	
-	//default method
+	//method
 	/**
 	 * @param attribute
 	 * @return true if the current {@link IRequestableElement}

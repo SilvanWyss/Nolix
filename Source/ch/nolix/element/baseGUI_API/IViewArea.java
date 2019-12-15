@@ -27,7 +27,7 @@ interface IViewArea extends IEventTaker, TopLeftPositionedRecangular {
 	 */
 	public abstract int getCursorYPosition();
 	
-	//default method
+	//method
 	/**
 	 * @return true if the current {@link IViewArea} is under the cursor.
 	 */

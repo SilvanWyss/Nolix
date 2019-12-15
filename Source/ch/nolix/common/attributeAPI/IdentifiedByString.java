@@ -17,7 +17,7 @@ public interface IdentifiedByString {
 	 */
 	public abstract String getId();
 	
-	//default method
+	//method
 	/**
 	 * @return the id of the current {@link IdentifiedByString} in quotes.
 	 */
@@ -25,7 +25,7 @@ public interface IdentifiedByString {
 		return ("'" + getId() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param id
 	 * @return true if the current {@link IdentifiedByString} has the given id. 

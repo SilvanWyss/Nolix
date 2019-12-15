@@ -34,7 +34,7 @@ public interface IFuture {
 	 */
 	public abstract boolean isFinished();
 	
-	//default method
+	//method
 	/**
 	 * @return true if the current {@link IFuture} is finished successfully.
 	 */
@@ -42,7 +42,7 @@ public interface IFuture {
 		return (isFinished() && !caughtError());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return true if the current {@link IFuture} is running.
 	 */
@@ -65,7 +65,7 @@ public interface IFuture {
 	 */
 	public abstract void waitUntilIsFinished(final int timeoutInMilliseconds);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished successfully.
 	 * 
@@ -89,7 +89,7 @@ public interface IFuture {
 		}
 	}
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished successfully within the given timeoutInMilliseconds.
 	 * 

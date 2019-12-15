@@ -17,7 +17,7 @@ public interface Named {
 	 */
 	public abstract String getName();
 	
-	//default method
+	//method
 	/**
 	 * @return the name of the current {@link Named} in quotes.
 	 */
@@ -25,7 +25,7 @@ public interface Named {
 		return ("'" + getName() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param name
 	 * @return true if the current {@link Named} has the given name.
@@ -34,7 +34,7 @@ public interface Named {
 		return getName().equals(name);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if the current {@link Named} has the same name as the given object.

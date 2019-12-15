@@ -21,7 +21,7 @@ public interface Closable {
 	 */
 	public abstract boolean isClosed();
 	
-	//default method
+	//method
 	/**
 	 * @return true if the current {@link Closable} is not closed.
 	 */

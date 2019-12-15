@@ -25,7 +25,7 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> {
 	 */
 	public abstract boolean hasInfoString();
 	
-	//default method
+	//method
 	/**
 	 * @param infoString
 	 * @return true if the current {@link OptionalLabelable} object has the given info string.

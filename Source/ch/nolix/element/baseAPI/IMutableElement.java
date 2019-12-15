@@ -28,7 +28,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 */
 	public abstract void addOrChangeAttribute(BaseNode attribute);
 	
-	//default method
+	//method
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * This method is not fluent.
@@ -44,7 +44,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		}
 	}
 	
-	//default method
+	//method
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * This method is not fluent.
@@ -60,7 +60,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		}
 	}
 	
-	//default method
+	//method
 	/**
 	 * Adds or changes the given attribute to the current {@link IMutableElement}.
 	 * This method is not fluent.
@@ -72,7 +72,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		addOrChangeAttribute(Node.fromString(attribute));
 	}
 	
-	//default method
+	//method
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * This method is not fluent.
@@ -88,7 +88,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		}
 	}
 	
-	//default method
+	//method
 	/**
 	 * Resets this {@link IMutableElement} with the given specification.
 	 * 
@@ -100,7 +100,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		return reset(specification.getRefAttributes());
 	}
 	
-	//default method
+	//method
 	/**
 	 * Resets this {@link IMutableElement} with the given attributes.
 	 * 
@@ -117,7 +117,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		return (S)this;
 	}
 	
-	//default method
+	//method
 	/**
 	 * Resets this {@link IMutableElement} with the given specification.
 	 * 
@@ -129,7 +129,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		return reset(Node.fromString(specification));
 	}
 	
-	//default method
+	//method
 	/**
 	 * Resets the current {@link IMutableElement} with the specification
 	 * from the file with the given file path.

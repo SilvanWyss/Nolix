@@ -575,7 +575,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		return getRefLast();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
 	 * 

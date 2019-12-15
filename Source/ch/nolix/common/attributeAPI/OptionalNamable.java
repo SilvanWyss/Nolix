@@ -19,7 +19,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 	 */
 	public abstract String getName();
 	
-	//default method
+	//method
 	/**
 	 * @return the name of the current {@link OptionalNamable} in quotes.
 	 * @throws Exception if the current {@link OptionalNamable} does not have a name.
@@ -33,7 +33,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 	 */
 	public abstract boolean hasName();
 	
-	//default method
+	//method
 	/**
 	 * @param name
 	 * @return true if the current {@link OptionalNamable} has the given name.
@@ -49,7 +49,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 		return getName().equals(name);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if the current {@link OptionalNamable} has the same name as the given object.

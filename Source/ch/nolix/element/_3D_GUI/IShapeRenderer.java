@@ -12,7 +12,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodExc
  */
 public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 
-	//default method
+	//method
 	/**
 	 * Lets this shape renderer
 	 * add the given sub render object to the given render object.
@@ -44,7 +44,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 */
 	public abstract void render(final S shape, final RO renderObject);
 	
-	//default method
+	//method
 	/**
 	 * Lets this shape renderer
 	 * remove the given sub render object from the given render object.

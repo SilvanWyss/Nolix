@@ -26,7 +26,7 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	 */
 	public abstract IContainer<IConfigurableElement<?>> getRefConfigurables();
 	
-	//default method
+	//method
 	/**
 	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement} recursively.
 	 */
@@ -51,7 +51,7 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	@Override
 	public abstract boolean hasToken(String token);
 	
-	//default method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */
@@ -72,7 +72,7 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	 */
 	public abstract C resetConfiguration();
 	
-	//default method
+	//method
 	/**
 	 * Resets the configuration of the current {@link IConfigurableElement} recursively.
 	 * 

@@ -20,7 +20,7 @@ public interface ISender<M> {
 	 */
 	public abstract void send(M message);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link ISender} send the given messages.
 	 * 

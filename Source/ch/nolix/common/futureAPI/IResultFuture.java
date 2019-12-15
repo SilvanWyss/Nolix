@@ -19,7 +19,7 @@ public interface IResultFuture<R> extends IFuture {
 	 */
 	public abstract R getResult();
 	
-	//default method
+	//method
 	/**
 	 * Waits until the current {@link IResultFuture} is finished and returns its result.
 	 * 

@@ -25,7 +25,7 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
 	 */
 	public abstract boolean hasHeader();
 	
-	//default method
+	//method
 	/**
 	 * @param header
 	 * @return true if the current {@link OptionalHeaderable} has the given header.
@@ -41,7 +41,7 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
 		return getHeader().equals(header);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if current {@link OptionalHeaderable} has the same header as the given object.

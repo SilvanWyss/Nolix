@@ -30,7 +30,7 @@ public interface IResource extends Named {
 	 */
 	public abstract IContainer<IResource> getBaseResources();
 	
-	//default method
+	//method
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a base resource of the given resource.
@@ -39,7 +39,7 @@ public interface IResource extends Named {
 		return resource.isSubResourceOf(this);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a direct base resource of the given resource.

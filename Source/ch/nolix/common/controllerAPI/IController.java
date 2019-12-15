@@ -22,7 +22,7 @@ public interface IController {
 	 */
 	public abstract void run(ChainedNode command);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link IController} run the given commands.
 	 * 

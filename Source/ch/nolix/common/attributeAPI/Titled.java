@@ -17,7 +17,7 @@ public interface Titled {
 	 */
 	public abstract String getTitle();
 	
-	//default method
+	//method
 	/**
 	 * @return the title of the current {@link Titled} in quotes.
 	 */
@@ -25,7 +25,7 @@ public interface Titled {
 		return ("'" + getTitle() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param title
 	 * @return true if the current {@link Titled} has the given title.
@@ -34,7 +34,7 @@ public interface Titled {
 		return getTitle().equals(title);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if the current {@link Titled} has the same title as the given object.

@@ -13,7 +13,7 @@ public interface IProject extends Clearable<IProject>, IElement, Namable<IProjec
 	//method declaration
 	public abstract IProject addTask(ITask task);
 	
-	//default method
+	//method
 	public default IProject addTask(final ITask... tasks) {
 		
 		for (final var t : tasks) {

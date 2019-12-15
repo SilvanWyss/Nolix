@@ -21,7 +21,7 @@ public interface IElement extends TypeRequestable {
 	 */
 	public abstract List<Node> getAttributes();
 	
-	//default method
+	//method
 	/**
 	 * @return the specification of the current {@link IElement}.
 	 */
@@ -29,7 +29,7 @@ public interface IElement extends TypeRequestable {
 		return new Node(getType(), getAttributes());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param type
 	 * @return the specification of the current specified as the given type.
@@ -40,7 +40,7 @@ public interface IElement extends TypeRequestable {
 		return new Node(type, getAttributes());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return the specification of the current {@link IElement} without header.
 	 */
@@ -48,7 +48,7 @@ public interface IElement extends TypeRequestable {
 		return new Node(getAttributes());
 	}
 	
-	//default method
+	//method
 	/**
 	 * Saves the current {@link IElement} as the given type
 	 * to the file with the given file path.
@@ -66,7 +66,7 @@ public interface IElement extends TypeRequestable {
 		saveAsTo(type, filePath, false);
 	}
 	
-	//default method
+	//method
 	/**
 	 * Saves the current {@link IElement} as the given type
 	 * to the file with the given path.
@@ -87,7 +87,7 @@ public interface IElement extends TypeRequestable {
 		getSpecificationAs(type).saveToFile(filePath, overwrite);
 	}
 	
-	//default method
+	//method
 	/**
 	 * Saves the current {@link IElement} to the file with the given file path.
 	 * 
@@ -101,7 +101,7 @@ public interface IElement extends TypeRequestable {
 		saveTo(filePath, false);
 	}
 	
-	//default method
+	//method
 	/**
 	 * Saves the current {@link IElement} to the file with the given file path.
 	 * 
@@ -114,7 +114,7 @@ public interface IElement extends TypeRequestable {
 		getSpecification().saveToFile(filePath, overwrite);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return a formated string representation of the current {@link IElement}.
 	 */
@@ -122,7 +122,7 @@ public interface IElement extends TypeRequestable {
 		return getSpecification().toFormatedString();
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return a XML representation of the current {@link IElement}.
 	 */
@@ -130,7 +130,7 @@ public interface IElement extends TypeRequestable {
 		return getSpecification().toXML();
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return a XML representation of the current {@link IElement} as the given type.
 	 * @param type

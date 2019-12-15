@@ -7,7 +7,7 @@ interface INetEndPointProcessor {
 	//method declaration
 	public abstract NetEndPointCounterpartType getCounterpartType();
 	
-	//default method
+	//method
 	public default void sendRawMessage(final char rawMessage) {
 		sendRawMessage(String.valueOf(rawMessage));
 	}

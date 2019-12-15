@@ -25,7 +25,7 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> {
 	 */
 	public abstract boolean hasToken();
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if current {@link OptionalTokenable} has the same token as the given object.
@@ -46,7 +46,7 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> {
 		return hasToken(object.getToken());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param token
 	 * @return true if the current {@link OptionalTokenable} has the given token.

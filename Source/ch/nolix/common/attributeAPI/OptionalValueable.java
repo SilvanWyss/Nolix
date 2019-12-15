@@ -26,7 +26,7 @@ public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> {
 	 */
 	public abstract boolean hasValue();
 	
-	//default method
+	//method
 	/**
 	 * @param value
 	 * @return true if the current {@link OptionalValueable} has a value that equals the given value.
@@ -42,7 +42,7 @@ public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> {
 		return getValue().equals(value);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param value
 	 * @return true if the current {@link OptionalValueable} has the given value.

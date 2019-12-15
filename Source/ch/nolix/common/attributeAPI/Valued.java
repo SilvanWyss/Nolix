@@ -19,7 +19,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	 */
 	public abstract V getValue();
 	
-	//default method
+	//method
 	/**
 	 * @return a {@link String} representation of the current {@link Valued}.
 	 */
@@ -27,7 +27,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 		return getValue().toString();
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param value
 	 * @return true if the current {@link Valued} has a value that equals the given value.
@@ -36,7 +36,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 		return getValue().equals(value);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param value
 	 * @return true if the current {@link Valued} has the given value.

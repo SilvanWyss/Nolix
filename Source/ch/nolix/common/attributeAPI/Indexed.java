@@ -17,7 +17,7 @@ public interface Indexed {
 	 */
 	public abstract int getIndex();
 	
-	//default method
+	//method
 	/**
 	 * @return the index of the current {@link Indexed} as {@link String}.
 	 */
@@ -25,7 +25,7 @@ public interface Indexed {
 		return String.valueOf(getIndex());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return the index of the current {@link Indexed} as {@link String} in quotes.
 	 */
@@ -33,7 +33,7 @@ public interface Indexed {
 		return ("'" + getIndexAsString() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param index
 	 * @return true if the current {@link Indexed} has the given index.
@@ -42,7 +42,7 @@ public interface Indexed {
 		return (getIndex() == index);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if the current {@link Indexed} has the same index as the given object.

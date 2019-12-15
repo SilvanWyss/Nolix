@@ -48,7 +48,7 @@ extends IConfigurableElement<CEWOC> {
 	 */
 	public abstract CEWOC setConfiguration(StandardConfiguration configuration);
 	
-	//default method
+	//method
 	/**
 	 * Lets the configuration of the current {@link IConfigurableElementWithOptionalConfiguration} configure
 	 * the current {@link IConfigurableElementWithOptionalConfiguration}

@@ -17,7 +17,7 @@ public interface Tokened {
 	 */
 	public abstract String getToken();
 	
-	//default method
+	//method
 	/**
 	 * @return the token of the current {@link Tokened} in quotes.
 	 */
@@ -25,7 +25,7 @@ public interface Tokened {
 		return ("'" + getToken() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param token
 	 * @return true if the current {@link Tokened} has the given token.
@@ -34,7 +34,7 @@ public interface Tokened {
 		return getToken().equals(token);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if the current {@link Tokened} has the same token as the given object.

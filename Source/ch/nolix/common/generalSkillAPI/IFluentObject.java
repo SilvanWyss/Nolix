@@ -12,7 +12,7 @@ package ch.nolix.common.generalSkillAPI;
  */
 public interface IFluentObject<FO extends IFluentObject<FO>> {
 	
-	//default method
+	//method
 	/**
 	 * @return the current {@link IFluentObject} as its concrete type.
 	 */

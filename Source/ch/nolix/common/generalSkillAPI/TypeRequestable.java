@@ -13,7 +13,7 @@ import ch.nolix.common.containers.List;
  */
 public interface TypeRequestable {
 	
-	//default method
+	//method
 	/**
 	 * @return the type of the current {@link TypeRequestable}.
 	 */
@@ -21,7 +21,7 @@ public interface TypeRequestable {
 		return getClass().getSimpleName();
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return the types of the current {@link TypeRequestable}
 	 * ordered from the most concrete to the most general.
@@ -43,7 +43,7 @@ public interface TypeRequestable {
 		return types;
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param concreteType
 	 * @return true if the current {@link TypeRequestable} is of the given concrete type.
@@ -52,7 +52,7 @@ public interface TypeRequestable {
 		return (getClass() == concreteType);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param concreteType
 	 * @return true if the current {@link TypeRequestable} is of the given concrete type.
@@ -63,7 +63,7 @@ public interface TypeRequestable {
 		return getClass().getSimpleName().equals(concreteType);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param type
 	 * @return true if the current {@link TypeRequestable} is of the given type.
@@ -72,7 +72,7 @@ public interface TypeRequestable {
 		return type.isAssignableFrom(getClass());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param type
 	 * @return true if the current {@link TypeRequestable} is of the given type.

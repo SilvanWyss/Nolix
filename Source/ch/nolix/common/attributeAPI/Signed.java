@@ -30,7 +30,7 @@ public interface Signed {
 	 */
 	public abstract String getSignature();
 	
-	//default method
+	//method
 	/**
 	 * @return the signature of the current {@link Signed} in quotes.
 	 */
@@ -38,7 +38,7 @@ public interface Signed {
 		return ("'" + getSignature() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return true if he current {@link Signed} has the given signature.
 	 */

@@ -19,7 +19,7 @@ public interface ISender {
 	 */
 	public abstract void send(String message);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link Sender} send the given messages.
 	 * 

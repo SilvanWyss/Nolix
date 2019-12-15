@@ -12,7 +12,7 @@ import ch.nolix.common.node.Node;
  */
 public interface IElementEnum extends IElement {
 	
-	//default method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */

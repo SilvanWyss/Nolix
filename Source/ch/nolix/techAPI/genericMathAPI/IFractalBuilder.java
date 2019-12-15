@@ -44,14 +44,14 @@ public interface IFractalBuilder {
 		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> nextValueFunction
 	);
 	
-	//default method
+	//method
 	public default IFractalBuilder setNextValueFunctionFor1Predecessor(
 		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction
 	) {
 		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], c));
 	}
 	
-	//default method
+	//method
 	public default IFractalBuilder setNextValueFunctionFor2Predecessor(
 		final I3ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
 		nextValueFunction
@@ -59,7 +59,7 @@ public interface IFractalBuilder {
 		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], p[1], c));
 	}
 	
-	//default method
+	//method
 	public default IFractalBuilder setNextValueFunctionFor3Predecessor(
 		final I4ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
 		nextValueFunction
@@ -67,7 +67,7 @@ public interface IFractalBuilder {
 		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], p[1], p[2], c));
 	}
 
-	//default method
+	//method
 	public default IFractalBuilder setNextValueFunctionFor4Predecessor(
 		I5ElementTakerElementGetter<
 			IComplexNumber,

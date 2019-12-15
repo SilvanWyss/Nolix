@@ -15,7 +15,7 @@ import ch.nolix.element.textFormat.TextFormat;
  */
 public interface IPainter {
 	
-	//default method
+	//method
 	/**
 	 * @return a new {@link IPainter} from the current {@link IPainter}.
 	 */
@@ -72,7 +72,7 @@ public interface IPainter {
 	 */
 	public abstract void paintFilledPolygon(final int[] xs, final int[] ys);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link IPainter} paint a filled rectangle
 	 * at its origin position with the given width and height.
@@ -106,7 +106,7 @@ public interface IPainter {
 		int height
 	);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link Painter} paint the given image.
 	 * 
@@ -134,7 +134,7 @@ public interface IPainter {
 		int height
 	);
 	
-	//default method
+	//method
 	/**
 	 * Lets the current {@link IPainter} paint the given using a default {@link TextFormat}.
 	 * 

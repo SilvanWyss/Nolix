@@ -10,7 +10,7 @@ import ch.nolix.common.skillAPI.Clearable;
 //interface
 public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, Named {
 	
-	//default method
+	//method
 	public default IEntitySet<E> addEntities(final Iterable<E> entities) {
 		
 		entities.forEach(this::addEntity);
@@ -21,7 +21,7 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	//method declaration
 	public abstract IEntitySet<E> addEntity(E entity);
 	
-	//default method
+	//method
 	@SuppressWarnings("unchecked")
 	public default IEntitySet<E> addEntity(final E... entities) {
 		return addEntities(new ReadContainer<>(entities));

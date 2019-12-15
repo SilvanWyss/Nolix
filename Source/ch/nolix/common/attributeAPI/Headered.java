@@ -17,7 +17,7 @@ public interface Headered {
 	 */
 	public abstract String getHeader();
 	
-	//default method
+	//method
 	/**
 	 * @return the header of the current {@link Headered} in quotes.
 	 */
@@ -25,7 +25,7 @@ public interface Headered {
 		return ("'" + getHeader() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param header
 	 * @return true if the current {@link Headered} has the given header.
@@ -34,7 +34,7 @@ public interface Headered {
 		return getHeader().equals(header);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if the current {@link Headered} has the same header as the given object.

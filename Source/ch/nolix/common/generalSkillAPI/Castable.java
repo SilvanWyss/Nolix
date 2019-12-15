@@ -11,7 +11,7 @@ package ch.nolix.common.generalSkillAPI;
  */
 public interface Castable {
 	
-	//default method
+	//method
 	/**
 	 * @return the current {@link Castable} as instance of the given type.
 	 * @param type

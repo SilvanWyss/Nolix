@@ -33,7 +33,7 @@ import ch.nolix.common.validator.Validator;
  */
 public interface IContainer<E> extends Iterable<E> {
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -54,7 +54,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return false;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
@@ -66,7 +66,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return contains(e -> contains(e2 -> selector.getOutput(e, e2)));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -87,7 +87,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return false;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -110,7 +110,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return true;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -133,7 +133,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return true;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -143,7 +143,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return iterator().hasNext();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -166,7 +166,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return false;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -189,7 +189,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return false;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -201,7 +201,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return contains(e -> e.equals(element));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -212,7 +212,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (getSize() < container.getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -223,7 +223,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return containsLessThan(new ReadContainer<>(container));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -234,7 +234,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (getSize() > container.getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -245,7 +245,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return containsMoreThan(new ReadContainer<>(container));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -256,7 +256,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return !contains(e -> selector.getOutput(e));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -279,7 +279,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return true;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -308,7 +308,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return found;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -328,7 +328,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return !iterator.hasNext();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -358,7 +358,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return found;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -370,7 +370,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return containsOne(e -> e.equals(element));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -383,7 +383,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return !contains(e -> !selector.getOutput(e));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -397,7 +397,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return new SubContainer<>(this, startIndex, getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -416,7 +416,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return new SubContainer<>(this, startIndex, endIndex);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -435,7 +435,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (getSumByDoubleNorm(doubleNorm) / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -454,7 +454,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (getSumByInt(intNorm) / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -473,7 +473,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (getSumByLong(longNorm) / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -496,7 +496,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return elementCount;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -519,7 +519,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return elementCount;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -544,7 +544,7 @@ public interface IContainer<E> extends Iterable<E> {
 		throw new InvalidArgumentException(this, "does not contain the given element");
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -557,7 +557,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (E2)(norm.getValue(getRefByMax(norm)));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -570,7 +570,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -583,7 +583,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -596,7 +596,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return longNorm.getOutput(getRefByMaxLong(longNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -610,7 +610,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (E2)(norm.getValue(getRefByMin(norm)));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -623,7 +623,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return doubleNorm.getOutput(getRefByMinDouble(doubleNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -636,7 +636,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -649,7 +649,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -662,7 +662,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (100.0 * getRatio(selector));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
@@ -700,7 +700,7 @@ public interface IContainer<E> extends Iterable<E> {
 			return (max - min);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
@@ -738,7 +738,7 @@ public interface IContainer<E> extends Iterable<E> {
 			return (max - min);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
@@ -776,7 +776,7 @@ public interface IContainer<E> extends Iterable<E> {
 			return (max - min);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -795,7 +795,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return ((double)getCount(selector) / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -812,7 +812,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return getRefAt(new Random().nextInt(getSize()) + 1);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -842,7 +842,7 @@ public interface IContainer<E> extends Iterable<E> {
 		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -871,7 +871,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -899,7 +899,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -927,7 +927,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -955,7 +955,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -984,7 +984,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1012,7 +1012,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1040,7 +1040,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1068,7 +1068,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1085,7 +1085,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return iterator().next();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1108,7 +1108,7 @@ public interface IContainer<E> extends Iterable<E> {
 		throw new ArgumentDoesNotHaveAttributeException(this, "element the given selector selects");
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
@@ -1136,7 +1136,7 @@ public interface IContainer<E> extends Iterable<E> {
 		);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1153,7 +1153,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return getRefFirst();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1174,7 +1174,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return null;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
@@ -1197,7 +1197,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return null;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1209,7 +1209,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (List<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return the one element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -1228,7 +1228,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return iterator().next();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1267,7 +1267,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1292,7 +1292,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
@@ -1331,7 +1331,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1343,7 +1343,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(m*n) if:
 	 * -This contains contains m elements.
@@ -1389,7 +1389,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public abstract int getSize();
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1402,7 +1402,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return Math.sqrt(getVarianceByDouble(doubleNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1415,7 +1415,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return Math.sqrt(getVarianceByInt(intNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1428,7 +1428,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return Math.sqrt(getVarianceByLong(longNorm));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1448,7 +1448,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return sum;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1468,7 +1468,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return sum;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1488,7 +1488,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return sum;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1510,7 +1510,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (sum / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1532,7 +1532,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (sum / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1554,7 +1554,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (sum / getSize());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1564,7 +1564,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return !iterator().hasNext();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1593,7 +1593,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return true;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1607,7 +1607,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1629,7 +1629,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return array;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1653,7 +1653,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return array;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1676,7 +1676,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return array;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1699,7 +1699,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return array;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1713,7 +1713,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1736,7 +1736,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return array;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1746,7 +1746,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return to(e -> e);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1769,7 +1769,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return array;
 	}
 	
-	//default method
+	//method
 	/**
 	 * This method uses the merge sort algorithm.
 	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
@@ -1782,7 +1782,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return toList().order(norm);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1793,7 +1793,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return toString(String.valueOf(separator));
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1828,7 +1828,7 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1848,7 +1848,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return stringArray;
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
@@ -1859,7 +1859,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return to(e -> e.toString());
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1872,7 +1872,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return new SubContainer<>(this, 1, endIndex);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1888,7 +1888,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return withoutFirst(1);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1917,7 +1917,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return new ReadContainer<>();
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
@@ -1934,7 +1934,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return withoutLast(1);
 	}
 	
-	//default method
+	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 

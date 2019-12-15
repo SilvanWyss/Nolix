@@ -11,7 +11,7 @@ package ch.nolix.common.rasterAPI;
  */
 public interface Rectangular {
 	
-	//default method
+	//method
 	/**
 	 * @return the diagonal of the current {@link Rectangular}.
 	 */

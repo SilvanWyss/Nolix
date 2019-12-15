@@ -15,7 +15,7 @@ import ch.nolix.common.containers.List;
  */
 public interface Listable<L extends Listable<L>> {
 	
-	//default method
+	//method
 	/**
 	 * @return a new {@link List} with the current {@link Listable}.
 	 */
@@ -24,7 +24,7 @@ public interface Listable<L extends Listable<L>> {
 		return new List<>((L)this);
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param type
 	 * @return a new {@link List} with the current {@link Listable} as instance of the given type.

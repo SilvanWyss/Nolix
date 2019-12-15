@@ -17,7 +17,7 @@ public interface OptionalIdentified {
 	 */
 	public abstract long getId();
 	
-	//default method
+	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentified} as {@link String}.
 	 */
@@ -25,7 +25,7 @@ public interface OptionalIdentified {
 		return String.valueOf(getId());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentified} in quotes.
 	 */
@@ -39,7 +39,7 @@ public interface OptionalIdentified {
 	 */
 	public abstract boolean hasId();
 	
-	//default method
+	//method
 	/**
 	 * @param id
 	 * @return true if the current {@link OptionalIdentified} has the given id.

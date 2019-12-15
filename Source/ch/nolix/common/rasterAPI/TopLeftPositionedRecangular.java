@@ -23,7 +23,7 @@ package ch.nolix.common.rasterAPI;
  */
 public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositioned {
 	
-	//default method
+	//method
 	/**
 	 * @param xPosition
 	 * @param yPosition
@@ -38,7 +38,7 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 		&& getYPosition() + getHeight() > yPosition;
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param xPosition
 	 * @param yPosition

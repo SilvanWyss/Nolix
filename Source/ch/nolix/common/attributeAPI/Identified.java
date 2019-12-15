@@ -17,7 +17,7 @@ public interface Identified {
 	 */
 	public abstract long getId();
 	
-	//default method
+	//method
 	/**
 	 * @return the id of the current {@link Identified} as {@link String}.
 	 */
@@ -25,7 +25,7 @@ public interface Identified {
 		return String.valueOf(getId());
 	}
 	
-	//default method
+	//method
 	/**
 	 * @return the id of the current {@link Identified} in quotes.
 	 */
@@ -33,7 +33,7 @@ public interface Identified {
 		return ("'" + getIdAsString() + "'");
 	}
 	
-	//default method
+	//method
 	/**
 	 * @param id
 	 * @return true if the current {@link Identified} has the given id.

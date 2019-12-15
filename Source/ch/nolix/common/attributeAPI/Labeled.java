@@ -17,7 +17,7 @@ public interface Labeled {
 	 */
 	public abstract String getInfoString();
 	
-	//default method
+	//method
 	/**
 	 * @param infoString
 	 * @return true if the current {@link Labeled} has the given info string.

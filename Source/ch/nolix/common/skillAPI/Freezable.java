@@ -28,7 +28,7 @@ public interface Freezable<F extends Freezable<F>> {
 	 */
 	public abstract boolean isFrozen();
 	
-	//default method
+	//method
 	/**
 	 * @return true if this freezable object is not frozen.
 	 */

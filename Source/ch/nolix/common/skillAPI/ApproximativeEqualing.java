@@ -15,7 +15,7 @@ public interface ApproximativeEqualing {
 	//default max deviation
 	public static final double DEFAULT_MAX_DEVIATION = 0.000000001; //10^-9
 	
-	//default method
+	//method
 	/**
 	 * @param object
 	 * @return true if this approximative equaling object
