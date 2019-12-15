@@ -12,13 +12,13 @@ package ch.nolix.common.rasterAPI;
  */
 public interface TopLeftPositioned {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the top left x-position of the current {@link TopLeftPositioned}.
 	 */
 	public abstract int getXPosition();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the top left y-position of the current {@link TopLeftPositioned}.
 	 */

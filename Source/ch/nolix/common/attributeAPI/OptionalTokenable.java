@@ -12,14 +12,14 @@ package ch.nolix.common.attributeAPI;
  */
 public interface OptionalTokenable<OT extends OptionalTokenable<OT>> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the token of the current {@link OptionalTokenable}.
 	 * @throws Exception if the current {@link OptionalTokenable} does not have a token.
 	 */
 	public abstract String getToken();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link OptionalTokenable} has a token.
 	 */
@@ -62,7 +62,7 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> {
 		return getToken().equals(token);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the token of the current {@link OptionalTokenable}.
 	 * 
@@ -70,7 +70,7 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> {
 	 */
 	public abstract OT removeToken();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the token of the current {@link OptionalTokenable}.
 	 * 

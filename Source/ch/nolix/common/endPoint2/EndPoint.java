@@ -88,7 +88,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 		return !isNetEndPoint();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
 	 */

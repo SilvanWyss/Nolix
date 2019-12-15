@@ -46,7 +46,7 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 		return (entity != null && getReferencingEntityClass() == entity.getClass());
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean canReferenceBackSeveralEntities();
 	
 	//method

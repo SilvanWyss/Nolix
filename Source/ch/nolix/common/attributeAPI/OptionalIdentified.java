@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface OptionalIdentified {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the id of the current {@link OptionalIdentified}.
 	 */
@@ -33,7 +33,7 @@ public interface OptionalIdentified {
 		return ("'" + getIdAsString() + "'");
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link OptionalIdentified} has an id.
 	 */

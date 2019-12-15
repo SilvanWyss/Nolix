@@ -13,14 +13,14 @@ package ch.nolix.common.attributeAPI;
  */
 public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the value of the current {@link OptionalValueable}.
 	 * @throws Exception if the current {@link OptionalValueable} does not have a value.
 	 */
 	public abstract V getValue();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link OptionalValueable} has a value.
 	 */
@@ -58,7 +58,7 @@ public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> {
 		return (getValue() == value);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the value of the current {@link OptionalValueable}.
 	 * 
@@ -66,7 +66,7 @@ public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> {
 	 */
 	public abstract OV removeValue();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the value of the current {@link OptionalValueable}.
 	 * 

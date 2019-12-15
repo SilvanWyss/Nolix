@@ -12,14 +12,14 @@ package ch.nolix.common.attributeAPI;
  */
 public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the header of the current {@link OptionalHeaderable}.
 	 * @throws Exception if the current {@link OptionalHeaderable} does not have a header.
 	 */
 	public abstract String getHeader();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link OptionalHeaderable} has a header.
 	 */
@@ -62,7 +62,7 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
 		return hasHeader(object.getHeader());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the header of current {@link OptionalHeaderable}.
 	 * 
@@ -70,7 +70,7 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
 	 */
 	public abstract OH removeHeader();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the header of the current {@link OptionalHeaderable}.
 	 * 

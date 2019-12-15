@@ -11,7 +11,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface Runnable {
 
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this runnable object run.
 	 */

@@ -84,7 +84,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		return (RO)getRefShapeRenderManager().getRefRenderObject();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the shapes of this shapes.
 	 */

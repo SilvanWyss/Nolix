@@ -95,7 +95,7 @@ import ch.nolix.common.skillAPI.IChangesSaver;
  */
 public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param <V> The type of the created value.
 	 * @param type
@@ -104,7 +104,7 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	 */
 	public <V> V createValueFromSpecification(Class<V> type, BaseNode specification);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param <E>
 	 * @param type
@@ -112,7 +112,7 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	 */
 	public abstract <E extends Entity> IEntitySet<E> getRefEntitySet(Class<E> type);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param <E>
 	 * @param type

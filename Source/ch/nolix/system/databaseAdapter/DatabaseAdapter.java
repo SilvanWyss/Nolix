@@ -68,7 +68,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		return this;
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract DatabaseAdapter createNewDatabaseAdapter();
 	
 	//method
@@ -82,7 +82,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		return entitySets.contains(es -> es.hasName(name));
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract String getDatabaseName();
 	
 	//method
@@ -150,7 +150,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		return valueCreator.ofType(type).createFromString(string);
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract <E extends Entity, ES extends IEntitySet<E>> BaseEntitySetAdapter<E> getEntitySetAdapter(
 		ES entitySet
 	);
@@ -165,6 +165,6 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		return valueCreator;
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract void saveChangesToDatabase(IContainer<Entity> mutatedEntitiesInOrder);
 }

@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Labeled {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the info string of the current {@link Labeled}.
 	 */

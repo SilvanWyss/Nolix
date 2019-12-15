@@ -12,7 +12,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface IBuilder<O> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return a new {@link O} from the current {@link IBuilder}.
 	 */

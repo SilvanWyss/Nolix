@@ -7,63 +7,63 @@ import java.math.BigDecimal;
 //interface
 public interface IComplexNumber {
 	
-	//abstract method
+	//method declaration
 	public abstract int getBigDecimalScale();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getConjugate();
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getImaginaryComponent();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getInBigDecimalScale(int bigDecimalScale);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getMagnitude();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getPower(int exponent);
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getProduct(BigDecimal number);
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getProduct(double number);
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getProduct(IComplexNumber complexNumber);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getRealComponent();
 	
-	//abstract method
+	//method declaration
 	public abstract int getScale();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getPower2();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getPower3();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getPower4();
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getSquaredMagnitude();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getSum(BigDecimal number);
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getSum(double number);
 
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber getSum(IComplexNumber complexNumber);
 	
-	//abstract method
+	//method declaration
 	public abstract boolean isPureImaginary();
 	
-	//abstract method
+	//method declaration
 	public abstract boolean isPureReal();
 }

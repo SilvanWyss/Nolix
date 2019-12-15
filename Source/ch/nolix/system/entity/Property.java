@@ -35,7 +35,7 @@ public abstract class Property<V> implements Headered, IElement {
 		return (belongsToEntity() && getParentEntity().belongsToEntitySet());
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean canReference(Entity entity);
 	
 	//method
@@ -105,16 +105,16 @@ public abstract class Property<V> implements Headered, IElement {
 		return getValueClass().getSimpleName();
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean references(final Entity entity);
 	
-	//abstract method
+	//method declaration
 	public abstract void supposeCanBeSaved();
 	
-	//abstract method
+	//method declaration
 	protected abstract void internal_clear();
 	
-	//abstract method
+	//method declaration
 	protected abstract List<Object> internal_getValues();
 	
 	//method
@@ -124,10 +124,10 @@ public abstract class Property<V> implements Headered, IElement {
 		}
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract void internal_setValue(Object value);
 	
-	//abstract method
+	//method declaration
 	protected abstract void internal_setValues(IContainer<Object> values);
 	
 	//method

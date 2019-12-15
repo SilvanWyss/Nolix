@@ -14,6 +14,6 @@ public abstract class ValueTypeSQLHelper<V> {
 		this.valueClassBox = valueType;
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract String getSQLDatatype();
 }

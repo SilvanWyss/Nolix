@@ -14,7 +14,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerComparableGetter<E, E2> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return a new {@link IElementTakerComparableGetter} for the given element.

@@ -15,31 +15,31 @@ import ch.nolix.element.color.Color;
 //interface
 public interface IFractalBuilder {
 	
-	//abstract method
+	//method declaration
 	public abstract IFractal build();
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setBigDecimalScale(int bigDecumalScale);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setColorFunction(IIntTakerElementGetter<Color> colorFunction);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setImaginaryComponentInterval(double min, double max);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setImaginaryComponentInterval(IClosedInterval imaginaryComponentInterval);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setMaxIterationCount(int maxIterationCount);
 
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setMinMagnitudeForConvergence(BigDecimal minMagnitudeForConvergence);
 
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setMinMagnitudeForConvergence(double minMagnitudeForConvergence);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setNextValueFunction(
 		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> nextValueFunction
 	);
@@ -83,20 +83,20 @@ public interface IFractalBuilder {
 		setNextValueFunction((p, z) -> nextValueFunction.getOutput(p[0], p[1], p[2], p[3], z));
 	}
 
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setRealComponentInterval(double min, double max);
 
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
 
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setStartValues(IComplexNumber... startValues);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setStartValuesFunction(
 		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> startValuesFunction
 	);
 	
-	//abstract method
+	//method declaration
 	public abstract IFractalBuilder setWidthInPixel(int widthInPixel);
 }

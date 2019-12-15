@@ -11,7 +11,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IIntGetter {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return an int.
 	 */

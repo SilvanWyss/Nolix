@@ -49,7 +49,7 @@ public abstract class EntitySetSQLHelper {
 		return stringBuilder.toString();
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract SQLDatabaseEngine getDatabaseEngine();
 	
 	//method

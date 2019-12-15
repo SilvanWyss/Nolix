@@ -8,6 +8,6 @@ import ch.nolix.element.image.Image;
 //interface
 public interface IImageBuilder extends IFuture {
 	
-	//abstract method
+	//method declaration
 	public abstract Image getRefImage();
 }

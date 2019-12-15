@@ -138,7 +138,7 @@ public abstract class Session<C extends Client<C>> {
 		return getParentClient().getRefApplicationContextAs(type);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Initializes the current {@link Session}.
 	 */
@@ -294,7 +294,7 @@ public abstract class Session<C extends Client<C>> {
 		internal_invokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
 	 */

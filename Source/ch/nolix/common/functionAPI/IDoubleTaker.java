@@ -11,7 +11,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IDoubleTaker {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Takes the given value.
 	 * 

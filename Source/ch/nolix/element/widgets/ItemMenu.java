@@ -306,13 +306,13 @@ implements Clearable<IM> {
 		return items.getRefFirst(i -> i.isSelected());
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract void noteAddItem(final ItemMenuItem item);
 	
-	//abstract method
+	//method declaration
 	protected abstract void noteClear();
 	
-	//abstract method
+	//method declaration
 	protected abstract void noteSelectItem(ItemMenuItem item);
 	
 	//method

@@ -18,7 +18,7 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 		return this;
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract IEntitySet<E> addEntity(E entity);
 	
 	//default method
@@ -27,24 +27,24 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 		return addEntities(new ReadContainer<>(entities));
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract IEntitySet<E> deleteEntity(E entity);
 	
-	//abstract method
+	//method declaration
 	public abstract IDatabaseAdapter getParentDatabaseAdapter();
 	
-	//abstract method
+	//method declaration
 	public abstract IContainer<E> getRefEntities();
 	
-	//abstract method
+	//method declaration
 	public abstract E getRefEntityById(long id);
 	
-	//abstract method
+	//method declaration
 	public abstract boolean hasChanges();
 		
-	//abstract method
+	//method declaration
 	public abstract boolean references(Entity entity);
 	
-	//abstract method
+	//method declaration
 	public abstract void noteMutatedEntity(E entity);
 }

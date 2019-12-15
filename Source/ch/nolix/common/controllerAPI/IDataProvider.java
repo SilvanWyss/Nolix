@@ -13,7 +13,7 @@ import ch.nolix.common.node.Node;
  */
 public interface IDataProvider {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.

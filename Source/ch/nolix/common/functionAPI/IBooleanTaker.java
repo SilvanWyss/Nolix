@@ -11,7 +11,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IBooleanTaker {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Takes the given value.
 	 * 

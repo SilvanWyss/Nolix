@@ -80,7 +80,7 @@ public abstract class ClosableElement implements Closable {
 		parentCloseController.addElement(element);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link ClosableElement} note a close.
 	 */

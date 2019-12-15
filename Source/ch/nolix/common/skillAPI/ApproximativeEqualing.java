@@ -26,7 +26,7 @@ public interface ApproximativeEqualing {
 		return equalsApproximatively(object, DEFAULT_MAX_DEVIATION);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param object
 	 * @param maxDeviation

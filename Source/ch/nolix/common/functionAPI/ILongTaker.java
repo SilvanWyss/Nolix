@@ -11,7 +11,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface ILongTaker {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Takes the given value.
 	 * 

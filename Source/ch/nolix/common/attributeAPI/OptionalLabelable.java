@@ -12,14 +12,14 @@ package ch.nolix.common.attributeAPI;
  */
 public interface OptionalLabelable<OL extends OptionalLabelable<OL>> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the info string of the current {@link OptionalLabelable}.
 	 * @throws Exception if the current {@link OptionalLabelable} does not have an info string.
 	 */
 	public abstract String getInfoString();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link OptionalLabelable} has an info string.
 	 */
@@ -41,7 +41,7 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> {
 		return getInfoString().equals(infoString);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the info string of the current {@link OptionalLabelable}.
 	 * 
@@ -49,7 +49,7 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> {
 	 */
 	public abstract OL removeInfoString();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the info string of the current {@link OptionalLabelable}.
 	 * 

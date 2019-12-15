@@ -7,9 +7,9 @@ import java.math.BigDecimal;
 //interface
 public interface ICalculator {
 	
-	//abstract method
+	//method declaration
 	public abstract IAmountMediator from(BigDecimal amount);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getBinomialCoefficient(BigDecimal n, BigDecimal k);
 }

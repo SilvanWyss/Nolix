@@ -25,13 +25,13 @@ public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {
 		this.valueCreator = valueCreator;
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean containsEntity(long id);
 	
-	//abstract method
+	//method declaration
 	public abstract List<E> getEntities();
 	
-	//abstract method
+	//method declaration
 	public abstract E getEntity(long ide);
 	
 	//method

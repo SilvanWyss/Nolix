@@ -24,7 +24,7 @@ public interface IRequestableElement extends IElement {
 		return (attribute.hasHeader() && canHaveAttributeOfType(attribute.getHeader()));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param type
 	 * @return true if the current {@link IRequestableElement} can have an attribute of the given type

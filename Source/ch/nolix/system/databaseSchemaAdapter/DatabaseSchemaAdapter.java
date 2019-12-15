@@ -93,7 +93,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		return asConcreteType();
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract DatabaseState getDatabaseState();
 	
 	//method
@@ -131,16 +131,16 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		reset();
 	}
 
-	//abstract method
+	//method declaration
 	protected abstract List<IEntitySetAdapter> getEntitySetAdapters();
 	
-	//abstract method
+	//method declaration
 	protected abstract void initializeDatabaseWhenNotInitialized();
 	
-	//abstract method
+	//method declaration
 	protected abstract void lockDatabase();
 	
-	//abstract method
+	//method declaration
 	protected abstract void saveChangesToDatabaseAndSetDatabaseReady(IContainer<EntitySet> changedEntitySetsInOrder);
 	
 	//method
@@ -158,7 +158,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		mutatedEntitySetsInOrder.addAtEndIfNotContained(entitySet);
 	}
 	
-	//abstract method
+	//method declaration
 	private List<EntitySet> getEntitySetsFromDatabase() {
 		//TODO: Implement GeneralEntity.
 		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));

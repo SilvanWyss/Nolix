@@ -31,7 +31,7 @@ public abstract class License implements Named {
 		}
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param key
 	 * @return true if the current {@link License} accepts the given key.

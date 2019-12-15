@@ -12,7 +12,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Labelable<S extends Labelable<S>> extends Labeled {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the info string of the current {@link Labelable}.
 	 * 

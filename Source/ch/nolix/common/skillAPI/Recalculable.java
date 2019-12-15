@@ -17,6 +17,6 @@ package ch.nolix.common.skillAPI;
  */
 public interface Recalculable {
 	
-	//abstract method
+	//method declaration
 	public abstract void recalculate();
 }

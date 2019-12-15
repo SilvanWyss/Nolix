@@ -9,13 +9,13 @@ package ch.nolix.common.skillAPI;
  */
 public interface Closable {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Closes the current {@link Closable}.
 	 */
 	public abstract void close();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link Closable} is closed.
 	 */

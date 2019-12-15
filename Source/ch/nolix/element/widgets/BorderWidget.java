@@ -919,13 +919,13 @@ extends Widget<BW, BWL> {
 		return viewArea.isUnderCursor();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the height of the content area of the current {@link BorderWidget}.
 	 */
 	protected abstract int getContentAreaHeight();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the width of the content area of the current {@link BorderWidget}.
 	 */
@@ -1237,7 +1237,7 @@ extends Widget<BW, BWL> {
 		);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Paints the content area of the current {@link BorderWidget} using the given border widget look and painter.
 	 * 

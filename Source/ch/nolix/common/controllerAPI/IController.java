@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  */
 public interface IController {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IController} run the given command.
 	 * 

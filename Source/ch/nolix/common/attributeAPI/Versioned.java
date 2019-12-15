@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Versioned {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the version number of the current {@link Versioned}.
 	 */

@@ -14,13 +14,13 @@ import ch.nolix.common.processProperties.Purpose;
  */
 public interface PurposeRequestable {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the purpose of the current {@link PurposeRequestable}.
 	 */
 	public abstract Purpose getPurpose();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link PurposeRequestable} is functional.
 	 */
@@ -28,7 +28,7 @@ public interface PurposeRequestable {
 		return (getPurpose() == Purpose.FUNCTIONAL);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link PurposeRequestable} is technical.
 	 */

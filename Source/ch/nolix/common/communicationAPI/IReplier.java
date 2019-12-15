@@ -11,7 +11,7 @@ package ch.nolix.common.communicationAPI;
  */
 public interface IReplier {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param message
 	 * @return the reply to the given message from the current {@link IReplier}.

@@ -12,7 +12,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return an element.
 	 */

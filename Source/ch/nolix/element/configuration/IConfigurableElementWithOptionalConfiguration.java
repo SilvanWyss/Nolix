@@ -17,20 +17,20 @@ import ch.nolix.element.baseAPI.IConfigurableElement;
 public interface IConfigurableElementWithOptionalConfiguration<CEWOC extends IConfigurableElement<CEWOC>>
 extends IConfigurableElement<CEWOC> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the the current {@link IConfigurableElementWithOptionalConfiguration} has a configuration.
 	 */
 	public abstract boolean hasConfiguration();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the configuration of the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 * @throws Exception if the current {@link IConfigurableElementWithOptionalConfiguration} does not have a configuration.
 	 */
 	public abstract StandardConfiguration getConfiguration();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the configuration of the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 * 
@@ -38,7 +38,7 @@ extends IConfigurableElement<CEWOC> {
 	 */
 	public abstract CEWOC remmoveConfiguration();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the configuration of the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 * Freezes the given configuration.

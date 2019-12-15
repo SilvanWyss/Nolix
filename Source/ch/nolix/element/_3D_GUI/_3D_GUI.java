@@ -223,25 +223,25 @@ implements Clearable<G>, Closable, Refreshable {
 		return hasRootShape();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this 3D GUI note a left mouse button press.
 	 */
 	public abstract void noteLeftMouseButtonPress();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this 3D GUI note a left mouse button release.
 	 */
 	public abstract void noteLeftMouseButtonRelease();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this 3D GUI note a right mouse button press.
 	 */
 	public abstract void noteRightMouseButtonPress();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this 3D GUI note a right mouse button release.
 	 */

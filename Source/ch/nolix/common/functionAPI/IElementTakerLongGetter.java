@@ -12,7 +12,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerLongGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return a long for the given element.

@@ -91,7 +91,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		return color;
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the length of this line.
 	 */

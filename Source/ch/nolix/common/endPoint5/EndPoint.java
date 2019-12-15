@@ -56,7 +56,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 		appendedCommands.addAtEnd(commands);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the target of this duplex controller.
 	 */
@@ -70,13 +70,13 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 		return (receiverController != null);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this duplex controller has requested the connection.
 	 */
 	public abstract boolean hasRequestedConnection();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this duplex controller has a target.
 	 */
@@ -106,7 +106,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 		return !isNetDuplexController();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this duplex controller is a net duplex controller.
 	 */
@@ -168,7 +168,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	@Override
 	protected final void noteClose() {}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this duplex controller run the given commands.
 	 * 

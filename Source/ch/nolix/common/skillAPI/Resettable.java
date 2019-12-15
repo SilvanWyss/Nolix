@@ -12,7 +12,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface Resettable<R extends Resettable<R>> {
 
-	//abstract method
+	//method declaration
 	/**
 	 * Resets the current {@link Resettable}.
 	 * 

@@ -13,7 +13,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface Clearable<C extends Clearable<C>> {
 
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the elements of this clearable object from itself.
 	 * 
@@ -29,7 +29,7 @@ public interface Clearable<C extends Clearable<C>> {
 		return !isEmpty();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this clearable object does not contain an element.
 	 */

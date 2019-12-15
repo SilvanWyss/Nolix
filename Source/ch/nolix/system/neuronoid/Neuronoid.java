@@ -140,13 +140,13 @@ implements ISmartObject<N> {
 		return inputConnections.getSize();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the maximal number of input neurons of this neuron.
 	 */
 	public abstract int getMaxInputNeuronCount();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the minimal number of input neurons of this neuron.
 	 */
@@ -252,7 +252,7 @@ implements ISmartObject<N> {
 		return asConcreteType();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this neuron fire.
 	 */

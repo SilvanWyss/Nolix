@@ -14,7 +14,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface Freezable<F extends Freezable<F>> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Freezes this freezable object.
 	 * 
@@ -22,7 +22,7 @@ public interface Freezable<F extends Freezable<F>> {
 	 */
 	public abstract F freeze();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this freezable object is frozen.
 	 */

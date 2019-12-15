@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Headered {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the header of the current {@link Headered}.
 	 */

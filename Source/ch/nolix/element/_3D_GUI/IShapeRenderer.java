@@ -30,13 +30,13 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 		);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return a new render object for the shape of this shape renderer.
 	 */
 	public abstract RO createRenderObject();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this shape renderer render the given shape.
 	 * 

@@ -27,19 +27,19 @@ implements IReplyingSender<M, R> {
 	//optional attribute
 	private ch.nolix.common.genericCommunicationAPI.IReplier<M, R> replier;
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the target of this end point.
 	 */
 	public abstract String getTarget();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this end point has requested the connection.
 	 */
 	public abstract boolean hasRequestedConnection();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if this end point has a target.
 	 */

@@ -9,18 +9,18 @@ import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 //interface
 public interface ISequence<N> {
 	
-	//abstract method
+	//method declaration
 	public abstract int getConvergenceGrade(BigDecimal maxMagnitude, int maxIndex);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getSquaredMagnitude(int index);
 	
-	//abstract method
+	//method declaration
 	public abstract IElementTakerElementGetter<N, BigDecimal> getSquaredMagnitudeFunction();
 	
-	//abstract method
+	//method declaration
 	public abstract int getStartIndex();
 	
-	//abstract method
+	//method declaration
 	public abstract N getValue(int index);
 }

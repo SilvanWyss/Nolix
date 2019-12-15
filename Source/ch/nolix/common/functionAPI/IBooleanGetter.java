@@ -31,7 +31,7 @@ public interface IBooleanGetter {
 		return (() -> !condition.getOutput());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return a boolean.
 	 */

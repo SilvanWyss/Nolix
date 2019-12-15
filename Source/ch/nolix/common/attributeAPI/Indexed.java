@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Indexed {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the index of the current {@link Indexed}.
 	 */

@@ -13,7 +13,7 @@ import ch.nolix.common.attributeAPI.Named;
  */
 public interface IEndPointTaker extends Named {
 
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this duplex controller taker take the given duplex controller.
 	 * 

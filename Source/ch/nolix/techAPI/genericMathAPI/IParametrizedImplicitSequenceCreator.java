@@ -4,9 +4,9 @@ package ch.nolix.techAPI.genericMathAPI;
 //interface
 public interface IParametrizedImplicitSequenceCreator<N> {
 	
-	//abstract method
+	//method declaration
 	public abstract ISequence<N> createSequence(N[] startValues);
 	
-	//abstract method
+	//method declaration
 	public abstract int getSequencesStartIndex();
 }

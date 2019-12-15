@@ -108,7 +108,7 @@ extends BorderWidget<TLW, TLWL> {
 		return !shortensShownTextWhenHasLimitedWidth();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link TextLineWidget} shortens its shown text
 	 * when the current {@link TextLineWidget} has a limiting proposal width or max width.

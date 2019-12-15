@@ -260,7 +260,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		return selectorRoles.containsAny();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets this configuration configure the given element.
 	 * 

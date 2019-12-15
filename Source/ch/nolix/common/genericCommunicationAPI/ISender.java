@@ -12,7 +12,7 @@ package ch.nolix.common.genericCommunicationAPI;
  */
 public interface ISender<M> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link ISender} send the given message.
 	 * 

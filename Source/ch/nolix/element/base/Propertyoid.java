@@ -64,13 +64,13 @@ public abstract class Propertyoid<V> implements Named {
 		return name;
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link Propertyoid} does not contain a value.
 	 */
 	public abstract boolean isEmpty();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link Propertyoid} is mutable.
 	 */

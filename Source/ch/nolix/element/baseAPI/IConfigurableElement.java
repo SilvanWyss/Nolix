@@ -20,7 +20,7 @@ import ch.nolix.common.containers.List;
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>> extends OptionalNamable<C>, IMutableElement<C>, Tokened {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement}.
 	 */
@@ -36,14 +36,14 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 		.addAtEnd(getRefConfigurables().toFromMany(c -> c.getRefConfigurablesRecursively()));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param role
 	 * @return true if the current {@link IConfigurableElement} has the given role.
 	 */
 	public abstract boolean hasRole(String role);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param token
 	 * @return true if the current {@link IConfigurableElement} has the given token.
@@ -64,7 +64,7 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 		return (C)this;
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Resets the configuration of the current {@link IConfigurableElement}.
 	 * 

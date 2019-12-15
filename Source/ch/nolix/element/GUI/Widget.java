@@ -333,7 +333,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		return widgets;
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the {@link CursorIcon} of the current {@link Widget}.
 	 */
@@ -1504,7 +1504,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		return asConcreteType();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the view are of the current {@link Widget} is under the cursor.
 	 */
@@ -1525,20 +1525,20 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		childWidget.setParent(this);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Applies the default configuration to the current {@link Widget}
 	 * for the case when the configuration of the current {@link Widget} has been reset.
 	 */
 	protected abstract void applyDefaultConfigurationWhenHasBeenReset();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return a new look for the current {@link Widget}.
 	 */
 	protected abstract WL createLook();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Fills up the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
@@ -1549,7 +1549,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void fillUpChildWidgets(List<Widget<?, ?>> list);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Fills up the paintable {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
@@ -1560,13 +1560,13 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void fillUpPaintableWidgets(List<Widget<?, ?>> list);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the height of the current {@link Widget} when it is s not collapsed.
 	 */
 	protected abstract int getHeightWhenNotCollapsed();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the width of the current {@link Widget} when it is not collapsed.
 	 */
@@ -1735,7 +1735,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected void noteRightMouseButtonReleaseWhenEnabled() {}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Paints the current {@link Widget}
 	 * using the given painter, that is supposed to be positioned, and look.

@@ -15,13 +15,13 @@ import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
  */
 interface IViewArea extends IEventTaker, TopLeftPositionedRecangular {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the x-position of the cursor on the of the current {@link IViewArea}.
 	 */
 	public abstract int getCursorXPosition();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the y-position of the cursor on the current {@link IViewArea}.
 	 */

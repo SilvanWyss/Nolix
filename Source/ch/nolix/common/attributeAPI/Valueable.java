@@ -13,7 +13,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Valueable<VA extends Valueable<VA, V>, V> extends Valued<VA, V> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the value of the current {@link Valueable}.
 	 * 

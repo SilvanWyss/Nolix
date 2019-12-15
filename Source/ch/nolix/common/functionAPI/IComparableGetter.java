@@ -13,7 +13,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IComparableGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return a {@link Comparable}.

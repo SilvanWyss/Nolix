@@ -23,7 +23,7 @@ public interface IPainter {
 		return createPainter(0, 0);
 	}
 
-	//abstract method
+	//method declaration
 	/**
 	 * @param xTranslation
 	 * @param yTranslation
@@ -51,7 +51,7 @@ public interface IPainter {
 		int paintAreaHeight
 	);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param text
 	 * @param textFormat
@@ -63,7 +63,7 @@ public interface IPainter {
 		TextFormat textFormat
 	);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link Painter} paint a polygon
 	 * with the vertices with the given x- and y-positions.
@@ -89,7 +89,7 @@ public interface IPainter {
 		paintFilledRectangle(0, 0, width, height);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint a filled rectangle
 	 * at the given x-position and y-Position with the given width and height.
@@ -120,7 +120,7 @@ public interface IPainter {
 		paintImage(image, image.getWidth(), image.getHeight());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link Painter} paint the given image with the given width and height.
 	 * 
@@ -144,7 +144,7 @@ public interface IPainter {
 		paintText(text, new TextFormat());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint the given text using the given text format.
 	 * 
@@ -156,7 +156,7 @@ public interface IPainter {
 		TextFormat textFormat
 	);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint the given text using the given text format.
 	 * 
@@ -173,7 +173,7 @@ public interface IPainter {
 		int maxTextWidth
 	);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the color of the current {@link IPainter}.
 	 * 
@@ -181,7 +181,7 @@ public interface IPainter {
 	 */
 	public abstract void setColor(Color color);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the color gradient of the current {@link IPainter}.
 	 * 
@@ -189,7 +189,7 @@ public interface IPainter {
 	 */
 	public abstract void setColorGradient(ColorGradient colorGradient);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Translates the current {@link IPainter}.
 	 * 

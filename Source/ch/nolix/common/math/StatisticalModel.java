@@ -52,7 +52,7 @@ public abstract class StatisticalModel {
 		return forecasts.getRefAt(index);
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract double calculateNextValue();
 
 	//method

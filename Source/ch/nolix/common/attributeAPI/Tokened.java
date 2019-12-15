@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Tokened {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the token of the current {@link Tokened}.
 	 */

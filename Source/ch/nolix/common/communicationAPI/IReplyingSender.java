@@ -12,7 +12,7 @@ package ch.nolix.common.communicationAPI;
  */
 public interface IReplyingSender {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IReplyingSender} send the given message.
 	 * 

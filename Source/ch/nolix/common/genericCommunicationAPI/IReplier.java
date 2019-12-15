@@ -13,7 +13,7 @@ package ch.nolix.common.genericCommunicationAPI;
  */
 public interface IReplier<M, R> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IReplier} receive the given message.
 	 * 

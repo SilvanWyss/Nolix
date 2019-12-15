@@ -12,7 +12,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerIntGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return an int for the given element.

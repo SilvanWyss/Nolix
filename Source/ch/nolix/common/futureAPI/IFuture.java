@@ -15,20 +15,20 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
  */
 public interface IFuture {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link IFuture} caught an error.
 	 */
 	public abstract boolean caughtError();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the error of the current {@link IFuture}.
 	 * @throws Exception if the current {@link IFuture} has not caught an error.
 	 */
 	public abstract Throwable getError();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link IFuture} is finished.
 	 */
@@ -50,13 +50,13 @@ public interface IFuture {
 		return !isFinished();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished.
 	 */
 	public abstract void waitUntilIsFinished();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished within the given timeoutInMilliseconds.
 	 * 

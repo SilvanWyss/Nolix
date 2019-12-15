@@ -88,7 +88,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		}
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the cursor icon of the current {@link GUI}.
 	 */
@@ -147,7 +147,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return frontEnd;
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Paints the current {@link GUI} using the given painter.
 	 * 
@@ -205,13 +205,13 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return keyBoard.shiftIsLocked();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the height of the view area of the current {@link GUI}.
 	 */
 	public abstract int getViewAreaHeight();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the width of the view area of the current {@link GUI}.
 	 */
@@ -253,13 +253,13 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return visualizer;
 	}
 
-	//abstract method
+	//method declaration
 	/**
 	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
 	 */
 	protected abstract int getViewAreaCursorXPosition();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
 	 */

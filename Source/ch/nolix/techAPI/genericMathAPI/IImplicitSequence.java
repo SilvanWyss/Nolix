@@ -4,9 +4,9 @@ package ch.nolix.techAPI.genericMathAPI;
 //interface
 public interface IImplicitSequence<N> extends ISequence<N> {
 	
-	//abstract method
+	//method declaration
 	public abstract int getStartValuesCount();
 	
-	//abstract method
+	//method declaration
 	public abstract N[] getStartValues();
 }

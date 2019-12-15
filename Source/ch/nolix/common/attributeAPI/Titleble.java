@@ -12,7 +12,7 @@ package ch.nolix.common.attributeAPI;
 */
 public interface Titleble<T extends Titleble<T>> extends Titled {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the title of the current {@link Titleble}.
 	 * 

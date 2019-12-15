@@ -19,13 +19,13 @@ public interface Rectangular {
 		return Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the height of the current {@link Rectangular}.
 	 */
 	public abstract int getHeight();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the width of the current {@link Rectangular}.
 	 */

@@ -12,7 +12,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerByteGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return a byte for the given element.

@@ -11,7 +11,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface Refreshable {
 
-	//abstract method
+	//method declaration
 	/**
 	 * Refreshes this refreshable object.
 	 */

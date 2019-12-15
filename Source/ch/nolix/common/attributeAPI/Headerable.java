@@ -12,7 +12,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Headerable<H extends Headered> extends Headered {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the header of the current {@link Headerable}.
 	 * 

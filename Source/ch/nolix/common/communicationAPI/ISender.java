@@ -11,7 +11,7 @@ package ch.nolix.common.communicationAPI;
  */
 public interface ISender {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link Sender} send the given message.
 	 * 

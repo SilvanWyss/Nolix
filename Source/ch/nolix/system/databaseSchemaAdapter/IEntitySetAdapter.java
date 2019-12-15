@@ -8,7 +8,7 @@ import ch.nolix.system.databaseAdapter.EntityType;
 //interface
 public interface IEntitySetAdapter extends Named {
 	
-	//abstract method
+	//method declaration
 	public abstract IColumnAdapter getColumnAdapter(Column column);
 	
 	//default method

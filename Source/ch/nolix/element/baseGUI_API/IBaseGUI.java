@@ -17,7 +17,7 @@ import ch.nolix.common.skillAPI.Refreshable;
 public interface IBaseGUI<G extends IBaseGUI<G>>
 extends IEventTaker, IRequestableContainer, Closable, Rectangular, Refreshable, Titleble<G> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * A root {@link IBaseGUI} is a {@link IBaseGUI} that not contained in another {@link IBaseGUI}.
 	 * 
@@ -25,7 +25,7 @@ extends IEventTaker, IRequestableContainer, Closable, Rectangular, Refreshable, 
 	 */
 	public abstract boolean isRootGUI();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * 
 	 * @return true if the current {@link IBaseGUI} is visible.

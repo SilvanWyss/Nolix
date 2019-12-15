@@ -12,13 +12,13 @@ package ch.nolix.common.skillAPI;
  */
 public interface IChangesSaver<CS extends IChangesSaver<CS>> extends Resettable<CS> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link IChangesSaver} has changes.
 	 */
 	public abstract boolean hasChanges();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Saves the changes of the current {@link IChangesSaver}.
 	 */

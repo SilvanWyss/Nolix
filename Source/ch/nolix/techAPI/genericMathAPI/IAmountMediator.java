@@ -7,15 +7,15 @@ import java.math.BigDecimal;
 //interface
 public interface IAmountMediator {
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getCombinationCount(BigDecimal subAmount);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getCombinationCountWithoutPermutation(BigDecimal subAmount);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getCombinationCountWithoutPermutationOrRepetation(BigDecimal subAmount);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getCombinationCountWithoutRepetation(BigDecimal subAmount);
 }

@@ -12,7 +12,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerBooleanGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return a boolean for the given element.

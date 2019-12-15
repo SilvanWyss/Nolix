@@ -4,7 +4,7 @@ package ch.nolix.common.endPoint2;
 //package-visible interface
 interface INetEndPointProcessor {
 	
-	//abstract method
+	//method declaration
 	public abstract NetEndPointCounterpartType getCounterpartType();
 	
 	//default method
@@ -12,6 +12,6 @@ interface INetEndPointProcessor {
 		sendRawMessage(String.valueOf(rawMessage));
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract void sendRawMessage(final String rawMessage);
 }

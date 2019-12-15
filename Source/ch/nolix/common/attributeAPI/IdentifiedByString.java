@@ -11,7 +11,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface IdentifiedByString {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the id of the current {@link IdentifiedByString}.
 	 */

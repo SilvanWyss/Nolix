@@ -4,9 +4,9 @@ package ch.nolix.element.GUI;
 //interface
 public interface IFrontEnd {
 	
-	//abstract method
+	//method declaration
 	public abstract byte[] readFile();
 	
-	//abstract method
+	//method declaration
 	public abstract void saveFile(byte[] bytes);
 }

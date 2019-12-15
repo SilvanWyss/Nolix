@@ -18,13 +18,13 @@ import ch.nolix.common.containers.IContainer;
  */
 public interface IResource extends Named {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the number of base resources of the current {@link IResource}.
 	 */
 	public abstract int getBaseResourceCount();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the base resources of the current {@link IResource}.
 	 */
@@ -48,14 +48,14 @@ public interface IResource extends Named {
 		return resource.isDirectSubResourceOf(this);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a direct sub resource of the given resource.
 	 */
 	public abstract boolean isDirectSubResourceOf(final IResource resource);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a sub resource of the given resource.

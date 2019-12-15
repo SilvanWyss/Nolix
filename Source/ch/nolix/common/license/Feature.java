@@ -15,7 +15,7 @@ import ch.nolix.common.containers.IContainer;
 */
 public abstract class Feature implements Named {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the authorized {@link License} types of the current {@link Feature}.
 	 */

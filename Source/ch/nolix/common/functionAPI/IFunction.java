@@ -11,7 +11,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IFunction {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Does something.
 	 */

@@ -99,7 +99,7 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 		return (value == null);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link SingleProperty} is optional.
 	 */

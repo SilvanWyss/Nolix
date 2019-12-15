@@ -14,7 +14,7 @@ package ch.nolix.common.functionAPI;
 */
 public interface I2ElementTakerElementGetter<E1, E2, E3> {
 
-	//abstract method
+	//method declaration
 	/**
 	 * @param element1
 	 * @param element2

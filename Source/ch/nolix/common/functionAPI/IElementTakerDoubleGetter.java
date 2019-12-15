@@ -12,7 +12,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerDoubleGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return a double for the given element.

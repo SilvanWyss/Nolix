@@ -13,7 +13,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IElementTakerElementGetter<E, E2> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element
 	 * @return an element for the given element.

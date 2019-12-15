@@ -12,7 +12,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Tokenable<T extends Tokenable<T>> extends Tokened {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the token of the current {@link Tokenable}.
 	 * 

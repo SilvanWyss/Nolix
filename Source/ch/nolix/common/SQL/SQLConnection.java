@@ -181,7 +181,7 @@ public abstract class SQLConnection implements AutoCloseable {
 		.containsAny();
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract String getSQLDatabaseEngineDriverClass();
 	
 	//method

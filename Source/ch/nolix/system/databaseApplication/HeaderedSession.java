@@ -39,7 +39,7 @@ public abstract class HeaderedSession extends UserSession {
 		);
 	}
 
-	//abstract method
+	//method declaration
 	protected abstract Widget<?, ?> createSubSubContentWidget();
 
 	//method

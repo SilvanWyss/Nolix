@@ -46,10 +46,10 @@ public abstract class BaseReference<E extends Entity> extends Property<E> {
 		return !referencesEntity();
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean references(Entity entity);
 	
-	//abstract method
+	//method declaration
 	protected abstract boolean referencesEntity();
 	
 	//method

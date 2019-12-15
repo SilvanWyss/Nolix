@@ -28,7 +28,7 @@ public abstract class SingleBackReference<E extends Entity> extends BaseBackRefe
 		.getRefFirst(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean isOptional();
 	
 	//method

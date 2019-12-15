@@ -12,7 +12,7 @@ package ch.nolix.common.test;
  */
 public abstract class ObjectTest<TO> extends Test {
 
-	//abstract method
+	//method declaration
 	/**
 	 * @return a new test object for the current {@link ObjectTest}.
 	 */

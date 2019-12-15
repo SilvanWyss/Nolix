@@ -24,7 +24,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Signed {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the signature of the current {@link Signed}.
 	 */

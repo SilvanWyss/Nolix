@@ -1383,7 +1383,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the number of elements of the current {@link IContainer}.
 	 */

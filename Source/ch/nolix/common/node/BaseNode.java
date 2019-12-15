@@ -86,7 +86,7 @@ public abstract class BaseNode implements Headered {
 			.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Adds the given attribute to the current {@link BaseNode}.
 	 * 
@@ -312,7 +312,7 @@ public abstract class BaseNode implements Headered {
 		return createReproducingString(getHeader());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param index
 	 * @return the attribute at the given index from the current {@link BaseNode}.
@@ -324,13 +324,13 @@ public abstract class BaseNode implements Headered {
 		return (S)getRefAttributes().getRefAt(index);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the attributes of the current {@link BaseNode}.
 	 */
 	public abstract <S extends BaseNode> IContainer<S> getRefAttributes();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * 
 	 * @param header
@@ -340,7 +340,7 @@ public abstract class BaseNode implements Headered {
 		return getRefAttributes(a -> a.hasHeader(header));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
@@ -383,7 +383,7 @@ public abstract class BaseNode implements Headered {
 		return getRefFirstAttribute(a -> a.hasHeader(header));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the one attribute of the current {@link BaseNode}.
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
@@ -399,7 +399,7 @@ public abstract class BaseNode implements Headered {
 		return toString().hashCode();
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link BaseNode} has a header.
 	 */
@@ -422,13 +422,13 @@ public abstract class BaseNode implements Headered {
 		return getHeader().equals(header);
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the attributes of the current {@link BaseNode}.
 	 */
 	public abstract void removeAttributes();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the first attribute the given selector selects from the current {@link BaseNode}.
 	 * 
@@ -446,7 +446,7 @@ public abstract class BaseNode implements Headered {
 		removeFirstAttribute(a -> a.hasHeader(header));
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the header of the current {@link BaseNode}.
 	 */
@@ -537,7 +537,7 @@ public abstract class BaseNode implements Headered {
 		FileSystemAccessor.createFile(filePath, overwrite, toFormatedString());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the header of the current {@link BaseNode}.
 	 * 

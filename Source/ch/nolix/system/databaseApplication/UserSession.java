@@ -20,10 +20,10 @@ public abstract class UserSession extends DatabaseApplicationSession {
 		);
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract List<Button> createLinkButtons();
 	
-	//abstract method
+	//method declaration
 	protected abstract Widget<?, ?> createSubContentWidget();
 	
 	//method

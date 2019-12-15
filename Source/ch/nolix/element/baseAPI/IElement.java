@@ -15,7 +15,7 @@ import ch.nolix.common.node.Node;
  */
 public interface IElement extends TypeRequestable {
 		
-	//abstract method
+	//method declaration
 	/**
 	 * @return the attributes of the current {@link IElement}.
 	 */

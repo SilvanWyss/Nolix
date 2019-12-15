@@ -39,7 +39,7 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 		}
 	}
 	
-	//abstract method
+	//method declaration
 	protected abstract Widget<?, ?> createContentWidget();
 	
 	//method

@@ -11,7 +11,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface IDoubleGetter {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return a double.
 	 */

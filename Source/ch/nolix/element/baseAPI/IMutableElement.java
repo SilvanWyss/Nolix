@@ -18,7 +18,7 @@ import ch.nolix.common.skillAPI.Resettable;
  */
 public interface IMutableElement<S extends IMutableElement<S>> extends Resettable<S>, IElement {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Adds or changes the given attribute to the current {@link IMutableElement}.
 	 * This method is not fluent.

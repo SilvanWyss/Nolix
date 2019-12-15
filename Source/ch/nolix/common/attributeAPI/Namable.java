@@ -12,7 +12,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface Namable<N extends Namable<N>> extends Named {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the name of the current {@link Namable}.
 	 * 

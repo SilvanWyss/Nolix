@@ -30,7 +30,7 @@ public abstract class LogHandler {
 		return minHarmLevel;
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract void log(LogEntry logEntry);
 	
 	//package-visible method

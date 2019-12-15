@@ -12,7 +12,7 @@ package ch.nolix.common.attributeAPI;
  */
 public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the name of the current {@link OptionalNamable}.
 	 * @throws Exception if the current {@link OptionalNamable} does not have a name.
@@ -27,7 +27,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 	public default String getNameInQuotes() {
 		return ("'" + getName() + "'");
 	}
-	//abstract method
+	//method declaration
 	/**
 	 * @return true if the current {@link OptionalNamable} has a name.
 	 */
@@ -70,7 +70,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 		return hasName(object.getName());
 	}
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Removes the name of the current {@link OptionalNamable}.
 	 * 
@@ -78,7 +78,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 	 */
 	public abstract ON removeName();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Sets the name of the current {@link OptionalNamable}.
 	 * 

@@ -12,7 +12,7 @@ package ch.nolix.system.neuronalNet;
  */
 public interface INeuronalNetCreator<IO> {
 
-	//abstract method
+	//method declaration
 	/**
 	 * @return a new neuronal net.
 	 */

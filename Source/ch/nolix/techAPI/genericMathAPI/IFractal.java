@@ -11,58 +11,58 @@ import ch.nolix.element.image.Image;
 //interface
 public interface IFractal {
 	
-	//abstract method
+	//method declaration
 	public abstract int getBigDecimalScale();
 	
-	//abstract method
+	//method declaration
 	public abstract Color getColor(int index);
 	
-	//abstract method
+	//method declaration
 	public abstract int getHeightInPixel();
 	
-	//abstract method
+	//method declaration
 	public abstract IClosedInterval getImaginaryComponentInterval();	
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getMaxImaginaryComponent();
 	
-	//abstract method
+	//method declaration
 	public abstract int getMaxIterationCount();
 
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getMaxRealComponent();	
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getMinImaginaryComponent();
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getMinMagnitudeForConvergence();
 
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getMinRealComponent();
 	
-	//abstract method
+	//method declaration
 	public abstract I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	getNextValueFunction();
 
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getPixelsPerUnit();
 	
-	//abstract method
+	//method declaration
 	public abstract IClosedInterval getRealComponentInterval();
 	
-	//abstract method
+	//method declaration
 	public abstract IComplexNumber[] getStartValues(final IComplexNumber complexNumber);
 	
-	//abstract method
+	//method declaration
 	public abstract BigDecimal getUnitsPerPixel();
 	
-	//abstract method
+	//method declaration
 	public abstract int getWidthInPixel();
 	
-	//abstract method
+	//method declaration
 	public abstract IImageBuilder startImageBuild();
 	
-	//abstract method
+	//method declaration
 	public abstract Image toImage();
 }

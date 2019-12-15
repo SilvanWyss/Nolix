@@ -8,15 +8,15 @@ import ch.nolix.element.GUI.GUI;
 //package-visible interface
 abstract interface IFrontGUIClientGUIHandler {
 	
-	//abstract method
+	//method declaration
 	public abstract BaseFrontGUIClientGUIType getGUIType();
 	
-	//abstract method
+	//method declaration
 	public abstract GUI<?> getRefGUI();
 	
-	//abstract method
+	//method declaration
 	public abstract void noteClose();
 	
-	//abstract method
+	//method declaration
 	public abstract void runGUICommand(ChainedNode pGUICommand);
 }

@@ -16,7 +16,7 @@ import ch.nolix.common.attributeAPI.Named;
  */
 public interface IEndPointTaker extends Named {
 
-	//abstract method
+	//method declaration
 	/**
 	 * Takes the given alpha end point.
 	 * 

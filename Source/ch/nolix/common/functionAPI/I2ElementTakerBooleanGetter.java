@@ -13,7 +13,7 @@ package ch.nolix.common.functionAPI;
  */
 public interface I2ElementTakerBooleanGetter<E> {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param element1
 	 * @param element2

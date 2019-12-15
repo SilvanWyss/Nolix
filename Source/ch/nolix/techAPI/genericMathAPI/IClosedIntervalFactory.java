@@ -7,15 +7,15 @@ import java.math.BigDecimal;
 //interface
 public interface IClosedIntervalFactory {
 	
-	//abstract method
+	//method declaration
 	public abstract IClosedInterval create(BigDecimal min, BigDecimal max);
 	
-	//abstract method
+	//method declaration
 	public abstract IClosedInterval create(BigDecimal min, BigDecimal max, int bigDecimalScale);
 	
-	//abstract method
+	//method declaration
 	public abstract IClosedInterval create(double min, double max);
 	
-	//abstract method
+	//method declaration
 	public abstract IClosedInterval create(double min, double max, int bigDecimalScale);
 }

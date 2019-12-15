@@ -12,7 +12,7 @@ package ch.nolix.common.futureAPI;
  */
 public interface IResultFuture<R> extends IFuture {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @return the result of the current {@link IResultFuture}.
 	 * @throws Exception if the current {@link IResultFuture} is not finished or has caught an error.

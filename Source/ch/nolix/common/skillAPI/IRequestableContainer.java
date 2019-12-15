@@ -13,7 +13,7 @@ package ch.nolix.common.skillAPI;
 */
 public interface IRequestableContainer {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * @param name
 	 * @return true if this requestable container

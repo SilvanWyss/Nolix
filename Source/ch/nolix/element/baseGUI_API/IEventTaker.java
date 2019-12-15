@@ -8,7 +8,7 @@ import ch.nolix.element.input.Key;
 //interface
 public interface IEventTaker {
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IBaseGUI} note a key press.
 	 * 
@@ -16,7 +16,7 @@ public interface IEventTaker {
 	 */
 	public abstract void noteKeyPress(Key key);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a key release.
 	 * 
@@ -24,7 +24,7 @@ public interface IEventTaker {
 	 */
 	public abstract void noteKeyRelease(Key key);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a key typing.
 	 * 
@@ -32,25 +32,25 @@ public interface IEventTaker {
 	 */
 	public abstract void noteKeyTyping(Key key);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a left mouse button click.
 	 */
 	public abstract void noteLeftMouseButtonClick();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a left mouse button press.
 	 */
 	public abstract void noteLeftMouseButtonPress();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a left mouse button release.
 	 */
 	public abstract void noteLeftMouseButtonRelease();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a mouse move.
 	 * The given cursorXPositionOnViewArea and cursorYPositionOnViewArea are the new position of the cursor.
@@ -60,25 +60,25 @@ public interface IEventTaker {
 	 */
 	public abstract void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a mouse wheel clcik.
 	 */
 	public abstract void noteMouseWheelClick();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a mouse wheel press.
 	 */
 	public abstract void noteMouseWheelPress();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a mouse wheel release.
 	 */
 	public abstract void noteMouseWheelRelease();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a mouse wheel rotation step.
 	 * 
@@ -86,7 +86,7 @@ public interface IEventTaker {
 	 */
 	public abstract void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation);
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a resize.
 	 * The given viewAreaWidth and viewAreaHeight are the new size of the view area.
@@ -96,19 +96,19 @@ public interface IEventTaker {
 	 */
 	public abstract void noteResize(int viewAreaWidth, int viewAreaHeight);
 
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a right mouse button click.
 	 */
 	public abstract void noteRightMouseButtonClick();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a right mouse button press.
 	 */
 	public abstract void noteRightMouseButtonPress();
 	
-	//abstract method
+	//method declaration
 	/**
 	 * Lets the current {@link IEventTaker} note a right mouse button release.
 	 */

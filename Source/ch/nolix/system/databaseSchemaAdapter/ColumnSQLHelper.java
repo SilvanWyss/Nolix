@@ -18,7 +18,7 @@ public abstract class ColumnSQLHelper {
 		this.column = column;
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract SQLDatabaseEngine getDatabaseEngine();
 	
 	//method

@@ -63,7 +63,7 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 		return (value == null);
 	}
 	
-	//abstract method
+	//method declaration
 	public abstract boolean isOptional();
 	
 	//method
