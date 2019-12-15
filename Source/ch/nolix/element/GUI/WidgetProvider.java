@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  */
 final class WidgetProvider {
 
-	//multiple attribute
+	//multi-attribute
 	private List<Class<?>> widgetClasses = new List<>();
 	
 	//constructor

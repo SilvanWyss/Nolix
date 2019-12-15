@@ -9,7 +9,7 @@ final class LogWorker extends Thread {
 	//attribute
 	private boolean active = true;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<LogEntry> logEntries = new List<>();
 	
 	//constructor

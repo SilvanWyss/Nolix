@@ -19,7 +19,7 @@ public class NetEndPoint extends EndPoint {
 	//attributes
 	private final ch.nolix.common.endPoint2.EndPoint internalEndPoint;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<Package> receivedPackages = new List<>();
 	
 	public NetEndPoint(

@@ -21,7 +21,7 @@ public class ModuleManager {
 	//attribute
 	private final String directory;
 		
-	//multiple attribute
+	//multi-attribute
 	private final List<Module> modules = new List<>();
 	
 	//constructor

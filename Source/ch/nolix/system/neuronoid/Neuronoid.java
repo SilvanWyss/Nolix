@@ -35,7 +35,7 @@ implements ISmartObject<N> {
 	//attribute
 	private O output;
 	
-	//multiple attributes
+	//multi-attributes
 	private final List<InputConnection<I>> inputConnections = new List<>();
 	private final List<Neuronoid<?, O, ?>> outputNeurons = new List<>();
 	

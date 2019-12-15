@@ -23,7 +23,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	//optional attribute
 	private IDataProviderController receiverController;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<ChainedNode> appendedCommands = new List<>();
 	
 	//method

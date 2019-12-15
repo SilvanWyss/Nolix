@@ -24,7 +24,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	private final IElementTakerElementGetter<String, M> messageTransformer;
 	private final IElementTakerElementGetter<String, R> replyTransformer;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<Package> receivedPackages = new List<>();
 	
 	public NetEndPoint(

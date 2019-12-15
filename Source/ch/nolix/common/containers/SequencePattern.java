@@ -22,7 +22,7 @@ import ch.nolix.common.sequencer.Sequencer;
  */
 public final class SequencePattern<E> {
 	
-	//multiple attributes
+	//multi-attributes
 	private final List<IElementTakerBooleanGetter<E>> elementConditions = new List<>();
 	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions = new List<>();
 	

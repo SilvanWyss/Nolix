@@ -26,7 +26,7 @@ import ch.nolix.common.validator.Validator;
  */
 public class Matrix implements ApproximativeEqualing {
 	
-	//multiple attribute
+	//multi-attribute
 	private double[][] values;
 	
 	//static method

@@ -17,7 +17,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 public class Server<M, R>
 extends ClosableElement {
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<IEndPointTaker<M, R>> endPointTaker = new List<>();
 	
 	//method

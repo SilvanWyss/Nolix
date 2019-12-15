@@ -21,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  */
 public abstract class TestPool implements Runnable {
 
-	//multiple attribute
+	//multi-attribute
 	private final List<Class<BaseTest>> testClasses = new List<>();
 	private final List<TestPool> testPools = new List<>();
 	
