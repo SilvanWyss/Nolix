@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.node;
 
+//own imports
 import ch.nolix.common.XML.XMLNode;
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
@@ -179,46 +180,45 @@ public abstract class BaseNode implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseNode} equals the given object.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean equals(final Object object) {
+	public final boolean equals(final Object object) {
 		
-		//Handles the case that the given object is not a document node.
-		if (!(object instanceof Node)) {
+		//Handles the case that the given object is not a BaseNode.
+		if (!(object instanceof BaseNode)) {
 			return false;
 		}
 		
-		//Handles the case that the given object is a document node.
-			final var baseNode = (BaseNode)object;
-			
-			//Handles the case that the current document node does not have a header.
-			if (!hasHeader()) {
-				if (baseNode.hasHeader()) {
-					return false;
-				}
-			}
-			
-			//Handles the case that the current document node has a header.
-			else {
-				if (!baseNode.hasHeader(getHeader())) {
-					return false;
-				}
-			}
-			
-			if (getAttributeCount() != baseNode.getAttributeCount()) {
+		final var baseNode = (BaseNode)object;
+		
+		//Handles the case that the current BaseNode does not have a header.
+		if (!hasHeader()) {
+			if (baseNode.hasHeader()) {
 				return false;
 			}
-									
-			//Iterates the attributes of the current document node.
-			final var iterator = baseNode.getRefAttributes().iterator();
-			for (final var a : getRefAttributes()) {
-				if (!a.equals(iterator.next())) {
-					return false;
-				}
+		}
+		
+		//Handles the case that the current BaseNode has a header.
+		else {
+			if (!baseNode.hasHeader(getHeader())) {
+				return false;
 			}
-			
-			return true;
+		}
+		
+		if (getAttributeCount() != baseNode.getAttributeCount()) {
+			return false;
+		}
+		
+		//Iterates the attributes of the current BaseNode.
+		final var iterator = baseNode.getRefAttributes().iterator();
+		for (final var a : getRefAttributes()) {
+			if (!a.equals(iterator.next())) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//method
