@@ -3,62 +3,42 @@ package ch.nolix.system.databaseAdapter;
 
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.baseAPI.IElement;
 import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
-public final class Column<V> implements Headered, IElement {
-
+public final class Column<C> implements Headered {
+	
 	//attributes
 	private final String header;
-	private final DataType<V> propertyType;
+	private final DataType<C> dataType;
 	
 	//constructor
-	public Column(final String header, final DataType<V> propertyType) {
+	public Column(final String header, final DataType<C> dataType) {
 		
-		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
+		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.suppose(dataType).isOfType(DataType.class);
 		
-		Validator
-		.suppose(propertyType)
-		.thatIsNamed("property type")
-		.isNotNull();
-		
-		this.propertyType = propertyType;
+		this.header = header;
+		this.dataType = dataType;
 	}
 	
 	//method
 	public boolean canReference(final Entity entity) {
-		return getDataType().canReference(entity);
+		return dataType.canReference(entity);
 	}
-	
-	//method
-	public boolean canReferenceEntitty() {
-		return propertyType.isAnyReferenceType();
-	}
-	
+		
 	//method
 	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
-		return (canReferenceEntitty() && propertyType.getRefContentClass() == type);
+		return (isAnyReferenceColumn() && dataType.getRefContentClass() == type);
 	}
 	
 	//method
-	@Override
-	public List<Node> getAttributes() {
-		return
-		new List<>(
-			new Node(
-				PascalCaseNameCatalogue.HEADER,
-				getHeader()
-			),
-			new Node(getDataType().getPropertyKind().toString())
-		);
+	public DataType<C> getDataType() {
+		return dataType;
 	}
 	
 	//method
@@ -69,32 +49,31 @@ public final class Column<V> implements Headered, IElement {
 	
 	//method
 	public PropertyKind getPropertyKind() {
-		return getDataType().getPropertyKind();
+		return dataType.getPropertyKind();
 	}
 	
 	//method
-	public DataType<V> getDataType() {
-		return propertyType;
+	public Class<C> getRefContentClass() {
+		return dataType.getRefContentClass();
 	}
 	
 	//method
-	@Override
-	public String getType() {
-		return PascalCaseNameCatalogue.COLUMN;
-	}
-	
-	//method
-	public Class<V> getValueClass() {
-		return getDataType().getRefContentClass();
+	public boolean isAnyBackReferenceColumn() {
+		return dataType.isAnyBackReferenceType();
 	}
 	
 	//method
 	public boolean isAnyDataColumn() {
-		return getDataType().isAnyValueType();
+		return dataType.isAnyValueType();
 	}
 	
 	//method
 	public boolean isAnyReferenceColumn() {
-		return getDataType().isAnyReferenceType();
+		return dataType.isAnyReferenceType();
+	}
+	
+	//method
+	public boolean isAnyTechnicalColumn() {
+		return dataType.isAnyTechnicalType();
 	}
 }
