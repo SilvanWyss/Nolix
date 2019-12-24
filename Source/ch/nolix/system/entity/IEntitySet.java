@@ -28,6 +28,9 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	}
 	
 	//method declaration
+	public abstract <E2 extends Entity> boolean canReferenceEntityOfType(final Class<E2> type);
+	
+	//method declaration
 	public abstract IEntitySet<E> deleteEntity(E entity);
 	
 	//method declaration
@@ -41,7 +44,7 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	
 	//method declaration
 	public abstract boolean hasChanges();
-		
+	
 	//method declaration
 	public abstract boolean references(Entity entity);
 	

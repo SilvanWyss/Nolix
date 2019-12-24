@@ -34,8 +34,18 @@ public final class Column<V> implements Headered, IElement {
 	}
 	
 	//method
-	public final boolean canReference(final Entity entity) {
+	public boolean canReference(final Entity entity) {
 		return getDataType().canReference(entity);
+	}
+	
+	//method
+	public boolean canReferenceEntitty() {
+		return propertyType.isAnyReferenceType();
+	}
+	
+	//method
+	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
+		return (canReferenceEntitty() && propertyType.getRefContentClass() == type);
 	}
 	
 	//method
