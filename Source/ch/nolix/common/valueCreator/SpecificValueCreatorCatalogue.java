@@ -35,6 +35,6 @@ public final class SpecificValueCreatorCatalogue {
 	public static final SpecificValueCreator<String> STRING_CREATOR =
 	new SpecificValueCreator<>(String.class, s -> s, s -> s.getHeader());
 	
-	//private constructor
+	//access-reducing constructor
 	private SpecificValueCreatorCatalogue() {}
 }

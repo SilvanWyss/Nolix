@@ -51,7 +51,7 @@ final class Waiter {
 		}
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Waiter} can be created.
 	 */

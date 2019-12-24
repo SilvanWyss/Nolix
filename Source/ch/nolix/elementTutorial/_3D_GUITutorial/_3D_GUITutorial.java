@@ -33,7 +33,7 @@ public final class _3D_GUITutorial {
 		mainFrame.refresh();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

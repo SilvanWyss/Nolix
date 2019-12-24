@@ -9,6 +9,6 @@ public final class Launcher {
 		new FileNodeTestPool().run();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private Launcher() {}
 }

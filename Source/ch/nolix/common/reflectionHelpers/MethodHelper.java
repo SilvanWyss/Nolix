@@ -33,7 +33,7 @@ public final class MethodHelper {
 		return true;
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

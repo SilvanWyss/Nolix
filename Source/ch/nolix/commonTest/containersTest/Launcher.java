@@ -21,7 +21,7 @@ public final class Launcher {
 		new ContainerTestPool().run();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

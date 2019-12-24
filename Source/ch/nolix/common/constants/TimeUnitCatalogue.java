@@ -44,7 +44,7 @@ public final class TimeUnitCatalogue {
 	public static final long MICROSECONDS_PER_DAY = 86400000000l;
 	public static final long NANOSECONDS_PER_DAY = 86400000000000l;
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link TimeUnitCatalogue} can be created.
 	 */

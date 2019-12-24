@@ -90,7 +90,7 @@ public final class BackConsoleClientTutorial {
 		}
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

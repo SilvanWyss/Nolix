@@ -23,6 +23,6 @@ public final class NolixEnvironment {
 		return System.getenv(APPDATA_HEADER);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private NolixEnvironment() {}
 }

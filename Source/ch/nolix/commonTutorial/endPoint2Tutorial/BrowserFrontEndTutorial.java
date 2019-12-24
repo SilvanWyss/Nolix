@@ -18,6 +18,6 @@ public final class BrowserFrontEndTutorial {
 		ShellProvider.startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private BrowserFrontEndTutorial() {}
 }

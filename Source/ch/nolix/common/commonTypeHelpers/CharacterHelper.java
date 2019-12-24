@@ -72,7 +72,7 @@ public final class CharacterHelper {
 		return (isDigit(character) || (character >= 65 && character <= 70));
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

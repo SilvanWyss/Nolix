@@ -33,6 +33,6 @@ public final class CentralInstanceProvider {
 		return instanceProvider.register(_interface, _class, writeMode);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private CentralInstanceProvider() {}
 }

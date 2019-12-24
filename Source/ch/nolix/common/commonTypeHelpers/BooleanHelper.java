@@ -12,6 +12,6 @@ public final class BooleanHelper {
 		return (pBoolean ? StringCatalogue.TRUE_HEADER : StringCatalogue.FALSE_HEADER);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private BooleanHelper() {}
 }

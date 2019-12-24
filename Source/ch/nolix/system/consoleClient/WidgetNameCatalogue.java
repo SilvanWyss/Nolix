@@ -15,7 +15,7 @@ public final class WidgetNameCatalogue {
 	public static final String CONSOLE_NAME = "Console";
 	public static final String INFO_PANEL_NAME = "InfoPanel";
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

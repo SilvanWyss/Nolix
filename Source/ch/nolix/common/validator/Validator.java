@@ -331,7 +331,7 @@ public final class Validator {
 		return new MultiStringMediator(arguments);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

@@ -20,7 +20,7 @@ public final class PortCatalogue {
 	public static final int DE_FACTO_HTTP_PORT = 8080;
 	public static final int MAX_PORT = 65535;
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link PortCatalogue} can be created.
 	 */

@@ -19,6 +19,6 @@ public final class Registrator {
 		.register(IImplicitComplexSequenceBuilder.class, ImplicitComplexSequenceBuilder.class);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private Registrator() {}
 }

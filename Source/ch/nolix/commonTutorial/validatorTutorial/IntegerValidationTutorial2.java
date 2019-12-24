@@ -27,7 +27,7 @@ public final class IntegerValidationTutorial2 {
 		Validator.suppose(5).thatIsNamed("size").isNegative();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

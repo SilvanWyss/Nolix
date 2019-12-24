@@ -15,6 +15,6 @@ public class Registrator {
 		.register(ITask.class, Task.class);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private Registrator() {}
 }

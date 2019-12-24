@@ -26,7 +26,7 @@ public final class StringValidationTutorial {
 		Validator.suppose("Hello World!").isNotLongerThan(12);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Validator} can be created.
 	 */

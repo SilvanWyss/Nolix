@@ -39,6 +39,6 @@ public final class ReflectionHelper {
 		throw new ArgumentDoesNotHaveAttributeException(object, attribute.getClass());
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private ReflectionHelper() {}
 }

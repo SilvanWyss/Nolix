@@ -123,7 +123,7 @@ public final class PopupWindowProvider {
 		return (result == 0);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

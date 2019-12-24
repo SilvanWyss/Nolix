@@ -35,7 +35,7 @@ public final class CentralJobPool {
 		return jobPool.enqueue(job);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link CentralJobPool} can be created.
 	 */

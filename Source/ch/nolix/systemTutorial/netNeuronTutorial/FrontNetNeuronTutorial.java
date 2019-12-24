@@ -56,7 +56,7 @@ public final class FrontNetNeuronTutorial {
 		frontNetNeuron2.close();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link FrontNetNeuronTutorial} can be created.
 	 */

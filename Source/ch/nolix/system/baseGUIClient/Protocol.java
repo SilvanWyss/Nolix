@@ -43,7 +43,7 @@ final class Protocol {
 	public static final String NOTE_MOUSE_MOVE_HEADER = "NoteMouseMove";
 	public static final String NOTE_RESIZE_HEADER = "NoteResize";
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Protocol} can be created.
 	 */

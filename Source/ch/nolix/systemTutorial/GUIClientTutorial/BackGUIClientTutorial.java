@@ -89,7 +89,7 @@ public final class BackGUIClientTutorial {
 		}
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link BackGUIClientTutorial} can be created.
 	 */

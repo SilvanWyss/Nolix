@@ -9,6 +9,6 @@ public final class Launcher {
 		new XMLTestPool().run();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private Launcher() {}
 }

@@ -30,6 +30,6 @@ public final class CentralServiceProvider {
 		coreServiceProdiver.register(interface_, service, overwrite);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private CentralServiceProvider() {}
 }

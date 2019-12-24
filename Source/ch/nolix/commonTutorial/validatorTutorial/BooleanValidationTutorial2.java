@@ -26,7 +26,7 @@ public final class BooleanValidationTutorial2 {
 		Validator.suppose(true, true, true, false);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

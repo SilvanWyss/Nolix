@@ -22,7 +22,7 @@ public final class Launcher {
 		new SequencerTestPool().run();
 	}
 
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be instantiated.
 	 */

@@ -31,6 +31,6 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		private final ValueProperty<String> Name = new ValueProperty<>();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private MSSQLDatabaseSchemaAdapterTutorial() {}
 }

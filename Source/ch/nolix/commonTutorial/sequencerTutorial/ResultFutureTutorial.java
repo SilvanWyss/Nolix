@@ -36,7 +36,7 @@ public final class ResultFutureTutorial {
 		System.out.println("rank: " + future.getResult());
 	}
 
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can becreated.
 	 */

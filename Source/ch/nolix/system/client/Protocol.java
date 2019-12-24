@@ -9,6 +9,6 @@ final class Protocol {
 	public static final String RUN_METHOD_HEADER = "RunMethod";
 	public static final String DATA_METHOD_HEADER = "DataMethod";
 	
-	//private constructor
+	//access-reducing constructor
 	private Protocol() {}
 }

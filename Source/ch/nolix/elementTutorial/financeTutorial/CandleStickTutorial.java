@@ -54,7 +54,7 @@ public final class CandleStickTutorial {
 		System.out.format("hammers followed by a bullish from all hammers: %.2f %%", percentage);
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

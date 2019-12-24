@@ -41,7 +41,7 @@ public final class ValueCatalogue {
 	public static final int MEDIUM_TEXT_SIZE = 20;
 	public static final int BIG_TEXT_SIZE = 40;
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link ValueCatalogue} can be created.
 	 */

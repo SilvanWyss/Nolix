@@ -26,7 +26,7 @@ public final class ResourceCatalogue {
 	public static final Resource SILVER = new Resource("Silver", METAL);
 	public static final Resource GOLD = new Resource("Gold", METAL);
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of a {@link ResourceCatalogue} can be created.
 	 */

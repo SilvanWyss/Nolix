@@ -34,7 +34,7 @@ public final class IterableHelper {
 		return elementCount;
 	}
 
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

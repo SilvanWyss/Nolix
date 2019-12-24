@@ -55,7 +55,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		neuronalNet.getRefOutput().forEach(v -> System.out.println(v));
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link ForwardMultiLayerNetCreatorTutorial} can be created.
 	 */

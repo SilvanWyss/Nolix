@@ -21,7 +21,7 @@ public final class Launcher {
 		new NodeTestPool().run();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */

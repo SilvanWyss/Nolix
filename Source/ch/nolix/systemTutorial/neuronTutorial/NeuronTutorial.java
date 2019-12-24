@@ -53,7 +53,7 @@ public final class NeuronTutorial {
 		System.out.println("output: " + targetNeuron.getRefOutput());
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link NeuronTutorial} can be created.
 	 */

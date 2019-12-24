@@ -52,7 +52,7 @@ public final class _3D_GUITutorial2 {
 		mainFrame.refresh();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link _3D_GUITutorial2} can be created.
 	 */

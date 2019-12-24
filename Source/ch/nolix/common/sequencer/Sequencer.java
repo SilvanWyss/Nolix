@@ -231,7 +231,7 @@ public final class Sequencer {
 		waitAsLongAs(() -> !condition.getOutput());
 	}
 
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Sequencer} can be created.
 	 */

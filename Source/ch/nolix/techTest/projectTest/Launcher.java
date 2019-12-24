@@ -19,7 +19,7 @@ public final class Launcher {
 		new TaskTestPool().run();
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

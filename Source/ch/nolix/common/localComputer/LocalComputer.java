@@ -18,6 +18,6 @@ public final class LocalComputer {
 		}
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	private LocalComputer () {}
 }

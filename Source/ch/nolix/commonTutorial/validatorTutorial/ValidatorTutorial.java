@@ -41,7 +41,7 @@ public final class ValidatorTutorial {
 		System.out.println(productName + ": " + amount + " pieces");
 	}
 	
-	//private constructor
+	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link ValidatorTutorial} can be created.
 	 */
