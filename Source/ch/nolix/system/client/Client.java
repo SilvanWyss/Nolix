@@ -231,7 +231,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @return true if the current {@link Client} is a local client.
 	 */
 	public final boolean isLocalClient() {
-		return endPoint.isLocalDuplexController();
+		return endPoint.isLocalEndPoint();
 	}
 	
 	//method
@@ -239,7 +239,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @return true if the current {@link Client} is a net client.
 	 */
 	public final boolean isNetClient() {
-		return endPoint.isNetDuplexController();
+		return endPoint.isNetEndPoint();
 	}
 	
 	//method

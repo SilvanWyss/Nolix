@@ -166,7 +166,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return true if this duplex controller is a net duplex controller.
 	 */
 	@Override
-	public boolean isNetDuplexController() {
+	public boolean isNetEndPoint() {
 		return false;
 	}
 	

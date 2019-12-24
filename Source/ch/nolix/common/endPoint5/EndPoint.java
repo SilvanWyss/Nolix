@@ -4,19 +4,22 @@ package ch.nolix.common.endPoint5;
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A duplex controller can interact with another duplex controller of the same type.
+ * A {@link EndPoint} can interact with another {@link EndPoint} of the same type.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 170
+ * @lines 180
  */
 public abstract class EndPoint extends ClosableElement implements IDataProviderController {
 	
@@ -26,13 +29,16 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	//multi-attribute
 	private final List<ChainedNode> appendedCommands = new List<>();
 	
+	//access-reducing constructor
+	EndPoint() {}
+	
 	//method
 	/**
-	 * Appends the given command to this duplex controller.
+	 * Appends the given command to current {@link EndPoint}.
 	 * 
 	 * @param command
 	 * @throws ArgumentIsNullException if the given command is null.
-	 * @throws InvalidArgumentException if this duplex controller is aborted.
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
 	public final void appendCommand(final ChainedNode command) {
 		
@@ -43,11 +49,11 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	
 	//method
 	/**
-	 * Appends the given commands to this duplex controller.
+	 * Appends the given commands to current {@link EndPoint}.
 	 * 
 	 * @param commands
 	 * @throws ArgumentIsNullException if one of the given commands is null.
-	 * @throws InvalidArgumentException if this duplex controller is aborted.
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
 	public final void appendCommand(final ChainedNode... commands) {
 		
@@ -58,13 +64,13 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	
 	//method declaration
 	/**
-	 * @return the target of this duplex controller.
+	 * @return the target of the current {@link EndPoint}.
 	 */
 	public abstract String getTarget();
 	
 	//method
 	/**
-	 * @return true if this duplex controller has a receiver controller
+	 * @return true if the current {@link EndPoint} has a receiver controller
 	 */
 	public final boolean hasReceiverController() {
 		return (receiverController != null);
@@ -72,57 +78,55 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	
 	//method declaration
 	/**
-	 * @return true if this duplex controller has requested the connection.
+	 * @return true if the current {@link EndPoint} has requested the connection.
 	 */
 	public abstract boolean hasRequestedConnection();
 	
 	//method declaration
 	/**
-	 * @return true if this duplex controller has a target.
+	 * @return true if the current {@link EndPoint} has a target.
 	 */
 	public abstract boolean hasTarget();
 	
 	//method
 	/**
 	 * @param target
-	 * @return true if this duplex controller has the given target.
+	 * @return true if the current {@link EndPoint} has the given target.
 	 */
 	public final boolean hasTarget(final String target) {
 		
-		//Handles the case that this duplex controller does not have a target.
+		//Handles the case that current EndPoint does not have a target.
 		if (!hasTarget()) {
 			return false;
 		}
 		
-		//Handles the case that this duplex controller has a target.
+		//Handles the case that current EndPoint has a target.
 		return getTarget().equals(target);
 	}
 	
 	//method
 	/**
-	 * @return true if this diplex controller is a local duplex controller.
+	 * @return true if the current {@link EndPoint} is a local {@link EndPoint}.
 	 */
-	public final boolean isLocalDuplexController() {
-		return !isNetDuplexController();
+	public final boolean isLocalEndPoint() {
+		return !isNetEndPoint();
 	}
 	
 	//method declaration
 	/**
-	 * @return true if this duplex controller is a net duplex controller.
+	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
 	 */
-	public abstract boolean isNetDuplexController();
+	public abstract boolean isNetEndPoint();
 	
 	//method
 	/**
-	 * Runs and removes the appended commands of this duplex controller.
-	 * This method allows that an appended command leads to further appended commands.
-	 * The appended commands of this local duplex controller will be removed in any case.
+	 * Runs the appended commands of the current {@link EndPoint}.
+	 * The appended commands of the current local {@link EndPoint} will be removed in any case.
 	 * 
-	 * @throws InvalidArgumentException if this local duplex controller is aborted.
+	 * @throws InvalidArgumentException if the current local {@link EndPoint} is closed.
 	 */
-	public final void runAppendedCommands()
-	{
-		//Checks if this local duplex controller is not aborted.
+	public final void runAppendedCommands() {
+		
 		supposeIsAlive();
 		
 		final var appendedCommands = this.appendedCommands.getCopy();
@@ -132,47 +136,54 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	
 	//method
 	/**
-	 * Sets the receiver controller of this duplex controller.
+	 * Sets the receiver controller of the current {@link EndPoint}.
 	 * 
 	 * @param receiverController
-	 * @throws ArgumentIsNullException if the given receiver controller is null.
+	 * @throws ArgumentIsNullException if the given receiverController is null.
 	 */
 	public final void setReceiverController(final IDataProviderController receiverController) {
 		
-		//Checks if the given receiver controller is not null.
+		//Checks if the given receiverController is not null.
 		Validator.suppose(receiverController).thatIsNamed("receiver controller").isNotNull();
 		
-		//Sets the receiver controller of this duplex controller.
+		//Sets the receiver controller of the current EndPoint.
 		this.receiverController = receiverController;
 	}
 	
 	//method
 	/**
-	 * @return the receiver controller of this duplex controller.
-	 * @throws ArgumentDoesNotHaveAttributeException if this duplex controller does not have a receiver controller.
+	 * {@inheritDoc)
 	 */
-	protected IDataProviderController getRefReceiverController() {
+	@Override
+	protected final void noteClose() {}
+	
+	//method
+	/**
+	 * @return the receiver controller of the current {@link EndPoint}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver controller.
+	 */
+	IDataProviderController getRefReceiverController() {
 		
-		//Checks if this duplex controller has a receiver controller.
+		if (hasReceiverController()) {
+			return receiverController;
+		}
+		
+		Sequencer
+		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
+		.waitUntil(() -> hasReceiverController());
+		
 		if (!hasReceiverController()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "receiver controller");
+			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
 		}
 		
 		return receiverController;
 	}
 	
-	//method
-	/**
-	 * Lets this duplex controller note an abort.
-	 */
-	@Override
-	protected final void noteClose() {}
-	
 	//method declaration
 	/**
-	 * Lets this duplex controller run the given commands.
+	 * Lets current {@link EndPoint} run the given commands.
 	 * 
 	 * @param commands
 	 */
-	protected abstract void run(List<ChainedNode> commands);
+	abstract void run(List<ChainedNode> commands);
 }

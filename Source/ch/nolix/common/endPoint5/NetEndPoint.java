@@ -169,7 +169,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return true if this net duplex controller is a net duplex controller.
 	 */
 	@Override
-	public boolean isNetDuplexController() {
+	public boolean isNetEndPoint() {
 		return true;
 	}
 	
