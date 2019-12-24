@@ -30,6 +30,6 @@ public final class EntityTest extends Test {
 		final var result = testUnit.getSpecification();
 		
 		//verification
-		expect(result).isEqualTo(Node.fromString("Cat(Name(garfield),weightInGram(20000))"));
+		expect(result).isEqualTo(Node.fromString("Cat(name(Garfield),weightInGram(20000))"));
 	}
 }
