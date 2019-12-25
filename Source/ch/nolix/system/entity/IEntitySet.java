@@ -28,6 +28,9 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	}
 	
 	//method declaration
+	public abstract <E2 extends Entity> boolean canReferenceBackEntityOfType(final Class<E2> type);
+	
+	//method declaration
 	public abstract <E2 extends Entity> boolean canReferenceEntityOfType(final Class<E2> type);
 	
 	//method declaration

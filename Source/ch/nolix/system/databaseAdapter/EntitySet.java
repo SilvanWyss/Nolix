@@ -86,6 +86,11 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	}
 	
 	//method
+	public <E2 extends Entity> boolean canReferenceBackEntityOfType(final Class<E2> type) {
+		return columns.contains(c -> c.canReferenceBackEntityOfType(type));
+	}
+	
+	//method
 	public <E2 extends Entity> boolean canReferenceEntityOfType(final Class<E2> type) {
 		return columns.contains(c -> c.canReferenceEntityOfType(type));
 	}

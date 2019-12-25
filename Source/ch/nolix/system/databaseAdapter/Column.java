@@ -30,7 +30,12 @@ public final class Column<C> implements Headered {
 	public boolean canReference(final Entity entity) {
 		return dataType.canReference(entity);
 	}
-		
+	
+	//method
+	public <E extends Entity> boolean canReferenceBackEntityOfType(final Class<E> type) {
+		return (dataType.isAnyBackReferenceType() && dataType.getRefContentClass() == type);
+	}
+	
 	//method
 	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
 		return (isAnyReferenceColumn() && dataType.getRefContentClass() == type);
