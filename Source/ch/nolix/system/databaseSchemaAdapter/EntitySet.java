@@ -45,7 +45,7 @@ public final class EntitySet implements Named {
 		columns =
 		entityType
 		.getColumns()
-		.to(c -> new Column(this, c.getHeader(), c.getDataType()));
+		.to(c -> new Column(c.getHeader(), c.getDataType()));
 	}
 	
 	//method
@@ -231,8 +231,8 @@ public final class EntitySet implements Named {
 	}
 	
 	//method
-	private void addColumn(final String header, final DataType<?> propertyType) {
-		addColumn(new Column(this, header, propertyType));
+	private void addColumn(final String header, final DataType<?> dataType) {
+		addColumn(new Column(header, dataType));
 	}
 	
 	//method

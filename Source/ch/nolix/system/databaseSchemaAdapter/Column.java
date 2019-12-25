@@ -7,10 +7,12 @@ import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.List;
+import ch.nolix.common.invalidArgumentExceptions.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 import ch.nolix.system.dataTypes.DataType;
+import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
@@ -18,23 +20,26 @@ public final class Column implements Headered, IElement {
 	
 	//attributes
 	private final String header;
-	private final EntitySet entitySet;
-	private final DataType<?> valueType;
+	private final DataType<?> dataType;
+	
+	//constructor
+	Column(final String header,	final DataType<?> valueType) {
 		
-	//package-visible constructor
-	Column(
-		final EntitySet entitySet,
-		final String header,
-		final DataType<?> valueType
-	) {
-		
-		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
-		
-		Validator.suppose(entitySet).isOfType(EntitySet.class);
+		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		Validator.suppose(valueType).isOfType(DataType.class);
 		
-		this.entitySet = entitySet;
-		this.valueType = valueType;
+		this.header = header;
+		this.dataType = valueType;
+	}
+	
+	//method
+	public <E extends Entity> boolean canReferenceBackEntityOfType(final Class<E> type) {
+		return (isAnyBackReferenceColumn() && getRefContentClass() == type);
+	}
+	
+	//method
+	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
+		return (isAnyReferenceColumn() && getRefContentClass() == type);
 	}
 	
 	//method
@@ -43,8 +48,13 @@ public final class Column implements Headered, IElement {
 		return 
 		new List<>(
 			new Node(PascalCaseNameCatalogue.HEADER, getHeader()),
-			new Node(valueType.getPropertyKind().toString())
+			new Node(dataType.getPropertyKind().toString())
 		);
+	}
+	
+	//method
+	public DataType<?> getDataType() {
+		return dataType;
 	}
 	
 	//method
@@ -55,22 +65,23 @@ public final class Column implements Headered, IElement {
 	
 	//method
 	public PropertyKind getPropertyKind() {
-		return valueType.getPropertyKind();
+		return dataType.getPropertyKind();
 	}
 	
 	//method
-	public EntitySet getRefEntitySet() {
-		return entitySet;
+	public Class<?> getRefContentClass() {
+		return dataType.getRefContentClass();
 	}
 	
 	//method
 	public ColumnSQLHelper getSQLHelper(final SQLDatabaseEngine SQLDatabaseEngine) {
+		
+		//Enumerates the given SQLDatabaseEngine.
 		switch (SQLDatabaseEngine) {
 			case MSSQL:
 				return new ColumnMSSQLHelper(this);
 			default:
-				throw
-				new RuntimeException("The given SQL database engine '" + SQLDatabaseEngine + "' is not supported.");
+				throw new UnsupportedArgumentException(SQLDatabaseEngine);
 		}
 	}
 	
@@ -81,24 +92,22 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	public Class<?> getValueClass() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return valueType.getRefContentClass();
+	public boolean isAnyBackReferenceColumn() {
+		return dataType.isAnyBackReferenceType();
 	}
 	
 	//method
-	public DataType<?> getValueType() {
-		return valueType;
+	public boolean isAnyDataColumn() {
+		return dataType.isAnyValueType();
 	}
 	
 	//method
-	public boolean isDataColumn() {
-		return valueType.isAnyValueType();
+	public boolean isAnyReferenceColumn() {
+		return dataType.isAnyReferenceType();
 	}
 	
 	//method
-	public boolean isReferenceColumn() {
-		return valueType.isAnyReferenceType();
+	public boolean isAnyTechnicalColumn() {
+		return dataType.isAnyTechnicalType();
 	}
 }

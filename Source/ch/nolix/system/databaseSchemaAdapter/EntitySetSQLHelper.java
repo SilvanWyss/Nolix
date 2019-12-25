@@ -31,13 +31,11 @@ public abstract class EntitySetSQLHelper {
 		var begin = true;
 		for (final var c : entitySet.getRefColumns()) {
 			
-			if (c.isDataColumn()) {
-				stringBuilder
-				.append(c.getHeader())
-				.append(" ")
-				.append(c.getSQLHelper(getDatabaseEngine()).getSQLDataType())
-				.append(",");
-			}
+			stringBuilder
+			.append(c.getHeader())
+			.append(" ")
+			.append(c.getSQLHelper(getDatabaseEngine()).getSQLDataType())
+			.append(",");
 			
 			if (begin) {
 				begin = false;
