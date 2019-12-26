@@ -21,9 +21,12 @@ public final class ConditionMediator {
 	}
 	
 	//method
-	public <F extends Feature> void thenRequireFeature(final Class<F> type) {
+	public <F extends Feature> AdditionalConditionMediator thenRequireFeature(final Class<F> type) {
+		
 		if (condition) {
 			parentLicenseManager.requireFeature(type);
 		}
+		
+		return new AdditionalConditionMediator(parentLicenseManager);
 	}
 }
