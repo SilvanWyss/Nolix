@@ -34,7 +34,10 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		CentralLicenseManager
 		.when(loadedAndCreatedEntitySets.getSize())
 		.isBiggerThan(10)
-		.thenRequireFeature(FullDatabase.class);
+		.thenRequireFeature(DatabaseClassic.class)
+		.andWhen(loadedAndCreatedEntitySets.getSize())
+		.isBiggerThan(30)
+		.thenRequireFeature(DatabaseUltimate.class);
 		
 		final var entitySet = new EntitySet(this, entityClass);
 		

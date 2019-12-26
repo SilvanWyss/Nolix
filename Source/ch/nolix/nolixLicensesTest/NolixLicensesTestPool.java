@@ -9,6 +9,6 @@ public final class NolixLicensesTestPool extends TestPool {
 	
 	//constructor
 	public NolixLicensesTestPool() {
-		addTestClass(ApplicationUltimateTest.class);
+		addTestClass(Nolix2020ClassicTest.class);
 	}
 }

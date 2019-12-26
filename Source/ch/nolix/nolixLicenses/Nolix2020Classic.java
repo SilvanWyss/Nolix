@@ -5,10 +5,10 @@ package ch.nolix.nolixLicenses;
 import ch.nolix.common.license.License;
 
 //class
-public final class ApplicationUltimate extends License {
+public final class Nolix2020Classic extends License {
 	
 	//constructor
-	public ApplicationUltimate(final String key) {
+	public Nolix2020Classic(final String key) {
 		super(key);
 	}
 	
@@ -19,6 +19,6 @@ public final class ApplicationUltimate extends License {
 		
 		final var keyAsInt = Integer.valueOf(key);
 		
-		return (keyAsInt / 20 - keyAsInt % 250 == 3 * keyAsInt - 134756237);
+		return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134756237 == 0);
 	}
 }

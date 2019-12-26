@@ -5,14 +5,15 @@ package ch.nolix.system.databaseSchemaAdapter;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.license.Feature;
-import ch.nolix.nolixLicenses.ApplicationUltimate;
+import ch.nolix.nolixLicenses.Nolix2020Classic;
+import ch.nolix.nolixLicenses.Nolix2020Ultimate;
 
 //class
-public final class FullDatabase extends Feature {
+public final class DatabaseClassic extends Feature {
 	
 	//method
 	@Override
 	public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-		return new List<>(ApplicationUltimate.class);
+		return new List<>(Nolix2020Classic.class, Nolix2020Ultimate.class);
 	}
 }
