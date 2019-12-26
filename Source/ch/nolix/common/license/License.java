@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
  * @lines 40
  */
 public abstract class License implements Named {
-		
+	
 	//constructor
 	/**
 	 * Creates a new {@link License} using the given key.
