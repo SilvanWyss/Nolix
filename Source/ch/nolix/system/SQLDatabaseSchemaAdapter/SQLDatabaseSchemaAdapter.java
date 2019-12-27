@@ -94,10 +94,10 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			
 			//Enumerates the state of the current entity set.
 			switch (es.getState()) {
-				case CREATED:
+				case NEW:
 					createdEntitySets.addAtEnd(es);
 					break;
-				case CHANGED:
+				case EDITED:
 					changedEntitySets.addAtEnd(es);
 					break;
 				case DELETED:

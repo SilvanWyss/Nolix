@@ -14,7 +14,6 @@ import ch.nolix.system.dataTypes.OptionalReferenceType;
 import ch.nolix.system.dataTypes.OptionalValueType;
 import ch.nolix.system.dataTypes.ReferenceType;
 import ch.nolix.system.dataTypes.ValueType;
-import ch.nolix.system.databaseAdapter.EntitySetState;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
 
@@ -24,7 +23,7 @@ public final class EntitySet implements Named {
 	//attributes
 	private final String name;
 	private final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter;
-	private EntitySetState state = EntitySetState.CREATED;
+	private EntitySetState state = EntitySetState.NEW;
 	
 	//multi-attribute
 	private final List<Column> columns;
@@ -129,24 +128,24 @@ public final class EntitySet implements Named {
 	}
 	
 	//method
-	public final boolean isChanged() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (state == EntitySetState.CHANGED);
-	}
-	
-	//method
-	public final boolean isCreated() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (state == EntitySetState.CREATED);
-	}
-	
-	//method
 	public final boolean isDeleted() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.DELETED);
+	}
+	
+	//method
+	public final boolean isEdited() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.EDITED);
+	}
+	
+	//method
+	public final boolean isNew() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.NEW);
 	}
 	
 	//method
@@ -168,14 +167,14 @@ public final class EntitySet implements Named {
 		switch (getState()) {
 			case PERSISTED:
 				
-				state = EntitySetState.CHANGED;
+				state = EntitySetState.EDITED;
 				
 				parentDatabaseSchemaAdapter.noteMutatedEntitySet(this);
 				
 				break;
-			case CREATED:
+			case NEW:
 				break;
-			case CHANGED:
+			case EDITED:
 				break;
 			case DELETED:
 				throw new InvalidArgumentException(this, "is deleted");
@@ -187,10 +186,10 @@ public final class EntitySet implements Named {
 	//package-visible method
 	final void setDeleted() {
 		switch (getState()) {
-			case CREATED:
+			case NEW:
 				throw new InvalidArgumentException(this, "is created");
 			case PERSISTED:
-			case CHANGED:
+			case EDITED:
 				state = EntitySetState.DELETED;
 				break;
 			case DELETED:
@@ -205,10 +204,10 @@ public final class EntitySet implements Named {
 		switch (getState()) {
 			case PERSISTED:
 				break;
-			case CREATED:
+			case NEW:
 				state = EntitySetState.PERSISTED;
 				break;
-			case CHANGED:
+			case EDITED:
 				throw new InvalidArgumentException(this, "is changed");
 			case DELETED:
 				throw new InvalidArgumentException(this, "is deleted");

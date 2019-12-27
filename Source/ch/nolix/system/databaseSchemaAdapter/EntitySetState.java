@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseAdapter;
+package ch.nolix.system.databaseSchemaAdapter;
 
 //enum
 public enum EntitySetState {
