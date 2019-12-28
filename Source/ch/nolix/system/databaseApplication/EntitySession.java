@@ -20,6 +20,7 @@ import ch.nolix.element.widgets.Uploader;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.MultiReference;
 import ch.nolix.system.entity.OptionalValueProperty;
 import ch.nolix.system.entity.OptionalReference;
 import ch.nolix.system.entity.ValueProperty;
@@ -236,11 +237,12 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	private TabContainer createReferenceDataWidget() {
 		
 		final var referenceDataTabContainer = new TabContainer();
 		
-		for (final var mr : getRefEntity().getRefMultiReferences()) {
+		for (final MultiReference<Entity> mr : getRefEntity().getRefMultiReferences()) {
 			
 			final var multiReferenceHorizontalStack = new HorizontalStack();
 			for (final var e : mr.getRefEntities()) {

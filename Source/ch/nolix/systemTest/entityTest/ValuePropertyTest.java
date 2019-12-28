@@ -18,7 +18,7 @@ public final class ValuePropertyTest extends Test {
 			//attribute
 			public final ValueProperty<String> testUnit = new ValueProperty<>();
 		};
-		entity.extractPropertiesAndBackReferences();
+		entity.extractProperties();
 		entity.testUnit.setValue("x");
 		
 		//execution

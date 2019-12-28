@@ -18,7 +18,7 @@ public final class OptionalValuePropertyTest extends Test {
 			//attribute
 			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
 		};
-		entity.extractPropertiesAndBackReferences();
+		entity.extractProperties();
 		entity.testUnit.clear();
 		
 		//execution
@@ -39,7 +39,7 @@ public final class OptionalValuePropertyTest extends Test {
 			//attribute
 			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
 		};
-		entity.extractPropertiesAndBackReferences();
+		entity.extractProperties();
 		entity.testUnit.setValue("x");
 		
 		//execution

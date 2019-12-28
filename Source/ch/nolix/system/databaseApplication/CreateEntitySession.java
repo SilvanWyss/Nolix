@@ -105,6 +105,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					break;
 				case REFERENCE:
 					
+					@SuppressWarnings("unchecked")
 					final var referenceProperty = (Reference<Entity>)p;
 					
 					if (referenceProperty.getRefEntitySetOfReferencedEntities().isEmpty()) {
@@ -138,6 +139,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					break;
 				case OPTIONAL_REFERENCE:
 					
+					@SuppressWarnings("unchecked")
 					final var optionalRreferenceProperty = (OptionalReference<Entity>)p;
 					
 					dataGrid

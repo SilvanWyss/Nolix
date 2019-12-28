@@ -18,7 +18,7 @@ public final class MultiValuePropertyTest extends Test {
 			//attribute
 			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
 		};
-		entity.extractPropertiesAndBackReferences();
+		entity.extractProperties();
 		entity.testUnit.clear();
 		
 		//execution
@@ -39,7 +39,7 @@ public final class MultiValuePropertyTest extends Test {
 			//attribute
 			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
 		};
-		entity.extractPropertiesAndBackReferences();
+		entity.extractProperties();
 		entity.testUnit.addValue("a", "b", "c");
 		
 		//execution

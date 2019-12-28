@@ -30,9 +30,8 @@ public class Entity implements IElement, OptionalIdentified {
 	private long id = -1;
 	private IEntitySet<Entity> parentEntitySet;
 	
-	//multi-attributes
-	private List<Property<Entity>> properties;
-	private List<BaseBackReference<Entity>> backReferences;
+	//multi-attribute
+	private List<Property<?>> properties;
 	
 	//method
 	public final boolean belongsToDatabaseAdapter() {
@@ -94,37 +93,35 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final IContainer<BaseBackReference<Entity>> getRefBackReferences() {
-		
-		extractPropertiesAndBackReferencesIfNotExtracted();
-		
-		return backReferences;
+	@SuppressWarnings("rawtypes")
+	public final IContainer<BaseBackReference> getRefBackReferences() {
+		return getRefProperties().getRefOfType(BaseBackReference.class);
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
-	public final IContainer<MultiReference<Entity>> getRefMultiReferences() {
+	@SuppressWarnings("rawtypes")
+	public final IContainer<MultiReference> getRefMultiReferences() {
 		return getRefProperties().getRefOfType(MultiReference.class);
 	}
 	
 	//method
-	public final IContainer<Property<Entity>> getRefProperties() {
+	public final IContainer<Property<?>> getRefProperties() {
 		
-		extractPropertiesAndBackReferencesIfNotExtracted();
+		extractPropertiesIfNotExtracted();
 		
 		return properties;
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
-	public final IContainer<BaseReference<Entity>> getRefReferences() {
+	@SuppressWarnings("rawtypes")
+	public final IContainer<BaseReference> getRefReferences() {
 		return getRefProperties().getRefOfType(BaseReference.class);
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
-	public final IContainer<SingleBackReference<Entity>> getRefSingleBackReferences() {
-		return getRefBackReferences().getRefOfType(SingleBackReference.class);
+	@SuppressWarnings({"rawtypes"})
+	public final IContainer<SingleBackReference> getRefSingleBackReferences() {
+		return getRefProperties().getRefOfType(SingleBackReference.class);
 	}
 	
 	//method
@@ -432,10 +429,9 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final void extractPropertiesAndBackReferences() {
+	public final void extractProperties() {
 		
 		properties = new List<>();
-		backReferences = new List<>();
 		
 		Class<?> cl = getClass();
 		while (cl != null) {
@@ -452,18 +448,20 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	private void extractPropertiesAndBackReferencesIfNotExtracted() {
-		if (!propertiesAndBackReferencesAreExtracted()) {
-			extractPropertiesAndBackReferences();
+	private void extractPropertiesIfNotExtracted() {
+		if (!propertiesAreExtracted()) {
+			extractProperties();
 		}
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	private BaseReference<Entity> getRefRefenceByHeader(final String header) {
 		return getRefReferences().getRefFirst(r -> r.hasHeader(header));
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	private <E extends Entity> BaseBackReference<Entity> getRefBackReferenceForOrNull(final BaseReference<E> reference) {
 		return
 		getRefBackReferences()
@@ -471,8 +469,8 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	private boolean propertiesAndBackReferencesAreExtracted() {
-		return (properties != null && backReferences != null);
+	private boolean propertiesAreExtracted() {
+		return (properties != null);
 	}
 	
 	//method

@@ -114,6 +114,7 @@ public final class EntitySetSession extends HeaderedSession {
 							break;
 						case REFERENCE:						
 							
+							@SuppressWarnings("unchecked")
 							final var referenceProperty = (Reference<Entity>)p;
 							
 							entitiesGrid.setWidget(
