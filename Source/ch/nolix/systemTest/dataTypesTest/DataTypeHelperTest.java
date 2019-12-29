@@ -29,32 +29,43 @@ public final class DataTypeHelperTest extends Test {
 		
 	//static class
 	private static final class Entity1A extends Entity {
+		
+		//attribute
 		public final ValueProperty<String> valueProperty = new ValueProperty<>();
 	}
 	
 	//static class
 	private static final class Entity1B extends Entity {
+		
+		//attribute
 		public final OptionalValueProperty<String> optionalValueProperty = new OptionalValueProperty<>();
 	}
 	
 	//static class
 	private static final class Entity1C extends Entity {
+		
+		//attribute
 		public final MultiValueProperty<String> multiValueProperty = new MultiValueProperty<>();
 	}
 	
 	//static class
 	private static final class Entity2A extends Entity {
+		
+		//attribute
 		public final Reference<Entity2D> reference = new Reference<>();
 	}
 	
 	//static class
 	private static final class Entity2B extends Entity {
+		
+		//attribute
 		public final OptionalReference<Entity2D> optionalReference= new OptionalReference<>();
 	}
-
 	
 	//static class
 	private static final class Entity2C extends Entity {
+		
+		//attribute
 		public final MultiReference<Entity2D> multiReference = new MultiReference<>();
 	}
 	
@@ -63,23 +74,30 @@ public final class DataTypeHelperTest extends Test {
 	
 	//static class
 	private static final class Entity3A extends Entity {
+		
+		//attribute
 		public final BackReference<Entity3D> backReference = new BackReference<>("reference");
 	}
 	
 	//static class
 	private static final class Entity3B extends Entity {
+		
+		//attribute
 		public final OptionalBackReference<Entity3E> optionalBackReference =
 		new OptionalBackReference<>("optionalReference");
 	}
 	
 	//static class
 	private static final class Entity3C extends Entity {
+		
+		//attribute
 		public final MultiBackReference<Entity3F> multiBackReference = new MultiBackReference<>("multiReference");
 	}
 	
 	//static class
 	private static final class Entity3D extends Entity {
 		
+		//attribute
 		@SuppressWarnings("unused")
 		public final Reference<Entity3A> reference = new Reference<>();
 	}
@@ -87,6 +105,7 @@ public final class DataTypeHelperTest extends Test {
 	//static class
 	private static final class Entity3E extends Entity {
 		
+		//attribute
 		@SuppressWarnings("unused")
 		public final OptionalReference<Entity3B> optionalReference = new OptionalReference<>();
 	}
@@ -94,6 +113,7 @@ public final class DataTypeHelperTest extends Test {
 	//static class
 	private static final class Entity3F extends Entity {
 		
+		//attribute
 		@SuppressWarnings("unused")
 		public final MultiReference<Entity3C> multiReference = new MultiReference<>();
 	}
