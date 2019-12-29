@@ -6,43 +6,40 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
-import ch.nolix.system.dataTypes.IdType;
+import ch.nolix.system.dataTypes.DataTypeHelper;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Property;
 
 //class
 public final class EntityType<E extends Entity> implements Named {
-
+	
 	//attribute
-	private final String name;
 	private final Class<E> entityClass;
 	
-	//multi-attribute
-	private final List<Column<?>> columns;
+	//multi-attribute for caching
+	private final List<Column<?>> columns = new List<>();
 	
 	//constructor
 	public EntityType(final Class<E> entityClass) {	
-		name = entityClass.getSimpleName();
+		
+		Validator.suppose(entityClass).thatIsNamed("Entity class").isNotNull();
+		
 		this.entityClass = entityClass;
-		columns = extractColumns();
+		extractColumns();
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public E createDefaultEntity() {
+	public E createEmptyEntity() {
 		try {
 			
-			final var constructor = getEntityClass().getDeclaredConstructors()[0];
+			final var constructor = entityClass.getDeclaredConstructors()[0];
 			constructor.setAccessible(true);
 			
-			final var entity = (E)constructor.newInstance();
-			getColumns();
-			return entity;
+			return (E)constructor.newInstance();
 		} catch (
 			final
 			InstantiationException
@@ -63,10 +60,10 @@ public final class EntityType<E extends Entity> implements Named {
 		final ValueCreator valueCreator
 	) {
 		
-		final var entity = createDefaultEntity();
+		final var entity = createEmptyEntity();
 		entity.setId(id);
-		entity.setValues(valuesInOrder, valueCreator);
 		entity.setPersisted();
+		entity.setValues(valuesInOrder, valueCreator);
 		
 		return entity;
 	}
@@ -77,68 +74,23 @@ public final class EntityType<E extends Entity> implements Named {
 	}
 	
 	//method
-	public Class<E> getEntityClass() {
+	public Class<E> getRefEntityClass() {
 		return entityClass;
 	}
 	
 	//method
 	@Override
-	public String getName() {
-		return name;
+	public String getName() {	
+		return entityClass.getSimpleName();
 	}
 	
 	//method
-	public final List<Column<?>> extractColumns() {
+	private void extractColumns() {
 		
-		final var constructor = getEntityClass().getDeclaredConstructors()[0];
-		constructor.setAccessible(true);
-		try {
-			final var entity = (Entity)constructor.newInstance();
-			entity.getRefProperties();
-			
-			final var columns = new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdType()));
-			
-			Class<?> lClass = entityClass.getClass();
-			while (lClass != null) {
-				
-				for (final var f : lClass.getDeclaredFields()) {
-					if (Property.class.isAssignableFrom(f.getType())) {
-						try {
-							
-							f.setAccessible(true);
-							
-							final Property<?> property = (Property<?>)(f.get(this));
-							
-							Validator.suppose(property).isOfType(Property.class);
-							
-							columns.addAtEnd(
-								new Column<>(
-									f.getName(),
-									null //TODO
-								)
-							);
-						}
-						catch (final IllegalArgumentException | IllegalAccessException exception) {
-							throw new RuntimeException(exception);
-						}
-					}
-				}
-				
-				lClass = lClass.getSuperclass();
-			}
-			
-			return columns;
-		}
-		catch (
-			final
-			InstantiationException
-			| IllegalAccessException
-			| IllegalArgumentException
-			| InvocationTargetException
-			| SecurityException
-			exception
-		) {
-			throw new RuntimeException(exception);
+		columns.clear();
+		
+		for (final var p : createEmptyEntity().getRefProperties()) {
+			columns.addAtBegin(new Column<>(p.getHeader(), DataTypeHelper.createDatatypeFor(p)));
 		}
 	}
 }

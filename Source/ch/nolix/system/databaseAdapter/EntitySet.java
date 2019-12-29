@@ -119,8 +119,8 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	}
 	
 	//method
-	public E createDefaultEntity() {
-		return getEntityType().createDefaultEntity();
+	public E createEmptyEntity() {
+		return getEntityType().createEmptyEntity();
 	}
 	
 	//method

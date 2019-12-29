@@ -54,7 +54,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	//method
 	public final DSA addSchema(final Schema schema) {
 		
-		schema.getRefEntityTypes().forEach(et -> addEntitySet(et.getEntityClass()));
+		schema.getRefEntityTypes().forEach(et -> addEntitySet(et.getRefEntityClass()));
 		
 		return asConcreteType();
 	}

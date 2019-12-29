@@ -41,7 +41,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	@Override
 	protected VerticalStack createSubSubContentWidget() {
 		
-		newEntity = getRefEntitySet().createDefaultEntity();
+		newEntity = getRefEntitySet().createEmptyEntity();
 		getRefEntitySet().addEntity(newEntity);
 		
 		return
