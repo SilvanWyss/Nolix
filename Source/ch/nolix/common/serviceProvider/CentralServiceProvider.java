@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.common.serviceProvider;
 
+//own import
+import ch.nolix.common.processProperties.WriteMode;
+
 //class
 public final class CentralServiceProvider {
 	
 	//static attribute
-	private static final ServiceProvider coreServiceProdiver =
-	new ServiceProvider();
+	private static final ServiceProvider coreServiceProdiver = new ServiceProvider();
 	
 	//static method
 	public static <S> S get(final Class<S> interface_) {
@@ -14,10 +16,7 @@ public final class CentralServiceProvider {
 	}
 	
 	//static method
-	public static <I, S extends I> void register(
-		final Class<I> interface_,
-		final S service
-	) {
+	public static <I, S extends I> void register(final Class<I> interface_,	final S service) {
 		coreServiceProdiver.register(interface_, service);
 	}
 	
@@ -25,9 +24,9 @@ public final class CentralServiceProvider {
 	public static <I, S extends I> void register(
 		final Class<I> interface_,
 		final S service,
-		final boolean overwrite
+		final WriteMode writeMode
 	) {
-		coreServiceProdiver.register(interface_, service, overwrite);
+		coreServiceProdiver.register(interface_, service, writeMode);
 	}
 	
 	//access-reducing constructor

@@ -4,13 +4,15 @@ package ch.nolix.common.serviceProvider;
 //Java import
 import java.util.HashMap;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.processProperties.WriteMode;
 import ch.nolix.common.validator.Validator;
 
 //class
 public final class ServiceProvider {
-
+	
 	//multi-attribute
 	private final HashMap<Class<?>, Object> services = new HashMap<>();
 	
@@ -38,14 +40,14 @@ public final class ServiceProvider {
 		final Class<I> interface_,
 		final S service
 	) {
-		register(interface_, service, false);
+		register(interface_, service, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//method
 	public <I, S extends I> void register(
 		final Class<I> interface_,
 		final S service,
-		final boolean overwrite
+		final WriteMode writeMode
 	) {
 		
 		Validator
@@ -58,19 +60,26 @@ public final class ServiceProvider {
 		.thatIsNamed(VariableNameCatalogue.SERVICE)
 		.isNotNull();
 		
-		if (!overwrite) {
-			if (services.putIfAbsent(interface_, service) != null) {
-				throw
-				new InvalidArgumentException(
-					this,
-					"contains already a service with the given interface '"
-					+ interface_.getCanonicalName()
-					+ "'"
-				);
-			}
-		}
-		else {
-			services.put(interface_, service);
+		switch (writeMode) {
+			case THROW_EXCEPTION_WHEN_EXISTS_ALREADY:
+				
+				if (services.putIfAbsent(interface_, service) != null) {
+					throw
+					new InvalidArgumentException(
+						this,
+						"contains already a service with the given interface '"
+						+ interface_.getCanonicalName()
+						+ "'"
+					);
+				}
+				
+				break;
+			case OVERWRITE_WHEN_EXISTS_ALREADY:
+				services.put(interface_, service);
+				break;
+			case SKIP_WHEN_EXISTS_ALREADY:
+				services.putIfAbsent(interface_, service);
+				break;
 		}
 	}
 }
