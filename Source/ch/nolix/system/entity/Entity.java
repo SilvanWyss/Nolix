@@ -346,7 +346,7 @@ public class Entity implements IElement, OptionalIdentified {
 	
 	//TODO: Implement EntityAccessor.setValues(Iterable<BaseNode>, ValueCreator).
 	//package-visible method
-	public final void setValues(final Iterable<BaseNode> valuesInOrder, final ValueCreator valueCreator) {
+	public final void setValues(final Iterable<BaseNode> valuesInOrder, final ValueCreator<BaseNode> valueCreator) {
 		
 		//Iterates the properties of the current entity and the given valuesInOrder together.
 		final var propertiesIterator = getRefProperties().iterator();
@@ -357,12 +357,12 @@ public class Entity implements IElement, OptionalIdentified {
 			//Enumerates the kind of the current property.
 			switch (property.getPropertyKind()) {
 				case VALUE:
-					property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFromSpecification(v));					
+					property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFrom(v));					
 					break;
 				case OPTIONAL_VALUE:
 					
 					if (v.containsAttributes()) {
-						property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFromSpecification(v));
+						property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFrom(v));
 					}
 					
 					break;
@@ -371,7 +371,7 @@ public class Entity implements IElement, OptionalIdentified {
 					final var valueClass = property.getValueClass();
 					
 					property.internal_setValues(
-						v.getRefAttributes().to(a -> valueCreator.ofType(valueClass).createFromSpecification(a))						
+						v.getRefAttributes().to(a -> valueCreator.ofType(valueClass).createFrom(a))						
 					);
 					
 					break;

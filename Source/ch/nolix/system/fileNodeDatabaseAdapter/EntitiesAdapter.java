@@ -13,10 +13,10 @@ public final class EntitiesAdapter<E extends Entity> {
 
 	//attributes
 	private final BaseNode entitiesSpecification;
-	private final ValueCreator valueCreator;
+	private final ValueCreator<BaseNode> valueCreator;
 	
 	//package-visible constructor
-	EntitiesAdapter(final BaseNode entitiesSpecification, ValueCreator valueCreator) {
+	EntitiesAdapter(final BaseNode entitiesSpecification, ValueCreator<BaseNode> valueCreator) {
 		
 		Validator.suppose(entitiesSpecification).thatIsNamed("entities specification").isNotNull();
 		Validator.suppose(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();

@@ -7,10 +7,7 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.valueCreator.SpecificValueCreator;
-import ch.nolix.common.valueCreator.SpecificValueCreatorCatalogue;
 import ch.nolix.common.valueCreator.ValueCreator;
-import ch.nolix.element.image.Image;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IDatabaseAdapter;
 import ch.nolix.system.entity.IEntitySet;
@@ -20,7 +17,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	
 	//attributes
 	private final Schema schema;
-	private final ValueCreator valueCreator = new ValueCreator();
+	private final ValueCreator<BaseNode> valueCreator = new ValueCreator<>();
 	
 	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<>();
@@ -32,15 +29,14 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		Validator.suppose(schema).isOfType(Schema.class);
 		
 		this.schema = schema;
-		
-		valueCreator.registerSpecificValueCreator(
-			SpecificValueCreatorCatalogue.BIG_DECIMAL_CREATOR,
-			SpecificValueCreatorCatalogue.BINARY_OBJECT_CREATOR,
-			SpecificValueCreatorCatalogue.BOOLEAN_CREATOR,
-			SpecificValueCreatorCatalogue.INTEGER_CREATOR,
-			SpecificValueCreatorCatalogue.STRING_CREATOR,
-			new SpecificValueCreator<>(Image.class, Image::fromString, Image::fromSpecification)
-		);
+				
+		valueCreator
+		.registerSpecificValueCreator(ch.nolix.common.templates.FromNodeSpecificValueCreatorCatalogue.BIG_DECIMAL_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.templates.FromNodeSpecificValueCreatorCatalogue.BINARY_OBJECT_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.templates.FromNodeSpecificValueCreatorCatalogue.BOOLEAN_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.templates.FromNodeSpecificValueCreatorCatalogue.INTEGER_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.templates.FromNodeSpecificValueCreatorCatalogue.STRING_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.element.templates.FromNodeSpecificValueCreatorCatalogue.IMAGE_CREATOR);
 		
 		reset();
 	}
@@ -74,7 +70,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//method
 	@Override
 	public final <V> V createValueFromSpecification(final Class<V> type, final BaseNode specificaiton) {
-		return valueCreator.ofType(type).createFromSpecification(specificaiton);
+		return valueCreator.ofType(type).createFrom(specificaiton);
 	}
 
 	//method
@@ -145,11 +141,6 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		}
 	}
 	
-	//method
-	protected final <V> V createValueFromString(final Class<V> type, final String string) {
-		return valueCreator.ofType(type).createFromString(string);
-	}
-	
 	//method declaration
 	protected abstract <E extends Entity, ES extends IEntitySet<E>> BaseEntitySetAdapter<E> getEntitySetAdapter(
 		ES entitySet
@@ -161,7 +152,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	}
 	
 	//method
-	protected final ValueCreator getValueCreator() {
+	protected final ValueCreator<BaseNode> getValueCreator() {
 		return valueCreator;
 	}
 	

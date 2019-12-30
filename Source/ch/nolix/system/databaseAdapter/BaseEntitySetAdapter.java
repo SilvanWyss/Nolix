@@ -4,6 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.List;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.entity.Entity;
@@ -13,10 +14,10 @@ public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {
 	
 	//attributes
 	private final EntityType<E> entityType;
-	private final ValueCreator valueCreator;
+	private final ValueCreator<BaseNode> valueCreator;
 	
 	//constructor
-	public BaseEntitySetAdapter(final EntityType<E> entityType, final ValueCreator valueCreator) {
+	public BaseEntitySetAdapter(final EntityType<E> entityType, final ValueCreator<BaseNode> valueCreator) {
 		
 		Validator.suppose(entityType).thatIsNamed(EntityType.class).isNotNull();
 		Validator.suppose(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();
@@ -40,7 +41,7 @@ public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {
 	}
 	
 	//method
-	protected final ValueCreator getValueCreator() {
+	protected final ValueCreator<BaseNode> getValueCreator() {
 		return valueCreator;
 	}
 }

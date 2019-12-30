@@ -1,18 +1,17 @@
 //package declaration
 package ch.nolix.common.valueCreator;
 
-//own imports
-import ch.nolix.common.node.BaseNode;
+//own import
 import ch.nolix.common.validator.Validator;
 
 //class
-public final class CreateMediator<V> {
+public final class CreateMediator<S, V> {
 	
 	//attribute
-	private final SpecificValueCreator<V> parentSpecificValueCreator;
+	private final SpecificValueCreator<S, V> parentSpecificValueCreator;
 	
-	//package-visible constructor
-	CreateMediator(final SpecificValueCreator<V> parentSpecificValueCreator) {
+	//constructor
+	CreateMediator(final SpecificValueCreator<S, V> parentSpecificValueCreator) {
 		
 		Validator.suppose(parentSpecificValueCreator).thatIsNamed("parent SpecificValueCreator").isNotNull();
 		
@@ -20,12 +19,7 @@ public final class CreateMediator<V> {
 	}
 	
 	//method
-	public V createFromSpecification(final BaseNode specification) {
-		return parentSpecificValueCreator.createFromSpecification(specification);
-	}
-	
-	//method
-	public V createFromString(final String string) {
-		return parentSpecificValueCreator.createFromString(string);
+	public V createFrom(final S source) {
+		return parentSpecificValueCreator.createFrom(source);
 	}
 }

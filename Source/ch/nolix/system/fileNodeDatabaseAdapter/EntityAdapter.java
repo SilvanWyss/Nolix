@@ -26,7 +26,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	}
 	
 	//method
-	public E createPersistedEntity(final EntityType<E> entityType, final ValueCreator valueCreator) {
+	public E createPersistedEntity(final EntityType<E> entityType, final ValueCreator<BaseNode> valueCreator) {
 		return entityType.createPersistedEntity(
 			getId(),
 			entitySpecification.getRefAttributes().withoutFirst(),

@@ -21,7 +21,7 @@ public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapt
 	EntitySetAdapter(
 		final BaseNode entitySetSpecification,
 		final EntityType<E> entityType,
-		final ValueCreator valueCreator
+		final ValueCreator<BaseNode> valueCreator
 	) {
 		
 		super(entityType, valueCreator);

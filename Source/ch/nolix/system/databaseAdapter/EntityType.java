@@ -57,7 +57,7 @@ public final class EntityType<E extends Entity> implements Named {
 	public E createPersistedEntity(
 		final long id,
 		final Iterable<BaseNode> valuesInOrder,
-		final ValueCreator valueCreator
+		final ValueCreator<BaseNode> valueCreator
 	) {
 		
 		final var entity = createEmptyEntity();

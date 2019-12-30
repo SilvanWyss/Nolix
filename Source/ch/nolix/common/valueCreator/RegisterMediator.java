@@ -2,40 +2,35 @@
 package ch.nolix.common.valueCreator;
 
 //own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 
 //class
-public final class RegisterMediator<V> {
+public final class RegisterMediator<S, V> {
 	
-	//attribute
-	private final ValueCreator parentValueCreator;
-	private final Class<V> type;
+	//attributes
+	private final ValueCreator<S> parentValueCreator;
+	private final Class<V> valueClass;
 	
-	//package-visible constructor
-	RegisterMediator(final ValueCreator parentValueCreator, final Class<V> type) {
+	//constructor
+	RegisterMediator(final ValueCreator<S> parentValueCreator, final Class<V> valueClass) {
 		
 		Validator.suppose(parentValueCreator).thatIsNamed("parent value creator").isNotNull();
-		Validator.suppose(type).thatIsNamed(VariableNameCatalogue.TYPE);
+		Validator.suppose(valueClass).thatIsNamed("value Class").isNotNull();
 		
 		this.parentValueCreator = parentValueCreator;
-		this.type = type;
+		this.valueClass = valueClass;
 	}
 	
 	//method
-	public boolean containsCreators() {
-		return parentValueCreator.containsCreatorsForType(type);
+	public boolean canCreateValues() {
+		return parentValueCreator.canCreateValuesOf(valueClass);
 	}
 	
 	//method
-	public void registerCreators(
-		final IElementTakerElementGetter<String, V> fromStringCreator,
-		final IElementTakerElementGetter<BaseNode, V> fromSpecificationCreator
-	) {
+	public void registerCreator(final IElementTakerElementGetter<S, V> creator) {
 		parentValueCreator.registerSpecificValueCreator(
-			new SpecificValueCreator<>(type, fromStringCreator, fromSpecificationCreator)
+			new SpecificValueCreator<>(valueClass, creator)
 		);
 	}
 }
