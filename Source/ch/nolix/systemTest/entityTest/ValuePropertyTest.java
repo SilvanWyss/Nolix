@@ -4,6 +4,7 @@ package ch.nolix.systemTest.entityTest;
 //own imports
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.ValueProperty;
 
 //test class
@@ -18,7 +19,7 @@ public final class ValuePropertyTest extends Test {
 			//attribute
 			public final ValueProperty<String> testUnit = new ValueProperty<>();
 		};
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		entity.testUnit.setValue("x");
 		
 		//execution

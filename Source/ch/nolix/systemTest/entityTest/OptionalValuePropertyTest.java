@@ -4,6 +4,7 @@ package ch.nolix.systemTest.entityTest;
 //own imports
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.OptionalValueProperty;
 
 //test class
@@ -18,7 +19,7 @@ public final class OptionalValuePropertyTest extends Test {
 			//attribute
 			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
 		};
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		entity.testUnit.clear();
 		
 		//execution
@@ -39,7 +40,7 @@ public final class OptionalValuePropertyTest extends Test {
 			//attribute
 			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
 		};
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		entity.testUnit.setValue("x");
 		
 		//execution

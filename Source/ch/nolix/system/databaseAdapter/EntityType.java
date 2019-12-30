@@ -6,12 +6,14 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.List;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.dataTypes.DataTypeHelper;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.EntityAccessor;
 
 //class
 public final class EntityType<E extends Entity> implements Named {
@@ -56,14 +58,14 @@ public final class EntityType<E extends Entity> implements Named {
 	//method
 	public E createPersistedEntity(
 		final long id,
-		final Iterable<BaseNode> valuesInOrder,
+		final IContainer<BaseNode> valueSpecificationsInOrder,
 		final ValueCreator<BaseNode> valueCreator
 	) {
 		
 		final var entity = createEmptyEntity();
-		entity.setId(id);
-		entity.setPersisted();
-		entity.setValues(valuesInOrder, valueCreator);
+		EntityAccessor.setId(entity, id);
+		EntityAccessor.setPersisted(entity);
+		EntityAccessor.setValues(entity, valueSpecificationsInOrder, valueCreator);
 		
 		return entity;
 	}

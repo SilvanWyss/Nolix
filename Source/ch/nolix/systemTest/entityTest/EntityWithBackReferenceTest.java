@@ -6,6 +6,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.BackReference;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.Reference;
 
 //test class
@@ -34,7 +35,7 @@ public final class EntityWithBackReferenceTest extends Test {
 		final var testUnit = new Entity1B();
 		
 		//execution & verification
-		expect(() -> testUnit.extractProperties())
+		expect(() -> EntityAccessor.extractProperties(testUnit))
 		.throwsException()
 		.ofType(ArgumentDoesNotHaveAttributeException.class);
 	}

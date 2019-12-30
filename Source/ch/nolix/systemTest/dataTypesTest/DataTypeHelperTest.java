@@ -15,6 +15,7 @@ import ch.nolix.system.dataTypes.ReferenceType;
 import ch.nolix.system.dataTypes.ValueType;
 import ch.nolix.system.entity.BackReference;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.MultiBackReference;
 import ch.nolix.system.entity.MultiReference;
 import ch.nolix.system.entity.MultiValueProperty;
@@ -123,7 +124,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity1A();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.valueProperty);
@@ -138,7 +139,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity1B();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.optionalValueProperty);
@@ -153,7 +154,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity1C();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.multiValueProperty);
@@ -168,7 +169,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity2A();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.reference);
@@ -183,7 +184,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity2B();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.optionalReference);
@@ -198,7 +199,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity2C();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.multiReference);
@@ -213,7 +214,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity3A();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.backReference);
@@ -228,7 +229,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity3B();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.optionalBackReference);
@@ -243,7 +244,7 @@ public final class DataTypeHelperTest extends Test {
 		
 		//setup
 		final var entity = new Entity3C();
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		
 		//execution
 		final var result = DataTypeHelper.createDatatypeFor(entity.multiBackReference);

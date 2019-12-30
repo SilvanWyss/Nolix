@@ -7,6 +7,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.entity.EntityAccessor;
 
 //class
 public final class EntitiesAdapter<E extends Entity> {
@@ -28,7 +29,7 @@ public final class EntitiesAdapter<E extends Entity> {
 	//method
 	public void add(final E entity) {
 		
-		entity.setId(getNextId());
+		EntityAccessor.setId(entity, getNextId());
 		
 		entitiesSpecification.addAttribute(entity.getRowSpecification());
 	}

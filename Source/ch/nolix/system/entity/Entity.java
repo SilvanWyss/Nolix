@@ -274,16 +274,6 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	public final void setId(final long id) {
-		
-		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
-		
-		supposeHasNoId();
-		
-		this.id = id;
-	}
-	
-	//method
 	public final void supposeCanBeSaved() {
 		getRefProperties().forEach(Property::supposeCanBeSaved);
 	}
@@ -295,7 +285,19 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 	}
 	
-	//package-visible method
+	//method
+	final void extractProperties() {
+		
+		properties = new List<>();
+		
+		Class<?> cl = getClass();
+		while (cl != null) {
+			extractPropertiesFromClass(cl);		
+			cl = cl.getSuperclass();
+		}
+	}
+	
+	//method
 	final void setEdited() {
 		switch (getState()) {
 			case NEW:
@@ -319,9 +321,18 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 	}
 	
-	//TODO: Implement EntityAccessor.setPersisted(entity).
 	//method
-	public final void setPersisted() {
+	final void setId(final long id) {
+		
+		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
+		
+		supposeHasNoId();
+		
+		this.id = id;
+	}
+	
+	//method
+	final void setPersisted() {
 		switch (getState()) {
 			case NEW:
 				state = EntityState.PERSISTED;
@@ -339,14 +350,13 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 	}
 	
-	//package-visible method
+	//method
 	final void setRejected() {
 		state = EntityState.REJECTED;
 	}
 	
-	//TODO: Implement EntityAccessor.setValues(Iterable<BaseNode>, ValueCreator).
-	//package-visible method
-	public final void setValues(final Iterable<BaseNode> valuesInOrder, final ValueCreator<BaseNode> valueCreator) {
+	//method
+	final void setValues(final Iterable<BaseNode> valuesInOrder, final ValueCreator<BaseNode> valueCreator) {
 		
 		//Iterates the properties of the current entity and the given valuesInOrder together.
 		final var propertiesIterator = getRefProperties().iterator();
@@ -425,18 +435,6 @@ public class Entity implements IElement, OptionalIdentified {
 			catch (final IllegalArgumentException | IllegalAccessException exception) {
 				throw new RuntimeException(exception);
 			}
-		}
-	}
-	
-	//method
-	public final void extractProperties() {
-		
-		properties = new List<>();
-		
-		Class<?> cl = getClass();
-		while (cl != null) {
-			extractPropertiesFromClass(cl);		
-			cl = cl.getSuperclass();
 		}
 	}
 	
