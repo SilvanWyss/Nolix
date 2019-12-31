@@ -7,7 +7,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-06

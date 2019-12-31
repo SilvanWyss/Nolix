@@ -3,7 +3,7 @@ package ch.nolix.common.endPoint4;
 
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * A package in end point 3 is a package with a message role.
  * 

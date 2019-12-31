@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2019-05

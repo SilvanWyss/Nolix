@@ -8,7 +8,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class MatrixColumnIterator<E> implements Iterator<E> {
 
 	//attributes

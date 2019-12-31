@@ -8,7 +8,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.GUI.GUI;
 
-//package-visible class
+//class
 final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHandler {
 	
 	//attribute

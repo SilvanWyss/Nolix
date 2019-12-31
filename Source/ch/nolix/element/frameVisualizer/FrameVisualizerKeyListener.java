@@ -10,7 +10,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.input.Key;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12

@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12

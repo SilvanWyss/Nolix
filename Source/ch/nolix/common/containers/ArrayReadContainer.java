@@ -8,7 +8,7 @@ import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-11

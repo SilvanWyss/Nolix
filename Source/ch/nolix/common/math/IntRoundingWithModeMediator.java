@@ -11,7 +11,7 @@ public final class IntRoundingWithModeMediator {
 	private final int value;
 	private final RoundingMode roundingMode;
 	
-	//package-visible class
+	//class
 	IntRoundingWithModeMediator(final int value, final RoundingMode roundingMode) {
 		
 		Validator

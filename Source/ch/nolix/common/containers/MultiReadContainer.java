@@ -4,7 +4,7 @@ package ch.nolix.common.containers;
 //Java import
 import java.util.Iterator;
 
-//package-visible class
+//class
 final class MultiReadContainer<E> implements IContainer<E> {
 	
 	//attribute

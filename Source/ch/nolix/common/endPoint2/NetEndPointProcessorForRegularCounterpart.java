@@ -12,7 +12,7 @@ import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class NetEndPointProcessorForRegularCounterpart implements INetEndPointProcessor {
 	
 	//attributes

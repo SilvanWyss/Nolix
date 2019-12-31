@@ -9,7 +9,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 
-//package-visible class
+//class
 final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
 
 	//attribute

@@ -12,7 +12,7 @@ import ch.nolix.element.image.Image;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
 
-//package-visible class
+//class
 final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//attributes

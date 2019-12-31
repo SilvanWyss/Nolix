@@ -8,7 +8,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
-//package-visible class
+//class
 final class ArrayReadContainerIterator<E> implements Iterator<E> {
 
 	//attributes

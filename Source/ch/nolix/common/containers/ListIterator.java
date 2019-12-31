@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12

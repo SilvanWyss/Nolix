@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProcessor {
 	
 	//attributes

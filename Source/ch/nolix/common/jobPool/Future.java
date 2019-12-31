@@ -5,7 +5,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.futureAPI.IFuture;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class Future implements IFuture {
 	
 	//attribute

@@ -10,7 +10,7 @@ import com.jme3.texture.plugins.AWTLoader;
 
 import ch.nolix.element.planarShapes.Rectangle;
 
-//package-visible class
+//class
 final class JMonkeyRectangleRenderer
 implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 

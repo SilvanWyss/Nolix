@@ -8,7 +8,7 @@ import java.net.Socket;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * A net server sub listener listens for net end points for a net server.
  * 

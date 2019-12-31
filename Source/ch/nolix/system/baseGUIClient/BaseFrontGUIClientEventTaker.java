@@ -6,7 +6,7 @@ import ch.nolix.element.baseGUI_API.IEventTaker;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2019-08

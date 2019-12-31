@@ -14,7 +14,7 @@ import com.jme3.input.event.TouchEvent;
 //own import
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-11

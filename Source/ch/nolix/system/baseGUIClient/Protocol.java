@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
-//package-visible class
+//class
 /**
  * Of the {@link Protocol} an instance cannot be created.
  * 

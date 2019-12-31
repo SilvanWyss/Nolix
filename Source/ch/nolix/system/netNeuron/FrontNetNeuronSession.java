@@ -6,7 +6,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.system.client.RunMethod;
 import ch.nolix.system.client.StandardClientSession;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-01

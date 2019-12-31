@@ -3,7 +3,7 @@ package ch.nolix.common.jobPool;
 
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class Worker extends Thread {
 	
 	//attribute

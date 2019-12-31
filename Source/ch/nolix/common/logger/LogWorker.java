@@ -3,7 +3,7 @@ package ch.nolix.common.logger;
 
 import ch.nolix.common.independentContainers.List;
 
-//package-visible class
+//class
 final class LogWorker extends Thread {
 	
 	//attribute

@@ -6,7 +6,7 @@ import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * A client receiver controller is a receiver controller of the duplex controller of a client.
  * 

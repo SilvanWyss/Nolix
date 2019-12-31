@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//package-visible class
+//class
 /**
  * The iterable helper provides methods to analyse iterable objects.
  * Methods are called on an object, functions are not.

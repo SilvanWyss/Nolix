@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 //own import
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class NetServerHTTPMessage {
 	
 	//attributes

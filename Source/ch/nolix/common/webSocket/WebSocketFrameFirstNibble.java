@@ -5,7 +5,7 @@ package ch.nolix.common.webSocket;
 import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class WebSocketFrameFirstNibble {
 	
 	//attributes

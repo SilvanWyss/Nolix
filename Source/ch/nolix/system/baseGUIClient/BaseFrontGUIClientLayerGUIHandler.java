@@ -8,7 +8,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 
-//package-visible class
+//class
 final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandler {
 	
 	//attribute

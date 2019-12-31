@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint5;
 
-//package-visible class
+//class
 /**
  * Of the {@link Protocol} an instance cannot be created.
  * 

@@ -9,7 +9,7 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.Runnable;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 final class JobWrapper implements Runnable {
 	
 	//attributes

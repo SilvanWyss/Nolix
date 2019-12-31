@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//package-visible class
+//class
 /**
  * Of this class an instance cannot be created.
  * 

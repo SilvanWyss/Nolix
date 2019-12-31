@@ -5,7 +5,7 @@ package ch.nolix.common.baseTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-//package-visible class
+//class
 final class TestCaseRunner extends Thread {
 	
 	//attributes

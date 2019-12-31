@@ -5,7 +5,7 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 
-//package-visible class
+//class
 final class CanvasGUIPainterPool {
 	
 	//attribute

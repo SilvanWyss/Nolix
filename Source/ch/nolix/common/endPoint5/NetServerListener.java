@@ -3,7 +3,7 @@ package ch.nolix.common.endPoint5;
 
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2016-10

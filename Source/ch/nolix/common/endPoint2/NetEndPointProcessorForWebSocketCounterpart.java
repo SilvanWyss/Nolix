@@ -16,7 +16,7 @@ import ch.nolix.common.webSocket.WebSocketCompleteMessage;
 import ch.nolix.common.webSocket.WebSocketFrame;
 import ch.nolix.common.webSocket.WebSocketFrameOpcodeMeaning;
 
-//package-visible class
+//class
 final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointProcessor {
 	
 	//attributes

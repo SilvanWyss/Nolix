@@ -4,7 +4,7 @@ package ch.nolix.system.netNeuron;
 //own import
 import ch.nolix.system.client.StandardClientSession;
 
-//package-visible class
+//class
 /**
  * @author Silvan Wyss
  * @month 2017-01

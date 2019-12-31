@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.independentContainers;
 
-//package-visible class
+//class
 final class ListNode<E> {
 
 	//attribute

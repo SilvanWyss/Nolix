@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * A net end point sub listener listens to the incoming messages of a net end point.
  * 

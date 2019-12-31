@@ -5,7 +5,7 @@ package ch.nolix.common.sequencer;
 import ch.nolix.common.constants.TimeUnitCatalogue;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * The {@link Waiter} provides methods to wait for specific durations.
  * Of the {@link Waiter} an instance cannot be created.

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//package-visible class
+//class
 final class Protocol {
 	
 	//constants

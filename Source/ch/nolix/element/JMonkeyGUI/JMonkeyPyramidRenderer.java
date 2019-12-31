@@ -9,7 +9,7 @@ import com.jme3.texture.plugins.AWTLoader;
 
 import ch.nolix.element.shapes.Pyramid;
 
-//package-visible class
+//class
 final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geometry> {
 	
 	//method

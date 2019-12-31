@@ -8,7 +8,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * A {@link ArrayReadContainerIterator} is an iterator for a {@link ArrayReadContainer}.
  * 

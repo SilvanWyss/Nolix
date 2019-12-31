@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//package-visible class
+//class
 final class CanvasGUIProtocol {
 	
 	//constants

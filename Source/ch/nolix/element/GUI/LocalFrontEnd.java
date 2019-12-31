@@ -9,7 +9,7 @@ import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.localComputer.PopupWindowProvider;
 
-//package-visible class
+//class
 final class LocalFrontEnd implements IFrontEnd {
 	
 	//method

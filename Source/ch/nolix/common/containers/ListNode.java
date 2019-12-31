@@ -6,7 +6,7 @@ import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
-//package-visible class
+//class
 /**
  * A {@link ListNode} contains an element.
  * A {@link ListNode} can have a next node.
