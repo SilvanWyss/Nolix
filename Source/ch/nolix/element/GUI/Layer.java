@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
@@ -193,7 +193,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
@@ -286,7 +286,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
 		
-		final var configurables = new List<IConfigurableElement<?>>();
+		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
 		if (containsAny()) {
 			configurables.addAtEnd(rootWidget);
@@ -307,12 +307,12 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	/**
 	 * @return the triggerable {@link Widget}s of the current {@link Layer}.
 	 */
-	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
+	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
 			if (rootWidget == null) {
-				return new List<>();
+				return new LinkedList<>();
 			}
 			
 			//Handles the case that the current GUILayer has a root Widget.			
@@ -323,12 +323,12 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	/**
 	 * @return the triggerable {@link Widget}s of the current {@link Layer} recursively.
 	 */
-	public final List<Widget<?, ?>> getRefWidgets() {
+	public final LinkedList<Widget<?, ?>> getRefWidgets() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current Layer does not have a root Widget.
 			if (rootWidget == null) {
-				return new List<>();
+				return new LinkedList<>();
 			}
 			
 			//Handles the case that the current Layer has a root Widget.

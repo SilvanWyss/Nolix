@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronalNet;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.neuronoid.BundleNeuron;
 import ch.nolix.system.neuronoid.FanoutNeuron;
@@ -89,10 +89,10 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	/**
 	 * @return the neurons of this neuronal net.
 	 */
-	public List<Neuronoid<?, ?, ?>> getRefNeurons() {
+	public LinkedList<Neuronoid<?, ?, ?>> getRefNeurons() {
 	
-		final List<Neuronoid<?, ?, ?>> neurons =
-		new List<>(inputFanoutNeuron.getRefFanNeurons());
+		final LinkedList<Neuronoid<?, ?, ?>> neurons =
+		new LinkedList<>(inputFanoutNeuron.getRefFanNeurons());
 		
 		for (final Neuronoid<?, ?, ?> n : neurons) {
 			for (final Neuronoid<?, ?, ?> on : n.getRefOutputNeurons()) {
@@ -116,7 +116,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * as neurons whose inputs and output are of the same type as the inputs and output of this neuronal net.
 	 */
 	@SuppressWarnings("unchecked")
-	public <N extends Neuronoid<N, IO, IO>> List<N> getRefNeuronsAsTyped() {
+	public <N extends Neuronoid<N, IO, IO>> LinkedList<N> getRefNeuronsAsTyped() {
 		return getRefNeurons().to(e -> (N)e);
 	}
 	

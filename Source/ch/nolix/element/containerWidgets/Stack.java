@@ -2,7 +2,7 @@
 package ch.nolix.element.containerWidgets;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -36,7 +36,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	);
 	
 	//multi-attribute
-	private final List<Widget<?, ?>> widgets = new List<>();
+	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
 	
 	//method
 	/**
@@ -146,10 +146,10 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		getChildWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
 		
@@ -257,7 +257,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isEnabled()) {
 				list.addAtEnd(w);
@@ -270,7 +270,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected final void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isEnabled()) {
 				list.addAtEnd(w);

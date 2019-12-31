@@ -2,7 +2,7 @@
 package ch.nolix.common.math;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -18,7 +18,7 @@ public abstract class StatisticalModel {
 	
 	//multi-attributes
 	private final double[] inputValues;
-	private final List<Double>forecasts = new List<>();
+	private final LinkedList<Double>forecasts = new LinkedList<>();
 	
 	//constructor
 	public StatisticalModel(final int backStepsCount, final double[] inputValues) {

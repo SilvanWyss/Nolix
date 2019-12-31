@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -34,7 +34,7 @@ public class Application<C extends Client<C>> implements Named {
 	private final Object context;
 	
 	//multi-attribute
-	private final List<C> clients = new List<>();
+	private final LinkedList<C> clients = new LinkedList<>();
 	
 	//constructor
 	/**

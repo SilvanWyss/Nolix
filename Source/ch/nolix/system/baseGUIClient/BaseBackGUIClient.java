@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -237,13 +237,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
 		internal_runOnCounterpart(
-			new ChainedNode(Protocol.GUI_HEADER, new List<>(), new ChainedNode(Protocol.RESET_HEADER, attributes))
+			new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), new ChainedNode(Protocol.RESET_HEADER, attributes))
 		);
 	}
 	
 	//method
 	private void runGUICommandOnCounterpart(final ChainedNode pGUICommandOnCounterpart) {
-		internal_runOnCounterpart(new ChainedNode(Protocol.GUI_HEADER, new List<>(), pGUICommandOnCounterpart));
+		internal_runOnCounterpart(new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), pGUICommandOnCounterpart));
 	}
 	
 	//method

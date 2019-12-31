@@ -3,7 +3,7 @@ package ch.nolix.element.layerElement;
 
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -195,7 +195,7 @@ public final class LayerProperty<V> implements Named {
 	}
 	
 	//package-visible method
-	void fillUpAttribute(final List<Node> attributes) {
+	void fillUpAttribute(final LinkedList<Node> attributes) {
 		
 		//Handles the case that the current property has a value.
 		if (hasValue()) {

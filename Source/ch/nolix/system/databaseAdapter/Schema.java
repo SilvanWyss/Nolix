@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseAdapter;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.system.entity.Entity;
@@ -11,7 +11,7 @@ import ch.nolix.system.entity.Entity;
 public abstract class Schema {
 
 	//multi-attribute
-	private final List<EntityType<Entity>> entityTypes = new List<>();
+	private final LinkedList<EntityType<Entity>> entityTypes = new LinkedList<>();
 	
 	//constructor
 	@SuppressWarnings("unchecked")

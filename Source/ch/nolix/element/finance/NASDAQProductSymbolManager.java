@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.element.finance;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //class
 /**
@@ -35,8 +35,8 @@ public class NASDAQProductSymbolManager {
 	/**
 	 * @return the product symbols of the NASDAQ.
 	 */
-	public static List<String> getProductSymbols() {
-		return new List<String>()
+	public static LinkedList<String> getProductSymbols() {
+		return new LinkedList<String>()
 		.addAtEnd(
 			ADVANCED_MICRO_DEVICES_INC,
 			CENTURY_ALUMINIUM_CORPORATION,

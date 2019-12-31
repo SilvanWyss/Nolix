@@ -2,7 +2,7 @@
 package ch.nolix.element.base;
 
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -21,7 +21,7 @@ import ch.nolix.element.baseAPI.IElement;
 public abstract class Element<E extends Element<E>> implements ISmartObject<E>, IElement {
 	
 	//multi-attribute
-	private List<Propertyoid<IElement>> properties;
+	private LinkedList<Propertyoid<IElement>> properties;
 	
 	//method
 	/**
@@ -52,9 +52,9 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
-		final var attributes = new List<Node>();
+		final var attributes = new LinkedList<Node>();
 		getRefProperties().forEach(p -> p.fillUpSpecificationsOfValues(attributes));
 		
 		return attributes;
@@ -120,7 +120,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	@SuppressWarnings("unchecked")
 	private void extractProperties() {
 		
-		properties = new List<>();
+		properties = new LinkedList<>();
 		
 		//Iterates the types of the current {@link Entity}.
 		Class<?> lClass = getClass();

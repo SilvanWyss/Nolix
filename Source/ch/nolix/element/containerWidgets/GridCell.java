@@ -2,7 +2,7 @@
 package ch.nolix.element.containerWidgets;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -75,9 +75,9 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
-		final var attributes = new List<Node>(
+		final var attributes = new LinkedList<Node>(
 			new Node(getRowIndex()),
 			new Node(getColumnIndex())
 		);

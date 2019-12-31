@@ -2,7 +2,7 @@
 package ch.nolix.system.fileNodeDatabaseSchemaAdapter;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
@@ -71,7 +71,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	}
 	
 	//method
-	public List<ColumnAdapter> getColumnAdapters() {
+	public LinkedList<ColumnAdapter> getColumnAdapters() {
 		return
 		entitySetSpecification
 		.getRefAttributes(a -> a.hasHeader(PascalCaseNameCatalogue.COLUMN))

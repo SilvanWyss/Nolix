@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //package-visible class
 final class CanvasGUIPainterPool {
@@ -12,7 +12,7 @@ final class CanvasGUIPainterPool {
 	private int nextIndex = 1;
 	
 	//multi-attribute
-	private final List<ChainedNode> paintCommands = new List<>();
+	private final LinkedList<ChainedNode> paintCommands = new LinkedList<>();
 	
 	//method
 	public void appendPaintCommand(final CanvasGUICommandCreatorPainter browserGUIPainter,	final String command) {

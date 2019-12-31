@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.IPv4Catalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.validator.Validator;
 
@@ -138,16 +138,16 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final List<List<String>> getRows(final String SQLQuery) {
+	public final LinkedList<LinkedList<String>> getRows(final String SQLQuery) {
 		try {
 			
-			final var rows = new List<List<String>>();
+			final var rows = new LinkedList<LinkedList<String>>();
 			
 			final var result = connection.createStatement().executeQuery(SQLQuery);
 			final var columnCount = result.getMetaData().getColumnCount();
 			
 			while (result.next()) {
-				final var line = new List<String>();
+				final var line = new LinkedList<String>();
 				for (var i = 1; i <= columnCount; i++) {
 					line.addAtEnd(result.getString(i));
 				}
@@ -161,7 +161,7 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final List<String> getRowsAsString(final String SQLQuery) {
+	public final LinkedList<String> getRowsAsString(final String SQLQuery) {
 		return getRows(SQLQuery).toStrings();
 	}
 	

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.closableElement;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
@@ -19,7 +19,7 @@ final class CloseController implements Closable {
 	private boolean closed = false;
 	
 	//multi-attribute
-	private final List<ClosableElement> elements = new List<>();
+	private final LinkedList<ClosableElement> elements = new LinkedList<>();
 	
 	//constructor
 	/**

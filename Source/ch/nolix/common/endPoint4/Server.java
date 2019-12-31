@@ -2,7 +2,7 @@
 package ch.nolix.common.endPoint4;
 
 import ch.nolix.common.closableElement.ClosableElement;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
@@ -18,7 +18,7 @@ public class Server<M, R>
 extends ClosableElement {
 	
 	//multi-attribute
-	private final List<IEndPointTaker<M, R>> endPointTaker = new List<>();
+	private final LinkedList<IEndPointTaker<M, R>> endPointTaker = new LinkedList<>();
 	
 	//method
 	/**

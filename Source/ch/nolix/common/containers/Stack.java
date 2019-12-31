@@ -8,12 +8,12 @@ import java.util.Iterator;
 public final class Stack<E> implements IContainer<E> {
 
 	//attribute
-	private final List<E> list = new List<>();
+	private final LinkedList<E> linkedList = new LinkedList<>();
 	
 	//method
 	public Stack<E> addAtEnd(final E element) {
 		
-		list.addAtEnd(element);
+		linkedList.addAtEnd(element);
 		
 		return this;
 	}
@@ -21,29 +21,29 @@ public final class Stack<E> implements IContainer<E> {
 	//method
 	@Override
 	public int getSize() {
-		return list.getSize();
+		return linkedList.getSize();
 	}
 	
 	//method
 	public E getRefLast() {
-		return list.getRefLast();
+		return linkedList.getRefLast();
 	}
 	
 	//method
 	@Override
 	public Iterator<E> iterator() {
-		return list.iterator();
+		return linkedList.iterator();
 	}
 	
 	//method
 	public E removeAndGetRefLast() {
-		return list.removeAndGetRefLast();
+		return linkedList.removeAndGetRefLast();
 	}
 	
 	//method
 	public Stack<E> removeLast() {
 		
-		list.removeLast();
+		linkedList.removeLast();
 		
 		return this;
 	}

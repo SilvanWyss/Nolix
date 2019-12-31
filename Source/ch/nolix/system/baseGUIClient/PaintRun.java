@@ -2,7 +2,7 @@
 package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.painter.IPainter;
 
@@ -10,7 +10,7 @@ import ch.nolix.element.painter.IPainter;
 public final class PaintRun {
 	
 	//multi-attribute
-	private List<IPainter> painters = new List<>();
+	private LinkedList<IPainter> painters = new LinkedList<>();
 	
 	//constructor
 	public PaintRun(final IPainter painter,	final IContainer<IElementTaker<PaintRun>> paintCommands) {

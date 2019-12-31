@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.generalSkillAPI;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //interface
 /**
@@ -26,9 +26,9 @@ public interface TypeRequestable {
 	 * @return the types of the current {@link TypeRequestable}
 	 * ordered from the most concrete to the most general.
 	 */
-	public default List<String> getTypes() {
+	public default LinkedList<String> getTypes() {
 		
-		final var types = new List<String>();
+		final var types = new LinkedList<String>();
 		
 		/*
 		 * Iterates the classes of the current type requestable

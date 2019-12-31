@@ -3,7 +3,7 @@ package ch.nolix.system.entity;
 
 import ch.nolix.common.containers.IContainer;
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
@@ -12,7 +12,7 @@ import ch.nolix.common.skillAPI.Clearable;
 public final class MultiValueProperty<V> extends BaseValueProperty<V> implements Clearable<MultiValueProperty<V>> {
 	
 	//multi-attribute
-	private final List<V> values = new List<>();
+	private final LinkedList<V> values = new LinkedList<>();
 	
 	//method
 	public void addUntypedValue(final V value) {
@@ -94,8 +94,8 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	
 	//method
 	@Override
-	protected List<Object> internal_getValues() {
-		return new List<>(values);
+	protected LinkedList<Object> internal_getValues() {
+		return new LinkedList<>(values);
 	}
 	
 	//method

@@ -5,7 +5,7 @@ import ch.nolix.common.attributeAPI.OptionalNamable;
 import ch.nolix.common.attributeAPI.OptionalTokenable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
@@ -58,7 +58,7 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

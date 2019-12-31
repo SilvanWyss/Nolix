@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 
 //class
@@ -30,7 +30,7 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	
 	//method
 	@Override
-	protected final List<Object> internal_getValues() {
-		return new List<>(getReferencedEntityId());
+	protected final LinkedList<Object> internal_getValues() {
+		return new LinkedList<>(getReferencedEntityId());
 	}
 }

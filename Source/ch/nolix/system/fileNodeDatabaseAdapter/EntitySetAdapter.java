@@ -3,7 +3,7 @@ package ch.nolix.system.fileNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.common.constants.MultiPascalCaseNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
@@ -60,7 +60,7 @@ public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapt
 	
 	//method
 	@Override
-	public List<E> getEntities() {
+	public LinkedList<E> getEntities() {
 		return getEntitiesAdapter().getEntities(getEntityType());
 	}
 	

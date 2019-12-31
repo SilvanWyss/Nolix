@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import ch.nolix.common.attributeAPI.OptionalIdentified;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -31,7 +31,7 @@ public class Entity implements IElement, OptionalIdentified {
 	private IEntitySet<Entity> parentEntitySet;
 	
 	//multi-attribute
-	private List<Property<?>> properties;
+	private LinkedList<Property<?>> properties;
 	
 	//method
 	public final boolean belongsToDatabaseAdapter() {
@@ -55,9 +55,9 @@ public class Entity implements IElement, OptionalIdentified {
 	
 	//method
 	@Override
-	public final List<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
-		final var attributes = new List<Node>();
+		final var attributes = new LinkedList<Node>();
 		
 		if (hasId()) {
 			attributes.addAtEnd(new Node(getId()));
@@ -288,7 +288,7 @@ public class Entity implements IElement, OptionalIdentified {
 	//method
 	final void extractProperties() {
 		
-		properties = new List<>();
+		properties = new LinkedList<>();
 		
 		Class<?> cl = getClass();
 		while (cl != null) {

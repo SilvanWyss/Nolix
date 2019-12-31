@@ -3,7 +3,7 @@ package ch.nolix.common.SQL;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.skillAPI.Resettable;
 import ch.nolix.common.validator.Validator;
 
@@ -14,7 +14,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	private final SQLConnection mSQLConnection;
 	
 	//multi-attribute
-	private final List<String> statements = new List<>();
+	private final LinkedList<String> statements = new LinkedList<>();
 	
 	//package-visible constructor
 	SQLExecutor(final SQLConnection SQLConnection) {

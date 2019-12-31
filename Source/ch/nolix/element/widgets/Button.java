@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -76,7 +76,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

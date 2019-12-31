@@ -2,7 +2,7 @@
 package ch.nolix.common.endPoint3;
 
 import ch.nolix.common.closableElement.ClosableElement;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
@@ -22,7 +22,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	private IEndPointTaker mainEndPointTaker;
 	
 	//multi-attribute
-	private final List<IEndPointTaker> endPointTaker = new List<>();
+	private final LinkedList<IEndPointTaker> endPointTaker = new LinkedList<>();
 	
 	//method
 	/**

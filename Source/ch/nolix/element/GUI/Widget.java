@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
@@ -282,7 +282,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * {@inheritDoc}}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -313,9 +313,9 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	/** 
 	 * @return the child {@link Widget}s of the current {@link Widget}.
 	 */
-	public final List<Widget<?, ?>> getChildWidgets() {
+	public final LinkedList<Widget<?, ?>> getChildWidgets() {
 		
-		final var childWidgets = new List<Widget<?, ?>>();
+		final var childWidgets = new LinkedList<Widget<?, ?>>();
 		fillUpChildWidgets(childWidgets);
 		
 		return childWidgets;
@@ -325,9 +325,9 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	/** 
 	 * @return the child {@link Widget}s of the current {@link Widget} recursively.
 	 */
-	public final List<Widget<?, ?>> getChildWidgetsRecursively() {
+	public final LinkedList<Widget<?, ?>> getChildWidgetsRecursively() {
 		
-		final var widgets = new List<Widget<?, ?>>();
+		final var widgets = new LinkedList<Widget<?, ?>>();
 		fillUpChildWidgetsRecursively(widgets);
 		
 		return widgets;
@@ -395,8 +395,8 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the interaction attributes of the current {@link Widget}.
 	 */
-	public List<Node> getInteractionAttributes() {
-		return new List<> (getState().getSpecificationAs(STATE_HEADER));
+	public LinkedList<Node> getInteractionAttributes() {
+		return new LinkedList<> (getState().getSpecificationAs(STATE_HEADER));
 	}
 	
 	//method
@@ -428,8 +428,8 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public final List<IConfigurableElement<?>> getRefConfigurables() {		
-		return (List)getChildWidgets();
+	public final LinkedList<IConfigurableElement<?>> getRefConfigurables() {		
+		return (LinkedList)getChildWidgets();
 	}
 	
 	//method
@@ -487,9 +487,9 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	/** 
 	 * @return the paintable {@link Widget}s of the current {@link Widget}.
 	 */
-	public final List<Widget<?, ?>> getRefPaintableWidgets() {
+	public final LinkedList<Widget<?, ?>> getRefPaintableWidgets() {
 		
-		final var widgetsForPainting = new List<Widget<?, ?>>();
+		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
 		fillUpPaintableWidgets(widgetsForPainting);
 		
 		return widgetsForPainting;
@@ -499,9 +499,9 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	/** 
 	 * @return the paintable {@link Widget}s of the current {@link Widget} recursively.
 	 */
-	public final List<Widget<?, ?>> getRefPaintableWidgetsRecursively() {
+	public final LinkedList<Widget<?, ?>> getRefPaintableWidgetsRecursively() {
 		
-		final var widgetsForPainting = new List<Widget<?, ?>>();
+		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
 		fillUpWidgetsForPaintingRecursively(widgetsForPainting);
 		
 		return widgetsForPainting;
@@ -1542,23 +1542,23 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Fills up the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} fills up its child {@link Widget}s into a given {@link List}
-	 * and does not create a new {@link List}.
+	 * For a better performance, a {@link Widget} fills up its child {@link Widget}s into a given {@link LinkedList}
+	 * and does not create a new {@link LinkedList}.
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpChildWidgets(List<Widget<?, ?>> list);
+	protected abstract void fillUpChildWidgets(LinkedList<Widget<?, ?>> list);
 	
 	//method declaration
 	/**
 	 * Fills up the paintable {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} fills up its paintable {@link Widget}s into a given {@link List}
-	 * and does not create a new {@link List}.
+	 * For a better performance, a {@link Widget} fills up its paintable {@link Widget}s into a given {@link LinkedList}
+	 * and does not create a new {@link LinkedList}.
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpPaintableWidgets(List<Widget<?, ?>> list);
+	protected abstract void fillUpPaintableWidgets(LinkedList<Widget<?, ?>> list);
 	
 	//method declaration
 	/**
@@ -1807,7 +1807,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param list
 	 */
-	private void fillUpChildWidgetsRecursively(final List<Widget<?, ?>> list) {
+	private void fillUpChildWidgetsRecursively(final LinkedList<Widget<?, ?>> list) {
 		fillUpChildWidgets(list);
 		getChildWidgets().forEach(w -> w.fillUpChildWidgetsRecursively(list));
 	}
@@ -1819,7 +1819,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param list
 	 */
-	private void fillUpWidgetsForPaintingRecursively(final List<Widget<?, ?>> list) {
+	private void fillUpWidgetsForPaintingRecursively(final LinkedList<Widget<?, ?>> list) {
 		fillUpPaintableWidgets(list);
 		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}

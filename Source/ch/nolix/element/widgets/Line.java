@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -67,10 +67,10 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @return the attributes of this line.
 	 */
 	@Override
-	public final List<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
 			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.THICKNESS, thickness));
@@ -208,14 +208,14 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**

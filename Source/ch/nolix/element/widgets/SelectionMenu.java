@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 
@@ -85,11 +85,11 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(menu);
 	}
 		

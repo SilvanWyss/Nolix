@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
@@ -36,14 +36,14 @@ public final class DeleteEntitySession extends HeaderedSession {
 	}
 
 	//method
-	protected List<Button> createFurtherNavigationButtons() {
-		return new List<>();
+	protected LinkedList<Button> createFurtherNavigationButtons() {
+		return new LinkedList<>();
 	}
 	
 	//method
 	@Override
-	protected List<Button> createLinkButtons() {
-		return new List<>();
+	protected LinkedList<Button> createLinkButtons() {
+		return new LinkedList<>();
 	}
 	
 	//method

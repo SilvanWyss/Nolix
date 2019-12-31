@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 
 //interface
@@ -17,7 +17,7 @@ public interface IElementEnum extends IElement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default List<Node> getAttributes() {
+	public default LinkedList<Node> getAttributes() {
 		return new Node(toString()).intoList();
 	}
 }

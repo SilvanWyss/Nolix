@@ -3,7 +3,7 @@ package ch.nolix.element.widgets;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -128,7 +128,7 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public final List<Node> getInteractionAttributes() {
+	public final LinkedList<Node> getInteractionAttributes() {
 		
 		final var interactionAttributes = super.getInteractionAttributes();
 		
@@ -287,9 +287,9 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	protected final List<Label> getRefItemLables() {
+	protected final LinkedList<Label> getRefItemLables() {
 		
-		final var itemLabels = new List<Label>();
+		final var itemLabels = new LinkedList<Label>();
 		
 		for (final var i : items) {
 			itemLabels.addAtEnd(i.getRefLabel());

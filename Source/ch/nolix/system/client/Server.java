@@ -2,7 +2,7 @@
 package ch.nolix.system.client;
 
 import ch.nolix.common.closableElement.ClosableElement;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
@@ -23,7 +23,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	private Application<?> mainApplication;
 	
 	//multi-attribute
-	private final List<Application<?>> applications = new List<>();
+	private final LinkedList<Application<?>> applications = new LinkedList<>();
 	
 	//constructor
 	/**

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.sequencer.Future;
@@ -26,7 +26,7 @@ public final class ImageBuilder implements IImageBuilder {
 	
 	//TODO: Use a JobPool.
 	//multi-attribute
-	private final List<Future> futures = new List<>();
+	private final LinkedList<Future> futures = new LinkedList<>();
 	
 	//constructor
 	public ImageBuilder(Fractal fractal) {

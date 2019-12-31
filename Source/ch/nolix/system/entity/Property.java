@@ -7,7 +7,7 @@ import java.lang.reflect.ParameterizedType;
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionHelpers.ReflectionHelper;
@@ -43,7 +43,7 @@ public abstract class Property<V> implements Headered, IElement {
 	
 	//method
 	@Override
-	public final List<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		return
 		internal_getValues()
 		.to(v -> Node.fromString(v.toString()));
@@ -115,7 +115,7 @@ public abstract class Property<V> implements Headered, IElement {
 	protected abstract void internal_clear();
 	
 	//method declaration
-	protected abstract List<Object> internal_getValues();
+	protected abstract LinkedList<Object> internal_getValues();
 	
 	//method
 	protected void internal_noteUpdate() {

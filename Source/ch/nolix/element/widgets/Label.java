@@ -3,7 +3,7 @@ package ch.nolix.element.widgets;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -73,10 +73,10 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * @return the attributes of the current {@link Label}.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		//Handles the case that the current label has a role.
 		if (hasRole()) {

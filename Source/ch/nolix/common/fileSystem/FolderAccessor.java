@@ -2,7 +2,7 @@
 package ch.nolix.common.fileSystem;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
@@ -95,7 +95,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	/**
 	 * @return new {@link FileAccessor}s for the files in the folder of the current {@link FolderAccessor}.
 	 */
-	public List<FileAccessor> getFileAccessors() {
+	public LinkedList<FileAccessor> getFileAccessors() {
 		return FileSystemAccessor.getFileAccessors(getPath());
 	}
 	
@@ -105,7 +105,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @return a new {@link FileAccessor}s for the files in the folder of the current {@link FolderAccessor},
 	 * that have the given extension.
 	 */
-	public List<FileAccessor> getFileAccessors(final String extension) {
+	public LinkedList<FileAccessor> getFileAccessors(final String extension) {
 		return FileSystemAccessor.getFileAccessors(getPath(), extension);
 	}
 	
@@ -116,7 +116,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * for the files in the folder of the current {@link FolderAccessor},
 	 * that have the given extension, recursively.
 	 */
-	public List<FileAccessor> getFileAccessorsRecursively(final String extension) {
+	public LinkedList<FileAccessor> getFileAccessorsRecursively(final String extension) {
 		return
 		getFileAccessorsRecursively()
 		.getRefSelected(fa -> fa.hasExtension(extension));
@@ -126,7 +126,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	/**
 	 * @return new {@link FileAccessor} for the files in the folder of the current {@link FolderAccessor} recursively.
 	 */
-	public List<FileAccessor> getFileAccessorsRecursively() {
+	public LinkedList<FileAccessor> getFileAccessorsRecursively() {
 		return FileSystemAccessor.getFileAccessorsRecursively(getPath());
 	}
 	
@@ -135,7 +135,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @return new {@link FileSystemItemAccessor}s to the file system items
 	 * in the folder of the current {@link FolderAccessor}.
 	 */
-	public List<FileSystemItemAccessor> getFileSystemItemAccessors() {
+	public LinkedList<FileSystemItemAccessor> getFileSystemItemAccessors() {
 		return FileSystemAccessor.getFileSystemItemAccessors(getPath());
 	}
 	

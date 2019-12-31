@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronalNet;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.neuron.Neuron;
@@ -34,12 +34,12 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	@Override
 	public NeuronalNet<IO> createNeuronalNet() {
 			
-		final var inputNeurons = new List<Neuron<IO>>();
+		final var inputNeurons = new LinkedList<Neuron<IO>>();
 		
-		var previousLayer = new List<Neuron<IO>>();
+		var previousLayer = new LinkedList<Neuron<IO>>();
 		for (int i = 1; i <= getLayerCount(); i++) {
 			
-			var currentLayer = new List<Neuron<IO>>();
+			var currentLayer = new LinkedList<Neuron<IO>>();
 			
 			for (int j = 1; j <= getNeuronsPerLayer(); j++) {
 				
@@ -132,7 +132,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 		= in -> {
 			
 			//Creates input list.
-			final var inputs = new List<IO>();
+			final var inputs = new LinkedList<IO>();
 			for (InputConnection<IO> n: in) {
 				inputs.addAtEnd(n.getRefInputNeuronOutput());
 			}

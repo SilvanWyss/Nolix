@@ -8,7 +8,7 @@ import java.awt.Graphics;
 //own imports
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -231,8 +231,8 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @return the attributes of the current {@link TextFormat}.
 	 */
 	@Override
-	public List<Node> getAttributes() {
-		return new List<>(
+	public LinkedList<Node> getAttributes() {
+		return new LinkedList<>(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
 			new Node(BOLD_FLAG_HEADER, bold),
 			new Node(ITALIC_FLAG_HEADER, italic),

@@ -31,7 +31,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	public ReadContainer() {
 		
 		//Calls other constructor.
-		this(new List<E>());
+		this(new LinkedList<E>());
 	}
 	
 	//constructor
@@ -41,7 +41,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	public <E2 extends E> ReadContainer(final E2 element) {
-		this(new List<E>(element));
+		this(new LinkedList<E>(element));
 	}
 	
 	//constructor

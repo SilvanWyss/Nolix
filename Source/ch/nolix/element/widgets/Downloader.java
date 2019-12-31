@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -47,7 +47,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

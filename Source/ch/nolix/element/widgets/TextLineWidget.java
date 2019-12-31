@@ -3,7 +3,7 @@ package ch.nolix.element.widgets;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.GUI.Widget;
@@ -120,14 +120,14 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {}
 
 	//method
 	/**

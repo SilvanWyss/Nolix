@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.shapes;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -16,7 +16,7 @@ import ch.nolix.element._3D_GUI.Shape;
 public final class MultiShape extends Shape<MultiShape> {
 
 	//attribute
-	private final List<Shape<?>> shapes = new List<>();
+	private final LinkedList<Shape<?>> shapes = new LinkedList<>();
 	
 	//constructor
 	/**

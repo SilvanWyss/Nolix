@@ -4,7 +4,7 @@ package ch.nolix.common.node;
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
@@ -124,7 +124,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	private String header;
 	
 	//multi-attribute
-	private final List<Node> attributes = new List<>();
+	private final LinkedList<Node> attributes = new LinkedList<>();
 	
 	//constructor
 	/**

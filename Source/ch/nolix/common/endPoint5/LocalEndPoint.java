@@ -2,7 +2,7 @@
 package ch.nolix.common.endPoint5;
 
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -196,7 +196,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	protected void run(final List<ChainedNode> commands) {
+	protected void run(final LinkedList<ChainedNode> commands) {
 		
 		//Checks if this local duplex controller is not aborted.
 		supposeIsAlive();

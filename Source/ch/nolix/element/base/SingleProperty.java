@@ -2,7 +2,7 @@
 package ch.nolix.element.base;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -151,7 +151,7 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpSpecificationsOfValues(final List<Node> list) {
+	final void fillUpSpecificationsOfValues(final LinkedList<Node> list) {
 		
 		//Handles the case that the current SingleProperty has a value.
 		//For a better performance, this implementation does not use all comfortable methods.

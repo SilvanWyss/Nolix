@@ -3,7 +3,7 @@ package ch.nolix.system.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.IFluentObject;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.license.CentralLicenseManager;
@@ -25,8 +25,8 @@ public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DS
 implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//multi-attributes
-	private final List<EntitySet> loadedAndCreatedEntitySets = new List<>();
-	private final List<EntitySet> mutatedEntitySetsInOrder = new List<>();
+	private final LinkedList<EntitySet> loadedAndCreatedEntitySets = new LinkedList<>();
+	private final LinkedList<EntitySet> mutatedEntitySetsInOrder = new LinkedList<>();
 	
 	//method
 	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {
@@ -135,7 +135,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	}
 
 	//method declaration
-	protected abstract List<IEntitySetAdapter> getEntitySetAdapters();
+	protected abstract LinkedList<IEntitySetAdapter> getEntitySetAdapters();
 	
 	//method declaration
 	protected abstract void initializeDatabaseWhenNotInitialized();
@@ -162,7 +162,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	}
 	
 	//method declaration
-	private List<EntitySet> getEntitySetsFromDatabase() {
+	private LinkedList<EntitySet> getEntitySetsFromDatabase() {
 		//TODO: Implement GeneralEntity.
 		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));
 	}

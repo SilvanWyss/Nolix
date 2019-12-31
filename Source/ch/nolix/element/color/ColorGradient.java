@@ -4,7 +4,7 @@ package ch.nolix.element.color;
 //Java import
 import java.awt.GradientPaint;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -212,9 +212,9 @@ public class ColorGradient implements IElement {
 	 * @return the attributes of this color gradient.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		return 
-		new List<>(
+		new LinkedList<>(
 			new Node(getDirection().toString()),
 			new Node(getColor1().getHexadecimalValue()),
 			new Node(getColor2().getHexadecimalValue())

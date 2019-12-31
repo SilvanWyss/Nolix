@@ -6,7 +6,7 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -393,7 +393,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -453,7 +453,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
 		
-		final var configurables = new List<IConfigurableElement<?>>();
+		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
 		for (final var l : layers) {
 			configurables.addAtEnd(l);
@@ -498,11 +498,11 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	/**
 	 * @return the {@link Widget}s, that are for painting, of the current {@link LayerGUI}.
 	 */
-	public final List<Widget<?, ?>> getRefWidgetsForPainting() {
+	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {
-			return new List<>();
+			return new LinkedList<>();
 		}
 		
 		//Handles the case that the current LayerGUI contains Layers.

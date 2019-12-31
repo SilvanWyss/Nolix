@@ -8,7 +8,7 @@ import java.io.IOException;
 
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -231,7 +231,7 @@ public final class FileSystemAccessor {
 	 * @param path
 	 * @return new {@link FileAccessor}s for the files in the folder with the given path.
 	 */
-	public static List<FileAccessor> getFileAccessors(final String path) {
+	public static LinkedList<FileAccessor> getFileAccessors(final String path) {
 		return
 		new ReadContainer<File>(new File(path).listFiles())
 		.getRefSelected(f -> f.isFile())
@@ -245,7 +245,7 @@ public final class FileSystemAccessor {
 	 * @return new {@link FileAccessor}s for the files in the folder with the given path,
 	 * that have the given extension.
 	 */
-	public static List<FileAccessor> getFileAccessors(final String path, final String extension) {
+	public static LinkedList<FileAccessor> getFileAccessors(final String path, final String extension) {
 		return getFileAccessors(path).getRefSelected(fa -> fa.hasExtension(extension));
 	}
 	
@@ -254,9 +254,9 @@ public final class FileSystemAccessor {
 	 * @param path
 	 * @return new {@link FileAccessor}s for the files in the folder with the given path recursively.
 	 */
-	public static List<FileAccessor> getFileAccessorsRecursively(final String path) {
+	public static LinkedList<FileAccessor> getFileAccessorsRecursively(final String path) {
 		
-		final var fileAccessors = new List<FileAccessor>();
+		final var fileAccessors = new LinkedList<FileAccessor>();
 		
 		for (final var f : new File(path).listFiles()) {
 			if (f.isFile()) {
@@ -276,7 +276,7 @@ public final class FileSystemAccessor {
 	 * @return new {@link FileSystemItemAccessor}s
 	 * for the file system items in the folder with the given path.
 	 */
-	public static List<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
+	public static LinkedList<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
 		return
 		new ReadContainer<File>(new File(path).listFiles())
 		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
@@ -348,7 +348,7 @@ public final class FileSystemAccessor {
 	 * @return the lines of the file with the given path.
 	 * @throws InvalidArgumentException if there does not exist a file with the given path.
 	 */
-	public static List<String> readFileToLines(final String path) {
+	public static LinkedList<String> readFileToLines(final String path) {
 		return new FileAccessor(path).readFileToLines();
 	}
 	

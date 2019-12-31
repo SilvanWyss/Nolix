@@ -2,7 +2,7 @@
 package ch.nolix.element.geometry;
 
 import ch.nolix.common.commonTypeHelpers.DoubleHelper;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Vector;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
@@ -55,8 +55,8 @@ public final class _2DPoint extends Element<_2DPoint> {
 	 * @return the attributes of this 2D point.
 	 */
 	@Override
-	public List<Node> getAttributes() {
-		return new List<>(new Node(DoubleHelper.toString(getX())),	new Node(DoubleHelper.toString(getY())));
+	public LinkedList<Node> getAttributes() {
+		return new LinkedList<>(new Node(DoubleHelper.toString(getX())),	new Node(DoubleHelper.toString(getY())));
 	}
 	
 	//method

@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.element.time.Time;
 
 //class
@@ -30,13 +30,13 @@ public final class QuandlDataProvider {
 	 * from the given startDate to the given endDate.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public List<VolumeCandlestick> getCandleSticksPerDay(
+	public LinkedList<VolumeCandlestick> getCandleSticksPerDay(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
 	) {
 		
-		final var dailyCandleSticks = new List<VolumeCandlestick>();
+		final var dailyCandleSticks = new LinkedList<VolumeCandlestick>();
 		final var URLString = "https://www.quandl.com/api/v3/datasets/WIKI/" + productSymbol + "/data.csv";
 		
 		try (final var bufferedReader = new BufferedReader(new InputStreamReader(new URL(URLString).openStream()))) {

@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -35,8 +35,8 @@ public abstract class Session<C extends Client<C>> {
 	private Object result;
 	
 	//multi-attributes
-	private final List<Method> runMethods = new List<>();
-	private final List<Method> dataMethods = new List<>();
+	private final LinkedList<Method> runMethods = new LinkedList<>();
+	private final LinkedList<Method> dataMethods = new LinkedList<>();
 	
 	//constructor
 	/**

@@ -7,7 +7,7 @@ import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -26,8 +26,8 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	private String value;
 	
 	//multi-attributes
-	private final List<XMLAttribute> attributes = new List<>();
-	private final List<XMLNode> childNodes = new List<>();
+	private final LinkedList<XMLAttribute> attributes = new LinkedList<>();
+	private final LinkedList<XMLNode> childNodes = new LinkedList<>();
 	
 	//constructor
 	public XMLNode() {}

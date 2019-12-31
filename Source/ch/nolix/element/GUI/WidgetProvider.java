@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
 final class WidgetProvider {
 
 	//multi-attribute
-	private List<Class<?>> widgetClasses = new List<>();
+	private LinkedList<Class<?>> widgetClasses = new LinkedList<>();
 	
 	//constructor
 	/**

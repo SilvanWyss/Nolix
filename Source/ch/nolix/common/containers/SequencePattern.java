@@ -23,8 +23,8 @@ import ch.nolix.common.sequencer.Sequencer;
 public final class SequencePattern<E> {
 	
 	//multi-attributes
-	private final List<IElementTakerBooleanGetter<E>> elementConditions = new List<>();
-	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions = new List<>();
+	private final LinkedList<IElementTakerBooleanGetter<E>> elementConditions = new LinkedList<>();
+	private final LinkedList<IElementTakerBooleanGetter<LinkedList<E>>> sequenceConditions = new LinkedList<>();
 	
 	//method
 	/**
@@ -64,7 +64,7 @@ public final class SequencePattern<E> {
 	 * 
 	 */
 	public SequencePattern<E> addSequenceCondition(
-		final IElementTakerBooleanGetter<List<E>> sequenceCondition
+		final IElementTakerBooleanGetter<LinkedList<E>> sequenceCondition
 	) {
 		
 		sequenceConditions.addAtEnd(sequenceCondition);
@@ -95,9 +95,9 @@ public final class SequencePattern<E> {
 	 * @param list
 	 * @return the sequences that matches the given list.
 	 */
-	List<List<E>> getSequences(final List<E> list) {
+	LinkedList<LinkedList<E>> getSequences(final LinkedList<E> list) {
 		
-		final var sequences = new List<List<E>>();
+		final var sequences = new LinkedList<LinkedList<E>>();
 		
 		final int maxSequenceCount = list.getSize() - getSize() + 1;
 		
@@ -120,7 +120,7 @@ public final class SequencePattern<E> {
 			
 			if (sequenceFulfillsElementConditions) {
 				
-				final var sequence = new List<E>();
+				final var sequence = new LinkedList<E>();
 				final var iterator3 = iterator.getCopy();
 				Sequencer.forCount(getSize()).run(()->sequence.addAtEnd(iterator3.next()));
 				
@@ -142,7 +142,7 @@ public final class SequencePattern<E> {
 	 * @param list
 	 * @return true if this sequence pattern matches the given list.
 	 */
-	boolean matches(final List<E> list) {
+	boolean matches(final LinkedList<E> list) {
 		
 		//Checks if the given list has as many elements as this sequence pattern requires.
 		if (list.getSize() != getSize()) {

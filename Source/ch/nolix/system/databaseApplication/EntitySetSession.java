@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;
@@ -32,8 +32,8 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	@Override
-	protected List<Button> createLinkButtons() {
-		return new List<>(
+	protected LinkedList<Button> createLinkButtons() {
+		return new LinkedList<>(
 			new Button("Home")
 			.setRole(ButtonRole.LinkButton)
 			.setLeftMouseButtonPressCommand(() -> openHomeSession())		

@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI.Widget;
@@ -115,11 +115,11 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(originHorizontalStack);
 	}
 	

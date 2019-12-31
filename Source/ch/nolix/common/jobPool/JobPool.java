@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.jobPool;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.futureAPI.IFuture;
 
@@ -20,8 +20,8 @@ public final class JobPool {
 	private static final int OPTIMAL_WORKER_COUNT = 100;
 	
 	//multi-attributes
-	private final List<JobWrapper> jobWrappers = new List<>();
-	private final List<Worker> workers = new List<>();
+	private final LinkedList<JobWrapper> jobWrappers = new LinkedList<>();
+	private final LinkedList<Worker> workers = new LinkedList<>();
 	
 	//method
 	/**

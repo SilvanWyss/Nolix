@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
@@ -22,7 +22,7 @@ public final class EntityType<E extends Entity> implements Named {
 	private final Class<E> entityClass;
 	
 	//multi-attribute for caching
-	private final List<Column<?>> columns = new List<>();
+	private final LinkedList<Column<?>> columns = new LinkedList<>();
 	
 	//constructor
 	public EntityType(final Class<E> entityClass) {	
@@ -71,7 +71,7 @@ public final class EntityType<E extends Entity> implements Named {
 	}
 	
 	//method
-	public List<Column<?>> getColumns() {
+	public LinkedList<Column<?>> getColumns() {
 		return columns;
 	}
 	

@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -65,7 +65,7 @@ implements Clearable<G>, Closable, Refreshable {
 	private Shape<?> rootShape;
 	
 	//multiple element
-	private List<Pair<Class<?>, IShapeRenderer<?, ?, ?>>> shapeClasses = new List<>();
+	private LinkedList<Pair<Class<?>, IShapeRenderer<?, ?, ?>>> shapeClasses = new LinkedList<>();
 	
 	//method
 	/**
@@ -144,10 +144,10 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @return the attributes of this 3D GUI.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {
@@ -407,7 +407,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 */
 	private final ReadContainer<Shape<?>> getRefShapes() {
 		
-		final List<Shape<?>> shapes = new List<>();
+		final LinkedList<Shape<?>> shapes = new LinkedList<>();
 		
 		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {

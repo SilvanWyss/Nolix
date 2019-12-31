@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
@@ -27,7 +27,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	private final IElementTaker<V> adderMethod;
 	
 	//multi-attribute
-	private final List<V> values = new List<>();
+	private final LinkedList<V> values = new LinkedList<>();
 	
 	//constructor
 	/**
@@ -178,7 +178,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpSpecificationsOfValues(final List<Node> list) {
+	final void fillUpSpecificationsOfValues(final LinkedList<Node> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : this) {

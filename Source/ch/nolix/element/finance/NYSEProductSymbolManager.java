@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.element.finance;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //class
 /**
@@ -64,8 +64,8 @@ public final class NYSEProductSymbolManager {
 	/**
 	 * @return the product symbols of the NYSE
 	 */
-	public static List<String> getProductSymbols() {
-		return new List<String>()
+	public static LinkedList<String> getProductSymbols() {
+		return new LinkedList<String>()
 		.addAtEnd(
 			AMERICAN_ELECTRIC_POWER_CO_INC,
 			APPLE,

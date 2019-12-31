@@ -3,7 +3,7 @@ package ch.nolix.system.databaseAdapter;
 
 //own imports
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -19,8 +19,8 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	private final EntityType<E> entityType;
 	
 	//multi-attributes
-	private final List<Column<?>> columns;
-	private final List<E> loadedAndCreatedEntities = new List<>();
+	private final LinkedList<Column<?>> columns;
+	private final LinkedList<E> loadedAndCreatedEntities = new LinkedList<>();
 	
 	//package-visible static method
 	static EntitySet<Entity> createEntitySet(
@@ -163,7 +163,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	}
 	
 	//method
-	public List<E> getRefEditedEntities() {
+	public LinkedList<E> getRefEditedEntities() {
 		return loadedAndCreatedEntities.getRefSelected(e -> e.isEdited());
 	}
 	
@@ -171,7 +171,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	@SuppressWarnings("unchecked")
 	public IContainer<E> getRefEntities() {
 		
-		final var newlyLoadedEntities = new List<E>();
+		final var newlyLoadedEntities = new LinkedList<E>();
 		
 		for (
 			final var e :

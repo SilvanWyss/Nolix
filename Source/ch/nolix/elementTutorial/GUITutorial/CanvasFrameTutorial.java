@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.baseGUI_API.IEventTaker;
@@ -33,7 +33,7 @@ public class CanvasFrameTutorial {
 		final var canvasFrame = new CanvasFrame("CanvasFrame Tutorial", new EventTaker());
 		
 		//Create paintCommands.
-		final var paintCommands = new List<IElementTaker<PaintRun>>();
+		final var paintCommands = new LinkedList<IElementTaker<PaintRun>>();
 		paintCommands.addAtEnd(
 			pr -> {
 				var painter = pr.getRefPainterByIndex(1);

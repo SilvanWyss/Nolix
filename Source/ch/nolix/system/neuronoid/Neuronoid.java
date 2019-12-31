@@ -2,7 +2,7 @@
 package ch.nolix.system.neuronoid;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -36,8 +36,8 @@ implements ISmartObject<N> {
 	private O output;
 	
 	//multi-attributes
-	private final List<InputConnection<I>> inputConnections = new List<>();
-	private final List<Neuronoid<?, O, ?>> outputNeurons = new List<>();
+	private final LinkedList<InputConnection<I>> inputConnections = new LinkedList<>();
+	private final LinkedList<Neuronoid<?, O, ?>> outputNeurons = new LinkedList<>();
 	
 	//method
 	/**
@@ -101,8 +101,8 @@ implements ISmartObject<N> {
 	 */
 	public void fireTransitively() {
 		
-		final List<Neuronoid<?, ?, ?>> nextNeurons = new List<>(this);
-		final List<Neuronoid<?, ?, ?>> visitedNeurons = new List<>();
+		final LinkedList<Neuronoid<?, ?, ?>> nextNeurons = new LinkedList<>(this);
+		final LinkedList<Neuronoid<?, ?, ?>> visitedNeurons = new LinkedList<>();
 				
 		while (nextNeurons.containsAny()) {
 			
@@ -308,7 +308,7 @@ implements ISmartObject<N> {
 	 * 
 	 * @param list
 	 */
-	private void fillUpInputNeuronsWithoutOutputPartialRecursively(final List<Neuronoid<?, ?, ?>> list) {
+	private void fillUpInputNeuronsWithoutOutputPartialRecursively(final LinkedList<Neuronoid<?, ?, ?>> list) {
 		
 		//Iterates the input connections of this neuron.
 		for (final var ic : inputConnections) {

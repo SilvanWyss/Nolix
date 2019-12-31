@@ -6,7 +6,7 @@ import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -44,9 +44,9 @@ public final class Column implements Headered, IElement {
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		return 
-		new List<>(
+		new LinkedList<>(
 			new Node(PascalCaseNameCatalogue.HEADER, getHeader()),
 			new Node(dataType.getPropertyKind().toString())
 		);

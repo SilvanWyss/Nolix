@@ -8,7 +8,7 @@ import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
@@ -233,7 +233,7 @@ public abstract class BaseNode implements Headered {
 	/**
 	 * @return string representations of the attributes of the current {@link BaseNode}.
 	 */
-	public List<String> getAttributesToStrings() {
+	public LinkedList<String> getAttributesToStrings() {
 		return getRefAttributes().to(a -> a.toString());
 	}
 	

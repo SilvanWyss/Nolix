@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -126,10 +126,10 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		attributes
 		.addAtEnd(new Node(PascalCaseNameCatalogue.HEIGHT, height))
@@ -318,14 +318,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**

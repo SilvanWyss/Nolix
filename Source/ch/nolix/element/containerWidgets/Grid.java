@@ -3,7 +3,7 @@ package ch.nolix.element.containerWidgets;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.MatrixRow;
 import ch.nolix.common.node.BaseNode;
@@ -47,7 +47,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
@@ -209,7 +209,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());
@@ -219,7 +219,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());
@@ -349,7 +349,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
 			
-			final var column = new List<GridCell>();
+			final var column = new LinkedList<GridCell>();
 			
 			for (var ri = 1; ri <= getRowCount(); ri++) {
 				column.addAtEnd(new GridCell(ri, ci));
@@ -373,7 +373,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
 			
-			final var row = new List<GridCell>();
+			final var row = new LinkedList<GridCell>();
 			
 			for (var ci = 1; ci <= getColumnCount(); ci++) {
 				row.addAtEnd(new GridCell(ri, ci));

@@ -5,7 +5,7 @@ import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
@@ -304,7 +304,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		//Iterates the tabs of the current Accordion.
 		for (final var t : getRefTabs()) {
@@ -321,7 +321,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(accordionVerticalStack);
 	}
 	

@@ -3,7 +3,7 @@ package ch.nolix.tech.resource;
 
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -75,7 +75,7 @@ public final class Resource implements IResource, Named {
 		
 		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
-		final var internalBaseResources = new List<IResource>();
+		final var internalBaseResources = new LinkedList<IResource>();
 		
 		//Iterates the given base resources.
 		for (final var br : baseResources) {

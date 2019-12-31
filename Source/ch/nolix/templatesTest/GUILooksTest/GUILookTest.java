@@ -2,7 +2,7 @@
 package ch.nolix.templatesTest.GUILooksTest;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.GUI.Widget;
@@ -45,9 +45,9 @@ public abstract class GUILookTest<GL extends StandardConfiguration> extends Obje
 	}
 	
 	//method
-	private List<Widget<?, ?>> createNonContainerWidgets() {
+	private LinkedList<Widget<?, ?>> createNonContainerWidgets() {
 		return
-		new List<>(
+		new LinkedList<>(
 			new Area(),
 			new Button(),
 			new Console(),

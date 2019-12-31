@@ -2,14 +2,14 @@
 package ch.nolix.common.valueCreator;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
 public final class ValueCreator<S> {
 	
 	//multi-attribute
-	private final List<SpecificValueCreator<S, ?>> specificValueCreators = new List<>();
+	private final LinkedList<SpecificValueCreator<S, ?>> specificValueCreators = new LinkedList<>();
 	
 	//method
 	public <V> RegisterMediator<S, V> forType(final Class<V> type) {

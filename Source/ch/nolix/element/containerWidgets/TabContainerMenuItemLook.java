@@ -4,7 +4,7 @@ package ch.nolix.element.containerWidgets;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -74,9 +74,9 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
-		final var attributes = new List<Node>();
+		final var attributes = new LinkedList<Node>();
 		
 		if (hasMinWidth()) {
 			attributes.addAtEnd(

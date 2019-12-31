@@ -3,7 +3,7 @@ package ch.nolix.element.base;
 
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -100,5 +100,5 @@ public abstract class Propertyoid<V> implements Named {
 	 * 
 	 * @param list
 	 */
-	abstract void fillUpSpecificationsOfValues(List<Node> list);
+	abstract void fillUpSpecificationsOfValues(LinkedList<Node> list);
 }

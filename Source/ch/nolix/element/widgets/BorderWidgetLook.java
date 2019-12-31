@@ -4,7 +4,7 @@ package ch.nolix.element.widgets;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -193,7 +193,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * @return the attributes of the current {@link BorderWidgetLook}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -1357,7 +1357,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpBorderColorsSpecifications(final List<Node> list) {
+	private void fillUpBorderColorsSpecifications(final LinkedList<Node> list) {
 		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
 			list.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
 		}
@@ -1387,7 +1387,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpBorderThicknessesSpecifications(final List<Node> list) {
+	private void fillUpBorderThicknessesSpecifications(final LinkedList<Node> list) {
 		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
 			list.addAtEnd(new Node(BORDER_THICKNESS_HEADER, leftBorderThickness));
 		}
@@ -1417,7 +1417,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpPaddingSpecifications(final List<Node> list) {
+	private void fillUpPaddingSpecifications(final LinkedList<Node> list) {
 		if (hasAPadding() && hasSamePaddingAtEachSide()) {
 			list.addAtEnd(new Node(PADDING_HEADER, leftPadding));
 		}
@@ -1447,7 +1447,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * 
 	 * @param list
 	 */
-	private void fillUpScrollbarLooksSpecifications(final List<Node> list) {
+	private void fillUpScrollbarLooksSpecifications(final LinkedList<Node> list) {
 		
 		if (hasBaseScrollbarLook()) {
 			list.addAtEnd(baseScrollbarLook.getSpecificationAs(BASE_SCROLLBAR_LOOK_HEADER));

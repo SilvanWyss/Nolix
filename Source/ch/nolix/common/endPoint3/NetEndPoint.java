@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //class
 /**
@@ -20,7 +20,7 @@ public class NetEndPoint extends EndPoint {
 	private final ch.nolix.common.endPoint2.EndPoint internalEndPoint;
 	
 	//multi-attribute
-	private final List<Package> receivedPackages = new List<>();
+	private final LinkedList<Package> receivedPackages = new LinkedList<>();
 	
 	public NetEndPoint(
 		final int port
@@ -163,7 +163,7 @@ public class NetEndPoint extends EndPoint {
 		return getAndRemoveReceivedPackage(index);
 	}
 	
-	final List<Package> getRefReceivedPackages() {
+	final LinkedList<Package> getRefReceivedPackages() {
 		return receivedPackages;
 	}
 	

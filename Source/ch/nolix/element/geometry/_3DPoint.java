@@ -2,7 +2,7 @@
 package ch.nolix.element.geometry;
 
 import ch.nolix.common.commonTypeHelpers.DoubleHelper;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Vector;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.baseAPI.IElement;
@@ -59,9 +59,9 @@ public class _3DPoint implements IElement {
 	 * @return the attribtues of this 3D point.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		return
-		new List<>(
+		new LinkedList<>(
 			new Node(DoubleHelper.toString(getX())),
 			new Node(DoubleHelper.toString(getY())),
 			new Node(DoubleHelper.toString(getZ()))

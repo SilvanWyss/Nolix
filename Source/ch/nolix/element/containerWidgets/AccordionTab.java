@@ -5,7 +5,7 @@ import ch.nolix.common.attributeAPI.Headerable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
@@ -168,7 +168,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

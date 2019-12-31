@@ -2,7 +2,7 @@
 package ch.nolix.element.configuration;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -49,10 +49,10 @@ implements ISmartObject<CE> {
 	 * @return the attributes of this configuration element.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Node> attributes = super.getAttributes();
+		LinkedList<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this configuration element has a configuration.
 		if (hasConfiguration()) {

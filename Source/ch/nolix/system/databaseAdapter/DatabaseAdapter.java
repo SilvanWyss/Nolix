@@ -4,7 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //own imports
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
@@ -20,8 +20,8 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	private final ValueCreator<BaseNode> valueCreator = new ValueCreator<>();
 	
 	//multi-attributes
-	private final List<EntitySet<Entity>> entitySets = new List<>();
-	private final List<Entity> mutatedEntitiesInOrder = new List<>();
+	private final LinkedList<EntitySet<Entity>> entitySets = new LinkedList<>();
+	private final LinkedList<Entity> mutatedEntitiesInOrder = new LinkedList<>();
 	
 	//constructor
 	public DatabaseAdapter(final Schema schema) {

@@ -288,9 +288,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * @return the columns of the current {@link Matrix}.
 	 */
-	public List<MatrixColumn<E>> getColumns() {
+	public LinkedList<MatrixColumn<E>> getColumns() {
 		
-		final var columns = new List<MatrixColumn<E>>();
+		final var columns = new LinkedList<MatrixColumn<E>>();
 		
 		//Iterates the columns of the current matrix.
 		for (var i = 1; i <= getColumnCount(); i++) {
@@ -421,9 +421,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * @return the rows of the current {@link Matrix}.
 	 */
-	public List<MatrixRow<E>> getRows() {
+	public LinkedList<MatrixRow<E>> getRows() {
 		
-		final var rows = new List<MatrixRow<E>>();
+		final var rows = new LinkedList<MatrixRow<E>>();
 		
 		//Iterates the rows of the current matrix.
 		for (var i = 1; i <= getRowCount(); i++) {

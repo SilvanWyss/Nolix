@@ -2,7 +2,7 @@
 package ch.nolix.element.finance;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
@@ -140,9 +140,9 @@ public class Candlestick extends Element<Candlestick> {
 	 * @return the attributes of this candlestick.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		return
-		new List<>(
+		new LinkedList<>(
 			time.getSpecification(),
 			new Node(OPENING_PRICE_HEADER, getOpeningPrice()),
 			new Node(CLOSING_PRICE_HEADER, getClosingPrice()),

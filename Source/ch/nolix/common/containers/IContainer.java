@@ -1202,11 +1202,11 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
-	 * @return a new {@link List} with the elements from the current {@link IContainer} that are of the given type.
+	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer} that are of the given type.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2 extends E> List<E2> getRefOfType(final Class<E2> type) {
-		return (List<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
+	public default <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
+		return (LinkedList<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
 	//method
@@ -1272,13 +1272,13 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
-	 * @return a new {@link List} with the elements
+	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects from the current {@link IContainer}.
 	 */
-	public default List<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
+	public default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
-		final var list = new List<E>();
+		final var list = new LinkedList<E>();
 		
 		//Fills up the list with the elements the given selector selects from the current IContainer.
 		for (final var e : this) {
@@ -1299,13 +1299,13 @@ public interface IContainer<E> extends Iterable<E> {
 	 * -n selectors are given.
 	 * 
 	 * @param selectors
-	 * @return a new {@link List} with the elements the given selectors selects from the current {@link IContainer}.
+	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default List<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
+	public default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
 		
 		//Creates list.
-		final var list = new List<E>();
+		final var list = new LinkedList<E>();
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1336,10 +1336,10 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
-	 * @return a new {@link List} with the elements
+	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects not (!) from the current {@link IContainer}.
 	 */
-	public default List<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+	public default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
@@ -1350,14 +1350,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 * -n selectors are given.
 	 * 
 	 * @param selectors
-	 * @return a new {@link List} with the elements
+	 * @return a new {@link LinkedList} with the elements
 	 * the given selectors selects not (!) from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default List<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selecors) {
+	public default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selecors) {
 		
 		//Creates list.
-		final var list = new List<E>();
+		final var list = new LinkedList<E>();
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1598,11 +1598,11 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
-	 * @return a new {@link List} with the elements
+	 * @return a new {@link LinkedList} with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	public default <E2> List<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
-		final var list = new List<E2>();
+	public default <E2> LinkedList<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
 	}
@@ -1704,11 +1704,11 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
-	 * @return a new {@link List} with the elements of the {@link IContainer}
+	 * @return a new {@link LinkedList} with the elements of the {@link IContainer}
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	public default <O> List<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
-		final var list = new List<O>();
+	public default <O> LinkedList<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
+		final var list = new LinkedList<O>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
 	}
@@ -1740,9 +1740,9 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
-	 * @return a new {@link List} with the elements from the current {@link IContainer}.
+	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer}.
 	 */
-	public default List<E> toList() {
+	public default LinkedList<E> toList() {
 		return to(e -> e);
 	}
 	
@@ -1775,10 +1775,10 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
-	 * @return a new {@link List} with the elements of the current {@link IContainer}
+	 * @return a new {@link LinkedList} with the elements of the current {@link IContainer}
 	 * ordered from the smallest to the biggest element according to the given norm.
 	 */
-	public default <E2> List<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public default <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return toList().order(norm);
 	}
 	
@@ -1852,10 +1852,10 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
-	 * @return a new {@link List}
+	 * @return a new {@link LinkedList}
 	 * with the Strings that represent the elements of the current {@link IContainer}.
 	 */
-	public default List<String> toStrings() {
+	public default LinkedList<String> toStrings() {
 		return to(e -> e.toString());
 	}
 	

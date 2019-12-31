@@ -4,7 +4,7 @@ package ch.nolix.common.moduleManager;
 //Java import
 import java.io.File;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
@@ -22,7 +22,7 @@ public class ModuleManager {
 	private final String directory;
 		
 	//multi-attribute
-	private final List<Module> modules = new List<>();
+	private final LinkedList<Module> modules = new LinkedList<>();
 	
 	//constructor
 	/**

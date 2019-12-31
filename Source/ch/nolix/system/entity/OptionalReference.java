@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
@@ -37,9 +37,9 @@ implements Clearable<OptionalReference<E>> {
 	
 	//method
 	@Override
-	protected final List<Object> internal_getValues() {
+	protected final LinkedList<Object> internal_getValues() {
 		
-		final var values = new List<Object>();
+		final var values = new LinkedList<Object>();
 		
 		if (referencesEntity()) {
 			values.addAtEnd(getReferencedEntityId());

@@ -4,7 +4,7 @@ package ch.nolix.system.fileNodeDatabaseSchemaAdapter;
 import ch.nolix.common.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -70,7 +70,7 @@ extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 	
 	//method
 	@Override
-	protected List<IEntitySetAdapter> getEntitySetAdapters() {
+	protected LinkedList<IEntitySetAdapter> getEntitySetAdapters() {
 		return
 		fileNodeDatabase
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
@@ -107,9 +107,9 @@ extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 	@Override
 	protected void saveChangesToDatabaseAndSetDatabaseReady(final IContainer<EntitySet> entitySets) {
 		
-		final var createdEntitySets = new List<EntitySet>();
-		final var changedEntitySets = new List<EntitySet>();
-		final var deletedEntitySets = new List<EntitySet>();
+		final var createdEntitySets = new LinkedList<EntitySet>();
+		final var changedEntitySets = new LinkedList<EntitySet>();
+		final var deletedEntitySets = new LinkedList<EntitySet>();
 		
 		//Iterates the given entity sets.
 		for (final var es : entitySets) {

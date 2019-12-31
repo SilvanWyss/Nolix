@@ -3,7 +3,7 @@ package ch.nolix.common.math;
 
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.pair.FPNPair;
 import ch.nolix.common.validator.Validator;
 
@@ -27,16 +27,16 @@ public final class Calculator {
 	/**
 	 * @param xValues
 	 * @param yValues
-	 * @return a new {@link List} with {@link FPNPair}s created from the given xValues and yValues.
+	 * @return a new {@link LinkedList} with {@link FPNPair}s created from the given xValues and yValues.
 	 * @throws InvalidArgumentException
 	 * if the count of the given yValues does not equal the count of the given xValues.
 	 */
-	public static List<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
+	public static LinkedList<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		
 		//Checks if the count of the given yValues equals the count of the given xValues.
 		Validator.suppose(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
-		final var FPNPairs = new List<FPNPair>();
+		final var FPNPairs = new LinkedList<FPNPair>();
 		for (var i = 0; i < xValues.length; i++) {
 			FPNPairs.addAtEnd(new FPNPair(xValues[i], yValues[i]));
 		}

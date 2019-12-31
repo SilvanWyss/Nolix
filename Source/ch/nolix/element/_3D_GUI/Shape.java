@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element._3D_GUI;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -47,10 +47,10 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the attributes of this shape.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(position.getSpecification());
 		

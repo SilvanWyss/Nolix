@@ -3,7 +3,7 @@ package ch.nolix.system.databaseAdapter;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
@@ -30,7 +30,7 @@ public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {
 	public abstract boolean containsEntity(long id);
 	
 	//method declaration
-	public abstract List<E> getEntities();
+	public abstract LinkedList<E> getEntities();
 	
 	//method declaration
 	public abstract E getEntity(long ide);

@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -56,7 +56,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @return the interaction attributes of the current {@link TextBox}.
 	 */
 	@Override
-	public List<Node> getInteractionAttributes() {
+	public LinkedList<Node> getInteractionAttributes() {
 		
 		//Calls method of the base class.
 		final var interactionAttributes = super.getInteractionAttributes();

@@ -3,7 +3,7 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.containerWidgets.TabContainer;
@@ -44,8 +44,8 @@ public final class EntitySession extends HeaderedSession {
 	
 	//method
 	@Override
-	protected List<Button> createLinkButtons() {
-		return new List<>(
+	protected LinkedList<Button> createLinkButtons() {
+		return new LinkedList<>(
 			new Button()
 			.setText("<--")
 			.setRole(ButtonRole.LinkButton)

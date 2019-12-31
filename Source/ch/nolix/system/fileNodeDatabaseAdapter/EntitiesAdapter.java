@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
@@ -48,9 +48,9 @@ public final class EntitiesAdapter<E extends Entity> {
 	}
 	
 	//method
-	public List<E> getEntities(final EntityType<E> entityType) {
+	public LinkedList<E> getEntities(final EntityType<E> entityType) {
 		
-		final var entities = new List<E>();
+		final var entities = new LinkedList<E>();
 		
 		for (final var a : entitiesSpecification.getRefAttributes()) {
 			entities.addAtEnd(
@@ -77,7 +77,7 @@ public final class EntitiesAdapter<E extends Entity> {
 	}
 	
 	//method
-	public List<EntityAdapter<E>> getEntityAdapters() {
+	public LinkedList<EntityAdapter<E>> getEntityAdapters() {
 		return
 		entitiesSpecification
 		.getRefAttributes()

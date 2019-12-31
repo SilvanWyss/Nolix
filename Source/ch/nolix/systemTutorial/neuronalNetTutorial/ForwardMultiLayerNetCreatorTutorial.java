@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.neuronalNetTutorial;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
 import ch.nolix.system.neuronoid.SourceNeuron;
@@ -42,7 +42,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		final var neuronalNet = forwardMultiLayerNetCreator.createNeuronalNet();
 		
 		//Creates inputs for the neuronal net.
-		final var inputs = new List<>(0.01, 0.01, 0.01, 0.01, 0.01);
+		final var inputs = new LinkedList<>(0.01, 0.01, 0.01, 0.01, 0.01);
 		
 		//Sets the inputs to the neuronal net.
 		neuronalNet.addInputNeuron(new SourceNeuron<Iterable<Double>>(inputs));

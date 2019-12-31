@@ -7,7 +7,7 @@ import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -98,7 +98,7 @@ public final class ChainedNode implements Headered {
 	private ChainedNode nextNode;
 	
 	//multi-attribute
-	private final List<ChainedNode> attributes = new List<>();
+	private final LinkedList<ChainedNode> attributes = new LinkedList<>();
 	
 	//constructor
 	/**
@@ -254,7 +254,7 @@ public final class ChainedNode implements Headered {
 	 * @throws NonRepresentingArgumentException
 	 * if one of the attributes of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
-	public List<Node> getAttributesAsNodes() {
+	public LinkedList<Node> getAttributesAsNodes() {
 		return attributes.to(a -> a.toNode());
 	}
 
@@ -270,7 +270,7 @@ public final class ChainedNode implements Headered {
 	/**
 	 * @return the {@link String} representations of the attributes of the current {@link ChainedNode}.
 	 */
-	public List<String> getAttributesAsStrings() {
+	public LinkedList<String> getAttributesAsStrings() {
 		return attributes.toStrings();
 	}
 	

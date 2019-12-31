@@ -4,7 +4,7 @@ package ch.nolix.element.containerWidgets;
 import ch.nolix.common.attributeAPI.Headerable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -158,7 +158,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

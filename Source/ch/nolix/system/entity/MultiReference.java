@@ -3,7 +3,7 @@ package ch.nolix.system.entity;
 
 import ch.nolix.common.containers.IContainer;
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	
 	//multi-attribute
-	private final List<Long> referencedEntityIds = new List<>();
+	private final LinkedList<Long> referencedEntityIds = new LinkedList<>();
 	
 	//method
 	public MultiReference<E> add(final E entity) {
@@ -43,7 +43,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 		}
 	
 	//method
-	public List<E> getRefEntities() {
+	public LinkedList<E> getRefEntities() {
 		
 		final var entitySet = getRefEntitySetOfReferencedEntities();
 		
@@ -82,8 +82,8 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 
 	//method
 	@Override
-	protected List<Object> internal_getValues() {
-		return new List<>(referencedEntityIds);
+	protected LinkedList<Object> internal_getValues() {
+		return new LinkedList<>(referencedEntityIds);
 	}
 	
 	//method

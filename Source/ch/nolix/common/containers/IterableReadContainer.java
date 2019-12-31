@@ -27,7 +27,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	public IterableReadContainer() {
 		
 		//Calls other constructor.
-		this(new List<E>());
+		this(new LinkedList<E>());
 	}
 	
 	//constructor

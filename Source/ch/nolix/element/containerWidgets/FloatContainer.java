@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -14,7 +14,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 implements Clearable<FloatContainer> {
 	
 	//multi-attribute
-	private final List<Widget<?, ?>> widgets = new List<>();
+	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
 	
 	//constructor
 	public FloatContainer() {
@@ -87,7 +87,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
@@ -111,7 +111,7 @@ implements Clearable<FloatContainer> {
 		
 		var y = 0;
 		var x = 0;
-		final var row = new List<Widget<?, ?>>();
+		final var row = new LinkedList<Widget<?, ?>>();
 		for (final var w : widgets) {
 			
 			final var widgetWidth = w.getWidth();
@@ -153,13 +153,13 @@ implements Clearable<FloatContainer> {
 
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
 	//method
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	

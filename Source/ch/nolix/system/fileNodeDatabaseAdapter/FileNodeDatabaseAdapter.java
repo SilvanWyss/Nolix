@@ -5,7 +5,7 @@ package ch.nolix.system.fileNodeDatabaseAdapter;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
@@ -21,7 +21,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	private final BaseNode database;
 	
 	//multi-attribute
-	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<>();
+	private final LinkedList<EntitySetAdapter<Entity>> entitySetAdapters = new LinkedList<>();
 	
 	//constructor
 	public FileNodeDatabaseAdapter(final BaseNode database, final Schema schema) {

@@ -16,15 +16,15 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link List} is a {@link IContainer} that can add elements at the begin or end.
- * A {@link List} is clearable.
+ * A {@link LinkedList} is a {@link IContainer} that can add elements at the begin or end.
+ * A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 1160
- * @param <E> The type of the elements of a {@link List}.
+ * @param <E> The type of the elements of a {@link LinkedList}.
  */
-public final class List<E> implements Clearable<List<E>>, IContainer<E> {
+public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
 	
 	//attribute
 	private int elementCount = 0;
@@ -35,26 +35,26 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 	//constructor
 	/**
-	 * Creates a new {@link List} that is empty.
+	 * Creates a new {@link LinkedList} that is empty.
 	 * The complexity of this method is O(1).
 	 */
-	public List() {}
+	public LinkedList() {}
 	
 	//constructor
 	/**
-	 * Creates a new {@link List} with the given element.
+	 * Creates a new {@link LinkedList} with the given element.
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public List(final E element) {
+	public LinkedList(final E element) {
 		addAtEnd(element);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link List} with the given elements.
+	 * Creates a new {@link LinkedList} with the given elements.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
@@ -62,33 +62,33 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List(final E... elements) {
+	public LinkedList(final E... elements) {
 		addAtEnd(elements);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link List} with the given elements.
+	 * Creates a new {@link LinkedList} with the given elements.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @throws ArgumentIsNullException if the given element container is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	public <E2 extends E> List(final Iterable<E2> elements) {
+	public <E2 extends E> LinkedList(final Iterable<E2> elements) {
 		addAtEnd(elements);
 	}
 	
 	//method
 	/**
-	 * Adds the given element at the begin of the current {@link List}.
+	 * Adds the given element at the begin of the current {@link LinkedList}.
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public List<E> addAtBegin(E element) {
+	public LinkedList<E> addAtBegin(E element) {
 		
 		//Creates new node.
 		final var node = new ListNode<E>(element);
@@ -108,16 +108,16 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given elements at the begin of the current {@link List}.
+	 * Adds the given elements at the begin of the current {@link LinkedList}.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> addAtBegin(final E... elements) {
+	public LinkedList<E> addAtBegin(final E... elements) {
 		
 		//Checks if the given elements is not null.
 		Validator.suppose(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
@@ -132,15 +132,15 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given elements at the begin of the current {@link List}.
+	 * Adds the given elements at the begin of the current {@link LinkedList}.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element container is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	public <E2 extends E> List<E> addAtBegin(final Iterable<E2> elements) {
+	public <E2 extends E> LinkedList<E> addAtBegin(final Iterable<E2> elements) {
 		
 		//Checks if the given elements is not null.
 		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
@@ -170,16 +170,16 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the begin of the current {@link List}
-	 * if the current {@link List} does not contain it.
+	 * Adds the given element at the begin of the current {@link LinkedList}
+	 * if the current {@link LinkedList} does not contain it.
 	 * 
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public List<E> addAtBeginIfNotContained(final E element) {
+	public LinkedList<E> addAtBeginIfNotContained(final E element) {
 		
 		//Handles the case that the current list does not contain the given element.
 		if (!contains(element)) {
@@ -191,19 +191,19 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds all of the given elements, the current {@link List} does not contain,
-	 * at the begin of the current {@link List}.
+	 * Adds all of the given elements, the current {@link LinkedList} does not contain,
+	 * at the begin of the current {@link LinkedList}.
 	 * 
 	 * The complexity of this method is O(m*n) if:
-	 * -The current {@link List} contains m elements.
+	 * -The current {@link LinkedList} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> addAtBeginIfNotContained(final E... elements) {
+	public LinkedList<E> addAtBeginIfNotContained(final E... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -215,15 +215,15 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the begin of the current {@link List} with regarding singularity.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * Adds the given element at the begin of the current {@link LinkedList} with regarding singularity.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
-	 * @throws InvalidArgumentException if the current {@link List} contains already the given element.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} contains already the given element.
 	 */
-	public List<E> addAtBeginRegardingSingularity(final E element) {
+	public LinkedList<E> addAtBeginRegardingSingularity(final E element) {
 		
 		//Checks if the current {@link List} contains already the given element.
 		if (contains(element)) {
@@ -239,14 +239,14 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the end of the current {@link List}.
+	 * Adds the given element at the end of the current {@link LinkedList}.
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public List<E> addAtEnd(final E element) {
+	public LinkedList<E> addAtEnd(final E element) {
 		
 		//Creates new node.
 		final var node = new ListNode<E>(element);
@@ -266,16 +266,16 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given elements at the end of the current {@link List}.
+	 * Adds the given elements at the end of the current {@link LinkedList}.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element container is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> addAtEnd(final E... elements) {
+	public LinkedList<E> addAtEnd(final E... elements) {
 		
 		//Checks if the given element container is not null.
 		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
@@ -290,15 +290,15 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given elements at the end of the current {@link List}.
+	 * Adds the given elements at the end of the current {@link LinkedList}.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	public <E2 extends E> List<E> addAtEnd(final Iterable<E2> elements) {
+	public <E2 extends E> LinkedList<E> addAtEnd(final Iterable<E2> elements) {
 		
 		//Checks if the given elements is not null.
 		Validator.suppose(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
@@ -311,14 +311,14 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	//method
 	/**
 	 * Adds the elements the given extractor extracts from the given elements
-	 * at the end of the current {@link List}.
+	 * at the end of the current {@link LinkedList}.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @param extractor
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 */
-	public <E2> List<E> addAtEnd(
+	public <E2> LinkedList<E> addAtEnd(
 		final Iterable<E2> elements,
 		IElementTakerElementGetter<E2, E> extractor
 	) {
@@ -329,16 +329,16 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the end of the current {@link List}
-	 * if the current {@link List} does not contain it.
+	 * Adds the given element at the end of the current {@link LinkedList}
+	 * if the current {@link LinkedList} does not contain it.
 	 * 
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public List<E> addAtEndIfNotContained(final E element) {
+	public LinkedList<E> addAtEndIfNotContained(final E element) {
 		
 		//Handles the case that the current list does not contain the given element.
 		if (!contains(element)) {
@@ -350,19 +350,19 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds all of the given elements, the current {@link List} does not contain,
-	 * at the end of the current {@link List}.
+	 * Adds all of the given elements, the current {@link LinkedList} does not contain,
+	 * at the end of the current {@link LinkedList}.
 	 * 
 	 * The complexity of this method is O(m*n) if:
-	 * -The current {@link List} contains m elements.
+	 * -The current {@link LinkedList} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> addAtEndIfNotContained(final E... elements) {
+	public LinkedList<E> addAtEndIfNotContained(final E... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -374,15 +374,15 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the begin of the current {@link List} with regarding singularity.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * Adds the given element at the begin of the current {@link LinkedList} with regarding singularity.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
-	 * @throws InvalidArgumentException if the current {@link List} contains already the given element.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} contains already the given element.
 	 */
-	public List<E> addAtEndRegardingSingularity(final E element) {
+	public LinkedList<E> addAtEndRegardingSingularity(final E element) {
 		
 		//Checks if the current {@link List} contains already the given element.
 		if (contains(element)) {
@@ -398,13 +398,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 	//method
 	/**
-	 * Removes all elements of the current {@link List}.
-	 * The complexity of this method is O(n) when the current {@link List} contains n elements.
+	 * Removes all elements of the current {@link LinkedList}.
+	 * The complexity of this method is O(n) when the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 */
 	@Override
-	public List<E> clear() {
+	public LinkedList<E> clear() {
 		
 		//Handles the case that the current list contains any elements.
 		if (containsAny()) {
@@ -426,7 +426,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * @return true if the current {@link List} contains any element.
+	 * @return true if the current {@link LinkedList} contains any element.
 	 */
 	@Override
 	public boolean containsAny() {
@@ -439,19 +439,19 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * An object equals a list if it is a list containing exactly the same elements.
 	 * 
-	 * @return true if the given object equals the current {@link List}.
+	 * @return true if the given object equals the current {@link LinkedList}.
 	 */
 	@Override
 	public boolean equals(Object object) {
 		
 		//Handles the case that the given object is not a list.
-		if (!(object instanceof List<?>)) {
+		if (!(object instanceof LinkedList<?>)) {
 			return false;
 		}
 		
 		//Handles the case that the given object is a list.
 		
-			final var list = (List<?>)object;
+			final var list = (LinkedList<?>)object;
 			
 			if (getSize() != list.getSize()) {
 				return false;
@@ -462,13 +462,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Runs the given runner on each element of the current {@link List}.
-	 * The complexity of this method is O(n) when the current {@link List} contains n elements.
+	 * Runs the given runner on each element of the current {@link LinkedList}.
+	 * The complexity of this method is O(n) when the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param runner
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 */
-	public List<E> forEachAndGetList(final IElementTaker<E> runner) {
+	public LinkedList<E> forEachAndGetList(final IElementTaker<E> runner) {
 		
 		//Iterates the current {@link List}.
 		for (final var e: this) {
@@ -480,38 +480,38 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return a new list with the elements of the current {@link List}.
+	 * @return a new list with the elements of the current {@link LinkedList}.
 	 */
-	public List<E> getCopy() {
+	public LinkedList<E> getCopy() {
 		return to(e -> e);
 	}
 	
 	//method
 	/**
-	 * The complexity of this method is O(n^2) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n^2) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param norm
-	 * @return a new list of groups of the elements of the current {@link List}
+	 * @return a new list of groups of the elements of the current {@link LinkedList}
 	 * whereas the value of the given norm is equal for all elements of a group.
 	 */
-	public <E2> List<List<E>> getGroups(final IElementTakerElementGetter<E, E2> norm) {
+	public <E2> LinkedList<LinkedList<E>> getGroups(final IElementTakerElementGetter<E, E2> norm) {
 		
-		final List<List<E>> groups = new List<>();
+		final LinkedList<LinkedList<E>> groups = new LinkedList<>();
 		
 		//Iterates the current list.
 		for (final E e : this) {
 			
 			final E2 categoryRepresentator = norm.getOutput(e);
 			
-			final List<E> group
+			final LinkedList<E> group
 			= groups.getRefFirstOrNull(
 				l -> l.contains(e2 -> norm.getOutput(e).equals(categoryRepresentator))
 			);
 			
 			if (group == null) {
-				groups.addAtEnd(new List<E>(e));
+				groups.addAtEnd(new LinkedList<E>(e));
 			}
 			else {
 				group.addAtEnd(e);
@@ -528,8 +528,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * -The sequences that matches the given sequence pattern contain m elements.
 	 * 
 	 * @param sequencePattern
-	 * @return the ratio of the sequences from the current {@link List} that match the given sequence pattern.
-	 * @throws EmptyArgumentException if the current {@link List} is empty.
+	 * @return the ratio of the sequences from the current {@link LinkedList} that match the given sequence pattern.
+	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
@@ -545,8 +545,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the last element of the current {@link List}.
-	 * @throws EmptyArgumentException if the current {@link List} is empty.
+	 * @return the last element of the current {@link LinkedList}.
+	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	public E getRefLast() {
 		
@@ -562,7 +562,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the last element of the current {@link List} or null.
+	 * @return the last element of the current {@link LinkedList} or null.
 	 */
 	public E getRefLastOrNull() {
 		
@@ -577,10 +577,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return the second last element of the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} contains less than 2 elements.
+	 * @return the second last element of the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} contains less than 2 elements.
 	 */
 	public E getRefSecondLast() {
 		
@@ -599,7 +599,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * -The sequences that matches the given sequence pattern contain m elements.
 	 * 
 	 * @param sequencePattern
-	 * @return the number of sequences from the current {@link List} that match the given sequence pattern.
+	 * @return the number of sequences from the current {@link LinkedList} that match the given sequence pattern.
 	 */
 	public int getSequenceCount(final SequencePattern<E> sequencePattern) {
 		return getSequences(sequencePattern).getSize();
@@ -612,9 +612,9 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * -The sequences that matches the given sequence pattern contain m elements.
 	 * 
 	 * @param sequencePattern
-	 * @return the sequences from the current {@link List} that match the given sequence pattern.
+	 * @return the sequences from the current {@link LinkedList} that match the given sequence pattern.
 	 */
-	public List<List<E>> getSequences(final SequencePattern<E> sequencePattern) {
+	public LinkedList<LinkedList<E>> getSequences(final SequencePattern<E> sequencePattern) {
 		return sequencePattern.getSequences(this);
 	}
 	
@@ -622,7 +622,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the number of elements of the current {@link List}.
+	 * @return the number of elements of the current {@link LinkedList}.
 	 */
 	@Override
 	public int getSize() {
@@ -637,7 +637,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * @return true if the current {@link List} is empty
+	 * @return true if the current {@link LinkedList} is empty
 	 */
 	@Override
 	public boolean isEmpty() {
@@ -650,7 +650,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return a new iterator of the current {@link List}.
+	 * @return a new iterator of the current {@link LinkedList}.
 	 */
 	@Override
 	public ListIterator<E> iterator() {
@@ -659,10 +659,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param sequencePattern
-	 * @return true if the current {@link List} matches the given sequence pattern.
+	 * @return true if the current {@link LinkedList} matches the given sequence pattern.
 	 */
 	public boolean matches(final SequencePattern<E> sequencePattern) {
 		return sequencePattern.matches(this);
@@ -670,14 +670,14 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Orders the elements of the current {@link List} according to the given norm.
+	 * Orders the elements of the current {@link LinkedList} according to the given norm.
 	 * This method uses the merge sort algorithm.
-	 * The complexity of this method is O(n*log(n)) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n*log(n)) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param norm
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 */
-	public <E2> List<E> order(final IElementTakerComparableGetter<E, E2> norm) {
+	public <E2> LinkedList<E> order(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		//Handles the case that the current list contains any elements.
 		if (containsAny()) {
@@ -691,11 +691,11 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes all elements from the current {@link List}
-	 * and adds the given elements at the end of the current {@link List}.
+	 * Removes all elements from the current {@link LinkedList}
+	 * and adds the given elements at the end of the current {@link LinkedList}.
 	 * 
 	 * The complexity of this method is O(m + n) if:
-	 * -The current {@link List} contains m elements.
+	 * -The current {@link LinkedList} contains m elements.
 	 * -There are given n elements.
 	 * 
 	 * @param elements
@@ -711,15 +711,15 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes all elements the given selector selects from the current {@link List}.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * Removes all elements the given selector selects from the current {@link LinkedList}.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 */
-	public List<E> removeAll(final IElementTakerBooleanGetter<E> selector) {
+	public LinkedList<E> removeAll(final IElementTakerBooleanGetter<E> selector) {
 		
-		final List<E> list = getRefSelected(e -> !selector.getOutput(e));
+		final LinkedList<E> list = getRefSelected(e -> !selector.getOutput(e));
 		clear();
 		addAtEnd(list);
 		
@@ -728,11 +728,11 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes and returns the first element of the current {@link List}.
+	 * Removes and returns the first element of the current {@link LinkedList}.
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the first element of the current {@link List}.
-	 * @throws EmptyArgumentException if the current {@link List} is empty.
+	 * @return the first element of the current {@link LinkedList}.
+	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	public E removeAndGetRefFirst() {
 		final E element = getRefFirst();
@@ -742,12 +742,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes and returns the first element the given selector selects from the current {@link List}.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * Removes and returns the first element the given selector selects from the current {@link LinkedList}.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the first element the given selector selects from the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
+	 * @return the first element the given selector selects from the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
 	 */
 	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		E element = getRefFirst(selector);
@@ -757,11 +757,11 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes and returns the last element of the current {@link List}.
+	 * Removes and returns the last element of the current {@link LinkedList}.
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the last element of the current {@link List}.
-	 * @throws EmptyArgumentException if the current {@link List} is empty.
+	 * @return the last element of the current {@link LinkedList}.
+	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	public E removeAndGetRefLast() {
 		E element = getRefLast();
@@ -771,13 +771,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 	//method
 	/**
-	 * Removes the first element of the current {@link List}.
+	 * Removes the first element of the current {@link LinkedList}.
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the current {@link List}.
-	 * @throws EmptyArgumentException if the current {@link List} is empty.
+	 * @return the current {@link LinkedList}.
+	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
-	public List<E> removeFirst() {
+	public LinkedList<E> removeFirst() {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
@@ -801,13 +801,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	//method
 	/**
 	 * Removes the first element the given selector selects from {@link IList.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
+	 * @return the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
 	 */
-	public List<E> removeFirst(final IElementTakerBooleanGetter<E> selector) {
+	public LinkedList<E> removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
@@ -844,17 +844,17 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes the first appearance of all of the given elements from the current {@link List}.
+	 * Removes the first appearance of all of the given elements from the current {@link LinkedList}.
 	 * 
 	 * The complexity of this method is O(m * n) if:
 	 * -There are given m elements.
 	 * -This list contains n elements.
 	 * 
 	 * @param elements
-	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} does not contain one of the given elements.
+	 * @return the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain one of the given elements.
 	 */
-	public <E2> List<E> removeFirst(final Iterable<E2> elements) {
+	public <E2> LinkedList<E> removeFirst(final Iterable<E2> elements) {
 		
 		elements.forEach(e -> removeFirst(e));
 		
@@ -864,13 +864,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	//method
 	/**
 	 * Removes the first appearance of the given element from the current {@link IList.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} does not contain the given element.
+	 * @return the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain the given element.
 	 */
-	public List<E> removeFirst(final Object element) {
+	public LinkedList<E> removeFirst(final Object element) {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
@@ -907,13 +907,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 	//method
 	/**
-	 * Removes the last element of the current {@link List}.
+	 * Removes the last element of the current {@link LinkedList}.
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the current {@link List}.
-	 * @throws EmptyArgumentException if the current {@link List} is empty.
+	 * @return the current {@link LinkedList}.
+	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
-	public List<E> removeLast() {
+	public LinkedList<E> removeLast() {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
@@ -944,13 +944,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes the given element from the current {@link List}.
+	 * Removes the given element from the current {@link LinkedList}.
 	 * 
 	 * @param element
-	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} does not contain the given element once.
+	 * @return the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain the given element once.
 	 */
-	public List<E> removeRegardingSingularity(final E element) {
+	public LinkedList<E> removeRegardingSingularity(final E element) {
 		
 		//Enumerates the element count of the given element.
 		switch (getCount(element)) {
@@ -965,16 +965,16 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Replaces the first element the given selector selects from the current {@link List} with the given element.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * Replaces the first element the given selector selects from the current {@link LinkedList} with the given element.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
 	 * @param element
-	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
+	 * @return the current {@link LinkedList}.
+	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public List<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
+	public LinkedList<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
@@ -1008,12 +1008,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Reverses the elements of the current {@link List}.
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * Reverses the elements of the current {@link LinkedList}.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return the current {@link List}.
+	 * @return the current {@link LinkedList}.
 	 */
-	public List<E> reverse() {
+	public LinkedList<E> reverse() {
 		
 		//Handles the case that the current list contains any elements.
 		if (containsAny()) {
@@ -1036,9 +1036,9 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return a string representation of the current {@link List}.
+	 * @return a string representation of the current {@link LinkedList}.
 	 */
 	@Override
 	public String toString() {
@@ -1048,7 +1048,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	//method
 	/**
 	 * @param extractor
-	 * @return a new {@link ListUsingMediator} with the current {@link List} and the given extractor.
+	 * @return a new {@link ListUsingMediator} with the current {@link LinkedList} and the given extractor.
 	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
 	public ListUsingMediator<E> using(final IElementTakerElementGetter<Object, E> extractor) {
@@ -1059,10 +1059,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new {@link List} with the elements from the given start index to the given end index ordered according to the given norm.
+	 * @return a new {@link LinkedList} with the elements from the given start index to the given end index ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private <E2> List<E> getOrderedSubList(
+	private <E2> LinkedList<E> getOrderedSubList(
 		final int startIndex,
 		final int endIndex,
 		final IElementTakerComparableGetter<E, E2> norm
@@ -1079,13 +1079,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
-			return new List<>(startNode.getElement());
+			return new LinkedList<>(startNode.getElement());
 		}
 		
 		//Handles the case when the sub list contains 2 elements.
 		if (length == 2) {
 			
-			final var list = new List<E>();
+			final var list = new LinkedList<E>();
 
 			final Comparable element1Value = norm.getValue(startNode.getElement());
 			final Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());
@@ -1102,7 +1102,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		}
 		
 		//Handles the case when the sub list contains more than 2 elements.
-			final var list = new List<E>();
+			final var list = new LinkedList<E>();
 			final var middleIndex = startIndex + length / 2;
 			final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
 			final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);

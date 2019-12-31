@@ -8,7 +8,7 @@ import java.util.Iterator;
 final class MultiReadContainer<E> implements IContainer<E> {
 	
 	//attribute
-	private final List<IContainer<E>> containers = new List<>();
+	private final LinkedList<IContainer<E>> containers = new LinkedList<>();
 	
 	//constructor
 	@SuppressWarnings("unchecked")

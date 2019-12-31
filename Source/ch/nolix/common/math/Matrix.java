@@ -6,7 +6,7 @@ import java.util.Random;
 
 import ch.nolix.common.commonTypeHelpers.DoubleHelper;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.ApproximativeEqualing;
 import ch.nolix.common.validator.Validator;
@@ -767,7 +767,7 @@ public class Matrix implements ApproximativeEqualing {
 	 */
 	public Matrix removeZeroRows() {
 		
-		List<double[]> newValues = new List<>();
+		LinkedList<double[]> newValues = new LinkedList<>();
 		
 		for (double[] r: values) {
 			

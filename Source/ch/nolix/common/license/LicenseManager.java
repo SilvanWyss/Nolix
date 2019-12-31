@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.fileSystem.FolderAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -24,7 +24,7 @@ import ch.nolix.common.validator.Validator;
 public final class LicenseManager {
 	
 	//multi-attribute
-	private final List<License> licenses = new List<>();
+	private final LinkedList<License> licenses = new LinkedList<>();
 	
 	//method
 	/**
@@ -109,7 +109,7 @@ public final class LicenseManager {
 	/**
 	 * @return the types of the licenses of the current {@link LicenseManager}.
 	 */
-	public List<Class<?>> getLicenseTypes() {
+	public LinkedList<Class<?>> getLicenseTypes() {
 		return licenses.to(License::getClass);
 	}
 	

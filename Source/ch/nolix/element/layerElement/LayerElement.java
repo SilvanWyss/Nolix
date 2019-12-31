@@ -5,7 +5,7 @@ package ch.nolix.element.layerElement;
 import java.lang.reflect.Field;
 
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -28,7 +28,7 @@ implements
 	IMutableElement<E> {
 	
 	//attribute
-	private List<LayerProperty<?>> layerProperties;
+	private LinkedList<LayerProperty<?>> layerProperties;
 	
 	//optional attribute
 	private E baseEntity;
@@ -63,9 +63,9 @@ implements
 	 * @return the attributes of this entity.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
-		final var attributes = new List<Node>();
+		final var attributes = new LinkedList<Node>();
 		getRefProperties().forEach(p -> p.fillUpAttribute(attributes));
 		
 		return attributes;
@@ -162,7 +162,7 @@ implements
 			);
 		}
 		
-		layerProperties = new List<>();
+		layerProperties = new LinkedList<>();
 		
 		//Iterates the types of this entity.
 		Class<?> cl = getClass();

@@ -6,14 +6,14 @@ import java.io.InputStream;
 
 //own imports
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 
 //class
 public final class WebSocketCompleteMessage {
 	
 	//attribute
-	private final List<Byte> message = new List<>();
+	private final LinkedList<Byte> message = new LinkedList<>();
 	
 	//constructor
 	public WebSocketCompleteMessage(

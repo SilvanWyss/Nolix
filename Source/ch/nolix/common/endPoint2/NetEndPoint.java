@@ -14,7 +14,7 @@ import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
@@ -283,7 +283,7 @@ public final class NetEndPoint extends EndPoint {
 					receiveRawMessage(firstLine);
 					return new NetEndPointProcessorForRegularCounterpart(this, bufferedReader);
 				case 'G':
-					final var lines = new List<>(firstLine);
+					final var lines = new LinkedList<>(firstLine);
 					while (true) {
 						
 						final var line = bufferedReader.readLine();

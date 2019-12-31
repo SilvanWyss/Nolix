@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 //owm import
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //class
 public final class MultiBackReference<E extends Entity> extends BaseBackReference<E> {
@@ -27,7 +27,7 @@ public final class MultiBackReference<E extends Entity> extends BaseBackReferenc
 	}
 	
 	//method
-	public List<E> getReferencingEntities() {
+	public LinkedList<E> getReferencingEntities() {
 		return
 		getReferencingEntitySet()
 		.getRefEntities()

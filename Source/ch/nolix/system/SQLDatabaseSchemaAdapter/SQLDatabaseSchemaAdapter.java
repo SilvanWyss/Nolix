@@ -4,7 +4,7 @@ package ch.nolix.system.SQLDatabaseSchemaAdapter;
 import ch.nolix.common.SQL.SQLConnection;
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
@@ -48,9 +48,9 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	
 	//method
 	@Override
-	protected List<IEntitySetAdapter> getEntitySetAdapters() {
+	protected LinkedList<IEntitySetAdapter> getEntitySetAdapters() {
 		//TODO: Implement.
-		return new List<>();
+		return new LinkedList<>();
 	}
 	
 	//method
@@ -85,9 +85,9 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	@Override
 	protected void saveChangesToDatabaseAndSetDatabaseReady(final IContainer<EntitySet> mutatedEntitySetsInOrder) {
 		
-		final var createdEntitySets = new List<EntitySet>();
-		final var changedEntitySets = new List<EntitySet>();
-		final var deletedEntitySets = new List<EntitySet>();
+		final var createdEntitySets = new LinkedList<EntitySet>();
+		final var changedEntitySets = new LinkedList<EntitySet>();
+		final var deletedEntitySets = new LinkedList<EntitySet>();
 		
 		//Iterates the given entity sets.
 		for (final var es : mutatedEntitySetsInOrder) {

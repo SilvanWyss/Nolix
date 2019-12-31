@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint4;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 
 //class
@@ -25,7 +25,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	private final IElementTakerElementGetter<String, R> replyTransformer;
 	
 	//multi-attribute
-	private final List<Package> receivedPackages = new List<>();
+	private final LinkedList<Package> receivedPackages = new LinkedList<>();
 	
 	public NetEndPoint(
 		final int port,
@@ -193,7 +193,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		return getAndRemoveReceivedPackage(index);
 	}
 	
-	final List<Package> getRefReceivedPackages() {
+	final LinkedList<Package> getRefReceivedPackages() {
 		return receivedPackages;
 	}
 	

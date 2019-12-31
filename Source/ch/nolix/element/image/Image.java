@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
@@ -179,7 +179,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 				

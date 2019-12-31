@@ -3,7 +3,7 @@ package ch.nolix.element.containerWidgets;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -57,7 +57,7 @@ extends BorderWidget<C, BWS> {
 	 * @return the attributes of the current {@link ContainerWidget}.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

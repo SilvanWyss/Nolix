@@ -5,7 +5,7 @@ package ch.nolix.system.client;
 import ch.nolix.common.attributeAPI.OptionalLabelable;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.endPoint5.LocalEndPoint;
 import ch.nolix.common.endPoint5.NetEndPoint;
@@ -53,7 +53,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	private String infoString;
 	
 	//multi-attribute
-	private final List<Session<C>> sessions = new List<>();
+	private final LinkedList<Session<C>> sessions = new LinkedList<>();
 	
 	//method
 	/**

@@ -7,7 +7,7 @@ import java.lang.reflect.Modifier;
 
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -750,8 +750,8 @@ public class Color extends Element<Color> {
 	public static final short MAX_COLOR_COMPONENT = 255;
 	
 	//static multi-attributes
-	private static final List<Color> webColors = new List<>();
-	private static final List<Pair<String, java.lang.Long>> webColorPairs = new List<>();
+	private static final LinkedList<Color> webColors = new LinkedList<>();
+	private static final LinkedList<Pair<String, java.lang.Long>> webColorPairs = new LinkedList<>();
 	
 	//static method
 	/**
@@ -1019,8 +1019,8 @@ public class Color extends Element<Color> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
-		return new List<>(Node.fromString(getHexadecimalValue()));
+	public LinkedList<Node> getAttributes() {
+		return new LinkedList<>(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method

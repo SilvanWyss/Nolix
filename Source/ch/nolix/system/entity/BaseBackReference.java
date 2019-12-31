@@ -5,7 +5,7 @@ package ch.nolix.system.entity;
 import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 //own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
@@ -111,8 +111,8 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	
 	//method
 	@Override
-	protected final List<Object> internal_getValues() {
-		return new List<>(getBackReferenceCount());
+	protected final LinkedList<Object> internal_getValues() {
+		return new LinkedList<>(getBackReferenceCount());
 	}
 	
 	//method

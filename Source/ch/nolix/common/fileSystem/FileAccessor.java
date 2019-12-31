@@ -11,7 +11,7 @@ import java.nio.file.Files;
 
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
@@ -126,9 +126,9 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @return the lines of the file of this file accessor.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public List<String> readFileToLines() {
+	public LinkedList<String> readFileToLines() {
 		
-		final var lines = new List<String>();
+		final var lines = new LinkedList<String>();
 		
 		try (final BufferedReader bufferedReader = new BufferedReader(new FileReader(getInternalAccessor()))) {
 			String line;

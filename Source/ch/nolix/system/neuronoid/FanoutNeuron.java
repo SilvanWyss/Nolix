@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronoid;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 
 //class
@@ -23,7 +23,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	public static final int MAX_INPUT_NEURON_COUNT = 1;
 
 	//multi-attribute
-	private final List<TransformNeuron<Iterable<O>, O>> fanNeurons = new List<>();
+	private final LinkedList<TransformNeuron<Iterable<O>, O>> fanNeurons = new LinkedList<>();
 	
 	//method
 	/**

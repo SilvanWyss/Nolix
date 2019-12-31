@@ -3,7 +3,7 @@ package ch.nolix.commonTest.licenseTest;
 
 //own imports
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.license.CentralLicenseManager;
 import ch.nolix.common.license.Feature;
 import ch.nolix.common.license.License;
@@ -53,7 +53,7 @@ public final class CentralLicenseManagerTest extends Test {
 		
 		@Override
 		public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-			return new List<>(TestLicense.class);
+			return new LinkedList<>(TestLicense.class);
 		}
 	}
 }

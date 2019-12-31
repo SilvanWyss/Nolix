@@ -5,7 +5,7 @@ import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.attributeAPI.OptionalNamable;
 import ch.nolix.common.attributeAPI.Tokened;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //interface
 /**
@@ -32,7 +32,7 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	 */
 	public default IContainer<IConfigurableElement<?>> getRefConfigurablesRecursively() {
 		return
-		new List<IConfigurableElement<?>>(getRefConfigurables())
+		new LinkedList<IConfigurableElement<?>>(getRefConfigurables())
 		.addAtEnd(getRefConfigurables().toFromMany(c -> c.getRefConfigurablesRecursively()));
 	}
 	

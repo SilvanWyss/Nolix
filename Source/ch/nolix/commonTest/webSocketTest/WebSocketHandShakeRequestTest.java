@@ -2,7 +2,7 @@
 package ch.nolix.commonTest.webSocketTest;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
 
@@ -14,7 +14,7 @@ public final class WebSocketHandShakeRequestTest extends Test {
 		
 		//setup
 		final var webSocketHandShakeRequest =
-		new WebSocketHandShakeRequest(new List<>("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));
+		new WebSocketHandShakeRequest(new LinkedList<>("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));
 		
 		//execution
 		final var result = webSocketHandShakeRequest.getSecWebSocketKey();

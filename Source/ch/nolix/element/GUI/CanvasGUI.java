@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -29,7 +29,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	private final IEventTaker eventTaker;
 	
 	//multi-attribute
-	private final List<IElementTaker<PaintRun>> paintCommands = new List<>();
+	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
 	//constructor
 	public CanvasGUI(final IEventTaker eventTaker, final boolean visible) {
@@ -66,7 +66,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	@Override
 	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
-		return new List<>();
+		return new LinkedList<>();
 	}
 	
 	//method

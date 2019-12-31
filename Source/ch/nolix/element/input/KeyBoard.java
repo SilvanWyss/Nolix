@@ -2,7 +2,7 @@
 package ch.nolix.element.input;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 
 //class
 public final class KeyBoard {
@@ -11,7 +11,7 @@ public final class KeyBoard {
 	private boolean shiftIsLocked = false;
 	
 	//multi-attribute
-	private final List<Key> pressedKeys = new List<>();
+	private final LinkedList<Key> pressedKeys = new LinkedList<>();
 	
 	//method
 	public boolean isPressed(final Key key) {

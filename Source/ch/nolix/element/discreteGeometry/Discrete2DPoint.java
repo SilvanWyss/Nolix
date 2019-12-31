@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.discreteGeometry;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
@@ -50,8 +50,8 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
-		return new List<>(new Node(x), new Node(y));
+	public LinkedList<Node> getAttributes() {
+		return new LinkedList<>(new Node(x), new Node(y));
 	}
 	
 	//method

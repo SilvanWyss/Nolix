@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -85,7 +85,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getInteractionAttributes() {
+	public LinkedList<Node> getInteractionAttributes() {
 		
 		//Calls method of the base class.
 		final var interactionAttributes = super.getInteractionAttributes();
@@ -192,14 +192,14 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**

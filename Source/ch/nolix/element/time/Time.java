@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 //own imports
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.TimeUnitCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -283,8 +283,8 @@ public final class Time implements IElement {
 	 * @return the attributes of this time.
 	 */
 	@Override
-	public List<Node> getAttributes() {
-		return new List<>(
+	public LinkedList<Node> getAttributes() {
+		return new LinkedList<>(
 			Node.fromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),

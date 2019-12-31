@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
@@ -80,7 +80,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -171,7 +171,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		//Handles the case that the current single container has a widget.	
@@ -185,7 +185,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		//Handles the case that the current single container has a widget.	

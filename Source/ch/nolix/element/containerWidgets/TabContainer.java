@@ -2,7 +2,7 @@
 package ch.nolix.element.containerWidgets;
 
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -38,7 +38,7 @@ implements Clearable<TabContainer> {
 	private Label nextMenuItemLabel;
 	
 	//multi-attribute
-	private final List<TabContainerTab> tabs = new List<>();
+	private final LinkedList<TabContainerTab> tabs = new LinkedList<>();
 	
 	//constructor
 	/**
@@ -198,7 +198,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -386,7 +386,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		//Iterates the tabs of the current tab container.
@@ -404,7 +404,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		list.addAtEnd(menu);
 		

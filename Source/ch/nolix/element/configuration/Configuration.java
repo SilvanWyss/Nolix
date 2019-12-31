@@ -6,7 +6,7 @@ import ch.nolix.common.attributeAPI.OptionalNamable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -40,8 +40,8 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	private String name;
 	
 	//multi-attributes
-	private final List<Node> attachingAttributes = new List<>();
-	protected final List<Configuration<?>> configurations = new List<>();
+	private final LinkedList<Node> attachingAttributes = new LinkedList<>();
+	protected final LinkedList<Configuration<?>> configurations = new LinkedList<>();
 	
 	//optional attributes
 	private String selectorType;
@@ -49,7 +49,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	private String selectorName;
 	
 	//multi-attribute
-	private final List<String> selectorRoles = new List<>();
+	private final LinkedList<String> selectorRoles = new LinkedList<>();
 	
 	//method
 	/**
@@ -287,10 +287,10 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @return the attributes of this configuration.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this configuration has a name
 		if (hasName()) {

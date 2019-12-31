@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
@@ -33,8 +33,8 @@ public final class CreateEntitySession extends HeaderedSession {
 
 	//method
 	@Override
-	protected List<Button> createLinkButtons() {
-		return new List<>();
+	protected LinkedList<Button> createLinkButtons() {
+		return new LinkedList<>();
 	}
 	
 	//method

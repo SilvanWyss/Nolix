@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.elementEnumsTest;
 
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.elementEnums.UniDirection;
@@ -20,7 +20,7 @@ public final class UniDirectionTest extends Test {
 	public void testCase_getAttributes() {
 		
 		//execution
-		final List<Node> attributes
+		final LinkedList<Node> attributes
 		= UniDirection.Horizontal.getAttributes();
 		
 		//verification

@@ -2,7 +2,7 @@
 package ch.nolix.element.baseAPI;
 
 import ch.nolix.common.XML.XMLNode;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
@@ -19,7 +19,7 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return the attributes of the current {@link IElement}.
 	 */
-	public abstract List<Node> getAttributes();
+	public abstract LinkedList<Node> getAttributes();
 	
 	//method
 	/**

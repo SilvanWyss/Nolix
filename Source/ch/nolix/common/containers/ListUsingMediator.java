@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
 public final class ListUsingMediator<E> {
 
 	//attributes
-	private final List<E> list;
+	private final LinkedList<E> linkedList;
 	private final IElementTakerElementGetter<Object, E> extractor;
 	
 	//package-visible constructor
@@ -26,16 +26,16 @@ public final class ListUsingMediator<E> {
 	 * @throws ArgumentIsNullException if the given list is null.
 	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
-	ListUsingMediator(List<E> list, IElementTakerElementGetter<Object, E> extractor) {
+	ListUsingMediator(LinkedList<E> list, IElementTakerElementGetter<Object, E> extractor) {
 		
 		//Checks if the given list is not null.
-		Validator.suppose(list).thatIsInstanceOf(List.class).isNotNull();
+		Validator.suppose(list).thatIsInstanceOf(LinkedList.class).isNotNull();
 		
 		//Checks if the given extractor is not null.
 		Validator.suppose(extractor).thatIsNamed("extractor").isNotNull();
 		
 		//Sets the list of this list using mediator.
-		this.list = list;
+		this.linkedList = list;
 		
 		//Sets the extractor of this list using mediator.
 		this.extractor = extractor;
@@ -49,10 +49,10 @@ public final class ListUsingMediator<E> {
 	 * @return the list of this list using mediator.
 	 */
 	@SuppressWarnings("unchecked")
-	public <E2> List<E> addAtBegin(final E2... elements) {
+	public <E2> LinkedList<E> addAtBegin(final E2... elements) {
 		
 		//Creates list.
-		final var list = new List<E>();
+		final var list = new LinkedList<E>();
 		
 		//Iterates the given elements.
 		for (final E2 e : elements) {
@@ -60,9 +60,9 @@ public final class ListUsingMediator<E> {
 		}
 		
 		//Adds the list at the begin of the list of this list using mediator.
-		this.list.addAtBegin(list);
+		this.linkedList.addAtBegin(list);
 		
-		return this.list;
+		return this.linkedList;
 	}
 	
 	//method
@@ -72,16 +72,16 @@ public final class ListUsingMediator<E> {
 	 * @param elements
 	 * @return the list of this list using mediator.
 	 */
-	public <E2> List<E> addAtBegin(final Iterable<E2> elements) {
+	public <E2> LinkedList<E> addAtBegin(final Iterable<E2> elements) {
 		
 		//Creates list.
-		final List<E> list = new List<>();
+		final LinkedList<E> list = new LinkedList<>();
 		elements.forEach(e -> list.addAtBegin(extractor.getOutput(e)));
 		
 		//Adds the list at the begin of the list of this list using mediator.
-		this.list.addAtBegin(list);
+		this.linkedList.addAtBegin(list);
 		
-		return this.list;
+		return this.linkedList;
 	}
 	
 	//method
@@ -92,14 +92,14 @@ public final class ListUsingMediator<E> {
 	 * @return the list of this list using mediator.
 	 */
 	@SuppressWarnings("unchecked")
-	public <E2> List<E> addAtEnd(final E2... elements) {
+	public <E2> LinkedList<E> addAtEnd(final E2... elements) {
 		
 		//Iterates the given elements.
 		for (final E2 e : elements) {
-			list.addAtEnd(extractor.getOutput(e));
+			linkedList.addAtEnd(extractor.getOutput(e));
 		}
 		
-		return list;
+		return linkedList;
 	}
 
 	//method
@@ -109,10 +109,10 @@ public final class ListUsingMediator<E> {
 	 * @param elements
 	 * @return the list of this list using mediator.
 	 */
-	public <E2> List<E> addAtEnd(final Iterable<E2> elements) {
+	public <E2> LinkedList<E> addAtEnd(final Iterable<E2> elements) {
 		
-		elements.forEach(e -> list.addAtEnd(extractor.getOutput(e)));
+		elements.forEach(e -> linkedList.addAtEnd(extractor.getOutput(e)));
 		
-		return list;
+		return linkedList;
 	}
 }

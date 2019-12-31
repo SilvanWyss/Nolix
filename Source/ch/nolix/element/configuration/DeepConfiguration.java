@@ -2,7 +2,7 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -97,10 +97,10 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @return the attributes of this deep configuration.
 	 */
 	@Override
-	public List<Node> getAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Node> attributes = super.getAttributes();
+		final LinkedList<Node> attributes = super.getAttributes();
 		
 		//Handles the case that this deep configuration has a max selector level.
 		if (hasMaxSelectorLevel()) {

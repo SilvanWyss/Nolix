@@ -5,7 +5,7 @@ package ch.nolix.system.databaseSchemaAdapter;
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.dataTypes.MultiReferenceType;
@@ -26,7 +26,7 @@ public final class EntitySet implements Named {
 	private EntitySetState state = EntitySetState.NEW;
 	
 	//multi-attribute
-	private final List<Column> columns;
+	private final LinkedList<Column> columns;
 	
 	//package-visible constructor
 	<E extends Entity>

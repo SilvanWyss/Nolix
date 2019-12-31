@@ -5,7 +5,7 @@ package ch.nolix.common.endPoint5;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -27,7 +27,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	private IDataProviderController receiverController;
 	
 	//multi-attribute
-	private final List<ChainedNode> appendedCommands = new List<>();
+	private final LinkedList<ChainedNode> appendedCommands = new LinkedList<>();
 	
 	//access-reducing constructor
 	EndPoint() {}
@@ -185,5 +185,5 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	 * 
 	 * @param commands
 	 */
-	abstract void run(List<ChainedNode> commands);
+	abstract void run(LinkedList<ChainedNode> commands);
 }

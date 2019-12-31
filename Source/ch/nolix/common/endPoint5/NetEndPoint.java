@@ -5,7 +5,7 @@ package ch.nolix.common.endPoint5;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
@@ -181,7 +181,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public void run(final ChainedNode command) {
-		run(new List<>(command));
+		run(new LinkedList<>(command));
 	}
 	
 	//method
@@ -192,7 +192,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this net duplex contorller is aborted.
 	 */
 	@Override
-	protected void run(final List<ChainedNode> commands) {
+	protected void run(final LinkedList<ChainedNode> commands) {
 			
 		//Checks if this net duplex controller is not aborted.
 		supposeIsAlive();

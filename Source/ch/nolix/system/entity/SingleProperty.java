@@ -4,7 +4,7 @@ package ch.nolix.system.entity;
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.List;
+import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -102,9 +102,9 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	
 	//method
 	@Override
-	protected final List<Object> internal_getValues() {
+	protected final LinkedList<Object> internal_getValues() {
 		
-		final var values = new List<Object>();
+		final var values = new LinkedList<Object>();
 		
 		if (hasValue()) {
 			values.addAtEnd(getValue());
