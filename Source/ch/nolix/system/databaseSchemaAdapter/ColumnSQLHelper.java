@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
 
 //class
 public abstract class ColumnSQLHelper {
 	
-	//package-visible attribute
+	//attribute
 	final Column column;
 	
 	//constructor

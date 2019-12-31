@@ -5,7 +5,7 @@ package ch.nolix.system.baseGUIClient;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.element.GUI.GUI;
 
-//package-visible interface
+//interface
 abstract interface IFrontGUIClientGUIHandler {
 	
 	//method declaration

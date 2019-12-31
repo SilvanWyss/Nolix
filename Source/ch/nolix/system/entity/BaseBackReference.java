@@ -4,9 +4,9 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
-//own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionHelpers.ReflectionHelper;
@@ -147,9 +147,6 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 		}
 	}
 	
-	//abstract package-visible method
-	abstract void supposeCanReferenceBackAdditionally(
-		Entity entity,
-		String referencingPropertyHeader
-	);
+	//method declaration
+	abstract void supposeCanReferenceBackAdditionally(Entity entity, String referencingPropertyHeader);
 }

@@ -21,7 +21,7 @@ public final class ForMaxMillisecondsMediator {
 	//attribute
 	private final int maxDurationInMilliseconds;
 	
-	//package-visible static method
+	//static method
 	/**
 	 * Creates a new {@link ForMaxMillisecondsMediator} for the given maxDurationInMilliseconds.
 	 * 
@@ -34,7 +34,7 @@ public final class ForMaxMillisecondsMediator {
 		return new ForMaxMillisecondsMediator(maxDurationInMilliseconds);
 	}
 	
-	//package-visible static method
+	//static method
 	/**
 	 * Creates a new {@link ForMaxMillisecondsMediator} for the given maxDurationInSeconds.
 	 * 

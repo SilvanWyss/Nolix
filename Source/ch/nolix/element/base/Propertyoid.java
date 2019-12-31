@@ -76,7 +76,7 @@ public abstract class Propertyoid<V> implements Named {
 	 */
 	public abstract boolean isMutable();
 	
-	//package-visible abstract method
+	//method declaration
 	/**
 	 * Adds or change the given value to the current {@link Propertyoid}.
 	 * 
@@ -94,7 +94,7 @@ public abstract class Propertyoid<V> implements Named {
 		addOrChangeValue(valueCreator.getOutput(specification));
 	}
 	
-	//package-visible abstract method
+	//method declaration
 	/**
 	 * Fills up the specifications of the values of the current {@link Propertyoid} into the given list.
 	 * 

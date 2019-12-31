@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.logger;
 
+//own import
 import ch.nolix.common.independentContainers.List;
 
 //class
@@ -205,14 +206,14 @@ public final class Logger {
 		}
 	}
 	
-	//package-visible static method
+	//static method
 	static void takeLogEntry(final LogEntry logEntry) {
 		for (final LogHandler lh : logHandlers) {
 			lh.takeLogEntry(logEntry);
 		}
 	}
 	
-	//package-visible static method
+	//static method
 	static synchronized void removeLogWorker() {
 		logWorker = null;
 	}

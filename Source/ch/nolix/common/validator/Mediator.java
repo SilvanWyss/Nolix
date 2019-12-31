@@ -5,7 +5,7 @@ package ch.nolix.common.validator;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
-//package-visible abstract class
+//class
 /**
  * A {@link Mediator} is not mutable.
  * 

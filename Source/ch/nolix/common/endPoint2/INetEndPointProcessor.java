@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
-//package-visible interface
+//interface
 interface INetEndPointProcessor {
 	
 	//method declaration

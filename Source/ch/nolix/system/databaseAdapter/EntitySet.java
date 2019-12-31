@@ -22,7 +22,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	private final LinkedList<Column<?>> columns;
 	private final LinkedList<E> loadedAndCreatedEntities = new LinkedList<>();
 	
-	//package-visible static method
+	//static method
 	static EntitySet<Entity> createEntitySet(
 		final DatabaseAdapter parentDatabaseAdapter,
 		final EntityType<Entity> entityType
