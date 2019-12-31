@@ -70,7 +70,7 @@ public final class NetServer extends Server {
 		return port;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the server socket of this net server.
 	 */

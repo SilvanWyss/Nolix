@@ -127,14 +127,14 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 		internal_setValue(values.getRefOne());
 	}
 	
-	//package-visible method
+	//method
 	final void supposeCanReferenceBack(final Entity entity) {
 		if (!canReferenceBack(entity)) {
 			throw new InvalidArgumentException(this, "cannot reference back the given entity");
 		}
 	}
 	
-	//package-visible method
+	//method
 	final void supposeCanReferenceBack(
 		final Entity entity,
 		final String referencingPropertyHeader

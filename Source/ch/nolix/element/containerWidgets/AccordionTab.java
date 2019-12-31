@@ -260,17 +260,17 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		return this;
 	}
 	
-	//package-visible method
+	//method
 	HorizontalStack getRefHeaderHorizontalStack() {
 		return headerHorizontalStack;
 	}
 	
-	//package-visible method
+	//method
 	VerticalStack getRefTabVerticalStack() {
 		return tabVerticalStack;
 	}
 	
-	//package-visible method
+	//method
 	int getRequiredMinWidth() {
 		
 		int requiredMinWidth = headerLabel.getWidth() + expandButton.getWidth();
@@ -282,7 +282,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		return requiredMinWidth;
 	}
 	
-	//package-visible method
+	//method
 	void preparePaint(final AccordionLook accordionLook) {
 		
 		headerLabel.setText(getHeader());
@@ -339,7 +339,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		tabVerticalStack.recalculate();
 	}
 	
-	//package-visible method
+	//method
 	void setParentCursorPosition(final int cursorXPositionOnContent, final int cursorYPositionOnContent) {
 		tabVerticalStack.setParentCursorPositionRecursively(
 			cursorXPositionOnContent,
@@ -347,7 +347,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		);
 	}
 	
-	//package-visible method
+	//method
 	void setParentAccordion(final Accordion parentAccordion) {
 		
 		Validator
@@ -358,7 +358,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		this.parentAccordion = parentAccordion;
 	}
 	
-	//package-visible method
+	//method
 	void setPositionOnParent(
 		final int yPositionOnParent
 	) {

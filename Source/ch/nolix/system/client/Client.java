@@ -261,7 +261,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		return asConcreteType();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Pops the current {@link Session} from the current {@link Client}.
 	 */
@@ -272,7 +272,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		internal_getRefCurrentSession().updateCounterpart();
 	}
 
-	//package-visible method
+	//method
 	/**
 	 * Pops the current {@link Session} from the current {@link Client} with the given result.
 	 * 
@@ -337,7 +337,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		return (R)session.getRefResult();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the next session of the current {@link Client}.
 	 * That means the current {@link Session} of the current {@link Client}
@@ -624,7 +624,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		Sequencer.waitUntil(() -> this.internal_isConnected());
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the {@link Application} the current {@link Client} will belong to.
 	 * 

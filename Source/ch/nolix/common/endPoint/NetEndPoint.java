@@ -125,7 +125,7 @@ public final class NetEndPoint extends EndPoint {
 		printWriter.flush();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the socket of this net end point.
 	 */

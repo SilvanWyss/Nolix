@@ -136,7 +136,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		}
 	}
 	
-	//package-visible method
+	//method
 	byte[] getFileFromCounterpart() {
 		return
 		internal_getDataFromCounterpart(
@@ -144,14 +144,14 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		);
 	}
 	
-	//package-visible method
+	//method
 	void saveFileOnCounterpart(final byte[] content) {
 		internal_runOnCounterpart(
 			new ChainedNode(Protocol.SAVE_FILE_HEADER, new Node(new String(content, StandardCharsets.UTF_8)))
 		);
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}. 
 	 */

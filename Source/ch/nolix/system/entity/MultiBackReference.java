@@ -38,7 +38,7 @@ public final class MultiBackReference<E extends Entity> extends BaseBackReferenc
 	@Override
 	public void supposeCanBeSaved() {}
 	
-	//package-visible method
+	//method
 	@Override
 	void supposeCanReferenceBackAdditionally(
 		final Entity entity,

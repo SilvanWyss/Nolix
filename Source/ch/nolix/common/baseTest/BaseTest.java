@@ -162,7 +162,7 @@ public abstract class BaseTest {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Adds the given current test case error to the current {@link BaseTest}.
 	 * 

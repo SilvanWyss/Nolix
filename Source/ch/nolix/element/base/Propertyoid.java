@@ -84,7 +84,7 @@ public abstract class Propertyoid<V> implements Named {
 	 */
 	abstract void addOrChangeValue(V value);
 	
-	//package-visible method
+	//method
 	/**
 	 * Adds or changes the value from the given specification to the current {@link Propertyoid}.
 	 * 

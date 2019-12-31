@@ -133,7 +133,7 @@ public class NetEndPoint extends EndPoint {
 		return internalEndPoint;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Lets this zeta end point receive the given message.
 	 * 

@@ -128,7 +128,7 @@ implements Closable {
 		return client.isClosed();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the output of this net front neuron.
 	 * 
@@ -138,7 +138,7 @@ implements Closable {
 		internal_setOutput(transformator.getOutput(output));
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the output of this net front neuron.
 	 * 

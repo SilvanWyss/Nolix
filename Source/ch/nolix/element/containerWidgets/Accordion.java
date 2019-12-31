@@ -343,7 +343,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		return accordionVerticalStack.getWidth();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Lets the current {@link Accordion} collapse the given tab.
 	 * 
@@ -355,7 +355,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		}
  	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Lets the current {@link Accordion} expand the given tab.
 	 * 

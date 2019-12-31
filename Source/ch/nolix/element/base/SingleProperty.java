@@ -130,13 +130,13 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 		this.value = value;
 	}
 	
-	//package-visible method
+	//method
 	@Override
 	final void addOrChangeValue(final V value) {
 		setterMethod.run(value);
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Removes the value of the current {@link SingleProperty}.
 	 * 
@@ -146,7 +146,7 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 		value = null;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */

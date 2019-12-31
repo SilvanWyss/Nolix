@@ -165,7 +165,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		return internalEndPoint;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Lets this zeta end point receive the given message.
 	 * 

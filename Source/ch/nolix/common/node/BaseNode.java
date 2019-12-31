@@ -631,7 +631,7 @@ public abstract class BaseNode implements Headered {
 		return XMLNode;
 	}
 	
-	//package-visible method
+	//method
 	final int setAndGetEndIndex(final String substring, final int startIndex) {
 		
 		var index = startIndex;

@@ -65,7 +65,7 @@ public class ModuleManager {
 		return (M)(modules.getRefFirst(m -> m.hasName(name)));
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Adds the given module to this central controller.
 	 * 

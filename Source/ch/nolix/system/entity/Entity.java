@@ -262,7 +262,7 @@ public class Entity implements IElement, OptionalIdentified {
 		}
 	}
 	
-	//package-visible method
+	//method
 	@SuppressWarnings("unchecked")
 	public final <E extends Entity> void setParentEntitySet(final IEntitySet<E> parentEntitySet) {
 		
@@ -411,7 +411,7 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//TODO: Refactor this method.
-	//package-visible method
+	//method
 	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))

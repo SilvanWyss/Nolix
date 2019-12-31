@@ -262,7 +262,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		return hasBaseEntity();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the base look of the current {@link WidgetLook}.
 	 * 

@@ -169,7 +169,7 @@ public class ThrownExceptionMediator extends Mediator {
 			}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the exception of the current {@link ThrownExceptionMediator}.
 	 * 
@@ -193,7 +193,7 @@ public class ThrownExceptionMediator extends Mediator {
 		return exception;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return true if the current {@link ThrownExceptionMediator} has an exception.
 	 */

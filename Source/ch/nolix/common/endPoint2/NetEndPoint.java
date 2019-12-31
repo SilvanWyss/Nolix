@@ -239,7 +239,7 @@ public final class NetEndPoint extends EndPoint {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the socket of the current {@link NetEndPoint}.
 	 */
@@ -247,7 +247,7 @@ public final class NetEndPoint extends EndPoint {
 		return socket;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Lets the current {@link NetEndPoint} receive the given rawMessage asynchronously.
 	 * 

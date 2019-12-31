@@ -48,7 +48,7 @@ public final class JobPool {
 		return jobWrappers.containsAny();
 	}
 
-	//package-visible method
+	//method
 	synchronized JobWrapper removeAndGetNextJobWrapperOrNull() {
 		
 		//Handles the case that the current JobPool does not contain job wrappers.
@@ -60,7 +60,7 @@ public final class JobPool {
 		return jobWrappers.removeAndGetRefLast();
 	}
 	
-	//package-visible method
+	//method
 	void removeWorker(final Worker worker) {
 		workers.removeFirst(worker);
 	}

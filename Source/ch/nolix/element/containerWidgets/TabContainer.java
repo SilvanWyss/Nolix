@@ -522,7 +522,7 @@ implements Clearable<TabContainer> {
 		}
 	}
 	
-	//package-visible method
+	//method
 	void internal_addChildWidget(final Widget<?, ?> childWidget) {
 		
 		//Calls other method.

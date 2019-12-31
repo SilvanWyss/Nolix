@@ -563,7 +563,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Paints the current {@link Layer} using the given painter.
 	 * 
@@ -597,7 +597,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Recalculates the current {@link Layer}.
 	 */
@@ -863,7 +863,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		return this;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the {@link GUI} the current {@link Layer} will belong to.
 	 * 

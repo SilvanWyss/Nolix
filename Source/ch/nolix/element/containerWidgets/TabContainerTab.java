@@ -329,7 +329,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		return this;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the menu item of the current {@link TabContainerTab}.
 	 */
@@ -337,7 +337,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		return menuItem;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the tab container the current {@link TabContainerTab} will belong to.
 	 * 

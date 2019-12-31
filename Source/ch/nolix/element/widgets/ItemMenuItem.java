@@ -149,22 +149,22 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 		label.setNormal();
 	}
 	
-	//package-visible method
+	//method
 	int getHeight() {
 		return label.getHeight();
 	}
 
-	//package-visible method
+	//method
 	Label getRefLabel() {
 		return label;
 	}
 
-	//package-visible method
+	//method
 	int getWidth() {
 		return label.getWidth();
 	}
 	
-	//package-visible method
+	//method
 	public void setParentMenu(final ItemMenu<?> parentItemMenu) {
 		
 		Validator.suppose(parentItemMenu).thatIsNamed("parent item menu").isNotNull().andReturn();

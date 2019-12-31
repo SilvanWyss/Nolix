@@ -173,7 +173,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @param name
 	 * @return the {@link Application} with the given name from the current {@link Server}.
@@ -184,7 +184,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		return applications.getRefFirst(a -> a.hasName(name));
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the main {@link Application} of the current {@link Server}.
 	 * @throws ArgumentDoesNotHaveAttributeException

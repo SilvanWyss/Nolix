@@ -99,7 +99,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 		property.addOrChangeValueFromSpecification(attribute);
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the properties of the current {@link Element}.
 	 */

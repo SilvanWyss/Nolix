@@ -44,7 +44,7 @@ public abstract class SingleBackReference<E extends Entity> extends BaseBackRefe
 		.contains(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
 	}
 	
-	//package-visible method
+	//method
 	@Override
 	final void supposeCanReferenceBackAdditionally(
 		Entity entity,

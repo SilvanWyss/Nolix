@@ -185,7 +185,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		return scrolledAreaWidth;
 	}
 	
-	//package-visible method
+	//method
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		paintBackground(painter, borderWidgetLook);

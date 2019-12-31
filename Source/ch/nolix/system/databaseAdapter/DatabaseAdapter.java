@@ -134,7 +134,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		reset();
 	}
 	
-	//package-visible method
+	//method
 	final void noteMutatedEntity(final Entity entity) {
 		if (!mutatedEntitiesInOrder.contains(entity)) {
 			mutatedEntitiesInOrder.addAtEnd(entity);

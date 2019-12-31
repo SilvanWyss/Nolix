@@ -144,7 +144,7 @@ public final class NetServer extends Server {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * The HTTP message of a {@link NetServer} is the message a {@link NetServer} sends to web browsers.
 	 * 
@@ -154,7 +154,7 @@ public final class NetServer extends Server {
 		return mHTTPMessage;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the {@link ServerSocket} of the current {@link NetServer}.
 	 */

@@ -137,7 +137,7 @@ public final class SequencePattern<E> {
 		return sequences;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @param list
 	 * @return true if this sequence pattern matches the given list.

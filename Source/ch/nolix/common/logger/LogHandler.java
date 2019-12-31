@@ -33,7 +33,7 @@ public abstract class LogHandler {
 	//method declaration
 	public abstract void log(LogEntry logEntry);
 	
-	//package-visible method
+	//method
 	final void takeLogEntry(final LogEntry logEntry) {
 		switch (getMinHarmLevel()) {
 			case INFO:

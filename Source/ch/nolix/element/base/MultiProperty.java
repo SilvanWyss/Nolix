@@ -164,7 +164,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 		return this;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */
@@ -173,7 +173,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 		adderMethod.run(value);
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */

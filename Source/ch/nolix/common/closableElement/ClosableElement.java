@@ -98,7 +98,7 @@ public abstract class ClosableElement implements Closable {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the close dependencies of the current {@link ClosableElement}.
 	 */
@@ -106,7 +106,7 @@ public abstract class ClosableElement implements Closable {
 		return parentCloseController.getRefElements();
 	}
 	
-	//package-visible method.
+	//method.
 	/**
 	 * Sets the close controller the current {@link ClosableElement} will belong to.
 	 * 

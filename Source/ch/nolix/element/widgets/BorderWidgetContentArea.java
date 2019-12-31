@@ -139,7 +139,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 		&& getCursorYPosition() <= getHeight();
 	}
 	
-	//package-visible method
+	//method
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		parentBorderWidget.paintContentArea(borderWidgetLook, painter);

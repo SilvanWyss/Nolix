@@ -162,7 +162,7 @@ public final class FileNode extends BaseNode {
 		save();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Saves this simple persistent specification.
 	 * 

@@ -199,7 +199,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 		&& cursorYPosition <= getHeight();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetViewArea} using the given borderWidgetLook and painter.
 	 * 

@@ -320,7 +320,7 @@ public abstract class Session<C extends Client<C>> {
 		return result;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Invokes the user data method of the current {@link Session},
 	 * that has the given name,
@@ -342,7 +342,7 @@ public abstract class Session<C extends Client<C>> {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Invokes the user run method of the current {@link Session},
 	 * that has the given name,
@@ -361,7 +361,7 @@ public abstract class Session<C extends Client<C>> {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Removes the parent client of the current {@link Session}.
 	 */
@@ -369,7 +369,7 @@ public abstract class Session<C extends Client<C>> {
 		parentClient = null;
 	}
 	
-	//package-visible method
+	//method
 	protected void run(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
@@ -382,7 +382,7 @@ public abstract class Session<C extends Client<C>> {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the parent client of the current {@link Session}.
 	 * 

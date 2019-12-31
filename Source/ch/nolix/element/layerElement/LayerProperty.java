@@ -194,7 +194,7 @@ public final class LayerProperty<V> implements Named {
 		setValue(valueCreator.getOutput(specification));
 	}
 	
-	//package-visible method
+	//method
 	void fillUpAttribute(final LinkedList<Node> attributes) {
 		
 		//Handles the case that the current property has a value.
@@ -207,7 +207,7 @@ public final class LayerProperty<V> implements Named {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Sets the base property of this property.
 	 * 

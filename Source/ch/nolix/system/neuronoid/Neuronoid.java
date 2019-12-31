@@ -160,7 +160,7 @@ implements ISmartObject<N> {
 		return new ReadContainer<>(inputConnections);
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the input neurons of this neuron.
 	 */
@@ -196,7 +196,7 @@ implements ISmartObject<N> {
 		return inputConnections.getRefOne();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the one input neuron of this neuron.
 	 * @throws InvalidArgumentException
@@ -224,7 +224,7 @@ implements ISmartObject<N> {
 		return output;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * @return the output neurons of this neuron.
 	 */

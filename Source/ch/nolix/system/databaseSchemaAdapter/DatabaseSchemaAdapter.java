@@ -156,7 +156,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		}
 	}
 	
-	//package-visible method
+	//method
 	final void noteMutatedEntitySet(final EntitySet entitySet) {
 		mutatedEntitySetsInOrder.addAtEndIfNotContained(entitySet);
 	}

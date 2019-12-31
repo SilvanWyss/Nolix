@@ -90,7 +90,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 		return look.getRecursiveOrDefaultTopBorderThickness();
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetBorderedArea} using the given borderWidgetLook and painter.
 	 * 

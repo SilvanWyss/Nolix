@@ -217,7 +217,7 @@ public class NetEndPoint extends EndPoint {
 		}
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Lets this net duplex controller receive the given message.
 	 * This method does not throw any exception and returns a reply in any case

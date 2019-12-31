@@ -162,7 +162,7 @@ public final class EntitySet implements Named {
 		return (state == EntitySetState.REJECTED);
 	}
 	
-	//package-visible method
+	//method
 	final void setChanged() {
 		switch (getState()) {
 			case PERSISTED:
@@ -183,7 +183,7 @@ public final class EntitySet implements Named {
 		}
 	}
 	
-	//package-visible method
+	//method
 	final void setDeleted() {
 		switch (getState()) {
 			case NEW:
@@ -199,7 +199,7 @@ public final class EntitySet implements Named {
 		}
 	}
 	
-	//package-visible method
+	//method
 	final void setPersisted() {
 		switch (getState()) {
 			case PERSISTED:
@@ -216,7 +216,7 @@ public final class EntitySet implements Named {
 		}
 	}
 	
-	//package-visible method
+	//method
 	final void setRejected() {
 		state = EntitySetState.REJECTED;
 	}
