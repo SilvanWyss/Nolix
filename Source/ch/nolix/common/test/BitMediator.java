@@ -11,7 +11,7 @@ public final class BitMediator extends Mediator {
 	//attribute
 	private final boolean bit;
 	
-	//package-visible constructor
+	//constructor
 	BitMediator(final Test parentTest, final boolean bit) {
 		
 		super(parentTest);
@@ -19,7 +19,7 @@ public final class BitMediator extends Mediator {
 		this.bit = bit;
 	}
 	
-	//package-visible constructor
+	//constructor
 	public BitMediator(final Test parentTest, final int bit) {
 		
 		super(parentTest);

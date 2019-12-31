@@ -30,7 +30,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 		return new EntitySet<>(parentDatabaseAdapter, entityType);
 	}
 	
-	//package-visible constructor
+	//constructor
 	EntitySet(
 		final DatabaseAdapter parentDatabaseAdapter,
 		final EntityType<E> entityType

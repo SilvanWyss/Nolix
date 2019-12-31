@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new long container mediator with the given arguments.
 	 * 

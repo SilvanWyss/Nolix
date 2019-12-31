@@ -17,7 +17,7 @@ public final class ListUsingMediator<E> {
 	private final LinkedList<E> linkedList;
 	private final IElementTakerElementGetter<Object, E> extractor;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new list using mediator with the given list and extractor.
 	 * 

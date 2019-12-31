@@ -22,7 +22,7 @@ public final class AsLongAsMediator {
 	//optional attribute
 	private final Integer maxRunCount;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new as long as mediator with the given condition.
 	 * 

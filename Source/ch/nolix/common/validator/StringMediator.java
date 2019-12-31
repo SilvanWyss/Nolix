@@ -22,7 +22,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 public class StringMediator extends ArgumentMediator<String> {
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link StringMediator} for the given argument.
 	 * 
@@ -34,7 +34,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		super(argument);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link StringMediator} for the given argument with the given argument name.
 	 * 

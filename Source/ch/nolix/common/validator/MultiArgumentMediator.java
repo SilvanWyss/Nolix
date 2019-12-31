@@ -21,7 +21,7 @@ public class MultiArgumentMediator<A> {
 	//attribute
 	private final Iterable<A> arguments;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi argument mediator with the given arguments.
 	 * 
@@ -39,7 +39,7 @@ public class MultiArgumentMediator<A> {
 		this.arguments = arguments;
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi argument mediator with the given arguments.
 	 * 

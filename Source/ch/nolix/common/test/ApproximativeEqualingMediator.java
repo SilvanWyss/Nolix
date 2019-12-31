@@ -13,7 +13,7 @@ import ch.nolix.common.skillAPI.ApproximativeEqualing;
  */
 public final class ApproximativeEqualingMediator extends ValueMediator<ApproximativeEqualing> {
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new approximative equaling mediator
 	 * that belongs to the given test and is for the given value.

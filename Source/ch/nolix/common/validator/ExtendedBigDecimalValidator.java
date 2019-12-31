@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //class
 public final class ExtendedBigDecimalValidator extends BigDecimalValidator {
 
-	//package-visible constructor
+	//constructor
 	ExtendedBigDecimalValidator(final BigDecimal argument) {
 		
 		//Calls constructor of the base class.

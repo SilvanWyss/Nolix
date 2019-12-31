@@ -25,7 +25,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new container mediator for the given argument.
 	 * 
@@ -37,7 +37,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		super(new ArrayReadContainer<E>(argument));
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new container mediator for the given argument.
 	 * 
@@ -49,7 +49,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		super(argument);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new container mediator
 	 * for the given argument with the given argument name.
@@ -67,7 +67,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		super(argumentName, new ArrayReadContainer<E>(argument));
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new container mediator
 	 * for the given argument with the given argument name.

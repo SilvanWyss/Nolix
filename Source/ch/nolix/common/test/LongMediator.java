@@ -21,7 +21,7 @@ public final class LongMediator extends Mediator {
 	//attribute
 	private final long value;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new long mediator that belongs to the given test and is for the given value.
 	 * 

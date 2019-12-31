@@ -18,7 +18,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	//attribute
 	private final ResultJobRunner<R> resultJobRunner;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ResultFuture} with the given resultJobRunner.
 	 * 

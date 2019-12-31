@@ -12,7 +12,7 @@ public final class MatrixColumn<E> implements IContainer<E> {
 	private final Matrix<E> parentMatrix;
 	private final int columnIndex;
 	
-	//package-visible constructor
+	//constructor
 	MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
 		
 		Validator

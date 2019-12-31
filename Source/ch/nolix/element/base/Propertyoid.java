@@ -23,7 +23,7 @@ public abstract class Propertyoid<V> implements Named {
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	final IElementTakerElementGetter<V, Node> specificationCreator;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link Propertyoid} with the given name, valueCreator and specificationCreator.
 	 * 

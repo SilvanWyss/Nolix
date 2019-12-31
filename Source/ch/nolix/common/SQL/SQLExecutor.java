@@ -16,7 +16,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	//multi-attribute
 	private final LinkedList<String> statements = new LinkedList<>();
 	
-	//package-visible constructor
+	//constructor
 	SQLExecutor(final SQLConnection SQLConnection) {
 		
 		Validator.suppose(SQLConnection).isOfType(SQLConnection.class);

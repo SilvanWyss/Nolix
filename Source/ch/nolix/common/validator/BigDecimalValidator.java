@@ -11,14 +11,14 @@ import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 //class
 public class BigDecimalValidator extends ArgumentMediator<BigDecimal> {
 	
-	//package-visible constructor
+	//constructor
 	BigDecimalValidator(final BigDecimal argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
 	}
 	
-	//package-visible constructor
+	//constructor
 	BigDecimalValidator(final String argumentName, final BigDecimal argument) {
 		
 		//Calls constructor of the base class.

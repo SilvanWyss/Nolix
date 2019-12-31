@@ -16,7 +16,7 @@ public final class EntitiesAdapter<E extends Entity> {
 	private final BaseNode entitiesSpecification;
 	private final ValueCreator<BaseNode> valueCreator;
 	
-	//package-visible constructor
+	//constructor
 	EntitiesAdapter(final BaseNode entitiesSpecification, ValueCreator<BaseNode> valueCreator) {
 		
 		Validator.suppose(entitiesSpecification).thatIsNamed("entities specification").isNotNull();

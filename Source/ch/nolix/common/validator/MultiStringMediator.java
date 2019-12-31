@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new string container mediator with the given arguments.
 	 * 
@@ -28,7 +28,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 		super(arguments);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new string container mediator with the given arguments.
 	 * 

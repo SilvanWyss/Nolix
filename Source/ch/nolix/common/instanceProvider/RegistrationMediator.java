@@ -10,7 +10,7 @@ public final class RegistrationMediator {
 	//attribute
 	private final InstanceProvider parentClassProvider;
 	
-	//package-visible constructor
+	//constructor
 	RegistrationMediator(final InstanceProvider parentClassProvider) {
 		
 		Validator.suppose(parentClassProvider).thatIsNamed("parent class provder").isNotNull();

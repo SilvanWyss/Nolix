@@ -14,7 +14,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	//attribute
 	private final BaseNode entitySpecification;
 	
-	//package-visible constructor
+	//constructor
 	EntityAdapter(final BaseNode entitySpecification) {
 		
 		Validator

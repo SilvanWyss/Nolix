@@ -88,7 +88,7 @@ public class NetEndPoint extends EndPoint {
 		this(new ch.nolix.common.endPoint3.NetEndPoint(ip, port, target));
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new net duplex controller with the given net end point.
 	 * 

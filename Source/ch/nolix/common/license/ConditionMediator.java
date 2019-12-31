@@ -11,7 +11,7 @@ public final class ConditionMediator {
 	private final LicenseManager parentLicenseManager;
 	private final boolean condition;
 	
-	//package-visible constructor
+	//constructor
 	ConditionMediator(final LicenseManager parentLicenseManager, final boolean condition) {
 		
 		Validator.suppose(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();

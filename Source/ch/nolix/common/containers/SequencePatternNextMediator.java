@@ -19,7 +19,7 @@ public final class SequencePatternNextMediator<E> {
 	private final SequencePattern<E> sequencePattern;
 	private final int count;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new sequence pattern next mediator for the given sequence pattern that has the given count.
 	 * 

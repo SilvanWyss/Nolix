@@ -10,7 +10,7 @@ public abstract class ColumnSQLHelper {
 	//package-visible attribute
 	final Column column;
 	
-	//package-visible constructor
+	//constructor
 	ColumnSQLHelper(final Column column) {
 		
 		Validator.suppose(column).isOfType(Column.class);

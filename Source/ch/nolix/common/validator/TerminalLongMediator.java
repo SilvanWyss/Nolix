@@ -7,12 +7,12 @@ public final class TerminalLongMediator extends Mediator {
 	//attribute
 	private final long argument;
 	
-	//package-visible constructor
+	//constructor
 	TerminalLongMediator(final long argument) {
 		this.argument = argument;
 	}
 	
-	//package-visible constructor
+	//constructor
 	TerminalLongMediator(final String argumentName, final long argument) {
 		
 		super(argumentName);

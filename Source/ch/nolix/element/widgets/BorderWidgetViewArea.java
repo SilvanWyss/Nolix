@@ -19,7 +19,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 */
 	private final BorderWidget<BW, BWL> parentBorderWidget;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetViewArea} that will belong to the given parentBorderWidget.
 	 * 

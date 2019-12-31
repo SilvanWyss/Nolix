@@ -17,7 +17,7 @@ public final class Future implements IFuture {
 	//attribute
 	private final JobRunner jobRunner;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link Future} with the given jobRunner.
 	 * 

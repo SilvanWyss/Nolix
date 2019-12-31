@@ -22,7 +22,7 @@ public class ThrownExceptionMediator extends Mediator {
 	//optional attribute
 	private final Throwable exception;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ThrownExceptionMediator} that will belong to the given test.
 	 * 
@@ -38,7 +38,7 @@ public class ThrownExceptionMediator extends Mediator {
 		exception = null;
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.

@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 */
 public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new extended generic argument mediator for the given argument.
 	 * 

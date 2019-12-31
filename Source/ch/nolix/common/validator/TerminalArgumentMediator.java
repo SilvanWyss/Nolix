@@ -7,12 +7,12 @@ public final class TerminalArgumentMediator<A> extends Mediator {
 	//attribute
 	private final A argument;
 	
-	//package-visible constructor
+	//constructor
 	TerminalArgumentMediator(final A argument) {
 		this.argument = argument;
 	}
 	
-	//package-visible constructor
+	//constructor
 	TerminalArgumentMediator(final String argumentName, final A argument) {
 		
 		super(argumentName);

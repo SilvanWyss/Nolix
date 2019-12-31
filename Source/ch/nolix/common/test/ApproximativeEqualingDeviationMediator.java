@@ -18,7 +18,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	private final ApproximativeEqualing value;
 	private final double maxDeviation;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new approximative equaling deviation mediator
 	 * that belongs to the given test and is for the given value and has a default max deviation.
@@ -36,7 +36,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 		this(test, value, ApproximativeEqualing.DEFAULT_MAX_DEVIATION);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new approximative equaling deviation mediator
 	 * that belongs to the given test and is for the given value and has the given max deviation.

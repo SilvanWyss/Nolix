@@ -25,7 +25,7 @@ implements ISender {
 	//optional attribute
 	private IReceiver receiver;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new end point.
 	 * 

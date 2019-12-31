@@ -14,7 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 */
 public class ExtendedStringMediator extends StringMediator {
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new extended string mediator for the given argument.
 	 * 

@@ -10,12 +10,12 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 //class
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	
-	//package-visible constructor
+	//constructor
 	TypeMediator(final Class<T> argument) {
 		super(VariableNameCatalogue.TYPE, argument);
 	}
 	
-	//package-visible constructor
+	//constructor
 	TypeMediator(final String argumentName, final Class<T> argument) {
 		super(argumentName, argument);
 	}

@@ -18,7 +18,7 @@ public final class ForCountMediator {
 	//attribute
 	private final int maxRunCount;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new for count mediator with the given max run count.
 	 * 

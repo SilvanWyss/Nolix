@@ -30,7 +30,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	private String target;
 	private IReceiver receiver;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link EndPoint}.
 	 * 

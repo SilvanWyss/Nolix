@@ -44,7 +44,7 @@ public class LongMediator extends Mediator {
 		this.argument = argument;
 	}
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new long mediator for the given argument with the given argument name.
 	 * 

@@ -19,7 +19,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	private final BorderWidget<BW, BWL> parentBorderWidget;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetScrolledArea} that will belong to the given parentBorderWidget.
 	 * 

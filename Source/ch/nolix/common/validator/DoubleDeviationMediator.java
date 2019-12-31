@@ -18,7 +18,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	private final double argument;
 	private final double maxDeviation;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new named double deviation mediator with the given argument name, argument and max deviation.
 	 * 

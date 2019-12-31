@@ -12,7 +12,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	//attribute
 	private final BaseNode columnSpecification;
 	
-	//package-visible constructor
+	//constructor
 	ColumnAdapter(final BaseNode columnSpecification) {
 		
 		Validator

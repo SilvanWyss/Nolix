@@ -28,7 +28,7 @@ public final class EntitySet implements Named {
 	//multi-attribute
 	private final LinkedList<Column> columns;
 	
-	//package-visible constructor
+	//constructor
 	<E extends Entity>
 	EntitySet(
 		final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter,

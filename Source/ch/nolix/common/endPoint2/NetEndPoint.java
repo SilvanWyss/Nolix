@@ -162,7 +162,7 @@ public final class NetEndPoint extends EndPoint {
 		sendRawMessage(NetEndPointProtocol.TARGET_PREFIX + getTarget());
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link NetEndPoint} with the given socket and HTTP message.
 	 * 

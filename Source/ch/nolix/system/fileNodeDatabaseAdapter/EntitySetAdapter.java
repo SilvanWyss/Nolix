@@ -17,7 +17,7 @@ public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapt
 	//attribute
 	private final BaseNode entitySetSpecification;
 	
-	//package-visible constructor
+	//constructor
 	EntitySetAdapter(
 		final BaseNode entitySetSpecification,
 		final EntityType<E> entityType,

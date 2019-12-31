@@ -74,7 +74,7 @@ public final class NetEndPoint extends EndPoint {
 		new NetEndPointSubListener(this);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new net end point with the given socket.
 	 * 

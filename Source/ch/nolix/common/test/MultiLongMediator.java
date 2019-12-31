@@ -19,7 +19,7 @@ public final class MultiLongMediator extends Mediator {
 	//attribute
 	private final Iterable<Long> values;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi long mediator that belongs to the given test and is for the given values.
 	 * 
@@ -43,7 +43,7 @@ public final class MultiLongMediator extends Mediator {
 		}
 	}
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi long mediator that belongs to the given test and is for the given values.
 	 * 
@@ -60,7 +60,7 @@ public final class MultiLongMediator extends Mediator {
 		this.values = values;
 	}
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi long mediator that belongs to the given test and is for the given values.
 	 * 

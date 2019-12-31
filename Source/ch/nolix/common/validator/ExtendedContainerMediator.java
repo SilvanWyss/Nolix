@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 */
 public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new extended container mediator for the given argument.
 	 * 
@@ -27,7 +27,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 		super(argument);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new extended container mediator for the given argument.
 	 * 

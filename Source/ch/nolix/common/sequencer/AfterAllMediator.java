@@ -22,7 +22,7 @@ public final class AfterAllMediator {
 	private final Integer maxRunCount;
 	private final IBooleanGetter condition;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new after all mediator with the given condition and time interval in milliseconds.
 	 * 
@@ -47,7 +47,7 @@ public final class AfterAllMediator {
 		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new after all mediator with the given time interval in milliseconds.
 	 * 
@@ -67,7 +67,7 @@ public final class AfterAllMediator {
 		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new after all mediator with the given max run count, condition and time interval in milliseconds.
 	 * 

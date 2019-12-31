@@ -19,7 +19,7 @@ public final class DoubleMediator extends Mediator {
 	//attribute
 	private final double value;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new double mediator that belongs to the given test and is for the given value.
 	 * 

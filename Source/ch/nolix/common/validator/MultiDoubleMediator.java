@@ -18,7 +18,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi double mediator for the given arguments.
 	 * 
@@ -31,7 +31,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		super(arguments);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi double mediator for the given arguments.
 	 * 

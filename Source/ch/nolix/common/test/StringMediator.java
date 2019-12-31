@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  */
 public class StringMediator extends ValueMediator<String> {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new string mediator that belongs to the given test and is for the given value.
 	 * 

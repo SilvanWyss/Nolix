@@ -4,7 +4,7 @@ package ch.nolix.common.validator;
 //class
 public final class ExtendedTypeMediator<T> extends TypeMediator<T> {
 	
-	//package-visible constructor
+	//constructor
 	ExtendedTypeMediator(final Class<T> argument) {
 		super(argument);
 	}

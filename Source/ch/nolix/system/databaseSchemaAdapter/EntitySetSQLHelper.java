@@ -10,7 +10,7 @@ public abstract class EntitySetSQLHelper {
 	//attribute
 	private final EntitySet entitySet;
 	
-	//package-visible constructor
+	//constructor
 	EntitySetSQLHelper(final EntitySet entitySet) {
 		
 		Validator.suppose(entitySet).isOfType(EntitySet.class);

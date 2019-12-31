@@ -17,7 +17,7 @@ public final class MultiDoubleMediator extends Mediator {
 	//attribute
 	final Iterable<Double> values;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi double mediator
 	 * that belongs to the given test and is for the given values.
@@ -31,7 +31,7 @@ public final class MultiDoubleMediator extends Mediator {
 		this(test, ArrayHelper.createIterable(values));
 	}
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new multi double mediator
 	 * that belongs to the given test and is for the given values.

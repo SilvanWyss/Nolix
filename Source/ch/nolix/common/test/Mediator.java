@@ -16,7 +16,7 @@ public abstract class Mediator {
 	//attribute
 	private final Test test;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new mediator that belongs to the given test.
 	 * 

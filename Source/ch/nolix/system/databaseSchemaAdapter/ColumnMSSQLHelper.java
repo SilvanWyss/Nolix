@@ -6,7 +6,7 @@ import ch.nolix.common.SQL.SQLDatabaseEngine;
 //class
 public final class ColumnMSSQLHelper extends ColumnSQLHelper {
 	
-	//package-visible constructor
+	//constructor
 	ColumnMSSQLHelper(final Column column) {
 		super(column);
 	}

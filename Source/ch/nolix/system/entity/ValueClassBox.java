@@ -10,7 +10,7 @@ public final class ValueClassBox<V> implements Named {
 	//attributes
 	private final Class<V> valueClass;
 	
-	//package-visible constructor
+	//constructor
 	ValueClassBox(final Class<V> valueClass) {		
 		this.valueClass = valueClass;
 	}

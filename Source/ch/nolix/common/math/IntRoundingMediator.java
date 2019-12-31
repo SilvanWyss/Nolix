@@ -7,7 +7,7 @@ public final class IntRoundingMediator {
 	//attribute
 	private final int value;
 	
-	//package-visible constructor
+	//constructor
 	IntRoundingMediator(final int value) {
 		this.value = value;
 	}

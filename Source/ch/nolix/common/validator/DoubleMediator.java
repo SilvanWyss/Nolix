@@ -29,7 +29,7 @@ public class DoubleMediator extends Mediator {
 	//attribute
 	private final double argument;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new double mediator for the given argument.
 	 * 
@@ -41,7 +41,7 @@ public class DoubleMediator extends Mediator {
 		this.argument = argument;
 	}
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new double mediator for the given argument with the given argument name.
 	 * 

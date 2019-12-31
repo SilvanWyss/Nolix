@@ -21,7 +21,7 @@ public final class SubNode extends BaseNode {
 	private final FileNode simplePersistentSpecification;
 	private final Node internalSpecification;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new sub specification that:
 	 * -Belongs to the given simple persistent specification.

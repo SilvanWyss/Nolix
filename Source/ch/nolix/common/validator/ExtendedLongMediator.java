@@ -14,7 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 */
 public class ExtendedLongMediator extends LongMediator {
 
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new extended long mediator for the given argument.
 	 * 

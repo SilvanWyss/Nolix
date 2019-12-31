@@ -21,7 +21,7 @@ public class ArgumentMediator<A> extends Mediator {
 	//attribute
 	private final A argument;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ArgumentMediator} for the given argument.
 	 * 
@@ -33,7 +33,7 @@ public class ArgumentMediator<A> extends Mediator {
 		this(DEFAULT_ARGUMENT_NAME, argument);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ArgumentMediator} for the given argument, that has the given argument name.
 	 * 

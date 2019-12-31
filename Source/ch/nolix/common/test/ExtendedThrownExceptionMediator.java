@@ -14,7 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ExtendedThrownExceptionMediator}
 	 * that will belong to the given test.
@@ -28,7 +28,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		super(test);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates a new {@link ExtendedThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.
