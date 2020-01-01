@@ -20,9 +20,27 @@ public abstract class TextureCreator {
 		
 		final var texture = new Image(width, height);
 		final var lTexture16x16 = getTexture16x16();
-		for (var i = 1; i <= width; i++) {
-			for (var j = 1; j <= height; j++) {
-				texture.setPixel(i, j, lTexture16x16.getPixel(i % TEXTURE_16x16_WIDTH, j % TEXTURE_16x16_WIDTH));
+		
+		if (!allowsTexture16x16Rotate180Degrees()) {
+			for (var i = 1; i <= width; i++) {
+				for (var j = 1; j <= height; j++) {
+					texture.setPixel(i, j, lTexture16x16.getPixel(1 + i % TEXTURE_16x16_WIDTH, 1 + j % TEXTURE_16x16_WIDTH));
+				}
+			}
+		}
+		
+		else {
+			for (var i = 1; i <= width; i++) {
+				if (i % 32 <= 16) {
+					for (var j = 1; j <= height; j++) {
+						texture.setPixel(i, j, lTexture16x16.getPixel(1 + i % TEXTURE_16x16_WIDTH, 1 + j % TEXTURE_16x16_WIDTH));
+					}
+				}
+				else {
+					for (var j = 1; j <= height; j++) {
+						texture.setPixel(i, j, lTexture16x16.getPixel(16 - i % TEXTURE_16x16_WIDTH, 1 + j % TEXTURE_16x16_WIDTH));
+					}
+				}
 			}
 		}
 		
@@ -52,7 +70,7 @@ public abstract class TextureCreator {
 		fillTexture16x16(texture);
 		validateTexture16x16(texture);
 		
-		return texture16x16;
+		return texture;
 	}
 	
 	//method
