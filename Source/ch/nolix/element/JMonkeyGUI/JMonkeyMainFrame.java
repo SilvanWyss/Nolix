@@ -59,7 +59,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	public JMonkeyMainFrame() {
 		
 		//Adds shape classes to this JMonkey main frame.
-		addShapeClass(BaseCube.class, new JMonkeyCuboidRenderer());
+		addShapeClass(BaseCube.class, new JMonkeyBaseCubeRenderer());
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
 		addShapeClass(Cylinder.class, new JMonkeyCylinderRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());

@@ -19,7 +19,7 @@ import ch.nolix.element.shapes.BaseCube;
  * @month 2017-11
  * @lines 90
  */
-public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<BaseCube, Geometry> {
+public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<BaseCube, Geometry> {
 	
 	//method
 	/**
