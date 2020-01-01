@@ -40,7 +40,7 @@ public abstract class TextureCreator {
 	}
 	
 	//abstract method
-	public abstract boolean canBeRotated180Degrees();
+	public abstract boolean allowsTexture16x16Rotate180Degrees();
 	
 	//method declaration
 	protected abstract void fillTexture16x16(Image texture);
@@ -62,7 +62,7 @@ public abstract class TextureCreator {
 		Validator.suppose(texture.getWidth()).thatIsNamed("texture width").isEqualTo(TEXTURE_16x16_WIDTH);
 		Validator.suppose(texture.getHeight()).thatIsNamed("texture height").isEqualTo(TEXTURE_16x16_WIDTH);
 		
-		if (!canBeRotated180Degrees()) {
+		if (!allowsTexture16x16Rotate180Degrees()) {
 			for (var i = 1; i <= TEXTURE_16x16_WIDTH; i++) {
 				Validator
 				.suppose(texture.getPixel(TEXTURE_16x16_WIDTH, i))
