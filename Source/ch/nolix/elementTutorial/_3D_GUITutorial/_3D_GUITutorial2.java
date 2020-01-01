@@ -4,7 +4,7 @@ package ch.nolix.elementTutorial._3D_GUITutorial;
 //own imports
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.shapes.Cuboid;
+import ch.nolix.element.shapes.BaseCube;
 import ch.nolix.element.shapes.Cylinder;
 import ch.nolix.element.shapes.MultiShape;
 import ch.nolix.element.shapes.Sphere;
@@ -31,7 +31,7 @@ public final class _3D_GUITutorial2 {
 		
 		mainFrame.setRootShape(
 			new MultiShape(
-				new Cuboid()
+				new BaseCube()
 				.setPosition(0.0, -2.0, 0.0)
 				.setXLength(2.0)
 				.setYLength(1.0)

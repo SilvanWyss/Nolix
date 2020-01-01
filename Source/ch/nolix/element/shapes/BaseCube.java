@@ -13,7 +13,7 @@ import ch.nolix.element.base.MutableProperty;
  * @month 2017-11
  * @lines 200
  */
-public final class Cuboid extends BaseShape<Cuboid> {
+public final class BaseCube extends BaseShape<BaseCube> {
 	
 	//default values	
 	public static final double DEFAULT_X_LENGTH = 1.0;
@@ -54,15 +54,15 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Cuboid}.
+	 * Creates a new {@link BaseCube}.
 	 */
-	public Cuboid() {
+	public BaseCube() {
 		reset();
 	}
 	
 	//method
 	/**
-	 * @return the x-length of the current {@link Cuboid}.
+	 * @return the x-length of the current {@link BaseCube}.
 	 */
 	public double getXLength() {
 		return xLength.getValue();
@@ -70,7 +70,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the x-length of the current {@link Cuboid} as float.
+	 * @return the x-length of the current {@link BaseCube} as float.
 	 */
 	public float getXLengthAsFloat() {
 		return (float)getXLength();
@@ -78,7 +78,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the y-length of the current {@link Cuboid}.
+	 * @return the y-length of the current {@link BaseCube}.
 	 */
 	public double getYLength() {
 		return yLength.getValue();
@@ -94,7 +94,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the z-length of the current {@link Cuboid}.
+	 * @return the z-length of the current {@link BaseCube}.
 	 */
 	public double getZLength() {
 		return zLength.getValue();
@@ -102,7 +102,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the z-length of the current {@link Cuboid} as float.
+	 * @return the z-length of the current {@link BaseCube} as float.
 	 */
 	public float getZLengthAsFloat() {
 		return (float)getZLength();
@@ -110,12 +110,12 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Resets the current {@link Cuboid}.
+	 * Resets the current {@link BaseCube}.
 	 * 
-	 * @return the current {@link Cuboid}.
+	 * @return the current {@link BaseCube}.
 	 */
 	@Override
-	public Cuboid reset() {
+	public BaseCube reset() {
 		
 		//Calls method of the base class.
 		super.reset();
@@ -129,17 +129,17 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Sets the size of the current {@link Cuboid}.
+	 * Sets the size of the current {@link BaseCube}.
 	 * 
 	 * @param xLength
 	 * @param yLength
 	 * @param zLength
-	 * @return the current {@link Cuboid}.
+	 * @return the current {@link BaseCube}.
 	 * @throws NonPositiveArgumentException if the given x-length is not positive.
 	 * @throws NonPositiveArgumentException if the given y-length is not positive.
 	 * @throws NonPositiveArgumentException if the given z-length is not positive.
 	 */
-	public Cuboid setSize(
+	public BaseCube setSize(
 		final double xLength,
 		final double yLength,
 		final double zLength
@@ -154,13 +154,13 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Sets the x-length of the current {@link Cuboid}.
+	 * Sets the x-length of the current {@link BaseCube}.
 	 * 
 	 * @param xLength
-	 * @return the current {@link Cuboid}.
+	 * @return the current {@link BaseCube}.
 	 * @throws NonPositiveArgumentException if the given x-length is not positive.
 	 */
-	public Cuboid setXLength(final double xLength) {
+	public BaseCube setXLength(final double xLength) {
 		
 		Validator.suppose(xLength).thatIsNamed("x length").isPositive();
 		
@@ -171,13 +171,13 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Sets the y-length of the current {@link Cuboid}.
+	 * Sets the y-length of the current {@link BaseCube}.
 	 * 
 	 * @param yLength
-	 * @return the current {@link Cuboid}.
+	 * @return the current {@link BaseCube}.
 	 * @throws NonPositiveArgumentException if the given y-length is not positive.
 	 */
-	public Cuboid setYLength(final double yLength) {
+	public BaseCube setYLength(final double yLength) {
 		
 		Validator.suppose(yLength).thatIsNamed("y length").isPositive();
 		
@@ -188,13 +188,13 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Sets the z-length of the current {@link Cuboid}.
+	 * Sets the z-length of the current {@link BaseCube}.
 	 * 
 	 * @param zLength
-	 * @return the current {@link Cuboid}.
+	 * @return the current {@link BaseCube}.
 	 * @throws NonPositiveArgumentException if the given z-length is not positive.
 	 */
-	public Cuboid setZLength(final double zLength) {
+	public BaseCube setZLength(final double zLength) {
 		
 		Validator.suppose(zLength).thatIsNamed("z length").isPositive();
 		

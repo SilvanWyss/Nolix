@@ -9,7 +9,7 @@ import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
 //own import
-import ch.nolix.element.shapes.Cuboid;
+import ch.nolix.element.shapes.BaseCube;
 
 //class
 /**
@@ -19,7 +19,7 @@ import ch.nolix.element.shapes.Cuboid;
  * @month 2017-11
  * @lines 90
  */
-public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
+public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<BaseCube, Geometry> {
 	
 	//method
 	/**
@@ -42,28 +42,28 @@ public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<Cuboid
 	 * Lets this JMonkey cuboid renderer
 	 * render the given cuboid on the given geometry.
 	 * 
-	 * @param cuboid
+	 * @param baseCube
 	 * @param geometry
 	 */
 	@Override
-	public void render(final Cuboid cuboid, final Geometry geometry) {
+	public void render(final BaseCube baseCube, final Geometry geometry) {
 		
 		//Sets the position to the given geometry.
 		geometry.setLocalTranslation(
-			cuboid.getXPositionAsFloat(),
-			cuboid.getYPositionAsFloat(),
-			cuboid.getZPositionAsFloat()
+			baseCube.getXPositionAsFloat(),
+			baseCube.getYPositionAsFloat(),
+			baseCube.getZPositionAsFloat()
 		);
 		
 		//Sets the size to the given geometry.
 		geometry.scale(
-			cuboid.getXLengthAsFloat(),
-			cuboid.getYLengthAsFloat(),
-			cuboid.getZLengthAsFloat()
+			baseCube.getXLengthAsFloat(),
+			baseCube.getYLengthAsFloat(),
+			baseCube.getZLengthAsFloat()
 		);
 		
 		//Handles the case that the given cuboid does not have a default texture.
-		if (!cuboid.hasDefaultTexture()) {
+		if (!baseCube.hasDefaultTexture()) {
 			
 			//Sets the color to the given geometry.
 				final var material =
@@ -73,7 +73,7 @@ public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<Cuboid
 								
 				material.setColor(
 					"Diffuse",
-					JMonkeyColorHelper.createColorRGBA(cuboid.getDefaultColor())
+					JMonkeyColorHelper.createColorRGBA(baseCube.getDefaultColor())
 				);
 				
 				geometry.setMaterial(material);
@@ -87,7 +87,7 @@ public final class JMonkeyCuboidRenderer implements IJMonkeyShapeRenderer<Cuboid
 				= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
 				
 				final var texture
-				= new Texture2D(new AWTLoader().load(cuboid.getRefDefaultTexture().toBufferedImage(),true));
+				= new Texture2D(new AWTLoader().load(baseCube.getRefDefaultTexture().toBufferedImage(),true));
 				
 				material.setTexture("ColorMap", texture);
 				

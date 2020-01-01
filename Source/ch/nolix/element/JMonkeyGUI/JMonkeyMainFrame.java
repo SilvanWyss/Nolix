@@ -17,7 +17,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.MainFrame;
 import ch.nolix.element._3D_GUI.Shape;
 import ch.nolix.element.planarShapes.Rectangle;
-import ch.nolix.element.shapes.Cuboid;
+import ch.nolix.element.shapes.BaseCube;
 import ch.nolix.element.shapes.Cylinder;
 import ch.nolix.element.shapes.MultiShape;
 import ch.nolix.element.shapes.Pyramid;
@@ -59,7 +59,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	public JMonkeyMainFrame() {
 		
 		//Adds shape classes to this JMonkey main frame.
-		addShapeClass(Cuboid.class, new JMonkeyCuboidRenderer());
+		addShapeClass(BaseCube.class, new JMonkeyCuboidRenderer());
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
 		addShapeClass(Cylinder.class, new JMonkeyCylinderRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());
