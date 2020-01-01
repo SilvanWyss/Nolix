@@ -21,7 +21,7 @@ import ch.nolix.element.baseAPI.IElement;
 public abstract class Element<E extends Element<E>> implements ISmartObject<E>, IElement {
 	
 	//multi-attribute
-	private LinkedList<Propertyoid<IElement>> properties;
+	private LinkedList<BaseProperty<IElement>> properties;
 	
 	//method
 	/**
@@ -103,7 +103,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	/**
 	 * @return the properties of the current {@link Element}.
 	 */
-	IContainer<Propertyoid<IElement>> getRefProperties() {
+	IContainer<BaseProperty<IElement>> getRefProperties() {
 		
 		//Handles the case that the properties of the current Entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
@@ -130,12 +130,12 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 			for (final var f : lClass.getDeclaredFields()) {
 				
 				//Handles the case that the current field is a property.
-				if (Propertyoid.class.isAssignableFrom(f.getType())) {
+				if (BaseProperty.class.isAssignableFrom(f.getType())) {
 					try {
 						
 						f.setAccessible(true);
 						
-						final var property = (Propertyoid<IElement>)(f.get(this));
+						final var property = (BaseProperty<IElement>)(f.get(this));
 						
 						//Checks if the current property is not null.
 						Validator.suppose(property).isOfType(MutableProperty.class);

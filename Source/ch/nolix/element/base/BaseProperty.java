@@ -14,9 +14,9 @@ import ch.nolix.common.validator.Validator;
 * @author Silvan Wyss
 * @month 2017-10
 * @lines 100
-* @param <V> The type of the values of a {@link Propertyoid}.
+* @param <V> The type of the values of a {@link BaseProperty}.
 */
-public abstract class Propertyoid<V> implements Named {
+public abstract class BaseProperty<V> implements Named {
 	
 	//attributes
 	private final String name;
@@ -25,7 +25,7 @@ public abstract class Propertyoid<V> implements Named {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Propertyoid} with the given name, valueCreator and specificationCreator.
+	 * Creates a new {@link BaseProperty} with the given name, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param valueCreator
@@ -35,7 +35,7 @@ public abstract class Propertyoid<V> implements Named {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	Propertyoid(
+	BaseProperty(
 		final String name,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
@@ -66,19 +66,19 @@ public abstract class Propertyoid<V> implements Named {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link Propertyoid} does not contain a value.
+	 * @return true if the current {@link BaseProperty} does not contain a value.
 	 */
 	public abstract boolean isEmpty();
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link Propertyoid} is mutable.
+	 * @return true if the current {@link BaseProperty} is mutable.
 	 */
 	public abstract boolean isMutable();
 	
 	//method declaration
 	/**
-	 * Adds or change the given value to the current {@link Propertyoid}.
+	 * Adds or change the given value to the current {@link BaseProperty}.
 	 * 
 	 * @param value
 	 */
@@ -86,7 +86,7 @@ public abstract class Propertyoid<V> implements Named {
 	
 	//method
 	/**
-	 * Adds or changes the value from the given specification to the current {@link Propertyoid}.
+	 * Adds or changes the value from the given specification to the current {@link BaseProperty}.
 	 * 
 	 * @param specification
 	 */
@@ -96,7 +96,7 @@ public abstract class Propertyoid<V> implements Named {
 	
 	//method declaration
 	/**
-	 * Fills up the specifications of the values of the current {@link Propertyoid} into the given list.
+	 * Fills up the specifications of the values of the current {@link BaseProperty} into the given list.
 	 * 
 	 * @param list
 	 */

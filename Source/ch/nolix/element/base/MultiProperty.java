@@ -21,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 190
  * @param <V> The type of the values of a {@link MultiProperty}.
  */
-public final class MultiProperty<V> extends Propertyoid<V> implements IContainer<V> {
+public final class MultiProperty<V> extends BaseProperty<V> implements IContainer<V> {
 	
 	//attribute
 	private final IElementTaker<V> adderMethod;

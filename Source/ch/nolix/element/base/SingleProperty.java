@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 160
  * @param <V> The type of the value of a {@link SingleProperty}.
  */
-abstract class SingleProperty<V> extends Propertyoid<V> {
+abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//attribute
 	private final IElementTaker<V> setterMethod;
