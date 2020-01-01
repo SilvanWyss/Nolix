@@ -7,11 +7,24 @@ package ch.nolix.common.invalidArgumentExceptions;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 80
+ * @lines 90
  */
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {
-
+	
+	//constructor
+	/**
+	 * Creates a new {@link UnequalArgumentException} for the given argument and the given expectedValue.
+	 * 
+	 * @param argument
+	 * @param expectedValue
+	 */
+	public <A> UnequalArgumentException(final A argument, final A expectedValue) {
+		
+		//Calls constructor of the base class.
+		super(argument, "does not equal " + createValidStringRepresentationInProbableQuotes(expectedValue));
+	}
+	
 	//constructor
 	/**
 	 * Creates a new unequal argument exception for the given argument and the given expected value.
