@@ -7,7 +7,7 @@ import ch.nolix.common.constants.CharacterCatalogue;
 //class
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException}
- * that is intended to be thrown when an argument is not valid.
+ * that is supposed to be thrown when a given argument is not valid.
  * 
  * A {@link InvalidArgumentException} stores the name of the argument it was created for.
  * A {@link InvalidArgumentException} stores the argument it was created for.
@@ -17,49 +17,54 @@ import ch.nolix.common.constants.CharacterCatalogue;
  * -Non[PA]ArgumentException
  * -Argument[P]Exception
  * Whereas [A] is an adjective, [PA] is a grammatically positive adjective and [P] is a predicate.
+ * For example: NegativeArgumentException, NonPositiveArgumentException, ArgumentIsOutOfRangeException.
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 210
+ * @lines 200
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
 	
-	//constant
-	public static final int MAX_ARGUMENT_NAME_LENGTH = 100;
-	
 	//constants
+	private static final int MAX_OBJECT_NAME_LENGTH = 100;
 	private static final String DEFAULT_ARGUMENT_NAME = "argument";
 	private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 	
 	//static method
 	/**
-	 * @return a safe argument name for the given argument name.
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @param object
+	 * @return a valid {@link String} representation of the given object.
 	 */
-	private static String createSafeArgumentName(final String argumentName) {
+	protected static String createValidStringRepresentationInProbableQuotes(final Object object) {
 		
-		//Checks if the given argument name is not null.
-		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
+		//Handles the case that the given object is null.
+		if (object == null) {
+			return "<null>";
+		}
+				
+		//Gets the String representation of the object.
+		final var string = object.toString();
+		
+		//Handles the case that the String representation is null or blank.
+		if (string == null || string.isBlank()) {
+			return " ";
 		}
 		
-		//Checks if the given argument name is not blank.
-		if (argumentName.isBlank()) {
-			throw new RuntimeException("The given argument name is blank.");
+		//Handles the case that the length of the String representation is not bigger than the max object name length.
+		if (string.length() <= MAX_OBJECT_NAME_LENGTH) {
+			return (" '" + string + "' ");
 		}
 		
-		return argumentName;
+		//Handles the case that the length of the String representation is bigger than the max object name length.
+		return (" '" + string.substring(0, MAX_OBJECT_NAME_LENGTH) + CharacterCatalogue.ELLIPSIS + "' ");
 	}
 	
 	//static method
 	/**
-	 * The given argument can be null.
-	 * 
-	 * @return a safe argument name for the given argument.
+	 * @return a valid argument name for the given argument.
 	 */
-	private static String createSafeArgumentNameWithFallback(final Object argument) {
+	private static String createValidArgumentName(final Object argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -72,56 +77,40 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//static method
 	/**
-	 * The given argument can be null.
-	 * 
-	 * @return a safe {@link String} representation of the given argument.
+	 * @return the given argumentName if it is valid.
+	 * @throws RuntimeException if the given argumentName is null.
+	 * @throws RuntimeException if the given argumentName is blank.
 	 */
-	private static String createSafeArgumentStringWithFallback(final Object argument) {
+	private static String validateAndGetArgumentName(final String argumentName) {
 		
-		//Handles the case that the given argument is null.
-		if (argument == null) {
-			return " ";
+		//Checks if the given argumentName is not null.
+		if (argumentName == null) {
+			throw new RuntimeException("The given argument name is null.");
 		}
 		
-		//Handles the case that the given argument is not null.
-			//Gets the String representation of the given argument.
-			final var string = argument.toString();
-			
-			//Handles the case that the String representation is null or blank.
-			if (string == null || string.isBlank()) {
-				return " ";
-			}
-			
-			/*
-			 * Handles the case that the length of the String representation is not bigger
-			 * than the maximum argument name length.
-			 */
-			if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
-				return " '" + string + "' ";
-			}
-			
-			/*
-			 * Handles the case that the length of the String representation is bigger
-			 * than the maximum argument name length.
-			 */
-			return " '" + string.substring(0, MAX_ARGUMENT_NAME_LENGTH) + CharacterCatalogue.ELLIPSIS + "' ";
+		//Checks if the given argumentName is not blank.
+		if (argumentName.isBlank()) {
+			throw new RuntimeException("The given argument name is blank.");
+		}
+		
+		return argumentName;
 	}
 	
 	//static method
 	/**
 	 * @param errorPredicate
-	 * @return a safe error predicate for the given error predicate.
+	 * @return the given errorPredicate if it is valid.
 	 * @throws RuntimeException if the given error predicate is null.
 	 * @throws RuntimeException if the given error predicate is blank.
 	 */
-	private static String createSafeErrorPredicate(final String errorPredicate) {
+	private static String validateAndGetErrorPredicate(final String errorPredicate) {
 		
-		//Checks if the given error predicate is not null.
+		//Checks if the given errorPredicate is not null.
 		if (errorPredicate == null) {
 			throw new RuntimeException("The given error predicate is null.");
 		}
 		
-		//Checks if the given error predicate is not blank.
+		//Checks if the given errorPredicate is not blank.
 		if (errorPredicate.isBlank()) {
 			throw new RuntimeException("The given error predicate is blank.");
 		}
@@ -143,48 +132,42 @@ public class InvalidArgumentException extends RuntimeException {
 	public InvalidArgumentException(final Object argument) {
 		
 		//Calls other constructor.
-		this(createSafeArgumentNameWithFallback(argument), argument, DEFAULT_ERROR_PREDICATE);
+		this(createValidArgumentName(argument), argument, DEFAULT_ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link InvalidArgumentException}
-	 * for the given argument and error predicate.
+	 * Creates a new {@link InvalidArgumentException} for the given argument and error predicate.
 	 * 
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given error predicate is null.
-	 * @throws RuntimeException if the given error predicate is blank.
+	 * @throws RuntimeException if the given errorPredicate is null.
+	 * @throws RuntimeException if the given errorPredicate is blank.
 	 */
 	public InvalidArgumentException(final Object argument, final String errorPredicate) {
 		
 		//Calls other constructor.
-		this(createSafeArgumentNameWithFallback(argument), argument, errorPredicate);
+		this(createValidArgumentName(argument), argument, errorPredicate);
 	}
 		
 	//constructor
 	/**
-	 * Creates a new {@link InvalidArgumentException}
-	 * for the given argument, argument name and error predicate.
+	 * Creates a new {@link InvalidArgumentException} for the given argument, argumentName and errorPredicate.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
-	 * @throws RuntimeException if the given error predicate is null.
-	 * @throws RuntimeException if the given error predicate is blank.
+	 * @throws RuntimeException if the given argumentName is null.
+	 * @throws RuntimeException if the given argumentName is blank.
+	 * @throws RuntimeException if the given errorPredicate is null.
+	 * @throws RuntimeException if the given errorPredicate is blank.
 	 */
-	public InvalidArgumentException(
-		final String argumentName,
-		final Object argument,
-		final String errorPredicate
-	) {
+	public InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
 		super(
 			"The given "
-			+ createSafeArgumentName(argumentName)
-			+ createSafeArgumentStringWithFallback(argument)
-			+ createSafeErrorPredicate(errorPredicate)
+			+ validateAndGetArgumentName(argumentName)
+			+ createValidStringRepresentationInProbableQuotes(argument)
+			+ validateAndGetErrorPredicate(errorPredicate)
 			+ "."
 		);
 		
