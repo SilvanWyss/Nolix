@@ -5,6 +5,7 @@ package ch.nolix.common.validator;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
@@ -70,6 +71,15 @@ public class ArgumentMediator<A> extends Mediator {
 			throw
 			new InvalidArgumentException(getArgumentName(), getRefArgument(), "does not fulfil the given condition");
 		}
+	}
+	
+	public final TerminalArgumentMediator<A> isEqualTo(final A object) {
+		
+		if (argument != null && !argument.equals(object)) {
+			throw new UnequalArgumentException(argument, object);
+		}
+		
+		return new TerminalArgumentMediator<>(getRefArgument());
 	}
 	
 	//method
