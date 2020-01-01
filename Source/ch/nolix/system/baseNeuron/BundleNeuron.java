@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.baseNeuron;
 
 //class
 /**
@@ -11,7 +11,7 @@ package ch.nolix.system.neuronoid;
  * @param <O> The type of the inputs of a bundle neuron.
  */
 public final class BundleNeuron<O>
-extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
+extends BaseNeuron<BundleNeuron<O>, O, Iterable<O>> {
 	
 	//limits
 	public static final int MIN_INPUT_NEURON_COUNT = 0;

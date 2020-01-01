@@ -7,10 +7,10 @@ import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.baseNeuron.BaseNeuron;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.client.StandardClient;
-import ch.nolix.system.neuronoid.Neuronoid;
 
 //class
 /**
@@ -28,7 +28,7 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @param <I> The type of the input of a net back neuron.
  */
 public final class BackNetNeuron<I>
-extends Neuronoid<BackNetNeuron<I>, I, I>
+extends BaseNeuron<BackNetNeuron<I>, I, I>
 implements Closable {
 	
 	//limits

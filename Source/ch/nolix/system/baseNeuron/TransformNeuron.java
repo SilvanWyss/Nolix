@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.baseNeuron;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * @param <O> The type of the output of a transform neuron.
  */
 public final class TransformNeuron<I, O>
-extends Neuronoid<TransformNeuron<I, O>, I, O> {
+extends BaseNeuron<TransformNeuron<I, O>, I, O> {
 	
 	//limits
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
@@ -35,7 +35,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
 	public TransformNeuron(
-		final Neuronoid<?, ?, I> inputNeuron,
+		final BaseNeuron<?, ?, I> inputNeuron,
 		final IElementTakerElementGetter<I, O> transformator
 	) {
 		//Checks if the given transformator is not null.

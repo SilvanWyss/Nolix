@@ -4,8 +4,8 @@ package ch.nolix.system.neuronalNet;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.baseNeuron.InputConnection;
 import ch.nolix.system.neuron.Neuron;
-import ch.nolix.system.neuronoid.InputConnection;
 
 //class
 /**

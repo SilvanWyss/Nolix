@@ -2,8 +2,8 @@
 package ch.nolix.systemTutorial.neuronTutorial;
 
 import ch.nolix.common.math.Calculator;
+import ch.nolix.system.baseNeuron.SourceNeuron;
 import ch.nolix.system.neuron.Neuron;
-import ch.nolix.system.neuronoid.SourceNeuron;
 
 //class
 /**

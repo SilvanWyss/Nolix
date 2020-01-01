@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.baseNeuron;
 
 //class
 /**
@@ -11,7 +11,7 @@ package ch.nolix.system.neuronoid;
  * @param <O> The type of the output of a source neuron.
  */
 public final class SourceNeuron<O>
-extends Neuronoid<SourceNeuron<O>, Object, O> {
+extends BaseNeuron<SourceNeuron<O>, Object, O> {
 	
 	//limits
 	public static final int MIN_INPUT_NEURON_COUNT = 0;

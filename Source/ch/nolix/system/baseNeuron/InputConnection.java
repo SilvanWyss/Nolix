@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.baseNeuron;
 
 import ch.nolix.common.validator.Validator;
 
@@ -19,7 +19,7 @@ public final class InputConnection<O> {
 	
 	//attributes
 	private double weight = DEFAULT_WEIGHT;
-	private final Neuronoid<?, ?, O> inputNeuron;
+	private final BaseNeuron<?, ?, O> inputNeuron;
 	
 	//constructor
 	/**
@@ -28,7 +28,7 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @throws ArgumentIsNullException if the given input neuron is null.
 	 */
-	public InputConnection(final Neuronoid<?, ?, O> inputNeuron) {
+	public InputConnection(final BaseNeuron<?, ?, O> inputNeuron) {
 		
 		//Checks if the given input neuron is not null.
 		Validator
@@ -50,7 +50,7 @@ public final class InputConnection<O> {
 	 */
 	public InputConnection(
 		final double weight,
-		final Neuronoid<?, ?, O> inputNeuron
+		final BaseNeuron<?, ?, O> inputNeuron
 	) {
 
 		//Calls other constructor.
@@ -63,7 +63,7 @@ public final class InputConnection<O> {
 	/**
 	 * @return the input neuron of this input connection.
 	 */
-	public final Neuronoid<?, ?, O> getRefInputNeuron() {
+	public final BaseNeuron<?, ?, O> getRefInputNeuron() {
 		return inputNeuron;
 	}
 
@@ -88,7 +88,7 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @return true if this input connection has the given input neuron.
 	 */
-	public boolean hasInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {
+	public boolean hasInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
 		return (this.inputNeuron == inputNeuron);
 	}
 	

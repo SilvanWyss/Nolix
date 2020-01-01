@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.neuronalNet} package
- * defines a neuronal net that is a {@link ch.nolix.system.neuronoid.Neuronoid}.
+ * defines a neuronal net that is a {@link ch.nolix.system.baseNeuron.BaseNeuron}.
  * 
  * @author Silvan Wyss
  * @month 2019-07

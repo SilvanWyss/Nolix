@@ -6,8 +6,8 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.neuronoid.InputConnection;
-import ch.nolix.system.neuronoid.Neuronoid;
+import ch.nolix.system.baseNeuron.BaseNeuron;
+import ch.nolix.system.baseNeuron.InputConnection;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @lines 210
  * @param <IO> The type of the input and output of a neuron.
  */
-public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
+public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	
 	//limits
 	public static final int MIN_INPUT_NEURON_COUNT = 0;

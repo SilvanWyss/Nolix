@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.neuron} package defines a standard {@link ch.nolix.system.neuronoid.Neuronoid}.
+ * The {@link ch.nolix.system.neuron} package defines a standard {@link ch.nolix.system.baseNeuron.BaseNeuron}.
  * 
  * @author Silvan Wyss
  * @month 2019-07

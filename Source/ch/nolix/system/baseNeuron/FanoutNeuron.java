@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.baseNeuron;
 
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
@@ -16,7 +16,7 @@ import ch.nolix.common.containers.ReadContainer;
  * @param <O> The type of the elements of the input and of the elements of the output of a fanout neuron.
  */
 public final class FanoutNeuron<O>
-extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
+extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	
 	//limits
 	public static final int MIN_INPUT_NEURON_COUNT = 0;
@@ -54,7 +54,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 * @param fanNeuron
 	 * @return true if this fanout neurons contains the given fan neuron.
 	 */
-	public boolean containsFanNeuron(final Neuronoid<?, ?, ?> fanNeuron) {
+	public boolean containsFanNeuron(final BaseNeuron<?, ?, ?> fanNeuron) {
 		return fanNeurons.contains(fanNeuron);
 	}
 	
@@ -80,7 +80,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	/**
 	 * @return the fan neurons of this fanout neuron.
 	 */
-	public ReadContainer<Neuronoid<?, ?, O>> getRefFanNeurons() {
+	public ReadContainer<BaseNeuron<?, ?, O>> getRefFanNeurons() {
 		return new ReadContainer<>(fanNeurons);
 	}
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.baseNeuron;
 
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
@@ -29,7 +29,7 @@ import ch.nolix.common.validator.Validator;
  * @param <O> The type of the output of a neuron.
  * @param <N> The type of a neuron.
  */
-public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O>
+public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O>
 implements ISmartObject<N> {
 	
 	//attribute
@@ -37,7 +37,7 @@ implements ISmartObject<N> {
 	
 	//multi-attributes
 	private final LinkedList<InputConnection<I>> inputConnections = new LinkedList<>();
-	private final LinkedList<Neuronoid<?, O, ?>> outputNeurons = new LinkedList<>();
+	private final LinkedList<BaseNeuron<?, O, ?>> outputNeurons = new LinkedList<>();
 	
 	//method
 	/**
@@ -51,7 +51,7 @@ implements ISmartObject<N> {
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
-	public final N addInputNeuron(final double weight, final Neuronoid<?, ?, I> inputNeuron) {
+	public final N addInputNeuron(final double weight, final BaseNeuron<?, ?, I> inputNeuron) {
 		
 		addInputConnection(new InputConnection<I>(weight, inputNeuron));
 		
@@ -69,7 +69,7 @@ implements ISmartObject<N> {
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
-	public final N addInputNeuron(final Neuronoid<?, ?, I> inputNeuron) {
+	public final N addInputNeuron(final BaseNeuron<?, ?, I> inputNeuron) {
 		
 		addInputConnection(new InputConnection<I>(inputNeuron));
 		
@@ -101,18 +101,18 @@ implements ISmartObject<N> {
 	 */
 	public void fireTransitively() {
 		
-		final LinkedList<Neuronoid<?, ?, ?>> nextNeurons = new LinkedList<>(this);
-		final LinkedList<Neuronoid<?, ?, ?>> visitedNeurons = new LinkedList<>();
+		final LinkedList<BaseNeuron<?, ?, ?>> nextNeurons = new LinkedList<>(this);
+		final LinkedList<BaseNeuron<?, ?, ?>> visitedNeurons = new LinkedList<>();
 				
 		while (nextNeurons.containsAny()) {
 			
-			final Neuronoid<?, ?, ?> neuron = nextNeurons.removeAndGetRefFirst();
+			final BaseNeuron<?, ?, ?> neuron = nextNeurons.removeAndGetRefFirst();
 			visitedNeurons.addAtEnd(neuron);
 			neuron.fillUpInputNeuronsWithoutOutputPartialRecursively(visitedNeurons);
 			neuron.fire();
 			
 			//Iterates the output neurons of the current neuron.
-			for (final Neuronoid<?, ?, ?> on : neuron.getRefOutputNeurons()) {
+			for (final BaseNeuron<?, ?, ?> on : neuron.getRefOutputNeurons()) {
 				
 				//Handles the case that the current output neuron has not been visited yet.
 				if (!visitedNeurons.contains(on)) {
@@ -164,7 +164,7 @@ implements ISmartObject<N> {
 	/**
 	 * @return the input neurons of this neuron.
 	 */
-	public final ReadContainer<Neuronoid<?, ?, I>> getRefInputNeurons() {
+	public final ReadContainer<BaseNeuron<?, ?, I>> getRefInputNeurons() {
 		return new ReadContainer<>(inputConnections.to(ic -> ic.getRefInputNeuron()));
 	}
 	
@@ -202,7 +202,7 @@ implements ISmartObject<N> {
 	 * @throws InvalidArgumentException
 	 * if this neuron does not contain an input neuron or contains several input neurons.
 	 */
-	public final Neuronoid<?, ?, I> getRefOneInputNeuron(){
+	public final BaseNeuron<?, ?, I> getRefOneInputNeuron(){
 		return inputConnections.getRefOne().getRefInputNeuron();
 	}
 	
@@ -228,7 +228,7 @@ implements ISmartObject<N> {
 	/**
 	 * @return the output neurons of this neuron.
 	 */
-	public final ReadContainer<Neuronoid<?, O, ?>> getRefOutputNeurons() {
+	public final ReadContainer<BaseNeuron<?, O, ?>> getRefOutputNeurons() {
 		return new ReadContainer<>(outputNeurons);
 	}
 	
@@ -241,7 +241,7 @@ implements ISmartObject<N> {
 	 * @throws NonBiggerArgumentException if this neuron has not more input neurons than its minimal input neuron count says.
 	 * @throws InvalidArgumentException if this neuron does not contain the given input neuron.
 	 */
-	public final N removeInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {
+	public final N removeInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
 		
 		//Checks if this neuron has not more input neurons than its minimal input neuron count says.
 		Validator.suppose(getInputNeuronCount()).isBiggerThan(getMinInputNeuronCount());
@@ -308,7 +308,7 @@ implements ISmartObject<N> {
 	 * 
 	 * @param list
 	 */
-	private void fillUpInputNeuronsWithoutOutputPartialRecursively(final LinkedList<Neuronoid<?, ?, ?>> list) {
+	private void fillUpInputNeuronsWithoutOutputPartialRecursively(final LinkedList<BaseNeuron<?, ?, ?>> list) {
 		
 		//Iterates the input connections of this neuron.
 		for (final var ic : inputConnections) {

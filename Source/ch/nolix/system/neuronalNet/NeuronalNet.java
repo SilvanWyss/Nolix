@@ -3,9 +3,9 @@ package ch.nolix.system.neuronalNet;
 
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.neuronoid.BundleNeuron;
-import ch.nolix.system.neuronoid.FanoutNeuron;
-import ch.nolix.system.neuronoid.Neuronoid;
+import ch.nolix.system.baseNeuron.BaseNeuron;
+import ch.nolix.system.baseNeuron.BundleNeuron;
+import ch.nolix.system.baseNeuron.FanoutNeuron;
 
 //class
 /**
@@ -17,7 +17,7 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @param <IO> The type of the input and output of the neurons of a neuronal net.
  */
 public final class NeuronalNet<IO>
-extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
+extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//limits
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
@@ -36,7 +36,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * @throws ArgumentIsNullException if the given input layer neurons is null.
 	 * @throws ArgumentIsNullException if the given output layer neurons is null.
 	 */
-	public <N extends Neuronoid<N, IO, IO>> NeuronalNet(
+	public <N extends BaseNeuron<N, IO, IO>> NeuronalNet(
 		final Iterable<N> inputLayerNeurons,
 		final Iterable<N> outputLayerNeurons
 	) {
@@ -89,13 +89,13 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	/**
 	 * @return the neurons of this neuronal net.
 	 */
-	public LinkedList<Neuronoid<?, ?, ?>> getRefNeurons() {
+	public LinkedList<BaseNeuron<?, ?, ?>> getRefNeurons() {
 	
-		final LinkedList<Neuronoid<?, ?, ?>> neurons =
+		final LinkedList<BaseNeuron<?, ?, ?>> neurons =
 		new LinkedList<>(inputFanoutNeuron.getRefFanNeurons());
 		
-		for (final Neuronoid<?, ?, ?> n : neurons) {
-			for (final Neuronoid<?, ?, ?> on : n.getRefOutputNeurons()) {
+		for (final BaseNeuron<?, ?, ?> n : neurons) {
+			for (final BaseNeuron<?, ?, ?> on : n.getRefOutputNeurons()) {
 				
 				//Handles the case that the neurons does not contains already the current output neuron.
 				if (!neurons.contains(on)) {
@@ -116,7 +116,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * as neurons whose inputs and output are of the same type as the inputs and output of this neuronal net.
 	 */
 	@SuppressWarnings("unchecked")
-	public <N extends Neuronoid<N, IO, IO>> LinkedList<N> getRefNeuronsAsTyped() {
+	public <N extends BaseNeuron<N, IO, IO>> LinkedList<N> getRefNeuronsAsTyped() {
 		return getRefNeurons().to(e -> (N)e);
 	}
 	
