@@ -14,7 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 130
+ * @lines 140
  * @param <A> The type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {
@@ -73,8 +73,15 @@ public class ArgumentMediator<A> extends Mediator {
 		}
 	}
 	
+	//method
+	/**
+	 * @return a new {@link TerminalArgumentMediator} for the argument of the current {@link ArgumentMediator}.
+	 * @throws InvalidArgumentException
+	 * if the argument of the current {@link ArgumentMediator} does not equal the given object.
+	 */
 	public final TerminalArgumentMediator<A> isEqualTo(final A object) {
 		
+		//Checks if the argument of the current ArgumentMediator equals the given object.
 		if (argument != null && !argument.equals(object)) {
 			throw new UnequalArgumentException(argument, object);
 		}
