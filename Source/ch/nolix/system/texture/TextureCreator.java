@@ -16,6 +16,20 @@ public abstract class TextureCreator {
 	private Image texture16x16;
 	
 	//method
+	public final Image createTexture(final int width, final int height) {
+		
+		final var texture = new Image(width, height);
+		final var lTexture16x16 = getTexture16x16();
+		for (var i = 1; i <= width; i++) {
+			for (var j = 1; j <= height; j++) {
+				texture.setPixel(i, j, lTexture16x16.getPixel(i % TEXTURE_16x16_WIDTH, j % TEXTURE_16x16_WIDTH));
+			}
+		}
+		
+		return texture;
+	}
+	
+	//method
 	public final Image getTexture16x16() {
 		
 		if (texture16x16 == null) {
