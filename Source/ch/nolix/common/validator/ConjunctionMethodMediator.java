@@ -4,8 +4,9 @@ package ch.nolix.common.validator;
 //Java import
 import java.lang.annotation.Annotation;
 
-//own import
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.node.Node;
 
 //class
 public final class ConjunctionMethodMediator {
@@ -24,6 +25,14 @@ public final class ConjunctionMethodMediator {
 	}
 	
 	//method
+	public ConjunctionMethodMediator andDoesNotHaveReturnType() {
+		
+		originalMethodMediator.doesNotReturnAnything();
+		
+		return this;
+	}
+	
+	//method
 	public <A extends Annotation> ConjunctionMethodMediator andHasAnnotation(final Class<A> annotationType) {
 		
 		originalMethodMediator.hasAnnotation(annotationType);
@@ -35,6 +44,14 @@ public final class ConjunctionMethodMediator {
 	public ConjunctionMethodMediator andHasParametersOfTypeOnly(final Class<String> type) {
 		
 		originalMethodMediator.hasParametersOfTypeOnly(type);
+		
+		return this;
+	}
+	
+	//method
+	public ConjunctionMethodMediator andHasReturnType(final Class<Node> returnType) {
+		
+		originalMethodMediator.hasReturnType(returnType);
 		
 		return this;
 	}
