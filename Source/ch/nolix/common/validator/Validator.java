@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//Java import
+//Java imports
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 //own imports
@@ -19,7 +20,7 @@ import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 330
+ * @lines 340
  */
 public final class Validator {
 	
@@ -192,6 +193,15 @@ public final class Validator {
 		
 		//Handles the case that the given argument is not null.
 		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ExtendedMethodMediator} for the given argument.
+	 */
+	public static ExtendedMethodMediator suppose(final Method argument) {
+		return new ExtendedMethodMediator(argument);
 	}
 	
 	//static method
