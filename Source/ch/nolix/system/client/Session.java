@@ -13,7 +13,6 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.reflectionHelpers.MethodHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 
@@ -23,7 +22,7 @@ import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 460
+ * @lines 450
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {
@@ -49,30 +48,25 @@ public abstract class Session<C extends Client<C>> {
 		Class<?> lClass = getClass();
 		while (lClass != null) {
 			for (final var m : lClass.getMethods()) {
-				if (
-					Character.isUpperCase(m.getName().charAt(0))
-					&& MethodHelper.allParametersOfMethodAreOfType(m, String.class)
-				) {
+				
+				if (SessionHelper.isRunMethod(m)) {
 					
-					if (m.getAnnotation(RunMethod.class) != null) {
-						
-						//TODO: Check the signature of the current method.
-						
-						//Setting the method accessible is needed that it can be accessed.
-						m.setAccessible(true);
-						
-						runMethods.addAtEnd(m);
-					}
+					SessionHelper.validateRunMethod(m);
 					
-					else if (m.getAnnotation(DataMethod.class) != null) {
-						
-						//TODO: Check the signature of the current method.
-						
-						//Setting the method accessible is needed that it can be accessed.
-						m.setAccessible(true);
-						
-						dataMethods.addAtEnd(m);
-					}
+					//Setting the method accessible is needed that it can be accessed.
+					m.setAccessible(true);
+					
+					runMethods.addAtEnd(m);
+				}
+				
+				else if (SessionHelper.isDataMethod(m)) {
+					
+					SessionHelper.validateDataMethod(m);
+					
+					//Setting the method accessible is needed that it can be accessed.
+					m.setAccessible(true);
+					
+					dataMethods.addAtEnd(m);
 				}
 			}
 			
