@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -48,17 +49,11 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 			throw new InvalidArgumentException(this, "is already expanded");
 		}
 		
-		selectionMenu = new SelectionMenu(getItems().to(i -> i.getText()));
+		selectionMenu = new SelectionMenu(getItems().to(ItemMenuItem::getText));
 		
 		selectionMenu.setSelectCommand(
 			i -> { select(i); getRefGUI().removeTopLayer(); selectionMenu = null; }
 		);
-		
-		for (final var i : getItems()) {
-			i.getRefLabel().setLeftMouseButtonPressCommand(
-				() -> { select(i); getRefGUI().removeTopLayer(); selectionMenu = null; }
-			);
-		}
 		
 		selectionMenu
 		.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE))
