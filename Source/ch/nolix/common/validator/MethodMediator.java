@@ -24,7 +24,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	}
 	
 	//method
-	public <A extends Annotation> void hasAnnotation(final Class<A> annotationType) {
+	public <A extends Annotation> ConjunctionMethodMediator hasAnnotation(final Class<A> annotationType) {
 		
 		if (annotationType == null) {
 			throw new ArgumentIsNullException("annotation type");
@@ -39,6 +39,8 @@ public class MethodMediator extends ArgumentMediator<Method> {
 				"does not have the annotation '" + annotationType.getName() + "'"
 			);
 		}
+		
+		return new ConjunctionMethodMediator(this);
 	}
 	
 	//method
