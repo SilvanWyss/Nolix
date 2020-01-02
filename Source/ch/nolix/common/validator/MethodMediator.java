@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//Java import
+//Java imports
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 //own imports
@@ -20,6 +21,24 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	//constructor
 	MethodMediator(final String argumentName, final Method argument) {
 		super(argumentName, argument);
+	}
+	
+	//method
+	public <A extends Annotation> void hasAnnotation(final Class<A> annotationType) {
+		
+		if (annotationType == null) {
+			throw new ArgumentIsNullException("annotation type");
+		}
+		
+		isNotNull();
+		
+		if (getRefArgument().getAnnotation(annotationType) == null) {
+			throw new
+			InvalidArgumentException(
+				getRefArgument(),
+				"does not have the annotation '" + annotationType.getName() + "'"
+			);
+		}
 	}
 	
 	//method
