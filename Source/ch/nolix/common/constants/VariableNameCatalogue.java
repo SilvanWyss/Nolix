@@ -95,6 +95,7 @@ public final class VariableNameCatalogue {
 	public static final String LINE_THICKNESS = "line thickness";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
+	public static final String METHOD = "method";
 	public static final String MINIMUM = "minimum";
 	public static final String NAME = "name";
 	public static final String NEXT_ELEMENT = "next element";

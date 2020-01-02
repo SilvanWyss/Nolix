@@ -95,6 +95,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MAXIMUM = "Maximum";
 	public static final String MESSAGE = "Message";
+	public static final String METHOD = "Method";
 	public static final String MINIMUM = "Minimum";
 	public static final String NAME = "Name";
 	public static final String NEXT_ELEMENT = "NextElement";
