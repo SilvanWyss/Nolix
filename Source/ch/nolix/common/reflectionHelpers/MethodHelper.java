@@ -2,30 +2,31 @@
 package ch.nolix.common.reflectionHelpers;
 
 //Java imports
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
 
 //class
 /**
- * This class provides methods to handle methods.
- * Of this class an instance cannot be created.
+ * The {@link MethodHelper} provides methods to handle methods.
+ * Of the {@link MethodHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 40
+ * @lines 50
  */
 public final class MethodHelper {
-
+	
 	//static method
 	/**
 	 * @param method
-	 * @return true if all parameters of the given method are strings.
+	 * @param type
+	 * @return true if all parameters of the given method are of the given type.
 	 */
-	public static boolean allParametersOfMethodAreStrings(final Method method) {
+	public static boolean allParametersOfMethodAreOfType(final Method method, final Class<?> type) {
 		
 		//Iterates the parameters of the given method.
-		for (final Parameter p : method.getParameters()) {
-			if (!p.getType().isAssignableFrom(String.class)) {
+		for (final var p : method.getParameters()) {
+			if (!p.getType().isAssignableFrom(type)) {
 				return false;
 			}
 		}
@@ -33,9 +34,22 @@ public final class MethodHelper {
 		return true;
 	}
 	
+	//static method
+	/**
+	 * @param method
+	 * @param annotationType
+	 * @return true if the given method has an annotation of the given annotationType.
+	 */
+	public static <A extends Annotation> boolean methodHasAnnotation(
+		final Method method,
+		final Class<A> annotationType
+	) {
+		return (method.getAnnotation(annotationType) != null);
+	}
+	
 	//access-reducing constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link MethodHelper} can be created.
 	 */
 	private MethodHelper() {}
 }

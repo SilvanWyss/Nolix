@@ -51,7 +51,7 @@ public abstract class Session<C extends Client<C>> {
 			for (final var m : lClass.getMethods()) {
 				if (
 					Character.isUpperCase(m.getName().charAt(0))
-					&& MethodHelper.allParametersOfMethodAreStrings(m)
+					&& MethodHelper.allParametersOfMethodAreOfType(m, String.class)
 				) {
 					
 					if (m.getAnnotation(RunMethod.class) != null) {
