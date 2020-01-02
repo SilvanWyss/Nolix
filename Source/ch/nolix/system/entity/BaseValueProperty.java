@@ -3,7 +3,6 @@ package ch.nolix.system.entity;
 
 //own import
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 
 //class
 public abstract class BaseValueProperty<V> extends Property<V> {
@@ -35,11 +34,5 @@ public abstract class BaseValueProperty<V> extends Property<V> {
 	//method
 	protected final V createValueFromSpecification(final BaseNode specificaiton) {
 		return getParentDatabaseAdapter().createValueFromSpecification(getValueClass(), specificaiton);
-	}
-	
-	//TODO: Delete this method.
-	//method
-	protected final V createValueFromString(final String string) {
-		return getParentDatabaseAdapter().createValueFromSpecification(getValueClass(), Node.fromString(string));
 	}
 }

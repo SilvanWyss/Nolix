@@ -86,7 +86,7 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	
 	//method
 	public final void setValueFromString(final String string) {
-		setValue(createValueFromString(string));
+		setValueFromSpecification(Node.fromString(string));
 	}
 	
 	//method

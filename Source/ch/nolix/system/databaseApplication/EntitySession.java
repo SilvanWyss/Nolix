@@ -4,6 +4,7 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;
 import ch.nolix.element.containerWidgets.TabContainer;
@@ -307,7 +308,7 @@ public final class EntitySession extends HeaderedSession {
 						optionalProperty.clear();
 					}
 					else {
-						optionalProperty.setValueFromString(optionalDataTextBox.getText());
+						optionalProperty.setValueFromSpecification(Node.fromString(optionalDataTextBox.getText()));
 					}
 					
 					break;
