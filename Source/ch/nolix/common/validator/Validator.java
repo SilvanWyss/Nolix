@@ -45,10 +45,10 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new {@link ExtendedBigDecimalValidator} for the given argument.
+	 * @return a new {@link ExtendedBigDecimalMediator} for the given argument.
 	 */
-	public static ExtendedBigDecimalValidator suppose(final BigDecimal argument) {
-		return new ExtendedBigDecimalValidator(argument);
+	public static ExtendedBigDecimalMediator suppose(final BigDecimal argument) {
+		return new ExtendedBigDecimalMediator(argument);
 	}
 	
 	//static method

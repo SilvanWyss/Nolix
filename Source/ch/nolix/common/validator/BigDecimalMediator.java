@@ -9,17 +9,17 @@ import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 
 //class
-public class BigDecimalValidator extends ArgumentMediator<BigDecimal> {
+public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 	
 	//constructor
-	BigDecimalValidator(final BigDecimal argument) {
+	BigDecimalMediator(final BigDecimal argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
 	}
 	
 	//constructor
-	BigDecimalValidator(final String argumentName, final BigDecimal argument) {
+	BigDecimalMediator(final String argumentName, final BigDecimal argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument);
