@@ -25,7 +25,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	}
 	
 	//method
-	public final ConjunctionMethodMediator doesNotReturnAnything() {
+	public final MethodMediator doesNotReturnAnything() {
 		
 		isNotNull();
 		
@@ -33,11 +33,11 @@ public class MethodMediator extends ArgumentMediator<Method> {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "can return something");
 		}
 		
-		return new ConjunctionMethodMediator(this);
+		return this;
 	}
 	
 	//method
-	public final <A extends Annotation> ConjunctionMethodMediator hasAnnotation(final Class<A> annotationType) {
+	public final <A extends Annotation> MethodMediator hasAnnotation(final Class<A> annotationType) {
 		
 		if (annotationType == null) {
 			throw new ArgumentIsNullException("annotation type");
@@ -54,11 +54,11 @@ public class MethodMediator extends ArgumentMediator<Method> {
 			);
 		}
 		
-		return new ConjunctionMethodMediator(this);
+		return this;
 	}
 	
 	//method
-	public final void hasParametersOfTypeOnly(final Class<String> type) {
+	public final MethodMediator hasParametersOfTypeOnly(final Class<String> type) {
 		
 		if (type == null) {
 			throw new ArgumentIsNullException(getArgumentName());
@@ -76,10 +76,12 @@ public class MethodMediator extends ArgumentMediator<Method> {
 				);
 			}
 		}
+		
+		return this;
 	}
 	
 	//method
-	public final ConjunctionMethodMediator hasReturnType(final Class<Node> returnType) {
+	public final MethodMediator hasReturnType(final Class<Node> returnType) {
 		
 		if (returnType == null) {
 			throw new ArgumentIsNullException("return type");
@@ -94,6 +96,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
 			);
 		}
 		
-		return new ConjunctionMethodMediator(this);
+		return this;
 	}
 }

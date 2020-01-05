@@ -28,8 +28,8 @@ final class SessionHelper {
 		.suppose(dataMethod)
 		.thatIsNamed("data method")
 		.hasAnnotation(DataMethod.class)
-		.andHasParametersOfTypeOnly(String.class)
-		.andHasReturnType(Node.class);
+		.hasParametersOfTypeOnly(String.class)
+		.hasReturnType(Node.class);
 	}
 	
 	//static method
@@ -38,8 +38,8 @@ final class SessionHelper {
 		.suppose(runMethod)
 		.thatIsNamed("run method")
 		.hasAnnotation(RunMethod.class)
-		.andHasParametersOfTypeOnly(String.class)
-		.andDoesNotHaveReturnType();
+		.hasParametersOfTypeOnly(String.class)
+		.doesNotReturnAnything();
 	}
 	
 	//access-reducing constructor
