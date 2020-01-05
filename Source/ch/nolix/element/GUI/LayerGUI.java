@@ -476,14 +476,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @param name
-	 * @return the {@link Widget} with the given name from the current {@link LayerGUI}.
+	 * @param id
+	 * @return the {@link Widget} with the given id from the current {@link LayerGUI}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LayerGUI}
-	 * does not contain a {@link Widget} with the given name.
+	 * does not contain a {@link Widget} with the given id.
 	 */
 	@SuppressWarnings("unchecked")
-	public <W extends Widget<?, ?>> W getRefWidgetByName(final String name) {
-		return (W)getRefWidgets().getRefFirst(w -> w.hasName(name));
+	public <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
+		return (W)getRefWidgets().getRefFirst(w -> w.hasId(id));
 	}
 	
 	//method

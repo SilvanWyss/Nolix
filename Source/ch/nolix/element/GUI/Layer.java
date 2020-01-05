@@ -187,8 +187,8 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 * {@inheridDoc}
 	 */
 	@Override
-	public boolean containsElement(final String name) {
-		return getRefWidgets().contains(w -> w.hasName(name));
+	public boolean containsElement(final String id) {
+		return getRefWidgets().contains(w -> w.hasId(id));
 	}
 	
 	//method
@@ -275,8 +275,8 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getName() {
-		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
+	public String getId() {
+		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
 	}
 	
 	//method
@@ -365,7 +365,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasName() {
+	public boolean hasId() {
 		return false;
 	}
 	
@@ -716,7 +716,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Layer removeName() {
+	public Layer removeId() {
 		return this;
 	}
 	
@@ -839,8 +839,8 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Layer setName(final String name) {
-		throw new ArgumentDoesNotSupportMethodException(this, "setName");
+	public Layer setId(final String id) {
+		throw new ArgumentDoesNotSupportMethodException(this, "setId");
 	}
 	
 	//method

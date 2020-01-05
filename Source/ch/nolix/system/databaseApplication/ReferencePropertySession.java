@@ -56,7 +56,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	//method
 	private SelectionMenu createReferencesSelectionMenu() {
 		
-		final var referencesSelectionMenu = new SelectionMenu().setName("ReferencesSelectionMenu");
+		final var referencesSelectionMenu = new SelectionMenu().setId("ReferencesSelectionMenu");
 		
 		for (final var e : reference.getRefEntitySetOfReferencedEntities().getRefEntities()) {
 			referencesSelectionMenu.addItem(String.valueOf(e.getId()), e.getIdAsString());
@@ -72,8 +72,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	//method
 	private void select() {
 		
-		final SelectionMenu referencesSelectionMenu =
-		getRefGUI().getRefWidgetByName("ReferencesSelectionMenu");
+		final SelectionMenu referencesSelectionMenu = getRefGUI().getRefWidgetById("ReferencesSelectionMenu");
 		
 		reference.set(
 			reference

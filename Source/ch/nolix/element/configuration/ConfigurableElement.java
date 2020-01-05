@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-import ch.nolix.common.attributeAPI.OptionalNamable;
+//own imports
 import ch.nolix.common.attributeAPI.OptionalTokenable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -17,18 +17,17 @@ import ch.nolix.element.baseAPI.IMutableElement;
 
 //class
 /**
- * A {@link ConfigurableElement} is a {@link OptionalNamableElement}
- * that is configurable.
+ * A {@link ConfigurableElement} is configurable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 160
+ * @lines 230
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
-implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, OptionalTokenable<CE>, IMutableElement<CE> {
+implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, OptionalTokenable<CE> {
 	
 	//optional attributes
-	private String name;
+	private String id;
 	private String token;
 	
 	//method
@@ -40,8 +39,8 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.NAME:
-				setName(attribute.getOneAttributeAsString());
+			case PascalCaseNameCatalogue.ID:
+				setId(attribute.getOneAttributeAsString());
 				break;
 			case PascalCaseNameCatalogue.TOKEN:
 				setToken(attribute.getOneAttributeAsString());
@@ -62,9 +61,9 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 		
 		final var attributes = super.getAttributes();
 		
-		//Handles the case that the current configurbale element has a name.
-		if (hasName()) {
-			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.NAME, name));
+		//Handles the case that the current configurbale element has a id.
+		if (hasId()) {
+			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.ID, id));
 		}
 		
 		//Handles the case that the current configurbale element has a token.
@@ -80,8 +79,11 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getName() {
-		return name;
+	public final String getId() {
+		
+		supposeHasId();
+		
+		return id;
 	}
 	
 	//method
@@ -102,8 +104,8 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean hasName() {
-		return (name != null);
+	public final boolean hasId() {
+		return (id != null);
 	}
 	
 	//method
@@ -129,9 +131,9 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CE removeName() {
+	public final CE removeId() {
 		
-		name = null;
+		id = null;
 		
 		return asConcreteType();
 	}
@@ -155,7 +157,7 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	@Override
 	public CE reset() {
 		
-		removeName();
+		removeId();
 		resetConfiguration();
 		
 		return asConcreteType();
@@ -163,15 +165,17 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 	
 	//method
 	/**
-	 * @param name
+	 * @param id
 	 * @return the current {@link ConfigurableElement}.
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given id is null.
+	 * @throws InvalidArgumentException if the given id is blank.
 	 */
 	@Override
-	public final CE setName(final String name) {
+	public final CE setId(final String id) {
 		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		
+		this.id = id;
 		
 		return asConcreteType();
 	}
@@ -197,6 +201,19 @@ implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, Opti
 		this.token = token;
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link ConfigurableElement} does not have an id.
+	 */
+	private void supposeHasId() {
+		
+		//Checks if the current configurable element has a token.
+		if (!hasId()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
+		}
 	}
 	
 	//method

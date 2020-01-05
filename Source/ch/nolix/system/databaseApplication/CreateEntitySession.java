@@ -98,7 +98,7 @@ public final class CreateEntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new TextBox()
-						.setName(property.getHeader())
+						.setId(property.getHeader())
 					);
 					
 					rowIndex++;
@@ -182,8 +182,7 @@ public final class CreateEntitySession extends HeaderedSession {
 						
 						final var property = (ValueProperty<?>)p;
 				
-						final TextBox dataTextBox =
-						getRefGUI().getRefWidgetByName(p.getHeader());
+						final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
 						
 						property.setValueFromString(dataTextBox.getText());
 						

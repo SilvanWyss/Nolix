@@ -108,7 +108,7 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new TextBox(property.getValue().toString())
-						.setName(property.getHeader())
+						.setId(property.getHeader())
 					);
 					
 					rowIndex++;
@@ -147,7 +147,7 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new TextBox(value)
-						.setName(optionalProperty.getHeader())
+						.setId(optionalProperty.getHeader())
 					);
 					
 					rowIndex++;
@@ -289,7 +289,7 @@ public final class EntitySession extends HeaderedSession {
 					
 					final var property = (ValueProperty<?>)p;
 					
-					final TextBox dataTextBox =	getRefGUI().getRefWidgetByName(p.getHeader());
+					final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
 					
 					property.setValueFromString(dataTextBox.getText());
 					
@@ -302,7 +302,7 @@ public final class EntitySession extends HeaderedSession {
 						break;
 					}
 					
-					final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetByName(p.getHeader());
+					final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
 					
 					if (optionalDataTextBox.getText().isBlank()) {
 						optionalProperty.clear();

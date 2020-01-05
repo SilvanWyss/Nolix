@@ -1,16 +1,16 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.attributeAPI.OptionalNamable;
+//own imports
+import ch.nolix.common.attributeAPI.OptionalIdentifiableByString;
 import ch.nolix.common.attributeAPI.Tokened;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 
 //interface
 /**
- * A {@link IConfigurableElement} is a {@link Named}, {@link IMutableElement} and {@link Tokened} that:
- * -Has a type and super types.
+ * A {@link IConfigurableElement}
+ * is a {@link IMutableElement}, {@link OptionalIdentifiableByString} and {@link Tokened} that:
  * -Can have a role.
  * -Can contain other {@link IConfigurableElement}.
  * 
@@ -18,7 +18,8 @@ import ch.nolix.common.containers.LinkedList;
  * @month 2015-12
  * @lines 90
  */
-public interface IConfigurableElement<C extends IConfigurableElement<C>> extends OptionalNamable<C>, IMutableElement<C>, Tokened {
+public interface IConfigurableElement<C extends IConfigurableElement<C>>
+extends IMutableElement<C>, OptionalIdentifiableByString<C>, Tokened {
 	
 	//method declaration
 	/**
