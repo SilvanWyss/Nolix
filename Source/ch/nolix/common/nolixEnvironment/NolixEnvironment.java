@@ -4,11 +4,9 @@ package ch.nolix.common.nolixEnvironment;
 //class
 public final class NolixEnvironment {
 	
-	//constant
+	//constants
+	public static final int DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
-	
-	//constant
-	public static final int DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS = 250;
 	
 	//constant
 	private static final String APPDATA_HEADER = "APPDATA";
