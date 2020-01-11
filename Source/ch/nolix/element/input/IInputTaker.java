@@ -1,11 +1,15 @@
 //package declaration
 package ch.nolix.element.input;
 
-import ch.nolix.element.baseGUI_API.IBaseGUI;
-//own imports
+//own import
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 
 //interface
+/**
+ * @author Silvan
+ * @month 2019-08
+ * @lines 120
+ */
 public interface IInputTaker {
 	
 	//method declaration
