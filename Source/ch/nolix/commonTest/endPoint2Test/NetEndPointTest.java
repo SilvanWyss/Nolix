@@ -6,6 +6,7 @@ import ch.nolix.common.endPoint2.EndPoint;
 import ch.nolix.common.endPoint2.IEndPointTaker;
 import ch.nolix.common.endPoint2.NetEndPoint;
 import ch.nolix.common.endPoint2.NetServer;
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
@@ -13,7 +14,7 @@ import ch.nolix.common.test.Test;
 public final class NetEndPointTest extends Test {
 	
 	//static class
-	private static class EndPointTakerMock implements IEndPointTaker{
+	private static final class TestEndPointTaker implements IEndPointTaker {
 		
 		//optional attribute
 		private String receivedMessage;
@@ -31,7 +32,7 @@ public final class NetEndPointTest extends Test {
 		//method
 		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
-			endPoint.setReceiver(m -> setMessage(m));
+			endPoint.setReceiver(this::setMessage);
 		}
 		
 		//method
@@ -48,13 +49,13 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		netServer.addMainEndPointTaker(new EndPointTakerMock());
+		netServer.addMainEndPointTaker(new TestEndPointTaker());
 		
 		//execution & verification
 		expect(
 			() -> {
 				final var netEndPoint = new NetEndPoint(port);
-				Sequencer.waitForMilliseconds(500);
+				Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
 				netEndPoint.close();
 			}
 		)
@@ -72,13 +73,13 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		final var endPointTakerMock = new EndPointTakerMock();
+		final var endPointTakerMock = new TestEndPointTaker();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
 		netEndPoint.send("MESSAGE");
-		Sequencer.waitForMilliseconds(200);
+		Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
 		
 		//verification
 		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
