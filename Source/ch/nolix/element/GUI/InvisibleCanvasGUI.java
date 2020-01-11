@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 
 //class
 public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
@@ -14,8 +14,8 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 	private int viewAreaCursorYPosition;
 	
 	//constructor
-	public InvisibleCanvasGUI(final IEventTaker eventTaker) {
-		super(eventTaker, false);
+	public InvisibleCanvasGUI(final IInputTaker inputTaker) {
+		super(inputTaker, false);
 	}
 	
 	//method

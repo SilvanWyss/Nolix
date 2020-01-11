@@ -15,7 +15,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.containerWidgets.Accordion;
@@ -158,7 +158,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//optional attributes
 	private Layer topLayer;
-	private final IEventTaker eventTaker;
+	private final IInputTaker inputTaker;
 	
 	//constructor
 	/**
@@ -172,7 +172,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		super(visible);
 		
 		backGround.setParentGUI(this);
-		eventTaker = null;
+		inputTaker = null;
 	}
 	
 	//constructor
@@ -182,17 +182,17 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
 	 * 
 	 * @param visible
-	 * @param eventTaker
+	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(final boolean visible, final IEventTaker eventTaker) {
+	public LayerGUI(final boolean visible, final IInputTaker inputTaker) {
 		
 		super(visible);
 		
-		Validator.suppose(eventTaker).thatIsNamed("event taker").isNotNull();
+		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		backGround.setParentGUI(this);
-		this.eventTaker = eventTaker;
+		this.inputTaker = inputTaker;
 	}
 	
 	//constructor
@@ -202,17 +202,17 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
 	 * 
 	 * @param visible
-	 * @param eventTaker
+	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(final IEventTaker eventTaker) {
+	public LayerGUI(final IInputTaker inputTaker) {
 		
 		super(true);
 		
-		Validator.suppose(eventTaker).thatIsNamed("event taker").isNotNull();
+		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		backGround.setParentGUI(this);
-		this.eventTaker = eventTaker;
+		this.inputTaker = inputTaker;
 	}
 	
 	//constructor
@@ -221,7 +221,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * The {@link LayerGUI} will be visible and have the given visualizer..
 	 * 
 	 * @param visible
-	 * @param eventTaker
+	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
 	public LayerGUI(IVisualizer visualizer) {
@@ -229,7 +229,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		super(visualizer);
 		
 		backGround.setParentGUI(this);
-		eventTaker = null;
+		inputTaker = null;
 	}
 	
 	//constructor
@@ -239,18 +239,18 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
 	 * 
 	 * @param visible
-	 * @param eventTaker
+	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(IVisualizer visualizer, IEventTaker eventTaker) {
+	public LayerGUI(IVisualizer visualizer, IInputTaker inputTaker) {
 		
 		super(visualizer);
 		
-		Validator.suppose(eventTaker).thatIsNamed("event taker").isNotNull();
+		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		backGround.setParentGUI(this);
-		this.eventTaker = eventTaker;
+		this.inputTaker = inputTaker;
 	}
 
 	//method
@@ -525,7 +525,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteKeyPress(final Key key) {
 		if (hasEventTaker()) {
-			eventTaker.noteKeyPress(key);
+			inputTaker.noteKeyPress(key);
 		}		
 		else {
 			getRefKeyBoard().noteKeyPress(key);
@@ -541,7 +541,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteKeyRelease(final Key key) {		
 		if (hasEventTaker()) {
-			eventTaker.noteKeyRelease(key);
+			inputTaker.noteKeyRelease(key);
 		}		
 		else {
 			getRefKeyBoard().noteKeyRelease(key);
@@ -557,7 +557,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteKeyTyping(final Key key) {		
 		if (hasEventTaker()) {
-			eventTaker.noteKeyTyping(key);
+			inputTaker.noteKeyTyping(key);
 		}		
 		else {
 			getRefTopOrBackgroundLayer().noteKeyTyping(key);
@@ -572,7 +572,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteLeftMouseButtonClick() {		
 		if (hasEventTaker()) {
-			eventTaker.noteLeftMouseButtonClick();
+			inputTaker.noteLeftMouseButtonClick();
 		}		
 		else {
 			getRefTopOrBackgroundLayer().noteLeftMouseButtonClick();
@@ -587,7 +587,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteLeftMouseButtonPress() {
 		if (hasEventTaker()) {
-			eventTaker.noteLeftMouseButtonPress();
+			inputTaker.noteLeftMouseButtonPress();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteLeftMouseButtonPress();
@@ -602,7 +602,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteLeftMouseButtonRelease() {
 		if (hasEventTaker()) {
-			eventTaker.noteLeftMouseButtonRelease();
+			inputTaker.noteLeftMouseButtonRelease();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteLeftMouseButtonRelease();
@@ -617,7 +617,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea) {
 		if (hasEventTaker()) {
-			eventTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+			inputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
@@ -632,7 +632,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteMouseWheelClick() {
 		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelClick();
+			inputTaker.noteMouseWheelClick();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteMouseWheelClick();
@@ -647,7 +647,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteMouseWheelPress() {
 		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelPress();
+			inputTaker.noteMouseWheelPress();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteMouseWheelPress();
@@ -662,7 +662,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteMouseWheelRelease() {
 		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelRelease();
+			inputTaker.noteMouseWheelRelease();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteMouseWheelRelease();
@@ -677,7 +677,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
 		if (hasEventTaker()) {
-			eventTaker.noteMouseWheelRotationStep(directionOfRotation);
+			inputTaker.noteMouseWheelRotationStep(directionOfRotation);
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
@@ -692,7 +692,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
 		if (hasEventTaker()) {
-			eventTaker.noteResize(viewAreaWidth, viewAreaHeight);
+			inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
 			refresh();
 		}
 	}
@@ -704,7 +704,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteRightMouseButtonClick() {
 		if (hasEventTaker()) {
-			eventTaker.noteRightMouseButtonClick();
+			inputTaker.noteRightMouseButtonClick();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteRightMouseButtonClick();
@@ -719,7 +719,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteRightMouseButtonPress() {
 		if (hasEventTaker()) {
-			eventTaker.noteRightMouseButtonPress();
+			inputTaker.noteRightMouseButtonPress();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteRightMouseButtonPress();
@@ -734,7 +734,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	@Override
 	public final void noteRightMouseButtonRelease() {
 		if (hasEventTaker()) {
-			eventTaker.noteRightMouseButtonRelease();
+			inputTaker.noteRightMouseButtonRelease();
 		}
 		else {
 			getRefTopOrBackgroundLayer().noteRightMouseButtonRelease();
@@ -888,9 +888,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return true if the current {@link LayerGUI} has a {@link IEventTaker}.
+	 * @return true if the current {@link LayerGUI} has a {@link IInputTaker}.
 	 */
 	private boolean hasEventTaker() {
-		return (eventTaker != null);
+		return (inputTaker != null);
 	}
 }

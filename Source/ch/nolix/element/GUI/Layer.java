@@ -20,7 +20,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
@@ -41,7 +41,7 @@ import ch.nolix.element.painter.IPainter;
  * @lines 880
  */
 public final class Layer extends Element<Layer>
-implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IEventTaker {
+implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IInputTaker {
 	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;

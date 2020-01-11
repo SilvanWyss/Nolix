@@ -3,7 +3,7 @@ package ch.nolix.elementTutorial.GUITutorial;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
@@ -53,7 +53,7 @@ public class CanvasFrameTutorial {
 		canvasFrame.setPaintCommands(paintCommands);
 	}
 	
-	private static class EventTaker implements IEventTaker {
+	private static class EventTaker implements IInputTaker {
 		
 		@Override
 		public void noteKeyPress(final Key key) {}

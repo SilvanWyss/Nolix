@@ -2,7 +2,7 @@
 package ch.nolix.system.baseGUIClient;
 
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 
@@ -12,7 +12,7 @@ import ch.nolix.element.input.Key;
  * @month 2019-08
  * @lines 170
  */
-final class BaseFrontGUIClientEventTaker implements IEventTaker {
+final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	
 	//attribute
 	/**

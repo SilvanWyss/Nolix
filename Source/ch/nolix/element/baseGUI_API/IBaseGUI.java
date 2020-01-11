@@ -15,7 +15,7 @@ import ch.nolix.common.skillAPI.Refreshable;
  * @param <G> The type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
-extends IEventTaker, IRequestableContainer, Closable, Rectangular, Refreshable, Titleble<G> {
+extends IInputTaker, IRequestableContainer, Closable, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**

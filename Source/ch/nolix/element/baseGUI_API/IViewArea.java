@@ -13,7 +13,7 @@ import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
  * @month 2019-07
  * @lines 30
  */
-interface IViewArea extends IEventTaker, TopLeftPositionedRecangular {
+interface IViewArea extends IInputTaker, TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**

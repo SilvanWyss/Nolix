@@ -8,7 +8,7 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IConfigurableElement;
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
@@ -26,29 +26,29 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 
 	//attributes
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final IEventTaker eventTaker;
+	private final IInputTaker inputTaker;
 	
 	//multi-attribute
 	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
 	//constructor
-	public CanvasGUI(final IEventTaker eventTaker, final boolean visible) {
+	public CanvasGUI(final IInputTaker inputTaker, final boolean visible) {
 		
 		super(visible);
 		
-		Validator.suppose(eventTaker).thatIsNamed("event taker").isNotNull();
+		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		
-		this.eventTaker = eventTaker;
+		this.inputTaker = inputTaker;
 	}
 	
 	//constructor
-	public CanvasGUI(final IEventTaker eventTaker, final IVisualizer visualizer) {
+	public CanvasGUI(final IInputTaker inputTaker, final IVisualizer visualizer) {
 		
 		super(visualizer);
 		
-		Validator.suppose(eventTaker).thatIsNamed("event taker").isNotNull();
+		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		
-		this.eventTaker = eventTaker;
+		this.inputTaker = inputTaker;
 	}
 	
 	//method
@@ -72,91 +72,91 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	@Override
 	public final void noteKeyPress(final Key key) {
-		eventTaker.noteKeyPress(key);
+		inputTaker.noteKeyPress(key);
 	}
 	
 	//method
 	@Override
 	public final void noteKeyRelease(final Key key) {
-		eventTaker.noteKeyRelease(key);
+		inputTaker.noteKeyRelease(key);
 	}
 	
 	//method
 	@Override
 	public final void noteKeyTyping(final Key key) {
-		eventTaker.noteKeyTyping(key);
+		inputTaker.noteKeyTyping(key);
 	}
 	
 	//method
 	@Override
 	public final void noteLeftMouseButtonClick() {
-		eventTaker.noteLeftMouseButtonClick();
+		inputTaker.noteLeftMouseButtonClick();
 	}
 	
 	//method
 	@Override
 	public final void noteLeftMouseButtonPress() {
-		eventTaker.noteLeftMouseButtonPress();
+		inputTaker.noteLeftMouseButtonPress();
 	}
 	
 	//method
 	@Override
 	public final void noteLeftMouseButtonRelease() {
-		eventTaker.noteLeftMouseButtonRelease();		
+		inputTaker.noteLeftMouseButtonRelease();		
 	}
 	
 	//method
 	@Override
 	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
-		eventTaker.noteMouseMove(cursorXPosition, cursorYPosition);		
+		inputTaker.noteMouseMove(cursorXPosition, cursorYPosition);		
 	}
 	
 	//method
 	@Override
 	public final void noteMouseWheelClick() {
-		eventTaker.noteMouseWheelClick();		
+		inputTaker.noteMouseWheelClick();		
 	}
 	
 	//method
 	@Override
 	public final void noteMouseWheelPress() {
-		eventTaker.noteMouseWheelPress();
+		inputTaker.noteMouseWheelPress();
 	}
 	
 	//method
 	@Override
 	public final void noteMouseWheelRelease() {
-		eventTaker.noteMouseWheelRelease();		
+		inputTaker.noteMouseWheelRelease();		
 	}
 	
 	//method
 	@Override
 	public final void noteMouseWheelRotationStep(DirectionOfRotation directionOfRotation) {
-		eventTaker.noteMouseWheelRotationStep(directionOfRotation);		
+		inputTaker.noteMouseWheelRotationStep(directionOfRotation);		
 	}
 		
 	//method
 	@Override
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		eventTaker.noteResize(viewAreaWidth, viewAreaHeight);
+		inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
 	}
 	
 	//method
 	@Override
 	public final void noteRightMouseButtonClick() {
-		eventTaker.noteRightMouseButtonClick();		
+		inputTaker.noteRightMouseButtonClick();		
 	}
 	
 	//method
 	@Override
 	public final void noteRightMouseButtonPress() {
-		eventTaker.noteRightMouseButtonPress();		
+		inputTaker.noteRightMouseButtonPress();		
 	}
 	
 	//method
 	@Override
 	public final void noteRightMouseButtonRelease() {
-		eventTaker.noteRightMouseButtonRelease();		
+		inputTaker.noteRightMouseButtonRelease();		
 	}
 	
 	//method

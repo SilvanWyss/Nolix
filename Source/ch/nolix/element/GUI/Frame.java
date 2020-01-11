@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.element.baseGUI_API.IEventTaker;
+import ch.nolix.element.baseGUI_API.IInputTaker;
 
 //class
 public final class Frame extends LayerGUI<Frame> {
@@ -15,9 +15,9 @@ public final class Frame extends LayerGUI<Frame> {
 	}
 	
 	//constructor
-	public Frame(final IEventTaker eventTaker) {
+	public Frame(final IInputTaker inputTaker) {
 		
-		super(true, eventTaker);
+		super(true, inputTaker);
 		
 		initialize();
 	}
