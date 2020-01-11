@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.element.baseGUI_API;
+package ch.nolix.element.input;
 
+import ch.nolix.element.baseGUI_API.IBaseGUI;
 //own imports
 import ch.nolix.element.elementEnums.DirectionOfRotation;
-import ch.nolix.element.input.Key;
 
 //interface
 public interface IInputTaker {

@@ -20,13 +20,13 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
-import ch.nolix.element.baseGUI_API.IInputTaker;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
+import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 

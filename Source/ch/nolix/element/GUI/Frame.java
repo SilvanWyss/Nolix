@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.element.baseGUI_API.IInputTaker;
+import ch.nolix.element.input.IInputTaker;
 
 //class
 public final class Frame extends LayerGUI<Frame> {

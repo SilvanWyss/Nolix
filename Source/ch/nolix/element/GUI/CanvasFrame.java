@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
-import ch.nolix.element.baseGUI_API.IInputTaker;
+import ch.nolix.element.input.IInputTaker;
 
 //class
 public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
