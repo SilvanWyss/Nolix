@@ -112,7 +112,7 @@ public final class ForMaxMillisecondsMediator {
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 		
-		Sequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getOutput());
+		Sequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getOutput());
 	}
 	
 	//method
