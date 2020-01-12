@@ -1,19 +1,43 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.element.baseAPI.IElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2018-02
- * @lines 60
+ * @lines 80
  * @param <V> The type of the value of a {@link Property}.
  */
 public final class Property<V> extends SingleProperty<V> {
+	
+	//constructor
+	/**
+	 * Creates a new {@link Property} with the given name, setterMethod and valueCreator.
+	 * 
+	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given setterMethod is blank.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public <E extends IElement> Property(
+		final String name,
+		final IElementTaker<V> setterMethod,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator
+	) {
+		
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator, v -> ((E)v).getSpecification());
+	}
 	
 	//constructor
 	/**
@@ -24,7 +48,7 @@ public final class Property<V> extends SingleProperty<V> {
 	 * @param valueCreator
 	 * @param specificationCreator
 	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is blank.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
