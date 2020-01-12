@@ -12,6 +12,9 @@ import ch.nolix.element.input.Key;
 //class
 public final class KeyInput extends Element<KeyInput> {
 	
+	//static attribute
+	private static final String INPUT_TYPE_HEADER = "InputType";
+	
 	//static method
 	public static KeyInput[]  fromCharacter(final char character) {
 		switch (character) {
@@ -165,13 +168,23 @@ public final class KeyInput extends Element<KeyInput> {
 	new Property<>(PascalCaseNameCatalogue.KEY, this::setKey, Key::fromSpecification);
 	
 	//attribute
-	private final Property<KeyInputType> type =
-	new Property<>(PascalCaseNameCatalogue.TYPE, this::setType, KeyInputType::fromSpecification);
+	private final Property<KeyInputType> inputType =
+	new Property<>(INPUT_TYPE_HEADER, this::setType, KeyInputType::fromSpecification);
 	
 	//constructor
 	public KeyInput(final Key key, final KeyInputType type) {
 		setKey(key);
 		setType(type);
+	}
+	
+	//method
+	public KeyInputType getInputType() {
+		return inputType.getValue();
+	}
+	
+	//method
+	public Key getKey() {
+		return key.getValue();
 	}
 	
 	//method
@@ -181,6 +194,6 @@ public final class KeyInput extends Element<KeyInput> {
 	
 	//method
 	private void setType(final KeyInputType type) {
-		this.type.setValue(type);
+		this.inputType.setValue(type);
 	}
 }
