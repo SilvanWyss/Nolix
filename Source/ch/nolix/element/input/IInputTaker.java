@@ -1,16 +1,32 @@
 //package declaration
 package ch.nolix.element.input;
 
-//own import
+//own imports
 import ch.nolix.element.elementEnums.DirectionOfRotation;
+import ch.nolix.element.keyBoard.KeyInput;
 
 //interface
 /**
  * @author Silvan
  * @month 2019-08
- * @lines 160
+ * @lines 180
  */
 public interface IInputTaker {
+	
+	//method
+	public default void noteKeyInput(final KeyInput keyInput) {
+		switch (keyInput.getInputType()) {
+			case Press:
+				noteKeyPress(keyInput.getKey());
+				break;
+			case Release:
+				noteKeyRelease(keyInput.getKey());
+				break;
+			case Typing:
+				noteKeyTyping(keyInput.getKey());
+				break;
+		}
+	}
 	
 	//method declaration
 	/**
