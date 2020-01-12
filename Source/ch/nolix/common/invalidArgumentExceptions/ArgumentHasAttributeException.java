@@ -21,6 +21,24 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 		return attributeName;
 	}
 	
+	//static method
+	private static String createSafeAttributeType(final Class<?> attributeType) {
+		
+		//Checks if the given attribute type is not null.
+		if (attributeType == null) {
+			throw new RuntimeException("The given attribute type is null.");
+		}
+		
+		return attributeType.getSimpleName();
+	}
+	
+	//constructor
+	public ArgumentHasAttributeException(final Object argument, final Class<?> attributeType) {
+		
+		//Calls constructor of the base class.
+		super(argument, "has a " + createSafeAttributeType(attributeType));
+	}
+	
 	//constructor
 	public ArgumentHasAttributeException(final Object argument, final String attributeName) {
 		
