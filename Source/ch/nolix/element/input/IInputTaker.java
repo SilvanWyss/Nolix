@@ -8,7 +8,7 @@ import ch.nolix.element.elementEnums.DirectionOfRotation;
 /**
  * @author Silvan
  * @month 2019-08
- * @lines 120
+ * @lines 160
  */
 public interface IInputTaker {
 	
@@ -42,17 +42,62 @@ public interface IInputTaker {
 	 */
 	public abstract void noteLeftMouseButtonClick();
 	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a left mouse button click at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteLeftMouseButtonClick(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteLeftMouseButtonClick();
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a left mouse button press.
 	 */
 	public abstract void noteLeftMouseButtonPress();
 	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a left mouse button press at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteLeftMouseButtonPress(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteLeftMouseButtonPress();
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a left mouse button release.
 	 */
 	public abstract void noteLeftMouseButtonRelease();
+	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a left mouse button release at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteLeftMouseButtonRelease(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteLeftMouseButtonRelease();
+	}
 	
 	//method declaration
 	/**
