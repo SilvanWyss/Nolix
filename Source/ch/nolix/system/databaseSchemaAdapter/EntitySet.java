@@ -96,6 +96,16 @@ public final class EntitySet implements Named {
 	}
 	
 	//method
+	public <E extends Entity> boolean canReferenceBackEntityOfType(final Class<E> type) {
+		return columns.contains(c -> c.canReferenceBackEntityOfType(type));
+	}
+	
+	//method
+	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
+		return columns.contains(c -> c.canReferenceEntityOfType(type));
+	}
+	
+	//method
 	public boolean containsColumn(final String header) {
 		return columns.contains(c -> c.hasHeader(header));
 	}
