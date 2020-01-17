@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.BiggerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
@@ -17,6 +19,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidArgumentExceptions.PositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 
 //class
 /**
@@ -25,7 +28,7 @@ import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 340
+ * @lines 355
  */
 public class LongMediator extends Mediator {
 	
@@ -323,6 +326,22 @@ public class LongMediator extends Mediator {
 	public TerminalLongMediator isZero() {
 		
 		isEqualTo(0);
+		
+		return new TerminalLongMediator(getArgumentName(), argument);
+	}
+	
+	//method
+	/**
+	 *  @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
+	 *  @throws UnrepresentingArgumentException
+	 *  if the argument of the current {@link LongMediator} does not represent a boolean.
+	 */
+	public final TerminalLongMediator representsBoolean() {
+		
+		//Checks if the argument of the current LongArgument represents a boolean.
+		if (argument != 0 && argument != 1) {
+			throw new UnrepresentingArgumentException(getArgumentName(), getArgument(), Boolean.class);
+		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);
 	}
