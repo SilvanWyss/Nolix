@@ -18,6 +18,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ATTRIBUTE = "Attribute";
 	public static final String BACKGROUND_COLOR = "BackgroundColor";
 	public static final String BIT = "Bit";
+	public static final String BOOLEAN = "Boolean";
 	public static final String BORDER_COLOR = "BorderColor";
 	public static final String BYTE = "Byte";
 	public static final String CAPACITY = "Capacity";
