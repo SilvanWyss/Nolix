@@ -8,7 +8,7 @@ package ch.nolix.common.invalidArgumentExceptions;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 90
+ * @lines 110
  */
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends InvalidArgumentException {
@@ -90,5 +90,22 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 		
 		//Calls constructor of the base class.
 		super(argument, "does not represent " + getTypeNameWithPronoun(type));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link UnrepresentingArgumentException} for the given argumentName, argument and the given type.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @param type
+	 * @throws RuntimeException if the given argumentName is null.
+	 * @throws RuntimeException if the given argumentName is blank.
+	 * @RuntimeException if the given type is null.
+	 */
+	public UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument, "does not represent " + getTypeNameWithPronoun(type));
 	}
 }
