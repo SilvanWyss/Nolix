@@ -2,7 +2,6 @@
 package ch.nolix.common.validator;
 
 //own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.BiggerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
