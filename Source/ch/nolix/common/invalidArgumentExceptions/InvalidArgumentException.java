@@ -40,7 +40,7 @@ public class InvalidArgumentException extends RuntimeException {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {
-			return "<null>";
+			return " ";
 		}
 				
 		//Gets the String representation of the object.
