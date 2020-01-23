@@ -874,7 +874,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		
 		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		if (this.parentGUI != null) {
+		if (this.parentGUI != null && this.parentGUI != parentGUI) {
 			throw new ArgumentBelongsToUnexchangeableParentException(this, this.parentGUI);
 		}
 		

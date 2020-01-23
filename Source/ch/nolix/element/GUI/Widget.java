@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1900
+ * @lines 1890
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1891,12 +1891,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		//Checks if the given parent is not null.
 		Validator.suppose(parent).thatIsNamed(VariableNameCatalogue.PARENT).isNotNull();
-		
-		//Checks if the current Widget does not already belong to a parent.
-		if (this.parent != null) {
-			throw new InvalidArgumentException(this, "belongs already to a " + this.parent.getTypeInQuotes());
-		}
-		
+				
 		//Sets the parent of the current Widget.
 		this.parent = parent;
 	}
