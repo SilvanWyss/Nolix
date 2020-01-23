@@ -1,38 +1,35 @@
-//package declaration
 package ch.nolix.commonTutorial.validatorTutorial;
 
 import ch.nolix.common.validator.Validator;
 
-//class
 /**
  * The {@link ValidatorTutorial} is a tutorial for the {@link Validator}.
+ * Of the {@link ValidatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wys
  * @month 2017-05
- * @lines 50
+ * @lines 40
  */
 public final class ValidatorTutorial {
-
-	//main method
+	
 	public static void main(String[] args) {
 		printAmount("apple", 5);
 		printAmount("banana", 10);
 		printAmount("cake", 2);
 	}
 	
-	//static method
 	/**
-	 * Prints out to the console the amount of the product with given product name.
+	 * Prints out to the console the amount of the product with given productName.
 	 * 
 	 * @param productName
 	 * @param amount
-	 * @throws ArgumentIsNullException if the given product name is null.
-	 * @throws EmptyArgumentException if the given product name is empty.
+	 * @throws ArgumentIsNullException if the given productName is null.
+	 * @throws EmptyArgumentException if the given productName is empty.
 	 * @throws NegativArgumentException if the given amount is negative.
 	 */
-	public static void printAmount(final String productName, final int amount) {
+	private static void printAmount(final String productName, final int amount) {
 		
-		//Checks if the given product name is not null or empty.
+		//Checks if the given productName is not null or empty.
 		Validator.suppose(productName).thatIsNamed("product name").isNotEmpty();
 		
 		//Checks if the given amount is not negative.
@@ -41,7 +38,6 @@ public final class ValidatorTutorial {
 		System.out.println(productName + ": " + amount + " pieces");
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link ValidatorTutorial} can be created.
 	 */
