@@ -25,7 +25,7 @@ public final class EntityWithBackReferenceTest extends Test {
 		
 		//attribute
 		@SuppressWarnings("unused")
-		private final BackReference<Entity1B> backReference = new BackReference<>("reference2");
+		private final BackReference<Entity1A> backReference = new BackReference<>("reference");
 	}
 	
 	//test case
