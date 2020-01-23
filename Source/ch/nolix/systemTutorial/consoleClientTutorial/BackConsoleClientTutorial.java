@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemTutorial.consoleClientTutorial;
 
-//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleClient.BackConsoleClient;
@@ -9,26 +7,25 @@ import ch.nolix.system.consoleClient.BackConsoleClientSession;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
 import ch.nolix.templates.consoleClientLooks.BlackRedConsoleClientLook;
 
-//class
 /**
- * This class provides a tutorial for the console client class.
+ * The {@link BackConsoleClientTutorial} is a tutorial for {@link BackConsoleClient}s.
+ * Of the {@link BackConsoleClientTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 90
+ * @lines 80
  */
 public final class BackConsoleClientTutorial {
-
-	//main method
+	
 	/**
-	 * 1. Creates an application for console back clients.
-	 * 2. Creates a console front client that will connect to the application.
+	 * 1. Creates a {@link Application} for {@link BackConsoleClient}s.
+	 * 2. Creates a {@link FrontConsoleClient} that will connect to the application.
 	 * 
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
 		
-		//Creates an application.
+		//Creates an Application.
 		final var application
 		= new Application<BackConsoleClient>(
 			"MyApplication",
@@ -36,17 +33,12 @@ public final class BackConsoleClientTutorial {
 			MainSession.class
 		);
 		
-		//Creates a console front client that will connect to the application.
+		//Creates a FrontConsoleClient that will connect to application.
 		new FrontConsoleClient(application);
 	}
 	
-	//inner class
 	private static final class MainSession extends BackConsoleClientSession {
 		
-		//method
-		/**
-		 * Initializes this main session.
-		 */
 		@Override
 		public void initialize() {
 			
@@ -90,9 +82,8 @@ public final class BackConsoleClientTutorial {
 		}
 	}
 	
-	//access-reducing constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link BackConsoleClientTutorial} can be created.
 	 */
 	private BackConsoleClientTutorial() {}
 }
