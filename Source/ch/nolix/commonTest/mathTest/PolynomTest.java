@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.mathTest;
 
+//own imports
 import ch.nolix.common.math.Polynom;
 import ch.nolix.common.test.Test;
 
@@ -47,13 +48,14 @@ public final class PolynomTest extends Test {
 		//execution
 		polynom.integrate();
 		
-		//verification
-			expect(polynom.getDegree()).isEqualTo(11);
-			
-			final var coefficients = polynom.toArray();
-			expect(coefficients.length).isEqualTo(12);
-			expect(coefficients[0]).isEqualTo(6.0);
-			expect(coefficients[1]).isEqualTo(6.0);
+		//verification part 1
+		expect(polynom.getDegree()).isEqualTo(11);
+		
+		//verification part 2
+		final var coefficients = polynom.toArray();
+		expect(coefficients.length).isEqualTo(12);
+		expect(coefficients[0]).isEqualTo(6.0);
+		expect(coefficients[1]).isEqualTo(6.0);
 	}
 	
 	//test case
