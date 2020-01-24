@@ -17,7 +17,7 @@ public final class RunningJar {
 		try {
 			var line = bufferedReader.readLine();
 			while (line != null) {
-				stringBuilder.append(line);
+				stringBuilder.append(line).append("\n");
 				line = bufferedReader.readLine();
 			}
 		}
