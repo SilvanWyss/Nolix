@@ -1,11 +1,20 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own import
+//own imports
+import ch.nolix.common.runningJar.RunningJar;
 import ch.nolix.common.validator.Validator;
 
 //class
 final class NetServerHTTPMessage {
+	
+	//constant
+	private final String REQUIRE_JS_SCRIPT =
+	RunningJar.getResource("ch/nolix/system/client/resources/require_js.js");
+	
+	//constant
+	private final String NOLIX_SCRIPT =
+	RunningJar.getResource("ch/nolix/system/client/resources/Nolix.js");
 	
 	//attributes
 	private final String serverIP;
@@ -43,22 +52,29 @@ final class NetServerHTTPMessage {
 		"HTTP/1.1 200 OK\r\n"
 		+ "Content-Type: text/html; charset=UTF-8\r\n"
 		+ "\r\n"
-		+ "<!DOCTYPE html>"
-		+ "<html>"
-		+ "<head>"
-		+ "<script src=\"http://www.nolix.ch/Launcher/require.js\"></script>"
-		+ "<script src=\"http://www.nolix.ch/Launcher/nolix.js\"></script>"
+		+ "<!DOCTYPE html>\n"
+		+ "<html>\n"
+		+ "<head>\n"
+		+ "<script>\n"
+		+ REQUIRE_JS_SCRIPT
+		+ "</script>\n"
+		+ "<script>\n"
+		+ NOLIX_SCRIPT +
+		"</script>\n"
 		+ getMainScript()
-		+ "<title>Nolix</title>"
-		+ "</head>"
-		+ "<body></body>"
+		+ "<title\n>"
+		+ "Nolix\n"
+		+ "</title>\n"
+		+ "</head>\n"
+		+ "<body>\n"
+		+ "</body>\n"
 		+ "</html>\r\n";
 	}
 	
 	//method
 	private String getMainScript() {
 		return
-		"<script>"
+		"<script>\n"
 		+ "require(['System/FrontBrowserGUIClient/FrontBrowserGUIClient'], function (FrontBrowserGUIClient_) {"
 		+ "alert('point 1');"
 		+ "var client = FrontBrowserGUIClient_.FrontBrowserGUIClient.withIpAndNumberAndWindow("
@@ -66,7 +82,7 @@ final class NetServerHTTPMessage {
 		+ getServerPort() + ", "
 		+ "window);"
 		+ "alert('point 2');"
-		+ "});"
-		+ "</script>";
+		+ "});\n"
+		+ "</script>\n";
 	}
 }
