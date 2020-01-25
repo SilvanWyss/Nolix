@@ -1,17 +1,3 @@
-#build
-/bin/
-*.js
-*.map
-lwjgl64.dll
-OpenAL64.dll
-
-#Javadoc
-/Javadoc/
-
-#Eclipse
-*.classpath
-/.settings/
-
-#data files
-*.database
-*.txt
+/*
+!.gitignore
+!Source/
