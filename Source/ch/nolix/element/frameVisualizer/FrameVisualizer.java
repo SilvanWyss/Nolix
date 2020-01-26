@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
@@ -17,8 +18,8 @@ import ch.nolix.element.painter.SwingPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 220
+ * @month 2019-08
+ * @lines 180
  */
 public final class FrameVisualizer implements IVisualizer {
 	
@@ -100,34 +101,6 @@ public final class FrameVisualizer implements IVisualizer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getViewAreaCursorXPosition() {
-		
-		if (panel.getMousePosition() == null) {
-			return 0;
-		}
-		
-		return (int)panel.getMousePosition().getX();
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getViewAreaCursorYPosition() {
-		
-		if (panel.getMousePosition() == null) {
-			return 0;
-		}
-		
-		return (int)panel.getMousePosition().getY();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public int getHeight() {
 		return frame.getHeight();
 	}
@@ -137,10 +110,33 @@ public final class FrameVisualizer implements IVisualizer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getWidth() {
-		return frame.getWidth();
+	public int getViewAreaCursorXPosition() {
+		
+		final var mousePosition = panel.getMousePosition();
+		
+		if (mousePosition == null) {
+			return 0;
+		}
+		
+		return (int)mousePosition.getX();
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getViewAreaCursorYPosition() {
+		
+		final var mousePosition = panel.getMousePosition();
+		
+		if (mousePosition == null) {
+			return 0;
+		}
+		
+		return (int)mousePosition.getY();
+	}
+		
 	//method
 	/**
 	 * {@inheritDoc}
@@ -149,7 +145,7 @@ public final class FrameVisualizer implements IVisualizer {
 	public int getViewAreaHeight() {
 		return frame.getComponent(0).getHeight();
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -157,6 +153,15 @@ public final class FrameVisualizer implements IVisualizer {
 	@Override
 	public int getViewAreaWidth() {
 		return frame.getComponent(0).getWidth();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getWidth() {
+		return frame.getWidth();
 	}
 	
 	//method
