@@ -32,13 +32,13 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 	//method
 	@Override
 	public int getHeight() {
-		return viewAreaHeight;
+		return getViewAreaHeight();
 	}
 	
 	//method
 	@Override
 	public int getWidth() {
-		return viewAreaWidth;
+		return getViewAreaWidth();
 	}
 	
 	//method
@@ -85,12 +85,8 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 	}
 	
 	//method
-	public void setViewAreaCursorXPosition(final int viewAreaCursorXPosition) {
+	public void setViewAreaCursorPosition(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
 		this.viewAreaCursorXPosition = viewAreaCursorXPosition;
-	}
-	
-	//method
-	public void setViewAreaCursorYPosition(final int viewAreaCursorYPosition) {
 		this.viewAreaCursorYPosition = viewAreaCursorYPosition;
 	}
 }
