@@ -13,7 +13,11 @@ public final class CursorPositionTutorial {
 		final var frame = new Frame("Mouse position Tutorial");
 		
 		final var cursorPositionLabel = new Label();
-		frame.addLayerOnTop(ExtendedContentPosition.LeftTop, new HorizontalStack(new Label("Cursor position:"), cursorPositionLabel));
+		
+		frame.addLayerOnTop(
+			ExtendedContentPosition.LeftTop,
+			new HorizontalStack(new Label("Cursor position:"), cursorPositionLabel)
+		);
 		
 		Sequencer
 		.asLongAs(frame::isOpen)
