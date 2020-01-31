@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own import
 import ch.nolix.element.input.IInputTaker;
 
 //class
@@ -58,13 +59,13 @@ public final class Frame extends LayerGUI<Frame> {
 
 	//method
 	@Override
-	protected int getViewAreaCursorXPosition() {
+	public int getViewAreaCursorXPosition() {
 		return getRefVisualizer().getViewAreaCursorXPosition();
 	}
 	
 	//method
 	@Override
-	protected int getViewAreaCursorYPosition() {
+	public int getViewAreaCursorYPosition() {
 		return getRefVisualizer().getViewAreaCursorYPosition();
 	}
 	
