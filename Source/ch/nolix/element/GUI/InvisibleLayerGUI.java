@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
+//own imports
+import ch.nolix.common.states.Visibility;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -16,7 +17,7 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 	//constructor
 	public InvisibleLayerGUI() {
 		
-		super(false);
+		super(Visibility.INVISIBLE);
 		
 		reset();
 	}

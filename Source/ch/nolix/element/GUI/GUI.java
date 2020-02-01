@@ -9,6 +9,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Recalculable;
+import ch.nolix.common.states.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
@@ -51,17 +52,6 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	//constructor
 	/**
 	 * Creates a new {@link GUI}.
-	 * The {@link GUI} will be visible if the given visible flag is true.
-	 * 
-	 * @param visible
-	 */
-	public GUI(final boolean visible) {
-		visualizer = visible ? new FrameVisualizer() : null;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link GUI}.
 	 * The {@link GUI} will be visible and have the given visualizer.
 	 * 
 	 * @param visible
@@ -72,6 +62,17 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		Validator.suppose(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
 		
 		this.visualizer = visualizer;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link GUI}.
+	 * The {@link GUI} will be visible according to the given visibility.
+	 * 
+	 * @param visibility
+	 */
+	public GUI(final Visibility visibility) {
+		visualizer = visibility == Visibility.VISIBLE ? new FrameVisualizer() : null;
 	}
 	
 	//method

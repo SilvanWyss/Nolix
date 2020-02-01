@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
+//own imports
+import ch.nolix.common.states.Visibility;
 import ch.nolix.element.input.IInputTaker;
 
 //class
@@ -10,7 +11,7 @@ public final class Frame extends LayerGUI<Frame> {
 	//constructor
 	public Frame() {
 		
-		super(true);
+		super(Visibility.VISIBLE);
 		
 		initialize();
 	}
@@ -18,7 +19,7 @@ public final class Frame extends LayerGUI<Frame> {
 	//constructor
 	public Frame(final IInputTaker inputTaker) {
 		
-		super(true, inputTaker);
+		super(Visibility.VISIBLE, inputTaker);
 		
 		initialize();
 	}

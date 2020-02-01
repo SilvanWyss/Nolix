@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.states.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
@@ -32,9 +34,9 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
 	//constructor
-	public CanvasGUI(final IInputTaker inputTaker, final boolean visible) {
+	public CanvasGUI(final IInputTaker inputTaker, final Visibility visibility) {
 		
-		super(visible);
+		super(visibility);
 		
 		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		

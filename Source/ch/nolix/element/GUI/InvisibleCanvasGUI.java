@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
+import ch.nolix.common.states.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.input.IInputTaker;
 
@@ -15,7 +17,7 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 	
 	//constructor
 	public InvisibleCanvasGUI(final IInputTaker inputTaker) {
-		super(inputTaker, false);
+		super(inputTaker, Visibility.INVISIBLE);
 	}
 	
 	//method

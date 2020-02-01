@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
+import ch.nolix.common.states.Visibility;
 import ch.nolix.element.input.IInputTaker;
 
 //class
@@ -9,7 +11,7 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 	//constructor
 	public CanvasFrame(final IInputTaker inputTaker) {
 		
-		super(inputTaker, true);
+		super(inputTaker, Visibility.VISIBLE);
 		
 		initialize();
 	}

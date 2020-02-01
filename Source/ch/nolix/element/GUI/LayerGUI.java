@@ -12,6 +12,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.states.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.baseAPI.IConfigurableElement;
@@ -163,41 +164,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	//constructor
 	/**
 	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible if the given visible flag is true.
-	 * 
-	 * @param visible
-	 */
-	public LayerGUI(final boolean visible) {
-		
-		super(visible);
-		
-		backGround.setParentGUI(this);
-		inputTaker = null;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible if the given visible flag is true.
-	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
-	 * 
-	 * @param visible
-	 * @param inputTaker
-	 * @throws ArgumentIsNullException if the given eventTaker is null.
-	 */
-	public LayerGUI(final boolean visible, final IInputTaker inputTaker) {
-		
-		super(visible);
-		
-		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
-		
-		backGround.setParentGUI(this);
-		this.inputTaker = inputTaker;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link LayerGUI}.
 	 * The {@link LayerGUI} will be visible.
 	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
 	 * 
@@ -207,7 +173,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public LayerGUI(final IInputTaker inputTaker) {
 		
-		super(true);
+		super(Visibility.VISIBLE);
 		
 		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
 		
@@ -248,6 +214,41 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		super(visualizer);
 		
 		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
+		
+		backGround.setParentGUI(this);
+		this.inputTaker = inputTaker;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible according to the given visibility.
+	 * 
+	 * @param visibility
+	 */
+	public LayerGUI(final Visibility visibility) {
+		
+		super(visibility);
+		
+		backGround.setParentGUI(this);
+		inputTaker = null;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link LayerGUI}.
+	 * The {@link LayerGUI} will be visible according to the given visibility
+	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * 
+	 * @param visibility
+	 * @param inputTaker
+	 * @throws ArgumentIsNullException if the given eventTaker is null.
+	 */
+	public LayerGUI(final Visibility visibility, final IInputTaker inputTaker) {
+		
+		super(visibility);
+		
+		Validator.suppose(inputTaker).thatIsNamed("input taker").isNotNull();
 		
 		backGround.setParentGUI(this);
 		this.inputTaker = inputTaker;
