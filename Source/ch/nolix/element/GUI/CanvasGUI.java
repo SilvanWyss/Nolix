@@ -109,7 +109,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
+	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		inputTaker.noteMouseMove(cursorXPosition, cursorYPosition);		
 	}
 	
@@ -369,6 +369,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColorGradient(colorGradient);
 	}
 	
+	//method
 	private IElementTaker<PaintRun> createTranslateCommand(final int painterIndex, final ChainedNode translateCommand) {
 		
 		final var attributes = translateCommand.getAttributesAsNodes();

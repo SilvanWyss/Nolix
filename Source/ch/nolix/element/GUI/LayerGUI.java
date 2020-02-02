@@ -616,12 +616,12 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea) {
+	public void noteMouseMove(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
 		if (hasEventTaker()) {
-			inputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+			inputTaker.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 		}
 		else {
-			getRefTopOrBackgroundLayer().noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+			getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 			refresh();
 		}
 	}

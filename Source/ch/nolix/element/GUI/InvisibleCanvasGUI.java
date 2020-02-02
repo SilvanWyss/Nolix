@@ -43,7 +43,7 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 	public int getViewAreaCursorYPosition() {
 		return viewAreaCursorYPosition;
 	}
-
+	
 	//method
 	@Override
 	public int getViewAreaHeight() {
@@ -55,7 +55,7 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 	public int getViewAreaWidth() {
 		return viewAreaWidth;
 	}
-
+	
 	//method
 	@Override
 	public boolean isRootGUI() {
@@ -64,7 +64,17 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 	
 	//method
 	@Override
-	public void noteResize(int viewAreaWidth, int viewAreaHeight) {
+	public void noteMouseMove(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+		
+		super.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
+		
+		this.viewAreaCursorXPosition = viewAreaCursorXPosition;
+		this.viewAreaCursorYPosition = viewAreaCursorYPosition;
+	}
+	
+	//method
+	@Override
+	public void noteResize(final int viewAreaWidth,final int viewAreaHeight) {
 		
 		super.noteResize(viewAreaWidth, viewAreaHeight);
 		
@@ -73,15 +83,5 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 		Validator.suppose(viewAreaHeight).thatIsNamed("view arew height").isNotNegative();
 		
 		this.viewAreaHeight = viewAreaHeight;
-	}
-
-	//method
-	public void setViewAreaCursorXPosition(final int viewAreaCursorXPosition) {
-		this.viewAreaCursorXPosition = viewAreaCursorXPosition;
-	}
-	
-	//method
-	public void setViewAreaCursorYPosition(final int viewAreaCursorYPosition) {
-		this.viewAreaCursorYPosition = viewAreaCursorYPosition;
 	}
 }

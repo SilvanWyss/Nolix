@@ -7,7 +7,7 @@ import ch.nolix.common.validator.Validator;
 
 //class
 public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
-
+	
 	//attributes
 	private int viewAreaWidth;
 	private int viewAreaHeight;
@@ -74,7 +74,17 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 	
 	//method
 	@Override
-	public void noteResize(int viewAreaWidth, int viewAreaHeight) {
+	public void noteMouseMove(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+		
+		super.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
+		
+		this.viewAreaCursorXPosition = viewAreaCursorXPosition;
+		this.viewAreaCursorYPosition = viewAreaCursorYPosition;
+	}
+	
+	//method
+	@Override
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
 		
 		super.noteResize(viewAreaWidth, viewAreaHeight);
 		
@@ -83,11 +93,5 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 		
 		this.viewAreaWidth = viewAreaWidth;
 		this.viewAreaHeight = viewAreaHeight;
-	}
-	
-	//method
-	public void setViewAreaCursorPosition(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
-		this.viewAreaCursorXPosition = viewAreaCursorXPosition;
-		this.viewAreaCursorYPosition = viewAreaCursorYPosition;
 	}
 }
