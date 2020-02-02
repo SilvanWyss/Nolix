@@ -4,7 +4,6 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
-import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
@@ -23,11 +22,10 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 290
+ * @lines 280
  * @param <G> The type of a {@link GUI}.
  */
-public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G>
-implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
+public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
 	
 	//default value
 	public static final String DEFAULT_TITLE = "GUI";
@@ -36,7 +34,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 	private final MutableProperty<String> title =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
-		t -> setTitle(t),
+		this::setTitle,
 		s -> s.getOneAttributeAsString(),
 		t -> new Node(PascalCaseNameCatalogue.TITLE, t)
 	);
@@ -104,6 +102,30 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return title.getValue();
 	}
 	
+	//method declaration
+	/**
+	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
+	 */
+	public abstract int getViewAreaCursorXPosition();
+	
+	//method declaration
+	/**
+	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
+	 */
+	public abstract int getViewAreaCursorYPosition();
+	
+	//method declaration
+	/**
+	 * @return the height of the view area of the current {@link GUI}.
+	 */
+	public abstract int getViewAreaHeight();
+	
+	//method declaration
+	/**
+	 * @return the width of the view area of the current {@link GUI}.
+	 */
+	public abstract int getViewAreaWidth();
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -165,7 +187,7 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		recalculate();
 		repaint();
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -178,6 +200,20 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		setTitle(DEFAULT_TITLE);
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Sets the frontend of the current {@link GUI}.
+	 * 
+	 * @param frontEnd
+	 * @throws ArgumentIsNullException if the given frontEnd is null.
+	 */
+	public final void setFrontEnd(final IFrontEnd frontEnd) {
+		
+		Validator.suppose(frontEnd).thatIsNamed("front end").isNotNull();
+		
+		this.frontEnd = frontEnd;
 	}
 	
 	//method
@@ -206,32 +242,6 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		return keyBoard.shiftIsLocked();
 	}
 	
-	//method declaration
-	/**
-	 * @return the height of the view area of the current {@link GUI}.
-	 */
-	public abstract int getViewAreaHeight();
-	
-	//method declaration
-	/**
-	 * @return the width of the view area of the current {@link GUI}.
-	 */
-	public abstract int getViewAreaWidth();
-	
-	//method
-	/**
-	 * Sets the frontend of the current {@link GUI}.
-	 * 
-	 * @param frontEnd
-	 * @throws ArgumentIsNullException if the given frontEnd is null.
-	 */
-	public final void setFrontEnd(final IFrontEnd frontEnd) {
-		
-		Validator.suppose(frontEnd).thatIsNamed("front end").isNotNull();
-		
-		this.frontEnd = frontEnd;
-	}
-	
 	//method
 	/**
 	 * @return the {@link KeyBoard} of the current {@link GUI}.
@@ -253,18 +263,6 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		
 		return visualizer;
 	}
-
-	//method declaration
-	/**
-	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
-	 */
-	protected abstract int getViewAreaCursorXPosition();
-	
-	//method declaration
-	/**
-	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
-	 */
-	protected abstract int getViewAreaCursorYPosition();
 	
 	//method
 	/**
@@ -279,14 +277,6 @@ implements IBaseGUI<G>, ISmartObject<G>, Recalculable {
 		}
 	}
 	
-	//method
-	/**
-	 * Lets the current {@link GUI} note a resizing.
-	 */
-	protected final void noteResizing() {
-		refresh();
-	}
-
 	//method
 	/**
 	 * Repaints the current {@link GUI}.
