@@ -5,7 +5,7 @@ package ch.nolix.element.widgetControllers;
 import ch.nolix.element.color.Color;
 
 //class
-public abstract class TextLineWidgetController extends BorderWidgetController {
+abstract class TextLineWidgetController extends BorderWidgetController {
 	
 	//method
 	public final Color getBaseTextColor() {

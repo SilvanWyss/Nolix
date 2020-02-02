@@ -10,7 +10,7 @@ public final class TextBoxController extends TextLineWidgetController implements
 	
 	//method
 	public void appendText(final String text) {
-		getParentGUI().typeText(text);
+		getRefGUIController().typeText(text);
 	}
 	
 	//method

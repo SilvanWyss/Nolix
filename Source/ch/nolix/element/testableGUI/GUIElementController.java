@@ -12,48 +12,48 @@ import ch.nolix.common.validator.Validator;
 public abstract class GUIElementController implements IdentifiedByString, Rectangular {
 	
 	//attributes
-	private GUIElement gUIElement;
+	private GUIElement mGUIElement;
 	
 	//method
 	@Override
 	public int getHeight() {
-		return gUIElement.getHeight();
+		return mGUIElement.getHeight();
 	} 
 	
 	//method
 	@Override
 	public final String getId() {
-		return gUIElement.getId();
+		return mGUIElement.getId();
 	}
 	
 	//method
 	public final ITestableGUI getParentGUI() {
-		return gUIElement.getParentGUI();
+		return mGUIElement.getParentGUI();
 	}
 	
 	//method
 	@Override
-	public int getWidth() {
-		return gUIElement.getWidth();
+	public final int getWidth() {
+		return mGUIElement.getWidth();
 	}
 	
 	//method
 	public final int getXPositionOnViewArea() {
-		return gUIElement.getXPositionOnViewArea();
+		return mGUIElement.getXPositionOnViewArea();
 	}
 	
 	//method
 	public final int getYPositionOnViewArea() {
-		return gUIElement.getYPositionOnViewArea();
+		return mGUIElement.getYPositionOnViewArea();
 	}
 	
 	//method
-	public void clickLeftMouseButtonOnTopLeft() {
+	public final void clickLeftMouseButtonOnTopLeft() {
 		clickLeftMouseButton(0, 0);
 	}
 	
 	//method
-	public void clickLeftMouseButton(final int xPosition, final int yPosition) {
+	public final void clickLeftMouseButton(final int xPosition, final int yPosition) {
 		getParentGUI().noteLeftMouseButtonClick(
 			getXPositionOnViewArea() + xPosition,
 			getYPositionOnViewArea() + yPosition
@@ -61,28 +61,33 @@ public abstract class GUIElementController implements IdentifiedByString, Rectan
 	}
 	
 	//method
-	protected BaseNode getAttribute(String name) {
-		return gUIElement.getAttribute(name);
+	protected final BaseNode getAttribute(String name) {
+		return mGUIElement.getAttribute(name);
 	}
 	
 	//method
-	void setGeneralGUIElement(final GUIElement gUIElement) {
+	protected final GUIController getRefGUIController() {
+		return mGUIElement.getRefGUIController();
+	}
+	
+	//method
+	final void setGUIElement(final GUIElement gUIElement) {
 		
 		Validator.suppose(gUIElement).isOfType(GUIElement.class);
 		
-		supposeDoesNotHaveGeneralGUIElement();
+		supposeDoesNotHaveGUIElement();
 		
-		this.gUIElement = gUIElement;
+		this.mGUIElement = gUIElement;
 	}
 	
 	//method
-	private boolean hasGeneralGUIElement() {
-		return (gUIElement != null);
+	private boolean hasGUIElement() {
+		return (mGUIElement != null);
 	}
 	
 	//method
-	private void supposeDoesNotHaveGeneralGUIElement() {
-		if (hasGeneralGUIElement()) {
+	private void supposeDoesNotHaveGUIElement() {
+		if (hasGUIElement()) {
 			throw new ArgumentHasAttributeException(this, GUIElement.class);
 		}
 	}

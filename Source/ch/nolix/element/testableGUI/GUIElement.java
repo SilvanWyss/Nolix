@@ -38,6 +38,11 @@ public abstract class GUIElement implements IdentifiedByString, Rectangular {
 		return parentGUI;
 	}
 	
+	//method
+	public final GUIController getRefGUIController() {
+		return parentGUI.getRefGUIController();
+	}
+	
 	//method declaration
 	public abstract int getXPositionOnViewArea();
 	
@@ -49,7 +54,7 @@ public abstract class GUIElement implements IdentifiedByString, Rectangular {
 		try {
 			
 			final var lGUIElement = type.getConstructor().newInstance();
-			lGUIElement.setGeneralGUIElement(this);
+			lGUIElement.setGUIElement(this);
 			
 			return lGUIElement;
 		}

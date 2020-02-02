@@ -6,7 +6,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.testableGUI.GUIElementController;
 
 //class
-public abstract class BorderWidgetController extends GUIElementController {
+abstract class BorderWidgetController extends GUIElementController {
 	
 	//method
 	public final Color getBaseBackgroundColor() {
