@@ -3,7 +3,6 @@ package ch.nolix.elementTutorial.widgetsTutorial;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widgets.Button;
 
 /**
@@ -16,7 +15,7 @@ import ch.nolix.element.widgets.Button;
 public final class ButtonTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link Button}.
+	 * Creates a {@link Frame} with a {@link Button}.
 	 * 
 	 * @param args
 	 */
@@ -27,9 +26,9 @@ public final class ButtonTutorial {
 		
 		//Creates a Button.
 		final var button = new Button("Quit");
-		button.setLeftMouseButtonReleaseCommand(() -> frame.close());
+		button.setLeftMouseButtonReleaseCommand(frame::close);
 		
-		//Configures the look of the button.
+		//Configures the look of the Button.
 		button
 		.setMinWidth(200)
 		.setCustomCursorIcon(CursorIcon.Hand)
@@ -46,7 +45,7 @@ public final class ButtonTutorial {
 		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LIGHT_GREY))
 		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LIGHT_GREY));
 		
-		//Adds the button to the frame.
+		//Adds the button to the Frame.
 		frame.addLayerOnTop(button);
 	}
 	
