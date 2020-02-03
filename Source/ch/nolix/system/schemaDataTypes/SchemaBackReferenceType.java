@@ -38,7 +38,7 @@ public abstract class SchemaBackReferenceType extends SchemaDataType<EntitySet> 
 	public final boolean isAnyReferenceType() {
 		return false;
 	}
-
+	
 	//method
 	@Override
 	public final boolean isAnyValueType() {
