@@ -14,7 +14,7 @@ import ch.nolix.element.input.Key;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 50
+ * @lines 60
  */
 final class FrameVisualizerKeyListener implements KeyListener {
 	
@@ -46,6 +46,15 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	//method
 	@Override
 	public void keyTyped(final KeyEvent keyEvent) {
-		parentFrame.noteKeyTyping(Key.fromAWTKeyEvent(keyEvent));
+		
+		/*
+		 * The keyTypes method is special.
+		 * The given keyEvent is meaningful only when a key has been typed, that represents a character.
+		 * Additionally, the keyEvent will store the typed character as key char whereas the key code will be always 0.
+		 */
+		final var character = keyEvent.getKeyChar();
+		if  (Character.isAlphabetic(character) || Character.isDigit(character)) {
+			parentFrame.noteKeyTyping(Key.fromCharacter(character));
+		}
 	}
 }
