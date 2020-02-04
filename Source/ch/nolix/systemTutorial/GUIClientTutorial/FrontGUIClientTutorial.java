@@ -13,14 +13,14 @@ import ch.nolix.system.client.Application;
 
 //class
 /**
- * The {@link BackGUIClientTutorial} is a tutorial for a {@link BackGUIClient}.
- * Of the {@link BackGUIClientTutorial} an instance cannot be created.
+ * The {@link FrontGUIClientTutorial} is a tutorial for a {@link BackGUIClient}.
+ * Of the {@link FrontGUIClientTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02
  * @lines 100
  */
-public final class BackGUIClientTutorial {
+public final class FrontGUIClientTutorial {
 
 	//main method
 	/**
@@ -91,7 +91,7 @@ public final class BackGUIClientTutorial {
 	
 	//access-reducing constructor
 	/**
-	 * Avoids that an instance of the {@link BackGUIClientTutorial} can be created.
+	 * Avoids that an instance of the {@link FrontGUIClientTutorial} can be created.
 	 */
-	private BackGUIClientTutorial() {}
+	private FrontGUIClientTutorial() {}
 }
