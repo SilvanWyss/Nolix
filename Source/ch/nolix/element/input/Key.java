@@ -237,6 +237,138 @@ public enum Key implements IElementEnum {
 	}
 	
 	//static method
+	public static Key fromCharacter(final char character) {
+		switch (character) {
+			case 'A':
+				return Key.A;
+			case 'B':
+				return Key.B;
+			case 'C':
+				return Key.C;
+			case 'D':
+				return Key.D;
+			case 'E':
+				return Key.E;
+			case 'F':
+				return Key.F;
+			case 'G':
+				return Key.G;
+			case 'H':
+				return Key.H;
+			case 'I':
+				return Key.I;
+			case 'J':
+				return Key.J;
+			case 'K':
+				return Key.K;
+			case 'L':
+				return Key.L;
+			case 'M':
+				return Key.M;
+			case 'N':
+				return Key.N;
+			case 'O':
+				return Key.O;
+			case 'P':
+				return Key.P;
+			case 'Q':
+				return Key.Q;
+			case 'R':
+				return Key.R;
+			case 'S':
+				return Key.S;
+			case 'T':
+				return Key.T;
+			case 'U':
+				return Key.U;
+			case 'V':
+				return Key.V;
+			case 'W':
+				return Key.W;
+			case 'X':
+				return Key.X;
+			case 'Y':
+				return Key.Y;
+			case 'Z':
+				return Key.Z;
+			case 'a':
+				return Key.A;
+			case 'b':
+				return Key.B;
+			case 'c':
+				return Key.C;
+			case 'd':
+				return Key.D;
+			case 'e':
+				return Key.E;
+			case 'f':
+				return Key.F;
+			case 'g':
+				return Key.G;
+			case 'h':
+				return Key.H;
+			case 'i':
+				return Key.I;
+			case 'j':
+				return Key.J;
+			case 'k':
+				return Key.K;
+			case 'l':
+				return Key.L;
+			case 'm':
+				return Key.M;
+			case 'n':
+				return Key.N;
+			case 'o':
+				return Key.O;
+			case 'p':
+				return Key.P;
+			case 'q':
+				return Key.Q;
+			case 'r':
+				return Key.R;
+			case 's':
+				return Key.S;
+			case 't':
+				return Key.T;
+			case 'u':
+				return Key.U;
+			case 'v':
+				return Key.V;
+			case 'w':
+				return Key.W;
+			case 'x':
+				return Key.X;
+			case 'y':
+				return Key.Y;
+			case 'z':
+				return Key.Z;
+			case '0':
+				return Key.NUMBER_0;
+			case '1':
+				return Key.NUMBER_1;
+			case '2':
+				return Key.NUMBER_2;
+			case '3':
+				return Key.NUMBER_3;
+			case '4':
+				return Key.NUMBER_4;
+			case '5':
+				return Key.NUMBER_5;
+			case '6':
+				return Key.NUMBER_6;
+			case '7':
+				return Key.NUMBER_7;
+			case '8':
+				return Key.NUMBER_8;
+			case '9':
+				return Key.NUMBER_9;
+			default:
+				throw new InvalidArgumentException(character);
+		}
+	}
+	
+	//static method
 	public static Key fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
