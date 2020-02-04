@@ -473,8 +473,8 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		this.cursorYPosition = cursorYPosition;
 		
 		if (rootWidget != null) {
-			rootWidget.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
 			rootWidget.recalculateRecursively();
+			rootWidget.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
 			rootWidget.noteMouseMoveRecursively();
 		}
 	}
@@ -693,7 +693,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 					break;
 			}
 			
-			rootWidget.recalculateRecursively();
+			rootWidget.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
 		}
 	}
 	
