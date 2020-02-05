@@ -32,7 +32,7 @@ import ch.nolix.element.painter.IPainter;
  * 2. caption area: Contains the probable captions and main area.
  * 3. main area: Contains the probable borders and bordered area.
  * 4. bordered area: Contains the probable scrollbars and view area.
- * 5. view area: Is over the scroll area and is like a hole to look on the scroll area below.
+ * 5. view area: Is over the scrolled area and is like a hole to look on the scroll area below.
  * 6. scrolled area: Contains the probable paddings and content area.
  * 7. content area: Contains the content.
  * 
@@ -187,7 +187,7 @@ extends Widget<BW, BWL> {
 	@Override
 	public final CursorIcon getCursorIcon() {
 		
-		if (horizontalScrollbarIsUnderCursor() || verticalScrollbarIsUnderCursor()) {
+		if (!viewArea.isUnderCursor()) {
 			return CursorIcon.Arrow;
 		}
 		
@@ -1061,10 +1061,34 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * @return true if the cursor is over the horizontal scrollbar of the current {@link BorderWidget}.
+	 */
+	protected boolean horizontalScrollbarIsUnderCursor() {
+		
+		//Handles the case that the current border widget does not have a horizontal scrollbar.
+		if (!hasHorizontalScrollbar()) {
+			return false;
+		}
+		
+		//Handles the case that the current border widget has a horizontal scrollbar.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();
+			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
+			final var horizontalScrollbarCursorYPosition = getHorizontalScrollbarCursorYPosition();
+			
+			return
+			cursorXPosition >= horizontalScrollbarCursorXPosition
+			&& cursorXPosition < horizontalScrollbarCursorXPosition + viewArea.getWidth()
+			&& cursorYPosition >= horizontalScrollbarCursorYPosition
+			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link BorderWidget} note a left mouse button press on the view area.
 	 */
 	protected void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1100,7 +1124,7 @@ extends Widget<BW, BWL> {
 			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1114,7 +1138,7 @@ extends Widget<BW, BWL> {
 		isMovingHorizontalScrollbarCursor = false;
 		isMovingVerticalScrollbarCursor = false;
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1153,7 +1177,7 @@ extends Widget<BW, BWL> {
 			setViewAreaXPositionOnScrolledArea(viewAreaXDelta);
 		}
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1263,7 +1287,31 @@ extends Widget<BW, BWL> {
 	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
 		return (isEnabled() && (!hasAnyScrollbar() || viewAreaIsUnderCursor()));
 	}
-
+	
+	//method
+	/**
+	 * @return true if the cursor is over the vertical scrollbar of the current {@link BorderWidget}.
+	 */
+	protected boolean verticalScrollbarIsUnderCursor() {
+		
+		//Handles the case that the current border widget does not have a vertical scrollbar.
+		if (!hasVerticalScrollbar()) {
+			return false;
+		}
+		
+		//Handles the case that the current border widget has a vertical scrollbar.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();
+			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
+			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
+						
+			return
+			cursorXPosition >= verticalScrollbarCursorXPosition
+			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
+			&& cursorYPosition >= verticalScrollbarCursorYPosition
+			&& cursorYPosition < verticalScrollbarCursorYPosition + viewArea.getHeight();
+	}
+	
 	//method
 	int getHorizontalScrollbarCursorWidth() {
 		return
@@ -1399,30 +1447,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return true if the cursor is over the horizontal scrollbar of the current {@link BorderWidget}.
-	 */
-	private boolean horizontalScrollbarIsUnderCursor() {
-		
-		//Handles the case that the current border widget does not have a horizontal scrollbar.
-		if (!hasHorizontalScrollbar()) {
-			return false;
-		}
-		
-		//Handles the case that the current border widget has a horizontal scrollbar.
-			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();
-			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
-			final var horizontalScrollbarCursorYPosition = getHorizontalScrollbarCursorYPosition();
-			
-			return
-			cursorXPosition >= horizontalScrollbarCursorXPosition
-			&& cursorXPosition < horizontalScrollbarCursorXPosition + viewArea.getWidth()
-			&& cursorYPosition >= horizontalScrollbarCursorYPosition
-			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
-	}
-	
-	//method
-	/**
 	 * @return true if the cursor is over the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	private boolean verticalScrollbarCursorIsUnderCursor() {
@@ -1443,29 +1467,5 @@ extends Widget<BW, BWL> {
 			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
 			&& cursorYPosition >= verticalScrollbarCursorYPosition
 			&& cursorYPosition < verticalScrollbarCursorYPosition + getVerticalScrollbarCursorHeight();
-	}
-	
-	//method
-	/**
-	 * @return true if the cursor is over the vertical scrollbar of the current {@link BorderWidget}.
-	 */
-	private boolean verticalScrollbarIsUnderCursor() {
-		
-		//Handles the case that the current border widget does not have a vertical scrollbar.
-		if (!hasVerticalScrollbar()) {
-			return false;
-		}
-		
-		//Handles the case that the current border widget has a vertical scrollbar.
-			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();
-			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
-			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
-						
-			return
-			cursorXPosition >= verticalScrollbarCursorXPosition
-			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
-			&& cursorYPosition >= verticalScrollbarCursorYPosition
-			&& cursorYPosition < verticalScrollbarCursorYPosition + viewArea.getHeight();
 	}
 }
