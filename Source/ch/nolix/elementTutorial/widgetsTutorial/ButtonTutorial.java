@@ -11,8 +11,11 @@ import ch.nolix.element.widgets.Button;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 60
  */
 public final class ButtonTutorial {
+	
+	private static int counter = 1;
 	
 	/**
 	 * Creates a {@link Frame} with a {@link Button}.
@@ -25,12 +28,18 @@ public final class ButtonTutorial {
 		final var frame = new Frame("Button Tutorial");
 		
 		//Creates a Button.
-		final var button = new Button("Quit");
-		button.setLeftMouseButtonReleaseCommand(frame::close);
+		final var button = new Button("Change background color");
+		
+		//Sets left mouse button release command to the Button.
+		button.setLeftMouseButtonReleaseCommand(() -> {
+			
+			frame.setBackgroundColor(counter % 2 == 0 ? Color.WHITE : Color.LIGHT_GREEN);
+			
+			counter++;
+		});
 		
 		//Configures the look of the Button.
 		button
-		.setMinWidth(200)
 		.setCustomCursorIcon(CursorIcon.Hand)
 		.applyOnBaseLook(
 			bl ->
@@ -45,7 +54,7 @@ public final class ButtonTutorial {
 		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LIGHT_GREY))
 		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LIGHT_GREY));
 		
-		//Adds the button to the Frame.
+		//Adds the Button to the Frame.
 		frame.addLayerOnTop(button);
 	}
 	
