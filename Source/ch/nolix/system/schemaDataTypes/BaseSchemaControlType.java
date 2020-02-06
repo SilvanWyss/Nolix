@@ -5,11 +5,11 @@ package ch.nolix.system.schemaDataTypes;
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 
 //class
-public abstract class SchemaValueType<V> extends SchemaDataType<V> {
+public abstract class BaseSchemaControlType<C> extends SchemaDataType<C>{
 	
 	//constructor
-	public SchemaValueType(final Class<V> valueClass) {
-		super(valueClass);
+	public BaseSchemaControlType(final Class<C> contentClass) {
+		super(contentClass);
 	}
 	
 	//method
@@ -21,7 +21,7 @@ public abstract class SchemaValueType<V> extends SchemaDataType<V> {
 	//method
 	@Override
 	public final boolean isAnyControlType() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -32,8 +32,8 @@ public abstract class SchemaValueType<V> extends SchemaDataType<V> {
 	
 	//method
 	@Override
-	public boolean isAnyValueType() {
-		return true;
+	public final boolean isAnyValueType() {
+		return false;
 	}
 	
 	//method
