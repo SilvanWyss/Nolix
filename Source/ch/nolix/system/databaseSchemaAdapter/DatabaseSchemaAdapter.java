@@ -18,7 +18,7 @@ import ch.nolix.system.entity.Entity;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 200
+ * @lines 180
  * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
  */
 public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
@@ -168,21 +168,8 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	}
 	
 	//method
-	private void supposeCanDelete(EntitySet entitySet) {
-		
-		//TODO
-		/*
-		final var referencingEntitySet =
-		loadedAndCreatedEntitySets.getRefFirstOrNull(es -> es.references(entitySet));
-		
-		if (referencingEntitySet != null) {
-			throw new InvalidArgumentException(
-				entitySet,
-				"cannot be deleted because it is referenced by "
-				+ referencingEntitySet.getNameInQuotes()
-			);
-		}
-		*/
+	private void supposeCanDelete(final EntitySet entitySet) {
+		//TOOD: Implement.
 	}
 	
 	//method
