@@ -73,7 +73,7 @@ public final class WebSocketFrame {
 			payloadLength = determinePayloadLength(inputStream);
 			maskingKey = getMaskBit() ? inputStream.readNBytes(4) : null;
 			
-			//TODO Handle payloadLength > MAX_INT.
+			//TODO: Handle payloadLength > MAX_INT.
 			payload = inputStream.readNBytes(getPayloadLength().intValue());
 			
 			if (masksPayload()) {
