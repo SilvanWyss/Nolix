@@ -4,6 +4,7 @@ package ch.nolix.element.widgets;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.GUI.Widget;
@@ -31,9 +32,9 @@ extends BorderWidget<TLW, TLWL> {
 	private MutableProperty<String> text =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TEXT,
-		t -> setText(t),
-		s -> s.getOneAttributeAsString(),
-		t -> new Node(PascalCaseNameCatalogue.TEXT, t)
+		this::setText,
+		BaseNode::getHeaderOfOneAttribute,
+		Node::withOneAttribute
 	);
 	
 	//method
