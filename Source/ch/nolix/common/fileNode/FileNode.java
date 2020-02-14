@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.fileNode;
 
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
@@ -16,7 +17,7 @@ import ch.nolix.common.node.Node;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 130
+ * @lines 180
  */
 public final class FileNode extends BaseNode {
 
@@ -141,10 +142,17 @@ public final class FileNode extends BaseNode {
 		save();
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public void removeHeader() {
+	public FileNode removeHeader() {
+		
 		internalSpecification.removeHeader();
 		save();
+		
+		return this;
 	}
 	
 	//method
@@ -152,14 +160,18 @@ public final class FileNode extends BaseNode {
 	 * Sets the header of this simple persistent specification.
 	 * 
 	 * @param header
+	 * @return the current {@link FileNode}.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
-	public void setHeader(final String header) {
+	public FileNode setHeader(final String header) {
+		
 		internalSpecification.setHeader(header);
 		save();
+		
+		return this;
 	}
 	
 	//method

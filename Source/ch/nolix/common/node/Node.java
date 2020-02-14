@@ -502,11 +502,14 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//method
 	/**
-	 * Removes the header of the current {@link Node}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void removeHeader() {
+	public Node removeHeader() {
+		
 		header = null;
+		
+		return this;
 	}
 	
 	//method
@@ -514,16 +517,19 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Sets the header of the current {@link Node}.
 	 * 
 	 * @param header
+	 * @return the current {@link Node}.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	@Override
-	public void setHeader(final String header) {
+	public Node setHeader(final String header) {
 		
 		//Checks if the given header is not null or blank.
 		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current Node.
 		this.header = header;
+		
+		return this;
 	}
 }

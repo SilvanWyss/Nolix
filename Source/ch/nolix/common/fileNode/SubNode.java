@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.fileNode;
 
+//own imports
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -13,7 +14,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 180
+ * @lines 170
  */
 public final class SubNode extends BaseNode {
 
@@ -137,14 +138,18 @@ public final class SubNode extends BaseNode {
 	/**
 	 * Sets the given header to this sub specification.
 	 * 
+	 * @return the current {@link SubNode}.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
-	public void setHeader(final String header) {
+	public SubNode setHeader(final String header) {
+		
 		internalSpecification.setHeader(header);
 		simplePersistentSpecification.save();
+		
+		return this;
 	}
 
 	@Override
@@ -155,11 +160,14 @@ public final class SubNode extends BaseNode {
 
 	//method
 	/**
-	 * Removes the header of the current {@link SubNode}
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void removeHeader() {
+	public SubNode removeHeader() {
+		
 		internalSpecification.removeHeader();
 		simplePersistentSpecification.save();
+		
+		return this;
 	}
 }

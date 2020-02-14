@@ -4,6 +4,7 @@ package ch.nolix.element.layerElement;
 //Java import
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
@@ -19,7 +20,7 @@ import ch.nolix.element.baseAPI.IMutableElement;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 230
+ * @lines 220
  * @param <E> The type of an entity.
  */
 public abstract class LayerElement<E extends LayerElement<E>>

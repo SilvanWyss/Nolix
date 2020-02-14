@@ -3,7 +3,7 @@ package ch.nolix.common.node;
 
 //own imports
 import ch.nolix.common.XML.XMLNode;
-import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.attributeAPI.OptionalHeaderable;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
@@ -30,7 +30,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-07
  * @lines 740
  */
-public abstract class BaseNode implements Headered {
+public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//constants
 	public static final String DOT_CODE = "$D";
@@ -457,12 +457,6 @@ public abstract class BaseNode implements Headered {
 		removeFirstAttribute(a -> a.hasHeader(header));
 	}
 	
-	//method declaration
-	/**
-	 * Removes the header of the current {@link BaseNode}.
-	 */
-	public abstract void removeHeader();
-	
 	//method
 	/**
 	 * Removes the header and the attributes of the current {@link BaseNode}.
@@ -547,14 +541,6 @@ public abstract class BaseNode implements Headered {
 	public void saveToFile(final String filePath, final boolean overwrite) {
 		FileSystemAccessor.createFile(filePath, overwrite, toFormatedString());
 	}
-	
-	//method declaration
-	/**
-	 * Sets the header of the current {@link BaseNode}.
-	 * 
-	 * @param header
-	 */
-	public abstract void setHeader(final String header);
 	
 	//method
 	/**
