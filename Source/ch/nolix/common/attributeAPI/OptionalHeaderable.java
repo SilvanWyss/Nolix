@@ -7,7 +7,7 @@ package ch.nolix.common.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2019-02
- * @lines 80
+ * @lines 90
  * @param <OH> The type of a {@link OptionalHeaderable}.
  */
 public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
@@ -18,6 +18,15 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
 	 * @throws Exception if the current {@link OptionalHeaderable} does not have a header.
 	 */
 	public abstract String getHeader();
+	
+	//method
+	/**
+	 * @return the header of the current {@link OptionalHeaderable}.
+	 * @throws Exception if the current {@link OptionalHeaderable} does not have a header.
+	 */
+	public default String getHeaderInQuotes() {
+		return ("'" + getHeader() + "'");
+	}
 	
 	//method declaration
 	/**
