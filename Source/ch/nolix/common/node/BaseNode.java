@@ -250,6 +250,17 @@ public abstract class BaseNode implements Headered {
 	
 	//method
 	/**
+	 * @return the header of the one attribute of the current {@link BaseNode}.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
+	 * @throws InvalidArgumentException if the one attribute of the current {@link BaseNode} does not have a header.
+	 */
+	public final String getHeaderOfOneAttribute() {
+		return getRefOneAttribute().getHeader();
+	}
+	
+	//method
+	/**
 	 * @return the boolean the one attribute of the current {@link BaseNode} represents.
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
