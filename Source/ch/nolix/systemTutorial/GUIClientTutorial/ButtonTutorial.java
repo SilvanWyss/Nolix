@@ -10,14 +10,14 @@ import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Application;
 
 /**
- * The {@link FrontGUIClientTutorial} is a tutorial for {@link BackGUIClient}s.
- * Of the {@link FrontGUIClientTutorial} an instance cannot be created.
+ * The {@link ButtonTutorial} is a tutorial for {@link BackGUIClient}s.
+ * Of the {@link ButtonTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02
  * @lines 80
  */
-public final class FrontGUIClientTutorial {
+public final class ButtonTutorial {
 	
 	/**
 	 * 1. Creates a {@link Application} for {@link BackGUIClient}s.
@@ -79,7 +79,7 @@ public final class FrontGUIClientTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link FrontGUIClientTutorial} can be created.
+	 * Avoids that an instance of the {@link ButtonTutorial} can be created.
 	 */
-	private FrontGUIClientTutorial() {}
+	private ButtonTutorial() {}
 }
