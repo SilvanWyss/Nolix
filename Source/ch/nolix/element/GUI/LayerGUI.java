@@ -49,7 +49,7 @@ import ch.nolix.element.widgets.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 900
+ * @lines 880
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -828,21 +828,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
 		layers.forEach(l -> l.resetConfiguration());
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets the content position of the current {@link LayerGUI}.
-	 * 
-	 * @param contentPosition
-	 * @return the current {@link LayerGUI}.
-	 * @throws ArgumentIsNullException if the given contentPosition is null.
-	 */
-	public LG setContentPosition(final ExtendedContentPosition contentPosition) {
-		
-		backGround.setContentPosition(contentPosition);
 		
 		return asConcreteType();
 	}
