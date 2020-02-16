@@ -49,7 +49,7 @@ import ch.nolix.element.widgets.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 890
+ * @lines 900
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -616,11 +616,13 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseMove(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+	public final void noteMouseMove(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
 		if (hasEventTaker()) {
 			inputTaker.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 		}
 		else {
+			setViewAreaCursorXPosition(viewAreaCursorXPosition);
+			setViewAreaCursorYPosition(viewAreaCursorYPosition);
 			getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 			refresh();
 		}
@@ -691,10 +693,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
 		if (hasEventTaker()) {
 			inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
 			refresh();
+		}
+		else {
+			setViewAreaWidth(viewAreaWidth);
+			setViewAreaHeight(viewAreaHeight);
 		}
 	}
 	

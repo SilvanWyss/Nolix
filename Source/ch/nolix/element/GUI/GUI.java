@@ -6,6 +6,7 @@ import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Recalculable;
 import ch.nolix.common.states.Visibility;
@@ -32,7 +33,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 290
+ * @lines 390
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -47,6 +48,42 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		this::setTitle,
 		s -> s.getOneAttributeAsString(),
 		t -> new Node(PascalCaseNameCatalogue.TITLE, t)
+	);
+	
+	//attribute
+	private final MutableProperty<Integer> viewAreaWidth =
+	new MutableProperty<Integer>(
+		"ViewAreaWidth",
+		this::setViewAreaWidth,
+		BaseNode::getOneAttributeAsInt,
+		Node::withOneAttribute
+	);
+	
+	//attribute
+	private final MutableProperty<Integer> viewAreaHeight =
+	new MutableProperty<>(
+		"ViewAreaHeight",
+		this::setViewAreaHeight,
+		BaseNode::getOneAttributeAsInt,
+		Node::withOneAttribute
+	);
+	
+	//attribute
+	private final MutableProperty<Integer> viewAreaCursorXPosition =
+	new MutableProperty<>(
+		"ViewAreaCursorXPosition",
+		this::setViewAreaCursorXPosition,
+		BaseNode::getOneAttributeAsInt,
+		Node::withOneAttribute
+	);	
+	
+	//attribute
+	private final MutableProperty<Integer> viewAreaCursorYPosition =
+	new MutableProperty<>(
+		"ViewAreaCursorYPosition",
+		this::setViewAreaCursorYPosition,
+		BaseNode::getOneAttributeAsInt,
+		Node::withOneAttribute
 	);
 	
 	//attributes
@@ -112,29 +149,37 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		return title.getValue();
 	}
 	
-	//method declaration
+	//method
 	/**
 	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
 	 */
-	public abstract int getViewAreaCursorXPosition();
+	public int getViewAreaCursorXPosition() {
+		return viewAreaCursorXPosition.getValue();
+	}
 	
-	//method declaration
+	//method
 	/**
 	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
 	 */
-	public abstract int getViewAreaCursorYPosition();
+	public int getViewAreaCursorYPosition() {
+		return viewAreaCursorYPosition.getValue();
+	}
 	
-	//method declaration
+	//method
 	/**
 	 * @return the height of the view area of the current {@link GUI}.
 	 */
-	public abstract int getViewAreaHeight();
+	public int getViewAreaHeight() {
+		return viewAreaHeight.getValue();
+	}
 	
-	//method declaration
+	//method
 	/**
 	 * @return the width of the view area of the current {@link GUI}.
 	 */
-	public abstract int getViewAreaWidth();
+	public int getViewAreaWidth() {
+		return viewAreaWidth.getValue();
+	}
 	
 	//method
 	/**
@@ -285,6 +330,54 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		if (isVisible()) {
 			visualizer.initialize(this);
 		}
+	}
+	
+	//method
+	/**
+	 * Sets the height of the view area of the current {@link GUI}.
+	 * 
+	 * @param viewAreaHeight
+	 * @throws NegativeArgumentException if the given viewAreaHeight is negative.
+	 */
+	protected void setViewAreaHeight(final int viewAreaHeight) {
+		
+		Validator.suppose(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
+		
+		this.viewAreaHeight.setValue(viewAreaHeight);
+	}
+	
+	//method
+	/**
+	 * Sets the width of the view area of the current {@link GUI}.
+	 * 
+	 * @param viewAreaWidth
+	 * @throws NegativeArgumentException if the given viewAreaWidth is negative.
+	 */
+	protected void setViewAreaWidth(final int viewAreaWidth) {
+		
+		Validator.suppose(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
+		
+		this.viewAreaWidth.setValue(viewAreaWidth);
+	}
+	
+	//method
+	/**
+	 * Sets the x-position of the cursor on the view area of the current {@link GUI}.
+	 * 
+	 * @param viewAreaCursorXPosition
+	 */
+	protected void setViewAreaCursorXPosition(final int viewAreaCursorXPosition) {
+		this.viewAreaCursorXPosition.setValue(viewAreaCursorXPosition);
+	}
+	
+	//method
+	/**
+	 * Setst the y-position of the cursor on the view area of the current {@link GUI}.
+	 * 
+	 * @param viewAreaCursorYPosition
+	 */
+	protected void setViewAreaCursorYPosition(final int viewAreaCursorYPosition) {
+		this.viewAreaCursorYPosition.setValue(viewAreaCursorYPosition);
 	}
 	
 	//method
