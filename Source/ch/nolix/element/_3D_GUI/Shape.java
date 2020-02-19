@@ -205,7 +205,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		getRefShapes().forEach(s -> s.setGUI(pGUI));
 		getRefShapes().forEach(s -> getRefShapeRenderManager().addSubRenderObject(s));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	/**
@@ -236,7 +236,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		//Sets the position of this frame.
 		this.position = position;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

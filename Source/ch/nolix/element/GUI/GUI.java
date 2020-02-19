@@ -254,7 +254,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		setTitle(DEFAULT_TITLE);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -286,7 +286,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		this.title.setValue(title);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

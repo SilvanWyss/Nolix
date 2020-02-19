@@ -46,7 +46,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		loadedAndCreatedEntitySets.addAtEnd(entitySet);
 		noteMutatedEntitySet(entitySet);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//public final DSA addOrReplaceEntitySet(final Class<Entity> entityClass)
@@ -56,7 +56,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		
 		schema.getRefEntityTypes().forEach(et -> addEntitySet(et.getRefEntityClass()));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -93,7 +93,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		entitySet.setDeleted();
 		noteMutatedEntitySet(entitySet);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method declaration
@@ -120,7 +120,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		
 		loadedAndCreatedEntitySets.addAtEnd(getEntitySetsFromDatabase());
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

@@ -42,7 +42,7 @@ implements Clearable<IM> {
 		items.add(item);
 		noteAddItem(item);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -52,7 +52,7 @@ implements Clearable<IM> {
 			addItem(i);
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -60,7 +60,7 @@ implements Clearable<IM> {
 		
 		texts.forEach(t -> addItem(new ItemMenuItem(t)));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -108,7 +108,7 @@ implements Clearable<IM> {
 		items.clear();
 		noteClear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -223,7 +223,7 @@ implements Clearable<IM> {
 		
 		selectCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -235,7 +235,7 @@ implements Clearable<IM> {
 		clear();
 		removeSelectCommand();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -243,7 +243,7 @@ implements Clearable<IM> {
 		
 		select(items.getRefFirst(i -> i.hasId(id)));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -251,7 +251,7 @@ implements Clearable<IM> {
 		
 		select(items.getRefFirst(i -> i.hasText(text)));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -259,7 +259,7 @@ implements Clearable<IM> {
 		
 		select(items.getRefFirst());
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -267,7 +267,7 @@ implements Clearable<IM> {
 		
 		this.selectCommand = Validator.suppose(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -277,7 +277,7 @@ implements Clearable<IM> {
 			getSelectedItem().unselect();
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

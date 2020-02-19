@@ -48,7 +48,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 			setDisplayFps(false);
 			flyCam.setEnabled(false);
 			
-			inputManager.addRawInputListener(new JMonkeyMainFrameRawInputListener(asConcreteType()));
+			inputManager.addRawInputListener(new JMonkeyMainFrameRawInputListener(asConcrete()));
 		}
 	};
 	

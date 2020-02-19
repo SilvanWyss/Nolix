@@ -665,7 +665,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		backgroundColorGradient = null;
 		backgroundImage = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -678,7 +678,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		baseScrollbarLook = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -694,7 +694,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeTopBorderColor();
 		removeBottomBorderColor();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -710,7 +710,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeTopBorderThickness();
 		removeBottomBorderThickness();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -723,7 +723,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		bottomBorderColor = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -736,7 +736,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		bottomBorderThickness = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -749,7 +749,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		bottomPadding = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -762,7 +762,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		hoverScrollbarLook = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -775,7 +775,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		leftBorderColor = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -788,7 +788,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		leftBorderThickness = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -801,7 +801,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		leftPadding = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -817,7 +817,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeTopPadding();
 		removeBottomPadding();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -830,7 +830,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		rightBorderColor = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -843,7 +843,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		rightBorderThickness = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -856,7 +856,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		rightPadding = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -871,7 +871,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeHoverScrollbarLook();
 		removeSelectionScrollbarLook();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -884,7 +884,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		selectionScrollbarLook = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -897,7 +897,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		topBorderColor = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -910,7 +910,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		topBorderThickness = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -923,7 +923,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		topPadding = -1;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -942,7 +942,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeScrollbarLooks();
 		removePaddings();
 				
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -961,7 +961,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeAnyBackground();
 		this.backgroundColor = backgroundColor;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -980,7 +980,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeAnyBackground();
 		this.backgroundColorGradient = backgroundColorGradient;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -999,7 +999,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeAnyBackground();
  		this.backgroundImage = backgroundImage;
  		
- 		return asConcreteType();
+ 		return asConcrete();
 	}
 	
 	//method
@@ -1021,7 +1021,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the base scrollbar look of the current border widget look.
 		this.baseScrollbarLook = baseScrollbarLook;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1044,7 +1044,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		setTopBorderColor(borderColor);
 		setBottomBorderColor(borderColor);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1062,7 +1062,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		setTopBorderThickness(borderSize);
 		setBottomBorderThickness(borderSize);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1084,7 +1084,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the bottom border color of the current {@link BorderWidgetLook}.
 		this.bottomBorderColor = bottomBorderColor;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 
 	//method
@@ -1101,7 +1101,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.bottomBorderThickness = bottomBorderThickness;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1118,7 +1118,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.bottomPadding = bottomPadding;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1140,7 +1140,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the hover scrollbar look of the current border widget look.
 		this.hoverScrollbarLook = hoverScrollbarLook;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1162,7 +1162,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the left border color of the current {@link BorderWidgetLook}.
 		this.leftBorderColor = leftBorderColor;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1179,7 +1179,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.leftBorderThickness = leftBorderThickness;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1196,7 +1196,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.leftPadding = leftPadding;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1214,7 +1214,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		setTopPadding(padding);
 		setBottomPadding(padding);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1236,7 +1236,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the right border color of the current {@link BorderWidgetLook}.
 		this.rightBorderColor = rightBorderColor;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1253,7 +1253,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.rightBorderThickness = rightBorderThickness;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1270,7 +1270,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.rightPadding = rightPadding;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1292,7 +1292,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the selection scrollbar look of the current border widget look.
 		this.selectionScrollbarLook = selectionScrollbarLook;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1314,7 +1314,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Sets the top border color of the current {@link BorderWidgetLook}.
 		this.topBorderColor = topBorderColor;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1331,7 +1331,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.topBorderThickness = topBorderThickness;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1348,7 +1348,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		this.topPadding = topPadding;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

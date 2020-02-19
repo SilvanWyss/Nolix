@@ -65,7 +65,7 @@ extends BorderWidget<TLW, TLWL> {
 		//Calls method of the base class.
 		super.reset();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -82,7 +82,7 @@ extends BorderWidget<TLW, TLWL> {
 		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
 		.setTextColor(Color.BLACK);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -97,7 +97,7 @@ extends BorderWidget<TLW, TLWL> {
 		
 		this.text.setValue(text);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

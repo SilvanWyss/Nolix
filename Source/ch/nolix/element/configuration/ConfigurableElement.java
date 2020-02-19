@@ -135,7 +135,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		
 		id = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -147,7 +147,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		
 		token = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -160,7 +160,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		removeId();
 		resetConfiguration();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -177,7 +177,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		
 		this.id = id;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -200,7 +200,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		//Sets the token of the current configurable element.
 		this.token = token;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

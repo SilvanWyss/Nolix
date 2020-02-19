@@ -155,7 +155,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		resetConfiguration();
 		applyDefaultConfigurationWhenHasBeenReset();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -169,7 +169,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		baseLookMutator.run(baseLook);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -183,7 +183,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		focusLookMutator.run(focusLook);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -197,7 +197,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		hoverLookMutator.run(hoverLook);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1077,7 +1077,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		greyOutWhenDisabled = false;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1090,7 +1090,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		leftMouseButtonClickCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1103,7 +1103,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		leftMouseButtonPressCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1116,7 +1116,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		leftMouseButtonReleaseCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1129,7 +1129,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		rightMouseButtonClickCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1142,7 +1142,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		rightMouseButtonPressCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1155,7 +1155,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		rightMouseButtonReleaseCommand = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1183,7 +1183,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		 */
 		super.reset();
 				
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1197,7 +1197,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		reset();
 		applyDefaultConfigurationWhenHasBeenReset();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1216,7 +1216,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		hoverLook.reset();
 		focusLook.reset();
 				
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1229,7 +1229,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		state = WidgetState.Collapsed;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1248,7 +1248,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		//Sets the custom CursorIcon of the current Widget.
 		this.customCursorIcon = customCursorIcon;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1268,7 +1268,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			w.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1299,7 +1299,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		state = WidgetState.Disabled;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1312,7 +1312,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		state = WidgetState.Focused;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1325,7 +1325,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		greyOutWhenDisabled = true;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1338,7 +1338,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		state = WidgetState.Hovered;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1356,7 +1356,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		this.leftMouseButtonClickCommand = leftMouseButtonClickCommand;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1374,7 +1374,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
-		return asConcreteType();
+		return asConcrete();
 	}	
 		
 	//method
@@ -1392,7 +1392,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1434,7 +1434,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		this.rightMouseButtonClickCommand = rightMouseButtonClickCommand;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1452,7 +1452,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1470,7 +1470,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1483,7 +1483,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		state = WidgetState.Normal;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -1501,7 +1501,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		//Sets the state of the current Widget.
 		this.state = state;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method declaration

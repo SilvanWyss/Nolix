@@ -95,7 +95,7 @@ implements
 		
 		getRefProperties().forEach(p -> p.removeValue());
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 		
 	//method

@@ -81,7 +81,7 @@ implements ISmartObject<CE> {
 		configuration = null;
 		resetConfiguration();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -119,7 +119,7 @@ implements ISmartObject<CE> {
 		this.configuration = configuration;
 		updateFromConfiguration();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

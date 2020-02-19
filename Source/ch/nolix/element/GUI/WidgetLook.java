@@ -137,7 +137,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		textColor.removeValue();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -150,7 +150,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		font.removeValue();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -163,7 +163,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		textSize.removeValue();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -176,7 +176,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		boldTextFlag.removeValue();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -189,7 +189,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		this.boldTextFlag.setValue(boldTextFlag);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -204,7 +204,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		this.textColor.setValue(textColor);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -219,7 +219,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		this.font.setValue(font);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 		
 	//method
@@ -237,7 +237,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		this.textSize.setValue(textSize);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

@@ -164,7 +164,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	@Override
 	public CG resetConfiguration() {
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

@@ -600,7 +600,7 @@ extends Widget<BW, BWL> {
 		
 		maxHeight.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -613,7 +613,7 @@ extends Widget<BW, BWL> {
 		
 		maxWidth.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -626,7 +626,7 @@ extends Widget<BW, BWL> {
 		
 		minHeight.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -639,7 +639,7 @@ extends Widget<BW, BWL> {
 		
 		minWidth.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	@Override
@@ -650,7 +650,7 @@ extends Widget<BW, BWL> {
 		viewAreaXPositionOnScrolledArea.setValue(0);
 		viewAreaYPositionOnScrolledArea.setValue(0);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -673,7 +673,7 @@ extends Widget<BW, BWL> {
 		setViewAreaXPositionOnScrolledArea(0);
 		setViewAreaYPositionOnScrolledArea(0);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -732,7 +732,7 @@ extends Widget<BW, BWL> {
 		//Sets the content position of the current border widget.
 		this.contentPosition = contentPosition;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -751,7 +751,7 @@ extends Widget<BW, BWL> {
 			w.setParentCursorPositionRecursively(cursorXPositionOnContentArea, cursorYPositionOnContentArea);
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -768,7 +768,7 @@ extends Widget<BW, BWL> {
 		
 		this.maxHeight.setValue(maxHeight);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -785,7 +785,7 @@ extends Widget<BW, BWL> {
 		
 		this.maxWidth.setValue(maxWidth);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -799,7 +799,7 @@ extends Widget<BW, BWL> {
 		
 		this.minHeight.setValue(minHeight);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -813,7 +813,7 @@ extends Widget<BW, BWL> {
 		
 		this.minWidth.setValue(minWidth);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -830,7 +830,7 @@ extends Widget<BW, BWL> {
 		
 		this.proposalHeight.setValue(proposalHeight);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -848,7 +848,7 @@ extends Widget<BW, BWL> {
 		setProposalWidth(proposalWidth);
 		setProposalHeight(proposalHeight);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -865,7 +865,7 @@ extends Widget<BW, BWL> {
 		
 		this.proposalWidth.setValue(proposalWidth);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -886,7 +886,7 @@ extends Widget<BW, BWL> {
 		
 		this.viewAreaXPositionOnScrolledArea.setValue(viewAreaXPositionOnScrolledArea);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -907,7 +907,7 @@ extends Widget<BW, BWL> {
 		
 		this.viewAreaYPositionOnScrolledArea.setValue(viewAreaYPositionOnScrolledArea);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

@@ -55,7 +55,7 @@ implements ISmartObject<N> {
 		
 		addInputConnection(new InputConnection<I>(weight, inputNeuron));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -73,7 +73,7 @@ implements ISmartObject<N> {
 		
 		addInputConnection(new InputConnection<I>(inputNeuron));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -92,7 +92,7 @@ implements ISmartObject<N> {
 			removeInputNeuron(getRefInputNeurons().getRefFirst());
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -249,7 +249,7 @@ implements ISmartObject<N> {
 		inputConnections.removeFirst(ic -> ic.hasInputNeuron(inputNeuron));
 		inputNeuron.outputNeurons.removeFirst(this);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method declaration

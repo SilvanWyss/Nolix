@@ -80,7 +80,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		addChildWidget(widget);
 		widgets.addAtEnd(widget);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -111,7 +111,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		
 		widgets.forEach(w -> addWidget(w));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -123,7 +123,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		
 		widgets.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -183,7 +183,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		
 		elementMargin.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -199,7 +199,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		
 		widgets.removeFirst(widget);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -214,7 +214,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 		removeElementMargin();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -231,7 +231,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		
 		this.elementMargin.setValue(elementMargin);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

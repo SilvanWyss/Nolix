@@ -147,7 +147,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		//Sets the color of this line.
 		this.color = color;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -173,7 +173,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		
 		this.thickness = thickness;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

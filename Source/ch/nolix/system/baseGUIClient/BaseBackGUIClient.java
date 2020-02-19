@@ -51,7 +51,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 			
 		internal_runOnCounterpart(new ChainedNode(Protocol.SHOW_ERROR_MESSAGE_HEADER, new Node(errorMessage)));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

@@ -71,7 +71,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 				attachingAttribute.getRefAttributes())
 		);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -112,7 +112,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			addAttachingAttribute(aa);
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -131,7 +131,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		configurations.addAtEnd(configuration);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -150,7 +150,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		this.configurations.addAtEnd(configurations);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -205,7 +205,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		addSelectorRole(selectorRole.toString());
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -224,7 +224,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			addSelectorRole(sr);
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -240,7 +240,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		selectorRoles.forEach(sr -> addSelectorRole(sr));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -279,7 +279,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		frozen = true;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -570,7 +570,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		attachingAttributes.clear();
 		configurations.clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -582,7 +582,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		name = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -633,7 +633,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		
 		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -657,7 +657,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Sets the selectorName of the current Configuration.
 		this.selectorName = selectorName;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -681,7 +681,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Sets the selectorToken of the current Configuration.
 		this.selectorToken = selectorToken;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -705,7 +705,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Sets the selectorType of the current Configuration.
 		this.selectorType = selectorType;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

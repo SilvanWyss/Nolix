@@ -286,7 +286,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		layers.add(layer);
 		topLayer = layer;	
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -362,7 +362,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			);
 		}
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -377,7 +377,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		layers.clear();
 		topLayer = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -801,7 +801,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			previousTopLayer.getCursorYPosition()
 		);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -815,7 +815,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		clear();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -829,7 +829,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		layers.forEach(l -> l.resetConfiguration());
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -845,7 +845,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		backGround.setBackgroundColor(backgroundColor);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

@@ -248,7 +248,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		
 		infoString = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -258,7 +258,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		this.infoString
 		= Validator.suppose(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank().andReturn();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -298,7 +298,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		Validator.suppose(session).isOfType(Session.class);
 		
 		//Sets the given session to the current Client.
-		session.setParentClient(asConcreteType());
+		session.setParentClient(asConcrete());
 		sessions.addAtEnd(session);
 		currentSession = session;
 		

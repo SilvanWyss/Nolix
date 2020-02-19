@@ -246,7 +246,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		
 		this.header.setValue(header);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

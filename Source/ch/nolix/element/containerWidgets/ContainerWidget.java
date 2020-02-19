@@ -128,7 +128,7 @@ extends BorderWidget<C, BWS> {
 		//Sets the role of this container.
 		this.role = role;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method

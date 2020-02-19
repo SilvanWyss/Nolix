@@ -115,7 +115,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		shapeClasses.addAtEnd(new Pair<>(shapeClass, shapeRenderer));
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -136,7 +136,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		removeRootShape();
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -257,7 +257,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		rootShape = null;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -299,7 +299,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -314,7 +314,7 @@ implements Clearable<G>, Closable, Refreshable {
 				
 		this.backgroundColor.setValue(backgroundColor);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -333,7 +333,7 @@ implements Clearable<G>, Closable, Refreshable {
 		//Sets the given root shape to this 3D GUI.
 		this.rootShape = rootShape;
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	//method
@@ -353,7 +353,7 @@ implements Clearable<G>, Closable, Refreshable {
 		//Sets the title of the current 3D_GUI.
 		this.title.setValue(title);
 		
-		return asConcreteType();
+		return asConcrete();
 	}
 	
 	/**
