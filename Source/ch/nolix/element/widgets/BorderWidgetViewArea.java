@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.math.Calculator;
+import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painter.IPainter;
 
@@ -9,9 +11,10 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 220
+ * @lines 210
  */
-public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
+public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
+implements TopLeftPositionedRecangular {
 	
 	//attribute
 	/**
@@ -188,15 +191,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 * @return true if the current {@link BorderWidgetViewArea} is under the cursor.
 	 */
 	public boolean isUnderCursor() {
-		
-		final var cursorXPosition = getCursorXPosition();
-		final var cursorYPosition = getCursorYPosition();
-		
-		return
-		cursorXPosition >= 1
-		&& cursorYPosition >= 1
-		&& cursorXPosition <= getWidth()
-		&& cursorYPosition <= getHeight();
+		return containsPointRelatively(getCursorXPosition(), getCursorYPosition());
 	}
 	
 	//method
