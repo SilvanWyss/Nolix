@@ -253,6 +253,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		super.reset();
 		
 		setTitle(DEFAULT_TITLE);
+		setViewAreaWidth(0);
+		setViewAreaHeight(0);
+		setViewAreaCursorXPosition(0);
+		setViewAreaCursorYPosition(0);
 		
 		return asConcrete();
 	}
