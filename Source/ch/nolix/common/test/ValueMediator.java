@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
@@ -11,7 +12,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 160
+ * @lines 190
  * @param <V> The type of the value of a value mediator.
  */
 public class ValueMediator<V> extends Mediator {
@@ -110,6 +111,33 @@ public class ValueMediator<V> extends Mediator {
 	
 	//method
 	/**
+	 * Generates an error if the value of the current {@link ValueMediator} does not have the given stringRepresentation.
+	 * 
+	 * @param stringRepresentation
+	 */
+	public final void hasStringRepresentation(final String stringRepresentation) {
+		
+		isNotNull();
+		
+		final var actualStringRepresentation = getRefValue().toString();
+		
+		if (actualStringRepresentation == null && stringRepresentation == null) {
+			return;
+		}
+		
+		if (actualStringRepresentation == null || !actualStringRepresentation.equals(stringRepresentation)) {
+			addCurrentTestCaseError(
+				"A value with the String representation '"
+				+ stringRepresentation
+				+ "' was expected, but a value with the String representation '"
+				+ actualStringRepresentation
+				+ "' was received."
+			);
+		}
+	}
+	
+	//method
+	/**
 	 * Generates an error if the value of this value mediator is not the given value.
 	 * 
 	 * @param value
@@ -125,7 +153,7 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator is null.
 	 */
 	public final void isNotNull() {
-		if (getRefValue() != null) {
+		if (getRefValue() == null) {
 			addCurrentTestCaseError("An object was expected, but null was received.");
 		}
 	}
