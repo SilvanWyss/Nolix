@@ -28,7 +28,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 740
+ * @lines 730
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -116,7 +116,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public <S extends BaseNode> void addAttributes(final Iterable<S> attributes) {
 		
 		//Iterates the given attributes.
-		attributes.forEach(a -> addAttribute(a));
+		attributes.forEach(this::addAttribute);
 	}
 	
 	//method
@@ -124,7 +124,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return true if all attributes of the current {@link BaseNode} do not have attributes
 	 */
 	public boolean allAttributesDoNotHaveAttributes() {
-		return getRefAttributes().containsNone(s -> s.containsAttributes());
+		return getRefAttributes().containsNone(BaseNode::containsAttributes);
 	}
 	
 	//method
@@ -133,7 +133,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return true if the current {@link BaseNode} contains an attribute the given selector selects.
 	 */
 	public boolean containsAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		return getRefAttributes().contains(a -> selector.getOutput(a));
+		return getRefAttributes().contains(selector);
 	}
 	
 	//method
@@ -231,10 +231,10 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return string representations of the attributes of the current {@link BaseNode}.
+	 * @return a {@link String} representations of the attributes of the current {@link BaseNode}.
 	 */
-	public LinkedList<String> getAttributesToStrings() {
-		return getRefAttributes().to(a -> a.toString());
+	public LinkedList<String> getAttributesAsStrings() {
+		return getRefAttributes().to(BaseNode::toString);
 	}
 	
 	//method
@@ -356,10 +356,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
-	public IContainer<BaseNode> getRefAttributes(
-		final IElementTakerBooleanGetter<BaseNode> selector
-	) {
-		return getRefAttributes().getRefSelected(a -> selector.getOutput(a));
+	public IContainer<BaseNode> getRefAttributes(final IElementTakerBooleanGetter<BaseNode> selector) {
+		return getRefAttributes().getRefSelected(selector);
 	}
 	
 	//method
@@ -376,13 +374,12 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute the given selector selects.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends BaseNode> S getRefFirstAttribute(
-		IElementTakerBooleanGetter<BaseNode> selector
-	) {
-		return (S)getRefAttributes().getRefFirst(a -> selector.getOutput(a));
+	public <S extends BaseNode> S getRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector) {
+		return (S)getRefAttributes().getRefFirst(selector);
 	}
 	
 	//method
@@ -409,12 +406,6 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public int hashCode() {
 		return toString().hashCode();
 	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link BaseNode} has a header.
-	 */
-	public abstract boolean hasHeader();
 	
 	//method
 	/**
@@ -609,23 +600,23 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public final XMLNode toXML() {
 		
 		//Creates an XML node.
-		final var XMLNode = new XMLNode(getHeader());
+		final var lXMLNode = new XMLNode(getHeader());
 		
 		//Iterates the attributes of the current specification.
 		for (final BaseNode a : getRefAttributes()) {
 			
 			//Handles the case that the current attribute does not contain attributes.
 			if (!a.containsAttributes()) {
-				XMLNode.setValue(a.toString());
+				lXMLNode.setValue(a.toString());
 			}
 			
 			//Handles the case that the current attribute contains attributes.
 			else {
-				XMLNode.addChildNode(a.toXML());
+				lXMLNode.addChildNode(a.toXML());
 			}
 		}
 		
-		return XMLNode;
+		return lXMLNode;
 	}
 	
 	//method

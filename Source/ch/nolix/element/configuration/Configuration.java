@@ -173,7 +173,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 				setSelectorType(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_ROLE_HEADER:
-				addSelectorRoles2(attribute.getAttributesToStrings());
+				addSelectorRoles2(attribute.getAttributesAsStrings());
 				break;
 			case SELECTOR_TOKEN_HEADER:
 				setSelectorToken(attribute.getOneAttributeAsString());
