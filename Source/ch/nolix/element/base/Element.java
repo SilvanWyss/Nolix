@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.element.base;
 
+//Java import
+import java.lang.reflect.Field;
+
+//own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
@@ -16,19 +20,19 @@ import ch.nolix.element.baseAPI.IElement;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 160
+ * @lines 180
  */
 public abstract class Element<E extends Element<E>> implements ISmartObject<E>, IElement {
 	
 	//multi-attribute
-	private LinkedList<BaseProperty<IElement>> properties;
+	private LinkedList<BaseProperty<?>> properties;
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean equals(final Object object) {
+	public final boolean equals(final Object object) {
 		
 		if (object == null) {
 			return false;
@@ -39,12 +43,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 		}
 		
 		final var entity = (Element<?>)object;
-		
-		if (!getSpecification().equals(entity.getSpecification())) {
-			return false;
-		}
-		
-		return true;
+		return getSpecification().equals(entity.getSpecification());
 	}
 	
 	//method
@@ -62,7 +61,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	
 	//method
 	@Override
-	public int hashCode() {
+	public final int hashCode() {
 		return toString().hashCode();
 	}
 	
@@ -89,11 +88,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 		
 		//Handles the case that the property was not found.
 		if (property == null) {
-			throw
-			new InvalidArgumentException(
-				this,
-				"cannot not have a " + attribute.getHeaderInQuotes()
-			);
+			throw new InvalidArgumentException(this, "cannot not have a " + attribute.getHeaderInQuotes());
 		}
 		
 		property.addOrChangeValueFromSpecification(attribute);
@@ -103,7 +98,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	/**
 	 * @return the properties of the current {@link Element}.
 	 */
-	IContainer<BaseProperty<IElement>> getRefProperties() {
+	private IContainer<BaseProperty<?>> getRefProperties() {
 		
 		//Handles the case that the properties of the current Entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
@@ -115,40 +110,65 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 	
 	//method
 	/**
+	 * Extracts the property from the given field, if the given field is a property.
+	 * 
+	 * @param field
+	 */
+	private void extractProbableProperty(final Field field) {
+		
+		//Handles the case that the current field is a property.
+		if (BaseProperty.class.isAssignableFrom(field.getType())) {
+			try {
+				
+				field.setAccessible(true);
+				
+				final var property = (BaseProperty<?>)(field.get(this));
+				
+				//Checks if the current property is not null.
+				Validator.suppose(property).isOfType(MutableProperty.class);
+				
+				properties.addAtEnd(property);
+			}
+			catch (final IllegalAccessException illegalAccessException) {
+				
+				final var message = illegalAccessException.getMessage();
+				
+				if (message == null || message.isBlank()) {
+					throw new IllegalAccessError();
+				}
+				
+				throw new IllegalAccessError(message);
+			}
+		}
+	}
+	
+	//method
+	/**
 	 * Extracts the properties of the current {@link Element}.
 	 */
-	@SuppressWarnings("unchecked")
 	private void extractProperties() {
 		
 		properties = new LinkedList<>();
 		
-		//Iterates the types of the current {@link Entity}.
+		//Iterates the classes of the current {@link Entity}.
 		Class<?> lClass = getClass();
 		while (lClass != null) {
-			
-			//Iterates the fields of the current class.
-			for (final var f : lClass.getDeclaredFields()) {
-				
-				//Handles the case that the current field is a property.
-				if (BaseProperty.class.isAssignableFrom(f.getType())) {
-					try {
-						
-						f.setAccessible(true);
-						
-						final var property = (BaseProperty<IElement>)(f.get(this));
-						
-						//Checks if the current property is not null.
-						Validator.suppose(property).isOfType(MutableProperty.class);
-						
-						properties.addAtEnd(property);
-					}
-					catch (final IllegalArgumentException | IllegalAccessException exception) {
-						throw new RuntimeException(exception);
-					}
-				}
-			}
-			
+			extractProperties(lClass);
 			lClass = lClass.getSuperclass();
+		}
+	}
+	
+	//method
+	/**
+	 * Extracts the properties of the given pClass.
+	 * 
+	 * @param pClass
+	 */
+	private void extractProperties(final Class<?> pClass) {
+		
+		//Iterates the fields of the given class.
+		for (final var f : pClass.getDeclaredFields()) {
+			extractProbableProperty(f);
 		}
 	}
 	
