@@ -19,7 +19,7 @@ public interface IElementEnum extends IElement {
 	 */
 	@Override
 	public default LinkedList<Node> getAttributes() {
-		return new Node(toString()).intoList();
+		return new Node(toCamelCaseString()).intoList();
 	}
 	
 	//method
