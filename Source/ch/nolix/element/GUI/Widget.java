@@ -470,13 +470,13 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		//Enumerates the state of the current Widget.
 		switch (state) {
-			case Normal:
-			case Disabled:
-			case Collapsed:
+			case NORMAL:
+			case DISABLED:
+			case COLLAPSED:
 				return getRefBaseLook();
-			case Hovered:
+			case HOVERED:
 				return getRefHoverLook();
-			case Focused:
+			case FOCUSED:
 				return getRefFocusLook();
 			default:
 				throw new InvalidArgumentException(state);
@@ -635,7 +635,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is collapsed.
 	 */
 	public final boolean isCollapsed() {
-		return (state == WidgetState.Collapsed);
+		return (state == WidgetState.COLLAPSED);
 	}
 	
 	//method
@@ -643,7 +643,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is disabled.
 	 */
 	public final boolean isDisabled() {
-		return (state == WidgetState.Disabled);
+		return (state == WidgetState.DISABLED);
 	}
 	
 	//method
@@ -656,9 +656,9 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		//Enumerates the state of the current Widget.
 		switch (state) {
-			case Normal:
-			case Hovered:
-			case Focused:
+			case NORMAL:
+			case HOVERED:
+			case FOCUSED:
 				return true;
 			default:
 				return false;
@@ -670,7 +670,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is focused.
 	 */
 	public final boolean isFocused() {
-		return (state == WidgetState.Focused);
+		return (state == WidgetState.FOCUSED);
 	}
 	
 	//method
@@ -678,7 +678,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is hovered.
 	 */
 	public final boolean isHovered() {
-		return (state == WidgetState.Hovered);
+		return (state == WidgetState.HOVERED);
 	}
 	
 	//method
@@ -686,7 +686,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} is normal.
 	 */
 	public final boolean isNormal() {
-		return (state == WidgetState.Normal);
+		return (state == WidgetState.NORMAL);
 	}
 	
 	//method
@@ -1227,7 +1227,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final W setCollapsed() {
 		
-		state = WidgetState.Collapsed;
+		state = WidgetState.COLLAPSED;
 		
 		return asConcrete();
 	}
@@ -1297,7 +1297,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final W setDisabled() {
 		
-		state = WidgetState.Disabled;
+		state = WidgetState.DISABLED;
 		
 		return asConcrete();
 	}
@@ -1310,7 +1310,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final W setFocused() {
 		
-		state = WidgetState.Focused;
+		state = WidgetState.FOCUSED;
 		
 		return asConcrete();
 	}
@@ -1336,7 +1336,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final W setHovered() {
 		
-		state = WidgetState.Hovered;
+		state = WidgetState.HOVERED;
 		
 		return asConcrete();
 	}
@@ -1481,7 +1481,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final W setNormal() {
 		
-		state = WidgetState.Normal;
+		state = WidgetState.NORMAL;
 		
 		return asConcrete();
 	}
@@ -1611,8 +1611,8 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			
 			//Enumerates the state of the current Widget.
 			switch (state) {
-				case Hovered:
-				case Focused:
+				case HOVERED:
+				case FOCUSED:
 					setNormal();
 					break;
 				default:
@@ -1623,8 +1623,8 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			
 			//Enumerates the state of the current Widget.
 			switch (state) {
-				case Normal:
-				case Hovered:
+				case NORMAL:
+				case HOVERED:
 					setFocused();
 					break;
 				default:
@@ -1647,8 +1647,8 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			
 			//Enumerates the state of the current Widget.
 			switch (state) {
-				case Hovered:
-				case Focused:
+				case HOVERED:
+				case FOCUSED:
 					setNormal();
 					break;
 				default:
@@ -1671,7 +1671,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			
 			//Enumerates the sate of the current Widget.
 			switch(state) {
-				case Hovered:
+				case HOVERED:
 					setNormal();
 					break;
 				default:
@@ -1682,7 +1682,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 			
 			//Enumerates the sate of the current Widget.
 			switch(state) {
-				case Normal:
+				case NORMAL:
 					setHovered();
 					break;
 				default:
@@ -1778,7 +1778,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	private int calculatedHeight() {
 		
 		//Handles the case that the current Widget is collapsed.
-		if (state == WidgetState.Collapsed) {
+		if (state == WidgetState.COLLAPSED) {
 			return 0;
 		}
 		
@@ -1793,7 +1793,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	private int calculatedWidth() {
 		
 		//Handles the case that the current Widget is collapsed.
-		if (state == WidgetState.Collapsed) {
+		if (state == WidgetState.COLLAPSED) {
 			return 0;
 		}
 		

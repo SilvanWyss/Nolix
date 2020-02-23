@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.baseAPI.IElementEnum;
 
@@ -14,11 +16,11 @@ import ch.nolix.element.baseAPI.IElementEnum;
  * @lines 30
  */
 public enum WidgetState implements IElementEnum {
-	Normal,
-	Hovered,
-	Focused,
-	Disabled,
-	Collapsed;
+	NORMAL,
+	HOVERED,
+	FOCUSED,
+	DISABLED,
+	COLLAPSED;
 	
 	//constant
 	public static final String TYPE_NAME = "WidgetState";
@@ -27,6 +29,7 @@ public enum WidgetState implements IElementEnum {
 	/**
 	 * @param specification
 	 * @return a new {@link WidgetState} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static WidgetState fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());

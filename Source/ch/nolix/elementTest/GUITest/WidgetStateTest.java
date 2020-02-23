@@ -12,7 +12,7 @@ public final class WidgetStateTest extends Test {
 	public void testCase_getSpecification_whenHovered() {
 		
 		//setup
-		final var testUnit = WidgetState.Hovered;
+		final var testUnit = WidgetState.HOVERED;
 		
 		//execution
 		final var result = testUnit.getSpecification();
@@ -25,7 +25,7 @@ public final class WidgetStateTest extends Test {
 	public void testCase_getSpecification_whenNormal() {
 		
 		//setup
-		final var testUnit = WidgetState.Normal;
+		final var testUnit = WidgetState.NORMAL;
 		
 		//execution
 		final var result = testUnit.getSpecification();
@@ -38,7 +38,7 @@ public final class WidgetStateTest extends Test {
 	public void testCase_toCamelCaseString_whenHovered() {
 		
 		//setup
-		final var testUnit = WidgetState.Hovered;
+		final var testUnit = WidgetState.HOVERED;
 		
 		//execution
 		final var result = testUnit.toCamelCaseString();
@@ -51,7 +51,7 @@ public final class WidgetStateTest extends Test {
 	public void testCase_toCamelCaseString_whenNormal() {
 		
 		//setup
-		final var testUnit = WidgetState.Normal;
+		final var testUnit = WidgetState.NORMAL;
 		
 		//execution
 		final var result = testUnit.toCamelCaseString();

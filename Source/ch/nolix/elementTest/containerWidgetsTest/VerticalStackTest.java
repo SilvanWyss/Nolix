@@ -25,7 +25,7 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 		final var verticalStack = new VerticalStack();
 		
 		//verification
-		expect(verticalStack.getState()).isEqualTo(WidgetState.Normal);
+		expect(verticalStack.getState()).isEqualTo(WidgetState.NORMAL);
 		expect(verticalStack.isEmpty());
 		expectNot(verticalStack.belongsToGUI());
 	}
