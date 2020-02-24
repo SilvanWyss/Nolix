@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.commonTypeHelpers;
 
+//own imports
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -10,8 +11,8 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * This class provides methods to handle strings.
- * Of this class an instance cannot be created.
+ * The {@link StringHelper} provides methods to handle {@link String}s.
+ * Of the {@link StringHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -23,7 +24,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @param length
-	 * @return a new string that is the given string extended to the given length with spaces.
+	 * @return a new {@link String} that is the given string extended to the given length with spaces.
 	 * @throws ArgumentIsNullException if the given string is null.
 	 * @throws NegativeArgumentException if the given length is negative.
 	 * @throws InvalidArgumentException if the given string is longer than the given length.
@@ -67,13 +68,13 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param tabulatorCount
-	 * @return a new string consisting of as many tabulators as the given tabulator count says.
-	 * @throws NegativeArgumentException if the given tabulator count is negative.
+	 * @return a new {@link String} consisting of as many tabulators as the given tabulatorCount says.
+	 * @throws NegativeArgumentException if the given tabulatorCount is negative.
 	 */
 	public static String createTabulators(final int tabulatorCount) {
 		
-		//Checks if the given count is not negative.
-		Validator.suppose(tabulatorCount).thatIsNamed("count").isNotNegative();
+		//Checks if the given tabulatorCount is not negative.
+		Validator.suppose(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
 		
 		final var stringBuilder = new StringBuilder();
 		
@@ -310,7 +311,7 @@ public final class StringHelper {
 	
 	//access-reducing constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link StringHelper} can be created.
 	 */
 	private StringHelper() {}
 }
