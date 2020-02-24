@@ -27,7 +27,7 @@ public final class NetServerTutorial {
 	public static void main(String[] args) {
 		
 		//Defines a port.
-		final int port = 50000;
+		final var port = 50000;
 		
 		//Creates a NetServer, that will listen to net Clients on the default port,
 		//and that has the given main application.

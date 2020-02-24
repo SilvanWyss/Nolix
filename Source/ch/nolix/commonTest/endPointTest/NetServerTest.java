@@ -21,7 +21,7 @@ public final class NetServerTest extends Test {
 	public void testCase_close() {
 		
 		//test parameter
-		final int port = 27900;
+		final var port = 50000;
 		
 		//execution part 1
 		final var netServer	= new NetServer(port, ep -> {});

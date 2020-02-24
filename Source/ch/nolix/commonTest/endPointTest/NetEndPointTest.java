@@ -24,7 +24,7 @@ public final class NetEndPointTest extends Test {
 	public void testCase_send() {
 		
 		//test parameters
-		final int port = 50000;
+		final var port = 50000;
 		final String message = "Hello World!";
 		
 		//setup	
