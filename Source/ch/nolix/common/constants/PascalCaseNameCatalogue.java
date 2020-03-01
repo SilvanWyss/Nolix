@@ -130,6 +130,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ROW = "Row";
 	public static final String ROW_COUNT = "RowCount";
 	public static final String ROW_INDEX = "RowIndex";
+	public static final String RUNTIME = "Runtime";
 	public static final String SEPARATOR = "Separator";
 	public static final String SEQUENCE = "Sequence";
 	public static final String SERVICE = "Service";
