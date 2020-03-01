@@ -93,6 +93,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String LICENSE = "License";
 	public static final String LINE = "Line";
 	public static final String LINE_COLOR = "LineColor";
+	public static final String LINE_NUMBER = "LineNumber";
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MAXIMUM = "Maximum";
 	public static final String MESSAGE = "Message";

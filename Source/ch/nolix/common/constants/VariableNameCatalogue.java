@@ -93,6 +93,7 @@ public final class VariableNameCatalogue {
 	public static final String LICENSE = "license";
 	public static final String LINE = "line";
 	public static final String LINE_COLOR = "line color";
+	public static final String LINE_NUMBER = "line number";
 	public static final String LINE_THICKNESS = "line thickness";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
