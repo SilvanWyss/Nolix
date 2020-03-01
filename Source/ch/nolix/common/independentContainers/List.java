@@ -22,6 +22,13 @@ public final class List<E> implements Iterable<E> {
 		addAtBegin(element);
 	}
 	
+	//constructor
+	public List(final E[] elements) {
+		for (final var e : elements) {
+			addAtBegin(e);
+		}
+	}
+	
 	//method
 	public void addAtBegin(final E element) {
 		
