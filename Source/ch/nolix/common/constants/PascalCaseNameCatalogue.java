@@ -7,7 +7,7 @@ package ch.nolix.common.constants;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 170
+ * @lines 180
  */
 public final class PascalCaseNameCatalogue {
 	
@@ -148,6 +148,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String TAB = "Tab";
 	public static final String TARGET = "Target";
 	public static final String TEST = "Test";
+	public static final String TEST_CASE = "TestCase";
 	public static final String TEST_CLASSS = "TestClass";
 	public static final String TEXT = "Text";
 	public static final String TEXT_COLOR = "TextColor";
