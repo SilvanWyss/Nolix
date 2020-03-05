@@ -6,19 +6,20 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+//own import
 import ch.nolix.common.independentContainers.List;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 250
+ * @lines 260
  */
 public abstract class BaseTest {
 	
 	//attribute
 	private static final long TEST_CASE_MAX_DURATION_IN_MILLISECONDS = 5000;
-
+	
 	//optional attribute
 	private Method afterTestCaseMethod;
 	
@@ -45,6 +46,16 @@ public abstract class BaseTest {
 			
 			class_ = class_.getSuperclass();
 		}
+	}
+	
+	//method
+	public final String getName() {
+		return getClass().getName();
+	}
+	
+	//method
+	public final String getSimpleName() {
+		return getClass().getSimpleName();
 	}
 	
 	//method
@@ -204,6 +215,29 @@ public abstract class BaseTest {
 	}
 	
 	//method
+	/**
+	 * @return the test cases of the current {@link BaseTest}.
+	 */
+	List<Method> getRefTestCases() {
+		
+		final var testCases = new List<Method>();
+				
+		Class<?> lClass = getClass();
+		while (!lClass.equals(BaseTest.class)) {
+			
+			for (final var m : lClass.getDeclaredMethods()) {
+				if (!Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())) {
+					testCases.addAtEnd(m);
+				}
+			}
+			
+			lClass = lClass.getSuperclass();
+		}
+		
+		return testCases;
+	}
+	
+	//method
 	private void closeAndClearClosableElements() {
 		
 		for (final var ac : closableElements) {
@@ -216,29 +250,6 @@ public abstract class BaseTest {
 		}
 		
 		closableElements.clear();
-	}
-	
-	//method
-	/**
-	 * @return the test cases of the current {@link BaseTest}.
-	 */
-	private List<Method> getRefTestCases() {
-		
-		final var testCases = new List<Method>();
-				
-		Class<?> class_ = getClass();
-		while (!class_.equals(BaseTest.class)) {
-			
-			for (final var m : class_.getDeclaredMethods()) {
-				if (!Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())) {
-					testCases.addAtEnd(m);
-				}
-			}
-			
-			class_ = class_.getSuperclass();
-		}
-		
-		return testCases;
 	}
 	
 	//method
