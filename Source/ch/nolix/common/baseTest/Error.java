@@ -7,14 +7,14 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
-public final class ExpectationError {
+public final class Error {
 	
 	//attributes
 	private final String errorMessage;
 	private final OccurancePlace occurancePlace;
 	
 	//constructor
-	public ExpectationError(
+	public Error(
 		final String errorMessage,
 		final Class<?> occuranceClass,
 		final int occuranceLineNumber
@@ -23,7 +23,7 @@ public final class ExpectationError {
 	}
 	
 	//constructor
-	public ExpectationError(final String errorMessage, final OccurancePlace occurancePlace) {
+	public Error(final String errorMessage, final OccurancePlace occurancePlace) {
 		
 		if (errorMessage == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.ERROR_MESSAGE);
