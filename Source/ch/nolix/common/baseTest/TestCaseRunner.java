@@ -5,51 +5,89 @@ package ch.nolix.common.baseTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+//own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+
 //class
 final class TestCaseRunner extends Thread {
 	
 	//attributes
 	private final BaseTest parentTest;
+	private final Method testCase;
 	private boolean finished = false;
-	private long startTime = System.currentTimeMillis();
-	private long runTimeInMilliseconds = 0;
-	private final Method method;
+	private long startTime;
+	private int runtimeInMilliseconds = 0;
 	
 	//optional attribute
-	private Throwable fatalError;
+	private Error exceptionError;
 	
 	//constructor
-	public TestCaseRunner(final BaseTest parentTest, final Method method) {
+	public TestCaseRunner(final BaseTest parentTest, final Method testCase) {
+		
+		if (parentTest == null) {
+			throw new ArgumentIsNullException("parent test");
+		}
+		
+		if (testCase == null) {
+			throw new ArgumentIsNullException(VariableNameCatalogue.TEST_CASE);
+		}
 		
 		this.parentTest = parentTest;
-		this.method = method;
+		this.testCase = testCase;
+		startTime = System.currentTimeMillis();
 		
 		start();
 	}
 	
 	//method
-	public Throwable getFatalError() {
+	public Error getExceptionError() {
 		
-		if (fatalError == null) {
-			throw new RuntimeException("The current TestCaseRunner does not have a fatal error.");
+		if (!hasExceptionError()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "exception error");
 		}
 		
-		return fatalError;
+		return exceptionError;
 	}
 	
 	//method
-	public long getRuntimeInMilliseconds() {
+	public TestCaseResult getResult() {
 		
-		if (!finished) {
-			runTimeInMilliseconds = System.currentTimeMillis() - startTime;
+		supposeIsFinished();
+		
+		if (!hasExceptionError()) {
+			return
+			new TestCaseResult(
+				testCase,
+				getRuntimeInMilliseconds(),
+				parentTest.getAndRemoveExpectationErrors()
+			);
 		}
 		
-		return runTimeInMilliseconds;
+		return
+		new TestCaseResult(
+			testCase,
+			getRuntimeInMilliseconds(),
+			parentTest.getAndRemoveExpectationErrors(),
+			getExceptionError()
+		);
 	}
 	
 	//method
-	public boolean hasFatalError() {
-		return (fatalError != null);
+	public int getRuntimeInMilliseconds() {
+		
+		if (!isFinished()) {
+			runtimeInMilliseconds = (int)(System.currentTimeMillis() - startTime);
+		}
+		
+		return runtimeInMilliseconds;
+	}
+	
+	//method
+	public boolean hasExceptionError() {
+		return (exceptionError != null);
 	}
 	
 	//method
@@ -61,19 +99,49 @@ final class TestCaseRunner extends Thread {
 	@Override
 	public void run() {
 		try {
-			method.invoke(parentTest, (Object[])new Class[0]);
+			testCase.invoke(parentTest, (Object[])new Class[0]);
 		}
-		catch (final IllegalAccessException | IllegalArgumentException | InvocationTargetException exception) {
-			fatalError = exception;
+		catch (final InvocationTargetException invocationTargetException) {
+			
+			String className = null;
+			int lineNumber = -1;
+			for (final var ste : Thread.currentThread().getStackTrace()) {
+				if (ste.getClassName().equals(parentTest.getClass().getName())) {
+					className = ste.getClassName();
+					lineNumber = ste.getLineNumber();
+					break;
+				}
+			}
+			
+			final var cause = invocationTargetException.getCause();
+			final var errorMessage = cause.getMessage() == null ? "An error occured." : cause.getMessage();
+			
+			exceptionError = new Error(errorMessage, className, lineNumber);
+			
+		} catch (IllegalAccessException | IllegalArgumentException exception) {
+			exceptionError = new Error("An error occured.", parentTest.getClass().getName(), 0);
 		}
 		finally {
 			finished = true;
 		}
 	}
 	
-	public void stop2() {
+	//method
+	public void stop(final Error stopReason) {
+		
+		if (stopReason == null) {
+			throw new ArgumentIsNullException("stop reason");
+		}
+		
 		interrupt();
 		finished = true;
-		fatalError = new RuntimeException("Reached timeout");
+		exceptionError = stopReason;
+	}
+	
+	//method
+	private void supposeIsFinished() {
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "is not finished");
+		}
 	}
 }

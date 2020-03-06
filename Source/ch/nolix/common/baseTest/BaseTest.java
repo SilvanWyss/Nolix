@@ -13,7 +13,7 @@ import ch.nolix.common.independentContainers.List;
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 260
+ * @lines 270
  */
 public abstract class BaseTest {
 	
@@ -109,12 +109,12 @@ public abstract class BaseTest {
 				System.err.flush();
 				
 				if (m.getAnnotation(IgnoreTimeout.class) == null && testCaseRunner.getRuntimeInMilliseconds() > TEST_CASE_MAX_DURATION_IN_MILLISECONDS) {
-					testCaseRunner.stop2();
+					testCaseRunner.interrupt();
 					break;
 				}
 			}	
 			
-			if (!testCaseRunner.hasFatalError()) {
+			if (!testCaseRunner.hasExceptionError()) {
 				if (!lastErrors.isEmpty()) {
 					System.err.println("-->FAILED: " + m.getName() + ": (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
 					System.err.flush();
@@ -133,13 +133,11 @@ public abstract class BaseTest {
 				}
 			}
 			else {
-				final var fatalError = testCaseRunner.getFatalError();
-				if (fatalError.getCause() != null) {
-					System.err.println("-->FAILED: " + m.getName() + ": " + fatalError.getCause().getMessage() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
-				}
-				else {
-					System.err.println("-->FAILED: " + m.getName() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
-				}
+				
+				final var fatalError = testCaseRunner.getExceptionError();
+				
+				System.err.println("-->FAILED: " + m.getName() + ": " + fatalError.getErrorMessage() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
+				
 				System.err.flush();
 			}
 
@@ -167,7 +165,7 @@ public abstract class BaseTest {
 	 * 
 	 * @param element
 	 */
-	protected void registerToClose(final AutoCloseable element) {
+	final protected void registerToClose(final AutoCloseable element) {
 		if (element != null) {
 			closableElements.addAtEnd(element);
 		}
@@ -216,9 +214,20 @@ public abstract class BaseTest {
 	
 	//method
 	/**
+	 * Removes the expectation errors of the current {@link BaseTest}.
+	 * 
+	 * @return the expectation errors of the current {@link BaseTest}.
+	 */
+	final List<Error> getAndRemoveExpectationErrors() {
+		// TODO: Implement.
+		return new List<>();
+	}
+	
+	//method
+	/**
 	 * @return the test cases of the current {@link BaseTest}.
 	 */
-	List<Method> getRefTestCases() {
+	final List<Method> getRefTestCases() {
 		
 		final var testCases = new List<Method>();
 				

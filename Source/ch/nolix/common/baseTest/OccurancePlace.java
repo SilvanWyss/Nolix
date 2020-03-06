@@ -4,43 +4,43 @@ package ch.nolix.common.baseTest;
 // own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 
 //class
 public final class OccurancePlace {
 	
 	//attributes
-	private final Class<?> mClass;
+	private final String className;
 	private final int lineNumber;
 	
 	//constructor
-	public OccurancePlace(final Class<?> pClass, final int lineNumber) {
+	public OccurancePlace(final String className, final int lineNumber) {
 		
-		if (pClass == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.CLASS);
+		if (className == null) {
+			throw new ArgumentIsNullException("class name");
+		}
+		
+		if (className.isBlank()) {
+			throw new InvalidArgumentException("class name", className, "is blank");
 		}
 		
 		if (lineNumber < 1) {
 			throw new NonPositiveArgumentException(VariableNameCatalogue.LINE_NUMBER, lineNumber);
 		}
 		
-		mClass = pClass;
+		this.className = className;
 		this.lineNumber = lineNumber;
 	}
 	
 	//method
 	public String getClassName() {
-		return mClass.getName();
+		return className;
 	}
 	
 	//method
 	public int getLineNumber() {
 		return lineNumber;
-	}
-	
-	//method
-	public String getSimpleClassName() {
-		return mClass.getSimpleName();
 	}
 	
 	//method

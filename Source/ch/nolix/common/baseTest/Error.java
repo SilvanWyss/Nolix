@@ -16,10 +16,10 @@ public final class Error {
 	//constructor
 	public Error(
 		final String errorMessage,
-		final Class<?> occuranceClass,
+		final String occuranceClassName,
 		final int occuranceLineNumber
 	) {
-		this(errorMessage, new OccurancePlace(occuranceClass, occuranceLineNumber));
+		this(errorMessage, new OccurancePlace(occuranceClassName, occuranceLineNumber));
 	}
 	
 	//constructor
@@ -54,11 +54,6 @@ public final class Error {
 	//method
 	public int getOccuranceLineNumber() {
 		return occurancePlace.getLineNumber();
-	}
-	
-	//method
-	public String getOccuranceSimpleClassName() {
-		return occurancePlace.getSimpleClassName();
 	}
 	
 	//method
