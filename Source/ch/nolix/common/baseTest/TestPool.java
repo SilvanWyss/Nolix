@@ -4,6 +4,7 @@ package ch.nolix.common.baseTest;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
@@ -17,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 170
+ * @lines 180
  */
 public abstract class TestPool implements Runnable {
 
@@ -65,6 +66,14 @@ public abstract class TestPool implements Runnable {
 	
 	//method
 	/**
+	 * @return the name of the current {@link TestPool}.
+	 */
+	public final String getName() {
+		return getClass().getName();
+	}
+	
+	//method
+	/**
 	 * Executes the tests and the test pools of this test pool.
 	 */
 	@Override
@@ -85,6 +94,14 @@ public abstract class TestPool implements Runnable {
 			}
 		}
 		testPools.forEach(tp -> tp.run());
+	}
+	
+	//method
+	/**
+	 * @return the test classes of the current {@link TestPool}.
+	 */
+	final List<Class<BaseTest>> getRefTestClasses() {
+		return testClasses;
 	}
 	
 	//method
