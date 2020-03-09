@@ -26,6 +26,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String CHARACTER = "Character";
 	public static final String CELL = "Cell";
 	public static final String CLASS = "Class";
+	public static final String CLEANUP = "Cleanup";
 	public static final String CODE = "Code";
 	public static final String COLOR = "Color";
 	public static final String COLUMN = "Column";
@@ -134,6 +135,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String SEPARATOR = "Separator";
 	public static final String SEQUENCE = "Sequence";
 	public static final String SERVICE = "Service";
+	public static final String SETUP = "Setup";
 	public static final String SIDE_LENGTH = "SideLength";
 	public static final String SIZE = "Size";
 	public static final String SPECIFICATION = "Specification";

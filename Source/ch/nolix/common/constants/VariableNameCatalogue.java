@@ -26,6 +26,7 @@ public final class VariableNameCatalogue {
 	public static final String CELL = "cell";
 	public static final String CHARACTER = "character";
 	public static final String CLASS = "class";
+	public static final String CLEANUP = "cleanup";
 	public static final String CODE = "code";
 	public static final String COLOR = "color";
 	public static final String COLUMN = "column";
@@ -134,6 +135,7 @@ public final class VariableNameCatalogue {
 	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
 	public static final String SERVICE = "service";
+	public static final String SETUP = "setup";
 	public static final String SIDE_LENGTH = "side length";
 	public static final String SIZE = "size";
 	public static final String SPECIFICATION = "specification";
