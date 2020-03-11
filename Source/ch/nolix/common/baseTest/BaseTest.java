@@ -240,12 +240,10 @@ public abstract class BaseTest {
 	
 	//method
 	/**
-	 * Removes the expectation errors of the current {@link BaseTest}.
-	 * 
 	 * @return the expectation errors of the current {@link BaseTest}.
 	 */
-	final List<Error> getAndRemoveExpectationErrors() {
-		// TODO: Implement.
+	final List<Error> getExpectationErrors() {
+		//TODO
 		return new List<>();
 	}
 	
