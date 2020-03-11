@@ -6,14 +6,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
-//own import
+//own imports
 import ch.nolix.common.independentContainers.List;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 270
+ * @lines 300
  */
 public abstract class BaseTest {
 	
@@ -45,6 +46,31 @@ public abstract class BaseTest {
 			}
 			
 			class_ = class_.getSuperclass();
+		}
+	}
+	
+	//method
+	public BaseTest getCopy() {
+		try {
+			
+			final var constructor = getClass().getConstructor();
+			constructor.setAccessible(true);
+			
+			return constructor.newInstance();
+		}
+		catch (final NoSuchMethodException noSuchMethodException) {
+			throw new InvalidArgumentException(getClass(), "does not have a default constructor");
+		}
+		catch (
+			final
+			IllegalAccessException
+			| IllegalArgumentException
+			| InstantiationException
+			| InvocationTargetException
+			| SecurityException
+			exception
+		) {
+			throw new InvalidArgumentException(this, "could not be copied");
 		}
 	}
 	
