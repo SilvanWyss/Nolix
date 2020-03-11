@@ -71,6 +71,18 @@ public final class List<E> implements Iterable<E> {
 	}
 	
 	//method
+	public List<E> getCopy() {
+		
+		final var list = new List<E>();
+		
+		for (final var e : this) {
+			list.addAtEnd(e);
+		}
+		
+		return list;
+	}
+	
+	//method
 	public int getElementCount() {
 		return elementCount;
 	}
