@@ -3,7 +3,7 @@ package ch.nolix.common.independentContainers;
 
 //class
 final class ListNode<E> {
-
+	
 	//attribute
 	private final E element;
 	
@@ -21,8 +21,8 @@ final class ListNode<E> {
 	}
 	
 	//method
-	public boolean hasNextNode() {
-		return (nextNode != null);
+	public boolean contains(final E element) {
+		return (this.element == element);
 	}
 	
 	//method
@@ -33,6 +33,11 @@ final class ListNode<E> {
 	//method
 	public ListNode<E> getRefNextNodeOrNull() {
 		return nextNode;
+	}
+	
+	//method
+	public boolean hasNextNode() {
+		return (nextNode != null);
 	}
 	
 	//method
