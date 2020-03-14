@@ -41,6 +41,11 @@ final class ListNode<E> {
 	}
 	
 	//method
+	public void removeNextNode() {
+		nextNode = null;
+	}
+	
+	//method
 	public void setNextNode(final ListNode<E> nextNode) {
 		
 		if (nextNode == null) {
