@@ -9,6 +9,6 @@ public final class LicenseTestPool extends TestPool {
 	
 	//constructor
 	public LicenseTestPool() {
-		addTestClass(CentralLicenseManagerTest.class);
+		super(CentralLicenseManagerTest.class);
 	}
 }

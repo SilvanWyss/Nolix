@@ -9,6 +9,6 @@ public final class DataTypesTestPool extends TestPool {
 	
 	//constructor
 	public DataTypesTestPool() {
-		addTestClass(DataTypeHelperTest.class);
+		super(DataTypeHelperTest.class);
 	}
 }

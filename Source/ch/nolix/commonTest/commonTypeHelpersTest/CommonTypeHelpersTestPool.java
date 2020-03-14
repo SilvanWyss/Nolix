@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.commonTypeHelpersTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -16,7 +17,7 @@ public final class CommonTypeHelpersTestPool extends TestPool {
 	 * Creates a new {@link CommonTypeHelpersTestPool}.
 	 */
 	public CommonTypeHelpersTestPool() {
-		addTestClass(
+		super(
 			CharacterHelperTest.class,
 			StringHelperTest.class
 		);

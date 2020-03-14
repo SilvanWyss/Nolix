@@ -11,6 +11,6 @@ public final class TemplatesTestPool extends TestPool {
 	
 	//constructor
 	public TemplatesTestPool() {
-		addTestPool(new ConsoleClientLookTestPool(), new GUILooksTestPool());
+		super(new ConsoleClientLookTestPool(), new GUILooksTestPool());
 	}
 }

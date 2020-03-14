@@ -12,6 +12,10 @@ public final class SystemTestPool extends TestPool {
 	
 	//constructor
 	public SystemTestPool() {
-		addTestPool(new DataTypesTestPool(), new NeuronTestPool(), new TextureTestPool());
+		super(
+			new DataTypesTestPool(),
+			new NeuronTestPool(),
+			new TextureTestPool()
+		);
 	}
 }

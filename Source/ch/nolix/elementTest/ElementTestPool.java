@@ -24,7 +24,7 @@ public final class ElementTestPool extends TestPool {
 	 * Creates a new {@link ElementTestPool}.
 	 */
 	public ElementTestPool() {
-		addTestPool(
+		super(
 			new ColorTestPool(),
 			new ContainerWidgetTestPool(),
 			new TimeTestPool(),

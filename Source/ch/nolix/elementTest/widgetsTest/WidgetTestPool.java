@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -16,7 +17,7 @@ public final class WidgetTestPool extends TestPool {
 	 * Creates a new {@link WidgetTestPool}.
 	 */
 	public WidgetTestPool() {
-		addTestClass(
+		super(
 			AreaTest.class,
 			CaptionPositionTest.class,
 			CheckboxTest.class,

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.financeTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -16,8 +17,6 @@ public final class FinanceTestPool extends TestPool {
 	 * Creates a new finance test pool.
 	 */
 	public FinanceTestPool() {
-		addTestClass(
-			CandleStickTest.class
-		);
+		super(CandleStickTest.class);
 	}
 }

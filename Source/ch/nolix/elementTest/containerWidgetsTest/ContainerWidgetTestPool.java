@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetsTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -16,7 +17,7 @@ public final class ContainerWidgetTestPool extends TestPool {
 	 * Creates a new {@link ContainerWidgetTestPool}.
 	 */
 	public ContainerWidgetTestPool() {
-		addTestClass(
+		super(
 			AccordionTest.class,
 			SingleContainerTest.class,
 			VerticalStackTest.class

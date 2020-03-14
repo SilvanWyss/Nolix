@@ -9,6 +9,6 @@ public final class CommonTypeWrapperTestPool extends TestPool {
 	
 	//constructor
 	public CommonTypeWrapperTestPool() {
-		addTestClass(WrapperByteTest.class);
+		super(WrapperByteTest.class);
 	}
 }

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techTest;
 
+//own imports
 import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.techTest.genericMathTest.GenericMathTestPool;
 
@@ -9,6 +10,6 @@ public final class TechTestPool extends TestPool {
 	
 	//constructor
 	public TechTestPool() {
-		addTestPool(new GenericMathTestPool());
+		super(new GenericMathTestPool());
 	}
 }

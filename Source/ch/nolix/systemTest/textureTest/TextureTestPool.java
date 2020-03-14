@@ -9,6 +9,6 @@ public final class TextureTestPool extends TestPool {
 	
 	//constructor
 	public TextureTestPool() {
-		addTestClass(TextureCreatorTest.class);
+		super(TextureCreatorTest.class);
 	}
 }

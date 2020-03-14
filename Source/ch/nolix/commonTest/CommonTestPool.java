@@ -29,7 +29,7 @@ public final class CommonTestPool extends TestPool {
 	 * Creates a new {@link CommonTestPool}.
 	 */
 	public CommonTestPool() {
-		addTestPool(
+		super(
 			new CommonTypeHelpersTestPool(),
 			new CommonTypeWrapperTestPool(),
 			new ContainerTestPool(),

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techTest.projectTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -10,13 +11,13 @@ import ch.nolix.common.baseTest.TestPool;
  * @lines 20
  */
 public final class TaskTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new task test pool.
+	 * Creates a new {@link TaskTestPool}.
 	 */
 	public TaskTestPool() {
-		addTestClass(
+		super(
 			TaskTest.class,
 			TableauTest.class
 		);

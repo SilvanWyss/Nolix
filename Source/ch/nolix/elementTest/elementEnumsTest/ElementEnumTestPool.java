@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.elementEnumsTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -13,10 +14,10 @@ public final class ElementEnumTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates a new enum test pool.
+	 * Creates a new {@link ElementEnumTestPool}.
 	 */
 	public ElementEnumTestPool() {
-		addTestClass(
+		super(
 			DirectionTest.class,
 			UniDirectionTest.class
 		);

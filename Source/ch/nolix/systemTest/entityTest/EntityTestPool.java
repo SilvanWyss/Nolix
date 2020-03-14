@@ -9,7 +9,7 @@ public final class EntityTestPool extends TestPool {
 	
 	//constructor
 	public EntityTestPool() {
-		addTestClass(
+		super(
 			EntityTest.class,
 			EntityWithBackReferenceTest.class,
 			MultiValuePropertyTest.class,

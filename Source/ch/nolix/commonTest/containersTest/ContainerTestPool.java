@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.containersTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -10,13 +11,13 @@ import ch.nolix.common.baseTest.TestPool;
  * @lines 20
  */
 public final class ContainerTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new container test pool.
+	 * Creates a new {@link ContainerTestPool}.
 	 */
 	public ContainerTestPool() {
-		addTestClass(
+		super(
 			ListTest.class,
 			MatrixTest.class,
 			ReadContainerTest.class

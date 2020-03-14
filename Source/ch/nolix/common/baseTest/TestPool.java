@@ -10,53 +10,86 @@ import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.skillAPI.Runnable;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A test pool contains tests and other test pools and can execute them.
+ * A {@link TestPool} contains either {@link BaseTest}s or other {@link TestPool}s.
+ * A {@link Test}Pool can run its {@link BaseTest}s recursively.
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 180
+ * @lines 210
  */
 public abstract class TestPool implements Runnable {
 
-	//multi-attribute
-	private final List<Class<BaseTest>> testClasses = new List<>();
+	//multi-attributes
 	private final List<TestPool> testPools = new List<>();
+	private final List<Class<BaseTest>> testClasses = new List<>();
+			
+	//constructor
+	/**
+	 * Creates a new {@link TestPool} with the given test {@link Class}s.
+	 * 
+	 * @param testClasses
+	 */
+	public TestPool(final Class<?>... testClasses) {
+		
+		//Iterates the given testClasses.
+		for (final var tc : testClasses) {
+			addTestClass(tc);
+		}
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link TestPool} with the given test {@link TestPool}s.
+	 * 
+	 * @param testClasses
+	 */
+	public TestPool(final TestPool... testPools) {
+		
+		//Iterates the given testPools.
+		for (final var tp : testPools) {
+			addTestPool(tp);
+		}
+	}
 	
 	//method
 	/**
 	 * @param testPool
-	 * @return true if this test pool contains the given test pool recursively.
+	 * @return true if the current {@link TestPool} contains the given testPool recursively.
 	 */
 	public final boolean containsTestPoolRecursively(final TestPool testPool) {
 		
+		//Iterates the testPools of the current TestPool.
 		for (final TestPool tp : testPools) {
-			if (tp.containsTestPoolRecursively(testPool)) {
+			
+			//Checks if the current testPool is or contains recursively the given testPool.
+			if (tp == testPool || tp.containsTestPoolRecursively(testPool)) {
 				return true;
 			}
 		}
-			
+		
 		return false;
 	}
 	
 	//method
 	/**
 	 * @param testClass
-	 * @return true if this test pool contains the given test class recursively.
+	 * @return true if the current {@link TestPool} contains the given testClass recursively.
 	 */
 	public final boolean containsTestClassRecursively(final Class<BaseTest> testClass) {
 		
-		for (final var tc : testClasses) {
-			if (tc == testClass) {
+		//Iterates the testPools of the current TestPool.
+		for (final var tp : testPools) {
+			if (tp.containsTestClassRecursively(testClass)) {
 				return true;
 			}
 		}
 		
-		for (final var tp : testPools) {
-			if (tp.containsTestClassRecursively(testClass)) {
+		//Iterates the testClasses of the current TestPool.
+		for (final var tc : testClasses) {
+			if (tc == testClass) {
 				return true;
 			}
 		}
@@ -74,10 +107,14 @@ public abstract class TestPool implements Runnable {
 	
 	//method
 	/**
-	 * Executes the tests and the test pools of this test pool.
+	 * Runs the {@link BaseTest}s of the current {@link TestPool} recursively.
 	 */
 	@Override
 	public final void run() {
+		
+		testPools.forEach(TestPool::run);
+		
+		//Iterates the testClasses of the current TestPool.
 		for (final var tc : testClasses ) {
 			try {
 				tc.getDeclaredConstructor().newInstance().run();
@@ -93,12 +130,11 @@ public abstract class TestPool implements Runnable {
 				throw new RuntimeException(exception);
 			}
 		}
-		testPools.forEach(tp -> tp.run());
 	}
 	
 	//method
 	/**
-	 * @return the test classes of the current {@link TestPool}.
+	 * @return the test {@link Class}s of the current {@link TestPool}.
 	 */
 	final List<Class<BaseTest>> getRefTestClasses() {
 		return testClasses;
@@ -106,82 +142,78 @@ public abstract class TestPool implements Runnable {
 	
 	//method
 	/**
-	 * Adds the given test class to this test pool.
+	 * @return the test {@link TestPools}s of the current {@link TestPool}.
+	 */
+	final List<TestPool> getRefTestPools() {
+		return testPools;
+	}
+	
+	//method
+	/**
+	 * Adds the given testClass to the current {@link TestPool}.
 	 * 
-	 * @param test
-	 * @throws ArgumentIsNullException if the given test is null.
-	 * @throws InvalidArgumentException if the given test class is not a testoid class.
+	 * @param testClass
+	 * @throws ArgumentIsNullException if the given testClass is null.
+	 * @throws InvalidArgumentException if the given testClass is not a actually not a test {@link Class}.
+	 * @throws InvalidArgumentException if the given testClass is abstract.
+	 * @throws InvalidArgumentException if the given testClass does not contain a default constructor.
 	 */
 	@SuppressWarnings("unchecked")
-	protected final void addTestClass(final Class<?> testClass) {
+	private void addTestClass(final Class<?> testClass) {
 		
-		Validator
-		.suppose(testClass)
-		.thatIsNamed(VariableNameCatalogue.TEST_CLASS)
-		.isNotAbstract();
+		//Checks if the given testClass is not null.
+		if (testClass == null) {
+			throw new ArgumentIsNullException(VariableNameCatalogue.TEST_CLASS);
+		}
 		
-		Validator
-		.suppose(testClass)
-		.thatIsNamed(VariableNameCatalogue.TEST_CLASS)
-		.isSubClassOf(BaseTest.class);
+		//Checks if the given testClass is a sub class of BaseTest.
+		if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
+			throw
+			new InvalidArgumentException(
+				VariableNameCatalogue.TEST_CLASS,
+				testClass,
+				"is not a sub class of " + BaseTest.class.getName()
+			);
+		}
+		
+		//Checks if the given testClass is not abstract.
+		if (ReflectionHelper.isAbstract(testClass)) {
+			throw new InvalidArgumentException(VariableNameCatalogue.TEST_CLASS, testClass, "is abstract");
+		}
+		
+		//Checks if the given testClass has a default constructor.
+		if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
+			throw
+			new InvalidArgumentException(
+				VariableNameCatalogue.TEST_CLASS,
+				testClass,
+				"does not have a default constructor"
+			);
+		}
 		
 		testClasses.addAtEnd((Class<BaseTest>)testClass);
 	}
 	
 	//method
 	/**
-	 * Adds the given test classes to this test pool.
-	 * 
-	 * @param tests
-	 * @throws ArgumentIsNullException if one of the given test is null.
-	 */
-	protected final void addTestClass(final Class<?>... testClasses) {
-		
-		//Iterates the given test classes.
-		for (final var tc : testClasses) {
-			addTestClass(tc);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds the given test pool to this test pool.
+	 * Adds the given testPool to the current {@link TestPool}.
 	 * 
 	 * @param testPool
-	 * @throws ArgumentIsNullException if the given test pool is null.
-	 * @throws InvalidArgumentException if the given test pool contains this test pool recursively.
+	 * @throws ArgumentIsNullException if the given testPool is null.
+	 * @throws InvalidArgumentException if the given testPool contains the current {@link TestPool} recursively.
 	 */
-	protected final void addTestPool(final TestPool testPool) {
+	private void addTestPool(final TestPool testPool) {
 		
-		//Checks if the given test pool is not null.
+		//Checks if the given testPool is not null.
 		if (testPool == null) {
 			throw new ArgumentIsNullException("test pool");
 		}
 		
-		//Checks if the given test pool does not contain this test pool recursively.
+		//Checks if the given test pool does not contain the current TestPool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {
-			throw new InvalidArgumentException(
-				testPool,
-				"contains the current test pool recursively"
-			);
+			throw new InvalidArgumentException(testPool, "contains recursively " + getName());
 		}
 		
 		testPools.addAtEnd(testPool);
-	}
-	
-	//method
-	/**
-	 * Adds the given test pools to this test pool.
-	 * 
-	 * @param testPools
-	 * @throws ArgumentIsNullException if one of the given test pools is null.
-	 * @throws InvalidArgumentException if one of the given test pools contains this test pool recursively.
-	 */
-	protected final void addTestPool(final TestPool... testPools) {
-		
-		//Iterates the given text pools.
-		for (TestPool tp: testPools) {
-			addTestPool(tp);
-		}
 	}
 }

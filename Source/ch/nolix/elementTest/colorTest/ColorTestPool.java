@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.colorTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -16,6 +17,6 @@ public final class ColorTestPool extends TestPool {
 	 * Creates a new {@link ColorTestPool}.
 	 */
 	public ColorTestPool() {
-		addTestClass(ColorTest.class);
+		super(ColorTest.class);
 	}
 }

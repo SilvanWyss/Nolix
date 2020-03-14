@@ -9,6 +9,6 @@ public final class GUITestPool extends TestPool {
 	
 	//constructor
 	public GUITestPool() {
-		addTestClass(WidgetStateTest.class);
+		super(WidgetStateTest.class);
 	}
 }

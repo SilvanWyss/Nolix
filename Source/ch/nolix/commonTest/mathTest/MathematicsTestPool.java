@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.mathTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -10,13 +11,13 @@ import ch.nolix.common.baseTest.TestPool;
  * @lines 20
  */
 public final class MathematicsTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new mathematics test pool.
+	 * Creates a new {@link MathematicsTestPool}.
 	 */
 	public MathematicsTestPool() {
-		addTestClass(
+		super(
 			ARModelTest.class,
 			CalculatorTest.class,
 			MatrixTest.class,

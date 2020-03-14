@@ -1,24 +1,23 @@
 //package declaration
 package ch.nolix.commonTest.endPointTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
 /**
- * An end point test pool is not mutable.
- * 
  * @author Silvan Wyss
  * @month 2017-05
  * @lines 20
  */
 public final class EndPointTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new end point test pool.
+	 * Creates a new {@link EndPointTestPool}.
 	 */
 	public EndPointTestPool() {
-		addTestClass(
+		super(
 			NetServerTest.class,
 			NetEndPointTest.class
 		);

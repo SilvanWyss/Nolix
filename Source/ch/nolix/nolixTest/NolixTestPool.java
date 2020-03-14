@@ -25,7 +25,7 @@ public final class NolixTestPool extends TestPool {
 	 * Creates a new {@link NolixTestPool}.
 	 */
 	public NolixTestPool() {
-		addTestPool(
+		super(
 			new CommonTestPool(),
 			new ElementTestPool(),
 			new SystemTestPool(),

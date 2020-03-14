@@ -17,6 +17,6 @@ public final class NodeTestPool extends TestPool {
 	 * Creates a new {@link NodeTestPool}.
 	 */
 	public NodeTestPool() {
-		addTestClass(NodeTest.class);
+		super(NodeTest.class);
 	}
 }

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.timeTest;
 
+//own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
@@ -13,9 +14,9 @@ public final class TimeTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates a new core test pool.
+	 * Creates a new {@link TimeTestPool}.
 	 */
 	public TimeTestPool() {
-		addTestClass(TimeTest.class);
+		super(TimeTest.class);
 	}
 }
