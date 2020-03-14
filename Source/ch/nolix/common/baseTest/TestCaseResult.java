@@ -116,7 +116,7 @@ public final class TestCaseResult {
 	
 	//method
 	public boolean isPassed() {
-		return (hasExpectationErrors() && !hasExceptionError());
+		return (!hasExpectationErrors() && !hasExceptionError());
 	}
 	
 	//method
