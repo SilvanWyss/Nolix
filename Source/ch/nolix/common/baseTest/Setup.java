@@ -10,4 +10,4 @@ import java.lang.annotation.Target;
 //annotation
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface BeforeTestCase {}
+public @interface Setup {}

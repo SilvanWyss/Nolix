@@ -90,7 +90,7 @@ public final class TestCaseWrapper {
 		Method lCleanup = null;
 		for (final var m : parentTest.getClass().getMethods()) {
 			
-			if (m.getAnnotation(BeforeTestCase.class) != null) {
+			if (m.getAnnotation(Setup.class) != null) {
 				
 				if (lCleanup != null) {
 					throw new InvalidArgumentException(parentTest.getClass(), "contains more than 1 cleanup");
@@ -109,7 +109,7 @@ public final class TestCaseWrapper {
 		Method lSetup = null;
 		for (final var m : parentTest.getClass().getMethods()) {
 			
-			if (m.getAnnotation(BeforeTestCase.class) != null) {
+			if (m.getAnnotation(Setup.class) != null) {
 				
 				if (lSetup != null) {
 					throw new InvalidArgumentException(parentTest.getClass(), "contains more than 1 cleanup");
