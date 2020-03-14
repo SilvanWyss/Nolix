@@ -38,7 +38,7 @@ public abstract class BaseTest {
 		while (!class_.equals(BaseTest.class)) {
 			
 			for (final var m : class_.getDeclaredMethods()) {
-				if (m.getAnnotation(AfterTestCase.class) != null) {
+				if (m.getAnnotation(Cleanup.class) != null) {
 					m.setAccessible(true);
 					afterTestCaseMethod = m;
 					break;

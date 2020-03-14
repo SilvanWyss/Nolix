@@ -1,7 +1,7 @@
 //package delcaration
 package ch.nolix.commonTest.fileNodeTest;
 
-import ch.nolix.common.baseTest.AfterTestCase;
+import ch.nolix.common.baseTest.Cleanup;
 import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.commonTest.nodeTest.BaseNodeTest;
@@ -14,7 +14,7 @@ public final class FileNodeTest extends BaseNodeTest {
 		return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
 	}
 	
-	@AfterTestCase
+	@Cleanup
 	private void afterTestCase() {
 		FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
 	}
