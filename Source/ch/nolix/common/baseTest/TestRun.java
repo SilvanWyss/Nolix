@@ -99,7 +99,7 @@ public final class TestRun {
 		
 		started = true;
 		final var startTimeInMilliseconds = System.currentTimeMillis();
-		linePrinter.printLine("Start " + parentTest.getName());
+		linePrinter.printInfoLine("Started " + parentTest.getName() + ".");
 		
 		for (final var tc : getRefTestCases()) {
 			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).getResult());
@@ -124,9 +124,9 @@ public final class TestRun {
 		supposeIsIncomplete();
 		
 		testCaseResults.addAtEnd(testCaseResult);
-		linePrinter.printLines(testCaseResult.getOutputLines());
+		printTestCaseResult(testCaseResult);
 	}
-
+	
 	//method
 	private void complete(final int runtimeInMilliseconds) {
 		
@@ -138,7 +138,7 @@ public final class TestRun {
 		
 		this.runtimeInMilliseconds = runtimeInMilliseconds;
 	}
-
+	
 	//method
 	private List<Method> getRefTestCases() {
 		return parentTest.getRefTestCases();
@@ -146,8 +146,18 @@ public final class TestRun {
 	
 	//method
 	private void printSummary() {
-		linePrinter.printLine(
-			"Summary "
+		if (isPassed()) {
+			printSummaryWhenPassed();
+		}
+		else {
+			printSummaryWhenFailed();
+		}
+	}
+	
+	//method
+	private void printSummaryWhenFailed() {
+		linePrinter.printErrorLine(
+			"-->Summary "
 			+ parentTest.getName()
 			+ ": "
 			+ getPassedTestCaseCount()
@@ -155,6 +165,29 @@ public final class TestRun {
 			+ getTestCaseCount()
 			+ getRuntimeAndUnitAsStringInBrackets()
 		);
+	}
+	
+	//method
+	private void printSummaryWhenPassed() {
+		linePrinter.printInfoLine(
+			"   Summary "
+			+ parentTest.getName()
+			+ ": "
+			+ getPassedTestCaseCount()
+			+ "/"
+			+ getTestCaseCount()
+			+ getRuntimeAndUnitAsStringInBrackets()
+		);
+	}
+	
+	//method
+	private void printTestCaseResult(final TestCaseResult testCaseResult) {
+		if (testCaseResult.isPassed()) {
+			linePrinter.printInfoLines(testCaseResult.getOutputLines());
+		}
+		else {
+			linePrinter.printErrorLines(testCaseResult.getOutputLines());
+		}
 	}
 	
 	//method

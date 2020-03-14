@@ -1,22 +1,24 @@
 //package declaration
 package ch.nolix.common.baseTest;
 
-//own import
-import ch.nolix.common.constants.StringCatalogue;
-
 //interface
 public interface ILinePrinter {
 	
 	//method
-	public default void printEmptyLine() {
-		printLine(StringCatalogue.EMPTY_STRING);
-	}
+	public abstract void printEmptyLine();
+	
+	public abstract void printErrorLine(final String errorLine);
 	
 	//method declaration
-	public abstract void printLine(final String line);
+	public abstract void printInfoLine(final String infoLine);
 	
 	//method
-	public default void printLines(final Iterable<String> lines) {
-		lines.forEach(this::printLine);
+	public default void printErrorLines(final Iterable<String> errorLines) {
+		errorLines.forEach(this::printErrorLine);
+	}
+	
+	//method
+	public default void printInfoLines(final Iterable<String> infoLines) {
+		infoLines.forEach(this::printInfoLine);
 	}
 }
