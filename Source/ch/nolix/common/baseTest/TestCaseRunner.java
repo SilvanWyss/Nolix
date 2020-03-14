@@ -108,9 +108,7 @@ public final class TestCaseRunner extends Thread {
 
 	//method
 	private TestCaseResult createResult() {
-		
-		supposeIsFinished();
-		
+				
 		if (!hasExceptionError()) {
 			return
 			new TestCaseResult(
