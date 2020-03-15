@@ -9,6 +9,14 @@ package ch.nolix.common.skillAPI;
  */
 public interface Closable {
 	
+	//method
+	/**
+	 * @return the current {@link Closable} as {@link AutoCloseable}.
+	 */
+	public default AutoCloseable asAutoClosable() {
+		return this::close;
+	}
+	
 	//method declaration
 	/**
 	 * Closes the current {@link Closable}.
