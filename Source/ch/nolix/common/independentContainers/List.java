@@ -4,6 +4,9 @@ package ch.nolix.common.independentContainers;
 //Java import
 import java.util.Iterator;
 
+//own import
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+
 //class
 public final class List<E> implements Iterable<E> {
 	
@@ -101,9 +104,6 @@ public final class List<E> implements Iterable<E> {
 	}
 	
 	//method
-	/**
-	 * @return a new {@link Iterator} for the current {@link List}.
-	 */
 	@Override
 	public Iterator<E> iterator() {
 		return new ListIterator<>(beginNode);
@@ -123,6 +123,41 @@ public final class List<E> implements Iterable<E> {
 		}
 		
 		elementCount--;
+	}
+	
+	//method
+	public void removeFirst(final E element) {
+		
+		if (isEmpty()) {
+			throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
+		}
+		
+		if (beginNode.contains(element)) {
+			removeFirst();
+			return;
+		}
+		
+		var iteratorNode = beginNode;
+		while (iteratorNode.hasNextNode()) {
+			
+			if (iteratorNode.getRefNextNodeOrNull().contains(element)) {
+				
+				if (!iteratorNode.getRefNextNodeOrNull().hasNextNode()) {
+					iteratorNode.removeNextNode();
+					endNode = iteratorNode;
+				}
+				else {
+					iteratorNode.setNextNode(iteratorNode.getRefNextNodeOrNull().getRefNextNodeOrNull());
+				}
+				
+				elementCount--;
+				return;
+			}
+			
+			iteratorNode = iteratorNode.getRefNextNodeOrNull();
+		}
+		
+		throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
 	}
 	
 	//method
