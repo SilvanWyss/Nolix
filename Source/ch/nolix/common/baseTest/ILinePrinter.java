@@ -4,18 +4,19 @@ package ch.nolix.common.baseTest;
 //interface
 public interface ILinePrinter {
 	
-	//method
+	//method declaration
 	public abstract void printEmptyLine();
 	
-	public abstract void printErrorLine(final String errorLine);
-	
 	//method declaration
-	public abstract void printInfoLine(final String infoLine);
+	public abstract void printErrorLine(final String errorLine);
 	
 	//method
 	public default void printErrorLines(final Iterable<String> errorLines) {
 		errorLines.forEach(this::printErrorLine);
 	}
+	
+	//method declaration
+	public abstract void printInfoLine(final String infoLine);
 	
 	//method
 	public default void printInfoLines(final Iterable<String> infoLines) {
