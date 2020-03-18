@@ -1,27 +1,28 @@
 //package declaration
 package ch.nolix.common.baseTest;
 
+//own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class
 /**
- * A test accessor can access a base test.
- * A base test is not made accessible in the normal way
- * because a base test should be accessed only
- * by the definition of an abstract super class of a test.
+ * A {@link TestAccessor} can access a {@link BaseTest}.
+ * A {@link BaseTest} is not accessible in a common way
+ * because it should be accessed only by an abstract base class of a test.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 50
  */
 public final class TestAccessor {
-
+	
 	//attribute
 	private final BaseTest test;
 	
 	//constructor
 	/**
-	 * Creates a new test accessor for the given test.
+	 * Creates a new {@link TestAccessor} for the given test.
 	 * 
 	 * @param test
 	 * @throws ArgumentIsNullException if the given test is null.
@@ -30,23 +31,20 @@ public final class TestAccessor {
 		
 		//Checks if the given test is not null.
 		if (test == null) {
-			throw new ArgumentIsNullException("test");
+			throw new ArgumentIsNullException(VariableNameCatalogue.TEST);
 		}
 		
-		//Sets the test of htis test accessor.
+		//Sets the test of the current TestAccessor.
 		this.test = test;
 	}
 	
 	//method
 	/**
-	 * Adds the given current test method error
-	 * to the test of this test accessor.
+	 * Adds the given expectationError to the test of the current {@link TestAccessor}.
 	 * 
-	 * @param currentTestCaseError
+	 * @param expectationError
 	 */
-	public void addCurrentTestCaseError(
-		final String currentTestCaseError
-	) {
-		test.addCurrentTestCaseError(currentTestCaseError);
+	public void addExpectationError(final String expectationError) {
+		test.addExpectationError(expectationError);
 	}
 }

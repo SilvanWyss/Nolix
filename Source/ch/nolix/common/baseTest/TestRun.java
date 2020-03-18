@@ -15,9 +15,9 @@ public final class TestRun {
 	
 	//attributes
 	private final BaseTest parentTest;
-	private int runtimeInMilliseconds = -1;
 	private final ILinePrinter linePrinter;
 	private boolean started = false;
+	private int runtimeInMilliseconds = -1;
 	
 	//multi-attribute
 	private final List<TestCaseResult> testCaseResults = new List<>();
@@ -99,9 +99,9 @@ public final class TestRun {
 		
 		started = true;
 		final var startTimeInMilliseconds = System.currentTimeMillis();
-		linePrinter.printInfoLine("Started " + parentTest.getName() + ".");
+		linePrinter.printInfoLine("   Started " + parentTest.getName());
 		
-		for (final var tc : getRefTestCases()) {
+		for (final var tc : getRefTestCasesOrderedAlphabetically()) {
 			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).getResult());
 		}
 		
@@ -140,8 +140,8 @@ public final class TestRun {
 	}
 	
 	//method
-	private List<Method> getRefTestCases() {
-		return parentTest.getRefTestCases();
+	private List<Method> getRefTestCasesOrderedAlphabetically() {
+		return parentTest.getRefTestCasesOrderedAlphabetically();
 	}
 	
 	//method
@@ -156,6 +156,7 @@ public final class TestRun {
 	
 	//method
 	private void printSummaryWhenFailed() {
+		
 		linePrinter.printErrorLine(
 			"-->Summary "
 			+ parentTest.getName()
@@ -163,21 +164,28 @@ public final class TestRun {
 			+ getPassedTestCaseCount()
 			+ "/"
 			+ getTestCaseCount()
+			+ " test cases passed "
 			+ getRuntimeAndUnitAsStringInBrackets()
 		);
+		
+		linePrinter.printEmptyLine();
 	}
 	
 	//method
 	private void printSummaryWhenPassed() {
+		
 		linePrinter.printInfoLine(
 			"   Summary "
 			+ parentTest.getName()
 			+ ": "
 			+ getPassedTestCaseCount()
-			+ "/"
+			+ " of "
 			+ getTestCaseCount()
+			+ " test cases passed "
 			+ getRuntimeAndUnitAsStringInBrackets()
 		);
+		
+		linePrinter.printEmptyLine();
 	}
 	
 	//method

@@ -56,7 +56,7 @@ public abstract class Mediator {
 	 * Adds the given current test case error to the test this mediator belongs to.
 	 */
 	protected final void addCurrentTestCaseError(final String error) {
-		new TestAccessor(test).addCurrentTestCaseError(error);
+		new TestAccessor(test).addExpectationError(error);
 	}
 	
 	//method

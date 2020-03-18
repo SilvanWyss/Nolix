@@ -9,189 +9,65 @@ import java.lang.reflect.Modifier;
 //own imports
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.skillAPI.Closable;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 300
+ * @lines 210
  */
 public abstract class BaseTest {
 	
 	//attribute
-	private static final long TEST_CASE_MAX_DURATION_IN_MILLISECONDS = 5000;
-	
-	//optional attribute
-	private Method afterTestCaseMethod;
+	private boolean isTestInstance = false;
 	
 	//multi-attributes
-	private final List<String> lastErrors = new List<>();
+	private final List<Error> expectationErrors = new List<>();
 	private final List<AutoCloseable> closableElements = new List<>();
 	
-	//constructor
+	//method
 	/**
-	 * Creates a new {@link BaseTest}.
+	 * @return the name of the current {@link BaseTest}.
 	 */
-	public BaseTest() {
-		
-		Class<?> class_ = getClass();
-		while (!class_.equals(BaseTest.class)) {
-			
-			for (final var m : class_.getDeclaredMethods()) {
-				if (m.getAnnotation(Cleanup.class) != null) {
-					m.setAccessible(true);
-					afterTestCaseMethod = m;
-					break;
-				}
-			}
-			
-			class_ = class_.getSuperclass();
-		}
-	}
-	
-	//method
-	public BaseTest getCopy() {
-		try {
-			
-			final var constructor = getClass().getConstructor();
-			constructor.setAccessible(true);
-			
-			return constructor.newInstance();
-		}
-		catch (final NoSuchMethodException noSuchMethodException) {
-			throw new InvalidArgumentException(getClass(), "does not have a default constructor");
-		}
-		catch (
-			final
-			IllegalAccessException
-			| IllegalArgumentException
-			| InstantiationException
-			| InvocationTargetException
-			| SecurityException
-			exception
-		) {
-			throw new InvalidArgumentException(this, "could not be copied");
-		}
-	}
-	
-	//method
 	public final String getName() {
 		return getClass().getName();
 	}
 	
 	//method
+	/**
+	 * @return the simple name of the current {@link BaseTest}.
+	 */
 	public final String getSimpleName() {
 		return getClass().getSimpleName();
 	}
-	
+		
 	//method
 	/**
-	 * @return true if the current {@link BaseTest} has a afterTestCaseMethod.
+	 * Runs the test cases of the current {@link BaseTest} and prints out the result to the console.
 	 */
-	public final boolean hasAfterTestCaseMethod() {
-		return (afterTestCaseMethod != null);
+	public final void run() {	
+		run(new StandardConsoleLinePrinter());
 	}
 	
 	//method
 	/**
-	 * Runs the test cases of the current {@link BaseTest} and prints out the test results to the console.
+	 * Runs the test cases of the current {@link BaseTest} and prints out the result using the given linePrinter.
+	 * 
+	 * @param linePrinter
+	 * @throws ArgumentIsNullException if the given linePrinter is null.
 	 */
-	public final void run() {
-		
-		System.out.println(getClass().getName());
-		
-		var passedTestMethodsCount = 0;
-		
-		final var testCases = getRefTestCases();
-		final var testMethodArray = new Method[testCases.getElementCount()];
-		var i = 0;
-		for (final var tc : testCases) {
-			testMethodArray[i] = tc;
-			i++;
-		}
-		
-		boolean swap = true;
-		while (swap) {
-			swap = false;
-			for (i = 0; i < testMethodArray.length - 1; i++) {
-				if (testMethodArray[i + 1].getName().compareTo(testMethodArray[i].getName()) < 0) {
-					swap = true;
-					final Method temp = testMethodArray[i];
-					testMethodArray[i] = testMethodArray[i + 1];
-					testMethodArray[i + 1] = temp;
-				}
-			}
-		}
-		
-		long timeInMiliseconds = System.currentTimeMillis();
-		for (final var m : testMethodArray) {
-			
-			final var testCaseRunner = new TestCaseRunner(this, m);
-			
-			//This loop suffers from being optimized away by the compiler or the JVM.
-			while (!testCaseRunner.isFinished()) {
-				
-				//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
-				System.err.flush();
-				
-				if (m.getAnnotation(IgnoreTimeout.class) == null && testCaseRunner.getRuntimeInMilliseconds() > TEST_CASE_MAX_DURATION_IN_MILLISECONDS) {
-					testCaseRunner.interrupt();
-					break;
-				}
-			}	
-			
-			if (!testCaseRunner.hasExceptionError()) {
-				if (!lastErrors.isEmpty()) {
-					System.err.println("-->FAILED: " + m.getName() + ": (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
-					System.err.flush();
-					var errorCount = 0;
-					for (final var le: lastErrors) {
-						errorCount++;
-						System.err.println("      #" + errorCount + ": " + le);
-						System.err.flush();
-					}
-					lastErrors.clear();
-				}
-				else {
-					passedTestMethodsCount++;
-					System.out.println("   PASSED: " + m.getName() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
-					System.out.flush();
-				}
-			}
-			else {
-				
-				final var fatalError = testCaseRunner.getExceptionError();
-				
-				System.err.println("-->FAILED: " + m.getName() + ": " + fatalError.getErrorMessage() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
-				
-				System.err.flush();
-			}
-
-			closeAndClearClosableElements();
-			runProbableAfterTestCaseMethod();
-		}
-		
-		timeInMiliseconds = System.currentTimeMillis() - timeInMiliseconds;
-		System.out.println(
-			"   summary: "
-			+ passedTestMethodsCount
-			+ "/"
-			+ testCases.getElementCount()
-			+ " passed test cases ("
-			+ timeInMiliseconds
-			+ "ms)");
-		System.out.println();
-		System.out.flush();
+	public void run(final ILinePrinter linePrinter) {
+		new TestRun(this, linePrinter).run();
 	}
 	
-	//TODO: Implement registerToClose(Closable).
 	//method
 	/**
 	 * Lets the current {@link BaseTest} register the given element to close.
 	 * 
 	 * @param element
 	 */
-	final protected void registerToClose(final AutoCloseable element) {
+	protected final void registerToClose(final AutoCloseable element) {
 		if (element != null) {
 			closableElements.addAtEnd(element);
 		}
@@ -199,43 +75,45 @@ public abstract class BaseTest {
 	
 	//method
 	/**
-	 * Adds the given current test case error to the current {@link BaseTest}.
+	 * Lets the current {@link BaseTest} register the given element to close.
 	 * 
-	 * @param currentTestMethodError
+	 * @param element
 	 */
-	final void addCurrentTestCaseError(final String currentTestMethodError) {
+	protected final void registerToClose(final Closable element) {
+		if (element != null) {
+			registerToClose(element.asAutoClosable());
+		}
+	}
+	
+	//method
+	/**
+	 * Adds the given expectationError to the current {@link BaseTest}.
+	 * 
+	 * @param expectationError
+	 */
+	protected final void addExpectationError(final String expectationError) {
 		
 		String className = null;
-		int lineNumber = -1;
-		for (final var ste : Thread.currentThread().getStackTrace()) {
-			if (ste.getClassName().equals(getClass().getName())) {
-				className = ste.getClassName();
-				lineNumber = ste.getLineNumber();
-			}
-		}
-		
-		if (className == null) {
+		var lineNumber = -1;
+		Class<?> lClass = getClass();
+		while (lClass != null) {
+			
 			for (final var ste : Thread.currentThread().getStackTrace()) {
-				Class<?> class_ = getClass();
-				do {
-					
-					if (ste.getClassName().equals(class_.getName())) {
-						className = ste.getClassName();
-						lineNumber = ste.getLineNumber();
-						break;
-					}
-					
-					class_ = class_.getSuperclass();
+				if (ste.getClassName().equals(lClass.getName())) {
+					className = ste.getClassName();
+					lineNumber = ste.getLineNumber();
+					break;
 				}
-				while (class_ != null);
 			}
+			
+			if (className != null) {
+				break;
+			}
+			
+			lClass = lClass.getSuperclass();
 		}
 		
-		if (className == null) {
-			throw new RuntimeException("Class was not found.");
-		}
-		
-		lastErrors.addAtEnd(currentTestMethodError + " (" + className + ".java:" + lineNumber + ")");
+		expectationErrors.addAtEnd(new Error(expectationError, className, lineNumber));
 	}
 	
 	//method
@@ -243,23 +121,93 @@ public abstract class BaseTest {
 	 * @return the expectation errors of the current {@link BaseTest}.
 	 */
 	final List<Error> getExpectationErrors() {
-		//TODO
-		return new List<>();
+		return expectationErrors;
 	}
 	
 	//method
 	/**
+	 * @return the {@link AutoCloseable}s of the current {@link BaseTest}.
+	 */
+	final List<AutoCloseable> getRefClosableElements() {
+		return closableElements;
+	}
+	
+	//method
+	/**
+	 * @return the test cases of the current {@link BaseTest} ordered alphabetically.
+	 */
+	List<Method> getRefTestCasesOrderedAlphabetically() {
+		
+		final var testCasesOrderedAlphabetically = new List<Method>();
+		final var testCases = getRefTestCases();
+		while (!testCases.isEmpty()) {
+			
+			var testCase = testCases.getRefFirst();
+			for (final var tc : testCases) {
+				if (tc.getName().compareTo(testCase.getName()) < 0) {
+					testCase = tc;
+				}
+			}
+			
+			testCases.removeFirst(testCase);
+			testCasesOrderedAlphabetically.addAtEnd(testCase);
+		}
+		
+		return testCasesOrderedAlphabetically;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BaseTest} is a test instance.
+	 */
+	final boolean isTestInstance() {
+		return isTestInstance;
+	}
+	
+	//method
+	/**
+	 * @return a new test instance from the current {@link BaseTest}.
+	 */
+	final BaseTest toTestInstance() {
+		
+		final var testInstance = getCopy();
+		testInstance.isTestInstance = true;
+		
+		return testInstance;
+	}
+	
+	//method
+	/**
+	 * @return a new copy of the current {@link BaseTest}.
+	 * @throws InvalidArgumentException if the current {@link BaseTest} could not be copied.
+	 */
+	private BaseTest getCopy() {
+		try {
+			return ReflectionHelper.getDefaultConstructor(getClass()).newInstance();
+		}
+		catch (
+			final
+			IllegalAccessException
+			| InstantiationException
+			| InvocationTargetException
+			exception
+		) {
+			throw new InvalidArgumentException(this, "could not be copied");
+		}
+	}
+	
+	/**
 	 * @return the test cases of the current {@link BaseTest}.
 	 */
-	final List<Method> getRefTestCases() {
+	private List<Method> getRefTestCases() {
 		
+		//TODO: Use: while (lClass != null) {...}
 		final var testCases = new List<Method>();
-				
 		Class<?> lClass = getClass();
 		while (!lClass.equals(BaseTest.class)) {
 			
 			for (final var m : lClass.getDeclaredMethods()) {
-				if (!Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())) {
+				if (isTestCase(m)) {
 					testCases.addAtEnd(m);
 				}
 			}
@@ -271,30 +219,13 @@ public abstract class BaseTest {
 	}
 	
 	//method
-	private void closeAndClearClosableElements() {
+	/**
+	 * @param method
+	 * @return true if the given method is a test case.
+	 */
+	private boolean isTestCase(final Method method) {
 		
-		for (final var ac : closableElements) {
-			try {
-				ac.close();
-			} catch (final Exception exception) {
-				System.err.println("   An error occured by trying to close an element.");
-				System.out.flush();
-			}
-		}
-		
-		closableElements.clear();
-	}
-	
-	//method
-	private void runProbableAfterTestCaseMethod() {
-		if (hasAfterTestCaseMethod()) {
-			try {
-				afterTestCaseMethod.invoke(this);
-			}
-			catch (final IllegalAccessException | IllegalArgumentException | InvocationTargetException exception) {
-				System.err.println("   An error occured by trying to run an afterTestCase method.");
-				System.out.flush();
-			}
-		}
+		//TODO: Use: return (method != null && ReflectionHelper.methodHasAnnotaction(method, TestCasel.class);
+		return (method != null && !Modifier.isStatic(method.getModifiers()) && Modifier.isPublic(method.getModifiers()));
 	}
 }

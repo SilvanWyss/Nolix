@@ -5,6 +5,7 @@ package ch.nolix.common.baseTest;
 import java.lang.reflect.Method;
 
 //own imports
+import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNotNullException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
@@ -15,7 +16,7 @@ public final class TestCaseResult {
 	
 	//attributes
 	private final Method testCase;
-	private int runtimeInMilliseconds = -1;
+	private final int runtimeInMilliseconds;
 	
 	//optional attribute
 	private final Error exceptionError;
@@ -31,7 +32,7 @@ public final class TestCaseResult {
 	) {
 		
 		if (testCase == null) {
-			throw new ArgumentIsNotNullException("test case method");
+			throw new ArgumentIsNotNullException(VariableNameCatalogue.TEST_CASE);
 		}
 		
 		if (runtimeInMilliseconds < 0) {
@@ -39,7 +40,7 @@ public final class TestCaseResult {
 		}
 		
 		if (expectationErrors == null) {
-			throw new ArgumentIsNullException("expection errors");
+			throw new ArgumentIsNullException("expectation errors");
 		}
 		
 		this.testCase = testCase;
@@ -68,6 +69,10 @@ public final class TestCaseResult {
 			throw new ArgumentIsNullException("expection errors");
 		}
 		
+		if (exceptionError == null) {
+			throw new ArgumentIsNullException("exception error");
+		}
+		
 		this.testCase = testCase;
 		this.runtimeInMilliseconds = runtimeInMilliseconds;
 		this.exceptionError = exceptionError;
@@ -75,13 +80,8 @@ public final class TestCaseResult {
 	}
 	
 	//method
-	public int getExpectionErrorsCount() {
+	public int getExpectationErrorCount() {
 		return expectationErrors.getElementCount();
-	}
-	
-	//method
-	public String getName() {
-		return testCase.getName();
 	}
 	
 	//method
@@ -97,6 +97,11 @@ public final class TestCaseResult {
 	//method
 	public int getRuntimeInMilliseconds() {
 		return runtimeInMilliseconds;
+	}
+	
+	//method
+	public String getTestCaseName() {
+		return testCase.getName();
 	}
 	
 	//method
@@ -133,14 +138,14 @@ public final class TestCaseResult {
 	//method
 	private void fillUpProbableExceptionError(final List<String> consoleLines) {
 		if (hasExceptionError()) {
-			consoleLines.addAtEnd("   " + getExpectionErrorsCount() + " )" + exceptionError.toString());
+			consoleLines.addAtEnd("   " + getExpectationErrorCount() + " )" + exceptionError.toString());
 		}
 	}
 	
 	//method
 	private List<String> getOutputLinesWhenFailed() {
 		
-		final var consoleLines =  new List<>("-->FAILED" + getName() + " (" + getRuntimeAndUnitAsString() + ")");
+		final var consoleLines =  new List<>("-->FAILED: " + getTestCaseName() + " (" + getRuntimeAndUnitAsString() + ")");
 		fillUpExpectationErrors(consoleLines);
 		fillUpProbableExceptionError(consoleLines);
 		
@@ -149,6 +154,6 @@ public final class TestCaseResult {
 	
 	//method
 	private List<String> getOutputLinesWhenPassed() {
-		return new List<>("   PASSED: " + getName() + " (" + getRuntimeAndUnitAsString() + ")");
+		return new List<>("   PASSED: " + getTestCaseName() + " (" + getRuntimeAndUnitAsString() + ")");
 	}
 }

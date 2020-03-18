@@ -10,10 +10,10 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 //class
 public final class TestCaseRun {
 	
-	//constant
+	//limit
 	public static final long MAX_DURATION_IN_MILLISECONDS = 5000;
 	
-	//attributes
+	//attribute
 	private final TestCaseWrapper testCaseWrapper;
 	
 	//constructor
@@ -25,7 +25,7 @@ public final class TestCaseRun {
 	public TestCaseRun(final TestCaseWrapper testCaseWrapper) {
 		
 		if (testCaseWrapper == null) {
-			throw new ArgumentIsNullException("test case wrapper");
+			throw new ArgumentIsNullException(TestCaseWrapper.class);
 		}
 		
 		this.testCaseWrapper = testCaseWrapper;
@@ -33,11 +33,11 @@ public final class TestCaseRun {
 	
 	//method
 	public TestCaseResult getResult() {
-		return (hasTimeout() ? getResultWorkingWithTimeout() : getResultIgnoringTimeout());
+		return (hasTimeout() ? getResultWithTimeout() : getResultWithoutTimeout());
 	}
 	
 	//method
-	public TestCaseResult getResultIgnoringTimeout() {
+	public TestCaseResult getResultWithoutTimeout() {
 
 		final var testCaseRunner = new TestCaseRunner(testCaseWrapper);
 		
@@ -52,7 +52,7 @@ public final class TestCaseRun {
 	}
 	
 	//method
-	public TestCaseResult getResultWorkingWithTimeout() {
+	public TestCaseResult getResultWithTimeout() {
 		
 		final var testCaseRunner = new TestCaseRunner(testCaseWrapper);
 		
@@ -64,7 +64,7 @@ public final class TestCaseRun {
 			if (testCaseRunner.getRuntimeInMilliseconds() > MAX_DURATION_IN_MILLISECONDS) {
 				
 				//TODO: Evaluate lineNumber.
-				final var lineNumber = 0;
+				final var lineNumber = 1;
 				
 				testCaseRunner.stop(
 					new Error(
@@ -81,6 +81,6 @@ public final class TestCaseRun {
 	
 	//method
 	public boolean hasTimeout() {
-		return (testCaseWrapper.testCaseHasTimeout());
+		return testCaseWrapper.testCaseHasTimeout();
 	}
 }

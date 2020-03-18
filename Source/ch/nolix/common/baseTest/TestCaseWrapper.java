@@ -40,7 +40,7 @@ public final class TestCaseWrapper {
 	
 	//method
 	public BaseTest createTestInstance() {
-		return parentTest.getCopy();
+		return parentTest.toTestInstance();
 	}
 	
 	//method

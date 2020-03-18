@@ -87,10 +87,15 @@ public final class TestCaseRunner extends Thread {
 		
 		startTime = System.currentTimeMillis();
 		
-		if (runProbableSetup() && runTestCase()) {
+		var lContinue = runProbableSetup();
+		if (lContinue) {
+			lContinue = runTestCase();
+		}
+		if (lContinue) {
 			runProbableCleanup();
 		}
 		
+		closeClosableElements();
 		result = createResult();
 	}
 	
@@ -101,11 +106,32 @@ public final class TestCaseRunner extends Thread {
 			throw new ArgumentIsNullException("stop reason");
 		}
 		
+		supposeIsNotFinished();
+				
+		exceptionError = stopReason;
 		interrupt();
 		result = createResult();
-		exceptionError = stopReason;
 	}
-
+	
+	//method
+	private void closeClosableElements() {
+		for (final var ce : testInstance.getRefClosableElements()) {
+			try {
+				ce.close();
+			}
+			catch (final Exception exception) {
+				
+				//TODO: Evaluate lineNumber.
+				final var lineNumber = 1;
+				
+				if (!hasExceptionError()) {
+					exceptionError =
+					new Error("An error occured at the try to close an element.", testInstance.getName(), lineNumber);
+				}
+			}
+		}
+	}
+	
 	//method
 	private TestCaseResult createResult() {
 				
@@ -146,7 +172,7 @@ public final class TestCaseRunner extends Thread {
 		) {
 			
 			//TODO: Evaluate lineNumber.
-			final var lineNumber = 0;
+			final var lineNumber = 1;
 			
 			exceptionError = new Error("Cleanup failed", testCaseWrapper.getRefCleanup().getName(), lineNumber);
 			
@@ -171,7 +197,7 @@ public final class TestCaseRunner extends Thread {
 			return runSetup();
 		}
 		
-		return false;
+		return true;
 	}
 	
 	//method
@@ -189,7 +215,7 @@ public final class TestCaseRunner extends Thread {
 		) {
 			
 			//TODO: Evaluate lineNumber.
-			final var lineNumber = 0;
+			final var lineNumber = 1;
 			
 			exceptionError = new Error("Setup failed", testCaseWrapper.getRefSetup().getName(), lineNumber);
 			
@@ -206,8 +232,8 @@ public final class TestCaseRunner extends Thread {
 		catch (final InvocationTargetException invocationTargetException) {
 			
 			String className = null;
-			int lineNumber = -1;
-			for (final var ste : Thread.currentThread().getStackTrace()) {
+			int lineNumber = 0;
+			for (final var ste : invocationTargetException.getCause().getStackTrace()) {
 				if (ste.getClassName().equals(testInstance.getClass().getName())) {
 					className = ste.getClassName();
 					lineNumber = ste.getLineNumber();
@@ -239,6 +265,13 @@ public final class TestCaseRunner extends Thread {
 	private void supposeIsFinished() {
 		if (!isFinished()) {
 			throw new InvalidArgumentException(this, "is not finished");
+		}
+	}
+	
+	//method
+	private void supposeIsNotFinished() {
+		if (isFinished()) {
+			throw new InvalidArgumentException(this, "is finished already");
 		}
 	}
 }

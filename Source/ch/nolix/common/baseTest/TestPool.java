@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.common.baseTest;
 
-//Java import
-import java.lang.reflect.InvocationTargetException;
-
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentContainers.List;
@@ -18,14 +15,23 @@ import ch.nolix.common.skillAPI.Runnable;
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 210
+ * @lines 220
  */
 public abstract class TestPool implements Runnable {
-
+	
 	//multi-attributes
 	private final List<TestPool> testPools = new List<>();
 	private final List<Class<BaseTest>> testClasses = new List<>();
-			
+	
+	//constructor
+	/**
+	 * Creates a new {@link TestPool}.
+	 * 
+	 * {@link TestPool} needs a default constructor is necessary,
+	 * because its other constructors are ambiguous when they are called with empty varargs.
+	 */
+	public TestPool() {}
+	
 	//constructor
 	/**
 	 * Creates a new {@link TestPool} with the given test {@link Class}s.
@@ -112,24 +118,19 @@ public abstract class TestPool implements Runnable {
 	@Override
 	public final void run() {
 		
-		testPools.forEach(TestPool::run);
-		
-		//Iterates the testClasses of the current TestPool.
-		for (final var tc : testClasses ) {
-			try {
-				tc.getDeclaredConstructor().newInstance().run();
-			}
-			catch (final 
-				InstantiationException
-				| IllegalAccessException
-				| IllegalArgumentException
-				| InvocationTargetException
-				| NoSuchMethodException
-				| SecurityException exception
-			) {
-				throw new RuntimeException(exception);
-			}
-		}
+		//Calls other method
+		run(new StandardConsoleLinePrinter());
+	}
+	
+	//method
+	/**
+	 * Runs the {@link BaseTest}s of the current {@link TestPool} recursively using the given linePrinter.
+	 * 
+	 * @param linePrinter
+	 * @throws ArgumentIsNullException if the given linePrinter is null.
+	 */
+	public final void run(final ILinePrinter linePrinter) {
+		new TestPoolRun(this, linePrinter).run();
 	}
 	
 	//method
