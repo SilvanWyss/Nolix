@@ -3,10 +3,11 @@ package ch.nolix.common.baseTest;
 
 //class
 /**
- * A {@link StandardConsoleLinePrinter} uses the standard output stream only and not the error output stream.
+ * A {@link StandardConsoleLinePrinter} uses the standard output stream only
+ * and not additionally the error output stream.
  * The reason is that several output stream cannot be synchronized.
  * Several output streams are flushed independent from each other.
- * The order of the output of several output streams in the console is not guaranteed.
+ * So the order of the output of several output streams in the console is not guaranteed.
  * 
  * @month 2020-03
  * @author Silvan Wyss
@@ -16,7 +17,7 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void printEmptyLine() {
@@ -26,7 +27,7 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void printErrorLine(final String errorLine) {
@@ -36,7 +37,7 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void printInfoLine(final String infoLine) {
