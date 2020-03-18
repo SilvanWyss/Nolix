@@ -2,7 +2,9 @@
 package ch.nolix.common.baseTest;
 
 //Java imports
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 //own import
@@ -28,6 +30,11 @@ final class ReflectionHelper {
 		catch (final NoSuchMethodException noSuchMethodException) {
 			throw new InvalidArgumentException(pClass, "does not have a default constructor");
 		}
+	}
+	
+	//static method
+	public static <A extends Annotation> boolean methodHasAnnotation(final Method method, final Class<A> annotation) {
+		return (method.getAnnotation(annotation) != null);
 	}
 	
 	//static method
