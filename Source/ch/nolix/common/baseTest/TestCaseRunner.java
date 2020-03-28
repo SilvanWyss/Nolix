@@ -61,8 +61,13 @@ public final class TestCaseRunner extends Thread {
 	
 	//method
 	public int getRuntimeInMilliseconds() {
-		
+			
 		if (!isFinished()) {
+			
+			if (!hasStarted()) {
+				return 0;
+			}
+			
 			runtimeInMilliseconds = (int)(System.currentTimeMillis() - startTime);
 		}
 		
@@ -83,9 +88,7 @@ public final class TestCaseRunner extends Thread {
 	@Override
 	public void run() {
 		
-		supposeDidNotStarted();
-		
-		startTime = System.currentTimeMillis();
+		setStarted();
 		
 		var lContinue = runProbableSetup();
 		if (lContinue) {
@@ -255,7 +258,13 @@ public final class TestCaseRunner extends Thread {
 	}
 	
 	//method
-	private void supposeDidNotStarted() {
+	private void setStarted() {
+		supposeHasNotStarted();
+		startTime = System.currentTimeMillis();
+	}
+	
+	//method
+	private void supposeHasNotStarted() {
 		if (hasStarted()) {
 			throw new InvalidArgumentException(this, "has started already");
 		}
