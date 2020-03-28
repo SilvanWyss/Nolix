@@ -125,31 +125,31 @@ public final class TestCaseResult {
 	}
 	
 	//method
-	private void fillUpExpectationErrors(final List<String> consoleLines) {
+	private void fillUpExpectationErrors(final List<String> outputLines) {
 		var i = 1;
 		for (final var es : expectationErrors) {
 			
-			consoleLines.addAtEnd("      " + i + ") " + es.toString());
+			outputLines.addAtEnd("      " + i + ") " + es.toString());
 			
 			i++;
 		}
 	}
 	
 	//method
-	private void fillUpProbableExceptionError(final List<String> consoleLines) {
+	private void fillUpProbableExceptionError(final List<String> outputLines) {
 		if (hasExceptionError()) {
-			consoleLines.addAtEnd("   " + getExpectationErrorCount() + " )" + exceptionError.toString());
+			outputLines.addAtEnd("   " + getExpectationErrorCount() + " )" + exceptionError.toString());
 		}
 	}
 	
 	//method
 	private List<String> getOutputLinesWhenFailed() {
 		
-		final var consoleLines =  new List<>("-->FAILED: " + getTestCaseName() + " (" + getRuntimeAndUnitAsString() + ")");
-		fillUpExpectationErrors(consoleLines);
-		fillUpProbableExceptionError(consoleLines);
+		final var outputLines =  new List<>("-->FAILED: " + getTestCaseName() + " (" + getRuntimeAndUnitAsString() + ")");
+		fillUpExpectationErrors(outputLines);
+		fillUpProbableExceptionError(outputLines);
 		
-		return consoleLines;
+		return outputLines;
 	}
 	
 	//method
