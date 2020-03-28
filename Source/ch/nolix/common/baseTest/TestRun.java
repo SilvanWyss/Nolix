@@ -102,7 +102,7 @@ public final class TestRun {
 		linePrinter.printInfoLine("   Started " + parentTest.getName());
 		
 		for (final var tc : getRefTestCasesOrderedAlphabetically()) {
-			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).getResult());
+			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).runAndGetResult());
 		}
 		
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
