@@ -4,7 +4,7 @@ package ch.nolix.common.baseTest;
 //Java import
 import java.lang.reflect.Method;
 
-//own import
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
@@ -36,6 +36,11 @@ public final class TestCaseRun {
 	//method
 	public boolean hasStarted() {
 		return started;
+	}
+	
+	//method
+	public boolean hasTimeout() {
+		return testCaseWrapper.testCaseHasTimeout();
 	}
 	
 	//method
@@ -87,11 +92,6 @@ public final class TestCaseRun {
 		}
 		
 		return testCaseRunner.getResult();
-	}
-	
-	//method
-	public boolean hasTimeout() {
-		return testCaseWrapper.testCaseHasTimeout();
 	}
 	
 	//method
