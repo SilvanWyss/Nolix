@@ -30,16 +30,11 @@ public final class TestRun {
 		}
 		
 		if (linePrinter == null) {
-			throw new ArgumentIsNullException(ILinePrinter.class);
+			throw new ArgumentIsNullException("line printer");
 		}
 		
 		this.parentTest = parentTest;
 		this.linePrinter = linePrinter;
-	}
-	
-	//method
-	public int getTestCaseCount() {
-		return testCaseResults.getElementCount();
 	}
 	
 	//method
@@ -74,6 +69,11 @@ public final class TestRun {
 	}
 	
 	//method
+	public int getTestCaseCount() {
+		return testCaseResults.getElementCount();
+	}
+	
+	//method
 	public boolean hasStarted() {
 		return started;
 	}
@@ -100,16 +100,17 @@ public final class TestRun {
 	//method
 	public void run() {
 		
-		supposeDidNotStart();
-		
-		started = true;
+		//setup phase
+		setStarted();
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		linePrinter.printInfoLine("   Started " + parentTest.getName());
 		
+		//main phase
 		for (final var tc : getRefTestCasesOrderedAlphabetically()) {
 			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).runAndGetResult());
 		}
 		
+		//result phase
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
 		printSummary();
 	}
@@ -199,7 +200,15 @@ public final class TestRun {
 	}
 	
 	//method
-	private void supposeDidNotStart() {
+	private void setStarted() {
+		
+		supposeHasNotStarted();
+		
+		started = true;
+	}
+	
+	//method
+	private void supposeHasNotStarted() {
 		if (hasStarted()) {
 			throw new InvalidArgumentException(this, "started already");
 		}
