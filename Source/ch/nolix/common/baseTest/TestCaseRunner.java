@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.processProperties.Result;
 
 //class
 public final class TestCaseRunner extends Thread {
@@ -88,16 +89,17 @@ public final class TestCaseRunner extends Thread {
 	@Override
 	public void run() {
 		
+		//setup phase
 		setStarted();
+		final var setupResult = runProbableSetupAndGetResult();
 		
-		var lContinue = runProbableSetup();
-		if (lContinue) {
-			lContinue = runTestCase();
-		}
-		if (lContinue) {
-			runProbableCleanup();
+		//main phase
+		if (setupResult == Result.SUCCESS) {
+			runTestCase();
 		}
 		
+		//result phase
+		runProbableCleanup();
 		closeClosableElements();
 		result = createResult();
 	}
@@ -194,20 +196,20 @@ public final class TestCaseRunner extends Thread {
 	}
 	
 	//method
-	private boolean runProbableSetup()  {
+	private Result runProbableSetupAndGetResult()  {
 		
 		if (testCaseWrapper.hasSetup()) {
-			return runSetup();
+			return runSetupAndGetResult();
 		}
 		
-		return true;
+		return Result.SUCCESS;
 	}
 	
 	//method
-	private boolean runSetup() {
+	private Result runSetupAndGetResult() {
 		try {
 			testCaseWrapper.getRefSetup().invoke(testInstance);
-			return true;
+			return Result.SUCCESS;
 		}
 		catch (
 			final
@@ -222,7 +224,7 @@ public final class TestCaseRunner extends Thread {
 			
 			exceptionError = new Error("Setup failed", testCaseWrapper.getRefSetup().getName(), lineNumber);
 			
-			return false;
+			return Result.FAILURE;
 		}
 	}
 	
