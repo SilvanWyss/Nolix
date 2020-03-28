@@ -11,7 +11,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 //class
 public final class TestCaseRun {
 	
-	//limit
+	//constant
 	public static final long MAX_DURATION_IN_MILLISECONDS = 5000;
 	
 	//attributes

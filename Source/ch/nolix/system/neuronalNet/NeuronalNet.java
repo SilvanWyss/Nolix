@@ -19,7 +19,7 @@ import ch.nolix.system.baseNeuron.FanoutNeuron;
 public final class NeuronalNet<IO>
 extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
-	//limits
+	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
 	private static final int MAX_INPUT_NEURON_COUNT = 1;
 

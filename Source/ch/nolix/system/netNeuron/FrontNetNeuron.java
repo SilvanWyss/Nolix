@@ -26,7 +26,7 @@ public final class FrontNetNeuron<O>
 extends BaseNeuron<FrontNetNeuron<O>, Object, O>
 implements Closable {
 
-	//limits
+	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 0;
 	private static final int MAX_INPUT_NEURON_COUNT = 0;
 	

@@ -20,7 +20,7 @@ import ch.nolix.system.baseNeuron.InputConnection;
  */
 public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	
-	//limits
+	//constants
 	public static final int MIN_INPUT_NEURON_COUNT = 0;
 	public static final int MAX_INPUT_NEURON_COUNT = Integer.MAX_VALUE;
 	

@@ -13,7 +13,7 @@ package ch.nolix.system.baseNeuron;
 public final class SourceNeuron<O>
 extends BaseNeuron<SourceNeuron<O>, Object, O> {
 	
-	//limits
+	//constants
 	public static final int MIN_INPUT_NEURON_COUNT = 0;
 	public static final int MAX_INPUT_NEURON_COUNT = 0;
 	

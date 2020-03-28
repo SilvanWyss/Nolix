@@ -21,7 +21,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	//constant
 	public static final String TYPE_NAME = "TextBox";
 	
-	//limit value
+	//constant
 	public static final int MIN_WIDTH = 10;
 	
 	//constant

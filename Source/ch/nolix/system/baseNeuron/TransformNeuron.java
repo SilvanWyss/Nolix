@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
 public final class TransformNeuron<I, O>
 extends BaseNeuron<TransformNeuron<I, O>, I, O> {
 	
-	//limits
+	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
 	private static final int MAX_INPUT_NEURON_COUNT = 1;
 	

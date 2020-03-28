@@ -51,7 +51,7 @@ extends Widget<BW, BWL> {
 	//constant
 	private static final int VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
 	
-	//limit
+	//constant
 	private static final int MIN_SCROLL_CURSOR_LENGTH = 20;
 	
 	//constants

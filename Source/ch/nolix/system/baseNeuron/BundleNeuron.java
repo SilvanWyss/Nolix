@@ -13,7 +13,7 @@ package ch.nolix.system.baseNeuron;
 public final class BundleNeuron<O>
 extends BaseNeuron<BundleNeuron<O>, O, Iterable<O>> {
 	
-	//limits
+	//constants
 	public static final int MIN_INPUT_NEURON_COUNT = 0;
 	public static final int MAX_INPUT_NEURON_COUNT = Integer.MAX_VALUE;
 	

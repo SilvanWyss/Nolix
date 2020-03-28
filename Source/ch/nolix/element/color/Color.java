@@ -741,11 +741,11 @@ public class Color extends Element<Color> {
 	public static final String YELLOW_GREEN_STRING = "YellowGreen";
 	public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
 	
-	//limits
+	//constants
 	public static final long MIN_COLOR_INT = 0;
 	public static final long MAX_COLOR_INT = 4294967296l;
 	
-	//limits
+	//constants
 	public static final short MIN_COLOR_COMPONENT = 0;
 	public static final short MAX_COLOR_COMPONENT = 255;
 	

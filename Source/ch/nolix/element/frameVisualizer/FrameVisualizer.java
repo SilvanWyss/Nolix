@@ -31,7 +31,7 @@ public final class FrameVisualizer implements IVisualizer {
 	public static final int INITIAL_FRAME_WIDTH = 1200;
 	public static final int INITIAL_FRAME_HEIGHT = 800;
 		
-	//limit values
+	//constants
 	public static final int MIN_WIDTH = 200;
 	public static final int MIN_HEIGHT = 100;
 	

@@ -18,7 +18,7 @@ import ch.nolix.common.containers.ReadContainer;
 public final class FanoutNeuron<O>
 extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	
-	//limits
+	//constants
 	public static final int MIN_INPUT_NEURON_COUNT = 0;
 	public static final int MAX_INPUT_NEURON_COUNT = 1;
 

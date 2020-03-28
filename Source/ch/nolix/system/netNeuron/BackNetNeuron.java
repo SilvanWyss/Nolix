@@ -31,7 +31,7 @@ public final class BackNetNeuron<I>
 extends BaseNeuron<BackNetNeuron<I>, I, I>
 implements Closable {
 	
-	//limits
+	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 0;
 	private static final int MAX_INPUT_NEURON_COUNT = 1;
 		
