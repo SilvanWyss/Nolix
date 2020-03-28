@@ -2,6 +2,7 @@
 package ch.nolix.elementTest.timeTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.time.Time;
 
@@ -58,7 +59,8 @@ public final class TimeTest extends Test {
 		}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
@@ -74,7 +76,8 @@ public final class TimeTest extends Test {
 		expect(time.getMillisecondOfSecond()).isEqualTo(Time.DEFAULT_MILLISECOND_OF_SECOND);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getDay() {
 		
 		//setup

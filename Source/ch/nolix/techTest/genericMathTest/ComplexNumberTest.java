@@ -4,13 +4,16 @@ package ch.nolix.techTest.genericMathTest;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.genericMath.ComplexNumber;
 
 //test class
 public final class ComplexNumberTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getMangitude() {
 		
 		//execution & verification
@@ -21,7 +24,8 @@ public final class ComplexNumberTest extends Test {
 		expect(new ComplexNumber(4.0, 3.0, 10).getMagnitude()).isEqualTo(BigDecimal.valueOf(5.0).setScale(10));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary() {
 		
 		//execution & verification
@@ -30,7 +34,8 @@ public final class ComplexNumberTest extends Test {
 		expectNot(new ComplexNumber(1.0, 1.0).isPureImaginary());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal() {
 		
 		//execution & verification
@@ -39,7 +44,8 @@ public final class ComplexNumberTest extends Test {
 		expectNot(new ComplexNumber(1.0, 1.0).isPureReal());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary() {
 		
 		//execution & verification
@@ -47,7 +53,8 @@ public final class ComplexNumberTest extends Test {
 		expect(new ComplexNumber(0.0, 1.0).isPureImaginary());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal() {
 		
 		//execution & verification

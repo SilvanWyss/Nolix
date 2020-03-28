@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.nodeTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
@@ -12,7 +13,8 @@ import ch.nolix.common.test.ObjectTest;
 //test class
 public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getCopy_1A() {
 		
 		//setup
@@ -27,7 +29,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_1B() {
 		
 		//setup
@@ -42,7 +45,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_2A() {
 		
 		//setup
@@ -58,7 +62,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_2B() {
 		
 		//setup
@@ -74,7 +79,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a(b)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_2C() {
 		
 		//setup
@@ -90,7 +96,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a(b,c,d)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_2D() {
 		
 		//setup
@@ -106,7 +113,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a(b(c))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_3A() {
 		
 		//setup
@@ -122,7 +130,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a(b(c),d(e))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_copy_3B() {
 		
 		//setup
@@ -138,7 +147,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a(b(c,d),e(f,g))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefAttributeAt() {
 		
 		//setup
@@ -161,7 +171,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(() -> testUnit.getRefAttributeAt(4)).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getHeader_1A() {
 		
 		//setup
@@ -175,7 +186,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem(");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getHeader_1B() {
 		
 		//setup
@@ -189,7 +201,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getHeader_1C() {
 		
 		//setup
@@ -203,7 +216,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem.");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getHeader_1D() {
 		
 		//setup
@@ -217,7 +231,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem,");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefOneAttribute_1A() {
 		
 		//setup
@@ -232,7 +247,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefOneAttribute_1B() {
 		
 		//setup
@@ -243,7 +259,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(() -> testUnit.getRefOneAttribute()).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_removeHeader() {
 		
 		//setup
@@ -260,7 +277,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expectNot(testUnit.hasHeader());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_1A() {
 		
 		//setup
@@ -275,7 +293,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_1B() {
 		
 		//setup
@@ -290,7 +309,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_2A() {
 		
 		//setup
@@ -305,7 +325,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("a");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_2B() {
 		
 		//setup
@@ -320,7 +341,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("a(b)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_2C() {
 		
 		//setup
@@ -335,7 +357,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("a(b,c,d)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_2D() {
 		
 		//setup
@@ -350,7 +373,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("a(b(c))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_3A() {
 		
 		//setup
@@ -365,7 +389,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("a(b(c),d(e))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_3B() {
 		
 		//setup
@@ -380,7 +405,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.toString()).isEqualTo("a(b(c,d),e(f,g))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_whenTheGivenStringIsNotValid() {
 		
 		//setup
@@ -392,7 +418,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		.ofType(UnrepresentingArgumentException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_setHeader() {
 		
 		//setup
@@ -409,7 +436,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(testUnit.getHeader()).isEqualTo("Ipsum");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_1() {
 		
 		//setup
@@ -423,7 +451,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("(a,b,c)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2A() {
 		
 		//setup
@@ -437,7 +466,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem$O");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2B() {
 		
 		//setup
@@ -451,7 +481,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem$C");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2C() {
 		
 		//setup
@@ -465,7 +496,8 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result).isEqualTo("Lorem$D");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2D() {
 		
 		//setup

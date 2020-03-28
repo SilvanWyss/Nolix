@@ -2,6 +2,7 @@
 package ch.nolix.systemTest.entityTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
@@ -18,7 +19,8 @@ public final class EntityTest extends Test {
 		public final ValueProperty<Integer> weightInGram = new ValueProperty<>();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification() {
 		
 		//setup

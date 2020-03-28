@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.financeTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.finance.Candlestick;
 import ch.nolix.element.time.Time;
@@ -15,7 +17,8 @@ import ch.nolix.element.time.Time;
  */
 public final class CandleStickTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isBearish_1() {
 		
 		//setup
@@ -32,7 +35,8 @@ public final class CandleStickTest extends Test {
 		expectNot(candleStick.isBearish());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isBearish_2() {
 		
 		//setup
@@ -49,7 +53,8 @@ public final class CandleStickTest extends Test {
 		expect(candleStick.isBearish());
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_isBullish_1() {
 		
 		//setup
@@ -66,7 +71,8 @@ public final class CandleStickTest extends Test {
 		expect(candleStick.isBullish());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isBullish_2() {
 		
 		//setup
@@ -83,7 +89,8 @@ public final class CandleStickTest extends Test {
 		expectNot(candleStick.isBullish());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isHammer() {
 		
 		//setup

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.containerWidgets.SingleContainer;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
@@ -15,7 +17,8 @@ import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
  */
 public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_reset_2() {
 		
 		//setup
@@ -31,7 +34,8 @@ public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 		expect(singleContainer.isEmpty());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_setWidget() {
 		
 		//setup

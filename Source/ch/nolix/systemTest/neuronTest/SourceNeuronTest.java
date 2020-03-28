@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.systemTest.neuronTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.baseNeuron.SourceNeuron;
@@ -8,7 +10,8 @@ import ch.nolix.system.baseNeuron.SourceNeuron;
 //test class
 public final class SourceNeuronTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//setup
@@ -21,7 +24,8 @@ public final class SourceNeuronTest extends Test {
 		expect(sourceNeuron.getRefOutput()).isEqualTo(output);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_whenTheGivenOutputIsNull() {
 		
 		//execution & verification
@@ -31,7 +35,8 @@ public final class SourceNeuronTest extends Test {
 		.withMessage("The given output is null.");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getMaxInputNeuronCount() {
 		
 		//setup

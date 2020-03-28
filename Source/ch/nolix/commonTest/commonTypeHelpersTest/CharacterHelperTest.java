@@ -8,6 +8,8 @@
 //package declaration
 package ch.nolix.commonTest.commonTypeHelpersTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeHelpers.CharacterHelper;
 import ch.nolix.common.test2.Test;
 
@@ -17,7 +19,8 @@ import ch.nolix.common.test2.Test;
 */
 public class CharacterHelperTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testIsDigit() {
 		
 		expectTrue(CharacterHelper.isDigit('0'));
@@ -43,7 +46,8 @@ public class CharacterHelperTest extends Test {
 		expectFalse(CharacterHelper.isDigit(')'));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testIsHexadeciumalDigit() {
 		
 		expectTrue(CharacterHelper.isHexadecimalDigit('0'));

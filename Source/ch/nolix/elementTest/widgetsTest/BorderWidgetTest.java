@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.BorderWidget;
@@ -17,7 +19,8 @@ import ch.nolix.element.widgets.BorderWidget;
  */
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_removeMaxWidth() {
 		
 		//setup
@@ -60,7 +63,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			.isEqualTo(Color.RED);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_setBaseBorderColors_borderColorIsNull() {
 		
 		//execution & verification
@@ -70,7 +74,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		.withMessage("The given border color is null.");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_setMaxWidth() {
 		
 		//setup
@@ -83,7 +88,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		expect(borderWidget.getMaxWidth()).isEqualTo(500);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_setMaxWidth_maxWidthIsNegative() {
 		
 		//execution & verification

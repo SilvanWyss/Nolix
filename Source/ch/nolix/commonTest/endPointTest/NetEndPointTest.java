@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.endPointTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.endPoint.NetEndPoint;
@@ -20,7 +22,8 @@ import ch.nolix.common.validator.Validator;
  */
 public final class NetEndPointTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_send() {
 		
 		//test parameters

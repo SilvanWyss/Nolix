@@ -2,6 +2,7 @@
 package ch.nolix.systemTest.textureTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
@@ -30,7 +31,8 @@ public final class TextureCreatorTest extends Test {
 		}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createTexture() {
 		
 		//setup
@@ -49,7 +51,8 @@ public final class TextureCreatorTest extends Test {
 		}		
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getTexture16x16() {
 		
 		//setup

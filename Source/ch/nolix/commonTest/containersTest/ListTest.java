@@ -4,6 +4,8 @@ package ch.nolix.commonTest.containersTest;
 //Java import
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.SequencePattern;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
@@ -22,7 +24,8 @@ import ch.nolix.common.test.Test;
  */
 public final class ListTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_addAtBegin() {
 		
 		//setup
@@ -35,7 +38,8 @@ public final class ListTest extends Test {
 		.ofType(ArgumentIsNullException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_addAtEnd() {
 		
 		//setup
@@ -48,7 +52,8 @@ public final class ListTest extends Test {
 		.ofType(ArgumentIsNullException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_clear() {
 		
 		//setup
@@ -68,7 +73,8 @@ public final class ListTest extends Test {
 		expect(list.isEmpty());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_contains() {
 		
 		//setup
@@ -101,7 +107,8 @@ public final class ListTest extends Test {
 			);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_contains_2() {
 		
 		//setup
@@ -124,7 +131,8 @@ public final class ListTest extends Test {
 		expectNot(list.contains((s1, s2) -> s1.length() + 6 == s2.length()));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_containsOne() {
 		
 		//setup
@@ -134,7 +142,8 @@ public final class ListTest extends Test {
 		expectNot(list.containsOne());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_containsOne_2() {
 		
 		//setup
@@ -144,7 +153,8 @@ public final class ListTest extends Test {
 		expect(list.containsOne());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_containsOne_3() {
 		
 		//setup
@@ -154,7 +164,8 @@ public final class ListTest extends Test {
 		expectNot(list.containsOne());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_containsOne_4() {
 		
 		//setup
@@ -166,7 +177,8 @@ public final class ListTest extends Test {
 		expectNot(list.containsOne(s -> s.length() == 2));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_forEach() {
 		
 		//setup
@@ -193,7 +205,8 @@ public final class ListTest extends Test {
 			}
 	}
 	
-	//test cases
+	//method
+	@TestCase
 	public void testCase_getContainerFrom() {
 		
 		//setup
@@ -227,7 +240,8 @@ public final class ListTest extends Test {
 			.ofType(ArgumentDoesNotHaveAttributeException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getContainerWithoutFirst() {
 	
 		//setup
@@ -248,7 +262,8 @@ public final class ListTest extends Test {
 		expect(!subList.contains("x"));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefByMax() {
 		
 		//setup
@@ -267,7 +282,8 @@ public final class ListTest extends Test {
 		expect(list.getRefByMax(s -> s)).isEqualTo("toast");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefByMaxInt() {
 		
 		//setup
@@ -284,7 +300,8 @@ public final class ListTest extends Test {
 		expect(list.getRefByMaxInt(s -> s.length())).isEqualTo("xxxxxx");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefByMin() {
 		
 		//setup
@@ -303,7 +320,8 @@ public final class ListTest extends Test {
 		expect(list.getRefByMin(s -> s)).isEqualTo("cake");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefByMinInt() {
 		
 		//setup
@@ -341,7 +359,8 @@ public final class ListTest extends Test {
 		expect(pair.getRefElement2()).isEqualTo("xxxxxx");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSequences() {
 		
 		//setup
@@ -372,7 +391,8 @@ public final class ListTest extends Test {
 			}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSequences_2() {
 		
 		//setup
@@ -410,7 +430,8 @@ public final class ListTest extends Test {
 			}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSize() {
 		
 		//setup
@@ -420,7 +441,8 @@ public final class ListTest extends Test {
 		expect(list.getSize()).isEqualTo(6);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSize_2() {
 		
 		//setup
@@ -439,7 +461,8 @@ public final class ListTest extends Test {
 		expect(list.getCount(e -> e.length() > 6)).isZero();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_getVarianceByDouble() {
 		
 		//setup
@@ -455,7 +478,8 @@ public final class ListTest extends Test {
 		expect(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isEmpty() {
 		
 		//setup
@@ -465,7 +489,8 @@ public final class ListTest extends Test {
 		expect(list.isEmpty());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isEmpty_2() {
 		
 		//setup
@@ -475,7 +500,8 @@ public final class ListTest extends Test {
 		expectNot(list.isEmpty());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_matches() {
 		
 		//setup
@@ -497,7 +523,8 @@ public final class ListTest extends Test {
 		expect(list.matches(sequencePattern));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_matches_2() {
 		
 		//setup
@@ -520,7 +547,8 @@ public final class ListTest extends Test {
 			expect(list.matches(sequencePattern));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_matches_3() {
 		
 		//setup
@@ -535,7 +563,8 @@ public final class ListTest extends Test {
 			expect(list.matches(sequencePattern));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_sort() {
 		
 		//setup
@@ -562,7 +591,8 @@ public final class ListTest extends Test {
 			expect(list.getRefAt(6)).isEqualTo("xxxxxx");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_sort_2() {
 		
 		//setup
@@ -589,7 +619,8 @@ public final class ListTest extends Test {
 			expect(list.getRefAt(6)).isEqualTo("zebra");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toArray() {
 		
 		//setup
@@ -616,7 +647,8 @@ public final class ListTest extends Test {
 			expect(array[5]).isEqualTo("xxxxxx");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toIntArray() {
 		
 		//setup
@@ -643,7 +675,8 @@ public final class ListTest extends Test {
 			expect(array[5]).isEqualTo(6);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString() {
 		
 		//setup
@@ -653,7 +686,8 @@ public final class ListTest extends Test {
 		expect(list.toString()).isEmpty();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2() {
 		
 		//setup

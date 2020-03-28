@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.mathTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.test.Test;
 
@@ -14,7 +16,8 @@ import ch.nolix.common.test.Test;
  */
 public final class CalculatorTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getMax() {
 		
 		//execution
@@ -24,7 +27,8 @@ public final class CalculatorTest extends Test {
 		expect(min).isEqualTo(2.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getMin() {
 		
 		//execution

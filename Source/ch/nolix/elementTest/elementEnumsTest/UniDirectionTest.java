@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.elementEnumsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
@@ -16,7 +18,8 @@ import ch.nolix.element.elementEnums.UniDirection;
  */
 public final class UniDirectionTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getAttributes() {
 		
 		//execution
@@ -30,7 +33,8 @@ public final class UniDirectionTest extends Test {
 			.isEqualTo(Node.fromString("Horizontal"));
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification() {
 		
 		//execution & verification
@@ -38,14 +42,16 @@ public final class UniDirectionTest extends Test {
 		.isEqualTo(Node.fromString("UniDirection(Horizontal)"));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getType() {
 		
 		//execution & verification
 		expect(UniDirection.Horizontal.getType()).isEqualTo("UniDirection");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString() {
 		
 		//execution & verification

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.mathTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.math.Matrix;
 import ch.nolix.common.test.Test;
 
@@ -66,7 +68,8 @@ public final class MatrixTest extends Test {
 		}
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_Add() {
 		
 		//setup
@@ -81,7 +84,8 @@ public final class MatrixTest extends Test {
 		expect(sum).isEqualTo(expectedMatrix);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_AppendAtRight() {
 		
 		//setup
@@ -96,7 +100,8 @@ public final class MatrixTest extends Test {
 		expect(matrix1).isEqualTo(expectedMatrix);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getInverse_1() {
 		
 		//setup
@@ -109,7 +114,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.getProduct(inverse)).isEqualTo(Matrix.createIdendityMatrix(2));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getInverse_2() {
 		
 		//setup
@@ -122,7 +128,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(3));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getInverse_3() {
 		
 		//setup
@@ -135,7 +142,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(4));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getProduct() {
 		
 		//setup
@@ -150,7 +158,8 @@ public final class MatrixTest extends Test {
 		expect(product).isEqualTo(expectedProduct);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSolutionAsExtendedMatrix_1() {
 		
 		//setup
@@ -165,7 +174,8 @@ public final class MatrixTest extends Test {
 		expect(solution[1]).isEqualTo(5.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSolutionAsExtendedMatrix_2() {
 		
 		//setup
@@ -181,7 +191,8 @@ public final class MatrixTest extends Test {
 		expect(solution[2]).isEqualTo(1.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getTransposed() {
 		
 		//setup
@@ -195,7 +206,8 @@ public final class MatrixTest extends Test {
 		expect(transposed).isEqualTo(expectedTransposed);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_1() {
 		
 		//setup
@@ -205,7 +217,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2() {
 		
 		//setup
@@ -215,7 +228,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0,0;0,0]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_3() {
 		
 		//setup
@@ -225,7 +239,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0,0,0;0,0,0;0,0,0]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_4() {
 		
 		//setup
@@ -235,7 +250,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_5() {
 		
 		//setup
@@ -245,7 +261,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[1]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_6() {
 		
 		//setup
@@ -255,7 +272,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[1,0;0,1]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_7() {
 		
 		//setup
@@ -265,7 +283,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[1,0,0;0,1,0;0,0,1]");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_8() {
 		
 		//setup

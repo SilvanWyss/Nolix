@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.validatorTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;
@@ -8,7 +10,8 @@ import ch.nolix.common.validator.Validator;
 //test class
 public final class ArgumentMediatorTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isNotNull() {
 		
 		//setup
@@ -19,7 +22,8 @@ public final class ArgumentMediatorTest extends Test {
 		.doesNotThrowException();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isNotNull_whenTheGivenArgumentIsNull() {
 		
 		//setup
@@ -32,7 +36,8 @@ public final class ArgumentMediatorTest extends Test {
 		.withMessage("The given argument is null.");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isNotNull_whenTheGivenArgumentIsNullAndTheNameOfTheArgumentIsGiven() {
 		
 		//setup
@@ -45,7 +50,8 @@ public final class ArgumentMediatorTest extends Test {
 		.withMessage("The given test object is null.");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_isNotNull_whenTheGivenArgumentIsNullAndTheTypeOfTheArgumentIsGiven() {
 		
 		//setup

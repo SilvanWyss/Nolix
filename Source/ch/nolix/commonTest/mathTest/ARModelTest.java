@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.mathTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.math.ARModel;
 import ch.nolix.common.test.Test;
 
@@ -15,7 +16,8 @@ import ch.nolix.common.test.Test;
  */
 public final class ARModelTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_1() {
 		
 		//execution
@@ -29,7 +31,8 @@ public final class ARModelTest extends Test {
 		expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_2() {
 		
 		//execution
@@ -43,7 +46,8 @@ public final class ARModelTest extends Test {
 		expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_3() {
 		
 		//execution
@@ -57,7 +61,8 @@ public final class ARModelTest extends Test {
 		expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_4() {
 		
 		//execution
@@ -71,7 +76,8 @@ public final class ARModelTest extends Test {
 		expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_5() {
 		
 		//execution
@@ -87,7 +93,8 @@ public final class ARModelTest extends Test {
 		expect(lARModel.getForecast(6)).withMaxDeviation(0.01).isEqualTo(3.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_creation_6() {
 		
 		//exection

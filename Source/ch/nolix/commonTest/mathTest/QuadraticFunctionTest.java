@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.mathTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.QuadraticFunction;
 import ch.nolix.common.test.Test;
@@ -15,7 +17,8 @@ import ch.nolix.common.test.Test;
  */
 public final class QuadraticFunctionTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution & verification
@@ -24,7 +27,8 @@ public final class QuadraticFunctionTest extends Test {
 		.ofType(InvalidArgumentException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_hasMin() {
 		
 		//setup
@@ -35,7 +39,8 @@ public final class QuadraticFunctionTest extends Test {
 		expect(quadraticFunction.hasMin());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_hasMin_2() {
 		
 		//setup

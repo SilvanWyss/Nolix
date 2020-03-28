@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.containerWidgets.Accordion;
 import ch.nolix.element.containerWidgets.AccordionExpansionBehavior;
 import ch.nolix.element.containerWidgets.AccordionTab;
@@ -16,7 +18,8 @@ import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
  */
 public final class AccordionTest extends BorderWidgetTest<Accordion> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_addTab() {
 		
 		//setup
@@ -33,7 +36,8 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		expect(tab1.isExpanded());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_clear() {
 		
 		//setup
@@ -52,7 +56,8 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		expect(accordion.isEmpty());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_expandTab() {
 		
 		//setup
@@ -76,7 +81,8 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		expectNot(tab4.isExpanded());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getType() {
 		
 		//setup

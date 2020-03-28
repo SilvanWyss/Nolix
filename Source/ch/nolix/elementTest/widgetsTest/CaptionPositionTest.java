@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.widgets.CaptionPosition;
 
@@ -14,7 +16,8 @@ import ch.nolix.element.widgets.CaptionPosition;
  */
 public final class CaptionPositionTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification() {
 		
 		//execution & verification
@@ -55,7 +58,8 @@ public final class CaptionPositionTest extends Test {
 			.isEqualTo("CaptionPosition(BottomRight)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString() {
 		
 		//execution & verification

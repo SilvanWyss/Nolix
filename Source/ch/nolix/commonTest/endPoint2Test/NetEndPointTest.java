@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.endPoint2Test;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.endPoint2.EndPoint;
 import ch.nolix.common.endPoint2.IEndPointTaker;
 import ch.nolix.common.endPoint2.NetEndPoint;
@@ -41,7 +42,8 @@ public final class NetEndPointTest extends Test {
 		}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//test parameter
@@ -65,7 +67,8 @@ public final class NetEndPointTest extends Test {
 		netServer.close();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_send() {
 		
 		//test parameter

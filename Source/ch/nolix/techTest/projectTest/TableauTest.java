@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.techTest.projectTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
@@ -17,7 +19,8 @@ import ch.nolix.tech.project.Task;
  */
 public final class TableauTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_addTask() {
 		
 		//setup
@@ -35,7 +38,8 @@ public final class TableauTest extends Test {
 		expect(project.getRefTasks().contains(task2));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_addTask_2() {
 		
 		//setup
@@ -48,7 +52,8 @@ public final class TableauTest extends Test {
 		.ofType(ArgumentIsNullException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_addTask_3() {
 		
 		//setup
@@ -62,7 +67,8 @@ public final class TableauTest extends Test {
 		.ofType(InvalidArgumentException.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_clear() {
 		
 		//setup

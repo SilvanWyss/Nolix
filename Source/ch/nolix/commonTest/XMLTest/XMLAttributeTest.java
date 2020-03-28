@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.XMLTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.XML.XMLAttribute;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.test.Test;
@@ -8,14 +10,16 @@ import ch.nolix.common.test.Test;
 //test class
 public final class XMLAttributeTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution & verification
 		expect(() -> new XMLAttribute("x", StringCatalogue.EMPTY_STRING));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_2() {
 		
 		//execution
@@ -26,7 +30,8 @@ public final class XMLAttributeTest extends Test {
 		expect(XMLAttribute.getValue()).isEqualTo("green");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString() {
 		
 		//setup

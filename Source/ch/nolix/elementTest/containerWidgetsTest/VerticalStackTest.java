@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.GUI.WidgetState;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.Label;
@@ -18,7 +20,8 @@ import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
  */
 public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
@@ -30,7 +33,8 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 		expectNot(verticalStack.belongsToGUI());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_clear() {
 		
 		//setup

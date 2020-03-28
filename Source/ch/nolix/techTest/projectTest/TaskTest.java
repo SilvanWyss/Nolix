@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.techTest.projectTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Task;
 
@@ -14,7 +16,8 @@ import ch.nolix.tech.project.Task;
  */
 public final class TaskTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 				
 		//setup

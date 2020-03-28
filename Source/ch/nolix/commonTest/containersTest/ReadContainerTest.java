@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.commonTest.containersTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.test.Test;
 
 //class
 public final class ReadContainerTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//setup
@@ -32,7 +35,8 @@ public final class ReadContainerTest extends Test {
 			expect(readContainer.getRefAt(9)).isEqualTo("palm");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_containsEqualing() {
 		
 		//setup
@@ -58,7 +62,8 @@ public final class ReadContainerTest extends Test {
 			expectNot(readContainer.containsEqualing("uranus"));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefSelected() {
 		
 		//setup

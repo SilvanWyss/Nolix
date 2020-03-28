@@ -2,6 +2,7 @@
 package ch.nolix.systemTest.entityTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
@@ -10,7 +11,8 @@ import ch.nolix.system.entity.MultiValueProperty;
 //test class
 public final class MultiValuePropertyTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification_whenMultiPropertyIsEmpty() {
 		
 		//setup
@@ -31,7 +33,8 @@ public final class MultiValuePropertyTest extends Test {
 		expect(result.toString()).isEqualTo("testUnit");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification_whenMultiPropertyContainsValues() {
 		
 		//setup
@@ -52,7 +55,8 @@ public final class MultiValuePropertyTest extends Test {
 		expect(result.toString()).isEqualTo("testUnit(a,b,c)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getCellSpecification_whenMultiPropertyIsEmpty() {
 		
 		//setup
@@ -72,7 +76,8 @@ public final class MultiValuePropertyTest extends Test {
 		expect(result.toString()).isEqualTo("");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getCellSpecification_whenMultiPropertyContainsValues() {
 		
 		//setup

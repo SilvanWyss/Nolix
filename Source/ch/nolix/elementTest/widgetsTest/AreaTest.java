@@ -2,6 +2,7 @@
 package ch.nolix.elementTest.widgetsTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.Area;
 
@@ -15,7 +16,8 @@ import ch.nolix.element.widgets.Area;
  */
 public final class AreaTest extends WidgetTest<Area> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_containsPoint() {
 		
 		//setup
@@ -37,7 +39,8 @@ public final class AreaTest extends WidgetTest<Area> {
 		expectNot(area.containsPoint(500, 199));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_equals() {
 		
 		//setup 
@@ -48,7 +51,8 @@ public final class AreaTest extends WidgetTest<Area> {
 		expect(area.equals(area2));
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_removeBackgroundColor() {
 		
 		//setup
@@ -64,7 +68,8 @@ public final class AreaTest extends WidgetTest<Area> {
 		expectNot(area.hasBackgroundColor());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_setBackgroundColor() {
 		
 		//setup

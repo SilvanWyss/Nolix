@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.mathTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.math.Polynom;
 import ch.nolix.common.test.Test;
 
@@ -15,7 +16,8 @@ import ch.nolix.common.test.Test;
  */
 public final class PolynomTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
@@ -25,7 +27,8 @@ public final class PolynomTest extends Test {
 		expect(polynom.getDegree()).isEqualTo(10);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_integrate_1() {
 		
 		//setup
@@ -39,7 +42,8 @@ public final class PolynomTest extends Test {
 		expect(polynom.toString()).isEqualTo("x->2x^3");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_integrate_2() {
 		
 		//setup
@@ -58,7 +62,8 @@ public final class PolynomTest extends Test {
 		expect(coefficients[1]).isEqualTo(6.0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_1() {
 		
 		//setup
@@ -68,7 +73,8 @@ public final class PolynomTest extends Test {
 		expect(polynom.toString()).isEqualTo("x->x^2+2x+3");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toString_2() {
 		
 		//setup

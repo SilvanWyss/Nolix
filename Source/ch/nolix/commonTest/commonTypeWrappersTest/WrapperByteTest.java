@@ -2,13 +2,15 @@
 package ch.nolix.commonTest.commonTypeWrappersTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.test.Test;
 
 //test class
 public final class WrapperByteTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getBitAtAsInt() {
 		
 		//setup
@@ -35,7 +37,8 @@ public final class WrapperByteTest extends Test {
 		expect(resultBit8).isEqualTo(0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getBitAtAsInt_2() {
 		
 		//setup
@@ -62,7 +65,8 @@ public final class WrapperByteTest extends Test {
 		expect(resultBit8).isEqualTo(1);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getBitAtAsInt_3() {
 		
 		//setup
@@ -89,7 +93,8 @@ public final class WrapperByteTest extends Test {
 		expect(resultBit8).isEqualTo(0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getBitAtAsInt_4() {
 		
 		//setup
@@ -116,7 +121,8 @@ public final class WrapperByteTest extends Test {
 		expect(resultBit8).isEqualTo(1);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBitString() {
 		
 		//setup
@@ -129,7 +135,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo("00000000");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBitString_2() {
 		
 		//setup
@@ -142,7 +149,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo("00000111");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBitString_3() {
 		
 		//setup
@@ -155,7 +163,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo("11100000");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBitString_4() {
 		
 		//setup
@@ -168,7 +177,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo("11111111");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toByte() {
 		for (var i = 0; i <= 255; i++) {
 			
@@ -183,7 +193,8 @@ public final class WrapperByteTest extends Test {
 		}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt() {
 		
 		//setup
@@ -196,7 +207,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo(0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_2() {
 		
 		//setup
@@ -209,7 +221,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo(7);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_3() {
 		
 		//setup
@@ -222,7 +235,8 @@ public final class WrapperByteTest extends Test {
 		expect(result).isEqualTo(224);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_4() {
 		
 		//setup

@@ -2,6 +2,7 @@
 package ch.nolix.systemTest.entityTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
@@ -10,7 +11,8 @@ import ch.nolix.system.entity.ValueProperty;
 //test class
 public final class ValuePropertyTest extends Test {
 		
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification() {
 		
 		//setup
@@ -31,7 +33,8 @@ public final class ValuePropertyTest extends Test {
 		expect(result.toString()).isEqualTo("testUnit(x)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getCellSpecification() {
 		
 		//setup

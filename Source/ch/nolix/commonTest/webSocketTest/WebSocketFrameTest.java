@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketFrame;
@@ -14,7 +15,8 @@ import ch.nolix.common.webSocket.WebSocketFrameOpcodeMeaning;
 //test class
 public final class WebSocketFrameTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_whenMaskBitIsFalse() {
 		
 		//setup
@@ -53,7 +55,8 @@ public final class WebSocketFrameTest extends Test {
 		expect(resultPayload[1]).isEqualTo(32);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 		
 		//setup
@@ -68,7 +71,8 @@ public final class WebSocketFrameTest extends Test {
 		expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000000");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 		
 		//setup
@@ -83,7 +87,8 @@ public final class WebSocketFrameTest extends Test {
 		expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000000");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 		
 		//setup

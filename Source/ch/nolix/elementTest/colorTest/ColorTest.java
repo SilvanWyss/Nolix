@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.colorTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;
 
@@ -14,7 +16,8 @@ import ch.nolix.element.color.Color;
  */
 public final class ColorTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
@@ -25,7 +28,8 @@ public final class ColorTest extends Test {
 		expect(color.hasFullAlphaValue());
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation_2() {
 		
 		//execution
@@ -36,7 +40,8 @@ public final class ColorTest extends Test {
 		expect(color.hasFullAlphaValue());
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_equals() {
 		
 		//setup
@@ -50,7 +55,8 @@ public final class ColorTest extends Test {
 		expect(equals);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getAlphaValue() {
 		
 		//setup
@@ -63,7 +69,8 @@ public final class ColorTest extends Test {
 		expect(alphaValue).isEqualTo(0xA0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getBlueValue() {
 		
 		//setup
@@ -76,7 +83,8 @@ public final class ColorTest extends Test {
 		expect(blueValue).isEqualTo(0x30);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getGreenValue() {
 		
 		//setup
@@ -89,7 +97,8 @@ public final class ColorTest extends Test {
 		expect(greenValue).isEqualTo(0x20);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getHexadecimalValueOrColorName() {
 		
 		//setup
@@ -102,7 +111,8 @@ public final class ColorTest extends Test {
 		expect(result).isEqualTo("AliceBlue");
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_getHexadecimalValueOrColorName_2() {
 		
 		//setup
@@ -115,7 +125,8 @@ public final class ColorTest extends Test {
 		expect(result).isEqualTo("YellowGreen");
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_getInvertedColor_whenTheGivenColorIsBlack() {
 		
 		//setup
@@ -128,7 +139,8 @@ public final class ColorTest extends Test {
 		expect(invertedColor.getIntValue()).isEqualTo(0xFFFFFF);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getInvertedColor_whenTheGivenColorIsWhite() {
 		
 		//setup
@@ -141,7 +153,8 @@ public final class ColorTest extends Test {
 		expect(invertedColor.getIntValue()).isEqualTo(0x000000);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRedValue() {
 		
 		//setup
@@ -154,7 +167,8 @@ public final class ColorTest extends Test {
 		expect(redValue).isEqualTo(0x10);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification() {
 		
 		//setup
@@ -167,7 +181,8 @@ public final class ColorTest extends Test {
 		expect(specification.toString()).isEqualTo("Color(0x102030)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecificationAs() {
 		
 		//setup
@@ -180,7 +195,8 @@ public final class ColorTest extends Test {
 		expect(specification.toString()).isEqualTo("BackgroundColor(0x102030)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getType() {
 		
 		//setup
@@ -193,7 +209,8 @@ public final class ColorTest extends Test {
 		expect(type).isEqualTo("Color");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toColorWithFullAlphaValue() {
 		
 		//setup
@@ -206,7 +223,8 @@ public final class ColorTest extends Test {
 		expect(colorWithFullAlphaValue.getAlphaValue()).isEqualTo(255);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toColorWithFullAlphaValue_2() {
 		
 		//setup

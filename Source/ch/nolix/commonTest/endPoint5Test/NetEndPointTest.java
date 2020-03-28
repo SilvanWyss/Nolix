@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.endPoint5Test;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.endPoint5.EndPoint;
@@ -75,7 +76,8 @@ public final class NetEndPointTest extends Test {
 		}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//test parameter
@@ -99,7 +101,8 @@ public final class NetEndPointTest extends Test {
 		netServer.close();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_run() {
 		
 		//test parameter
@@ -122,7 +125,8 @@ public final class NetEndPointTest extends Test {
 		netServer.close();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getData() {
 		
 		//test parameter

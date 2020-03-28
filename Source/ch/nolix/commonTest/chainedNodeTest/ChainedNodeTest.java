@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.chainedNodeTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.test.Test;
@@ -16,7 +17,8 @@ import ch.nolix.common.test.Test;
  */
 public final class ChainedNodeTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_1A() {
 		
 		//execution
@@ -29,7 +31,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_1B() {
 		
 		//execution
@@ -42,7 +45,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_1C() {
 		
 		//execution
@@ -55,7 +59,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_2A() {
 		
 		//execution
@@ -68,7 +73,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a.b");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_2B() {
 		
 		//execution
@@ -81,7 +87,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b).c");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_2C() {
 		
 		//execution
@@ -94,7 +101,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a.b(c)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_2D() {
 		
 		//execution
@@ -107,7 +115,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("(a.b).c");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_2E() {
 		
 		//execution
@@ -120,7 +129,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a.(b.c)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_2F() {
 		
 		//execution
@@ -133,7 +143,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a.b.c");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_3A() {
 		
 		//execution
@@ -146,7 +157,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b,c,d)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_3B() {
 		
 		//execution
@@ -159,7 +171,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b(c),d(e),f(g))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_3C() {
 		
 		//execution
@@ -172,7 +185,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b.c,d.e,f.g)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_3D() {
 		
 		//execution
@@ -185,7 +199,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b(c).d,e(f).g,h(i).j)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_3E() {
 		
 		//execution
@@ -198,7 +213,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b.c(d),e.(f.g),h.(i,j))");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_fromString_3F() {
 		
 		//execution
@@ -211,7 +227,8 @@ public final class ChainedNodeTest extends Test {
 		expect(chainedNode.toString()).isEqualTo("a(b.c.d,e.f.g,h.i.j)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_1A() {
 		
 		//setup
@@ -224,7 +241,8 @@ public final class ChainedNodeTest extends Test {
 		expect(result).isEqualTo(-100);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_1B() {
 		
 		//setup
@@ -237,7 +255,8 @@ public final class ChainedNodeTest extends Test {
 		expect(result).isEqualTo(0);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_1C() {
 		
 		//setup
@@ -250,7 +269,8 @@ public final class ChainedNodeTest extends Test {
 		expect(result).isEqualTo(100);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_whenTheChainedNodeDoesNotRepresentAnInt_1A() {
 		
 		//setup
@@ -263,7 +283,8 @@ public final class ChainedNodeTest extends Test {
 		.withMessage("The given ChainedNode does not represent an Integer.");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt_whenTheChainedNodeDoesNotRepresentAnInt_1B() {
 		
 		//setup

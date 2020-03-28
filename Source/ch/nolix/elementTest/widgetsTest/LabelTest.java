@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.Label;
 
@@ -14,7 +16,8 @@ import ch.nolix.element.widgets.Label;
  */
 public final class LabelTest extends WidgetTest<Label> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefBaseLook_setTextColor() {
 		
 		//setup
@@ -27,7 +30,8 @@ public final class LabelTest extends WidgetTest<Label> {
 		expect(label.getRefBaseLook().getRecursiveOrDefaultTextColor()).isEqualTo(Color.BLUE);
 	}
 		
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRefBaseLook_setTextSize() {
 		
 		//setup
@@ -40,7 +44,8 @@ public final class LabelTest extends WidgetTest<Label> {
 		expect(label.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(25);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_setText() {
 		
 		//setup

@@ -2,6 +2,7 @@
 package ch.nolix.systemTest.dataTypesTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.dataTypes.BackReferenceType;
 import ch.nolix.system.dataTypes.DataTypeHelper;
@@ -119,7 +120,8 @@ public final class DataTypeHelperTest extends Test {
 		public final MultiReference<Entity3C> multiReference = new MultiReference<>();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForValueProperty() {
 		
 		//setup
@@ -134,7 +136,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(String.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForOptionalValueProperty() {
 		
 		//setup
@@ -149,7 +152,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(String.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForMultiValueProperty() {
 		
 		//setup
@@ -164,7 +168,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(String.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForReference() {
 		
 		//setup
@@ -179,7 +184,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(Entity2D.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForOptionalReference() {
 		
 		//setup
@@ -194,7 +200,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(Entity2D.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForMultiReference() {
 		
 		//setup
@@ -209,7 +216,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(Entity2D.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForBackReference() {
 		
 		//setup
@@ -224,7 +232,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(Entity3D.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForOptionalBackReference() {
 		
 		//setup
@@ -239,7 +248,8 @@ public final class DataTypeHelperTest extends Test {
 		expect(result.getRefContentClass()).isSameAs(Entity3E.class);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createDatatypeForMultiBackReference() {
 		
 		//setup

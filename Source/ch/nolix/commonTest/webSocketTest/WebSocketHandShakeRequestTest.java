@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.webSocketTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
@@ -9,7 +10,8 @@ import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
 //test class
 public final class WebSocketHandShakeRequestTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase() {
 		
 		//setup

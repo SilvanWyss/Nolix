@@ -4,7 +4,6 @@ package ch.nolix.common.baseTest;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 
 //own imports
 import ch.nolix.common.independentContainers.List;
@@ -15,7 +14,7 @@ import ch.nolix.common.skillAPI.Closable;
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 210
+ * @lines 220
  */
 public abstract class BaseTest {
 	
@@ -201,10 +200,9 @@ public abstract class BaseTest {
 	 */
 	private List<Method> getRefTestCases() {
 		
-		//TODO: Use: while (lClass != null) {...}
 		final var testCases = new List<Method>();
 		Class<?> lClass = getClass();
-		while (!lClass.equals(BaseTest.class)) {
+		while (lClass != null) {
 			
 			for (final var m : lClass.getDeclaredMethods()) {
 				if (isTestCase(m)) {
@@ -224,8 +222,6 @@ public abstract class BaseTest {
 	 * @return true if the given method is a test case.
 	 */
 	private boolean isTestCase(final Method method) {
-		
-		//TODO: Use: return (method != null && ReflectionHelper.methodHasAnnotaction(method, TestCasel.class);
-		return (method != null && !Modifier.isStatic(method.getModifiers()) && Modifier.isPublic(method.getModifiers()));
+		return (method != null && ReflectionHelper.methodHasAnnotation(method, TestCase.class));
 	}
 }

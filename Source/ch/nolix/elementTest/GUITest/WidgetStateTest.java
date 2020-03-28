@@ -2,13 +2,15 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.GUI.WidgetState;
 
 //test class
 public final class WidgetStateTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification_whenHovered() {
 		
 		//setup
@@ -21,7 +23,8 @@ public final class WidgetStateTest extends Test {
 		expect(result).hasStringRepresentation("WidgetState(Hovered)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSpecification_whenNormal() {
 		
 		//setup
@@ -34,7 +37,8 @@ public final class WidgetStateTest extends Test {
 		expect(result).hasStringRepresentation("WidgetState(Normal)");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toCamelCaseString_whenHovered() {
 		
 		//setup
@@ -47,7 +51,8 @@ public final class WidgetStateTest extends Test {
 		expect(result).isEqualTo("Hovered");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toCamelCaseString_whenNormal() {
 		
 		//setup

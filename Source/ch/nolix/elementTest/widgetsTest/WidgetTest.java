@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.Widget;
 
@@ -16,7 +18,8 @@ import ch.nolix.element.GUI.Widget;
 public abstract class WidgetTest<W extends Widget<W, ?>>
 extends ObjectTest<W> {
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_collapse() {
 		
 		//setup
@@ -29,7 +32,8 @@ extends ObjectTest<W> {
 		expect(widget.isCollapsed());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_getHeight() {
 		
 		//setup
@@ -42,7 +46,8 @@ extends ObjectTest<W> {
 		expect(widget.getHeight()).isZero();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_getWidth() {
 		
 		//setup
@@ -55,7 +60,8 @@ extends ObjectTest<W> {
 		expect(widget.getWidth()).isZero();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_reset() {
 		
 		//setup

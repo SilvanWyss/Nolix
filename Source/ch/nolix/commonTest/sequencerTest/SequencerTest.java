@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.sequencerTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.sequencer.ResultFuture;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
@@ -16,7 +18,8 @@ import ch.nolix.common.test.Test;
  */
 public final class SequencerTest extends Test {
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_runInBackground() {
 				
 		//execution

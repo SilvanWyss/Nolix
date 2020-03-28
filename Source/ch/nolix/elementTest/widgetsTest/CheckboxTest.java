@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.widgets.Checkbox;
 
 //test class
@@ -13,7 +15,8 @@ import ch.nolix.element.widgets.Checkbox;
  */
 public final class CheckboxTest extends WidgetTest<Checkbox> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
@@ -23,7 +26,8 @@ public final class CheckboxTest extends WidgetTest<Checkbox> {
 		expectNot(checkBox.isChecked());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_check() {
 		
 		//setup
@@ -39,7 +43,8 @@ public final class CheckboxTest extends WidgetTest<Checkbox> {
 		expect(checkBox.isChecked());
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_uncheck() {
 		
 		//setup

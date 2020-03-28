@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.containersTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.test.Test;
 
@@ -14,7 +16,8 @@ import ch.nolix.common.test.Test;
  */
 public final class MatrixTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_addColumn() {
 		
 		//setup
@@ -29,7 +32,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.getColumn(1).toString()).isEqualTo("apple,banana,cerish");
 	}
 
-	//test case
+	//method
+	@TestCase
 	public void testCase_addRow() {
 		
 		//setup
@@ -44,7 +48,8 @@ public final class MatrixTest extends Test {
 		expect(matrix.getRow(1).toString()).isEqualTo("apple,banana,cerish");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getColumn() {
 		
 		//setup
@@ -70,7 +75,8 @@ public final class MatrixTest extends Test {
 			expect(column3.toString()).isEqualTo("cerish,monkey,palm");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getCopy() {
 		
 		//setup
@@ -92,7 +98,8 @@ public final class MatrixTest extends Test {
 			expect(copy.getRow(3).toString()).isEqualTo("flower,tree,palm");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getIndexOf() {
 		
 		//setup
@@ -125,7 +132,8 @@ public final class MatrixTest extends Test {
 		expect(index9).isEqualTo(9);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getRow() {
 		
 		//setup
@@ -151,7 +159,8 @@ public final class MatrixTest extends Test {
 			expect(row3.toString()).isEqualTo("flower,tree,palm");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toLeftRotatedMatrix() {
 		
 		//setup
@@ -173,7 +182,8 @@ public final class MatrixTest extends Test {
 			expect(leftRotatedMatrix.getRow(3).toString()).isEqualTo("apple,elephant,flower");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toRightRotatedMatrix() {
 		
 		//setup

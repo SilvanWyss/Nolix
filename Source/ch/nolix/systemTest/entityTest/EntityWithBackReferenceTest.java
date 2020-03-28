@@ -2,6 +2,7 @@
 package ch.nolix.systemTest.entityTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.BackReference;
@@ -28,7 +29,8 @@ public final class EntityWithBackReferenceTest extends Test {
 		private final BackReference<Entity1A> backReference = new BackReference<>("reference");
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_extractProperties_whenTheBackReferencedReferenceDoesNotExist() {
 		
 		//setup

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.commonTypeHelpersTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.test.Test;
 
@@ -14,7 +16,8 @@ import ch.nolix.common.test.Test;
  */
 public class StringHelperTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_createStringWithoutLastCharacters() {
 		
 		expect(StringHelper.createStringWithoutLastCharacters("cheeseburger", 0))
@@ -27,7 +30,8 @@ public class StringHelperTest extends Test {
 		.isEmpty();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_toInt() {
 		
 		expect(StringHelper.toInt("1")).isEqualTo(1);

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.widgetsTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.TextBox;
 
@@ -14,7 +16,8 @@ import ch.nolix.element.widgets.TextBox;
  */
 public class TextBoxTest extends BorderWidgetTest<TextBox> {
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_creation() {
 		
 		//execution
@@ -24,7 +27,8 @@ public class TextBoxTest extends BorderWidgetTest<TextBox> {
 		expect(textBox.getText()).isEmpty();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_setNormalTextColor() {
 		
 		//setup
@@ -44,7 +48,8 @@ public class TextBoxTest extends BorderWidgetTest<TextBox> {
 			.isEqualTo(Color.BLUE);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public final void testCase_setText() {
 		
 		//setup

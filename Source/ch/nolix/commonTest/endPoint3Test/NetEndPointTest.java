@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.endPoint3Test;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.endPoint3.EndPoint;
 import ch.nolix.common.endPoint3.IEndPointTaker;
 import ch.nolix.common.endPoint3.NetEndPoint;
@@ -49,7 +50,8 @@ public final class NetEndPointTest extends Test {
 		}
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//test parameter
@@ -73,7 +75,8 @@ public final class NetEndPointTest extends Test {
 		netServer.close();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_sendAndGetReply() {
 		
 		//test parameter

@@ -2,6 +2,7 @@
 package ch.nolix.templatesTest.GUILooksTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
@@ -22,7 +23,8 @@ import ch.nolix.element.widgets.VerticalStack;
 //test class
 public abstract class GUILookTest<GL extends StandardConfiguration> extends ObjectTest<GL> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_configure_whenTheGUIContainsWidgets() {
 		
 		//setup
@@ -34,7 +36,8 @@ public abstract class GUILookTest<GL extends StandardConfiguration> extends Obje
 		expect(() -> createTestObject().configure(GUI)).doesNotThrowException();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_configure_whenTheGUIIsEmpty() {
 		
 		//setup

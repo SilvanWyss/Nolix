@@ -2,6 +2,7 @@
 package ch.nolix.commonTest.licenseTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.license.CentralLicenseManager;
@@ -12,14 +13,16 @@ import ch.nolix.common.test.Test;
 //test class
 public final class CentralLicenseManagerTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_requireFeature_whenLicenseIsNotThere() {
 		
 		//execution & verification
 		expect(() -> CentralLicenseManager.requireFeature(TestFeature.class)).throwsException();
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_requireFeature_whenLicenseIsThere() {
 		
 		//setup

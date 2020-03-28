@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.commonTest.webSocketTest;
 
+//own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketHandShakeResponse;
 
 //test class
 public final class WebSocketHandShakeResponseTest extends Test {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSecWebSocketAccept() {
 		
 		//parameter definition
@@ -24,7 +27,8 @@ public final class WebSocketHandShakeResponseTest extends Test {
 		expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
 	}
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_getSecWebSocketAccept_2() {
 		
 		//parameter definition

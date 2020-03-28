@@ -2,6 +2,7 @@
 package ch.nolix.templatesTest.consoleClientLooksTest;
 
 //own imports
+import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
@@ -12,7 +13,8 @@ import ch.nolix.element.widgets.VerticalStack;
 //test class
 public abstract class ConsoleClientLookTest<CCL extends StandardConfiguration> extends ObjectTest<CCL> {
 	
-	//test case
+	//method
+	@TestCase
 	public void testCase_configure() {
 		
 		//setup
