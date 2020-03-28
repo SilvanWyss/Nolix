@@ -108,7 +108,7 @@ public abstract class Test extends ch.nolix.common.baseTest.BaseTest {
 		return new LongMediator(this, value);
 	}
 	
-	//test case
+	//method
 	/**
 	 * @param closure
 	 * @return a new closure mediator that belongs to this test and is for the given closure.
