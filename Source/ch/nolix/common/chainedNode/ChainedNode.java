@@ -2,7 +2,7 @@
 package ch.nolix.common.chainedNode;
 
 //own imports
-import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.attributeAPI.OptionalHeadered;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -29,7 +29,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2015-12
  * @lines 660
  */
-public final class ChainedNode implements Headered {
+public final class ChainedNode implements OptionalHeadered {
 	
 	//constants
 	public static final String DOT_CODE = "$D";
@@ -389,8 +389,9 @@ public final class ChainedNode implements Headered {
 	
 	//method
 	/**
-	 * @return true if the current {@link ChainedNode} has a header.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasHeader() {
 		return (header != null);
 	}
