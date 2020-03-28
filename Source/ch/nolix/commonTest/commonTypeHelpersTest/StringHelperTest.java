@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /**
  * A {@link StringHelperTest} is a test for the {@link StringHelper} class.
  * 

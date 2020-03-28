@@ -8,7 +8,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
 import ch.nolix.system.texture.TextureCreator;
 
-//test class
+//class
 public final class TextureCreatorTest extends Test {
 	
 	//static class

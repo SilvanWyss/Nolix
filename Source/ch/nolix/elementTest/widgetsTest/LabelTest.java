@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.Label;
 
-//test class
+//class
 /**
  * A {@link LabelTest} is a test for {@link Label}.
  * 

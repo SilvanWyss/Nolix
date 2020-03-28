@@ -12,7 +12,7 @@ import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketFrame;
 import ch.nolix.common.webSocket.WebSocketFrameOpcodeMeaning;
 
-//test class
+//class
 public final class WebSocketFrameTest extends Test {
 	
 	//method

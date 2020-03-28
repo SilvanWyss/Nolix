@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.GUI.WidgetState;
 
-//test class
+//class
 public final class WidgetStateTest extends Test {
 	
 	//method

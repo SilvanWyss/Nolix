@@ -7,7 +7,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;
 
-//test class
+//class
 public final class ArgumentMediatorTest extends Test {
 	
 	//method

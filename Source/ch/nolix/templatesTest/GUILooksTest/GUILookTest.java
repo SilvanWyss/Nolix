@@ -20,7 +20,7 @@ import ch.nolix.element.widgets.TextBox;
 import ch.nolix.element.widgets.Uploader;
 import ch.nolix.element.widgets.VerticalStack;
 
-//test class
+//class
 public abstract class GUILookTest<GL extends StandardConfiguration> extends ObjectTest<GL> {
 	
 	//method

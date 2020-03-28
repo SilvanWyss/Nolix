@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;
 
-//test class
+//class
 public final class TerminalArgumentMediatorTest extends Test {
 	
 	//method

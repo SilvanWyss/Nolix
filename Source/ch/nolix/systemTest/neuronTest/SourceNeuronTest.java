@@ -7,7 +7,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.baseNeuron.SourceNeuron;
 
-//test class
+//class
 public final class SourceNeuronTest extends Test {
 	
 	//method

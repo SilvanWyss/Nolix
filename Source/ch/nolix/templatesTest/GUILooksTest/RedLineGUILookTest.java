@@ -4,7 +4,7 @@ package ch.nolix.templatesTest.GUILooksTest;
 //own import
 import ch.nolix.templates.GUILooks.RedLineGUILook;
 
-//test class
+//class
 public final class RedLineGUILookTest extends GUILookTest<RedLineGUILook> {
 	
 	//method

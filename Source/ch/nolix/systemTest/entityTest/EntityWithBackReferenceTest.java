@@ -10,7 +10,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.Reference;
 
-//test class
+//class
 public final class EntityWithBackReferenceTest extends Test {
 	
 	//static class

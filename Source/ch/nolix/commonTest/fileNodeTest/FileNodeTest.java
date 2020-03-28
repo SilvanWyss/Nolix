@@ -6,7 +6,7 @@ import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.commonTest.nodeTest.BaseNodeTest;
 
-//test class
+//class
 public final class FileNodeTest extends BaseNodeTest {
 	
 	@Override

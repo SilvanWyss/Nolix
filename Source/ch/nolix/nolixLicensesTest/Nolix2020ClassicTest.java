@@ -7,7 +7,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.test.Test;
 import ch.nolix.nolixLicenses.Nolix2020Classic;
 
-//test class
+//class
 public final class Nolix2020ClassicTest extends Test {
 	
 	//method

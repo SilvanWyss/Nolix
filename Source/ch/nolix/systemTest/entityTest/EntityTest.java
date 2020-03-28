@@ -8,7 +8,7 @@ import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.ValueProperty;
 
-//test class
+//class
 public final class EntityTest extends Test {
 	
 	//static class

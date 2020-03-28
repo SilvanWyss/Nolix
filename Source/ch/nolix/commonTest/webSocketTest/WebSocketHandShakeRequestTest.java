@@ -7,7 +7,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
 
-//test class
+//class
 public final class WebSocketHandShakeRequestTest extends Test {
 	
 	//method

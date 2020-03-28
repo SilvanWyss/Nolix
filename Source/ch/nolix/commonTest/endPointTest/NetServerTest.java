@@ -7,7 +7,7 @@ import ch.nolix.common.endPoint.NetServer;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /**
  * A {@link NetServerTest} is a test for {@link NetServer}.
  * A {@link NetServerTest} is not mutable.

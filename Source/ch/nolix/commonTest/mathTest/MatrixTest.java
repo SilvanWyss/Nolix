@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.math.Matrix;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /**
 * This class is a test class for the matrix class.
 * 

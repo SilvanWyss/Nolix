@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.time.Time;
 
-//test class
+//class
 /**
  * A {@link TimeTest} is a test for {@link Time}s.
  * 

@@ -9,7 +9,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.genericMath.ComplexNumber;
 
-//test class
+//class
 public final class ComplexNumberTest extends Test {
 	
 	//method

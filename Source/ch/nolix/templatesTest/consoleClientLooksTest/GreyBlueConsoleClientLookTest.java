@@ -4,7 +4,7 @@ package ch.nolix.templatesTest.consoleClientLooksTest;
 //own import
 import ch.nolix.templates.consoleClientLooks.GreyBlueConsoleClientLook;
 
-//test class
+//class
 public final class GreyBlueConsoleClientLookTest extends ConsoleClientLookTest<GreyBlueConsoleClientLook> {
 	
 	//method

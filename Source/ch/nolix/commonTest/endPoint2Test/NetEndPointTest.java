@@ -11,7 +11,7 @@ import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 public final class NetEndPointTest extends Test {
 	
 	//static class

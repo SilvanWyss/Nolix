@@ -7,7 +7,7 @@ import ch.nolix.common.test.Test;
 import ch.nolix.element.finance.Candlestick;
 import ch.nolix.element.time.Time;
 
-//test class
+//class
 /**
  * This class is a test class for the candle stick class.
  * 

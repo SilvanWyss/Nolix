@@ -4,7 +4,7 @@ package ch.nolix.templatesTest.GUILooksTest;
 //own import
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
-//test class
+//class
 public final class AnthrazitGUILookTest extends GUILookTest<AnthrazitGUILook> {
 	
 	//method

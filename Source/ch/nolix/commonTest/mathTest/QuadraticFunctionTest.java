@@ -7,7 +7,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.math.QuadraticFunction;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /**
  * A quadratic function test is a test for the quadratic function class.
  * 

@@ -7,7 +7,7 @@ import ch.nolix.common.XML.XMLAttribute;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 public final class XMLAttributeTest extends Test {
 	
 	//method

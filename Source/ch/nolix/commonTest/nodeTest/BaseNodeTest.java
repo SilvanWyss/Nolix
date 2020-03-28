@@ -10,7 +10,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.ObjectTest;
 
-//test class
+//class
 public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method

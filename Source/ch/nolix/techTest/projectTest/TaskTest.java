@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Task;
 
-//test class
+//class
 /**
  * A task test is a test for the task class.
  * 

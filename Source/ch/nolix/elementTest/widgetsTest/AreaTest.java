@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.Area;
 
-//test class
+//class
 /**
  * A {@link AreaTest} is a test for {@link Area}.
  * 

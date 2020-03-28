@@ -26,7 +26,7 @@ import ch.nolix.system.entity.OptionalValueProperty;
 import ch.nolix.system.entity.Reference;
 import ch.nolix.system.entity.ValueProperty;
 
-//test class
+//class
 public final class DataTypeHelperTest extends Test {
 		
 	//static class

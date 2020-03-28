@@ -7,7 +7,7 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /**
  * A {@link ChainedNodeTest} is a test for {@link ChainedNode}.
  * 

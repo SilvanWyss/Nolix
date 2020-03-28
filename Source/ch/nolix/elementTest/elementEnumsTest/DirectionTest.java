@@ -8,7 +8,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.elementEnums.Direction;
 
-//test class
+//class
 /**
  * This class is a test class for the direction test.
  * 

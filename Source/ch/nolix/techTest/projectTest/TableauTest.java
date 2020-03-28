@@ -9,7 +9,7 @@ import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Project;
 import ch.nolix.tech.project.Task;
 
-//test class
+//class
 /**
  * A tableau test is a test for the tableau class.
  * 

@@ -10,7 +10,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.genericMath.ClosedInterval;
 
-//test class
+//class
 public final class ClosedIntervalTest extends Test {
 	
 	//method

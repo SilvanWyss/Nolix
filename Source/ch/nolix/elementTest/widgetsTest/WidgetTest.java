@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.Widget;
 
-//test class
+//class
 /**
  * A {@link WidgetTest} is a test for {@link Widget}.
  * 

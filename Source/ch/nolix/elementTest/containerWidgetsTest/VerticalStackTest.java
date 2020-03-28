@@ -10,7 +10,7 @@ import ch.nolix.element.widgets.TextBox;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
 
-//test class
+//class
 /**
  * A {@link VerticalStackTest} is a test for {@link VerticalStack}.
  * 

@@ -5,7 +5,7 @@ package ch.nolix.elementTest.widgetsTest;
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.widgets.Checkbox;
 
-//test class
+//class
 /**
  * A {@link CheckboxTest} is a test for {@link Checkbox}.
  * 

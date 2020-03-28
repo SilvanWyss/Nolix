@@ -10,7 +10,7 @@ import ch.nolix.common.license.Feature;
 import ch.nolix.common.license.License;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 public final class CentralLicenseManagerTest extends Test {
 	
 	//method

@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /**
  * A {@link CalculatorTest} is a {@link Test} for the {@link Calculator}.
  * 

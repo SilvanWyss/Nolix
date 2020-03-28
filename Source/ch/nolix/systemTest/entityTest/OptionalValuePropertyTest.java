@@ -8,7 +8,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.OptionalValueProperty;
 
-//test class
+//class
 public final class OptionalValuePropertyTest extends Test {
 	
 	//method

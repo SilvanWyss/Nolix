@@ -7,7 +7,7 @@ import ch.nolix.element.containerWidgets.SingleContainer;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
 
-//test class
+//class
 /**
  * The {@link SingleContainerTest} is a test for {@link SingleContainer}.
  * 

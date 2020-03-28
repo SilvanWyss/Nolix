@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeWrappers.ByteWrapper;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 public final class WrapperByteTest extends Test {
 	
 	//method

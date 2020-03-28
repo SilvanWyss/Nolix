@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;
 
-//test class
+//class
 /**
  * A {@link ColorTest} is a test for {@link Color}s.
  * 

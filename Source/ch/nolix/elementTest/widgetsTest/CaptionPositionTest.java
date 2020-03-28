@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.widgets.CaptionPosition;
 
-//test class
+//class
 /**
  * A {@link CaptionPositionTest} is a test for {@link CaptionPosition}.
  * 

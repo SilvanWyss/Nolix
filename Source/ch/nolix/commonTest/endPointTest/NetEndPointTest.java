@@ -12,7 +12,7 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;
 
-//test class
+//class
 /**
  * This class is a test class for the {@link NetEndPoint} class.
  * 

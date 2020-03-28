@@ -7,7 +7,7 @@ import ch.nolix.common.sequencer.ResultFuture;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
-//test class
+//class
 /** 
  * A sequencer test is a test for the sequencer class.
  * A sequencer test is not mutable.

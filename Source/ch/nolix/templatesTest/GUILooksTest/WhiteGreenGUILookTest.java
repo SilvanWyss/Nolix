@@ -4,7 +4,7 @@ package ch.nolix.templatesTest.GUILooksTest;
 //own import
 import ch.nolix.templates.GUILooks.WhiteGreenGUILook;
 
-//test class
+//class
 public final class WhiteGreenGUILookTest extends GUILookTest<WhiteGreenGUILook> {
 	
 	//method

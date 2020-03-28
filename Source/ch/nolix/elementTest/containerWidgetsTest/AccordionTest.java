@@ -8,7 +8,7 @@ import ch.nolix.element.containerWidgets.AccordionExpansionBehavior;
 import ch.nolix.element.containerWidgets.AccordionTab;
 import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
 
-//test class
+//class
 /**
  * A {@link AccordionTest} is a test for {@link Accordion}.
  * 

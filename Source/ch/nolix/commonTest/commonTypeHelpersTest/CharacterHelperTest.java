@@ -13,7 +13,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeHelpers.CharacterHelper;
 import ch.nolix.common.test2.Test;
 
-//test class
+//class
 /**
 * This class is a test class for the character helper class.
 */
