@@ -68,20 +68,20 @@ public final class TestRun {
 	//method
 	public int getRuntimeInMilliseconds() {
 		
-		supposeIsComplete();
+		supposeIsFinished();
 		
 		return runtimeInMilliseconds;
 	}
 	
 	//method
-	public boolean isComplete() {
+	public boolean isFinished() {
 		return (runtimeInMilliseconds > -1);
 	}
 	
 	//method
 	public boolean isPassed() {
 		
-		supposeIsComplete();
+		supposeIsFinished();
 		
 		for (var tcr : testCaseResults) {
 			if (tcr.isFailed()) {
@@ -105,7 +105,7 @@ public final class TestRun {
 			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).getResult());
 		}
 		
-		complete((int)(System.currentTimeMillis() - startTimeInMilliseconds));
+		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
 		printSummary();
 	}
 	
@@ -121,22 +121,10 @@ public final class TestRun {
 			throw new ArgumentIsNullException(TestCaseResult.class);
 		}
 		
-		supposeIsIncomplete();
+		supposeIsNotFinished();
 		
 		testCaseResults.addAtEnd(testCaseResult);
 		printTestCaseResult(testCaseResult);
-	}
-	
-	//method
-	private void complete(final int runtimeInMilliseconds) {
-		
-		if (runtimeInMilliseconds < 0) {
-			throw new NegativeArgumentException("runtime in milliseconds", runtimeInMilliseconds);
-		}
-		
-		supposeIsIncomplete();
-		
-		this.runtimeInMilliseconds = runtimeInMilliseconds;
 	}
 	
 	//method
@@ -199,6 +187,18 @@ public final class TestRun {
 	}
 	
 	//method
+	private void setFinished(final int runtimeInMilliseconds) {
+		
+		if (runtimeInMilliseconds < 0) {
+			throw new NegativeArgumentException("runtime in milliseconds", runtimeInMilliseconds);
+		}
+		
+		supposeIsNotFinished();
+		
+		this.runtimeInMilliseconds = runtimeInMilliseconds;
+	}
+	
+	//method
 	private void supposeDidNotStart() {
 		if (started()) {
 			throw new InvalidArgumentException(this, "started already");
@@ -206,16 +206,16 @@ public final class TestRun {
 	}
 	
 	//method
-	private void supposeIsComplete() {
-		if (!isComplete()) {
-			throw new InvalidArgumentException(this, "is not complete");
+	private void supposeIsFinished() {
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "is not finished");
 		}
 	}
 	
 	//method
-	private void supposeIsIncomplete() {
-		if (isComplete()) {
-			throw new InvalidArgumentException(this, "is already complete");
+	private void supposeIsNotFinished() {
+		if (isFinished()) {
+			throw new InvalidArgumentException(this, "is already finished");
 		}
 	}
 }
