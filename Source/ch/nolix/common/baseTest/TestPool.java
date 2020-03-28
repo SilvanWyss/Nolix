@@ -10,8 +10,8 @@ import ch.nolix.common.skillAPI.Runnable;
 
 //class
 /**
- * A {@link TestPool} contains either {@link BaseTest}s or other {@link TestPool}s.
- * A {@link Test}Pool can run its {@link BaseTest}s recursively.
+ * A {@link TestPool} contains either {@link BaseTest}s or other test {@link Class}s.
+ * A {@link Test}Pool can run its test {@link Class}s recursively.
  * 
  * @author Silvan Wyss
  * @month 2016-01
@@ -37,6 +37,10 @@ public abstract class TestPool implements Runnable {
 	 * Creates a new {@link TestPool} with the given test {@link Class}s.
 	 * 
 	 * @param testClasses
+	 * @throws ArgumentIsNullException if one of the given testClasses is null.
+	 * @throws InvalidArgumentException if one of the given testClasses is not a actually not a test {@link Class}.
+	 * @throws InvalidArgumentException if one of the given testClasses is abstract.
+	 * @throws InvalidArgumentException if one of the given testClasses does not contain a default constructor.
 	 */
 	public TestPool(final Class<?>... testClasses) {
 		
@@ -48,9 +52,10 @@ public abstract class TestPool implements Runnable {
 	
 	//constructor
 	/**
-	 * Creates a new {@link TestPool} with the given test {@link TestPool}s.
+	 * Creates a new {@link TestPool} with the given {@link TestPool}s.
 	 * 
 	 * @param testClasses
+	 * @throws ArgumentIsNullException if one of the the given testPools is null.
 	 */
 	public TestPool(final TestPool... testPools) {
 		
@@ -70,7 +75,7 @@ public abstract class TestPool implements Runnable {
 		//Iterates the testPools of the current TestPool.
 		for (final TestPool tp : testPools) {
 			
-			//Checks if the current testPool is or contains recursively the given testPool.
+			//Checks if the current testPool is the given testPool or contains the given testPool recursively.
 			if (tp == testPool || tp.containsTestPoolRecursively(testPool)) {
 				return true;
 			}
@@ -88,6 +93,8 @@ public abstract class TestPool implements Runnable {
 		
 		//Iterates the testPools of the current TestPool.
 		for (final var tp : testPools) {
+			
+			//Checks if the current testPool contains the given testClass recursively.
 			if (tp.containsTestClassRecursively(testClass)) {
 				return true;
 			}
@@ -95,6 +102,8 @@ public abstract class TestPool implements Runnable {
 		
 		//Iterates the testClasses of the current TestPool.
 		for (final var tc : testClasses) {
+			
+			//Checks if the current testClass is the given testClass.
 			if (tc == testClass) {
 				return true;
 			}
