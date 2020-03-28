@@ -74,6 +74,11 @@ public final class TestRun {
 	}
 	
 	//method
+	public boolean hasStarted() {
+		return started;
+	}
+	
+	//method
 	public boolean isFinished() {
 		return (runtimeInMilliseconds > -1);
 	}
@@ -107,11 +112,6 @@ public final class TestRun {
 		
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
 		printSummary();
-	}
-	
-	//method
-	public boolean started() {
-		return started;
 	}
 	
 	//method
@@ -200,7 +200,7 @@ public final class TestRun {
 	
 	//method
 	private void supposeDidNotStart() {
-		if (started()) {
+		if (hasStarted()) {
 			throw new InvalidArgumentException(this, "started already");
 		}
 	}
