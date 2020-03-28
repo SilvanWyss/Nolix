@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.common.baseTest;
 
-//Java imports
-import java.lang.reflect.Constructor;
+//Java import
 import java.lang.reflect.InvocationTargetException;
 
-//own import
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 
 //class
 public final class TestPoolRun {
@@ -16,6 +16,7 @@ public final class TestPoolRun {
 	private final TestPool parentTestPool;
 	private final ILinePrinter linePrinter;
 	private boolean started = false;
+	private int runtimeInMilliseconds = -1;
 	
 	//constructor
 	public TestPoolRun(final TestPool parentTestPool, final ILinePrinter linePrinter) {
@@ -25,7 +26,7 @@ public final class TestPoolRun {
 		}
 		
 		if (linePrinter == null) {
-			throw new ArgumentIsNullException(ILinePrinter.class);
+			throw new ArgumentIsNullException("line printer");
 		}
 		
 		this.parentTestPool = parentTestPool;
@@ -33,71 +34,66 @@ public final class TestPoolRun {
 	}
 	
 	//method
-	public void run() {
-		
-		supposeDidNotStart();
-		started = true;
-		
-		linePrinter.printInfoLine("   Started " + parentTestPool.getName());
-		linePrinter.printEmptyLine();
-		
-		for (final var tp : parentTestPool.getRefTestPools()) {
-			tp.run(linePrinter);
-		}
-		
-		for (final var tc : parentTestPool.getRefTestClasses()) {
-			runTest(tc);
-		}
-		
-		printSummary();
+	public String getRuntimeAndUnitAsString() {
+		return (String.valueOf(getRuntimeInMilliseconds()) + " ms");
 	}
 	
 	//method
-	public boolean started() {
+	public String getRuntimeAndUnitAsStringInBrackets() {
+		return ("(" + getRuntimeAndUnitAsString() + ")");
+	}
+	
+	//method
+	public int getRuntimeInMilliseconds() {
+		
+		supposeIsFinished();
+		
+		return runtimeInMilliseconds;
+	}
+	
+	//method
+	public boolean hasStarted() {
 		return started;
 	}
 	
 	//method
-	private <BT extends BaseTest> BT createTestOrNull(final Class<BT> testClass) {
-		
-		final var constructor = getDefaultConstructorOrNull(testClass);
-		
-		if (constructor == null) {
-			return null;
-		}
-		
-		return createTestOrNull(constructor);
+	public boolean isFinished() {
+		return (runtimeInMilliseconds > -1);
 	}
 	
 	//method
-	private <BT extends BaseTest> BT createTestOrNull(final Constructor<BT> constructor) {
+	public void run() {
+		
+		//setup phase
+		setStarted();
+		final var startTimeInMilliseconds = System.currentTimeMillis();
+		
+		//main phase part 1
+		for (final var tp : parentTestPool.getRefTestPools()) {
+			tp.run(linePrinter);
+		}
+		
+		//main phase part 2
+		parentTestPool.getRefTestClasses().forEach(this::runTest);
+		
+		//result phase
+		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
+		printSummary();
+	}
+	
+	//method
+	private <BT extends BaseTest> BT createTestOrNull(final Class<BT> testClass) {
 		try {
-			return constructor.newInstance();
+			return ReflectionHelper.getDefaultConstructor(testClass).newInstance();
 		}
 		catch (
 			final
-			InstantiationException
-			| IllegalAccessException
-			| IllegalArgumentException
+			IllegalAccessException
+			| InstantiationException
 			| InvocationTargetException
 			exception
 		) {
-			linePrinter.printErrorLine("An error occured.");
-			return null;
-		}
-	}
-
-	//method
-	private <BT extends BaseTest> Constructor<BT> getDefaultConstructorOrNull(final Class<BT> testClass) {
-		try {
-			
-			final var constructor = testClass.getConstructor();
-			constructor.setAccessible(true);
-			
-			return constructor;
-		}
-		catch (final NoSuchMethodException exception) {
-			linePrinter.printErrorLine(testClass.getName() +  " does not have a default constructor.");
+			linePrinter.printErrorLine("-->Could not create a " + testClass.getName() + ".");
 			return null;
 		}
 	}
@@ -105,30 +101,64 @@ public final class TestPoolRun {
 	//method
 	private void printSummary() {
 		
-		//TODO: Print duration and count of passed tests.
-		linePrinter.printInfoLine("   Finished " + parentTestPool.getName());
+		//TODO: Print count of passed tests.
+		linePrinter.printInfoLine(
+			"   Summary " + parentTestPool.getName() + " " + getRuntimeAndUnitAsStringInBrackets()
+		);
+		
 		linePrinter.printEmptyLine();
 	}
 	
 	//method
 	private <BT extends BaseTest> void runTest(final Class<BT> testClass) {
-		try {
-			
-			final var test = createTestOrNull(testClass);
-			
-			if (test != null) {
-				test.run(linePrinter);
-			}
-		}
-		catch (final Exception exception) {
-			linePrinter.printErrorLine("An error occured.");
+		
+		final var test = createTestOrNull(testClass);
+		
+		if (test != null) {
+			test.run(linePrinter);
 		}
 	}
 	
 	//method
-	private void supposeDidNotStart() {
-		if (started()) {
-			throw new InvalidArgumentException(this, "started already");
+	private void setFinished(final int runtimeInMilliseconds) {
+		
+		if (runtimeInMilliseconds < 0) {
+			throw new NegativeArgumentException("runtime in milliseconds", runtimeInMilliseconds);
+		}
+		
+		supposeIsNotFinished();
+		
+		this.runtimeInMilliseconds = runtimeInMilliseconds;
+	}
+	
+	//method
+	private void setStarted() {
+		
+		supposeHasNotStarted();
+		
+		started = true;
+		linePrinter.printInfoLine("   Started " + parentTestPool.getName());
+		linePrinter.printEmptyLine();
+	}
+	
+	//method
+	private void supposeHasNotStarted() {
+		if (hasStarted()) {
+			throw new InvalidArgumentException(this, "has started already");
+		}
+	}
+	
+	//method
+	private void supposeIsFinished() {
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "is not finished");
+		}
+	}
+	
+	//method
+	private void supposeIsNotFinished() {
+		if (isFinished()) {
+			throw new InvalidArgumentException(this, "is already finished");
 		}
 	}
 }
