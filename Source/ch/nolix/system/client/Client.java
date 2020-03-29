@@ -2,7 +2,6 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.common.attributeAPI.OptionalLabelable;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
@@ -17,6 +16,7 @@ import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.optionalAttributeAPI.OptionalLabelable;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
