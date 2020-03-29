@@ -113,6 +113,8 @@ public final class TestRun {
 		//result phase
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
 		printSummary();
+		
+		//TODO: Create TestResult.
 	}
 	
 	//method
