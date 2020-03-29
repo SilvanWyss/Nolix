@@ -21,6 +21,7 @@ public interface OptionalIdentifiedByString {
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByString} in quotes.
+	 * @throws Exception if the current {@link OptionalIdentifiedByString} does not have an id.
 	 */
 	public default String getIdInQuotes() {
 		return ("'" + getId() + "'");
