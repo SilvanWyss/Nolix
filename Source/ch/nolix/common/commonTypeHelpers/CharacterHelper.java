@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.commonTypeHelpers;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 

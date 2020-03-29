@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techAPI.genericMathAPI;
 
+//own imports
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.skillAPI.IBuilder;
 

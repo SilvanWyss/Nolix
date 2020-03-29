@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techAPI.projectAPI;
 
+//own imports
 import ch.nolix.common.attributeAPI.Namable;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.skillAPI.Clearable;

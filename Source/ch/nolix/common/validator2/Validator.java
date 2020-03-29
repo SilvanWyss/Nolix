@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.common.validator2;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;

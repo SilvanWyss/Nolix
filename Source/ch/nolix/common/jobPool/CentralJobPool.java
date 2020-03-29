@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.jobPool;
 
+//own imports
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.futureAPI.IFuture;
 

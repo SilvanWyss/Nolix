@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
+//own imports
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;

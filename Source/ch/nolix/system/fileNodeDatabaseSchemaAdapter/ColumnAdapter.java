@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;

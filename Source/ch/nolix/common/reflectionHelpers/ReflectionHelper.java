@@ -4,6 +4,7 @@ package ch.nolix.common.reflectionHelpers;
 //Java import
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 
 //class

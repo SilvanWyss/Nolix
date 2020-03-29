@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.element.finance;
 
+//own imports
 import ch.nolix.common.containers.LinkedList;
 
 //class

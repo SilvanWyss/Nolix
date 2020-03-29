@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.validator.Validator;

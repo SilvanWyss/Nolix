@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseNeuron;
 
+//own imports
 import ch.nolix.common.validator.Validator;
 
 //class

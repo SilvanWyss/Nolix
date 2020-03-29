@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.MSSQLDatabaseSchemaAdapterTutorial;
 
+//own imports
 import ch.nolix.system.MSSQLDatabaseSchemaAdapter.MSSQLDatabaseSchemaAdapter;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.ValueProperty;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.project;
 
+//own imports
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;

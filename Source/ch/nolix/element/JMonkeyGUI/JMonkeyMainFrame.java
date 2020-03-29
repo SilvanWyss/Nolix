@@ -12,6 +12,7 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
+//own imports
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.MainFrame;

@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.common.test2;
 
+//own imports
 import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.skillAPI.ApproximativeEqualing;
 

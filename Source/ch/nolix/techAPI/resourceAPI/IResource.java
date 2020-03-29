@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techAPI.resourceAPI;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.containers.IContainer;
 

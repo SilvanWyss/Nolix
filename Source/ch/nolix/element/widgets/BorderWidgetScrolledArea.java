@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painter.IPainter;

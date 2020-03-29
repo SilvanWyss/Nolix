@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.common.attributeAPI.Headerable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.StringCatalogue;

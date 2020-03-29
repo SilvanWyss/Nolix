@@ -5,6 +5,7 @@ package ch.nolix.element.frameVisualizer;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
+//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;

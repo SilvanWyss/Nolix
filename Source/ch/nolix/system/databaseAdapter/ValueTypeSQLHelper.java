@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.system.entity.ValueClassBox;
 
 //class

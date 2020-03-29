@@ -5,6 +5,7 @@ import java.io.IOError;
 //Java import
 import java.io.IOException;
 
+//own imports
 import ch.nolix.common.constants.IPv4Catalogue;
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;

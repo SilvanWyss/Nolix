@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint4;
 
+//own imports
 import ch.nolix.common.validator.Validator;
 
 //class

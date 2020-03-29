@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;

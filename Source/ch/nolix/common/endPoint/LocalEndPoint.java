@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint;
 
+//own imports
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.validator.Validator;
 

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
+//own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 

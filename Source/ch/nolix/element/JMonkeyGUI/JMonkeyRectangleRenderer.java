@@ -8,6 +8,7 @@ import com.jme3.scene.shape.Quad;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
+//own imports
 import ch.nolix.element.planarShapes.Rectangle;
 
 //class

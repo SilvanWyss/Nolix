@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
+//own imports
 import ch.nolix.common.XML.XMLNode;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;

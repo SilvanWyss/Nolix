@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseNeuron;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;

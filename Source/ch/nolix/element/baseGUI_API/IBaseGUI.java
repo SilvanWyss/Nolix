@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.baseGUI_API;
 
+//own imports
 import ch.nolix.common.attributeAPI.Titleble;
 import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.skillAPI.IRequestableContainer;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.SQLDatabaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.Column;

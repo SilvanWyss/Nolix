@@ -5,6 +5,7 @@ package ch.nolix.element.frameVisualizer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+//own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 

@@ -5,6 +5,7 @@ package ch.nolix.element.color;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.containers.LinkedList;

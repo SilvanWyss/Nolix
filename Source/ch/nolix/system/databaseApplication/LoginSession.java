@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
 import ch.nolix.element.widgets.VerticalStack;

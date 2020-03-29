@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 
 //interface

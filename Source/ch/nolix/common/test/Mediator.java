@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;

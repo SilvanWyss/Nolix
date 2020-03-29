@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.logger;
 
+//own imports
 import ch.nolix.common.independentContainers.List;
 
 //class

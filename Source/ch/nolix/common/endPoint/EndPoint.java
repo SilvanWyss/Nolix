@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint;
 
+//own imports
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;

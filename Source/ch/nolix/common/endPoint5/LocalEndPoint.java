@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint5;
 
+//own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;

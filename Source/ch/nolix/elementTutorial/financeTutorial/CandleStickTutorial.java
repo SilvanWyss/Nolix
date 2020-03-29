@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.elementTutorial.financeTutorial;
 
+//own imports
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.SequencePattern;
 import ch.nolix.element.finance.NYSEProductSymbolManager;

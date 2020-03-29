@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.common.math;
 
+//own imports
 import ch.nolix.common.validator2.Validator;
 
 //class

@@ -1,5 +1,6 @@
 package ch.nolix.systemTutorial.consoleClientTutorial;
 
+//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleClient.BackConsoleClient;

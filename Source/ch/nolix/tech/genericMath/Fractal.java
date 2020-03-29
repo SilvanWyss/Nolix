@@ -5,6 +5,7 @@ package ch.nolix.tech.genericMath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IIntTakerElementGetter;

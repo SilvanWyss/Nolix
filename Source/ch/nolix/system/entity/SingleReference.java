@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
+//own imports
 import ch.nolix.common.containers.IContainer;
 //own imports
 import ch.nolix.common.containers.ReadContainer;

@@ -4,6 +4,7 @@ package ch.nolix.common.validator;
 //Java import
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 

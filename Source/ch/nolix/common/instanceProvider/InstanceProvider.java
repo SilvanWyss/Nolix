@@ -5,6 +5,7 @@ package ch.nolix.common.instanceProvider;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.processProperties.WriteMode;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.closableElement;
 
+//own imports
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

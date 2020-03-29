@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 
 //interface

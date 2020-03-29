@@ -1,5 +1,6 @@
 package ch.nolix.systemTutorial.databaseAdapterTutorial;
 
+//own imports
 import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.entity.Entity;

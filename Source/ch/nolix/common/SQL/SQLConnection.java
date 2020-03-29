@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//own imports
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.IPv4Catalogue;
 import ch.nolix.common.containers.LinkedList;

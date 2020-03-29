@@ -1,5 +1,6 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
+//own imports
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;

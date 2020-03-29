@@ -1,5 +1,6 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
+//own imports
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;

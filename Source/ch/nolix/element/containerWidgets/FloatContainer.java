@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
+//own imports
 import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;

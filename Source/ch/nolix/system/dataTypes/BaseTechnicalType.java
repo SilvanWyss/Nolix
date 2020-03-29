@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.dataTypes;
 
+//own imports
 import ch.nolix.system.entity.Entity;
 
 //class

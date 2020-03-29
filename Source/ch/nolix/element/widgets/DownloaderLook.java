@@ -1,5 +1,6 @@
 package ch.nolix.element.widgets;
 
+//own imports
 import ch.nolix.common.node.Node;
 import ch.nolix.element.layerElement.LayerProperty;
 

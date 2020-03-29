@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronalNet;
 
+//own imports
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;

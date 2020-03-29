@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.XML;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.attributeAPI.Valued;
 import ch.nolix.common.constants.StringCatalogue;

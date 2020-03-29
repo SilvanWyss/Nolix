@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.SQLDatabaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.SQL.SQLConnection;
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.containers.IContainer;

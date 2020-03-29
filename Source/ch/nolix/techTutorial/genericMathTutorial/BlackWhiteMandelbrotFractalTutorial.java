@@ -1,5 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
+//own imports
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;

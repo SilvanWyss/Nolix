@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.math;
 
+//own imports
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;

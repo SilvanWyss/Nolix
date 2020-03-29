@@ -5,6 +5,7 @@ package ch.nolix.common.endPoint;
 import java.io.IOException;
 import java.net.Socket;
 
+//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 

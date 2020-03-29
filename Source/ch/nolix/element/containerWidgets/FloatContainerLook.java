@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
+//own imports
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.layerElement.LayerProperty;

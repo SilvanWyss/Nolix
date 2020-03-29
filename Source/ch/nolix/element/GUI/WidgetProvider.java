@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

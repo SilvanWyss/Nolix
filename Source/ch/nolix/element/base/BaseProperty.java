@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.SQL;
 
+//own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;

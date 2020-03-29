@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.templates.GUILooks;
 
+//own imports
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidgets.ContainerRole;
