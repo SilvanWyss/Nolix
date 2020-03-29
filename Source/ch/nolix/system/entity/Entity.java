@@ -4,8 +4,6 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.attributeAPI.OptionalIdentified;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
@@ -16,6 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentHasAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.optionalAttributeAPI.OptionalIdentified;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.element.baseAPI.IElement;

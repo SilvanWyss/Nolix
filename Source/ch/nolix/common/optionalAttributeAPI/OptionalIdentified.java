@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.attributeAPI;
+package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
