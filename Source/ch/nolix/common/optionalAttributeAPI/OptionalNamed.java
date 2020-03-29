@@ -3,12 +3,12 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
-* A {@link OptionalNamed} can have a name
-* 
-* @author Silvan Wyss
-* @month 2020-03
-* @lines 70
-*/
+ * A {@link OptionalNamed} can have a name
+ * 
+ * @author Silvan Wyss
+ * @month 2020-03
+ * @lines 70
+ */
 public interface OptionalNamed {
 	
 	//method declaration

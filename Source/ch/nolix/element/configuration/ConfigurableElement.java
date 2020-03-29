@@ -2,7 +2,6 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.common.attributeAPI.OptionalTokenable;
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
@@ -10,6 +9,7 @@ import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.optionalAttributeAPI.OptionalTokenable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IConfigurableElement;
