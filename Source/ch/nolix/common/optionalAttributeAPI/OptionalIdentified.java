@@ -14,12 +14,14 @@ public interface OptionalIdentified {
 	//method declaration
 	/**
 	 * @return the id of the current {@link OptionalIdentified}.
+	 * @throws Exception if the current {@link OptionalIdentified} does not have an id.
 	 */
 	public abstract long getId();
 	
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentified} as {@link String}.
+	 * @throws Exception if the current {@link OptionalIdentified} does not have an id.
 	 */
 	public default String getIdAsString() {
 		return String.valueOf(getId());
@@ -28,6 +30,7 @@ public interface OptionalIdentified {
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentified} in quotes.
+	 * @throws Exception if the current {@link OptionalIdentified} does not have an id.
 	 */
 	public default String getIdInQuotes() {
 		return ("'" + getIdAsString() + "'");
