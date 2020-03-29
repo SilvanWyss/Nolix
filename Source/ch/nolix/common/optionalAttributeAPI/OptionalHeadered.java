@@ -66,7 +66,7 @@ public interface OptionalHeadered {
 			return false;
 		}
 		
-		//Calls other method.
+		//Handles the case that the given object has a header.
 		return hasHeader(object.getHeader());
 	}
 }

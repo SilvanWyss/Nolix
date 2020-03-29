@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.XML;
 
-import ch.nolix.common.attributeAPI.OptionalNamable;
+//own imports
 import ch.nolix.common.attributeAPI.OptionalValueable;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
@@ -11,6 +11,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.optionalAttributeAPI.OptionalNamable;
 import ch.nolix.common.skillAPI.Freezable;
 import ch.nolix.common.validator.Validator;
 
