@@ -3,7 +3,6 @@ package ch.nolix.common.node;
 
 //own imports
 import ch.nolix.common.XML.XMLNode;
-import ch.nolix.common.attributeAPI.OptionalHeaderable;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.StringCatalogue;
@@ -15,6 +14,7 @@ import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
+import ch.nolix.common.optionalAttributeAPI.OptionalHeaderable;
 import ch.nolix.common.validator.Validator;
 
 //class

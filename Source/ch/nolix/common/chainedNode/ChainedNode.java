@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.common.chainedNode;
 
-//own imports
-import ch.nolix.common.attributeAPI.OptionalHeadered;
 import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
@@ -14,6 +12,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
 import ch.nolix.common.validator.Validator;
 
 //class
