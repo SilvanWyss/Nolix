@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.attributeAPI;
+package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
@@ -14,6 +14,7 @@ public interface OptionalIdentifiedByString {
 	//method declaration
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByString}.
+	 * @throws Exception if the current {@link OptionalIdentifiedByString} does not have an id.
 	 */
 	public abstract String getId();
 	

@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-//own imports
-import ch.nolix.common.attributeAPI.OptionalIdentifiableByString;
 import ch.nolix.common.attributeAPI.Tokened;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.optionalAttributeAPI.OptionalIdentifiableByString;
 
 //interface
 /**
