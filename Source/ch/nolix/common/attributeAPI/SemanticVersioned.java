@@ -3,7 +3,7 @@ package ch.nolix.common.attributeAPI;
 
 //interface
 /**
- * A {@link ISemanticVersioned} has a version consisting of a:
+ * A {@link SemanticVersioned} has a version consisting of a:
  * -major version number
  * -minor version number
  * -patch version number
@@ -12,29 +12,29 @@ package ch.nolix.common.attributeAPI;
  * @month 2019-02
  * @lines 40
  */
-public interface ISemanticVersioned {
+public interface SemanticVersioned {
 	
 	//method declaration
 	/**
-	 * @return the major version number of the current {@link ISemanticVersioned}.
+	 * @return the major version number of the current {@link SemanticVersioned}.
 	 */
 	public abstract int getMajorVersion();
 	
 	//method declaration
 	/**
-	 * @return the minor version number of the current {@link ISemanticVersioned}.
+	 * @return the minor version number of the current {@link SemanticVersioned}.
 	 */
 	public abstract int getMinorVersion();
 	
 	//method declaration
 	/**
-	 * @return the patch version number of the current {@link ISemanticVersioned}.
+	 * @return the patch version number of the current {@link SemanticVersioned}.
 	 */
 	public abstract int getPatchVersion();
 	
 	//method
 	/**
-	 * @return the version of the current {@link ISemanticVersioned}.
+	 * @return the version of the current {@link SemanticVersioned}.
 	 */
 	public default String getVersion() {
 		return (getMajorVersion() + "." + getMinorVersion() + "." + getPatchVersion());
