@@ -3,7 +3,9 @@ package ch.nolix.common.attributeAPI;
 
 //interface
 /**
- * A {@link SemanticVersioned} has a version consisting of a:
+ * A {@link SemanticVersioned} has a semantic version.
+ * 
+ * A semancit version consists of:
  * -major version number
  * -minor version number
  * -patch version number
