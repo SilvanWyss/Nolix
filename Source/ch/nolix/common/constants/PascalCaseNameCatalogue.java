@@ -169,6 +169,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String URL = "URL";
 	public static final String VALUE = "Value";
 	public static final String VALUE_TYPE = "ValueType";
+	public static final String VERSION = "Version";
 	public static final String VISUALIZER = "Visualizer";
 	public static final String WEIGHT = "Weight";
 	public static final String WIDTH = "Width";
