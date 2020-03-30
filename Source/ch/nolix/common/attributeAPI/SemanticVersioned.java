@@ -5,7 +5,7 @@ package ch.nolix.common.attributeAPI;
 /**
  * A {@link SemanticVersioned} has a semantic version.
  * 
- * A semancit version consists of:
+ * A semantic version consists of:
  * -major version number
  * -minor version number
  * -patch version number
