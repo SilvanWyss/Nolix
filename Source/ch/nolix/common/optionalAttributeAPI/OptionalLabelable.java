@@ -3,7 +3,7 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalLabelable} can have an info string that can be set and removed programmatically.
+ * A {@link OptionalLabelable} is a {@link } whose info string can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12

@@ -3,9 +3,8 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalIdentifiableByString} can have an id that:
- * -Is a {@link String}.
- * -Can be set and removed programmatically.
+ * A {@link OptionalIdentifiableByString} is a {@link OptionalIdentifiableByString}
+ * whose id can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2020-01

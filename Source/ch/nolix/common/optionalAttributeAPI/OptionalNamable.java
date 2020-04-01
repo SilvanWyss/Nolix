@@ -3,7 +3,7 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalNamable} can have a name that can be set and removed programmatically.
+ * A {@link OptionalNamable} is a {@link OptionalNamed} whose name can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12

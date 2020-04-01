@@ -3,7 +3,7 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalValueable} can have a value that can be set and removed programmatically.
+ * A {@link OptionalValueable} is a {@link OptionalValued} whose value can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2018-09

@@ -3,7 +3,7 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalTokenable} can have a token that can be set and removed programmatically.
+ * A {@link OptionalTokenable} is a {@link OptionalTokened} whose token can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12

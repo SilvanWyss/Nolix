@@ -3,7 +3,7 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalHeaderable} can have a header that can be set and removed programmatically.
+ * A {@link OptionalHeaderable} is a {@link OptionalHeadered} whose header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2019-02

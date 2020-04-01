@@ -3,7 +3,7 @@ package ch.nolix.common.optionalAttributeAPI;
 
 //interface
 /**
- * A {@link OptionalIdentified} can have an id that can be set and removed programmatically.
+ * A {@link OptionalIdentified} is a {@link OptionalIdentified} whose id can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2020-03
