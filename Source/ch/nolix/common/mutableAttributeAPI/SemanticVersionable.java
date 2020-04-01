@@ -1,7 +1,8 @@
 //package declaration
-package ch.nolix.common.attributeAPI;
+package ch.nolix.common.mutableAttributeAPI;
 
 //own imports
+import ch.nolix.common.attributeAPI.SemanticVersioned;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
@@ -11,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 * 
 * @author Silvan Wyss
 * @month 2020-03
-* @lines 40
+* @lines 50
 * @param <SV> The type of a {@link SemanticVersionable}.
 */
 public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends SemanticVersioned {

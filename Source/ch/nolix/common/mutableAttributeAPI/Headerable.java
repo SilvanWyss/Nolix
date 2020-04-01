@@ -1,5 +1,8 @@
 //package declaration
-package ch.nolix.common.attributeAPI;
+package ch.nolix.common.mutableAttributeAPI;
+
+//own import
+import ch.nolix.common.attributeAPI.Headered;
 
 //interface
 /**
