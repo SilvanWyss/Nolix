@@ -10,8 +10,8 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.optionalAttributeAPI.OptionalNamable;
-import ch.nolix.common.optionalAttributeAPI.OptionalValueable;
+import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
+import ch.nolix.common.mutableOptionalAttributeAPI.OptionalValueable;
 import ch.nolix.common.skillAPI.Freezable;
 import ch.nolix.common.validator.Validator;
 

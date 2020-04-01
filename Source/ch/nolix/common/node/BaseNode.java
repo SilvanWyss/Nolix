@@ -14,7 +14,7 @@ import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
-import ch.nolix.common.optionalAttributeAPI.OptionalHeaderable;
+import ch.nolix.common.mutableOptionalAttributeAPI.OptionalHeaderable;
 import ch.nolix.common.validator.Validator;
 
 //class
