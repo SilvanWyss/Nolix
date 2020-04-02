@@ -14,20 +14,19 @@ import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * A {@link ChainedNode} can have:
  * -1 header
  * -several attributes that are {@link ChainedNode}s
- * -a next node that is a {@link ChainedNode}
+ * -a next node which is a {@link ChainedNode}
  * 
  * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 660
+ * @lines 700
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -38,12 +37,15 @@ public final class ChainedNode implements OptionalHeadered {
 	public static final String OPEN_BRACKET_CODE = "$O";
 	public static final String CLOSED_BRACKET_CODE = "$C";
 	
+	//constant
+	private static final String NEXT_NODE_VARIABLE_NAME = "next node";
+	
 	//static method
 	/**
 	 * @param string
 	 * @return a reproducing {@link String} for the given string.
 	 */
-	public static String createReproducingString(final String string) {
+	public static String createReproducingStringFor(final String string) {
 		return
 		string
 		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
@@ -55,7 +57,7 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//static method
 	/**
-	 * @param string
+	 * @param node
 	 * @return a new {@link ChainedNode} from the given node.
 	 */
 	public static ChainedNode fromNode(final BaseNode node) {
@@ -81,20 +83,8 @@ public final class ChainedNode implements OptionalHeadered {
 		return chainedNode;
 	}
 	
-	//static method
-	public static ChainedNode withHeaderAndAttributes(final String header, final Iterable<ChainedNode> attributes) {
-		
-		final var chainedNode = new ChainedNode();
-		chainedNode.setHeader(header);
-		chainedNode.attributes.addAtEnd(attributes);
-		
-		return chainedNode;
-	}
-	
-	//optional attribute
+	//optional attributes
 	private String header;
-	
-	//optional attribute
 	private ChainedNode nextNode;
 	
 	//multi-attribute
@@ -110,7 +100,12 @@ public final class ChainedNode implements OptionalHeadered {
 	}
 	
 	//constructor
-	public ChainedNode(final IContainer<BaseNode> attributes) {
+	/**
+	 * Creates a new {@link ChainedNode} with the given attributes.
+	 * 
+	 * @param attributes
+	 */
+	public <BN extends BaseNode> ChainedNode(final Iterable<BN> attributes) {
 		addAttributes(attributes);
 	}
 	
@@ -127,44 +122,52 @@ public final class ChainedNode implements OptionalHeadered {
 	}
 	
 	//constructor
-	public ChainedNode(final String header, final IContainer<BaseNode> attributes) {
-		setHeader(header);	
-		addAttributes(attributes);
-	}
-	
-	//constructor
-	public <N extends BaseNode> ChainedNode(
-		final String header,
-		final IContainer<N> attributes,
-		final ChainedNode nextNode
-	) {
-		setHeader(header);	
-		addAttributes(attributes);
-		setNextNode(nextNode);
-	}
-	
-	//constructor
-	public <N extends BaseNode> ChainedNode(final String header, final Iterable<N> attributes) {
-		setHeader(header);	
-		addAttributes(attributes);
-	}
-	
-	//constructor
-	public <N extends BaseNode> ChainedNode(
-		final String header,
-		final Iterable<N> attributes,
-		final ChainedNode nextNode
-	) {
-		setHeader(header);	
-		addAttributes(attributes);
-		setNextNode(nextNode);
-	}
-	
-	//constructor
+	/**
+	 * Creates a new {@link ChainedNode} with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
 	@SuppressWarnings("unchecked")
-	public <N extends BaseNode> ChainedNode(final String header, final N... attributes) {
+	public <BN extends BaseNode> ChainedNode(final String header, final BN... attributes) {
 		setHeader(header);
 		addAttributes(attributes);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ChainedNode} with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public <BN extends BaseNode> ChainedNode(final String header, final Iterable<BN> attributes) {
+		setHeader(header);	
+		addAttributes(attributes);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ChainedNode} with the given header, attributes and nextNode.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given nextNode is null.
+	 */
+	public <BN extends BaseNode> ChainedNode(
+		final String header,
+		final Iterable<BN> attributes,
+		final ChainedNode nextNode
+	) {
+		setHeader(header);	
+		addAttributes(attributes);
+		setNextNode(nextNode);
 	}
 	
 	//method
@@ -233,8 +236,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param index
 	 * @return the attribute at the given index of the current {@link ChainedNode}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode}
-	 * does not contain an attribute at the given index.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link ChainedNode} does not contain an attribute at the given index.
 	 */
 	public ChainedNode getAttributeAt(final int index) {
 		return attributes.getRefAt(index);
@@ -254,8 +257,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws NonRepresentingArgumentException
 	 * if one of the attributes of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
-	public LinkedList<Node> getAttributesAsNodes() {
-		return attributes.to(a -> a.toNode());
+	public IContainer<Node> getAttributesAsNodes() {
+		return attributes.to(ChainedNode::toNode);
 	}
 
 	//method
@@ -270,14 +273,14 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * @return the {@link String} representations of the attributes of the current {@link ChainedNode}.
 	 */
-	public LinkedList<String> getAttributesAsStrings() {
+	public IContainer<String> getAttributesAsStrings() {
 		return attributes.toStrings();
 	}
 	
 	//method
 	/**
 	 * @return the header of the current {@link ChainedNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -293,13 +296,13 @@ public final class ChainedNode implements OptionalHeadered {
 	//method
 	/**
 	 * @return the next node of the current {@link ChainedNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a next node.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a next node.
 	 */
 	public ChainedNode getNextNode() {
 		
 		//Checks if the current ChanedNode has a next node.
 		if (nextNode == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
+			throw new ArgumentDoesNotHaveAttributeException(this, NEXT_NODE_VARIABLE_NAME);
 		}
 		
 		return nextNode;
@@ -308,13 +311,13 @@ public final class ChainedNode implements OptionalHeadered {
 	//method
 	/**
 	 * @return a {@link String} representation of the next node of the current {@link ChainedNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a next node.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a next node.
 	 */
 	public String getNextNodeAsString() {
 		
 		//Checks if the current ChainedNode has a next node.
 		if (nextNode == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
+			throw new ArgumentDoesNotHaveAttributeException(this, NEXT_NODE_VARIABLE_NAME);
 		}
 		
 		return nextNode.toString();
@@ -367,7 +370,7 @@ public final class ChainedNode implements OptionalHeadered {
 	//method
 	/**
 	 * @return a reproducing {@link String} representation of the header of the current {@link BaseNode}.
-	 * @throws ArgumentMissesAttributeException if the current {@link ChainedNode} does not have a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
 	 */
 	public String getReproducingHeader() {
 		
@@ -376,7 +379,7 @@ public final class ChainedNode implements OptionalHeadered {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 		
-		return createReproducingString(header);
+		return createReproducingStringFor(header);
 	}
 	
 	//method
@@ -469,7 +472,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param attributes
 	 */
-	private <N extends BaseNode> void addAttributes(final Iterable<N> attributes) {
+	@SuppressWarnings("unchecked")
+	private <BN extends BaseNode> void addAttributes(final BN... attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
 		}
@@ -481,14 +485,18 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param attributes
 	 */
-	@SuppressWarnings("unchecked")
-	private <N extends BaseNode> void addAttributes(final N... attributes) {
+	private <BN extends BaseNode> void addAttributes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
 		}
 	}
 	
 	//method
+	/**
+	 * Appends the {@link String} representation of the current {@link ChainedNode} to the given stringBuilder.
+	 * 
+	 * @param stringBuilder
+	 */
 	private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
 		
 		//Handles the case that the current ChainedNode has a header.
@@ -551,17 +559,23 @@ public final class ChainedNode implements OptionalHeadered {
 	}
 
 	//method
-	//startIndex = index of first read char in the substring array (zero-based)
-	//nextIndex = index of the next non-read char in the substring array (zero-based)
-	private int setAndGetNextIndex(final String substring, final int startIndex) {
+	/**
+	 * Sets the current {@link ChainedNode} from the given string from the given startIndex.
+	 * The given startIndex and the returned next index are zero-based.
+	 * 
+	 * @param string
+	 * @param startIndex
+	 * @return the next index the given string can be processed from.
+	 */
+	private int setAndGetNextIndex(final String string, final int startIndex) {
 		
 		var nextIndex = startIndex;
 		
 		var taskAfterSetProbableHeader = Task.DO_NOTHING;
 		var headerLength = 0;
-		while (nextIndex < substring.length()) {
+		while (nextIndex < string.length()) {
 			
-			var character = substring.charAt(nextIndex);
+			var character = string.charAt(nextIndex);
 			
 			if (character == '(') {
 				taskAfterSetProbableHeader = Task.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE;
@@ -578,7 +592,7 @@ public final class ChainedNode implements OptionalHeadered {
 			}
 			
 			if (character == '.') {
-				taskAfterSetProbableHeader =Task.READ_NEXT_NODE;
+				taskAfterSetProbableHeader = Task.READ_NEXT_NODE;
 				nextIndex++;
 				break;
 			}
@@ -588,25 +602,23 @@ public final class ChainedNode implements OptionalHeadered {
 		}
 		
 		//Sets probable header.
-		if (headerLength > 0) {
-			this.header = BaseNode.createOriginStringFromReproducingString(substring.substring(startIndex, startIndex + headerLength));
-		}
+		setProbableHeader(string, startIndex, headerLength);
 		
 		var readNextNode = false;
 		switch (taskAfterSetProbableHeader) {
 			case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
 				
 				final var node = new ChainedNode();
-				nextIndex = node.setAndGetNextIndex(substring, nextIndex);
+				nextIndex = node.setAndGetNextIndex(string, nextIndex);
 				this.attributes.addAtEnd(node);
 				
-				while (nextIndex < substring.length()) {
+				while (nextIndex < string.length()) {
 					
-					final var character = substring.charAt(nextIndex);
+					final var character = string.charAt(nextIndex);
 					
 					if (character == ',') {
 						final var node2 = new ChainedNode();
-						nextIndex = node2.setAndGetNextIndex(substring, nextIndex + 1);
+						nextIndex = node2.setAndGetNextIndex(string, nextIndex + 1);
 						this.attributes.addAtEnd(node2);
 					}
 					
@@ -616,7 +628,7 @@ public final class ChainedNode implements OptionalHeadered {
 					}
 				}
 				
-				if (nextIndex < substring.length() - 1 && substring.charAt(nextIndex) == '.') {
+				if (nextIndex < string.length() - 1 && string.charAt(nextIndex) == '.') {
 					nextIndex++;
 					readNextNode = true;
 				}
@@ -633,7 +645,7 @@ public final class ChainedNode implements OptionalHeadered {
 		}
 		
 		nextNode = new ChainedNode();
-		return nextNode.setAndGetNextIndex(substring, nextIndex);
+		return nextNode.setAndGetNextIndex(string, nextIndex);
 	}
 	
 	//method
@@ -645,7 +657,15 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private void setHeader(final String header) {
 		
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		//Checks if the given header is not null.
+		if (header == null) {
+			throw new ArgumentIsNullException(VariableNameCatalogue.HEADER);
+		}
+		
+		//Checks if the given header is not blank.
+		if (header.isBlank()) {
+			throw new InvalidArgumentException(VariableNameCatalogue.HEADER, header, "is blank");
+		}
 		
 		this.header = header;
 	}
@@ -659,8 +679,29 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private void setNextNode(final ChainedNode nextNode) {
 		
-		Validator.suppose(nextNode).thatIsNamed("next node").isNotNull();
+		//Checks if the given nextNode is not null.
+		if (nextNode == null) {
+			throw new ArgumentIsNullException(NEXT_NODE_VARIABLE_NAME);
+		}
 		
 		this.nextNode = nextNode;
+	}
+	
+	//method
+	/**
+	 * Sets the probable header of the current {@link ChainedNode}.
+	 * The header is in the given string from the given startIndex and has the given headerLength.
+	 * 
+	 * @param string
+	 * @param startIndex
+	 * @param headerLength
+	 */
+	private void setProbableHeader(final String string, final int startIndex, final int headerLength) {
+		if (headerLength > 0) {
+			this.header =
+			BaseNode.createOriginStringFromReproducingString(
+				string.substring(startIndex, startIndex + headerLength)
+			);
+		}
 	}
 }

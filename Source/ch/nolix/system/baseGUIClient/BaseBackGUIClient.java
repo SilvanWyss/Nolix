@@ -286,7 +286,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
 		if (paintCommands.containsAny()) {			
 			runGUICommandOnCounterpart(
-				ChainedNode.withHeaderAndAttributes(Protocol.SET_PAINT_COMMANDS_HEADER,	paintCommands)
+				new ChainedNode(Protocol.SET_PAINT_COMMANDS_HEADER, paintCommands.to(ChainedNode::toNode))
 			);
 		}
 	}
