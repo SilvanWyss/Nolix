@@ -79,17 +79,17 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 		
 		//Enumerates the content position of the current border widget.
 		switch (parentBorderWidget.getContentPosition()) {
-			case LeftTop:
-			case Left:
-			case LeftBottom:
+			case LEFT_TOP:
+			case LEFT:
+			case LEFT_BOTTOM:
 				return look.getRecursiveOrDefaultLeftPadding();
-			case Top:
-			case Center:
-			case Bottom:
+			case TOP:
+			case CENTER:
+			case BOTTOM:
 				return (parentBorderWidget.getScrolledArea().getWidth() - parentBorderWidget.getContentAreaWidth()) / 2;
-			case RightTop:
-			case Right:
-			case RightBottom:				
+			case RIGHT_TOP:
+			case RIGHT:
+			case RIGHT_BOTTOM:				
 				return
 				parentBorderWidget.getScrolledArea().getWidth()
 				- parentBorderWidget.getContentAreaWidth()
@@ -110,18 +110,18 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 		
 		//Enumerates the content orientation of the current border widget.
 		switch (parentBorderWidget.getContentPosition()) {
-			case LeftTop:
-			case Top:
-			case RightTop:
+			case LEFT_TOP:
+			case TOP:
+			case RIGHT_TOP:
 				return look.getRecursiveOrDefaultTopPadding();
-			case Left:
-			case Center:
-			case Right:
+			case LEFT:
+			case CENTER:
+			case RIGHT:
 				return
 				(parentBorderWidget.getScrolledArea().getHeight() - parentBorderWidget.getContentAreaHeight()) / 2;
-			case LeftBottom:
-			case Bottom:
-			case RightBottom:
+			case LEFT_BOTTOM:
+			case BOTTOM:
+			case RIGHT_BOTTOM:
 				return
 				parentBorderWidget.getScrolledArea().getHeight()
 				- parentBorderWidget.getContentAreaHeight()

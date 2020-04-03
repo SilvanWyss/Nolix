@@ -65,9 +65,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 		//Enumerates the content position of the current vertical stack.
 		switch (getContentPosition()) {
-			case LeftTop:
-			case LeftBottom:
-			case Left:
+			case LEFT_TOP:
+			case LEFT_BOTTOM:
+			case LEFT:
 				
 				var y1 = 0;
 				for (final var w : getChildWidgets()) {
@@ -76,9 +76,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				}
 				
 				break;
-			case Top:
-			case Center:
-			case Bottom:
+			case TOP:
+			case CENTER:
+			case BOTTOM:
 				
 				final var contentAreaWidth2 = getContentAreaWidth();
 				var y2 = 0;
@@ -88,9 +88,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				}
 				
 				break;
-			case RightTop:
-			case Right:
-			case RightBottom:
+			case RIGHT_TOP:
+			case RIGHT:
+			case RIGHT_BOTTOM:
 				
 				final var contentAreaWidth3 = getContentAreaWidth();
 				var y3 = 0;

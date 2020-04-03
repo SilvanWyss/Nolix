@@ -54,7 +54,7 @@ public final class FloatContainerTutorial {
 			cw
 			.as(Label.class)
 			.setProposalSize(220, 100)
-			.setContentPosition(ContentPosition.Center)
+			.setContentPosition(ContentPosition.CENTER)
 			.applyOnBaseLook(
 				bl ->
 				bl.setBackgroundColor(Color.LIGHT_GREEN)
