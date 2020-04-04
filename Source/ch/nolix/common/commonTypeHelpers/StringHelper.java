@@ -16,10 +16,10 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 320
  */
 public final class StringHelper {
-	
+		
 	//static method
 	/**
 	 * @param string
@@ -113,6 +113,15 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
+	 * @return a new camel case {@link String} for the given string.
+	 */
+	public static String toCamelCase(final String string) {
+		return new CamelCaseCreator().toCamelCase(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
 	 * @return the double the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a double.
 	 */
@@ -176,6 +185,8 @@ public final class StringHelper {
 			return toIntFromNonNegativeHexaDecimal(string.substring(startIndex));
 		}
 	}
+	
+	
 	
 	//static method
 	/**
