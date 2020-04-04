@@ -16,11 +16,11 @@ import ch.nolix.element.baseAPI.IElementEnum;
  * @lines 30
  */
 public enum WidgetState implements IElementEnum {
-	NORMAL,
-	HOVERED,
-	FOCUSED,
-	DISABLED,
-	COLLAPSED;
+	Normal,
+	Hovered,
+	Focused,
+	Disabled,
+	Collapsed;
 	
 	//constant
 	public static final String TYPE_NAME = "WidgetState";

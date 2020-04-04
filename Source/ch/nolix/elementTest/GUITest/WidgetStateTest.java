@@ -14,7 +14,7 @@ public final class WidgetStateTest extends Test {
 	public void testCase_getSpecification_whenHovered() {
 		
 		//setup
-		final var testUnit = WidgetState.HOVERED;
+		final var testUnit = WidgetState.Hovered;
 		
 		//execution
 		final var result = testUnit.getSpecification();
@@ -28,7 +28,7 @@ public final class WidgetStateTest extends Test {
 	public void testCase_getSpecification_whenNormal() {
 		
 		//setup
-		final var testUnit = WidgetState.NORMAL;
+		final var testUnit = WidgetState.Normal;
 		
 		//execution
 		final var result = testUnit.getSpecification();
