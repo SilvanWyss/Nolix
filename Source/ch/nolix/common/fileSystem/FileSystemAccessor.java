@@ -196,7 +196,7 @@ public final class FileSystemAccessor {
 	 */
 	public static FolderAccessor createFolder(final String path) {
 		
-		//Checks if there does not exist already a file system item with the givne path.
+		//Checks if there does not exist already a file system item with the given path.
 		if (exists(path)) {
 			throw new InvalidArgumentException("file system item",	path, "exists already");
 		}

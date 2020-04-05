@@ -43,17 +43,17 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 		
 		//Checks if the given attribute name is not null.
 		if (attributeName == null) {
-			throw new RuntimeException("The givne attribtue name is null.");
+			throw new RuntimeException("The given attribtue name is null.");
 		}
 		
 		//Checks if the given attribute name is not empty.
 		if (attributeName.isEmpty()) {
-			throw new RuntimeException("The givne attribtue name is empty.");
+			throw new RuntimeException("The given attribtue name is empty.");
 		}
 		
 		//Checks if the given attribute name is not blank.
 		if (attributeName.isBlank()) {
-			throw new RuntimeException("The givne attribtue name is blank.");
+			throw new RuntimeException("The given attribtue name is blank.");
 		}
 		
 		return attributeName;

@@ -24,12 +24,12 @@ public final class ArgumentCannotRemoveAttributeException extends InvalidArgumen
 		
 		//Checks if the given attribute name is not null.
 		if (attributeName == null) {
-			throw new RuntimeException("The givne attribtue name is null.");
+			throw new RuntimeException("The given attribtue name is null.");
 		}
 		
 		//Checks if the given attribute name is not blank.
 		if (attributeName.isBlank()) {
-			throw new RuntimeException("The givne attribtue name is blank.");
+			throw new RuntimeException("The given attribtue name is blank.");
 		}
 		
 		return attributeName;
