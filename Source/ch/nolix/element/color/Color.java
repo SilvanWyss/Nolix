@@ -16,6 +16,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.base.Element;
 
 //class
@@ -787,7 +788,7 @@ public class Color extends Element<Color> {
 			&& field.get(null) instanceof Color;
 		}
 		catch (final IllegalArgumentException | IllegalAccessException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -827,7 +828,7 @@ public class Color extends Element<Color> {
 				}
 			}
 			catch (final IllegalAccessException illegalAccessException) {
-				throw new RuntimeException(illegalAccessException);
+				throw new WrapperException(illegalAccessException);
 			}
 		}
 	}
@@ -852,7 +853,7 @@ public class Color extends Element<Color> {
 				}
 			}
 			catch (final IllegalArgumentException | IllegalAccessException exception) {
-				throw new RuntimeException(exception);
+				throw new WrapperException(exception);
 			}
 		}
 	}
@@ -868,7 +869,7 @@ public class Color extends Element<Color> {
 			return (int)getWebColorIntField(webColorStringField).get(null);
 		}
 		catch (final IllegalArgumentException | IllegalAccessException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

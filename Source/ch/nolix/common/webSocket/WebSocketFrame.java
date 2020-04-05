@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 //own imports
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public final class WebSocketFrame {
@@ -83,7 +84,7 @@ public final class WebSocketFrame {
 			}
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	

@@ -14,6 +14,7 @@ import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -70,7 +71,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 			fileOutputStream.flush();
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -87,7 +88,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 			printWriter.flush();
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -116,7 +117,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 			return Files.readAllBytes(getInternalAccessor().toPath());
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -138,7 +139,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 			}
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		
 		return lines;

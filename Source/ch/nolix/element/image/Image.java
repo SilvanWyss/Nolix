@@ -20,6 +20,7 @@ import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
 import ch.nolix.element.baseAPI.IMutableElement;
@@ -48,7 +49,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			return fromBufferedImage(bufferedImage);
 			
 		} catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	
@@ -79,7 +80,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			return fromBufferedImage(bufferedImage);
 			
 		} catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	

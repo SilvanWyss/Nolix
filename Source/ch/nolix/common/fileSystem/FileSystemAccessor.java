@@ -12,6 +12,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -109,7 +110,7 @@ public final class FileSystemAccessor {
 			new File(path).createNewFile();
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 		
 		//Creates and returns a FileAccessor to the file.

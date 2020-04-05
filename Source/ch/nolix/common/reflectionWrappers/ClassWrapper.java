@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public final class ClassWrapper<T> {
@@ -36,7 +37,7 @@ public final class ClassWrapper<T> {
 			| InvocationTargetException
 			exception
 		) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -46,7 +47,7 @@ public final class ClassWrapper<T> {
 			return mClass.getConstructor(parameterTypes);
 		}
 		catch (final NoSuchMethodException | SecurityException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

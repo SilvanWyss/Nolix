@@ -18,6 +18,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.optionalAttributeAPI.OptionalIdentified;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.baseAPI.IElement;
 
 //class
@@ -433,7 +434,7 @@ public class Entity implements IElement, OptionalIdentified {
 				properties.addAtEnd(property);
 			}
 			catch (final IllegalArgumentException | IllegalAccessException exception) {
-				throw new RuntimeException(exception);
+				throw new WrapperException(exception);
 			}
 		}
 	}

@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 final class NetEndPointProcessorForRegularCounterpart implements INetEndPointProcessor {
@@ -35,7 +36,7 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		
 		Sequencer.runInBackground(() -> listenToMessages());
@@ -60,7 +61,7 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 			outputStream.flush();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	

@@ -9,6 +9,7 @@ import java.math.RoundingMode;
 import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IIntTakerElementGetter;
+import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.processProperties.ProcessingMode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
@@ -231,7 +232,7 @@ public final class Fractal implements IFractal {
 			case MULTI_THREADED:
 				return toImage();
 			default:
-				throw new RuntimeException();
+				throw new InvalidArgumentException(processingMode);
 		}
 	}
 	

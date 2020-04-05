@@ -10,6 +10,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -165,7 +166,7 @@ final class WidgetProvider {
 				| NoSuchMethodException
 				| SecurityException exception
 			) {
-				throw new RuntimeException(exception);
+				throw new WrapperException(exception);
 			}
 	}
 }

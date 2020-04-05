@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 //own import
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProcessor {
@@ -27,7 +28,7 @@ final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProces
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	
@@ -50,7 +51,7 @@ final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProces
 			outputStream.flush();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 }

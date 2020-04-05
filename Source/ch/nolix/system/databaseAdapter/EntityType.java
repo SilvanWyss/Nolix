@@ -11,6 +11,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.system.dataTypes.DataTypeHelper;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
@@ -51,7 +52,7 @@ public final class EntityType<E extends Entity> implements Named {
 			| SecurityException
 			exception
 		) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

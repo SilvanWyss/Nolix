@@ -14,6 +14,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
 
 //class
@@ -332,7 +333,7 @@ public abstract class Session<C extends Client<C>> {
 			getUserDataMethod(name).invoke(this, (Object[])arguments);
 		}
 		catch (final Exception exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -351,7 +352,7 @@ public abstract class Session<C extends Client<C>> {
 			getUserRunMethod(name).invoke(this, (Object[])arguments);
 		}
 		catch (final Exception exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

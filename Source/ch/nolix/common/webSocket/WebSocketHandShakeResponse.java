@@ -35,7 +35,7 @@ public final class WebSocketHandShakeResponse {
 			secWebSocketAccept = Base64.getEncoder().encodeToString(bytes);
 		}
 		catch (final NoSuchAlgorithmException noSuchAlgorithmException) {
-			throw new RuntimeException(noSuchAlgorithmException);
+			throw new WrapperException(noSuchAlgorithmException);
 		}
 	}
 	

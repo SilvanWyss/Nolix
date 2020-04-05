@@ -22,6 +22,7 @@ import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -110,7 +111,7 @@ public final class NetEndPoint extends EndPoint {
 			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		
 			
@@ -156,7 +157,7 @@ public final class NetEndPoint extends EndPoint {
 			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		
 		sendRawMessage(NetEndPointProtocol.TARGET_PREFIX + getTarget());
@@ -306,7 +307,7 @@ public final class NetEndPoint extends EndPoint {
 		}
 		catch (final IOException IOException) {
 			close();
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 

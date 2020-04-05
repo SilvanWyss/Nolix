@@ -12,6 +12,7 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.reflectionWrappers.ClassWrapper;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -92,7 +93,7 @@ public final class LicenseManager {
 			| SecurityException
 			exception
 		) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

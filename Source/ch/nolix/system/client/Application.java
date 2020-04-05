@@ -15,6 +15,7 @@ import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -321,7 +322,7 @@ public class Application<C extends Client<C>> implements Named {
 			| InvocationTargetException
 			exception
 		) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -342,7 +343,7 @@ public class Application<C extends Client<C>> implements Named {
 			| InvocationTargetException
 			exception
 		) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	
@@ -380,7 +381,7 @@ public class Application<C extends Client<C>> implements Named {
 			return clientConstructor;
 		}
 		catch (final NoSuchMethodException | SecurityException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

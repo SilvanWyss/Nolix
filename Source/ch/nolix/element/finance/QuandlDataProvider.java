@@ -8,6 +8,7 @@ import java.net.URL;
 
 //own imports
 import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.time.Time;
 
 //class
@@ -64,7 +65,7 @@ public final class QuandlDataProvider {
 			
 			return dailyCandleSticks;
 		} catch (final Exception exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 }

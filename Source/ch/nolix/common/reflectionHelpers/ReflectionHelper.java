@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public final class ReflectionHelper {
@@ -30,7 +31,7 @@ public final class ReflectionHelper {
 					}
 				}
 				catch (final IllegalArgumentException | IllegalAccessException exception) {
-					throw new RuntimeException(exception);
+					throw new WrapperException(exception);
 				}
 			}
 			

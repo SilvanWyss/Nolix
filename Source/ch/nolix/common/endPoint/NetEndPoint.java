@@ -11,6 +11,7 @@ import ch.nolix.common.constants.IPv6Catalogue;
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -67,7 +68,7 @@ public final class NetEndPoint extends EndPoint {
 			printWriter = new PrintWriter(socket.getOutputStream());
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 		
 		//Creates net end point sub listener for this net end point.
@@ -97,7 +98,7 @@ public final class NetEndPoint extends EndPoint {
 			printWriter = new PrintWriter(socket.getOutputStream());
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 		
 		//Creates net end point sub listener for this net end point.

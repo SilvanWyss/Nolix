@@ -10,6 +10,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.processProperties.WriteMode;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public final class InstanceProvider {
@@ -45,7 +46,7 @@ public final class InstanceProvider {
 					| InstantiationException
 					| InvocationTargetException exception
 				) {
-					throw new RuntimeException(exception);
+					throw new WrapperException(exception);
 				}
 			}
 		}

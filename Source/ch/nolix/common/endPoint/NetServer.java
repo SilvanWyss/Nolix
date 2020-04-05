@@ -10,6 +10,7 @@ import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -55,7 +56,7 @@ public final class NetServer extends Server {
 			serverSocket.setReuseAddress(true);
 		}
 		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 		
 		//Creates new net server sub listener for this net server.

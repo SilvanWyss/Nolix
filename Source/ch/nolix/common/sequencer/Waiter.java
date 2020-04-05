@@ -4,6 +4,7 @@ package ch.nolix.common.sequencer;
 //own imports
 import ch.nolix.common.constants.TimeUnitCatalogue;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -46,8 +47,8 @@ final class Waiter {
 		try {
 			Thread.sleep(durationInMilliseconds);
 		}
-		catch (final InterruptedException ie) {
-			throw new RuntimeException(ie);
+		catch (final InterruptedException interruptedException) {
+			throw new WrapperException(interruptedException);
 		}
 	}
 	

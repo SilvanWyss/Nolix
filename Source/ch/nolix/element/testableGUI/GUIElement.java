@@ -10,6 +10,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public abstract class GUIElement implements IdentifiedByString, Rectangular {
@@ -67,7 +68,7 @@ public abstract class GUIElement implements IdentifiedByString, Rectangular {
 			| NoSuchMethodException
 			| SecurityException exception
 		) {
-			throw new RuntimeException(exception);
+			throw new WrapperException(exception);
 		}
 	}
 	

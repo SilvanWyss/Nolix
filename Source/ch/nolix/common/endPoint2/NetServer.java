@@ -8,6 +8,7 @@ import java.net.ServerSocket;
 //own imports
 import ch.nolix.common.constants.PortCatalogue;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
@@ -98,7 +99,7 @@ public final class NetServer extends Server {
 			serverSocket.setReuseAddress(true);
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		
 		//Creates a NetServerSubListenerfor the current NetServer.
@@ -139,8 +140,8 @@ public final class NetServer extends Server {
 		try {
 			serverSocket.close();
 		}
-		catch (final IOException IOexception) {
-			throw new RuntimeException(IOexception);
+		catch (final IOException IOException) {
+			throw new WrapperException(IOException);
 		}
 	}
 	

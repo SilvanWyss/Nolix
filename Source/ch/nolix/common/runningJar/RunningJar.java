@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import ch.nolix.common.wrapperException.WrapperException;
+
 //class
 public final class RunningJar {
 	
@@ -22,7 +24,7 @@ public final class RunningJar {
 			}
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		return stringBuilder.toString();
 	}

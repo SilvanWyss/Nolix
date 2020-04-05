@@ -15,6 +15,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketCompleteMessage;
 import ch.nolix.common.webSocket.WebSocketFrame;
 import ch.nolix.common.webSocket.WebSocketFrameOpcodeMeaning;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointProcessor {
@@ -39,7 +40,7 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 		this.inputStream = inputStream;
 		sendRawMessageUnframed(x);
@@ -70,7 +71,7 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 			outputStream.flush();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	
@@ -117,7 +118,7 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 			outputStream.flush();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new WrapperException(IOException);
 		}
 	}
 	

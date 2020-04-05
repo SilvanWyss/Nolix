@@ -209,11 +209,11 @@ public class NetEndPoint extends EndPoint {
 				break;
 			case Protocol.ERROR_HEADER:
 				if (!reply.containsAttributes()) {
-					throw new RuntimeException();
+					throw new RuntimeException("An error occured by running the commands '" + commands + "'." );
 				}
 				throw new RuntimeException(reply.getOneAttributeAsString());
 			default:
-				throw new RuntimeException("Error occured by running the commands '" + commands + "'." );
+				throw new RuntimeException("An error occured by running the commands '" + commands + "'." );
 		}
 	}
 	

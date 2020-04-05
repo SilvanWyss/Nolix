@@ -12,6 +12,7 @@ import ch.nolix.common.constants.IPv4Catalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public abstract class SQLConnection implements AutoCloseable {
@@ -76,7 +77,7 @@ public abstract class SQLConnection implements AutoCloseable {
 			);
 		}
 		catch (final SQLException SQLException) {
-			throw new RuntimeException(SQLException);
+			throw new WrapperException(SQLException);
 		}
 	}
 	
@@ -87,7 +88,7 @@ public abstract class SQLConnection implements AutoCloseable {
 			connection.close();
 		}
 		catch (SQLException SQLException) {
-			throw new RuntimeException(SQLException);
+			throw new WrapperException(SQLException);
 		}
 	}
 	
@@ -109,7 +110,7 @@ public abstract class SQLConnection implements AutoCloseable {
 			
 			statement.executeBatch();		
 		} catch (final SQLException SQLException) {
-			throw new RuntimeException(SQLException);
+			throw new WrapperException(SQLException);
 		}
 		
 		return this;
@@ -122,7 +123,7 @@ public abstract class SQLConnection implements AutoCloseable {
 			connection.createStatement().execute(SQLStatement);
 		} catch (final SQLException SQLException) {
 			close();
-			throw new RuntimeException(SQLException);
+			throw new WrapperException(SQLException);
 		}
 		
 		return this;
@@ -157,7 +158,7 @@ public abstract class SQLConnection implements AutoCloseable {
 			
 			return rows;
 		} catch (SQLException SQLException) {
-			throw new RuntimeException(SQLException);
+			throw new WrapperException(SQLException);
 		}
 	}
 	
@@ -191,7 +192,7 @@ public abstract class SQLConnection implements AutoCloseable {
 			Class.forName(getSQLDatabaseEngineDriverClass());
 		}
 		catch (final ClassNotFoundException classNotFoundException) {
-			throw new RuntimeException(classNotFoundException);
+			throw new WrapperException(classNotFoundException);
 		}
 	}
 }
