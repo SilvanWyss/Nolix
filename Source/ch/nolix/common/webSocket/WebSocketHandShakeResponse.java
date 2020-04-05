@@ -7,8 +7,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
-//own import
+//own imports
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public final class WebSocketHandShakeResponse {
