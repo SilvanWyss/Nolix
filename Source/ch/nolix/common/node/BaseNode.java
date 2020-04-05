@@ -15,6 +15,7 @@ import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalHeaderable;
+import ch.nolix.common.processProperties.WriteMode;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -183,7 +184,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean equals(final Object object) {
+	public boolean equals(final Object object) {
 		
 		//Handles the case that the given object is not a BaseNode.
 		if (!(object instanceof BaseNode)) {
@@ -255,7 +256,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 * @throws InvalidArgumentException if the one attribute of the current {@link BaseNode} does not have a header.
 	 */
-	public final String getHeaderOfOneAttribute() {
+	public String getHeaderOfOneAttribute() {
 		return getRefOneAttribute().getHeader();
 	}
 	
@@ -267,7 +268,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent a boolean.
 	 */
-	public final boolean getOneAttributeAsBoolean() {
+	public boolean getOneAttributeAsBoolean() {
 		return getRefOneAttribute().toBoolean();
 	}
 	
@@ -503,34 +504,31 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * Saves the current {@link BaseNode} to the file with the given file path.
 	 * 
-	 * @param filePath
-	 * @throws ArgumentIsNullException if the given relative file path is null.
-	 * @throws EmptyArgumentException if the given relative file path is empty.
-	 * @throws InvalidArgumentException
-	 * if a file system item with the given file path exists already.
+	 * @param path
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
-	public void saveToFile(final String filePath) {
+	public void saveToFile(final String path) {
 		
 		//Calls other method.
-		saveToFile(filePath, false);
+		saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//method
 	/**
 	 * Saves the current {@link BaseNode} to the file with the given path.
 	 * 
-	 * If the given overwrite flag is true,
-	 * a file with the given file path, that exists already, will be overwritten.
-	 * 
-	 * @param filePath
-	 * @param overwrite
-	 * @throws ArgumentIsNullException if the given relative file path is null.
-	 * @throws EmptyArgumentException if the given relative file path is empty.
-	 * @throws InvalidArgumentException if the given overwrite flag is false
-	 * and a file system item with the given file path exists already.
+	 * @param path
+	 * @param writeMode
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * and there exists already a file system item with the given path.
 	 */
-	public void saveToFile(final String filePath, final boolean overwrite) {
-		FileSystemAccessor.createFile(filePath, overwrite, toFormatedString());
+	public void saveToFile(final String path, final WriteMode writeMode) {
+		FileSystemAccessor.createFile(path, writeMode, toFormatedString());
 	}
 	
 	//method
@@ -597,7 +595,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @return a XML representation of the current {@link BaseNode}.
 	 */
-	public final XMLNode toXML() {
+	public XMLNode toXML() {
 		
 		//Creates an XML node.
 		final var lXMLNode = new XMLNode(getHeader());
@@ -620,7 +618,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	}
 	
 	//method
-	final int setAndGetEndIndex(final String substring, final int startIndex) {
+	int setAndGetEndIndex(final String substring, final int startIndex) {
 		
 		var index = startIndex;
 		

@@ -7,6 +7,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.processProperties.WriteMode;
 
 //interface
 /**
@@ -33,9 +34,9 @@ public interface IElement extends TypeRequestable {
 	//method
 	/**
 	 * @param type
-	 * @return the specification of the current specified as the given type.
+	 * @return the specification of the current {@link IElement} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws EmptyArgumentException if the given type is empty.
+	 * @throws InvalidArgumentException if the given type is blank.
 	 */
 	public default Node getSpecificationAs(final String type) {
 		return new Node(type, getAttributes());
@@ -51,41 +52,39 @@ public interface IElement extends TypeRequestable {
 	
 	//method
 	/**
-	 * Saves the current {@link IElement} as the given type
-	 * to the file with the given file path.
+	 * Saves the current {@link IElement} as the given type to the file with the given path.
 	 * 
 	 * @param type
-	 * @param filePath
+	 * @param path
 	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws EmptyArgumentException if the given type is empty.
-	 * @throws InvalidArgumentException
-	 * if a file system item with the given file path exists already.
+	 * @throws InvalidArgumentException if the given type is blank.
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
-	public default void saveAsTo(final String type, final String filePath) {
+	public default void saveAsTo(final String type, final String path) {
 		
 		//Calls other method.
-		saveAsTo(type, filePath, false);
+		saveAsTo(type, path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//method
 	/**
-	 * Saves the current {@link IElement} as the given type
-	 * to the file with the given path.
+	 * Saves the current {@link IElement} as the given type to the file with the given path.
 	 * 
 	 * @param type
-	 * @param filePath
-	 * @param overwrite
+	 * @param path
+	 * @param writeMode
 	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws EmptyArgumentException if the given type is empty.
-	 * @throws InvalidArgumentException if the given overwrite flag is false
-	 * and a file system item with the given file path exists already.
+	 * @throws InvalidArgumentException if the given type is blank.
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * and there exists already a file system item with the given path.
 	 */
-	public default void saveAsTo(
-		final String type,
-		final String filePath,
-		final boolean overwrite
-	) {
-		getSpecificationAs(type).saveToFile(filePath, overwrite);
+	public default void saveAsTo(final String type, final String path, final WriteMode writeMode) {
+		getSpecificationAs(type).saveToFile(path, writeMode);
 	}
 	
 	//method
@@ -99,20 +98,23 @@ public interface IElement extends TypeRequestable {
 	public default void saveTo(final String filePath) {
 		
 		//Calls other method.
-		saveTo(filePath, false);
+		saveTo(filePath, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//method
 	/**
-	 * Saves the current {@link IElement} to the file with the given file path.
+	 * Saves the current {@link IElement} to the file with the given path.
 	 * 
-	 * @param filePath
-	 * @param overwrite
-	 * @throws InvalidArgumentException if the given overwrite flag is false
-	 * and a file system item with the given file path exists already.
+	 * @param path
+	 * @param writeMode
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * and there exists already a file system item with the given path.
 	 */
-	public default void saveTo(final String filePath, final boolean overwrite) {
-		getSpecification().saveToFile(filePath, overwrite);
+	public default void saveTo(final String path, final WriteMode writeMode) {
+		getSpecification().saveToFile(path, writeMode);
 	}
 	
 	//method

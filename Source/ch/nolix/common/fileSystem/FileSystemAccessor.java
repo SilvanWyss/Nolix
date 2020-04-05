@@ -11,6 +11,7 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.processProperties.WriteMode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
@@ -20,7 +21,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 340
+ * @lines 350
  */
 public final class FileSystemAccessor {
 	
@@ -76,73 +77,67 @@ public final class FileSystemAccessor {
 	public static FileAccessor createFile(final String path) {
 		
 		//Calls other method.
-		return createFile(path, false);
+		return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//static method
 	/**
 	 * Creates a new empty file with the given path.
 	 * 
-	 * If the given overwrite flag is true,
-	 * a file with the given path, that exists already, will be overwritten.
-	 * 
 	 * @param path
-	 * @param overwrite
+	 * @param writeMode
 	 * @return a new {@link FileAccessor} to the created file.
 	 * @throws ArgumentIsNullException if the given path is null.
-	 * @throws EmptyArgumentException if the given path is empty.
-	 * @throws InvalidArgumentException if the given overwrite flag is false
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
-	public static FileAccessor createFile(final String path, final boolean overwrite) {
+	public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 		
 		//Checks if the if given path is not null or empty.
-		Validator.suppose(path).thatIsNamed(VariableNameCatalogue.PATH).isNotEmpty();
-		
-		//If the given overwrite flag is false,
-		//checks if there does not exist already a file system item with the given path.
-		if (!overwrite && exists(path)) {
-			throw new InvalidArgumentException("file system item",	path, "exists already");
-		}
+		Validator.suppose(path).thatIsNamed(VariableNameCatalogue.PATH).isNotBlank();
 		
 		//Creates file.
 		try {
-			new File(path).createNewFile();
+			
+			if (!new File(path).createNewFile()) {
+				switch (writeMode) {
+					case OVERWRITE_WHEN_EXISTS_ALREADY:
+						deleteFileSystemItem(path);
+						return createFile(path);
+					case SKIP_WHEN_EXISTS_ALREADY:
+						return new FileAccessor(path);
+					case THROW_EXCEPTION_WHEN_EXISTS_ALREADY:
+						throw new InvalidArgumentException("file system item",	path, "exists already");		
+				}
+			}
+			
+			return new FileAccessor(path);
 		}
-		catch (final IOException exception) {
-			throw new WrapperException(exception);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
-		
-		//Creates and returns a FileAccessor to the file.
-		return new FileAccessor(path);
 	}
 	
 	//static method
 	/**
-	 * Creates a new file with the given path.
-	 * 
-	 * If the given overwrite flag is true,
-	 * a file with the given path, that exists already, will be overwritten.
-	 * 
-	 * The file will have the given content.
+	 * Creates a new file with the given path. The file will have the given content.
 	 * 
 	 * @param path
-	 * @param overwrite
+	 * @param writeMode
 	 * @param content
 	 * @return a new {@link FileAccessor} to the created file.
 	 * @throws ArgumentIsNullException if the given path is null.
-	 * @throws EmptyArgumentException if the given path is empty.
-	 * @throws InvalidArgumentException if the given overwrite flag is false
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 * @throws ArgumentIsNullException if the given content is null.
 	 */
-	public static FileAccessor createFile(
-		final String path,
-		final boolean overwrite,
-		final String content
-	) {
+	public static FileAccessor createFile(final String path, final WriteMode writeMode, final String content) {
 		
-		final var fileAccessor = createFile(path, overwrite);
+		final var fileAccessor = createFile(path, writeMode);
 		
 		fileAccessor.overwriteFile(content);
 		
@@ -171,19 +166,18 @@ public final class FileSystemAccessor {
 	
 	//static method
 	/**
-	 * Creates a new file with the given path.
-	 * The file will have the given content.
+	 * Creates a new file with the given path. The file will have the given content.
 	 * 
 	 * @param path
 	 * @return a new {@link FileAccessor} to the created file.
 	 * @throws ArgumentIsNullException if the given path is null.
-	 * @throws EmptyArgumentException if the given path is empty.
+	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
 	public static FileAccessor createFile(final String path, final String content) {
 		
 		//Calls other method.
-		return createFile(path, false, content);
+		return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY, content);
 	}
 	
 	//static method
