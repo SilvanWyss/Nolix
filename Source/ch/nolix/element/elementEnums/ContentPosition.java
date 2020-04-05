@@ -12,15 +12,15 @@ import ch.nolix.element.baseAPI.IElementEnum;
  * @lines 30
  */
 public enum ContentPosition implements IElementEnum {
-	LEFT_TOP,
-	LEFT,
-	LEFT_BOTTOM,
-	TOP,
-	CENTER,
-	BOTTOM,
-	RIGHT_TOP,
-	RIGHT,
-	RIGHT_BOTTOM;
+	LeftTop,
+	Left,
+	LeftBottom,
+	Top,
+	Center,
+	Bottom,
+	RightTop,
+	Right,
+	RightBottom;
 	
 	//constant
 	public static final String TYPE_NAME = "ContentPosition";

@@ -665,7 +665,7 @@ extends Widget<BW, BWL> {
 		//Calls method of the base class
 		super.resetConfiguration();
 		
-		setContentPosition(ContentPosition.LEFT_TOP);
+		setContentPosition(ContentPosition.LeftTop);
 		removeMinWidth();
 		removeMinHeight();
 		removeMaxWidtht();
