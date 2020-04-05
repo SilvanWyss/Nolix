@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+//own import
 import ch.nolix.common.wrapperException.WrapperException;
 
 //class
@@ -15,18 +16,17 @@ public final class RunningJar {
 	public static String getResource(final String pPackage) {
 		final var stringBuilder = new StringBuilder();
 		final var inputStream = RunningJar.class.getResourceAsStream("/" + pPackage);
-		final var bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-		try {
+		try (final var bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
 			var line = bufferedReader.readLine();
 			while (line != null) {
 				stringBuilder.append(line).append("\n");
 				line = bufferedReader.readLine();
 			}
+			return stringBuilder.toString();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
-		return stringBuilder.toString();
 	}
 	
 	//access-reducing constructor
