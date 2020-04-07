@@ -23,6 +23,7 @@ public final class FieldHelper {
 		}
 		
 		try {
+			staticField.setAccessible(true);
 			return (V)staticField.get(null);
 		}
 		catch (final IllegalAccessException illegalAccessException) {
@@ -47,7 +48,13 @@ public final class FieldHelper {
 			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
 		}
 		
-		return (isStatic(field) && type.isAssignableFrom(getValueFromStaticField(field).getClass()));
+		if (!isStatic(field)) {
+			return false;
+		}
+		
+		final var value = getValueFromStaticField(field);
+		
+		return (value != null && type.isAssignableFrom(value.getClass()));
 	}
 	
 	//access-reducing constructor
