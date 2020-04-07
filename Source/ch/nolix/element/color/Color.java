@@ -1,22 +1,15 @@
 //package declaration
 package ch.nolix.element.color;
 
-//Java imports
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-
 //own imports
-import ch.nolix.common.commonTypeHelpers.StringHelper;
 import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.base.Element;
 
 //class
@@ -28,7 +21,7 @@ import ch.nolix.element.base.Element;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1510
+ * @lines 1350
  */
 public class Color extends Element<Color> {
 	
@@ -751,9 +744,9 @@ public class Color extends Element<Color> {
 	public static final short MIN_COLOR_COMPONENT = 0;
 	public static final short MAX_COLOR_COMPONENT = 255;
 	
-	//static multi-attributes
-	private static final LinkedList<Color> webColors = new LinkedList<>();
-	private static final LinkedList<Pair<String, java.lang.Long>> webColorPairs = new LinkedList<>();
+	//static attributes
+	private static final ColorsExtractor colorsExtractor = new ColorsExtractor();
+	private static final ColorPairsExtractor colorPairsExtractor = new ColorPairsExtractor();
 	
 	//static method
 	/**
@@ -769,168 +762,16 @@ public class Color extends Element<Color> {
 	/**
 	 * @return the web colors.
 	 */
-	public static ReadContainer<Color> getWebColors() {
-		
-		fillUpWebColors();
-		
-		return new ReadContainer<>(webColors);
-	}
-	
-	//static method
-	/**
-	 * @param field
-	 * @return true if the given field declares a web color
-	 */
-	private static boolean declaresWebColor(final Field field) {
-		try {
-			return
-			Modifier.isStatic(field.getModifiers())
-			&& field.get(null) instanceof Color;
-		}
-		catch (final IllegalArgumentException | IllegalAccessException exception) {
-			throw new WrapperException(exception);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param field
-	 * @return true if the given field declares a web color string.
-	 */
-	private static boolean declaresWebColorString(final Field field) {
-		return
-		Modifier.isStatic(field.getModifiers())
-		&& field.getName().endsWith("_STRING");
-	}
-	
-	//static method
-	/**
-	 * Fills up the web color pairs.
-	 */
-	private static void fillUpWebColorPairs() {
-		
-		//Handles the case that the web color pairs are not filled up already.
-		if (!webColorPairsAreFilledUp()) {
-			try {
-				
-				//Iterates the declared fields of the color class.
-				for (final var f : Color.class.getDeclaredFields()) {
-					
-					//Handles the case that the current field declares a web color string.
-					if (declaresWebColorString(f)) {
-						webColorPairs.addAtEnd(
-							new Pair<String, java.lang.Long>(
-								f.get(null).toString(),
-								getWebColorInt(f)
-							)
-						);
-					}
-				}
-			}
-			catch (final IllegalAccessException illegalAccessException) {
-				throw new WrapperException(illegalAccessException);
-			}
-		}
-	}
-	
-	//static method
-	/**
-	 * Fills up the web colors.
-	 */
-	private static void fillUpWebColors() {
-		
-		//Handles the case that the web colors are not filled up already.
-		if (!webColorsAreFilledUp()) {
-			try {
-				
-				//Iterates the declared fields of the color class.
-				for (final var f : Color.class.getDeclaredFields()) {
-					
-					//Handles the case that the current field declares a web color.
-					if (declaresWebColor(f)) {
-						webColors.addAtEnd((Color)f.get(null));
-					}
-				}
-			}
-			catch (final IllegalArgumentException | IllegalAccessException exception) {
-				throw new WrapperException(exception);
-			}
-		}
-	}
-	
-	//static method
-	/**
-	 * 
-	 * @param webColorStringField
-	 * @return the web color int that corresponds to the given web color string field.
-	 */
-	private static long getWebColorInt(final Field webColorStringField) {
-		try {
-			return (int)getWebColorIntField(webColorStringField).get(null);
-		}
-		catch (final IllegalArgumentException | IllegalAccessException exception) {
-			throw new WrapperException(exception);
-		}
-	}
-	
-	//static method
-	/**
-	 * 
-	 * @param webColorStringField
-	 * @return the web color int field that corresponds to the given web color string field.
-	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Color} class
-	 * does not contain a web color int field for the given web color string field.
-	 */
-	private static Field getWebColorIntField(final Field webColorStringField) {
-		final var webColorIntFieldName =
-		StringHelper.createStringWithoutLastCharacters(webColorStringField.getName(), 7) + "_INT";
-		
-		//Iterates the fields of the color class.
-		for (final var f : Color.class.getDeclaredFields()) {
-			
-			//Handles the case that the current field 2 declares the int value of the web color with the current color name.
-			if (
-				Modifier.isStatic(f.getModifiers())
-				&& f.getName().equals(webColorIntFieldName)
-			) {
-				return f;
-			}
-		}
-		
-		throw
-		new ArgumentDoesNotHaveAttributeException(
-			Color.class,
-			"web color int field for the given web color string field '"
-			+ webColorStringField.getName()
-			+ "'"
-		);
+	public static IContainer<Color> getWebColors() {
+		return colorsExtractor.getColors();
 	}
 	
 	//static method
 	/**
 	 * @return the web color pairs.
 	 */
-	private static ReadContainer<Pair<String, java.lang.Long>> getWebColorPairs() {
-		
-		fillUpWebColorPairs();
-		
-		return new ReadContainer<>(webColorPairs);
-	}
-	
-	//static method
-	/**
-	 * @return true if the web color pairs are filled up.
-	 */
-	private static boolean webColorPairsAreFilledUp() {
-		return webColorPairs.containsAny();
-	}
-	
-	//static method
-	/**
-	 * @return true if the web colors are filled up.
-	 */
-	private static boolean webColorsAreFilledUp() {
-		return webColors.containsAny();
+	public static IContainer<Pair<String, Color>> getWebColorPairs() {
+		return colorPairsExtractor.getColorPairs();
 	}
 	
 	//attributes
@@ -1080,7 +921,7 @@ public class Color extends Element<Color> {
 	 */
 	public String getHexadecimalValueOrColorName() {
 		
-		final var pair = getWebColorPairs().getRefFirstOrNull(wc -> wc.getRefElement2().equals(getIntValue()));
+		final var pair = getWebColorPairs().getRefFirstOrNull(wc -> wc.getRefElement2().equals(this));
 		
 		//Handles the case that the current Color has a color name.
 		if (pair != null) {
@@ -1404,8 +1245,7 @@ public class Color extends Element<Color> {
 	 */
 	private void setValue(final String value) {
 		
-		final Pair<String, java.lang.Long> pair
-		= getWebColorPairs().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
+		final Pair<String, Color> pair = getWebColorPairs().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
 		
 		//Handles the case that the given value is not a color name.
 		if (pair == null) {
@@ -1435,7 +1275,7 @@ public class Color extends Element<Color> {
 		
 		//Handles the case that the given value is a color name.
 		else {
-			setValue(pair.getRefElement2());
+			setValue(pair.getRefElement2().getIntValue());
 		}
 	}
 		
