@@ -331,13 +331,13 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		//sourceYs[y] := the source Image's y for the new Image's y
 		final var sourceYs = new int[image.getHeight() + 1];
 		for (var i = 1; i <= image.getHeight(); i++) {
-			sourceYs[i] = Calculator.getMax(1, Calculator.getMin(getHeight(), (int)(Math.round(reziprocalFactor * i))));
+			sourceYs[i] = (int)((i - 1) * reziprocalFactor) + 1;
 		}
 		
 		for (var x = 1; x <= image.getWidth(); x++) {
 			
 			//sourceX := the source Image's x for the new Image's x
-			final var sourceX = Calculator.getMax(1, Calculator.getMin(getWidth(), (int)(Math.round(reziprocalFactor * x))));
+			final var sourceX = (int)((x - 1) * reziprocalFactor) + 1;
 			
 			for (var  y = 1; y <= image.getHeight(); y++) {
 				final var sourceY = sourceYs[y];
