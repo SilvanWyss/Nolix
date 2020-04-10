@@ -17,6 +17,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
+import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -300,6 +301,34 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public Image toRightRotatedImage() {
 		return new Image(pixels.toRightRotatedMatrix());
+	}
+	
+	//method
+	public Image toScaledImage(final double factor) {
+		
+		Validator.suppose(factor).thatIsNamed(VariableNameCatalogue.FACTOR).isPositive();
+		
+		final var image = new Image((int)(factor * getWidth()), (int)(factor * getHeight()));
+		final var reziprocalFactor = 1 / factor;
+		
+		//sourceYs[y] := the source Image's y for the new Image's y
+		final var sourceYs = new int[image.getHeight() + 1];
+		for (var i = 1; i <= image.getHeight(); i++) {
+			sourceYs[i] = Calculator.getMax(1, Calculator.getMin(getHeight(), (int)(reziprocalFactor * i)));
+		}
+		
+		for (var x = 1; x <= image.getWidth(); x++) {
+			
+			//sourceX := the source Image's x for the new Image's x
+			final var sourceX = Calculator.getMax(1, Calculator.getMin(getWidth(), (int)(reziprocalFactor * x)));
+			
+			for (var  y = 1; y <= image.getHeight(); y++) {
+				final var sourceY = sourceYs[y];
+				image.setPixel(x, y, this.getPixel(sourceX, sourceY));
+			}
+		}
+		
+		return image;
 	}
 	
 	//method
