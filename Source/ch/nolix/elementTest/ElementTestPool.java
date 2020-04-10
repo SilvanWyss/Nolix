@@ -7,6 +7,7 @@ import ch.nolix.elementTest.GUITest.GUITestPool;
 import ch.nolix.elementTest.colorTest.ColorTestPool;
 import ch.nolix.elementTest.containerWidgetsTest.ContainerWidgetTestPool;
 import ch.nolix.elementTest.financeTest.FinanceTestPool;
+import ch.nolix.elementTest.imageTest.ImageTestPool;
 import ch.nolix.elementTest.timeTest.TimeTestPool;
 import ch.nolix.elementTest.widgetsTest.WidgetTestPool;
 import ch.nolix.techTest.projectTest.TaskTestPool;
@@ -27,10 +28,11 @@ public final class ElementTestPool extends TestPool {
 		super(
 			new ColorTestPool(),
 			new ContainerWidgetTestPool(),
-			new TimeTestPool(),
 			new FinanceTestPool(),
 			new GUITestPool(),
+			new ImageTestPool(),
 			new TaskTestPool(),
+			new TimeTestPool(),
 			new WidgetTestPool()
 		);
 	}
