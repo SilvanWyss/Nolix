@@ -26,12 +26,8 @@ public final class ConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an Application.
-		final var application
-		= new Application<BackConsoleClient>(
-			"MyApplication",
-			BackConsoleClient.class,
-			MainSession.class
-		);
+		final var application =
+		new Application<BackConsoleClient>("MyApplication",	BackConsoleClient.class, MainSession.class);
 		
 		//Creates a FrontConsoleClient that will connect to the Application.
 		new FrontConsoleClient(application);
@@ -43,7 +39,7 @@ public final class ConsoleClientTutorial {
 		public void initialize() {
 			
 			setLook(new BlackRedConsoleClientLook());
-			
+						
 			writeLineToInfoPanel(
 				"This is the info panel of the console.",
 				"On the info panel informatiosn can be displayed.",
@@ -51,10 +47,10 @@ public final class ConsoleClientTutorial {
 			);
 			
 			writeLineToConsole("Enter your name.");
-			final String name = readLineFromConsole();
+			final var name = readLineFromConsole();
 			writeLineToConsole("Hello " + name + ".");
-						
-			boolean answerIsValid = false;
+			
+			var answerIsValid = false;
 			do {
 				
 				writeLineToConsole("Are you fine? Press y for yes, press n for no.");
@@ -73,12 +69,11 @@ public final class ConsoleClientTutorial {
 			} while (!answerIsValid);
 			
 			Sequencer.waitForASecond();
-			
 			writeEmptyLineToConsole();
+			
 			writeLineToConsole("Press enter to quit the program.");
 			readEnterFromConsole();
-			
-			getParentClient().close();
+			pop();
 		}
 	}
 	
