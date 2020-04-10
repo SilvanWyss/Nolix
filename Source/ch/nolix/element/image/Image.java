@@ -309,18 +309,18 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		Validator.suppose(factor).thatIsNamed(VariableNameCatalogue.FACTOR).isPositive();
 		
 		final var image = new Image((int)(factor * getWidth()), (int)(factor * getHeight()));
-		final var reziprocalFactor = 1 / factor;
+		final var reziprocalFactor = 1.0 / factor;
 		
 		//sourceYs[y] := the source Image's y for the new Image's y
 		final var sourceYs = new int[image.getHeight() + 1];
 		for (var i = 1; i <= image.getHeight(); i++) {
-			sourceYs[i] = Calculator.getMax(1, Calculator.getMin(getHeight(), (int)(reziprocalFactor * i)));
+			sourceYs[i] = Calculator.getMax(1, Calculator.getMin(getHeight(), (int)(Math.round(reziprocalFactor * i))));
 		}
 		
 		for (var x = 1; x <= image.getWidth(); x++) {
 			
 			//sourceX := the source Image's x for the new Image's x
-			final var sourceX = Calculator.getMax(1, Calculator.getMin(getWidth(), (int)(reziprocalFactor * x)));
+			final var sourceX = Calculator.getMax(1, Calculator.getMin(getWidth(), (int)(Math.round(reziprocalFactor * x))));
 			
 			for (var  y = 1; y <= image.getHeight(); y++) {
 				final var sourceY = sourceYs[y];
