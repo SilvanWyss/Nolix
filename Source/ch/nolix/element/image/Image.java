@@ -299,6 +299,23 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//method
+	public Image toRepeatedImage(final int width, final int height) {
+		
+		final var image = new Image(width, height);
+		
+		final var sourceWidth = getWidth();
+		final var sourceHeight = getHeight();
+		
+		for (var x = 1; x <= width; x++) {
+			for (var y = 1; y <= height; y++) {
+				image.setPixel(x, y, getPixel((x - 1) % sourceWidth + 1, (y - 1) % sourceHeight + 1));
+			}
+		}
+		
+		return image;
+	}
+	
+	//method
 	public Image toRightRotatedImage() {
 		return new Image(pixels.toRightRotatedMatrix());
 	}
