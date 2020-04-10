@@ -43,7 +43,7 @@ public class ValueMediator<V> extends Mediator {
 	 * 
 	 * @param value
 	 */
-	public final void isEqualTo(final Object value) {
+	public final void isEqualTo(final V value) {
 		
 		if (getRefValue() == null && value != null) {
 			addCurrentTestCaseError("A value that equals '" + value + "' was expected, but null was received.");
