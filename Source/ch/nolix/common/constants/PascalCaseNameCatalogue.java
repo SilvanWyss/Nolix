@@ -71,6 +71,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ERROR_MESSAGE = "ErrorMessage";
 	public static final String EXCEPTION = "Execption";
 	public static final String EXPONENT = "Exponent";
+	public static final String FACTOR = "Factor";
 	public static final String FEATURE = "Feature";
 	public static final String FILE_NAME = "FileName";
 	public static final String FILE_PATH = "FilePath";

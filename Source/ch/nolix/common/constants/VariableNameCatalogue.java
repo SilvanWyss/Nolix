@@ -71,6 +71,7 @@ public final class VariableNameCatalogue {
 	public static final String ERROR_MESSAGE = "error message";
 	public static final String EXCEPTION = "exception";
 	public static final String EXPONENT = "exponent";
+	public static final String FACTOR = "factor";
 	public static final String FEATURE = "feature";
 	public static final String FILE_NAME = "file name";
 	public static final String FILE_PATH = "file path";
