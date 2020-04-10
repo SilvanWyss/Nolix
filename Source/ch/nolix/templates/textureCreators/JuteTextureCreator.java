@@ -4,33 +4,31 @@ package ch.nolix.templates.textureCreators;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
+import ch.nolix.system.texture.TextureCreator;
 
 //class
-public final class JuteTextureCreator {
-
+public final class JuteTextureCreator extends TextureCreator {
+	
 	//method
-	public Image createTexture(
-		final int width,
-		final int height
-	) {
-		
-		final var image = new Image(width, height);
-		
-		for (var x = 1; x <= image.getWidth(); x++) {
-			for (var y = 1; y <= image.getHeight(); y++) {
-				
-				image.setPixel(x, y, new Color(0xA0A080));
-								
+	@Override
+	public Color getBaseColor() {
+		return new Color(0xA0A080);
+	}
+	
+	//method
+	@Override
+	protected void fillTexture16x16(final Image texture) {
+		for (var x = 1; x <= texture.getWidth(); x++) {
+			for (var y = 1; y <= texture.getHeight(); y++) {
+												
 				if ((x * y) % 3 == (x + y) % 2) {
-					image.setPixel(x, y, new Color(0xC0C0A0));
+					texture.setPixel(x, y, new Color(0xC0C0A0));
 				}
 				
-				if ((x * x + y * y) % 5 == (x * y) % 7) {
-					image.setPixel(x, y, new Color(0x808060));
+				else if ((x * x + y * y) % 5 == (x * y) % 7) {
+					texture.setPixel(x, y, new Color(0x808060));
 				}
 			}
 		}
-		
-		return image;
 	}
 }

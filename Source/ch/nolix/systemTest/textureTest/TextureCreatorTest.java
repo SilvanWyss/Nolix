@@ -16,18 +16,11 @@ public final class TextureCreatorTest extends Test {
 		
 		//method
 		@Override
-		public boolean allowsTexture16x16Rotate180Degrees() {
-			return false;
-		}
-		
-		//method
+		protected void fillTexture16x16(final Image texture) {}
+
 		@Override
-		protected void fillTexture16x16(Image texture) {
-			for (var i = 1; i <= 16; i++) {
-				for (var j = 1; j <= 16; j++) {
-					texture.setPixel(i, j, Color.RED);
-				}
-			}
+		public Color getBaseColor() {
+			return Color.RED;
 		}
 	}
 	
@@ -39,34 +32,34 @@ public final class TextureCreatorTest extends Test {
 		final var testUnit = new TestTextureCreator();
 		
 		//execution
-		final var texture = testUnit.createTexture(200, 100);
+		final var result = testUnit.createTexture(200, 100);
 		
 		//verification
-		expect(texture.getWidth()).isEqualTo(200);
-		expect(texture.getHeight()).isEqualTo(100);
+		expect(result.getWidth()).isEqualTo(200);
+		expect(result.getHeight()).isEqualTo(100);
 		for (var i = 1; i <= 100; i++) {
 			for (var j = 1; j <= 100; j++) {
-				expect(texture.getPixel(i, j)).isEqualTo(Color.RED);
+				expect(result.getPixel(i, j)).isEqualTo(Color.RED);
 			}
 		}		
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getTexture16x16() {
+	public void testCase_createTexture16x16() {
 		
 		//setup
 		final var testUnit = new TestTextureCreator();
 		
 		//execution
-		final var texture16x16 = testUnit.getTexture16x16();
+		final var result = testUnit.createTexture16x16();
 		
 		//verification
-		expect(texture16x16.getWidth()).isEqualTo(16);
-		expect(texture16x16.getHeight()).isEqualTo(16);
+		expect(result.getWidth()).isEqualTo(16);
+		expect(result.getHeight()).isEqualTo(16);
 		for (var i = 1; i <= 16; i++) {
 			for (var j = 1; j <= 16; j++) {
-				expect(texture16x16.getPixel(i, j)).isEqualTo(Color.RED);
+				expect(result.getPixel(i, j)).isEqualTo(Color.RED);
 			}
 		}
 	}

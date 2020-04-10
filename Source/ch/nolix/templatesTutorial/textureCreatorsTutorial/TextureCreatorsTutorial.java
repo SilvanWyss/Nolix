@@ -1,3 +1,4 @@
+//package declaration
 package ch.nolix.templatesTutorial.textureCreatorsTutorial;
 
 //own imports
@@ -19,19 +20,24 @@ import ch.nolix.templates.textureCreators.JuteTextureCreator;
  */
 public final class TextureCreatorsTutorial {
 	
+	/**
+	 * Lets several {@link TextureCreator}s create textures and shows the textures.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		//Creates textures.
-		final var concreteTexture = new ConcreteTextureCreator().createTexture(1000, 500);
-		final var juteTexture = new JuteTextureCreator().createTexture(1000, 500);
+		final var concreteTexture = new ConcreteTextureCreator().createTexture(80, 50).toScaledImage(10);
+		final var juteTexture = new JuteTextureCreator().createTexture(80, 50).toScaledImage(10);
 		
 		//Creates a Frame that will show the textures.
 		new Frame(
-			"Texture Creator Tutorial",
+			"TextureCreators Tutorial",
 			new Accordion(
 				new AccordionTab(
 					"Concrete",
-					new ImageWidget(concreteTexture	)
+					new ImageWidget(concreteTexture)
 					.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(10))
 				),
 				new AccordionTab(
@@ -43,5 +49,8 @@ public final class TextureCreatorsTutorial {
 		);
 	}
 	
+	/**
+	 * Avoids that an instance of the {@link TextureCreatorsTutorial} an instance can be created.
+	 */
 	private TextureCreatorsTutorial() {}
 }
