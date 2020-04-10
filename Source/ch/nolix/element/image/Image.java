@@ -17,7 +17,6 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
-import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
