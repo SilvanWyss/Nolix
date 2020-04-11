@@ -1,17 +1,15 @@
-//package declaration
 package ch.nolix.templatesTutorial.textureCreatorsTutorial;
 
-//own imports
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidgets.Accordion;
-import ch.nolix.element.containerWidgets.AccordionTab;
 import ch.nolix.element.widgets.ImageWidget;
+import ch.nolix.system.texture.TextureCreator;
 import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
 import ch.nolix.templates.textureCreators.JuteTextureCreator;
 
 /**
- * The {@link TextureCreatorsTutorial} is a tutorial for Texture creators.
+ * The {@link TextureCreatorsTutorial} is a tutorial for {@link TextureCreator}s.
  * Of the {@link TextureCreatorsTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
@@ -34,17 +32,16 @@ public final class TextureCreatorsTutorial {
 		//Creates a Frame that will show the textures.
 		new Frame(
 			"TextureCreators Tutorial",
-			new Accordion(
-				new AccordionTab(
-					"Concrete",
-					new ImageWidget(concreteTexture)
-					.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(10))
-				),
-				new AccordionTab(
-					"Jute",
-					new ImageWidget(juteTexture)
-					.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(10))
-				)
+			new Accordion()
+			.addTab(
+				"Concrete",
+				new ImageWidget(concreteTexture)
+				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(5))
+			)
+			.addTab(
+				"Jute",
+				new ImageWidget(juteTexture)
+				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(5))
 			)
 		);
 	}
