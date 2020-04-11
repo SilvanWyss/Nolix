@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.elementTutorial.financeTutorial;
 
-//own imports
 import ch.nolix.element.finance.NYSEProductSymbolManager;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.time.Time;
 
-//class
 /**
  * This class provides a tutorial for the data provider class.
  * 
@@ -16,7 +13,6 @@ import ch.nolix.element.time.Time;
  */
 public final class DataProviderTutorial {
 	
-	//main method
 	/**
 	 * Loads and prints out to the console the candle sticks per day of BP from 2017-2-1 until 2017-2-3.
 	 * 
@@ -30,8 +26,7 @@ public final class DataProviderTutorial {
 		)
 		.forEach(cs -> System.out.println(cs));
 	}
-
-	//access-reducing constructor
+	
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

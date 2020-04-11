@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.systemTutorial.MSSQLDatabaseSchemaAdapterTutorial;
 
-//own imports
 import ch.nolix.system.MSSQLDatabaseSchemaAdapter.MSSQLDatabaseSchemaAdapter;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.ValueProperty;
 
-//class
 public final class MSSQLDatabaseSchemaAdapterTutorial {
 	
-	//main method
 	public static void main(String[] args) {
 		
 		final var sqlDatabaseSchemaAdapter =
@@ -22,7 +18,6 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		}
 	}
 	
-	//static class
 	private static class Person extends Entity {
 		
 		@SuppressWarnings("unused")
@@ -32,6 +27,5 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		private final ValueProperty<String> Name = new ValueProperty<>();
 	}
 	
-	//access-reducing constructor
 	private MSSQLDatabaseSchemaAdapterTutorial() {}
 }

@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.elementTutorial._3D_GUITutorial;
 
-//own imports
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.shapes.Sphere;
 
-//class
 /**
  * The 3D GUI tutorial is a tutorial for the 3D GUI class.
  * 
@@ -15,8 +12,7 @@ import ch.nolix.element.shapes.Sphere;
  * @lines 30
  */
 public final class _3D_GUITutorial {
-
-	//main method
+	
 	/**
 	 * Creates a new main frame and adds a sphere to it as root shape.
 	 * 
@@ -33,7 +29,6 @@ public final class _3D_GUITutorial {
 		mainFrame.refresh();
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

@@ -1,6 +1,5 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
-//own imports
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.system.GUIClient.BackGUIClient;

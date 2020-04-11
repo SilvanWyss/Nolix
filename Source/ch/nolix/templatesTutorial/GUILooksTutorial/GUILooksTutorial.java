@@ -1,6 +1,5 @@
 package ch.nolix.templatesTutorial.GUILooksTutorial;
 
-//own imports
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;

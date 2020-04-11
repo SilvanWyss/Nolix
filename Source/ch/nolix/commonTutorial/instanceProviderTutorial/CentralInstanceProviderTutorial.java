@@ -1,6 +1,5 @@
 package ch.nolix.commonTutorial.instanceProviderTutorial;
 
-//own imports
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 
 public final class CentralInstanceProviderTutorial {

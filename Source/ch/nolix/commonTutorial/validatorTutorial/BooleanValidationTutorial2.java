@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.commonTutorial.validatorTutorial;
 
-//own imports
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -13,8 +11,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 30
  */
 public final class BooleanValidationTutorial2 {
-
-	//main method
+	
 	/**
 	 * Lets the zeta validator suppose once that true booleans are all true and once suppose that mixed booleans are all true.
 	 */
@@ -27,7 +24,6 @@ public final class BooleanValidationTutorial2 {
 		Validator.suppose(true, true, true, false);
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

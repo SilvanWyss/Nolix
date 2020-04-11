@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-//own imports
 import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
@@ -63,4 +62,9 @@ public class GUILayerTutorial {
 		//Adds the showButton to the frame.
 		frame.addLayerOnTop(ExtendedContentPosition.Center, showButton);
 	}
+	
+	/**
+	 * Avoids that an instance of the {@link GUILayerTutorial} can be created.
+	 */
+	private GUILayerTutorial() {}
 }

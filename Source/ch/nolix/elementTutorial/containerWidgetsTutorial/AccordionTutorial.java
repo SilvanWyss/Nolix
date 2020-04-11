@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.containerWidgetsTutorial;
 
-//own imports
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidgets.Accordion;

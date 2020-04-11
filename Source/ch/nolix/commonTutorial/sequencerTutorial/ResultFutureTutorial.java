@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.commonTutorial.sequencerTutorial;
 
-//own imports
 import ch.nolix.common.math.Matrix;
 import ch.nolix.common.sequencer.ResultFuture;
 import ch.nolix.common.sequencer.Sequencer;
 
-//class
 /**
  * The result future tutorial is a tutorial for the result future.
  * Of this class an instance cannot be created.
@@ -17,7 +14,6 @@ import ch.nolix.common.sequencer.Sequencer;
  */
 public final class ResultFutureTutorial {
 	
-	//main method
 	/**
 	 * Calculates the rank of a matrix in background.
 	 * 
@@ -36,8 +32,7 @@ public final class ResultFutureTutorial {
 		
 		System.out.println("rank: " + future.getResult());
 	}
-
-	//access-reducing constructor
+	
 	/**
 	 * Avoids that an instance of this class can becreated.
 	 */

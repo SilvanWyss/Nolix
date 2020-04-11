@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.commonTutorial.validatorTutorial;
 
-//own imports
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -13,8 +11,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 30
  */
 public final class StringValidationTutorial {
-
-	//main method
+	
 	/**
 	 * Lets the {@link Validator} validate the maximum length of a {@link String}.
 	 */
@@ -27,7 +24,6 @@ public final class StringValidationTutorial {
 		Validator.suppose("Hello World!").isNotLongerThan(12);
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Validator} can be created.
 	 */

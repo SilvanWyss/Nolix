@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;

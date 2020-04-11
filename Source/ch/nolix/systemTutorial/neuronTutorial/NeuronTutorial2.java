@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemTutorial.neuronTutorial;
 
-//own import
 import ch.nolix.system.neuron.Neuron;
 
-//class
 /**
  * The {@link NeuronTutorial2} is a tutorial for a {@link Neuron}.
  * Of the {@link NeuronTutorial2} an instance cannot be created.
@@ -14,8 +11,7 @@ import ch.nolix.system.neuron.Neuron;
  * @lines 60
  */
 public final class NeuronTutorial2 {
-
-	//main method
+	
 	/**
 	 * 1. Creates 4 neurons that are connected linearly.
 	 * 2. Fires the first neuron.
@@ -56,7 +52,6 @@ public final class NeuronTutorial2 {
 		System.out.println("neuron 4 output: " + neuron4.getRefOutput());
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link NeuronTutorial2} can be created.
 	 */

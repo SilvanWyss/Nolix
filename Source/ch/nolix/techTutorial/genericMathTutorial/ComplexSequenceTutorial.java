@@ -1,6 +1,5 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-//own imports
 import ch.nolix.common.functionAPI.IIntTaker;
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.tech.genericMath.Registrator;
@@ -40,4 +39,6 @@ public class ComplexSequenceTutorial {
 		function.run(100);
 		function.run(1000);
 	}
+	
+	private ComplexSequenceTutorial() {}
 }

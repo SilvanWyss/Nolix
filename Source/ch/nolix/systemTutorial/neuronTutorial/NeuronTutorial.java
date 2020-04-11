@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.systemTutorial.neuronTutorial;
 
-//own imports
 import ch.nolix.common.math.Calculator;
 import ch.nolix.system.baseNeuron.SourceNeuron;
 import ch.nolix.system.neuron.Neuron;
 
-//class
 /**
  * The {@link NeuronTutorial} is a tutorial for a {@link Neuron}.
  * Of the {@link NeuronTutorial} an instance cannot be created.
@@ -16,8 +13,7 @@ import ch.nolix.system.neuron.Neuron;
  * @lines 60
  */
 public final class NeuronTutorial {
-
-	//main method
+	
 	/**
 	 * 1. Creates 3 source neurons and a target neuron.
 	 * The output type of all neurons is a floating point number.
@@ -54,7 +50,6 @@ public final class NeuronTutorial {
 		System.out.println("output: " + targetNeuron.getRefOutput());
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link NeuronTutorial} can be created.
 	 */

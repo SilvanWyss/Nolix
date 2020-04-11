@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
-//own imports
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.common.node.Node;
 import ch.nolix.system.baseNeuron.SourceNeuron;
@@ -16,8 +14,7 @@ import ch.nolix.system.netNeuron.BackNetNeuron;
 * @lines 60
 */
 public final class FrontNetNeuronTutorial {
-
-	//main method
+	
 	/**
 	 * 1. Creates a back net neuron and adds an input neuron to it.
 	 * 3. Creates front net neurons that will connect to the back net neuron.
@@ -56,7 +53,6 @@ public final class FrontNetNeuronTutorial {
 		frontNetNeuron2.close();
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link FrontNetNeuronTutorial} can be created.
 	 */

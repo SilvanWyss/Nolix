@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.commonTutorial.validatorTutorial;
 
-//own imports
 import ch.nolix.common.validator.Validator;
 
-//class
 /**
  * This class provides a tutorial how the zeta validator validates a boolean.
  * 
@@ -13,8 +10,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 30
  */
 public final class BooleanValidationTutorial1 {
-
-	//main method
+	
 	/**
 	 * Lets the zeta validator suppose once that a true boolean is true and once that a true boolean is false.
 	 */
@@ -27,7 +23,6 @@ public final class BooleanValidationTutorial1 {
 		Validator.supposeNot(true);
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

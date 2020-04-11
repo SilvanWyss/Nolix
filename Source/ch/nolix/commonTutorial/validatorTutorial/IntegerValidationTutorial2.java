@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.commonTutorial.validatorTutorial;
 
-//own imports
 import ch.nolix.common.validator.Validator;
 
-//class
 /**
  * This class provides a tutorial how the zeta validator validates an integer.
  * 
@@ -13,8 +10,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 30
  */
 public final class IntegerValidationTutorial2 {
-
-	//main method
+	
 	/**
 	 * Lets the zeta validator suppose once that 5 is positive and once suppose that 5 is negative.
 	 * This is done that the error message of a probable thrown exception contains the variable name.
@@ -28,7 +24,6 @@ public final class IntegerValidationTutorial2 {
 		Validator.suppose(5).thatIsNamed("size").isNegative();
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.systemTutorial.neuronalNetTutorial;
 
-//own imports
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.system.baseNeuron.SourceNeuron;
 import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
 
-//class
 /**
  * The {@link ForwardMultiLayerNetCreatorTutorial}
  * is a tutorial for a {@link ForwardMultiLayerNetCreator}
@@ -19,8 +16,7 @@ import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
  * @lines 60
  */
 public final class ForwardMultiLayerNetCreatorTutorial {
-
-	//main method
+	
 	/**
 	 * 1. Creates a forward multi layer net creator.
 	 * 2. Lets the forward multi layer net creator create a neuronal net.
@@ -56,7 +52,6 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		neuronalNet.getRefOutput().forEach(v -> System.out.println(v));
 	}
 	
-	//access-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link ForwardMultiLayerNetCreatorTutorial} can be created.
 	 */
