@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseGUIClient;
 
+//Java import
 import java.nio.charset.StandardCharsets;
 
 //own imports
@@ -20,7 +21,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 270
+ * @lines 290
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -286,7 +287,8 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
 		if (paintCommands.containsAny()) {			
 			runGUICommandOnCounterpart(
-				new ChainedNode(Protocol.SET_PAINT_COMMANDS_HEADER, paintCommands.to(ChainedNode::toNode))
+				//TODO: Add a suitable construction mechanic to ChainedNode. 
+				ChainedNode.fromString(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands + ")")
 			);
 		}
 	}
