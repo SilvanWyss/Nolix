@@ -20,7 +20,7 @@ import ch.nolix.element.widgets.VerticalStack;
 /**
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 370
+ * @lines 390
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
@@ -121,6 +121,18 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		.isNotNull();
 		
 		return addTabs(new ReadContainer<AccordionTab>(tabs));
+	}
+	
+	//method
+	/**
+	 * Adds a new tab to the current {@link Accordion}. The new tab will have the given header and widget.
+	 * 
+	 * @param header
+	 * @param widget
+	 * @return the current {@link Accordion}.
+	 */
+	public Accordion addTab(final String header, final Widget<?, ?> widget) {
+		return addTab(new AccordionTab(header, widget));
 	}
 	
 	//method
