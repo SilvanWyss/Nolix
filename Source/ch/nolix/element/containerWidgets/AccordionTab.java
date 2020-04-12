@@ -77,8 +77,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	//attributes
 	private VerticalStack tabVerticalStack = new VerticalStack();
 	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
-	private final Label headerLabel = new Label();
-	private final Button expandButton = new Button(" v ").setLeftMouseButtonPressCommand(() -> noteExpandButtonPress());
+	private final Label headerLabel = new Label().setLeftMouseButtonPressCommand(this::noteExpandButtonPress);
 	
 	//optional attributes
 	private Accordion parentAccordion;
@@ -96,13 +95,9 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		
 		tabVerticalStack.addWidget(
 			headerHorizontalStack.addWidget(
-				expandButton,
 				headerLabel
 			)
 		);
-		
-		expandButton.resetConfiguration();
-
 		
 		reset();
 		setHeader(header);
@@ -274,7 +269,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	//method
 	int getRequiredMinWidth() {
 		
-		int requiredMinWidth = headerLabel.getWidth() + expandButton.getWidth();
+		int requiredMinWidth = headerLabel.getWidth();
 		
 		if (containsAny()) {
 			requiredMinWidth = Calculator.getMax(requiredMinWidth, getRefWidget().getWidth());
@@ -289,6 +284,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 		headerLabel.setText(getHeader());
 		
 		headerHorizontalStack.resetConfiguration();
+		headerHorizontalStack.applyOnBaseLook(bl -> bl.setLeftPadding(10));
 		
 		final var contentAreaWidth = getParentAccordion().getContentAreaWidth();
 		if (contentAreaWidth > 0) {
@@ -323,10 +319,10 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			.setBackgroundColor(accordionLook.getRecursiveOrDefaultTabBackgroundColor());
 		}
 		
-		expandButton.setCustomCursorIcon(CursorIcon.Hand);
-		expandButton.getRefBaseLook().setTextColor(Color.GREY);
-		expandButton.getRefHoverLook().setTextColor(Color.BLACK);
-		expandButton.getRefFocusLook().setTextColor(Color.BLACK);
+		headerLabel.setCustomCursorIcon(CursorIcon.Hand);
+		headerLabel.getRefBaseLook().setTextColor(Color.GREY);
+		headerLabel.getRefHoverLook().setTextColor(Color.BLACK);
+		headerLabel.getRefFocusLook().setTextColor(Color.BLACK);
 		
 		if (containsAny()) {
 			if (isCollapsed()) {
