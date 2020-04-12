@@ -236,7 +236,7 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	public TabContainerMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
 		Validator
-		.suppose(backgroundColor)
+		.assertThat(backgroundColor)
 		.thatIsNamed(PascalCaseNameCatalogue.BACKGROUND_COLOR)
 		.isNotNull();
 		
@@ -248,7 +248,7 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	//method
 	public TabContainerMenuItemLook setMinWidth(final int minWidth) {
 		
-		Validator.suppose(minWidth).thatIsNamed("min width").isPositive();
+		Validator.assertThat(minWidth).thatIsNamed("min width").isPositive();
 		
 		this.minWidth = minWidth;
 		
@@ -258,7 +258,7 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	//method
 	public TabContainerMenuItemLook setPadding(final int padding) {
 		
-		Validator.suppose(padding).thatIsNamed(VariableNameCatalogue.PADDING).isPositive();
+		Validator.assertThat(padding).thatIsNamed(VariableNameCatalogue.PADDING).isPositive();
 		
 		this.padding = padding;
 		
@@ -269,7 +269,7 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	public TabContainerMenuItemLook setTextColor(final Color textColor) {
 		
 		Validator
-		.suppose(textColor)
+		.assertThat(textColor)
 		.thatIsNamed(PascalCaseNameCatalogue.TEXT_COLOR)
 		.isNotNull();
 		
@@ -281,7 +281,7 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	//method
 	public TabContainerMenuItemLook setTextSize(final int textSize) {
 		
-		Validator.suppose(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
+		Validator.assertThat(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
 		
 		this.textSize = textSize;
 		

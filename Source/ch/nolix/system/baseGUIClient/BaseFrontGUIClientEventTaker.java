@@ -30,7 +30,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	public BaseFrontGUIClientEventTaker(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		
-		Validator.suppose(parentFrontGuiClientoid).thatIsNamed("parent FrontGUIClientoid").isNotNull();
+		Validator.assertThat(parentFrontGuiClientoid).thatIsNamed("parent FrontGUIClientoid").isNotNull();
 		
 		this.parentFrontGuiClientoid = parentFrontGuiClientoid;
 	}

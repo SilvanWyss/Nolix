@@ -24,8 +24,8 @@ public abstract class StatisticalModel {
 	//constructor
 	public StatisticalModel(final int backStepsCount, final double[] inputValues) {
 				
-		Validator.suppose(inputValues).thatIsNamed("input values").isNotEmpty();
-		Validator.suppose(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
+		Validator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
+		Validator.assertThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
 		
 		this.backStepCount = backStepsCount;
 		this.inputValues = inputValues.clone();
@@ -44,7 +44,7 @@ public abstract class StatisticalModel {
 	//method
 	public final double getForecast(final int index) {
 		
-		Validator.suppose(index).thatIsNamed("index").isPositive();
+		Validator.assertThat(index).thatIsNamed("index").isPositive();
 		
 		while (forecasts.getSize() < index) {
 			forecasts.addAtEnd(calculateNextValue());
@@ -64,10 +64,10 @@ public abstract class StatisticalModel {
 	//method
 	protected final double getValueFromBack(final int index) {
 		
-		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
 		
 		Validator
-		.suppose(index)
+		.assertThat(index)
 		.thatIsNamed(VariableNameCatalogue.INDEX)
 		.isNotBiggerThan(inputValues.length + forecasts.getSize());
 		

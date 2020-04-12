@@ -48,27 +48,27 @@ public final class SubContainer<E> implements IContainer<E> {
 		final int endIndex) {
 		
 		Validator
-		.suppose(container)
+		.assertThat(container)
 		.thatIsNamed("container")
 		.isNotNull();
 		
 		Validator
-		.suppose(startIndex)
+		.assertThat(startIndex)
 		.thatIsNamed("start index")
 		.isPositive();
 		
 		Validator
-		.suppose(endIndex)
+		.assertThat(endIndex)
 		.thatIsNamed("end index")
 		.isPositive();
 		
 		Validator
-		.suppose(endIndex)
+		.assertThat(endIndex)
 		.thatIsNamed("end index")
 		.isBiggerThanOrEquals(startIndex);
 		
 		Validator
-		.suppose(endIndex)
+		.assertThat(endIndex)
 		.thatIsNamed("end index")
 		.isNotBiggerThan(container.getSize());
 		

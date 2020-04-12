@@ -24,7 +24,7 @@ public final class ByteWrapper {
 	public static ByteWrapper fromNumber(final int number) {
 		
 		//Checks if the given number is in [0, 255].
-		Validator.suppose(number).thatIsNamed(VariableNameCatalogue.NUMBER).isBetween(0, 255);
+		Validator.assertThat(number).thatIsNamed(VariableNameCatalogue.NUMBER).isBetween(0, 255);
 		
 		return new ByteWrapper((byte)(number - 128));
 	}
@@ -88,7 +88,7 @@ public final class ByteWrapper {
 	 */
 	public int getBitAtAsInt(final int index) {
 		
-		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, 8);
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, 8);
 		
 		return (mByte >> ( 8 - index)) & 1;
 	}

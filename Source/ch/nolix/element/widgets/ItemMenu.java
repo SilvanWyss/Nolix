@@ -266,7 +266,7 @@ implements Clearable<IM> {
 	//method
 	public final IM setSelectCommand(final IElementTaker<ItemMenuItem> selectCommand) {
 		
-		this.selectCommand = Validator.suppose(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
+		this.selectCommand = Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
 		
 		return asConcrete();
 	}

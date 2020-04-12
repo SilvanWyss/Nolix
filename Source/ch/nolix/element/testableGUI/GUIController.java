@@ -16,7 +16,7 @@ public final class GUIController {
 	//constructor
 	public GUIController(final ITestableGUI pGUI) {
 		
-		Validator.suppose(pGUI).thatIsNamed(VariableNameCatalogue.GUI).isNotNull();
+		Validator.assertThat(pGUI).thatIsNamed(VariableNameCatalogue.GUI).isNotNull();
 		
 		mGUI = pGUI;
 	}

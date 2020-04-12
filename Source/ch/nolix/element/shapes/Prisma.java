@@ -49,7 +49,7 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	//method
 	public final P setHeight(final double height) {
 		
-		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 		

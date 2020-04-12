@@ -233,7 +233,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	public final WL setTextSize(final int textSize) {
 		
 		//Checks if the given textSize is positive.
-		Validator.suppose(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
+		Validator.assertThat(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
 		
 		this.textSize.setValue(textSize);
 		
@@ -273,7 +273,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 		//Checks if the given base look is not null.
 		Validator
-		.suppose(baseLook)
+		.assertThat(baseLook)
 		.thatIsNamed("base look")
 		.isNotNull();
 		

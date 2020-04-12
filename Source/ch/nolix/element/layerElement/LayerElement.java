@@ -131,7 +131,7 @@ implements
 		
 		//Checks if the given base entity is not null.
 		Validator
-		.suppose(baseEntity)
+		.assertThat(baseEntity)
 		.thatIsNamed("base entity")
 		.isNotNull();
 		
@@ -183,7 +183,7 @@ implements
 						final LayerProperty<?> property = (LayerProperty<?>)(f.get(this));
 						
 						//Checks if the current property is not null.
-						Validator.suppose(property).isOfType(LayerProperty.class);
+						Validator.assertThat(property).isOfType(LayerProperty.class);
 						
 						layerProperties.addAtEnd(property);
 					}

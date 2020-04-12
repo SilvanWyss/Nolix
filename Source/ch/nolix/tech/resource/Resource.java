@@ -74,7 +74,7 @@ public final class Resource implements IResource, Named {
 	 */
 	public Resource(final String name, final Iterable<IResource> baseResources) {
 		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		final var internalBaseResources = new LinkedList<IResource>();
 		

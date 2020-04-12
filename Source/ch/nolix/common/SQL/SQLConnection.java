@@ -27,8 +27,8 @@ public abstract class SQLConnection implements AutoCloseable {
 		final Connection connection
 	) {
 		
-		Validator.suppose(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
-		Validator.suppose(connection).isOfType(Connection.class);
+		Validator.assertThat(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
+		Validator.assertThat(connection).isOfType(Connection.class);
 		
 		this.SQLDatabaseEngine = SQLDatabaseEngine;
 		this.connection = connection;
@@ -62,7 +62,7 @@ public abstract class SQLConnection implements AutoCloseable {
 		final String userPassword
 	) {
 		
-		Validator.suppose(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
+		Validator.assertThat(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
 		
 		this.SQLDatabaseEngine = SQLDatabaseEngine;
 		

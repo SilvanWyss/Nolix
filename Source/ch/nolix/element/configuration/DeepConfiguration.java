@@ -177,7 +177,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	public void setMaxSelectorLevel(int maxSelectorLevel) {
 		
 		//Checks if the given maxSelectorLevel is positive.
-		Validator.suppose(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
+		Validator.assertThat(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
 		
 		//Checks if this deep configuration is not frozen.
 		supposeNotFrozen();

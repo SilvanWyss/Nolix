@@ -20,7 +20,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	//constructor
 	SQLExecutor(final SQLConnection SQLConnection) {
 		
-		Validator.suppose(SQLConnection).isOfType(SQLConnection.class);
+		Validator.assertThat(SQLConnection).isOfType(SQLConnection.class);
 		
 		this.mSQLConnection = SQLConnection;
 	}
@@ -29,7 +29,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	public SQLExecutor addStatement(final String statement) {
 		
 		Validator
-		.suppose(statement)
+		.assertThat(statement)
 		.thatIsNamed(VariableNameCatalogue.STATEMENT)
 		.isNotBlank();
 		

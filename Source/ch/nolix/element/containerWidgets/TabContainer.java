@@ -110,7 +110,7 @@ implements Clearable<TabContainer> {
 		
 		//Checks if the given tabs is not null.
 		Validator
-		.suppose(tabs)
+		.assertThat(tabs)
 		.thatIsNamed("tabs")
 		.isNotNull();
 		
@@ -133,7 +133,7 @@ implements Clearable<TabContainer> {
 		
 		//Checks if the given tab is not null.
 		Validator
-		.suppose(tab)
+		.assertThat(tab)
 		.thatIsNamed(PascalCaseNameCatalogue.TAB)
 		.isNotNull();
 		

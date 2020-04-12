@@ -139,7 +139,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 		
 		//Checks if the given role is not null.
 		Validator
-		.suppose(role)
+		.assertThat(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
 		.isNotNull();
 

@@ -27,7 +27,7 @@ public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapt
 		super(entityType, valueCreator);
 		
 		Validator
-		.suppose(entitySetSpecification)
+		.assertThat(entitySetSpecification)
 		.isNotNull();
 		
 		this.entitySetSpecification = entitySetSpecification;

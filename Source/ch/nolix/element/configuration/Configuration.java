@@ -631,7 +631,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		return asConcrete();
 	}
@@ -649,7 +649,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	public final C setSelectorName(final String selectorName) {
 		
 		//Checks if the given selectorName is not null or blank.
-		Validator.suppose(selectorName).thatIsNamed("selectorName").isNotBlank();
+		Validator.assertThat(selectorName).thatIsNamed("selectorName").isNotBlank();
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
@@ -673,7 +673,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	public final C setSelectorToken(final String selectorToken) {
 		
 		//Checks if the given selectorToken is not null or blank.
-		Validator.suppose(selectorToken).thatIsNamed("selectorToken").isNotBlank();
+		Validator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
@@ -697,7 +697,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	public final C setSelectorType(final String selectorType) {
 		
 		//Checks if the given selectorType is not null or blank.
-		Validator.suppose(selectorType).thatIsNamed("selectorType").isNotBlank();
+		Validator.assertThat(selectorType).thatIsNamed("selectorType").isNotBlank();
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();

@@ -14,7 +14,7 @@ public final class LongMediator {
 	//constructor
 	LongMediator(final LicenseManager parentLicenseManager, final long value) {
 		
-		Validator.suppose(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
+		Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 		
 		this.parentLicenseManager = parentLicenseManager;
 		this.value = value;

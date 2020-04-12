@@ -40,26 +40,26 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	) {
 		
 		Validator
-		.suppose(startIndex)
+		.assertThat(startIndex)
 		.thatIsNamed(VariableNameCatalogue.START_INDEX)
 		.isNotNegative();
 		
 		Validator
-		.suppose(startValues)
+		.assertThat(startValues)
 		.thatIsNamed(MultiVariableNameCatalogue.START_VALUES)
 		.isNotEmpty();
 		
 		Validator
-		.supposeTheElements(startValues)
+		.assertThatTheElements(startValues)
 		.areNotNull();
 		
 		Validator
-		.suppose(nextValueFunction)
+		.assertThat(nextValueFunction)
 		.thatIsNamed("next value function")
 		.isNotNull();
 		
 		Validator
-		.suppose(squaredMagnitudeFunction)
+		.assertThat(squaredMagnitudeFunction)
 		.thatIsNamed("squared magnitude function")
 		.isNotNull();
 		

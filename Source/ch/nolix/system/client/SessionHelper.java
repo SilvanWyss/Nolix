@@ -25,7 +25,7 @@ final class SessionHelper {
 	//static method
 	public static void validateDataMethod(final Method dataMethod) {
 		Validator
-		.suppose(dataMethod)
+		.assertThat(dataMethod)
 		.thatIsNamed("data method")
 		.hasAnnotation(DataMethod.class)
 		.hasParametersOfTypeOnly(String.class)
@@ -35,7 +35,7 @@ final class SessionHelper {
 	//static method
 	public static void validateRunMethod(final Method runMethod) {
 		Validator
-		.suppose(runMethod)
+		.assertThat(runMethod)
 		.thatIsNamed("run method")
 		.hasAnnotation(RunMethod.class)
 		.hasParametersOfTypeOnly(String.class)

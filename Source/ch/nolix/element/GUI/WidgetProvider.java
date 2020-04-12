@@ -56,7 +56,7 @@ final class WidgetProvider {
 	public void registerWidgetClass(final Class<?> widgetClass) {
 		
 		//Checks if the given widget class is not null.
-		Validator.suppose(widgetClass).thatIsNamed("widget class").isNotNull();
+		Validator.assertThat(widgetClass).thatIsNamed("widget class").isNotNull();
 
 		//Checks if the current widget creator cannot already create a widget of the same type as the given widget class.
 		if (canCreateWidgetOf(widgetClass.getSimpleName())) {

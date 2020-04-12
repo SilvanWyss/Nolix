@@ -243,7 +243,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	@Override
 	public AccordionTab setHeader(final String header) {
 		
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
 		this.header.setValue(header);
 		
@@ -253,7 +253,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	//method
 	public AccordionTab setWidget(final Widget<?, ?> widget) {
 		
-		Validator.suppose(widget).isOfType(Widget.class);
+		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		this.widget = widget;
 		tabVerticalStack.addWidget(widget);
@@ -352,7 +352,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	void setParentAccordion(final Accordion parentAccordion) {
 		
 		Validator
-		.suppose(parentAccordion)
+		.assertThat(parentAccordion)
 		.thatIsNamed("parent accordion")
 		.isNotNull();
 		

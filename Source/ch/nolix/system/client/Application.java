@@ -52,13 +52,13 @@ public class Application<C extends Client<C>> implements Named {
 	public Application(final String name, final Class<C> clientClass, final Class<?> initialSessionClass) {
 		
 		//Checks if the given name is not null or blank and sets the name of the current Application.
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		//Checks if the given clientClass is not null and sets the client class of the current Application.
-		this.clientClass = Validator.suppose(clientClass).thatIsNamed("client class").isNotNull().andReturn();
+		this.clientClass = Validator.assertThat(clientClass).thatIsNamed("client class").isNotNull().andReturn();
 		
 		//Checks if the given initialSessionClass is not null.
-		Validator.suppose(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
 		this.initialSessionClass = initialSessionClass;
 		this.context = null;
@@ -172,16 +172,16 @@ public class Application<C extends Client<C>> implements Named {
 	) {
 		
 		//Checks if the given name is not null or blank and sets the name of the current Application.
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 				
 		//Checks if the given clientClass is not null and sets the client class of the current Application.
-		this.clientClass = Validator.suppose(clientClass).thatIsNamed("client class").isNotNull().andReturn();
+		this.clientClass = Validator.assertThat(clientClass).thatIsNamed("client class").isNotNull().andReturn();
 		
 		//Checks if the given initialSessionClass is not null.
-		Validator.suppose(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
 		//Checks if the given context is not null.
-		Validator.suppose(context).thatIsNamed(VariableNameCatalogue.CONTEXT).isNotNull();
+		Validator.assertThat(context).thatIsNamed(VariableNameCatalogue.CONTEXT).isNotNull();
 		
 		this.initialSessionClass = initialSessionClass;
 		this.context = context;
@@ -272,7 +272,7 @@ public class Application<C extends Client<C>> implements Named {
 	public final <CO> CO getRefContextAs(final Class<CO> type) {
 		
 		//Checks if the given type is not null.
-		Validator.suppose(type).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
+		Validator.assertThat(type).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
 		
 		//Checks if the current Application has a context.
 		if (!hasContext()) {

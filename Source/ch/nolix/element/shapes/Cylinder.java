@@ -60,7 +60,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 		
 		//Checks if the given diameter is positive.
 		Validator
-		.suppose(diameter)
+		.assertThat(diameter)
 		.thatIsNamed(VariableNameCatalogue.DIAMETER)
 		.isPositive();
 		
@@ -70,7 +70,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	//method
 	public Cylinder setRadius(final double radius) {
 		
-		Validator.suppose(radius).thatIsNamed(VariableNameCatalogue.RADIUS).isPositive();
+		Validator.assertThat(radius).thatIsNamed(VariableNameCatalogue.RADIUS).isPositive();
 		
 		this.radius.setValue(radius);
 		

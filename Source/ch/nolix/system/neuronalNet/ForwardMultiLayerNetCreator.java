@@ -90,7 +90,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	public ForwardMultiLayerNetCreator<IO> setLayerCount(final int layerCount) {
 		
 		//Checks if the given layer count is positive.
-		Validator.suppose(layerCount).thatIsNamed("number of layers").isPositive();
+		Validator.assertThat(layerCount).thatIsNamed("number of layers").isPositive();
 		
 		this.layerCount = layerCount;
 		
@@ -108,7 +108,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	public ForwardMultiLayerNetCreator<IO> setNeuronsPerLayer(final int neuronsPerLayer) {
 		
 		//Checks if the given layer count is positive.
-		Validator.suppose(neuronsPerLayer).thatIsNamed("neurons per layer").isPositive();
+		Validator.assertThat(neuronsPerLayer).thatIsNamed("neurons per layer").isPositive();
 		
 		this.neuronsPerLayer = neuronsPerLayer;
 		
@@ -126,7 +126,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	public ForwardMultiLayerNetCreator<IO> setOutputFunction(final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction) {
 		
 		//Checks if the given output function is not null.
-		Validator.suppose(outputFunction).thatIsNamed("output function").isNotNull();
+		Validator.assertThat(outputFunction).thatIsNamed("output function").isNotNull();
 		
 		//Sets the output function of this forward multilayer net creator.
 		this.outputFunction
@@ -157,7 +157,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	) {
 		
 		//Checks if the given output function is not null.
-		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		Validator.assertThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
 		
 		outputFunction = weightOutputFunction;
 		

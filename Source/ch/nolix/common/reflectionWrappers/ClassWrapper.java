@@ -19,7 +19,7 @@ public final class ClassWrapper<T> {
 	//constructor
 	public ClassWrapper(final Class<T> pClass) {
 		
-		Validator.suppose(pClass).thatIsNamed(VariableNameCatalogue.CLASS).isNotNull();
+		Validator.assertThat(pClass).thatIsNamed(VariableNameCatalogue.CLASS).isNotNull();
 		
 		mClass = pClass;
 	}

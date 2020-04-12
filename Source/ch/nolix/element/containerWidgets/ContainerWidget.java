@@ -122,7 +122,7 @@ extends BorderWidget<C, BWS> {
 		
 		//Checks if the given role is not null.
 		Validator
-		.suppose(role)
+		.assertThat(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
 		.isNotNull();
 		

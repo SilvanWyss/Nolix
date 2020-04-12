@@ -98,7 +98,7 @@ public class NetEndPoint extends EndPoint {
 	NetEndPoint(final ch.nolix.common.endPoint3.NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is not null.
-		Validator.suppose(netEndPoint).isOfType(ch.nolix.common.endPoint3.NetEndPoint.class);
+		Validator.assertThat(netEndPoint).isOfType(ch.nolix.common.endPoint3.NetEndPoint.class);
 		
 		//Sets the net end point of this net duplex controller.
 		this.internalNetEndPoint = netEndPoint;

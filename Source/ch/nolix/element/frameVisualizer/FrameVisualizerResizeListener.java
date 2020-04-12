@@ -20,7 +20,7 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 	//constructor
 	public FrameVisualizerResizeListener(GUI<?> mParentGUI) {
 		
-		Validator.suppose(mParentGUI).thatIsNamed("parent GUI").isNotNull();
+		Validator.assertThat(mParentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		this.mParentGUI = mParentGUI;
 	}

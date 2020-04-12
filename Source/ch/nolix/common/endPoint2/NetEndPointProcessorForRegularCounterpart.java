@@ -27,8 +27,8 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 		final BufferedReader bufferedReader
 	) {
 		
-		Validator.suppose(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
-		Validator.suppose(bufferedReader).thatIsNamed(BufferedReader.class).isNotNull();
+		Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+		Validator.assertThat(bufferedReader).thatIsNamed(BufferedReader.class).isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
 		this.bufferedReader = bufferedReader;

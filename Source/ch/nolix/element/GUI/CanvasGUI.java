@@ -38,7 +38,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		super(visibility);
 		
-		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		this.inputTaker = inputTaker;
 	}
@@ -48,7 +48,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		super(visualizer);
 		
-		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		this.inputTaker = inputTaker;
 	}

@@ -25,8 +25,8 @@ public final class Column implements Headered, IElement {
 	//constructor
 	Column(final String header,	final DataType<?> valueType) {
 		
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
-		Validator.suppose(valueType).isOfType(DataType.class);
+		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(valueType).isOfType(DataType.class);
 		
 		this.header = header;
 		this.dataType = valueType;

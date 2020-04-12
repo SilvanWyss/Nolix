@@ -32,7 +32,7 @@ public interface IController {
 	public default void run(final ChainedNode... commands) {
 		
 		//Checks if the given commands is not null.
-		Validator.suppose(commands).thatIsNamed(MultiVariableNameCatalogue.COMMANDS).isNotNull();
+		Validator.assertThat(commands).thatIsNamed(MultiVariableNameCatalogue.COMMANDS).isNotNull();
 		
 		//Iterates the given commands.
 		for (final var c : commands) {

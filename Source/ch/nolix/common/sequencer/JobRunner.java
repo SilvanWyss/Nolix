@@ -39,7 +39,7 @@ final class JobRunner extends Thread {
 	public JobRunner(final IFunction job) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 			
 		this.job = job;
 		maxRunCount = null;
@@ -62,10 +62,10 @@ final class JobRunner extends Thread {
 	public JobRunner(final IFunction job, final IBooleanGetter condition) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
+		Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
 			
 		this.job = job;
 		maxRunCount = null;
@@ -93,13 +93,13 @@ final class JobRunner extends Thread {
 		final int timeIntervalInMilliseconds
 	) {
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 		
 		//Checks if the given timeIntervalInMilliseconds is not negative.
-		Validator.suppose(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds").isNotNegative();
+		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds").isNotNegative();
 			
 		this.job = job;
 		this.maxRunCount = null;
@@ -125,10 +125,10 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given maxRunCount is not negative.
-		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 			
 		this.job = job;
 		this.maxRunCount = maxRunCount;
@@ -157,13 +157,13 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given maxRunCount is not negative.
-		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 		
 		this.job = job;
 		this.maxRunCount = maxRunCount;
@@ -194,16 +194,16 @@ final class JobRunner extends Thread {
 		final int timeIntervalInMilliseconds
 	) {
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given max run count is not negative.
-		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 		
 		//Checks if the given timeIntervalInMilliseconds is not negative.
-		Validator.suppose(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 		
 		this.job = job;
 		this.maxRunCount = maxRunCount;
@@ -232,13 +232,13 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given maxRunCount is not negative.
-		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Checks if the given timeIntervalInMilliseconds is not negative.
-		Validator.suppose(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 			
 		this.job = job;
 		this.maxRunCount = maxRunCount;

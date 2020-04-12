@@ -156,13 +156,13 @@ public final class TextFormat extends Element<TextFormat> {
 	) {
 		
 		//Checks if the given text font is not null.
-		Validator.suppose(textFont).isOfType(Font.class);
+		Validator.assertThat(textFont).isOfType(Font.class);
 		
 		//Checks if the given text size is positive.
-		Validator.suppose(textSize).thatIsNamed("text size").isPositive();
+		Validator.assertThat(textSize).thatIsNamed("text size").isPositive();
 		
 		//Checks if the given text color is not null.
-		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
+		Validator.assertThat(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
 		
 		this.textFont = textFont;
 		this.bold = bold;
@@ -273,7 +273,7 @@ public final class TextFormat extends Element<TextFormat> {
 	public String getFirstPart(String text, final int maxWidth, final boolean attachEllipsis) {
 		
 		//Checks if the given max width is not negative.
-		Validator.suppose(maxWidth).thatIsNamed("max width").isNotNegative();
+		Validator.assertThat(maxWidth).thatIsNamed("max width").isNotNegative();
 		
 		//Handles the case that the given text is null.
 		if (text == null) {

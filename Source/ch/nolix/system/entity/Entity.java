@@ -267,7 +267,7 @@ public class Entity implements IElement, OptionalIdentified {
 	@SuppressWarnings("unchecked")
 	public final <E extends Entity> void setParentEntitySet(final IEntitySet<E> parentEntitySet) {
 		
-		Validator.suppose(parentEntitySet).thatIsNamed("parent EntitySet").isNotNull();
+		Validator.assertThat(parentEntitySet).thatIsNamed("parent EntitySet").isNotNull();
 		
 		supposeDoesNotBelongToEntitySet();
 		
@@ -325,7 +325,7 @@ public class Entity implements IElement, OptionalIdentified {
 	//method
 	final void setId(final long id) {
 		
-		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
+		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
 		
 		supposeHasNoId();
 		

@@ -956,7 +956,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBackgroundColor(final Color backgroundColor) {
 		
-		Validator.suppose(backgroundColor).thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR).isNotNull();
+		Validator.assertThat(backgroundColor).thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR).isNotNull();
 		
 		removeAnyBackground();
 		this.backgroundColor = backgroundColor;
@@ -975,7 +975,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
-		Validator.suppose(backgroundColorGradient).thatIsNamed("background color gradient").isNotNull();
+		Validator.assertThat(backgroundColorGradient).thatIsNamed("background color gradient").isNotNull();
 		
 		removeAnyBackground();
 		this.backgroundColorGradient = backgroundColorGradient;
@@ -994,7 +994,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBackgroundImage(final Image backgroundImage) {
 		
-		Validator.suppose(backgroundImage).thatIsNamed("background image").isNotNull();
+		Validator.assertThat(backgroundImage).thatIsNamed("background image").isNotNull();
 		
 		removeAnyBackground();
  		this.backgroundImage = backgroundImage;
@@ -1014,7 +1014,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given base scrollbar look is not null.
 		Validator
-		.suppose(baseScrollbarLook)
+		.assertThat(baseScrollbarLook)
 		.thatIsNamed("base scrollbar look")
 		.isNotNull();
 		
@@ -1035,7 +1035,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	public final BWL setBorderColors(final Color borderColor) {
 		
 		Validator
-		.suppose(borderColor)
+		.assertThat(borderColor)
 		.thatIsNamed("border color")
 		.isNotNull();
 		
@@ -1077,7 +1077,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given bottom border color is not null.
 		Validator
-		.suppose(bottomBorderColor)
+		.assertThat(bottomBorderColor)
 		.thatIsNamed("bottom border color")
 		.isNotNull();
 		
@@ -1097,7 +1097,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBottomBorderThickness(final int bottomBorderThickness) {
 		
-		Validator.suppose(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
+		Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 		
 		this.bottomBorderThickness = bottomBorderThickness;
 		
@@ -1114,7 +1114,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBottomPadding(final int bottomPadding) {
 		
-		Validator.suppose(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
+		Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 		
 		this.bottomPadding = bottomPadding;
 		
@@ -1133,7 +1133,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given hover scrollbar look is not null.
 		Validator
-		.suppose(hoverScrollbarLook)
+		.assertThat(hoverScrollbarLook)
 		.thatIsNamed("hover scrollbar look")
 		.isNotNull();
 		
@@ -1155,7 +1155,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given left border color is not null.
 		Validator
-		.suppose(leftBorderColor)
+		.assertThat(leftBorderColor)
 		.thatIsNamed("left border color")
 		.isNotNull();
 		
@@ -1175,7 +1175,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setLeftBorderThickness(final int leftBorderThickness) {
 		
-		Validator.suppose(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
+		Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 		
 		this.leftBorderThickness = leftBorderThickness;
 		
@@ -1192,7 +1192,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setLeftPadding(final int leftPadding) {
 		
-		Validator.suppose(leftPadding).thatIsNamed("left padding").isNotNegative();
+		Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 		
 		this.leftPadding = leftPadding;
 		
@@ -1229,7 +1229,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given right border color is not null.
 		Validator
-		.suppose(rightBorderColor)
+		.assertThat(rightBorderColor)
 		.thatIsNamed("right border color")
 		.isNotNull();
 		
@@ -1249,7 +1249,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setRightBorderThickness(final int rightBorderThickness) {
 		
-		Validator.suppose(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
+		Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 		
 		this.rightBorderThickness = rightBorderThickness;
 		
@@ -1266,7 +1266,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setRightPadding(final int rightPadding) {
 		
-		Validator.suppose(rightPadding).thatIsNamed("right padding").isNotNegative();
+		Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 		
 		this.rightPadding = rightPadding;
 		
@@ -1285,7 +1285,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given selection scrollbar look is not null.
 		Validator
-		.suppose(selectionScrollbarLook)
+		.assertThat(selectionScrollbarLook)
 		.thatIsNamed("selection scrollbar look")
 		.isNotNull();
 		
@@ -1307,7 +1307,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		//Checks if the given top border color is not null.
 		Validator
-		.suppose(topBorderColor)
+		.assertThat(topBorderColor)
 		.thatIsNamed("top border color")
 		.isNotNull();
 		
@@ -1327,7 +1327,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setTopBorderThickness(final int topBorderThickness) {
 		
-		Validator.suppose(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
+		Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 		
 		this.topBorderThickness = topBorderThickness;
 		
@@ -1344,7 +1344,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setTopPadding(final int topPadding) {
 		
-		Validator.suppose(topPadding).thatIsNamed("top padding").isNotNegative();
+		Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 		
 		this.topPadding = topPadding;
 		

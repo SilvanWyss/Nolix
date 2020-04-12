@@ -71,7 +71,7 @@ public class Matrix implements ApproximativeEqualing {
 	public static Matrix createRandomMatrix(final int size) {
 		
 		//Checks if the given size is positive.
-		Validator.suppose(size).thatIsNamed(VariableNameCatalogue.SIZE).isPositive();
+		Validator.assertThat(size).thatIsNamed(VariableNameCatalogue.SIZE).isPositive();
 		
 		return createRandomMatrix(size, size);
 	}
@@ -115,7 +115,7 @@ public class Matrix implements ApproximativeEqualing {
 	public Matrix(final int size) {
 		
 		//Checks if the given size is positive.
-		Validator.suppose(size).thatIsNamed(VariableNameCatalogue.SIZE).isPositive();
+		Validator.assertThat(size).thatIsNamed(VariableNameCatalogue.SIZE).isPositive();
 		
 		values = new double[size][size];
 	}
@@ -132,10 +132,10 @@ public class Matrix implements ApproximativeEqualing {
 	public Matrix(final int rowCount, final int columnCount) {
 		
 		//Checks if the given row count is positive.
-		Validator.suppose(rowCount).thatIsNamed(VariableNameCatalogue.ROW_COUNT).isPositive();
+		Validator.assertThat(rowCount).thatIsNamed(VariableNameCatalogue.ROW_COUNT).isPositive();
 		
 		//Checks if the given row count is positive.
-		Validator.suppose(columnCount).thatIsNamed(VariableNameCatalogue.COLUMN_COUNT).isPositive();
+		Validator.assertThat(columnCount).thatIsNamed(VariableNameCatalogue.COLUMN_COUNT).isPositive();
 		
 		values = new double[rowCount][columnCount];
 	}
@@ -172,13 +172,13 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the given matrix has as many rows as this matrix.
 		Validator
-		.suppose(matrix.getRowCount())
+		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
 		
 		//Checks if the given matrix has as many columns as this matrix.
 		Validator
-		.suppose(matrix.getColumnCount())
+		.assertThat(matrix.getColumnCount())
 		.thatIsNamed("number of columns of the given matrix")
 		.isEqualTo(getColumnCount());
 		
@@ -206,7 +206,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the given matrix has as many rows as this matrix.
 		Validator
-		.suppose(matrix.getRowCount())
+		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
 		
@@ -240,7 +240,7 @@ public class Matrix implements ApproximativeEqualing {
 	public Matrix appendRowAtBottom(double... rowValues) {
 		
 		//Checks if as many row values are given than the number of columsn of this matrix.
-		Validator.suppose(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
+		Validator.assertThat(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
 		
 		double[][] oldValues = values;
 		values = new double[oldValues.length + 1][oldValues[0].length];
@@ -399,7 +399,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the given column count is valid.
 		Validator
-		.suppose(columnCount)
+		.assertThat(columnCount)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_COUNT)
 		.isBetween(1, getColumnCount());
 		
@@ -424,7 +424,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the given column count is valid.
 		Validator
-		.suppose(columnCount)
+		.assertThat(columnCount)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_COUNT)
 		.isBetween(1, getColumnCount());
 		
@@ -455,13 +455,13 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the given solution matrix has 1 column.
 		Validator
-		.suppose(solutionMatrix.getColumnCount())
+		.assertThat(solutionMatrix.getColumnCount())
 		.thatIsNamed("number of columns of the given soluction matrix")
 		.isEqualTo(1);
 		
 		//Checks if the given solution matrix has as many rows as this matrix.
 		Validator
-		.suppose(solutionMatrix.getRowCount())
+		.assertThat(solutionMatrix.getRowCount())
 		.thatIsNamed("number of rows of the given solution matrix")
 		.isEqualTo(getRowCount());
 		
@@ -492,7 +492,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the given matrix has as many rows as the number of columns of this matrix.
 		Validator
-		.suppose(matrix.getRowCount())
+		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getColumnCount());
 		
@@ -645,13 +645,13 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if this matrix contains a row with the given row index.
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isBetween(1, getRowCount());
 		
 		//Checks if this matrix contains a column with the given column index.
 		Validator
-		.suppose(columnIndex)
+		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isBetween(1, getColumnCount());
 		
@@ -750,7 +750,7 @@ public class Matrix implements ApproximativeEqualing {
 	public Matrix multiplyRow(final int rowIndex, final double factor) {
 		
 		//Checks if this matrix contains a row with the given row index.
-		Validator.suppose(rowIndex).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+		Validator.assertThat(rowIndex).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		//Iterates the cells of the row with the given row index.
 		for (int i = 0; i < getColumnCount(); i++) {
@@ -828,13 +828,13 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if this matrix contains a row with the given row index.
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isBetween(1, getRowCount());
 		
 		//Checks if this matrix contains a column with the given column index.
 		Validator
-		.suppose(columnIndex)
+		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isBetween(1, getColumnCount());
 		
@@ -854,7 +854,7 @@ public class Matrix implements ApproximativeEqualing {
 	public Matrix setValues(final double... values) {
 		
 		//Checks if as many values are given as this matrix contains.
-		Validator.suppose(values).hasElementCount(getColumnCount() * getRowCount());
+		Validator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
 		
 		//Iterates the rows of this matrix.
 		for (int i = 0; i < getRowCount(); i++) {
@@ -900,10 +900,10 @@ public class Matrix implements ApproximativeEqualing {
 	public Matrix swapRows(int row1Index, int row2Index) {
 		
 		//Checks if this matrix has a row with the given row 1 index.
-		Validator.suppose(row1Index).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+		Validator.assertThat(row1Index).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		//Checks if this matrix has a row with the given row 2 index.
-		Validator.suppose(row2Index).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+		Validator.assertThat(row2Index).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		final double[] temp = values[row1Index - 1];
 		values[row1Index - 1] = values[row2Index - 1];

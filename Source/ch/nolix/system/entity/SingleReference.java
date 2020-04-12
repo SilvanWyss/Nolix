@@ -95,7 +95,7 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 	private void setValue(final long referencedEntityId) {		
 		this.referencedEntityId =				
 		Validator
-		.suppose(referencedEntityId)
+		.assertThat(referencedEntityId)
 		.thatIsNamed("referenced entity id")
 		.isPositive()
 		.andReturn();

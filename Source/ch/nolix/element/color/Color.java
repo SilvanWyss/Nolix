@@ -1150,7 +1150,7 @@ public class Color extends Element<Color> {
 	
 		//Checks if the given alpha value is between 0 and 255.
 		Validator
-		.suppose(alphaValue)
+		.assertThat(alphaValue)
 		.thatIsNamed("alpha value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
@@ -1168,7 +1168,7 @@ public class Color extends Element<Color> {
 		
 		//Checks if the given blue value is between 0 and 255.
 		Validator
-		.suppose(blueValue)
+		.assertThat(blueValue)
 		.thatIsNamed("blue value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
@@ -1186,7 +1186,7 @@ public class Color extends Element<Color> {
 		
 		//Checks if the given blue value is between 0 and 255.
 		Validator
-		.suppose(greenValue)
+		.assertThat(greenValue)
 		.thatIsNamed("green value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
@@ -1204,7 +1204,7 @@ public class Color extends Element<Color> {
 		
 		//Checks if the given red value is between 0 and 255.
 		Validator
-		.suppose(redValue)
+		.assertThat(redValue)
 		.thatIsNamed("red value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
@@ -1221,7 +1221,7 @@ public class Color extends Element<Color> {
 	private void setValue(long value) {
 		
 		//Checks if the given value is a true color value.
-		Validator.suppose(value).isBetween(MIN_COLOR_INT, MAX_COLOR_INT);
+		Validator.assertThat(value).isBetween(MIN_COLOR_INT, MAX_COLOR_INT);
 		
 		//Handles the case that the given value specifies an alpha value.
 		if (value >= 16777216) {

@@ -17,7 +17,7 @@ public final class TerminalArgumentMediatorTest extends Test {
 		final var string = "Lorem ipsum";
 		
 		//execution
-		final var result = Validator.suppose(string).isNotNull().andReturn();
+		final var result = Validator.assertThat(string).isNotNull().andReturn();
 		
 		//verification
 		expect(result).isSameAs(string);

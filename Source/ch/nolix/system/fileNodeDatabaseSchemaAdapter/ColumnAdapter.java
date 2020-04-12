@@ -17,7 +17,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	ColumnAdapter(final BaseNode columnSpecification) {
 		
 		Validator
-		.suppose(columnSpecification)
+		.assertThat(columnSpecification)
 		.thatIsNamed("column specification")
 		.isNotNull();
 		

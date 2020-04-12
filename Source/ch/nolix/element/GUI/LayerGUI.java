@@ -175,7 +175,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		super(Visibility.VISIBLE);
 		
-		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		backGround.setParentGUI(this);
 		this.inputTaker = inputTaker;
@@ -213,7 +213,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		super(visualizer);
 		
-		Validator.suppose(inputTaker).thatIsNamed("event taker").isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
 		
 		backGround.setParentGUI(this);
 		this.inputTaker = inputTaker;
@@ -248,7 +248,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		super(visibility);
 		
-		Validator.suppose(inputTaker).thatIsNamed("input taker").isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
 		backGround.setParentGUI(this);
 		this.inputTaker = inputTaker;
@@ -280,7 +280,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	public LG addLayerOnTop(final Layer layer) {
 		
 		//Checks if the given layer is not null.
-		Validator.suppose(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
+		Validator.assertThat(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
 		
 		layer.setParentGUI(this);
 		layers.add(layer);

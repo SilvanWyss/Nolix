@@ -35,7 +35,7 @@ public class Polynom {
 	public Polynom(final int degree) {
 		
 		//Checks if the given degree is not negative.
-		Validator.suppose(degree).thatIsNamed("degree").isNotNegative();
+		Validator.assertThat(degree).thatIsNamed("degree").isNotNegative();
 		
 		//Allocates the coefficients of this polynom.
 		coefficients = new double[degree + 1];
@@ -65,7 +65,7 @@ public class Polynom {
 	public Polynom derive(final int deriveCount) {
 		
 		//Checks if the given dervice count is not negative.
-		Validator.suppose(deriveCount).thatIsNamed("derive count").isNotNegative();
+		Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
 		
 		for (int i = 1; i <= deriveCount; i++) {
 			
@@ -187,7 +187,7 @@ public class Polynom {
 	public Polynom integrate(int integrationCount) {
 		
 		//Checks if the given integration count is not negative.
-		Validator.suppose(integrationCount).isNotNegative();
+		Validator.assertThat(integrationCount).isNotNegative();
 		
 		//Allocates new coefficients.
 		final double[] coefficients = new double[getDegree() + 1 + integrationCount];
@@ -228,7 +228,7 @@ public class Polynom {
 	public Polynom multiplyCoefficientsWith(final double factor) {
 		
 		//Checks if the given factor is not 0.0.
-		Validator.suppose(factor).thatIsNamed("factor").isNotZero();
+		Validator.assertThat(factor).thatIsNamed("factor").isNotZero();
 		
 		for (int i = 0; i < coefficients.length; i++) {
 			coefficients[i] *= factor;
@@ -264,7 +264,7 @@ public class Polynom {
 	public Polynom setAllCoefficients(double value) {
 		
 		//Checks if the given value is not 0.0.
-		Validator.suppose(value).isNotZero();
+		Validator.assertThat(value).isNotZero();
 		
 		for (int i = 0; i < coefficients.length; i++) {
 			coefficients[i] = value;
@@ -292,10 +292,10 @@ public class Polynom {
 	public Polynom setCoefficients(double... coefficients) {
 		
 		//Checks if the given coefficients is not null or empty.
-		Validator.suppose(coefficients).thatIsNamed(MultiVariableNameCatalogue.COEFFICIENTS).isNotEmpty();
+		Validator.assertThat(coefficients).thatIsNamed(MultiVariableNameCatalogue.COEFFICIENTS).isNotEmpty();
 		
 		//Checks if the given highest coefficient is not 0.0.
-		Validator.suppose(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
+		Validator.assertThat(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
 		
 		//Sets the coefficients of the current Polynom.
 		this.coefficients = Arrays.copyOf(coefficients, coefficients.length);

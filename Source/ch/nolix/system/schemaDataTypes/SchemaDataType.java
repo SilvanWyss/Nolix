@@ -15,7 +15,7 @@ public abstract class SchemaDataType<C> {
 	//constructor
 	public SchemaDataType(final Class<C> contentClass) {
 		
-		Validator.suppose(contentClass).thatIsNamed("content class").isNotNull();
+		Validator.assertThat(contentClass).thatIsNamed("content class").isNotNull();
 		
 		this.contentClass = contentClass;
 	}

@@ -27,7 +27,7 @@ final class Waiter {
 	public static void waitForSeconds(final int duractionInSeconds) {
 		
 		//Checks if the given seconds is not negative.
-		Validator.suppose(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
+		Validator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 		
 		waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
 	}
@@ -42,7 +42,7 @@ final class Waiter {
 	public static void waitForMilliseconds(final int durationInMilliseconds) {
 		
 		//Checks if the given milliseconds is not negative.
-		Validator.suppose(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
+		Validator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 		
 		try {
 			Thread.sleep(durationInMilliseconds);

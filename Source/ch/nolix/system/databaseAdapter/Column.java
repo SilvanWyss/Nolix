@@ -19,8 +19,8 @@ public final class Column<C> implements Headered {
 	//constructor
 	public Column(final String header, final DataType<C> dataType) {
 		
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
-		Validator.suppose(dataType).isOfType(DataType.class);
+		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(dataType).isOfType(DataType.class);
 		
 		this.header = header;
 		this.dataType = dataType;

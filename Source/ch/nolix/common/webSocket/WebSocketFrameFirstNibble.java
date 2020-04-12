@@ -18,7 +18,7 @@ final class WebSocketFrameFirstNibble {
 	//static method
 	public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
 		
-		Validator.suppose(nibble).hasElementCount(2);
+		Validator.assertThat(nibble).hasElementCount(2);
 		
 		return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
 	}
@@ -31,7 +31,7 @@ final class WebSocketFrameFirstNibble {
 		final int payloadLength
 	) {
 		
-		Validator.suppose(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
+		Validator.assertThat(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
 		
 		this.mFINBit = mFINBit;
 		this.opcode = opcodeMeaning.toNumber();
@@ -54,10 +54,10 @@ final class WebSocketFrameFirstNibble {
 		final var RSV2BIt = wrapperByte1.getBitAt(3);
 		final var RSV3BIt = wrapperByte1.getBitAt(4);
 		
-		//TODO: Implement Validator.supposeTheBit(b).thatIsNamed("B").isFalse();
-		Validator.supposeNot(RSV1BIt);
-		Validator.supposeNot(RSV2BIt);
-		Validator.supposeNot(RSV3BIt);
+		//TODO: Implement Validator.assertThatTheBit(b).thatIsNamed("B").isFalse();
+		Validator.assertThatNot(RSV1BIt);
+		Validator.assertThatNot(RSV2BIt);
+		Validator.assertThatNot(RSV3BIt);
 		
 		opcode = byte1 & 0b1111;
 		maskBit = wrapperByte2.getBitAt(1);

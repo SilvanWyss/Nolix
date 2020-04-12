@@ -87,7 +87,7 @@ implements ISmartObject<N> {
 	public final N clearInputNeurons() {
 		
 		//Checks if the minimal number of input neurons of this neuron is 0.
-		Validator.suppose(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
+		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
 		
 		while (getInputNeuronCount() > 0) {
 			removeInputNeuron(getRefInputNeurons().getRefFirst());
@@ -245,7 +245,7 @@ implements ISmartObject<N> {
 	public final N removeInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
 		
 		//Checks if this neuron has not more input neurons than its minimal input neuron count says.
-		Validator.suppose(getInputNeuronCount()).isBiggerThan(getMinInputNeuronCount());
+		Validator.assertThat(getInputNeuronCount()).isBiggerThan(getMinInputNeuronCount());
 		
 		inputConnections.removeFirst(ic -> ic.hasInputNeuron(inputNeuron));
 		inputNeuron.outputNeurons.removeFirst(this);
@@ -267,7 +267,7 @@ implements ISmartObject<N> {
 	 */
 	protected final void internal_setOutput(final O output) {
 		
-		Validator.suppose(output).thatIsNamed(VariableNameCatalogue.OUTPUT).isNotNull();
+		Validator.assertThat(output).thatIsNamed(VariableNameCatalogue.OUTPUT).isNotNull();
 		
 		this.output = output;
 	}
@@ -285,10 +285,10 @@ implements ISmartObject<N> {
 	private final void addInputConnection(final InputConnection<I> inputConnection) {
 		
 		//Checks if the given input neuron is not null.
-		Validator.suppose(inputConnection).thatIsNamed("input neuron").isNotNull();
+		Validator.assertThat(inputConnection).thatIsNamed("input neuron").isNotNull();
 		
 		//Checks if this neuron has less input neurons than its maximal input neurons count says.
-		Validator.suppose(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
+		Validator.assertThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
 		
 		//Checks if this neuron does not contain the input neuron of the given input connection.
 		if (inputConnections.contains(ic -> ic.hasInputNeuron(inputConnection.getRefInputNeuron()))) {

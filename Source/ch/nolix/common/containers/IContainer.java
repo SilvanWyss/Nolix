@@ -825,7 +825,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E getRefAt(final int index) {
 		
 		//Checks if the given index is positive.
-		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
 		
 		//Iterates the current IContainer.
 		var i = 1;
@@ -1805,7 +1805,7 @@ public interface IContainer<E> extends Iterable<E> {
 	{
 		//Checks if the given separator is not null.
 		Validator
-		.suppose(separator)
+		.assertThat(separator)
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
 		.isNotNull();
 		
@@ -1903,10 +1903,10 @@ public interface IContainer<E> extends Iterable<E> {
 		final var elementCount = getSize();
 		
 		//Checks if the given n is positive.
-		Validator.suppose(n).thatIsNamed("n").isPositive();
+		Validator.assertThat(n).thatIsNamed("n").isPositive();
 		
 		//Checks if the given n is not bigger than the element count of the current IContainer.
-		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
+		Validator.assertThat(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {
@@ -1950,10 +1950,10 @@ public interface IContainer<E> extends Iterable<E> {
 		final var elementCount = getSize();
 		
 		//Checks if the given n is positive.
-		Validator.suppose(n).thatIsNamed("n").isPositive();
+		Validator.assertThat(n).thatIsNamed("n").isPositive();
 		
 		//Checks if the given n is not bigger than the element count of the current IContainer.
-		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
+		Validator.assertThat(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {

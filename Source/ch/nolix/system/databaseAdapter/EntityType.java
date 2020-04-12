@@ -28,7 +28,7 @@ public final class EntityType<E extends Entity> implements Named {
 	//constructor
 	public EntityType(final Class<E> entityClass) {	
 		
-		Validator.suppose(entityClass).thatIsNamed("Entity class").isNotNull();
+		Validator.assertThat(entityClass).thatIsNamed("Entity class").isNotNull();
 		
 		this.entityClass = entityClass;
 		extractColumns();

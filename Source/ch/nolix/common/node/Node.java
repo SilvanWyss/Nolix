@@ -161,7 +161,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public Node(final Enum<?> pEnum) {
 		
-		Validator.suppose(pEnum).thatIsNamed(VariableNameCatalogue.ENUM).isNotNull();
+		Validator.assertThat(pEnum).thatIsNamed(VariableNameCatalogue.ENUM).isNotNull();
 		
 		setHeader(pEnum.toString());
 	}
@@ -353,7 +353,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public void addPrefixToHeader(final String prefix) {
 		
 		//Checks if the given prefix is not null or blank.
-		Validator.suppose(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
+		Validator.assertThat(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
 		
 		//Handles the case that the current Node does not have a header.
 		if (!hasHeader()) {
@@ -378,7 +378,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public void addPostfixToHeader(final String postfix) {
 		
 		//Checks if the given postfix is not null or blank.
-		Validator.suppose(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
+		Validator.assertThat(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
 		
 		//Handles the case that the current Node does not have a header.
 		if (hasHeader()) {
@@ -525,7 +525,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public Node setHeader(final String header) {
 		
 		//Checks if the given header is not null or blank.
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current Node.
 		this.header = header;

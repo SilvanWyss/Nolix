@@ -30,7 +30,7 @@ extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 	public FileNodeDatabaseSchemaAdapter(final BaseNode fileNodeDatabase) {
 		
 		Validator
-		.suppose(fileNodeDatabase)
+		.assertThat(fileNodeDatabase)
 		.thatIsNamed("document node database")
 		.isNotNull();
 		

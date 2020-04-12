@@ -20,7 +20,7 @@ public final class FrameVisualizerMouseMotionListener implements MouseMotionList
 	//constructor
 	public FrameVisualizerMouseMotionListener(final GUI<?> frameVisualizer) {
 		
-		Validator.suppose(frameVisualizer).isOfType(FrameVisualizer.class);
+		Validator.assertThat(frameVisualizer).isOfType(FrameVisualizer.class);
 		
 		this.mGUI = frameVisualizer;
 	}

@@ -247,7 +247,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		final var pixelContainer = new ReadContainer<Color>(pixels);
 		
 		Validator
-		.suppose(pixelContainer.getSize())
+		.assertThat(pixelContainer.getSize())
 		.thatIsNamed("number of pixels")
 		.isEqualTo(getPixelCount());
 		
@@ -322,7 +322,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public Image toScaledImage(final double factor) {
 		
-		Validator.suppose(factor).thatIsNamed(VariableNameCatalogue.FACTOR).isPositive();
+		Validator.assertThat(factor).thatIsNamed(VariableNameCatalogue.FACTOR).isPositive();
 		
 		final var image = new Image((int)(factor * getWidth()), (int)(factor * getHeight()));
 		final var reziprocalFactor = 1.0 / factor;
@@ -350,7 +350,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	private void setHeight(final int height) {
 		
-		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 	}
@@ -358,7 +358,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	private void setWidth(final int width) {
 		
-		Validator.suppose(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
+		Validator.assertThat(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
 		
 		this.width.setValue(width);
 	}

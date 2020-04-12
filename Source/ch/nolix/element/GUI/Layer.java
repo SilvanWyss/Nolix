@@ -853,7 +853,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 */
 	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
+		Validator.assertThat(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
 				
 		if (parentGUI != null) {
 			rootWidget.setParent(parentGUI);
@@ -872,7 +872,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 */
 	void setParentGUI(final LayerGUI<?> parentGUI) {
 		
-		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		if (this.parentGUI != null && this.parentGUI != parentGUI) {
 			throw new ArgumentBelongsToUnexchangeableParentException(this, this.parentGUI);

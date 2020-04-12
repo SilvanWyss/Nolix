@@ -43,7 +43,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 		
 		//Checks if the given container is not null.
 		Validator
-		.suppose(container)
+		.assertThat(container)
 		.thatIsNamed(VariableNameCatalogue.CONTAINER)
 		.isNotNull();
 		

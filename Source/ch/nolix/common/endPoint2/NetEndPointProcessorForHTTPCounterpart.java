@@ -21,7 +21,7 @@ final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProces
 	//constructor
 	public NetEndPointProcessorForHTTPCounterpart(final NetEndPoint parentNetEndPoint) {
 		
-		Validator.suppose(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+		Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
 		try {

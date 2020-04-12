@@ -64,7 +64,7 @@ public final class FrameVisualizer implements IVisualizer {
 	//constructor
 	public void initialize(GUI<?> parentGUI) {
 		
-		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		if (this.parentGUI != null) {
 			throw new InvalidArgumentException(this);

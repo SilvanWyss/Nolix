@@ -57,7 +57,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	public MultiShape addShape(final Shape<?> shape) {
 		
 		//Checks if the given shape is not null.
-		Validator.suppose(shape).isOfType(Shape.class);
+		Validator.assertThat(shape).isOfType(Shape.class);
 		
 		//Checks if the given shape belongs not to a GUI.
 		if (shape.belongsToAGUI()) {

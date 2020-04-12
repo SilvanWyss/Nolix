@@ -230,7 +230,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	@Override
 	public XMLNode setName(final String name) {
 		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		return this;
 	}
@@ -239,7 +239,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	@Override
 	public XMLNode setValue(final String value) {
 		
-		Validator.suppose(value).isNotEmpty();
+		Validator.assertThat(value).isNotEmpty();
 		supposeIsNotFrozen();
 		
 		this.value = value;

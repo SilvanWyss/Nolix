@@ -25,12 +25,12 @@ public final class ParametrizedImplicitSequenceCreator<N> implements IParametriz
 	) {
 		
 		Validator
-		.suppose(sequencesNextValueFunction)
+		.assertThat(sequencesNextValueFunction)
 		.thatIsNamed("sequences next value function")
 		.isNotNull();
 		
 		Validator
-		.suppose(magnitudeFunction)
+		.assertThat(magnitudeFunction)
 		.thatIsNamed("magnitude function")
 		.isNotNull();
 		

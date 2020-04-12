@@ -55,7 +55,7 @@ implements IReplyingSender {
 	public void setReplier(final IReplier replier) {
 		
 		//Checks if the given replier is not null.
-		Validator.suppose(replier).isOfType(IReplier.class);
+		Validator.assertThat(replier).isOfType(IReplier.class);
 		
 		//Sets the replier of this end point.
 		this.replier = replier;

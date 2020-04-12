@@ -144,7 +144,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	public final void setReceiverController(final IDataProviderController receiverController) {
 		
 		//Checks if the given receiverController is not null.
-		Validator.suppose(receiverController).thatIsNamed("receiver controller").isNotNull();
+		Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 		
 		//Sets the receiver controller of the current EndPoint.
 		this.receiverController = receiverController;

@@ -37,11 +37,11 @@ public final class SubNode extends BaseNode {
 	) {
 		//Checks if the given simple persistent specification is not null.
 		Validator
-		.suppose(simplePersistentSpecification)
+		.assertThat(simplePersistentSpecification)
 		.isOfType(FileNode.class);
 		
 		//Checks if the given internal specification is not null.
-		Validator.suppose(internalSpecification)
+		Validator.assertThat(internalSpecification)
 		.thatIsNamed("internal specification")
 		.isNotNull();
 		

@@ -35,7 +35,7 @@ public final class Calculator {
 	public static LinkedList<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		
 		//Checks if the count of the given yValues equals the count of the given xValues.
-		Validator.suppose(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
+		Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
 		final var FPNPairs = new LinkedList<FPNPair>();
 		for (var i = 0; i < xValues.length; i++) {
@@ -70,7 +70,7 @@ public final class Calculator {
 	public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
 		
 		//Checks if the given maxDeviation is not negative.
-		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		Validator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		return (Math.abs(value1 - value2) <= maxDeviation);
 	}
@@ -84,7 +84,7 @@ public final class Calculator {
 	public static double getAverage(final double... values) {
 		
 		//Checks if the given values is not empty.
-		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -98,7 +98,7 @@ public final class Calculator {
 	public static double getAverage(final Iterable<Double> values) {
 		
 		//Checks if the given values is not empty.
-		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
 		
 		var count = 0;
 		var sum = 0.0;
@@ -119,7 +119,7 @@ public final class Calculator {
 	public static int getAverage(final int... values) {
 		
 		//Checks if the given values is not empty.
-		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -133,7 +133,7 @@ public final class Calculator {
 	public static long getAverage(final long... values) {
 		
 		//Checks if the given values is not empty.
-		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -163,13 +163,13 @@ public final class Calculator {
 	public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
 		
 		//Checks if the given degree is not negative.
-		Validator.suppose(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotNegative();
+		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotNegative();
 		
 		//Checks if the given degree is not bigger than the count of the given xValues.
-		Validator.suppose(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotBiggerThan(xValues.length);
+		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotBiggerThan(xValues.length);
 		
 		//Checks if the count of the given yValues equals the count of the given xValues.
-		Validator.suppose(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
+		Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
 		final var factorMatrix = new Matrix(xValues.length, degree + 1);
 		final var xMatrixValues = new double[factorMatrix.getSize()];
@@ -400,7 +400,7 @@ public final class Calculator {
 	public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
 		
 		//Checks if the given maxDeviation is not negative.
-		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		Validator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		return (Math.abs(value - 1.0) <= maxDeviation);
 	}
@@ -428,7 +428,7 @@ public final class Calculator {
 	public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
 		
 		//Checks if the given maxDeviation is not negative.
-		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		Validator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		return (Math.abs(value) <= maxDeviation);
 	}

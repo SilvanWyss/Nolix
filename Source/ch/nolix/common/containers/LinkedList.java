@@ -120,7 +120,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public LinkedList<E> addAtBegin(final E... elements) {
 		
 		//Checks if the given elements is not null.
-		Validator.suppose(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
+		Validator.assertThat(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -143,7 +143,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public <E2 extends E> LinkedList<E> addAtBegin(final Iterable<E2> elements) {
 		
 		//Checks if the given elements is not null.
-		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
+		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Handles the case that the given elements is not empty.
 		if (new ReadContainer<E>(elements).isEmpty()) {
@@ -278,7 +278,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public LinkedList<E> addAtEnd(final E... elements) {
 		
 		//Checks if the given element container is not null.
-		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
+		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
@@ -301,7 +301,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public <E2 extends E> LinkedList<E> addAtEnd(final Iterable<E2> elements) {
 		
 		//Checks if the given elements is not null.
-		Validator.suppose(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
+		Validator.assertThat(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
 		
 		elements.forEach(e -> addAtEnd(e));
 		
@@ -1145,7 +1145,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	private void removeNextNode(final ListNode<E> node) {
 		
 		//Checks if the given node is not null.
-		Validator.suppose(node).thatIsNamed(VariableNameCatalogue.NODE).isNotNull();
+		Validator.assertThat(node).thatIsNamed(VariableNameCatalogue.NODE).isNotNull();
 		
 		final var nextNode = node.getNextNode();
 		

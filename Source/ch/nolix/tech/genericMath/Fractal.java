@@ -52,47 +52,47 @@ public final class Fractal implements IFractal {
 	) {
 		
 		Validator
-		.suppose(realComponentInterval)
+		.assertThat(realComponentInterval)
 		.thatIsNamed("real component interval")
 		.isNotNull();
 		
 		Validator
-		.suppose(imaginaryComponentInterval)
+		.assertThat(imaginaryComponentInterval)
 		.thatIsNamed("imaginary component interval")
 		.isNotNull();
 		
 		Validator
-		.suppose(widthInPixel)
+		.assertThat(widthInPixel)
 		.thatIsNamed("width per unit")
 		.isPositive();
 		
 		Validator
-		.suppose(sequencesStartValuesFunction)
+		.assertThat(sequencesStartValuesFunction)
 		.thatIsNamed("sequences start values function")
 		.isNotNull();
 		
 		Validator
-		.suppose(sequencesNextValueFunction)
+		.assertThat(sequencesNextValueFunction)
 		.thatIsNamed("sequences next value function")
 		.isNotNull();
 		
 		Validator
-		.suppose(sequencesMinDivergenceMagnitude)
+		.assertThat(sequencesMinDivergenceMagnitude)
 		.thatIsNamed("sequences min divergence magnitude")
 		.isPositive();
 		
 		Validator
-		.suppose(sequencesMaxIterationCount)
+		.assertThat(sequencesMaxIterationCount)
 		.thatIsNamed("sequences max iteration count")
 		.isPositive();
 		
 		Validator
-		.suppose(colorFunction)
+		.assertThat(colorFunction)
 		.thatIsNamed("color function")
 		.isNotNull();
 		
 		Validator
-		.suppose(bigDecimalScale)
+		.assertThat(bigDecimalScale)
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		

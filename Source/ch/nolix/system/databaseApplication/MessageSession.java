@@ -18,7 +18,7 @@ public final class MessageSession extends DatabaseApplicationSession {
 	public MessageSession(final String message) {
 	
 		Validator
-		.suppose(message)
+		.assertThat(message)
 		.thatIsNamed(VariableNameCatalogue.MESSAGE)
 		.isNotEmpty();
 		

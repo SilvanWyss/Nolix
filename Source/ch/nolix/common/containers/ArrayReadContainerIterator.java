@@ -44,7 +44,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		
 		//Checks if the given array is not null.
 		Validator
-		.suppose(array)
+		.assertThat(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
 		.isNotNull();
 		

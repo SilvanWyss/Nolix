@@ -122,7 +122,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 */
 	public Rectangle setXLength(final double xLength) {
 		
-		Validator.suppose(xLength).thatIsNamed("x length").isNotNegative();
+		Validator.assertThat(xLength).thatIsNamed("x length").isNotNegative();
 		
 		this.xLength.setValue(xLength);
 		
@@ -139,7 +139,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 */
 	public Rectangle setYLength(final double yLength) {
 		
-		Validator.suppose(yLength).thatIsNamed("y length").isNotNegative();
+		Validator.assertThat(yLength).thatIsNamed("y length").isNotNegative();
 		
 		this.yLength.setValue(yLength);
 		

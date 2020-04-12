@@ -144,7 +144,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Checks if the given endPoint is not null.
-		Validator.suppose(endPoint).thatIsNamed(EndPoint.class).isNotNull();
+		Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
 		
 		//Checks if the given endPoint is alive.
 		if (endPoint.isClosed()) {

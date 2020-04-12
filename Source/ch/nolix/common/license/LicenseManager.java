@@ -62,7 +62,7 @@ public final class LicenseManager {
 	public LicenseManager addLicense(final License license) {
 		
 		//Checks if the given license is not null.
-		Validator.suppose(license).thatIsNamed(VariableNameCatalogue.LICENSE).isNotNull();
+		Validator.assertThat(license).thatIsNamed(VariableNameCatalogue.LICENSE).isNotNull();
 		
 		//Handles the case that the current LicenseManager
 		//does not contain already a License of the type the given license is.
@@ -165,7 +165,7 @@ public final class LicenseManager {
 	private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 		
 		//Checks if the given licenseType is not null.
-		Validator.suppose(licenseType).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
+		Validator.assertThat(licenseType).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
 		
 		return readKeyFromLicenseFile(licenseType.getName());
 	}

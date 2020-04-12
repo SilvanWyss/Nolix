@@ -25,7 +25,7 @@ public final class WebSocketHandShakeResponse {
 	//constructor
 	public WebSocketHandShakeResponse(final String secWebSocketKey) {
 				
-		Validator.suppose(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
+		Validator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
 		
 		this.secWebSocketKey = secWebSocketKey;
 		

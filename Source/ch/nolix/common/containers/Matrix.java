@@ -64,7 +64,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public Matrix<E> addColumn(final Iterable<E> elements) {
 		
 		//Checks if the given elements are not null.
-		Validator.supposeTheElements(elements).areNotNull();
+		Validator.assertThatTheElements(elements).areNotNull();
 		
 		final var elements_ = new ReadContainer<E>(elements);
 		
@@ -90,7 +90,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of rows of the current matrix.
 			Validator
-			.suppose(elements_.getSize())
+			.assertThat(elements_.getSize())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
 			
@@ -157,7 +157,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public Matrix<E> addRow(final Iterable<E> elements) {
 		
 		//Checks if the given elements are not null.
-		Validator.supposeTheElements(elements).areNotNull();
+		Validator.assertThatTheElements(elements).areNotNull();
 		
 		final var elements_ = new ReadContainer<E>(elements);
 		
@@ -183,7 +183,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of columns of the current matrix.
 			Validator
-			.suppose(elements_.getSize())
+			.assertThat(elements_.getSize())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getColumnCount());
 			
@@ -490,7 +490,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 				
 		//Checks if the given element is not null.
 		Validator
-		.suppose(element)
+		.assertThat(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
 		.isNotNull();
 		
@@ -530,7 +530,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Checks if the given element is not null.
 		Validator
-		.suppose(element)
+		.assertThat(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
 		.isNotNull();
 		
@@ -678,12 +678,12 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	private void supposeContainsAt(final int index) {
 		
 		Validator
-		.suppose(index)
+		.assertThat(index)
 		.thatIsNamed(VariableNameCatalogue.INDEX)
 		.isPositive();
 		
 		Validator
-		.suppose(index)
+		.assertThat(index)
 		.thatIsNamed(VariableNameCatalogue.INDEX)
 		.isNotBiggerThan(getSize());
 	}
@@ -702,22 +702,22 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	private void supposeContainsAt(final int rowIndex, final int columnIndex) {
 		
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isNotBiggerThan(getRowCount());
 		
 		Validator
-		.suppose(columnIndex)
+		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
 		Validator
-		.suppose(columnIndex)
+		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());
 	}

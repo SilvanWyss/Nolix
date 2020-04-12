@@ -23,12 +23,12 @@ public final class ClosedInterval implements IClosedInterval {
 	public ClosedInterval(final BigDecimal min, final BigDecimal max) {
 		
 		Validator
-		.suppose(min)
+		.assertThat(min)
 		.thatIsNamed(VariableNameCatalogue.MINIMUM)
 		.isNotNull();
 		
 		Validator
-		.suppose(max)
+		.assertThat(max)
 		.thatIsNamed(VariableNameCatalogue.MAXIMUM)
 		.isNotSmallerThan(min);
 		
@@ -42,17 +42,17 @@ public final class ClosedInterval implements IClosedInterval {
 	public ClosedInterval(final BigDecimal min, final BigDecimal max, final int bigDecimalScale) {
 		
 		Validator
-		.suppose(min)
+		.assertThat(min)
 		.thatIsNamed(VariableNameCatalogue.MINIMUM)
 		.isNotNull();
 		
 		Validator
-		.suppose(max)
+		.assertThat(max)
 		.thatIsNamed(VariableNameCatalogue.MAXIMUM)
 		.isNotSmallerThan(min);
 		
 		Validator
-		.suppose(bigDecimalScale)
+		.assertThat(bigDecimalScale)
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		

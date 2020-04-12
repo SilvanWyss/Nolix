@@ -30,10 +30,10 @@ public final class ListUsingMediator<E> {
 	ListUsingMediator(LinkedList<E> list, IElementTakerElementGetter<Object, E> extractor) {
 		
 		//Checks if the given list is not null.
-		Validator.suppose(list).thatIsInstanceOf(LinkedList.class).isNotNull();
+		Validator.assertThat(list).thatIsInstanceOf(LinkedList.class).isNotNull();
 		
 		//Checks if the given extractor is not null.
-		Validator.suppose(extractor).thatIsNamed("extractor").isNotNull();
+		Validator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
 		
 		//Sets the list of this list using mediator.
 		this.linkedList = list;

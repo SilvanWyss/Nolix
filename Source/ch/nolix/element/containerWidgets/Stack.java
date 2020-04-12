@@ -75,7 +75,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	public final S addWidget(final Widget<?, ?> widget) {
 		
 		//Checks if the given widget is not null.
-		Validator.suppose(widget).isOfType(Widget.class);
+		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		addChildWidget(widget);
 		widgets.addAtEnd(widget);
@@ -227,7 +227,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final S setElementMargin(final int elementMargin) {
 		
-		Validator.suppose(elementMargin).thatIsNamed("element margin").isNotNegative();
+		Validator.assertThat(elementMargin).thatIsNamed("element margin").isNotNegative();
 		
 		this.elementMargin.setValue(elementMargin);
 		

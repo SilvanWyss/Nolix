@@ -52,7 +52,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 		
 		//Checks if the given setterMethod is not null.
 		Validator
-		.suppose(setterMethod)
+		.assertThat(setterMethod)
 		.thatIsNamed("setter method")
 		.isNotNull();
 		
@@ -118,7 +118,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 		
 		//Checks if the given value is not null.
 		Validator
-		.suppose(value)
+		.assertThat(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
 		.isNotNull();
 		

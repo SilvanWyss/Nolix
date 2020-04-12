@@ -29,7 +29,7 @@ public final class HTTPRequest {
 	//constructor
 	public HTTPRequest(final String content) {
 		
-		Validator.suppose(content).thatIsNamed(VariableNameCatalogue.CONTENT).isNotBlank();
+		Validator.assertThat(content).thatIsNamed(VariableNameCatalogue.CONTENT).isNotBlank();
 		
 		this.content = content;
 	}

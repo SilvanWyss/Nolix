@@ -17,12 +17,12 @@ public final class MatrixRow<E> implements IContainer<E> {
 	MatrixRow(final Matrix<E> parentMatrix, final int rowIndex) {
 		
 		Validator
-		.suppose(parentMatrix)
+		.assertThat(parentMatrix)
 		.thatIsNamed("parent matrix")
 		.isNotNull();
 		
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isPositive();
 		

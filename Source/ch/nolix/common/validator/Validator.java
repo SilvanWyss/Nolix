@@ -29,7 +29,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new argument mediator for given argument.
 	 */
-	public static <A> ExtendedArgumentMediator<A> suppose(final A argument) {
+	public static <A> ExtendedArgumentMediator<A> assertThat(final A argument) {
 		return new ExtendedArgumentMediator<>(argument);
 	}
 	
@@ -38,7 +38,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended container mediator for the given argument.
 	 */
-	public static <A> ExtendedContainerMediator<A> suppose(final A[] argument) {
+	public static <A> ExtendedContainerMediator<A> assertThat(final A[] argument) {
 		return new ExtendedContainerMediator<>(argument);
 	}
 	
@@ -47,7 +47,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new {@link ExtendedBigDecimalMediator} for the given argument.
 	 */
-	public static ExtendedBigDecimalMediator suppose(final BigDecimal argument) {
+	public static ExtendedBigDecimalMediator assertThat(final BigDecimal argument) {
 		return new ExtendedBigDecimalMediator(argument);
 	}
 	
@@ -56,7 +56,7 @@ public final class Validator {
 	 * @param argument
 	 * @throws FalseArgumentException if the given argument is false.
 	 */
-	public static void suppose(final boolean argument) {
+	public static void assertThat(final boolean argument) {
 		
 		//Checks if the given argument is true.
 		if (!argument) {
@@ -70,7 +70,7 @@ public final class Validator {
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 * @throws FalseArgumentException if one of the given arguments is false.
 	 */
-	public static void suppose(final boolean... arguments) {
+	public static void assertThat(final boolean... arguments) {
 		
 		//Checks if the given arguments is not null.
 		if (arguments == null) {
@@ -95,7 +95,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
-	public static ExtendedContainerMediator<Byte> suppose(final byte[] argument) {
+	public static ExtendedContainerMediator<Byte> assertThat(final byte[] argument) {
 		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
 	}
 	
@@ -104,7 +104,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new {@link ExtendedTypeMediator} for the given argument.
 	 */
-	public static <T> ExtendedTypeMediator<T> suppose(final Class<T> argument) {
+	public static <T> ExtendedTypeMediator<T> assertThat(final Class<T> argument) {
 		return new ExtendedTypeMediator<>(argument);
 	}
 	
@@ -113,7 +113,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended double mediator for the given argument.
 	 */
-	public static ExtendedDoubleMediator suppose(final double argument) {
+	public static ExtendedDoubleMediator assertThat(final double argument) {
 		return new ExtendedDoubleMediator(argument);
 	}
 	
@@ -122,7 +122,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended container mediator for the given argument.
 	 */
-	public static ExtendedContainerMediator<Double> suppose(final double[] argument) {
+	public static ExtendedContainerMediator<Double> assertThat(final double[] argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -139,7 +139,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended long mediator for the given argument.
 	 */
-	public static ExtendedLongMediator suppose(final int argument) {
+	public static ExtendedLongMediator assertThat(final int argument) {
 		return new ExtendedLongMediator(argument);
 	}
 	
@@ -148,7 +148,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended container mediator for the given argument.
 	 */
-	public static ExtendedContainerMediator<Long> suppose(final int[] argument) {
+	public static ExtendedContainerMediator<Long> assertThat(final int[] argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -165,7 +165,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended container mediator for the given argument.
 	 */
-	public static <A> ExtendedContainerMediator<A> suppose(final Iterable<A> argument) {
+	public static <A> ExtendedContainerMediator<A> assertThat(final Iterable<A> argument) {
 		return new ExtendedContainerMediator<>(argument);
 	}
 	
@@ -174,7 +174,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended long mediator for the given argument.
 	 */
-	public static ExtendedLongMediator suppose(final long argument) {
+	public static ExtendedLongMediator assertThat(final long argument) {
 		return new ExtendedLongMediator(argument);
 	}
 	
@@ -183,7 +183,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended container mediator for the given argument.
 	 */
-	public static ExtendedContainerMediator<Long> suppose(final long[] argument) {
+	public static ExtendedContainerMediator<Long> assertThat(final long[] argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -200,7 +200,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new {@link ExtendedMethodMediator} for the given argument.
 	 */
-	public static ExtendedMethodMediator suppose(final Method argument) {
+	public static ExtendedMethodMediator assertThat(final Method argument) {
 		return new ExtendedMethodMediator(argument);
 	}
 	
@@ -209,7 +209,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended string mediator for the given argument.
 	 */
-	public static ExtendedStringMediator suppose(final String argument) {
+	public static ExtendedStringMediator assertThat(final String argument) {
 		return new ExtendedStringMediator(argument);
 	}
 	
@@ -218,7 +218,7 @@ public final class Validator {
 	 * @param argument
 	 * @return a new extended container mediator for the given argument.
 	 */
-	public static ExtendedContainerMediator<String> suppose(final String[] argument) {
+	public static ExtendedContainerMediator<String> assertThat(final String[] argument) {
 		return new ExtendedContainerMediator<>(argument);
 	}
 	
@@ -227,7 +227,7 @@ public final class Validator {
 	 * @param argument
 	 * @throws TrueException if the given argument is true.
 	 */
-	public static void supposeNot(final boolean argument) {
+	public static void assertThatNot(final boolean argument) {
 		
 		//Checks if the given argument is false.
 		if (argument) {
@@ -241,7 +241,7 @@ public final class Validator {
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 * @throws TrueArgumentException if one of the given arguments is true.
 	 */
-	public static void supposeNot(final boolean... arguments) {
+	public static void assertThatNot(final boolean... arguments) {
 		
 		//Checks if the given arguments is not null.
 		if (arguments == null) {
@@ -267,7 +267,7 @@ public final class Validator {
 	 * @return a new multi double mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {
+	public static MultiDoubleMediator assertThatTheDoubles(final double... arguments) {
 		return new MultiDoubleMediator(arguments);
 	}
 	
@@ -277,7 +277,7 @@ public final class Validator {
 	 * @return a new multi double mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiDoubleMediator supposeTheDoubles(final Iterable<Double> arguments) {
+	public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
 		return new MultiDoubleMediator(arguments);
 	}
 	
@@ -287,7 +287,7 @@ public final class Validator {
 	 * @return a new multi argument mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
+	public static <E> MultiArgumentMediator<E> assertThatTheElements(final E[] arguments) {
 		return new MultiArgumentMediator<>(arguments);
 	}
 	
@@ -297,7 +297,7 @@ public final class Validator {
 	 * @return a new multi argument mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
+	public static <E> MultiArgumentMediator<E> assertThatTheElements(final Iterable<E> arguments) {
 		return new MultiArgumentMediator<>(arguments);
 	}
 	
@@ -307,7 +307,7 @@ public final class Validator {
 	 * @return a new multi long mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiLongMediator supposeTheLongs(final long... arguments) {
+	public static MultiLongMediator assertThatTheLongs(final long... arguments) {
 		return new MultiLongMediator(arguments);
 	}
 	
@@ -317,7 +317,7 @@ public final class Validator {
 	 * @return a new multi long mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiLongMediator supposeTheLongs(final Iterable<Long> arguments) {
+	public static MultiLongMediator assertThatTheLongs(final Iterable<Long> arguments) {
 		return new MultiLongMediator(arguments);
 	}
 	
@@ -327,7 +327,7 @@ public final class Validator {
 	 * @return a new multi string mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiStringMediator supposeTheStrings(final String... arguments) {
+	public static MultiStringMediator assertThatTheStrings(final String... arguments) {
 		return new MultiStringMediator(arguments);
 	}
 	
@@ -337,7 +337,7 @@ public final class Validator {
 	 * @return a new string container mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiStringMediator supposeTheStrings(final Iterable<String> arguments) {
+	public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {
 		return new MultiStringMediator(arguments);
 	}
 	

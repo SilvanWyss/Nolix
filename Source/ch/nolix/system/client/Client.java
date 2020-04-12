@@ -256,7 +256,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	public final C setInfoString(final String infoString) {
 		
 		this.infoString
-		= Validator.suppose(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank().andReturn();
+		= Validator.assertThat(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank().andReturn();
 		
 		return asConcrete();
 	}
@@ -295,7 +295,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	final void push(final Session<C> session) {
 		
 		//Checks if the given session is not null.
-		Validator.suppose(session).isOfType(Session.class);
+		Validator.assertThat(session).isOfType(Session.class);
 		
 		//Sets the given session to the current Client.
 		session.setParentClient(asConcrete());
@@ -604,7 +604,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	protected final void internal_setEndPoint(final EndPoint endPoint) {
 		
 		//Checks if the given duplex controller is not null.
-		Validator.suppose(endPoint).isOfType(EndPoint.class);
+		Validator.assertThat(endPoint).isOfType(EndPoint.class);
 		
 		//Checks if the current client is not connected.
 		supposeIsNotConnected();
@@ -637,7 +637,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		
 		//Checks if the given parent application is not null.
 		Validator
-		.suppose(parentApplication)
+		.assertThat(parentApplication)
 		.thatIsNamed("parent application")
 		.isNotNull();
 		

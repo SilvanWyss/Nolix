@@ -17,7 +17,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	public EntitySetAdapter(final String name) {
 		
 		Validator
-		.suppose(name)
+		.assertThat(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)
 		.isNotBlank();
 		

@@ -19,7 +19,7 @@ final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
 	//constructor
 	public FrameVisualizerMouseWheelListener(final GUI<?> frameVisualizer) {
 		
-		Validator.suppose(frameVisualizer).isOfType(FrameVisualizer.class);
+		Validator.assertThat(frameVisualizer).isOfType(FrameVisualizer.class);
 		
 		this.frameVisualizer = frameVisualizer;
 	}

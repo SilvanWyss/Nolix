@@ -29,7 +29,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	BorderWidgetBorderedArea(final BorderWidget<BW, BWL> parentBorderWidget) {
 		
 		//Checks if the given parentBorderWidget is not null.
-		Validator.suppose(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
 		
 		//Sets the parentBorderWidget of the current BorderWidgetArea.
 		this.parentBorderWidget = parentBorderWidget;

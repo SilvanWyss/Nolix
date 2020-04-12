@@ -33,7 +33,7 @@ public final class InputConnection<O> {
 		
 		//Checks if the given input neuron is not null.
 		Validator
-		.suppose(inputNeuron)
+		.assertThat(inputNeuron)
 		.thatIsNamed("input neuron")
 		.isNotNull();
 		

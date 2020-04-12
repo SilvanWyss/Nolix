@@ -31,7 +31,7 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	public FrameVisualizerCloseListener(final GUI<?> frameVisualizer) {
 		
 		//Checks if the given frame is not null.
-		Validator.suppose(frameVisualizer).isOfType(GUI.class);
+		Validator.assertThat(frameVisualizer).isOfType(GUI.class);
 		
 		//Sets the frame of this frame close listener.
 		this.frameVisualizer = frameVisualizer;

@@ -57,7 +57,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	public final void addApplication(final Application<?> application) {
 		
 		//Checks if the given application is not null.
-		Validator.suppose(application).isOfType(Application.class);
+		Validator.assertThat(application).isOfType(Application.class);
 		
 		//Checks if the given the current Server
 		//does not contain already an Application with the same name as the given application..

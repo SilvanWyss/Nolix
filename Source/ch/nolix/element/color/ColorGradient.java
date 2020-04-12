@@ -131,13 +131,13 @@ public class ColorGradient implements IElement {
 		final Color color2
 	) {
 		//Checks if the given direction is not null.
-		Validator.suppose(direction).thatIsNamed("direction").isNotNull();
+		Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
 		
 		//Checks if the given color 1 is not null.
-		Validator.suppose(color1).thatIsNamed("color 1").isNotNull();
+		Validator.assertThat(color1).thatIsNamed("color 1").isNotNull();
 		
 		//Checks if the given color 2 is not null.
-		Validator.suppose(color2).thatIsNamed("color 2").isNotNull();
+		Validator.assertThat(color2).thatIsNamed("color 2").isNotNull();
 		
 		this.direction = direction;
 		this.color1 = color1;

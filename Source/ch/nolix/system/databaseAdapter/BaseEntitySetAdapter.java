@@ -19,8 +19,8 @@ public abstract class BaseEntitySetAdapter<E extends Entity> implements Named {
 	//constructor
 	public BaseEntitySetAdapter(final EntityType<E> entityType, final ValueCreator<BaseNode> valueCreator) {
 		
-		Validator.suppose(entityType).thatIsNamed(EntityType.class).isNotNull();
-		Validator.suppose(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();
+		Validator.assertThat(entityType).thatIsNamed(EntityType.class).isNotNull();
+		Validator.assertThat(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();
 		
 		this.entityType = entityType;
 		this.valueCreator = valueCreator;

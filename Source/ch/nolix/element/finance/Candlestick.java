@@ -93,11 +93,11 @@ public class Candlestick extends Element<Candlestick> {
 		final double highestPrice
 	) {
 		//Checks the given arguments.
-		Validator.suppose(time).isOfType(Time.class);
-		Validator.suppose(openingPrice).thatIsNamed("opening price").isNotNegative();
-		Validator.suppose(closingPrice).thatIsNamed("closing price").isNotNegative();
-		Validator.suppose(lowestPrice).thatIsNamed("lowest price").isNotNegative();
-		Validator.suppose(highestPrice).thatIsNamed("highest price").isNotNegative();
+		Validator.assertThat(time).isOfType(Time.class);
+		Validator.assertThat(openingPrice).thatIsNamed("opening price").isNotNegative();
+		Validator.assertThat(closingPrice).thatIsNamed("closing price").isNotNegative();
+		Validator.assertThat(lowestPrice).thatIsNamed("lowest price").isNotNegative();
+		Validator.assertThat(highestPrice).thatIsNamed("highest price").isNotNegative();
 		
 		//Sets the values of this candlestick.
 		this.time = time;
@@ -340,7 +340,7 @@ public class Candlestick extends Element<Candlestick> {
 	public final boolean isHammer(final double minLowerWickLengthRatio) {
 		
 		//Checks if the given min lower wick length ratio is not negative.
-		Validator.suppose(minLowerWickLengthRatio).thatIsNamed("min lower wick length ration").isNotNegative();
+		Validator.assertThat(minLowerWickLengthRatio).thatIsNamed("min lower wick length ration").isNotNegative();
 
 		//Calculates the needed characteristic values.
 		final double length = getLength();
@@ -388,7 +388,7 @@ public class Candlestick extends Element<Candlestick> {
 	public final boolean isInvertedHammer(final double minUpperWickLengthRatio) {
 		
 		//Checks if the given min upper wick length ratio is not negative.
-		Validator.suppose(minUpperWickLengthRatio).thatIsNamed("min upper wick length ratio").isNotNegative();
+		Validator.assertThat(minUpperWickLengthRatio).thatIsNamed("min upper wick length ratio").isNotNegative();
 
 		//Calculates the needed characteristic values.
 		final double length = getLength();

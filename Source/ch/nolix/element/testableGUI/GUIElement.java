@@ -22,8 +22,8 @@ public abstract class GUIElement implements IdentifiedByString, Rectangular {
 	//constructor
 	public GUIElement(final ITestableGUI parentGUI, final String id) {
 		
-		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
-		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
 		
 		this.parentGUI = parentGUI;
 		this.id = id;

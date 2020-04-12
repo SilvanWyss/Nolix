@@ -103,7 +103,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	private void addValue(final long referencedEntityId) {
 		
 		Validator
-		.suppose(referencedEntityId)
+		.assertThat(referencedEntityId)
 		.isPositive();
 		
 		supposeDoesNotContainValue(referencedEntityId);

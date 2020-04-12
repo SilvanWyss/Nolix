@@ -32,8 +32,8 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 		String x
 	) {
 		
-		Validator.suppose(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
-		Validator.suppose(inputStream).thatIsNamed(InputStream.class).isNotNull();
+		Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+		Validator.assertThat(inputStream).thatIsNamed(InputStream.class).isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
 		try {

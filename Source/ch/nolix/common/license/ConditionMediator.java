@@ -14,7 +14,7 @@ public final class ConditionMediator {
 	//constructor
 	ConditionMediator(final LicenseManager parentLicenseManager, final boolean condition) {
 		
-		Validator.suppose(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
+		Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 		
 		this.parentLicenseManager = parentLicenseManager;
 		this.condition = condition;

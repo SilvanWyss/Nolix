@@ -158,7 +158,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	public Button setRole(final ButtonRole role) {
 		
 		//Checks if the given role is not null.
-		Validator.suppose(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull();
+		Validator.assertThat(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull();
 		
 		//Sets the role of the current Button.
 		this.role = role;

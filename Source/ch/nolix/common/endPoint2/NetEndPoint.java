@@ -100,7 +100,7 @@ public final class NetEndPoint extends EndPoint {
 		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
-		.suppose(port)
+		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
@@ -142,7 +142,7 @@ public final class NetEndPoint extends EndPoint {
 		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
-		.suppose(port)
+		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
@@ -179,10 +179,10 @@ public final class NetEndPoint extends EndPoint {
 		super(false);
 		
 		//Checks if the given socket is not null.
-		Validator.suppose(socket).isOfType(Socket.class);
+		Validator.assertThat(socket).isOfType(Socket.class);
 		
 		//Checks if the given HTTP message is not null or empty.
-		Validator.suppose(pHTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
+		Validator.assertThat(pHTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
 		
 		//Sets the HTTPMessage of the current NetEndPoint.
 		this.mHTTPMessage = pHTTPMessage;

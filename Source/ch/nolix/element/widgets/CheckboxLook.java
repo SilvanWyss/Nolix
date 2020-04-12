@@ -134,7 +134,7 @@ public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	public CheckboxLook setLineThickness(final int lineThickness) {
 		
 		//Checks if the given lineThickness is positive.
-		Validator.suppose(lineThickness).thatIsNamed(VariableNameCatalogue.LINE_THICKNESS).isPositive();
+		Validator.assertThat(lineThickness).thatIsNamed(VariableNameCatalogue.LINE_THICKNESS).isPositive();
 		
 		//Sets the line thickness of the current CheckBoxLook.
 		this.lineThickness = lineThickness;

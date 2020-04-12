@@ -14,7 +14,7 @@ public final class RegistrationMediator {
 	//constructor
 	RegistrationMediator(final InstanceProvider parentClassProvider) {
 		
-		Validator.suppose(parentClassProvider).thatIsNamed("parent class provder").isNotNull();
+		Validator.assertThat(parentClassProvider).thatIsNamed("parent class provder").isNotNull();
 		
 		this.parentClassProvider = parentClassProvider;
 	}

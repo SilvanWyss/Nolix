@@ -29,7 +29,7 @@ public class Server extends ClosableElement {
 	public Server(final IElementTaker<EndPoint> endPointTaker) {
 		
 		//Checks if the given end point taker is not null.
-		Validator.suppose(endPointTaker).thatIsNamed("andPointTaker").isNotNull();
+		Validator.assertThat(endPointTaker).thatIsNamed("andPointTaker").isNotNull();
 		
 		//Sets the end point taker of this server.
 		this.endPointTaker = endPointTaker;

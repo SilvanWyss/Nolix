@@ -70,7 +70,7 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	public final void setValue(final V value) {
 		
 		Validator
-		.suppose(value)
+		.assertThat(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
 		.isNotNull();
 		

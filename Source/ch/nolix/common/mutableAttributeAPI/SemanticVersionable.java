@@ -39,11 +39,11 @@ public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends
 	 */
 	public default SV setVersion(final String version) {
 		
-		Validator.suppose(version).thatIsNamed(VariableNameCatalogue.VERSION).isNotBlank();
+		Validator.assertThat(version).thatIsNamed(VariableNameCatalogue.VERSION).isNotBlank();
 		
 		final var array = version.split(".");
 		
-		Validator.suppose(array).hasElementCount(3);
+		Validator.assertThat(array).hasElementCount(3);
 		
 		return setVersion(Integer.valueOf(array[0]), Integer.valueOf(array[1]), Integer.valueOf(array[2]));
 	}

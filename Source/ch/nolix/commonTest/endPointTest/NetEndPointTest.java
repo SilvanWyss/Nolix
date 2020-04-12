@@ -74,10 +74,7 @@ public final class NetEndPointTest extends Test {
 		@Override
 		public void receive(final String message) {
 			
-			Validator
-			.suppose(message)
-			.thatIsNamed(VariableNameCatalogue.MESSAGE)
-			.isNotNull();
+			Validator.assertThat(message).thatIsNamed(VariableNameCatalogue.MESSAGE).isNotNull();
 			
 			lastReceivedMessage = message;
 		}

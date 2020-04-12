@@ -23,8 +23,8 @@ final class NetServerHTTPMessage {
 	//constructor
 	public NetServerHTTPMessage(final String serverIP, final int serverPort) {
 		
-		Validator.suppose(serverIP).thatIsNamed("server IP").isNotBlank();
-		Validator.suppose(serverPort).thatIsNamed("server port").isBetween(0, 65535);
+		Validator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
+		Validator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
 		
 		this.serverIP = serverIP;
 		this.serverPort = serverPort;

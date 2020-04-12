@@ -30,7 +30,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 		super(schema);
 		
 		//Checks if the given database if not null.
-		Validator.suppose(database).thatIsNamed(VariableNameCatalogue.DATABASE).isNotNull();
+		Validator.assertThat(database).thatIsNamed(VariableNameCatalogue.DATABASE).isNotNull();
 		
 		//Sets the database of the current document node database adapter.
 		this.database = database;

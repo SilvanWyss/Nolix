@@ -32,10 +32,10 @@ public final class StringHelper {
 	public static String createStringWithLength(final String string, final int length) {
 		
 		//Checks if the given string is not null.
-		Validator.suppose(string).isNotNull();
+		Validator.assertThat(string).isNotNull();
 		
 		//Checks if the given length is not negative.
-		Validator.suppose(length).thatIsNamed("length").isNotNegative();
+		Validator.assertThat(length).thatIsNamed("length").isNotNegative();
 		
 		//Checks if the given string is not longer than the given length.
 		if (string.length() > length) {
@@ -74,7 +74,7 @@ public final class StringHelper {
 	public static String createTabulators(final int tabulatorCount) {
 		
 		//Checks if the given tabulatorCount is not negative.
-		Validator.suppose(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
+		Validator.assertThat(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
 		
 		final var stringBuilder = new StringBuilder();
 		
@@ -143,7 +143,7 @@ public final class StringHelper {
 	public static int toInt(final String string) {
 		
 		//Checks if the given string is not null or empty.
-		Validator.suppose(string).isNotEmpty();
+		Validator.assertThat(string).isNotEmpty();
 		
 		int startIndex = 0;
 		

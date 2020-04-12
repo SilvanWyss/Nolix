@@ -10,7 +10,7 @@ final class CamelCaseCreator {
 	//method
 	public String toCamelCase(final String string) {
 		
-		Validator.suppose(string).isNotNull();
+		Validator.assertThat(string).isNotNull();
 		
 		final var stringBuilder = new StringBuilder();
 			

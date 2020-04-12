@@ -17,10 +17,10 @@ public final class BooleanValidationTutorial1 {
 	public static void main(String[] args) {
 		
 		//Supposes that a true boolean is true, what makes that the zeta validator does not complain.
-		Validator.suppose(true);
+		Validator.assertThat(true);
 		
 		//Supposes that a true boolean is false, what makes that the zeta validator throws a TrueArgumentException.
-		Validator.supposeNot(true);
+		Validator.assertThatNot(true);
 	}
 	
 	/**

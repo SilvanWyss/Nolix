@@ -19,7 +19,7 @@ public final class DatabaseApplicationContext {
 	//constructor
 	public DatabaseApplicationContext(final DatabaseAdapter databaseAdapter) {
 			
-		Validator.suppose(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
+		Validator.assertThat(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
 		
 		this.databaseAdapter = databaseAdapter;
 		mGUILook = null;
@@ -31,8 +31,8 @@ public final class DatabaseApplicationContext {
 		final StandardConfiguration pGUILook
 	) {
 			
-		Validator.suppose(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
-		Validator.suppose(pGUILook).thatIsNamed("GUI look").isNotNull();
+		Validator.assertThat(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
+		Validator.assertThat(pGUILook).thatIsNamed("GUI look").isNotNull();
 		
 		this.databaseAdapter = databaseAdapter;
 		this.mGUILook = pGUILook;

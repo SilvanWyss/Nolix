@@ -13,7 +13,7 @@ public final class CreateMediator<S, V> {
 	//constructor
 	CreateMediator(final SpecificValueCreator<S, V> parentSpecificValueCreator) {
 		
-		Validator.suppose(parentSpecificValueCreator).thatIsNamed("parent SpecificValueCreator").isNotNull();
+		Validator.assertThat(parentSpecificValueCreator).thatIsNamed("parent SpecificValueCreator").isNotNull();
 		
 		this.parentSpecificValueCreator = parentSpecificValueCreator;
 	}

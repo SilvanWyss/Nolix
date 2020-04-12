@@ -23,12 +23,12 @@ public final class ComplexNumber implements IComplexNumber {
 	public ComplexNumber(final BigDecimal realComponent, final BigDecimal imaginaryComponent) {
 		
 		Validator
-		.suppose(realComponent)
+		.assertThat(realComponent)
 		.thatIsNamed("real component")
 		.isNotNull();
 		
 		Validator
-		.suppose(imaginaryComponent)
+		.assertThat(imaginaryComponent)
 		.thatIsNamed("imaginary component")
 		.isNotNull();
 		
@@ -46,17 +46,17 @@ public final class ComplexNumber implements IComplexNumber {
 	) {
 		
 		Validator
-		.suppose(realComponent)
+		.assertThat(realComponent)
 		.thatIsNamed("real component")
 		.isNotNull();
 		
 		Validator
-		.suppose(imaginaryComponent)
+		.assertThat(imaginaryComponent)
 		.thatIsNamed("imaginary component")
 		.isNotNull();
 		
 		Validator
-		.suppose(bigDecimalScale)
+		.assertThat(bigDecimalScale)
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		
@@ -85,7 +85,7 @@ public final class ComplexNumber implements IComplexNumber {
 	) {
 		
 		Validator
-		.suppose(bigDecimalScale)
+		.assertThat(bigDecimalScale)
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		
@@ -150,7 +150,7 @@ public final class ComplexNumber implements IComplexNumber {
 	@Override
 	public ComplexNumber getPower(final int exponent) {
 		
-		Validator.suppose(exponent).thatIsNamed(VariableNameCatalogue.EXPONENT).isPositive();
+		Validator.assertThat(exponent).thatIsNamed(VariableNameCatalogue.EXPONENT).isPositive();
 		
 		var complexNumber = this;		
 		for (var i = 2; i <= exponent; i++) {

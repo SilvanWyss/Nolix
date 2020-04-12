@@ -23,7 +23,7 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	public BaseBackReference(final String referencingPropertyHeader) {
 		
 		Validator
-		.suppose(referencingPropertyHeader)
+		.assertThat(referencingPropertyHeader)
 		.thatIsNamed("referencing property header")
 		.isNotBlank();
 		

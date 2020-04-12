@@ -252,13 +252,13 @@ public final class Time implements IElement {
 		this();
 		
 		//Checks if the given string is not null.
-		Validator.suppose(string).thatIsNamed("string").isNotNull();
+		Validator.assertThat(string).thatIsNamed("string").isNotNull();
 		
 		//Creates array of values of the given string.
 		final String[] array = string.split("-");
 		
 		Validator
-		.suppose(array.length)
+		.assertThat(array.length)
 		.thatIsNamed("numer of values of '" + string + "'")
 		.isEqualToAny(3, 5, 6, 7);
 		

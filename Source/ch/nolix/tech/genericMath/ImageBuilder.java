@@ -31,7 +31,7 @@ public final class ImageBuilder implements IImageBuilder {
 	//constructor
 	public ImageBuilder(Fractal fractal) {
 		
-		Validator.suppose(fractal).thatIsNamed(Fractal.class).isNotNull();		
+		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 						
 		Sequencer.runInBackground(() -> fillImage());
 		

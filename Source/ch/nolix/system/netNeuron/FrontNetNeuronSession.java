@@ -29,7 +29,7 @@ final class FrontNetNeuronSession<O> extends StandardClientSession {
 	public FrontNetNeuronSession(final FrontNetNeuron<O> netFrontNeuron) {
 		
 		Validator
-		.suppose(netFrontNeuron)
+		.assertThat(netFrontNeuron)
 		.isOfType(FrontNetNeuronSession.class);
 		
 		this.frontNetNeuron = netFrontNeuron;

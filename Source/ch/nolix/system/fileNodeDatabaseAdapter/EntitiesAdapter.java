@@ -20,8 +20,8 @@ public final class EntitiesAdapter<E extends Entity> {
 	//constructor
 	EntitiesAdapter(final BaseNode entitiesSpecification, ValueCreator<BaseNode> valueCreator) {
 		
-		Validator.suppose(entitiesSpecification).thatIsNamed("entities specification").isNotNull();
-		Validator.suppose(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();
+		Validator.assertThat(entitiesSpecification).thatIsNamed("entities specification").isNotNull();
+		Validator.assertThat(valueCreator).thatIsNamed(ValueCreator.class).isNotNull();
 		
 		this.entitiesSpecification = entitiesSpecification;
 		this.valueCreator = valueCreator;

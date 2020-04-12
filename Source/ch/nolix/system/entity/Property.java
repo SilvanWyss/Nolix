@@ -134,7 +134,7 @@ public abstract class Property<V> implements Headered, IElement {
 	protected void internal_setParentEntity(final Entity parentEntity) {
 		
 		Validator
-		.suppose(parentEntity)
+		.assertThat(parentEntity)
 		.thatIsNamed("parent entity")
 		.isNotNull();
 		

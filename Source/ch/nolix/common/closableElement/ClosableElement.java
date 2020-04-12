@@ -118,7 +118,7 @@ public abstract class ClosableElement implements Closable {
 		
 		//Checks if the given parent close controller is not null.
 		Validator
-		.suppose(parentCloseController)
+		.assertThat(parentCloseController)
 		.thatIsNamed("parent close controller")
 		.isNotNull();
 		

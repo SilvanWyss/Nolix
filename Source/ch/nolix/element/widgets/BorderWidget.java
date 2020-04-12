@@ -727,7 +727,7 @@ extends Widget<BW, BWL> {
 	public final BW setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
-		Validator.suppose(contentPosition).isOfType(ContentPosition.class);
+		Validator.assertThat(contentPosition).isOfType(ContentPosition.class);
 
 		//Sets the content position of the current border widget.
 		this.contentPosition = contentPosition;
@@ -764,7 +764,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxHeight(final int maxHeight) {
 		
-		Validator.suppose(maxHeight).thatIsNamed("max height").isPositive();
+		Validator.assertThat(maxHeight).thatIsNamed("max height").isPositive();
 		
 		this.maxHeight.setValue(maxHeight);
 		
@@ -781,7 +781,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
 		
-		Validator.suppose(maxWidth).thatIsNamed("max width").isPositive();
+		Validator.assertThat(maxWidth).thatIsNamed("max width").isPositive();
 		
 		this.maxWidth.setValue(maxWidth);
 		
@@ -826,7 +826,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalHeight(final int proposalHeight) {
 		
-		Validator.suppose(proposalHeight).thatIsNamed("proposal height").isPositive();
+		Validator.assertThat(proposalHeight).thatIsNamed("proposal height").isPositive();
 		
 		this.proposalHeight.setValue(proposalHeight);
 		
@@ -861,7 +861,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
-		Validator.suppose(proposalWidth).thatIsNamed("proposal with").isPositive();
+		Validator.assertThat(proposalWidth).thatIsNamed("proposal with").isPositive();
 		
 		this.proposalWidth.setValue(proposalWidth);
 		

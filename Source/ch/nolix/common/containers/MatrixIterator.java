@@ -33,7 +33,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 		
 		//Checks if the given parent matrix is not null.
 		Validator
-		.suppose(parentMatrix)
+		.assertThat(parentMatrix)
 		.thatIsNamed("parent matrix")
 		.isNotNull();
 		

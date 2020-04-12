@@ -26,7 +26,7 @@ public final class SwingPainter implements IPainter {
 	//constructor
 	public SwingPainter(final Graphics graphics) {
 		
-		Validator.suppose(graphics).isOfType(Graphics.class);
+		Validator.assertThat(graphics).isOfType(Graphics.class);
 		
 		this.graphics = graphics;
 		
@@ -76,7 +76,7 @@ public final class SwingPainter implements IPainter {
 	public void paintFilledPolygon(final int[] xs, final int[] ys) {
 		
 		Validator
-		.suppose(ys)
+		.assertThat(ys)
 		.thatIsNamed("y-points")
 		.hasElementCount(xs.length);
 		
@@ -148,7 +148,7 @@ public final class SwingPainter implements IPainter {
 	@Override
 	public void setColorGradient(ColorGradient colorGradient) {
 		
-		Validator.suppose(colorGradient).isOfType(ColorGradient.class);
+		Validator.assertThat(colorGradient).isOfType(ColorGradient.class);
 		
 		this.colorGradient = colorGradient;
 	}

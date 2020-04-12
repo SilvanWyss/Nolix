@@ -21,8 +21,8 @@ public final class WidgetParent {
 	//constructor
 	public WidgetParent(final LayerGUI<?> pGUI, final Widget<?, ?> childWidget) {
 		
-		Validator.suppose(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
-		Validator.suppose(childWidget).thatIsNamed("child Widget").isNotNull();
+		Validator.assertThat(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
+		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		mGui = pGUI;
 		widget = null;
@@ -31,9 +31,9 @@ public final class WidgetParent {
 	//constructor
 	public WidgetParent(final Widget<?, ?> widget, final Widget<?, ?> childWidget) {
 		
-		Validator.suppose(widget).thatIsNamed(WIDGET_TYPE_HEADER).isNotNull();
-		Validator.suppose(childWidget).thatIsNamed("child Widget").isNotNull();
-		Validator.suppose(childWidget).thatIsNamed("child Widget").isNot(widget);
+		Validator.assertThat(widget).thatIsNamed(WIDGET_TYPE_HEADER).isNotNull();
+		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
+		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNot(widget);
 		
 		mGui = null;
 		this.widget = widget;
@@ -87,7 +87,7 @@ public final class WidgetParent {
 	//method
 	public boolean is(final LayerGUI<?> pGUI) {
 		
-		Validator.suppose(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
+		Validator.assertThat(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
 		
 		return (mGui == pGUI);
 	}
@@ -95,7 +95,7 @@ public final class WidgetParent {
 	//method
 	public boolean is(final Widget<?, ?> widget) {
 		
-		Validator.suppose(widget).thatIsNamed(WIDGET_TYPE_HEADER).isNotNull();
+		Validator.assertThat(widget).thatIsNamed(WIDGET_TYPE_HEADER).isNotNull();
 		
 		return (this.widget == widget);
 	}

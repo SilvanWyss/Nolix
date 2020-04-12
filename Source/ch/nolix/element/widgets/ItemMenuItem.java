@@ -72,7 +72,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 		
 		this(text);
 		
-		this.selectCommand = Validator.suppose(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
+		this.selectCommand = Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
 	}
 	
 	//constructor
@@ -167,7 +167,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	//method
 	public void setParentMenu(final ItemMenu<?> parentItemMenu) {
 		
-		Validator.suppose(parentItemMenu).thatIsNamed("parent item menu").isNotNull().andReturn();
+		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull().andReturn();
 		
 		this.parentItemMenu = parentItemMenu;
 	}
@@ -185,7 +185,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	//method
 	private void setId(final String id) {
 		
-		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
 		
 		this.id.setValue(id);
 	}
@@ -198,7 +198,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	//method
 	private void setText(final String text) {
 		
-		Validator.suppose(text).thatIsNamed(VariableNameCatalogue.TEXT).isNotBlank();
+		Validator.assertThat(text).thatIsNamed(VariableNameCatalogue.TEXT).isNotBlank();
 		
 		this.text.setValue(text);
 		

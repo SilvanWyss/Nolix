@@ -39,7 +39,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	public SingleContainer(final E element) {
 		
 		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
 		
 		//Sets the element of the current SingleContainer.
 		this.element = element;

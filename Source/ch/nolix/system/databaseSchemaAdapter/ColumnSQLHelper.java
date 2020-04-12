@@ -14,7 +14,7 @@ public abstract class ColumnSQLHelper {
 	//constructor
 	ColumnSQLHelper(final Column column) {
 		
-		Validator.suppose(column).isOfType(Column.class);
+		Validator.assertThat(column).isOfType(Column.class);
 		
 		this.column = column;
 	}

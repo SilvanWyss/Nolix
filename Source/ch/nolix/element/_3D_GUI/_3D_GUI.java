@@ -102,10 +102,10 @@ implements Clearable<G>, Closable, Refreshable {
 	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
 		
 		//Checks if the given shape class is not null.
-		Validator.suppose(shapeClass).thatIsNamed("shape class").isNotNull();
+		Validator.assertThat(shapeClass).thatIsNamed("shape class").isNotNull();
 		
 		//Checks if the given shape renderer is not null.
-		Validator.suppose(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
+		Validator.assertThat(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
 		
 		//Checks if this 3D GUI does not contain already
 		//a shape class with the same name as the given shape class.
@@ -348,7 +348,7 @@ implements Clearable<G>, Closable, Refreshable {
 	public final G setTitle(final String title) {
 		
 		//Checks if the given title is not blank.
-		Validator.suppose(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		Validator.assertThat(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
 		
 		//Sets the title of the current 3D_GUI.
 		this.title.setValue(title);

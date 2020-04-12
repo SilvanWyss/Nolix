@@ -18,7 +18,7 @@ public final class ShellProvider {
 	public static void run(final String command) {
 		
 		Validator
-		.suppose(command)
+		.assertThat(command)
 		.thatIsNamed(VariableNameCatalogue.COMMAND)
 		.isNotNull();
 		
@@ -49,12 +49,12 @@ public final class ShellProvider {
 	public static void startFirefox(final String url, final int port) {
 		
 		Validator
-		.suppose(url)
+		.assertThat(url)
 		.thatIsNamed(VariableNameCatalogue.URL)
 		.isNotBlank();
 		
 		Validator
-		.suppose(port)
+		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		

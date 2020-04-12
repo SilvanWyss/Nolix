@@ -46,7 +46,7 @@ public final class QuadraticFunction {
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
 		//Checks if the given a is not 0.0.
-		Validator.suppose(a).thatIsNamed("a").isNotZero();
+		Validator.assertThat(a).thatIsNamed("a").isNotZero();
 		
 		this.a = a;
 		this.b = b;

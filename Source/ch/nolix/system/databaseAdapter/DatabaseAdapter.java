@@ -26,7 +26,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//constructor
 	public DatabaseAdapter(final Schema schema) {
 		
-		Validator.suppose(schema).isOfType(Schema.class);
+		Validator.assertThat(schema).isOfType(Schema.class);
 		
 		this.schema = schema;
 				
@@ -55,7 +55,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//method
 	public final DatabaseAdapter addEntity(final Entity... entities) {
 		
-		Validator.suppose(entities).thatIsNamed(MultiVariableNameCatalogue.ENTITIES).isNotNull();
+		Validator.assertThat(entities).thatIsNamed(MultiVariableNameCatalogue.ENTITIES).isNotNull();
 		
 		for (final var e : entities) {
 			addEntity(e);

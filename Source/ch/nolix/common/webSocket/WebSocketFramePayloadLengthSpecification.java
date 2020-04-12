@@ -15,7 +15,7 @@ public enum WebSocketFramePayloadLengthSpecification {
 	//static method
 	public static WebSocketFramePayloadLengthSpecification fromCode(final int number) {
 		
-		Validator.suppose(number).thatIsNamed(VariableNameCatalogue.NUMBER).isNotNegative();
+		Validator.assertThat(number).thatIsNamed(VariableNameCatalogue.NUMBER).isNotNegative();
 		
 		if (number <= 125) {
 			return IN_7_BITS;
@@ -35,7 +35,7 @@ public enum WebSocketFramePayloadLengthSpecification {
 	//static method
 	public static WebSocketFramePayloadLengthSpecification fromPayloadLength(final int payloadLength) {
 		
-		Validator.suppose(payloadLength).thatIsNamed("payload length").isNotNegative();
+		Validator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
 		
 		if (payloadLength <= 125) {
 			return IN_7_BITS;

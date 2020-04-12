@@ -162,7 +162,7 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	 */
 	public BaseCube setXLength(final double xLength) {
 		
-		Validator.suppose(xLength).thatIsNamed("x length").isPositive();
+		Validator.assertThat(xLength).thatIsNamed("x length").isPositive();
 		
 		this.xLength.setValue(xLength);
 		
@@ -179,7 +179,7 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	 */
 	public BaseCube setYLength(final double yLength) {
 		
-		Validator.suppose(yLength).thatIsNamed("y length").isPositive();
+		Validator.assertThat(yLength).thatIsNamed("y length").isPositive();
 		
 		this.yLength.setValue(yLength);
 		
@@ -196,7 +196,7 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	 */
 	public BaseCube setZLength(final double zLength) {
 		
-		Validator.suppose(zLength).thatIsNamed("z length").isPositive();
+		Validator.assertThat(zLength).thatIsNamed("z length").isPositive();
 		
 		this.zLength.setValue((zLength));
 		

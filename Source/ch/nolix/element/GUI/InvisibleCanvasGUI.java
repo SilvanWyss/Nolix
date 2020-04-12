@@ -80,7 +80,7 @@ public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
 		
 		this.viewAreaWidth = viewAreaWidth;
 		
-		Validator.suppose(viewAreaHeight).thatIsNamed("view arew height").isNotNegative();
+		Validator.assertThat(viewAreaHeight).thatIsNamed("view arew height").isNotNegative();
 		
 		this.viewAreaHeight = viewAreaHeight;
 	}

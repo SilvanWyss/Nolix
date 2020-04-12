@@ -94,7 +94,7 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	//method
 	public ItemMenuLook setItemPadding(final int itemPadding) {
 		
-		Validator.suppose(itemPadding).thatIsNamed("item padding").isNotNegative();
+		Validator.assertThat(itemPadding).thatIsNamed("item padding").isNotNegative();
 		
 		this.itemPadding.setValue(itemPadding);
 		

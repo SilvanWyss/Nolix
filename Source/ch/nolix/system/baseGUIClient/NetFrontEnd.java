@@ -17,7 +17,7 @@ public final class NetFrontEnd implements IFrontEnd {
 	//constructor
 	public NetFrontEnd(final BaseBackGUIClient<?> parentBackGUIClient) {
 		
-		Validator.suppose(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
+		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		
 		this.parentBackGUIClient = parentBackGUIClient;
 	}

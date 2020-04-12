@@ -1243,7 +1243,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setCustomCursorIcon(final CursorIcon customCursorIcon) {
 		
 		//Checks if the given customCursorIcon is not null.
-		Validator.suppose(customCursorIcon).thatIsNamed("custom cursor icon").isNotNull();
+		Validator.assertThat(customCursorIcon).thatIsNamed("custom cursor icon").isNotNull();
 		
 		//Sets the custom CursorIcon of the current Widget.
 		this.customCursorIcon = customCursorIcon;
@@ -1352,7 +1352,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setLeftMouseButtonClickCommand(final IFunction leftMouseButtonClickCommand) {
 		
 		//Checks if the given leftMouseButtonClickCommand is not null.
-		Validator.suppose(leftMouseButtonClickCommand).thatIsNamed("left mouse button click command").isNotNull();
+		Validator.assertThat(leftMouseButtonClickCommand).thatIsNamed("left mouse button click command").isNotNull();
 		
 		this.leftMouseButtonClickCommand = leftMouseButtonClickCommand;
 		
@@ -1370,7 +1370,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setLeftMouseButtonPressCommand(final IFunction leftMouseButtonPressCommand) {
 		
 		//Checks if the given leftMouseButtonPressCommand is not null.
-		Validator.suppose(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
+		Validator.assertThat(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
@@ -1388,7 +1388,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setLeftMouseButtonReleaseCommand(final IFunction leftMouseButtonReleaseCommand) {
 		
 		//Checks if the given leftMouseButtonReleaseCommandd is not null.
-		Validator.suppose(leftMouseButtonReleaseCommand).thatIsNamed("left mouse button release command").isNotNull();
+		Validator.assertThat(leftMouseButtonReleaseCommand).thatIsNamed("left mouse button release command").isNotNull();
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
@@ -1430,7 +1430,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setRightMouseButtonClickCommand(final IFunction rightMouseButtonClickCommand) {
 		
 		//Checks if the given rightMouseButtonClickCommand is not null.
-		Validator.suppose(rightMouseButtonClickCommand).thatIsNamed("right mouse button click command").isNotNull();
+		Validator.assertThat(rightMouseButtonClickCommand).thatIsNamed("right mouse button click command").isNotNull();
 		
 		this.rightMouseButtonClickCommand = rightMouseButtonClickCommand;
 		
@@ -1448,7 +1448,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setRightMouseButtonPressCommand(final IFunction rightMouseButtonPressCommand) {
 		
 		//Checks if the given rightMouseButtonPressCommand is not null.
-		Validator.suppose(rightMouseButtonPressCommand).thatIsNamed("right mouse button press command").isNotNull();
+		Validator.assertThat(rightMouseButtonPressCommand).thatIsNamed("right mouse button press command").isNotNull();
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
@@ -1466,7 +1466,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setRightMouseButtonReleaseCommand(final IFunction rightMouseButtonReleaseCommand) {
 		
 		//Checks if the given rightMouseButtonReleaseCommand is not null.
-		Validator.suppose(rightMouseButtonReleaseCommand).thatIsNamed("right mouse button release command").isNotNull();
+		Validator.assertThat(rightMouseButtonReleaseCommand).thatIsNamed("right mouse button release command").isNotNull();
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
@@ -1496,7 +1496,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	public final W setState(final WidgetState state) {
 		
 		//Checks if the given state is not null.
-		Validator.suppose(state).thatIsNamed(VariableNameCatalogue.STATE).isNotNull();
+		Validator.assertThat(state).thatIsNamed(VariableNameCatalogue.STATE).isNotNull();
 
 		//Sets the state of the current Widget.
 		this.state = state;
@@ -1520,7 +1520,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	protected final void addChildWidget(final Widget<?, ?> childWidget) {
 		
 		//Checks if the given childWidget is not null.
-		Validator.suppose(childWidget).thatIsNamed("child Widget").isNotNull();
+		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		childWidget.setParent(this);
 	}
@@ -1890,7 +1890,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	private void setParent(final WidgetParent parent) {
 		
 		//Checks if the given parent is not null.
-		Validator.suppose(parent).thatIsNamed(VariableNameCatalogue.PARENT).isNotNull();
+		Validator.assertThat(parent).thatIsNamed(VariableNameCatalogue.PARENT).isNotNull();
 				
 		//Sets the parent of the current Widget.
 		this.parent = parent;

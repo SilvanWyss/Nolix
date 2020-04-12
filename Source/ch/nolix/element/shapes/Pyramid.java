@@ -75,7 +75,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	//method
 	public Pyramid setHeight(final double height) {
 		
-		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 		
@@ -85,7 +85,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	//method
 	public Pyramid setSideLength(final double sideLength) {
 		
-		Validator.suppose(sideLength).thatIsNamed(VariableNameCatalogue.SIDE_LENGTH).isPositive();
+		Validator.assertThat(sideLength).thatIsNamed(VariableNameCatalogue.SIDE_LENGTH).isPositive();
 		
 		this.sideLength.setValue(sideLength);
 		

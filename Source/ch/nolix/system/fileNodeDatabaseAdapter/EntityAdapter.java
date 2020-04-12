@@ -19,7 +19,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	EntityAdapter(final BaseNode entitySpecification) {
 		
 		Validator
-		.suppose(entitySpecification)
+		.assertThat(entitySpecification)
 		.thatIsNamed("entity specification")
 		.isNotNull();
 		

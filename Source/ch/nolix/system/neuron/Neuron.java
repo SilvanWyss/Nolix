@@ -81,7 +81,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		
 		//Checks if the given output function is not null.
 		Validator
-		.suppose(outputFunction)
+		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
@@ -108,7 +108,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		
 		//Checks if the given output function is not null.
 		Validator
-		.suppose(outputFunction)
+		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
@@ -135,7 +135,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		
 		//Checks if the given output function is not null.
 		Validator
-		.suppose(outputFunction)
+		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
@@ -162,7 +162,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		
 		//Checks if the given output function is not null.
 		Validator
-		.suppose(outputFunction)
+		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		

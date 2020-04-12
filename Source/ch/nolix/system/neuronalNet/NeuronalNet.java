@@ -43,13 +43,13 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	) {
 		//Checks if the given input layer neurons is not null.
 		Validator
-		.suppose(inputLayerNeurons)
+		.assertThat(inputLayerNeurons)
 		.thatIsNamed("input layer neurons")
 		.isNotNull();
 		
 		//Checks if the given output layer neurons is not null.
 		Validator
-		.suppose(outputLayerNeurons)
+		.assertThat(outputLayerNeurons)
 		.thatIsNamed("output layer neurons")
 		.isNotNull();
 		

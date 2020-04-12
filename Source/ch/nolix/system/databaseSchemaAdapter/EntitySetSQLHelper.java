@@ -14,7 +14,7 @@ public abstract class EntitySetSQLHelper {
 	//constructor
 	EntitySetSQLHelper(final EntitySet entitySet) {
 		
-		Validator.suppose(entitySet).isOfType(EntitySet.class);
+		Validator.assertThat(entitySet).isOfType(EntitySet.class);
 		
 		this.entitySet = entitySet;
 	}

@@ -52,23 +52,23 @@ public final class LayerProperty<V> implements Named {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		//Checks if the given default is not null.
 		Validator
-		.suppose(defaultValue)
+		.assertThat(defaultValue)
 		.thatIsNamed(VariableNameCatalogue.DEFAULT_VALUE)
 		.isNotNull();
 				
 		//Checks if the given value creator is not null.
 		Validator
-		.suppose(valueCreator)
+		.assertThat(valueCreator)
 		.thatIsNamed("value creator")
 		.isNotNull();
 		
 		//Checks if the given specificaiton creator is not null.
 		Validator
-		.suppose(specificationCreator)
+		.assertThat(specificationCreator)
 		.thatIsNamed("specification creator")
 		.isNotNull();
 		
@@ -176,7 +176,7 @@ public final class LayerProperty<V> implements Named {
 		
 		//Checks if the given value is not null.
 		Validator
-		.suppose(value)
+		.assertThat(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
 		.isNotNull();
 		
@@ -221,7 +221,7 @@ public final class LayerProperty<V> implements Named {
 		
 		//Checks if the given base property is not null.
 		Validator
-		.suppose(baseProperty)
+		.assertThat(baseProperty)
 		.thatIsNamed("base property")
 		.isNotNull();
 		

@@ -15,8 +15,8 @@ public final class RegisterMediator<S, V> {
 	//constructor
 	RegisterMediator(final ValueCreator<S> parentValueCreator, final Class<V> valueClass) {
 		
-		Validator.suppose(parentValueCreator).thatIsNamed("parent value creator").isNotNull();
-		Validator.suppose(valueClass).thatIsNamed("value Class").isNotNull();
+		Validator.assertThat(parentValueCreator).thatIsNamed("parent value creator").isNotNull();
+		Validator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
 		
 		this.parentValueCreator = parentValueCreator;
 		this.valueClass = valueClass;

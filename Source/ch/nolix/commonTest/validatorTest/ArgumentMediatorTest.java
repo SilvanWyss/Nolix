@@ -18,7 +18,7 @@ public final class ArgumentMediatorTest extends Test {
 		final var object = "Hocos pocus";
 		
 		//execution & verification
-		expect(() -> Validator.suppose(object).isNotNull())
+		expect(() -> Validator.assertThat(object).isNotNull())
 		.doesNotThrowException();
 	}
 	
@@ -30,7 +30,7 @@ public final class ArgumentMediatorTest extends Test {
 		final Object object = null;
 		
 		//execution & verification
-		expect(() -> Validator.suppose(object).isNotNull())
+		expect(() -> Validator.assertThat(object).isNotNull())
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given argument is null.");
@@ -44,7 +44,7 @@ public final class ArgumentMediatorTest extends Test {
 		final Object object = null;
 		
 		//execution & verification
-		expect(() -> Validator.suppose(object).thatIsNamed("test object").isNotNull())
+		expect(() -> Validator.assertThat(object).thatIsNamed("test object").isNotNull())
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given test object is null.");
@@ -58,7 +58,7 @@ public final class ArgumentMediatorTest extends Test {
 		final Object object = null;
 		
 		//execution & verification
-		expect(() -> Validator.suppose(object).thatIsNamed(Object.class).isNotNull())
+		expect(() -> Validator.assertThat(object).thatIsNamed(Object.class).isNotNull())
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given Object is null.");

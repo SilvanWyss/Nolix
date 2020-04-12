@@ -26,7 +26,7 @@ public final class BinaryObject {
 	//constructor
 	private BinaryObject(final byte[] bytes) {
 		
-		Validator.suppose(bytes).thatIsNamed("bytes").isNotNull();
+		Validator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 		
 		this.bytes = bytes;
 	}

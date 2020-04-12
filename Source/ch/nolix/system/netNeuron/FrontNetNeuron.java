@@ -75,7 +75,7 @@ implements Closable {
 		
 		//Checks if the given transformer is not null.
 		Validator
-		.suppose(transformator)
+		.assertThat(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)
 		.isNotNull();
 				

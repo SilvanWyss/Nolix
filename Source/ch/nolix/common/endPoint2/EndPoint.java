@@ -108,7 +108,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 		supposeIsAlive();
 		
 		//Checks if the given receiver is not null.
-		Validator.suppose(receiver).isOfType(IReceiver.class);
+		Validator.assertThat(receiver).isOfType(IReceiver.class);
 		
 		//Sets the receiver of the current EndPoint.
 		this.receiver = receiver;
@@ -151,7 +151,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 		supposeIsAlive();
 				
 		//Checks if the given target is not null or blank.
-		Validator.suppose(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
+		Validator.assertThat(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
 		
 		//Sets the target of the current EndPoint.
 		this.target = target;

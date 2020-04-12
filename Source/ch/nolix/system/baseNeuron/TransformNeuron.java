@@ -41,7 +41,7 @@ extends BaseNeuron<TransformNeuron<I, O>, I, O> {
 	) {
 		//Checks if the given transformator is not null.
 		Validator
-		.suppose(transformator).
+		.assertThat(transformator).
 		thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).
 		isNotNull();
 						

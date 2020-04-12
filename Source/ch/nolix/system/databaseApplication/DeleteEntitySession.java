@@ -28,7 +28,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 		super("Delete " + entitySetName);
 		
 		Validator
-		.suppose(entitySetName)
+		.assertThat(entitySetName)
 		.thatIsNamed("entity set name")
 		.isNotEmpty();
 		

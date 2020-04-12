@@ -96,7 +96,7 @@ public final class FileSystemAccessor {
 	public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 		
 		//Checks if the if given path is not null or empty.
-		Validator.suppose(path).thatIsNamed(VariableNameCatalogue.PATH).isNotBlank();
+		Validator.assertThat(path).thatIsNamed(VariableNameCatalogue.PATH).isNotBlank();
 		
 		//Creates file.
 		try {

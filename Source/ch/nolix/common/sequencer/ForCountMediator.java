@@ -29,7 +29,7 @@ public final class ForCountMediator {
 	ForCountMediator(final int maxRunCount) {
 		
 		//Checks if the given max run count is not negative.
-		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Sets the max run count of this for count mediator.
 		this.maxRunCount = maxRunCount;

@@ -113,7 +113,7 @@ implements ISmartObject<CE> {
 		
 		//Checks if the given configuration is not null.
 		Validator
-		.suppose(configuration)
+		.assertThat(configuration)
 		.thatIsNamed(VariableNameCatalogue.CONFIGURATION)
 		.isNotNull();
 		

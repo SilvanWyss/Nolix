@@ -27,7 +27,7 @@ public final class BorderWidgetMainArea {
 	 */
 	public BorderWidgetMainArea(final BorderWidget<?, ?> parentBorderWidget) {
 		
-		Validator.suppose(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
 		
 		this.parentBorderWidget = parentBorderWidget;
 	}

@@ -45,7 +45,7 @@ final class CloseController implements Closable {
 	public synchronized void addElement(final ClosableElement element) {
 				
 		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed("element").isNotNull();
+		Validator.assertThat(element).thatIsNamed("element").isNotNull();
 		
 		//Checks if the current CloseController is alive.
 		supposeIsAlive();

@@ -26,12 +26,12 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	public GridCell(final int rowIndex, final int columnIndex) {
 		
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		Validator
-		.suppose(columnIndex)
+		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
@@ -160,7 +160,7 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	//method
 	public GridCell setWidget(final Widget<?, ?> widget) {
 		
-		Validator.suppose(widget).isOfType(Widget.class);
+		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		this.widget = widget;
 		

@@ -340,7 +340,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	private void expandColumnsTo(final int columnIndex) {
 		
 		Validator
-		.suppose(columnIndex)
+		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
@@ -364,7 +364,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	private void expandRowsTo(final int rowIndex) {
 		
 		Validator
-		.suppose(rowIndex)
+		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isPositive();
 		

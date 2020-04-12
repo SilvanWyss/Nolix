@@ -20,7 +20,7 @@ final class MatrixRowIterator<E> implements Iterator<E> {
 	public MatrixRowIterator(final MatrixRow<E> parentMatrixRow) {
 		
 		Validator
-		.suppose(parentMatrixRow)
+		.assertThat(parentMatrixRow)
 		.thatIsNamed("parent matrix row")
 		.isNotNull();
 		

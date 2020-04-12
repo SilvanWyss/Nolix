@@ -117,7 +117,7 @@ public final class Sequencer {
 	public static void runForeverCatchingAnyError(final IFunction job) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//infinite loop
 		while (true) {
@@ -175,7 +175,7 @@ public final class Sequencer {
 	public static void waitAsLongAs(final IBooleanGetter condition) {
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 				
 		int i = 1;
 		while (condition.getOutput()) {

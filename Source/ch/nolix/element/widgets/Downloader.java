@@ -116,7 +116,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	public Downloader setFileProvider(final IElementGetter<byte[]> fileProvider) {
 		
 		Validator
-		.suppose(fileProvider)
+		.assertThat(fileProvider)
 		.thatIsNamed("file provider")
 		.isNotNull();
 		

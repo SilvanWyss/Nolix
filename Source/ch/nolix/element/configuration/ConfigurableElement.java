@@ -173,7 +173,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	@Override
 	public final CE setId(final String id) {
 		
-		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
 		
 		this.id = id;
 		
@@ -193,7 +193,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		
 		//Checks if the given token is not null and not empty.
 		Validator
-		.suppose(token)
+		.assertThat(token)
 		.thatIsNamed(VariableNameCatalogue.TOKEN)
 		.isNotEmpty();
 		

@@ -348,7 +348,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	private final void setTextCursorPosition(final int textCursorPosition) {
 		
 		Validator
-		.suppose(textCursorPosition)
+		.assertThat(textCursorPosition)
 		.thatIsNamed("text cursor position")
 		.isNotNegative();
 		

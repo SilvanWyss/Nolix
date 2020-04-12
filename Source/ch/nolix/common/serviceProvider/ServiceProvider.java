@@ -51,12 +51,12 @@ public final class ServiceProvider {
 	) {
 		
 		Validator
-		.suppose(interface_)
+		.assertThat(interface_)
 		.thatIsNamed(VariableNameCatalogue.INTERFACE)
 		.isNotNull();
 		
 		Validator
-		.suppose(service)
+		.assertThat(service)
 		.thatIsNamed(VariableNameCatalogue.SERVICE)
 		.isNotNull();
 		

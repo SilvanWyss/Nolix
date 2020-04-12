@@ -13,7 +13,7 @@ public final class AdditionalConditionMediator {
 	//constructor
 	AdditionalConditionMediator(final LicenseManager parentLicenseManager) {
 		
-		Validator.suppose(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
+		Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 		
 		this.parentLicenseManager = parentLicenseManager;
 	}

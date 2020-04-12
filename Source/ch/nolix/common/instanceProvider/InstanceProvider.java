@@ -67,12 +67,12 @@ public final class InstanceProvider {
 	) {
 		
 		Validator
-		.suppose(interface_)
+		.assertThat(interface_)
 		.thatIsNamed(VariableNameCatalogue.INTERFACE)
 		.isInterface();
 		
 		Validator
-		.suppose(class_)
+		.assertThat(class_)
 		.thatIsNamed(VariableNameCatalogue.CLASS)
 		.isImplementing(interface_);
 		

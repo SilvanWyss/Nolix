@@ -18,10 +18,10 @@ public final class BooleanValidationTutorial2 {
 	public static void main(String[] args) {
 		
 		//Supposes that true booleans are all true, what makes that the zeta validator does not complain.
-		Validator.suppose(true, true, true, true);
+		Validator.assertThat(true, true, true, true);
 		
 		//Supposes that mixed booleans are all true, what makes that the zeta validator throws a FalseArgumentException.
-		Validator.suppose(true, true, true, false);
+		Validator.assertThat(true, true, true, false);
 	}
 	
 	/**

@@ -19,7 +19,7 @@ public abstract class HeaderedSession extends UserSession {
 	public HeaderedSession(final String header) {
 		
 		Validator
-		.suppose(header)
+		.assertThat(header)
 		.thatIsNamed(VariableNameCatalogue.HEADER)
 		.isNotEmpty();
 		

@@ -14,7 +14,7 @@ final class Future implements IFuture {
 	
 	//constructor
 	public Future(final JobWrapper jobWrapper) {
-		this.jobWrapper = Validator.suppose(jobWrapper).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
+		this.jobWrapper = Validator.assertThat(jobWrapper).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
 	}
 	
 	//method

@@ -23,7 +23,7 @@ final class JobWrapper implements Runnable {
 	
 	//constructor
 	public JobWrapper(final IFunction job) {
-		this.job = Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
+		this.job = Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
 	}
 	
 	//method

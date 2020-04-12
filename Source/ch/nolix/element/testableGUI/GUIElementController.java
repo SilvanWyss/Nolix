@@ -73,7 +73,7 @@ public abstract class GUIElementController implements IdentifiedByString, Rectan
 	//method
 	final void setGUIElement(final GUIElement gUIElement) {
 		
-		Validator.suppose(gUIElement).isOfType(GUIElement.class);
+		Validator.assertThat(gUIElement).isOfType(GUIElement.class);
 		
 		supposeDoesNotHaveGUIElement();
 		

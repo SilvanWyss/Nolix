@@ -60,7 +60,7 @@ implements Closable {
 	{
 		//Checks if the given transform is not null.
 		Validator
-		.suppose(transformator)
+		.assertThat(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)
 		.isNotNull();
 		

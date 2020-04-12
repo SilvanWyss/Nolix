@@ -39,11 +39,11 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 		name = entityType.getName();
 		
 		Validator
-		.suppose(parentDatabaseAdapter)
+		.assertThat(parentDatabaseAdapter)
 		.thatIsNamed("parent database adapter")
 		.isNotNull();
 		
-		Validator.suppose(entityType).isOfType(EntityType.class);
+		Validator.assertThat(entityType).isOfType(EntityType.class);
 		
 		this.parentDatabaseAdapter = parentDatabaseAdapter;
 		this.entityType = entityType;

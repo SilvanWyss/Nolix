@@ -104,7 +104,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final IVisualizer visualizer) {
 		
-		Validator.suppose(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
+		Validator.assertThat(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
 		
 		this.visualizer = visualizer;
 	}
@@ -270,7 +270,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public final void setFrontEnd(final IFrontEnd frontEnd) {
 		
-		Validator.suppose(frontEnd).thatIsNamed("front end").isNotNull();
+		Validator.assertThat(frontEnd).thatIsNamed("front end").isNotNull();
 		
 		this.frontEnd = frontEnd;
 	}
@@ -286,7 +286,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public final G setTitle(final String title) {
 		
-		Validator.suppose(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		Validator.assertThat(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
 		
 		this.title.setValue(title);
 		
@@ -345,7 +345,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	protected void setViewAreaHeight(final int viewAreaHeight) {
 		
-		Validator.suppose(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
+		Validator.assertThat(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
 		
 		this.viewAreaHeight.setValue(viewAreaHeight);
 	}
@@ -359,7 +359,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	protected void setViewAreaWidth(final int viewAreaWidth) {
 		
-		Validator.suppose(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
+		Validator.assertThat(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
 		
 		this.viewAreaWidth.setValue(viewAreaWidth);
 	}

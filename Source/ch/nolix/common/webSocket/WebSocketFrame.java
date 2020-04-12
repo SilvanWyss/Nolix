@@ -41,7 +41,7 @@ public final class WebSocketFrame {
 		final byte[] payload
 	) {
 		
-		Validator.suppose(payload).thatIsNamed("payload").isNotNull();
+		Validator.assertThat(payload).thatIsNamed("payload").isNotNull();
 		
 		firstNibble =
 		new WebSocketFrameFirstNibble(

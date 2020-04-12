@@ -16,7 +16,7 @@ public abstract class BaseSchemaBackReferenceType extends SchemaDataType<EntityS
 		
 		super(EntitySet.class);
 		
-		Validator.suppose(backReferencedEntitySet).thatIsNamed("back-referenced EntitySet").isNotNull();
+		Validator.assertThat(backReferencedEntitySet).thatIsNamed("back-referenced EntitySet").isNotNull();
 		
 		this.backReferencedEntitySet = backReferencedEntitySet;
 	}

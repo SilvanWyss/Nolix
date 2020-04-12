@@ -55,7 +55,7 @@ public final class MultiProperty<V> extends BaseProperty<V> implements IContaine
 		
 		//Checks if the given adderMethod is not null.
 		Validator
-		.suppose(adderMethod)
+		.assertThat(adderMethod)
 		.thatIsNamed("adder method")
 		.isNotNull();
 		

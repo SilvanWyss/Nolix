@@ -389,7 +389,7 @@ public abstract class Session<C extends Client<C>> {
 		
 		//Checks if the given client is not null.
 		Validator
-		.suppose(parentClient)
+		.assertThat(parentClient)
 		.thatIsNamed("parent client")
 		.isNotNull();
 		
@@ -403,7 +403,7 @@ public abstract class Session<C extends Client<C>> {
 	//package-visibel method
 	final void setResult(final Object result) {
 		
-		Validator.suppose(result).thatIsNamed(VariableNameCatalogue.RESULT).isNotNull();
+		Validator.assertThat(result).thatIsNamed(VariableNameCatalogue.RESULT).isNotNull();
 		
 		this.result = result;
 	}

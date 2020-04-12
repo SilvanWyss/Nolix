@@ -282,7 +282,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	public TabContainerTab setHeader(final String header) {
 		
 		//Checks if the given header is not null or empty.
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current TabContainerTab.
 		this.header.setValue(header);
@@ -304,7 +304,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		
 		//Checks if the given widget is not null.
-		Validator.suppose(widget).isOfType(Widget.class);
+		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		if (belongsToTabContainer()) {
 			parentTabContainer.internal_addChildWidget(widget);
@@ -349,7 +349,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		
 		//Checks if the given parent tab container is not null.
 		Validator
-		.suppose(parentTabContainer)
+		.assertThat(parentTabContainer)
 		.thatIsNamed("parent tab container")
 		.isNotNull();
 		

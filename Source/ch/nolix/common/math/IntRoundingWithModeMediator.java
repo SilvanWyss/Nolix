@@ -16,7 +16,7 @@ public final class IntRoundingWithModeMediator {
 	IntRoundingWithModeMediator(final int value, final RoundingMode roundingMode) {
 		
 		Validator
-		.suppose(roundingMode)
+		.assertThat(roundingMode)
 		.thatIsNamed("rounding mode")
 		.isNotNull();
 		
@@ -27,7 +27,7 @@ public final class IntRoundingWithModeMediator {
 	//method
 	public int toNext(final int step) {
 		
-		Validator.suppose(step).thatIsNamed(VariableNameCatalogue.STEP).isPositive();
+		Validator.assertThat(step).thatIsNamed(VariableNameCatalogue.STEP).isPositive();
 		
 		final var rest = value % step;
 		

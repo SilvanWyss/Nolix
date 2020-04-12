@@ -24,7 +24,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	EntitySetAdapter(final BaseNode entitySetSpecification) {
 		
 		Validator
-		.suppose(entitySetSpecification)
+		.assertThat(entitySetSpecification)
 		.thatIsNamed(ENTITY_SET_SPECIFICATION_VARIABLE_NAME)
 		.isNotNull();
 		

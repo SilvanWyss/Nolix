@@ -22,7 +22,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	public ColumnAdapter(final String header) {
 		
 		Validator
-		.suppose(header)
+		.assertThat(header)
 		.thatIsNamed(VariableNameCatalogue.HEADER)
 		.isNotBlank();
 		

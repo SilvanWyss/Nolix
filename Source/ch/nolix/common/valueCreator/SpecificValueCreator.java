@@ -17,8 +17,8 @@ public final class SpecificValueCreator<S, V> {
 	//constructor
 	public SpecificValueCreator(final Class<V> valueClass, final IElementTakerElementGetter<S, V> creator) {
 		
-		Validator.suppose(valueClass).thatIsNamed("value Class").isNotNull();
-		Validator.suppose(creator).thatIsNamed(VariableNameCatalogue.CREATOR).isNotNull();
+		Validator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
+		Validator.assertThat(creator).thatIsNamed(VariableNameCatalogue.CREATOR).isNotNull();
 		
 		this.valueClass = valueClass;
 		this.creator = creator;

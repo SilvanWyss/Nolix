@@ -221,7 +221,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		
 		//Checks if the given background color is not null.
 		Validator
-		.suppose(backgroundColor)
+		.assertThat(backgroundColor)
 		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
 		.isNotNull();
 		
@@ -241,7 +241,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setHeight(final int height) {
 		
-		Validator.suppose(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
 		
 		this.height = height;
 		
@@ -279,7 +279,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setWidth(final int width) {
 		
-		Validator.suppose(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
+		Validator.assertThat(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
 		
 		this.width = width;
 		
