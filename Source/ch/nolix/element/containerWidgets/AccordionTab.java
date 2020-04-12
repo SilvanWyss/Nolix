@@ -21,7 +21,6 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.HorizontalStack;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.element.widgets.VerticalStack;
