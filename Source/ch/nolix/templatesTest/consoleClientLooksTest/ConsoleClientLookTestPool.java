@@ -11,7 +11,7 @@ public final class ConsoleClientLookTestPool extends TestPool {
 	public ConsoleClientLookTestPool() {
 		super(
 			BlackGreenConsoleClientLookTest.class,
-			BlackRedConsoleCllientLookTest.class,
+			BlackRedConsoleClientLookTest.class,
 			GreyBlueConsoleClientLookTest.class
 		);
 	}

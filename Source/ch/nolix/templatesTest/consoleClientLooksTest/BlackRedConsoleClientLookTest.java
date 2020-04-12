@@ -5,7 +5,7 @@ package ch.nolix.templatesTest.consoleClientLooksTest;
 import ch.nolix.templates.consoleClientLooks.BlackGreenConsoleClientLook;
 
 //class
-public final class BlackRedConsoleCllientLookTest extends ConsoleClientLookTest<BlackGreenConsoleClientLook> {
+public final class BlackRedConsoleClientLookTest extends ConsoleClientLookTest<BlackGreenConsoleClientLook> {
 	
 	//method
 	@Override
