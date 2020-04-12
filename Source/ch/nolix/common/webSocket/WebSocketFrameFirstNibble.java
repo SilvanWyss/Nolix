@@ -50,14 +50,16 @@ final class WebSocketFrameFirstNibble {
 		
 		mFINBit = wrapperByte1.getBitAt(1);
 		
+		//TODO: Implement Validator.assertThatTheBit(b).thatIsNamed("B").isFalse()
+		/*
 		final var RSV1BIt = wrapperByte1.getBitAt(2);
 		final var RSV2BIt = wrapperByte1.getBitAt(3);
 		final var RSV3BIt = wrapperByte1.getBitAt(4);
 		
-		//TODO: Implement Validator.assertThatTheBit(b).thatIsNamed("B").isFalse();
-		Validator.assertThatNot(RSV1BIt);
-		Validator.assertThatNot(RSV2BIt);
-		Validator.assertThatNot(RSV3BIt);
+		Validator.assertThatTheBit(RSV1BIt).thatIsNamed("RSV1BIt").isFalse();
+		Validator.assertThatTheBit(RSV2BIt).thatIsNamed("RSV2BIt").isFalse();
+		Validator.assertThatTheBit(RSV3BIt).thatIsNamed("RSV3BIt").isFalse();
+		 */
 		
 		opcode = byte1 & 0b1111;
 		maskBit = wrapperByte2.getBitAt(1);

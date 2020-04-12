@@ -8,9 +8,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.common.independentContainers.List;
 import ch.nolix.common.independentHelpers.ArrayHelper;
-import ch.nolix.common.invalidArgumentExceptions.FalseArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
 
 //class
 /**
@@ -20,7 +18,7 @@ import ch.nolix.common.invalidArgumentExceptions.TrueArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 340
+ * @lines 260
  */
 public final class Validator {
 	
@@ -49,45 +47,6 @@ public final class Validator {
 	 */
 	public static ExtendedBigDecimalMediator assertThat(final BigDecimal argument) {
 		return new ExtendedBigDecimalMediator(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @throws FalseArgumentException if the given argument is false.
-	 */
-	public static void assertThat(final boolean argument) {
-		
-		//Checks if the given argument is true.
-		if (!argument) {
-			throw new FalseArgumentException(argument);
-		}
-	}
-	
-	//static method
-	/** 
-	 * @param arguments
-	 * @throws ArgumentIsNullException if the given arguments is null.
-	 * @throws FalseArgumentException if one of the given arguments is false.
-	 */
-	public static void assertThat(final boolean... arguments) {
-		
-		//Checks if the given arguments is not null.
-		if (arguments == null) {
-			throw new ArgumentIsNullException("arguments");
-		}
-		
-		//Iterates the given arguments.
-		int i = 1;
-		for (final boolean a: arguments) {
-				
-			//Checks if the current argument is true.
-			if (!a) {
-				throw new FalseArgumentException(i + "th argument");
-			}
-			
-			i++;
-		}
 	}
 	
 	//static method
@@ -220,45 +179,6 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<String> assertThat(final String[] argument) {
 		return new ExtendedContainerMediator<>(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @throws TrueException if the given argument is true.
-	 */
-	public static void assertThatNot(final boolean argument) {
-		
-		//Checks if the given argument is false.
-		if (argument) {
-			throw new TrueArgumentException(argument);
-		}
-	}
-	
-	//static method
-	/** 
-	 * @param arguments
-	 * @throws ArgumentIsNullException if the given arguments is null.
-	 * @throws TrueArgumentException if one of the given arguments is true.
-	 */
-	public static void assertThatNot(final boolean... arguments) {
-		
-		//Checks if the given arguments is not null.
-		if (arguments == null) {
-			throw new ArgumentIsNullException("arguments");
-		}
-		
-		//Iterates the given arguments.
-		int i = 1;
-		for (final boolean a : arguments) {
-				
-			//Checks if the current argument is false.
-			if (a) {
-				throw new TrueArgumentException(i + "th argument");
-			}
-			
-			i++;
-		}
 	}
 	
 	//static method
