@@ -26,8 +26,7 @@ public final class ConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an Application.
-		final var application =
-		new Application<BackConsoleClient>("MyApplication",	BackConsoleClient.class, MainSession.class);
+		final var application = new Application<>("MyApplication", BackConsoleClient.class, MainSession.class);
 		
 		//Creates a FrontConsoleClient that will connect to the Application.
 		new FrontConsoleClient(application);
