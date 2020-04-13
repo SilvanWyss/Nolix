@@ -5,12 +5,13 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
+import ch.nolix.system.client.Server;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 60
+ * @lines 70
  */
 public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleClient> {
 	
@@ -40,6 +41,22 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(port);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link FrontConsoleClient} that will connect to the given application on the server.
+	 * 
+	 * @param server
+	 * @param application
+	 * @throws ArgumentIsNullException if the given application is null.
+	 * @throws BlankArgumentException if the given application is blank.
+	 */
+	public FrontConsoleClient(final Server server, final String application) {
+		
+		super(BaseFrontGUIClientGUIType.LayerGUI);
+		
+		internal_connectTo(server, application);
 	}
 	
 	//constructor
