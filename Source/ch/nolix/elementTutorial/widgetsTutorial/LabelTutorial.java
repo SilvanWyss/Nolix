@@ -44,7 +44,7 @@ public final class LabelTutorial {
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
 		Sequencer
-		.asLongAs(() -> frame.isOpen())
+		.asLongAs(frame::isOpen)
 		.afterAllMilliseconds(100)
 		.runInBackground(
 			() -> {
