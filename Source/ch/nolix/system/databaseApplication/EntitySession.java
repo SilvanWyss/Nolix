@@ -108,7 +108,7 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new TextBox(property.getValue().toString())
-						.setId(property.getHeader())
+						.setName(property.getHeader())
 					);
 					
 					rowIndex++;
@@ -147,7 +147,7 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new TextBox(value)
-						.setId(optionalProperty.getHeader())
+						.setName(optionalProperty.getHeader())
 					);
 					
 					rowIndex++;

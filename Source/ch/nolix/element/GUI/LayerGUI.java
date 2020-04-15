@@ -484,7 +484,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	@SuppressWarnings("unchecked")
 	public <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
-		return (W)getRefWidgets().getRefFirst(w -> w.hasId(id));
+		return (W)getRefWidgets().getRefFirst(w -> w.hasName(id));
 	}
 	
 	//method

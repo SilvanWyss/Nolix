@@ -27,7 +27,7 @@ public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> ex
 implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, OptionalTokenable<CE> {
 	
 	//optional attributes
-	private String id;
+	private String name;
 	private String token;
 	
 	//method
@@ -39,8 +39,8 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.ID:
-				setId(attribute.getOneAttributeAsString());
+			case PascalCaseNameCatalogue.NAME:
+				setName(attribute.getOneAttributeAsString());
 				break;
 			case PascalCaseNameCatalogue.TOKEN:
 				setToken(attribute.getOneAttributeAsString());
@@ -61,9 +61,9 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 		
 		final var attributes = super.getAttributes();
 		
-		//Handles the case that the current configurbale element has a id.
-		if (hasId()) {
-			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.ID, id));
+		//Handles the case that the current configurbale element has a name.
+		if (hasName()) {
+			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.NAME, name));
 		}
 		
 		//Handles the case that the current configurbale element has a token.
@@ -79,11 +79,11 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getId() {
+	public final String getName() {
 		
-		supposeHasId();
+		supposeHasName();
 		
-		return id;
+		return name;
 	}
 	
 	//method
@@ -104,8 +104,8 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean hasId() {
-		return (id != null);
+	public final boolean hasName() {
+		return (name != null);
 	}
 	
 	//method
@@ -131,9 +131,9 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CE removeId() {
+	public final CE removeName() {
 		
-		id = null;
+		name = null;
 		
 		return asConcrete();
 	}
@@ -157,7 +157,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	@Override
 	public CE reset() {
 		
-		removeId();
+		removeName();
 		resetConfiguration();
 		
 		return asConcrete();
@@ -165,17 +165,17 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	
 	//method
 	/**
-	 * @param id
+	 * @param name
 	 * @return the current {@link ConfigurableElement}.
-	 * @throws ArgumentIsNullException if the given id is null.
-	 * @throws InvalidArgumentException if the given id is blank.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	@Override
-	public final CE setId(final String id) {
+	public final CE setName(final String name) {
 		
-		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
 		
-		this.id = id;
+		this.name = name;
 		
 		return asConcrete();
 	}
@@ -206,12 +206,12 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ConfigurableElement} does not have an id.
+	 * if the current {@link ConfigurableElement} does not have aname name.
 	 */
-	private void supposeHasId() {
+	private void supposeHasName() {
 		
 		//Checks if the current configurable element has a token.
-		if (!hasId()) {
+		if (!hasName()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
 		}
 	}

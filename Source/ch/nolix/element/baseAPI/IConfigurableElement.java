@@ -5,12 +5,11 @@ package ch.nolix.element.baseAPI;
 import ch.nolix.common.attributeAPI.Tokened;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
+import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
 
 //interface
 /**
- * A {@link IConfigurableElement}
- * is a {@link IMutableElement}, {@link OptionalIdentifiableByString} and {@link Tokened} that:
+ * A {@link IConfigurableElement} is a {@link IMutableElement}, {@link OptionalNamable} and {@link Tokened} that:
  * -Can have a role.
  * -Can contain other {@link IConfigurableElement}.
  * 
@@ -19,7 +18,7 @@ import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
  * @lines 90
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
-extends IMutableElement<C>, OptionalIdentifiableByString<C>, Tokened {
+extends IMutableElement<C>, OptionalNamable<C>, Tokened {
 	
 	//method declaration
 	/**
