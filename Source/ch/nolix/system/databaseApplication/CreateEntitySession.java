@@ -98,7 +98,7 @@ public final class CreateEntitySession extends HeaderedSession {
 						rowIndex,
 						2,
 						new TextBox()
-						.setName(property.getHeader())
+						.setId(property.getHeader())
 					);
 					
 					rowIndex++;

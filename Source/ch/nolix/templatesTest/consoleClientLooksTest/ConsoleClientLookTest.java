@@ -31,9 +31,9 @@ public abstract class ConsoleClientLookTest<CCL extends StandardConfiguration> e
 		new InvisibleLayerGUI(
 			new VerticalStack(
 				new Console()
-				.setName("InfoPanel"),
+				.setId("InfoPanel"),
 				new Console()
-				.setName("Console")
+				.setId("Console")
 			)
 			.setRole(ContainerRole.MainContainer)
 		);

@@ -5,6 +5,7 @@ package ch.nolix.element.baseAPI;
 import ch.nolix.common.attributeAPI.Tokened;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
 
 //interface
@@ -18,7 +19,7 @@ import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
  * @lines 90
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
-extends IMutableElement<C>, OptionalNamable<C>, Tokened {
+extends IMutableElement<C>, OptionalIdentifiableByString<C>, Tokened {
 	
 	//method declaration
 	/**

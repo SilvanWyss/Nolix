@@ -19,8 +19,8 @@ import ch.nolix.templates.consoleClientLooks.GreyBlueConsoleClientLook;
 public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
 	
 	//attributes
-	private final Console infoPanel = new Console().setName("InfoPanel").setUneditable();
-	private final Console console = new Console().setName("Console").setFocused();
+	private final Console infoPanel = new Console().setId("InfoPanel").setUneditable();
+	private final Console console = new Console().setId("Console").setFocused();
 	
 	//constructor
 	public BackConsoleClientSession() {

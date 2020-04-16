@@ -608,7 +608,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		}
 		
 		//Handles the case that this configuration has a selector type.
-		if (hasSelectorName() && !element.hasName(getSelectorName())) {
+		if (hasSelectorName() && !element.hasId(getSelectorName())) {
 			return false;
 		}
 
