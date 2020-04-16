@@ -3,6 +3,7 @@ package ch.nolix.system.consoleClient;
 
 //own imports
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Console;
@@ -19,8 +20,8 @@ import ch.nolix.templates.consoleClientLooks.GreyBlueConsoleClientLook;
 public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
 	
 	//attributes
-	private final Console infoPanel = new Console().setId("InfoPanel").setUneditable();
-	private final Console console = new Console().setId("Console").setFocused();
+	private final Console infoPanel = new Console().setId(WidgetIdCatalogue.INFO_PANEL).setUneditable();
+	private final Console console = new Console().setId(WidgetIdCatalogue.CONSOLE).setFocused();
 	
 	//constructor
 	public BackConsoleClientSession() {
