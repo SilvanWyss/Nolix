@@ -2,10 +2,10 @@
 package ch.nolix.templates.consoleClientLooks;
 
 //own imports
+import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidgets.ContainerRole;
-import ch.nolix.system.consoleClient.WidgetNameCatalogue;
 
 //class
 /**
@@ -30,7 +30,7 @@ public final class BlackRedConsoleClientLook extends StandardConfiguration {
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
-			.setSelectorId(WidgetNameCatalogue.INFO_PANEL_NAME)
+			.setSelectorId(WidgetIdCatalogue.INFO_PANEL)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(300)",
@@ -39,7 +39,7 @@ public final class BlackRedConsoleClientLook extends StandardConfiguration {
 				"BaseTextColor(OrangeRed)"
 			),
 			new DeepConfiguration()
-			.setSelectorId(WidgetNameCatalogue.CONSOLE_NAME)
+			.setSelectorId(WidgetIdCatalogue.CONSOLE)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(400)",
