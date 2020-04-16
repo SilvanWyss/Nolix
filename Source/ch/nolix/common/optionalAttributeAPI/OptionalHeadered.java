@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.common.optionalAttributeAPI;
 
+//own import
+import ch.nolix.common.constants.StringCatalogue;
+
 //interface
 /**
  * A {@link OptionalHeadered} can have a header.
  * 
  * @author Silvan Wyss
  * @month 2020-03
- * @lines 70
+ * @lines 90
  */
 public interface OptionalHeadered {
 	
@@ -25,6 +28,22 @@ public interface OptionalHeadered {
 	 */
 	public default String getHeaderInQuotes() {
 		return ("'" + getHeader() + "'");
+	}
+	
+	//method
+	/**
+	 * @return the header of the current {@link OptionalHeadered} if it has a header,
+	 * otherwise an empty {@link String}.
+	 */
+	public default String getHeaderOrEmptyString() {
+		
+		//Handles the case that current OptionalHeadered does not have a header.
+		if (!hasHeader()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		//Handles the case that current OptionalHeadered has a header.
+		return getHeader();
 	}
 	
 	//method declaration
