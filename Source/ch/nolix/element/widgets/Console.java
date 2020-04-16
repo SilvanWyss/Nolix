@@ -24,11 +24,9 @@ import ch.nolix.element.textFormat.TextFormat;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 780
+ * @lines 790
  */
-public final class Console
-extends BorderWidget<Console, ConsoleLook>
-implements Clearable<Console> {
+public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable<Console> {
 	
 	//constant
 	public static final String TYPE_NAME = "Console";
@@ -48,8 +46,9 @@ implements Clearable<Console> {
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
-	//constant
+	//constants
 	private static final String LINES_HEADER = "Lines";
+	private static final String EDIT_LINE_HEADER = "EditLine";
 	
 	//attribute
 	private boolean editable = true;
@@ -97,7 +96,10 @@ implements Clearable<Console> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case LINES_HEADER:
-				attribute.getRefAttributes().forEach(a -> writeLine(a.toString()));
+				attribute.getRefAttributes().forEach(a -> writeLine(a.getHeaderOrEmptyString()));
+				break;
+			case EDIT_LINE_HEADER:
+				setEditLine(attribute.getRefOneAttribute().getHeaderOrEmptyString());
 				break;
 			default:
 				
@@ -169,8 +171,10 @@ implements Clearable<Console> {
 		
 		//Handles the case that this console contains one or several lines.
 		if (containsAny()) {
-			attributes.addAtEnd(new Node(LINES_HEADER, lines.to(l -> new Node(l))));
+			attributes.addAtEnd(new Node(LINES_HEADER, lines.to(l -> l.isEmpty() ? new Node() : new Node(l))));
 		}
+		
+		attributes.addAtEnd(new Node(EDIT_LINE_HEADER, editLine.isEmpty() ? new Node() : new Node(editLine)));
 		
 		return attributes;
 	}
