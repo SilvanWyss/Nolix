@@ -124,7 +124,7 @@ public final class PopupWindowProvider {
 		return (result == 0);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

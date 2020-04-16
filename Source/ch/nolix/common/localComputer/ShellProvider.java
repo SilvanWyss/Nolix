@@ -61,6 +61,6 @@ public final class ShellProvider {
 		run("start firefox --url " + url + ":" + port);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private ShellProvider() {}
 }

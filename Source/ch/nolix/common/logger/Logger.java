@@ -218,6 +218,6 @@ public final class Logger {
 		logWorker = null;
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private Logger() {}
 }

@@ -41,6 +41,6 @@ public final class ReflectionHelper {
 		throw new ArgumentDoesNotHaveAttributeException(object, attribute.getClass());
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private ReflectionHelper() {}
 }

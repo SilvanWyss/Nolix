@@ -320,7 +320,7 @@ public final class StringHelper {
 		return number;
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link StringHelper} can be created.
 	 */

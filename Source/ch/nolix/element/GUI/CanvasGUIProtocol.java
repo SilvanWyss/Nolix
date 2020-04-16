@@ -15,6 +15,6 @@ final class CanvasGUIProtocol {
 	public static final String SET_COLOR_GRADIENT_HEADER = "SetColorGradient";
 	public static final String TRANSLATE_HEADER = "Translate";
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private CanvasGUIProtocol() {}
 }

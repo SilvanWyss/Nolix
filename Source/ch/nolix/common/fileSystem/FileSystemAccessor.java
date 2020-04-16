@@ -347,7 +347,7 @@ public final class FileSystemAccessor {
 		return new FileAccessor(path).readFileToLines();
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link FileSystemAccessor} can be created.
 	 */

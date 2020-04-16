@@ -34,7 +34,7 @@ public final class DoubleHelper {
 		return decimalFormat.format(value);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

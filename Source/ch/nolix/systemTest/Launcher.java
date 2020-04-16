@@ -9,6 +9,6 @@ public final class Launcher {
 		new SystemTestPool().run();
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private Launcher() {}
 }

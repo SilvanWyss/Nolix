@@ -252,7 +252,7 @@ public final class ArrayHelper {
 		return stringBuilder.toString();
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link ArrayHelper} can be created.
 	 */

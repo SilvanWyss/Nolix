@@ -39,7 +39,7 @@ final class Protocol {
 	//info panel requests
 	public static final String LINES_OF_INFO_PANEL_REQUEST = "LinesOfInfoPanel";
 
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

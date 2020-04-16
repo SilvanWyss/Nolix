@@ -21,6 +21,6 @@ public final class LocalComputer {
 		}
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private LocalComputer () {}
 }

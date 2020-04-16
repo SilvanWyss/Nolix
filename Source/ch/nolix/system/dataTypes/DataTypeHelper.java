@@ -36,6 +36,6 @@ public final class DataTypeHelper {
 		}
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private DataTypeHelper() {}
 }

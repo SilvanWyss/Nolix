@@ -29,6 +29,6 @@ public final class CentralServiceProvider {
 		coreServiceProdiver.register(interface_, service, writeMode);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private CentralServiceProvider() {}
 }

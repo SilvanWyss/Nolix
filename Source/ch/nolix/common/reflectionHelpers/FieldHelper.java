@@ -57,6 +57,6 @@ public final class FieldHelper {
 		return (value != null && type.isAssignableFrom(value.getClass()));
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private FieldHelper() {}
 }

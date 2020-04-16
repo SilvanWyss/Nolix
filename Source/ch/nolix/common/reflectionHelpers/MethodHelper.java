@@ -47,7 +47,7 @@ public final class MethodHelper {
 		return (method.getAnnotation(annotationType) != null);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link MethodHelper} can be created.
 	 */

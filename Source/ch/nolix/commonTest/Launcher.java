@@ -19,7 +19,7 @@ public final class Launcher {
 		new CommonTestPool().run();
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */

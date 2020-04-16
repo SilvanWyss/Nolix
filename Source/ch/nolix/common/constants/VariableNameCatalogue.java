@@ -176,7 +176,7 @@ public final class VariableNameCatalogue {
 	public static final String WIDTH = "width";
 	public static final String YEAR = "year";
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link VariableNameCatalogue} can be created.
 	 */

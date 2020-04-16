@@ -19,7 +19,7 @@ public final class Launcher {
 		new FinanceTestPool().run();
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

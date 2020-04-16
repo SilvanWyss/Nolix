@@ -31,7 +31,7 @@ final class IterableHelper {
 		return !object.iterator().hasNext();
 	}
 
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

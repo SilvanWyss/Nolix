@@ -13,6 +13,6 @@ public final class FromNodeSpecificValueCreatorCatalogue {
 	public static final SpecificValueCreator<BaseNode, Image> IMAGE_CREATOR =
 	new SpecificValueCreator<>(Image.class, s -> Image.fromSpecification(s));
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private FromNodeSpecificValueCreatorCatalogue() {}
 }

@@ -120,7 +120,7 @@ public final class FunctionCatalogue {
 		return 0l;
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link FunctionCatalogue} can be created.
 	 */

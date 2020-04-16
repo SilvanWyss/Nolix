@@ -29,7 +29,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	//multi-attribute
 	private final LinkedList<ChainedNode> appendedCommands = new LinkedList<>();
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	EndPoint() {}
 	
 	//method

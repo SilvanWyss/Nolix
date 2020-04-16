@@ -22,7 +22,7 @@ public final class MultiVariableNameCatalogue {
 	public static final String TABS = "tabs";
 	public static final String VALUES = "values";
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link MultiVariableNameCatalogue} can be created.
 	 */

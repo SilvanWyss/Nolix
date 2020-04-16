@@ -442,7 +442,7 @@ public final class Calculator {
 		return new IntRoundingMediator(value);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of this class can be instantiated.
 	 */

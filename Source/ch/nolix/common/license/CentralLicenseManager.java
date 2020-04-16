@@ -80,7 +80,7 @@ public final class CentralLicenseManager {
 		return licenseManager.when(value);
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link CentralLicenseManager} can be created.
 	 */

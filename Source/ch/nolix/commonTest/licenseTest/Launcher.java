@@ -9,6 +9,6 @@ public final class Launcher {
 		new LicenseTestPool().run();
 	}
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	private Launcher() {}
 }

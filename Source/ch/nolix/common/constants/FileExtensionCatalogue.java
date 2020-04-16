@@ -43,7 +43,7 @@ public final class FileExtensionCatalogue {
 	public static final String WAV = ".wav";
 	public static final String XML = ".xml";
 	
-	//access-reducing constructor
+	//visibility-reducing constructor
 	/**
 	 * Avoids that an instance of the {@link FileExtensionCatalogue} can be created.
 	 */
