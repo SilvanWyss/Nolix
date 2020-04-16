@@ -34,7 +34,7 @@ public final class GreyBlueConsoleClientLook extends StandardConfiguration {
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
+			.setSelectorId(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(200)",
@@ -43,7 +43,7 @@ public final class GreyBlueConsoleClientLook extends StandardConfiguration {
 				"BaseTextColor(DarkBlue)"
 			),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
+			.setSelectorId(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(300)",

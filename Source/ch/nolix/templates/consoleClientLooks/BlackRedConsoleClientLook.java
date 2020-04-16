@@ -30,7 +30,7 @@ public final class BlackRedConsoleClientLook extends StandardConfiguration {
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
+			.setSelectorId(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(300)",
@@ -39,7 +39,7 @@ public final class BlackRedConsoleClientLook extends StandardConfiguration {
 				"BaseTextColor(OrangeRed)"
 			),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
+			.setSelectorId(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(400)",

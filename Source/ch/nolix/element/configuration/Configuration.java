@@ -46,7 +46,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//optional attributes
 	private String selectorType;
 	private String selectorToken;
-	private String selectorName;
+	private String selectorId;
 	
 	//multi-attribute
 	private final LinkedList<String> selectorRoles = new LinkedList<>();
@@ -179,7 +179,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 				setSelectorToken(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_NAME_HEADER:
-				setSelectorName(attribute.getOneAttributeAsString());
+				setSelectorId(attribute.getOneAttributeAsString());
 				break;
 			case StandardConfiguration.TYPE_NAME:
 				addConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
@@ -316,9 +316,9 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			attributes.addAtEnd(new Node(SELECTOR_TOKEN_HEADER, selectorToken));
 		}
 		
-		//Handles the case that this configuration has a selector name.
-		if (hasSelectorName()) {
-			attributes.addAtEnd(new Node(SELECTOR_NAME_HEADER, selectorName));
+		//Handles the case that this configuration has a selector id.
+		if (hasSelectorId()) {
+			attributes.addAtEnd(new Node(SELECTOR_NAME_HEADER, selectorId));
 		}
 		
 		attributes.addAtEnd(attachingAttributes);
@@ -345,17 +345,17 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return the selector name of this configuration.
-	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector name.
+	 * @return the selector id of this configuration.
+	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector id.
 	 */
 	public final String getSelectorName() {
 		
-		//Checks if this configuration has a selector name.
-		if (!hasSelectorName()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "selector name");
+		//Checks if this configuration has a selector id.
+		if (!hasSelectorId()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "selector id");
 		}
 		
-		return selectorName;
+		return selectorId;
 	}
 	
 	//method
@@ -415,26 +415,26 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return true if this configuration has a selector name.
+	 * @return true if this configuration has a selector id.
 	 */
-	public final boolean hasSelectorName() {
-		return (selectorName != null);
+	public final boolean hasSelectorId() {
+		return (selectorId != null);
 	}
 	
 	//method
 	/**
-	 * @param selectorName
-	 * @return true if this configuration has the given selector name.
+	 * @param selectorId
+	 * @return true if this configuration has the given selector id.
 	 */
-	public final boolean hasSelectorName(final String selectorName) {
+	public final boolean hasSelectorId(final String selectorId) {
 		
-		//Handles the case that this configuration does not have a selector name.
-		if (!hasSelectorName()) {
+		//Handles the case that this configuration does not have a selector id.
+		if (!hasSelectorId()) {
 			return false;
 		}
 		
-		//Handles the case that this configuration has a selector name.
-		return getSelectorName().equals(selectorName);
+		//Handles the case that this configuration has a selector id.
+		return getSelectorName().equals(selectorId);
 	}
 	
 	//method
@@ -496,7 +496,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Removes the selector name of this configuration.
+	 * Removes the selector id of this configuration.
 	 * 
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
@@ -505,7 +505,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		selectorName = null;
+		selectorId = null;
 	}
 	
 	//method
@@ -608,7 +608,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		}
 		
 		//Handles the case that this configuration has a selector type.
-		if (hasSelectorName() && !element.hasId(getSelectorName())) {
+		if (hasSelectorId() && !element.hasId(getSelectorName())) {
 			return false;
 		}
 
@@ -638,24 +638,24 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Sets the selector name of this configuration.
+	 * Sets the selector id of this configuration.
 	 * 
-	 * @param selectorName
+	 * @param selectorId
 	 * @return this configuration.
-	 * @throws ArgumentIsNullException if the given selector name is null.
-	 * @throws InvalidArgumentException if the given selector name is blank.
+	 * @throws ArgumentIsNullException if the given selector id is null.
+	 * @throws InvalidArgumentException if the given selector id is blank.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
-	public final C setSelectorName(final String selectorName) {
+	public final C setSelectorId(final String selectorId) {
 		
-		//Checks if the given selectorName is not null or blank.
-		Validator.assertThat(selectorName).thatIsNamed("selectorName").isNotBlank();
+		//Checks if the given selectorId is not null or blank.
+		Validator.assertThat(selectorId).thatIsNamed("selectorId").isNotBlank();
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		//Sets the selectorName of the current Configuration.
-		this.selectorName = selectorName;
+		//Sets the selectorId of the current Configuration.
+		this.selectorId = selectorId;
 		
 		return asConcrete();
 	}
