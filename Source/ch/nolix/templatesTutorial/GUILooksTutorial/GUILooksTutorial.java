@@ -23,39 +23,34 @@ public final class GUILooksTutorial {
 	
 	public static void main(String[] args) {
 		
+		//Creates a SelectionMenu.
 		final var selectionMenu =
 		new SelectionMenu()
-		.addItem("Anthrazit", im -> im.getRefGUI().setConfiguration(new AnthrazitGUILook()))
-		.addItem("BlackBlue", im -> im.getRefGUI().setConfiguration(new BlackBlueGUILook()))
-		.addItem("RedLine", im -> im.getRefGUI().setConfiguration(new RedLineGUILook()))
-		.addItem("WhiteGreen", im -> im.getRefGUI().setConfiguration(new WhiteGreenGUILook()));	
+		.addItem("Anthrazit", i -> i.getRefGUI().setConfiguration(new AnthrazitGUILook()))
+		.addItem("BlackBlue", i -> i.getRefGUI().setConfiguration(new BlackBlueGUILook()))
+		.addItem("RedLine", i -> i.getRefGUI().setConfiguration(new RedLineGUILook()))
+		.addItem("WhiteGreen", i -> i.getRefGUI().setConfiguration(new WhiteGreenGUILook()));	
 		
-		//Creates a Frame with several Widgets and the possibility to select a GUI look.
+		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame(
 			"GUI Looks Tutorial",
 			new VerticalStack(
 				new Label("Configure your GUI !").setRole(LabelRole.Title),
 				new HorizontalStack(
-					new VerticalStack(
-						new Label("Select a GUI look."),
-						selectionMenu
-					),
-					new VerticalStack(
-						new Label("Widgets").setRole(LabelRole.Level1Header),
-						new Grid()
-						.setWidget(1, 1, "Checkbox")
-						.setWidget(1, 2, new Checkbox())
-						.setWidget(2, 1, "Button")
-						.setWidget(2, 2, new Button())
-						.setWidget(3, 1, "TextBox")
-						.setWidget(3, 2, new TextBox())
-						.setWidget(4, 1, "DropdownMenu")
-						.setWidget(4, 2, new DropdownMenu("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"))
-						.setWidget(5, 1, "Console")
-						.setWidget(5, 2, new Console())
-						.setWidget(6, 1, "Downloader")
-						.setWidget(6, 2, new Downloader().setFileProvider(() -> new byte[0]))
-					)
+					selectionMenu,
+					new Grid()
+					.setWidget(1, 1, "Checkbox")
+					.setWidget(1, 2, new Checkbox())
+					.setWidget(2, 1, "Button")
+					.setWidget(2, 2, new Button())
+					.setWidget(3, 1, "TextBox")
+					.setWidget(3, 2, new TextBox())
+					.setWidget(4, 1, "DropdownMenu")
+					.setWidget(4, 2, new DropdownMenu("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"))
+					.setWidget(5, 1, "Console")
+					.setWidget(5, 2, new Console())
+					.setWidget(6, 1, "Downloader")
+					.setWidget(6, 2, new Downloader().setFileProvider(() -> new byte[0]))
 				)
 			)
 			.setRole(ContainerRole.OverallContainer)
