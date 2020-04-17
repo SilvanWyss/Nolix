@@ -27,7 +27,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 770
+ * @lines 780
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -265,25 +265,44 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	//method
 	/**
 	 * Pops the current {@link Session} from the current {@link Client}.
+	 * Closes the current {@link Client} if the current {@link Session} of the current {@link Client}
+	 * is the only {@link Session} of the current {@link Client}.
+	 * 
+	 * @InvalidArgumentException if the current session of the current {@link Client}
+	 * is not the top {@link Session} of the current {@link Client}.
 	 */
 	final void popCurrentSession() {
-		popCurrentSessionFirstPart();
-		internal_getRefCurrentSession().internal_cleanForInitialization();
-		internal_getRefCurrentSession().initialize();
-		internal_getRefCurrentSession().updateCounterpart();
+		
+		popCurrentSessionFromStack();
+		
+		if (!this.containsCurrentSession()) {
+			close();
+		}
+		else {
+			internal_getRefCurrentSession().internal_cleanForInitialization();
+			internal_getRefCurrentSession().initialize();
+			internal_getRefCurrentSession().updateCounterpart();
+		}
 	}
 	
 	//method
 	/**
 	 * Pops the current {@link Session} from the current {@link Client} with the given result.
+	 * Closes the current {@link Client} if the current {@link Session} of the current {@link Client}
+	 * is the only {@link Session} of the current {@link Client}.
 	 * 
 	 * @param result
-	 * @InvalidArgumentException if the current {@link Client} does not contain more than 1 session.
-	 * @InvalidArgumentException if the current session of the current {@link Client} is not the last session.
+	 * @InvalidArgumentException if the current session of the current {@link Client}
+	 * is not the top {@link Session} of the current {@link Client}.
 	 */
 	final void popCurrentSession(final Object result) {
+		
 		internal_getRefCurrentSession().setResult(result);
-		popCurrentSessionFirstPart();
+		popCurrentSessionFromStack();
+		
+		if (!this.containsCurrentSession()) {
+			close();
+		}
 	}
 	
 	//method
@@ -686,25 +705,18 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	}
 	
 	//method
-	private void popCurrentSessionFirstPart() {
-		
-		//Checks if the current Client contains more than 1 Session.
-		if (getSessionStackSize() < 2) {
-			throw new InvalidArgumentException(this, "does not contain more than 1 Session");
-		}
-		
+	private void popCurrentSessionFromStack() {
+				
 		//Checks if the current Session of the current Client is the top Session of the current Client.
 		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
-			throw
-			new InvalidArgumentException(
-				this, "cannot pop a session that is not the last session."
-			);
+			throw new InvalidArgumentException(this, "cannot pop a Session that is not the top session.");
 		}
 		
 		//Removes the top Session of the current Client.
 		final var topSession = sessions.removeAndGetRefLast();
 		topSession.removeParentClient();
-		currentSession = sessions.getRefLast();
+		
+		currentSession = sessions.containsAny() ? sessions.getRefLast() : null;
 	}
 	
 	//method
@@ -741,7 +753,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		
 		//Checks if the current client contains a current session.
 		if (!containsCurrentSession()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "current session");
+			throw new ArgumentDoesNotHaveAttributeException(this, "current Session");
 		}
 	}
 	
