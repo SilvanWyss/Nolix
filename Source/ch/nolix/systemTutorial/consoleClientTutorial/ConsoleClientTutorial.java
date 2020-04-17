@@ -1,6 +1,5 @@
 package ch.nolix.systemTutorial.consoleClientTutorial;
 
-import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleClient.BackConsoleClient;
 import ch.nolix.system.consoleClient.BackConsoleClientSession;
@@ -13,7 +12,7 @@ import ch.nolix.templates.consoleClientLooks.BlackRedConsoleClientLook;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 80
+ * @lines 70
  */
 public final class ConsoleClientTutorial {
 	
@@ -29,6 +28,7 @@ public final class ConsoleClientTutorial {
 		final var application = new Application<>("MyApplication", BackConsoleClient.class, MainSession.class);
 		
 		//Creates a FrontConsoleClient that will connect to the Application.
+		new FrontConsoleClient(application);
 		new FrontConsoleClient(application);
 	}
 	
@@ -66,9 +66,6 @@ public final class ConsoleClientTutorial {
 					default:
 				}
 			} while (!answerIsValid);
-			
-			Sequencer.waitForASecond();
-			writeEmptyLineToConsole();
 			
 			writeLineToConsole("Press enter to quit the program.");
 			readEnterFromConsole();
