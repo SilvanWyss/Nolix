@@ -111,7 +111,7 @@ public final class NetEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @throws ArgumentIsNullException if the given message is null.
-	 * @throws InvalidArgumentException if this net end point is aborted.
+	 * @throws ClosedArgumentException if this net end point is closed.
 	 */
 	@Override
 	public void send(final String message) {
@@ -120,7 +120,7 @@ public final class NetEndPoint extends EndPoint {
 		Validator.assertThat(message).thatIsNamed("message").isNotNull();
 		
 		//Asserts that this net end point is not aborted.
-		supposeIsAlive();
+		supposeIsOpen();
 		
 		printWriter.println(message);
 		printWriter.flush();

@@ -89,8 +89,8 @@ public abstract class ClosableElement implements Closable {
 	 */
 	protected final void createCloseDependency(final ClosableElement element) {
 		
-		//Asserts that the current ClosableElement is alive.
-		supposeIsAlive();
+		//Asserts that the current ClosableElement is open.
+		supposeIsOpen();
 		
 		//Asserts that the current ClosableElement does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
@@ -110,9 +110,9 @@ public abstract class ClosableElement implements Closable {
 	/**
 	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
 	 */
-	protected final void supposeIsAlive() {
+	protected final void supposeIsOpen() {
 		
-		//Asserts that the current ClosableElement is alive.
+		//Asserts that the current ClosableElement is open.
 		if (isClosed()) {
 			throw new ClosedArgumentException(this);
 		}

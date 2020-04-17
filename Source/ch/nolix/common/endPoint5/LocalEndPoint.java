@@ -6,7 +6,6 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
@@ -178,14 +177,14 @@ public final class LocalEndPoint extends EndPoint {
 	 * Lets this local duplex controller run the given command.
 	 * 
 	 * @param command
-	 * @throws InvalidArgumentException if this local duplex controller is aborted.
+	 * @throws ClosedArgumentException if this local duplex controller is closed.
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	public void run(final ChainedNode command) {
 		
 		//Asserts that this local duplex controller is not aborted.
-		supposeIsAlive();
+		supposeIsOpen();
 		
 		counterpart.getRefReceiverController().run(command);
 	}
@@ -195,14 +194,14 @@ public final class LocalEndPoint extends EndPoint {
 	 * Lets this local duplex controller run the given commands.
 	 * 
 	 * @param commands
-	 * @throws InvalidArgumentException if this local duplex contorller is aborted.
+	 * @throws ClosedArgumentException if this local duplex contorller is closed.
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	protected void run(final LinkedList<ChainedNode> commands) {
 		
-		//Asserts that this local duplex controller is not aborted.
-		supposeIsAlive();
+		//Asserts that this local duplex controller is open.
+		supposeIsOpen();
 		
 		final IDataProviderController counterpartReceiverController
 		= counterpart.getRefReceiverController();

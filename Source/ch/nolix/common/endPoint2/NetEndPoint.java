@@ -351,8 +351,8 @@ public final class NetEndPoint extends EndPoint {
 	//method
 	private void receiveRawMessage(final String rawMessage) {
 		
-		//Asserts that the current NetEndPoint is alive.
-		supposeIsAlive();
+		//Asserts that the current NetEndPoint is open.
+		supposeIsOpen();
 		
 		//Enumerates the first character of the given rawMessage.
 		switch (rawMessage.charAt(0)) {

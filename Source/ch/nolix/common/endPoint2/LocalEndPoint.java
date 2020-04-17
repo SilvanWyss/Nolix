@@ -120,7 +120,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Lets this local send the given message.
 	 * 
 	 * @throws ArgumentIsNullException if the given message is null.
-	 * @throws InvalidArgumentException if this local end point is aborted.
+	 * @throws InvalidArgumentException if this local end point is closed.
 	 */
 	@Override
 	public void send(final String message) {
@@ -128,8 +128,8 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that the given message is not null.
 		Validator.assertThat(message).thatIsNamed("message").isNotNull();
 		
-		//Asserts that this local end point is not aborted.
-		supposeIsAlive();
+		//Asserts that this local end point is open.
+		supposeIsOpen();
 		
 		counterpart.receiveRawMessage(message);
 	}

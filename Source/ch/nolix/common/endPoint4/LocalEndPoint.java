@@ -175,13 +175,13 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * 
 	 * @param message
 	 * @return the reply to the given message.
-	 * @throws InvalidArgumentException if this local end point is aborted.
+	 * @throws ClosedArgumentException if this local end point is closed.
 	 */
 	@Override
 	public R sendAndGetReply(final M message) {
 		
-		//Asserts that this local end point is not aborted.
-		supposeIsAlive();
+		//Asserts that this local end point is open.
+		supposeIsOpen();
 		
 		return getRefCounterpart().getReply(message);
 	}

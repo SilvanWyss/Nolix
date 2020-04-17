@@ -100,12 +100,12 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 * 
 	 * @param receiver
 	 * @throws ArgumentIsNullException if the given receiver is null.
-	 * @throws InvalidArgumentException if the current {@link EndPoint} is closed.
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
-		//Asserts that the current EndPoint is alive.
-		supposeIsAlive();
+		//Asserts that the current EndPoint is open.
+		supposeIsOpen();
 		
 		//Asserts that the given receiver is not null.
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
@@ -147,8 +147,8 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 */
 	protected final void setTarget(final String target) {
 		
-		//Asserts that the current net EndPoint is alive.
-		supposeIsAlive();
+		//Asserts that the current net EndPoint is open.
+		supposeIsOpen();
 				
 		//Asserts that the given target is not null or blank.
 		Validator.assertThat(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();

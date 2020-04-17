@@ -40,12 +40,12 @@ public class Server extends ClosableElement {
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
-	 * @throws InvalidArgumentException if this server is aborted.
+	 * @throws ClosedArgumentException if this server is closed.
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
-		//Asserts that this server is not aborted.
-		supposeIsAlive();
+		//Asserts that this server is open.
+		supposeIsOpen();
 		
 		endPointTaker.run(endPoint);
 	}

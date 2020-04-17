@@ -42,7 +42,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	 */
 	public final void appendCommand(final ChainedNode command) {
 		
-		supposeIsAlive();
+		supposeIsOpen();
 		
 		appendedCommands.addAtEnd(command);
 	}
@@ -57,7 +57,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	 */
 	public final void appendCommand(final ChainedNode... commands) {
 		
-		supposeIsAlive();
+		supposeIsOpen();
 		
 		appendedCommands.addAtEnd(commands);
 	}
@@ -127,7 +127,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	 */
 	public final void runAppendedCommands() {
 		
-		supposeIsAlive();
+		supposeIsOpen();
 		
 		final var appendedCommands = this.appendedCommands.getCopy();
 		this.appendedCommands.clear();

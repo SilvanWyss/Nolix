@@ -137,12 +137,12 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @return the reply to the given message.
-	 * @throws InvalidArgumentException if this local end point is aborted.
+	 * @throws ClosedArgumentException if this local end point is closed.
 	 */
 	public String sendAndWaitToReply(final String message) {
 		
-		//Asserts that this local end point is not aborted.
-		supposeIsAlive();
+		//Asserts that this local end point is open.
+		supposeIsOpen();
 		
 		return getRefCounterpart().receiveAndGetReply(message);
 	}

@@ -189,13 +189,13 @@ public class NetEndPoint extends EndPoint {
 	 * Lets this net duplex contorller run the given commands.
 	 * 
 	 * @param commands
-	 * @throws InvalidArgumentException if this net duplex contorller is aborted.
+	 * @throws ClosedArgumentException if this net duplex contorller is closed.
 	 */
 	@Override
 	protected void run(final LinkedList<ChainedNode> commands) {
 			
-		//Asserts that this net duplex controller is not aborted.
-		supposeIsAlive();
+		//Asserts that this net duplex controller is open.
+		supposeIsOpen();
 		
 		//Creates message.
 		final var message = Protocol.COMMANDS_HEADER + '(' + commands + ')';

@@ -58,15 +58,15 @@ implements ISender {
 	 * 
 	 * @param receiver
 	 * @throws ArgumentIsNullException if the given receiver is null.
-	 * @throws InvalidArgumentException if this end point is aborted.
+	 * @throws InvalidArgumentException if this end point is closed.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Asserts that the given receiver is not null.
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
 		
-		//Asserts that this end point is not aborted.
-		supposeIsAlive();
+		//Asserts that this end point is open.
+		supposeIsOpen();
 		
 		//Sets the receiver of this end point.
 		this.receiver = receiver;
@@ -77,13 +77,13 @@ implements ISender {
 	 * Lets this end point receive the given message.
 	 * 
 	 * @param message
-	 * @throws InvalidArgumentException if this end point is aborted.
+	 * @throws ClosedArgumentException if this end point is closed.
 	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a receiver.
 	 */
 	protected final void receive(final String message) {
 		
-		//Asserts that this end point is not aborted.
-		supposeIsAlive();
+		//Asserts that this end point is open.
+		supposeIsOpen();
 		
 		getRefReceiver().receive(message);
 	}
