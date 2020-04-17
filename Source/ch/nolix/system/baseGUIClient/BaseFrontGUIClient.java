@@ -19,7 +19,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 270
+ * @lines 280
  * @param <FGC> The type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
@@ -31,12 +31,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	/**
 	 * Creates a new {@link BaseFrontGUIClient} that will have the given GUIType.
 	 * 
-	 * @param GUIType
+	 * @param pGUIType
 	 */
-	public BaseFrontGUIClient(final BaseFrontGUIClientGUIType GUIType) {		
+	public BaseFrontGUIClient(final BaseFrontGUIClientGUIType pGUIType) {		
 		
-		//Enumerates the given GUIType.
-		switch (GUIType) {
+		//Enumerates the given pGUIType.
+		switch (pGUIType) {
 			case LayerGUI:
 				mGUIHandler = new BaseFrontGUIClientLayerGUIHandler(this);
 				break;
@@ -44,8 +44,11 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				mGUIHandler = new BaseFrontGUIClientCanvasGUIHandler(this);
 				break;
 			default:
-				throw new InvalidArgumentException(GUIType);
+				throw new InvalidArgumentException(pGUIType);
 		}
+		
+		//Sets the pre-close action of the current BaseFrontGUIClient.
+		internal_setPreCloseAction(this::preClose);
 	}
 	
 	//method
@@ -54,11 +57,11 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 */
 	@Override
 	public final void close() {
-		
+						
 		//Calls method of the base class.
 		super.close();
 		
-		mGUIHandler.noteClose();
+		preClose();
 	}
 	
 	//method
@@ -262,6 +265,11 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 */
 	private GUI<?> getRefGUI() {
 		return mGUIHandler.getRefGUI();
+	}
+	
+	//method
+	private void preClose() {
+		getRefGUI().close();
 	}
 	
 	//method
