@@ -29,7 +29,6 @@ public final class ConsoleClientTutorial {
 		
 		//Creates a FrontConsoleClient that will connect to the Application.
 		new FrontConsoleClient(application);
-		new FrontConsoleClient(application);
 	}
 	
 	private static final class MainSession extends BackConsoleClientSession {
