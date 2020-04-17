@@ -32,7 +32,7 @@ public final class ClosureMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Checks if the given closure is not null.
+		//Asserts that the given closure is not null.
 		if (closure == null) {
 			throw new ArgumentIsNullException("closure");
 		}

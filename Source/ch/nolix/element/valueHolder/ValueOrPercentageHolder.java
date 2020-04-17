@@ -91,7 +91,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	 */
 	public int getValue() {
 		
-		//Checks if this value or percentage holder has a value.
+		//Asserts that this value or percentage holder has a value.
 		if (!hasValue) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,
@@ -110,7 +110,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	 */
 	public double getPercentage() {
 		
-		//Checks if this value or percentage holder has a percentage.
+		//Asserts that this value or percentage holder has a percentage.
 		if (hasValue) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,

@@ -27,7 +27,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 */
 	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
 		
-		//Checks if the given resultJobRunner is not null.
+		//Asserts that the given resultJobRunner is not null.
 		Validator.assertThat(resultJobRunner).isOfType(ResultJobRunner.class);
 		
 		//Sets the resultJobRunner of the current ResultFuture.

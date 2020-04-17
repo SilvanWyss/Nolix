@@ -86,7 +86,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	public Accordion addTab(final AccordionTab tab) {
 		
-		//Checks if the given tab is not null.
+		//Asserts that the given tab is not null.
 		Validator
 		.assertThat(tab)
 		.thatIsNamed(VariableNameCatalogue.TAB)
@@ -114,7 +114,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	public Accordion addTab(final AccordionTab... tabs) {
 		
-		//Checks if the given tabs is not null.
+		//Asserts that the given tabs is not null.
 		Validator
 		.assertThat(tabs)
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)
@@ -146,7 +146,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
-		//Checks if the given tabs is not null.
+		//Asserts that the given tabs is not null.
 		Validator
 		.assertThat(tabs)
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)

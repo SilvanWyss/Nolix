@@ -106,7 +106,7 @@ implements
 	 */
 	protected final E getRefBaseEntity() {
 		
-		//Checks if this entity has a base entity.
+		//Asserts that this entity has a base entity.
 		supposeHasBaseEntity();
 		
 		return baseEntity;
@@ -129,7 +129,7 @@ implements
 	 */
 	protected final void setBaseEntity(final E baseEntity) {
 		
-		//Checks if the given base entity is not null.
+		//Asserts that the given base entity is not null.
 		Validator
 		.assertThat(baseEntity)
 		.thatIsNamed("base entity")
@@ -156,7 +156,7 @@ implements
 	 */
 	private void extractProperties() {
 		
-		//Checks if the properties of this entity are not extracted yet.
+		//Asserts that the properties of this entity are not extracted yet.
 		if (propertiesAreExtracted()) {
 			throw new InvalidArgumentException(
 				this,
@@ -182,7 +182,7 @@ implements
 						
 						final LayerProperty<?> property = (LayerProperty<?>)(f.get(this));
 						
-						//Checks if the current property is not null.
+						//Asserts that the current property is not null.
 						Validator.assertThat(property).isOfType(LayerProperty.class);
 						
 						layerProperties.addAtEnd(property);
@@ -214,7 +214,7 @@ implements
 	 */
 	private void supposeHasBaseEntity() {
 		
-		//Checks if this entity has a base entity.
+		//Asserts that this entity has a base entity.
 		if (!hasBaseEntity()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,

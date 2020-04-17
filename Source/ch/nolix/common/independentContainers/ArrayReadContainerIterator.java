@@ -19,7 +19,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	//method
 	public ArrayReadContainerIterator(final E[] array) {
 		
-		//Checks if the given array is not null.
+		//Asserts that the given array is not null.
 		if (array == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
 		}
@@ -38,7 +38,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	@Override
 	public E next() {
 		
-		//Checks if the current array read container iterator has a next element.
+		//Asserts that the current array read container iterator has a next element.
 		if (!hasNext()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,

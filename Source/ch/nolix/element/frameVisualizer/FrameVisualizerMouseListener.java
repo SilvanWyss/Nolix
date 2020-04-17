@@ -30,7 +30,7 @@ final class FrameVisualizerMouseListener implements MouseListener {
 	 */
 	public FrameVisualizerMouseListener(final GUI<?> frameVisualizer) {
 		
-		//Checks if the given frame is not null.
+		//Asserts that the given frame is not null.
 		Validator.assertThat(frameVisualizer).isOfType(GUI.class);
 		
 		//Sets the frame of this frame mouse listener.

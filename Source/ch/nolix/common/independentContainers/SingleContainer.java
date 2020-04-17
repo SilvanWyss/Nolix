@@ -38,7 +38,7 @@ public final class SingleContainer<E> {
 	 */
 	public SingleContainer(final E element) {
 		
-		//Checks if the given element is not null.
+		//Asserts that the given element is not null.
 		if (element == null) {
 			throw new ArgumentIsNotNullException(VariableNameCatalogue.ELEMENT);
 		}
@@ -54,7 +54,7 @@ public final class SingleContainer<E> {
 	 */
 	public E getRefElement() {
 		
-		//Checks if the current SingleContainer is not empty.
+		//Asserts that the current SingleContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}

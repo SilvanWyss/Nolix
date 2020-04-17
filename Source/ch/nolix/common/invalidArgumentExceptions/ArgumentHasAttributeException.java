@@ -8,12 +8,12 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 	//static method
 	private static String createSafeAttribtueName(final String attributeName) {
 		
-		//Checks if the given attributeName is not null.
+		//Asserts that the given attributeName is not null.
 		if (attributeName == null) {
 			throw new RuntimeException("The given attribute name is null.");
 		}
 		
-		//Checks if the given attributeName is not blank.
+		//Asserts that the given attributeName is not blank.
 		if (attributeName.isBlank()) {
 			throw new RuntimeException("The given attribute name is blank.");
 		}
@@ -24,7 +24,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 	//static method
 	private static String createSafeAttributeType(final Class<?> attributeType) {
 		
-		//Checks if the given attribute type is not null.
+		//Asserts that the given attribute type is not null.
 		if (attributeType == null) {
 			throw new RuntimeException("The given attribute type is null.");
 		}

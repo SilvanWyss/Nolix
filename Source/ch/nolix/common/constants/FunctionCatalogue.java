@@ -50,7 +50,7 @@ public final class FunctionCatalogue {
 	 */
 	public static int getHashCode(final Object object) {
 		
-		//Checks if the given object is not null.
+		//Asserts that the given object is not null.
 		Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
 		
 		return object.hashCode();
@@ -89,7 +89,7 @@ public final class FunctionCatalogue {
 	 */
 	public static String getString(final Object object) {
 		
-		//Checks if the given object is not null.
+		//Asserts that the given object is not null.
 		Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
 		
 		return object.toString();

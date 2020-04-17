@@ -31,7 +31,7 @@ public interface IController {
 	 */
 	public default void run(final ChainedNode... commands) {
 		
-		//Checks if the given commands is not null.
+		//Asserts that the given commands is not null.
 		Validator.assertThat(commands).thatIsNamed(MultiVariableNameCatalogue.COMMANDS).isNotNull();
 		
 		//Iterates the given commands.

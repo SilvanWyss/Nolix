@@ -54,7 +54,7 @@ public class ThrownExceptionMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Checks if the given exception is not null.
+		//Asserts that the given exception is not null.
 		if (exception == null) {
 			throw new ArgumentIsNullException(Exception.class);
 		}
@@ -82,7 +82,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 */
 			if (exception != null) {
 			
-				//Checks if the exception of the current thrown exception mediator has a message.
+				//Asserts that the exception of the current thrown exception mediator has a message.
 				if (exception.getMessage() == null) {
 					addCurrentTestCaseError(
 						"An exception with a message was expected,"
@@ -101,7 +101,7 @@ public class ThrownExceptionMediator extends Mediator {
 	 */
 	public final void withMessage(final String message) {
 		
-		//Checks if the given message is not null.
+		//Asserts that the given message is not null.
 		if (message == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.MESSAGE);
 		}
@@ -118,7 +118,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 */
 			if (exception != null) {
 				
-				//Checks if the exception of the current thrown exception mediator has a message.
+				//Asserts that the exception of the current thrown exception mediator has a message.
 				if (exception.getMessage() == null) {
 					addCurrentTestCaseError(
 						"An exception with the message '"
@@ -127,7 +127,7 @@ public class ThrownExceptionMediator extends Mediator {
 					);
 				}
 				
-				//Checks if the exception of the current thrown exception mediator has the given message.
+				//Asserts that the exception of the current thrown exception mediator has the given message.
 				if (!exception.getMessage().equals(message)) {
 					addCurrentTestCaseError(
 						"An exception with the message '"
@@ -159,7 +159,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 */
 			if (exception != null) {
 				
-				//Checks if the exception of the current thrown exception mediator does not have a message.
+				//Asserts that the exception of the current thrown exception mediator does not have a message.
 				if (exception.getMessage() != null) {
 					addCurrentTestCaseError(
 						"An exception without message was expected, but an exception with the message '"
@@ -177,7 +177,7 @@ public class ThrownExceptionMediator extends Mediator {
 	 */
 	final Throwable getException() {
 		
-		//Checks if the current thrown exception mediator has an exception.
+		//Asserts that the current thrown exception mediator has an exception.
 			/*
 			 * For a better performance, this implementation does not use all comfortable methods.
 			 * 

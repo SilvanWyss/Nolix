@@ -17,7 +17,7 @@ public final class ArrayReadContainer<E> implements Iterable<E> {
 	//constructor
 	public ArrayReadContainer(final E[] array) {
 		
-		//Checks if the given array is not null.
+		//Asserts that the given array is not null.
 		if (array == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
 		}

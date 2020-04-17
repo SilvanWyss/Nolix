@@ -62,7 +62,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 				
 		attachingAttributes.addAtEnd(
@@ -86,7 +86,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C addAttachingAttribute(final String attachingAttribute) {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		return addAttachingAttribute(Node.fromString(attachingAttribute));
@@ -104,7 +104,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C addAttachingAttribute(final String... attachingAttributes) {
 
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		//Iterates the given attaching attributes.
@@ -126,7 +126,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C addConfiguration(final Configuration<?> configuration) {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		configurations.addAtEnd(configuration);
@@ -145,7 +145,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C addConfiguration(final Configuration<?>...configurations) {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		this.configurations.addAtEnd(configurations);
@@ -334,7 +334,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final String getName() {
 		
-		//Checks if this configuration has a a name.
+		//Asserts that this configuration has a a name.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (name == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
@@ -350,7 +350,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final String getSelectorName() {
 		
-		//Checks if this configuration has a selector id.
+		//Asserts that this configuration has a selector id.
 		if (!hasSelectorId()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector id");
 		}
@@ -373,7 +373,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final String getSelectorToken() {
 		
-		//Checks if this configuration has a selector token.
+		//Asserts that this configuration has a selector token.
 		if (!hasSelectorToken()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector token");
 		}
@@ -396,7 +396,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final String getSelectorType() {
 		
-		//Checks if this configuration has a selector type.
+		//Asserts that this configuration has a selector type.
 		if (!hasSelectorType()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector type");
 		}
@@ -502,7 +502,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final void removeSelectorName() {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		selectorId = null;
@@ -516,7 +516,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final void removeSelectorRoles() {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		selectorRoles.clear();
@@ -530,7 +530,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final void removeSelectorToken() {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		selectorToken = null;
@@ -544,7 +544,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final void removeSelectorType() {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		selectorType = null;
@@ -628,7 +628,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	@Override
 	public final C setName(final String name) {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
@@ -648,10 +648,10 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C setSelectorId(final String selectorId) {
 		
-		//Checks if the given selectorId is not null or blank.
+		//Asserts that the given selectorId is not null or blank.
 		Validator.assertThat(selectorId).thatIsNamed("selectorId").isNotBlank();
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		//Sets the selectorId of the current Configuration.
@@ -672,10 +672,10 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C setSelectorToken(final String selectorToken) {
 		
-		//Checks if the given selectorToken is not null or blank.
+		//Asserts that the given selectorToken is not null or blank.
 		Validator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		//Sets the selectorToken of the current Configuration.
@@ -696,10 +696,10 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	public final C setSelectorType(final String selectorType) {
 		
-		//Checks if the given selectorType is not null or blank.
+		//Asserts that the given selectorType is not null or blank.
 		Validator.assertThat(selectorType).thatIsNamed("selectorType").isNotBlank();
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		//Sets the selectorType of the current Configuration.
@@ -738,7 +738,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	protected final void supposeNotFrozen() {
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		if (isFrozen()) {
 			throw new InvalidArgumentException(this, "is frozen");
 		}
@@ -756,7 +756,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 */
 	private void addSelectorRole(final String selectorRole) {
 		
-		//Checks if this configuration contains the given selector role.
+		//Asserts that this configuration contains the given selector role.
 		if (containsSelectorRole(selectorRole)) {
 			throw
 			new InvalidArgumentException(
@@ -765,7 +765,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			);
 		}
 		
-		//Checks if this configuration is not frozen.
+		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
 		
 		selectorRoles.addAtEnd(selectorRole);

@@ -111,7 +111,7 @@ implements ISmartObject<CE> {
 	 */
 	public CE setConfiguration(StandardConfiguration configuration) {
 		
-		//Checks if the given configuration is not null.
+		//Asserts that the given configuration is not null.
 		Validator
 		.assertThat(configuration)
 		.thatIsNamed(VariableNameCatalogue.CONFIGURATION)

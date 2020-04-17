@@ -31,13 +31,13 @@ public final class StringHelper {
 	 */
 	public static String createStringWithLength(final String string, final int length) {
 		
-		//Checks if the given string is not null.
+		//Asserts that the given string is not null.
 		Validator.assertThat(string).isNotNull();
 		
-		//Checks if the given length is not negative.
+		//Asserts that the given length is not negative.
 		Validator.assertThat(length).thatIsNamed("length").isNotNegative();
 		
-		//Checks if the given string is not longer than the given length.
+		//Asserts that the given string is not longer than the given length.
 		if (string.length() > length) {
 			throw new InvalidArgumentException(
 				VariableNameCatalogue.STRING,
@@ -73,7 +73,7 @@ public final class StringHelper {
 	 */
 	public static String createTabulators(final int tabulatorCount) {
 		
-		//Checks if the given tabulatorCount is not negative.
+		//Asserts that the given tabulatorCount is not negative.
 		Validator.assertThat(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
 		
 		final var stringBuilder = new StringBuilder();
@@ -142,7 +142,7 @@ public final class StringHelper {
 	 */
 	public static int toInt(final String string) {
 		
-		//Checks if the given string is not null or empty.
+		//Asserts that the given string is not null or empty.
 		Validator.assertThat(string).isNotEmpty();
 		
 		int startIndex = 0;

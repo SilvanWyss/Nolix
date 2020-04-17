@@ -61,15 +61,15 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> hasLength(final int length) {
 		
-		//Checks if the given length is not negative.
+		//Asserts that the given length is not negative.
 		if (length < 0) {
 			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
 		}
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current string mediator does not have the given length.
+		//Asserts that the argument of the current string mediator does not have the given length.
 		if (getRefArgument().length() != length) {
 			throw
 			new InvalidArgumentException(
@@ -90,10 +90,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isBlank() {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current string mediator is blank.
+		//Asserts that the argument of the current string mediator is blank.
 		if (!getRefArgument().isBlank()) {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not blank");
 		}
@@ -109,10 +109,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isEmpty() {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current string mediator is not empty.
+		//Asserts that the argument of the current string mediator is not empty.
 		if (!getRefArgument().isEmpty()) {
 			throw new NonEmptyArgumentException(getArgumentName(), getRefArgument());
 		}
@@ -128,10 +128,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotEmpty() {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current string mediator is not empty.
+		//Asserts that the argument of the current string mediator is not empty.
 		if (getRefArgument().isEmpty()) {
 			throw new EmptyArgumentException(getRefArgument());
 		}
@@ -147,10 +147,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotBlank() {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the the argument of the current string mediator is not blank.
+		//Asserts that the the argument of the current string mediator is not blank.
 		if (getRefArgument().isBlank()) {
 			throw 
 			new InvalidArgumentException(
@@ -173,10 +173,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotLongerThan(final int maxLength) {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current string mediator is not longer than the given max length says.
+		//Asserts that the argument of the current string mediator is not longer than the given max length says.
 		if (getRefArgument().length() > maxLength) {
 			throw
 			new InvalidArgumentException(
@@ -199,10 +199,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotShorterThan(final int minLength) {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current string mediator is not shorter than the given min length says.
+		//Asserts that the argument of the current string mediator is not shorter than the given min length says.
 		if (getRefArgument().length() < minLength) {
 			throw
 			new InvalidArgumentException(
@@ -225,7 +225,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> specifiesProbableDirectoryOnLocalMachine(final String directory) {
 		
-		//Checks if the argument of the current string mediator is not null.
+		//Asserts that the argument of the current string mediator is not null.
 		isNotNull();
 				
 		boolean specifiesProbableDirectoryOnLocalMachine = true;

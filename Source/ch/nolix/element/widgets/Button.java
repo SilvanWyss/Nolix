@@ -96,7 +96,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public ButtonRole getRole() {
 		
-		//Checks if the current Button has a role.
+		//Asserts that the current Button has a role.
 		supposeHasRole();
 		
 		return role;
@@ -157,7 +157,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		//Checks if the given role is not null.
+		//Asserts that the given role is not null.
 		Validator.assertThat(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull();
 		
 		//Sets the role of the current Button.
@@ -213,7 +213,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	private void supposeHasRole() {
 		
-		//Checks if the current Button has a role.
+		//Asserts that the current Button has a role.
 		if (!hasRole()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}

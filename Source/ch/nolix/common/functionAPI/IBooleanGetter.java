@@ -25,7 +25,7 @@ public interface IBooleanGetter {
 	 */
 	public static IBooleanGetter createNegator(final IBooleanGetter condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 		
 		return (() -> !condition.getOutput());

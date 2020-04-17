@@ -251,7 +251,7 @@ public final class Time implements IElement {
 		//Calls other constructor.
 		this();
 		
-		//Checks if the given string is not null.
+		//Asserts that the given string is not null.
 		Validator.assertThat(string).thatIsNamed("string").isNotNull();
 		
 		//Creates array of values of the given string.

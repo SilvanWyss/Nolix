@@ -36,7 +36,7 @@ final class ResultJobRunner<R> extends Thread {
 	 */
 	public ResultJobRunner(final IElementGetter<R> resultJob) {
 		
-		//Checks if the given resultJob is not null.
+		//Asserts that the given resultJob is not null.
 		Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
 		
 		//Sets the resultJob of the current ResultJobRunner.
@@ -61,7 +61,7 @@ final class ResultJobRunner<R> extends Thread {
 	 */
 	public Throwable getError() {
 		
-		//Checks if the current ResultJobRunner has an error.
+		//Asserts that the current ResultJobRunner has an error.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (error == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
@@ -77,12 +77,12 @@ final class ResultJobRunner<R> extends Thread {
 	 */
 	public R getResult() {
 		
-		//Checks if the current ResultJobRunner is finished.
+		//Asserts that the current ResultJobRunner is finished.
 		if (!isFinished()) {
 			throw new InvalidArgumentException(this, "is not finished");
 		}
 		
-		//Checks if the current ResultJobRunner has not caught an error.
+		//Asserts that the current ResultJobRunner has not caught an error.
 		if (caughtError()) {
 			throw new InvalidArgumentException(this, "has caught an error");
 		}

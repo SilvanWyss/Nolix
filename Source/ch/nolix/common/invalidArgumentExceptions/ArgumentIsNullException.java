@@ -23,7 +23,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	 */
 	private static String createSafeArgumentName(final Class<?> argumentType) {
 		
-		//Checks if the given argument type is not null.
+		//Asserts that the given argument type is not null.
 		if (argumentType == null) {
 			throw new RuntimeException("The given argument type is null.");
 		}

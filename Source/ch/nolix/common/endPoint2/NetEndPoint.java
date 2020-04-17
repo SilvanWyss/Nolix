@@ -98,7 +98,7 @@ public final class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
-		//Checks if the given port is in [0, 65535]. 
+		//Asserts that the given port is in [0, 65535]. 
 		Validator
 		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
@@ -140,7 +140,7 @@ public final class NetEndPoint extends EndPoint {
 		
 		setTarget(target);
 		
-		//Checks if the given port is in [0, 65535]. 
+		//Asserts that the given port is in [0, 65535]. 
 		Validator
 		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
@@ -178,10 +178,10 @@ public final class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Checks if the given socket is not null.
+		//Asserts that the given socket is not null.
 		Validator.assertThat(socket).isOfType(Socket.class);
 		
-		//Checks if the given HTTP message is not null or empty.
+		//Asserts that the given HTTP message is not null or empty.
 		Validator.assertThat(pHTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
 		
 		//Sets the HTTPMessage of the current NetEndPoint.
@@ -351,7 +351,7 @@ public final class NetEndPoint extends EndPoint {
 	//method
 	private void receiveRawMessage(final String rawMessage) {
 		
-		//Checks if the current NetEndPoint is alive.
+		//Asserts that the current NetEndPoint is alive.
 		supposeIsAlive();
 		
 		//Enumerates the first character of the given rawMessage.

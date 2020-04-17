@@ -77,10 +77,10 @@ public final class NetServer extends Server {
 	 */
 	public NetServer(final int port, final String HTTPMessage) {
 			
-		//Checks if the given port is in [0,65535]. 
+		//Asserts that the given port is in [0,65535]. 
 		Validator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		//Checks if the given HTTP message is not null or blank.
+		//Asserts that the given HTTP message is not null or blank.
 		Validator.assertThat(HTTPMessage).thatIsNamed("HTTP message").isNotBlank();
 		
 		//Sets the port of the current NetServer.

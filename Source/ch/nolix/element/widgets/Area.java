@@ -154,7 +154,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Color getBackgroundColor() {
 		
-		//Checks if the current Area has a background color.
+		//Asserts that the current Area has a background color.
 		supposeHasBackgroundColor();
 		
 		return backgroundColor;
@@ -219,7 +219,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setBackgroundColor(final Color backgroundColor) {
 		
-		//Checks if the given background color is not null.
+		//Asserts that the given background color is not null.
 		Validator
 		.assertThat(backgroundColor)
 		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
@@ -366,7 +366,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	private void supposeHasBackgroundColor() {
 		
-		//Checks if the current area has a background color.
+		//Asserts that the current area has a background color.
 		if (!hasBackgroundColor()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,

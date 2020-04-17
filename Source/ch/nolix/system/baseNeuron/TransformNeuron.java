@@ -39,7 +39,7 @@ extends BaseNeuron<TransformNeuron<I, O>, I, O> {
 		final BaseNeuron<?, ?, I> inputNeuron,
 		final IElementTakerElementGetter<I, O> transformator
 	) {
-		//Checks if the given transformator is not null.
+		//Asserts that the given transformator is not null.
 		Validator
 		.assertThat(transformator).
 		thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).

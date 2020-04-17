@@ -28,7 +28,7 @@ public class Server extends ClosableElement {
 	 */
 	public Server(final IElementTaker<EndPoint> endPointTaker) {
 		
-		//Checks if the given end point taker is not null.
+		//Asserts that the given end point taker is not null.
 		Validator.assertThat(endPointTaker).thatIsNamed("andPointTaker").isNotNull();
 		
 		//Sets the end point taker of this server.
@@ -44,7 +44,7 @@ public class Server extends ClosableElement {
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
-		//Checks if this server is not aborted.
+		//Asserts that this server is not aborted.
 		supposeIsAlive();
 		
 		endPointTaker.run(endPoint);

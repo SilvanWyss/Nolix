@@ -41,12 +41,12 @@ abstract class Mediator {
 	 */
 	public Mediator(final String argumentName) {
 		
-		//Checks if the given argumentName is not null.
+		//Asserts that the given argumentName is not null.
 		if (argumentName == null) {
 			throw new ArgumentIsNullException("argument name");
 		}
 		
-		//Checks if the given argumentName is not blank.
+		//Asserts that the given argumentName is not blank.
 		if (argumentName.isBlank()) {
 			throw new InvalidArgumentException("argument name", argumentName, "is blank");
 		}

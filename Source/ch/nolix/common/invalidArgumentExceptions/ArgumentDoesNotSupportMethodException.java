@@ -24,12 +24,12 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	 */
 	private static String createSafeMethodName(final String methodName) {
 		
-		//Checks if the given method name is not null.
+		//Asserts that the given method name is not null.
 		if (methodName == null) {
 			throw new RuntimeException("The given method name is null.");
 		}
 		
-		//Checks if the given method name is not blank.
+		//Asserts that the given method name is not blank.
 		if (methodName.isBlank()) {
 			throw new RuntimeException("The given method name is blank.");
 		}

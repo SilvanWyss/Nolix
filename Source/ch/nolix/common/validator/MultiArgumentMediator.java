@@ -31,7 +31,7 @@ public class MultiArgumentMediator<A> {
 	 */
 	MultiArgumentMediator(final Iterable<A> arguments) {
 
-		//Checks if the given arguments is not null.
+		//Asserts that the given arguments is not null.
 		if (arguments == null) {
 			throw new ArgumentIsNullException("arguments");
 		}
@@ -63,7 +63,7 @@ public class MultiArgumentMediator<A> {
 		int index = 1;
 		for (final A a : getRefArguments()) {
 			
-			//Checks if the current argument is not null.
+			//Asserts that the current argument is not null.
 			if (a == null) {
 				throw new ArgumentIsNullException(index + "th argument");
 			}
@@ -85,7 +85,7 @@ public class MultiArgumentMediator<A> {
 		int index = 1;
 		for (final A a : getRefArguments()) {
 			
-			//Checks if the current argument fulfills the given condition.
+			//Asserts that the current argument fulfills the given condition.
 			if (!condition.getOutput(a)) {
 				throw new InvalidArgumentException(
 					index + "th argument",

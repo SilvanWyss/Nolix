@@ -25,7 +25,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 */
 	private static String createErrorPredicate(final BigDecimal limit) {
 		
-		//Checks if the given limit is not null.
+		//Asserts that the given limit is not null.
 		if (limit == null) {
 			throw new RuntimeException("The given limit is null.");
 		}
@@ -41,7 +41,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 */
 	private static String createErrorPredicate(final BigInteger limit) {
 		
-		//Checks if the given limit is not null.
+		//Asserts that the given limit is not null.
 		if (limit == null) {
 			throw new RuntimeException("The given limit is null.");
 		}

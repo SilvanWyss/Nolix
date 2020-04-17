@@ -38,7 +38,7 @@ public final class DoubleDeviationMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(argumentName);
 		
-		//Checks if the given max deviation is not negative.
+		//Asserts that the given max deviation is not negative.
 		if (maxDeviation < 0.0) {
 			throw new NegativeArgumentException("max deviation", maxDeviation);
 		}
@@ -54,7 +54,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 */
 	public void isEqualTo(final double value) {
 		
-		//Checks if the argument of this named double deviation mediator equals the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator.
+		//Asserts that the argument of this named double deviation mediator equals the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator.
 		if (Math.abs(value - argument) > maxDeviation) {
 			throw new UnequalArgumentException(getArgumentName(), value, argument);
 		}

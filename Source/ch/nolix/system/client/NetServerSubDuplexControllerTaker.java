@@ -29,7 +29,7 @@ final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	 */
 	public NetServerSubDuplexControllerTaker(final NetServer netServer) {
 		
-		//Checks if the given server is not null.
+		//Asserts that the given server is not null.
 		Validator.assertThat(netServer).isOfType(NetServer.class);
 		
 		//Sets the net server of this snet server sub duplex controller taker.

@@ -99,7 +99,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 */
 	public void contains(final IElementTakerBooleanGetter<E> condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		if (condition == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
@@ -133,7 +133,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 */
 	public void hasElementCount(final int elementCount) {
 		
-		//Checks if the given element count is not negative.
+		//Asserts that the given element count is not negative.
 		if (elementCount < 0) {
 			throw new NegativeArgumentException(
 				VariableNameCatalogue.ELEMENT_COUNT,
@@ -141,7 +141,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			);
 		}
 		
-		//Checks if the argument of this container mediator is not null.
+		//Asserts that the argument of this container mediator is not null.
 		isNotNull();
 		
 		int actualElementCount = 0;
@@ -152,7 +152,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			
 			actualElementCount++;
 			
-			//Checks if the argument of this container mediator
+			//Asserts that the argument of this container mediator
 			//contains not more elements than the given element count says.
 			if (actualElementCount > elementCount) {
 				throw
@@ -166,7 +166,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			iterator.next();
 		}
 		
-		//Checks if the argument of this container mediator
+		//Asserts that the argument of this container mediator
 		//contains not less elements than the given element count says.
 		if (actualElementCount < elementCount) {
 			throw
@@ -187,7 +187,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 */
 	public void hasSameSizeAs(final double[] array) {
 		
-		//Checks if the given array is not null.
+		//Asserts that the given array is not null.
 		if (array == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
 		}
@@ -203,10 +203,10 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 */
 	public void isEmpty() {
 		
-		//Checks if the argument of this container mediator is not null.
+		//Asserts that the argument of this container mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of this container mediator is empty.
+		//Asserts that the argument of this container mediator is empty.
 		if (IterableHelper.containsAny(getRefArgument())) {
 			throw new NonEmptyArgumentException(getRefArgument());
 		}
@@ -219,10 +219,10 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 */
 	public void isNotEmpty() {
 		
-		//Checks if the argument of this container mediator is not null.
+		//Asserts that the argument of this container mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of this container mediator is not empty.
+		//Asserts that the argument of this container mediator is not empty.
 		if (IterableHelper.isEmpty(getRefArgument())) {
 			throw new EmptyArgumentException(getRefArgument());
 		}

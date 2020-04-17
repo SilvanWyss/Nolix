@@ -26,7 +26,7 @@ public abstract class Mediator {
 	 */
 	Mediator(final Test test) {
 		
-		//Checks if the given test is not null.
+		//Asserts that the given test is not null.
 		if (test == null) {
 			throw new ArgumentIsNullException("test");
 		}

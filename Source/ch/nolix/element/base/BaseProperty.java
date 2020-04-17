@@ -42,13 +42,13 @@ public abstract class BaseProperty<V> implements Named {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		//Checks if the given name is not null or blank.
+		//Asserts that the given name is not null or blank.
 		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
 				
-		//Checks if the given value creator is not null.
+		//Asserts that the given value creator is not null.
 		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 		
-		//Checks if the given specification creator is not null.
+		//Asserts that the given specification creator is not null.
 		Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
 		
 		this.name = name;

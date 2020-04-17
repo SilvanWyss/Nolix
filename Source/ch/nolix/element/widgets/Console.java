@@ -441,7 +441,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	public Console setEditLine(final String editLine) {
 		
-		//Checks if the given edit line is not null.
+		//Asserts that the given edit line is not null.
 		Validator.assertThat(editLine).thatIsNamed("edit line").isNotNull();
 		
 		//Sets the edit line of this console.
@@ -736,7 +736,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	private String getSecretEditLine() {
 		
-		//Checks if this console has a secret edit line.
+		//Asserts that this console has a secret edit line.
 		if (!isReadingSecretLine()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "secret edit line");
 		}
@@ -779,7 +779,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	private void setSecretEditLine(final String secretEditLine) {
 		
-		//Checks if the given secret edit line is not null.
+		//Asserts that the given secret edit line is not null.
 		Validator
 		.assertThat(secretEditLine)
 		.thatIsNamed("secret edit line")

@@ -104,7 +104,7 @@ implements Clearable<SingleContainer> {
 	public Widget<?, ?> getRefWidget() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-			//Checks if the current single container has a widget.
+			//Asserts that the current single container has a widget.
 			if (widget == null) {
 				throw new ArgumentDoesNotHaveAttributeException(this, Widget.class);
 			}

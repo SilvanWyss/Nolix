@@ -58,7 +58,7 @@ implements Closable {
 		final int port,
 		final IElementTakerElementGetter<I, Node> transformator)
 	{
-		//Checks if the given transform is not null.
+		//Asserts that the given transform is not null.
 		Validator
 		.assertThat(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)

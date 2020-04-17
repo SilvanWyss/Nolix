@@ -68,7 +68,7 @@ public final class MultiDoubleMediator extends Mediator {
 			int i = 1;
 			for (final double v : values) {
 				
-				//Checks if the current value is positive.
+				//Asserts that the current value is positive.
 				if (v <= value) {
 					this.addCurrentTestCaseError(
 						"Values that are bigger than "	+ value	+ " were expected, but the "+ i + "th value is not."
@@ -99,7 +99,7 @@ public final class MultiDoubleMediator extends Mediator {
 			int i = 1;
 			for (final double v : values) {
 				
-				//Checks if the current value is negative.
+				//Asserts that the current value is negative.
 				if (v > 0) {
 					this.addCurrentTestCaseError(
 						"Negative values were expected, but the " + i + "th value is not."
@@ -130,7 +130,7 @@ public final class MultiDoubleMediator extends Mediator {
 			int i = 1;
 			for (final double v : values) {
 				
-				//Checks if the current value is positive.
+				//Asserts that the current value is positive.
 				if (v <= 0) {
 					this.addCurrentTestCaseError(
 						"Positive values were expected, but the " + i + "th value is not."
@@ -161,7 +161,7 @@ public final class MultiDoubleMediator extends Mediator {
 			int i = 1;
 			for (final double v : values) {
 				
-				//Checks if the current value is positive.
+				//Asserts that the current value is positive.
 				if (v >= value) {
 					this.addCurrentTestCaseError(
 						"Values that are smaller than "	+ value	+ " were expected, but the "+ i + "th value is."

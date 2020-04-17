@@ -61,7 +61,7 @@ public final class LicenseManager {
 	 */
 	public LicenseManager addLicense(final License license) {
 		
-		//Checks if the given license is not null.
+		//Asserts that the given license is not null.
 		Validator.assertThat(license).thatIsNamed(VariableNameCatalogue.LICENSE).isNotNull();
 		
 		//Handles the case that the current LicenseManager
@@ -139,7 +139,7 @@ public final class LicenseManager {
 	 */
 	public <F extends Feature> LicenseManager requireFeature(final Class<F> featureType) {
 		
-		//Checks if the current LicenseManager contains a feature of the given featureType.
+		//Asserts that the current LicenseManager contains a feature of the given featureType.
 		if (!containsFeature(featureType)) {
 			throw new ArgumentDoesNotHaveAttributeException(this, featureType.getSimpleName());
 		}
@@ -164,7 +164,7 @@ public final class LicenseManager {
 	 */
 	private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 		
-		//Checks if the given licenseType is not null.
+		//Asserts that the given licenseType is not null.
 		Validator.assertThat(licenseType).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
 		
 		return readKeyFromLicenseFile(licenseType.getName());

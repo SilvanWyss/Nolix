@@ -93,7 +93,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	@Override
 	public final String getToken() {
 		
-		//Checks if the current configurable element has a token.
+		//Asserts that the current configurable element has a token.
 		supposeHasToken();
 		
 		return token;
@@ -191,7 +191,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	@Override
 	public final CE setToken(final String token) {
 		
-		//Checks if the given token is not null and not empty.
+		//Asserts that the given token is not null and not empty.
 		Validator
 		.assertThat(token)
 		.thatIsNamed(VariableNameCatalogue.TOKEN)
@@ -210,7 +210,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	 */
 	private void supposeHasId() {
 		
-		//Checks if the current configurable element has a token.
+		//Asserts that the current configurable element has a token.
 		if (!hasId()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
 		}
@@ -223,7 +223,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	 */
 	private void supposeHasToken() {
 		
-		//Checks if the current configurable element has a token.
+		//Asserts that the current configurable element has a token.
 		if (!hasToken()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TOKEN);
 		}

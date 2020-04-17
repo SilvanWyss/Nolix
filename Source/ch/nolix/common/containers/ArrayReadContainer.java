@@ -41,7 +41,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 */
 	public ArrayReadContainer(final E[] array) {
 		
-		//Checks if the given array is not null.
+		//Asserts that the given array is not null.
 		Validator
 		.assertThat(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)

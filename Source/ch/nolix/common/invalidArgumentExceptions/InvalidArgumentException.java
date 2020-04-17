@@ -83,12 +83,12 @@ public class InvalidArgumentException extends RuntimeException {
 	 */
 	private static String validateAndGetArgumentName(final String argumentName) {
 		
-		//Checks if the given argumentName is not null.
+		//Asserts that the given argumentName is not null.
 		if (argumentName == null) {
 			throw new RuntimeException("The given argument name is null.");
 		}
 		
-		//Checks if the given argumentName is not blank.
+		//Asserts that the given argumentName is not blank.
 		if (argumentName.isBlank()) {
 			throw new RuntimeException("The given argument name is blank.");
 		}
@@ -105,12 +105,12 @@ public class InvalidArgumentException extends RuntimeException {
 	 */
 	private static String validateAndGetErrorPredicate(final String errorPredicate) {
 		
-		//Checks if the given errorPredicate is not null.
+		//Asserts that the given errorPredicate is not null.
 		if (errorPredicate == null) {
 			throw new RuntimeException("The given error predicate is null.");
 		}
 		
-		//Checks if the given errorPredicate is not blank.
+		//Asserts that the given errorPredicate is not blank.
 		if (errorPredicate.isBlank()) {
 			throw new RuntimeException("The given error predicate is blank.");
 		}

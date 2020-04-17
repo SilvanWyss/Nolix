@@ -84,7 +84,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	private LocalEndPoint(final LocalEndPoint<M, R> counterPart) {
 		
-		//Checks if the given counter part is not null.
+		//Asserts that the given counter part is not null.
 		Validator
 		.assertThat(counterPart)
 		.thatIsNamed("counterpart")
@@ -115,7 +115,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = false;
 		
-		//Checks if the given counter part is not null.
+		//Asserts that the given counter part is not null.
 		Validator
 		.assertThat(counterpart)
 		.thatIsNamed("counterpart")
@@ -124,7 +124,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		//Sets the counter part of this local end point.
 		this.counterpart = counterpart;
 		
-		//Checks if the given target is not null or empty.
+		//Asserts that the given target is not null or empty.
 		Validator
 		.assertThat(target)
 		.thatIsNamed("target")
@@ -180,7 +180,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	@Override
 	public R sendAndGetReply(final M message) {
 		
-		//Checks if this local end point is not aborted.
+		//Asserts that this local end point is not aborted.
 		supposeIsAlive();
 		
 		return getRefCounterpart().getReply(message);

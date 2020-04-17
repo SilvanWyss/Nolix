@@ -339,7 +339,7 @@ public class Candlestick extends Element<Candlestick> {
 	 */
 	public final boolean isHammer(final double minLowerWickLengthRatio) {
 		
-		//Checks if the given min lower wick length ratio is not negative.
+		//Asserts that the given min lower wick length ratio is not negative.
 		Validator.assertThat(minLowerWickLengthRatio).thatIsNamed("min lower wick length ration").isNotNegative();
 
 		//Calculates the needed characteristic values.
@@ -387,7 +387,7 @@ public class Candlestick extends Element<Candlestick> {
 	 */
 	public final boolean isInvertedHammer(final double minUpperWickLengthRatio) {
 		
-		//Checks if the given min upper wick length ratio is not negative.
+		//Asserts that the given min upper wick length ratio is not negative.
 		Validator.assertThat(minUpperWickLengthRatio).thatIsNamed("min upper wick length ratio").isNotNegative();
 
 		//Calculates the needed characteristic values.

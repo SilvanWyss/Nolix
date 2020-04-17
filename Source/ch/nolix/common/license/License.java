@@ -25,7 +25,7 @@ public abstract class License implements Named {
 	 */
 	public License(final String key) {
 		
-		//Checks if the current License accepts the given key.
+		//Asserts that the current License accepts the given key.
 		if (!accepts(key)) {
 			throw new InvalidArgumentException(VariableNameCatalogue.KEY, key, "is not valid");
 		}

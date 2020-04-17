@@ -38,7 +38,7 @@ final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 		final JMonkeyMainFrame JMonkeyMainFrame_
 	) {
 		
-		//Checks if the given JMonkey main frame is not null.
+		//Asserts that the given JMonkey main frame is not null.
 		Validator
 		.assertThat(JMonkeyMainFrame_).isOfType(JMonkeyMainFrame.class);
 		

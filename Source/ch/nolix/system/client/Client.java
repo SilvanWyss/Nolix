@@ -314,7 +314,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	final void push(final Session<C> session) {
 		
-		//Checks if the given session is not null.
+		//Asserts that the given session is not null.
 		Validator.assertThat(session).isOfType(Session.class);
 		
 		//Sets the given session to the current Client.
@@ -527,7 +527,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	protected final Application<C> internal_getParentApplication() {
 		
-		//Checks if the current client references the application it belongs to.
+		//Asserts that the current client references the application it belongs to.
 		supposeReferencesParentApplication();
 		
 		return parentApplication;
@@ -542,7 +542,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		
 		Sequencer.waitUntil(() -> containsCurrentSession());
 		
-		//Checks if the current client contains a current session.
+		//Asserts that the current client contains a current session.
 		supposeContainsCurrentSession();
 		
 		return currentSession;
@@ -618,10 +618,10 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	protected final void internal_setEndPoint(final EndPoint endPoint) {
 		
-		//Checks if the given duplex controller is not null.
+		//Asserts that the given duplex controller is not null.
 		Validator.assertThat(endPoint).isOfType(EndPoint.class);
 		
-		//Checks if the current client is not connected.
+		//Asserts that the current client is not connected.
 		supposeIsNotConnected();
 		
 		//Sets the duplex controller of the current client.
@@ -673,13 +673,13 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	final void setParentApplication(final Application<C> parentApplication) {
 		
-		//Checks if the given parent application is not null.
+		//Asserts that the given parent application is not null.
 		Validator
 		.assertThat(parentApplication)
 		.thatIsNamed("parent application")
 		.isNotNull();
 		
-		//Checks if the current client does not reference already a parent application.
+		//Asserts that the current client does not reference already a parent application.
 		if (belongsToApplication()) {
 			throw
 			new InvalidArgumentException(
@@ -707,7 +707,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	//method
 	private void popCurrentSessionFromStack() {
 				
-		//Checks if the current Session of the current Client is the top Session of the current Client.
+		//Asserts that the current Session of the current Client is the top Session of the current Client.
 		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
 			throw new InvalidArgumentException(this, "cannot pop a Session that is not the top session.");
 		}
@@ -739,7 +739,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	private void setPreCloseActionWhenNotConnected(IFunction preCloseAction) {
 		
-		//Checks if the pre-close action is not null.
+		//Asserts that the pre-close action is not null.
 		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();
 		
 		temporaryPreCloseAction = preCloseAction;
@@ -751,7 +751,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */	
 	private void supposeContainsCurrentSession() {
 		
-		//Checks if the current client contains a current session.
+		//Asserts that the current client contains a current session.
 		if (!containsCurrentSession()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "current Session");
 		}
@@ -763,7 +763,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	private void supposeIsNotConnected() {
 		
-		//Checks if the current client is not connected.
+		//Asserts that the current client is not connected.
 		if (internal_isConnected()) {
 			throw new InvalidArgumentException(this, "is connected");
 		}
@@ -776,7 +776,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	private void supposeReferencesParentApplication() {
 		
-		//Checks if the current client references the application it belongs to.
+		//Asserts that the current client references the application it belongs to.
 		if (!belongsToApplication()) {
 			throw
 			new InvalidArgumentException(

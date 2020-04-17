@@ -29,7 +29,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 */
 	public ClientReceiverController(final Client<?> client) {
 		
-		//Checks if the given client is not null.
+		//Asserts that the given client is not null.
 		Validator.assertThat(client).isOfType(Client.class);
 		
 		//Sets the client of this client receiver controller.

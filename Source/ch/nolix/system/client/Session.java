@@ -98,7 +98,7 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	public final C getParentClient() {
 		
-		//Checks if the current {@link Session} belonts to a client.
+		//Asserts that the current {@link Session} belonts to a client.
 		supposeBelongsToClient();
 		
 		return parentClient;
@@ -387,13 +387,13 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	final void setParentClient(C parentClient) {
 		
-		//Checks if the given client is not null.
+		//Asserts that the given client is not null.
 		Validator
 		.assertThat(parentClient)
 		.thatIsNamed("parent client")
 		.isNotNull();
 		
-		//Checks if the current session does not belong to a client.
+		//Asserts that the current session does not belong to a client.
 		suppoeDoesNotBelongToClient();
 		
 		//Sets the parent client of the current session.
@@ -436,7 +436,7 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	private void supposeBelongsToClient() {
 		
-		//Checks if the current {@link Session} belongs to a client.
+		//Asserts that the current {@link Session} belongs to a client.
 		if (!belongsToClient()) {
 			throw new InvalidArgumentException(this, "does not belong to a client");
 		}
@@ -448,7 +448,7 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	private void suppoeDoesNotBelongToClient() {
 		
-		//Checks if the current {@link Session} does not belong to a client.
+		//Asserts that the current {@link Session} does not belong to a client.
 		if (belongsToClient()) {
 			throw new InvalidArgumentException(this, "belongs to a client");
 		}

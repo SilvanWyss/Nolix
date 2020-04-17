@@ -285,7 +285,7 @@ public final class ChainedNode implements OptionalHeadered {
 	@Override
 	public String getHeader() {
 		
-		//Checks if the current ChainedNode has a header.
+		//Asserts that the current ChainedNode has a header.
 		if (header == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
@@ -300,7 +300,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public ChainedNode getNextNode() {
 		
-		//Checks if the current ChanedNode has a next node.
+		//Asserts that the current ChanedNode has a next node.
 		if (nextNode == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, NEXT_NODE_VARIABLE_NAME);
 		}
@@ -315,7 +315,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public String getNextNodeAsString() {
 		
-		//Checks if the current ChainedNode has a next node.
+		//Asserts that the current ChainedNode has a next node.
 		if (nextNode == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, NEXT_NODE_VARIABLE_NAME);
 		}
@@ -374,7 +374,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public String getReproducingHeader() {
 		
-		//Checks if the current ChainedNode has a header.
+		//Asserts that the current ChainedNode has a header.
 		if (header == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
@@ -415,7 +415,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public int toInt() {
 		
-		//Checks if the current ChainedNode can represent an Integer.
+		//Asserts that the current ChainedNode can represent an Integer.
 		if (header == null || attributes.containsAny()) {
 			throw new UnrepresentingArgumentException(this, Integer.class);
 		}
@@ -434,7 +434,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public Node toNode() {
 		
-		//Checks if the current ChainedNode can represent a Node.
+		//Asserts that the current ChainedNode can represent a Node.
 		if (nextNode != null) {
 			throw new UnrepresentingArgumentException(this, Node.class);
 		}
@@ -657,12 +657,12 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private void setHeader(final String header) {
 		
-		//Checks if the given header is not null.
+		//Asserts that the given header is not null.
 		if (header == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.HEADER);
 		}
 		
-		//Checks if the given header is not blank.
+		//Asserts that the given header is not blank.
 		if (header.isBlank()) {
 			throw new InvalidArgumentException(VariableNameCatalogue.HEADER, header, "is blank");
 		}
@@ -679,7 +679,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private void setNextNode(final ChainedNode nextNode) {
 		
-		//Checks if the given nextNode is not null.
+		//Asserts that the given nextNode is not null.
 		if (nextNode == null) {
 			throw new ArgumentIsNullException(NEXT_NODE_VARIABLE_NAME);
 		}

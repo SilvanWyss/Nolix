@@ -73,7 +73,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isEqualTo(final long value) {
 		
-		//Checks if the argument of this long mediator equals the given value.
+		//Asserts that the argument of this long mediator equals the given value.
 		if (argument != value) {
 			throw new UnequalArgumentException(getArgumentName(), argument, value);
 		}
@@ -93,7 +93,7 @@ public class LongMediator extends Mediator {
 		//Iterates the given values.
 		for (final long v : values) {
 			
-			//Checks if the argument of this long mediator equals the current value.
+			//Asserts that the argument of this long mediator equals the current value.
 			if (argument == v) {
 				return new TerminalLongMediator(getArgumentName(), argument);
 			}
@@ -116,7 +116,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isBetween(final long min, final long max) {
 		
-		//Checks if the argument of this long mediator
+		//Asserts that the argument of this long mediator
 		//is between the given min and max.
 		if (argument < min || argument > max) {
 			throw new ArgumentIsOutOfRangeException(
@@ -139,7 +139,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isBiggerThan(final long value) {
 		
-		//Checks if the argument of this long mediator is bigger than the given value.
+		//Asserts that the argument of this long mediator is bigger than the given value.
 		if (argument <= value) {
 			throw new NonBiggerArgumentException(getArgumentName(), argument, value);
 		}
@@ -157,7 +157,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isBiggerThanOrEquals(final long value) {
 		
-		//Checks if the argument of this long mediator
+		//Asserts that the argument of this long mediator
 		//is bigger than or equals the given value.
 		if (argument < value) {
 			throw new SmallerArgumentException(getArgumentName(), argument, value);
@@ -174,7 +174,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isNegative() {
 		
-		//Checks if the argument of this long mediator is negative.
+		//Asserts that the argument of this long mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(getArgumentName(), argument);
 		}
@@ -192,7 +192,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isNotBetween(final int min, final int max) {
 		
-		//Checks if the argument of this long mediator
+		//Asserts that the argument of this long mediator
 		//is not between the given min and max.
 		if (argument >= min && argument <= max) {
 			throw new ArgumentIsInRangeException(
@@ -215,7 +215,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isNotEqualTo(final long value) {
 		
-		//Checks if the argument of this long mediator does not equals the given value.
+		//Asserts that the argument of this long mediator does not equals the given value.
 		if (argument == value) {
 			throw new EqualArgumentException(getArgumentName(), argument, value);
 		}
@@ -243,7 +243,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isNotBiggerThan(final long value) {
 		
-		//Checks if the argument of this long mediator is not bigger than the given value.
+		//Asserts that the argument of this long mediator is not bigger than the given value.
 		if (argument > value) {
 			throw new BiggerArgumentException(getArgumentName(), argument, value);
 		}
@@ -259,7 +259,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isNotNegative() {
 		
-		//Checks if the argument of this long mediator is not negative.
+		//Asserts that the argument of this long mediator is not negative.
 		if (argument < 0.0) {
 			throw new NegativeArgumentException(getArgumentName(), argument);
 		}
@@ -275,7 +275,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isNotPositive() {
 		
-		//Checks if the argument of this long mediator is not positive.
+		//Asserts that the argument of this long mediator is not positive.
 		if (argument > 0) {
 			throw new PositiveArgumentException(getArgumentName(), argument);
 		}
@@ -291,7 +291,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isPositive() {
 		
-		//Checks if the argument of this long mediator is positive.
+		//Asserts that the argument of this long mediator is positive.
 		if (argument < 1) {
 			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
@@ -308,7 +308,7 @@ public class LongMediator extends Mediator {
 	 */
 	public TerminalLongMediator isSmallerThan(final long value) {
 		
-		//Checks if the argument of this long mediator is smaller than the given value.
+		//Asserts that the argument of this long mediator is smaller than the given value.
 		if (argument >= value) {
 			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
 		}
@@ -337,7 +337,7 @@ public class LongMediator extends Mediator {
 	 */
 	public final TerminalLongMediator representsBoolean() {
 		
-		//Checks if the argument of the current LongArgument represents a boolean.
+		//Asserts that the argument of the current LongArgument represents a boolean.
 		if (argument != 0 && argument != 1) {
 			throw new UnrepresentingArgumentException(getArgumentName(), getArgument(), Boolean.class);
 		}

@@ -32,10 +32,10 @@ public class Pair<E1, E2> {
 	 */
 	public Pair(final E1 element1, final E2 element2) {
 		
-		//Checks if the given element 1 is not null.
+		//Asserts that the given element 1 is not null.
 		Validator.assertThat(element1).thatIsNamed("element 1").isNotNull();
 		
-		//Checks if the given element 2 is not null.
+		//Asserts that the given element 2 is not null.
 		Validator.assertThat(element2).thatIsNamed("element 2").isNotNull();
 		
 		//Sets the element 1 of the current Pair.

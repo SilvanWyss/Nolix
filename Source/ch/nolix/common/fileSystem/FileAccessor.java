@@ -39,7 +39,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		//Calls method of the base class.
 		super(filePath);
 		
-		//Checks if the file system item with the given file path is acutally a file.
+		//Asserts that the file system item with the given file path is acutally a file.
 		if (!FileSystemAccessor.isFile(filePath)) {
 			throw new InvalidArgumentException(
 				VariableNameCatalogue.FILE_PATH,

@@ -119,7 +119,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	@SuppressWarnings("unchecked")
 	public LinkedList<E> addAtBegin(final E... elements) {
 		
-		//Checks if the given elements is not null.
+		//Asserts that the given elements is not null.
 		Validator.assertThat(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
 		
 		//Iterates the given elements.
@@ -142,7 +142,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public <E2 extends E> LinkedList<E> addAtBegin(final Iterable<E2> elements) {
 		
-		//Checks if the given elements is not null.
+		//Asserts that the given elements is not null.
 		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Handles the case that the given elements is not empty.
@@ -225,7 +225,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> addAtBeginRegardingSingularity(final E element) {
 		
-		//Checks if the current {@link List} contains already the given element.
+		//Asserts that the current {@link List} contains already the given element.
 		if (contains(element)) {
 			throw
 			new InvalidArgumentException(
@@ -277,7 +277,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	@SuppressWarnings("unchecked")
 	public LinkedList<E> addAtEnd(final E... elements) {
 		
-		//Checks if the given element container is not null.
+		//Asserts that the given element container is not null.
 		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Iterates the given elements.
@@ -300,7 +300,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public <E2 extends E> LinkedList<E> addAtEnd(final Iterable<E2> elements) {
 		
-		//Checks if the given elements is not null.
+		//Asserts that the given elements is not null.
 		Validator.assertThat(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
 		
 		elements.forEach(e -> addAtEnd(e));
@@ -384,7 +384,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> addAtEndRegardingSingularity(final E element) {
 		
-		//Checks if the current {@link List} contains already the given element.
+		//Asserts that the current {@link List} contains already the given element.
 		if (contains(element)) {
 			throw
 			new InvalidArgumentException(
@@ -533,7 +533,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -550,7 +550,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public E getRefLast() {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -584,7 +584,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public E getRefSecondLast() {
 		
-		//Checks if the current List contains more than 1 element.
+		//Asserts that the current List contains more than 1 element.
 		if (getSize() < 2) {
 			throw new InvalidArgumentException(this, "contains less than 2 elements");
 		}
@@ -779,7 +779,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> removeFirst() {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -809,7 +809,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw
 			new InvalidArgumentException(
@@ -872,7 +872,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> removeFirst(final Object element) {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw
 			new InvalidArgumentException(
@@ -915,7 +915,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> removeLast() {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -976,7 +976,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public LinkedList<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
 		
-		//Checks if the current list is not empty.
+		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw
 			new InvalidArgumentException(
@@ -1144,7 +1144,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	private void removeNextNode(final ListNode<E> node) {
 		
-		//Checks if the given node is not null.
+		//Asserts that the given node is not null.
 		Validator.assertThat(node).thatIsNamed(VariableNameCatalogue.NODE).isNotNull();
 		
 		final var nextNode = node.getNextNode();

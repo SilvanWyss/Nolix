@@ -69,7 +69,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isBetween(final double min, final double max) {
 		
-		//Checks if the argument of this double mediator
+		//Asserts that the argument of this double mediator
 		//is between the given min and max.
 		if (argument < min || argument > max) {
 			throw new ArgumentIsOutOfRangeException(
@@ -89,7 +89,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isBiggerThan(final double value) {
 		
-		//Checks if the argument of this double mediator is bigger than the given value.
+		//Asserts that the argument of this double mediator is bigger than the given value.
 		if (argument <= value) {
 			throw new NonBiggerArgumentException(getArgumentName(), argument, value);
 		}
@@ -103,7 +103,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isEqualTo(final double value) {
 		
-		//Checks if the argument of this double mediator equals the given value.
+		//Asserts that the argument of this double mediator equals the given value.
 		if (argument != value) {
 			throw new UnequalArgumentException(getArgumentName(), argument, value);
 		}
@@ -116,7 +116,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNegative() {
 		
-		//Checks if the argument of this double mediator is negative.
+		//Asserts that the argument of this double mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(getArgumentName(), argument);
 		}
@@ -130,7 +130,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNotBiggerThan(final double value) {
 		
-		//Checks if the argument of this named long mediator is not bigger than the given value.
+		//Asserts that the argument of this named long mediator is not bigger than the given value.
 		if (argument > value) {
 			throw new BiggerArgumentException(getArgumentName(), argument, value);
 		}
@@ -144,7 +144,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNotEqualTo(final double value) {
 		
-		//Checks if the argument of this double mediator does not equal the given value.
+		//Asserts that the argument of this double mediator does not equal the given value.
 		if (argument == value) {
 			throw new EqualArgumentException(getArgumentName(), argument, value);
 		}
@@ -157,7 +157,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNotNegative() {
 		
-		//Checks if the argument of this double mediator is not negative.
+		//Asserts that the argument of this double mediator is not negative.
 		if (argument < 0) {
 			throw new NegativeArgumentException(getArgumentName(), argument);
 		}
@@ -170,7 +170,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNotPositive() {
 		
-		//Checks if the argument of this double mediator is not positive.
+		//Asserts that the argument of this double mediator is not positive.
 		if (argument <= 0) {
 			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
@@ -184,7 +184,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNotSmallerThan(final double value) {
 		
-		//Checks if the argument of this double mediator is not smaller than the given value.
+		//Asserts that the argument of this double mediator is not smaller than the given value.
 		if (argument > value) {
 			throw new SmallerArgumentException(getArgumentName(), argument, value);
 		}
@@ -197,7 +197,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isNotZero() {
 		
-		//Checks if the argument of this double mediator is not zero.
+		//Asserts that the argument of this double mediator is not zero.
 		isNotEqualTo(0);
 	}
 	
@@ -207,7 +207,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isPositive() {
 		
-		//Checks if the argument of this double mediator is positive.
+		//Asserts that the argument of this double mediator is positive.
 		if (argument <= 0) {
 			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
@@ -221,7 +221,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isSmallerThan(final double value) {
 		
-		//Checks if the argument of this double mediator is smaller than the given value.
+		//Asserts that the argument of this double mediator is smaller than the given value.
 		if (argument >= value) {
 			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
 		}
@@ -234,7 +234,7 @@ public class DoubleMediator extends Mediator {
 	 */
 	public void isZero() {
 		
-		//Checks if the argument of this double mediator is 0.
+		//Asserts that the argument of this double mediator is 0.
 		isEqualTo(0);
 	}
 	

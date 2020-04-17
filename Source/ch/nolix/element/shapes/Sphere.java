@@ -110,7 +110,7 @@ public final class Sphere extends BaseShape<Sphere> {
 	 */
 	public Sphere setDiameter(final double diameter) {
 		
-		//Checks if the given diameter is positive.
+		//Asserts that the given diameter is positive.
 		Validator.assertThat(diameter).thatIsNamed("diameter").isPositive();
 		
 		return setRadius(0.5 * diameter);

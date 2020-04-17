@@ -71,7 +71,7 @@ final class ListNode<E> {
 	 */
 	public ListNode<E> getNextNode() {
 		
-		//Checks if the current list node has a next node.
+		//Asserts that the current list node has a next node.
 		if (!hasNextNode()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}
@@ -104,7 +104,7 @@ final class ListNode<E> {
 	 */
 	public void setElement(final E element) {
 		
-		//Checks if the given element is not null.
+		//Asserts that the given element is not null.
 		Validator
 		.assertThat(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
@@ -123,7 +123,7 @@ final class ListNode<E> {
 	 */
 	public void setNextNode(final ListNode<E> nextNode) {
 		
-		//Checks if the given next node is not null.
+		//Asserts that the given next node is not null.
 		Validator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
 		
 		//Sets the next node of the current list node.
@@ -140,7 +140,7 @@ final class ListNode<E> {
 	 */
 	public void swapElementWithNextNode() {
 		
-		//Checks if the current list node has a next node.
+		//Asserts that the current list node has a next node.
 		if (!hasNextNode()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}

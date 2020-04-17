@@ -124,7 +124,7 @@ public abstract class Element<E extends Element<E>> implements ISmartObject<E>, 
 				
 				final var property = (BaseProperty<?>)(field.get(this));
 				
-				//Checks if the current property is not null.
+				//Asserts that the current property is not null.
 				Validator.assertThat(property).isOfType(MutableProperty.class);
 				
 				properties.addAtEnd(property);

@@ -67,7 +67,7 @@ public abstract class ClosableElement implements Closable {
 	 */
 	public final void setPreCloseAction(final IFunction preCloseAction) {
 		
-		//Checks if the given pre-close action is not null.
+		//Asserts that the given pre-close action is not null.
 		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();
 		
 		//Sets the pre-close action of the current ClosableElement.
@@ -89,10 +89,10 @@ public abstract class ClosableElement implements Closable {
 	 */
 	protected final void createCloseDependency(final ClosableElement element) {
 		
-		//Checks if the current ClosableElement is alive.
+		//Asserts that the current ClosableElement is alive.
 		supposeIsAlive();
 		
-		//Checks if the current ClosableElement does not have already a close dependency to the given element.
+		//Asserts that the current ClosableElement does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
 			throw new InvalidArgumentException(this, "has already a close dependency to the given element");
 		}
@@ -112,7 +112,7 @@ public abstract class ClosableElement implements Closable {
 	 */
 	protected final void supposeIsAlive() {
 		
-		//Checks if the current ClosableElement is alive.
+		//Asserts that the current ClosableElement is alive.
 		if (isClosed()) {
 			throw new ClosedArgumentException(this);
 		}
@@ -145,7 +145,7 @@ public abstract class ClosableElement implements Closable {
 	 */
 	final void setParentCloseController(final CloseController parentCloseController) {
 		
-		//Checks if the given parentCloseController is not null.
+		//Asserts that the given parentCloseController is not null.
 		Validator.assertThat(parentCloseController).thatIsNamed("parent close controller").isNotNull();
 		
 		//Sets the parentCloseController of the current ClosableElement.

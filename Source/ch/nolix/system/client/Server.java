@@ -56,10 +56,10 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void addApplication(final Application<?> application) {
 		
-		//Checks if the given application is not null.
+		//Asserts that the given application is not null.
 		Validator.assertThat(application).isOfType(Application.class);
 		
-		//Checks if the given the current Server
+		//Asserts that the given the current Server
 		//does not contain already an Application with the same name as the given application..
 		if (containsApplication(application.getName())) {
 			throw
@@ -84,7 +84,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void addMainApplication(final Application<?> mainApplication) {
 		
-		//Checks if the current Server does not contain already a main Application.
+		//Asserts that the current Server does not contain already a main Application.
 		if (containsMainApplication()) {
 			throw new InvalidArgumentException(this, "contains already a main Application");
 		}
@@ -193,7 +193,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	final Application<?> getRefMainApplication() {
 		
-		//Checks if the current Server contains a main Application.
+		//Asserts that the current Server contains a main Application.
 		if (!containsMainApplication()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "main Application");
 		}

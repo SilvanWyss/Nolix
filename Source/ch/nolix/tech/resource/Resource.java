@@ -81,7 +81,7 @@ public final class Resource implements IResource, Named {
 		//Iterates the given base resources.
 		for (final var br : baseResources) {
 			
-			//Checks if the given name does not equal the name of the current base resource.
+			//Asserts that the given name does not equal the name of the current base resource.
 			if (name.equals(br.getName())) {
 				throw new InvalidArgumentException(
 					VariableNameCatalogue.NAME,
@@ -93,7 +93,7 @@ public final class Resource implements IResource, Named {
 			internalBaseResources.addAtEnd(br);
 		}
 		
-		//Checks if none of the given base resources
+		//Asserts that none of the given base resources
 		//is a sub resource of another of the given base resources.
 		if (internalBaseResources.contains((sr1, sr2) -> sr1.isSubResourceOf(sr2))) {
 			

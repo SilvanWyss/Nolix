@@ -48,7 +48,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public static String createReproducingString(final String string) {
 		
-		//Checks if the given string is not null.
+		//Asserts that the given string is not null.
 		Validator.assertThat(string).isNotNull();
 		
 		return
@@ -71,7 +71,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public static String createOriginStringFromReproducingString(final String reproducingString) {
 		
-		//Checks if the given reproducing string is not null.
+		//Asserts that the given reproducing string is not null.
 		Validator
 		.assertThat(reproducingString)
 		.thatIsNamed("reproducing string")

@@ -53,14 +53,14 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<Iterable<String>> areNotBlank() {
 		
-		//Checks if the arguments of the current multi string mediator are not null.
+		//Asserts that the arguments of the current multi string mediator are not null.
 		areNotNull();
 		
 		//Iterates the arguments of the current multi string mediator.
 		var index = 1;
 		for (final var a : getRefArguments()) {
 						
-			//Checks if the current argument is not blank.
+			//Asserts that the current argument is not blank.
 			if (a.isBlank()) {
 				throw new InvalidArgumentException(index + "th argument", a, "is blank");
 			}
@@ -80,14 +80,14 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	 */
 	public void areNotEmpty() {
 		
-		//Checks if the arguments of this string container mediator are not null.
+		//Asserts that the arguments of this string container mediator are not null.
 		areNotNull();
 		
 		//Iterates the arguments of this string container mediator.
 		int index = 1;
 		for (final String a : getRefArguments()) {
 						
-			//Checks if the current argument is not empty.
+			//Asserts that the current argument is not empty.
 			if (a.isEmpty()) {
 				throw new EmptyArgumentException(index + "th argument", a);
 			}

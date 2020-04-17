@@ -117,7 +117,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public int getMaxSelectorLevel() {
 		
-		//Checks if this deep configuration has a max selector level.
+		//Asserts that this deep configuration has a max selector level.
 		if (!hasMaxSelectorLevel()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "max selector level");
 		}
@@ -142,7 +142,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public DeepConfiguration removeMaxSelectorLevel() {
 		
-		//Checks if this deep configuration is not frozen.
+		//Asserts that this deep configuration is not frozen.
 		supposeNotFrozen();
 		
 		maxSelectorLevel = -1;
@@ -176,10 +176,10 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public void setMaxSelectorLevel(int maxSelectorLevel) {
 		
-		//Checks if the given maxSelectorLevel is positive.
+		//Asserts that the given maxSelectorLevel is positive.
 		Validator.assertThat(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
 		
-		//Checks if this deep configuration is not frozen.
+		//Asserts that this deep configuration is not frozen.
 		supposeNotFrozen();
 		
 		this.maxSelectorLevel = maxSelectorLevel;

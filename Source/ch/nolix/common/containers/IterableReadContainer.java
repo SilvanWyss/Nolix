@@ -41,7 +41,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> IterableReadContainer(final Iterable<E2> container) {
 		
-		//Checks if the given container is not null.
+		//Asserts that the given container is not null.
 		Validator
 		.assertThat(container)
 		.thatIsNamed(VariableNameCatalogue.CONTAINER)

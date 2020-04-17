@@ -205,7 +205,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 */
 	public Widget<?, ?> getRefWidget() {
 		
-		//Checks if the current tab container tab contains a widget.
+		//Asserts that the current tab container tab contains a widget.
 		supposeIsNotEmpty();
 		
 		return widget;
@@ -281,7 +281,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	@Override
 	public TabContainerTab setHeader(final String header) {
 		
-		//Checks if the given header is not null or empty.
+		//Asserts that the given header is not null or empty.
 		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current TabContainerTab.
@@ -303,7 +303,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 */
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		
-		//Checks if the given widget is not null.
+		//Asserts that the given widget is not null.
 		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		if (belongsToTabContainer()) {
@@ -347,7 +347,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 */
 	void setParentTabContainer(final TabContainer parentTabContainer) {
 		
-		//Checks if the given parent tab container is not null.
+		//Asserts that the given parent tab container is not null.
 		Validator
 		.assertThat(parentTabContainer)
 		.thatIsNamed("parent tab container")
@@ -364,7 +364,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 */
 	private void supposeIsNotEmpty() {
 		
-		//Checks if the current tab container tab is not empty.
+		//Asserts that the current tab container tab is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}

@@ -35,7 +35,7 @@ public class ModuleManager {
 	 */
 	public ModuleManager(final String directory) {
 		
-		//Checks if the given directory specifies a directory.
+		//Asserts that the given directory specifies a directory.
 		Validator.assertThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
 			
 		//Sets the directory of this central controller.

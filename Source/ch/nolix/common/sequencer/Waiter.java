@@ -26,7 +26,7 @@ final class Waiter {
 	 */
 	public static void waitForSeconds(final int duractionInSeconds) {
 		
-		//Checks if the given seconds is not negative.
+		//Asserts that the given seconds is not negative.
 		Validator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 		
 		waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
@@ -41,7 +41,7 @@ final class Waiter {
 	 */
 	public static void waitForMilliseconds(final int durationInMilliseconds) {
 		
-		//Checks if the given milliseconds is not negative.
+		//Asserts that the given milliseconds is not negative.
 		Validator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 		
 		try {

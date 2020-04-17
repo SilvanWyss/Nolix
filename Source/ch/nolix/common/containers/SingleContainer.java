@@ -38,7 +38,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	 */
 	public SingleContainer(final E element) {
 		
-		//Checks if the given element is not null.
+		//Asserts that the given element is not null.
 		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
 		
 		//Sets the element of the current SingleContainer.
@@ -61,7 +61,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	 */
 	public E getRefElement() {
 		
-		//Checks if the current SingleContainer is not empty.
+		//Asserts that the current SingleContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}

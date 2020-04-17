@@ -427,7 +427,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -446,7 +446,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -465,7 +465,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -787,7 +787,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -804,7 +804,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefAny() {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -824,14 +824,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefAt(final int index) {
 		
-		//Checks if the given index is positive.
+		//Asserts that the given index is positive.
 		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
 		
 		//Iterates the current IContainer.
 		var i = 1;
 		for (final var e : this) {
 			
-			//Checks if the current index is the given index.
+			//Asserts that the current index is the given index.
 			if (i == index) {
 				return e;
 			}
@@ -1077,7 +1077,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefFirst() {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -1217,7 +1217,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefOne() {
 		
-		//Checks if the current IContainer contains exactly 1 element.
+		//Asserts that the current IContainer contains exactly 1 element.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -1315,7 +1315,7 @@ public interface IContainer<E> extends Iterable<E> {
 			//Iterates the given selectors.
 			for (IElementTakerBooleanGetter<E> s : selecors) {
 				
-				//Checks if the current selector selects the current element.
+				//Asserts that the current selector selects the current element.
 				if (!s.getOutput(e)) {
 					selected = false;
 					break;
@@ -1367,7 +1367,7 @@ public interface IContainer<E> extends Iterable<E> {
 			//Iterates the given selectors.
 			for (IElementTakerBooleanGetter<E> s : selecors) {
 				
-				//Checks if the current selector selects not the current element.
+				//Asserts that the current selector selects not the current element.
 				if (s.getOutput(e)) {
 					selected = true;
 					break;
@@ -1803,7 +1803,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default String toString(final String separator)
 	{
-		//Checks if the given separator is not null.
+		//Asserts that the given separator is not null.
 		Validator
 		.assertThat(separator)
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
@@ -1902,10 +1902,10 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		final var elementCount = getSize();
 		
-		//Checks if the given n is positive.
+		//Asserts that the given n is positive.
 		Validator.assertThat(n).thatIsNamed("n").isPositive();
 		
-		//Checks if the given n is not bigger than the element count of the current IContainer.
+		//Asserts that the given n is not bigger than the element count of the current IContainer.
 		Validator.assertThat(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that the current IContainer contains less than n elements.
@@ -1926,7 +1926,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default IContainer<E> withoutLast() {
 		
-		//Checks if the current IContainer is not empty.
+		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -1949,10 +1949,10 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		final var elementCount = getSize();
 		
-		//Checks if the given n is positive.
+		//Asserts that the given n is positive.
 		Validator.assertThat(n).thatIsNamed("n").isPositive();
 		
-		//Checks if the given n is not bigger than the element count of the current IContainer.
+		//Asserts that the given n is not bigger than the element count of the current IContainer.
 		Validator.assertThat(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that the current IContainer contains less than n elements.

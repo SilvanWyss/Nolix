@@ -29,10 +29,10 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 	//method
 	public final void isNotNegative() {
 		
-		//Checks if the argument of the current BigDecimalValidator is not null.
+		//Asserts that the argument of the current BigDecimalValidator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current BigDecimalValidator is not negative.
+		//Asserts that the argument of the current BigDecimalValidator is not negative.
 		if (getRefArgument().compareTo(BigDecimal.ZERO) < 0) {
 			throw new NegativeArgumentException(getArgumentName(), getRefArgument());
 		}
@@ -41,10 +41,10 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 	//method
 	public final void isNotSmallerThan(final BigDecimal value) {
 		
-		//Checks if the argument of the current BigDecimalValidator is not null.
+		//Asserts that the argument of the current BigDecimalValidator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current BigDecimalValidator is not smaller than the given value.
+		//Asserts that the argument of the current BigDecimalValidator is not smaller than the given value.
 		if (getRefArgument().compareTo(value) < 0) {
 			throw new SmallerArgumentException(getArgumentName(), getRefArgument(), value);
 		}
@@ -53,10 +53,10 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 	//method
 	public final void isPositive() {
 		
-		//Checks if the argument of the current BigDecimalValidator is not null.
+		//Asserts that the argument of the current BigDecimalValidator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current BigDecimalValidator is positive.
+		//Asserts that the argument of the current BigDecimalValidator is positive.
 		if (getRefArgument().compareTo(BigDecimal.ZERO) <= 0) {
 			throw new NonPositiveArgumentException(getArgumentName(), getRefArgument());
 		}

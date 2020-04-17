@@ -25,7 +25,7 @@ public final class ArrayHelper {
 	 */
 	public static Iterable<Byte> createIterable(final byte[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}
@@ -50,7 +50,7 @@ public final class ArrayHelper {
 	 */
 	public static Iterable<Double> createIterable(final double[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}
@@ -75,7 +75,7 @@ public final class ArrayHelper {
 	 */
 	public static <E> Iterable<E> createIterable(final E[] elements) {
 		
-		//Checks if the given elements is not null.
+		//Asserts that the given elements is not null.
 		if (elements == null) {
 			throw new RuntimeException("The given elements is null.");
 		}
@@ -101,7 +101,7 @@ public final class ArrayHelper {
 	 */
 	public static <E> Iterable<E> createIterable(final Iterable<E> elements, final E additionalElement) {
 		
-		//Checks if the given elements is not null.
+		//Asserts that the given elements is not null.
 		if (elements == null) {
 			throw new RuntimeException("The given elements is null.");
 		}
@@ -128,7 +128,7 @@ public final class ArrayHelper {
 	 */
 	public static Iterable<Long> createIterable(final int[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}
@@ -153,7 +153,7 @@ public final class ArrayHelper {
 	 */
 	public static Iterable<Long> createIterable(final long[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}
@@ -176,7 +176,7 @@ public final class ArrayHelper {
 	 */
 	public static String createString(final double[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}
@@ -204,7 +204,7 @@ public final class ArrayHelper {
 	 */
 	public static String createString(final int[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}
@@ -232,7 +232,7 @@ public final class ArrayHelper {
 	 */
 	public static String createString(final long[] values) {
 		
-		//Checks if the given values is not null.
+		//Asserts that the given values is not null.
 		if (values == null) {
 			throw new RuntimeException("The given values is null.");
 		}

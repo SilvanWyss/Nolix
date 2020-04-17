@@ -95,7 +95,7 @@ public final class FileSystemAccessor {
 	 */
 	public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 		
-		//Checks if the if given path is not null or empty.
+		//Asserts that the if given path is not null or empty.
 		Validator.assertThat(path).thatIsNamed(VariableNameCatalogue.PATH).isNotBlank();
 		
 		//Creates file.
@@ -190,7 +190,7 @@ public final class FileSystemAccessor {
 	 */
 	public static FolderAccessor createFolder(final String path) {
 		
-		//Checks if there does not exist already a file system item with the given path.
+		//Asserts that there does not exist already a file system item with the given path.
 		if (exists(path)) {
 			throw new InvalidArgumentException("file system item",	path, "exists already");
 		}
@@ -298,7 +298,7 @@ public final class FileSystemAccessor {
 	//static method
 	public static void overwriteFile(final String path, final byte[] content) {
 		
-		//Checks if there does not exist a folder with the given path.
+		//Asserts that there does not exist a folder with the given path.
 		if (isFolder(path)) {
 			throw new InvalidArgumentException(path, "is a folder");
 		}
@@ -323,7 +323,7 @@ public final class FileSystemAccessor {
 	 */
 	public static void overwriteFile(final String path, final String content) {
 		
-		//Checks if there does not exist a folder with the given path.
+		//Asserts that there does not exist a folder with the given path.
 		if (isFolder(path)) {
 			throw new InvalidArgumentException(path, "is a folder");
 		}

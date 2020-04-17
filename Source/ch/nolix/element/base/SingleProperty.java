@@ -50,7 +50,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 		//Calls constructor of the base class.
 		super(name, valueCreator, specificationCreator);
 		
-		//Checks if the given setterMethod is not null.
+		//Asserts that the given setterMethod is not null.
 		Validator
 		.assertThat(setterMethod)
 		.thatIsNamed("setter method")
@@ -75,7 +75,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	 */
 	public final V getValue() {
 		
-		//Checks if the current SingleProperty has a value.
+		//Asserts that the current SingleProperty has a value.
 		if (value == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VALUE);
 		}
@@ -116,13 +116,13 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	 */
 	public final void setValue(final V value) {
 		
-		//Checks if the given value is not null.
+		//Asserts that the given value is not null.
 		Validator
 		.assertThat(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
 		.isNotNull();
 		
-		//Checks if the current SingleProperty is mutable or does not have already a value.
+		//Asserts that the current SingleProperty is mutable or does not have already a value.
 		if (!isMutable() && hasValue()) {
 			throw new InvalidArgumentException(this, "is not mutable and has already a value");
 		}

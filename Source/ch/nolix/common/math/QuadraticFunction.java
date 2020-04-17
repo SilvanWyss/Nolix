@@ -45,7 +45,7 @@ public final class QuadraticFunction {
 	 */
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
-		//Checks if the given a is not 0.0.
+		//Asserts that the given a is not 0.0.
 		Validator.assertThat(a).thatIsNamed("a").isNotZero();
 		
 		this.a = a;
@@ -93,7 +93,7 @@ public final class QuadraticFunction {
 	 */
 	public double getMax() {
 		
-		//Checks if the current quadratic function has a maximum.
+		//Asserts that the current quadratic function has a maximum.
 		if (!hasMax()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "maximum");
 		}
@@ -109,7 +109,7 @@ public final class QuadraticFunction {
 	 */
 	public double getMin() {
 		
-		//Checks if the current quadratic function has a minimum.
+		//Asserts that the current quadratic function has a minimum.
 		if (hasMin()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "minimum");
 		}

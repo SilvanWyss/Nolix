@@ -27,7 +27,7 @@ final class NetServerEndPointTaker implements ch.nolix.common.endPoint2.IEndPoin
 	 */
 	public NetServerEndPointTaker(final NetServer parentNetServer) {
 		
-		//Checks if the given parentNetServer is not null.
+		//Asserts that the given parentNetServer is not null.
 		Validator.assertThat(parentNetServer).isOfType(NetServer.class);
 		
 		//Sets the parentNetServer of the current {@NetServerEndPointTaker}.

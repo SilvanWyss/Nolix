@@ -96,7 +96,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	public LabelRole getRole() {
 		
-		//Checks if the current label has a role.
+		//Asserts that the current label has a role.
 		supposeHasRole();
 		
 		return role;
@@ -137,7 +137,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	public Label setRole(final LabelRole role) {
 		
-		//Checks if the given role is not null.
+		//Asserts that the given role is not null.
 		Validator
 		.assertThat(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
@@ -180,7 +180,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	private void supposeHasRole() {
 		
-		//Checks if the current {@link Label} has a role.
+		//Asserts that the current {@link Label} has a role.
 		if (!hasRole()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}

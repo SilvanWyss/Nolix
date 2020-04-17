@@ -28,7 +28,7 @@ final class NetServerListener implements ch.nolix.common.endPoint3.IEndPointTake
 	 */
 	public NetServerListener(final NetServer netServer) {
 		
-		//Checks if the given net server is not null.
+		//Asserts that the given net server is not null.
 		Validator.assertThat(netServer).isOfType(NetServer.class);
 		
 		//Sets the net server of htis net server sub end point taker.

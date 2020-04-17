@@ -279,7 +279,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public LG addLayerOnTop(final Layer layer) {
 		
-		//Checks if the given layer is not null.
+		//Asserts that the given layer is not null.
 		Validator.assertThat(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
 		
 		layer.setParentGUI(this);
@@ -778,7 +778,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public LG removeTopLayer() {
 		
-		//Checks if the current LayerGUI is not empty.
+		//Asserts that the current LayerGUI is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}

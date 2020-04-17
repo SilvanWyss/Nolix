@@ -80,7 +80,7 @@ extends BorderWidget<C, BWS> {
 	 */
 	public final ContainerRole getRole() {
 		
-		//Checks if the current container has a role.
+		//Asserts that the current container has a role.
 		supposeHasRole();
 		
 		return role;
@@ -120,7 +120,7 @@ extends BorderWidget<C, BWS> {
 	 */
 	public final C setRole(final ContainerRole role) {
 		
-		//Checks if the given role is not null.
+		//Asserts that the given role is not null.
 		Validator
 		.assertThat(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
@@ -138,7 +138,7 @@ extends BorderWidget<C, BWS> {
 	 */
 	private void supposeHasRole() {
 		
-		//Checks if the current container has a role.
+		//Asserts that the current container has a role.
 		if (!hasRole()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}

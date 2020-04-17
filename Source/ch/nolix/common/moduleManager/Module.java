@@ -35,7 +35,7 @@ implements Named {
 	 */
 	public Module(final ModuleManager moduleManager) {
 		
-		//Checks if the given central controller is not null.
+		//Asserts that the given central controller is not null.
 		Validator.assertThat(moduleManager).isOfType(ModuleManager.class);
 		
 		//Sets the central controller this module belongs to.

@@ -45,7 +45,7 @@ final class Package extends ch.nolix.common.messaging.IndexedPackage<String> {
 		//Calls constructor of the base class.
 		super(index, message);
 		
-		//Checks if the given message role is not null.
+		//Asserts that the given message role is not null.
 		Validator.assertThat(messageRole).isOfType(MessageRole.class);
 		
 		//Sets the message role of thsis zeta package.

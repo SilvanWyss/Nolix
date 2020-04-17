@@ -97,7 +97,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	NetEndPoint(final ch.nolix.common.endPoint3.NetEndPoint netEndPoint) {
 		
-		//Checks if the given net end point is not null.
+		//Asserts that the given net end point is not null.
 		Validator.assertThat(netEndPoint).isOfType(ch.nolix.common.endPoint3.NetEndPoint.class);
 		
 		//Sets the net end point of this net duplex controller.
@@ -194,7 +194,7 @@ public class NetEndPoint extends EndPoint {
 	@Override
 	protected void run(final LinkedList<ChainedNode> commands) {
 			
-		//Checks if this net duplex controller is not aborted.
+		//Asserts that this net duplex controller is not aborted.
 		supposeIsAlive();
 		
 		//Creates message.

@@ -141,7 +141,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	public final L setColor(final Color color) {
 		
-		//Checks if the given color is not null.
+		//Asserts that the given color is not null.
 		Validator.assertThat(color).isOfType(Color.class);
 		
 		//Sets the color of this line.

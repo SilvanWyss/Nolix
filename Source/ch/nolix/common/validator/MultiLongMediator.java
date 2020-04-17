@@ -42,14 +42,14 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 	 */
 	public void arePositive() {
 	
-		//Checks if the arguments of this long container mediator are not null.
+		//Asserts that the arguments of this long container mediator are not null.
 		areNotNull();
 		
 		//Iterates through the arguments of this long container mediator.
 		int index = 1;
 		for (long a: getRefArguments()) {
 			
-			//Checks if the current argument is positive.
+			//Asserts that the current argument is positive.
 			if (a <= 0) {
 				throw new NonPositiveArgumentException(index + "th", a);
 			}

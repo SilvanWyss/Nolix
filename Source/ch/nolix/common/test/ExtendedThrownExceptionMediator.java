@@ -57,7 +57,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 */
 	public <E extends Exception> ExtendedThrownExceptionMediator ofType(final Class<E> type) {
 		
-		//Checks if the given type is not null.
+		//Asserts that the given type is not null.
 		if (type == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
 		}
@@ -69,7 +69,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		}
 		
 		//Handles the case that the current extended thrown exception mediator has an exception.
-			//Checks if the exception of the current thrown exception mediator is of the given type.
+			//Asserts that the exception of the current thrown exception mediator is of the given type.
 			if (!type.isAssignableFrom(getException().getClass())) {
 				addCurrentTestCaseError(
 					"An exception of the type "

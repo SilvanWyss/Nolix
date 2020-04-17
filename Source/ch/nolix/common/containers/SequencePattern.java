@@ -106,7 +106,7 @@ public final class SequencePattern<E> {
 		final ListIterator<E> iterator = list.iterator();
 		for (int i = 1; i <= maxSequenceCount; i++) {
 		
-			//Checks if the current sequence fulfills the element conditions of this sequence pattern.
+			//Asserts that the current sequence fulfills the element conditions of this sequence pattern.
 			boolean sequenceFulfillsElementConditions = true;
 			final ListIterator<E> iterator2 = iterator.getCopy();
 			for (final IElementTakerBooleanGetter<E> c : elementConditions) {
@@ -125,7 +125,7 @@ public final class SequencePattern<E> {
 				final var iterator3 = iterator.getCopy();
 				Sequencer.forCount(getSize()).run(()->sequence.addAtEnd(iterator3.next()));
 				
-				//Checks if the current sequence fulfills the sequence conditions of this sequence pattern.
+				//Asserts that the current sequence fulfills the sequence conditions of this sequence pattern.
 				if (sequenceConditions.containsOnly(sc -> sc.getOutput(sequence))) {
 					sequences.addAtEnd(sequence);
 				}
@@ -145,12 +145,12 @@ public final class SequencePattern<E> {
 	 */
 	boolean matches(final LinkedList<E> list) {
 		
-		//Checks if the given list has as many elements as this sequence pattern requires.
+		//Asserts that the given list has as many elements as this sequence pattern requires.
 		if (list.getSize() != getSize()) {
 			return false;
 		}
 		
-		//Checks if the elements of the given list
+		//Asserts that the elements of the given list
 		//fulfill the according element conditions this sequence pattern requires.
 		final Iterator<IElementTakerBooleanGetter<E>> iterator = elementConditions.iterator();
 		for (final E e: list) {
@@ -159,7 +159,7 @@ public final class SequencePattern<E> {
 			}
 		}
 		
-		//Checks if the given list fulfils the sequence conditions of this sequence pattern.
+		//Asserts that the given list fulfils the sequence conditions of this sequence pattern.
 		return sequenceConditions.containsOnly(sc -> sc.getOutput(list));
 	}
 }

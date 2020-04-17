@@ -726,7 +726,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setContentPosition(final ContentPosition contentPosition) {
 		
-		//Checks if the given content position is not null.
+		//Asserts that the given content position is not null.
 		Validator.assertThat(contentPosition).isOfType(ContentPosition.class);
 
 		//Sets the content position of the current border widget.

@@ -21,7 +21,7 @@ public final class UninstantiableArgumentException extends InvalidArgumentExcept
 	 */
 	private static Class<?> createSafeClass(final Class<?> _class) {
 		
-		//Checks if the given class is not null.
+		//Asserts that the given class is not null.
 		if (_class == null) {
 			throw new RuntimeException("The given class is null.");
 		}

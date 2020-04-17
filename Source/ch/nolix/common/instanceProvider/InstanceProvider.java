@@ -30,7 +30,7 @@ public final class InstanceProvider {
 		
 		final var class_ = classes.get(interface_);
 		
-		//Checks if the given interface is registered.
+		//Asserts that the given interface is registered.
 		if (class_ == null) {
 			throw new InvalidArgumentException(interface_, "is not registered at the ClassProvider");
 		}

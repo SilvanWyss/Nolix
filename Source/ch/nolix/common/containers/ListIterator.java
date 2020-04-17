@@ -55,7 +55,7 @@ final class ListIterator<E> implements Iterator<E> {
 	@Override
 	public E next() {
 		
-		//Checks if the current list iterator has a next element.
+		//Asserts that the current list iterator has a next element.
 		if (!hasNext()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
 		}

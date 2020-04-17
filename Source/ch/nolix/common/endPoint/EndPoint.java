@@ -62,10 +62,10 @@ implements ISender {
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
-		//Checks if the given receiver is not null.
+		//Asserts that the given receiver is not null.
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
 		
-		//Checks if this end point is not aborted.
+		//Asserts that this end point is not aborted.
 		supposeIsAlive();
 		
 		//Sets the receiver of this end point.
@@ -82,7 +82,7 @@ implements ISender {
 	 */
 	protected final void receive(final String message) {
 		
-		//Checks if this end point is not aborted.
+		//Asserts that this end point is not aborted.
 		supposeIsAlive();
 		
 		getRefReceiver().receive(message);
@@ -95,7 +95,7 @@ implements ISender {
 	 */
 	private IReceiver getRefReceiver() {
 		
-		//Checks if this end point has a receiver.
+		//Asserts that this end point has a receiver.
 		if (!hasReceiver()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
 		}

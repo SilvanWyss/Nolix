@@ -55,7 +55,7 @@ implements IReplyingSender<M, R> {
 	 */
 	public void setReplier(final ch.nolix.common.genericCommunicationAPI.IReplier<M, R> replier) {
 		
-		//Checks if the given replier is not null.
+		//Asserts that the given replier is not null.
 		Validator.assertThat(replier).isOfType(IReplier.class);
 		
 		//Sets the replier of this end point.

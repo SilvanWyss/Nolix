@@ -22,12 +22,12 @@ public final class ArgumentCannotRemoveAttributeException extends InvalidArgumen
 	 */
 	private static String createSafeAttribtueName(final String attributeName) {
 		
-		//Checks if the given attribute name is not null.
+		//Asserts that the given attribute name is not null.
 		if (attributeName == null) {
 			throw new RuntimeException("The given attribtue name is null.");
 		}
 		
-		//Checks if the given attribute name is not blank.
+		//Asserts that the given attribute name is not blank.
 		if (attributeName.isBlank()) {
 			throw new RuntimeException("The given attribtue name is blank.");
 		}

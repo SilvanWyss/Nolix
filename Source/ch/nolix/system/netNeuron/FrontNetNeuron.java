@@ -73,7 +73,7 @@ implements Closable {
 		IElementTakerElementGetter<Node, O> transformator
 	) {
 		
-		//Checks if the given transformer is not null.
+		//Asserts that the given transformer is not null.
 		Validator
 		.assertThat(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)

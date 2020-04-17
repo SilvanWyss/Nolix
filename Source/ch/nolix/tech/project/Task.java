@@ -220,7 +220,7 @@ public final class Task extends Element<Task> implements ITask {
 	@Override
 	public Time getSolveDate() {
 		
-		//Checks if this task is solved.
+		//Asserts that this task is solved.
 		supposeIsSolved();
 		
 		return solveTime.getValue();
@@ -292,7 +292,7 @@ public final class Task extends Element<Task> implements ITask {
 	@Override
 	public Task setSolved(final Time solveTime) {
 		
-		//Checks if the given solve time is after the creation time of this task.
+		//Asserts that the given solve time is after the creation time of this task.
 		if (!getSolveDate().isAfter(getCreationDate())) {
 			throw new InvalidArgumentException(
 				"solve time",
@@ -303,7 +303,7 @@ public final class Task extends Element<Task> implements ITask {
 			);
 		}
 		
-		//Checks if this task is not already solved.
+		//Asserts that this task is not already solved.
 		supposeIsNotSolved();
 		
 		this.solveTime.setValue(solveTime);
@@ -374,7 +374,7 @@ public final class Task extends Element<Task> implements ITask {
 	 */
 	private void supposeIsNotSolved() {
 		
-		//Checks if this task is not solved.
+		//Asserts that this task is not solved.
 		if (isSolved()) {
 			throw new InvalidArgumentException(this, "is solved");
 		}
@@ -386,7 +386,7 @@ public final class Task extends Element<Task> implements ITask {
 	 */
 	private void supposeIsSolved() {
 		
-		//Checks if this task is solved.
+		//Asserts that this task is solved.
 		if (!isSolved()) {
 			throw new InvalidArgumentException(this, "is not solved");
 		}

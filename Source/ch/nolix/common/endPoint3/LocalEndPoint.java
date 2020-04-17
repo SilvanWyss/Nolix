@@ -93,7 +93,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = false;
 		
-		//Checks if the given counter part is not null.
+		//Asserts that the given counter part is not null.
 		Validator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
@@ -118,13 +118,13 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = false;
 		
-		//Checks if the given counter part is not null.
+		//Asserts that the given counter part is not null.
 		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterpart;
 		
-		//Checks if the given target is not null or empty.
+		//Asserts that the given target is not null or empty.
 		Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local end point.
@@ -141,7 +141,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public String sendAndWaitToReply(final String message) {
 		
-		//Checks if this local end point is not aborted.
+		//Asserts that this local end point is not aborted.
 		supposeIsAlive();
 		
 		return getRefCounterpart().receiveAndGetReply(message);
@@ -174,7 +174,7 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	public String getTarget() {
 		
-		//Checks if this local end point has a target.
+		//Asserts that this local end point has a target.
 		if (!hasTarget()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "target");
 		}

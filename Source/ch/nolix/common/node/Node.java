@@ -352,7 +352,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public void addPrefixToHeader(final String prefix) {
 		
-		//Checks if the given prefix is not null or blank.
+		//Asserts that the given prefix is not null or blank.
 		Validator.assertThat(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
 		
 		//Handles the case that the current Node does not have a header.
@@ -377,7 +377,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public void addPostfixToHeader(final String postfix) {
 		
-		//Checks if the given postfix is not null or blank.
+		//Asserts that the given postfix is not null or blank.
 		Validator.assertThat(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
 		
 		//Handles the case that the current Node does not have a header.
@@ -407,7 +407,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	@Override
 	public String getHeader() {
 		
-		//Checks if the current Node has a header.
+		//Asserts that the current Node has a header.
 		if (!hasHeader()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
@@ -524,7 +524,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	@Override
 	public Node setHeader(final String header) {
 		
-		//Checks if the given header is not null or blank.
+		//Asserts that the given header is not null or blank.
 		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current Node.

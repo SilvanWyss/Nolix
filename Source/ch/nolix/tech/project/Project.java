@@ -156,7 +156,7 @@ public final class Project extends Element<Project> implements IProject {
 	@Override
 	public Project setName(final String name) {
 		
-		//Checks if the given name is not blank.
+		//Asserts that the given name is not blank.
 		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
 		
 		//Sets the name of this tableau.

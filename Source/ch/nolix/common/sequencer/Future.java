@@ -26,7 +26,7 @@ public final class Future implements IFuture {
 	 */
 	Future(final JobRunner jobRunner) {
 		
-		//Checks if the given jobRunner is not null.
+		//Asserts that the given jobRunner is not null.
 		Validator.assertThat(jobRunner).isOfType(JobRunner.class);
 		
 		//Sets the jobRunner of the current Future.

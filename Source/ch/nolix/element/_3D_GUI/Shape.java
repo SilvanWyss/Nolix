@@ -190,10 +190,10 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final S setGUI(_3D_GUI<?> pGUI) {
 		
-		//Checks if the given GUI is not null.
+		//Asserts that the given GUI is not null.
 		Validator.assertThat(pGUI).thatIsNamed("GUI").isNotNull();
 		
-		//Checks if this shape does not belong already to a GUI.
+		//Asserts that this shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
 			throw new InvalidArgumentException(this, "belongs already to a GUI");
 		}
@@ -231,7 +231,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	public final S setPosition(final _3DPoint position) {
 		
-		//Checks if the given position is not null.
+		//Asserts that the given position is not null.
 		Validator.assertThat(position).thatIsNamed("position").isNotNull();
 		
 		//Sets the position of this frame.
@@ -314,7 +314,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	protected final ShapeRenderManager<S, ?, ?> getRefShapeRenderManager() {
 		
-		//Checks if this shape has a shape render manager.
+		//Asserts that this shape has a shape render manager.
 		supposeHasShapeRenderManager();
 		
 		return shapeRenderManager;

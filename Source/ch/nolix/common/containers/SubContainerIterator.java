@@ -86,7 +86,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	@Override
 	public E next() {
 		
-		//Checks if this sub container iterator has a next element.
+		//Asserts that this sub container iterator has a next element.
 		if (!hasNext()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
 		}

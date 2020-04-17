@@ -24,7 +24,7 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	//constructor
 	public FrameVisualizerKeyListener(final GUI<?> parentFrame) {
 		
-		//Checks if the given frame is not null.
+		//Asserts that the given frame is not null.
 		Validator.assertThat(parentFrame).thatIsNamed("parent Frame").isNotNull();
 		
 		//Sets the frame of the current FrameKeyListener.

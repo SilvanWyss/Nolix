@@ -95,7 +95,7 @@ public final class MultiLongMediator extends Mediator {
 	 */
 	public void areBetween(final int min, final int max) {
 		
-		//Checks if the given max is bigger than the given min.
+		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
 			throw new NonBiggerArgumentException("max", max, min);
 		}
@@ -112,7 +112,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is between the given min and max.
+				//Asserts that the current value is between the given min and max.
 				if (v < min || v > max) {
 					addCurrentTestCaseError(
 						"Values that are between " + min + " and " + max + " were expected, but the " + i + "th value is not."
@@ -145,7 +145,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is bigger than the given value.
+				//Asserts that the current value is bigger than the given value.
 				if (v <= value) {
 					addCurrentTestCaseError(
 						"Values that are bigger than " + value + " were expected, but the " + i + "th value is not."
@@ -167,7 +167,7 @@ public final class MultiLongMediator extends Mediator {
 	 */
 	public void areDividableBy(final long value) {
 		
-		//Checks if the given value is positive.
+		//Asserts that the given value is positive.
 		if (value < 1) {
 			throw new NonPositiveArgumentException(VariableNameCatalogue.VALUE, value);
 		}
@@ -184,7 +184,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is dividable by the given value.
+				//Asserts that the current value is dividable by the given value.
 				if (v % value != 0) {
 					addCurrentTestCaseError(
 						"Values that are dividable by " + value + " were expected, but the " + i + "th value is not."
@@ -215,7 +215,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value equals the given value.
+				//Asserts that the current value equals the given value.
 				if (v != value) {
 					addCurrentTestCaseError(
 						"Values that equal " + value + " were expected, but the " + i + "th value does not."
@@ -246,7 +246,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is even.
+				//Asserts that the current value is even.
 				if (v % 2 != 0) {
 					addCurrentTestCaseError("Even values were expected, but the " + i + "th value is not.");
 				}
@@ -275,7 +275,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is negative.
+				//Asserts that the current value is negative.
 				if (v >= 0) {
 					addCurrentTestCaseError("Negative values were expected, but the " + i + "th value is not.");
 				}
@@ -304,7 +304,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is odd.
+				//Asserts that the current value is odd.
 				if (v % 2 == 0) {
 					addCurrentTestCaseError("Odd values were expected, but the " + i + "th value is not.");
 				}
@@ -333,7 +333,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is positive.
+				//Asserts that the current value is positive.
 				if (v <= 0) {
 					addCurrentTestCaseError("Positive values were expected, but the " + i + "th value is not.");
 				}
@@ -364,7 +364,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value is smaller than the given value.
+				//Asserts that the current value is smaller than the given value.
 				if (v >= value) {
 					addCurrentTestCaseError(
 						"Values that are smaller than " + value + " were expected, but the " + i + "th value is not."
@@ -395,7 +395,7 @@ public final class MultiLongMediator extends Mediator {
 			int i = 1;
 			for (final long v: values) {
 				
-				//Checks if the current value does not equal the given value.
+				//Asserts that the current value does not equal the given value.
 				if (v == value) {
 					addCurrentTestCaseError(
 						"Values that do not equal " + value + " were expected, but the " + i + "th value does."

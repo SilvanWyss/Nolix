@@ -79,7 +79,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
@@ -106,7 +106,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		final IElementTakerElementGetter<IContainer<IO>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
@@ -133,7 +133,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
@@ -160,7 +160,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		final IElementTakerElementGetter<IContainer<InputConnection<IO>>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
@@ -190,7 +190,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	 */
 	private IElementTakerElementGetter<Neuron<IO>, IO> getOutputFunction() {
 		
-		//Checks if this neuron has an
+		//Asserts that this neuron has an
 		supposeHasOutputFunction();
 		
 		return outputFunction;

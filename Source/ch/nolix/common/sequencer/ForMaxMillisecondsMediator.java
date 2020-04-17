@@ -43,7 +43,7 @@ public final class ForMaxMillisecondsMediator {
 	 */
 	static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
 		
-		//Checks if the given maxDurationInSeconds is not negative.
+		//Asserts that the given maxDurationInSeconds is not negative.
 		Validator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 		
 		//Creates and returns a new ForMaxMillisecondsMediator.
@@ -59,7 +59,7 @@ public final class ForMaxMillisecondsMediator {
 	 */
 	private ForMaxMillisecondsMediator(final int maxDurationInMilliseconds) {
 		
-		//Checks if the given maxDurationInMilliseconds is not negative.
+		//Asserts that the given maxDurationInMilliseconds is not negative.
 		Validator.assertThat(maxDurationInMilliseconds).thatIsNamed("max duration in milliseconds").isNotNegative();
 		
 		//Sets the maxDurationInMilliseconds of the current ForMaxMillisecondsMediator.
@@ -76,7 +76,7 @@ public final class ForMaxMillisecondsMediator {
 	 */
 	public AsLongAsMediator asLongAs(final IBooleanGetter condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();

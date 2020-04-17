@@ -23,7 +23,7 @@ public final class ByteWrapper {
 	 */
 	public static ByteWrapper fromNumber(final int number) {
 		
-		//Checks if the given number is in [0, 255].
+		//Asserts that the given number is in [0, 255].
 		Validator.assertThat(number).thatIsNamed(VariableNameCatalogue.NUMBER).isBetween(0, 255);
 		
 		return new ByteWrapper((byte)(number - 128));

@@ -52,7 +52,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Checks if the given counterpart is not null.
+		//Asserts that the given counterpart is not null.
 		Validator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
@@ -70,10 +70,10 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	public void send(final String message) {
 		
-		//Checks if the given message is not null.
+		//Asserts that the given message is not null.
 		Validator.assertThat(message).thatIsNamed("message").isNotNull();
 		
-		//Checks if this local end point is not aborted.
+		//Asserts that this local end point is not aborted.
 		supposeIsAlive();
 		
 		counterPart.receive(message);

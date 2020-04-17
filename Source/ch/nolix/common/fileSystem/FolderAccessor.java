@@ -39,7 +39,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 		//Calls constructor of the base class.
 		super(path);
 		
-		//Checks if the file system item with the given path is actually a folder.
+		//Asserts that the file system item with the given path is actually a folder.
 		if (!FileSystemAccessor.isFolder(path)) {
 			throw new InvalidArgumentException(VariableNameCatalogue.PATH, path, "is not a folder");
 		}

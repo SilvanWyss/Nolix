@@ -47,7 +47,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 */
 	public final String getTarget() {
 		
-		//Checks if the current EndPoint has a target.
+		//Asserts that the current EndPoint has a target.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (this.target == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TARGET);
@@ -104,10 +104,10 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
-		//Checks if the current EndPoint is alive.
+		//Asserts that the current EndPoint is alive.
 		supposeIsAlive();
 		
-		//Checks if the given receiver is not null.
+		//Asserts that the given receiver is not null.
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
 		
 		//Sets the receiver of the current EndPoint.
@@ -147,10 +147,10 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 */
 	protected final void setTarget(final String target) {
 		
-		//Checks if the current net EndPoint is alive.
+		//Asserts that the current net EndPoint is alive.
 		supposeIsAlive();
 				
-		//Checks if the given target is not null or blank.
+		//Asserts that the given target is not null or blank.
 		Validator.assertThat(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
 		
 		//Sets the target of the current EndPoint.

@@ -31,7 +31,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 */
 	public MatrixIterator(final Matrix<E> parentMatrix) {
 		
-		//Checks if the given parent matrix is not null.
+		//Asserts that the given parent matrix is not null.
 		Validator
 		.assertThat(parentMatrix)
 		.thatIsNamed("parent matrix")
@@ -59,7 +59,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	@Override
 	public final E next() {
 		
-		//Checks if this matrix iterator has a next element.
+		//Asserts that this matrix iterator has a next element.
 		supposeHasNextElement();
 		
 		final var element = parentMatrix.getRefAt(nextElementIndex);
@@ -74,7 +74,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 */
 	private void supposeHasNextElement() {
 		
-		//Checks if this matrix iterator has a next element.
+		//Asserts that this matrix iterator has a next element.
 		if (!hasNext()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,

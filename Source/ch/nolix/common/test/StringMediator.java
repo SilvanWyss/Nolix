@@ -53,7 +53,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void hasLength(final int length) {
 		
-		//Checks if the given length is not negative.
+		//Asserts that the given length is not negative.
 		if (length < 0) {
 			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
 		}
@@ -98,7 +98,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWith(final String sequence) {
 		
-		//Checks if the given sequence is not null.
+		//Asserts that the given sequence is not null.
 		if (sequence == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.SEQUENCE);
 		}

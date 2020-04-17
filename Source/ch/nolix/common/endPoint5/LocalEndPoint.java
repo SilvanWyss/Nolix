@@ -77,7 +77,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
-		//Checks if the given counterpart is not null.
+		//Asserts that the given counterpart is not null.
 		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
@@ -106,13 +106,13 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the requested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
-		//Checks if the given counterpart is not null.
+		//Asserts that the given counterpart is not null.
 		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
 		
-		//Checks if the given target is not null or empty.
+		//Asserts that the given target is not null or empty.
 		Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local duplex controller.
@@ -184,7 +184,7 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	public void run(final ChainedNode command) {
 		
-		//Checks if this local duplex controller is not aborted.
+		//Asserts that this local duplex controller is not aborted.
 		supposeIsAlive();
 		
 		counterpart.getRefReceiverController().run(command);
@@ -201,7 +201,7 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	protected void run(final LinkedList<ChainedNode> commands) {
 		
-		//Checks if this local duplex controller is not aborted.
+		//Asserts that this local duplex controller is not aborted.
 		supposeIsAlive();
 		
 		final IDataProviderController counterpartReceiverController

@@ -53,7 +53,7 @@ public final class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
-		//Checks if the given port is in [0, 65535]. 
+		//Asserts that the given port is in [0, 65535]. 
 		Validator
 		.assertThat(port)
 		.thatIsNamed("port")
@@ -87,7 +87,7 @@ public final class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Checks if the given socket is not null.
+		//Asserts that the given socket is not null.
 		Validator.assertThat(socket).isOfType(Socket.class);
 		
 		//Sets the socket of this net end point.
@@ -116,10 +116,10 @@ public final class NetEndPoint extends EndPoint {
 	@Override
 	public void send(final String message) {
 		
-		//Checks if the given message is not null.
+		//Asserts that the given message is not null.
 		Validator.assertThat(message).thatIsNamed("message").isNotNull();
 		
-		//Checks if this net end point is not aborted.
+		//Asserts that this net end point is not aborted.
 		supposeIsAlive();
 		
 		printWriter.println(message);

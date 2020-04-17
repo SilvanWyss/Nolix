@@ -42,7 +42,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	 */
 	public ArrayReadContainerIterator(final E[] array) {
 		
-		//Checks if the given array is not null.
+		//Asserts that the given array is not null.
 		Validator
 		.assertThat(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
@@ -70,7 +70,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	@Override
 	public E next() {
 		
-		//Checks if the current ArrayReadContainerIterator has a next element.
+		//Asserts that the current ArrayReadContainerIterator has a next element.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (nextElementIndex >= array.length) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);

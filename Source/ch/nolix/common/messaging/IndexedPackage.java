@@ -31,7 +31,7 @@ public class IndexedPackage<C> implements Indexed {
 	 */
 	public IndexedPackage(final int index, final C content) {
 		
-		//Checks if the given content is not null.
+		//Asserts that the given content is not null.
 		Validator.assertThat(content).thatIsNamed(VariableNameCatalogue.CONTENT).isNotNull();
 		
 		//Sets the index of the current IndexedPackage.

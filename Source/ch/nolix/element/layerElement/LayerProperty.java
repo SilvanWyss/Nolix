@@ -54,19 +54,19 @@ public final class LayerProperty<V> implements Named {
 		
 		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
-		//Checks if the given default is not null.
+		//Asserts that the given default is not null.
 		Validator
 		.assertThat(defaultValue)
 		.thatIsNamed(VariableNameCatalogue.DEFAULT_VALUE)
 		.isNotNull();
 				
-		//Checks if the given value creator is not null.
+		//Asserts that the given value creator is not null.
 		Validator
 		.assertThat(valueCreator)
 		.thatIsNamed("value creator")
 		.isNotNull();
 		
-		//Checks if the given specificaiton creator is not null.
+		//Asserts that the given specificaiton creator is not null.
 		Validator
 		.assertThat(specificationCreator)
 		.thatIsNamed("specification creator")
@@ -115,7 +115,7 @@ public final class LayerProperty<V> implements Named {
 	 */
 	public V getValue() {
 		
-		//Checks if this property has a value.
+		//Asserts that this property has a value.
 		supposeHasValue();
 				
 		return value;
@@ -174,7 +174,7 @@ public final class LayerProperty<V> implements Named {
 	 */
 	public void setValue(final V value) {
 		
-		//Checks if the given value is not null.
+		//Asserts that the given value is not null.
 		Validator
 		.assertThat(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
@@ -219,7 +219,7 @@ public final class LayerProperty<V> implements Named {
 	@SuppressWarnings("unchecked")
 	void setBaseProperty(final LayerProperty<?> baseProperty) {
 		
-		//Checks if the given base property is not null.
+		//Asserts that the given base property is not null.
 		Validator
 		.assertThat(baseProperty)
 		.thatIsNamed("base property")
@@ -237,7 +237,7 @@ public final class LayerProperty<V> implements Named {
 	 */
 	private void supposeHasNoBaseProperty() {
 		
-		//Checks if this property does not have a base property.
+		//Asserts that this property does not have a base property.
 		if (hasBaseProperty()) {
 			throw new InvalidArgumentException(
 				this,
@@ -253,7 +253,7 @@ public final class LayerProperty<V> implements Named {
 	 */
 	private void supposeHasValue() {
 		
-		//Checks if this property has a value.
+		//Asserts that this property has a value.
 		if (!hasValue()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,

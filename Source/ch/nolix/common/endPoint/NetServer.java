@@ -40,7 +40,7 @@ public final class NetServer extends Server {
 		//Calls constructor of the base class.
 		super(endPointTaker);
 		
-		//Checks if the given port is in [0, 65535]. 
+		//Asserts that the given port is in [0, 65535]. 
 		Validator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		//Sets the port of this net server.

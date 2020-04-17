@@ -61,12 +61,12 @@ public class ArgumentMediator<A> extends Mediator {
 	 */
 	public final void fulfills(IElementTakerBooleanGetter<A> condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		if (condition == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
 				
-		//Checks if the argument of the current ArgumentMediator fulfills the given condition.
+		//Asserts that the argument of the current ArgumentMediator fulfills the given condition.
 		if (!condition.getOutput(getRefArgument())) {
 			throw
 			new InvalidArgumentException(getArgumentName(), getRefArgument(), "does not fulfil the given condition");
@@ -81,7 +81,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 */
 	public final TerminalArgumentMediator<A> isEqualTo(final A object) {
 		
-		//Checks if the argument of the current ArgumentMediator equals the given object.
+		//Asserts that the argument of the current ArgumentMediator equals the given object.
 		if (argument != null && !argument.equals(object)) {
 			throw new UnequalArgumentException(argument, object);
 		}
@@ -96,7 +96,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 */
 	public final TerminalArgumentMediator<A> isNot(final Object object) {
 		
-		//Checks if the argument of the current ArgumentMediator is not the given object.
+		//Asserts that the argument of the current ArgumentMediator is not the given object.
 		if (argument == object) {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is the given object");
 		}
@@ -111,7 +111,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 */
 	public TerminalArgumentMediator<A> isNotNull() {
 		
-		//Checks if the argument of the current ArgumentMediator is not null.
+		//Asserts that the argument of the current ArgumentMediator is not null.
 		if (argument == null) {
 			throw new ArgumentIsNullException(getArgumentName());
 		}
@@ -128,10 +128,10 @@ public class ArgumentMediator<A> extends Mediator {
 	 */
 	public final void isOfType(final Class<?> type) {
 		
-		//Checks if the argument of the current ArgumentMediator is not null.
+		//Asserts that the argument of the current ArgumentMediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of the current ArgumentMediator is of the given type.
+		//Asserts that the argument of the current ArgumentMediator is of the given type.
 		if (!getRefArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not a " + type);
 		}

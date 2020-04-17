@@ -63,7 +63,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public Matrix<E> addColumn(final Iterable<E> elements) {
 		
-		//Checks if the given elements are not null.
+		//Asserts that the given elements are not null.
 		Validator.assertThatTheElements(elements).areNotNull();
 		
 		final var elements_ = new ReadContainer<E>(elements);
@@ -88,7 +88,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Handles the case that the current matrix is not empty.
 		else {
 			
-			//Checks if as many elements are given as the number of rows of the current matrix.
+			//Asserts that as many elements are given as the number of rows of the current matrix.
 			Validator
 			.assertThat(elements_.getSize())
 			.thatIsNamed("number of the given elements")
@@ -156,7 +156,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public Matrix<E> addRow(final Iterable<E> elements) {
 		
-		//Checks if the given elements are not null.
+		//Asserts that the given elements are not null.
 		Validator.assertThatTheElements(elements).areNotNull();
 		
 		final var elements_ = new ReadContainer<E>(elements);
@@ -181,7 +181,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Handles the case that the current matrix is not empty.
 		else {
 			
-			//Checks if as many elements are given as the number of columns of the current matrix.
+			//Asserts that as many elements are given as the number of columns of the current matrix.
 			Validator
 			.assertThat(elements_.getSize())
 			.thatIsNamed("number of the given elements")
@@ -279,7 +279,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public int getColumnIndexOf(final int index) {
 		
-		//Checks if the current matrix contains an element at the given index.
+		//Asserts that the current matrix contains an element at the given index.
 		supposeContainsAt(index);
 		
 		return ((index - 1) % getColumnCount() + 1);
@@ -347,7 +347,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public int getIndexOf(final int rowIndex, final int columnIndex) {
 		
-		//Checks if the current matrix contains an element
+		//Asserts that the current matrix contains an element
 		//at the given row index and the given column index.
 		supposeContainsAt(rowIndex, columnIndex);
 		
@@ -384,7 +384,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	@SuppressWarnings("unchecked")
 	public E getRefAt(final int rowIndex, final int columnIndex) {
 		
-		//Checks if the current matrix contains an element at the given row index and column index.
+		//Asserts that the current matrix contains an element at the given row index and column index.
 		supposeContainsAt(rowIndex, columnIndex);
 		
 		return (E)elements[rowIndex - 1][columnIndex - 1];
@@ -412,7 +412,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public int getRowIndexOf(final int index) {
 		
-		//Checks if the current matrix contains an element at the given index.
+		//Asserts that the current matrix contains an element at the given index.
 		supposeContainsAt(index);
 		
 		return ((index - 1) / getColumnCount() + 1);
@@ -488,7 +488,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public Matrix<E> setAt(final int index, final E element) {
 				
-		//Checks if the given element is not null.
+		//Asserts that the given element is not null.
 		Validator
 		.assertThat(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
@@ -525,10 +525,10 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		final E element
 	) {
 		
-		//Checks if the current matrix contains an element at the given row index and column index.
+		//Asserts that the current matrix contains an element at the given row index and column index.
 		supposeContainsAt(rowIndex, columnIndex);
 		
-		//Checks if the given element is not null.
+		//Asserts that the given element is not null.
 		Validator
 		.assertThat(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)

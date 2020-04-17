@@ -21,12 +21,12 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	 */
 	private static String getPronoun(final String noun) {
 		
-		//Checks if the given noun is not null.
+		//Asserts that the given noun is not null.
 		if (noun == null) {
 			throw new RuntimeException("The given noun is null.");
 		}
 		
-		//Checks if the given noun is not blank.
+		//Asserts that the given noun is not blank.
 		if (noun.isBlank()) {
 			throw new RuntimeException("The given noun is blank.");
 		}
@@ -57,7 +57,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	 */
 	private static String getTypeName(final Class<?> type) {
 		
-		//Checks if the given type is not null.
+		//Asserts that the given type is not null.
 		if (type == null) {
 			throw new RuntimeException("The given type is null.");
 		}

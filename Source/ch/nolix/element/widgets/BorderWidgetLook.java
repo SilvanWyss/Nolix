@@ -1012,7 +1012,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBaseScrollbarLook(final ScrollbarLook baseScrollbarLook) {
 		
-		//Checks if the given base scrollbar look is not null.
+		//Asserts that the given base scrollbar look is not null.
 		Validator
 		.assertThat(baseScrollbarLook)
 		.thatIsNamed("base scrollbar look")
@@ -1075,7 +1075,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBottomBorderColor(final Color bottomBorderColor) {
 		
-		//Checks if the given bottom border color is not null.
+		//Asserts that the given bottom border color is not null.
 		Validator
 		.assertThat(bottomBorderColor)
 		.thatIsNamed("bottom border color")
@@ -1131,7 +1131,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setHoverScrollbarLook(final ScrollbarLook hoverScrollbarLook) {
 		
-		//Checks if the given hover scrollbar look is not null.
+		//Asserts that the given hover scrollbar look is not null.
 		Validator
 		.assertThat(hoverScrollbarLook)
 		.thatIsNamed("hover scrollbar look")
@@ -1153,7 +1153,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setLeftBorderColor(final Color leftBorderColor) {
 		
-		//Checks if the given left border color is not null.
+		//Asserts that the given left border color is not null.
 		Validator
 		.assertThat(leftBorderColor)
 		.thatIsNamed("left border color")
@@ -1227,7 +1227,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setRightBorderColor(final Color rightBorderColor) {
 		
-		//Checks if the given right border color is not null.
+		//Asserts that the given right border color is not null.
 		Validator
 		.assertThat(rightBorderColor)
 		.thatIsNamed("right border color")
@@ -1283,7 +1283,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setSelectionScrollbarLook(final ScrollbarLook selectionScrollbarLook) {
 		
-		//Checks if the given selection scrollbar look is not null.
+		//Asserts that the given selection scrollbar look is not null.
 		Validator
 		.assertThat(selectionScrollbarLook)
 		.thatIsNamed("selection scrollbar look")
@@ -1305,7 +1305,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setTopBorderColor(final Color topBorderColor) {
 		
-		//Checks if the given top border color is not null.
+		//Asserts that the given top border color is not null.
 		Validator
 		.assertThat(topBorderColor)
 		.thatIsNamed("top border color")

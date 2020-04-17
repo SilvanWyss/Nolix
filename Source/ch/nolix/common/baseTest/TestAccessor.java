@@ -29,7 +29,7 @@ public final class TestAccessor {
 	 */
 	public TestAccessor(final BaseTest test) {
 		
-		//Checks if the given test is not null.
+		//Asserts that the given test is not null.
 		if (test == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.TEST);
 		}

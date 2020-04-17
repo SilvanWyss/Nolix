@@ -20,7 +20,7 @@ public class ArgumentBelongsToUnexchangeableParentException extends InvalidArgum
 	 */
 	private static String createSafeTypeName(final Object parent) {
 		
-		//Checks if the given parent is not null.
+		//Asserts that the given parent is not null.
 		if (parent == null) {
 			throw new RuntimeException("The given parent is null.");
 		}

@@ -86,7 +86,7 @@ implements ISmartObject<N> {
 	 */
 	public final N clearInputNeurons() {
 		
-		//Checks if the minimal number of input neurons of this neuron is 0.
+		//Asserts that the minimal number of input neurons of this neuron is 0.
 		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
 		
 		while (getInputNeuronCount() > 0) {
@@ -244,7 +244,7 @@ implements ISmartObject<N> {
 	 */
 	public final N removeInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
 		
-		//Checks if this neuron has not more input neurons than its minimal input neuron count says.
+		//Asserts that this neuron has not more input neurons than its minimal input neuron count says.
 		Validator.assertThat(getInputNeuronCount()).isBiggerThan(getMinInputNeuronCount());
 		
 		inputConnections.removeFirst(ic -> ic.hasInputNeuron(inputNeuron));
@@ -284,13 +284,13 @@ implements ISmartObject<N> {
 	 */
 	private final void addInputConnection(final InputConnection<I> inputConnection) {
 		
-		//Checks if the given input neuron is not null.
+		//Asserts that the given input neuron is not null.
 		Validator.assertThat(inputConnection).thatIsNamed("input neuron").isNotNull();
 		
-		//Checks if this neuron has less input neurons than its maximal input neurons count says.
+		//Asserts that this neuron has less input neurons than its maximal input neurons count says.
 		Validator.assertThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
 		
-		//Checks if this neuron does not contain the input neuron of the given input connection.
+		//Asserts that this neuron does not contain the input neuron of the given input connection.
 		if (inputConnections.contains(ic -> ic.hasInputNeuron(inputConnection.getRefInputNeuron()))) {
 			throw new InvalidArgumentException(
 				inputConnection,

@@ -55,14 +55,14 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 */
 	public void areBiggerThan(final double value) {
 		
-		//Checks if the arguments of this multi double mediator are not null.
+		//Asserts that the arguments of this multi double mediator are not null.
 		areNotNull();
 		
 		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
-			//Checks if the current argument is bigger than the given value.
+			//Asserts that the current argument is bigger than the given value.
 			if (a <= value) {
 				throw new NonBiggerArgumentException(i + "th argument", a, value);
 			}
@@ -81,14 +81,14 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 */
 	public void areNegative() {
 		
-		//Checks if the arguments of this multi double mediator are not null.
+		//Asserts that the arguments of this multi double mediator are not null.
 		areNotNull();
 	
 		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
-			//Checks if the current arguemnt is negative.
+			//Asserts that the current arguemnt is negative.
 			if (a > 0) {
 				throw new NonNegativeArgumentException(i + "th argument", a);
 			}
@@ -107,14 +107,14 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 */
 	public void arePositive() {
 		
-		//Checks if the arguments of this multi double mediator are not null.
+		//Asserts that the arguments of this multi double mediator are not null.
 		areNotNull();
 		
 		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
-			//Checks if the current argument is positive.
+			//Asserts that the current argument is positive.
 			if (a <= 0) {
 				throw new NonPositiveArgumentException(i + "th argument", a);
 			}
@@ -134,14 +134,14 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 */
 	public void areSmallerThan(final double value) {
 		
-		//Checks if the arguments of this multi double mediator are not null.
+		//Asserts that the arguments of this multi double mediator are not null.
 		areNotNull();
 		
 		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
-			//Checks if the current argument is smaller than the given value.
+			//Asserts that the current argument is smaller than the given value.
 			if (a >= value) {
 				throw new NonSmallerArgumentException(i + "th argument", a, value);
 			}

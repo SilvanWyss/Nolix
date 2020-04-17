@@ -45,7 +45,7 @@ public final class LongMediator extends Mediator {
 	 */
 	public void fulfils(final IElementTakerBooleanGetter<Long> condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		if (condition == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
@@ -65,7 +65,7 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isBetween(final long min, final long max) {
 		
-		//Checks if the given max is bigger than the given min.
+		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
 			throw new NonBiggerArgumentException("max", max, min);
 		}
@@ -108,7 +108,7 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isDividableBy(final long value) {
 		
-		//Checks if the given value is positive.
+		//Asserts that the given value is positive.
 		if (value < 1) {
 			throw new NonPositiveArgumentException(VariableNameCatalogue.VALUE, value);
 		}
@@ -172,7 +172,7 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isNotBetween(final long min, final long max) {
 		
-		//Checks if the given max is bigger than the given min.
+		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
 			throw new NonBiggerArgumentException("max", max, min);
 		}

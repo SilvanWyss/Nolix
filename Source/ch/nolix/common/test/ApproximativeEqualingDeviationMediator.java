@@ -57,7 +57,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Checks if the given max deviation is not negative.
+		//Asserts that the given max deviation is not negative.
 		if (maxDeviation < 0) {
 			throw new NegativeArgumentException( "max deviation", maxDeviation);
 		}

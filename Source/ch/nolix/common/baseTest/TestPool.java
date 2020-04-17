@@ -75,7 +75,7 @@ public abstract class TestPool implements Runnable {
 		//Iterates the testPools of the current TestPool.
 		for (final TestPool tp : testPools) {
 			
-			//Checks if the current testPool is the given testPool or contains the given testPool recursively.
+			//Asserts that the current testPool is the given testPool or contains the given testPool recursively.
 			if (tp == testPool || tp.containsTestPoolRecursively(testPool)) {
 				return true;
 			}
@@ -94,7 +94,7 @@ public abstract class TestPool implements Runnable {
 		//Iterates the testPools of the current TestPool.
 		for (final var tp : testPools) {
 			
-			//Checks if the current testPool contains the given testClass recursively.
+			//Asserts that the current testPool contains the given testClass recursively.
 			if (tp.containsTestClassRecursively(testClass)) {
 				return true;
 			}
@@ -103,7 +103,7 @@ public abstract class TestPool implements Runnable {
 		//Iterates the testClasses of the current TestPool.
 		for (final var tc : testClasses) {
 			
-			//Checks if the current testClass is the given testClass.
+			//Asserts that the current testClass is the given testClass.
 			if (tc == testClass) {
 				return true;
 			}
@@ -171,12 +171,12 @@ public abstract class TestPool implements Runnable {
 	@SuppressWarnings("unchecked")
 	private void addTestClass(final Class<?> testClass) {
 		
-		//Checks if the given testClass is not null.
+		//Asserts that the given testClass is not null.
 		if (testClass == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.TEST_CLASS);
 		}
 		
-		//Checks if the given testClass is a sub class of BaseTest.
+		//Asserts that the given testClass is a sub class of BaseTest.
 		if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
 			throw
 			new InvalidArgumentException(
@@ -186,12 +186,12 @@ public abstract class TestPool implements Runnable {
 			);
 		}
 		
-		//Checks if the given testClass is not abstract.
+		//Asserts that the given testClass is not abstract.
 		if (ReflectionHelper.isAbstract(testClass)) {
 			throw new InvalidArgumentException(VariableNameCatalogue.TEST_CLASS, testClass, "is abstract");
 		}
 		
-		//Checks if the given testClass has a default constructor.
+		//Asserts that the given testClass has a default constructor.
 		if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
 			throw
 			new InvalidArgumentException(
@@ -214,12 +214,12 @@ public abstract class TestPool implements Runnable {
 	 */
 	private void addTestPool(final TestPool testPool) {
 		
-		//Checks if the given testPool is not null.
+		//Asserts that the given testPool is not null.
 		if (testPool == null) {
 			throw new ArgumentIsNullException("test pool");
 		}
 		
-		//Checks if the given test pool does not contain the current TestPool recursively.
+		//Asserts that the given test pool does not contain the current TestPool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {
 			throw new InvalidArgumentException(testPool, "contains recursively " + getName());
 		}

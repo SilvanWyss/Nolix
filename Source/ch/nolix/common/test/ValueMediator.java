@@ -80,7 +80,7 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void fulfils(final IElementTakerBooleanGetter<V> condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		if (condition == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
@@ -99,7 +99,7 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void fulfilsNot(final IElementTakerBooleanGetter<V> condition) {
 	
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		if (condition == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}

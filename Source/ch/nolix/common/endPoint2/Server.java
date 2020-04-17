@@ -40,7 +40,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		//Extracts the name of the given endPointTaker.
 		final var name = endPointTaker.getName();
 		
-		//Checks if the current Server
+		//Asserts that the current Server
 		//contains already an IEndPointTaker with the same name as the given endPointTaker.
 		if (containsEndPointTaker(name)) {
 			throw
@@ -60,7 +60,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void addMainEndPointTaker(final IEndPointTaker mainEndPointTaker) {
 		
-		//Checks if the current Server does not contain already a main IEndPointTaker.
+		//Asserts that the current Server does not contain already a main IEndPointTaker.
 		if (containsMainEndPointTaker()) {
 			throw new InvalidArgumentException(this, "contains already a mainEndPointTaker");
 		}
@@ -143,10 +143,10 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
-		//Checks if the given endPoint is not null.
+		//Asserts that the given endPoint is not null.
 		Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
 		
-		//Checks if the given endPoint is alive.
+		//Asserts that the given endPoint is alive.
 		if (endPoint.isClosed()) {
 			throw new InvalidArgumentException(endPoint, "is closed");
 		}
@@ -177,7 +177,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	private IEndPointTaker getRefMainEndPointTaker() {
 		
-		//Checks if the current Server has a main IEndPointTaker.
+		//Asserts that the current Server has a main IEndPointTaker.
 		//For a better performance, this method does not use all comfortable methods.
 		if (mainEndPointTaker == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "main IEndPointTaker");

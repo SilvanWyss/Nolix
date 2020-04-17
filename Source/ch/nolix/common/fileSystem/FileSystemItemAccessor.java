@@ -35,7 +35,7 @@ public class FileSystemItemAccessor {
 		//Creates the internal file accessor of this file accessor.
 		internalAccessor = new File(path);
 		
-		//Checks if the given file path does not point to a directory.
+		//Asserts that the given file path does not point to a directory.
 		if (!internalAccessor.exists()) {
 			throw new InvalidArgumentException(
 				VariableNameCatalogue.PATH,

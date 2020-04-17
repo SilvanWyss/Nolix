@@ -58,7 +58,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	//method
 	public Cylinder setDiameter(final double diameter) {
 		
-		//Checks if the given diameter is positive.
+		//Asserts that the given diameter is positive.
 		Validator
 		.assertThat(diameter)
 		.thatIsNamed(VariableNameCatalogue.DIAMETER)

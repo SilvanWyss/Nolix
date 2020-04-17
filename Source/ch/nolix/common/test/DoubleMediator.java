@@ -45,7 +45,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void fulfils(final IElementTakerBooleanGetter<Double> condition) {
 		
-		//Checks if the given condition is not null.
+		//Asserts that the given condition is not null.
 		if (condition == null) {
 			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
 		}
@@ -65,7 +65,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isBetween(final double min, final double max) {
 		
-		//Checks if the given max is bigger than the given min.
+		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
 			throw new NonBiggerArgumentException("max", max, min);
 		}
@@ -131,7 +131,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isNotBetween(final double min, final double max) {
 		
-		//Checks if the given max is bigger than the given min.
+		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
 			throw new NonBiggerArgumentException("max", max, min);
 		}

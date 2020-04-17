@@ -23,7 +23,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 */
 	private static String createSafeAttributeType(final Class<?> attributeType) {
 		
-		//Checks if the given attribute type is not null.
+		//Asserts that the given attribute type is not null.
 		if (attributeType == null) {
 			throw new RuntimeException("The given attribute type is null.");
 		}
@@ -41,17 +41,17 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 */
 	private static String createSafeAttribtueName(final String attributeName) {
 		
-		//Checks if the given attribute name is not null.
+		//Asserts that the given attribute name is not null.
 		if (attributeName == null) {
 			throw new RuntimeException("The given attribtue name is null.");
 		}
 		
-		//Checks if the given attribute name is not empty.
+		//Asserts that the given attribute name is not empty.
 		if (attributeName.isEmpty()) {
 			throw new RuntimeException("The given attribtue name is empty.");
 		}
 		
-		//Checks if the given attribute name is not blank.
+		//Asserts that the given attribute name is not blank.
 		if (attributeName.isBlank()) {
 			throw new RuntimeException("The given attribtue name is blank.");
 		}

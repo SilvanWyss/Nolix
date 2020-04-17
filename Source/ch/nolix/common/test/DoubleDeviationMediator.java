@@ -56,7 +56,7 @@ public final class DoubleDeviationMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Checks if the given max deviation is not negative.
+		//Asserts that the given max deviation is not negative.
 		if (maxDeviation < 0) {
 			throw new NegativeArgumentException("max deviation", maxDeviation);
 		}
@@ -77,7 +77,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 */
 	public void isEqualTo(final double value) {
 		
-		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
+		//Asserts that the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) > maxDeviation) {
 			addCurrentTestCaseError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
 		}
@@ -92,7 +92,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 */
 	public void isNotEqualTo(final double value) {
 		
-		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
+		//Asserts that the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) <= maxDeviation) {
 			addCurrentTestCaseError("A value that does not equal " + value + "±" + maxDeviation + " was expected, but " + this.value + " was received.");
 		}
@@ -105,7 +105,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 */
 	public void isNotZero() {
 		
-		//Checks if the value of this double deviation mediator does not equal 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+		//Asserts that the value of this double deviation mediator does not equal 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
 		isNotEqualTo(0.0);
 	}
 	
@@ -116,7 +116,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 */
 	public void isZero() {
 		
-		//Checks if the value of this double deviation mediator equals 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+		//Asserts that the value of this double deviation mediator equals 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
 		isEqualTo(0.0);
 	}
 }
