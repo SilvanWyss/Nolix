@@ -40,7 +40,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 410
+ * @lines 420
  */
 public final class NetEndPoint extends EndPoint {
 	
@@ -223,7 +223,7 @@ public final class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public void send(final String message) {
-		sendRawMessage("M" + message);
+		sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
 	}
 	
 	//method
@@ -233,6 +233,7 @@ public final class NetEndPoint extends EndPoint {
 	@Override
 	protected void noteClose() {
 		try {
+			sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
 			socket.close();
 		}
 		catch (final IOException IOException) {
@@ -364,6 +365,10 @@ public final class NetEndPoint extends EndPoint {
 				break;
 			case NetEndPointProtocol.MESSAGE_PREFIX:
 				receiveMessage(rawMessage.substring(1));				
+				break;
+			case NetEndPointProtocol.CLOSE_PREFIX:
+				Validator.assertThat(rawMessage).thatIsNamed("raw message").hasLength(1);
+				close();
 				break;
 			default:
 				throw new InvalidArgumentException("raw message", rawMessage, "is not valid");
