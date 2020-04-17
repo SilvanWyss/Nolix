@@ -70,15 +70,17 @@ final class CloseController implements Closable {
 	@Override
 	public void close() {
 		
-		//Handles the case that the current CloseController is alive.
-		if (isOpen()) {
-			
-			//Sets the current CloseController as closed.
-			closed = true;
-			
-			//Lets note all elements of the current CloseController the close.
-			elements.forEach(e -> e.noteClose());
-		}
+		//Checks if the current CloseController is alive.
+		supposeIsAlive();
+		
+		//Sets the current CloseController as closed.
+		closed = true;
+		
+		//Lets note all elements of the current CloseController run their probable pre-close action.
+		elements.forEach(ClosableElement::runProbablePreCloseAction);
+		
+		//Lets note all elements of the current CloseController note the close.
+		elements.forEach(ClosableElement::noteClose);
 	}
 	
 	//method

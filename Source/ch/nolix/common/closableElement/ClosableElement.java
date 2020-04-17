@@ -3,6 +3,7 @@ package ch.nolix.common.closableElement;
 
 //own imports
 import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
@@ -12,12 +13,15 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 120
+ * @lines 150
  */
 public abstract class ClosableElement implements Closable {
 	
 	//attribute
 	private CloseController parentCloseController = new CloseController(this);
+	
+	//optional attribute
+	private IFunction preCloseAction;
 	
 	//method
 	/**
@@ -25,21 +29,24 @@ public abstract class ClosableElement implements Closable {
 	 */
 	@Override
 	public final void close() {
-		
-		//Handles the case that the current ClosableElement is alive.
-		if (isOpen()) {
-			parentCloseController.close();
-		}
+		parentCloseController.close();
 	}
 	
 	//method
 	/**
 	 * @param element
-	 * @return true if the current {@link ClosableElement}
-	 * has a close dependency to the given element.
+	 * @return true if the current {@link ClosableElement} has a close dependency to the given element.
 	 */
 	public final boolean hasCloseDependencyTo(final ClosableElement element) {
 		return parentCloseController.containsElement(element);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link ClosableElement} has a pre-close action.
+	 */
+	public final boolean hasPreCloseAction() {
+		return (preCloseAction != null);
 	}
 	
 	//method
@@ -49,6 +56,22 @@ public abstract class ClosableElement implements Closable {
 	@Override
 	public final boolean isClosed() {
 		return parentCloseController.isClosed();
+	}
+	
+	//method
+	/**
+	 * Sets the pre-close action of the current {@link ClosableElement}.
+	 * 
+	 * @param preCloseAction
+	 * @throws ArgumentIsNullException if the given preCloseAction is null.
+	 */
+	public final void setPreCloseAction(final IFunction preCloseAction) {
+		
+		//Checks if the given pre-close action is not null.
+		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();
+		
+		//Sets the pre-close action of the current ClosableElement.
+		this.preCloseAction = preCloseAction;
 	}
 	
 	//method
@@ -69,13 +92,9 @@ public abstract class ClosableElement implements Closable {
 		//Checks if the current ClosableElement is alive.
 		supposeIsAlive();
 		
-		//Checks if the current ClosableElement
-		//does not have already a close dependency to the given element.
+		//Checks if the current ClosableElement does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
-			throw new InvalidArgumentException(
-				this,
-				"has already a close dependency to the given element"
-			);
+			throw new InvalidArgumentException(this, "has already a close dependency to the given element");
 		}
 		
 		parentCloseController.addElement(element);
@@ -107,22 +126,29 @@ public abstract class ClosableElement implements Closable {
 		return parentCloseController.getRefElements();
 	}
 	
+	//method
+	/**
+	 * Runs the pre-close action of the current {@link ClosableElement} if it has one.
+	 */
+	final void runProbablePreCloseAction() {
+		if (hasPreCloseAction()) {
+			preCloseAction.run();
+		}
+	}
+	
 	//method.
 	/**
-	 * Sets the close controller the current {@link ClosableElement} will belong to.
+	 * Sets the {@link CloseController} the current {@link ClosableElement} will belong to.
 	 * 
 	 * @param parentCloseController
-	 * @throws ArgumentIsNullException if the given parent close controller is null.
+	 * @throws ArgumentIsNullException if the given parentCloseController is null.
 	 */
 	final void setParentCloseController(final CloseController parentCloseController) {
 		
-		//Checks if the given parent close controller is not null.
-		Validator
-		.assertThat(parentCloseController)
-		.thatIsNamed("parent close controller")
-		.isNotNull();
+		//Checks if the given parentCloseController is not null.
+		Validator.assertThat(parentCloseController).thatIsNamed("parent close controller").isNotNull();
 		
-		//Sets the parent close controller of the current ClosableElement.
+		//Sets the parentCloseController of the current ClosableElement.
 		this.parentCloseController = parentCloseController;
 	}
 }
