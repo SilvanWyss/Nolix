@@ -10,7 +10,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 180
+ * @lines 150
  */
 public final class LocalEndPoint extends EndPoint {
 	
@@ -90,12 +90,13 @@ public final class LocalEndPoint extends EndPoint {
 		
 		//Checks if the given counterpart is not null.
 		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
-				
+		
+		//Creates a close dependency from the current LocalEndPoint to the given counterpart.
+		createCloseDependency(counterpart);
+		
 		//Sets the counterpart of this local end point.
 		this.counterpart = counterpart;
 	}
-	
-
 	
 	//method
 	/**
