@@ -21,7 +21,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 290
+ * @lines 300
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -75,8 +75,14 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_KEY_PRESS_HEADER:
+				
 				getRefGUI().noteKeyPress(Key.fromSpecification(command.getOneAttributeAsNode()));
-				updateGUIOnCounterpart();
+				
+				//TODO: Handle cases systematically where a preceding statement can close a Client legally.
+				if (!isClosed()) {
+					updateGUIOnCounterpart();
+				}
+				
 				break;
 			case Protocol.NOTE_KEY_RELEASE_HEADER:
 				getRefGUI().noteKeyRelease(Key.fromSpecification(command.getOneAttributeAsNode()));
