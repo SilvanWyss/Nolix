@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 200
+ * @lines 210
  */
 public final class LocalEndPoint extends EndPoint {
 	
@@ -82,6 +82,8 @@ public final class LocalEndPoint extends EndPoint {
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
+		
+		createCloseDependency(counterpart);
 		
 		//Clears the target of this local duplex controller.
 		target = null;
