@@ -76,12 +76,10 @@ final class NetServerHTTPMessage {
 		return
 		"<script>\n"
 		+ "require(['System/FrontBrowserGUIClient/FrontBrowserGUIClient'], function (FrontBrowserGUIClient_) {"
-		+ "alert('point 1');"
 		+ "var client = FrontBrowserGUIClient_.FrontBrowserGUIClient.withIpAndNumberAndWindow("
 		+ getServerIpInQuotes() + ", "
 		+ getServerPort() + ", "
 		+ "window);"
-		+ "alert('point 2');"
 		+ "});\n"
 		+ "</script>\n";
 	}
