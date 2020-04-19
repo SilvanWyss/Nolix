@@ -8,7 +8,7 @@ import ch.nolix.system.client.Application;
 
 //class
 /**
- * A {@link FrontBrowserGUIClient} does the same as a browser-analogue of a {@link FrontGUIClient}.
+ * A {@link FrontCanvasGUIClient} does the same as a browser-analogue of a {@link FrontGUIClient}.
  * 
  * The requirements for a browser-analogue of a {@link FrontGUIClient} allow
  * that a browser-analogue of a {@link FrontGUIClient} can be implemented in JavaScript.
@@ -17,15 +17,15 @@ import ch.nolix.system.client.Application;
  * @month 2018-09
  * @lines 110
  */
-public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowserGUIClient> {
+public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGUIClient> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontBrowserGUIClient} that will connect to the given application.
+	 * Creates a new {@link FrontCanvasGUIClient} that will connect to the given application.
 	 * 
 	 * @throws ArgumentIsNullException if the given application is null.
 	 */
-	public FrontBrowserGUIClient(final Application<BackGUIClient> application) {
+	public FrontCanvasGUIClient(final Application<BackGUIClient> application) {
 		
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
@@ -37,13 +37,13 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontBrowserGUIClient} that will connect to the main application
+	 * Creates a new {@link FrontCanvasGUIClient} that will connect to the main application
 	 * on the given port on the local machine.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 */
-	public FrontBrowserGUIClient(final int port) {
+	public FrontCanvasGUIClient(final int port) {
 		
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
@@ -55,7 +55,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontBrowserGUIClient} that will connect
+	 * Creates a new {@link FrontCanvasGUIClient} that will connect
 	 * to the given application on the given port on the local machine.
 	 * 
 	 * @param port
@@ -64,7 +64,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontBrowserGUIClient(final int port, final String application) {
+	public FrontCanvasGUIClient(final int port, final String application) {
 		
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
@@ -76,14 +76,14 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontBrowserGUIClient} that will connect
+	 * Creates a new {@link FrontCanvasGUIClient} that will connect
 	 * to the main application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 */
-	public FrontBrowserGUIClient(final String ip, final int port) {
+	public FrontCanvasGUIClient(final String ip, final int port) {
 		
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
@@ -95,7 +95,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontBrowserGUIClient} that will connect
+	 * Creates a new {@link FrontCanvasGUIClient} that will connect
 	 * to the given application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -105,7 +105,7 @@ public final class FrontBrowserGUIClient extends BaseFrontGUIClient<FrontBrowser
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontBrowserGUIClient(final String ip, final int port, final String application) {
+	public FrontCanvasGUIClient(final String ip, final int port, final String application) {
 		
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);

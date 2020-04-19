@@ -4,10 +4,10 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.widgets.Label;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
-import ch.nolix.system.GUIClient.FrontBrowserGUIClient;
+import ch.nolix.system.GUIClient.FrontCanvasGUIClient;
 import ch.nolix.system.client.Application;
 
-public final class FrontBrowserGUIClientTutorial {
+public final class FrontCanvasGUIClientTutorial {
 	
 	public static void main(String[] args) {
 				
@@ -15,7 +15,7 @@ public final class FrontBrowserGUIClientTutorial {
 		final var application =	new Application<>("Application", BackGUIClient.class, MainSession.class);
 		
 		//Creates a FrontBrowserGUIClient that will connect to the application.
-		new FrontBrowserGUIClient(application);
+		new FrontCanvasGUIClient(application);
 	}
 	
 	private static class MainSession extends BackGUIClientSession {
@@ -29,5 +29,5 @@ public final class FrontBrowserGUIClientTutorial {
 		}
 	}
 	
-	private FrontBrowserGUIClientTutorial() {}
+	private FrontCanvasGUIClientTutorial() {}
 }
