@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.keyBoard;
+package ch.nolix.element.inputs;
 
 //own imports
 import ch.nolix.common.node.BaseNode;

@@ -1,8 +1,9 @@
 //package declaration
-package ch.nolix.element.input;
+package ch.nolix.element.inputDevices;
 
 //own imports
 import ch.nolix.common.containers.LinkedList;
+import ch.nolix.element.inputs.Key;
 
 //class
 public final class KeyBoard {

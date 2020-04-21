@@ -4,8 +4,8 @@ package ch.nolix.system.baseGUIClient;
 //own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
-import ch.nolix.element.input.IInputTaker;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.inputs.IInputTaker;
+import ch.nolix.element.inputs.Key;
 
 //class
 /**

@@ -7,7 +7,7 @@ import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.inputs.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class

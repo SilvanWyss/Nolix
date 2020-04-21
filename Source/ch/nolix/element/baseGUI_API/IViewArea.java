@@ -3,7 +3,7 @@ package ch.nolix.element.baseGUI_API;
 
 //own imports
 import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.inputs.IInputTaker;
 
 //interface
 /**

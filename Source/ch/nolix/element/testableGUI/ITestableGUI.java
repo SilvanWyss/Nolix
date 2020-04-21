@@ -4,7 +4,7 @@ package ch.nolix.element.testableGUI;
 //own imports
 import ch.nolix.common.attributeAPI.Titled;
 import ch.nolix.common.skillAPI.IRequestableContainer;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.inputs.IInputTaker;
 
 //interface
 public interface ITestableGUI extends IInputTaker, IRequestableContainer, Titled {

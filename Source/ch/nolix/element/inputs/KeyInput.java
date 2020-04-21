@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.keyBoard;
+package ch.nolix.element.inputs;
 
 //own imports
 import ch.nolix.common.constants.PascalCaseNameCatalogue;
@@ -7,7 +7,6 @@ import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
-import ch.nolix.element.input.Key;
 
 //class
 public final class KeyInput extends Element<KeyInput> {

@@ -1,9 +1,8 @@
 //package declaration
-package ch.nolix.element.input;
+package ch.nolix.element.inputs;
 
 //own imports
 import ch.nolix.element.elementEnums.DirectionOfRotation;
-import ch.nolix.element.keyBoard.KeyInput;
 
 //interface
 /**

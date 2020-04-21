@@ -26,8 +26,8 @@ import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
-import ch.nolix.element.input.IInputTaker;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.inputs.IInputTaker;
+import ch.nolix.element.inputs.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class

@@ -4,8 +4,8 @@ package ch.nolix.element.testableGUI;
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.keyBoard.KeyInput;
+import ch.nolix.element.inputs.Key;
+import ch.nolix.element.inputs.KeyInput;
 
 //class
 public final class GUIController {

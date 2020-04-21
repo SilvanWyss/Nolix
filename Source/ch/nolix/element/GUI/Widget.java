@@ -19,7 +19,7 @@ import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementEnums.DirectionOfRotation;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.inputs.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class

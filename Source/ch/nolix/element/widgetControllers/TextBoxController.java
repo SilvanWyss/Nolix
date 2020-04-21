@@ -3,7 +3,7 @@ package ch.nolix.element.widgetControllers;
 
 //own imports
 import ch.nolix.common.skillAPI.Clearable;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.inputs.Key;
 
 //class
 public final class TextBoxController extends TextLineWidgetController implements Clearable<TextBoxController> {
