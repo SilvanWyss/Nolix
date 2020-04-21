@@ -3,7 +3,7 @@ package ch.nolix.techAPI.projectAPI;
 
 //own imports
 import ch.nolix.common.skillAPI.Resettable;
-import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.element.elementAPI.IElement;
 import ch.nolix.element.time.Time;
 
 //interface

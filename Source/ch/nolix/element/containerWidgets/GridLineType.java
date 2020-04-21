@@ -3,7 +3,7 @@ package ch.nolix.element.containerWidgets;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.baseAPI.IElementEnum;
+import ch.nolix.element.elementAPI.IElementEnum;
 
 //enum
 public enum GridLineType implements IElementEnum {

@@ -13,7 +13,7 @@ import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.element.elementAPI.IElement;
 
 //TODO: Add timeZone to Time.
 //class

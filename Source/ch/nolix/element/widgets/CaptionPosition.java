@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.element.baseAPI.IElementEnum;
+import ch.nolix.element.elementAPI.IElementEnum;
 
 //enum
 /**

@@ -10,7 +10,7 @@ import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.element.elementAPI.IElement;
 import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;

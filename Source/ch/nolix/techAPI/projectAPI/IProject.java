@@ -6,7 +6,7 @@ import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.mutableAttributeAPI.Namable;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.skillAPI.Resettable;
-import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.element.elementAPI.IElement;
 
 //interface
 public interface IProject extends Clearable<IProject>, IElement, Namable<IProject>, Resettable<IProject> {

@@ -12,8 +12,8 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.baseAPI.IConfigurableElement;
-import ch.nolix.element.baseAPI.IMutableElement;
+import ch.nolix.element.elementAPI.IConfigurableElement;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 /**

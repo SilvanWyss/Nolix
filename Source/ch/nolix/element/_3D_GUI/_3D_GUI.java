@@ -20,9 +20,9 @@ import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.skillAPI.Refreshable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 
 //class
 /**

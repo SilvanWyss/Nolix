@@ -5,8 +5,8 @@ package ch.nolix.element.widgets;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 public final class ScrollbarLook extends Element<ScrollbarLook> implements IMutableElement<ScrollbarLook> {

@@ -23,8 +23,8 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
-import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 public final class Image extends Element<Image> implements IMutableElement<Image> {

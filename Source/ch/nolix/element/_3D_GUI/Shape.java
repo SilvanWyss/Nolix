@@ -8,8 +8,8 @@ import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeExc
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.configuration.ConfigurableElement;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.geometry._2DPoint;
 import ch.nolix.element.geometry._3DPoint;
 

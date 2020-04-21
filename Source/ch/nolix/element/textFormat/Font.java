@@ -3,7 +3,7 @@ package ch.nolix.element.textFormat;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.baseAPI.IElementEnum;
+import ch.nolix.element.elementAPI.IElementEnum;
 
 //enum
 /**

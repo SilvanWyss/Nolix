@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.baseAPI.IMutableElement;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 final class GridCell extends Element<GridCell> implements Clearable<GridCell>, IMutableElement<GridCell> {

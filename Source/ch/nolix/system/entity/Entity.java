@@ -19,7 +19,7 @@ import ch.nolix.common.optionalAttributeAPI.OptionalIdentified;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.common.wrapperException.WrapperException;
-import ch.nolix.element.baseAPI.IElement;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 public class Entity implements IElement, OptionalIdentified {
