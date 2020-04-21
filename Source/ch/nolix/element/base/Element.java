@@ -7,22 +7,19 @@ import java.lang.reflect.Field;
 //own imports
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.smartElementAPI.ISmartElement;
 
 //class
 /**
- * A {@link Element} is specified.
- * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 180
+ * @lines 170
  */
-public abstract class Element<E extends Element<E>> implements ISmartObject<E>, IElement {
+public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
 	
 	//multi-attribute
 	private LinkedList<BaseProperty<?>> properties;
