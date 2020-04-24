@@ -9,7 +9,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.fileSystem.FolderAccessor;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.reflectionWrappers.ClassWrapper;
+import ch.nolix.common.reflectionWrapper.ClassWrapper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
