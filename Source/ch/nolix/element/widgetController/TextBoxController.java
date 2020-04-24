@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widgetControllers;
+package ch.nolix.element.widgetController;
 
 //own imports
 import ch.nolix.common.skillAPI.Clearable;

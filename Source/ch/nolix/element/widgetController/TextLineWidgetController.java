@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widgetControllers;
+package ch.nolix.element.widgetController;
 
 //own import
 import ch.nolix.element.color.Color;

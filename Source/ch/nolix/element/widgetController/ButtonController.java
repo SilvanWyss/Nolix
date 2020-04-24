@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widgetControllers;
+package ch.nolix.element.widgetController;
 
 //class
 public final class ButtonController extends TextLineWidgetController  {
