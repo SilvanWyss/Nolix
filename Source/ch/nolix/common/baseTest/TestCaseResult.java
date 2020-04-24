@@ -5,7 +5,7 @@ package ch.nolix.common.baseTest;
 import java.lang.reflect.Method;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.independentContainers.List;
+import ch.nolix.common.independentContainer.List;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNotNullException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;

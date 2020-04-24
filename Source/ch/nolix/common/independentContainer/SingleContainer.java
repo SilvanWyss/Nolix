@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.independentContainers;
+package ch.nolix.common.independentContainer;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNotNullException;

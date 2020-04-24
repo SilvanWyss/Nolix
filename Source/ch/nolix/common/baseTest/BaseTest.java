@@ -5,8 +5,7 @@ package ch.nolix.common.baseTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-//own imports
-import ch.nolix.common.independentContainers.List;
+import ch.nolix.common.independentContainer.List;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
 

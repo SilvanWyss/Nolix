@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.independentContainers;
+package ch.nolix.common.independentContainer;
 
 //class
 final class ListNode<E> {
