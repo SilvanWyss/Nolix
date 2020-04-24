@@ -6,6 +6,7 @@ import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
@@ -146,9 +147,9 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		//Asserts that the given endPoint is not null.
 		Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
 		
-		//Asserts that the given endPoint is alive.
+		//Asserts that the given endPoint is open.
 		if (endPoint.isClosed()) {
-			throw new InvalidArgumentException(endPoint, "is closed");
+			throw new ClosedArgumentException(endPoint);
 		}
 		
 		//Handles the case that the given endPoint does not have a target.
