@@ -6,11 +6,11 @@
  */
 
 //package declaration
-package ch.nolix.commonTest.commonTypeHelpersTest;
+package ch.nolix.commonTest.commonTypeHelperTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.commonTypeHelpers.CharacterHelper;
+import ch.nolix.common.commonTypeHelper.CharacterHelper;
 import ch.nolix.common.test2.Test;
 
 //class

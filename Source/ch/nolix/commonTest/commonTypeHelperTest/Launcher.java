@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commonTest.commonTypeHelpersTest;
+package ch.nolix.commonTest.commonTypeHelperTest;
 
 //class
 /**

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.chainedNode;
 
-//own imports
-import ch.nolix.common.commonTypeHelpers.StringHelper;
+import ch.nolix.common.commonTypeHelper.StringHelper;
 import ch.nolix.common.constants.CharacterCatalogue;
 import ch.nolix.common.constants.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;

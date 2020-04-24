@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.commonTypeHelpers;
+package ch.nolix.common.commonTypeHelper;
 
 //own import
 import ch.nolix.common.constants.StringCatalogue;

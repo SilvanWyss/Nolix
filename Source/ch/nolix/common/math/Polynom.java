@@ -4,8 +4,7 @@ package ch.nolix.common.math;
 //Java import
 import java.util.Arrays;
 
-//own imports
-import ch.nolix.common.commonTypeHelpers.DoubleHelper;
+import ch.nolix.common.commonTypeHelper.DoubleHelper;
 import ch.nolix.common.constants.MultiVariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
