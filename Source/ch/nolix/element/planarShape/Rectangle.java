@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.planarShapes;
+package ch.nolix.element.planarShape;
 
 //own imports
 import ch.nolix.common.node.Node;

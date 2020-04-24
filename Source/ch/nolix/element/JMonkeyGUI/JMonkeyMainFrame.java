@@ -17,7 +17,7 @@ import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.MainFrame;
 import ch.nolix.element._3D_GUI.Shape;
-import ch.nolix.element.planarShapes.Rectangle;
+import ch.nolix.element.planarShape.Rectangle;
 import ch.nolix.element.shapes.BaseCube;
 import ch.nolix.element.shapes.Cylinder;
 import ch.nolix.element.shapes.MultiShape;
