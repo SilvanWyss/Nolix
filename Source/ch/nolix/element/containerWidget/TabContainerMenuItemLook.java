@@ -10,7 +10,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerElement;
-import ch.nolix.element.widgets.ItemMenuItemLook;
+import ch.nolix.element.widget.ItemMenuItemLook;
 
 //class
 public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLook> {

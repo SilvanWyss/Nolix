@@ -8,17 +8,17 @@ import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.widgets.Area;
-import ch.nolix.element.widgets.Button;
-import ch.nolix.element.widgets.Console;
-import ch.nolix.element.widgets.Downloader;
-import ch.nolix.element.widgets.HorizontalLine;
-import ch.nolix.element.widgets.ImageWidget;
-import ch.nolix.element.widgets.Label;
-import ch.nolix.element.widgets.SelectionMenu;
-import ch.nolix.element.widgets.TextBox;
-import ch.nolix.element.widgets.Uploader;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.Area;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.Console;
+import ch.nolix.element.widget.Downloader;
+import ch.nolix.element.widget.HorizontalLine;
+import ch.nolix.element.widget.ImageWidget;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.SelectionMenu;
+import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.widget.Uploader;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 public abstract class GUILookTest<GL extends StandardConfiguration> extends ObjectTest<GL> {

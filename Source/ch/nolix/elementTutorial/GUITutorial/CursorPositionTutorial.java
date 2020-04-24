@@ -3,7 +3,7 @@ package ch.nolix.elementTutorial.GUITutorial;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
-import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widget.Label;
 
 /**
  * The {@link CursorPositionTutorial} is a tutorial for {@link Frame}s.

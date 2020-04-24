@@ -18,7 +18,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.elementAPI.IMutableElement;
 import ch.nolix.element.elementEnum.ContentPosition;
-import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widget.Label;
 
 //class
 /**

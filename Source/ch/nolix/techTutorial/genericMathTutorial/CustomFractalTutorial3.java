@@ -4,7 +4,7 @@ import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widgets.ImageWidget;
+import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;

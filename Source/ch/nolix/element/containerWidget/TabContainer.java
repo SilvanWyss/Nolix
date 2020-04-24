@@ -12,8 +12,8 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widgets.HorizontalStack;
-import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.Label;
 
 //class
 /**

@@ -5,8 +5,8 @@ import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.widgets.Console;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.Console;
+import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClientSession;
 import ch.nolix.template.consoleClientLook.GreyBlueConsoleClientLook;
 

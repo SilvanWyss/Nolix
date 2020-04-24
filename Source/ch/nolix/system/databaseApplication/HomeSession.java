@@ -3,8 +3,8 @@ package ch.nolix.system.databaseApplication;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.containerWidget.Grid;
-import ch.nolix.element.widgets.Button;
-import ch.nolix.element.widgets.ButtonRole;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.ButtonRole;
 
 //class
 public final class HomeSession extends HeaderedSession {

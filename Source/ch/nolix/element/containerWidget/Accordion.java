@@ -13,7 +13,7 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 /**

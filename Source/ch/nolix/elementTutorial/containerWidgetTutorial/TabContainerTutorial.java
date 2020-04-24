@@ -5,7 +5,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.containerWidget.TabContainerTab;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
-import ch.nolix.element.widgets.Area;
+import ch.nolix.element.widget.Area;
 
 /**
  * The {@link TabContainerTutorial} is a tutorial for {@link TabContainer}s.

@@ -4,11 +4,11 @@ package ch.nolix.elementTest.containerWidgetTest;
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.GUI.WidgetState;
-import ch.nolix.element.widgets.Button;
-import ch.nolix.element.widgets.Label;
-import ch.nolix.element.widgets.TextBox;
-import ch.nolix.element.widgets.VerticalStack;
-import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 
 //class
 /**

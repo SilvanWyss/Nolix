@@ -12,7 +12,7 @@ package ch.nolix.template.GUILook;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.widgets.LabelRole;
+import ch.nolix.element.widget.LabelRole;
 
 //class
 public final class BlackBlueGUILook extends StandardConfiguration {

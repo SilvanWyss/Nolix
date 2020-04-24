@@ -5,7 +5,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.FloatContainer;
 import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
-import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widget.Label;
 
 /**
  * The {@link FloatContainerTutorial} is a tutorial for {@link FloatContainer}s.

@@ -6,8 +6,8 @@ import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.containerWidget.GridLineType;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.textFormat.Font;
-import ch.nolix.element.widgets.Area;
-import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widget.Area;
+import ch.nolix.element.widget.Label;
 
 /**
  * The {@link GridTutorial} is a tutorial for {@link Grid}s.

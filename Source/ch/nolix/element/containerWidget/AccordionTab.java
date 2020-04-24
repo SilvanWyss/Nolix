@@ -20,9 +20,9 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementAPI.IMutableElement;
-import ch.nolix.element.widgets.HorizontalStack;
-import ch.nolix.element.widgets.Label;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 public final class AccordionTab extends Element<AccordionTab>

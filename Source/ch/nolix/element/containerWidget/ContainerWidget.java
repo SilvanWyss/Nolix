@@ -8,8 +8,8 @@ import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.widgets.BorderWidget;
-import ch.nolix.element.widgets.BorderWidgetLook;
+import ch.nolix.element.widget.BorderWidget;
+import ch.nolix.element.widget.BorderWidgetLook;
 
 //class
 /**

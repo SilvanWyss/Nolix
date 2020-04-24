@@ -28,20 +28,20 @@ import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widgets.Area;
-import ch.nolix.element.widgets.Button;
-import ch.nolix.element.widgets.Checkbox;
-import ch.nolix.element.widgets.Console;
-import ch.nolix.element.widgets.Downloader;
-import ch.nolix.element.widgets.DropdownMenu;
-import ch.nolix.element.widgets.HorizontalLine;
-import ch.nolix.element.widgets.HorizontalStack;
-import ch.nolix.element.widgets.ImageWidget;
-import ch.nolix.element.widgets.Label;
-import ch.nolix.element.widgets.SelectionMenu;
-import ch.nolix.element.widgets.TextBox;
-import ch.nolix.element.widgets.VerticalLine;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.Area;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.Console;
+import ch.nolix.element.widget.Downloader;
+import ch.nolix.element.widget.DropdownMenu;
+import ch.nolix.element.widget.HorizontalLine;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.ImageWidget;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.SelectionMenu;
+import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.widget.VerticalLine;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 /**

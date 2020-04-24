@@ -4,9 +4,9 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.widgets.Label;
-import ch.nolix.element.widgets.LabelRole;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 

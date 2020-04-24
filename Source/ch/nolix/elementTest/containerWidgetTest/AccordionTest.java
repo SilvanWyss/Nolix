@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.containerWidget.AccordionExpansionBehavior;
 import ch.nolix.element.containerWidget.AccordionTab;
-import ch.nolix.elementTest.widgetsTest.BorderWidgetTest;
+import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 
 //class
 /**

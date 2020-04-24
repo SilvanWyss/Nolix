@@ -8,8 +8,8 @@ import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.widgets.Console;
-import ch.nolix.element.widgets.VerticalStack;
+import ch.nolix.element.widget.Console;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 public abstract class ConsoleClientLookTest<CCL extends StandardConfiguration> extends ObjectTest<CCL> {

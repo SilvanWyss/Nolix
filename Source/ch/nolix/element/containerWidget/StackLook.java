@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
-//own imports
-import ch.nolix.element.widgets.BorderWidgetLook;
+import ch.nolix.element.widget.BorderWidgetLook;
 
 //class
 /**

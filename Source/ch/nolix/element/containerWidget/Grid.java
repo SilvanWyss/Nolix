@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widget.Label;
 
 //class
 public final class Grid extends ContainerWidget<Grid, GridLook> {
