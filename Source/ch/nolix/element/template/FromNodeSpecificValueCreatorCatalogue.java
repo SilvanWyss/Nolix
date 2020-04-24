@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.templates;
+package ch.nolix.element.template;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
