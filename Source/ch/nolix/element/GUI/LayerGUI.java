@@ -12,7 +12,7 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
-import ch.nolix.common.states.Visibility;
+import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.color.Color;

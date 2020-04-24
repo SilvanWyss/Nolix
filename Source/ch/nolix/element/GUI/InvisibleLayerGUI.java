@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
-import ch.nolix.common.states.Visibility;
+import ch.nolix.common.state.Visibility;
 
 //class
 public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
