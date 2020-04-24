@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseApplication;
 
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.containerWidgets.Grid;

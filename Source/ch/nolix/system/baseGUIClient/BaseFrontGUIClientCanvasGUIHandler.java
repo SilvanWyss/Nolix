@@ -3,7 +3,7 @@ package ch.nolix.system.baseGUIClient;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.GUI.GUI;

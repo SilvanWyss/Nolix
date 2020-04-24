@@ -3,8 +3,8 @@ package ch.nolix.system.fileNodeDatabaseSchemaAdapter;
 
 import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.fileNode.FileNode;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;

@@ -3,8 +3,8 @@ package ch.nolix.element.elementAPI;
 
 //own imports
 import ch.nolix.common.attributeAPI.Tokened;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
 

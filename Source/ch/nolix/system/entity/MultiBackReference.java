@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//owm import
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 
 //class
 public final class MultiBackReference<E extends Entity> extends BaseBackReference<E> {

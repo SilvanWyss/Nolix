@@ -4,9 +4,8 @@ package ch.nolix.common.webSocket;
 //Java import
 import java.io.InputStream;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 
 //class

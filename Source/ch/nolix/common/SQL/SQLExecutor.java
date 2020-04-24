@@ -2,8 +2,8 @@
 package ch.nolix.common.SQL;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillAPI.Resettable;
 import ch.nolix.common.validator.Validator;
 

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;

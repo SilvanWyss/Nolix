@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.endPoint5.LocalEndPoint;
 import ch.nolix.common.endPoint5.NetEndPoint;

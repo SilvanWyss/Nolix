@@ -6,8 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.time.Time;
 

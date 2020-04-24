@@ -6,8 +6,8 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionHelpers.ReflectionHelper;

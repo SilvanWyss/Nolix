@@ -2,8 +2,8 @@
 package ch.nolix.system.databaseAdapter;
 
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;

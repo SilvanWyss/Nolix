@@ -2,7 +2,7 @@
 package ch.nolix.common.math;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.validator.Validator;
 
 //class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;

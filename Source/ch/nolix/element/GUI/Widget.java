@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;

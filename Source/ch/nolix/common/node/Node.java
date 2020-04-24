@@ -2,9 +2,9 @@
 package ch.nolix.common.node;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;

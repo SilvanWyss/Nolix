@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.fileNode;
 
-//own imports
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

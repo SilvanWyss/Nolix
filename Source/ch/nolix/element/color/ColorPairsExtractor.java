@@ -4,9 +4,8 @@ package ch.nolix.element.color;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.reflectionHelpers.FieldHelper;
 

@@ -5,7 +5,7 @@ package ch.nolix.element._3D_GUI;
 import java.awt.image.BufferedImage;
 
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;

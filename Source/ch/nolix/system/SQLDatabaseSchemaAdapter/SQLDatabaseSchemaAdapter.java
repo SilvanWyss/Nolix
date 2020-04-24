@@ -4,8 +4,8 @@ package ch.nolix.system.SQLDatabaseSchemaAdapter;
 //own imports
 import ch.nolix.common.SQL.SQLConnection;
 import ch.nolix.common.SQL.SQLDatabaseEngine;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;

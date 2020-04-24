@@ -3,8 +3,8 @@ package ch.nolix.system.entity;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.skillAPI.Clearable;
 
 //interface

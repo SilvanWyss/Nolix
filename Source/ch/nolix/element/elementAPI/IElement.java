@@ -3,7 +3,7 @@ package ch.nolix.element.elementAPI;
 
 //own imports
 import ch.nolix.common.XML.XMLNode;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;

@@ -3,9 +3,9 @@ package ch.nolix.element.widgets;
 
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;

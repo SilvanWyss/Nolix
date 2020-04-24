@@ -2,7 +2,7 @@
 package ch.nolix.element.widgets;
 
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI.Widget;

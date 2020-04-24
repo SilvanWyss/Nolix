@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.color.Color;

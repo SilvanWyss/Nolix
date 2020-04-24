@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;

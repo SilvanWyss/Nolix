@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.skillAPI.IChangesSaver;
 

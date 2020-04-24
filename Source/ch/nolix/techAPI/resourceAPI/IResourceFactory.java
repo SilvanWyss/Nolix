@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techAPI.resourceAPI;
 
-//own import
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 
 //interface
 public interface IResourceFactory {

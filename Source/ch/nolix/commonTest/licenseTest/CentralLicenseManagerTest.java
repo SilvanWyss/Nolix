@@ -3,8 +3,8 @@ package ch.nolix.commonTest.licenseTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.license.CentralLicenseManager;
 import ch.nolix.common.license.Feature;
 import ch.nolix.common.license.License;

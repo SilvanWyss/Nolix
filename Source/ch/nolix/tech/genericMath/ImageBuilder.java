@@ -5,7 +5,7 @@ package ch.nolix.tech.genericMath;
 import java.math.BigDecimal;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.sequencer.Future;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.inputDevices;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.inputs.Key;
 
 //class

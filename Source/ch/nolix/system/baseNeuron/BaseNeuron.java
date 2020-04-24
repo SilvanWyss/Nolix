@@ -2,8 +2,8 @@
 package ch.nolix.system.baseNeuron;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

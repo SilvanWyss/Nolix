@@ -1,7 +1,7 @@
 package ch.nolix.elementTutorial.financeTutorial;
 
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.SequencePattern;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SequencePattern;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;

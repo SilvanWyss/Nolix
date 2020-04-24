@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.fileNode;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;

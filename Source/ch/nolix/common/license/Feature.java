@@ -3,7 +3,7 @@ package ch.nolix.common.license;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 
 //class
 /**

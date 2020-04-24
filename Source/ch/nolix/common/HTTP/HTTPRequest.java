@@ -2,7 +2,7 @@
 package ch.nolix.common.HTTP;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 
 //class

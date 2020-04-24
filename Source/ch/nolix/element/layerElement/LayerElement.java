@@ -4,10 +4,9 @@ package ch.nolix.element.layerElement;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

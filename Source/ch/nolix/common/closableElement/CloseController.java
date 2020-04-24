@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.closableElement;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;

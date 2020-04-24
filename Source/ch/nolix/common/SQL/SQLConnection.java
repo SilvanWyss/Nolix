@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.IPv4Catalogue;
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 

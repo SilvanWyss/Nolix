@@ -2,7 +2,7 @@
 package ch.nolix.tech.project;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;

@@ -4,8 +4,8 @@ package ch.nolix.system.databaseSchemaAdapter;
 //own imports
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.containers.IContainer;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.dataTypes.MultiReferenceType;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techAPI.projectAPI;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.mutableAttributeAPI.Namable;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.skillAPI.Resettable;

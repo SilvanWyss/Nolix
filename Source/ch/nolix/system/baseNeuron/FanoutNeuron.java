@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.baseNeuron;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 
 //class
 /**

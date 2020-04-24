@@ -1,10 +1,8 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own imports
-import ch.nolix.common.containers.IContainer;
-//own imports
-import ch.nolix.common.containers.ReadContainer;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;

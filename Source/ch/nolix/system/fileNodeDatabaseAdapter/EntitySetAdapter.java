@@ -2,7 +2,7 @@
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
 import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;

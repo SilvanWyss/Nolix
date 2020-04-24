@@ -3,7 +3,7 @@ package ch.nolix.elementTest.elementEnumsTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.elementEnums.UniDirection;

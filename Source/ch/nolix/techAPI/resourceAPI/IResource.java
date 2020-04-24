@@ -3,7 +3,7 @@ package ch.nolix.techAPI.resourceAPI;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 
 //interface
 /**

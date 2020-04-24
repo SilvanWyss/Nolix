@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.webSocket;
 
-//own import
-import ch.nolix.common.containers.IContainer;
+import ch.nolix.common.container.IContainer;
 
 //class
 public final class WebSocketHandShakeRequest {

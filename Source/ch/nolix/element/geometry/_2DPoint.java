@@ -2,7 +2,7 @@
 package ch.nolix.element.geometry;
 
 import ch.nolix.common.commonTypeHelper.DoubleHelper;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Vector;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;

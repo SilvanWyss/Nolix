@@ -3,7 +3,7 @@ package ch.nolix.templateTest.GUILookTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.GUI.Widget;

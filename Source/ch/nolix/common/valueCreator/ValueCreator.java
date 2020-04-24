@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.valueCreator;
 
-//own imports
-import ch.nolix.common.containers.LinkedList;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class
