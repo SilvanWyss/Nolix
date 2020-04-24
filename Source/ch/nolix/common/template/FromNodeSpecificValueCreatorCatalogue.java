@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.templates;
+package ch.nolix.common.template;
 
 //Java import
 import java.math.BigDecimal;
