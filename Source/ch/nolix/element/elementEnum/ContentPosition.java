@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.elementEnums;
+package ch.nolix.element.elementEnum;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
@@ -8,10 +8,10 @@ import ch.nolix.element.elementAPI.IElementEnum;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2019-05
+ * @month 2016-08
  * @lines 30
  */
-public enum ExtendedContentPosition implements IElementEnum {
+public enum ContentPosition implements IElementEnum {
 	LeftTop,
 	Left,
 	LeftBottom,
@@ -20,19 +20,18 @@ public enum ExtendedContentPosition implements IElementEnum {
 	Bottom,
 	RightTop,
 	Right,
-	RightBottom,
-	Free;
+	RightBottom;
 	
 	//constant
-	public static final String TYPE_NAME = "ExtendedContentPosition";
+	public static final String TYPE_NAME = "ContentPosition";
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link ExtendedContentPosition} from the given specification.
+	 * @return a new {@link ContentPosition} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ExtendedContentPosition fromSpecification(final BaseNode specification) {
+	public static ContentPosition fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }

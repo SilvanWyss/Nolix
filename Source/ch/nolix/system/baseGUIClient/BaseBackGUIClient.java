@@ -13,7 +13,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
-import ch.nolix.element.elementEnums.DirectionOfRotation;
+import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.inputs.Key;
 import ch.nolix.system.client.Client;
 

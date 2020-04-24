@@ -17,7 +17,7 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.elementAPI.IMutableElement;
-import ch.nolix.element.elementEnums.ContentPosition;
+import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.widgets.Label;
 
 //class

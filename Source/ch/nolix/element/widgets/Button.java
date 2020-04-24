@@ -9,7 +9,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.elementEnums.ContentPosition;
+import ch.nolix.element.elementEnum.ContentPosition;
 
 //class
 /**

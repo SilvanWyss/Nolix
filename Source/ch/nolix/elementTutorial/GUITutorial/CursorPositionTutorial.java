@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.GUITutorial;
 
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.elementEnums.ExtendedContentPosition;
+import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.widgets.Label;
 
 /**

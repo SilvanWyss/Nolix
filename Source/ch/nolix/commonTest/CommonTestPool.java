@@ -13,7 +13,7 @@ import ch.nolix.commonTest.nodeTest.NodeTestPool;
 import ch.nolix.commonTest.sequencerTest.SequencerTestPool;
 import ch.nolix.commonTest.validatorTest.ValidatorTestPool;
 import ch.nolix.commonTest.webSocketTest.WebSocketTestPool;
-import ch.nolix.elementTest.elementEnumsTest.ElementEnumTestPool;
+import ch.nolix.elementTest.elementEnumTest.ElementEnumTestPool;
 import ch.nolix.systemTest.entityTest.EntityTestPool;
 
 //class

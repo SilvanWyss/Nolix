@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.elementEnumsTest;
+package ch.nolix.elementTest.elementEnumTest;
 
 //own import
 import ch.nolix.common.baseTest.TestPool;

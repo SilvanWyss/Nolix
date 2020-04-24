@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.elementEnums;
+package ch.nolix.element.elementEnum;
 
 //own imports
 import ch.nolix.common.node.BaseNode;

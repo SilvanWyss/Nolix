@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementEnums.DirectionOfRotation;
+import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.inputs.IInputTaker;
 import ch.nolix.element.inputs.Key;

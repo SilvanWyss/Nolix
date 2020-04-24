@@ -14,8 +14,8 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.elementEnums.ContentPosition;
-import ch.nolix.element.elementEnums.DirectionOfRotation;
+import ch.nolix.element.elementEnum.ContentPosition;
+import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.painter.IPainter;
 
 //class

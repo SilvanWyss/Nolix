@@ -10,7 +10,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;
-import ch.nolix.element.elementEnums.UniDirection;
+import ch.nolix.element.elementEnum.UniDirection;
 
 //class
 /**

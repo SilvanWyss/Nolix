@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.elementEnums;
+package ch.nolix.element.elementEnum;
 
 import ch.nolix.element.elementAPI.IElementEnum;
 
