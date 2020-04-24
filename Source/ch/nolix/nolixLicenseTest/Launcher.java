@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.nolixLicensesTest;
+package ch.nolix.nolixLicenseTest;
 
 //class
 public final class Launcher {

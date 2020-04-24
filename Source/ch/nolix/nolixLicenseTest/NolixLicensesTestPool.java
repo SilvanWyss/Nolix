@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.nolixLicensesTest;
+package ch.nolix.nolixLicenseTest;
 
 //own import
 import ch.nolix.common.baseTest.TestPool;

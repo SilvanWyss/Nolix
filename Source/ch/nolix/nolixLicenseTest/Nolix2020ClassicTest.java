@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.nolixLicensesTest;
+package ch.nolix.nolixLicenseTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.test.Test;
-import ch.nolix.nolixLicenses.Nolix2020Classic;
+import ch.nolix.nolixLicense.Nolix2020Classic;
 
 //class
 public final class Nolix2020ClassicTest extends Test {

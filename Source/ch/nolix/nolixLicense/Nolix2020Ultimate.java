@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.nolixLicenses;
+package ch.nolix.nolixLicense;
 
 //own import
 import ch.nolix.common.license.License;
