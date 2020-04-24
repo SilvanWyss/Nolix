@@ -18,11 +18,11 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.MainFrame;
 import ch.nolix.element._3D_GUI.Shape;
 import ch.nolix.element.planarShape.Rectangle;
-import ch.nolix.element.shapes.BaseCube;
-import ch.nolix.element.shapes.Cylinder;
-import ch.nolix.element.shapes.MultiShape;
-import ch.nolix.element.shapes.Pyramid;
-import ch.nolix.element.shapes.Sphere;
+import ch.nolix.element.shape.BaseCube;
+import ch.nolix.element.shape.Cylinder;
+import ch.nolix.element.shape.MultiShape;
+import ch.nolix.element.shape.Pyramid;
+import ch.nolix.element.shape.Sphere;
 
 //class
 /**

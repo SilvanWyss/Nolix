@@ -2,10 +2,10 @@ package ch.nolix.elementTutorial._3D_GUITutorial;
 
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.shapes.BaseCube;
-import ch.nolix.element.shapes.Cylinder;
-import ch.nolix.element.shapes.MultiShape;
-import ch.nolix.element.shapes.Sphere;
+import ch.nolix.element.shape.BaseCube;
+import ch.nolix.element.shape.Cylinder;
+import ch.nolix.element.shape.MultiShape;
+import ch.nolix.element.shape.Sphere;
 
 /**
  * The {@link _3D_GUITutorial2} is a tutorial for a {@link JMonkeyMainFrame}.

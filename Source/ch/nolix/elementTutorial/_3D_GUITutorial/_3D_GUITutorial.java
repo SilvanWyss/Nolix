@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial._3D_GUITutorial;
 
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.shapes.Sphere;
+import ch.nolix.element.shape.Sphere;
 
 /**
  * The 3D GUI tutorial is a tutorial for the 3D GUI class.

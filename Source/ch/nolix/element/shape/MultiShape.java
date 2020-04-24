@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.shapes;
+package ch.nolix.element.shape;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;

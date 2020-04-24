@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.shapes;
+package ch.nolix.element.shape;
 
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;

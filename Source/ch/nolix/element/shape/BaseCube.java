@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.shapes;
+package ch.nolix.element.shape;
 
 //own imports
 import ch.nolix.common.node.Node;
