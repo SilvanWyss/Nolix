@@ -5,8 +5,7 @@ package ch.nolix.common.endPoint;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-//own imports
-import ch.nolix.common.constants.PortCatalogue;
+import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
-//own imports
-import ch.nolix.common.constants.TimeUnitCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.TimeUnitCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.functionAPI.IFunction;

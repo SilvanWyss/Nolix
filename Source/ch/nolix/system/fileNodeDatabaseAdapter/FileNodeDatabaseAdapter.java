@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.fileNode.FileNode;

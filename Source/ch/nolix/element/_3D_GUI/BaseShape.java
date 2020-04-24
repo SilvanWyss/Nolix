@@ -4,8 +4,7 @@ package ch.nolix.element._3D_GUI;
 //Java import
 import java.awt.image.BufferedImage;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;

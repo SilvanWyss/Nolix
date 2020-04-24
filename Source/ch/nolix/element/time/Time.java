@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import ch.nolix.common.commonTypeHelper.StringHelper;
-import ch.nolix.common.constants.TimeUnitCatalogue;
+import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;

@@ -10,9 +10,9 @@ import java.net.Socket;
 
 //own imports
 import ch.nolix.common.HTTP.HTTPRequest;
-import ch.nolix.common.constants.IPv6Catalogue;
-import ch.nolix.common.constants.PortCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.IPv6Catalogue;
+import ch.nolix.common.constant.PortCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;

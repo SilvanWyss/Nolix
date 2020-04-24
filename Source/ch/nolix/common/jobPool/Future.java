@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.jobPool;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.futureAPI.IFuture;
 import ch.nolix.common.validator.Validator;
 

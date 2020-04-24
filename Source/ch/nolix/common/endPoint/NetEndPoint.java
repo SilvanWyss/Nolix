@@ -6,9 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-//own imports
-import ch.nolix.common.constants.IPv6Catalogue;
-import ch.nolix.common.constants.PortCatalogue;
+import ch.nolix.common.constant.IPv6Catalogue;
+import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;

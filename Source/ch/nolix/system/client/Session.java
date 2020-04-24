@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;

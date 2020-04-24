@@ -4,8 +4,8 @@ package ch.nolix.system.databaseSchemaAdapter;
 //own imports
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Headered;
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;

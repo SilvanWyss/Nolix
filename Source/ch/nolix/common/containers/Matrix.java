@@ -1,9 +1,8 @@
 //package-declaration
 package ch.nolix.common.containers;
 
-//own imports
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 import ch.nolix.common.skillAPI.Clearable;

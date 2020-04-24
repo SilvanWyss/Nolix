@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.constants;
+package ch.nolix.common.constant;
 
 //Java import
 import java.util.Objects;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.commonTypeHelper;
 
-//own imports
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
 import ch.nolix.common.sequencer.Sequencer;

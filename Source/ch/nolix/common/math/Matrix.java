@@ -5,7 +5,7 @@ package ch.nolix.common.math;
 import java.util.Random;
 
 import ch.nolix.common.commonTypeHelper.DoubleHelper;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.skillAPI.ApproximativeEqualing;

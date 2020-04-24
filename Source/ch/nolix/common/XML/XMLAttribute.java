@@ -4,8 +4,8 @@ package ch.nolix.common.XML;
 //own imports
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.attributeAPI.Valued;
-import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class

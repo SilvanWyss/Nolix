@@ -4,8 +4,8 @@ package ch.nolix.common.node;
 //own imports
 import ch.nolix.common.XML.XMLNode;
 import ch.nolix.common.commonTypeHelper.StringHelper;
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;

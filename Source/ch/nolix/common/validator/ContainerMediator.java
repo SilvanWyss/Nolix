@@ -4,8 +4,7 @@ package ch.nolix.common.validator;
 //Java import
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.independentContainers.ArrayReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;

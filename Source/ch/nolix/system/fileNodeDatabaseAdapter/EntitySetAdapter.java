@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
-//own imports
-import ch.nolix.common.constants.MultiPascalCaseNameCatalogue;
+import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;

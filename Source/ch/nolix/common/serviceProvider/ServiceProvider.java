@@ -4,8 +4,7 @@ package ch.nolix.common.serviceProvider;
 //Java import
 import java.util.HashMap;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.processProperties.WriteMode;
 import ch.nolix.common.validator.Validator;

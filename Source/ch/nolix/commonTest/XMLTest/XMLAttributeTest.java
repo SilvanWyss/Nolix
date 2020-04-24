@@ -3,8 +3,8 @@ package ch.nolix.commonTest.XMLTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.XML.XMLAttribute;
-import ch.nolix.common.constants.StringCatalogue;
 import ch.nolix.common.test.Test;
 
 //class

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.shapes;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;

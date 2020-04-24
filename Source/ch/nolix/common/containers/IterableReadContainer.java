@@ -4,9 +4,8 @@ package ch.nolix.common.containers;
 //Java import
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class

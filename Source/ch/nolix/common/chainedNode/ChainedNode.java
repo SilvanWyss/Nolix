@@ -2,8 +2,8 @@
 package ch.nolix.common.chainedNode;
 
 import ch.nolix.common.commonTypeHelper.StringHelper;
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.color;
 
-//own imports
-import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

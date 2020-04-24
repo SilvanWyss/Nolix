@@ -3,7 +3,7 @@ package ch.nolix.common.controllerAPI;
 
 //own import
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.constants.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //interface

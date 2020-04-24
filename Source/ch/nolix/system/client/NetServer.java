@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.common.constants.PortCatalogue;
+import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.localComputer.LocalComputer;
 

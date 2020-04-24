@@ -3,7 +3,7 @@ package ch.nolix.common.mutableAttributeAPI;
 
 //own imports
 import ch.nolix.common.attributeAPI.SemanticVersioned;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //interface

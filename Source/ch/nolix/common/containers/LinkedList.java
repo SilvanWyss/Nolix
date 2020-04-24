@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.common.containers;
 
-//own imports
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.MultiVariableNameCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerComparableGetter;

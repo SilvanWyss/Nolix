@@ -4,8 +4,7 @@ package ch.nolix.common.license;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.fileSystem.FolderAccessor;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;

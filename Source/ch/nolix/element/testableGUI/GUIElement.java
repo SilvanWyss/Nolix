@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.attributeAPI.IdentifiedByString;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.validator.Validator;

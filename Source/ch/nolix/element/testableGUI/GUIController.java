@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.testableGUI;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.inputs.Key;
 import ch.nolix.element.inputs.KeyInput;

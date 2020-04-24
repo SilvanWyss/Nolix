@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.optionalAttributeAPI;
 
-//own import
-import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 
 //interface
 /**

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-//own imports
-import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.containerWidgets.ContainerRole;

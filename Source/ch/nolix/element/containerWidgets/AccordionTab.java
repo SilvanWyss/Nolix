@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.containerWidgets;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

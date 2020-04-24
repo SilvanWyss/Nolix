@@ -5,7 +5,7 @@ package ch.nolix.common.endPoint2;
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;

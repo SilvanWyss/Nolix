@@ -4,10 +4,9 @@ package ch.nolix.element._3D_GUI;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-//own import
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;

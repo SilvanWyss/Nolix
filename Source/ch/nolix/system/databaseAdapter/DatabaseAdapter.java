@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own imports
-import ch.nolix.common.constants.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.BaseNode;

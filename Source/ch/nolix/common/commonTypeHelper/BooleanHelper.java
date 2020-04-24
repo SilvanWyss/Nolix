@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.commonTypeHelper;
 
-//own import
-import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 
 //class
 public final class BooleanHelper {

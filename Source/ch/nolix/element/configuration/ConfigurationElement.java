@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.node.BaseNode;

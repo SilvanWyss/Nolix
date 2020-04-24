@@ -4,8 +4,7 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentBelongsToUnexchangeableParentException;

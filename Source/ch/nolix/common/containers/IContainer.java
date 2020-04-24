@@ -4,9 +4,8 @@ package ch.nolix.common.containers;
 //Java import
 import java.util.Random;
 
-//own imports
-import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.I2ElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerByteGetter;

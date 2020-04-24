@@ -9,10 +9,9 @@ import java.io.IOError;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
-import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.Matrix;
 import ch.nolix.common.containers.ReadContainer;

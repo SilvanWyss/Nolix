@@ -5,7 +5,7 @@ package ch.nolix.common.math;
 import java.util.Arrays;
 
 import ch.nolix.common.commonTypeHelper.DoubleHelper;
-import ch.nolix.common.constants.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class

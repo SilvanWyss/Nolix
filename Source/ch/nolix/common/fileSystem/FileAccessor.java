@@ -9,9 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
-//own imports
-import ch.nolix.common.constants.StringCatalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.wrapperException.WrapperException;

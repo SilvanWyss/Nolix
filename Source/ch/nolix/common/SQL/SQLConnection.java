@@ -6,9 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-//own imports
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.IPv4Catalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.validator.Validator;

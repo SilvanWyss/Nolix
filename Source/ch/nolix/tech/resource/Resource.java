@@ -3,7 +3,7 @@ package ch.nolix.tech.resource;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

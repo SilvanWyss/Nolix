@@ -5,9 +5,8 @@ package ch.nolix.element.textFormat;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
-//own imports
-import ch.nolix.common.constants.CharacterCatalogue;
-import ch.nolix.common.constants.StringCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;

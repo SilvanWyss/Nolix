@@ -3,7 +3,7 @@ package ch.nolix.system.databaseAdapter;
 
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.entity.Entity;

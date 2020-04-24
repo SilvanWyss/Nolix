@@ -3,7 +3,7 @@ package ch.nolix.common.license;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 
 //class

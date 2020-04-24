@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
-//own imports
-import ch.nolix.common.constants.IPv6Catalogue;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.IPv6Catalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Closable;

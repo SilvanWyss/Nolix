@@ -4,7 +4,7 @@ package ch.nolix.commonTest.endPointTest;
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.communicationAPI.IReceiver;
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.endPoint.NetEndPoint;
 import ch.nolix.common.endPoint.NetServer;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;

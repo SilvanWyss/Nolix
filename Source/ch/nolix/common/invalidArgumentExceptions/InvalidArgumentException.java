@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.invalidArgumentExceptions;
 
-//own import
-import ch.nolix.common.constants.CharacterCatalogue;
+import ch.nolix.common.constant.CharacterCatalogue;
 
 //class
 /**

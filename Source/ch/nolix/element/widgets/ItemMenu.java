@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgets;
 
-//own imports
-import ch.nolix.common.constants.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.containers.LinkedList;
 import ch.nolix.common.containers.ReadContainer;

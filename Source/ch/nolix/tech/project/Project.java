@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.tech.project;
 
-//own imports
-import ch.nolix.common.constants.VariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.containers.IContainer;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
