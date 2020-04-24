@@ -3,8 +3,8 @@ package ch.nolix.element.testableGUI;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.inputs.Key;
-import ch.nolix.element.inputs.KeyInput;
+import ch.nolix.element.input.Key;
+import ch.nolix.element.input.KeyInput;
 
 //class
 public final class GUIController {

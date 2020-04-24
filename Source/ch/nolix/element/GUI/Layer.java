@@ -25,8 +25,8 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
-import ch.nolix.element.inputs.IInputTaker;
-import ch.nolix.element.inputs.Key;
+import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class

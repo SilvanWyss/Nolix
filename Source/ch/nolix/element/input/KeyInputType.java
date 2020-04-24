@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.inputs;
+package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.node.BaseNode;

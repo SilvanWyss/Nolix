@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.inputs;
+package ch.nolix.element.input;
 
 //own import
 import ch.nolix.element.smartElementAPI.ISmartElementEnum;

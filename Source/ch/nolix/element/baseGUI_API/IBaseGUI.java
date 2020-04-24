@@ -7,7 +7,7 @@ import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.skillAPI.IRequestableContainer;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.skillAPI.Refreshable;
-import ch.nolix.element.inputs.IInputTaker;
+import ch.nolix.element.input.IInputTaker;
 
 //interface
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.inputs;
+package ch.nolix.element.input;
 
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;

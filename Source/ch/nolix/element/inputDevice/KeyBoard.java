@@ -2,7 +2,7 @@
 package ch.nolix.element.inputDevice;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.inputs.Key;
+import ch.nolix.element.input.Key;
 
 //class
 public final class KeyBoard {

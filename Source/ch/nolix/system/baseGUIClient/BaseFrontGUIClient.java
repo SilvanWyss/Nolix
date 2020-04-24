@@ -11,7 +11,7 @@ import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
-import ch.nolix.element.inputs.Key;
+import ch.nolix.element.input.Key;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
 

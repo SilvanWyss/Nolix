@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.inputs.Key;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.textFormat.TextFormat;

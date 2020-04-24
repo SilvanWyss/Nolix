@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.inputs.IInputTaker;
+import ch.nolix.element.input.IInputTaker;
 
 //class
 public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {

@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 import ch.nolix.common.state.Visibility;
-import ch.nolix.element.inputs.IInputTaker;
+import ch.nolix.element.input.IInputTaker;
 
 //class
 public final class Frame extends LayerGUI<Frame> {

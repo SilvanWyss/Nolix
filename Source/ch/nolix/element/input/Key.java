@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.inputs;
+package ch.nolix.element.input;
 
 //Java import
 import java.awt.event.KeyEvent;
