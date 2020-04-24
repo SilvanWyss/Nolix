@@ -9,7 +9,7 @@ import ch.nolix.element.containerWidgets.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClientSession;
-import ch.nolix.templates.consoleClientLooks.GreyBlueConsoleClientLook;
+import ch.nolix.template.consoleClientLook.GreyBlueConsoleClientLook;
 
 //class
 /**

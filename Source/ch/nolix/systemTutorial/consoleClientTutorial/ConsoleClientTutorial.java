@@ -4,7 +4,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleClient.BackConsoleClient;
 import ch.nolix.system.consoleClient.BackConsoleClientSession;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
-import ch.nolix.templates.consoleClientLooks.BlackRedConsoleClientLook;
+import ch.nolix.template.consoleClientLook.BlackRedConsoleClientLook;
 
 /**
  * The {@link ConsoleClientTutorial} is a tutorial for {@link BackConsoleClient}s.
