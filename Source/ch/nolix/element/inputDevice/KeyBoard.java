@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.inputDevices;
+package ch.nolix.element.inputDevice;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.inputs.Key;

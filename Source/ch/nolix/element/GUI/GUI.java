@@ -14,7 +14,7 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
-import ch.nolix.element.inputDevices.KeyBoard;
+import ch.nolix.element.inputDevice.KeyBoard;
 import ch.nolix.element.inputs.Key;
 import ch.nolix.element.painter.IPainter;
 

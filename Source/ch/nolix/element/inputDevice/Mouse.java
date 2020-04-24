@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.inputDevices;
+package ch.nolix.element.inputDevice;
 
 //class
 public final class Mouse {
