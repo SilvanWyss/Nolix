@@ -82,7 +82,7 @@ public abstract class ClosableElement implements Closable {
 	 * all of its close dependencies will be closed too and vice versa.
 	 * 
 	 * @param element
-	 * @throws InvalidArgumentException if the current {@link ClosableElement} is closed.
+	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
 	 * @throws InvalidArgumentException
 	 * if the current {@link ClosableElement} has already a close dependency to the given element.
 	 */

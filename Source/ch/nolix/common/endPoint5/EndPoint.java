@@ -123,7 +123,7 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 	 * Runs the appended commands of the current {@link EndPoint}.
 	 * The appended commands of the current local {@link EndPoint} will be removed in any case.
 	 * 
-	 * @throws InvalidArgumentException if the current local {@link EndPoint} is closed.
+	 * @throws ClosedArgumentException if the current local {@link EndPoint} is closed.
 	 */
 	public final void runAppendedCommands() {
 		

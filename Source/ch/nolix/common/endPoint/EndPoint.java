@@ -58,7 +58,7 @@ implements ISender {
 	 * 
 	 * @param receiver
 	 * @throws ArgumentIsNullException if the given receiver is null.
-	 * @throws InvalidArgumentException if this end point is closed.
+	 * @throws ClosedArgumentException if this end point is closed.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		

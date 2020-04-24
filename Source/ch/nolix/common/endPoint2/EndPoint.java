@@ -143,7 +143,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 * @param target
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
-	 * @throws InvalidArgumentException if the current net {@link EndPoint} is closed.
+	 * @throws ClosedArgumentException if the current net {@link EndPoint} is closed.
 	 */
 	protected final void setTarget(final String target) {
 		
