@@ -1,32 +1,32 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own import
 import ch.nolix.system.entity.Entity;
 
 //class
-public abstract class BaseBackReferenceType<E extends Entity> extends DataType<E> {
+public abstract class BaseReferenceType<E extends Entity> extends DataType<E> {
 	
 	//constructor
-	public BaseBackReferenceType(final Class<E> contentClass) {
+	public BaseReferenceType(final Class<E> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	public final boolean canReference(final Entity entity) {
-		return false;
+		return (getRefContentClass() == entity.getClass());
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return true;
+		return false;
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyReferenceType() {
-		return false;
+		return true;
 	}
 	
 	//method

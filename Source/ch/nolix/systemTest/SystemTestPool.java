@@ -3,7 +3,7 @@ package ch.nolix.systemTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestPool;
-import ch.nolix.systemTest.dataTypesTest.DataTypesTestPool;
+import ch.nolix.systemTest.dataTypeTest.DataTypesTestPool;
 import ch.nolix.systemTest.neuronTest.NeuronTestPool;
 import ch.nolix.systemTest.textureTest.TextureTestPool;
 

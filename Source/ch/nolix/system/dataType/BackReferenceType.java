@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own imports
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
-public final class MultiBackReferenceType<E extends Entity> extends BaseBackReferenceType<E> {
+public final class BackReferenceType<E extends Entity> extends BaseBackReferenceType<E> {
 	
 	//constructor
-	public MultiBackReferenceType(final Class<E> contentClass) {
+	public BackReferenceType(final Class<E> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	@Override
 	public PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_BACK_REFERENCE;
+		return PropertyKind.BACK_REFERENCE;
 	}
 }

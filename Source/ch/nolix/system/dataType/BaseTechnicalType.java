@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own imports
 import ch.nolix.system.entity.Entity;

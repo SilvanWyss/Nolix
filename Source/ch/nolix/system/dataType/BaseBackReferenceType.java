@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own import
 import ch.nolix.system.entity.Entity;
 
 //class
-public abstract class BaseValueType<C> extends DataType<C> {
+public abstract class BaseBackReferenceType<E extends Entity> extends DataType<E> {
 	
 	//constructor
-	public BaseValueType(final Class<C> contentClass) {
+	public BaseBackReferenceType(final Class<E> contentClass) {
 		super(contentClass);
 	}
 	
@@ -20,7 +20,7 @@ public abstract class BaseValueType<C> extends DataType<C> {
 	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -38,6 +38,6 @@ public abstract class BaseValueType<C> extends DataType<C> {
 	//method
 	@Override
 	public final boolean isAnyValueType() {
-		return true;
+		return false;
 	}
 }

@@ -1,20 +1,20 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own import
 import ch.nolix.system.entity.PropertyKind;
 
 //class
-public final class ValueType<C> extends BaseValueType<C> {
+public final class MultiValueType<C> extends BaseValueType<C> {
 	
 	//constructor
-	public ValueType(final Class<C> contentClass) {
+	public MultiValueType(final Class<C> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	@Override
 	public PropertyKind getPropertyKind() {
-		return PropertyKind.VALUE;
+		return PropertyKind.MULTI_VALUE;
 	}
 }

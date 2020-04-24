@@ -12,7 +12,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.common.wrapperException.WrapperException;
-import ch.nolix.system.dataTypes.DataTypeHelper;
+import ch.nolix.system.dataType.DataTypeHelper;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
 

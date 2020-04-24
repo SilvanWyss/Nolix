@@ -1,5 +1,5 @@
 //class
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own import
 import ch.nolix.system.entity.PropertyKind;

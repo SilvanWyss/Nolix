@@ -1,20 +1,20 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 //own import
 import ch.nolix.system.entity.Entity;
 
 //class
-public abstract class BaseReferenceType<E extends Entity> extends DataType<E> {
+public abstract class BaseValueType<C> extends DataType<C> {
 	
 	//constructor
-	public BaseReferenceType(final Class<E> contentClass) {
+	public BaseValueType(final Class<C> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	public final boolean canReference(final Entity entity) {
-		return (getRefContentClass() == entity.getClass());
+		return false;
 	}
 	
 	//method
@@ -26,7 +26,7 @@ public abstract class BaseReferenceType<E extends Entity> extends DataType<E> {
 	//method
 	@Override
 	public final boolean isAnyReferenceType() {
-		return true;
+		return false;
 	}
 	
 	//method
@@ -38,6 +38,6 @@ public abstract class BaseReferenceType<E extends Entity> extends DataType<E> {
 	//method
 	@Override
 	public final boolean isAnyValueType() {
-		return false;
+		return true;
 	}
 }

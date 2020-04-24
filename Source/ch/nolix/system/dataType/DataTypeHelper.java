@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.dataTypes;
+package ch.nolix.system.dataType;
 
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.entity.Entity;
