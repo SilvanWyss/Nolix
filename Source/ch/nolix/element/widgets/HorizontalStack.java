@@ -3,7 +3,7 @@ package ch.nolix.element.widgets;
 
 //own imports
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.containerWidgets.Stack;
+import ch.nolix.element.containerWidget.Stack;
 
 //class
 /**

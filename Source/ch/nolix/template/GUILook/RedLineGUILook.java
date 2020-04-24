@@ -4,7 +4,7 @@ package ch.nolix.template.GUILook;
 //own imports
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.containerWidgets.ContainerRole;
+import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widgets.ButtonRole;
 import ch.nolix.element.widgets.LabelRole;
 

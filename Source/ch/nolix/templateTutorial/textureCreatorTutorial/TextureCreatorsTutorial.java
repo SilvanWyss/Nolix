@@ -2,7 +2,7 @@ package ch.nolix.templateTutorial.textureCreatorTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidgets.Accordion;
+import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.system.texture.TextureCreator;
 import ch.nolix.template.textureCreator.ConcreteTextureCreator;

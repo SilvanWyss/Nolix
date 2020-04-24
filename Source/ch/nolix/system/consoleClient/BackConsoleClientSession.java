@@ -4,7 +4,7 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.containerWidgets.ContainerRole;
+import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.baseGUIClient.BaseBackGUIClientSession;

@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseApplication;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.containerWidgets.Grid;
+import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.widgets.Button;
 import ch.nolix.element.widgets.ButtonRole;
 

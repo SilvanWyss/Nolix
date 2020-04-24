@@ -7,7 +7,7 @@ import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.containerWidgets.ContainerRole;
+import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widgets.Console;
 import ch.nolix.element.widgets.VerticalStack;
 
