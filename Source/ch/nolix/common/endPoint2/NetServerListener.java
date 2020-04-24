@@ -63,7 +63,9 @@ final class NetServerListener extends Thread {
 			}
 		}
 		catch (final IOException exception) {
-			netServer.close();
+			if (netServer.isOpen()) {
+				netServer.close();
+			}
 		}
 	}
 	

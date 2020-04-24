@@ -64,7 +64,9 @@ final class NetEndPointSubListener extends Thread {
 			}
 		}
 		catch (final IOException exception) {
-			netEndPoint.close();
+			if (netEndPoint.isOpen()) {
+				netEndPoint.close();
+			}
 		}
 	}
 }
