@@ -5,7 +5,7 @@ package ch.nolix.common.endPoint;
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.template.resourceCatalogue;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.techAPI.resourceAPI.IResource;
 import ch.nolix.techAPI.resourceAPI.IResourceFactory;

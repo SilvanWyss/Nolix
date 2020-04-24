@@ -3,7 +3,7 @@ package ch.nolix.common.fileSystem;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

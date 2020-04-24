@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IIntTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperties.ProcessingMode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;

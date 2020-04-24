@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

@@ -6,8 +6,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.wrapperException.WrapperException;
 
 //class

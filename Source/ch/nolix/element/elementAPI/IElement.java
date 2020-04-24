@@ -5,7 +5,7 @@ package ch.nolix.element.elementAPI;
 import ch.nolix.common.XML.XMLNode;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.processProperties.WriteMode;
 

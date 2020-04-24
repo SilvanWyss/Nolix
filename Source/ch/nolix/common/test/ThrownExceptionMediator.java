@@ -2,8 +2,8 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 
 //class
 /**

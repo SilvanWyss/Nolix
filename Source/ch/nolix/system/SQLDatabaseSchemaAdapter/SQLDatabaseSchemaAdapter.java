@@ -6,7 +6,7 @@ import ch.nolix.common.SQL.SQLConnection;
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseState;

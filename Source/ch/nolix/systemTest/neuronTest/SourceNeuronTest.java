@@ -3,7 +3,7 @@ package ch.nolix.systemTest.neuronTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.baseNeuron.SourceNeuron;
 

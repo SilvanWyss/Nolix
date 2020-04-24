@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own import
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 public abstract class SingleBackReference<E extends Entity> extends BaseBackReference<E> {

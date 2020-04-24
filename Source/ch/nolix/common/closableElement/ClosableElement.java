@@ -3,8 +3,8 @@ package ch.nolix.common.closableElement;
 
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
 

@@ -3,7 +3,7 @@ package ch.nolix.element.inputs;
 
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
 

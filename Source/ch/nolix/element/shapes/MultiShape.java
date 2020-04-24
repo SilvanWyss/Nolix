@@ -3,7 +3,7 @@ package ch.nolix.element.shapes;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.Shape;
 

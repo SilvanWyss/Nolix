@@ -4,7 +4,7 @@ package ch.nolix.common.container;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 

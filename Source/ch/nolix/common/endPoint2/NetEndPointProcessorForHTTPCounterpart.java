@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
-//own import
-import ch.nolix.common.invalidArgumentExceptions.ClosedArgumentException;
+import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 

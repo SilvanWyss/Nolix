@@ -14,9 +14,9 @@ import ch.nolix.common.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.functionAPI.IElementTakerIntGetter;
 import ch.nolix.common.functionAPI.IElementTakerLongGetter;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
 

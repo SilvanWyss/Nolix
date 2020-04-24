@@ -5,7 +5,7 @@ package ch.nolix.element.color;
 import java.awt.GradientPaint;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;

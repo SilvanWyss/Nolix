@@ -2,7 +2,7 @@
 package ch.nolix.tech.project;
 
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;

@@ -3,8 +3,8 @@ package ch.nolix.techTest.projectTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.project.Project;
 import ch.nolix.tech.project.Task;

@@ -3,7 +3,7 @@ package ch.nolix.common.closableElement;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.validator.Validator;
 

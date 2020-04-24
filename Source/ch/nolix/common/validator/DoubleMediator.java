@@ -1,20 +1,19 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.BiggerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.EqualArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonNegativeArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonSmallerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidArgumentExceptions.SmallerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsZeroException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsZeroException;
+import ch.nolix.common.invalidArgumentException.BiggerArgumentException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.EqualArgumentException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
+import ch.nolix.common.invalidArgumentException.NonNegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
+import ch.nolix.common.invalidArgumentException.NonSmallerArgumentException;
+import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
+import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
 
 //class
 /**

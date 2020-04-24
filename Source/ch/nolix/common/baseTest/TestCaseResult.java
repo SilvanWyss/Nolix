@@ -6,9 +6,9 @@ import java.lang.reflect.Method;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.independentContainer.List;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNotNullException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNotNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 
 //class
 public final class TestCaseResult {

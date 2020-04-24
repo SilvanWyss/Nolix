@@ -4,7 +4,7 @@ package ch.nolix.common.sequencer;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 

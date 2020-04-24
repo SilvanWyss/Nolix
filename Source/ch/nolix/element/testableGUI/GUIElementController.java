@@ -3,7 +3,7 @@ package ch.nolix.element.testableGUI;
 
 //own imports
 import ch.nolix.common.attributeAPI.IdentifiedByString;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentHasAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentHasAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.validator.Validator;

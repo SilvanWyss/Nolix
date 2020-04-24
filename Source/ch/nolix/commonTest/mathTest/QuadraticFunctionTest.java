@@ -3,7 +3,7 @@ package ch.nolix.commonTest.mathTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.math.QuadraticFunction;
 import ch.nolix.common.test.Test;
 

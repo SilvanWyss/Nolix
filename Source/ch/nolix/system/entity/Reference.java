@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 
 //class
 public final class Reference<E extends Entity> extends SingleReference<E> {

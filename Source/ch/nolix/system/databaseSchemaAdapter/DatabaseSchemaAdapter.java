@@ -4,7 +4,7 @@ package ch.nolix.system.databaseSchemaAdapter;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalSkillAPI.IFluentObject;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.license.CentralLicenseManager;
 import ch.nolix.common.skillAPI.IChangesSaver;
 import ch.nolix.system.databaseAdapter.Schema;

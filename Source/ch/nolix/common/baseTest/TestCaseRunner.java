@@ -5,10 +5,9 @@ package ch.nolix.common.baseTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperties.Result;
 
 //class

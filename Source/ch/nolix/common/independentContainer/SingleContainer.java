@@ -2,8 +2,8 @@
 package ch.nolix.common.independentContainer;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNotNullException;
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNotNullException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 
 //class
 /**

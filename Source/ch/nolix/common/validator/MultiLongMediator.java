@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.common.validator;
 
-import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
 import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
 
 //class
 /**

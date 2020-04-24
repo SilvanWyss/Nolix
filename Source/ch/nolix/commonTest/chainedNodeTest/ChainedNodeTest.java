@@ -4,7 +4,7 @@ package ch.nolix.commonTest.chainedNodeTest;
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
+import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 import ch.nolix.common.test.Test;
 
 //class

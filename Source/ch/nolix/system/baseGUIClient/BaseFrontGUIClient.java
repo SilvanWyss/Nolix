@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;

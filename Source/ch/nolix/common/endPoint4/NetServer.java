@@ -3,7 +3,7 @@ package ch.nolix.common.endPoint4;
 
 //own imports
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

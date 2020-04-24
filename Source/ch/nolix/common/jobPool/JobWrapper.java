@@ -3,8 +3,8 @@ package ch.nolix.common.jobPool;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillAPI.Runnable;
 import ch.nolix.common.validator.Validator;

@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 public final class BitMediator extends Mediator {

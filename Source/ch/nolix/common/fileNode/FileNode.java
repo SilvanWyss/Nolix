@@ -6,7 +6,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 

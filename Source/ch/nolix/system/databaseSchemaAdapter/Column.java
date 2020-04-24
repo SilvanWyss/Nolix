@@ -7,7 +7,7 @@ import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.UnsupportedArgumentException;
+import ch.nolix.common.invalidArgumentException.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;

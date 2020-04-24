@@ -3,8 +3,8 @@ package ch.nolix.common.commonTypeHelper;
 
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.futureAPI;
 
-//own import
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //interface
 /**

@@ -8,8 +8,8 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 

@@ -6,7 +6,7 @@ import ch.nolix.common.closableElement.ClosableElement;
 //own imports
 import ch.nolix.common.communicationAPI.IReplier;
 import ch.nolix.common.genericCommunicationAPI.IReplyingSender;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //class

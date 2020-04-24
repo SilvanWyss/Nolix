@@ -4,8 +4,7 @@ package ch.nolix.common.constant;
 //Java import
 import java.util.Objects;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class

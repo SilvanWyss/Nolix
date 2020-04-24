@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.common.test;
 
-import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 
 //class
 /**

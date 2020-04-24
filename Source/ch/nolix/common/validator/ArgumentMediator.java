@@ -3,9 +3,9 @@ package ch.nolix.common.validator;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.UnequalArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
 
 //class
 /**

@@ -2,9 +2,9 @@
 package ch.nolix.common.baseTest;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.NonPositiveArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
 
 //class
 public final class OccurancePlace {

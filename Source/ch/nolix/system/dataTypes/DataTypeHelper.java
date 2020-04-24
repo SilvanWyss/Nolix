@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.dataTypes;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.Property;
 

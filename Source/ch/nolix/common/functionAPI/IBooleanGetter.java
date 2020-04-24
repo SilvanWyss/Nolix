@@ -2,7 +2,7 @@
 package ch.nolix.common.functionAPI;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //functional interface

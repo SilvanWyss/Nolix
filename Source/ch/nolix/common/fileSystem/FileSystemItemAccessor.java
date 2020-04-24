@@ -5,7 +5,7 @@ package ch.nolix.common.fileSystem;
 import java.io.File;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

@@ -7,7 +7,7 @@ import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.endPoint.NetEndPoint;
 import ch.nolix.common.endPoint.NetServer;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;

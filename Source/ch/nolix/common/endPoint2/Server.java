@@ -4,9 +4,9 @@ package ch.nolix.common.endPoint2;
 //own imports
 import ch.nolix.common.closableElement.ClosableElement;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 

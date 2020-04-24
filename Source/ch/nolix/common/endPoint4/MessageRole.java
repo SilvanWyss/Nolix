@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.endPoint4;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.UnrepresentingArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 
 //enum
 /**

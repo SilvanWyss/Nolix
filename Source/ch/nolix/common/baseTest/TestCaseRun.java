@@ -4,9 +4,8 @@ package ch.nolix.common.baseTest;
 //Java import
 import java.lang.reflect.Method;
 
-//own imports
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 public final class TestCaseRun {

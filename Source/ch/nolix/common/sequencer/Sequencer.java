@@ -7,7 +7,7 @@ import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.futureAPI.IFuture;
-import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.common.jobPool.JobPool;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;

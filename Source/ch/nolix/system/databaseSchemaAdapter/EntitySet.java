@@ -6,7 +6,7 @@ import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.dataTypes.DataType;
 import ch.nolix.system.dataTypes.MultiReferenceType;
 import ch.nolix.system.dataTypes.MultiValueType;

@@ -3,7 +3,7 @@ package ch.nolix.common.test;
 
 //own imports
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 
 //class
 /**

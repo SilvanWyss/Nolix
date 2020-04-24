@@ -4,8 +4,8 @@ package ch.nolix.common.validator;
 //own imports
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

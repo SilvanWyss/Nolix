@@ -3,8 +3,8 @@ package ch.nolix.common.test;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentExceptions.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
 
 //class
 /**

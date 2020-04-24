@@ -5,7 +5,7 @@ package ch.nolix.common.moduleManager;
 import java.io.File;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
