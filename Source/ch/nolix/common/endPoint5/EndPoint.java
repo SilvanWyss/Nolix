@@ -8,7 +8,6 @@ import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
