@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.commonTypeWrappers.ByteWrapper;
+import ch.nolix.common.commonTypeWrapper.ByteWrapper;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.webSocket.WebSocketFrame;
 import ch.nolix.common.webSocket.WebSocketFrameOpcodeMeaning;

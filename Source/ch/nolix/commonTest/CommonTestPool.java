@@ -5,7 +5,7 @@ package ch.nolix.commonTest;
 import ch.nolix.common.baseTest.TestPool;
 import ch.nolix.commonTest.chainedNodeTest.ChainedNodeTestPool;
 import ch.nolix.commonTest.commonTypeHelperTest.CommonTypeHelpersTestPool;
-import ch.nolix.commonTest.commonTypeWrappersTest.CommonTypeWrapperTestPool;
+import ch.nolix.commonTest.commonTypeWrapperTest.CommonTypeWrapperTestPool;
 import ch.nolix.commonTest.containersTest.ContainerTestPool;
 import ch.nolix.commonTest.licenseTest.LicenseTestPool;
 import ch.nolix.commonTest.mathTest.MathematicsTestPool;

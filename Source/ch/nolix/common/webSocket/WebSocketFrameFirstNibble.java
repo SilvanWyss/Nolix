@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.webSocket;
 
-//own imports
-import ch.nolix.common.commonTypeWrappers.ByteWrapper;
+import ch.nolix.common.commonTypeWrapper.ByteWrapper;
 import ch.nolix.common.validator.Validator;
 
 //class

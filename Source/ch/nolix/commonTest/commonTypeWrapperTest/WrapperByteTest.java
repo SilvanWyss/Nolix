@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.commonTest.commonTypeWrappersTest;
+package ch.nolix.commonTest.commonTypeWrapperTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.commonTypeWrappers.ByteWrapper;
+import ch.nolix.common.commonTypeWrapper.ByteWrapper;
 import ch.nolix.common.test.Test;
 
 //class

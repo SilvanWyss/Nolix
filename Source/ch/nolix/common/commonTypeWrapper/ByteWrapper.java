@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.commonTypeWrappers;
+package ch.nolix.common.commonTypeWrapper;
 
 //own imports
 import ch.nolix.common.constants.VariableNameCatalogue;
