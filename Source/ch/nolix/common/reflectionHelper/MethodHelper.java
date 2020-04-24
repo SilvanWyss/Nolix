@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.reflectionHelpers;
+package ch.nolix.common.reflectionHelper;
 
 //Java imports
 import java.lang.annotation.Annotation;

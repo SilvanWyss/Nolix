@@ -10,7 +10,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.reflectionHelpers.ReflectionHelper;
+import ch.nolix.common.reflectionHelper.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;
 

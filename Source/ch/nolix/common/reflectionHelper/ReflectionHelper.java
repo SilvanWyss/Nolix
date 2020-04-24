@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.reflectionHelpers;
+package ch.nolix.common.reflectionHelper;
 
 //Java import
 import java.lang.reflect.Field;
