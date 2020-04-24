@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.independentHelpers;
+package ch.nolix.common.independentHelper;
 
 import ch.nolix.common.independentContainer.List;
 

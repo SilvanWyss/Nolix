@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//own imports
-import ch.nolix.common.independentHelpers.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.BiggerArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.EqualArgumentException;
+import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsInRangeException;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.NegativeArgumentException;

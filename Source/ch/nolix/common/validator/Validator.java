@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 import ch.nolix.common.independentContainer.List;
-import ch.nolix.common.independentHelpers.ArrayHelper;
+import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 
 //class

@@ -3,7 +3,7 @@ package ch.nolix.common.validator;
 
 //own imports
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.independentHelpers.ArrayHelper;
+import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.invalidArgumentExceptions.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentExceptions.ArgumentIsNullException;
 

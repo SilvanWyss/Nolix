@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.attributeAPI.Indexed;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.independentHelpers.ArrayHelper;
+import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
