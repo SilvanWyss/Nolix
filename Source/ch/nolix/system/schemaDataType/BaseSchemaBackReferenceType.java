@@ -1,30 +1,30 @@
 //package declaration
-package ch.nolix.system.schemaDataTypes;
+package ch.nolix.system.schemaDataType;
 
 //own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 
 //class
-public abstract class BaseSchemaReferenceType extends SchemaDataType<EntitySet> {
+public abstract class BaseSchemaBackReferenceType extends SchemaDataType<EntitySet> {
 	
 	//attribute
-	private final EntitySet referencedEntitySet;
+	private final EntitySet backReferencedEntitySet;
 	
 	//constructor
-	public BaseSchemaReferenceType(final EntitySet referencedEntitySet) {
+	public BaseSchemaBackReferenceType(final EntitySet backReferencedEntitySet) {
 		
 		super(EntitySet.class);
 		
-		Validator.assertThat(referencedEntitySet).thatIsNamed("referenced EntitySet").isNotNull();
+		Validator.assertThat(backReferencedEntitySet).thatIsNamed("back-referenced EntitySet").isNotNull();
 		
-		this.referencedEntitySet = referencedEntitySet;
+		this.backReferencedEntitySet = backReferencedEntitySet;
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -36,7 +36,7 @@ public abstract class BaseSchemaReferenceType extends SchemaDataType<EntitySet> 
 	//method
 	@Override
 	public final boolean isAnyReferenceType() {
-		return true;
+		return false;
 	}
 	
 	//method
@@ -48,12 +48,12 @@ public abstract class BaseSchemaReferenceType extends SchemaDataType<EntitySet> 
 	//method
 	@Override
 	public final boolean references(final EntitySet entitySet) {
-		return (referencedEntitySet == entitySet);
+		return false;
 	}
 	
 	//method
 	@Override
 	public final boolean referencesBack(final EntitySet entitySet) {
-		return false;
+		return (backReferencedEntitySet == entitySet);
 	}
 }

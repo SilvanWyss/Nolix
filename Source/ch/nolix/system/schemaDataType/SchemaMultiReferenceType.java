@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.system.schemaDataTypes;
+package ch.nolix.system.schemaDataType;
 
 //own imports
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
-public final class SchemaReferenceType extends BaseSchemaReferenceType {
+public final class SchemaMultiReferenceType extends BaseSchemaReferenceType {
 	
 	//constructor
-	public SchemaReferenceType(final EntitySet referencedEntitySet) {
+	public SchemaMultiReferenceType(final EntitySet referencedEntitySet) {
 		super(referencedEntitySet);
 	}
 	
 	//method
 	@Override
 	public PropertyKind getPropertyKind() {
-		return PropertyKind.REFERENCE;
+		return PropertyKind.MULTI_REFERENCE;
 	}
 }

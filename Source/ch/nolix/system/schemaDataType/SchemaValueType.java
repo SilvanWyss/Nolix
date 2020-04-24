@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.schemaDataTypes;
+package ch.nolix.system.schemaDataType;
 
 //own import
 import ch.nolix.system.entity.PropertyKind;

@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.system.schemaDataTypes;
+package ch.nolix.system.schemaDataType;
 
 //own imports
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
-public final class SchemaMultiBackReferenceType extends BaseSchemaBackReferenceType {
+public final class SchemaBackReferenceType extends BaseSchemaBackReferenceType {
 	
 	//constructor
-	public SchemaMultiBackReferenceType(final EntitySet referencedEntitySet) {
+	public SchemaBackReferenceType(final EntitySet referencedEntitySet) {
 		super(referencedEntitySet);
 	}
 	
 	//method
 	@Override
 	public PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_BACK_REFERENCE;
+		return PropertyKind.BACK_REFERENCE;
 	}
 }
