@@ -72,14 +72,14 @@ final class CloseController implements Closable {
 		//Asserts that the current CloseController is alive.
 		supposeIsAlive();
 		
-		//Sets the current CloseController as closed.
-		closed = true;
-		
 		//Lets note all elements of the current CloseController run their probable pre-close action.
 		elements.forEach(ClosableElement::runProbablePreCloseAction);
 		
 		//Lets note all elements of the current CloseController note the close.
 		elements.forEach(ClosableElement::noteClose);
+		
+		//Sets the current CloseController as closed.
+		closed = true;
 	}
 	
 	//method
