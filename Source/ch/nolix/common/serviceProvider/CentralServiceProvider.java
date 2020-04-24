@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.serviceProvider;
 
-//own import
-import ch.nolix.common.processProperties.WriteMode;
+import ch.nolix.common.processProperty.WriteMode;
 
 //class
 public final class CentralServiceProvider {

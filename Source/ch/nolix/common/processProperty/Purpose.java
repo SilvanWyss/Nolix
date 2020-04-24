@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.processProperties;
+package ch.nolix.common.processProperty;
 
 //enum
 /**

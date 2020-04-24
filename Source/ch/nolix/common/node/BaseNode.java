@@ -15,7 +15,7 @@ import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalHeaderable;
-import ch.nolix.common.processProperties.WriteMode;
+import ch.nolix.common.processProperty.WriteMode;
 import ch.nolix.common.validator.Validator;
 
 //class

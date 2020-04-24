@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.processProperties.Result;
+import ch.nolix.common.processProperty.Result;
 
 //class
 public final class TestCaseRunner extends Thread {

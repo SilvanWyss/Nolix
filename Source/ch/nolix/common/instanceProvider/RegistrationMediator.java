@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.instanceProvider;
 
-//own imports
-import ch.nolix.common.processProperties.WriteMode;
+import ch.nolix.common.processProperty.WriteMode;
 import ch.nolix.common.validator.Validator;
 
 //class

@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.processProperties.WriteMode;
+import ch.nolix.common.processProperty.WriteMode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
