@@ -40,7 +40,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 420
+ * @lines 430
  */
 public final class NetEndPoint extends EndPoint {
 	
@@ -232,12 +232,14 @@ public final class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	protected void noteClose() {
-		try {
-			sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
-			socket.close();
-		}
-		catch (final IOException IOException) {
-			Logger.logError(IOException);
+		if (canWork()) {
+			try {
+				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+				socket.close();
+			}
+			catch (final IOException pIOException) {
+				Logger.logError(pIOException);
+			}
 		}
 	}
 	
@@ -257,6 +259,14 @@ public final class NetEndPoint extends EndPoint {
 	 */
 	void receiveRawMessageInBackground(final String rawMessage) {
 		Sequencer.runInBackground(() -> receiveRawMessage(rawMessage));
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link NetEndPoint} can work.
+	 */
+	private boolean canWork() {
+		return !socket.isClosed();
 	}
 	
 	//method
@@ -345,14 +355,15 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	private void receiveMessage(final String message) {
+		
+		//Asserts that the current NetEndPoint is open.
+		supposeIsOpen();
+		
 		getRefReceiver().receive(message);
 	}
 	
 	//method
 	private void receiveRawMessage(final String rawMessage) {
-		
-		//Asserts that the current NetEndPoint is open.
-		supposeIsOpen();
 		
 		//Enumerates the first character of the given rawMessage.
 		switch (rawMessage.charAt(0)) {
@@ -364,7 +375,7 @@ public final class NetEndPoint extends EndPoint {
 				hasTargetInfo = true;
 				break;
 			case NetEndPointProtocol.MESSAGE_PREFIX:
-				receiveMessage(rawMessage.substring(1));				
+				receiveMessage(rawMessage.substring(1));
 				break;
 			case NetEndPointProtocol.CLOSE_PREFIX:
 				Validator.assertThat(rawMessage).thatIsNamed("raw message").hasLength(1);
