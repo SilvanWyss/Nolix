@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.common.fileSystem.FileAccessor;
+import ch.nolix.common.runningJar.RunningJar;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
@@ -11,10 +11,13 @@ public class ImageWidgetTutorial2 {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Image Widget Tutorial");
+		final var frame = new Frame("ImageWidget Tutorial");
 		
 		//Creates an Image.
-		final var image = Image.fromBytes(new FileAccessor("C:/Temp/temp2.jpg").readFileToBytes());
+		final var image =
+		Image.fromBytes(
+			RunningJar.getResourceAsBytes("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg")
+		);
 		
 		//Creates an ImageWidget with the Image.
 		final var imageWidget = new ImageWidget(image);
