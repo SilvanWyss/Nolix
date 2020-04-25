@@ -1,10 +1,13 @@
 //package declaration
 package ch.nolix.common.closableElement;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.state.Openness;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -16,7 +19,7 @@ import ch.nolix.common.validator.Validator;
 final class CloseController implements Closable {
 	
 	//attribute
-	private boolean closed = false;
+	private Openness state = Openness.OPEN;
 	
 	//multi-attribute
 	private final LinkedList<ClosableElement> elements = new LinkedList<>();
@@ -46,15 +49,12 @@ final class CloseController implements Closable {
 		//Asserts that the given element is not null.
 		Validator.assertThat(element).thatIsNamed("element").isNotNull();
 		
-		//Asserts that the current CloseController is alive.
-		supposeIsAlive();
+		//Asserts that the current CloseController is open.
+		supposeIsOpen();
 		
 		//Asserts that the current CloseController does not contain already the given element.
 		if (containsElement(element)) {
-			throw new InvalidArgumentException(
-				this,
-				"contains already the given element"
-			);
+			throw new InvalidArgumentException(this, "contains already the given element");
 		}
 		
 		elements.addAtEnd(element.getRefCloseDependencies());
@@ -67,19 +67,22 @@ final class CloseController implements Closable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void close() {
+	public synchronized void close() {
 		
-		//Asserts that the current CloseController is alive.
-		supposeIsAlive();
-		
-		//Lets note all elements of the current CloseController run their probable pre-close action.
-		elements.forEach(ClosableElement::runProbablePreCloseAction);
-		
-		//Lets note all elements of the current CloseController note the close.
-		elements.forEach(ClosableElement::noteClose);
-		
-		//Sets the current CloseController as closed.
-		closed = true;
+		//Handles the case that the current CloseController is open.
+		if (state == Openness.OPEN) {
+			
+			state = Openness.CLOSING;
+			
+			//Lets note all elements of the current CloseController run their probable pre-close action.
+			elements.forEach(ClosableElement::runProbablePreCloseAction);
+			
+			//Lets note all elements of the current CloseController note the close.
+			elements.forEach(ClosableElement::noteClose);
+			
+			//Sets the current CloseController as closed.
+			state = Openness.CLOSED;
+		}
 	}
 	
 	//method
@@ -105,22 +108,18 @@ final class CloseController implements Closable {
 	 */
 	@Override
 	public boolean isClosed() {
-		return closed;
+		return (state == Openness.CLOSED);
 	}
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if the current {@link CloseController} is closed.
+	 * @throws ClosedArgumentException if the current {@link CloseController} is closed.
 	 */
-	private void supposeIsAlive() {
+	private void supposeIsOpen() {
 		
-		//Asserts that the current CloseController is not closed.
+		//Asserts that the current CloseController is open.
 		if (isClosed()) {
-			throw
-			new InvalidArgumentException(
-				this,
-				"is closed"
-			);
+			throw new ClosedArgumentException(this);
 		}
 	}
 }
