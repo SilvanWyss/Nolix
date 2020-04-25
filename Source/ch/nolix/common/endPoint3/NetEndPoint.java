@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
+//own import
 import ch.nolix.common.container.LinkedList;
 
 //class
@@ -9,7 +10,7 @@ import ch.nolix.common.container.LinkedList;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 10
+ * @lines 270
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -143,26 +144,6 @@ public class NetEndPoint extends EndPoint {
 		receive(Package.createPackageFromString(message));
 	}
 	
-	//method
-	/**
-	 * Lets this zeta end point wait to and return and remove the received package with the given index.
-	 * 
-	 * @param index
-	 * @param timeoutCheck
-	 * @return the received package with the given index.
-	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
-	 */
-	Package waitToAndGetAndRemoveReceivedPackage(
-		final int index
-	) {
-		
-		while (!receivedPackage(index)) {
-			supposeIsOpen();
-		}
-
-		return getAndRemoveReceivedPackage(index);
-	}
-	
 	final LinkedList<Package> getRefReceivedPackages() {
 		return receivedPackages;
 	}
@@ -269,5 +250,28 @@ public class NetEndPoint extends EndPoint {
 	@Override
 	public boolean hasTarget() {
 		return internalEndPoint.hasTarget();
+	}
+
+	//method
+	/**
+	 * Lets this zeta end point wait to and return and remove the received package with the given index.
+	 * 
+	 * @param index
+	 * @param timeoutCheck
+	 * @return the received package with the given index.
+	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
+	 */
+	private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
+		
+		//This loop suffers from being optimized away by the compiler or the JVM.
+		while (!receivedPackage(index)) {
+			
+			supposeIsOpen();
+			
+			//This statement, which is actually unnecessary, makes that the current loop is not optimized away.
+			System.err.flush();
+		}
+		
+		return getAndRemoveReceivedPackage(index);
 	}
 }
