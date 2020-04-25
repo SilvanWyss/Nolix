@@ -20,8 +20,8 @@ import ch.nolix.common.test.Test;
  */
 public final class NetEndPointTest extends Test {
 	
-	//mock class
-	private static class EndPointTakerMock implements IEndPointTaker {
+	//static class
+	private static final class EndPointTaker implements IEndPointTaker {
 		
 		//optional attribute
 		private String receivedMessage;
@@ -59,7 +59,7 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		netServer.addMainEndPointTaker(new EndPointTakerMock());
+		netServer.addMainEndPointTaker(new EndPointTaker());
 		
 		//execution & verification
 		expect(
@@ -84,7 +84,7 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		final var endPointTakerMock = new EndPointTakerMock();
+		final var endPointTakerMock = new EndPointTaker();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
 		
