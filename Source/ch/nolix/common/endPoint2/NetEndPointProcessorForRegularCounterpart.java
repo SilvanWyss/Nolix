@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -79,7 +80,7 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 				parentNetEndPoint.receiveRawMessageInBackground(line);
 			}
 		}
-		catch (final IOException IOException) {
+		catch (final IOException pIOException) {
 			parentNetEndPoint.close();
 		}
 	}
