@@ -13,9 +13,9 @@ import ch.nolix.common.wrapperException.WrapperException;
 public final class RunningJar {
 	
 	//static method
-	public static String getResource(final String pPackage) {
+	public static String getResource(final String path) {
 		final var stringBuilder = new StringBuilder();
-		final var inputStream = RunningJar.class.getResourceAsStream("/" + pPackage);
+		final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
 		try (final var bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
 			var line = bufferedReader.readLine();
 			while (line != null) {
@@ -23,6 +23,17 @@ public final class RunningJar {
 				line = bufferedReader.readLine();
 			}
 			return stringBuilder.toString();
+		}
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
+		}
+	}
+	
+	//static method
+	public static byte[] getResourceAsBytes(final String path) {
+		final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
+		try {
+			return inputStream.readAllBytes();
 		}
 		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
