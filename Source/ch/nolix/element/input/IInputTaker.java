@@ -1,17 +1,46 @@
 //package declaration
 package ch.nolix.element.input;
 
+//own imports
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 
 //interface
 /**
  * @author Silvan
  * @month 2019-08
- * @lines 180
+ * @lines 250
  */
 public interface IInputTaker {
 	
 	//method
+	/**
+	 * Lets the current {@link IBaseGUI} note the given input.
+	 * 
+	 * @param input
+	 * @throws InvalidArgumentException if the given input is not valid.
+	 */
+	public default void noteInput(final IInput<?> input) {
+		
+		if (input instanceof MouseInput) {
+			noteMouseInput(input.as(MouseInput.class));
+		}
+		
+		else if (input instanceof KeyInput) {
+			noteKeyInput(input.as(KeyInput.class));
+		}
+		
+		else {
+			throw new InvalidArgumentException(input);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link IBaseGUI} note the given keyInput.
+	 * 
+	 * @param keyInput
+	 */
 	public default void noteKeyInput(final KeyInput keyInput) {
 		switch (keyInput.getInputType()) {
 			case Press:
@@ -111,6 +140,50 @@ public interface IInputTaker {
 	) {
 		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		noteLeftMouseButtonRelease();
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note the given mouseInput.
+	 * 
+	 * @param mouseInput
+	 */
+	public default void noteMouseInput(final MouseInput mouseInput) {
+		switch (mouseInput) {
+			case LeftMouseButtonPress:
+				noteLeftMouseButtonPress();
+				break;
+			case LeftMouseButtonRelease:
+				noteLeftMouseButtonRelease();
+				break;
+			case LeftMouseButtonClick:
+				noteLeftMouseButtonClick();
+				break;
+			case RightMouseButtonPress:
+				noteRightMouseButtonPress();
+				break;
+			case RightMouseButtonRelease:
+				noteRightMouseButtonRelease();
+				break;
+			case RightMouseButtonClick:
+				noteRightMouseButtonClick();
+				break;
+			case MouseWheelButtonPress:
+				noteMouseWheelPress();
+				break;
+			case MouseWheelButtonRelease:
+				noteMouseWheelRelease();
+				break;
+			case MouseWheelButtonClick:
+				noteMouseWheelClick();
+				break;
+			case ForwardMouseWheelRotationStep:
+				noteMouseWheelRotationStep(DirectionOfRotation.Forward);
+				break;
+			case BackwardMouseWheelRotationStep:
+				noteMouseWheelRotationStep(DirectionOfRotation.Backward);
+				break;
+		}
 	}
 	
 	//method declaration
