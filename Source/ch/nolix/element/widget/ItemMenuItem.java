@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
@@ -31,18 +32,18 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private final Property<String> text =
 	new Property<>(
 		PascalCaseNameCatalogue.TEXT,
-		t -> setText(t),
-		s -> s.getOneAttributeAsString(),
-		t -> new Node(t)
+		this::setText,
+		BaseNode::getOneAttributeAsString,
+		Node::withOneAttribute
 	);
 	
 	//attribute
 	private final OptionalProperty<String> id =
 	new OptionalProperty<>(
 		PascalCaseNameCatalogue.ID,
-		id -> setId(id),
-		s -> s.getOneAttributeAsString(),
-		id -> new Node(id)
+		this::setId,
+		BaseNode::getOneAttributeAsString,
+		Node::withOneAttribute
 	);
 	
 	//optional attribute

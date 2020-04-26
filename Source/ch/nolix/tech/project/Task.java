@@ -46,7 +46,7 @@ public final class Task extends Element<Task> implements ITask {
 	new MutableProperty<>(
 		TITLE_HEADER,
 		t -> setTitle(t),
-		s -> s.getOneAttributeAsString(),
+		BaseNode::getOneAttributeAsString,
 		t -> Node.withOneAttribute(t)
 	);
 	

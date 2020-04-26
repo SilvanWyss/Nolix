@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.tech.project;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -26,8 +28,8 @@ public final class Project extends Element<Project> implements IProject {
 	private final MutableProperty<String> name =
 	new MutableProperty<>(
 		VariableNameCatalogue.NAME,
-		n -> setName(n),
-		s -> s.getOneAttributeAsString(),
+		this::setName,
+		BaseNode::getOneAttributeAsString,
 		n -> new Node(VariableNameCatalogue.NAME, n)
 	);
 	

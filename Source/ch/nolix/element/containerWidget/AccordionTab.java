@@ -52,7 +52,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
-		s -> s.getOneAttributeAsString(),
+		BaseNode::getOneAttributeAsString,
 		h -> new Node(PascalCaseNameCatalogue.HEADER, getHeader())
 	);
 	

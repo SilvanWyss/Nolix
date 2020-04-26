@@ -45,7 +45,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
 		this::setTitle,
-		s -> s.getOneAttributeAsString(),
+		BaseNode::getOneAttributeAsString,
 		t -> new Node(PascalCaseNameCatalogue.TITLE, t)
 	);
 	
