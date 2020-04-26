@@ -12,9 +12,9 @@ public enum MouseInput implements IInput<MouseInput>, ISmartElementEnum<MouseInp
 	RightMouseButtonPress,
 	RightMouseButtonRelease,
 	RightMouseButtonClick,
-	MouseWheelButtonPress,
-	MouseWheelButtonRelease,
-	MouseWheelButtonClick,
+	MouseWheelPress,
+	MouseWheelRelease,
+	MouseWheelClick,
 	ForwardMouseWheelRotationStep,
 	BackwardMouseWheelRotationStep
 }

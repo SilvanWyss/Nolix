@@ -168,13 +168,13 @@ public interface IInputTaker {
 			case RightMouseButtonClick:
 				noteRightMouseButtonClick();
 				break;
-			case MouseWheelButtonPress:
+			case MouseWheelPress:
 				noteMouseWheelPress();
 				break;
-			case MouseWheelButtonRelease:
+			case MouseWheelRelease:
 				noteMouseWheelRelease();
 				break;
-			case MouseWheelButtonClick:
+			case MouseWheelClick:
 				noteMouseWheelClick();
 				break;
 			case ForwardMouseWheelRotationStep:
