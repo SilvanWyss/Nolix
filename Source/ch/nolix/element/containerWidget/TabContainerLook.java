@@ -2,6 +2,7 @@
 package ch.nolix.element.containerWidget;
 
 //own imports
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.layerElement.LayerProperty;
@@ -28,7 +29,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	new LayerProperty<>(
 		MENU_ITEM_MARGIN_HEADER,
 		DEFAULT_MENU_ITEM_MARGIN,
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		mim -> Node.withOneAttribute(mim)
 	);
 	
@@ -37,7 +38,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	new LayerProperty<>(
 		MENU_MARGIN_HEADER,
 		DEFAULT_MENU_MARGIN,
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		mm -> Node.withOneAttribute(mm)
 	);
 	

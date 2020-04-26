@@ -118,7 +118,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	new Property<>(
 		PascalCaseNameCatalogue.WIDTH,
 		w -> setWidth(w),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		w -> Node.withOneAttribute(w)
 	);
 	
@@ -127,7 +127,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	new Property<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		h -> Node.withOneAttribute(h)
 	);
 	

@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
@@ -60,7 +62,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		DEFAULT_TEXT_SIZE,
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		ts -> Node.withOneAttribute(ts)
 	);
 	

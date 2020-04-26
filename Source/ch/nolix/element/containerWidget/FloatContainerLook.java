@@ -2,6 +2,7 @@
 package ch.nolix.element.containerWidget;
 
 //own imports
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.layerElement.LayerProperty;
@@ -23,7 +24,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	new LayerProperty<>(
 		PROPOSE_CONTENT_WIDTH_HEADER,
 		DEFAULT_PROPOSE_CONTENT_WIDTH,
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		pcw -> Node.withOneAttribute(pcw)
 	);
 		
@@ -32,7 +33,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	new LayerProperty<>(
 		WIDGET_MARGIN_HEADER,
 		DEFAULT_WIDGET_MARGIN,
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		wm -> Node.withOneAttribute(wm)
 	);
 	

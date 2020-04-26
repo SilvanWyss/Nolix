@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.ValueCatalogue;
@@ -24,7 +25,7 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	new LayerProperty<>(
 		ITEM_PADDING_HEADER,
 		DEFAULT_ITEM_PADDING,
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		ip -> Node.withOneAttribute(ip)
 	);
 	

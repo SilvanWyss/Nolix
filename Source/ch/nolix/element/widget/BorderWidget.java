@@ -71,7 +71,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MIN_WIDTH_HEADER,
 		mw -> setMinWidth(mw),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		mw -> Node.withOneAttribute(mw)
 	);
 	
@@ -80,7 +80,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MIN_HEIGHT_HEADER,
 		mh -> setMinHeight(mh),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		mh -> Node.withOneAttribute(mh)
 	);
 	
@@ -89,7 +89,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MAX_WIDTH_HEADER,
 		mw -> setMaxWidth(mw),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		mw -> Node.withOneAttribute(mw)
 	);
 	
@@ -98,7 +98,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		MAX_HEIGHT_HEADER,
 		mh -> setMaxHeight(mh),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		mh -> Node.withOneAttribute(mh)
 	);
 	
@@ -107,7 +107,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		PROPOSAL_WIDTH_HEADER,
 		pw -> setProposalWidth(pw),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		pw ->  Node.withOneAttribute(pw)
 	);
 	
@@ -116,7 +116,7 @@ extends Widget<BW, BWL> {
 	new MutableOptionalProperty<>(
 		PROPOSAL_HEIGHT_HEADER,
 		ph -> setProposalHeight(ph),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		ph ->  Node.withOneAttribute(ph)
 	);
 	
@@ -125,7 +125,7 @@ extends Widget<BW, BWL> {
 	new MutableProperty<>(
 		VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
 		x -> setViewAreaXPositionOnScrolledArea(x),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		x -> Node.withOneAttribute(x)
 	);
 	
@@ -134,7 +134,7 @@ extends Widget<BW, BWL> {
 	new MutableProperty<>(
 		VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
 		y -> setViewAreaYPositionOnScrolledArea(y),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		y -> Node.withOneAttribute(y)
 	);
 	

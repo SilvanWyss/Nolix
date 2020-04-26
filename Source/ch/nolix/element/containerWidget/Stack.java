@@ -30,7 +30,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	new MutableOptionalProperty<>(
 		ELEMENT_MARGIN_HEADER,
 		em -> setElementMargin(em),
-		s -> s.getOneAttributeAsInt(),
+		BaseNode::getOneAttributeAsInt,
 		em -> Node.withOneAttribute(em)
 	);
 	
