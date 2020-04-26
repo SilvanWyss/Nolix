@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.common.runningJar.RunningJar;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
@@ -14,10 +13,7 @@ public class ImageWidgetTutorial2 {
 		final var frame = new Frame("ImageWidget Tutorial");
 		
 		//Creates an Image.
-		final var image =
-		Image.fromBytes(
-			RunningJar.getResourceAsBytes("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg")
-		);
+		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Creates an ImageWidget with the Image.
 		final var imageWidget = new ImageWidget(image);
