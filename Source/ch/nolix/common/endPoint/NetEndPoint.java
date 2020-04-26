@@ -142,8 +142,8 @@ public final class NetEndPoint extends EndPoint {
 		try {
 			socket.close();
 		}
-		catch (final IOException IOException) {
-			Logger.logError(IOException);
+		catch (final IOException pIOException) {
+			Logger.logError(pIOException);
 		}
 	}
 }

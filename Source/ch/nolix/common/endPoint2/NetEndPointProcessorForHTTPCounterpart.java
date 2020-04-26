@@ -26,8 +26,8 @@ final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProces
 		try {
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	
@@ -49,8 +49,8 @@ final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProces
 			outputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
 			outputStream.flush();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 }

@@ -35,8 +35,8 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 		try {
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 		
 		Sequencer.runInBackground(() -> listenToMessages());
@@ -60,8 +60,8 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 			outputStream.write((rawMessage + "\r\n").getBytes(StandardCharsets.UTF_8));
 			outputStream.flush();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	

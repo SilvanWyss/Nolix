@@ -137,8 +137,8 @@ public final class FileAccessor extends FileSystemItemAccessor {
 				lines.addAtEnd(line);
 			}
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 		
 		return lines;

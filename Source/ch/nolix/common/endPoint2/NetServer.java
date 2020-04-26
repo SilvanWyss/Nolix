@@ -98,8 +98,8 @@ public final class NetServer extends Server {
 			//can be reused immediately when the current NetSever is closed.
 			serverSocket.setReuseAddress(true);
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 		
 		//Creates a NetServerSubListenerfor the current NetServer.
@@ -140,8 +140,8 @@ public final class NetServer extends Server {
 		try {
 			serverSocket.close();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	

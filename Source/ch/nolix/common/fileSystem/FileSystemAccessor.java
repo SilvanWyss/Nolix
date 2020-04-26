@@ -3,9 +3,9 @@ package ch.nolix.common.fileSystem;
 
 //Java imports
 import java.io.File;
-import java.io.IOError;
 import java.io.IOException;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -50,8 +50,8 @@ public final class FileSystemAccessor {
 		try {
 			Runtime.getRuntime().exec("explorer.exe /select," + path);
 		}
-		catch (final IOException IOException) {
-			throw new IOError(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	

@@ -5,9 +5,9 @@ package ch.nolix.common.endPoint;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+//own imports
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
@@ -87,8 +87,8 @@ public final class NetServer extends Server {
 		try {
 			serverSocket.close();
 		}
-		catch (final IOException IOException) {
-			Logger.logError(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 }

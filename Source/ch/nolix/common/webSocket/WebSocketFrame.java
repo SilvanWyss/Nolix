@@ -82,8 +82,8 @@ public final class WebSocketFrame {
 				}
 			}
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	

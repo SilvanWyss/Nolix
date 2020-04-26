@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.common.localComputer;
 
-import java.io.IOError;
 //Java import
 import java.io.IOException;
 
+//own imports
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 public final class ShellProvider {
@@ -24,8 +25,8 @@ public final class ShellProvider {
 		try {
 			Runtime.getRuntime().exec("cmd.exe /c " + command);
 		}
-		catch (final IOException IOException) {
-			throw new IOError(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	

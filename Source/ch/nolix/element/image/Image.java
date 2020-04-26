@@ -5,7 +5,6 @@ package ch.nolix.element.image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOError;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -49,8 +48,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			return fromBufferedImage(bufferedImage);
 			
-		} catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		} catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	
@@ -80,8 +79,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			return fromBufferedImage(bufferedImage);
 			
-		} catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		} catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	
@@ -234,8 +233,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		try {
 			ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalogue.EMPTY_STRING));
 		}
-		catch (final IOException IOException) {
-			throw new IOError(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	
@@ -378,8 +377,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			ImageIO.write(toBufferedImage(), fileFormat, byteArrayOutputStream);
 			return byteArrayOutputStream.toByteArray();
 		}
-		catch (final IOException IOException) {
-			throw new IOError(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 }

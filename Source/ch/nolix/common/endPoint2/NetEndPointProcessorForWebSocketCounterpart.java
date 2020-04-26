@@ -38,8 +38,8 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 		try {
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 		this.inputStream = inputStream;
 		sendRawMessageUnframed(x);
@@ -69,8 +69,8 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 			outputStream.write(message.getBytes(StandardCharsets.UTF_8));
 			outputStream.flush();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	
@@ -116,8 +116,8 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 			outputStream.write(frame.toBytes());
 			outputStream.flush();
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	

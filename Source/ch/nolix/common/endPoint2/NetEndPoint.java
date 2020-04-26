@@ -110,8 +110,8 @@ public final class NetEndPoint extends EndPoint {
 			socket = new Socket(ip, port);
 			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 		
 			
@@ -156,8 +156,8 @@ public final class NetEndPoint extends EndPoint {
 			socket = new Socket(ip, port);
 			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
 		}
-		catch (final IOException IOException) {
-			throw new WrapperException(IOException);
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 		
 		sendRawMessage(NetEndPointProtocol.TARGET_PREFIX + getTarget());
@@ -316,9 +316,9 @@ public final class NetEndPoint extends EndPoint {
 				throw new InvalidArgumentException("first line", firstLine, "is not valid");
 			}
 		}
-		catch (final IOException IOException) {
+		catch (final IOException pIOException) {
 			close();
-			throw new WrapperException(IOException);
+			throw new WrapperException(pIOException);
 		}
 	}
 
