@@ -9,6 +9,7 @@ import java.io.IOError;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -18,6 +19,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.runningJar.RunningJar;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.base.Element;
@@ -81,6 +83,11 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		} catch (final IOException IOException) {
 			throw new WrapperException(IOException);
 		}
+	}
+	
+	//static method
+	public static Image fromResource(final String path) {
+		return fromBytes(RunningJar.getResourceAsBytes(path));
 	}
 	
 	//static method
