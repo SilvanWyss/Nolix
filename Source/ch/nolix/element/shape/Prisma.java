@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.element.shape;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
@@ -19,7 +21,7 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		h -> Node.withOneAttribute(h)
 	);
 	

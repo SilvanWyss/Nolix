@@ -2,6 +2,7 @@
 package ch.nolix.element.planarShape;
 
 //own imports
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
@@ -28,7 +29,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	new MutableProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		xl -> Node.withOneAttribute(xl)
 	);
 	
@@ -37,7 +38,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	new MutableProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		yl -> Node.withOneAttribute(yl)
 	);
 	

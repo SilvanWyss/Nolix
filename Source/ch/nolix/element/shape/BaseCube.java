@@ -2,6 +2,7 @@
 package ch.nolix.element.shape;
 
 //own imports
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
@@ -30,7 +31,7 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	new MutableProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		xl -> Node.withOneAttribute(xl)
 	);
 	
@@ -39,7 +40,7 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	new MutableProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		yl -> Node.withOneAttribute(yl)
 	);
 	
@@ -48,7 +49,7 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	new MutableProperty<>(
 		Z_LENGTH_HEADER,
 		zl -> setZLength(zl),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		zl -> Node.withOneAttribute(zl)
 	);
 	

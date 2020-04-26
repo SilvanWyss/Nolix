@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.element.shape;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
@@ -18,7 +20,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.RADIUS,
 		r -> setRadius(r),
-		s -> s.getOneAttributeAsDouble(),
+		BaseNode::getOneAttributeAsDouble,
 		r -> Node.withOneAttribute(r)
 	);
 	
