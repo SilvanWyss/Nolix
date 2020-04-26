@@ -51,7 +51,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//attribute
 	private final MutableProperty<Integer> viewAreaWidth =
-	new MutableProperty<Integer>(
+	new MutableProperty<>(
 		"ViewAreaWidth",
 		this::setViewAreaWidth,
 		BaseNode::getOneAttributeAsInt,
