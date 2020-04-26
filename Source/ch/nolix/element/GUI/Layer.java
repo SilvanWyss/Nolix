@@ -74,9 +74,9 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	private final MutableOptionalProperty<Color> backgroundColor =
 	new MutableOptionalProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
-		bc -> setBackgroundColor(bc),
-		s -> Color.fromSpecification(s),
-		bc -> bc.getSpecification()
+		this::setBackgroundColor,
+		Color::fromSpecification,
+		Color::getSpecification
 	);
 	
 	//attribute

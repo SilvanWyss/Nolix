@@ -38,7 +38,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	new MutableProperty<>(
 			SCROLLBAR_COLOR_HEADER,
 		c -> setScrollbarColor(c),
-		s -> Color.fromSpecification(s),
+		Color::fromSpecification,
 		c -> c.getSpecification()
 	);
 	
@@ -47,7 +47,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	new MutableProperty<>(
 		SCROLLBAR_CURSOR_COLOR_HEADER,
 		c -> setScrollbarCursorColor(c),
-		s -> Color.fromSpecification(s),
+		Color::fromSpecification,
 		c -> c.getSpecification()
 	);
 	

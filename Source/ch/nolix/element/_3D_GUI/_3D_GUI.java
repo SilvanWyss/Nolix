@@ -55,9 +55,9 @@ implements Clearable<G>, Closable, Refreshable {
 	private final MutableProperty<Color> backgroundColor =
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
-		bc -> setBackgroundColor(bc),
-		s -> Color.fromSpecification(s),
-		bc -> bc.getSpecification()
+		this::setBackgroundColor,
+		Color::fromSpecification,
+		Color::getSpecification
 	);
 	
 	//optional element

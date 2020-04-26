@@ -36,7 +36,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.COLOR,
 		DEFAULT_LINE_COLOR,
-		s -> Color.fromSpecification(s),
+		Color::fromSpecification,
 		lc -> lc.getSpecification()
 	);
 	

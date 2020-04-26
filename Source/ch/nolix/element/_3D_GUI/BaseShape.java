@@ -30,7 +30,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	= new MutableProperty<>(
 		PascalCaseNameCatalogue.DEFAULT_COLOR,
 		c -> setDefaultColor(c),
-		s -> Color.fromSpecification(s),
+		Color::fromSpecification,
 		c -> c.getSpecification()
 	);
 	

@@ -34,8 +34,8 @@ extends LayerElement<ItemMenuItemLook> {
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
-		s -> Color.fromSpecification(s),
-		bc -> bc.getSpecification()
+		Color::fromSpecification,
+		Color::getSpecification
 	);
 	
 	//attribute
@@ -43,7 +43,7 @@ extends LayerElement<ItemMenuItemLook> {
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
-		s -> Color.fromSpecification(s),
+		Color::fromSpecification,
 		tc -> tc.getSpecification()
 	);
 	

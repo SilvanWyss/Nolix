@@ -71,7 +71,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
-		s -> Color.fromSpecification(s),
+		Color::fromSpecification,
 		tc -> tc.getSpecification()
 	);
 	
