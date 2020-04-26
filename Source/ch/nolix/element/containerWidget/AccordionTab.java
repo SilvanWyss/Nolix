@@ -68,7 +68,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 				collapse();
 			}
 		},
-		s -> s.getOneAttributeAsBoolean(),
+		BaseNode::getOneAttributeAsBoolean,
 		e -> Node.withOneAttribute(e)
 	);
 	
