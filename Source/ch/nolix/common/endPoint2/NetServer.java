@@ -1,10 +1,11 @@
-//package-declaration
+//package declaration
 package ch.nolix.common.endPoint2;
 
 //Java imports
 import java.io.IOException;
 import java.net.ServerSocket;
 
+//own imports
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;

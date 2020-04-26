@@ -400,7 +400,7 @@ public abstract class Session<C extends Client<C>> {
 		this.parentClient = parentClient;
 	}
 	
-	//package-visibel method
+	//method
 	final void setResult(final Object result) {
 		
 		Validator.assertThat(result).thatIsNamed(VariableNameCatalogue.RESULT).isNotNull();

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 
@@ -14,7 +15,7 @@ import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 */
 public class ExtendedDoubleMediator extends DoubleMediator {
 
-	//package-visibel constructor
+	//constructor
 	/**
 	 * Creates a new extended double mediator for the given argument.
 	 * 
