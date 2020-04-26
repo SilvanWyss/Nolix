@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.input;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -8,7 +9,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
 
 //class
-public final class KeyInput extends Element<KeyInput> {
+public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput> {
 	
 	//static attribute
 	private static final String INPUT_TYPE_HEADER = "InputType";
@@ -152,7 +153,7 @@ public final class KeyInput extends Element<KeyInput> {
 	}
 	
 	//method
-	private static KeyInput[]  createTypingBetweenShiftPressAndRelease(final Key key) {
+	private static KeyInput[] createTypingBetweenShiftPressAndRelease(final Key key) {
 		return
 		new KeyInput[] {
 			new KeyInput(Key.SHIFT, KeyInputType.Press),
