@@ -20,13 +20,14 @@ public final class NetEndPointTest extends Test {
 		//optional attribute
 		private String receivedMessage;
 		
+		//method
 		@Override
 		public String getName() {
 			return "EndPointTaker";
 		}
 		
 		//method
-		public String getReceivedMessageOrNull() {
+		public String getReceivedMessage() {
 			return receivedMessage;
 		}
 		
@@ -85,7 +86,7 @@ public final class NetEndPointTest extends Test {
 		Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
 		
 		//verification
-		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
+		expect(endPointTakerMock.getReceivedMessage()).isEqualTo("MESSAGE");
 		
 		//cleanup
 		netEndPoint.close();
