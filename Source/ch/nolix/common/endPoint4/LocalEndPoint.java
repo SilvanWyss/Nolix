@@ -181,7 +181,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	public R sendAndGetReply(final M message) {
 		
 		//Asserts that this local end point is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		return getRefCounterpart().getReply(message);
 	}

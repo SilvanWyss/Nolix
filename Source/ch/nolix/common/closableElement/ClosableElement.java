@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.closableElement;
 
+//own imports
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionAPI.IFunction;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
@@ -75,6 +76,18 @@ public abstract class ClosableElement implements Closable {
 	
 	//method
 	/**
+	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
+	 */
+	protected final void assertIsOpen() {
+		
+		//Asserts that the current ClosableElement is open.
+		if (isClosed()) {
+			throw new ClosedArgumentException(this);
+		}
+	}
+	
+	//method
+	/**
 	 * Creates a close dependency
 	 * between the current {@link ClosableElement} and the given element.
 	 * 
@@ -89,7 +102,7 @@ public abstract class ClosableElement implements Closable {
 	protected final void createCloseDependency(final ClosableElement element) {
 		
 		//Asserts that the current ClosableElement is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		//Asserts that the current ClosableElement does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
@@ -104,18 +117,6 @@ public abstract class ClosableElement implements Closable {
 	 * Lets the current {@link ClosableElement} note a close.
 	 */
 	protected abstract void noteClose();
-	
-	//method
-	/**
-	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
-	 */
-	protected final void supposeIsOpen() {
-		
-		//Asserts that the current ClosableElement is open.
-		if (isClosed()) {
-			throw new ClosedArgumentException(this);
-		}
-	}
 	
 	//method
 	/**

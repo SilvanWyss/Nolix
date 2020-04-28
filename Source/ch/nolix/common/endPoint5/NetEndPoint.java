@@ -195,7 +195,7 @@ public class NetEndPoint extends EndPoint {
 	protected void run(final LinkedList<ChainedNode> commands) {
 			
 		//Asserts that this net duplex controller is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		//Creates message.
 		final var message = Protocol.COMMANDS_HEADER + '(' + commands + ')';

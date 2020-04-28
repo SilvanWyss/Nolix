@@ -266,7 +266,7 @@ public class NetEndPoint extends EndPoint {
 		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (!receivedPackage(index)) {
 			
-			supposeIsOpen();
+			assertIsOpen();
 			
 			//This statement, which is actually unnecessary, makes that the current loop is not optimized away.
 			System.err.flush();

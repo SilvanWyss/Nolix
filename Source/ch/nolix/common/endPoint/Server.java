@@ -45,7 +45,7 @@ public class Server extends ClosableElement {
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Asserts that this server is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		endPointTaker.run(endPoint);
 	}

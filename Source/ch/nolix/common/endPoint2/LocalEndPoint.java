@@ -129,7 +129,7 @@ public final class LocalEndPoint extends EndPoint {
 		Validator.assertThat(message).thatIsNamed("message").isNotNull();
 		
 		//Asserts that this local end point is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		counterpart.receiveRawMessage(message);
 	}

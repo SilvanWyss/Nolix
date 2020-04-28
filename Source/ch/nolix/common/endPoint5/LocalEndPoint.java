@@ -184,7 +184,7 @@ public final class LocalEndPoint extends EndPoint {
 	public void run(final ChainedNode command) {
 		
 		//Asserts that this local duplex controller is not aborted.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		counterpart.getRefReceiverController().run(command);
 	}
@@ -201,7 +201,7 @@ public final class LocalEndPoint extends EndPoint {
 	protected void run(final LinkedList<ChainedNode> commands) {
 		
 		//Asserts that this local duplex controller is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		final IDataProviderController counterpartReceiverController
 		= counterpart.getRefReceiverController();

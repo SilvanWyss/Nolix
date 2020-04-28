@@ -66,7 +66,7 @@ implements ISender {
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
 		
 		//Asserts that this end point is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		//Sets the receiver of this end point.
 		this.receiver = receiver;
@@ -83,7 +83,7 @@ implements ISender {
 	protected final void receive(final String message) {
 		
 		//Asserts that this end point is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		getRefReceiver().receive(message);
 	}

@@ -141,7 +141,7 @@ public final class LocalEndPoint extends EndPoint {
 	public String sendAndWaitToReply(final String message) {
 		
 		//Asserts that this local end point is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		return getRefCounterpart().receiveAndGetReply(message);
 	}

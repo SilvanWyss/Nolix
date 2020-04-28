@@ -119,7 +119,7 @@ public final class NetEndPoint extends EndPoint {
 		Validator.assertThat(message).thatIsNamed("message").isNotNull();
 		
 		//Asserts that this net end point is not aborted.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		printWriter.println(message);
 		printWriter.flush();

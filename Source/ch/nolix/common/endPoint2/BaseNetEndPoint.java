@@ -356,7 +356,7 @@ public class BaseNetEndPoint extends EndPoint {
 	private void receiveMessage(final String message) {
 		
 		//Asserts that the current NetEndPoint is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		getRefReceiver().receive(message);
 	}

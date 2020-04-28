@@ -105,7 +105,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Asserts that the current EndPoint is open.
-		supposeIsOpen();
+		assertIsOpen();
 		
 		//Asserts that the given receiver is not null.
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
@@ -148,7 +148,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	protected final void setTarget(final String target) {
 		
 		//Asserts that the current net EndPoint is open.
-		supposeIsOpen();
+		assertIsOpen();
 				
 		//Asserts that the given target is not null or blank.
 		Validator.assertThat(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
