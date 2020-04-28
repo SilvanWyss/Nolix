@@ -102,8 +102,8 @@ public final class NetServer extends Server {
 			throw new WrapperException(pIOException);
 		}
 		
-		//Creates a NetServerSubListenerfor the current NetServer.
-		new NetServerListener(this);
+		//Creates and starts a NetServerListener for the current NetServer.
+		new NetServerListener(this).start();
 	}
 	
 	//constructor
