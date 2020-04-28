@@ -20,13 +20,13 @@ import ch.nolix.common.wrapperException.WrapperException;
 final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointProcessor {
 	
 	//attributes
-	private final NetEndPoint parentNetEndPoint;
+	private final BaseNetEndPoint parentNetEndPoint;
 	private final OutputStream outputStream;
 	private final InputStream inputStream;
 	
 	//constructor
 	public NetEndPointProcessorForWebSocketCounterpart(
-		final NetEndPoint parentNetEndPoint,
+		final BaseNetEndPoint parentNetEndPoint,
 		final InputStream inputStream,
 		String x
 	) {

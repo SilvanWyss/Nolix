@@ -26,12 +26,12 @@ import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
- * A {@link NetEndPoint} can send messages to an other {@link NetEndPoint} that is on:
+ * A {@link BaseNetEndPoint} can send messages to an other {@link BaseNetEndPoint} that is on:
  * -the same process on the local computer
  * -another process on the local computer
  * -another process on another computer
  * 
- * A {@link NetEndPoint} supports the WebSocket protocol and can communicate with a WebSocket.
+ * A {@link BaseNetEndPoint} supports the WebSocket protocol and can communicate with a WebSocket.
  * The WebSocket protocol is complicated. Because:
  * -A WebSocket requires a HTTP handshake.
  * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
@@ -42,7 +42,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * @month 2015-12
  * @lines 430
  */
-public final class NetEndPoint extends EndPoint {
+public class BaseNetEndPoint extends EndPoint {
 	
 	//default value
 	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
@@ -55,13 +55,13 @@ public final class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to 
+	 * Creates a new {@link BaseNetEndPoint} that will connect to 
 	 * the main target on the given port on the local machine.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final int port) {
+	public BaseNetEndPoint(final int port) {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
@@ -69,7 +69,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to 
+	 * Creates a new {@link BaseNetEndPoint} that will connect to 
 	 * the given target on the given port on the local machine.
 	 * 
 	 * @param port
@@ -78,7 +78,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	public NetEndPoint(final int port, final String target) {
+	public BaseNetEndPoint(final int port, final String target) {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
@@ -86,14 +86,14 @@ public final class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to
+	 * Creates a new {@link BaseNetEndPoint} that will connect to
 	 * the main target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final String ip,	final int port) {
+	public BaseNetEndPoint(final String ip,	final int port) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -122,7 +122,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to
+	 * Creates a new {@link BaseNetEndPoint} that will connect to
 	 * the given target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -132,7 +132,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	public NetEndPoint(final String ip, final int port, final String target) {
+	public BaseNetEndPoint(final String ip, final int port, final String target) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -164,7 +164,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} with the given socket and HTTP message.
+	 * Creates a new {@link BaseNetEndPoint} with the given socket and HTTP message.
 	 * 
 	 * @param socket
 	 * @param pHTTPMessage
@@ -172,7 +172,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws ArgumentIsNullException if the given HTTPMessage is null.
 	 * @throws InvalidArgumentException if the given HTTPMessage is blank.
 	 */
-	NetEndPoint(final Socket socket, final String pHTTPMessage) {
+	BaseNetEndPoint(final Socket socket, final String pHTTPMessage) {
 		
 		//Calls constructor of the base class.
 		super(false);
@@ -200,8 +200,8 @@ public final class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * 
-	 * @return the type of the counterpart the current {@link NetEndPoint}.
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} does not know the type of its counterpart.
+	 * @return the type of the counterpart the current {@link BaseNetEndPoint}.
+	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} does not know the type of its counterpart.
 	 */
 	public NetEndPointCounterpartType getCounterpartType() {
 		return processor.getCounterpartType();
@@ -244,7 +244,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return the socket of the current {@link NetEndPoint}.
+	 * @return the socket of the current {@link BaseNetEndPoint}.
 	 */
 	Socket getRefSocket() {
 		return socket;
@@ -252,7 +252,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} receive the given rawMessage asynchronously.
+	 * Lets the current {@link BaseNetEndPoint} receive the given rawMessage asynchronously.
 	 * 
 	 * @param rawMessage
 	 */
@@ -262,7 +262,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if the current {@link NetEndPoint} can work.
+	 * @return true if the current {@link BaseNetEndPoint} can work.
 	 */
 	private boolean canWork() {
 		return !socket.isClosed();
@@ -270,7 +270,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if the current {@link NetEndPoint} has a target info.
+	 * @return true if the current {@link BaseNetEndPoint} has a target info.
 	 */
 	private boolean hasTargetInfo() {
 		return hasTargetInfo;
@@ -323,7 +323,7 @@ public final class NetEndPoint extends EndPoint {
 
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} receive the given initialRawMessages.
+	 * Lets the current {@link BaseNetEndPoint} receive the given initialRawMessages.
 	 * 
 	 * @param messages
 	 */
@@ -387,10 +387,10 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} send the given rawMessage.
+	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
 	 * 
 	 * @param rawMessage
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
 	 */
 	private void sendRawMessage(final char rawMessage) {
 		processor.sendRawMessage(rawMessage);
@@ -398,11 +398,11 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} send the given rawMessage.
+	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
 	 * 
 	 * @param rawMessage
 	 * @throws ArgumentIsNullException if the given rawMessage is null.
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
 	 */
 	private void sendRawMessage(final String rawMessage) {
 		processor.sendRawMessage(rawMessage);
@@ -410,10 +410,10 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link NetEndPoint} wait to the target.
+	 * Lets the current {@link BaseNetEndPoint} wait to the target.
 	 * 
-	 * @throws RuntimeException if the current {@link NetEndPoint} reaches the timeout before it receives a target.
-	 * @throws InvalidArgumentException if the current {@link NetEndPoint} is not alive.
+	 * @throws RuntimeException if the current {@link BaseNetEndPoint} reaches the timeout before it receives a target.
+	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
 	 */
 	private void waitToTargetInfo() {
 		

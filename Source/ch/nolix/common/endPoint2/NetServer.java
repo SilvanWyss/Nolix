@@ -12,7 +12,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 
 //class
 /**
-* A {@link NetServer} is a {@link Server} that listens to {@link NetEndPoint} on a specific port.
+* A {@link NetServer} is a {@link Server} that listens to {@link BaseNetEndPoint} on a specific port.
 * 
 * @author Silvan Wyss
 * @month 2015-12
@@ -41,7 +41,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the default port.
+	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the default port.
 	 */
 	public NetServer() {
 		
@@ -51,7 +51,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the given port.
+	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the given port.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
@@ -64,7 +64,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the given port.
+	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the given port.
 	 * 
 	 * When a web browser connects to the {@link NetServer},
 	 * the {@link NetServer} will send the given HTTP message and close the connection.
@@ -108,7 +108,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the default port.
+	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the default port.
 	 * 
 	 * When a web browser connects to the {@link NetServer},
 	 * the {@link NetServer} will send the given HTTP message and close the connection.

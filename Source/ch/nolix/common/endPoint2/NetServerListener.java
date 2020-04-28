@@ -109,7 +109,7 @@ final class NetServerListener {
 	 */
 	private void takeSocket(final Socket socket) {
 		if (!socket.isClosed()) {
-			parentNetServer.takeEndPoint(new NetEndPoint(socket, parentNetServer.getHTTPMessage()));
+			parentNetServer.takeEndPoint(new BaseNetEndPoint(socket, parentNetServer.getHTTPMessage()));
 		}
 	}
 }

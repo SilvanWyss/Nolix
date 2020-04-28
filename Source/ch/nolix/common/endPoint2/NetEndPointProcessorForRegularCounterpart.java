@@ -17,13 +17,13 @@ import ch.nolix.common.wrapperException.WrapperException;
 final class NetEndPointProcessorForRegularCounterpart implements INetEndPointProcessor {
 	
 	//attributes
-	private final NetEndPoint parentNetEndPoint;
+	private final BaseNetEndPoint parentNetEndPoint;
 	private final OutputStream outputStream;
 	private final BufferedReader bufferedReader;
 	
 	//constructor
 	public NetEndPointProcessorForRegularCounterpart(
-		final NetEndPoint parentNetEndPoint,
+		final BaseNetEndPoint parentNetEndPoint,
 		final BufferedReader bufferedReader
 	) {
 		

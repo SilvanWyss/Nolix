@@ -29,7 +29,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(port)
+			new ch.nolix.common.endPoint2.BaseNetEndPoint(port)
 		);
 	}
 	
@@ -41,7 +41,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(
+			new ch.nolix.common.endPoint2.BaseNetEndPoint(
 				ip, port
 			)
 		);
@@ -55,7 +55,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(
+			new ch.nolix.common.endPoint2.BaseNetEndPoint(
 				ip, port, target
 			)
 		);
@@ -76,7 +76,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(port, target)
+			new ch.nolix.common.endPoint2.BaseNetEndPoint(port, target)
 		);
 	}
 

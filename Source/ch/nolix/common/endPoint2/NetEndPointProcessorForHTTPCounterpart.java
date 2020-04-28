@@ -14,11 +14,11 @@ import ch.nolix.common.wrapperException.WrapperException;
 final class NetEndPointProcessorForHTTPCounterpart implements INetEndPointProcessor {
 	
 	//attributes
-	private final NetEndPoint parentNetEndPoint;
+	private final BaseNetEndPoint parentNetEndPoint;
 	private final OutputStream outputStream;
 	
 	//constructor
-	public NetEndPointProcessorForHTTPCounterpart(final NetEndPoint parentNetEndPoint) {
+	public NetEndPointProcessorForHTTPCounterpart(final BaseNetEndPoint parentNetEndPoint) {
 		
 		Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
 		
