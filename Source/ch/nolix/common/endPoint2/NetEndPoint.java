@@ -114,7 +114,6 @@ public final class NetEndPoint extends EndPoint {
 			throw new WrapperException(pIOException);
 		}
 		
-			
 		hasTargetInfo = true;
 		mHTTPMessage = null;
 		

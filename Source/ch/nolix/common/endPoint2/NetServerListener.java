@@ -11,73 +11,70 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A net server sub listener listens for net end points for a net server.
- * 
- * A net server must be able to be aborted from outside.
- * Because a net server sub listener cannot check a status while waiting to a socket.
- * 
+ * A {@link NetServerListener} listens to {@link NetEndPoints} for a {@link NetServer}.
+ *  
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 60
+ * @lines 80
  */
-final class NetServerListener extends Thread {
+final class NetServerListener {
 
-	//attributes
-	private final NetServer netServer;
+	//attribute
+	private final NetServer parentNetServer;
 	
 	//constructor
 	/**
-	 * Creates a new net server sub listener that belongs to the given net server.
-	 * The net server sub listener will start automatically.
+	 * Creates a new {@link NetServerListener} that will belong to the given parentNetServer.
+	 * The {@link NetServerListener} will start automatically.
 	 * 
-	 * @param netServer
-	 * @throws ArgumentIsNullException if the given net server is null.
-	 * @throws RuntimeException if an error occurs.
+	 * @param parentNetServer
+	 * @throws ArgumentIsNullException if the given parentNetServer is null.
 	 */
-	public NetServerListener(final NetServer netServer) {
+	public NetServerListener(final NetServer parentNetServer) {
 		
-		//Asserts that the given net server is not null.
-		Validator.assertThat(netServer).isOfType(NetServer.class);
+		//Asserts that the given netServer is not null.
+		Validator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
 		
-		//Sets the net server of htis net server sub listener.
-		this.netServer = netServer;
+		//Sets the parentNetServer of the current NetServerListener.
+		this.parentNetServer = parentNetServer;
 		
-		//Starts this net server sub listener.
-		start();
+		Sequencer.runInBackground(this::run);
 	}
-
+	
 	//method
 	/**
-	 * Runs this net server sub listener.
-	 * Aborts this net server sub listener if an error occurs.
+	 * @return true if the current {@link NetServerListener} is open.
 	 */
-	@Override
-	public void run() {
+	public boolean isOpen() {
+		return parentNetServer.isOpen();
+	}
+	
+	//method
+	/**
+	 * Runs the current {@link NetServerListener}.
+	 * Will close the {@link NetServer}, the current {@link NetServerListener} belongs to, when an error occurs.
+	 */
+	private void run() {
 		try {
-			
-			//This loop will be finished when the accept method of the server socket throws an exception.
-			//The server socket throws an exception if the net server is aborted or if an error occurs. 
-			while (true) {
-				final Socket socket = netServer.getRefServerSocket().accept();
+			while (isOpen()) {
+				final Socket socket = parentNetServer.getRefServerSocket().accept();
 				Sequencer.runInBackground(() -> takeSocket(socket));
 			}
 		}
 		catch (final IOException exception) {
-			if (netServer.isOpen()) {
-				netServer.close();
-			}
+			parentNetServer.close();
 		}
 	}
 	
 	//method
 	/**
-	 * Lets this net server sub listener take the given socket.
+	 * Lets the current {@link NetServerListener} take the given socket.
 	 * 
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
 		if (!socket.isClosed()) {
-			netServer.takeEndPoint(new NetEndPoint(socket, netServer.getHTTPMessage()));
+			parentNetServer.takeEndPoint(new NetEndPoint(socket, parentNetServer.getHTTPMessage()));
 		}
 	}
 }
