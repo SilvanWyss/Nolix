@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  *  
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 100
+ * @lines 110
  */
 final class NetServerListener {
 
@@ -64,9 +64,7 @@ final class NetServerListener {
 	 */
 	public void start() {
 		
-		if (isStarted()) {
-			throw new InvalidArgumentException(this, "is already started");
-		}
+		setStarted();
 		
 		Sequencer.runInBackground(this::run);
 	}
@@ -86,6 +84,21 @@ final class NetServerListener {
 		catch (final IOException exception) {
 			parentNetServer.close();
 		}
+	}
+	
+	//method
+	/**
+	 * Sets the current {@link NetServerListener} as started.
+	 * 
+	 * @throws InvalidArgumentException if the current {@link NetServerListener} is already started.
+	 */
+	private void setStarted() {
+		
+		if (isStarted()) {
+			throw new InvalidArgumentException(this, "is already started");
+		}
+		
+		started = true;
 	}
 	
 	//method
