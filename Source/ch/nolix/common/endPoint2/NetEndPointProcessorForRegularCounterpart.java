@@ -44,12 +44,6 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 	
 	//method
 	@Override
-	public NetEndPointCounterpartType getCounterpartType() {
-		return NetEndPointCounterpartType.REGULAR_NET_END_POINT;
-	}
-	
-	//method
-	@Override
 	public void sendRawMessage(final String rawMessage) {
 		
 		if (parentNetEndPoint.isClosed()) {

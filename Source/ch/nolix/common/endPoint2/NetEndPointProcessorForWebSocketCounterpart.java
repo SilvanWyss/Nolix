@@ -48,12 +48,6 @@ final class NetEndPointProcessorForWebSocketCounterpart implements INetEndPointP
 	
 	//method
 	@Override
-	public NetEndPointCounterpartType getCounterpartType() {
-		return NetEndPointCounterpartType.WEBSOCKET_NET_END_POINT;
-	}
-	
-	//method
-	@Override
 	public void sendRawMessage(final String rawMessage) {
 		sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));
 	}
