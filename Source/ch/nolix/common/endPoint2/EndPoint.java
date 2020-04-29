@@ -39,7 +39,13 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	EndPoint(final boolean hasRequestedConnection) {
 		this.hasRequestedConnection = hasRequestedConnection;
 	}
-
+	
+	//method declaration
+	/**
+	 * @return the type of the current {@link EndPoint}.
+	 */
+	public abstract EndPointType getType();
+	
 	//method
 	/**
 	 * @return the target of the current {@link EndPoint}.

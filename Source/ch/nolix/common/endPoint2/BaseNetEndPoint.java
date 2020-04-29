@@ -197,6 +197,11 @@ public class BaseNetEndPoint extends EndPoint {
 		waitToTargetInfo();
 	}
 	
+	//TEMP
+	public EndPointType getType() {
+		return EndPointType.REGULAR_SOCKET;
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}

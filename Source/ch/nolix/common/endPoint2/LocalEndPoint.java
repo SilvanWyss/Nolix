@@ -10,7 +10,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 150
+ * @lines 160
  */
 public final class LocalEndPoint extends EndPoint {
 	
@@ -104,6 +104,14 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint getRefCounterPart() {
 		return counterpart;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public EndPointType getType() {
+		return EndPointType.LOCAL;
 	}
 	
 	//method
