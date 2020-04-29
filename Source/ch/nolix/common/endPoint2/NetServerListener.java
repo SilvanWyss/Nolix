@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 //own imports
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.common.worker.Worker;
 
 //class
 /**
@@ -16,13 +16,12 @@ import ch.nolix.common.validator.Validator;
  *  
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 110
+ * @lines 70
  */
-final class NetServerListener {
-
-	//attributes
+final class NetServerListener extends Worker {
+	
+	//attribute
 	private final NetServer parentNetServer;
-	private boolean started = false;
 	
 	//constructor
 	/**
@@ -50,31 +49,11 @@ final class NetServerListener {
 	
 	//method
 	/**
-	 * @return true if the current {@link NetServer} is started.
-	 */
-	public boolean isStarted() {
-		return started;
-	}
-	
-	//method
-	/**
-	 * Starts the current {@link NetServerListener}.
-	 * 
-	 * @throws InvalidArgumentException if the current {@link NetServerListener} is already started.
-	 */
-	public void start() {
-		
-		setStarted();
-		
-		Sequencer.runInBackground(this::run);
-	}
-	
-	//method
-	/**
 	 * Runs the current {@link NetServerListener}.
 	 * Will close the {@link NetServer}, the current {@link NetServerListener} belongs to, when an error occurs.
 	 */
-	private void run() {
+	@Override
+	protected void run() {
 		try {
 			while (isOpen()) {
 				final Socket socket = parentNetServer.getRefServerSocket().accept();
@@ -84,21 +63,6 @@ final class NetServerListener {
 		catch (final IOException exception) {
 			parentNetServer.close();
 		}
-	}
-	
-	//method
-	/**
-	 * Sets the current {@link NetServerListener} as started.
-	 * 
-	 * @throws InvalidArgumentException if the current {@link NetServerListener} is already started.
-	 */
-	private void setStarted() {
-		
-		if (isStarted()) {
-			throw new InvalidArgumentException(this, "is already started");
-		}
-		
-		started = true;
 	}
 	
 	//method
