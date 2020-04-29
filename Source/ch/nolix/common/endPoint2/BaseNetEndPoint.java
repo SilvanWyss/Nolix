@@ -40,7 +40,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 430
+ * @lines 420
  */
 public class BaseNetEndPoint extends EndPoint {
 	
@@ -199,20 +199,10 @@ public class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * 
-	 * @return the type of the counterpart the current {@link BaseNetEndPoint}.
-	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} does not know the type of its counterpart.
-	 */
-	public NetEndPointCounterpartType getCounterpartType() {
-		return processor.getCounterpartType();
-	}
-
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isNetEndPoint() {
+	public final boolean isNetEndPoint() {
 		return true;
 	}
 	
@@ -221,7 +211,7 @@ public class BaseNetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void send(final String message) {
+	public final void send(final String message) {
 		sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
 	}
 	
@@ -230,7 +220,7 @@ public class BaseNetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteClose() {
+	protected final void noteClose() {
 		if (canWork()) {
 			try {
 				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
@@ -240,6 +230,18 @@ public class BaseNetEndPoint extends EndPoint {
 				Logger.logError(pIOException);
 			}
 		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
+	 * 
+	 * @param rawMessage
+	 * @throws ArgumentIsNullException if the given rawMessage is null.
+	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
+	 */
+	protected void sendRawMessage(final String rawMessage) {
+		processor.sendRawMessage(rawMessage);
 	}
 	
 	//method
@@ -393,18 +395,6 @@ public class BaseNetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
 	 */
 	private void sendRawMessage(final char rawMessage) {
-		processor.sendRawMessage(rawMessage);
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
-	 * 
-	 * @param rawMessage
-	 * @throws ArgumentIsNullException if the given rawMessage is null.
-	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
-	 */
-	private void sendRawMessage(final String rawMessage) {
 		processor.sendRawMessage(rawMessage);
 	}
 	
