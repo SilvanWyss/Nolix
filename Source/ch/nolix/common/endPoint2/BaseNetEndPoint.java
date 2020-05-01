@@ -162,6 +162,26 @@ public class BaseNetEndPoint extends EndPoint {
 		sendRawMessage(NetEndPointProtocol.TARGET_PREFIX + getTarget());
 	}
 	
+	//TEMP
+	BaseNetEndPoint(final ConnectionOrigin connectionOrigin) {
+		
+		super(connectionOrigin);
+		
+		socket = null;
+		processor = null;
+		mHTTPMessage = null;
+	}
+	
+	//TEMP
+	BaseNetEndPoint(final ConnectionOrigin connectionOrigin, final String target) {
+		
+		super(connectionOrigin, target);
+		
+		socket = null;
+		processor = null;
+		mHTTPMessage = null;
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link BaseNetEndPoint} with the given socket and HTTP message.
@@ -225,7 +245,7 @@ public class BaseNetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteClose() {
+	protected void noteClose() {
 		if (canWork()) {
 			try {
 				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
@@ -242,8 +262,18 @@ public class BaseNetEndPoint extends EndPoint {
 	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
 	 * 
 	 * @param rawMessage
-	 * @throws ArgumentIsNullException if the given rawMessage is null.
-	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
+	 */
+	protected final void sendRawMessage(final char rawMessage) {
+		
+		//Calls other method.
+		sendRawMessage(String.valueOf(rawMessage));
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
+	 * 
+	 * @param rawMessage
 	 */
 	protected void sendRawMessage(final String rawMessage) {
 		processor.sendRawMessage(rawMessage);
@@ -386,17 +416,6 @@ public class BaseNetEndPoint extends EndPoint {
 			default:
 				throw new InvalidArgumentException("raw message", rawMessage, "is not valid");
 		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
-	 * 
-	 * @param rawMessage
-	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} is not alive.
-	 */
-	private void sendRawMessage(final char rawMessage) {
-		processor.sendRawMessage(rawMessage);
 	}
 	
 	//method
