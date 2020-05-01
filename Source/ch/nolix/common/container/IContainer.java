@@ -4,11 +4,13 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Random;
 
+//own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.I2ElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerByteGetter;
+import ch.nolix.common.functionAPI.IElementTakerCharGetter;
 import ch.nolix.common.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.common.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
@@ -27,7 +29,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1960
+ * @lines 1990
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1669,6 +1671,29 @@ public interface IContainer<E> extends Iterable<E> {
 		var i = 0;
 		for (final var e : this) {
 			array[i] = byteNorm.getOutput(e);
+			i++;
+		}
+		
+		return array;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param charNorm
+	 * @return a new array with the values
+	 * the given charNorm returns from the elements of the current {@link IContainer}.
+	 */
+	public default char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
+		
+		//Creates array.
+		final var array = new char[getSize()];
+		
+		//Fills up the array.
+		var i = 0;
+		for (final var e : this) {
+			array[i] = charNorm.getOutput(e);
 			i++;
 		}
 		
