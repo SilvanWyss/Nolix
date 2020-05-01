@@ -111,11 +111,11 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
-		//Asserts that the current EndPoint is open.
-		assertIsOpen();
-		
 		//Asserts that the given receiver is not null.
 		Validator.assertThat(receiver).isOfType(IReceiver.class);
+		
+		//Asserts that the current EndPoint is open.
+		assertIsOpen();
 		
 		//Sets the receiver of the current EndPoint.
 		this.receiver = receiver;
@@ -134,7 +134,7 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 		
 		Sequencer
 		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
-		.waitUntil(() -> hasReceiver());
+		.waitUntil(this::hasReceiver);
 		
 		if (!hasReceiver()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
@@ -150,15 +150,15 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 * @param target
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
-	 * @throws ClosedArgumentException if the current net {@link EndPoint} is closed.
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
 	protected final void setTarget(final String target) {
 		
-		//Asserts that the current net EndPoint is open.
-		assertIsOpen();
-				
 		//Asserts that the given target is not null or blank.
 		Validator.assertThat(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
+		
+		//Asserts that the current net EndPoint is open.
+		assertIsOpen();
 		
 		//Sets the target of the current EndPoint.
 		this.target = target;
