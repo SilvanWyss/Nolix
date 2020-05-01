@@ -40,7 +40,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 460
+ * @lines 480
  */
 public class BaseNetEndPoint extends EndPoint {
 	
@@ -242,6 +242,14 @@ public class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * @return true if the current {@link BaseNetEndPoint} has a target info.
+	 */
+	protected final boolean hasTargetInfo() {
+		return hasTargetInfo;
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -316,6 +324,21 @@ public class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * Confirms that the current {@link BaseNetEndPoint} has a target info.
+	 * 
+	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} has already a target info.
+	 */
+	private void confirmReceivedTargetInfo() {
+		
+		if (hasTargetInfo) {
+			throw new InvalidArgumentException(this, "has already a target info");
+		}
+		
+		hasTargetInfo = true;
+	}
+	
+	//method
+	/**
 	 * @return the target message of the current {@link BaseNetEndPoint}.
 	 */
 	private String getTargetMessage() {
@@ -325,14 +348,6 @@ public class BaseNetEndPoint extends EndPoint {
 		}
 		
 		return (NetEndPointProtocol.TARGET_PREFIX + getTarget());
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link BaseNetEndPoint} has a target info.
-	 */
-	private boolean hasTargetInfo() {
-		return hasTargetInfo;
 	}
 	
 	//method
@@ -423,10 +438,10 @@ public class BaseNetEndPoint extends EndPoint {
 		switch (rawMessage.charAt(0)) {
 			case NetEndPointProtocol.TARGET_PREFIX:
 				setTarget(rawMessage.substring(1));
-				hasTargetInfo = true;
+				confirmReceivedTargetInfo();
 				break;
 			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
-				hasTargetInfo = true;
+				confirmReceivedTargetInfo();
 				break;
 			case NetEndPointProtocol.MESSAGE_PREFIX:
 				receiveMessage(rawMessage.substring(1));
