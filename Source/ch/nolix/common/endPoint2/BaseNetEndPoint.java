@@ -104,6 +104,8 @@ public class BaseNetEndPoint extends EndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		confirmReceivedTargetInfo();
+		
 		try {
 			
 			//Creates the socket of the current NetEndPoint.
@@ -136,15 +138,14 @@ public class BaseNetEndPoint extends EndPoint {
 		
 		//Calls constructor of the base class.
 		super(ConnectionOrigin.REQUESTED_CONNECTION);
-		
-		setTarget(target);
-		
+						
 		//Asserts that the given port is in [0, 65535]. 
 		Validator
 		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		setTarget(target);
 		
 		hasTargetInfo = true;
 		mHTTPMessage = null;
@@ -167,6 +168,8 @@ public class BaseNetEndPoint extends EndPoint {
 		
 		super(connectionOrigin);
 		
+		confirmReceivedTargetInfo();
+		
 		socket = null;
 		processor = null;
 		mHTTPMessage = null;
@@ -176,6 +179,8 @@ public class BaseNetEndPoint extends EndPoint {
 	BaseNetEndPoint(final ConnectionOrigin connectionOrigin, final String target) {
 		
 		super(connectionOrigin, target);
+		
+		confirmReceivedTargetInfo();
 		
 		socket = null;
 		processor = null;
@@ -202,6 +207,8 @@ public class BaseNetEndPoint extends EndPoint {
 		
 		//Asserts that the given HTTP message is not null or empty.
 		Validator.assertThat(pHTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
+		
+		//TODO: confirmReceivedTargetInfo();
 		
 		//Sets the HTTPMessage of the current NetEndPoint.
 		this.mHTTPMessage = pHTTPMessage;
@@ -330,7 +337,7 @@ public class BaseNetEndPoint extends EndPoint {
 	 */
 	private void confirmReceivedTargetInfo() {
 		
-		if (hasTargetInfo) {
+		if (hasTargetInfo()) {
 			throw new InvalidArgumentException(this, "has already a target info");
 		}
 		
