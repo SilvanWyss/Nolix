@@ -2,10 +2,8 @@
 package ch.nolix.common.endPoint2;
 
 //Java imports
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 //own imports
@@ -110,7 +108,7 @@ public class BaseNetEndPoint extends EndPoint {
 			
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
-			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
+			processor = new NetEndPointProcessorForRegularCounterpart(this, getRefSocket().getInputStream());
 		}
 		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
@@ -155,7 +153,7 @@ public class BaseNetEndPoint extends EndPoint {
 			
 			//Creates the socket of the current NetEndPoint.
 			socket = new Socket(ip, port);
-			processor = new NetEndPointProcessorForRegularCounterpart(this, new BufferedReader(new InputStreamReader(getRefSocket().getInputStream())));
+			processor = new NetEndPointProcessorForRegularCounterpart(this, getRefSocket().getInputStream());
 		}
 		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
@@ -290,10 +288,7 @@ public class BaseNetEndPoint extends EndPoint {
 		try {
 			
 			final var inputStream = getRefSocket().getInputStream();
-			
-			final var bufferedReader =
-			new BufferedReader(new InputStreamReader(inputStream));
-			
+						
 			final var firstLine = InputStreamHelper.readLineFrom(inputStream);
 			
 			//Enumerates the first character of the first line.
@@ -301,7 +296,7 @@ public class BaseNetEndPoint extends EndPoint {
 				case NetEndPointProtocol.TARGET_PREFIX:
 				case NetEndPointProtocol.MAIN_TARGET_PREFIX:
 					receiveRawMessage(firstLine);
-					return new NetEndPointProcessorForRegularCounterpart(this, bufferedReader);
+					return new NetEndPointProcessorForRegularCounterpart(this, inputStream);
 				case 'G':
 					final var lines = new LinkedList<>(firstLine);
 					while (true) {
@@ -309,7 +304,6 @@ public class BaseNetEndPoint extends EndPoint {
 						final var line = InputStreamHelper.readLineFrom(inputStream);
 						
 						if (line == null) {
-							bufferedReader.close();
 							throw new ArgumentIsNullException(VariableNameCatalogue.LINE);
 						}
 						

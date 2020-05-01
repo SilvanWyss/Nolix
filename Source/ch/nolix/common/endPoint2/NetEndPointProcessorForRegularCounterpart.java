@@ -2,12 +2,13 @@
 package ch.nolix.common.endPoint2;
 
 //Java imports
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 //own imports
+import ch.nolix.common.commonTypeHelper.InputStreamHelper;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -19,19 +20,19 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 	//attributes
 	private final BaseNetEndPoint parentNetEndPoint;
 	private final OutputStream outputStream;
-	private final BufferedReader bufferedReader;
+	private final InputStream inputStream;
 	
 	//constructor
 	public NetEndPointProcessorForRegularCounterpart(
 		final BaseNetEndPoint parentNetEndPoint,
-		final BufferedReader bufferedReader
+		final InputStream inputStream
 	) {
 		
 		Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
-		Validator.assertThat(bufferedReader).thatIsNamed(BufferedReader.class).isNotNull();
+		Validator.assertThat(inputStream).thatIsNamed(InputStream.class).isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
-		this.bufferedReader = bufferedReader;
+		this.inputStream = inputStream;
 		try {
 			outputStream = parentNetEndPoint.getRefSocket().getOutputStream();
 		}
@@ -61,21 +62,16 @@ final class NetEndPointProcessorForRegularCounterpart implements INetEndPointPro
 	
 	//method
 	private void listenToMessages() {
-		try {
-			while (parentNetEndPoint.isOpen()) {
-				
-				final var line = bufferedReader.readLine();
-				
-				if (line == null) {
-					parentNetEndPoint.close();
-					break;
-				}
-				
-				parentNetEndPoint.receiveRawMessageInBackground(line);
+		while (parentNetEndPoint.isOpen()) {
+			
+			final var line = InputStreamHelper.readLineFrom(inputStream);
+			
+			if (line.isEmpty()) {
+				parentNetEndPoint.close();
+				break;
 			}
-		}
-		catch (final IOException pIOException) {
-			parentNetEndPoint.close();
+			
+			parentNetEndPoint.receiveRawMessageInBackground(line);
 		}
 	}
 }
