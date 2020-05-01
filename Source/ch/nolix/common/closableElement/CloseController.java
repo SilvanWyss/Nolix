@@ -75,10 +75,10 @@ final class CloseController implements Closable {
 			state = Openness.CLOSING;
 			
 			//Lets note all elements of the current CloseController run their probable pre-close action.
-			elements.forEach(ClosableElement::runProbablePreCloseAction);
+			elements.forEachWithContinuing(ClosableElement::runProbablePreCloseAction);
 			
 			//Lets note all elements of the current CloseController note the close.
-			elements.forEach(ClosableElement::noteClose);
+			elements.forEachWithContinuing(ClosableElement::noteClose);
 			
 			//Sets the current CloseController as closed.
 			state = Openness.CLOSED;
