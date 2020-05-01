@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.Socket;
 
 //own imports
-import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.worker.Worker;
 
@@ -57,7 +56,7 @@ final class NetServerListener extends Worker {
 		try {
 			while (isOpen()) {
 				final Socket socket = parentNetServer.getRefServerSocket().accept();
-				Sequencer.runInBackground(() -> takeSocket(socket));
+				takeSocket(socket);
 			}
 		}
 		catch (final IOException exception) {
@@ -72,8 +71,6 @@ final class NetServerListener extends Worker {
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
-		if (!socket.isClosed()) {
-			parentNetServer.takeEndPoint(new BaseNetEndPoint(socket, parentNetServer.getHTTPMessage()));
-		}
+		new NetServerSocketProcessor(parentNetServer, socket).start();
 	}
 }

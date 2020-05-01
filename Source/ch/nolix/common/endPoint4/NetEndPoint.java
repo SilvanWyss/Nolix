@@ -35,7 +35,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.BaseNetEndPoint(port),
+			new ch.nolix.common.endPoint2.NetEndPoint(port),
 			messageTransformer,
 			replyTransformer
 		);
@@ -51,7 +51,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.BaseNetEndPoint(
+			new ch.nolix.common.endPoint2.NetEndPoint(
 				ip, port
 			),
 			messageTransformer,
@@ -69,7 +69,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.BaseNetEndPoint(
+			new ch.nolix.common.endPoint2.NetEndPoint(
 				ip, port, target
 			),
 			messageTransformer,
@@ -97,7 +97,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.common.endPoint2.BaseNetEndPoint(port, target),
+			new ch.nolix.common.endPoint2.NetEndPoint(port, target),
 			messageTransformer,
 			replyTransformer
 		);

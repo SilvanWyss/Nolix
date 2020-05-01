@@ -5,7 +5,7 @@ package ch.nolix.commonTest.endPoint2Test;
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.endPoint2.EndPoint;
 import ch.nolix.common.endPoint2.IEndPointTaker;
-import ch.nolix.common.endPoint2.BaseNetEndPoint;
+import ch.nolix.common.endPoint2.NetEndPoint;
 import ch.nolix.common.endPoint2.NetServer;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
@@ -57,7 +57,7 @@ public final class NetEndPointTest extends Test {
 		//execution & verification
 		expect(
 			() -> {
-				final var netEndPoint = new BaseNetEndPoint(port);
+				final var netEndPoint = new NetEndPoint(port);
 				Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
 				netEndPoint.close();
 			}
@@ -79,7 +79,7 @@ public final class NetEndPointTest extends Test {
 		final var netServer = new NetServer(port);
 		final var endPointTakerMock = new TestEndPointTaker();
 		netServer.addMainEndPointTaker(endPointTakerMock);
-		final var netEndPoint = new BaseNetEndPoint(port);
+		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
 		netEndPoint.send("MESSAGE");
