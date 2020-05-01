@@ -10,6 +10,7 @@ import java.net.Socket;
 
 //own imports
 import ch.nolix.common.HTTP.HTTPRequest;
+import ch.nolix.common.commonTypeHelper.InputStreamHelper;
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -37,7 +38,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * -A WebSocket requires a HTTP handshake.
  * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
  * -A WebSocket sends messages, that belong together, in separate lines.
- * The WebSocket was designed this way because of security reasons.
+ * The WebSocket protocol was designed this way because of security reasons.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -293,7 +294,7 @@ public class BaseNetEndPoint extends EndPoint {
 			final var bufferedReader =
 			new BufferedReader(new InputStreamReader(inputStream));
 			
-			final var firstLine = bufferedReader.readLine();
+			final var firstLine = InputStreamHelper.readLineFrom(inputStream);
 			
 			//Enumerates the first character of the first line.
 			switch (firstLine.charAt(0)) {
@@ -305,7 +306,7 @@ public class BaseNetEndPoint extends EndPoint {
 					final var lines = new LinkedList<>(firstLine);
 					while (true) {
 						
-						final var line = bufferedReader.readLine();
+						final var line = InputStreamHelper.readLineFrom(inputStream);
 						
 						if (line == null) {
 							bufferedReader.close();
