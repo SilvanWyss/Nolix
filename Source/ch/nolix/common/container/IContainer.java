@@ -8,6 +8,7 @@ import java.util.Random;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.I2ElementTakerBooleanGetter;
+import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerByteGetter;
 import ch.nolix.common.functionAPI.IElementTakerCharGetter;
@@ -19,6 +20,7 @@ import ch.nolix.common.functionAPI.IElementTakerLongGetter;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.logger.Logger;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
 
@@ -29,7 +31,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1990
+ * @lines 2010
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -382,6 +384,28 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
 		return !contains(e -> !selector.getOutput(e));
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * Lets the elements of the current {@link IContainer} run the given action.
+	 * Continues always when an error occurs at an element.
+	 * 
+	 * @param action
+	 */
+	public default void forEachWithContinuing(final IElementTaker<E> action) {
+		
+		//Iterates the current IContainer.
+		for (final var e : this) {
+			try {
+				action.run(e);
+			}
+			catch (final Exception exception) {
+				Logger.logError(exception);
+			}
+		}
 	}
 	
 	//method
