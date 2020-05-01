@@ -9,6 +9,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;
+import ch.nolix.common.processProperty.ConnectionOrigin;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
@@ -34,10 +35,10 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	/**
 	 * Creates a new {@link EndPoint}.
 	 * 
-	 * @param hasRequestedConnection
+	 * @param connectionOrigin
 	 */
-	EndPoint(final boolean hasRequestedConnection) {
-		this.hasRequestedConnection = hasRequestedConnection;
+	EndPoint(final ConnectionOrigin connectionOrigin) {
+		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 	}
 	
 	//method declaration

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
+import ch.nolix.common.processProperty.ConnectionOrigin;
 //own imports
 import ch.nolix.common.validator.Validator;
 
@@ -24,7 +25,7 @@ public final class LocalEndPoint extends EndPoint {
 	public LocalEndPoint() {
 		
 		//Calls constructor of the base class.
-		super(true);
+		super(ConnectionOrigin.REQUESTED_CONNECTION);
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -40,7 +41,7 @@ public final class LocalEndPoint extends EndPoint {
 	public LocalEndPoint(final IEndPointTaker target) {
 		
 		//Calls constructor of the base class.
-		super(true);
+		super(ConnectionOrigin.REQUESTED_CONNECTION);
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -64,7 +65,7 @@ public final class LocalEndPoint extends EndPoint {
 	public LocalEndPoint(final Server server, final String target) {
 		
 		//Calls constructor of the base class.
-		super(true);
+		super(ConnectionOrigin.REQUESTED_CONNECTION);
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -86,7 +87,7 @@ public final class LocalEndPoint extends EndPoint {
 	private LocalEndPoint(final LocalEndPoint counterpart) {
 		
 		//Calls constructor of the base class.
-		super(false);
+		super(ConnectionOrigin.ACCEPTED_CONNECTION);
 		
 		//Asserts that the given counterpart is not null.
 		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();

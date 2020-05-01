@@ -19,6 +19,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;
+import ch.nolix.common.processProperty.ConnectionOrigin;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketHandShakeRequest;
@@ -96,7 +97,7 @@ public class BaseNetEndPoint extends EndPoint {
 	public BaseNetEndPoint(final String ip,	final int port) {
 		
 		//Calls constructor of the base class.
-		super(true);
+		super(ConnectionOrigin.REQUESTED_CONNECTION);
 		
 		//Asserts that the given port is in [0, 65535]. 
 		Validator
@@ -135,7 +136,7 @@ public class BaseNetEndPoint extends EndPoint {
 	public BaseNetEndPoint(final String ip, final int port, final String target) {
 		
 		//Calls constructor of the base class.
-		super(true);
+		super(ConnectionOrigin.REQUESTED_CONNECTION);
 		
 		setTarget(target);
 		
@@ -175,7 +176,7 @@ public class BaseNetEndPoint extends EndPoint {
 	BaseNetEndPoint(final Socket socket, final String pHTTPMessage) {
 		
 		//Calls constructor of the base class.
-		super(false);
+		super(ConnectionOrigin.ACCEPTED_CONNECTION);
 		
 		//Asserts that the given socket is not null.
 		Validator.assertThat(socket).isOfType(Socket.class);
