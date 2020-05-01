@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.common.webSocket;
 
-//Java import
+//Java imports
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
-import ch.nolix.common.container.IContainer;
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 
@@ -41,8 +42,8 @@ public final class WebSocketCompleteMessage {
 	}
 	
 	//method
-	public IContainer<Byte> getMessage() {
-		return message;
+	public String getMessage() {
+		return new String(getMessageAsByteArray(), StandardCharsets.UTF_8);
 	}
 	
 	//method
