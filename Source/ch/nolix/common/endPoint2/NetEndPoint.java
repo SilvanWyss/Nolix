@@ -40,6 +40,20 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	
 	//constructor
 	/**
+	 * Creates a new {@link NetEndPoint} that will connect to the given target on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @param target
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsNullException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 */
+	public NetEndPoint(final int port, final String target) {
+		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
+	}
+	
+	//constructor
+	/**
 	 * Creates a new {@link NetEndPoint} that will connect to
 	 * the main target on the given port on the machine with the given ip.
 	 * 
