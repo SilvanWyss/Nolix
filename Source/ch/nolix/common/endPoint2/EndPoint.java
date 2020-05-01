@@ -20,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 160
+ * @lines 180
  */
 public abstract class EndPoint extends ClosableElement implements ISender {
 	
@@ -39,6 +39,22 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 */
 	EndPoint(final ConnectionOrigin connectionOrigin) {
 		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link EndPoint} with the given target.
+	 * 
+	 * @param connectionOrigin
+	 * @param target
+	 * @throws ArgumentIsNullException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 */
+	EndPoint(final ConnectionOrigin connectionOrigin, final String target) {
+		
+		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
+		
+		setTarget(target);
 	}
 	
 	//method declaration
