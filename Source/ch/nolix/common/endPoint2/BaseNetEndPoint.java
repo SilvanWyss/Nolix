@@ -40,7 +40,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 420
+ * @lines 460
  */
 public class BaseNetEndPoint extends EndPoint {
 	
@@ -281,6 +281,15 @@ public class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * Sends the target message of the current {@link BaseNetEndPoint}
+	 * to the counterpart of the current {@link BaseNetEndPoint}.
+	 */
+	protected final void sendTargetMessage() {
+		sendRawMessage(getTargetMessage());
+	}
+	
+	//method
+	/**
 	 * @return the socket of the current {@link BaseNetEndPoint}.
 	 */
 	Socket getRefSocket() {
@@ -303,6 +312,19 @@ public class BaseNetEndPoint extends EndPoint {
 	 */
 	private boolean canWork() {
 		return !socket.isClosed();
+	}
+	
+	//method
+	/**
+	 * @return the target message of the current {@link BaseNetEndPoint}.
+	 */
+	private String getTargetMessage() {
+		
+		if (!hasTarget()) {
+			return String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX);
+		}
+		
+		return (NetEndPointProtocol.TARGET_PREFIX + getTarget());
 	}
 	
 	//method
