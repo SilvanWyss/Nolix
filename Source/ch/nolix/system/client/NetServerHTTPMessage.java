@@ -45,6 +45,7 @@ final class NetServerHTTPMessage {
 		return serverPort;
 	}
 	
+	//TODO: Provide a favorite icon for browsers.
 	//method
 	@Override
 	public String toString() {
@@ -55,6 +56,7 @@ final class NetServerHTTPMessage {
 		+ "<!DOCTYPE html>\n"
 		+ "<html>\n"
 		+ "<head>\n"
+		+ "<link rel=\"icon\" href=\"data:,\">" //This link avoids that a browser request a favorite icon.
 		+ "<script>\n"
 		+ REQUIRE_JS_SCRIPT
 		+ "</script>\n"
