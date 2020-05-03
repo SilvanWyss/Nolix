@@ -2,8 +2,11 @@
 package ch.nolix.common.endPoint2;
 
 //own imports
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperty.ConnectionOrigin;
+import ch.nolix.common.processProperty.TargetInfoState;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
@@ -14,38 +17,55 @@ import ch.nolix.common.validator.Validator;
  * -another process on the local computer
  * -another process on another computer
  * 
- * A {@link BaseNetEndPoint} supports the WebSocket protocol and can communicate with a WebSocket.
- * The WebSocket protocol is complicated. Because:
- * -A WebSocket requires a HTTP handshake.
- * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
- * -A WebSocket sends messages, that belong together, in separate lines.
- * The WebSocket protocol was designed this way because of security reasons.
- * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 170
+ * @lines 210
  */
 public abstract class BaseNetEndPoint extends EndPoint {
 	
-	//default value
-	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
+	//constant
+	private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
 	
 	//attribute
 	private boolean hasTargetInfo = false;
 	
-	//TEMP
-	BaseNetEndPoint(final ConnectionOrigin connectionOrigin) {
+	//constructor
+	/**
+	 * Creates a new {@link BaseNetEndPoint} with the given connectionOrigin and connectionOrigin.
+	 * 
+	 * @param connectionOrigin
+	 * @param targetInfoState
+	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
+	 * @throws ArgumentIsNullException if the given targetInfoState is null.
+	 */
+	BaseNetEndPoint(final ConnectionOrigin connectionOrigin, final TargetInfoState targetInfoState) {
 		
+		//Calls constructor of the base class.
 		super(connectionOrigin);
 		
-		confirmReceivedTargetInfo();
+		//Asserts that the given targetInfoState is not null.
+		Validator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
+		
+		if (targetInfoState == TargetInfoState.RECEIVED_TARGET_INFO) {
+			confirmReceivedTargetInfo();
+		}
 	}
 	
-	//TEMP
+	//constructor
+	/**
+	 * Creates a new {@link BaseNetEndPoint} with the given connectionOrigin and target.
+	 * 
+	 * @param connectionOrigin
+	 * @param target
+	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
+	 * @throws ArgumentIsNullException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 */
 	BaseNetEndPoint(final ConnectionOrigin connectionOrigin, final String target) {
 		
+		//Calls constructor of the base class.
 		super(connectionOrigin, target);
-		
+				
 		confirmReceivedTargetInfo();
 	}
 	
@@ -110,7 +130,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * 
 	 * @param rawMessage
 	 */
-	void receiveRawMessageInBackground(final String rawMessage) {
+	final void receiveRawMessageInBackground(final String rawMessage) {
 		Sequencer.runInBackground(() -> receiveRawMessage(rawMessage));
 	}
 	
@@ -122,6 +142,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 */
 	private void confirmReceivedTargetInfo() {
 		
+		//Asserts that the current BaseNetEndPoint has already a target info.
 		if (hasTargetInfo()) {
 			throw new InvalidArgumentException(this, "has already a target info");
 		}
@@ -135,14 +156,22 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 */
 	private String getTargetMessage() {
 		
+		//Handles the case that the current BaseNetEndPoint has a target.
 		if (!hasTarget()) {
 			return String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX);
 		}
 		
+		//Handles the case that the current BaseNetEndPoint does not have a target.
 		return (NetEndPointProtocol.TARGET_PREFIX + getTarget());
 	}
 	
 	//method
+	/**
+	 * Lets the current {@link BaseNetEndPoint} receive the given message.
+	 * 
+	 * @param message
+	 * @throws ClosedArgumentException if the current {@link BaseNetEndPoint} is closed.
+	 */
 	private void receiveMessage(final String message) {
 		
 		//Asserts that the current NetEndPoint is open.
@@ -152,26 +181,38 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	}
 	
 	//method
+	/**
+	 * Lets the current {@link BaseNetEndPoint} receive the given rawMessage.
+	 * 
+	 * @param rawMessage
+	 * @throws InvalidArgumentException if the given rawMessage is not valid.
+	 */
 	private void receiveRawMessage(final String rawMessage) {
 		
 		//Enumerates the first character of the given rawMessage.
 		switch (rawMessage.charAt(0)) {
+			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
+				
+				if (!rawMessage.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
+					throw new InvalidArgumentException(RAW_MESSAGE_VARIABLE_NAME, rawMessage, "is not valid");
+				}
+				
+				confirmReceivedTargetInfo();
+				
+				break;
 			case NetEndPointProtocol.TARGET_PREFIX:
 				setTarget(rawMessage.substring(1));
-				confirmReceivedTargetInfo();
-				break;
-			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
 				confirmReceivedTargetInfo();
 				break;
 			case NetEndPointProtocol.MESSAGE_PREFIX:
 				receiveMessage(rawMessage.substring(1));
 				break;
 			case NetEndPointProtocol.CLOSE_PREFIX:
-				Validator.assertThat(rawMessage).thatIsNamed("raw message").hasLength(1);
+				Validator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
 				close();
 				break;
 			default:
-				throw new InvalidArgumentException("raw message", rawMessage, "is not valid");
+				throw new InvalidArgumentException(RAW_MESSAGE_VARIABLE_NAME, rawMessage, "is not valid");
 		}
 	}
 }

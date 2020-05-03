@@ -15,6 +15,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperty.ConnectionOrigin;
+import ch.nolix.common.processProperty.TargetInfoState;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
@@ -63,7 +64,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		
-		super(ConnectionOrigin.REQUESTED_CONNECTION);
+		super(ConnectionOrigin.REQUESTED_CONNECTION, TargetInfoState.RECEIVED_TARGET_INFO);
 		
 		Validator
 		.assertThat(port)
@@ -135,7 +136,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		final OutputStream socketOutputStream
 	) {
 		
-		super(ConnectionOrigin.ACCEPTED_CONNECTION);
+		super(ConnectionOrigin.ACCEPTED_CONNECTION, TargetInfoState.RECEIVED_TARGET_INFO);
 		
 		Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();

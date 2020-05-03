@@ -11,6 +11,7 @@ import java.net.Socket;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.processProperty.ConnectionOrigin;
+import ch.nolix.common.processProperty.TargetInfoState;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.webSocket.WebSocketFrame;
@@ -32,7 +33,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 		final OutputStream socketOutputStream
 	) {
 		
-		super(ConnectionOrigin.ACCEPTED_CONNECTION);
+		super(ConnectionOrigin.ACCEPTED_CONNECTION, TargetInfoState.WAITS_TO_TARGET_INFO);
 		
 		Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();

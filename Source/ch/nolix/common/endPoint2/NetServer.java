@@ -14,6 +14,13 @@ import ch.nolix.common.wrapperException.WrapperException;
 /**
 * A {@link NetServer} is a {@link Server} that listens to {@link BaseNetEndPoint} on a specific port.
 * 
+* A {@link NetServer} supports the WebSocket protocol and can communicate with a WebSocket.
+ * The WebSocket protocol is complicated. Because:
+ * -A WebSocket requires a HTTP handshake.
+ * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
+ * -A WebSocket sends messages, that belong together, in separate lines.
+ * The WebSocket protocol was designed this way because of security reasons.
+* 
 * @author Silvan Wyss
 * @month 2015-12
 * @lines 160

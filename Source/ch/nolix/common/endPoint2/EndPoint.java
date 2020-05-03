@@ -7,6 +7,7 @@ import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.processProperty.ConnectionOrigin;
@@ -20,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 180
+ * @lines 190
  */
 public abstract class EndPoint extends ClosableElement implements ISender {
 	
@@ -36,8 +37,12 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 * Creates a new {@link EndPoint}.
 	 * 
 	 * @param connectionOrigin
+	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
 	 */
 	EndPoint(final ConnectionOrigin connectionOrigin) {
+		
+		Validator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
+		
 		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 	}
 	
@@ -47,10 +52,13 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 	 * 
 	 * @param connectionOrigin
 	 * @param target
+	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
 	EndPoint(final ConnectionOrigin connectionOrigin, final String target) {
+		
+		Validator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
 		
 		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 		
