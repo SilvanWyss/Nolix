@@ -89,7 +89,7 @@ final class NetServerSocketProcessor extends Worker {
 			return new NetEndPoint(socket, socketInputStream, socketOutputStream);
 		}
 		
-		if (firstLine.startsWith(NetEndPointProtocol.TARGET_PREFIX + "(")) {
+		if (firstLine.startsWith(String.valueOf(NetEndPointProtocol.TARGET_PREFIX))) {
 			return
 			new NetEndPoint(
 				socket,
