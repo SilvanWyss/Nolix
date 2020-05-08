@@ -7,7 +7,7 @@ package ch.nolix.system.baseGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 50
+ * @lines 30
  */
 final class Protocol {
 	
@@ -27,20 +27,8 @@ final class Protocol {
 	public static final String SHOW_ERROR_MESSAGE_HEADER = "ShowErrorMessage";
 	
 	//constants
-	public static final String NOTE_KEY_TYPING_HEADER = "NoteKeyTyping";
-	public static final String NOTE_KEY_PRESS_HEADER = "NoteKeyPress";
-	public static final String NOTE_KEY_RELEASE_HEADER = "NoteKeyRelease";
-	public static final String NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER = "NoteLeftMouseButtonClick";
-	public static final String NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER = "NoteLeftMouseButtonPress";
-	public static final String NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER = "NoteLeftMouseButtonRelease";
-	public static final String NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER = "NoteRightMouseButtonClick";
-	public static final String NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER = "NoteRightMouseButtonPress";
-	public static final String NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "NoteRightMouseButtonRelease";
-	public static final String NOTE_MOUSE_WHEEL_CLICK_HEADER = "NotetMouseWheelClick";
-	public static final String NOTE_MOUSE_WHEEL_PRESS_HEADER = "NotetMouseWheelPress";
-	public static final String NOTE_MOUSE_WHEEL_RELEASE_HEADER = "NoteMouseWheelRelease";
-	public static final String NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER = "NoteMouseWheelRotationStep";
 	public static final String NOTE_MOUSE_MOVE_HEADER = "NoteMouseMove";
+	public static final String NOTE_INPUT = "NoteInput";
 	public static final String NOTE_RESIZE_HEADER = "NoteResize";
 	
 	//visibility-reducing constructor

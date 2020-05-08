@@ -13,15 +13,14 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.input.InputFactory;
 import ch.nolix.system.client.Client;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 300
+ * @lines 250
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -70,66 +69,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getNextNode());
 				break;
-			case Protocol.NOTE_KEY_TYPING_HEADER:
-				getRefGUI().noteKeyTyping(Key.fromSpecification(command.getOneAttributeAsNode()));
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_KEY_PRESS_HEADER:
+			case Protocol.NOTE_INPUT:
 				
-				getRefGUI().noteKeyPress(Key.fromSpecification(command.getOneAttributeAsNode()));
-				
-				//TODO: Handle cases systematically where a preceding statement can close a Client legally.
+				getRefGUI().noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));
 				if (!isClosed()) {
 					updateGUIOnCounterpart();
 				}
 				
 				break;
-			case Protocol.NOTE_KEY_RELEASE_HEADER:
-				getRefGUI().noteKeyRelease(Key.fromSpecification(command.getOneAttributeAsNode()));
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER:
-				getRefGUI().noteLeftMouseButtonClick();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER:
-				getRefGUI().noteLeftMouseButtonPress();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER:
-				getRefGUI().noteLeftMouseButtonRelease();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER:
-				getRefGUI().noteRightMouseButtonClick();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER:
-				getRefGUI().noteRightMouseButtonPress();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER:
-				getRefGUI().noteRightMouseButtonRelease();
-				updateGUIOnCounterpart();
-				break;
 			case Protocol.NOTE_MOUSE_MOVE_HEADER:
 				getRefGUI().noteMouseMove(command.getAttributeAt(1).toInt(), command.getAttributeAt(2).toInt());
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER:
-				getRefGUI().noteMouseWheelClick();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_MOUSE_WHEEL_PRESS_HEADER:
-				getRefGUI().noteMouseWheelPress();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_MOUSE_WHEEL_RELEASE_HEADER:
-				getRefGUI().noteMouseWheelRelease();
-				updateGUIOnCounterpart();
-				break;
-			case Protocol.NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER:
-				getRefGUI().noteMouseWheelRotationStep(DirectionOfRotation.valueOf(command.getOneAttributeAsString()));
 				updateGUIOnCounterpart();
 				break;
 			case Protocol.NOTE_RESIZE_HEADER:

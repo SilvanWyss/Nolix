@@ -10,8 +10,7 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.input.IInput;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
 
@@ -19,7 +18,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 280
+ * @lines 180
  * @param <FGC> The type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
@@ -73,51 +72,8 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public void noteKeyPressOnCounterpart(final Key key) {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_KEY_PRESS_HEADER, key.getSpecification()));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteKeyReleaseOnCounterpart(final Key key) {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_KEY_RELEASE_HEADER, key.getSpecification()));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteKeyTypingOnCounterpart(final Key key) {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_KEY_TYPING_HEADER, key.getSpecification()));		
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteLeftMouseButtonClickOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_LEFT_MOUSE_BUTTON_CLICK_HEADER));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteLeftMouseButtonPressOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteLeftMouseButtonReleaseOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER));
+	public void noteInputOnCounterpart(final IInput<?> input) {
+		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_INPUT, input.getSpecification()));;
 	}
 	
 	//method
@@ -135,64 +91,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				new Node(cursorYPositionOnViewArea)
 			)
 		);		
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteMouseWheelClickOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_MOUSE_WHEEL_CLICK_HEADER));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteMouseWheelPressOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_MOUSE_WHEEL_PRESS_HEADER));		
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteMouseWheelReleaseOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_MOUSE_WHEEL_RELEASE_HEADER));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteMouseWheelRotationStepOnCounterpart(final DirectionOfRotation directionOfRotation) {
-		internal_runOnCounterpart(
-			new ChainedNode(
-				Protocol.NOTE_MOUSE_WHEEL_ROTATION_STEP_HEADER,
-				directionOfRotation.getSpecification()
-			)
-		);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteRightMouseButtonClickOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_RIGHT_MOUSE_BUTTON_CLICK_HEADER));	
-	}
-	
-	//method
-	public final void noteRightMouseButtonPressOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER));	
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteRightMouseButtonReleaseOnCounterpart() {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER));
 	}
 	
 	//method

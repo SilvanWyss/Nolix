@@ -6,6 +6,9 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.input.KeyInput;
+import ch.nolix.element.input.KeyInputType;
+import ch.nolix.element.input.MouseInput;
 
 //class
 /**
@@ -41,7 +44,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteKeyPress(final Key key) {
-		parentFrontGuiClientoid.noteKeyPressOnCounterpart(key);
+		parentFrontGuiClientoid.noteInputOnCounterpart(new KeyInput(key, KeyInputType.Press));
 	}
 	
 	//method
@@ -50,7 +53,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteKeyRelease(final Key key) {
-		parentFrontGuiClientoid.noteKeyReleaseOnCounterpart(key);		
+		parentFrontGuiClientoid.noteInputOnCounterpart(new KeyInput(key, KeyInputType.Release));
 	}
 	
 	//method
@@ -59,7 +62,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteKeyTyping(Key key) {
-		parentFrontGuiClientoid.noteKeyTypingOnCounterpart(key);		
+		parentFrontGuiClientoid.noteInputOnCounterpart(new KeyInput(key, KeyInputType.Typing));
 	}
 	
 	//method
@@ -68,7 +71,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonClick() {
-		parentFrontGuiClientoid.noteLeftMouseButtonClickOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.LeftMouseButtonClick);
 	}
 	
 	//method
@@ -77,7 +80,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonPress() {
-		parentFrontGuiClientoid.noteLeftMouseButtonPressOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.LeftMouseButtonPress);	
 	}
 	
 	//method
@@ -86,7 +89,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonRelease() {
-		parentFrontGuiClientoid.noteLeftMouseButtonReleaseOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.LeftMouseButtonRelease);		
 	}
 	
 	//method
@@ -104,7 +107,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelClick() {
-		parentFrontGuiClientoid.noteMouseWheelClickOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.MouseWheelClick);
 	}
 	
 	//method
@@ -113,7 +116,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelPress() {
-		parentFrontGuiClientoid.noteMouseWheelPressOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.MouseWheelPress);
 	}
 	
 	//method
@@ -122,7 +125,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelRelease() {
-		parentFrontGuiClientoid.noteMouseWheelReleaseOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.MouseWheelRelease);		
 	}
 	
 	//method
@@ -131,7 +134,10 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
-		parentFrontGuiClientoid.noteMouseWheelRotationStepOnCounterpart(directionOfRotation);		
+		parentFrontGuiClientoid.noteInputOnCounterpart(
+			directionOfRotation == DirectionOfRotation.Backward ?
+			MouseInput.BackwardMouseWheelRotationStep : MouseInput.ForwardMouseWheelRotationStep
+		);	
 	}
 	
 	//method
@@ -140,7 +146,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonClick() {
-		parentFrontGuiClientoid.noteRightMouseButtonClickOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.RightMouseButtonClick);	
 	}
 	
 	//method
@@ -149,7 +155,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonPress() {
-		parentFrontGuiClientoid.noteRightMouseButtonPressOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.RightMouseButtonPress);		
 	}
 	
 	//method
@@ -158,7 +164,7 @@ final class BaseFrontGUIClientEventTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {
-		parentFrontGuiClientoid.noteRightMouseButtonReleaseOnCounterpart();		
+		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInput.RightMouseButtonRelease);	
 	}
 	
 	//method
