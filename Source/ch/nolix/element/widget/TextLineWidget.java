@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.GUI.Widget;
@@ -33,8 +33,8 @@ extends BorderWidget<TLW, TLWL> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
-		BaseNode::getHeaderOfOneAttribute,
-		Node::withOneAttribute
+		s -> s.hasHeader() ? s.getHeader() : StringCatalogue.EMPTY_STRING,
+		t -> t.isEmpty() ? new Node() : new Node(t)
 	);
 	
 	//method
