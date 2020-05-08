@@ -5,13 +5,14 @@ package ch.nolix.element.input;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Property;
 
 //class
 public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput> {
 	
-	//static attribute
+	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";
 	
 	//static method
@@ -152,7 +153,16 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 		}
 	}
 	
-	//method
+	//static method
+	public static KeyInput fromSpecification(final BaseNode specification) {
+		return
+		new KeyInput(
+			Key.fromSpecification(specification.getRefAttributeAt(1)),
+			KeyInputType.fromSpecification(specification.getRefAttributeAt(2))
+		);
+	}
+	
+	//static method
 	private static KeyInput[] createTypingBetweenShiftPressAndRelease(final Key key) {
 		return
 		new KeyInput[] {
