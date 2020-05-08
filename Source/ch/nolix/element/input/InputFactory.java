@@ -7,8 +7,11 @@ import ch.nolix.element.elementFactory.ElementFactory;
 //class
 public final class InputFactory extends ElementFactory<IInput<?>> {
 	
-	//constructor
-	public InputFactory() {
+	//constant
+	public static final InputFactory INSTANCE = new InputFactory();
+	
+	//visibility-reducing constructor
+	private InputFactory() {
 		registerElementClass_(KeyInput.class, KeyInput::fromSpecification);
 		registerElementClass_(MouseInput.class, MouseInput::fromSpecification);
 	}
