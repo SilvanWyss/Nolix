@@ -39,7 +39,7 @@ public final class LabelTutorial {
 		//Configures the look of the clockLabel.
 		clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
 	
-		//Adds the clockCaptionLabel and clockLabel to the frame.
+		//Adds the clockCaptionLabel and clockLabel to the Frame.
 		frame.addLayerOnTop(new HorizontalStack(clockCaptionLabel, clockLabel));
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
@@ -64,7 +64,7 @@ public final class LabelTutorial {
 				//Sets the text to the clockLabel.
 				clockLabel.setText(text);
 				
-				//Refreshes the frame.
+				//Refreshes the Frame.
 				frame.refresh();
 			}
 		);
