@@ -84,6 +84,9 @@ final class WebEndPoint extends BaseNetEndPoint {
 			case PING:
 				sendPongFrameForPingFrame(controlFrame);
 				break;
+			case CONNECTION_CLOSE:
+				//TODO: Handle close frames.
+				break;
 			default:
 				throw new InvalidArgumentException("control frame", controlFrame, "is not valid");
 		}
