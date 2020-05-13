@@ -79,6 +79,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 		return socketInputStream;
 	}
 	
+	//method
 	void receiveControlFrame(final WebSocketFrame controlFrame) {
 		switch (controlFrame.getOpcodeMeaning()) {
 			case PING:
