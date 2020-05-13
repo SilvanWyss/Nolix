@@ -77,8 +77,8 @@ final class NetServerHTTPMessage {
 	private String getMainScript() {
 		return
 		"<script>\n"
-		+ "require(['System/FrontBrowserGUIClient/FrontBrowserGUIClient'], function (FrontBrowserGUIClient_) {"
-		+ "var client = FrontBrowserGUIClient_.FrontBrowserGUIClient.withIpAndNumberAndWindow("
+		+ "require(['System/FrontCanvasGUIClient/FrontCanvasGUIClient'], function (FrontCanvasGUIClient_) {"
+		+ "var client = FrontCanvasGUIClient_.FrontCanvasGUIClient.withIpAndNumberAndWindow("
 		+ getServerIpInQuotes() + ", "
 		+ getServerPort() + ", "
 		+ "window);"
