@@ -652,8 +652,8 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * @return a new iterator of the current {@link LinkedList}.
 	 */
 	@Override
-	public ListIterator<E> iterator() {
-		return new ListIterator<>(firstNode);
+	public LinkedListIterator<E> iterator() {
+		return new LinkedListIterator<>(firstNode);
 	}
 	
 	//method

@@ -11,35 +11,35 @@ import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeExce
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 70
- * @param <E> The type of the elements of a {@link ListIterator}.
+ * @param <E> The type of the elements of a {@link LinkedListIterator}.
  */
-final class ListIterator<E> implements Iterator<E> {
+final class LinkedListIterator<E> implements Iterator<E> {
 	
 	//attribute
 	private LinkedListNode<E> nextNode;
 	
 	//constructor
 	/**
-	 * Creates a new {@link ListIterator} with the given first node.
+	 * Creates a new {@link LinkedListIterator} with the given first node.
 	 * The given first node can be null.
 	 * 
 	 * @param firstNode
 	 */
-	public ListIterator(final LinkedListNode<E> firstNode) {
+	public LinkedListIterator(final LinkedListNode<E> firstNode) {
 		nextNode = firstNode;
 	}
 	
 	//method
 	/**
-	 * @return a copy of the current {@link ListIterator}.
+	 * @return a copy of the current {@link LinkedListIterator}.
 	 */
-	public ListIterator<E> getCopy() {
-		return new ListIterator<>(nextNode);
+	public LinkedListIterator<E> getCopy() {
+		return new LinkedListIterator<>(nextNode);
 	}
 
 	//method
 	/**
-	 * @return true if the current {@link ListIterator} has a next element.
+	 * @return true if the current {@link LinkedListIterator} has a next element.
 	 */
 	@Override
 	public boolean hasNext() {
@@ -48,8 +48,8 @@ final class ListIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return the next element of the current {@link ListIterator}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ListIterator} does not have a next element.
+	 * @return the next element of the current {@link LinkedListIterator}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LinkedListIterator} does not have a next element.
 	 */
 	@Override
 	public E next() {
