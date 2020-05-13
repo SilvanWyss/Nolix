@@ -29,8 +29,8 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	private int elementCount = 0;
 	
 	//optional attributes
-	private ListNode<E> firstNode;
-	private ListNode<E> lastNode;
+	private LinkedListNode<E> firstNode;
+	private LinkedListNode<E> lastNode;
 		
 	//constructor
 	/**
@@ -90,7 +90,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public LinkedList<E> addAtBegin(E element) {
 		
 		//Creates new node.
-		final var node = new ListNode<E>(element);
+		final var node = new LinkedListNode<E>(element);
 		
 		if (isEmpty()) {
 			firstNode = node;
@@ -147,12 +147,12 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		//Handles the case that the given elements is not empty.
 		if (new ReadContainer<E>(elements).isEmpty()) {
 			
-			final var preNode = new ListNode<E>(null);
+			final var preNode = new LinkedListNode<E>(null);
 			
 			var iterator = preNode;
 			for (final E e: elements) {
 				iterator.setElement(e);
-				iterator.setNextNode(new ListNode<E>(null));
+				iterator.setNextNode(new LinkedListNode<E>(null));
 				iterator = iterator.getNextNode();
 				elementCount++;
 			}
@@ -248,7 +248,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public LinkedList<E> addAtEnd(final E element) {
 		
 		//Creates new node.
-		final var node = new ListNode<E>(element);
+		final var node = new LinkedListNode<E>(element);
 		
 		if (isEmpty()) {
 			firstNode = node;
@@ -824,7 +824,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		var iterator = firstNode;
 		while (iterator.hasNextNode()) {
 			
-			final ListNode<E> nextNode = iterator.getNextNode();
+			final LinkedListNode<E> nextNode = iterator.getNextNode();
 			
 			if (selector.getOutput(nextNode.getElement())) {
 				removeNextNode(iterator);
@@ -887,7 +887,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		var iterator = firstNode;
 		while (iterator.hasNextNode()) {
 			
-			final ListNode<E> nextNode = iterator.getNextNode();
+			final LinkedListNode<E> nextNode = iterator.getNextNode();
 			
 			if (nextNode.contains(element)) {
 				removeNextNode(iterator);
@@ -1019,7 +1019,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 			lastNode = firstNode;
 			var iterator = firstNode;
 			while (iterator.hasNextNode()) {
-				final ListNode<E> node = iterator.getNextNode();
+				final LinkedListNode<E> node = iterator.getNextNode();
 				iterator.setNextNode(firstNode);
 				firstNode = iterator;
 				iterator = node;
@@ -1141,7 +1141,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * @throws ArgumentIsNullException if the given node is null.
 	 * @throws UnexistingPropertyException if the given node does not have a next node.
 	 */
-	private void removeNextNode(final ListNode<E> node) {
+	private void removeNextNode(final LinkedListNode<E> node) {
 		
 		//Asserts that the given node is not null.
 		Validator.assertThat(node).thatIsNamed(VariableNameCatalogue.NODE).isNotNull();

@@ -16,7 +16,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeExce
 final class ListIterator<E> implements Iterator<E> {
 	
 	//attribute
-	private ListNode<E> nextNode;
+	private LinkedListNode<E> nextNode;
 	
 	//constructor
 	/**
@@ -25,7 +25,7 @@ final class ListIterator<E> implements Iterator<E> {
 	 * 
 	 * @param firstNode
 	 */
-	public ListIterator(final ListNode<E> firstNode) {
+	public ListIterator(final LinkedListNode<E> firstNode) {
 		nextNode = firstNode;
 	}
 	

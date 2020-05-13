@@ -8,37 +8,37 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link ListNode} contains an element.
- * A {@link ListNode} can have a next node.
+ * A {@link LinkedListNode} contains an element.
+ * A {@link LinkedListNode} can have a next node.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 150
- * @param <E> The type of the element of a {@link ListNode}.
+ * @param <E> The type of the element of a {@link LinkedListNode}.
  */
-final class ListNode<E> {
+final class LinkedListNode<E> {
 
 	//attribute
 	private E element;
 	
 	//optional attribute
-	private ListNode<E> nextNode;
+	private LinkedListNode<E> nextNode;
 	
 	//constructor
 	/**
-	 * Creates a new {@link ListNode} with the given element.
+	 * Creates a new {@link LinkedListNode} with the given element.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public ListNode(final E element) {
+	public LinkedListNode(final E element) {
 		setElement(element);
 	}
 	
 	//method
 	/**
 	 * @param selector
-	 * @return true if the current {@link ListNode}
+	 * @return true if the current {@link LinkedListNode}
 	 * contains an element the given selector selects.
 	 */
 	public boolean contains(final IElementTakerBooleanGetter<E> selector) {
@@ -48,7 +48,7 @@ final class ListNode<E> {
 	// method
 	/**
 	 * @param element
-	 * @return true if the current {@link ListNode} contains the given element.
+	 * @return true if the current {@link LinkedListNode} contains the given element.
 	 */
 	public boolean contains(final Object element) {
 		return (getElement() == element);
@@ -56,7 +56,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return the element of the current {@link ListNode}.
+	 * @return the element of the current {@link LinkedListNode}.
 	 */
 	public E getElement() {
 		return element;
@@ -64,11 +64,11 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return the next node of the current {@link ListNode}.
+	 * @return the next node of the current {@link LinkedListNode}.
 	 * @throws UnexistringAttributeException
-	 * if the current {@link ListNode} does not have a next node.
+	 * if the current {@link LinkedListNode} does not have a next node.
 	 */
-	public ListNode<E> getNextNode() {
+	public LinkedListNode<E> getNextNode() {
 		
 		//Asserts that the current list node has a next node.
 		if (!hasNextNode()) {
@@ -80,7 +80,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return true if the current {@link ListNode} has a next node.
+	 * @return true if the current {@link LinkedListNode} has a next node.
 	 */
 	public boolean hasNextNode() {
 		return (nextNode != null);
@@ -88,7 +88,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * Removes the next node of the current {@link ListNode}.
+	 * Removes the next node of the current {@link LinkedListNode}.
 	 */
 	public void removeNextNode() {
 		nextNode = null;
@@ -96,7 +96,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * Sets the element of the current {@link ListNode}.
+	 * Sets the element of the current {@link LinkedListNode}.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -115,12 +115,12 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * Sets the next node of the current {@link ListNode}.
+	 * Sets the next node of the current {@link LinkedListNode}.
 	 * 
 	 * @param nextNode
 	 * @throws ArgumentIsNullException if the given next node is null.
 	 */
-	public void setNextNode(final ListNode<E> nextNode) {
+	public void setNextNode(final LinkedListNode<E> nextNode) {
 		
 		//Asserts that the given next node is not null.
 		Validator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
@@ -131,11 +131,11 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * Swaps the element of the current {@link ListNode}
-	 * with the element of the next node of the current {@link ListNode}.
+	 * Swaps the element of the current {@link LinkedListNode}
+	 * with the element of the next node of the current {@link LinkedListNode}.
 	 * 
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ListNode} does not have a next node.
+	 * if the current {@link LinkedListNode} does not have a next node.
 	 */
 	public void swapElementWithNextNode() {
 		
