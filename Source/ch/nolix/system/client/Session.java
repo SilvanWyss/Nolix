@@ -137,7 +137,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * Initializes the current {@link Session}.
 	 */
-	public abstract void initialize();
+	protected abstract void initialize();
 	
 	//method
 	/**
