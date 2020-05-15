@@ -32,7 +32,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 390
+ * @lines 400
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -214,6 +214,17 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final boolean isVisible() {
 		return (visualizer != null);
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link GUI} note a resize.
+	 * The size of the view area of the current {@link GUI} will be set to the size of the view area of the given pGUI.
+	 * 
+	 * @param pGUI
+	 */
+	public final void noteResizeFrom(final GUI<?> pGUI) {
+		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
 	}
 	
 	//method
