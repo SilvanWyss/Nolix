@@ -21,7 +21,7 @@ public final class FrontCanvasGUIClientTutorial {
 	private static class MainSession extends BackGUIClientSession {
 		
 		@Override
-		public void initialize() {
+		protected void initializeStage2() {
 			getRefGUI()
 			.setTitle("FrontBrowserGUIClient Tutorial")
 			.setBackgroundColor(Color.STEEL_BLUE)

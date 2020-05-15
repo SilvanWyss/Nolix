@@ -29,7 +29,7 @@ public final class TextBoxTutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		public void initialize() {
+		protected void initializeStage2() {
 						
 			//Creates a TextBox.
 			final var textBox = new TextBox();

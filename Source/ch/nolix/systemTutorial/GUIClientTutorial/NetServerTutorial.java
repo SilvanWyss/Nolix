@@ -43,7 +43,7 @@ public final class NetServerTutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		public void initialize() {
+		protected void initializeStage2() {
 			getRefGUI()
 			.setTitle("NetServer Tutorial")
 			.addLayerOnTop(new Label("Hello World!").applyOnBaseLook(bl -> bl.setTextSize(50)));

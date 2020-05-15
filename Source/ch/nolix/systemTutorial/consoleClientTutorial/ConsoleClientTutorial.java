@@ -34,7 +34,7 @@ public final class ConsoleClientTutorial {
 	private static final class MainSession extends BackConsoleClientSession {
 		
 		@Override
-		public void initialize() {
+		protected void initializeStage2() {
 			
 			setLook(new BlackRedConsoleClientLook());
 						

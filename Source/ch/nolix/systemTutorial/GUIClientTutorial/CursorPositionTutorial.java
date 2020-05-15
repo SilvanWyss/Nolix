@@ -37,7 +37,7 @@ public final class CursorPositionTutorial {
 		private final Label cursorPositionLabel = new Label();
 		
 		@Override
-		public void initialize() {
+		protected void initializeStage2() {
 			
 			//TODO: Add mouse move command to GUI.
 			updateCursorPosition();

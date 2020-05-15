@@ -39,7 +39,7 @@ public final class ButtonTutorial {
 		private int counter = 1;
 		
 		@Override
-		public void initialize() {
+		protected void initializeStage2() {
 			
 			//Sets the title of the GUI of the current MainSession.
 			getRefGUI().setTitle("Back GUI Client Tutorial");

@@ -18,7 +18,7 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 	
 	//method
 	@Override
-	public final void initialize() {
+	protected final void initializeStage2() {
 		
 		createNewDatabaseAdapter();
 		
