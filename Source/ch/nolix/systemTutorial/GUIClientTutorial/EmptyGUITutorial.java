@@ -16,7 +16,7 @@ public final class EmptyGUITutorial {
 		final var port = 50000;
 		
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer(port, new Application<>("Label Tutorial", BackGUIClient.class, MainSession.class));
+		new NetServer(port, new Application<>("Empty GUI Tutorial", BackGUIClient.class, MainSession.class));
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient(port);
