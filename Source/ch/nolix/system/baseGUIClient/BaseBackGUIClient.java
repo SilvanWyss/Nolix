@@ -110,9 +110,12 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	/**
-	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}. 
+	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}.
+	 * Refreshes the GUI of the current {@link BaseBackGUIClient} before.
 	 */
-	void updateGUIOnCounterpart() {
+	final void updateGUIOnCounterpart() {
+		
+		getRefGUI().refresh();
 		
 		//Enumerates the front end type of the current back GUI client.
 		switch (getCounterpartGUIType()) {
