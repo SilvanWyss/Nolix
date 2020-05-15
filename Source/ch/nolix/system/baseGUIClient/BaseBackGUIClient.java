@@ -69,6 +69,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getNextNode());
 				break;
+			//TODO: Handle all (!) inputs in 1 case.
 			case Protocol.NOTE_INPUT:
 				
 				getRefGUI().noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));
