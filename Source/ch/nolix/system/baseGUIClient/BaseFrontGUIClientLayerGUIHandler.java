@@ -16,7 +16,7 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 	
 	//constructor
 	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
-		mGUI = new Frame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));
+		mGUI = new Frame(new BaseFrontGUIClientInputTaker(parentFrontGuiClientoid));
 	}
 	
 	//method

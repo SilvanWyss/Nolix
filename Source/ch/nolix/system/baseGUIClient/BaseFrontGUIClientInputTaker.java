@@ -16,22 +16,22 @@ import ch.nolix.element.input.MouseInput;
  * @month 2019-08
  * @lines 170
  */
-final class BaseFrontGUIClientEventTaker implements IInputTaker {
+final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	
 	//attribute
 	/**
-	 * The {@link BaseFrontGUIClient} the current {@link BaseFrontGUIClientEventTaker} belongs to.
+	 * The {@link BaseFrontGUIClient} the current {@link BaseFrontGUIClientInputTaker} belongs to.
 	 */
 	private final BaseFrontGUIClient<?> parentFrontGuiClientoid;
 	
 	//constructor
 	/**
-	 * Creates a new {@link BaseFrontGUIClientEventTaker} that will belong to the given parentFrontGuiClientoid.
+	 * Creates a new {@link BaseFrontGUIClientInputTaker} that will belong to the given parentFrontGuiClientoid.
 	 * 
 	 * @param parentFrontGuiClientoid
 	 * @throws ArgumentIsNullException if the given parentFrontGuiClientoid is null.
 	 */
-	public BaseFrontGUIClientEventTaker(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+	public BaseFrontGUIClientInputTaker(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		
 		Validator.assertThat(parentFrontGuiClientoid).thatIsNamed("parent FrontGUIClientoid").isNotNull();
 		

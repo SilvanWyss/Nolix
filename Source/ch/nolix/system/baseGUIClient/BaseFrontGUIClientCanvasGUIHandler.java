@@ -16,7 +16,7 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	
 	//constructor
 	public BaseFrontGUIClientCanvasGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
-		mGUI = new CanvasFrame(new BaseFrontGUIClientEventTaker(parentFrontGuiClientoid));
+		mGUI = new CanvasFrame(new BaseFrontGUIClientInputTaker(parentFrontGuiClientoid));
 	}
 	
 	//method
