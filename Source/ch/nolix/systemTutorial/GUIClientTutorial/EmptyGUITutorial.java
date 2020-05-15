@@ -8,7 +8,7 @@ import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 
-public class EmptyGUITutorial {
+public final class EmptyGUITutorial {
 	
 	public static void main(String[] args) {
 		
@@ -34,4 +34,6 @@ public class EmptyGUITutorial {
 			getRefGUI().setBackgroundColor(Color.LIGHT_GREY);
 		}
 	}
+	
+	private EmptyGUITutorial() {}
 }
