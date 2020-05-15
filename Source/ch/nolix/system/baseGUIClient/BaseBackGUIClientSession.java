@@ -25,7 +25,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	
 	//method
 	@Override
-	protected final void internal_cleanForInitialization() {
+	protected final void internalCleanForInitialization() {
 		mGUI.reset();
 	}
 	

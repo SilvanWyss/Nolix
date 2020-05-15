@@ -209,7 +209,7 @@ public abstract class Session<C extends Client<C>> {
 	}
 	
 	//method
-	protected void internal_cleanForInitialization() {}
+	protected void internalCleanForInitialization() {}
 	
 	//method
 	/**

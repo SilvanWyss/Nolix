@@ -279,7 +279,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 			close();
 		}
 		else {
-			internal_getRefCurrentSession().internal_cleanForInitialization();
+			internal_getRefCurrentSession().internalCleanForInitialization();
 			internal_getRefCurrentSession().initialize();
 			internal_getRefCurrentSession().updateCounterpart();
 		}
