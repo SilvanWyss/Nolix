@@ -25,6 +25,7 @@ final class WebEndPointMessageListener extends Worker {
 		while (parentWebEndPoint.isOpen()) {
 			parentWebEndPoint.receiveRawMessageInBackground(			
 				new WebSocketCompleteMessage(
+					parentWebEndPoint::isOpen,
 					parentWebEndPoint.getRefInputStream(),
 					parentWebEndPoint::receiveControlFrame
 				)

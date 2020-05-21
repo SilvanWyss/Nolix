@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTaker;
 
 //class
@@ -17,26 +18,30 @@ public final class WebSocketCompleteMessage {
 	
 	//constructor
 	public WebSocketCompleteMessage(
+		final IBooleanGetter isOpenFunction,
 		final InputStream inputStream,
 		final IElementTaker<WebSocketFrame> controlFrameTaker
 	) {
-		while (true) {
+		var complete = false;
+		while (isOpenFunction.getOutput() && !complete) {
 			
 			final var frame = new WebSocketFrame(inputStream);
-				
-			if (frame.isDataFrame()) {
-				
-				for (final var b : frame.getPayload()) {
-					message.addAtEnd(b);
-				}
-				
-				if (frame.isFinalFragment()) {
-					break;
-				}
-			}
 			
-			if (frame.isControlFrame()) {
-				controlFrameTaker.run(frame);
+			switch (frame.getFrameType()) {
+				case CONTROL_FRAME:
+					controlFrameTaker.run(frame);
+					break;
+				case DATA_FRAME:
+					
+					for (final var b : frame.getPayload()) {
+						message.addAtEnd(b);
+					}
+					
+					if (frame.isFinalFragment()) {
+						complete = true;
+					}
+					
+					break;
 			}
 		}
 	}
