@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
@@ -100,6 +101,20 @@ public final class WebSocketFrame {
 	//method
 	public boolean getFINBit() {
 		return firstNibble.getFINBit();
+	}
+	
+	//method
+	public WebSocketFrameType getFrameType() {
+		
+		if (isControlFrame()) {
+			return WebSocketFrameType.CONTROL_FRAME;
+		}
+		
+		if (isDataFrame()) {
+			return WebSocketFrameType.DATA_FRAME;
+		}
+		
+		throw new InvalidArgumentException(this);
 	}
 	
 	//method
