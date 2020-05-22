@@ -1,7 +1,7 @@
-define("Core/Container/ListNode", ["require", "exports"], function (require, exports) {
+define("Common/Container/LinkedListNode", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ListNode {
+    class LinkedListNode {
         constructor(element) {
             if (element === null) {
                 throw new Error('The given element is null.');
@@ -42,12 +42,12 @@ define("Core/Container/ListNode", ["require", "exports"], function (require, exp
             this.nextNode = nextNode;
         }
     }
-    exports.ListNode = ListNode;
+    exports.LinkedListNode = LinkedListNode;
 });
-define("Core/Container/ListIterator", ["require", "exports"], function (require, exports) {
+define("Common/Container/LinkedListIterator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ListIterator {
+    class LinkedListIterator {
         constructor(currentNode) {
             this.currentNode = undefined;
             this.lastElement = undefined;
@@ -69,19 +69,24 @@ define("Core/Container/ListIterator", ["require", "exports"], function (require,
             return { done: true, value: this.lastElement };
         }
     }
-    exports.ListIterator = ListIterator;
+    exports.LinkedListIterator = LinkedListIterator;
 });
-define("Core/Container/List", ["require", "exports", "Core/Container/ListIterator", "Core/Container/ListNode"], function (require, exports, ListIterator_1, ListNode_1) {
+define("Common/Container/LinkedList", ["require", "exports", "Common/Container/LinkedListIterator", "Common/Container/LinkedListNode"], function (require, exports, LinkedListIterator_1, LinkedListNode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class List {
+    class LinkedList {
         constructor() {
             this.elementCount = 0;
             this.beginNode = undefined;
             this.endNode = undefined;
         }
+        static withElement(element) {
+            const list = new LinkedList();
+            list.addAtEnd(element);
+            return list;
+        }
         addAtBegin(element) {
-            const newNode = new ListNode_1.ListNode(element);
+            const newNode = new LinkedListNode_1.LinkedListNode(element);
             if (this.elementCount === 0) {
                 this.endNode = newNode;
             }
@@ -92,7 +97,7 @@ define("Core/Container/List", ["require", "exports", "Core/Container/ListIterato
             this.elementCount++;
         }
         addAtEnd(element) {
-            const newNode = new ListNode_1.ListNode(element);
+            const newNode = new LinkedListNode_1.LinkedListNode(element);
             if (this.elementCount === 0) {
                 this.beginNode = newNode;
             }
@@ -184,7 +189,7 @@ define("Core/Container/List", ["require", "exports", "Core/Container/ListIterato
             return this.beginNode.getRefElement();
         }
         getRefSelected(selector) {
-            const selectedElements = new List();
+            const selectedElements = new LinkedList();
             for (const e of this) {
                 if (selector(e)) {
                     selectedElements.addAtEnd(e);
@@ -233,7 +238,7 @@ define("Core/Container/List", ["require", "exports", "Core/Container/ListIterato
             throw new Error('The current List does not contain the given element.');
         }
         to(extractor) {
-            const list = new List();
+            const list = new LinkedList();
             for (const e of this) {
                 list.addAtEnd(extractor(e));
             }
@@ -266,14 +271,14 @@ define("Core/Container/List", ["require", "exports", "Core/Container/ListIterato
             return ('(' + this.toString() + ')');
         }
         toStrings() {
-            const strings = new List();
+            const strings = new LinkedList();
             for (const e of this) {
                 strings.addAtEnd(e.toString());
             }
             return strings;
         }
         [Symbol.iterator]() {
-            return new ListIterator_1.ListIterator(this.beginNode);
+            return new LinkedListIterator_1.LinkedListIterator(this.beginNode);
         }
         removeNextNode(node) {
             const nextNode = node.getRefNextNode();
@@ -288,59 +293,72 @@ define("Core/Container/List", ["require", "exports", "Core/Container/ListIterato
             nextNode.removeNextNode();
         }
     }
-    exports.List = List;
+    exports.LinkedList = LinkedList;
 });
-define("Core/BaseTest/BaseTest", ["require", "exports", "Core/Container/List"], function (require, exports, List_1) {
+define("Common/BaseTest/BaseTest", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class BaseTest {
         constructor() {
-            this.currentTestCaseErrors = new List_1.List();
+            this.currentTestCaseErrors = new LinkedList_1.LinkedList();
         }
         run() {
-            console.log(this.constructor.name);
-            var prototype = this;
-            var properties = [];
-            do {
-                properties = properties.concat(Object.getOwnPropertyNames(prototype));
-            } while (prototype = Object.getPrototypeOf(prototype));
-            for (const p of properties) {
-                const name = p;
-                if (name.startsWith('testCase_')) {
-                    try {
-                        this[name]();
-                        if (this.currentTestCaseErrors.isEmpty()) {
-                            console.log('PASSED: ' + name);
-                        }
-                        else {
-                            console.log('FAILED: ' + name);
-                        }
-                    }
-                    catch (error) {
-                        console.log('FAILED ' + name + ': ' + error);
-                    }
-                    var i = 1;
-                    for (const e of this.currentTestCaseErrors) {
-                        console.log('   ' + i.toString() + ') ' + e);
-                        i++;
-                    }
-                    this.currentTestCaseErrors.clear();
-                }
+            console.log('Start ' + this.constructor.name);
+            for (const tc of this.getRefTestCases()) {
+                this.runTestCase(tc);
             }
             console.log();
         }
-        internal_addErrorToCurrentTestCase(error) {
+        addErrorForCurrentTestCase(error) {
             this.currentTestCaseErrors.addAtEnd(error);
+        }
+        getRefProperties() {
+            var properties = [];
+            var prototype = this;
+            do {
+                properties = properties.concat(Object.getOwnPropertyNames(prototype));
+            } while (prototype = Object.getPrototypeOf(prototype));
+            return properties;
+        }
+        getRefTestCases() {
+            var testCases = [];
+            for (const p of this.getRefProperties()) {
+                const name = p;
+                if (name.startsWith('testCase_')) {
+                    testCases = testCases.concat(name);
+                }
+            }
+            return testCases;
+        }
+        runTestCase(testCase) {
+            this.currentTestCaseErrors.clear();
+            try {
+                this[testCase]();
+                if (this.currentTestCaseErrors.isEmpty()) {
+                    console.log('   PASSED: ' + testCase);
+                }
+                else {
+                    console.log('-->FAILED: ' + testCase);
+                }
+            }
+            catch (error) {
+                console.log('-->FAILED: ' + testCase + ': ' + error);
+            }
+            var i = 1;
+            for (const e of this.currentTestCaseErrors) {
+                console.log('   ' + i.toString() + ') ' + e);
+                i++;
+            }
         }
     }
     exports.BaseTest = BaseTest;
 });
-define("Core/Node/Node", ["require", "exports", "Core/Container/List"], function (require, exports, List_2) {
+define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Node {
         constructor() {
-            this.attributes = new List_2.List();
+            this.attributes = new LinkedList_2.LinkedList();
         }
         static createOriginStringFromReproducingString(reproducinString) {
             if (reproducinString === null) {
@@ -371,20 +389,26 @@ define("Core/Node/Node", ["require", "exports", "Core/Container/List"], function
                 .replace(')', this.CLOSED_BRACKET_CODE);
         }
         static fromString(string) {
-            const documentNode = new Node();
-            documentNode.set(string);
-            return documentNode;
+            return new Node().resetFrom(string);
         }
         static withHeader(header) {
-            const node = new Node();
-            node.setHeader(header);
-            return node;
+            return new Node().setHeader(header);
         }
-        static withNumberHeader(header) {
-            return Node.withHeader(header.toString());
+        static withHeaderAndAttribute(header, attribute) {
+            return new Node().setHeader(header).addAttribute(attribute);
+        }
+        static withHeaderAndAttributes(header, attributes) {
+            return new Node().setHeader(header).addAttributes(attributes);
+        }
+        static withHeaderFromNumber(header) {
+            return new Node().setHeader(header.toString());
         }
         addAttribute(attribute) {
             this.attributes.addAtEnd(attribute.getCopy());
+            return this;
+        }
+        addAttributes(attributes) {
+            attributes.forEach(a => this.addAttribute(a));
             return this;
         }
         containsAttributes() {
@@ -430,19 +454,23 @@ define("Core/Node/Node", ["require", "exports", "Core/Container/List"], function
         }
         removeAttributes() {
             this.attributes.clear();
+            return this;
         }
         removeHeader() {
             this.header = undefined;
+            return this;
         }
         reset() {
             this.removeHeader();
             this.removeAttributes();
+            return this;
         }
-        set(string) {
+        resetFrom(string) {
             this.reset();
             if (this.setAndGetEndIndex(string, 0) !== string.length - 1) {
                 throw new Error('The given string does not represent a document node.');
             }
+            return this;
         }
         setHeader(header) {
             if (header === null) {
@@ -523,7 +551,7 @@ define("Core/Node/Node", ["require", "exports", "Core/Container/List"], function
     Node.CLOSED_BRACKET_CODE = "$C";
     exports.Node = Node;
 });
-define("Core/ChainedNode/Task", ["require", "exports"], function (require, exports) {
+define("Common/ChainedNode/Task", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var Task;
@@ -533,14 +561,14 @@ define("Core/ChainedNode/Task", ["require", "exports"], function (require, expor
         Task[Task["READ_NEXT_NODE"] = 2] = "READ_NEXT_NODE";
     })(Task = exports.Task || (exports.Task = {}));
 });
-define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/List", "Core/Node/Node", "Core/ChainedNode/Task"], function (require, exports, List_3, Node_1, Task_1) {
+define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Container/LinkedList", "Common/Node/Node", "Common/ChainedNode/Task"], function (require, exports, LinkedList_3, Node_1, Task_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ChainedNode {
         constructor() {
             this.header = undefined;
             this.nextNode = undefined;
-            this.attributes = new List_3.List();
+            this.attributes = new LinkedList_3.LinkedList();
         }
         static createReproducingString(string) {
             return string
@@ -567,6 +595,12 @@ define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/Li
             chainedNode.setHeader(header);
             return chainedNode;
         }
+        static withHeaderAndAttributeFromNode(header, attribute) {
+            const chainedNode = new ChainedNode();
+            chainedNode.setHeader(header);
+            chainedNode.addAttributeFromNode(attribute);
+            return chainedNode;
+        }
         static withHeaderAndAttributes(header, attributes) {
             const chainedNode = new ChainedNode();
             chainedNode.setHeader(header);
@@ -577,6 +611,11 @@ define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/Li
             const chainedNode = new ChainedNode();
             chainedNode.setHeader(header);
             chainedNode.setAttributesFromNodes(attributes);
+            return chainedNode;
+        }
+        static withHeaderFromNumber(header) {
+            const chainedNode = new ChainedNode();
+            chainedNode.setHeader(header.toString());
             return chainedNode;
         }
         containsAttributes() {
@@ -697,6 +736,9 @@ define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/Li
         toStringInBrackets() {
             return ('(' + this.toString() + ')');
         }
+        addAttributeFromNode(attribute) {
+            this.attributes.addAtEnd(ChainedNode.fromNode(attribute));
+        }
         reset() {
             this.header = undefined;
             this.attributes.clear();
@@ -777,7 +819,7 @@ define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/Li
         setAttributesFromNodes(attributes) {
             this.attributes.clear();
             for (const a of attributes) {
-                this.attributes.addAtEnd(ChainedNode.fromNode(a));
+                this.addAttributeFromNode(a);
             }
         }
         setHeader(header) {
@@ -809,7 +851,24 @@ define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/Li
     ChainedNode.CLOSED_BRACKET_CODE = "$C";
     exports.ChainedNode = ChainedNode;
 });
-define("Core/Container/SingleContainer", ["require", "exports"], function (require, exports) {
+define("Common/CommonTypeHelper/StringHelper", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class StringHelper {
+        static createStringOfSpaces(spaceCount) {
+            if (spaceCount < 0) {
+                throw new Error('The given space count is negative.');
+            }
+            var string = '';
+            for (var i = 1; i <= spaceCount; i++) {
+                string += ' ';
+            }
+            return string;
+        }
+    }
+    exports.StringHelper = StringHelper;
+});
+define("Common/Container/SingleContainer", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class SingleContainer {
@@ -847,7 +906,7 @@ define("Core/Container/SingleContainer", ["require", "exports"], function (requi
     SingleContainer.EMPTY_CONTAINER = new SingleContainer(undefined);
     exports.SingleContainer = SingleContainer;
 });
-define("Core/EndPoint2/NetEndPoint2", ["require", "exports"], function (require, exports) {
+define("Common/EndPoint2/NetEndPoint2", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint2 {
@@ -943,7 +1002,7 @@ define("Core/EndPoint2/NetEndPoint2", ["require", "exports"], function (require,
     NetEndPoint2.CLEAR_TARGET_MESSAGE_PREFIX = 'A';
     exports.NetEndPoint2 = NetEndPoint2;
 });
-define("Core/EndPoint3/MessageRole", ["require", "exports"], function (require, exports) {
+define("Common/EndPoint3/MessageRole", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MessageRole;
@@ -954,7 +1013,7 @@ define("Core/EndPoint3/MessageRole", ["require", "exports"], function (require, 
         MessageRole[MessageRole["ERROR_MESSAGE"] = 3] = "ERROR_MESSAGE";
     })(MessageRole = exports.MessageRole || (exports.MessageRole = {}));
 });
-define("Core/EndPoint3/Package", ["require", "exports", "Core/EndPoint3/MessageRole"], function (require, exports, MessageRole_1) {
+define("Common/EndPoint3/Package", ["require", "exports", "Common/EndPoint3/MessageRole"], function (require, exports, MessageRole_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Package {
@@ -1046,13 +1105,13 @@ define("Core/EndPoint3/Package", ["require", "exports", "Core/EndPoint3/MessageR
     Package.INDEX_STRING_LENGTH = 8;
     exports.Package = Package;
 });
-define("Core/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container/List", "Core/EndPoint3/MessageRole", "Core/EndPoint2/NetEndPoint2", "Core/EndPoint3/Package"], function (require, exports, List_4, MessageRole_2, NetEndPoint2_1, Package_1) {
+define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container/LinkedList", "Common/EndPoint3/MessageRole", "Common/EndPoint2/NetEndPoint2", "Common/EndPoint3/Package"], function (require, exports, LinkedList_4, MessageRole_2, NetEndPoint2_1, Package_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint3 {
         constructor(ip, port, optionalTarget) {
             this.messageIndex = 0;
-            this.receivedPackages = new List_4.List();
+            this.receivedPackages = new LinkedList_4.LinkedList();
             this.receive = (message) => {
                 console.log('The current NetEndPoint3 has received the message: ' + message);
                 this.receivePackage(Package_1.Package.createFromString(message));
@@ -1073,15 +1132,7 @@ define("Core/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container/Lis
             console.log('The current NetEndPoint3 sends the message: ' + message);
             const messageIndex = this.getNextMessageIndex();
             this.sendPackage(new Package_1.Package(messageIndex, MessageRole_2.MessageRole.STANDARD_MESSAGE, message));
-            const receivedPackage = this.waitToAndGetAndRemoveReceivedPackage(messageIndex);
-            switch (receivedPackage.getMessageRole()) {
-                case MessageRole_2.MessageRole.REPLY_MESSAGE:
-                    return receivedPackage.getMessage();
-                case MessageRole_2.MessageRole.ERROR_MESSAGE:
-                    throw new Error(receivedPackage.getMessage());
-                default:
-                    throw Error('The received packge is not valid.');
-            }
+            return 'Ok';
         }
         setReceiver(receiver) {
             if (receiver === null) {
@@ -1132,14 +1183,14 @@ define("Core/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container/Lis
             throw new Error('The current NetEndPoint3 reached the timeout by waiting to a message.');
         }
     }
-    NetEndPoint3.TIMEOUT_IN_MILLISECONDS = 50000000;
+    NetEndPoint3.TIMEOUT_IN_MILLISECONDS = 5000;
     exports.NetEndPoint3 = NetEndPoint3;
 });
-define("Core/EndPoint5/IDataProviderController", ["require", "exports"], function (require, exports) {
+define("Common/EndPoint5/IDataProviderController", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Core/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
+define("Common/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint5Protocol {
@@ -1151,7 +1202,7 @@ define("Core/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function (
     NetEndPoint5Protocol.ERROR_HEADER = "Error";
     exports.NetEndPoint5Protocol = NetEndPoint5Protocol;
 });
-define("Core/EndPoint5/NetEndPoint5", ["require", "exports", "Core/ChainedNode/ChainedNode", "Core/Node/Node", "Core/Container/List", "Core/EndPoint3/NetEndPoint3", "Core/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, List_5, NetEndPoint3_1, NetEndPoint5Protocol_1) {
+define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNode/ChainedNode", "Common/Node/Node", "Common/Container/LinkedList", "Common/EndPoint3/NetEndPoint3", "Common/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_5, NetEndPoint3_1, NetEndPoint5Protocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint5 {
@@ -1186,20 +1237,13 @@ define("Core/EndPoint5/NetEndPoint5", ["require", "exports", "Core/ChainedNode/C
             return (this.receiverController !== undefined);
         }
         run(command) {
-            const commands = new List_5.List();
+            const commands = new LinkedList_5.LinkedList();
             commands.addAtEnd(command);
             this.runCommands(commands);
         }
         runCommands(commands) {
             const message = NetEndPoint5Protocol_1.NetEndPoint5Protocol.COMMANDS_HEADER + commands.toStringInBrackets();
-            const reply = new Node_2.Node();
-            reply.set(this.internalNetEndPoint.sendAndGetReply(message));
-            switch (reply.getHeader()) {
-                case 'Done':
-                    break;
-                case 'Error':
-                    throw new Error(reply.getOneAttributeAsString());
-            }
+            this.internalNetEndPoint.sendAndGetReply(message);
         }
         setReceiverController(receiverController) {
             if (receiverController === null) {
@@ -1233,24 +1277,7 @@ define("Core/EndPoint5/NetEndPoint5", ["require", "exports", "Core/ChainedNode/C
     }
     exports.NetEndPoint5 = NetEndPoint5;
 });
-define("Core/Helper/StringHelper", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class StringHelper {
-        static createStringOfSpaces(spaceCount) {
-            if (spaceCount < 0) {
-                throw new Error('The given space count is negative.');
-            }
-            var string = '';
-            for (var i = 1; i <= spaceCount; i++) {
-                string += ' ';
-            }
-            return string;
-        }
-    }
-    exports.StringHelper = StringHelper;
-});
-define("Core/Test/NumberMediator", ["require", "exports", "Core/Test/Mediator"], function (require, exports, Mediator_1) {
+define("Common/Test/NumberMediator", ["require", "exports", "Common/Test/Mediator"], function (require, exports, Mediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NumberMediator extends Mediator_1.Mediator {
@@ -1260,7 +1287,7 @@ define("Core/Test/NumberMediator", ["require", "exports", "Core/Test/Mediator"],
     }
     exports.NumberMediator = NumberMediator;
 });
-define("Core/Test/StringMediator", ["require", "exports", "Core/Test/Mediator"], function (require, exports, Mediator_2) {
+define("Common/Test/StringMediator", ["require", "exports", "Common/Test/Mediator"], function (require, exports, Mediator_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class StringMediator extends Mediator_2.Mediator {
@@ -1269,19 +1296,19 @@ define("Core/Test/StringMediator", ["require", "exports", "Core/Test/Mediator"],
         }
         isNotEmpty() {
             if (this.argument.length < 1) {
-                this.test.internal_addErrorToCurrentTestCase('A string, that is not empty, was expected, but an empty string was received.');
+                this.test.addErrorForCurrentTestCase('A string, that is not empty, was expected, but an empty string was received.');
             }
         }
     }
     exports.StringMediator = StringMediator;
 });
-define("Core/Test/Test", ["require", "exports", "Core/BaseTest/BaseTest", "Core/Test/FunctionMediator", "Core/Test/NumberMediator", "Core/Test/StringMediator"], function (require, exports, BaseTest_1, FunctionMediator_1, NumberMediator_1, StringMediator_1) {
+define("Common/Test/Test", ["require", "exports", "Common/BaseTest/BaseTest", "Common/Test/FunctionMediator", "Common/Test/Mediator", "Common/Test/NumberMediator", "Common/Test/StringMediator"], function (require, exports, BaseTest_1, FunctionMediator_1, Mediator_3, NumberMediator_1, StringMediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Test extends BaseTest_1.BaseTest {
         expect(argument) {
             if (!argument) {
-                this.internal_addErrorToCurrentTestCase('True was expected, but false was received.');
+                this.addErrorForCurrentTestCase('True was expected, but false was received.');
             }
         }
         expectFunction(argument) {
@@ -1289,14 +1316,17 @@ define("Core/Test/Test", ["require", "exports", "Core/BaseTest/BaseTest", "Core/
         }
         expectNot(argument) {
             if (argument) {
-                this.internal_addErrorToCurrentTestCase('False was expected, but true was received.');
+                this.addErrorForCurrentTestCase('False was expected, but true was received.');
             }
         }
         expectNotThisCase() {
-            this.internal_addErrorToCurrentTestCase('The current case was not expected, but reached.');
+            this.addErrorForCurrentTestCase('The current case was not expected, but reached.');
         }
         expectNumber(argument) {
             return new NumberMediator_1.NumberMediator(this, argument);
+        }
+        expectObject(argument) {
+            return new Mediator_3.Mediator(this, argument);
         }
         expectString(argument) {
             return new StringMediator_1.StringMediator(this, argument);
@@ -1304,7 +1334,7 @@ define("Core/Test/Test", ["require", "exports", "Core/BaseTest/BaseTest", "Core/
     }
     exports.Test = Test;
 });
-define("Core/Test/Mediator", ["require", "exports"], function (require, exports) {
+define("Common/Test/Mediator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Mediator {
@@ -1320,31 +1350,47 @@ define("Core/Test/Mediator", ["require", "exports"], function (require, exports)
         }
         equals(value) {
             if (this.argument !== value) {
-                this.test.internal_addErrorToCurrentTestCase('An object that equals ' + value.toString() + ' was expected, but ' + this.argument.toString() + ' was received.');
+                this.test.addErrorForCurrentTestCase('An object that equals ' + value.toString() + ' was expected, but ' + this.argument.toString() + ' was received.');
             }
         }
         fulfills(condition) {
             if (!condition(this.argument)) {
-                this.test.internal_addErrorToCurrentTestCase('An object, that fulfills the given condition, was expected, but an object, that does not fulfill it, was received.');
+                this.test.addErrorForCurrentTestCase('An object, that fulfills the given condition, was expected, but an object, that does not fulfill it, was received.');
+            }
+        }
+        hasStringRepresentation(string) {
+            if (string === null) {
+                throw new Error('The given string is null.');
+            }
+            if (string === undefined) {
+                throw new Error('The given string is undefined.');
+            }
+            const actualString = this.argument.toString();
+            if (actualString !== string) {
+                this.test.addErrorForCurrentTestCase('An object with the string representation \''
+                    + string
+                    + '\' was expected, but an object with the string representation \''
+                    + actualString
+                    + '\' was received.');
             }
         }
         isNotNullOrUndefined() {
             if (this.argument === null) {
-                this.test.internal_addErrorToCurrentTestCase('An object was expected, but null was received.');
+                this.test.addErrorForCurrentTestCase('An object was expected, but null was received.');
             }
             if (this.argument === undefined) {
-                this.test.internal_addErrorToCurrentTestCase('An object was exected, but undefined was received.');
+                this.test.addErrorForCurrentTestCase('An object was exected, but undefined was received.');
             }
         }
         isSameAs(object) {
             if (!Object.is(this.argument, object)) {
-                this.test.internal_addErrorToCurrentTestCase('The given object was expected, but another object was received.');
+                this.test.addErrorForCurrentTestCase('The given object was expected, but another object was received.');
             }
         }
     }
     exports.Mediator = Mediator;
 });
-define("Core/Test/ThrownErrorMediator", ["require", "exports"], function (require, exports) {
+define("Common/Test/ThrownErrorMediator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ThrownErrorMediator {
@@ -1372,7 +1418,7 @@ define("Core/Test/ThrownErrorMediator", ["require", "exports"], function (requir
                 throw new Error('The given message is undefined.');
             }
             if (this.error.message !== message) {
-                this.test.internal_addErrorToCurrentTestCase('An error with the message \''
+                this.test.addErrorForCurrentTestCase('An error with the message \''
                     + message
                     + '\' was expected, but an error with the message \''
                     + this.error.message
@@ -1382,10 +1428,10 @@ define("Core/Test/ThrownErrorMediator", ["require", "exports"], function (requir
     }
     exports.ThrownErrorMediator = ThrownErrorMediator;
 });
-define("Core/Test/FunctionMediator", ["require", "exports", "Core/Test/Mediator", "Core/Test/ThrownErrorMediator"], function (require, exports, Mediator_3, ThrownErrorMediator_1) {
+define("Common/Test/FunctionMediator", ["require", "exports", "Common/Test/Mediator", "Common/Test/ThrownErrorMediator"], function (require, exports, Mediator_4, ThrownErrorMediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class FunctionMediator extends Mediator_3.Mediator {
+    class FunctionMediator extends Mediator_4.Mediator {
         constructor(test, argument) {
             super(test, argument);
         }
@@ -1394,13 +1440,13 @@ define("Core/Test/FunctionMediator", ["require", "exports", "Core/Test/Mediator"
                 this.argument();
             }
             catch (error) {
-                this.test.internal_addErrorToCurrentTestCase('There was not expected any error, but there was thrown an error.');
+                this.test.addErrorForCurrentTestCase('There was not expected any error, but there was thrown an error.');
             }
         }
         throwsError() {
             try {
                 this.argument();
-                this.test.internal_addErrorToCurrentTestCase('An error was expected, but there was not thrown any error.');
+                this.test.addErrorForCurrentTestCase('An error was expected, but there was not thrown any error.');
             }
             catch (error) {
                 return new ThrownErrorMediator_1.ThrownErrorMediator(this.test, error);
@@ -1409,13 +1455,13 @@ define("Core/Test/FunctionMediator", ["require", "exports", "Core/Test/Mediator"
     }
     exports.FunctionMediator = FunctionMediator;
 });
-define("Core/Test/TestPool", ["require", "exports", "Core/Container/List"], function (require, exports, List_6) {
+define("Common/Test/TestPool", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_6) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TestPool {
         constructor() {
-            this.tests = new List_6.List();
-            this.testPools = new List_6.List();
+            this.tests = new LinkedList_6.LinkedList();
+            this.testPools = new LinkedList_6.LinkedList();
         }
         run() {
             this.tests.forEach(t => t.run());
@@ -1439,367 +1485,23 @@ define("Core/Test/TestPool", ["require", "exports", "Core/Container/List"], func
     }
     exports.TestPool = TestPool;
 });
-define("CoreTest/ChainedNodeTest/ChainedNodeTest", ["require", "exports", "Core/ChainedNode/ChainedNode", "Core/Test/Test"], function (require, exports, ChainedNode_2, Test_1) {
+define("Element/Base/Element", ["require", "exports", "Common/Node/Node"], function (require, exports, Node_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ChainedNodeTest extends Test_1.Test {
-        testCase_fromString_1A() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("");
-            this.expectNot(chainedNode.hasHeader());
-            this.expectNot(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("");
+    class Element {
+        getSpecification() {
+            return this.getSpecificationAs(this.getType());
         }
-        testCase_fromString_1B() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a");
-            this.expect(chainedNode.hasHeader());
-            this.expectNot(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a");
+        getSpecificationAs(type) {
+            return Node_3.Node.withHeaderAndAttributes(type, this.getAttributes());
         }
-        testCase_fromString_1C() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b)");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b)");
-        }
-        testCase_fromString_2A() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a.b");
-            this.expect(chainedNode.hasHeader());
-            this.expectNot(chainedNode.containsAttributes());
-            this.expect(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a.b");
-        }
-        testCase_fromString_2B() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b).c");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expect(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b).c");
-        }
-        testCase_fromString_2C() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a.b(c)");
-            this.expect(chainedNode.hasHeader());
-            this.expectNot(chainedNode.containsAttributes());
-            this.expect(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a.b(c)");
-        }
-        testCase_fromString_2D() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("(a.b).c");
-            this.expectNot(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expect(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("(a.b).c");
-        }
-        testCase_fromString_2E() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a.(b.c)");
-            this.expect(chainedNode.hasHeader());
-            this.expectNot(chainedNode.containsAttributes());
-            this.expect(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a.(b.c)");
-        }
-        testCase_fromString_2F() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a.b.c");
-            this.expect(chainedNode.hasHeader());
-            this.expectNot(chainedNode.containsAttributes());
-            this.expect(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a.b.c");
-        }
-        testCase_fromString_3A() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b,c,d)");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b,c,d)");
-        }
-        testCase_fromString_3B() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b(c),d(e),f(g))");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b(c),d(e),f(g))");
-        }
-        testCase_fromString_3C() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b.c,d.e,f.g)");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b.c,d.e,f.g)");
-        }
-        testCase_fromString_3D() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b(c).d,e(f).g,h(i).j)");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b(c).d,e(f).g,h(i).j)");
-        }
-        testCase_fromString_3E() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b.c(d),e.(f.g),h.(i,j))");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b.c(d),e.(f.g),h.(i,j))");
-        }
-        testCase_fromString_3F() {
-            const chainedNode = ChainedNode_2.ChainedNode.fromString("a(b.c.d,e.f.g,h.i.j)");
-            this.expect(chainedNode.hasHeader());
-            this.expect(chainedNode.containsAttributes());
-            this.expectNot(chainedNode.hasNextNode());
-            this.expectString(chainedNode.toString()).equals("a(b.c.d,e.f.g,h.i.j)");
+        toString() {
+            return this.getSpecification().toString();
         }
     }
-    exports.ChainedNodeTest = ChainedNodeTest;
+    exports.Element = Element;
 });
-define("CoreTest/ChainedNodeTest/ChainedNodeTestPool", ["require", "exports", "CoreTest/ChainedNodeTest/ChainedNodeTest", "Core/Test/TestPool"], function (require, exports, ChainedNodeTest_1, TestPool_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class ChainedNodeTestPool extends TestPool_1.TestPool {
-        constructor() {
-            super();
-            this.addTest(new ChainedNodeTest_1.ChainedNodeTest());
-        }
-    }
-    exports.ChainedNodeTestPool = ChainedNodeTestPool;
-});
-define("CoreTest/ContainerTest/ListTest", ["require", "exports", "Core/Container/List", "Core/Test/Test"], function (require, exports, List_7, Test_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class ListTest extends Test_2.Test {
-        testCase_addAtBegin_WhenNullIsGiven() {
-            const list = new List_7.List();
-            this.expectFunction(() => list.addAtBegin(null)).throwsError();
-        }
-        testCase_addAtEnd() {
-            const list = new List_7.List();
-            const apple = 'apple';
-            const banana = 'banana';
-            const cerish = 'cerish';
-            list.addAtEnd(apple);
-            list.addAtEnd(banana);
-            list.addAtEnd(cerish);
-            this.expectNumber(list.getSize()).equals(3);
-            this.expectString(list.getRefAt(1)).isSameAs(apple);
-            this.expectString(list.getRefAt(2)).isSameAs(banana);
-            this.expectString(list.getRefAt(3)).isSameAs(cerish);
-        }
-        testCase_addAtEnd_WhenNullIsGiven() {
-            const list = new List_7.List();
-            this.expectFunction(() => list.addAtEnd(null)).throwsError();
-        }
-        testCase_clear() {
-            const list = new List_7.List();
-            list.addAtEnd('apple');
-            list.addAtEnd('banana');
-            list.addAtEnd('cerish');
-            this.expectNumber(list.getSize()).equals(3);
-            list.clear();
-            this.expect(list.isEmpty());
-        }
-        testCase_constructor() {
-            const list = new List_7.List();
-            this.expect(list.isEmpty());
-        }
-        testCase_contains() {
-            const apple = 'apple';
-            const banana = 'banana';
-            const cerish = 'cerish';
-            const lemon = 'lemon';
-            const list = new List_7.List();
-            list.addAtEnd(apple);
-            list.addAtEnd(banana);
-            list.addAtEnd(cerish);
-            this.expectNumber(list.getSize()).equals(3);
-            this.expect(list.contains(apple));
-            this.expect(list.contains(banana));
-            this.expect(list.contains(cerish));
-            this.expectNot(list.contains(lemon));
-        }
-        testCase_iterator_whenListContains3Elements() {
-            const apple = 'apple';
-            const banana = 'banana';
-            const cerish = 'cerish';
-            const lemon = 'lemon';
-            const list = new List_7.List();
-            list.addAtEnd(apple);
-            list.addAtEnd(banana);
-            list.addAtEnd(cerish);
-            var i = 1;
-            for (const e of list) {
-                switch (i) {
-                    case 1:
-                        this.expectString(e).isSameAs(apple);
-                        break;
-                    case 2:
-                        this.expectString(e).isSameAs(banana);
-                        break;
-                    case 3:
-                        this.expectString(e).isSameAs(cerish);
-                        break;
-                    default:
-                        this.expectNotThisCase();
-                }
-                i++;
-            }
-        }
-        testCase_iterator_whenListIsEmpty() {
-            const list = new List_7.List();
-            var foundElement = false;
-            for (const e of list) {
-                foundElement = true;
-            }
-            this.expectNot(foundElement);
-        }
-        testCase_removeFirst() {
-            const apple = 'apple';
-            const banana = 'banana';
-            const cerish = 'cerish';
-            const list = new List_7.List();
-            list.addAtEnd(apple);
-            list.addAtEnd(banana);
-            list.addAtEnd(cerish);
-            this.expectNumber(list.getSize()).equals(3);
-            this.expectString(list.getRefFirst()).isSameAs(apple);
-            list.removeFirst();
-            this.expectNumber(list.getSize()).equals(2);
-            this.expectString(list.getRefFirst()).isSameAs(banana);
-        }
-    }
-    exports.ListTest = ListTest;
-});
-define("CoreTest/ContainerTest/SingleContainerTest", ["require", "exports", "Core/Container/SingleContainer", "Core/Test/Test"], function (require, exports, SingleContainer_1, Test_3) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class SingleContainerTest extends Test_3.Test {
-        testCase_createWith_whenTheGivenElementIsNull() {
-            this.expectFunction(() => SingleContainer_1.SingleContainer.withElement(null))
-                .throwsError()
-                .withMessage('The given element is null.');
-        }
-        testCase_createWith_whenTheGivenElementIsUndefined() {
-            this.expectFunction(() => SingleContainer_1.SingleContainer.withElement(undefined))
-                .throwsError()
-                .withMessage('The given element is undefined.');
-        }
-    }
-    exports.SingleContainerTest = SingleContainerTest;
-});
-define("CoreTest/ContainerTest/ContainerTestPool", ["require", "exports", "CoreTest/ContainerTest/ListTest", "CoreTest/ContainerTest/SingleContainerTest", "Core/Test/TestPool"], function (require, exports, ListTest_1, SingleContainerTest_1, TestPool_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class ContainerTestPool extends TestPool_2.TestPool {
-        constructor() {
-            super();
-            this.addTest(new ListTest_1.ListTest());
-            this.addTest(new SingleContainerTest_1.SingleContainerTest());
-        }
-    }
-    exports.ContainerTestPool = ContainerTestPool;
-});
-define("CoreTest/NodeTest/NodeTest", ["require", "exports", "Core/Node/Node", "Core/Test/Test"], function (require, exports, Node_3, Test_4) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class NodeTest extends Test_4.Test {
-        testCase_addAttribute() {
-            const node = new Node_3.Node();
-            const attribute1 = new Node_3.Node();
-            const attribute2 = new Node_3.Node();
-            const attribtue3 = new Node_3.Node();
-            this.expectNot(node.containsAttributes());
-            node.addAttribute(attribute1);
-            node.addAttribute(attribute2);
-            node.addAttribute(attribtue3);
-            this.expectNumber(node.getAttributeCount()).equals(3);
-        }
-        testCase_set() {
-            const node = new Node_3.Node();
-            node.set('');
-            this.expectString(node.toString()).equals('');
-        }
-        testCase_set2() {
-            const node = new Node_3.Node();
-            node.set('A');
-            this.expectString(node.toString()).equals('A');
-        }
-        testCase_set3() {
-            const node = new Node_3.Node();
-            node.set('A(B)');
-            this.expectString(node.toString()).equals('A(B)');
-        }
-        testCase_set4() {
-            const node = new Node_3.Node();
-            node.set('A(B1,B2,B3)');
-            this.expectString(node.toString()).equals('A(B1,B2,B3)');
-        }
-        testCase_set5() {
-            const node = new Node_3.Node();
-            node.set('A(B(C))');
-            this.expectString(node.toString()).equals('A(B(C))');
-        }
-        testCase_set6() {
-            const node = new Node_3.Node();
-            node.set('A(B1(C1),B2(C2))');
-            this.expectString(node.toString()).equals('A(B1(C1),B2(C2))');
-        }
-        testCase_set7() {
-            const node = new Node_3.Node();
-            node.set('A(B1(C1,C2),B2(C3,C4))');
-            this.expectString(node.toString()).equals('A(B1(C1,C2),B2(C3,C4))');
-        }
-        testCase_setHeader() {
-            const node = new Node_3.Node();
-            this.expectNot(node.hasHeader());
-            node.setHeader('H');
-            this.expectString(node.getHeader()).equals('H');
-        }
-    }
-    exports.NodeTest = NodeTest;
-});
-define("CoreTest/NodeTest/NodeTestPool", ["require", "exports", "CoreTest/NodeTest/NodeTest", "Core/Test/TestPool"], function (require, exports, NodeTest_1, TestPool_3) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class NodeTestPool extends TestPool_3.TestPool {
-        constructor() {
-            super();
-            this.addTest(new NodeTest_1.NodeTest());
-        }
-    }
-    exports.NodeTestPool = NodeTestPool;
-});
-define("CoreTest/CoreTestPool", ["require", "exports", "CoreTest/ChainedNodeTest/ChainedNodeTestPool", "CoreTest/ContainerTest/ContainerTestPool", "CoreTest/NodeTest/NodeTestPool", "Core/Test/TestPool"], function (require, exports, ChainedNodeTestPool_1, ContainerTestPool_1, NodeTestPool_1, TestPool_4) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class CoreTestPool extends TestPool_4.TestPool {
-        constructor() {
-            super();
-            this.addTestPool(new ChainedNodeTestPool_1.ChainedNodeTestPool);
-            this.addTestPool(new ContainerTestPool_1.ContainerTestPool());
-            this.addTestPool(new NodeTestPool_1.NodeTestPool());
-        }
-    }
-    exports.CoreTestPool = CoreTestPool;
-});
-define("CoreTest/Launcher", ["require", "exports", "CoreTest/CoreTestPool"], function (require, exports, CoreTestPool_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    new CoreTestPool_1.CoreTestPool().run();
-});
-define("CoreTest/ChainedNodeTest/Launcher", ["require", "exports", "CoreTest/ChainedNodeTest/ChainedNodeTestPool"], function (require, exports, ChainedNodeTestPool_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    new ChainedNodeTestPool_2.ChainedNodeTestPool().run();
-});
-define("CoreTest/ContainerTest/Launcher", ["require", "exports", "CoreTest/ContainerTest/ContainerTestPool"], function (require, exports, ContainerTestPool_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    new ContainerTestPool_2.ContainerTestPool().run();
-});
-define("CoreTest/NodeTest/Launcher", ["require", "exports", "CoreTest/NodeTest/NodeTestPool"], function (require, exports, NodeTestPool_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    new NodeTestPool_2.NodeTestPool().run();
-});
-define("Element/input/Key", ["require", "exports"], function (require, exports) {
+define("Element/Input/Key", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var Key;
@@ -1843,57 +1545,80 @@ define("Element/input/Key", ["require", "exports"], function (require, exports) 
         Key[Key["NUMBER_7"] = 36] = "NUMBER_7";
         Key[Key["NUMBER_8"] = 37] = "NUMBER_8";
         Key[Key["NUMBER_9"] = 38] = "NUMBER_9";
-        Key[Key["F1"] = 39] = "F1";
-        Key[Key["F2"] = 40] = "F2";
-        Key[Key["F3"] = 41] = "F3";
-        Key[Key["F4"] = 42] = "F4";
-        Key[Key["F5"] = 43] = "F5";
-        Key[Key["F6"] = 44] = "F6";
-        Key[Key["F7"] = 45] = "F7";
-        Key[Key["F8"] = 46] = "F8";
-        Key[Key["F9"] = 47] = "F9";
-        Key[Key["F10"] = 48] = "F10";
-        Key[Key["F11"] = 49] = "F11";
-        Key[Key["F12"] = 50] = "F12";
-        Key[Key["ARROW_UP"] = 51] = "ARROW_UP";
-        Key[Key["ARROW_DOWN"] = 52] = "ARROW_DOWN";
-        Key[Key["ARROW_LEFT"] = 53] = "ARROW_LEFT";
-        Key[Key["ARROW_RIGHT"] = 54] = "ARROW_RIGHT";
-        Key[Key["ALTERNATIVE"] = 55] = "ALTERNATIVE";
-        Key[Key["BACKSPACE"] = 56] = "BACKSPACE";
-        Key[Key["BREAK"] = 57] = "BREAK";
-        Key[Key["CAPS_LOOK"] = 58] = "CAPS_LOOK";
-        Key[Key["COMMA"] = 59] = "COMMA";
-        Key[Key["CONTROL"] = 60] = "CONTROL";
-        Key[Key["DELETE"] = 61] = "DELETE";
-        Key[Key["DOLLAR_SYMBOL"] = 62] = "DOLLAR_SYMBOL";
-        Key[Key["DOT"] = 63] = "DOT";
-        Key[Key["END"] = 64] = "END";
-        Key[Key["ENTER"] = 65] = "ENTER";
-        Key[Key["ESCAPE"] = 66] = "ESCAPE";
-        Key[Key["EXCLAMATION_MARK"] = 67] = "EXCLAMATION_MARK";
-        Key[Key["GRADE_SYMBOL"] = 68] = "GRADE_SYMBOL";
-        Key[Key["GRAVIS"] = 69] = "GRAVIS";
-        Key[Key["HOME"] = 70] = "HOME";
-        Key[Key["HYPHEN"] = 71] = "HYPHEN";
-        Key[Key["INSERT"] = 72] = "INSERT";
-        Key[Key["MENU"] = 73] = "MENU";
-        Key[Key["NUMBER_LOCK"] = 74] = "NUMBER_LOCK";
-        Key[Key["PAGE_DOWN"] = 75] = "PAGE_DOWN";
-        Key[Key["PAGE_UP"] = 76] = "PAGE_UP";
-        Key[Key["PRINT_SCREEN"] = 77] = "PRINT_SCREEN";
-        Key[Key["QUESTION_MARK"] = 78] = "QUESTION_MARK";
-        Key[Key["RELATIONS"] = 79] = "RELATIONS";
-        Key[Key["SCROLL_LOCK"] = 80] = "SCROLL_LOCK";
-        Key[Key["SHIFT"] = 81] = "SHIFT";
-        Key[Key["SPACE"] = 82] = "SPACE";
-        Key[Key["TABULATOR"] = 83] = "TABULATOR";
-        Key[Key["WINDOWS"] = 84] = "WINDOWS";
+        Key[Key["NUMBERPAD_0"] = 39] = "NUMBERPAD_0";
+        Key[Key["NUMBERPAD_1"] = 40] = "NUMBERPAD_1";
+        Key[Key["NUMBERPAD_2"] = 41] = "NUMBERPAD_2";
+        Key[Key["NUMBERPAD_3"] = 42] = "NUMBERPAD_3";
+        Key[Key["NUMBERPAD_4"] = 43] = "NUMBERPAD_4";
+        Key[Key["NUMBERPAD_5"] = 44] = "NUMBERPAD_5";
+        Key[Key["NUMBERPAD_6"] = 45] = "NUMBERPAD_6";
+        Key[Key["NUMBERPAD_7"] = 46] = "NUMBERPAD_7";
+        Key[Key["NUMBERPAD_8"] = 47] = "NUMBERPAD_8";
+        Key[Key["NUMBERPAD_9"] = 48] = "NUMBERPAD_9";
+        Key[Key["F1"] = 49] = "F1";
+        Key[Key["F2"] = 50] = "F2";
+        Key[Key["F3"] = 51] = "F3";
+        Key[Key["F4"] = 52] = "F4";
+        Key[Key["F5"] = 53] = "F5";
+        Key[Key["F6"] = 54] = "F6";
+        Key[Key["F7"] = 55] = "F7";
+        Key[Key["F8"] = 56] = "F8";
+        Key[Key["F9"] = 57] = "F9";
+        Key[Key["F10"] = 58] = "F10";
+        Key[Key["F11"] = 59] = "F11";
+        Key[Key["F12"] = 60] = "F12";
+        Key[Key["ARROW_UP"] = 61] = "ARROW_UP";
+        Key[Key["ARROW_DOWN"] = 62] = "ARROW_DOWN";
+        Key[Key["ARROW_LEFT"] = 63] = "ARROW_LEFT";
+        Key[Key["ARROW_RIGHT"] = 64] = "ARROW_RIGHT";
+        Key[Key["ALTERNATIVE"] = 65] = "ALTERNATIVE";
+        Key[Key["BACKSPACE"] = 66] = "BACKSPACE";
+        Key[Key["BREAK"] = 67] = "BREAK";
+        Key[Key["CAPS_LOOK"] = 68] = "CAPS_LOOK";
+        Key[Key["COMMA"] = 69] = "COMMA";
+        Key[Key["CONTROL"] = 70] = "CONTROL";
+        Key[Key["DELETE"] = 71] = "DELETE";
+        Key[Key["DOLLAR_SYMBOL"] = 72] = "DOLLAR_SYMBOL";
+        Key[Key["DOT"] = 73] = "DOT";
+        Key[Key["END"] = 74] = "END";
+        Key[Key["ENTER"] = 75] = "ENTER";
+        Key[Key["ESCAPE"] = 76] = "ESCAPE";
+        Key[Key["EXCLAMATION_MARK"] = 77] = "EXCLAMATION_MARK";
+        Key[Key["GRADE_SYMBOL"] = 78] = "GRADE_SYMBOL";
+        Key[Key["GRAVIS"] = 79] = "GRAVIS";
+        Key[Key["HOME"] = 80] = "HOME";
+        Key[Key["HYPHEN"] = 81] = "HYPHEN";
+        Key[Key["INSERT"] = 82] = "INSERT";
+        Key[Key["MENU"] = 83] = "MENU";
+        Key[Key["NUMBER_LOCK"] = 84] = "NUMBER_LOCK";
+        Key[Key["PAGE_DOWN"] = 85] = "PAGE_DOWN";
+        Key[Key["PAGE_UP"] = 86] = "PAGE_UP";
+        Key[Key["PRINT_SCREEN"] = 87] = "PRINT_SCREEN";
+        Key[Key["QUESTION_MARK"] = 88] = "QUESTION_MARK";
+        Key[Key["RELATIONS"] = 89] = "RELATIONS";
+        Key[Key["SCROLL_LOCK"] = 90] = "SCROLL_LOCK";
+        Key[Key["SHIFT"] = 91] = "SHIFT";
+        Key[Key["SPACE"] = 92] = "SPACE";
+        Key[Key["TABULATOR"] = 93] = "TABULATOR";
+        Key[Key["WINDOWS"] = 94] = "WINDOWS";
     })(Key = exports.Key || (exports.Key = {}));
 });
-define("Element/BaseGUI_API/IEventTaker", ["require", "exports"], function (require, exports) {
+define("Element/BaseGUI_API/IInputTaker", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+});
+define("Element/CanvasGUI/CanvasGUIProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class BrowserGUIProtocol {
+    }
+    BrowserGUIProtocol.CREATE_PAINTER_HEADER = 'CreatePainter';
+    BrowserGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER = 'PaintFilledRectangle';
+    BrowserGUIProtocol.PAINT_IMAGE_HEADER = 'PaintImage';
+    BrowserGUIProtocol.PAINT_TEXT_HEADER = 'PaintText';
+    BrowserGUIProtocol.SET_COLOR_HEADER = 'SetColor';
+    BrowserGUIProtocol.TRANSLATE_HEADER = 'Translage';
+    exports.BrowserGUIProtocol = BrowserGUIProtocol;
 });
 define("Element/Color/Color", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1926,7 +1651,7 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
             if (string.length !== 8) {
                 throw new Error('The given string is not valid.');
             }
-            return new Color(Number.parseInt(string.substr(2, 4)), Number.parseInt(string.substring(4, 6)), Number.parseInt(string.substring(6, 8)));
+            return new Color(Number.parseInt('0x' + string.substr(2, 2)), Number.parseInt('0x' + string.substr(4, 2)), Number.parseInt('0x' + string.substr(6, 2)));
         }
         getHTMLCode() {
             return '#'
@@ -1982,15 +1707,62 @@ define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Co
     }
     exports.TextFormat = TextFormat;
 });
+define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/TextFormat"], function (require, exports, Color_2, TextFormat_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CanvasGUIGlobalPainter {
+        constructor(canvasRenderingContext) {
+            if (canvasRenderingContext === null) {
+                throw new Error('The given canvasRenderingContext is null.');
+            }
+            if (canvasRenderingContext === undefined) {
+                throw new Error('The given canvasRenderingContext is undefined.');
+            }
+            this.canvasRenderingContext = canvasRenderingContext;
+        }
+        paintFilledRectangle(xPosition, yPosition, width, height) {
+            this.canvasRenderingContext.fillRect(xPosition, yPosition, width, height);
+        }
+        paintText(xPosition, yPosition, text) {
+            this.paintTextWithTextFormat(xPosition, yPosition, text, CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT);
+        }
+        paintTextWithTextFormat(xPosition, yPosition, text, textFormat) {
+            console.log('The current CanvasGUIGlobalPainter paints the text: \''
+                + text
+                + '\' at position ('
+                + xPosition
+                + ', '
+                + yPosition
+                + ').');
+            this.canvasRenderingContext.textBaseline = 'top';
+            this.canvasRenderingContext.font = textFormat.getTextSize() + 'px Arial';
+            this.canvasRenderingContext.fillStyle = textFormat.getTextColor().getHTMLCode();
+            this.canvasRenderingContext.fillText(text, xPosition, yPosition);
+        }
+        paintTextWithTextFormatAndMaxLength(xPosition, yPosition, text, textFormat, maxLength) {
+            this.canvasRenderingContext.fillText(text, xPosition, yPosition);
+        }
+        setColor(color) {
+            this.canvasRenderingContext.fillStyle = color.getHTMLCode();
+        }
+    }
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE = 10;
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_2.Color.BLACK;
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
+    exports.CanvasGUIGlobalPainter = CanvasGUIGlobalPainter;
+});
 define("Element/PainterAPI/IPainter", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/BrowserGUI/BrowserGUIPainter", ["require", "exports", "Element/Color/Color", "Core/Container/SingleContainer", "Element/TextFormat/TextFormat"], function (require, exports, Color_2, SingleContainer_2, TextFormat_1) {
+define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/CanvasGUI/CanvasGUIGlobalPainter", "Common/Container/SingleContainer"], function (require, exports, CanvasGUIGlobalPainter_1, SingleContainer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class BrowserGUIPainter {
-        constructor(xPosition, yPosition, canvasRenderingContext, parentPainterContainer) {
+    class CanvasGUIPainter {
+        static createPainterFor(canvasRenderingContext) {
+            return new CanvasGUIPainter(0, 0, new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
+        }
+        constructor(xPosition, yPosition, globalPainter, parentPainterContainer) {
             if (xPosition === null) {
                 throw new Error('The given xPosition is null.');
             }
@@ -2003,25 +1775,22 @@ define("Element/BrowserGUI/BrowserGUIPainter", ["require", "exports", "Element/C
             if (yPosition === undefined) {
                 throw new Error('The given yPosition is undefined.');
             }
-            if (canvasRenderingContext === null) {
-                throw new Error('The given canvasRenderingContext is null.');
+            if (globalPainter === null) {
+                throw new Error('The given globalPainter is null.');
             }
-            if (canvasRenderingContext === undefined) {
-                throw new Error('The given canvasRenderingContext is undefined.');
+            if (globalPainter === undefined) {
+                throw new Error('The given globalPainter is undefined.');
             }
             this.xPosition = xPosition;
             this.yPosition = yPosition;
-            this.canvasRenderingContext = canvasRenderingContext;
+            this.globalPainter = globalPainter;
             this.parentPainter = parentPainterContainer.isEmpty() ? undefined : parentPainterContainer.getRefElement();
         }
-        static createPainter(canvasRenderingContext) {
-            return new BrowserGUIPainter(0, 0, canvasRenderingContext, SingleContainer_2.SingleContainer.EMPTY_CONTAINER);
-        }
         createPainter() {
-            return new BrowserGUIPainter(this.xPosition, this.yPosition, this.canvasRenderingContext, SingleContainer_2.SingleContainer.withElement(this));
+            return new CanvasGUIPainter(0, 0, this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
         createPainterWithTranslation(xTranslation, yTranslation) {
-            return new BrowserGUIPainter(this.xPosition + xTranslation, this.yPosition + yTranslation, this.canvasRenderingContext, SingleContainer_2.SingleContainer.withElement(this));
+            return new CanvasGUIPainter(xTranslation, yTranslation, this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
         createPainterWithTranslationAndPaintArea(xTranslation, yTranslation, paintAreaWidth, paintAreaHeight) {
             return this.createPainterWithTranslation(xTranslation, yTranslation);
@@ -2039,65 +1808,36 @@ define("Element/BrowserGUI/BrowserGUIPainter", ["require", "exports", "Element/C
             return this.parentPainter.getYPositionOnViewArea() + this.yPosition;
         }
         paintFilledRectangle(width, height) {
-            this.applyPosition();
-            this.canvasRenderingContext.fillRect(0, 0, width, height);
+            this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), width, height);
         }
         paintFilledRectangleAtPosition(xPosition, yPosition, width, height) {
-            this.applyPositionAndTranslation(xPosition, yPosition);
-            this.canvasRenderingContext.fillRect(0, 0, width, height);
+            this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea() + xPosition, this.getYPositionOnViewArea() + yPosition, width, height);
         }
         paintText(text) {
-            this.paintTextWithTextFormat(text, BrowserGUIPainter.DEFAULT_TEXT_FORMAT);
+            this.globalPainter.paintText(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text);
         }
         paintTextWithTextFormat(text, textFormat) {
-            this.applyPosition();
-            this.canvasRenderingContext.font = textFormat.getTextSize() + 'px Arial';
-            this.canvasRenderingContext.fillStyle = textFormat.getTextColor().getHTMLCode();
-            this.canvasRenderingContext.fillText(text, 0, 0);
+            this.globalPainter.paintTextWithTextFormat(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat);
         }
         paintTextWithTextFormatAndMaxLength(text, textFormat, maxLength) {
-            this.paintTextWithTextFormat(text, BrowserGUIPainter.DEFAULT_TEXT_FORMAT);
+            this.globalPainter.paintTextWithTextFormatAndMaxLength(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat, maxLength);
         }
         setColor(color) {
-            this.canvasRenderingContext.fillStyle = color.getHTMLCode();
+            this.globalPainter.setColor(color);
         }
         translate(xTranslation, yTranslation) {
             this.xPosition += xTranslation;
             this.yPosition += yTranslation;
         }
-        applyPosition() {
-            this.canvasRenderingContext.setTransform(1, 0, 0, 1, 0, 0);
-            this.canvasRenderingContext.translate(this.getXPositionOnViewArea(), this.getYPositionOnViewArea());
-        }
-        applyPositionAndTranslation(xTranslation, yTranslation) {
-            this.canvasRenderingContext.setTransform(1, 0, 0, 1, 0, 0);
-            this.canvasRenderingContext.translate(this.getXPositionOnViewArea() + xTranslation, this.getYPositionOnViewArea() + yTranslation);
-        }
     }
-    BrowserGUIPainter.DEFAULT_TEXT_SIZE = 10;
-    BrowserGUIPainter.DEFAULT_TEXT_COLOR = Color_2.Color.BLACK;
-    BrowserGUIPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(BrowserGUIPainter.DEFAULT_TEXT_SIZE, BrowserGUIPainter.DEFAULT_TEXT_COLOR);
-    exports.BrowserGUIPainter = BrowserGUIPainter;
+    exports.CanvasGUIPainter = CanvasGUIPainter;
 });
-define("Element/BrowserGUI/BrowserGUIProtocol", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class BrowserGUIProtocol {
-    }
-    BrowserGUIProtocol.CREATE_PAINTER_HEADER = 'CreatePainter';
-    BrowserGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER = 'PaintFilledRectangle';
-    BrowserGUIProtocol.PAINT_IMAGE_HEADER = 'PaintImage';
-    BrowserGUIProtocol.PAINT_TEXT_HEADER = 'PaintText';
-    BrowserGUIProtocol.SET_COLOR_HEADER = 'SetColor';
-    BrowserGUIProtocol.TRANSLATE_HEADER = 'Translage';
-    exports.BrowserGUIProtocol = BrowserGUIProtocol;
-});
-define("Element/BrowserGUI/PaintProcess", ["require", "exports", "Core/Container/List"], function (require, exports, List_8) {
+define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_7) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PaintProcess {
         constructor(initialPainter, paintCommands) {
-            this.painters = new List_8.List();
+            this.painters = new LinkedList_7.LinkedList();
             this.addPainter(initialPainter);
             paintCommands.forEach(pp => pp(this));
         }
@@ -2110,35 +1850,30 @@ define("Element/BrowserGUI/PaintProcess", ["require", "exports", "Core/Container
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/BrowserGUI/BrowserGUI", ["require", "exports", "Element/BrowserGUI/BrowserGUIPainter", "Element/BrowserGUI/BrowserGUIProtocol", "Element/Color/Color", "Core/Container/List", "Element/BrowserGUI/PaintProcess", "Element/TextFormat/TextFormat"], function (require, exports, BrowserGUIPainter_1, BrowserGUIProtocol_1, Color_3, List_9, PaintProcess_1, TextFormat_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/CanvasGUIProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Element/TextFormat/TextFormat"], function (require, exports, CanvasGUIProtocol_1, CanvasGUIPainter_1, Color_3, LinkedList_8, PaintProcess_1, TextFormat_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class BrowserGUI {
-        constructor(window, eventTaker) {
-            this.onResize = () => {
-                this.canvas.width = this.window.innerWidth;
-                this.canvas.height = this.window.innerHeight;
-                this.eventTaker.noteResize(this.canvas.width, this.canvas.height);
-            };
+        constructor(window, inputTaker) {
             if (window === null) {
                 throw new Error('The given window is null.');
             }
             if (window === undefined) {
                 throw new Error('The given window is undefined.');
             }
-            if (eventTaker === null) {
-                throw new Error('The given eventTaker is null.');
+            if (inputTaker === null) {
+                throw new Error('The given inputTaker is null.');
             }
-            if (eventTaker === undefined) {
-                throw new Error('The given eventTaker is undefined.');
+            if (inputTaker === undefined) {
+                throw new Error('The given inputTaker is undefined.');
             }
-            this.eventTaker = eventTaker;
-            this.paintCommands = new List_9.List();
+            this.inputTaker = inputTaker;
+            this.paintCommands = new LinkedList_8.LinkedList();
             this.window = window;
             this.canvas = window.document.createElement('canvas');
             this.window.document.body.appendChild(this.canvas);
-            this.canvas.width = 1000;
-            this.canvas.height = 1000;
+            this.canvasRenderingContext2D = this.canvas.getContext('2d');
+            this.window.onresize = () => this.noteResize();
             this.reset();
         }
         getTitle() {
@@ -2150,24 +1885,28 @@ define("Element/BrowserGUI/BrowserGUI", ["require", "exports", "Element/BrowserG
         getViewAreaWidth() {
             return this.canvas.width;
         }
+        noteResize() {
+            this.canvas.width = this.window.document.body.clientWidth;
+            this.canvas.height = this.window.document.body.clientHeight;
+            this.inputTaker.noteResize(this.getViewAreaWidth(), this.getViewAreaHeight());
+        }
         refresh() {
-            const renderContext = this.canvas.getContext('2d');
-            renderContext.clearRect(0, 0, this.getViewAreaWidth(), this.getViewAreaHeight());
-            const painter = BrowserGUIPainter_1.BrowserGUIPainter.createPainter(renderContext);
+            console.log('The current CanvasGUI refreshes.');
+            this.canvasRenderingContext2D.clearRect(0, 0, this.getViewAreaWidth(), this.getViewAreaHeight());
+            const painter = CanvasGUIPainter_1.CanvasGUIPainter.createPainterFor(this.canvasRenderingContext2D);
             this.paintBackground(painter);
             new PaintProcess_1.PaintProcess(painter, this.paintCommands);
-            painter.setColor(Color_3.Color.BLACK);
-            painter.paintFilledRectangle(50, 50);
         }
         reset() {
             this.setTitle(BrowserGUI.DEFAULT_TITLE);
+            this.paintCommands.clear();
+            this.refresh();
         }
         setPaintCommands(paintCommands) {
             this.paintCommands.refill(paintCommands);
-            this.refresh();
         }
         setTextualPaintCommands(textualPaintCommands) {
-            console.log('The current BrowserGUI sets the given textualPaintCommands ' + textualPaintCommands);
+            console.log('The current BrowserGUI sets the given textualPaintCommands \'' + textualPaintCommands + '\'');
             this.setPaintCommands(textualPaintCommands.to(tpc => this.createPaintCommand(tpc)));
         }
         setTitle(title) {
@@ -2208,15 +1947,15 @@ define("Element/BrowserGUI/BrowserGUI", ["require", "exports", "Element/BrowserG
         }
         createPaintCommandUsingPainterIndex(painterIndex, textualPaintCommand) {
             switch (textualPaintCommand.getHeader()) {
-                case BrowserGUIProtocol_1.BrowserGUIProtocol.CREATE_PAINTER_HEADER:
+                case CanvasGUIProtocol_1.BrowserGUIProtocol.CREATE_PAINTER_HEADER:
                     return this.createCreatePainterCommand(painterIndex, textualPaintCommand);
-                case BrowserGUIProtocol_1.BrowserGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER:
+                case CanvasGUIProtocol_1.BrowserGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER:
                     return this.createPaintFilledRectangleCommand(painterIndex, textualPaintCommand);
-                case BrowserGUIProtocol_1.BrowserGUIProtocol.PAINT_TEXT_HEADER:
+                case CanvasGUIProtocol_1.BrowserGUIProtocol.PAINT_TEXT_HEADER:
                     return this.createPaintTextCommand(painterIndex, textualPaintCommand);
-                case BrowserGUIProtocol_1.BrowserGUIProtocol.SET_COLOR_HEADER:
+                case CanvasGUIProtocol_1.BrowserGUIProtocol.SET_COLOR_HEADER:
                     return this.createSetColorCommand(painterIndex, textualPaintCommand);
-                case BrowserGUIProtocol_1.BrowserGUIProtocol.TRANSLATE_HEADER:
+                case CanvasGUIProtocol_1.BrowserGUIProtocol.TRANSLATE_HEADER:
                     return this.createTranslateCommand(painterIndex, textualPaintCommand);
                 default:
                     throw new Error('The given textualPaintCommand is not valid.');
@@ -2271,104 +2010,191 @@ define("Element/BrowserGUI/BrowserGUI", ["require", "exports", "Element/BrowserG
         }
     }
     BrowserGUI.DEFAULT_TITLE = 'GUI';
-    BrowserGUI.BACKGROUND_COLOR = new Color_3.Color(127, 127, 127);
+    BrowserGUI.BACKGROUND_COLOR = Color_3.Color.WHITE;
     exports.BrowserGUI = BrowserGUI;
 });
-define("ElementTest/ColorTest/ColorTest", ["require", "exports", "Element/Color/Color", "Core/Test/Test"], function (require, exports, Color_4, Test_5) {
+define("Element/Input/Input", ["require", "exports", "Element/Base/Element"], function (require, exports, Element_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ColorTest extends Test_5.Test {
-        testCase_getHTMLCode() {
-            const color = new Color_4.Color(0, 0, 0);
-            const HTMLCode = color.getHTMLCode();
-            this.expectString(HTMLCode).equals('#000000');
-        }
-        testCase_getHTMLCode_2() {
-            const color = new Color_4.Color(255, 255, 255);
-            const HTMLCode = color.getHTMLCode();
-            this.expectString(HTMLCode).equals('#FFFFFF');
-        }
-        testCase_getHTMLCode_3() {
-            const color = new Color_4.Color(1, 1, 1);
-            const HTMLCode = color.getHTMLCode();
-            this.expectString(HTMLCode).equals('#010101');
-        }
-        testCase_getHTMLCode_4() {
-            const color = new Color_4.Color(0, 64, 128);
-            const HTMLCode = color.getHTMLCode();
-            this.expectString(HTMLCode).equals('#004080');
-        }
+    class Input extends Element_1.Element {
     }
-    exports.ColorTest = ColorTest;
+    exports.Input = Input;
 });
-define("ElementTest/ColorTest/ColorTestPool", ["require", "exports", "ElementTest/ColorTest/ColorTest", "Core/Test/TestPool"], function (require, exports, ColorTest_1, TestPool_5) {
+define("Element/Input/KeyInputType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ColorTestPool extends TestPool_5.TestPool {
-        constructor() {
+    var KeyInputType;
+    (function (KeyInputType) {
+        KeyInputType[KeyInputType["Press"] = 0] = "Press";
+        KeyInputType[KeyInputType["Release"] = 1] = "Release";
+        KeyInputType[KeyInputType["Typing"] = 2] = "Typing";
+    })(KeyInputType = exports.KeyInputType || (exports.KeyInputType = {}));
+});
+define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "Element/Input/Key", "Element/Input/KeyInputType", "Common/Container/LinkedList", "Common/Node/Node"], function (require, exports, Input_1, Key_1, KeyInputType_1, LinkedList_9, Node_4) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class KeyInput extends Input_1.Input {
+        constructor(key, inputType) {
             super();
-            this.addTest(new ColorTest_1.ColorTest());
+            if (key === null) {
+                throw new Error('The given key is null.');
+            }
+            if (key === undefined) {
+                throw new Error('The given key is undefined.');
+            }
+            if (inputType === null) {
+                throw new Error('The given inputType is null.');
+            }
+            if (inputType === undefined) {
+                throw new Error('The given inputType is undefined.');
+            }
+            this.key = key;
+            this.inputType = inputType;
+        }
+        getAttributes() {
+            const attributes = new LinkedList_9.LinkedList();
+            attributes.addAtEnd(Node_4.Node.withHeaderAndAttribute(KeyInput.KEY_HEADER, Node_4.Node.withHeader(Key_1.Key[this.key])));
+            attributes.addAtEnd(Node_4.Node.withHeaderAndAttribute(KeyInput.INPUT_TYPE_HEADER, Node_4.Node.withHeader(KeyInputType_1.KeyInputType[this.inputType])));
+            return attributes;
+        }
+        getType() {
+            return KeyInput.TYPE_HEADER;
         }
     }
-    exports.ColorTestPool = ColorTestPool;
+    KeyInput.TYPE_HEADER = 'KeyInput';
+    KeyInput.KEY_HEADER = 'Key';
+    KeyInput.INPUT_TYPE_HEADER = 'InputType';
+    exports.KeyInput = KeyInput;
 });
-define("ElementTest/ElementTestPool", ["require", "exports", "ElementTest/ColorTest/ColorTestPool", "Core/Test/TestPool"], function (require, exports, ColorTestPool_1, TestPool_6) {
+define("Element/Input/MouseInputEnum", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ElementTestPool extends TestPool_6.TestPool {
-        constructor() {
+    var MouseInputEnum;
+    (function (MouseInputEnum) {
+        MouseInputEnum[MouseInputEnum["LeftMouseButtonPress"] = 0] = "LeftMouseButtonPress";
+        MouseInputEnum[MouseInputEnum["LeftMouseButtonRelease"] = 1] = "LeftMouseButtonRelease";
+        MouseInputEnum[MouseInputEnum["LeftMouseButtonClick"] = 2] = "LeftMouseButtonClick";
+        MouseInputEnum[MouseInputEnum["RightMouseButtonPress"] = 3] = "RightMouseButtonPress";
+        MouseInputEnum[MouseInputEnum["RightMouseButtonRelease"] = 4] = "RightMouseButtonRelease";
+        MouseInputEnum[MouseInputEnum["RightMouseButtonClick"] = 5] = "RightMouseButtonClick";
+        MouseInputEnum[MouseInputEnum["MouseWheelPress"] = 6] = "MouseWheelPress";
+        MouseInputEnum[MouseInputEnum["MouseWheelRelease"] = 7] = "MouseWheelRelease";
+        MouseInputEnum[MouseInputEnum["MouseWheelClick"] = 8] = "MouseWheelClick";
+        MouseInputEnum[MouseInputEnum["ForwardMouseWheelRotationStep"] = 9] = "ForwardMouseWheelRotationStep";
+        MouseInputEnum[MouseInputEnum["BackwardMouseWheelRotationStep"] = 10] = "BackwardMouseWheelRotationStep";
+    })(MouseInputEnum = exports.MouseInputEnum || (exports.MouseInputEnum = {}));
+});
+define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputEnum", "Common/Node/Node"], function (require, exports, Input_2, LinkedList_10, MouseInputEnum_1, Node_5) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class MouseInput extends Input_2.Input {
+        constructor(mouseInputEnum) {
             super();
-            this.addTestPool(new ColorTestPool_1.ColorTestPool);
+            if (mouseInputEnum === null) {
+                throw new Error('The given mouseInputEnum is null.');
+            }
+            if (mouseInputEnum === undefined) {
+                throw new Error('The given mouseInputEnum is undefined.');
+            }
+            this.mouseInputEnum = mouseInputEnum;
+        }
+        getAttributes() {
+            return LinkedList_10.LinkedList.withElement(Node_5.Node.withHeader(MouseInputEnum_1.MouseInputEnum[this.mouseInputEnum]));
+        }
+        getType() {
+            return MouseInput.TYPE_HEADER;
+        }
+        toEnum() {
+            return this.mouseInputEnum;
         }
     }
-    exports.ElementTestPool = ElementTestPool;
+    MouseInput.TYPE_HEADER = 'MouseInput';
+    exports.MouseInput = MouseInput;
 });
-define("ElementTest/ColorTest/Launcher", ["require", "exports", "ElementTest/ColorTest/ColorTestPool"], function (require, exports, ColorTestPool_2) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require", "exports", "Element/Input/KeyInput", "Element/Input/KeyInputType", "Element/Input/MouseInput", "Element/Input/MouseInputEnum"], function (require, exports, KeyInput_1, KeyInputType_2, MouseInput_1, MouseInputEnum_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    new ColorTestPool_2.ColorTestPool().run();
-});
-define("NolixTest/NolixTestPool", ["require", "exports", "CoreTest/CoreTestPool", "ElementTest/ElementTestPool", "Core/Test/TestPool"], function (require, exports, CoreTestPool_2, ElementTestPool_1, TestPool_7) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class NolixTestPool extends TestPool_7.TestPool {
-        constructor() {
-            super();
-            this.addTestPool(new CoreTestPool_2.CoreTestPool());
-            this.addTestPool(new ElementTestPool_1.ElementTestPool());
+    class FrontCanvasGUIClientInputTaker {
+        constructor(parentFrontCanvasGUIClient) {
+            if (parentFrontCanvasGUIClient === null) {
+                throw new Error('The given parentFrontCanvasGUIClient is null.');
+            }
+            if (parentFrontCanvasGUIClient === undefined) {
+                throw new Error('The given parentFrontCanvasGUIClient is undefined.');
+            }
+            this.parentFrontCanvasGUIClient = parentFrontCanvasGUIClient;
+        }
+        noteKeyPress(key) {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Press));
+        }
+        noteKeyRelease(key) {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Release));
+        }
+        noteKeyTyping(key) {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Typing));
+        }
+        noteLeftMouseButtonClick() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.LeftMouseButtonClick));
+        }
+        noteLeftMouseButtonPress() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.LeftMouseButtonPress));
+        }
+        noteLeftMouseButtonRelease() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.LeftMouseButtonRelease));
+        }
+        noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
+            this.parentFrontCanvasGUIClient.noteMouseMoveOnCounterpart(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+        }
+        noteMouseWheelClick() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseWheelClick));
+        }
+        noteMouseWheelPress() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseWheelPress));
+        }
+        noteMouseWheelRelease() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseWheelRelease));
+        }
+        noteResize(viewAreaWidth, viewAreaHeight) {
+            this.parentFrontCanvasGUIClient.noteResizeOnCounterpart(viewAreaWidth, viewAreaHeight);
+        }
+        noteRightMouseButtonClick() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.RightMouseButtonClick));
+        }
+        noteRightMouseButtonPress() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.RightMouseButtonPress));
+        }
+        noteRightMouseButtonRelease() {
+            this.parentFrontCanvasGUIClient.noteInputOnCounterpart(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.RightMouseButtonRelease));
         }
     }
-    exports.NolixTestPool = NolixTestPool;
+    exports.FrontCanvasGUIClientInputTaker = FrontCanvasGUIClientInputTaker;
 });
-define("NolixTest/Launcher", ["require", "exports", "NolixTest/NolixTestPool"], function (require, exports, NolixTestPool_1) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClientProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    new NolixTestPool_1.NolixTestPool().run();
-});
-define("System/FrontBrowserGUIClient/FrontBrowserGUIClientProtocol", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class FrontBrowserGUIClientProtocol {
+    class FrontCanvasGUIClientProtocol {
     }
-    FrontBrowserGUIClientProtocol.GUI_HEADER = 'GUI';
-    FrontBrowserGUIClientProtocol.NOTE_RESIZE_HEADER = "NoteResize";
-    FrontBrowserGUIClientProtocol.SET_PAINT_COMMANDS_HEADER = 'SetPaintCommands';
-    FrontBrowserGUIClientProtocol.SET_TITLE_HEADER = "SetTitle";
-    exports.FrontBrowserGUIClientProtocol = FrontBrowserGUIClientProtocol;
+    FrontCanvasGUIClientProtocol.GUI_HEADER = 'GUI';
+    FrontCanvasGUIClientProtocol.NOTE_INPUT_HEADER = 'NoteInput';
+    FrontCanvasGUIClientProtocol.NOTE_MOUSE_MOVE_HEADER = 'NoteMouseMove';
+    FrontCanvasGUIClientProtocol.NOTE_RESIZE_HEADER = "NoteResize";
+    FrontCanvasGUIClientProtocol.SET_PAINT_COMMANDS_HEADER = 'SetPaintCommands';
+    FrontCanvasGUIClientProtocol.SET_TITLE_HEADER = "SetTitle";
+    exports.FrontCanvasGUIClientProtocol = FrontCanvasGUIClientProtocol;
 });
-define("System/FrontBrowserGUIClient/GUIHandler", ["require", "exports", "Element/BrowserGUI/BrowserGUI", "System/FrontBrowserGUIClient/FrontBrowserGUIClientProtocol"], function (require, exports, BrowserGUI_1, FrontBrowserGUIClientProtocol_1) {
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "System/FrontCanvasGUIClient/FrontCanvasGUIClientProtocol"], function (require, exports, CanvasGUI_1, FrontCanvasGUIClientProtocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
         constructor(window, eventTaker) {
-            this.mGUI = new BrowserGUI_1.BrowserGUI(window, eventTaker);
+            this.mGUI = new CanvasGUI_1.BrowserGUI(window, eventTaker);
         }
         canRunCommand(command) {
             return (command.hasHeader() && this.canRunCommandOfType(command.getHeader()));
         }
         canRunCommandOfType(type) {
             switch (type) {
-                case FrontBrowserGUIClientProtocol_1.FrontBrowserGUIClientProtocol.GUI_HEADER:
+                case FrontCanvasGUIClientProtocol_1.FrontCanvasGUIClientProtocol.GUI_HEADER:
                     return true;
                 default:
                     return false;
@@ -2377,11 +2203,13 @@ define("System/FrontBrowserGUIClient/GUIHandler", ["require", "exports", "Elemen
         runGUICommand(pGUICommand) {
             console.log('The current GUIHandler runs the given pGUICommand: ' + pGUICommand);
             switch (pGUICommand.getHeader()) {
-                case FrontBrowserGUIClientProtocol_1.FrontBrowserGUIClientProtocol.SET_TITLE_HEADER:
+                case FrontCanvasGUIClientProtocol_1.FrontCanvasGUIClientProtocol.SET_TITLE_HEADER:
                     this.mGUI.setTitle(pGUICommand.getOneAttributeAsString());
+                    this.mGUI.refresh();
                     break;
-                case FrontBrowserGUIClientProtocol_1.FrontBrowserGUIClientProtocol.SET_PAINT_COMMANDS_HEADER:
+                case FrontCanvasGUIClientProtocol_1.FrontCanvasGUIClientProtocol.SET_PAINT_COMMANDS_HEADER:
                     this.setPaintCommands(pGUICommand.getAttributes());
+                    this.mGUI.refresh();
                     break;
                 default:
                     throw new Error('The given pGUICommand is not valid: ' + pGUICommand);
@@ -2394,7 +2222,7 @@ define("System/FrontBrowserGUIClient/GUIHandler", ["require", "exports", "Elemen
     }
     exports.GUIHandler = GUIHandler;
 });
-define("System/FrontBrowserGUIClient/ReceiverController", ["require", "exports"], function (require, exports) {
+define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ReceiverController {
@@ -2423,104 +2251,61 @@ define("System/FrontBrowserGUIClient/ReceiverController", ["require", "exports"]
     }
     exports.ReceiverController = ReceiverController;
 });
-define("System/FrontBrowserGUIClient/FrontBrowserGUIClient", ["require", "exports", "Core/ChainedNode/ChainedNode", "System/FrontBrowserGUIClient/FrontBrowserGUIClientProtocol", "System/FrontBrowserGUIClient/GUIHandler", "Core/EndPoint5/NetEndPoint5", "Core/Node/Node", "System/FrontBrowserGUIClient/ReceiverController", "Core/Container/SingleContainer", "Core/Container/List", "System/FrontBrowserGUIClient/EventTaker"], function (require, exports, ChainedNode_3, FrontBrowserGUIClientProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_4, ReceiverController_1, SingleContainer_3, List_10, EventTaker_1) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Common/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Common/Container/LinkedList", "Common/EndPoint5/NetEndPoint5", "Common/Node/Node", "System/FrontCanvasGUIClient/ReceiverController", "Common/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientProtocol_2, GUIHandler_1, LinkedList_11, NetEndPoint5_1, Node_6, ReceiverController_1, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class FrontBrowserGUIClient {
-        static withIpAndNumberAndWindow(ip, port, window) {
-            return new FrontBrowserGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
-        }
+    class FrontCanvasGUIClient {
         constructor(ip, port, optionalTarget, window) {
+            this.mGUIHandler = new GUIHandler_1.GUIHandler(window, new FrontCanvasGUIClientInputTaker_1.FrontCanvasGUIClientInputTaker(this));
             this.endPoint = new NetEndPoint5_1.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
-            this.mGUIHandler = new GUIHandler_1.GUIHandler(window, new EventTaker_1.EventTaker(this));
+        }
+        static withIpAndNumberAndWindow(ip, port, window) {
+            return new FrontCanvasGUIClient(ip, port, SingleContainer_2.SingleContainer.EMPTY_CONTAINER, window);
         }
         getGUIType() {
-            return 'CanvasGUI';
+            return FrontCanvasGUIClient.GUI_TYPE;
+        }
+        noteInputOnCounterpart(input) {
+            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientProtocol_2.FrontCanvasGUIClientProtocol.NOTE_INPUT_HEADER, input.getSpecification()));
+        }
+        noteMouseMoveOnCounterpart(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
+            const attributes = new LinkedList_11.LinkedList();
+            attributes.addAtEnd(ChainedNode_2.ChainedNode.withHeaderFromNumber(cursorXPositionOnViewArea));
+            attributes.addAtEnd(ChainedNode_2.ChainedNode.withHeaderFromNumber(cursorYPositionOnViewArea));
+            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributes(FrontCanvasGUIClientProtocol_2.FrontCanvasGUIClientProtocol.NOTE_MOUSE_MOVE_HEADER, attributes));
         }
         noteResizeOnCounterpart(viewAreaWidth, viewAreaHeight) {
-            const attributes = new List_10.List();
-            attributes.addAtEnd(Node_4.Node.withNumberHeader(viewAreaWidth));
-            attributes.addAtEnd(Node_4.Node.withNumberHeader(viewAreaHeight));
-            this.endPoint.run(ChainedNode_3.ChainedNode.withHeaderAndAttributesFromNodes(FrontBrowserGUIClientProtocol_2.FrontBrowserGUIClientProtocol.NOTE_RESIZE_HEADER, attributes));
+            const attributes = new LinkedList_11.LinkedList();
+            attributes.addAtEnd(Node_6.Node.withHeaderFromNumber(viewAreaWidth));
+            attributes.addAtEnd(Node_6.Node.withHeaderFromNumber(viewAreaHeight));
+            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributesFromNodes(FrontCanvasGUIClientProtocol_2.FrontCanvasGUIClientProtocol.NOTE_RESIZE_HEADER, attributes));
         }
         getData(request) {
-            console.log('FrontBrowserGUIClient has received the request: ' + request.toString());
+            console.log('FrontCanvasGUIClient has received the request: ' + request.toString());
             switch (request.getHeader()) {
                 case 'GUI_Type':
-                    return Node_4.Node.withHeader(this.getGUIType());
+                    return Node_6.Node.withHeader(this.getGUIType());
                 default:
                     throw new Error('The given request is not valid:' + request.toString());
             }
         }
         run(command) {
-            console.log('FrontBrowserGUIClient runs the command: ' + command.toString());
+            console.log('FrontCanvasGUIClient runs the command: ' + command.toString());
             switch (command.getHeader()) {
-                case FrontBrowserGUIClientProtocol_2.FrontBrowserGUIClientProtocol.GUI_HEADER:
+                case FrontCanvasGUIClientProtocol_2.FrontCanvasGUIClientProtocol.GUI_HEADER:
                     this.mGUIHandler.runGUICommand(command.getNextNode());
                     break;
                 default:
                     throw new Error('The given command is not valid.');
             }
         }
-    }
-    exports.FrontBrowserGUIClient = FrontBrowserGUIClient;
-});
-define("System/FrontBrowserGUIClient/EventTaker", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class EventTaker {
-        constructor(parentFrontBrowserGUIClient) {
-            if (parentFrontBrowserGUIClient === null) {
-                throw new Error('The given parentFrontBrowserGUIClient is null.');
+        runOnConunterpart(command) {
+            if (this.endPoint !== undefined) {
+                this.endPoint.run(command);
             }
-            if (parentFrontBrowserGUIClient === undefined) {
-                throw new Error('The given parentFrontBrowserGUIClient is undefined.');
-            }
-            this.parentFrontBrowserGUIClient = parentFrontBrowserGUIClient;
-        }
-        noteKeyPress(key) {
-            throw new Error("Method not implemented.");
-        }
-        noteKeyRelease(key) {
-            throw new Error("Method not implemented.");
-        }
-        noteKeyTyping(key) {
-            throw new Error("Method not implemented.");
-        }
-        noteLeftMouseButtonClick() {
-            throw new Error("Method not implemented.");
-        }
-        noteLeftMouseButtonPress() {
-            throw new Error("Method not implemented.");
-        }
-        noteLeftMouseButtonRelease() {
-            throw new Error("Method not implemented.");
-        }
-        noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
-            throw new Error("Method not implemented.");
-        }
-        noteMouseWheelClick() {
-            throw new Error("Method not implemented.");
-        }
-        noteMouseWheelPress() {
-            throw new Error("Method not implemented.");
-        }
-        noteMouseWheelRelease() {
-            throw new Error("Method not implemented.");
-        }
-        noteResize(viewAreaWidth, viewAreaHeight) {
-            this.parentFrontBrowserGUIClient.noteResizeOnCounterpart(viewAreaWidth, viewAreaHeight);
-        }
-        noteRightMouseButtonClick() {
-            throw new Error("Method not implemented.");
-        }
-        noteRightMouseButtonPress() {
-            throw new Error("Method not implemented.");
-        }
-        noteRightMouseButtonRelease() {
-            throw new Error("Method not implemented.");
         }
     }
-    exports.EventTaker = EventTaker;
+    FrontCanvasGUIClient.GUI_TYPE = 'CanvasGUI';
+    exports.FrontCanvasGUIClient = FrontCanvasGUIClient;
 });
