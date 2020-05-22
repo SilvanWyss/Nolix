@@ -9,7 +9,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 
 //class
 /**

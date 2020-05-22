@@ -11,7 +11,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.WidgetLook;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 
 //class
 /**

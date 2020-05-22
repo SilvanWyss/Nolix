@@ -5,7 +5,7 @@ package ch.nolix.systemTest.textureTest;
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 import ch.nolix.system.texture.TextureCreator;
 
 //class

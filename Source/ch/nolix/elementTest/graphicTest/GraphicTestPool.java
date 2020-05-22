@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.elementTest.imageTest;
+package ch.nolix.elementTest.graphicTest;
 
 //own import
 import ch.nolix.common.baseTest.TestPool;
 
 //class
-public final class ImageTestPool extends TestPool {
+public final class GraphicTestPool extends TestPool {
 	
 	//constructor
-	public ImageTestPool() {
+	public GraphicTestPool() {
 		super(ImageTest.class);
 	}
 }

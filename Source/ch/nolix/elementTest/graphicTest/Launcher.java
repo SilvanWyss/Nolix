@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.elementTest.imageTest;
+package ch.nolix.elementTest.graphicTest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new ImageTestPool().run();
+		new GraphicTestPool().run();
 	}
 	
 	//visibility-reducing constructor

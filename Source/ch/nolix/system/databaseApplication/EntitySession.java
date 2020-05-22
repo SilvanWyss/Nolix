@@ -8,7 +8,7 @@ import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.containerWidget.TabContainerTab;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.DropdownMenu;

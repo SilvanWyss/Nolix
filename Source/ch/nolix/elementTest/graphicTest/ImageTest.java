@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.elementTest.imageTest;
+package ch.nolix.elementTest.graphicTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 
 //class
 public final class ImageTest extends Test {

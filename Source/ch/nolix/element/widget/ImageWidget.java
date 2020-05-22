@@ -5,7 +5,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 import ch.nolix.element.painter.IPainter;
 
 //class

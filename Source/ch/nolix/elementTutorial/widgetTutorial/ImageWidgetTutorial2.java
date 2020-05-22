@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.ImageWidget;
 
 public class ImageWidgetTutorial2 {

@@ -3,7 +3,7 @@ package ch.nolix.system.texture;
 
 //own imports
 import ch.nolix.element.color.Color;
-import ch.nolix.element.image.Image;
+import ch.nolix.element.graphic.Image;
 
 //class
 public abstract class TextureCreator {
