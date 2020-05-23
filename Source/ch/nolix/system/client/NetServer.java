@@ -12,7 +12,7 @@ import ch.nolix.common.localComputer.LocalComputer;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 140
+ * @lines 160
  */
 public final class NetServer extends Server {
 	
@@ -89,6 +89,32 @@ public final class NetServer extends Server {
 		this(port);
 		
 		addMainApplication(mainApplication);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
+	 * The {@link NetServer} will have a main application with the given name, clientClass and initialSessionClass.
+	 * 
+	 * @param port
+	 * @param name
+	 * @param clientClass
+	 * @param initialSessionClass
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given clientClass is null.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 */
+	public <C extends Client<C>> NetServer(
+		final int port,
+		final String name,
+		final Class<C> clientClass,
+		final Class<?> initialSessionClass
+	) {
+		
+		//Calls other constructor.
+		this(port ,new Application<C>(name, clientClass, initialSessionClass));
 	}
 	
 	//constructor
