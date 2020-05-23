@@ -11,6 +11,8 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
+//TODO: Unify method names.
+
 //class
 public final class ShellProvider {
 	
@@ -59,6 +61,11 @@ public final class ShellProvider {
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		run("start firefox --url " + url + ":" + port);
+	}
+	
+	//static method
+	public static void startFirefoxToLoopBackAddress() {
+		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.DE_FACTO_HTTP_PORT);
 	}
 	
 	//visibility-reducing constructor
