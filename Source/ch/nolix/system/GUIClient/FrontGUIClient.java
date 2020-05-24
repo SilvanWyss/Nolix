@@ -7,6 +7,7 @@ import ch.nolix.element.GUI.GUI;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
+import ch.nolix.system.client.Server;
 
 //class
 /**
@@ -14,7 +15,7 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 120
+ * @lines 140
  */
 public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	
@@ -79,6 +80,20 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
 		internal_connectTo(port, name);
+		noteResizeOnCounterpart();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link FrontGUIClient} that will connect to the main application on the given server.
+	 * 
+	 * @param application
+	 */
+	public FrontGUIClient(final Server server) {
+		
+		super(BaseFrontGUIClientGUIType.LayerGUI);
+		
+		internal_connectTo(server);
 		noteResizeOnCounterpart();
 	}
 	
