@@ -44,7 +44,7 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startFirefox(final String url) {
-		startFirefox(url, PortCatalogue.DE_FACTO_HTTP_PORT);
+		startFirefox(url, PortCatalogue.HTTP_PORT);
 	}
 	
 	//static method
@@ -65,7 +65,7 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startFirefoxToLoopBackAddress() {
-		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.DE_FACTO_HTTP_PORT);
+		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP_PORT);
 	}
 	
 	//visibility-reducing constructor

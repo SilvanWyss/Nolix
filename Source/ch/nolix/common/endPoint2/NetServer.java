@@ -28,7 +28,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 public final class NetServer extends Server {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
+	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;
 	
 	//constant
 	private static final String DEFAULT_HTTP_MESSAGE =

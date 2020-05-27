@@ -17,7 +17,7 @@ import ch.nolix.common.localComputer.LocalComputer;
 public final class NetServer extends Server {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
+	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;
 	
 	//attribute
 	private ch.nolix.common.endPoint5.NetServer internalNetServer;
