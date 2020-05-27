@@ -336,7 +336,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	void setParentCursorPosition(final int cursorXPositionOnContent, final int cursorYPositionOnContent) {
-		tabVerticalStack.setParentCursorPositionRecursively(
+		tabVerticalStack.setParentCursorPosition(
 			cursorXPositionOnContent,
 			cursorYPositionOnContent
 		);

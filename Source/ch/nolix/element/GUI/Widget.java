@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -34,24 +35,23 @@ import ch.nolix.element.painter.IPainter;
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
+implements Recalculable, TopLeftPositionedRecangular {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
 	
-	//constants
-	private static final String STATE_HEADER ="State";
-	private static final String GREY_OUT_WHEN_DISABLED_FLAG_HEADER = "GreyOutWhenDisabled";
+	//constant
+	private static final String GREY_OUT_WHEN_DISABLED_HEADER = "GreyOutWhenDisabled";
 	
 	//constants
 	private static final String BASE_PREFIX = "Base";
-	private static final String FOCUS_PREFIX = "Focus";
 	private static final String HOVER_PREFIX = "Hover";
+	private static final String FOCUS_PREFIX = "Focus";
 	
 	//attributes
-	private WidgetState state;
-	private CursorIcon customCursorIcon;
-	private boolean greyOutWhenDisabled;
+	private WidgetState state = WidgetState.Normal;
+	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
+	private boolean greyOutWhenDisabled = false;
 	
 	//attributes
 	private final WL baseLook = createLook();
@@ -59,16 +59,16 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	private final WL focusLook = createLook();
 	
 	//attributes
-	private int xPositionOnParent;
-	private int yPositionOnParent;
+	private int xPositionOnParent = 0;
+	private int yPositionOnParent = 0;
 	
 	//attributes
-	private int width;
-	private int height;
+	private int width = 0;
+	private int height = 0;
 	
 	//attributes
-	protected int cursorXPosition;
-	protected int cursorYPosition;
+	private int cursorXPosition;
+	private int cursorYPosition;
 	
 	//optional attribute
 	private WidgetParent parent;
@@ -102,13 +102,13 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case STATE_HEADER:
+			case PascalCaseNameCatalogue.STATE:
 				setState(WidgetState.fromSpecification(attribute));
 				break;
 			case CursorIcon.TYPE_NAME:
 				setCustomCursorIcon(CursorIcon.fromSpecification(attribute));
 				break;
-			case GREY_OUT_WHEN_DISABLED_FLAG_HEADER:
+			case GREY_OUT_WHEN_DISABLED_HEADER:
 				
 				if (!attribute.getOneAttributeAsBoolean()) {
 					removeGreyOutWhenDisabled();
@@ -288,7 +288,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 		
 		attributes.addAtBegin(getInteractionAttributes());
 		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
-		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_FLAG_HEADER, greyOutWhenDisabled));
+		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_HEADER, greyOutWhenDisabled));
 			
 		//Extracts the base state attributes of the current Widget.
 		final var baseStateAttributes = getRefBaseLook().getAttributes();
@@ -395,7 +395,7 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @return the interaction attributes of the current {@link Widget}.
 	 */
 	public LinkedList<Node> getInteractionAttributes() {
-		return new LinkedList<> (getState().getSpecificationAs(STATE_HEADER));
+		return new LinkedList<> (getState().getSpecificationAs(PascalCaseNameCatalogue.STATE));
 	}
 	
 	//method
@@ -1258,13 +1258,12 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @param cursorYPosition
 	 * @return the current {@link Widget}.
 	 */
-	public W setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
+	public W setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		
-		this.cursorXPosition = cursorXPosition;
-		this.cursorYPosition = cursorYPosition;
-		
+		setCursorPositionOnSelf(cursorXPosition, cursorYPosition);
+				
 		for (final var w : getRefPaintableWidgets()) {
-			w.setParentCursorPositionRecursively(cursorXPosition, cursorYPosition);
+			w.setParentCursorPosition(cursorXPosition, cursorYPosition);
 		}
 		
 		return asConcrete();
@@ -1278,11 +1277,11 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	 * @param parentCursorYPosition
 	 * @return the current {@link Widget}.
 	 */
-	public final void setParentCursorPositionRecursively(
+	public final void setParentCursorPosition(
 		final int parentCursorXPosition,
 		final int parentCursorYPosition
 	) {
-		setCursorPositionRecursively(
+		setCursorPosition(
 			parentCursorXPosition - xPositionOnParent,
 			parentCursorYPosition - yPositionOnParent
 		);
@@ -1759,7 +1758,13 @@ implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
 		return true;
 	}
-
+	
+	//method
+	protected final void setCursorPositionOnSelf(final int cursorXPosition, final int cursorYPosition) {
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+	}
+	
 	//method
 	/**
 	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a {@link LayerGUI} that is closed.

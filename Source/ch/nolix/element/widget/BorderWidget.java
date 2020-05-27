@@ -739,15 +739,14 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BW setCursorPositionRecursively(final int cursorXPosition, final int cursorYPosition) {
+	public final BW setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		
-		this.cursorXPosition = cursorXPosition;
-		this.cursorYPosition = cursorYPosition;
+		setCursorPositionOnSelf(cursorXPosition, cursorYPosition);
 		
 		final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
 		final var cursorYPositionOnContentArea = getCursorYPositionOnContentArea();
 		for (final var w : getRefPaintableWidgets()) {
-			w.setParentCursorPositionRecursively(cursorXPositionOnContentArea, cursorYPositionOnContentArea);
+			w.setParentCursorPosition(cursorXPositionOnContentArea, cursorYPositionOnContentArea);
 		}
 		
 		return asConcrete();
