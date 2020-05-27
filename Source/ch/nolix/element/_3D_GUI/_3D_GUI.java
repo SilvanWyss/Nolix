@@ -38,7 +38,7 @@ public abstract class _3D_GUI<G extends _3D_GUI<G>>
 extends ConfigurationElement<G>
 implements Clearable<G>, Closable, Refreshable {
 	
-	//default values
+	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	

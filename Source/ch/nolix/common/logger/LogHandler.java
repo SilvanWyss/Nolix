@@ -4,7 +4,7 @@ package ch.nolix.common.logger;
 //class
 public abstract class LogHandler {
 
-	//default value
+	//constant
 	public static final HarmLevel DEFAULT_MIN_HARM_LEVEL = HarmLevel.INFO;
 	
 	//optional attribute

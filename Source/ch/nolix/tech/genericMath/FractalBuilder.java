@@ -16,27 +16,27 @@ import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 //class
 public final class FractalBuilder implements IFractalBuilder {
 	
-	//default values
+	//constants
 	public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
 	public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
 	public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
-	//default value
+	//constant
 	public static final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
 	(z, c) -> z[0].getPower2().getSum(c);
 	
-	//default values
+	//constants
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
 	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 100;
 	
-	//default value
+	//constant
 	public static final IIntTakerElementGetter<Color>
 	DEFAULT_COLOR_FUNCTION =
 	i -> i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT ? new Color(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT) : Color.BLACK;
 	
-	//default value
+	//constant
 	public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
 	
 	//attributes

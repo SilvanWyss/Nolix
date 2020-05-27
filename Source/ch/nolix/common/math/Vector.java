@@ -14,7 +14,7 @@ import ch.nolix.common.validator2.Validator;
 //class
 public final class Vector {
 	
-	//default value
+	//constant
 	public static final int DEFAULT_LENTH = 3;
 	
 	public static Vector createVector(final double[] values) {

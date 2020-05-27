@@ -31,7 +31,7 @@ import ch.nolix.element.textFormat.Font;
  */
 public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement<WL> {
 	
-	//default values
+	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
 	public static final int DEFAULT_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;

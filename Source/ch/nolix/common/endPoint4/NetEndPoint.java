@@ -16,7 +16,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	static final String DEFAULT_TARGET = "DefaultTarget";
 	
-	//default value
+	//constant
 	private int nextSentPackageIndex = 1;
 	
 	//attributes

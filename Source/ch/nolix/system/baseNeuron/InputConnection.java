@@ -15,7 +15,7 @@ import ch.nolix.common.validator.Validator;
  */
 public final class InputConnection<O> {
 
-	//default value
+	//constant
 	public static final double DEFAULT_WEIGHT = 1.0;
 	
 	//attributes

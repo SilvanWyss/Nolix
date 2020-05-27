@@ -37,7 +37,7 @@ import ch.nolix.element.painter.IPainter;
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
 	
-	//default value
+	//constant
 	public static final String DEFAULT_TITLE = "GUI";
 	
 	//attribute

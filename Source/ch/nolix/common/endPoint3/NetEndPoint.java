@@ -14,7 +14,7 @@ import ch.nolix.common.container.LinkedList;
  */
 public class NetEndPoint extends EndPoint {
 	
-	//default value
+	//constant
 	private int nextSentPackageIndex = 1;
 	
 	//attributes

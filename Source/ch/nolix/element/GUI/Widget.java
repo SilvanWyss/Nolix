@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
 implements ISmartObject<W>, Recalculable, TopLeftPositionedRecangular {
 	
-	//default value
+	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
 	
 	//constants

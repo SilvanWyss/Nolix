@@ -11,7 +11,7 @@ import ch.nolix.element.layerElement.LayerProperty;
 //class
 public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	
-	//default value
+	//constant
 	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
 	
 	//constants

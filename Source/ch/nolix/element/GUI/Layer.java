@@ -42,7 +42,7 @@ import ch.nolix.element.painter.IPainter;
 public final class Layer extends Element<Layer>
 implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IInputTaker {
 	
-	//default values
+	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.Top;
 	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);

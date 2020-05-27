@@ -42,7 +42,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	public static final char MASK_CHARACTER = CharacterCatalogue.BULLET;
 	
-	//default value
+	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
 	//constants

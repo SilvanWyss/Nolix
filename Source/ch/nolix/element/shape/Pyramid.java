@@ -13,7 +13,7 @@ import ch.nolix.element.base.MutableProperty;
 //class
 public final class Pyramid extends BaseShape<Pyramid> {
 	
-	//default values
+	//constants
 	public static final double DEFAULT_SIDE_LENGTH = 1.0;
 	public static final double DEFAULT_HEIGHT = 2.0;
 

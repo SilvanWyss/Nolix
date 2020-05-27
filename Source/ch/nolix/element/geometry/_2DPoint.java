@@ -20,7 +20,7 @@ import ch.nolix.element.base.Element;
  */
 public final class _2DPoint extends Element<_2DPoint> {
 
-	//default values.
+	//constants
 	public static final double DEFAULT_X = 0.0;
 	public static final double DEFAULT_Y = 0.0;
 	

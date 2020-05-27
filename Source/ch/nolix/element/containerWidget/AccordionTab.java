@@ -28,7 +28,7 @@ import ch.nolix.element.widget.VerticalStack;
 public final class AccordionTab extends Element<AccordionTab>
 implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
-	//default value
+	//constant
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
 	
 	//constant

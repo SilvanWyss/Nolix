@@ -12,7 +12,7 @@ import ch.nolix.element.base.MutableProperty;
 //class
 public final class Cylinder extends Prisma<Cylinder> {
 	
-	//default value
+	//constant
 	public static final double DEFAULT_RADIUS = 1.0;
 	
 	//attribute	

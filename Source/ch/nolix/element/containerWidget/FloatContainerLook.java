@@ -11,7 +11,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
 //class
 public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {
 	
-	//default value
+	//constant
 	private static final int DEFAULT_PROPOSE_CONTENT_WIDTH = ValueCatalogue.BIG_WIDGET_WIDTH;
 	private static final int DEFAULT_WIDGET_MARGIN = ValueCatalogue.SMALL_WIDGET_MARGIN;
 	

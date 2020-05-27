@@ -31,7 +31,7 @@ public class ColorGradient implements IElement {
 	public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT =
 	new ColorGradient(UniDirection.Vertical, Color.RED, Color.WHITE);
 	
-	//default values
+	//constants
 	public static final UniDirection DEFAULT_DIRECTION = UniDirection.Vertical;
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
 	public static final Color DEFAULT_COLOR2 = Color.WHITE;

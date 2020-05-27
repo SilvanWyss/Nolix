@@ -27,7 +27,7 @@ public class Color extends Element<Color> {
 	//constant
 	public static final String TYPE_NAME = "Color";
 	
-	//default value
+	//constant
 	public static final int DEFAULT_ALPHA_VALUE = 255;
 	
 	//constants

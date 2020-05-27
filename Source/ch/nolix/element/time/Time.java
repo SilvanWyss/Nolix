@@ -33,7 +33,7 @@ public final class Time implements IElement {
 	//type name
 	public static final String TYPE_NAME = "Time";
 	
-	//default values
+	//constants
 	public static final int DEFAULT_YEAR = 2000;
 	public static final int DEFAULT_MONTH_OF_YEAR = 1;
 	public static final int DEFAULT_DAY_OF_MONTH = 1;

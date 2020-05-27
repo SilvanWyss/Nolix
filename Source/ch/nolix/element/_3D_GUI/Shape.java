@@ -24,7 +24,7 @@ import ch.nolix.element.geometry._3DPoint;
  */
 public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
-	//default value
+	//constant
 	public static final _3DPoint DEFAULT_POSITION = new _3DPoint(0.0, 0.0, 0.0);
 	
 	//attribute

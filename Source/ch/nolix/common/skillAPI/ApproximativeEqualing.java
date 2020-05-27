@@ -12,7 +12,7 @@ package ch.nolix.common.skillAPI;
  */
 public interface ApproximativeEqualing {
 	
-	//default max deviation
+	//constant
 	public static final double DEFAULT_MAX_DEVIATION = 0.000000001; //10^-9
 	
 	//method

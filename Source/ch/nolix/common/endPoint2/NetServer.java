@@ -27,10 +27,10 @@ import ch.nolix.common.wrapperException.WrapperException;
 */
 public final class NetServer extends Server {
 	
-	//default value
+	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
 	
-	//default value
+	//constant
 	private static final String DEFAULT_HTTP_MESSAGE =
 	"HTTP/1.1 200 OK\r\n"
 	+ "Content-Type: text/html; charset=UTF-8\r\n"

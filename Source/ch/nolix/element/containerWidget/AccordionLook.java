@@ -12,7 +12,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
 //class
 public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	
-	//default value
+	//constant
 	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR = Color.WHITE;
 	public static final int DEFAULT_TAB_HEADER_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TAB_HEADER_TEXT_COLOR = Color.BLACK;

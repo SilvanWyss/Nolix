@@ -27,7 +27,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	//min length to thickness ratio
 	public static final int MIN_LENGTH_TO_THICKNESS_RATIO = 4;
 	
-	//default values
+	//constants
 	public static final int DEFAULT_LENGTH = 100;
 	public static final int DEFAULT_THICKNESS = 1;
 	public static final Color DEFAULT_COLOR = Color.BLACK;

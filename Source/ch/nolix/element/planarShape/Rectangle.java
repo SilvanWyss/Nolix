@@ -16,7 +16,7 @@ import ch.nolix.element.base.MutableProperty;
  */
 public final class Rectangle extends BaseShape<Rectangle> {
 	
-	//default values	
+	//constants	
 	public static final double DEFAULT_X_LENGTH = 1.0;
 	public static final double DEFAULT_Y_LENGTH = 1.0;
 	

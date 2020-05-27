@@ -20,7 +20,7 @@ import ch.nolix.element.elementAPI.IElement;
  */
 public class _3DPoint implements IElement {
 	
-	//default values.
+	//constants
 	public static final double DEFAULT_X = 0.0;
 	public static final double DEFAULT_Y = 0.0;
 	public static final double DEFAULT_Z = 0.0;

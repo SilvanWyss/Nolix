@@ -29,7 +29,7 @@ import ch.nolix.element.widget.Label;
 public class TabContainerTab extends Element<TabContainerTab>
 implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
 
-	//default value
+	//constant
 	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
 	
 	//attribute

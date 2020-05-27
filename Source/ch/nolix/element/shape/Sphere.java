@@ -18,7 +18,7 @@ import ch.nolix.element.base.MutableProperty;
  */
 public final class Sphere extends BaseShape<Sphere> {
 	
-	//default values
+	//constants
 	public static final double DEFAULT_RADIUS = 1.0;
 	public static final double DEFAULT_DIAMETER = 2.0 * DEFAULT_RADIUS;
 	

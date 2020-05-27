@@ -21,7 +21,7 @@ import ch.nolix.techAPI.projectAPI.TaskSize;
  */
 public final class Task extends Element<Task> implements ITask {
 	
-	//default value
+	//constant
 	private static final String DEFAULT_TITLE = StringCatalogue.EMPTY_STRING;
 	
 	//constants

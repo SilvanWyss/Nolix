@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  */
 public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	
-	//default value
+	//constant
 	public static final int DEFAULT_LINE_THICKNESS = 1;
 	
 	//optional attributes

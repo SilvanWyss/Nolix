@@ -22,26 +22,26 @@ import ch.nolix.element.graphic.Image;
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
 	
-	//default values
+	//constants
 	public static final int DEFAULT_BORDER_THICKNESS = 0;
 	public static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
-	//default value
+	//constant
 	public static final ColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT =
 	ColorGradient.VERTICAL_BLACK_WHITE_COLOR_GRADIENT;
 	
-	//default values
+	//constants
 	public static final Image DEFAULT_BACKGROUND_IMAGE = new Image(200, 100, Color.BLACK);
 	public static final int DEFAULT_PADDING = 0;
 	public static final ScrollbarLook DEFAULT_BASE_SCROLLBAR_LOOK = new ScrollbarLook();
 	
-	//default value
+	//constant
 	public static final ScrollbarLook DEFAULT_HOVER_SCROLLBAR_LOOK =
 	new ScrollbarLook()
 	.setScrollbarCursorColor(Color.DIM_GREY);
 	
-	//default value
+	//constant
 	public static final ScrollbarLook DEFAULT_SELECTION_SCROLLBAR_LOOK =
 	new ScrollbarLook()
 	.setScrollbarCursorColor(Color.DIM_GREY);

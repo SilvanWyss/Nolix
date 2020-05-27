@@ -18,7 +18,7 @@ public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLoo
 	//constant
 	public static final String TYPE_NAME = "MenuItemLook";
 	
-	//default values
+	//constants
 	public static final int DEFAULT_MIN_WIDTH = ValueCatalogue.MEDIUM_WIDGET_WIDTH;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	public static final int DEFAULT_PADDING = 0;

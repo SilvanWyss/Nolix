@@ -12,7 +12,7 @@ package ch.nolix.common.pair;
  */
 public final class FPNPair {
 	
-	//default value
+	//constant
 	public static final double DEFAULT_VALUE = 0.0;
 	
 	//attributes

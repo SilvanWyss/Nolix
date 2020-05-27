@@ -54,7 +54,7 @@ import ch.nolix.element.widget.VerticalStack;
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
 	
-	//default value
+	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//static attribute

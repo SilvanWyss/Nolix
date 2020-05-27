@@ -22,7 +22,7 @@ import ch.nolix.element.graphic.Image;
  */
 public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 
-	//default value
+	//constant
 	public static final Color DEFAULT_COLOR = Color.LIGHT_GREY;
 	
 	//attribute

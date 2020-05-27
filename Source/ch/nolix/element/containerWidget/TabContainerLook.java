@@ -11,7 +11,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
 //class
 public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	
-	//default values
+	//constants
 	public static final int DEFAULT_MENU_MARGIN = 0;
 	public static final int DEFAULT_MENU_ITEM_MARGIN = 0;
 	

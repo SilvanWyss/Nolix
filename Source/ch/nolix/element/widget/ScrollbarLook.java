@@ -11,7 +11,7 @@ import ch.nolix.element.elementAPI.IMutableElement;
 //class
 public final class ScrollbarLook extends Element<ScrollbarLook> implements IMutableElement<ScrollbarLook> {
 	
-	//default values
+	//constants
 	public static final Color DEFAULT_SCROLLBAR_COLOR = Color.LIGHT_GREY;
 	public static final Color DEFAULT_SCROLLBAR_CURSOR_COLOR = Color.DARK_GREY;
 	

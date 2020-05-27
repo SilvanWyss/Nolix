@@ -14,7 +14,7 @@ extends LayerElement<ItemMenuItemLook> {
 	//constant
 	public static final String TYPE_NAME = "ItemLook";
 	
-	//default values
+	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 		

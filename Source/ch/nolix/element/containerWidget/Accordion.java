@@ -23,11 +23,11 @@ import ch.nolix.element.widget.VerticalStack;
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
-	//default value
+	//constant
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR =
 	AccordionExpansionBehavior.Single;
 	
-	//default value
+	//constant
 	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =
 	Color.LIGHT_GREY;
 	

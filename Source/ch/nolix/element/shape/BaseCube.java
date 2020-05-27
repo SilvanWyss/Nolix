@@ -16,7 +16,7 @@ import ch.nolix.element.base.MutableProperty;
  */
 public final class BaseCube extends BaseShape<BaseCube> {
 	
-	//default values	
+	//constants	
 	public static final double DEFAULT_X_LENGTH = 1.0;
 	public static final double DEFAULT_Y_LENGTH = 1.0;
 	public static final double DEFAULT_Z_LENGTH = 1.0;

@@ -13,7 +13,7 @@ import ch.nolix.element.base.MutableProperty;
 //class
 public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	
-	//default value
+	//constant
 	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute

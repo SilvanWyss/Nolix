@@ -13,7 +13,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
 //class
 public final class GridLook extends BorderWidgetLook<GridLook> {
 	
-	//default values
+	//constants
 	public static final GridLineType DEFAULT_LINE_TYPE = GridLineType.InnerLines;
 	public static final int DEFAULT_LINE_THICKNESS = ValueCatalogue.SMALL_LINE_THICKNESS;
 	public static final Color DEFAULT_LINE_COLOR = Color.BLACK;
