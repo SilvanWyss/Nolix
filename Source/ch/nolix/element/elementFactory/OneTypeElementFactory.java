@@ -53,6 +53,11 @@ final class OneTypeElementFactory<E> {
 	}
 	
 	//method
+	public boolean canCreateElementFrom(final BaseNode specification) {
+		return canCreateElementOf(specification.getHeader());
+	}
+	
+	//method
 	public boolean canCreateElementOf(final Class<?> type) {
 		return (elementClass == type);
 	}

@@ -15,6 +15,11 @@ public class ElementFactory<E> {
 	private final LinkedList<OneTypeElementFactory<?>> oneTypeElementFactories = new LinkedList<>();
 		
 	//method
+	public final boolean canCreateElementFrom(final BaseNode specification) {
+		return oneTypeElementFactories.contains(otef -> otef.canCreateElementFrom(specification));
+	}
+	
+	//method
 	public final <E2 extends E> boolean canCreateElementOf(final Class<E2> type) {
 		return oneTypeElementFactories.contains(otef -> otef.canCreateElementOf(type));
 	}
