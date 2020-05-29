@@ -1083,19 +1083,30 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button press on the view area.
+	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {}
+	@Override
+	protected final void noteLeftMouseButtonClickOnSelfWhenEnabled() {
+		
+		//Handles the case that the view area is under the cursor.
+		if (viewAreaIsUnderCursor()) {
+			noteLeftMouseButtonClickOnViewAreaWhenEnabled();
+		}
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a left mouse button click on the view area
+	 * for the case when it is enabled.
+	 */
+	protected abstract void noteLeftMouseButtonClickOnViewAreaWhenEnabled();
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteLeftMouseButtonPressWhenEnabled() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPressWhenEnabled();
+	protected final void noteLeftMouseButtonPressOnSelfWhenEnabled() {
 		
 		//Handles the case that the view area is under the cursor.
 		if (viewAreaIsUnderCursor()) {
@@ -1122,6 +1133,13 @@ extends Widget<BW, BWL> {
 			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
 	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a left mouse button press on the view area
+	 * for the case when it is enabled.
+	 */
+	protected abstract void noteLeftMouseButtonPressOnViewAreaWhenEnabled();
 	
 	//method
 	/**

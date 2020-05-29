@@ -222,7 +222,8 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
 	
 	//method
 	/**

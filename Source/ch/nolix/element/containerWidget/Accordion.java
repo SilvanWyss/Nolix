@@ -358,7 +358,15 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {}
 	
 	//method
 	/**

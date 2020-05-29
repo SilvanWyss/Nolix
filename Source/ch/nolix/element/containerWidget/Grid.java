@@ -231,7 +231,15 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {}
 	
 	//method
 	@Override

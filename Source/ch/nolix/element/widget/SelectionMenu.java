@@ -131,7 +131,8 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
 	
 	//method
 	@Override

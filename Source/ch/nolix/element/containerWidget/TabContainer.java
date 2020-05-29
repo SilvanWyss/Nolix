@@ -460,7 +460,8 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
 	
 	//method
 	/**

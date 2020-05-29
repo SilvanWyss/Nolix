@@ -281,5 +281,13 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	/**
 	 * {@inheritDoc}
 	 */
-	protected final void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected final void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {}
 }

@@ -196,7 +196,8 @@ extends BorderWidget<TLW, TLWL> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected final void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	@Override
+	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
 	
 	//method
 	/**

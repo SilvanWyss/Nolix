@@ -307,12 +307,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected AreaLook createLook() {
 		return new AreaLook();
@@ -349,6 +343,20 @@ public final class Area extends Widget<Area, AreaLook> {
 	protected int getWidthWhenNotCollapsed() {
 		return width;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonPressOnSelfWhenEnabled() {}
 	
 	//method
 	/**

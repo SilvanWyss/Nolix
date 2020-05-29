@@ -774,36 +774,29 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * Lets the current {@link Widget} note a left mouse button click.
 	 */
 	public final void noteLeftMouseButtonClick() {
-		
 		if (isEnabled()) {
+			
 			noteLeftMouseButtonClickOnSelfWhenEnabled();
-		}
-		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
-			getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonClick);
+			
+			if (redirectsEventsToPaintableWidgetsAPriori()) {
+				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonClick);
+			}
 		}
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a left mouse button press.
+	 * Lets the current {@link Widget} note a left mouse button pressy.
 	 */
 	public final void noteLeftMouseButtonPress() {
 		if (isEnabled()) {
-			noteLeftMouseButtonPressWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a left mouse button press recursively.
-	 */
-	public final void noteLeftMouseButtonPressRecursively() {
-		
-		noteLeftMouseButtonPress();
-		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
-			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonPressRecursively());
+			
+			noteLeftMouseButtonPressOnSelfWhenEnabled_();
+			noteLeftMouseButtonPressOnSelfWhenEnabled();
+			
+			if (redirectsEventsToPaintableWidgetsAPriori()) {
+				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonPress);
+			}
 		}
 	}
 	
@@ -1575,40 +1568,11 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void noteLeftMouseButtonClickOnSelfWhenEnabled();
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a left mouse button press for the case when it is enabled.
+	 * Lets the current {@link Widget} note a left mouse button press on itself for the case when it is enabled.
 	 */
-	protected void noteLeftMouseButtonPressWhenEnabled() {		
-		if (!isUnderCursor()) {
-			
-			//Enumerates the state of the current Widget.
-			switch (state) {
-				case Hovered:
-				case Focused:
-					setNormal();
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-			
-			//Enumerates the state of the current Widget.
-			switch (state) {
-				case Normal:
-				case Hovered:
-					setFocused();
-					break;
-				default:
-					break;
-			}
-			
-			if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
-				leftMouseButtonPressCommand.run();
-			}
-		}
-	}
+	protected abstract void noteLeftMouseButtonPressOnSelfWhenEnabled();
 	
 	//method
 	/**
@@ -1811,7 +1775,42 @@ implements Recalculable, TopLeftPositionedRecangular {
 		fillUpPaintableWidgets(list);
 		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}
-		
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button press on itself for the case when it is enabled.
+	 */
+	private void noteLeftMouseButtonPressOnSelfWhenEnabled_() {		
+		if (!isUnderCursor()) {
+			
+			//Enumerates the state of the current Widget.
+			switch (state) {
+				case Hovered:
+				case Focused:
+					setNormal();
+					break;
+				default:
+					break;
+			}
+		}
+		else {
+			
+			//Enumerates the state of the current Widget.
+			switch (state) {
+				case Normal:
+				case Hovered:
+					setFocused();
+					break;
+				default:
+					break;
+			}
+			
+			if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
+				leftMouseButtonPressCommand.run();
+			}
+		}
+	}
+	
 	//method
 	/**
 	 * Paints a cover for the current {@link Widget} using the given painter, that is supposed to be positioned.
