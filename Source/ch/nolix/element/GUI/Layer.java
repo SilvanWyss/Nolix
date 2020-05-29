@@ -472,7 +472,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		this.cursorYPosition = cursorYPosition;
 		
 		if (rootWidget != null) {
-			rootWidget.recalculateRecursively();
+			rootWidget.recalculate();
 			rootWidget.setParentCursorPosition(cursorXPosition, cursorYPosition);
 			rootWidget.noteMouseMoveRecursively();
 		}
@@ -607,7 +607,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		if (rootWidget != null) {
 			
 			//For updating the size of the root widget.
-			rootWidget.recalculateRecursively();
+			rootWidget.recalculate();
 									
 			//Enumerates the content position of the current GUILayer.
 			switch (contentPosition.getValue()) {

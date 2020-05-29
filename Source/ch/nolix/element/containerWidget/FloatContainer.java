@@ -104,7 +104,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public void recalculate() {
+	public void recalculateSelf() {
 		
 		final var contentAreaWidth = getContentAreaWidth();
 		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();
@@ -127,7 +127,7 @@ implements Clearable<FloatContainer> {
 			x += widgetMargin + widgetWidth;
 		}
 		
-		super.recalculate();
+		super.recalculateSelf();
 	}
 	
 	//method

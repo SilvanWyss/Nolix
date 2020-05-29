@@ -1039,25 +1039,16 @@ implements Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * {@inheritDoc}}
 	 */
 	@Override
-	public void recalculate() {
-		width = calculatedWidth();
-		height = calculatedHeight();
-	}
-	
-	//method
-	/**
-	 * Recalculates the current {@link Widget} recursively.
-	 */
-	public final void recalculateRecursively() {
+	public final void recalculate() {
 		
-		getRefPaintableWidgets().forEach(cw -> cw.recalculateRecursively());
+		getRefPaintableWidgets().forEach(cw -> cw.recalculate());
 		
-		recalculate();
+		recalculateSelf();
 	}
-	
+		
 	//method
 	/**
 	 * Avoids that the current {@link Widget} greys out when it is disabled.
@@ -1742,7 +1733,16 @@ implements Recalculable, TopLeftPositionedRecangular {
 	protected boolean paintsPaintableWidgetAPriori() {
 		return true;
 	}
-
+	
+	//method
+	/**
+	 * Recalculates the current {@link Widget} itself.
+	 */
+	protected void recalculateSelf() {
+		width = calculatedWidth();
+		height = calculatedHeight();
+	}
+	
 	//method
 	/**
 	 * @return true if the current {@link Widget} redictes the events to its paintable {@link Widgets} a priori.

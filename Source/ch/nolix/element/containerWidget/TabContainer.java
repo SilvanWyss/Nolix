@@ -293,10 +293,10 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void recalculate() {
+	public void recalculateSelf() {
 		
 		//Calls method of the base class.
-		super.recalculate();	
+		super.recalculateSelf();	
 		
 		//Handles the case that the current tab container contains a selected widget.
 		if (containsSelectedTabWithWidget()) {

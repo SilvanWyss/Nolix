@@ -162,9 +162,9 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public final void recalculate() {
+	public final void recalculateSelf() {
 				
-		super.recalculate();
+		super.recalculateSelf();
 		
 		final var look = getRefLook();
 		final var contentWidth = Calculator.getMax(1, getContentAreaWidth());

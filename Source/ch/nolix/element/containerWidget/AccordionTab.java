@@ -331,7 +331,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			}
 		}
 		
-		tabVerticalStack.recalculate();
+		tabVerticalStack.recalculateSelf();
 	}
 	
 	//method

@@ -252,12 +252,12 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	}
 	
 	@Override
-	public void recalculate() {
+	public void recalculateSelf() {
 						
 		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
 				
 		//Calls method of the base class.
-		super.recalculate();
+		super.recalculateSelf();
 	}
 		
 	//method

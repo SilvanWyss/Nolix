@@ -57,10 +57,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void recalculate() {
+	public void recalculateSelf() {
 		
 		//Calls method of the base class.
-		super.recalculate();
+		super.recalculateSelf();
 		
 		//Enumerates the content position of the current horizontal stack.
 		switch (getContentPosition()) {

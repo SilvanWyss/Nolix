@@ -295,10 +295,10 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * @param relativeYPosition
 	 */
 	@Override
-	public void recalculate () {
+	public void recalculateSelf () {
 		
 		//Calls method of the base class.
-		super.recalculate();
+		super.recalculateSelf();
 				
 		var y = 0;
 		

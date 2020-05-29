@@ -59,8 +59,8 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		.setProposalWidth(originHorizontalStack.getWidth())
 		.setProposalHeight(200);		
 		
-		originHorizontalStack.recalculate();
-		selectionMenu.recalculate();
+		originHorizontalStack.recalculateSelf();
+		selectionMenu.recalculateSelf();
 		
 		getParentGUI().addLayerOnTop(
 			new Layer()
@@ -72,7 +72,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 			.setRootWidget(selectionMenu.setFocused())
 		);
 		
-		recalculate();
+		recalculateSelf();
 		
 		return this;
 	}
