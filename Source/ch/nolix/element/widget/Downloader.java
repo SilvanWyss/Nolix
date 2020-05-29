@@ -142,7 +142,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		super.noteLeftMouseButtonReleaseWhenEnabled();
 		
 		if (viewAreaIsUnderCursor() && providesFile) {
-			getRefGUI().onFrontEnd().saveFile(readFileToBytes());
+			getParentGUI().onFrontEnd().saveFile(readFileToBytes());
 		}
 	}
 

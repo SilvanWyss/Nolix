@@ -26,10 +26,10 @@ public final class GUILooksTutorial {
 		//Creates a SelectionMenu.
 		final var selectionMenu =
 		new SelectionMenu()
-		.addItem("Anthrazit", i -> i.getRefGUI().setConfiguration(new AnthrazitGUILook()))
-		.addItem("BlackBlue", i -> i.getRefGUI().setConfiguration(new BlackBlueGUILook()))
-		.addItem("RedLine", i -> i.getRefGUI().setConfiguration(new RedLineGUILook()))
-		.addItem("WhiteGreen", i -> i.getRefGUI().setConfiguration(new WhiteGreenGUILook()));	
+		.addItem("Anthrazit", i -> i.getParentGUI().setConfiguration(new AnthrazitGUILook()))
+		.addItem("BlackBlue", i -> i.getParentGUI().setConfiguration(new BlackBlueGUILook()))
+		.addItem("RedLine", i -> i.getParentGUI().setConfiguration(new RedLineGUILook()))
+		.addItem("WhiteGreen", i -> i.getParentGUI().setConfiguration(new WhiteGreenGUILook()));	
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame(

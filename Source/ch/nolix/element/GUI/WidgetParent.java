@@ -56,7 +56,7 @@ public final class WidgetParent {
 			return mGui;
 		}
 		
-		return widget.getRefGUI();
+		return widget.getParentGUI();
 	}
 	
 	//method

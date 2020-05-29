@@ -385,7 +385,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link LayerGUI}.
 	 */
 	public final int getIndexOnGUI() {
-		return getRefGUI().getRefWidgets().getIndexOf(this);
+		return getParentGUI().getRefWidgets().getIndexOf(this);
 	}
 	
 	//method
@@ -401,6 +401,22 @@ implements Recalculable, TopLeftPositionedRecangular {
 		}
 		
 		return parent;
+	}
+	
+	//method
+	/**
+	 * @return the {@link GUI} the current {@link Widget} belongs to, directly or indirectly.
+	 * @throws ArgumentDoesNotBelongToParentException
+	 * if the current {@link Widget} does not belong to a {@link GUI}.
+	 */
+	public final LayerGUI<?> getParentGUI() {
+		
+		//Asserts that the current Widget belongs to a GUI.
+		if (parent == null) {
+			throw new ArgumentDoesNotBelongToParentException(this, GUI.class);
+		}
+		
+		return parent.getRefGUI();
 	}
 	
 	//method
@@ -429,20 +445,6 @@ implements Recalculable, TopLeftPositionedRecangular {
 		return focusLook;
 	}
 	
-	//method
-	/**
-	 * @return the {@link LayerGUI} the current {@link Widget} belongs to, directly or indirectly.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link LayerGUI}.
-	 */
-	public final LayerGUI<?> getRefGUI() {
-		
-		if (parent == null) {
-			throw new ArgumentDoesNotBelongToParentException(this, GUI.class);
-		}
-		
-		return parent.getRefGUI();
-	}
-
 	//method
 	/**
 	 * @return the hover look of the current {@link Widget}.
@@ -1761,7 +1763,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected final void supposeGUIIsAlive() {
 		if (belongsToGUI() && parent.GUIIsClosed()) {
-			throw new ClosedArgumentException(getRefGUI());
+			throw new ClosedArgumentException(getParentGUI());
 		}
 	}
 	

@@ -51,7 +51,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		selectionMenu = new SelectionMenu(getItems().to(ItemMenuItem::getText));
 		
 		selectionMenu.setSelectCommand(
-			i -> { select(i); getRefGUI().removeTopLayer(); selectionMenu = null; }
+			i -> { select(i); getParentGUI().removeTopLayer(); selectionMenu = null; }
 		);
 		
 		selectionMenu
@@ -62,7 +62,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		originHorizontalStack.recalculate();
 		selectionMenu.recalculate();
 		
-		getRefGUI().addLayerOnTop(
+		getParentGUI().addLayerOnTop(
 			new Layer()
 			.setContentPosition(ExtendedContentPosition.Free)
 			.setFreeContentPosition(

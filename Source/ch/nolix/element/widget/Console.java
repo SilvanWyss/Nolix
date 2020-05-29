@@ -703,7 +703,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 					break;
 				default:
 					if (key.isCharacter()) {
-						if (getRefGUI().isPressed(Key.SHIFT) ^ getRefGUI().shiftIsLocked()) {
+						if (getParentGUI().isPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
 							insertCharacterAfterCursor(key.toUpperCaseChar());	
 						}
 						else {
