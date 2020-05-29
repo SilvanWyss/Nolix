@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -13,7 +14,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 170
+ * @lines 180
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	

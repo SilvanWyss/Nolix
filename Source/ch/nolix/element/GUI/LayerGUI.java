@@ -340,24 +340,24 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Adds or changes the given interaction attributes to the {@link Widget}s of the current {@link GUI}.
+	 * Adds or changes the given attributes to the {@link Widget}s of the current {@link GUI}.
 	 * 
-	 * @param interactionAttributesOfWidgets
+	 * @param attributes
 	 * @return the current {@link GUI}.
-	 * @throws InvalidArgumentException if the given interactionAttributesOfWidgets are not valid.
+	 * @throws InvalidArgumentException if the given attributes are not valid.
 	 */
-	public <S extends BaseNode> LG addOrChangeInteractionAttributesOfWidgets(
-		final IContainer<IContainer<S>> interactionAttributesOfWidgets
+	public <S extends BaseNode> LG addOrChangeAttributesOfWidgets(
+		final IContainer<IContainer<S>> attributes
 	) {
 		
-		final var iterator = interactionAttributesOfWidgets.iterator();
+		final var iterator = attributes.iterator();
 		
 		getRefWidgets().forEach(w -> w.addOrChangeAttributes(iterator.next()));
 		
 		if (iterator.hasNext()) {
 			throw new InvalidArgumentException(
-				"interaction attributes of Widgets",
-				interactionAttributesOfWidgets,
+				"attributes",
+				attributes,
 				"contains more than " + getRefWidgets().getSize() + " Widgets"
 			);
 		}
@@ -426,14 +426,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		//Handles the case that the current LayerGUI contains Layers.
 		return topLayer.getCursorIcon();
  	}
-	
-	//method
-	/**
-	 * @return the interaction attributes of the {@link Widget}s of the current {@link GUI}.
-	 */
-	public IContainer<IContainer<Node>> getInteractionAttributesOfWidgets() {
-		return getRefWidgets().to(w -> w.getInteractionAttributes());
-	}
 	
 	//method
 	/**

@@ -131,16 +131,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 
 	//method
 	/**
-	 * Adds or changes the given widgetsInteractionAttributes to the {@link Widget}s
+	 * Adds or changes the given attributes to the {@link Widget}s
 	 * of the GUI of the current {@link BaseBackGUIClient}.
 	 * 
-	 * @param widgetsInteractionAttributes
-	 * @throws InvalidArgumentException if the given widgetsInteractionAttributes are not valid.
+	 * @param attributes
+	 * @throws InvalidArgumentException if the given attributes are not valid.
 	 */
 	private void addOrChangeGUIWidgetsAttributes(
-		final IContainer<IContainer<Node>> widgetsInteractionAttributes
+		final IContainer<IContainer<Node>> attributes
 	) {
-		getRefGUI().addOrChangeInteractionAttributesOfWidgets(widgetsInteractionAttributes);
+		getRefGUI().addOrChangeAttributesOfWidgets(attributes);
 	}
 	
 	//method

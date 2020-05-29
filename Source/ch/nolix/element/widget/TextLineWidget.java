@@ -19,7 +19,7 @@ import ch.nolix.element.textFormat.TextFormat;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 200
  * @param <TLW> The type of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
@@ -192,14 +192,6 @@ extends BorderWidget<TLW, TLWL> {
 		);
 	}
 	
-	//method
-	/**
-	 * @return a new specification of the text of the current {@link TextLineWidget}.
-	 */
-	protected final Node getTextSpecification() {
-		return new Node(PascalCaseNameCatalogue.NAME, getText());
-	}
-
 	//method
 	/**
 	 * {@inheritDoc}

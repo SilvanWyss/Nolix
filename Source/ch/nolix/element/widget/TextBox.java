@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.widget;
 
-import ch.nolix.common.container.LinkedList;
+//own imports
 import ch.nolix.common.math.Calculator;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.input.Key;
@@ -13,7 +12,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 350
+ * @lines 340
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
@@ -48,21 +47,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		resetAndApplyDefaultConfiguration();
 		
 		setText(text);
-	}
-	
-	//method
-	/**
-	 * @return the interaction attributes of the current {@link TextBox}.
-	 */
-	@Override
-	public LinkedList<Node> getInteractionAttributes() {
-		
-		//Calls method of the base class.
-		final var interactionAttributes = super.getInteractionAttributes();
-		
-		interactionAttributes.addAtEnd(getTextSpecification());
-		
-		return interactionAttributes;
 	}
 	
 	//method

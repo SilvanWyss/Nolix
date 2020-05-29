@@ -128,15 +128,15 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public final LinkedList<Node> getInteractionAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
-		final var interactionAttributes = super.getInteractionAttributes();
+		final var attributes = super.getAttributes();
 		
 		if (containsSelectedItem()) {
-			interactionAttributes.addAtEnd(new Node(SELECTED_ITEM_HEADER,	getSelectedItemText()));
+			attributes.addAtEnd(new Node(SELECTED_ITEM_HEADER,	getSelectedItemText()));
 		}
 		
-		return interactionAttributes;
+		return attributes;
 	}
 	
 	//method

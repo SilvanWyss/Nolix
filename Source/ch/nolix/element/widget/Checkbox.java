@@ -84,14 +84,14 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getInteractionAttributes() {
+	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		final var interactionAttributes = super.getInteractionAttributes();
+		final var attributes = super.getAttributes();
 		
-		interactionAttributes.addAtEnd(new Node(CHECK_FLAG_HEADER, isChecked()));
+		attributes.addAtEnd(new Node(CHECK_FLAG_HEADER, isChecked()));
 		
-		return interactionAttributes;
+		return attributes;
 	}
 	
 	//method

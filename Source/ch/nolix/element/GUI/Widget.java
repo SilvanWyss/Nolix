@@ -286,7 +286,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
-		attributes.addAtBegin(getInteractionAttributes());
+		attributes.addAtEnd(getState().getSpecificationAs(PascalCaseNameCatalogue.STATE));
 		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
 		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_HEADER, greyOutWhenDisabled));
 			
@@ -386,16 +386,6 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final int getIndexOnGUI() {
 		return getRefGUI().getRefWidgets().getIndexOf(this);
-	}
-	
-	//method
-	/**
-	 * The interaction attributes of a {@link Widget} are those attributes a user can change.
-	 * 
-	 * @return the interaction attributes of the current {@link Widget}.
-	 */
-	public LinkedList<Node> getInteractionAttributes() {
-		return new LinkedList<> (getState().getSpecificationAs(PascalCaseNameCatalogue.STATE));
 	}
 	
 	//method
