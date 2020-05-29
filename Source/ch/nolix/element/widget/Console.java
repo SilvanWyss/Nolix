@@ -714,6 +714,12 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		}
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	
 	private TextFormat getFont() {
 		
 		final var look = getRefLook();

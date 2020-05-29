@@ -128,6 +128,12 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
 	@Override
 	protected void noteSelectItem(ItemMenuItem item) {}
 }

@@ -774,21 +774,13 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * Lets the current {@link Widget} note a left mouse button click.
 	 */
 	public final void noteLeftMouseButtonClick() {
-		if (isEnabled()) {
-			noteLeftMouseButtonClickWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a left mouse button click recursively.
-	 */
-	public final void noteLeftMouseButtonClickRecursively() {
 		
-		noteLeftMouseButtonClick();
+		if (isEnabled()) {
+			noteLeftMouseButtonClickOnSelfWhenEnabled();
+		}
 		
 		if (redirectsEventsToPaintableWidgetsAPriori()) {
-			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonClickRecursively());
+			getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonClick);
 		}
 	}
 	
@@ -1577,11 +1569,11 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected void noteKeyTypingWhenEnabled(final Key key) {}
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a left mouse button click for the case when it is enabled.
+	 * Lets the current {@link Widget} note a left mouse button click on itself for the case when it is enabled.
 	 */
-	protected void noteLeftMouseButtonClickWhenEnabled() {}
+	protected abstract void noteLeftMouseButtonClickOnSelfWhenEnabled();
 	
 	//method
 	/**

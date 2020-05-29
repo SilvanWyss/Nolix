@@ -144,6 +144,12 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
 	@Override
 	protected void noteSelectItem(final ItemMenuItem item) {
 		originLabel.setText(item.getText());

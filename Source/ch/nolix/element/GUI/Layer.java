@@ -435,7 +435,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteLeftMouseButtonClick() {
 		if (rootWidget != null) {
-			rootWidget.noteLeftMouseButtonClickRecursively();
+			rootWidget.noteLeftMouseButtonClick();
 		}
 	}
 	

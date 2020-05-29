@@ -206,4 +206,10 @@ implements Clearable<FloatContainer> {
 			widgets.getMaxByInt(w -> w.getWidth())
 		);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
 }

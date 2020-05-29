@@ -98,6 +98,12 @@ implements Clearable<ImageWidget> {
 	protected int getContentAreaWidth() {
 		return (isEmpty() ? 0 : getRefImage().getWidth());
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
 
 	//method
 	@Override

@@ -307,6 +307,12 @@ public final class Area extends Widget<Area, AreaLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected AreaLook createLook() {
 		return new AreaLook();

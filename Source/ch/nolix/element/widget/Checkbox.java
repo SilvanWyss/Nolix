@@ -222,6 +222,12 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void paintContentArea(final CheckboxLook checkBoxLook, final IPainter painter) {
 		

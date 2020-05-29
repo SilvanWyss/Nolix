@@ -223,4 +223,10 @@ implements Clearable<SingleContainer> {
 		
 		return widget.getHeight();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
 }
