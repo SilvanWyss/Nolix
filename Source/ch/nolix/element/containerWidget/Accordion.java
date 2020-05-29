@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -19,7 +20,7 @@ import ch.nolix.element.widget.VerticalStack;
 /**
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 390
+ * @lines 380
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
@@ -254,9 +255,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	public void recalculate() {
 						
 		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
-		
-		accordionVerticalStack.recalculate();
-		
+				
 		//Calls method of the base class.
 		super.recalculate();
 	}
