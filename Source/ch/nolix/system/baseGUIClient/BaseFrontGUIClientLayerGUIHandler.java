@@ -41,10 +41,6 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 	@Override
 	public void runGUICommand(final ChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
-			case Protocol.SET_TITLE_HEADER:
-				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
-				mGUI.refresh();
-				break;
 			case Protocol.RESET_HEADER:
 				resetGUI(pGUICommand.getAttributesAsNodes());
 				break;
