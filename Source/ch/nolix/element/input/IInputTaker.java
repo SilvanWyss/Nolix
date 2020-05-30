@@ -22,8 +22,8 @@ public interface IInputTaker {
 	 */
 	public default void noteInput(final IInput<?> input) {
 		
-		if (input instanceof MouseInput) {
-			noteMouseInput(input.as(MouseInput.class));
+		if (input instanceof MouseInputType) {
+			noteMouseInput(input.as(MouseInputType.class));
 		}
 		
 		else if (input instanceof KeyInput) {
@@ -148,7 +148,7 @@ public interface IInputTaker {
 	 * 
 	 * @param mouseInput
 	 */
-	public default void noteMouseInput(final MouseInput mouseInput) {
+	public default void noteMouseInput(final MouseInputType mouseInput) {
 		switch (mouseInput) {
 			case LeftMouseButtonPress:
 				noteLeftMouseButtonPress();

@@ -6,7 +6,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.smartElementAPI.ISmartElementEnum;
 
 //enum
-public enum MouseInput implements IInput<MouseInput>, ISmartElementEnum<MouseInput> {
+public enum MouseInputType implements IInput<MouseInputType>, ISmartElementEnum<MouseInputType> {
 	LeftMouseButtonPress,
 	LeftMouseButtonRelease,
 	LeftMouseButtonClick,
@@ -20,7 +20,7 @@ public enum MouseInput implements IInput<MouseInput>, ISmartElementEnum<MouseInp
 	BackwardMouseWheelRotationStep;
 	
 	//static method
-	public static MouseInput fromSpecification(final BaseNode specification) {
+	public static MouseInputType fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }
