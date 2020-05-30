@@ -7,6 +7,7 @@ import ch.nolix.element.smartElementAPI.ISmartElementEnum;
 
 //enum
 public enum MouseInputType implements IInput<MouseInputType>, ISmartElementEnum<MouseInputType> {
+	MouseMove,
 	LeftMouseButtonPress,
 	LeftMouseButtonRelease,
 	LeftMouseButtonClick,
