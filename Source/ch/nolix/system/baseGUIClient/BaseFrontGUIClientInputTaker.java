@@ -8,6 +8,7 @@ import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.input.KeyInput;
 import ch.nolix.element.input.KeyInputType;
+import ch.nolix.element.input.MouseInput;
 import ch.nolix.element.input.MouseInputType;
 
 //class
@@ -71,7 +72,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonClick() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.LeftMouseButtonClick);
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.LeftMouseButtonClick));
 	}
 	
 	//method
@@ -80,7 +83,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonPress() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.LeftMouseButtonPress);	
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.LeftMouseButtonPress));	
 	}
 	
 	//method
@@ -89,7 +94,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonRelease() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.LeftMouseButtonRelease);		
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.LeftMouseButtonRelease));
 	}
 	
 	//method
@@ -98,7 +105,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
-		parentFrontGuiClientoid.noteMouseMoveOnCounterpart(cursorXPositionOnViewArea, cursorYPositionOnViewArea);		
+		parentFrontGuiClientoid.noteInputOnCounterpart(
+			new MouseInput(cursorXPositionOnViewArea, cursorYPositionOnViewArea, MouseInputType.MouseMove)
+		);
 	}
 	
 	//method
@@ -107,7 +116,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelClick() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.MouseWheelClick);
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.MouseWheelClick));
 	}
 	
 	//method
@@ -116,7 +127,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelPress() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.MouseWheelPress);
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.MouseWheelPress));
 	}
 	
 	//method
@@ -125,7 +138,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelRelease() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.MouseWheelRelease);		
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.MouseWheelRelease));		
 	}
 	
 	//method
@@ -134,9 +149,15 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+		
+		//TODO: Use correct cursor position.
 		parentFrontGuiClientoid.noteInputOnCounterpart(
-			directionOfRotation == DirectionOfRotation.Backward ?
-			MouseInputType.BackwardMouseWheelRotationStep : MouseInputType.ForwardMouseWheelRotationStep
+			new MouseInput(
+				0,
+				0,
+				directionOfRotation == DirectionOfRotation.Backward ?
+				MouseInputType.BackwardMouseWheelRotationStep : MouseInputType.ForwardMouseWheelRotationStep
+			)
 		);	
 	}
 	
@@ -146,7 +167,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonClick() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.RightMouseButtonClick);	
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonClick));	
 	}
 	
 	//method
@@ -155,7 +178,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonPress() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.RightMouseButtonPress);		
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonPress));		
 	}
 	
 	//method
@@ -164,7 +189,9 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {
-		parentFrontGuiClientoid.noteInputOnCounterpart(MouseInputType.RightMouseButtonRelease);	
+		
+		//TODO: Use correct cursor position.
+		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonRelease));	
 	}
 	
 	//method

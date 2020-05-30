@@ -78,10 +78,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				}
 				
 				break;
-			case Protocol.NOTE_MOUSE_MOVE_HEADER:
-				getRefGUI().noteMouseMove(command.getAttributeAt(1).toInt(), command.getAttributeAt(2).toInt());
-				updateGUIOnCounterpart();
-				break;
 			case Protocol.NOTE_RESIZE_HEADER:
 				getRefGUI().noteResize(command.getAttributeAt(1).toInt(), command.getAttributeAt(2).toInt());
 				updateGUIOnCounterpart();

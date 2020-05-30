@@ -27,7 +27,6 @@ final class Protocol {
 	public static final String SHOW_ERROR_MESSAGE_HEADER = "ShowErrorMessage";
 	
 	//constants
-	public static final String NOTE_MOUSE_MOVE_HEADER = "NoteMouseMove";
 	public static final String NOTE_INPUT = "NoteInput";
 	public static final String NOTE_RESIZE_HEADER = "NoteResize";
 	

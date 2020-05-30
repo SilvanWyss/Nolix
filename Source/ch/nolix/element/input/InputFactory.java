@@ -13,6 +13,6 @@ public final class InputFactory extends ElementFactory<IInput<?>> {
 	//visibility-reducing constructor
 	private InputFactory() {
 		registerElementClass_(KeyInput.class, KeyInput::fromSpecification);
-		registerElementClass_(MouseInputType.class, MouseInputType::fromSpecification);
+		registerElementClass_(MouseInput.class, MouseInput::fromSpecification);
 	}
 }

@@ -77,23 +77,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteMouseMoveOnCounterpart(
-		final int cursorXPositionOnViewArea,
-		final int cursorYPositionOnViewArea
-	) {
-		internal_runOnCounterpart(
-			new ChainedNode(
-				Protocol.NOTE_MOUSE_MOVE_HEADER,
-				new Node(cursorXPositionOnViewArea),
-				new Node(cursorYPositionOnViewArea)
-			)
-		);		
-	}
-	
-	//method
 	public final void noteResizeOnCounterpart() {
 		noteResizeOnCounterpart(getRefGUI().getViewAreaWidth(), getRefGUI().getViewAreaHeight());
 	}
