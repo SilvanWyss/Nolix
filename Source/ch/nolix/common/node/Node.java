@@ -52,6 +52,17 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	}
 	
 	//static method
+	public static Node withAttribute(final int... attributes) {
+		
+		final var node = new Node();
+		for (var a : attributes) {
+			node.addAttribute(new Node(a));
+		}
+		
+		return node;
+	}
+	
+	//static method
 	/**
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
