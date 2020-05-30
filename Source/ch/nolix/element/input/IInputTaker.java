@@ -22,7 +22,7 @@ public interface IInputTaker {
 	 */
 	public default void noteInput(final IInput<?> input) {
 		
-		if (input instanceof MouseInputType) {
+		if (input instanceof MouseInput) {
 			noteMouseInput(input.as(MouseInput.class));
 		}
 		
