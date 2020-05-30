@@ -178,12 +178,12 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	
 	//attribute
 	private final Property<KeyInputType> inputType =
-	new Property<>(INPUT_TYPE_HEADER, this::setType, KeyInputType::fromSpecification);
+	new Property<>(INPUT_TYPE_HEADER, this::setInputType, KeyInputType::fromSpecification);
 	
 	//constructor
-	public KeyInput(final Key key, final KeyInputType type) {
+	public KeyInput(final Key key, final KeyInputType inputType) {
 		setKey(key);
-		setType(type);
+		setInputType(inputType);
 	}
 	
 	//method
@@ -197,12 +197,12 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	}
 	
 	//method
-	private void setKey(final Key key) {
-		this.key.setValue(key);
+	private void setInputType(final KeyInputType inputType) {
+		this.inputType.setValue(inputType);
 	}
 	
 	//method
-	private void setType(final KeyInputType type) {
-		this.inputType.setValue(type);
+	private void setKey(final Key key) {
+		this.key.setValue(key);
 	}
 }
