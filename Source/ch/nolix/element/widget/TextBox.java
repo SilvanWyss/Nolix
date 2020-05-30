@@ -3,8 +3,11 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.math.Calculator;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -12,21 +15,26 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 340
+ * @lines 350
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
-	//constant
+	//constants
 	public static final String TYPE_NAME = "TextBox";
-	
-	//constant
 	public static final int MIN_WIDTH = 10;
 	
-	//constant
+	//constants
 	private static final int MIN_CONTENT_AREA_WIDTH = 200;
+	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
 	
 	//attribute
-	private int textCursorPosition = 0;
+	private MutableProperty<Integer> textCursorPosition =
+	new MutableProperty<>(
+		TEXT_CURSOR_POSITION_HEADER,
+		this::setTextCursorPosition,
+		BaseNode::getOneAttributeAsInt,
+		Node::withAttribute
+	);
 	
 	//constructor
 	/**
@@ -188,14 +196,14 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				case ARROW_LEFT:
 					
 					if (getTextCursorPosition() > 0) {
-						textCursorPosition--;
+						setTextCursorPosition(getTextCursorPosition() - 1);
 					}
 					
 					break;
 				case ARROW_RIGHT:
 					
 					if (getTextCursorPosition() < getText().length()) {
-						textCursorPosition++;
+						setTextCursorPosition(getTextCursorPosition() + 1);
 					}
 					
 					break;
@@ -266,8 +274,11 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	private final void deleteCharacterBeforeTextCursor() {
 		if (!getText().isEmpty() && getTextCursorPosition() > 0) {
+			
+			final var textCursorPosition = getTextCursorPosition();
+			
 			setText(getText().substring(0, textCursorPosition - 1) + getText().substring(textCursorPosition));
-			textCursorPosition--;
+			setTextCursorPosition(textCursorPosition - 1);
 		}
 	}
 	
@@ -292,7 +303,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @return the text cursor position of the current {@link TextBox}.
 	 */
 	private final int getTextCursorPosition() {
-		return textCursorPosition;
+		return textCursorPosition.getValue();
 	}
 	
 	//method
@@ -318,7 +329,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
 		
-		textCursorPosition++;
+		setTextCursorPosition(getTextCursorPosition() + 1);;
 	}
 	
 	//method
@@ -335,6 +346,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		.thatIsNamed("text cursor position")
 		.isNotNegative();
 		
-		this.textCursorPosition = textCursorPosition;
+		this.textCursorPosition.setValue(textCursorPosition);
 	}
 }
