@@ -23,7 +23,7 @@ public interface IInputTaker {
 	public default void noteInput(final IInput<?> input) {
 		
 		if (input instanceof MouseInputType) {
-			noteMouseInput(input.as(MouseInputType.class));
+			noteMouseInput(input.as(MouseInput.class));
 		}
 		
 		else if (input instanceof KeyInput) {
@@ -148,8 +148,11 @@ public interface IInputTaker {
 	 * 
 	 * @param mouseInput
 	 */
-	public default void noteMouseInput(final MouseInputType mouseInput) {
-		switch (mouseInput) {
+	public default void noteMouseInput(final MouseInput mouseInput) {
+		switch (mouseInput.getInputType()) {
+			case MouseMove:
+				noteMouseMove(mouseInput.getCursorXPosition(), mouseInput.getCursorYPosition());
+				break;
 			case LeftMouseButtonPress:
 				noteLeftMouseButtonPress();
 				break;
