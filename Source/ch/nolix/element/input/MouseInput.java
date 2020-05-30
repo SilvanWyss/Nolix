@@ -15,7 +15,7 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 	private static final String INPUT_TYPE_HEADER = "InputType";
 	
 	//static method
-	public MouseInput fromSpecification(final BaseNode specification) {
+	public static MouseInput fromSpecification(final BaseNode specification) {
 		return
 		new MouseInput(
 			Discrete2DPoint.fromSpecification(
