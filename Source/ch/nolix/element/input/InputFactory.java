@@ -14,5 +14,6 @@ public final class InputFactory extends ElementFactory<IInput<?>> {
 	private InputFactory() {
 		registerElementClass_(KeyInput.class, KeyInput::fromSpecification);
 		registerElementClass_(MouseInput.class, MouseInput::fromSpecification);
+		registerElementClass_(ResizeInput.class, ResizeInput::fromSpecification);
 	}
 }

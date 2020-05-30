@@ -26,9 +26,8 @@ final class Protocol {
 	public static final String SET_PAINT_COMMANDS_HEADER = "SetPaintCommands";
 	public static final String SHOW_ERROR_MESSAGE_HEADER = "ShowErrorMessage";
 	
-	//constants
+	//constant
 	public static final String NOTE_INPUT = "NoteInput";
-	public static final String NOTE_RESIZE_HEADER = "NoteResize";
 	
 	//visibility-reducing constructor
 	/**

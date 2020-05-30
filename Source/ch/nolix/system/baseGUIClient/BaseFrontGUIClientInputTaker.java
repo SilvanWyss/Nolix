@@ -10,6 +10,7 @@ import ch.nolix.element.input.KeyInput;
 import ch.nolix.element.input.KeyInputType;
 import ch.nolix.element.input.MouseInput;
 import ch.nolix.element.input.MouseInputType;
+import ch.nolix.element.input.ResizeInput;
 
 //class
 /**
@@ -200,6 +201,6 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 */
 	@Override
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		parentFrontGuiClientoid.noteResizeOnCounterpart(viewAreaWidth, viewAreaHeight);		
+		parentFrontGuiClientoid.noteInputOnCounterpart(new ResizeInput(viewAreaWidth, viewAreaHeight));
 	}
 }

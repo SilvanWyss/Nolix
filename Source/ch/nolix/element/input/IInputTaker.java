@@ -9,7 +9,7 @@ import ch.nolix.element.elementEnum.DirectionOfRotation;
 /**
  * @author Silvan
  * @month 2019-08
- * @lines 250
+ * @lines 270
  */
 public interface IInputTaker {
 	
@@ -28,6 +28,10 @@ public interface IInputTaker {
 		
 		else if (input instanceof KeyInput) {
 			noteKeyInput(input.as(KeyInput.class));
+		}
+		
+		else if (input instanceof ResizeInput) {
+			noteResizeInput(input.as(ResizeInput.class));
 		}
 		
 		else {
@@ -234,7 +238,19 @@ public interface IInputTaker {
 	 * @param viewAreaHeight
 	 */
 	public abstract void noteResize(int viewAreaWidth, int viewAreaHeight);
-
+	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a resize.
+	 * The viewAreaWidth and viewAreaHeight of the given resizeInput are the new size of the view area.
+	 * 
+	 * @param viewAreaWidth
+	 * @param viewAreaHeight
+	 */
+	public default void noteResizeInput(final ResizeInput resizeInput) {
+		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeigh());
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a right mouse button click.

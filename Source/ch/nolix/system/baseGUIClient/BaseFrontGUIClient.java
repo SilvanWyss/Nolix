@@ -11,6 +11,7 @@ import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.input.IInput;
+import ch.nolix.element.input.ResizeInput;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
 
@@ -78,21 +79,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	
 	//method
 	public final void noteResizeOnCounterpart() {
-		noteResizeOnCounterpart(getRefGUI().getViewAreaWidth(), getRefGUI().getViewAreaHeight());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final void noteResizeOnCounterpart(final int viewAreaWidth, final int viewAreaHeight) {
-		internal_runOnCounterpart(
-			new ChainedNode(
-				Protocol.NOTE_RESIZE_HEADER,
-				new Node(viewAreaWidth),
-				new Node(viewAreaHeight)
-			)
-		);
+		noteInputOnCounterpart(new ResizeInput(getRefGUI().getViewAreaWidth(), getRefGUI().getViewAreaHeight()));
 	}
 	
 	//method
