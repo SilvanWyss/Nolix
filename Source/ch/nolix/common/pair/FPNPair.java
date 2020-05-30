@@ -3,12 +3,13 @@ package ch.nolix.common.pair;
 
 //class
 /**
- * A {@link FPNPair} (floating point number pair) contains two floating point numbers.
+ * A {@link FPNPair} contains two floating point numbers.
+ * FPN = floating pointer number.
  * A {@link FPNPair} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 70
+ * @lines 90
  */
 public final class FPNPair {
 	
@@ -16,14 +17,18 @@ public final class FPNPair {
 	public static final double DEFAULT_VALUE = 0.0;
 	
 	//attributes
-	private double value1 = DEFAULT_VALUE;
-	private double value2 = DEFAULT_VALUE;
+	private final double value1;
+	private final double value2;
 	
 	//constructor
 	/**
 	 * Creates a new {@link FPNPair} with default values.
 	 */
-	public FPNPair() {}
+	public FPNPair() {
+		
+		//Calls other constructor.
+		this(DEFAULT_VALUE, DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
@@ -33,30 +38,32 @@ public final class FPNPair {
 	 * @param value2
 	 */
 	public FPNPair(final double value1, final double value2) {
+		
+		//Sets the values of the current FPNPair.
 		this.value1 = value1;
 		this.value2 = value2;
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link FPNPair} equals the given object.
+	 * {@inheritDoc}}
 	 */
 	@Override
 	public boolean equals(final Object object) {
 				
-		//Handles the case that the given object is not a FPN pair.
+		//Handles the case that the given object is not a FPNPair.
 		if (!(object instanceof FPNPair)) {
 			return false;
 		}
 		
-		//Handles the case that the given object is a FPN pair.
-		final FPNPair fpnPair = (FPNPair)object;
-		return (fpnPair.getValue1() == getValue1() && fpnPair.getValue2() == getValue2());
+		//Handles the case that the given object is a FPNPair.
+		final var lFPNPair = (FPNPair)object;
+		return (getValue1() == lFPNPair.getValue1() && getValue2() == lFPNPair.getValue2());
 	}
 	
 	//method
 	/**
-	 * @return the value 1 of the current {@link FPNPair}.
+	 * @return value 1 of the current {@link FPNPair}.
 	 */
 	public double getValue1() {
 		return value1;
@@ -64,13 +71,16 @@ public final class FPNPair {
 	
 	//method
 	/**
-	 * @return the value 2 of the current {@link FPNPair}.
+	 * @return value 2 of the current {@link FPNPair}.
 	 */
 	public double getValue2() {
 		return value2;
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}}
+	 */
 	@Override
 	public int hashCode() {
 		return toString().hashCode();
@@ -78,7 +88,7 @@ public final class FPNPair {
 	
 	//method
 	/**
-	 * @return a string representation of the current {@link FPNPair}.
+	 * {@inheritDoc}}
 	 */
 	@Override
 	public String toString() {
