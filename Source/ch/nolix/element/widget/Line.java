@@ -245,4 +245,13 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 			getHeight()
 		);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final boolean redirectsInputsToShownWidgets() {
+		return false;
+	}
 }

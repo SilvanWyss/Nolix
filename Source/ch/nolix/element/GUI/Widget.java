@@ -710,7 +710,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteKeyPress(key);
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteKeyPressRecursively(key));
 		}
 	}
@@ -737,7 +737,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteKeyRelease(key);
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteKeyReleaseRecursively(key));
 		}
 	}
@@ -764,7 +764,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteKeyTyping(key);
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteKeyTypingRecursively(key));
 		}
 	}
@@ -778,7 +778,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 			
 			noteLeftMouseButtonClickOnSelfWhenEnabled();
 			
-			if (redirectsEventsToPaintableWidgetsAPriori()) {
+			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonClick);
 			}
 		}
@@ -794,7 +794,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 			noteLeftMouseButtonPressOnSelfWhenEnabled_();
 			noteLeftMouseButtonPressOnSelfWhenEnabled();
 			
-			if (redirectsEventsToPaintableWidgetsAPriori()) {
+			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonPress);
 			}
 		}
@@ -818,7 +818,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteLeftMouseButtonRelease();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonReleaseRecursively());
 		}
 	}
@@ -841,7 +841,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteMouseMove();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteMouseMoveRecursively());
 		}
 	}
@@ -864,7 +864,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteMouseWheelClick();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelClickRecursively());
 		}
 	}
@@ -887,7 +887,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteMouseWheelPress();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelPressRecursively());
 		}
 	}
@@ -910,7 +910,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteMouseWheelRelease();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelReleaseRecursively());
 		}
 	}
@@ -937,7 +937,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteMouseWheelRotationStep(directionOfRotation);
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStepRecursively(directionOfRotation));
 		}
 	}
@@ -960,7 +960,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteRightMouseButtonClick();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonClickRecursively());
 		}
 	}
@@ -983,7 +983,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteRightMouseButtonPress();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonPressRecursively());
 		}
 	}
@@ -1006,7 +1006,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		
 		noteRightMouseButtonRelease();
 		
-		if (redirectsEventsToPaintableWidgetsAPriori()) {
+		if (redirectsInputsToShownWidgets()) {
 			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonReleaseRecursively());
 		}
 	}
@@ -1699,13 +1699,11 @@ implements Recalculable, TopLeftPositionedRecangular {
 		height = calculatedHeight();
 	}
 	
-	//method
+	//method declaration
 	/**
-	 * @return true if the current {@link Widget} redictes the events to its paintable {@link Widgets} a priori.
+	 * @return true if the current {@link Widget} redirects intputs to its shown {@link Widgets}.
 	 */
-	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
-		return true;
-	}
+	protected abstract boolean redirectsInputsToShownWidgets();
 	
 	//method
 	protected final void setCursorPositionOnSelf(final int cursorXPosition, final int cursorYPosition) {

@@ -1300,7 +1300,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean redirectsEventsToPaintableWidgetsAPriori() {
+	protected final boolean redirectsInputsToShownWidgets() {
 		return (isEnabled() && (!hasAnyScrollbar() || viewAreaIsUnderCursor()));
 	}
 	

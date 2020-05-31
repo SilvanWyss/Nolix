@@ -363,13 +363,22 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paint(final IPainter painter, final AreaLook areaLook) {
+	protected void paint(final IPainter painter, final AreaLook areaLook) {
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {
 			painter.setColor(getBackgroundColor());
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean redirectsInputsToShownWidgets() {
+		return true;
 	}
 	
 	//method
