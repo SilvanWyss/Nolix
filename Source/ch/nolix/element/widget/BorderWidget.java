@@ -142,8 +142,8 @@ extends Widget<BW, BWL> {
 	//attributes
 	private final BorderWidgetMainArea mainArea = new BorderWidgetMainArea(this);
 	private final BorderWidgetBorderedArea<BW, BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
-	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetShowArea<BW, BWL> showArea = new BorderWidgetShowArea<>(this);
+	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
 	
 	//attributes
@@ -737,24 +737,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final BW setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
-		
-		setCursorPositionOnSelf(cursorXPosition, cursorYPosition);
-		
-		final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
-		final var cursorYPositionOnContentArea = getCursorYPositionOnContentArea();
-		for (final var w : getRefPaintableWidgets()) {
-			w.setParentCursorPosition(cursorXPositionOnContentArea, cursorYPositionOnContentArea);
-		}
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * Sets the max height of the current {@link BorderWidget}.
 	 * 
 	 * @param maxHeight
@@ -962,6 +944,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the x-position of the cursor on the content area of the current {@link BorderWidget}.
 	 */
+	@Override
 	protected final int getCursorXPositionOnContentArea() {
 		return (getCursorXPosition() - getContentAreaXPosition());
 	}
@@ -970,6 +953,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the y-position of the cursor on the content area of the current {@link BorderWidget}.
 	 */
+	@Override
 	protected final int getCursorYPositionOnContentArea() {
 		return (getCursorYPosition() - getContentAreaYPosition());
 	}
@@ -1089,18 +1073,18 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final void noteLeftMouseButtonClickOnSelfWhenEnabled() {
 		
-		//Handles the case that the show area is under the cursor.
-		if (showAreaIsUnderCursor()) {
-			noteLeftMouseButtonClickOnShowAreaWhenEnabled();
+		//Handles the case that the content area is under the cursor.
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteLeftMouseButtonClickOnContentAreaWhenEnabled();
 		}
 	}
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button click on the show area
+	 * Lets the current {@link BorderWidget} note a left mouse button click on the content area
 	 * for the case when it is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonClickOnShowAreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonClickOnContentAreaWhenEnabled();
 	
 	//method
 	/**
@@ -1108,14 +1092,9 @@ extends Widget<BW, BWL> {
 	 */
 	@Override
 	protected final void noteLeftMouseButtonPressOnSelfWhenEnabled() {
-		
-		//Handles the case that the show area is under the cursor.
-		if (showAreaIsUnderCursor()) {
-			noteLeftMouseButtonPressOnShowAreaWhenEnabled();
-		}
-		
+				
 		//Handles the case that the vertical scrollbar cursor is under the cursor.
-		else if (verticalScrollbarCursorIsUnderCursor()) {
+		if (verticalScrollbarCursorIsUnderCursor()) {
 			
 			isMovingVerticalScrollbarCursor = true;
 			
@@ -1133,14 +1112,19 @@ extends Widget<BW, BWL> {
 			getCursorXPosition()
 			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
+		
+		//Handles the case that the content area is under the cursor.
+		else if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteLeftMouseButtonPressOnContentAreaWhenEnabled();
+		}
 	}
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button press on the show area
+	 * Lets the current {@link BorderWidget} note a left mouse button press on the content area
 	 * for the case when it is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonPressOnShowAreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonPressOnContentAreaWhenEnabled();
 	
 	//method
 	/**
@@ -1152,9 +1136,9 @@ extends Widget<BW, BWL> {
 		isMovingHorizontalScrollbarCursor = false;
 		isMovingVerticalScrollbarCursor = false;
 		
-		//Handles the case that the show area is under the cursor.
-		if (showAreaIsUnderCursor()) {
-			noteLeftMouseButtonReleaseOnShowAreaWhenEnabled();
+		//Handles the case that the content area is under the cursor.
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteLeftMouseButtonReleaseOnContentAreaWhenEnabled();
 		}
 	}
 	
@@ -1163,18 +1147,15 @@ extends Widget<BW, BWL> {
 	 * Lets the current {@link BorderWidget} note a left mouse button release on the show area
 	 * for the case when it is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled();
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseMoveWhenEnabled() {
-		
-		//Calls method of the base class.
-		super.noteMouseMoveWhenEnabled();
-		
+	protected final void noteMouseMoveOnSelfWhenEnabled() {
+				
 		if (isMovingVerticalScrollbarCursor) {
 			
 			final var verticalScrollbarCursorYDelta =
@@ -1202,7 +1183,13 @@ extends Widget<BW, BWL> {
 			
 			setShowAreaXPositionOnScrolledArea(showAreaXDelta);
 		}
+		
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteMouseMoveOnContentAreaWhenEnabled();
+		}
 	}
+	
+	protected abstract void noteMouseMoveOnContentAreaWhenEnabled();
 	
 	//method
 	/**

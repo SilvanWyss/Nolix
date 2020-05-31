@@ -335,14 +335,6 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	}
 	
 	//method
-	void setParentCursorPosition(final int cursorXPositionOnContent, final int cursorYPositionOnContent) {
-		tabVerticalStack.setParentCursorPosition(
-			cursorXPositionOnContent,
-			cursorYPositionOnContent
-		);
-	}
-	
-	//method
 	void setParentAccordion(final Accordion parentAccordion) {
 		
 		Validator

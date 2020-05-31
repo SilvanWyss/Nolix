@@ -819,23 +819,9 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse move.
 	 */
-	public final void noteMouseMove() {
-		if (isEnabled()) {
-			noteMouseMoveWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse move recursively.
-	 */
-	public final void noteMouseMoveRecursively() {
-		
+	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
+		setCursorPosition(cursorXPosition, cursorYPosition);
 		noteMouseMove();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteMouseMoveRecursively());
-		}
 	}
 	
 	//method
@@ -1218,33 +1204,28 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * @param cursorYPosition
 	 * @return the current {@link Widget}.
 	 */
-	public W setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+	private void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		
-		setCursorPositionOnSelf(cursorXPosition, cursorYPosition);
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
 				
-		for (final var w : getRefPaintableWidgets()) {
-			w.setParentCursorPosition(cursorXPosition, cursorYPosition);
-		}
+		final var cursorXPositionOnScrolledArea = getCursorXPositionOnContentArea();
+		final var cursorYPositionOnScrolledArea = getCursorYPositionOnContentArea();
 		
-		return asConcrete();
+		for (final var w : getRefPaintableWidgets()) {
+			w.setCursorPosition(
+				cursorXPositionOnScrolledArea - w.getXPosition(),
+				cursorYPositionOnScrolledArea - w.getYPosition()
+			);
+		}
 	}
 	
-	//method
-	/**
-	 * Sets the position of the cursor on the parent of the current {@link Widget} recursively.
-	 * 
-	 * @param parentCursorXPosition
-	 * @param parentCursorYPosition
-	 * @return the current {@link Widget}.
-	 */
-	public final void setParentCursorPosition(
-		final int parentCursorXPosition,
-		final int parentCursorYPosition
-	) {
-		setCursorPosition(
-			parentCursorXPosition - xPositionOnParent,
-			parentCursorYPosition - yPositionOnParent
-		);
+	protected int getCursorXPositionOnContentArea() {
+		return cursorXPosition;
+	}
+	
+	protected int getCursorYPositionOnContentArea() {
+		return cursorYPosition;
 	}
 	
 	//method
@@ -1597,34 +1578,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 		}
 	}
 	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse move for the case when it is enabled.
-	 */
-	protected void noteMouseMoveWhenEnabled() {
-		if (!isUnderCursor()) {
-			
-			//Enumerates the sate of the current Widget.
-			switch(state) {
-				case Hovered:
-					setNormal();
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-			
-			//Enumerates the sate of the current Widget.
-			switch(state) {
-				case Normal:
-					setHovered();
-					break;
-				default:
-					break;
-			}
-		}
-	}
+	protected abstract void noteMouseMoveOnSelfWhenEnabled();
 	
 	//method
 	/**
@@ -1702,12 +1656,6 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} redirects intputs to its shown {@link Widgets}.
 	 */
 	protected abstract boolean redirectsInputsToShownWidgets();
-	
-	//method
-	protected final void setCursorPositionOnSelf(final int cursorXPosition, final int cursorYPosition) {
-		this.cursorXPosition = cursorXPosition;
-		this.cursorYPosition = cursorYPosition;
-	}
 	
 	//method
 	/**
@@ -1803,6 +1751,51 @@ implements Recalculable, TopLeftPositionedRecangular {
 			
 			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
 				leftMouseButtonPressCommand.run();
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse move.
+	 */
+	private void noteMouseMove() {
+		if (isEnabled()) {
+			
+			noteMouseMoveOnSelfWhenEnabled_();
+			noteMouseMoveOnSelfWhenEnabled();
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteMouseMove);
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a mouse move on itself for the case when it is enabled.
+	 */
+	private void noteMouseMoveOnSelfWhenEnabled_() {
+		if (!isUnderCursor()) {
+			
+			//Enumerates the sate of the current Widget.
+			switch(state) {
+				case Hovered:
+					setNormal();
+					break;
+				default:
+					break;
+			}
+		}
+		else {
+			
+			//Enumerates the sate of the current Widget.
+			switch(state) {
+				case Normal:
+					setHovered();
+					break;
+				default:
+					break;
 			}
 		}
 	}

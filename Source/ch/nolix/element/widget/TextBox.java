@@ -79,7 +79,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * Lets the current {@link TextBox} note a left mouse button press.
 	 */
 	@Override
-	public void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {		
+	public void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {		
 		//Updates the text cursor position.
 			final var text = getText();
 			

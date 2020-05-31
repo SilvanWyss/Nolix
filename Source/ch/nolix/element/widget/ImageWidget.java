@@ -104,21 +104,28 @@ implements Clearable<ImageWidget> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
 
 	//method
 	@Override

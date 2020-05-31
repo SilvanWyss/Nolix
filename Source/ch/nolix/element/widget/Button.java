@@ -211,7 +211,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**

@@ -3,6 +3,8 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementEnum.ContentPosition;
+import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.widget.Button;
 
 /**
