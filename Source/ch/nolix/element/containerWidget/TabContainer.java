@@ -260,7 +260,7 @@ implements Clearable<TabContainer> {
 	}
 	
 	@Override
-	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {		
+	public void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {		
 		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 	}
 	
@@ -461,7 +461,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
 	
 	//method
 	/**

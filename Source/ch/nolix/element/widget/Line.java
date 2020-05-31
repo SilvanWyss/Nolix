@@ -180,7 +180,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean viewAreaIsUnderCursor() {
+	public boolean showAreaIsUnderCursor() {
 		return isUnderCursor();
 	}
 

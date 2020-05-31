@@ -290,7 +290,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean viewAreaIsUnderCursor() {
+	public boolean showAreaIsUnderCursor() {
 		return isUnderCursor();
 	}
 

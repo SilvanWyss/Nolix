@@ -116,7 +116,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {
+	public void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {
 		setCheckFlag(!isChecked());
 	}
 	
@@ -223,7 +223,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
 	
 	//method
 	/**

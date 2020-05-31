@@ -1474,7 +1474,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * @return true if the view are of the current {@link Widget} is under the cursor.
 	 */
-	public abstract boolean viewAreaIsUnderCursor();
+	public abstract boolean showAreaIsUnderCursor();
 	
 	//method
 	/**
@@ -1593,7 +1593,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 			}
 		}
 		else {
-			if (viewAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
+			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
 				leftMouseButtonReleaseCommand.run();
 			}
 		}
@@ -1803,7 +1803,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 					break;
 			}
 			
-			if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
+			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
 				leftMouseButtonPressCommand.run();
 			}
 		}

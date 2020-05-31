@@ -56,7 +56,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the height of the current {@link BorderWidgetBorderedArea}.
 	 */
 	public int getHeight() {
-		return parentBorderWidget.getViewArea().getHeight() + parentBorderWidget.getHorizontalScrollbarThickness();
+		return parentBorderWidget.getShowArea().getHeight() + parentBorderWidget.getHorizontalScrollbarThickness();
 	}
 	
 	//method
@@ -64,7 +64,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the width of the current {@link BorderWidgetBorderedArea}.
 	 */
 	public int getWidth() {
-		return parentBorderWidget.getViewArea().getWidth() + parentBorderWidget.getVerticalScrollbarThickness();
+		return parentBorderWidget.getShowArea().getWidth() + parentBorderWidget.getVerticalScrollbarThickness();
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 					parentBorderWidget.getVerticalScrollbarXPositionOnBorderedArea(),
 					0,
 					parentBorderWidget.getVerticalScrollbarThickness(),
-					parentBorderWidget.getViewArea().getHeight()
+					parentBorderWidget.getShowArea().getHeight()
 				);
 			
 			//Paints the vertical scrollbar cursor.				
@@ -133,7 +133,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 				painter.paintFilledRectangle(
 					0,
 					parentBorderWidget.getHorizontalScrollbarYPositionOnBorderedArea(),
-					parentBorderWidget.getViewArea().getWidth(),
+					parentBorderWidget.getShowArea().getWidth(),
 					parentBorderWidget.getHorizontalScrollbarThickness()
 				);
 			
@@ -149,12 +149,12 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 		}
 		
 		//Paints the view area of the parent BorderWidget.
-		parentBorderWidget.getViewArea().paint(
+		parentBorderWidget.getShowArea().paint(
 			painter.createPainter(
 				0,
 				0,
-				parentBorderWidget.getViewArea().getWidth(),	
-				parentBorderWidget.getViewArea().getHeight()
+				parentBorderWidget.getShowArea().getWidth(),	
+				parentBorderWidget.getShowArea().getHeight()
 			),
 			borderWidgetLook
 		);

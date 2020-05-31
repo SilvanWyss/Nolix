@@ -53,7 +53,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	public void noteLeftMouseButtonPressOnViewAreaWhenEnabled() {
+	public void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {
 		
 		var selectedItem = getItems().getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
 		
@@ -132,7 +132,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnViewAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
 	
 	//method
 	@Override

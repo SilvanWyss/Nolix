@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -30,14 +31,14 @@ import ch.nolix.element.painter.IPainter;
  * 1. widget area: Contains the probable shadows area and caption area.
  * 2. caption area: Contains the probable captions and main area.
  * 3. main area: Contains the probable borders and bordered area.
- * 4. bordered area: Contains the probable scrollbars and view area.
- * 5. view area: Is over the scrolled area and is like a hole to look on the scroll area below.
+ * 4. bordered area: Contains the probable scrollbars and show area.
+ * 5. show area: Is over the scrolled area and is like a hole to look on the scrolled area below.
  * 6. scrolled area: Contains the probable paddings and content area.
  * 7. content area: Contains the content.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1470
+ * @lines 1480
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -48,7 +49,7 @@ extends Widget<BW, BWL> {
 	public static final String TYPE_NAME = "Borderablewidget";
 	
 	//constant
-	private static final int VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
+	private static final int SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
 	
 	//constant
 	private static final int MIN_SCROLL_CURSOR_LENGTH = 20;
@@ -60,8 +61,8 @@ extends Widget<BW, BWL> {
 	private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 	private static final String PROPOSAL_WIDTH_HEADER = "ProposalWidth";
 	private static final String PROPOSAL_HEIGHT_HEADER = "ProposalHeight";
-	private static final String VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER = "ViewAreaXPositionOnScrolledArea";
-	private static final String VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER = "ViewAreaYPositionOnScrolledArea";
+	private static final String SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER = "ShowAreaXPositionOnScrolledArea";
+	private static final String SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER = "ShowAreaYPositionOnScrolledArea";
 	
 	//attribute
 	private ContentPosition contentPosition;
@@ -121,19 +122,19 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableProperty<Integer> viewAreaXPositionOnScrolledArea =
+	private final MutableProperty<Integer> showAreaXPositionOnScrolledArea =
 	new MutableProperty<>(
-		VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
-		x -> setViewAreaXPositionOnScrolledArea(x),
+		SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
+		x -> setShowAreaXPositionOnScrolledArea(x),
 		BaseNode::getOneAttributeAsInt,
 		x -> Node.withOneAttribute(x)
 	);
 	
 	//attribute
-	private final MutableProperty<Integer> viewAreaYPositionOnScrolledArea =
+	private final MutableProperty<Integer> showAreaYPositionOnScrolledArea =
 	new MutableProperty<>(
-		VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
-		y -> setViewAreaYPositionOnScrolledArea(y),
+		SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
+		y -> setShowAreaYPositionOnScrolledArea(y),
 		BaseNode::getOneAttributeAsInt,
 		y -> Node.withOneAttribute(y)
 	);
@@ -142,8 +143,8 @@ extends Widget<BW, BWL> {
 	private final BorderWidgetMainArea mainArea = new BorderWidgetMainArea(this);
 	private final BorderWidgetBorderedArea<BW, BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
+	private final BorderWidgetShowArea<BW, BWL> showArea = new BorderWidgetShowArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
-	private final BorderWidgetViewArea<BW, BWL> viewArea = new BorderWidgetViewArea<>(this);
 	
 	//attributes
 	private boolean isMovingVerticalScrollbarCursor = false;
@@ -186,7 +187,7 @@ extends Widget<BW, BWL> {
 	@Override
 	public final CursorIcon getCursorIcon() {
 		
-		if (!viewArea.isUnderCursor()) {
+		if (!showArea.isUnderCursor()) {
 			return CursorIcon.Arrow;
 		}
 		
@@ -461,26 +462,26 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return the view area of the current {@link BorderWidget}.
+	 * @return the show area of the current {@link BorderWidget}.
 	 */
-	public final BorderWidgetViewArea<BW, BWL> getViewArea() {
-		return viewArea;
+	public final BorderWidgetShowArea<BW, BWL> getShowArea() {
+		return showArea;
 	}
 	
 	//method
 	/**
-	 * @return x-position of the view area of the current {@link BorderWidget} on the scroll area.
+	 * @return x-position of the show area of the current {@link BorderWidget} on the scroll area.
 	 */
-	public final int getViewAreaXPositionOnScrolledArea() {
-		return viewAreaXPositionOnScrolledArea.getValue();
+	public final int getShowAreaXPositionOnScrolledArea() {
+		return showAreaXPositionOnScrolledArea.getValue();
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the view area of the current {@link BorderWidget} on the scroll area.
+	 * @return the y-position of the show area of the current {@link BorderWidget} on the scroll area.
 	 */
-	public final int getViewAreaYPositionOnScrolledArea() {
-		return viewAreaYPositionOnScrolledArea.getValue();
+	public final int getShowAreaYPositionOnScrolledArea() {
+		return showAreaYPositionOnScrolledArea.getValue();
 	}
 	
 	//method
@@ -646,8 +647,8 @@ extends Widget<BW, BWL> {
 		
 		super.reset();
 		
-		viewAreaXPositionOnScrolledArea.setValue(0);
-		viewAreaYPositionOnScrolledArea.setValue(0);
+		showAreaXPositionOnScrolledArea.setValue(0);
+		showAreaYPositionOnScrolledArea.setValue(0);
 		
 		return asConcrete();
 	}
@@ -669,8 +670,8 @@ extends Widget<BW, BWL> {
 		removeMinHeight();
 		removeMaxWidtht();
 		removeMaxHeight();
-		setViewAreaXPositionOnScrolledArea(0);
-		setViewAreaYPositionOnScrolledArea(0);
+		setShowAreaXPositionOnScrolledArea(0);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}
@@ -682,7 +683,7 @@ extends Widget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToBottom() {
-		return setViewAreaYPositionOnScrolledArea(scrolledArea.getHeight());
+		return setShowAreaYPositionOnScrolledArea(scrolledArea.getHeight());
 	}
 	
 	//method
@@ -692,7 +693,7 @@ extends Widget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToLeft() {
-		return setViewAreaXPositionOnScrolledArea(0);
+		return setShowAreaXPositionOnScrolledArea(0);
 	}
 	
 	//method
@@ -702,7 +703,7 @@ extends Widget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToRight() {
-		return setViewAreaXPositionOnScrolledArea(scrolledArea.getWidth());
+		return setShowAreaXPositionOnScrolledArea(scrolledArea.getWidth());
 	}
 	
 	//method
@@ -712,7 +713,7 @@ extends Widget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToTop() {
-		return setViewAreaYPositionOnScrolledArea(0);
+		return setShowAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method
@@ -868,42 +869,42 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * Sets the x-position of the view area on the scroll area of the current {@link BorderWidget}.
+	 * Sets the x-position of the show area on the scroll area of the current {@link BorderWidget}.
 	 * 
-	 * @param viewAreaXPositionOnScrolledArea
+	 * @param showAreaXPositionOnScrolledArea
 	 * @return the current {@link BorderWidget}.
 	 */
-	public final BW setViewAreaXPositionOnScrolledArea(int viewAreaXPositionOnScrolledArea) {
+	public final BW setShowAreaXPositionOnScrolledArea(int showAreaXPositionOnScrolledArea) {
 		
-		viewAreaXPositionOnScrolledArea = Calculator.getMax(viewAreaXPositionOnScrolledArea, 0);
+		showAreaXPositionOnScrolledArea = Calculator.getMax(showAreaXPositionOnScrolledArea, 0);
 		
-		viewAreaXPositionOnScrolledArea = Calculator.getMin(
-			viewAreaXPositionOnScrolledArea,
-			scrolledArea.getWidth() - viewArea.getWidth()
+		showAreaXPositionOnScrolledArea = Calculator.getMin(
+			showAreaXPositionOnScrolledArea,
+			scrolledArea.getWidth() - showArea.getWidth()
 		);
 		
-		this.viewAreaXPositionOnScrolledArea.setValue(viewAreaXPositionOnScrolledArea);
+		this.showAreaXPositionOnScrolledArea.setValue(showAreaXPositionOnScrolledArea);
 		
 		return asConcrete();
 	}
 	
 	//method
 	/**
-	 * Sets the y-position of the view area on the scroll area of the current {@link BorderWidget}.
+	 * Sets the y-position of the show area on the scroll area of the current {@link BorderWidget}.
 	 * 
-	 * @param viewAreaYPositionOnScrolledArea
+	 * @param showAreaYPositionOnScrolledArea
 	 * @return the current {@link BorderWidget}.
 	 */
-	public final BW setViewAreaYPositionOnScrolledArea(int viewAreaYPositionOnScrolledArea) {
+	public final BW setShowAreaYPositionOnScrolledArea(int showAreaYPositionOnScrolledArea) {
 		
-		viewAreaYPositionOnScrolledArea = Calculator.getMax(viewAreaYPositionOnScrolledArea, 0);
+		showAreaYPositionOnScrolledArea = Calculator.getMax(showAreaYPositionOnScrolledArea, 0);
 		
-		viewAreaYPositionOnScrolledArea = Calculator.getMin(
-			viewAreaYPositionOnScrolledArea,
-			scrolledArea.getHeight() - viewArea.getHeight()
+		showAreaYPositionOnScrolledArea = Calculator.getMin(
+			showAreaYPositionOnScrolledArea,
+			scrolledArea.getHeight() - showArea.getHeight()
 		);
 		
-		this.viewAreaYPositionOnScrolledArea.setValue(viewAreaYPositionOnScrolledArea);
+		this.showAreaYPositionOnScrolledArea.setValue(showAreaYPositionOnScrolledArea);
 		
 		return asConcrete();
 	}
@@ -913,8 +914,8 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean viewAreaIsUnderCursor() {
-		return viewArea.isUnderCursor();
+	public final boolean showAreaIsUnderCursor() {
+		return showArea.isUnderCursor();
 	}
 	
 	//method declaration
@@ -939,7 +940,7 @@ extends Widget<BW, BWL> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		- getViewAreaXPositionOnScrolledArea()
+		- getShowAreaXPositionOnScrolledArea()
 		+ contentArea.getXPositionOnScrolledArea();
 	}
 	
@@ -953,7 +954,7 @@ extends Widget<BW, BWL> {
 		
 		return
 		look.getRecursiveOrDefaultTopBorderThickness()
-		- getViewAreaYPositionOnScrolledArea()
+		- getShowAreaYPositionOnScrolledArea()
 		+ contentArea.getYPositionOnScrolledArea();
 	}
 	
@@ -1076,7 +1077,7 @@ extends Widget<BW, BWL> {
 			
 			return
 			cursorXPosition >= horizontalScrollbarCursorXPosition
-			&& cursorXPosition < horizontalScrollbarCursorXPosition + viewArea.getWidth()
+			&& cursorXPosition < horizontalScrollbarCursorXPosition + showArea.getWidth()
 			&& cursorYPosition >= horizontalScrollbarCursorYPosition
 			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
 	}
@@ -1088,18 +1089,18 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final void noteLeftMouseButtonClickOnSelfWhenEnabled() {
 		
-		//Handles the case that the view area is under the cursor.
-		if (viewAreaIsUnderCursor()) {
-			noteLeftMouseButtonClickOnViewAreaWhenEnabled();
+		//Handles the case that the show area is under the cursor.
+		if (showAreaIsUnderCursor()) {
+			noteLeftMouseButtonClickOnShowreaWhenEnabled();
 		}
 	}
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button click on the view area
+	 * Lets the current {@link BorderWidget} note a left mouse button click on the show area
 	 * for the case when it is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonClickOnViewAreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonClickOnShowreaWhenEnabled();
 	
 	//method
 	/**
@@ -1108,9 +1109,9 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final void noteLeftMouseButtonPressOnSelfWhenEnabled() {
 		
-		//Handles the case that the view area is under the cursor.
-		if (viewAreaIsUnderCursor()) {
-			noteLeftMouseButtonPressOnViewAreaWhenEnabled();
+		//Handles the case that the show area is under the cursor.
+		if (showAreaIsUnderCursor()) {
+			noteLeftMouseButtonPressOnShowAreaWhenEnabled();
 		}
 		
 		//Handles the case that the vertical scrollbar cursor is under the cursor.
@@ -1136,10 +1137,10 @@ extends Widget<BW, BWL> {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button press on the view area
+	 * Lets the current {@link BorderWidget} note a left mouse button press on the show area
 	 * for the case when it is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonPressOnViewAreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonPressOnShowAreaWhenEnabled();
 	
 	//method
 	/**
@@ -1170,13 +1171,13 @@ extends Widget<BW, BWL> {
 			final var verticalScrollbarCursorYDelta =
 			getCursorYPosition() - verticalScrollingCursorStartYPosition;
 			
-			final var viewAreaHeight = viewArea.getHeight();
+			final var showAreaHeight = showArea.getHeight();
 			
-			final var viewAreaYDelta =
-			(verticalScrollbarCursorYDelta * (scrolledArea.getHeight() - viewAreaHeight))
-			/ (viewAreaHeight - getVerticalScrollbarCursorHeight());
+			final var showAreaYDelta =
+			(verticalScrollbarCursorYDelta * (scrolledArea.getHeight() - showAreaHeight))
+			/ (showAreaHeight - getVerticalScrollbarCursorHeight());
 			
-			setViewAreaYPositionOnScrolledArea(viewAreaYDelta);
+			setShowAreaYPositionOnScrolledArea(showAreaYDelta);
 		}
 		
 		else if (isMovingHorizontalScrollbarCursor) {
@@ -1184,13 +1185,13 @@ extends Widget<BW, BWL> {
 			final var horizontalScrollbarCursorXDelta =
 			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
 			
-			final var viewAreaWidth = viewArea.getWidth();
+			final var showAreaWidth = showArea.getWidth();
 			
-			final var viewAreaXDelta =
-			(horizontalScrollbarCursorXDelta * (scrolledArea.getWidth() - viewAreaWidth))
-			/ (viewAreaWidth - getHorizontalScrollbarCursorWidth());
+			final var showAreaXDelta =
+			(horizontalScrollbarCursorXDelta * (scrolledArea.getWidth() - showAreaWidth))
+			/ (showAreaWidth - getHorizontalScrollbarCursorWidth());
 			
-			setViewAreaXPositionOnScrolledArea(viewAreaXDelta);
+			setShowAreaXPositionOnScrolledArea(showAreaXDelta);
 		}
 	}
 	
@@ -1205,9 +1206,9 @@ extends Widget<BW, BWL> {
 		super.noteMouseWheelRotationStepWhenEnabled(directionOfRotation);
 		
 		if (isFocused()) {
-			setViewAreaYPositionOnScrolledArea(
-				getViewAreaYPositionOnScrolledArea()
-				+ directionOfRotation.toInt() * VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
+			setShowAreaYPositionOnScrolledArea(
+				getShowAreaYPositionOnScrolledArea()
+				+ directionOfRotation.toInt() * SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
 			);
 		}
 	}
@@ -1301,7 +1302,7 @@ extends Widget<BW, BWL> {
 	 */
 	@Override
 	protected final boolean redirectsInputsToShownWidgets() {
-		return (isEnabled() && (!hasAnyScrollbar() || viewAreaIsUnderCursor()));
+		return (isEnabled() && (!hasAnyScrollbar() || showAreaIsUnderCursor()));
 	}
 	
 	//method
@@ -1325,14 +1326,14 @@ extends Widget<BW, BWL> {
 			cursorXPosition >= verticalScrollbarCursorXPosition
 			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
 			&& cursorYPosition >= verticalScrollbarCursorYPosition
-			&& cursorYPosition < verticalScrollbarCursorYPosition + viewArea.getHeight();
+			&& cursorYPosition < verticalScrollbarCursorYPosition + showArea.getHeight();
 	}
 	
 	//method
 	int getHorizontalScrollbarCursorWidth() {
 		return
 		Calculator.getMax(
-			(int)(Math.pow(viewArea.getWidth(), 2) / scrolledArea.getWidth()),
+			(int)(Math.pow(showArea.getWidth(), 2) / scrolledArea.getWidth()),
 			MIN_SCROLL_CURSOR_LENGTH
 		);
 	}
@@ -1354,12 +1355,12 @@ extends Widget<BW, BWL> {
 	 */
 	int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
 				
-		final var viewAreaWidth = viewArea.getWidth();
+		final var showAreaWidth = showArea.getWidth();
 		
 		return
-		(viewAreaWidth - getHorizontalScrollbarCursorWidth())
-		* getViewAreaXPositionOnScrolledArea()
-		/ (scrolledArea.getWidth() - viewAreaWidth);
+		(showAreaWidth - getHorizontalScrollbarCursorWidth())
+		* getShowAreaXPositionOnScrolledArea()
+		/ (scrolledArea.getWidth() - showAreaWidth);
 	}
 	
 	//method
@@ -1388,7 +1389,7 @@ extends Widget<BW, BWL> {
 	int getVerticalScrollbarCursorHeight() {
 		return
 		Calculator.getMax(
-			(int)(Math.pow(viewArea.getHeight(), 2) / scrolledArea.getHeight()),
+			(int)(Math.pow(showArea.getHeight(), 2) / scrolledArea.getHeight()),
 			MIN_SCROLL_CURSOR_LENGTH
 		);
 	}
@@ -1420,12 +1421,12 @@ extends Widget<BW, BWL> {
 	 */
 	int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
 		
-		final var viewAreaHeight = viewArea.getHeight();
+		final var showAreaHeight = showArea.getHeight();
 		
 		return
-		(viewAreaHeight - getVerticalScrollbarCursorHeight())
-		* getViewAreaYPositionOnScrolledArea()
-		/ (scrolledArea.getHeight() - viewAreaHeight);
+		(showAreaHeight - getVerticalScrollbarCursorHeight())
+		* getShowAreaYPositionOnScrolledArea()
+		/ (scrolledArea.getHeight() - showAreaHeight);
 	}
 	
 	//method

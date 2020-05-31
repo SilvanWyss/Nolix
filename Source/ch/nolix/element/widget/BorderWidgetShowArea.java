@@ -13,23 +13,23 @@ import ch.nolix.element.painter.IPainter;
  * @month 2019-05
  * @lines 210
  */
-public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
+public final class BorderWidgetShowArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
 implements TopLeftPositionedRecangular {
 	
 	//attribute
 	/**
-	 * The {@link BorderWidget} the current {@link BorderWidgetViewArea} belongs to.
+	 * The {@link BorderWidget} the current {@link BorderWidgetShowArea} belongs to.
 	 */
 	private final BorderWidget<BW, BWL> parentBorderWidget;
 	
 	//constructor
 	/**
-	 * Creates a new {@link BorderWidgetViewArea} that will belong to the given parentBorderWidget.
+	 * Creates a new {@link BorderWidgetShowArea} that will belong to the given parentBorderWidget.
 	 * 
 	 * @param parentBorderWidget
 	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
-	BorderWidgetViewArea(final BorderWidget<BW, BWL> parentBorderWidget) {
+	BorderWidgetShowArea(final BorderWidget<BW, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
 		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
@@ -40,7 +40,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the current {@link BorderWidgetViewArea}.
+	 * @return the x-position of the cursor on the current {@link BorderWidgetShowArea}.
 	 */
 	public int getCursorXPosition() {
 		return (parentBorderWidget.getCursorXPosition() - getXPosition());
@@ -48,7 +48,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the current {@link BorderWidgetViewArea}.
+	 * @return the y-position of the cursor on the current {@link BorderWidgetShowArea}.
 	 */
 	public int getCursorYPosition() {
 		return (parentBorderWidget.getCursorYPosition() - getYPosition());
@@ -56,26 +56,26 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the height of the current {@link BorderWidgetViewArea}.
+	 * @return the height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getHeight() {
 		
-		var viewAreaHeight = parentBorderWidget.hasProposalHeight() ? getProposalHeight() : getNaturalHeight();
+		var height = parentBorderWidget.hasProposalHeight() ? getProposalHeight() : getNaturalHeight();
 		
 		if (parentBorderWidget.hasMinHeight()) {
-			viewAreaHeight = Calculator.getMax(viewAreaHeight, getMinHeight());
+			height = Calculator.getMax(height, getMinHeight());
 		}
 		
 		if (parentBorderWidget.hasMaxHeight()) {
-			viewAreaHeight = Calculator.getMin(viewAreaHeight, getMaxHeight());
+			height = Calculator.getMin(height, getMaxHeight());
 		}
 		
-		return viewAreaHeight;
+		return height;
 	}
 	
 	//method
 	/**
-	 * @return the max height of the current {@link BorderWidgetViewArea}.
+	 * @return the max height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMaxHeight() {
 		
@@ -90,7 +90,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the max width of the current {@link BorderWidgetViewArea}.
+	 * @return the max width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMaxWidth() {
 		
@@ -105,7 +105,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the min height of the current {@link BorderWidgetViewArea}.
+	 * @return the min height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMinHeight() {
 		return parentBorderWidget.getScrolledArea().getMinHeight();
@@ -113,7 +113,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the min width of the current {@link BorderWidgetViewArea}.
+	 * @return the min width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMinWidth() {
 		return parentBorderWidget.getScrolledArea().getMinWidth();
@@ -121,7 +121,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the natural height of the current {@link BorderWidgetViewArea}.
+	 * @return the natural height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getNaturalHeight() {
 		return parentBorderWidget.getScrolledArea().getNaturalHeight();
@@ -129,7 +129,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the natural width of the current {@link BorderWidgetViewArea}.
+	 * @return the natural width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getNaturalWidth() {
 		return parentBorderWidget.getScrolledArea().getNaturalWidth();
@@ -137,7 +137,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the proposal height of the current {@link BorderWidgetViewArea}.
+	 * @return the proposal height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getProposalHeight() {
 		return parentBorderWidget.getScrolledArea().getProposalHeight();
@@ -145,7 +145,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the proposal width of the current {@link BorderWidgetViewArea}.
+	 * @return the proposal width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getProposalWidth() {
 		return parentBorderWidget.getScrolledArea().getProposalWidth();
@@ -153,7 +153,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the width of the current {@link BorderWidgetViewArea}.
+	 * @return the width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getWidth() {
 		
@@ -172,7 +172,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link BorderWidgetViewArea} on the {@link BorderWidget} it belongs to.
+	 * @return the x-position of the current {@link BorderWidgetShowArea} on the {@link BorderWidget} it belongs to.
 	 */
 	public int getXPosition() {
 		return parentBorderWidget.getBorderedArea().getXPosition();
@@ -180,7 +180,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the y-position of the current {@link BorderWidgetViewArea} on the {@link BorderWidget} it belongs to.
+	 * @return the y-position of the current {@link BorderWidgetShowArea} on the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPosition() {
 		return parentBorderWidget.getBorderedArea().getYPosition();
@@ -188,7 +188,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetViewArea} is under the cursor.
+	 * @return true if the current {@link BorderWidgetShowArea} is under the cursor.
 	 */
 	public boolean isUnderCursor() {
 		return containsPointRelatively(getCursorXPosition(), getCursorYPosition());
@@ -196,7 +196,7 @@ implements TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Paints the current {@link BorderWidgetViewArea} using the given borderWidgetLook and painter.
+	 * Paints the current {@link BorderWidgetShowArea} using the given borderWidgetLook and painter.
 	 * 
 	 * @param painter
 	 * @param borderWidgetLook
@@ -207,8 +207,8 @@ implements TopLeftPositionedRecangular {
 		
 		scrolledArea.paint(
 			painter.createPainter(
-				-parentBorderWidget.getViewAreaXPositionOnScrolledArea(),
-				-parentBorderWidget.getViewAreaYPositionOnScrolledArea(),
+				-parentBorderWidget.getShowAreaXPositionOnScrolledArea(),
+				-parentBorderWidget.getShowAreaYPositionOnScrolledArea(),
 				scrolledArea.getWidth(),
 				scrolledArea.getHeight()
 			),
