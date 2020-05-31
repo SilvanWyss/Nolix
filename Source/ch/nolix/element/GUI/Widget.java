@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1890
+ * @lines 1880
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1509,7 +1509,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * Fills up the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
 	 * For a better performance, a {@link Widget} fills up its child {@link Widget}s into a given {@link LinkedList}
-	 * and does not create a new {@link LinkedList}.
+	 * instead of creating a new {@link LinkedList}.
 	 * 
 	 * @param list
 	 */
