@@ -1062,7 +1062,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return true if the cursor is over the horizontal scrollbar of the current {@link BorderWidget}.
 	 */
-	protected boolean horizontalScrollbarIsUnderCursor() {
+	protected final boolean horizontalScrollbarIsUnderCursor() {
 		
 		//Handles the case that the current border widget does not have a horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
@@ -1091,7 +1091,7 @@ extends Widget<BW, BWL> {
 		
 		//Handles the case that the show area is under the cursor.
 		if (showAreaIsUnderCursor()) {
-			noteLeftMouseButtonClickOnShowreaWhenEnabled();
+			noteLeftMouseButtonClickOnShowAreaWhenEnabled();
 		}
 	}
 	
@@ -1100,7 +1100,7 @@ extends Widget<BW, BWL> {
 	 * Lets the current {@link BorderWidget} note a left mouse button click on the show area
 	 * for the case when it is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonClickOnShowreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonClickOnShowAreaWhenEnabled();
 	
 	//method
 	/**
@@ -1147,14 +1147,23 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseWhenEnabled() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonReleaseWhenEnabled();
+	protected final void noteLeftMouseButtonReleaseOnSelfWhenEnabled() {
 		
 		isMovingHorizontalScrollbarCursor = false;
 		isMovingVerticalScrollbarCursor = false;
+		
+		//Handles the case that the show area is under the cursor.
+		if (showAreaIsUnderCursor()) {
+			noteLeftMouseButtonReleaseOnShowAreaWhenEnabled();
+		}
 	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a left mouse button release on the show area
+	 * for the case when it is enabled.
+	 */
+	protected abstract void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled();
 	
 	//method
 	/**

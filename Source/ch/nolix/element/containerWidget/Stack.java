@@ -282,7 +282,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected final void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -290,4 +290,11 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	@Override
 	protected final void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {}
 }

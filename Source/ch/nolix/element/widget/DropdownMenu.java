@@ -148,7 +148,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**

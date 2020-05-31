@@ -719,7 +719,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -727,6 +727,13 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {}
 	
 	//method
 	private TextFormat getFont() {

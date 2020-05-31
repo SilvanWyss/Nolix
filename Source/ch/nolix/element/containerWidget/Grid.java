@@ -232,7 +232,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -240,6 +240,13 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {}
 	
 	//method
 	@Override

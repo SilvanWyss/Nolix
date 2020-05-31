@@ -229,7 +229,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -237,4 +237,11 @@ implements Clearable<SingleContainer> {
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {}
 }

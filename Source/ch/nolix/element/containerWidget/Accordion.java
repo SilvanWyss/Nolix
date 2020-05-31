@@ -359,7 +359,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -367,6 +367,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {}
 	
 	//method
 	/**

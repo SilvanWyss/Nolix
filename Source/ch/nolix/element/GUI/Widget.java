@@ -806,20 +806,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteLeftMouseButtonRelease() {
 		if (isEnabled()) {
-			noteLeftMouseButtonReleaseWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a left mouse button release recursively.
-	 */
-	public final void noteLeftMouseButtonReleaseRecursively() {
-		
-		noteLeftMouseButtonRelease();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteLeftMouseButtonReleaseRecursively());
+			
+			noteLeftMouseButtonReleaseOnSelfWhenEnabled();
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonRelease);
+			}
 		}
 	}
 	
@@ -1573,6 +1565,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * Lets the current {@link Widget} note a left mouse button press on itself for the case when it is enabled.
 	 */
 	protected abstract void noteLeftMouseButtonPressOnSelfWhenEnabled();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Widget} note a left mouse button release on itself for the case when it is enabled.
+	 */
+	protected abstract void noteLeftMouseButtonReleaseOnSelfWhenEnabled();
 	
 	//method
 	/**

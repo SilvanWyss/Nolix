@@ -259,35 +259,6 @@ implements Clearable<TabContainer> {
 		return getRefTabs().isEmpty();
 	}
 	
-	@Override
-	public void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {		
-		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void noteLeftMouseButtonReleaseWhenEnabled() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonReleaseWhenEnabled();
-		
-		if (nextMenuItemLabel != null) {
-			if (!nextMenuItemLabel.isUnderCursor()) {
-				nextMenuItemLabel = null;
-			}
-			else {
-				selectTab(
-					getRefTabs().getRefFirst(
-						t -> t.getRefMenuItem() == nextMenuItemLabel
-					)
-				);
-			}
-		}
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -461,7 +432,36 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnShowreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnShowAreaWhenEnabled() {}
+	
+	@Override
+	protected void noteLeftMouseButtonPressOnShowAreaWhenEnabled() {		
+		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnShowAreaWhenEnabled() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonReleaseWhenEnabled();
+		
+		if (nextMenuItemLabel != null) {
+			if (!nextMenuItemLabel.isUnderCursor()) {
+				nextMenuItemLabel = null;
+			}
+			else {
+				selectTab(
+					getRefTabs().getRefFirst(
+						t -> t.getRefMenuItem() == nextMenuItemLabel
+					)
+				);
+			}
+		}
+	}
 	
 	//method
 	/**

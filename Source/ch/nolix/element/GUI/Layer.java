@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -457,7 +458,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteLeftMouseButtonRelease() {
 		if (rootWidget != null) {
-			rootWidget.noteLeftMouseButtonReleaseRecursively();
+			rootWidget.noteLeftMouseButtonRelease();
 		}		
 	}
 	
