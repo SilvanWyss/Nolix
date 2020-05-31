@@ -219,7 +219,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());

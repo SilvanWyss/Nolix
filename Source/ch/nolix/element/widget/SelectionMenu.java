@@ -89,7 +89,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(menu);
 	}
 		

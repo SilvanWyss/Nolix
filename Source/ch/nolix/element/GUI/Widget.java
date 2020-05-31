@@ -481,7 +481,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	public final LinkedList<Widget<?, ?>> getRefPaintableWidgets() {
 		
 		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
-		fillUpPaintableWidgets(widgetsForPainting);
+		fillUpShownWidgets(widgetsForPainting);
 		
 		return widgetsForPainting;
 	}
@@ -1517,14 +1517,14 @@ implements Recalculable, TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * Fills up the paintable {@link Widget}s of the current {@link Widget} into the given list.
+	 * Fills up the shown {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance, a {@link Widget} fills up its paintable {@link Widget}s into a given {@link LinkedList}
-	 * and does not create a new {@link LinkedList}.
+	 * For a better performance, a {@link Widget} fills up its shown {@link Widget}s into a given {@link LinkedList}
+	 * instead of creating a new {@link LinkedList}.
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpPaintableWidgets(LinkedList<Widget<?, ?>> list);
+	protected abstract void fillUpShownWidgets(LinkedList<Widget<?, ?>> list);
 	
 	//method declaration
 	/**
@@ -1772,7 +1772,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * @param list
 	 */
 	private void fillUpWidgetsForPaintingRecursively(final LinkedList<Widget<?, ?>> list) {
-		fillUpPaintableWidgets(list);
+		fillUpShownWidgets(list);
 		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}
 	

@@ -332,7 +332,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(accordionVerticalStack);
 	}
 	

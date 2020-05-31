@@ -404,7 +404,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpPaintableWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		list.addAtEnd(menu);
 		
