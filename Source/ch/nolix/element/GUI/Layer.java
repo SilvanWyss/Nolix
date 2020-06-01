@@ -561,7 +561,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteRightMouseButtonRelease() {
 		if (rootWidget != null) {
-			rootWidget.noteRightMouseButtonReleaseRecursively();
+			rootWidget.noteRightMouseButtonRelease();
 		}
 	}
 	

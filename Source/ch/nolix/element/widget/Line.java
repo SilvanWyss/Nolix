@@ -180,7 +180,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean showAreaIsUnderCursor() {
+	public final boolean showAreaIsUnderCursor() {
 		return isUnderCursor();
 	}
 
@@ -249,14 +249,21 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonClickOnSelfWhenEnabled() {}
+	protected final void noteRightMouseButtonClickOnSelfWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonPressOnSelfWhenEnabled() {}
+	protected final void noteRightMouseButtonPressOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonReleaseOnSelfWhenEnabled() {}
 	
 	//method
 	/**

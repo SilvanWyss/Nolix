@@ -234,7 +234,7 @@ implements Clearable<FloatContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -249,4 +249,11 @@ implements Clearable<FloatContainer> {
 	 */
 	@Override
 	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 }

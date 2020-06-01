@@ -340,6 +340,13 @@ implements Clearable<IM> {
 	@Override
 	protected final void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
 	//method declaration
 	protected abstract void noteSelectItem(ItemMenuItem item);
 	

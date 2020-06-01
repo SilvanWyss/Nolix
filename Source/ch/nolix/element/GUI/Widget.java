@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1880
+ * @lines 1860
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -957,20 +957,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteRightMouseButtonRelease() {
 		if (isEnabled()) {
-			noteRightMouseButtonReleaseWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a right mouse button release recursively.
-	 */
-	public final void noteRightMouseButtonReleaseRecursively() {
 		
-		noteRightMouseButtonRelease();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonReleaseRecursively());
+			noteRightMouseButtonReleaseOnSelfWhenEnabled();
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonRelease);
+			}
 		}
 	}
 	
@@ -1588,11 +1580,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void noteRightMouseButtonPressOnSelfWhenEnabled();
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a right mouse button release for the case when it is enabled.
+	 * Lets the current {@link Widget} note a right mouse button release on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
-	protected void noteRightMouseButtonReleaseWhenEnabled() {}
+	protected abstract void noteRightMouseButtonReleaseOnSelfWhenEnabled();
 	
 	//method declaration
 	/**

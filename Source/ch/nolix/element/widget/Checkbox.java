@@ -258,6 +258,13 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void paintContentArea(final CheckboxLook checkBoxLook, final IPainter painter) {
 		
 		//Calls method of the base class.

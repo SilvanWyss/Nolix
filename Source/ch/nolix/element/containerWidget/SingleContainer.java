@@ -265,4 +265,11 @@ implements Clearable<SingleContainer> {
 	 */
 	@Override
 	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 }

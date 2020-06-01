@@ -225,6 +225,13 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void paintContentArea(final TLWL textLineWidgetLook, final IPainter painter) {
 		painter.paintText(getShownText(), getTextFormat());
 	}
