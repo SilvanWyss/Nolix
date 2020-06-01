@@ -750,6 +750,13 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	
+	//method
 	private TextFormat getFont() {
 		
 		final var look = getRefLook();

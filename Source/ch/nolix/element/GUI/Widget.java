@@ -942,20 +942,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteRightMouseButtonPress() {
 		if (isEnabled()) {
-			noteRightMouseButtonPressWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a right mouse button press recursively.
-	 */
-	public final void noteRightMouseButtonPressRecursively() {
-		
-		noteRightMouseButtonPress();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonPressRecursively());
+			
+			noteRightMouseButtonPressOnSelfWhenEnabled();
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonPress);
+			}
 		}
 	}
 	
@@ -1589,11 +1581,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void noteRightMouseButtonClickOnSelfWhenEnabled();
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a right mouse button press for the case when it is enabled.
+	 * Lets the current {@link Widget} note a right mouse button press on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
-	protected void noteRightMouseButtonPressWhenEnabled() {}
+	protected abstract void noteRightMouseButtonPressOnSelfWhenEnabled();
 	
 	//method
 	/**

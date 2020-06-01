@@ -391,6 +391,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
 	 * Lets the current {@link Accordion} collapse the given tab.
 	 * 
 	 * @param tab

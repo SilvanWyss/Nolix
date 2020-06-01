@@ -1227,6 +1227,24 @@ extends Widget<BW, BWL> {
 		}
 	}
 	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a right mouse button press on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
+	protected abstract void noteRightMouseButtonPressOnContentAreaWhenEnabled();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonPressOnSelfWhenEnabled() {
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteRightMouseButtonPressOnContentAreaWhenEnabled();
+		}
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
