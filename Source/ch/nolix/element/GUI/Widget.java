@@ -927,20 +927,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteRightMouseButtonClick() {
 		if (isEnabled()) {
-			noteRightMouseButtonClickWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a right mouse button click recursively.
-	 */
-	public final void noteRightMouseButtonClickRecursively() {
+			
+			noteRightMouseButtonClickOnSelfWhenEnabled();
 		
-		noteRightMouseButtonClick();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteRightMouseButtonClickRecursively());
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonClick);
+			}
 		}
 	}
 	
@@ -1538,25 +1530,29 @@ implements Recalculable, TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a left mouse button click on itself for the case when it is enabled.
+	 * Lets the current {@link Widget} note a left mouse button click on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteLeftMouseButtonClickOnSelfWhenEnabled();
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a left mouse button press on itself for the case when it is enabled.
+	 * Lets the current {@link Widget} note a left mouse button press on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteLeftMouseButtonPressOnSelfWhenEnabled();
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a left mouse button release on itself for the case when it is enabled.
+	 * Lets the current {@link Widget} note a left mouse button release on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteLeftMouseButtonReleaseOnSelfWhenEnabled();
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a mouse move on itself for the case when it is enabled.
+	 * Lets the current {@link Widget} note a mouse move on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
 	
@@ -1586,11 +1582,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected void noteMouseWheelRotationStepWhenEnabled(final DirectionOfRotation directionOfRotation) {}
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a right mouse button click for the case when it is enabled.
+	 * Lets the current {@link Widget} note a right mouse button click on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 */
-	protected void noteRightMouseButtonClickWhenEnabled() {}
+	protected abstract void noteRightMouseButtonClickOnSelfWhenEnabled();
 	
 	//method
 	/**

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -234,4 +235,11 @@ implements Clearable<FloatContainer> {
 	 */
 	@Override
 	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
 }

@@ -38,7 +38,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1480
+ * @lines 1500
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -1072,8 +1072,6 @@ extends Widget<BW, BWL> {
 	 */
 	@Override
 	protected final void noteLeftMouseButtonClickOnSelfWhenEnabled() {
-		
-		//Handles the case that the content area is under the cursor.
 		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteLeftMouseButtonClickOnContentAreaWhenEnabled();
 		}
@@ -1112,8 +1110,6 @@ extends Widget<BW, BWL> {
 			getCursorXPosition()
 			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
-		
-		//Handles the case that the content area is under the cursor.
 		else if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteLeftMouseButtonPressOnContentAreaWhenEnabled();
 		}
@@ -1136,7 +1132,6 @@ extends Widget<BW, BWL> {
 		isMovingHorizontalScrollbarCursor = false;
 		isMovingVerticalScrollbarCursor = false;
 		
-		//Handles the case that the content area is under the cursor.
 		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteLeftMouseButtonReleaseOnContentAreaWhenEnabled();
 		}
@@ -1189,6 +1184,11 @@ extends Widget<BW, BWL> {
 		}
 	}
 	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a mouse move on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
 	protected abstract void noteMouseMoveOnContentAreaWhenEnabled();
 	
 	//method
@@ -1206,6 +1206,24 @@ extends Widget<BW, BWL> {
 				getShowAreaYPositionOnScrolledArea()
 				+ directionOfRotation.toInt() * SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
 			);
+		}
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a right mouse button click on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
+	protected abstract void noteRightMouseButtonClickOnContentAreaWhenEnabled();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonClickOnSelfWhenEnabled() {
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteRightMouseButtonClickOnContentAreaWhenEnabled();
 		}
 	}
 	

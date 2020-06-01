@@ -126,7 +126,14 @@ implements Clearable<ImageWidget> {
 	 */
 	@Override
 	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
+	
 	//method
 	@Override
 	protected void paintContentArea(

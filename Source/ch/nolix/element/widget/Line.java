@@ -246,6 +246,13 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
+	/**
 	 * Paints this line using the given widget structure and graphics.
 	 * 
 	 * @param widgetStructure

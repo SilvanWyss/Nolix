@@ -380,7 +380,14 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**

@@ -377,6 +377,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void noteRightMouseButtonClickOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void paint(final IPainter painter, final AreaLook areaLook) {
 		
 		//Handles the case that the current Area has a background color.

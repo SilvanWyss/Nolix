@@ -471,6 +471,13 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void paintContentArea(
 		final TabContainerLook tabContainerLook,
 		final IPainter painter
