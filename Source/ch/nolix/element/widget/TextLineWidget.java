@@ -204,13 +204,6 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method

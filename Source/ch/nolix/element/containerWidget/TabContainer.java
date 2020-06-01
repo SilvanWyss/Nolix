@@ -444,11 +444,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonReleaseWhenEnabled();
-		
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {		
 		if (nextMenuItemLabel != null) {
 			if (!nextMenuItemLabel.isUnderCursor()) {
 				nextMenuItemLabel = null;

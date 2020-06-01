@@ -215,6 +215,13 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
 	 */
 	private void supposeHasRole() {

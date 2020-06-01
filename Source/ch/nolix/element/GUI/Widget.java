@@ -807,6 +807,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	public final void noteLeftMouseButtonRelease() {
 		if (isEnabled()) {
 			
+			noteLeftMouseButtonReleaseOnSelfWhenEnabled_();
 			noteLeftMouseButtonReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
@@ -1553,31 +1554,10 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void noteLeftMouseButtonReleaseOnSelfWhenEnabled();
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a left mouse button release for the case when it is enabled.
+	 * Lets the current {@link Widget} note a mouse move on itself for the case when it is enabled.
 	 */
-	protected void noteLeftMouseButtonReleaseWhenEnabled() {
-		
-		if (!isUnderCursor()) {
-			
-			//Enumerates the state of the current Widget.
-			switch (state) {
-				case Hovered:
-				case Focused:
-					setNormal();
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
-				leftMouseButtonReleaseCommand.run();
-			}
-		}
-	}
-	
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
 	
 	//method
@@ -1751,6 +1731,31 @@ implements Recalculable, TopLeftPositionedRecangular {
 			
 			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
 				leftMouseButtonPressCommand.run();
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a left mouse button release for the case when it is enabled.
+	 */
+	private void noteLeftMouseButtonReleaseOnSelfWhenEnabled_() {
+		
+		if (!isUnderCursor()) {
+			
+			//Enumerates the state of the current Widget.
+			switch (state) {
+				case Hovered:
+				case Focused:
+					setNormal();
+					break;
+				default:
+					break;
+			}
+		}
+		else {
+			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
+				leftMouseButtonReleaseCommand.run();
 			}
 		}
 	}

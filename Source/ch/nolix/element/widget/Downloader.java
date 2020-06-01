@@ -136,12 +136,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected void noteLeftMouseButtonReleaseWhenEnabled() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonReleaseWhenEnabled();
-		
-		if (showAreaIsUnderCursor() && providesFile) {
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {		
+		if (providesFile) {
 			getParentGUI().onFrontEnd().saveFile(readFileToBytes());
 		}
 	}

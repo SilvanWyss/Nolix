@@ -48,4 +48,11 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
 }

@@ -225,7 +225,14 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 			}
 		}
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
 	//method
 	/**
 	 * Paints the content area of the current {@link TextBox} using the given text line widget look and painter.
