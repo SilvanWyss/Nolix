@@ -10,6 +10,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painter.IPainter;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>
@@ -264,4 +265,11 @@ implements Clearable<FloatContainer> {
 	 */
 	@Override
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final FloatContainerLook floatContainerLook, final IPainter painter) {}
 }

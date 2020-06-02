@@ -15,13 +15,14 @@ import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.VerticalStack;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 380
+ * @lines 450
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
@@ -410,6 +411,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	@Override
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final AccordionLook accordionLook, final IPainter painter) {}
 	
 	//method
 	/**

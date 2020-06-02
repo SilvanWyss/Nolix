@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -14,7 +15,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 270
+ * @lines 320
  */
 public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 
@@ -274,10 +275,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	protected void paintContentArea(final CheckboxLook checkBoxLook, final IPainter painter) {
-		
-		//Calls method of the base class.
-		super.paintContentArea(checkBoxLook, painter);
-		
+				
 		final var s = checkBoxLook.getRecursiveOrDefaultTextSize();
 		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();
 		

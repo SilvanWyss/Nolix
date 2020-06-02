@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.node.BaseNode;
@@ -11,6 +12,7 @@ import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -18,7 +20,7 @@ import ch.nolix.element.input.Key;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 280
+ * @lines 340
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable<S> {
@@ -333,4 +335,11 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	@Override
 	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final StackLook stackLook, final IPainter painter) {}
 }

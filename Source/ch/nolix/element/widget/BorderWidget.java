@@ -1362,12 +1362,12 @@ extends Widget<BW, BWL> {
 	
 	//method declaration
 	/**
-	 * Paints the content area of the current {@link BorderWidget} using the given border widget look and painter.
+	 * Paints the content area of the current {@link BorderWidget} using the given borderWidgetLook and painter.
 	 * 
 	 * @param borderWidgetLook
 	 * @param painter
 	 */
-	protected void paintContentArea(BWL borderWidgetLook, IPainter painter) {}
+	protected abstract void paintContentArea(BWL borderWidgetLook, IPainter painter);
 	
 	//method
 	/**

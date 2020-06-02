@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -14,6 +15,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painter.IPainter;
 
 //class
 public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook>
@@ -357,6 +359,13 @@ implements Clearable<IM> {
 	
 	//method declaration
 	protected abstract void noteSelectItem(ItemMenuItem item);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void paintContentArea(final ItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	protected final void select(final ItemMenuItem item) {

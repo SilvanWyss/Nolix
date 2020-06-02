@@ -8,6 +8,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -280,4 +281,11 @@ implements Clearable<SingleContainer> {
 	 */
 	@Override
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final SingleContainerLook singleContainerLook, final IPainter painter) {}
 }
