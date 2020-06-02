@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -21,7 +22,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 370
+ * @lines 450
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
@@ -351,6 +352,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected void noteKeyPressOnSelfWhenEnabled(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyReleaseOnSelfWhenEnabled(final Key key) {}
 	
 	//method
 	/**

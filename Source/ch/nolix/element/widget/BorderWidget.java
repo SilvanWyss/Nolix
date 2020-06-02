@@ -39,7 +39,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1500
+ * @lines 1570
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -1084,6 +1084,17 @@ extends Widget<BW, BWL> {
 	protected final void noteKeyPressOnSelfWhenEnabled(final Key key) {
 		if (isFocused()) {
 			noteKeyPressOnContentAreaWhenFocused(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyReleaseOnSelfWhenEnabled(final Key key) {
+		if (isFocused()) {
+			//TODO: noteKeyReleaseOnContentAreaWhenFocused(key)
 		}
 	}
 	

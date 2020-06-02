@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1860
+ * @lines 1850
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -713,22 +713,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteKeyRelease(final Key key) {
 		if (isEnabled()) {
-			noteKeyReleaseWhenEnabled(key);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a key release recursively.
-	 * 
-	 * @param key
-	 */
-	public final void noteKeyReleaseRecursively(final Key key) {
-		
-		noteKeyRelease(key);
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteKeyReleaseRecursively(key));
+			
+			noteKeyReleaseOnSelfWhenEnabled(key);
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(w -> w.noteKeyRelease(key));
+			}
 		}
 	}
 	
@@ -1486,6 +1476,15 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * @param key
 	 */
 	protected abstract void noteKeyPressOnSelfWhenEnabled(Key key);
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Widget} note a key release on itself
+	 * for the case when the current {@link Widget} is enabled.
+	 * 
+	 * @param key
+	 */
+	protected abstract void noteKeyReleaseOnSelfWhenEnabled(Key key);
 	
 	//method
 	/**

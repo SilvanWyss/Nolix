@@ -38,7 +38,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 880
+ * @lines 890
  */
 public final class Layer extends Element<Layer>
 implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IInputTaker {
@@ -414,7 +414,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteKeyRelease(Key key) {
 		if (rootWidget != null) {
-			rootWidget.noteKeyReleaseRecursively(key);
+			rootWidget.noteKeyRelease(key);
 		}
 	}
 	

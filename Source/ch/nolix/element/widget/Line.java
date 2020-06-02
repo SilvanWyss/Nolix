@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -17,7 +18,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 230
+ * @lines 300
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -223,6 +224,13 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void noteKeyPressOnSelfWhenEnabled(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyReleaseOnSelfWhenEnabled(final Key key) {}
 	
 	//method
 	/**
