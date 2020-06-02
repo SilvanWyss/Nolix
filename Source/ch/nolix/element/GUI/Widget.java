@@ -801,20 +801,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public void noteMouseWheelClick() {
 		if (isEnabled()) {
-			noteMouseWheelClickWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel click recursively.
-	 */
-	public void noteMouseWheelClickRecursively() {
-		
-		noteMouseWheelClick();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelClickRecursively());
+			
+			//TODO: noteMouseWheelClickOnSelfWhenEnabled();
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteMouseWheelClick);
+			}
 		}
 	}
 	
@@ -1512,12 +1504,6 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel click for the case when it is enabled.
-	 */
-	protected void noteMouseWheelClickWhenEnabled() {}
 	
 	//method
 	/**
