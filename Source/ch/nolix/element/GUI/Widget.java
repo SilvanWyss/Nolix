@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1800
+ * @lines 1790
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -829,22 +829,14 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel release.
 	 */
-	public void noteMouseWheelRelease() {
+	public final void noteMouseWheelRelease() {
 		if (isEnabled()) {
-			noteMouseWheelReleaseWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel release recursively.
-	 */
-	public void noteMouseWheelReleaseRecursively() {
-		
-		noteMouseWheelRelease();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelReleaseRecursively());
+			
+			//TODO: noteMouseWheelReleaseOnSelfWhenEnabled()
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteMouseWheelRelease);
+			}
 		}
 	}
 	
@@ -1496,12 +1488,6 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel release for the case when it is enabled.
-	 */
-	protected void noteMouseWheelReleaseWhenEnabled() {}
 	
 	//method
 	/**

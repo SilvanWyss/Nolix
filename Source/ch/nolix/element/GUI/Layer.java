@@ -510,7 +510,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteMouseWheelRelease() {
 		if (rootWidget != null) {
-			rootWidget.noteMouseWheelReleaseRecursively();
+			rootWidget.noteMouseWheelRelease();
 		}
 	}
 	
