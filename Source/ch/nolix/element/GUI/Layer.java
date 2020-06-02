@@ -499,7 +499,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteMouseWheelPress() {
 		if (rootWidget != null) {
-			rootWidget.noteMouseWheelPressRecursively();
+			rootWidget.noteMouseWheelPress();
 		}
 	}
 	

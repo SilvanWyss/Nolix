@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1830
+ * @lines 1800
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -799,10 +799,10 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel click.
 	 */
-	public void noteMouseWheelClick() {
+	public final void noteMouseWheelClick() {
 		if (isEnabled()) {
 			
-			//TODO: noteMouseWheelClickOnSelfWhenEnabled();
+			//TODO: noteMouseWheelClickOnSelfWhenEnabled()
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteMouseWheelClick);
@@ -814,22 +814,14 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel press.
 	 */
-	public void noteMouseWheelPress() {
+	public final void noteMouseWheelPress() {
 		if (isEnabled()) {
-			noteMouseWheelPressWhenEnabled();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel press recursively.
-	 */
-	public void noteMouseWheelPressRecursively() {
-		
-		noteMouseWheelPress();
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelPressRecursively());
+			
+			//TODO: noteMouseWheelPressOnSelfWhenEnabled()
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(Widget::noteMouseWheelPress);
+			}
 		}
 	}
 	
@@ -1504,12 +1496,6 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel press for the case when it is enabled.
-	 */
-	protected void noteMouseWheelPressWhenEnabled() {}
 	
 	//method
 	/**
