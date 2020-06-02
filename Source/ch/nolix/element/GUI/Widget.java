@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1850
+ * @lines 1830
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -730,22 +730,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteKeyTyping(final Key key) {
 		if (isEnabled()) {
-			noteKeyTypingWhenEnabled(key);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a key typing recursively.
-	 * 
-	 * @param key
-	 */
-	public final void noteKeyTypingRecursively(final Key key) {
-		
-		noteKeyTyping(key);
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteKeyTypingRecursively(key));
+			
+			noteKeyTypingOnSelfWhenEnabled(key);
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(w -> w.noteKeyTyping(key));
+			}
 		}
 	}
 	
@@ -1486,21 +1476,14 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void noteKeyReleaseOnSelfWhenEnabled(Key key);
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a key release for the case when it is enabled.
+	 * Lets the current {@link Widget} note a key typing on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 * 
 	 * @param key
 	 */
-	protected void noteKeyReleaseWhenEnabled(final Key key) {}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a key typing for the case when it is enabled.
-	 * 
-	 * @param key
-	 */
-	protected void noteKeyTypingWhenEnabled(final Key key) {}
+	protected abstract void noteKeyTypingOnSelfWhenEnabled(Key key);
 	
 	//method declaration
 	/**

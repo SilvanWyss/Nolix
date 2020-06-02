@@ -425,7 +425,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteKeyTyping(final Key key) {
 		if (rootWidget != null) {
-			rootWidget.noteKeyTypingRecursively(key);
+			rootWidget.noteKeyTyping(key);
 		}
 	}
 	

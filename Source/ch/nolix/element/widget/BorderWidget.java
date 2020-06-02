@@ -1098,6 +1098,17 @@ extends Widget<BW, BWL> {
 		}
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyTypingOnSelfWhenEnabled(final Key key) {
+		if (isFocused()) {
+			//TODO: noteKeyReleaseOnContentAreaWhenFocused(key)
+		}
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link BorderWidget} note a left mouse button click on the content area

@@ -365,6 +365,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void noteKeyTypingOnSelfWhenEnabled(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
 	
 	//method
