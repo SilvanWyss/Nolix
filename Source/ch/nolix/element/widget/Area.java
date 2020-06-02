@@ -11,6 +11,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -22,7 +23,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 450
+ * @lines 460
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
@@ -394,6 +395,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected final void noteMouseMoveOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelRotationStepOnSelfWhenEnabled(final DirectionOfRotation directionOfRotation) {}
 	
 	//method
 	/**

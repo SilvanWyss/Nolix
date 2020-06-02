@@ -11,6 +11,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -18,7 +19,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 320
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -266,6 +267,13 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void noteMouseMoveOnSelfWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelRotationStepOnSelfWhenEnabled(final DirectionOfRotation directionOfRotation) {}
 	
 	//method
 	/**

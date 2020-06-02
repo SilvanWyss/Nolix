@@ -521,7 +521,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
 		if (rootWidget != null) {
-			rootWidget.noteMouseWheelRotationStepRecursively(directionOfRotation);
+			rootWidget.noteMouseWheelRotationStep(directionOfRotation);
 		}		
 	}
 	

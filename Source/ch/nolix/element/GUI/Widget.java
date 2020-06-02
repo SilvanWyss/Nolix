@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1790
+ * @lines 1780
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -848,22 +848,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
 		if (isEnabled()) {
-			noteMouseWheelRotationStepWhenEnabled(directionOfRotation);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a mouse wheel rotation step recursively.
-	 * 
-	 * @param directionOfRotation
-	 */
-	public void noteMouseWheelRotationStepRecursively(final DirectionOfRotation directionOfRotation) {
-		
-		noteMouseWheelRotationStep(directionOfRotation);
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStepRecursively(directionOfRotation));
+			
+			noteMouseWheelRotationStepOnSelfWhenEnabled(directionOfRotation);
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStep(directionOfRotation));
+			}
 		}
 	}
 	
@@ -1489,13 +1479,14 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a mouse wheel rotation step for the case when it is enabled.
+	 * Lets the current {@link Widget} note a mouse wheel rotation step
+	 * for the case when the current {@link Widget} is enabled.
 	 * 
 	 * @param directionOfRotation
 	 */
-	protected void noteMouseWheelRotationStepWhenEnabled(final DirectionOfRotation directionOfRotation) {}
+	protected abstract void noteMouseWheelRotationStepOnSelfWhenEnabled(final DirectionOfRotation directionOfRotation);
 	
 	//method declaration
 	/**

@@ -1239,16 +1239,15 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepWhenEnabled(final DirectionOfRotation directionOfRotation) {
-		
-		//Calls method of the base class.
-		super.noteMouseWheelRotationStepWhenEnabled(directionOfRotation);
-		
+	protected final void noteMouseWheelRotationStepOnSelfWhenEnabled(final DirectionOfRotation directionOfRotation) {
 		if (isFocused()) {
+			
 			setShowAreaYPositionOnScrolledArea(
 				getShowAreaYPositionOnScrolledArea()
 				+ directionOfRotation.toInt() * SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
 			);
+			
+			//TODO: noteMouseWheelRotationStepOnSelfWhenFocused()
 		}
 	}
 	
