@@ -14,6 +14,7 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.widget.VerticalStack;
 
 //class
@@ -353,6 +354,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	protected int getContentAreaWidth() {
 		return accordionVerticalStack.getWidth();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

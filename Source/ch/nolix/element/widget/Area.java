@@ -10,6 +10,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -343,6 +344,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	protected int getWidthWhenNotCollapsed() {
 		return width;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnSelfWhenEnabled(final Key key) {}
 	
 	//method
 	/**

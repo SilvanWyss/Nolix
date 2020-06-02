@@ -11,6 +11,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.Label;
 
@@ -226,6 +227,13 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 			}
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

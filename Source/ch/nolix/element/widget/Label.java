@@ -9,6 +9,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.input.Key;
 
 //class
 /**
@@ -173,6 +174,13 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	protected LabelLook createLook() {
 		return new LabelLook();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

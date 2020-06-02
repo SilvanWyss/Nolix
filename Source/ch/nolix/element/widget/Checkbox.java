@@ -7,6 +7,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -208,6 +209,13 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	protected int getContentAreaWidth() {
 		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

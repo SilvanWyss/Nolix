@@ -13,6 +13,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
+import ch.nolix.element.input.Key;
 
 //class
 public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook>
@@ -311,6 +312,13 @@ implements Clearable<IM> {
 	
 	//method declaration
 	protected abstract void noteClear();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

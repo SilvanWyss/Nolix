@@ -8,6 +8,7 @@ import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
+import ch.nolix.element.input.Key;
 
 //class
 public final class DropdownMenu extends ItemMenu<DropdownMenu> {
@@ -142,6 +143,13 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	protected void noteClear() {
 		originLabel.setText(StringCatalogue.EMPTY_STRING);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

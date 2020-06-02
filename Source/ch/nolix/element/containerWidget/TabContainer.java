@@ -11,6 +11,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
@@ -432,8 +433,19 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {		
 		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());

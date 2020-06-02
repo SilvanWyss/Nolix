@@ -403,7 +403,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteKeyPress(Key key) {
 		if (rootWidget != null) {
-			rootWidget.noteKeyPressRecursively(key);
+			rootWidget.noteKeyPress(key);
 		}
 	}
 	

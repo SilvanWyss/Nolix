@@ -10,6 +10,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.input.Key;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
@@ -133,6 +134,13 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	public boolean shortensShownTextWhenHasLimitedWidth() {
 		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	@Override

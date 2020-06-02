@@ -9,6 +9,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.input.Key;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>
@@ -207,6 +208,13 @@ implements Clearable<FloatContainer> {
 			widgets.getMaxByInt(w -> w.getWidth())
 		);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

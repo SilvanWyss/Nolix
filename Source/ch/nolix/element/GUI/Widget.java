@@ -696,22 +696,12 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final void noteKeyPress(final Key key) {
 		if (isEnabled()) {
-			noteKeyPressWhenEnabled(key);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Widget} note a key press recursively.
-	 * 
-	 * @param key
-	 */
-	public final void noteKeyPressRecursively(final Key key) {
-		
-		noteKeyPress(key);
-		
-		if (redirectsInputsToShownWidgets()) {
-			getRefPaintableWidgets().forEach(w -> w.noteKeyPressRecursively(key));
+			
+			noteKeyPressOnSelfWhenEnabled(key);
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefPaintableWidgets().forEach(w -> w.noteKeyPress(key));
+			}
 		}
 	}
 	
@@ -1488,13 +1478,14 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	protected abstract int getWidthWhenNotCollapsed();
 	
-	//method
+	//method declaration
 	/**
-	 * Lets the current {@link Widget} note a key press for the case when it is enabled.
+	 * Lets the current {@link Widget} note a key press on itself
+	 * for the case when the current {@link Widget} is enabled.
 	 * 
 	 * @param key
 	 */
-	protected void noteKeyPressWhenEnabled(final Key key) {}
+	protected abstract void noteKeyPressOnSelfWhenEnabled(Key key);
 	
 	//method
 	/**

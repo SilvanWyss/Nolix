@@ -10,6 +10,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnum.ContentPosition;
+import ch.nolix.element.input.Key;
 
 //class
 /**
@@ -205,6 +206,13 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	protected ButtonLook createLook() {
 		return new ButtonLook();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

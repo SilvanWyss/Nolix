@@ -17,6 +17,7 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -1066,6 +1067,33 @@ extends Widget<BW, BWL> {
 			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
 	}
 	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a key press on the content area
+	 * for the case when the current {@link BorderWidget} is focused.
+	 * 
+	 * @param key
+	 */
+	protected abstract void noteKeyPressOnContentAreaWhenFocused(Key key);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyPressOnSelfWhenEnabled(final Key key) {
+		if (isFocused()) {
+			noteKeyPressOnContentAreaWhenFocused(key);
+		}
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a left mouse button click on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
+	protected abstract void noteLeftMouseButtonClickOnContentAreaWhenEnabled();
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1079,10 +1107,10 @@ extends Widget<BW, BWL> {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button click on the content area
-	 * for the case when it is enabled.
+	 * Lets the current {@link BorderWidget} note a left mouse button press on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
 	 */
-	protected abstract void noteLeftMouseButtonClickOnContentAreaWhenEnabled();
+	protected abstract void noteLeftMouseButtonPressOnContentAreaWhenEnabled();
 	
 	//method
 	/**
@@ -1115,13 +1143,6 @@ extends Widget<BW, BWL> {
 		}
 	}
 	
-	//method declaration
-	/**
-	 * Lets the current {@link BorderWidget} note a left mouse button press on the content area
-	 * for the case when it is enabled.
-	 */
-	protected abstract void noteLeftMouseButtonPressOnContentAreaWhenEnabled();
-	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1140,7 +1161,7 @@ extends Widget<BW, BWL> {
 	//method declaration
 	/**
 	 * Lets the current {@link BorderWidget} note a left mouse button release on the show area
-	 * for the case when it is enabled.
+	 * for the case when the current {@link BorderWidget} is enabled.
 	 */
 	protected abstract void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled();
 	

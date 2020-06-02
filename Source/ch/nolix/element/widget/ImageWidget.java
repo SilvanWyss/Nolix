@@ -6,6 +6,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.graphic.Image;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -98,6 +99,13 @@ implements Clearable<ImageWidget> {
 	protected int getContentAreaWidth() {
 		return (isEmpty() ? 0 : getRefImage().getWidth());
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

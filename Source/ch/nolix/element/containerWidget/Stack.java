@@ -10,6 +10,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
+import ch.nolix.element.input.Key;
 
 //class
 /**
@@ -276,6 +277,13 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 			}
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**

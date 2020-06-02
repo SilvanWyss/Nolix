@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.widget;
 
+import ch.nolix.element.input.Key;
+
 //class
 public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	
@@ -41,6 +43,13 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	protected UploaderLook createLook() {
 		return new UploaderLook();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**
