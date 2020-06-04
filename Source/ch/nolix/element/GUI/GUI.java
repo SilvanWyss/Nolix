@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
+import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -14,6 +16,7 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
+import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.inputDevice.KeyBoard;
 import ch.nolix.element.painter.IPainter;
@@ -32,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 400
+ * @lines 410
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -86,6 +89,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attributes
+	private final CachingContainer<Image> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
 	private IFrontEnd frontEnd = new LocalFrontEnd();
 	private boolean closed = false;
@@ -138,6 +142,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @return the cursor icon of the current {@link GUI}.
 	 */
 	public abstract CursorIcon getCursorIcon();
+	
+	//method
+	/**
+	 * @return the image cache of the current {@link GUI}.
+	 */
+	public final CachingContainer<Image> getRefImageCache() {
+		return imageCache;
+	}
 	
 	//method
 	/**
