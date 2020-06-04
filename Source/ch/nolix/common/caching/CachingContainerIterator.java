@@ -11,10 +11,10 @@ import ch.nolix.common.pair.Pair;
 final class CachingContainerIterator<E> implements Iterator<E> {
 	
 	//attribute
-	private final Iterator<Pair<Long, E>> parentCachingContainerIterator;
+	private final Iterator<Pair<String, E>> parentCachingContainerIterator;
 	
 	//constructor
-	public CachingContainerIterator(final Iterator<Pair<Long, E>> parentCachingContainerIterator) {
+	public CachingContainerIterator(final Iterator<Pair<String, E>> parentCachingContainerIterator) {
 		this.parentCachingContainerIterator = parentCachingContainerIterator;
 	}
 	

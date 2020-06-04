@@ -8,21 +8,30 @@ import java.util.Iterator;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
 
 //class
 public final class CachingContainer<E> implements IContainer<E> {
 	
+	//constant
+	private static final String AUTO_ID_PREFIX = "$";
+	
 	//attribute
-	private long currentId = 0;
+	private long autoIdCounter = 0;
 	
 	//multi-attribute
-	private final LinkedList<Pair<Long, E>> elements = new LinkedList<>();
+	private final LinkedList<Pair<String, E>> elements = new LinkedList<>();
 	
 	//method
-	public E getRefElementById(final long id) {
-		return elements.getRefFirst(e -> e.getRefElement1() == id).getRefElement2();
+	public boolean containsId(final String id) {
+		return elements.contains(e -> e.getRefElement1().equals(id));
+	}
+	
+	//method
+	public E getRefElementById(final String id) {
+		return elements.getRefFirst(e -> e.getRefElement1().equals(id)).getRefElement2();
 	}
 	
 	//method
@@ -38,21 +47,39 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public long registerElementAndGetId(final E element) {
+	public String registerElementAndGetId(final E element) {
 		
 		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
 		
-		final var nextId = createNextId();
-		elements.addAtEnd(new Pair<>(nextId, element));
+		final var id = createNextAutoId();
+		elements.addAtEnd(new Pair<>(id, element));
 		
-		return nextId;
+		return id;
 	}
 	
 	//method
-	private long createNextId() {
+	public void registerElementWithId(final String id, final E element) {
 		
-		currentId++;
+		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
 		
-		return currentId;
+		assertDoesNotContainId(id);
+	}
+	
+	//method
+	private String createNextAutoId() {
+		
+		autoIdCounter++;
+		while (containsId(AUTO_ID_PREFIX + autoIdCounter)) {
+			autoIdCounter++;
+		}
+		
+		return String.valueOf(AUTO_ID_PREFIX + autoIdCounter);
+	}
+	
+	//method
+	private void assertDoesNotContainId(String id) {
+		if (containsId(id)) {
+			throw new InvalidArgumentException(VariableNameCatalogue.ID, id, "is already used");
+		}
 	}
 }
