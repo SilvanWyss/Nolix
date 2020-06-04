@@ -47,22 +47,38 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public String registerElementAndGetId(final E element) {
+	public void registerElementAtId(final String id, final E element) {
 		
+		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
 		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		assertDoesNotContainId(id);
 		
-		final var id = createNextAutoId();
 		elements.addAtEnd(new Pair<>(id, element));
-		
-		return id;
 	}
 	
 	//method
-	public void registerElementAtId(final String id, final E element) {
+	public String registerElementIfNotRegisteredAndGetId(final E element) {
 		
-		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		final var pair = elements.getRefFirstOrNull(e -> e.hasElement2(element));
 		
-		assertDoesNotContainId(id);
+		if (pair == null) {
+			
+			Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+			
+			final var id = createNextAutoId();
+			elements.addAtEnd(new Pair<>(id, element));
+			
+			return id;
+		}
+		
+		return pair.getRefElement1();
+	}
+	
+	//method
+	private void assertDoesNotContainId(String id) {
+		if (containsId(id)) {
+			throw new InvalidArgumentException(VariableNameCatalogue.ID, id, "is already used");
+		}
 	}
 	
 	//method
@@ -74,12 +90,5 @@ public final class CachingContainer<E> implements IContainer<E> {
 		}
 		
 		return String.valueOf(AUTO_ID_PREFIX + autoIdCounter);
-	}
-	
-	//method
-	private void assertDoesNotContainId(String id) {
-		if (containsId(id)) {
-			throw new InvalidArgumentException(VariableNameCatalogue.ID, id, "is already used");
-		}
 	}
 }
