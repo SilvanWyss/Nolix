@@ -58,7 +58,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public void registerElementWithId(final String id, final E element) {
+	public void registerElementAtId(final String id, final E element) {
 		
 		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
 		
