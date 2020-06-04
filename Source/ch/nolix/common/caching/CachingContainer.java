@@ -30,7 +30,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public E getRefElementById(final String id) {
+	public E getRefById(final String id) {
 		return elements.getRefFirst(e -> e.getRefElement1().equals(id)).getRefElement2();
 	}
 	
@@ -47,7 +47,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public void registerElementAtId(final String id, final E element) {
+	public void registerAtId(final String id, final E element) {
 		
 		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
 		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
@@ -57,7 +57,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public String registerElementIfNotRegisteredAndGetId(final E element) {
+	public String registerIfNotRegisteredAndGetId(final E element) {
 		
 		final var pair = elements.getRefFirstOrNull(e -> e.hasElement2(element));
 		
