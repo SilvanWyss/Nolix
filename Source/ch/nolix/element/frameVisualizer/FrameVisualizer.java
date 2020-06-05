@@ -56,7 +56,7 @@ public final class FrameVisualizer implements IVisualizer {
 			super.paintComponent(graphics);
 			
 			//Creates swing painter.
-			FrameVisualizer.this.parentGUI.paint(new SwingPainter(graphics));
+			FrameVisualizer.this.parentGUI.paint(new SwingPainter(parentGUI.getRefImageCache(), graphics));
 		}
 	};
 

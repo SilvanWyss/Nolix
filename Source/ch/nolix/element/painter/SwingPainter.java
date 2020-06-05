@@ -7,8 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 //own imports
+import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.validator.Validator;
-//own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;
@@ -17,34 +17,34 @@ import ch.nolix.element.textFormat.TextFormat;
 //class
 public final class SwingPainter implements IPainter {
 	
-	//attribute
+	//attributes
+	private final CachingContainer<Image> imageCache;
 	private final Graphics graphics;
 	
 	//optional attribute
 	private ColorGradient colorGradient;
 	
 	//constructor
-	public SwingPainter(final Graphics graphics) {
+	public SwingPainter(final CachingContainer<Image> imageCache, final Graphics graphics) {
 		
-		Validator.assertThat(graphics).isOfType(Graphics.class);
+		Validator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
+		Validator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
 		
+		this.imageCache = imageCache;
 		this.graphics = graphics;
 		
 		((Graphics2D)graphics).setRenderingHint(
 			RenderingHints.KEY_ANTIALIASING,
- RenderingHints.VALUE_ANTIALIAS_ON
+			RenderingHints.VALUE_ANTIALIAS_ON
 		);
 	}
 	
 	//method
 	@Override
-	public IPainter createPainter(
-		final int xTranslation,
-		final int yTranslation
-	) {
-		final Graphics graphics = this.graphics.create();
-		graphics.translate(xTranslation, yTranslation);
-		return new SwingPainter(graphics);
+	public IPainter createPainter(final int xTranslation, final int yTranslation) {
+		final var lGraphics = graphics.create();
+		lGraphics.translate(xTranslation, yTranslation);
+		return new SwingPainter(imageCache, lGraphics);
 	}
 	
 	//method
@@ -55,7 +55,9 @@ public final class SwingPainter implements IPainter {
 			final int paintAreaWidth,
 			final int paintAreaHeight
 	) {
-		return new SwingPainter(
+		return
+		new SwingPainter(
+			imageCache,
 			graphics.create(
 				xTranslation,
 				yTranslation,
@@ -64,10 +66,16 @@ public final class SwingPainter implements IPainter {
 			)
 		);
 	}
-
+	
 	//method
 	@Override
-	public int getTextWith(final String text, final TextFormat textFormat) {
+	public Image getImageById(final String id) {
+		return imageCache.getRefById(id);
+	}
+	
+	//method
+	@Override
+	public int getTextWidth(final String text, final TextFormat textFormat) {
 		return textFormat.getSwingTextWidth(text);
 	}
 	
@@ -82,14 +90,14 @@ public final class SwingPainter implements IPainter {
 		
 		graphics.fillPolygon(xs, ys, xs.length);
 	}
-
+	
 	//method
 	@Override
 	public void paintFilledRectangle(
 		final int xPosition,
 		final int yPosition,
 		final int width,
-		final int	height
+		final int height
 	) {
 		if (!hasColorGradient()) {
 			graphics.fillRect(xPosition, yPosition, width, height);
@@ -113,12 +121,30 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void paintImage(
-		final Image image,
-		final int width,
-		final int height
-	) {
+	public void paintImage(final Image image) {
+		graphics.drawImage(image.toBufferedImage(), 0, 0, null);
+	}
+	
+	//method
+	@Override
+	public void paintImage(final Image image, final int width, final int height) {
 		graphics.drawImage(image.toBufferedImage(), 0, 0, width, height, null);
+	}
+	
+	//method
+	@Override
+	public void paintImageById(final String id) {
+		
+		//Calls other method.
+		paintImage(getImageById(id));
+	}
+	
+	//method
+	@Override
+	public void paintImageById(final String id, final int width, final int height) {
+		
+		//Calls other method.
+		paintImage(getImageById(id), width, height);
 	}
 	
 	//method
@@ -129,36 +155,35 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void paintText(
-		String text,
-		TextFormat textFormat,
-		int maxTextWidth
-	) {
+	public void paintText(final String text, final TextFormat textFormat, final int maxTextWidth) {
 		textFormat.paintSwingText(graphics, text, maxTextWidth);
 	}
-
+	
+	//method
+	@Override
+	public void registerImageAtId(final String id, final Image image) {
+		imageCache.registerAtId(id, image);
+	}
+	
 	//method
 	@Override
 	public void setColor(final Color color) {
 		graphics.setColor(color.createSwingColor());
 		colorGradient = null;
 	}
-
+	
 	//method
 	@Override
-	public void setColorGradient(ColorGradient colorGradient) {
+	public void setColorGradient(final ColorGradient colorGradient) {
 		
-		Validator.assertThat(colorGradient).isOfType(ColorGradient.class);
+		Validator.assertThat(colorGradient).thatIsNamed(ColorGradient.class).isNotNull();
 		
 		this.colorGradient = colorGradient;
 	}
 	
 	//method
 	@Override
-	public void translate(
-		final int xTranslation,
-		final int yTranslation
-	) {
+	public void translate(final int xTranslation, final int yTranslation) {
 		graphics.translate(xTranslation, yTranslation);
 	}
 	

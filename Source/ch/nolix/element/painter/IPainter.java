@@ -11,9 +11,12 @@ import ch.nolix.element.textFormat.TextFormat;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 200
+ * @lines 210
  */
 public interface IPainter {
+	
+	//constant
+	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
 	//method
 	/**
@@ -30,10 +33,7 @@ public interface IPainter {
 	 * @return a new {@link IPainter} from the current {@link IPainter}
 	 * with the given translation.
 	 */
-	public abstract IPainter createPainter(
-		int xTranslation,
-		int yTranslation
-	);
+	public abstract IPainter createPainter(int xTranslation, int yTranslation);
 	
 	/**
 	 * 
@@ -53,39 +53,36 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * @param text
-	 * @param textFormat
-	 * @return the width of the given text
-	 * from the current {@link IPainter} using the given font.
+	 * @param id
+	 * @return the {@link Image} with the given id from the current {@link IPainter}.
 	 */
-	public abstract int getTextWith(
-		String text,
-		TextFormat textFormat
-	);
+	public abstract Image getImageById(String id);
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Painter} paint a polygon
-	 * with the vertices with the given x- and y-positions.
-	 * 
-	 * @param vertices
+	 * @param text
+	 * @param textFormat
+	 * @return the width of the given text from the current {@link IPainter} using the given textFormat.
 	 */
-	public abstract void paintFilledPolygon(final int[] xs, final int[] ys);
+	public abstract int getTextWidth(String text, TextFormat textFormat);
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Painter} paint a polygon with the vertices with the given x- and y-positions.
+	 * 
+	 * @param x
+	 * @param y
+	 */
+	public abstract void paintFilledPolygon(int[] x, int[] y);
 	
 	//method
 	/**
-	 * Lets the current {@link IPainter} paint a filled rectangle
-	 * at its origin position with the given width and height.
+	 * Lets the current {@link IPainter} paint a filled rectangle with the given width and height.
 	 * 
-	 * @param xPosition
-	 * @param yPosition
 	 * @param width
 	 * @param height
 	 */
-	public default void paintFilledRectangle(
-		final int width,
-		final int height
-	) {
+	public default void paintFilledRectangle(final int width, final int height) {
 		paintFilledRectangle(0, 0, width, height);
 	}
 	
@@ -99,26 +96,15 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	public abstract void paintFilledRectangle(
-		int xPosition,
-		int yPosition,
-		int width, 
-		int height
-	);
+	public abstract void paintFilledRectangle(int xPosition, int yPosition,	int width, int height);
 	
 	//method
 	/**
 	 * Lets the current {@link Painter} paint the given image.
 	 * 
 	 * @param image
-	 * @param width
-	 * @param height
 	 */
-	public default void paintImage(final Image image) {
-		
-		//Calls other method
-		paintImage(image, image.getWidth(), image.getHeight());
-	}
+	public abstract void paintImage(Image image);
 	
 	//method declaration
 	/**
@@ -128,20 +114,51 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	public abstract void paintImage(
-		Image image,
-		int width,
-		int height
-	);
+	public abstract void paintImage(Image image, int width, int height);
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Painter} paint the image that has the given id.
+	 * 
+	 * @param id
+	 */
+	public abstract void paintImageById(String id);
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Painter} paint the given image, that has the given id, with the given width and height.
+	 * 
+	 * @param image
+	 * @param width
+	 * @param height
+	 */
+	public abstract void paintImageById(String id, int width, int height);
 	
 	//method
 	/**
-	 * Lets the current {@link IPainter} paint the given using a default {@link TextFormat}.
+	 * Lets the current {@link IPainter} paint the given text.
 	 * 
 	 * @param text
 	 */
 	public default void paintText(final String text) {
-		paintText(text, new TextFormat());
+		
+		//Calls other method.
+		paintText(text, DEFAULT_TEXT_FORMAT);
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link IPainter} paint the given text.
+	 * 
+	 * Only the first part of the given text, that is not longer than the given maxWidth, will be painted.
+	 * 
+	 * @param text
+	 * @param maxWidth
+	 */
+	public default void paintText(final String text, final int maxWidth) {
+		
+		//Calls other method.
+		paintText(text, DEFAULT_TEXT_FORMAT, maxWidth);
 	}
 	
 	//method declaration
@@ -151,27 +168,28 @@ public interface IPainter {
 	 * @param text
 	 * @param textFormat
 	 */
-	public abstract void paintText(
-		String text,
-		TextFormat textFormat
-	);
+	public abstract void paintText(String text, TextFormat textFormat);
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IPainter} paint the given text using the given text format.
+	 * Lets the current {@link IPainter} paint the given text using the given textFormat.
 	 * 
-	 * Only the first part of the given text
-	 * that is not longer than the given max width will be painted.
+	 * Only the first part of the given text, that is not longer than the given maxWidth, will be painted.
 	 * 
 	 * @param text
 	 * @param textFormat
-	 * @param maxTextWidth
+	 * @param maxWidth
 	 */
-	public abstract void paintText(
-		String text,
-		TextFormat textFormat,
-		int maxTextWidth
-	);
+	public abstract void paintText(String text, TextFormat textFormat, int maxWidth);
+	
+	//method declaration
+	/**
+	 * Lets the current {@link IPainter} register the given image at the given id.
+	 * 
+	 * @param id
+	 * @param image
+	 */
+	public abstract void registerImageAtId(String id, Image image);
 	
 	//method declaration
 	/**
@@ -196,8 +214,5 @@ public interface IPainter {
 	 * @param xTranslation
 	 * @param yTranslation
 	 */
-	public abstract void translate(
-		int xTranslation,
-		int yTranslation
-	);
+	public abstract void translate(int xTranslation, int yTranslation);
 }

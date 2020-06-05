@@ -433,7 +433,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public final IContainer<ChainedNode> getPaintCommands() {
 		
-		final var painter = new CanvasGUICommandCreatorPainter();
+		final var painter = new CanvasGUICommandCreatorPainter(getRefImageCache());
 		paint(painter);
 		
 		return painter.getCommands();

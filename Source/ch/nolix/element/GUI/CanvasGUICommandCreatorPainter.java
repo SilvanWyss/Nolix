@@ -3,7 +3,9 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.attributeAPI.Indexed;
+import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.node.BaseNode;
@@ -18,26 +20,29 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//attributes
 	private final CanvasGUIPainterPool bottom;
+	private final CachingContainer<Image> imageCachingContainer;
 	private final int index;
 	
 	//constructor
-	public CanvasGUICommandCreatorPainter() {
-		this(new CanvasGUIPainterPool());
+	public CanvasGUICommandCreatorPainter(final CachingContainer<Image> imageCachingContainer) {
+		this(new CanvasGUIPainterPool(), imageCachingContainer);
 	}
 	
 	//constructor
-	private CanvasGUICommandCreatorPainter(final CanvasGUIPainterPool bottom) {
+	private CanvasGUICommandCreatorPainter(
+		final CanvasGUIPainterPool bottom,
+		final CachingContainer<Image> imageCachingContainer
+	) {
 		this.bottom = bottom;
+		this.imageCachingContainer = imageCachingContainer;
 		this.index = bottom.getNextIndexAndUpdateNextIndex();
 	}
 	
 	//method
 	@Override
-	public CanvasGUICommandCreatorPainter createPainter(
-		final int xTranslation,
-		final int yTranslation
-	) {
-		final var painter = new CanvasGUICommandCreatorPainter(bottom);
+	public CanvasGUICommandCreatorPainter createPainter(final int xTranslation,	final int yTranslation) {
+		
+		final var painter = new CanvasGUICommandCreatorPainter(bottom, imageCachingContainer);
 		
 		appendPaintCommand(
 			CanvasGUIProtocol.CREATE_PAINTER_HEADER
@@ -59,7 +64,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		final int paintAreaWidth,
 		final int paintAreaHeight
 	) {
-		final var painter = new CanvasGUICommandCreatorPainter(bottom);
+		final var painter = new CanvasGUICommandCreatorPainter(bottom, imageCachingContainer);
 		
 		appendPaintCommand(
 			CanvasGUIProtocol.CREATE_PAINTER_HEADER
@@ -79,6 +84,12 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
+	public Image getImageById(final String id) {
+		return imageCachingContainer.getRefById(id);
+	}
+	
+	//method
+	@Override
 	public int getIndex() {
 		return index;
 	}
@@ -90,7 +101,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public int getTextWith(final String text, final TextFormat textFormat) {
+	public int getTextWidth(final String text, final TextFormat textFormat) {
 		return textFormat.getSwingTextWidth(text);
 	}
 	
@@ -133,9 +144,9 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintImage(final Image image) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_IMAGE_HEADER
+			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
 			+ '('
-			+ image.getSpecification()
+			+ registerImageIfNotRegisteredAndGetId(image)
 			+ ')'
 		);
 	}
@@ -144,9 +155,9 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintImage(final Image image, final int width, final int height) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_IMAGE_HEADER
+			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
 			+ '('
-			+ image.getSpecification()
+			+ registerImageIfNotRegisteredAndGetId(image)
 			+ ','
 			+ width
 			+ ','
@@ -154,9 +165,36 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			+ ')'
 		);
 	}
-
+	
+	//method
 	@Override
-	public void paintText(String text, TextFormat textFormat) {
+	public void paintImageById(final String id) {
+		appendPaintCommand(
+			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
+			+ '('
+			+ id
+			+ ')'
+		);
+	}
+	
+	//method
+	@Override
+	public void paintImageById(final String id, final int width, final int height) {
+		appendPaintCommand(
+			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
+			+ '('
+			+ id
+			+ ','
+			+ width
+			+ ','
+			+ height
+			+ ')'
+		);
+	}
+	
+	//method
+	@Override
+	public void paintText(final String text, final TextFormat textFormat) {
 		appendPaintCommand(
 			CanvasGUIProtocol.PAINT_TEXT_HEADER
 			+ '('
@@ -179,6 +217,24 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			+ ','
 			+ maxTextWidth
 			+ ')'
+		);
+	}
+	
+	//method
+	@Override
+	public void registerImageAtId(final String id, final Image image) {
+		
+		imageCachingContainer.registerAtId(id, image);
+		
+		appendPaintCommand(
+			CanvasGUIProtocol.REGISTER_IMAGE_HEADER
+			+ "("
+			+ PascalCaseNameCatalogue.ID
+			+ "("
+			+ id
+			+ "),"
+			+ image.getSpecification()
+			+ ")"
 		);
 	}
 	
@@ -220,5 +276,29 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	private void appendPaintCommand(final String command) {
 		bottom.appendPaintCommand(this, command);
+	}
+	
+	//method
+	private String registerImageIfNotRegisteredAndGetId(final Image image) {
+		
+		var id = imageCachingContainer.getIdOfOrNull(image);
+		
+		if (id == null) {
+			
+			id = imageCachingContainer.registerIfNotRegisteredAndGetId(image);
+			
+			appendPaintCommand(
+				CanvasGUIProtocol.REGISTER_IMAGE_HEADER
+				+ "("
+				+ PascalCaseNameCatalogue.ID
+				+ "("
+				+ id
+				+ "),"
+				+ image.getSpecification()
+				+ ")"
+			);
+		}
+		
+		return id;
 	}
 }

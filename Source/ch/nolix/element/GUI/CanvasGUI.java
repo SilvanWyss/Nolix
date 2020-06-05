@@ -3,6 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
@@ -13,7 +14,6 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
-import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -240,8 +240,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				return createCreatePainterCommand(painterIndex, paintCommand);
 			case CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER:
 				return createPaintFilledRectangleCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.PAINT_IMAGE_HEADER:
-				return createPaintImageCommand(painterIndex, paintCommand);
+			case CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER:
+				return createPaintImageByIdCommand(painterIndex, paintCommand);
 			case CanvasGUIProtocol.PAINT_TEXT_HEADER:
 				return createPaintTextCommand(painterIndex, paintCommand);
 			case CanvasGUIProtocol.SET_COLOR_HEADER:
@@ -300,23 +300,23 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
-	private IElementTaker<PaintRun> createPaintImageCommand(
+	private IElementTaker<PaintRun> createPaintImageByIdCommand(
 		final int painterIndex,
 		final ChainedNode paintImageCommand
 	) {
 		
 		final var attributes = paintImageCommand.getAttributesAsNodes();
-		final var image = Image.fromSpecification(attributes.getRefAt(1));
+		final var imageId = attributes.getRefFirst(a -> a.hasHeader(PascalCaseNameCatalogue.ID)).toString();
 		
 		switch (attributes.getSize()) {
 			case 1:	
-				return pr -> pr.getRefPainterByIndex(painterIndex).paintImage(image);
+				return pr -> pr.getRefPainterByIndex(painterIndex).paintImageById(imageId);
 			case 3:
 				
 				final var width = attributes.getRefAt(2).toInt();
 				final var height = attributes.getRefAt(3).toInt();
 				
-				return pr -> pr.getRefPainterByIndex(painterIndex).paintImage(image,	width, height);
+				return pr -> pr.getRefPainterByIndex(painterIndex).paintImageById(imageId, width, height);
 			default:
 				throw new InvalidArgumentException("paint image command", paintImageCommand, "is not valid");
 		}
