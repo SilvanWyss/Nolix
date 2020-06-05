@@ -6,6 +6,7 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotSupportMethodException;
@@ -38,7 +39,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 890
+ * @lines 920
  */
 public final class Layer extends Element<Layer>
 implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IInputTaker {
@@ -107,12 +108,15 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		fcp -> fcp.getSpecification()
 	);
 	
-	//attribute
+	//attributes
 	private int cursorXPosition = 0;
 	private int cursorYPosition = 0;
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
+	
+	//optional attribute
+	private IElementTaker<Layer> leftMouseButtonPressCommand;
 	
 	//constructor
 	/**
@@ -371,6 +375,14 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	
 	//method
 	/**
+	 * @return true if the current {@link Layer} has a left mouse button press command.
+	 */
+	public boolean hasLeftMouseButtonPressCommand() {
+		return (leftMouseButtonPressCommand != null);
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -446,9 +458,14 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	 */
 	@Override
 	public void noteLeftMouseButtonPress() {
+		
+		if (hasLeftMouseButtonPressCommand() && (rootWidget == null || !rootWidget.isUnderCursor())) {
+			leftMouseButtonPressCommand.run(this);
+		}
+		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonPress();
-		}		
+		}
 	}
 	
 	//method
@@ -844,6 +861,23 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public Layer setId(final String id) {
 		throw new ArgumentDoesNotSupportMethodException(this, "setId");
+	}
+	
+	//method
+	/**
+	 * Sets the left mouse button press command of the current {@link Layer}.
+	 * 
+	 * @param leftMouseButtonPressCommand
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressCommand is null.
+	 */
+	public Layer setLeftMouseButtonPressCommand(final IElementTaker<Layer> leftMouseButtonPressCommand) {
+		
+		Validator.assertThat(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
+		
+		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
+		
+		return this;
 	}
 	
 	//method
