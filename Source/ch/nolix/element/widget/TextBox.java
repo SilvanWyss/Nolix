@@ -15,7 +15,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 350
+ * @lines 360
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
@@ -121,9 +121,22 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Resets the configuration of the current {@link TextBox}.
-	 * 
-	 * @return the current {@link TextBox}.
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TextBox reset() {
+		
+		//Calls method of the base class.
+		super.reset();
+		
+		textCursorPosition.setValue(0);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public TextBox resetConfiguration() {
