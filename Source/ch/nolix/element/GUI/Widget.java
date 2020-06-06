@@ -273,7 +273,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * @return
 	 */
 	public final boolean freeViewAreaIsUnderCursor() {
-		return (isUnderCursor() && getRefPaintableWidgets().contains(w -> w.isUnderCursor()));
+		return (isUnderCursor() && getRefPaintableWidgets().contains(Widget::isUnderCursor));
 	}
 	
 	//method
@@ -338,7 +338,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 */
 	public CursorIcon getCursorIcon() {
 		
-		final var widgetUnderCursor = getRefPaintableWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		final var widgetUnderCursor = getRefPaintableWidgets().getRefFirstOrNull(Widget::isUnderCursor);
 		if (widgetUnderCursor != null) {
 			return widgetUnderCursor.getCursorIcon();
 		}
@@ -920,7 +920,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	@Override
 	public final void recalculate() {
 		
-		getRefPaintableWidgets().forEach(cw -> cw.recalculate());
+		getRefPaintableWidgets().forEach(Widget::recalculate);
 		
 		recalculateSelf();
 	}
