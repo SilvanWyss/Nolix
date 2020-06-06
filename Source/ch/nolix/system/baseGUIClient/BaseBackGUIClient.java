@@ -20,7 +20,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 250
+ * @lines 240
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -69,10 +69,10 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getNextNode());
 				break;
-			//TODO: Handle all (!) inputs in 1 case.
 			case Protocol.NOTE_INPUT:
 				
 				getRefGUI().noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));
+				
 				if (!isClosed()) {
 					updateGUIOnCounterpart();
 				}
@@ -202,23 +202,23 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	/**
 	 * Lets the current {@link BaseBackGUIClient} run the given GUICommand.
 	 * 
-	 * @param GUICommand
+	 * @param lGUICommand
 	 * @throws InvalidArgumentException if the given GUICommand is not valid.
 	 */
-	private void runGUICommand(final ChainedNode GUICommand) {
+	private void runGUICommand(final ChainedNode lGUICommand) {
 		
 		//Enumerates the header of the given GUICommand.
-		switch (GUICommand.getHeader()) {
+		switch (lGUICommand.getHeader()) {
 			case Protocol.RESET_HEADER:
-				resetGUI(GUICommand.getAttributesAsNodes());
+				resetGUI(lGUICommand.getAttributesAsNodes());
 				break;
 			case Protocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER:
 				addOrChangeGUIWidgetsAttributes(						
-					GUICommand.getAttributes().to(a -> a.getAttributesAsNodes())
+					lGUICommand.getAttributes().to(ChainedNode::getAttributesAsNodes)
 				);
 				break;
 			default:
-				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
+				throw new InvalidArgumentException("GUI command", lGUICommand, "is not valid");
 		}
 	}
 	
@@ -238,6 +238,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
 		if (paintCommands.containsAny()) {			
 			runGUICommandOnCounterpart(
+				
 				//TODO: Add a suitable construction mechanic to ChainedNode. 
 				ChainedNode.fromString(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands + ")")
 			);
