@@ -14,7 +14,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
@@ -28,13 +28,13 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 
 	//attributes
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final IInputTaker inputTaker;
+	private final IResizableInputTaker inputTaker;
 	
 	//multi-attribute
 	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
 	//constructor
-	public CanvasGUI(final IInputTaker inputTaker, final Visibility visibility) {
+	public CanvasGUI(final IResizableInputTaker inputTaker, final Visibility visibility) {
 		
 		super(visibility);
 		
@@ -44,7 +44,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//constructor
-	public CanvasGUI(final IInputTaker inputTaker, final IVisualizer visualizer) {
+	public CanvasGUI(final IResizableInputTaker inputTaker, final IVisualizer visualizer) {
 		
 		super(visualizer);
 		

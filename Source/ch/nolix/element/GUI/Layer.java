@@ -27,7 +27,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -42,7 +42,7 @@ import ch.nolix.element.painter.IPainter;
  * @lines 920
  */
 public final class Layer extends Element<Layer>
-implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IInputTaker {
+implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IResizableInputTaker {
 	
 	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;

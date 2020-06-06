@@ -26,6 +26,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.Area;
@@ -159,7 +160,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//optional attributes
 	private Layer topLayer;
-	private final IInputTaker inputTaker;
+	private final IResizableInputTaker inputTaker;
 	
 	//constructor
 	/**
@@ -171,7 +172,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(final IInputTaker inputTaker) {
+	public LayerGUI(final IResizableInputTaker inputTaker) {
 		
 		super(Visibility.VISIBLE);
 		
@@ -209,7 +210,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(IVisualizer visualizer, IInputTaker inputTaker) {
+	public LayerGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
 		
 		super(visualizer);
 		
@@ -244,7 +245,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(final Visibility visibility, final IInputTaker inputTaker) {
+	public LayerGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
 		super(visibility);
 		

@@ -7,7 +7,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.elementEnum.UniDirection;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.textFormat.TextFormat;
@@ -30,7 +30,7 @@ public class CanvasFrameTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a CanvasFrame.
-		final var canvasFrame = new CanvasFrame("CanvasFrame Tutorial", new EventTaker());
+		final var canvasFrame = new CanvasFrame("CanvasFrame Tutorial", new InputTaker());
 		
 		//Create paintCommands.
 		final var paintCommands = new LinkedList<IElementTaker<PaintRun>>();
@@ -53,7 +53,7 @@ public class CanvasFrameTutorial {
 		canvasFrame.setPaintCommands(paintCommands);
 	}
 	
-	private static class EventTaker implements IInputTaker {
+	private static class InputTaker implements IResizableInputTaker {
 		
 		@Override
 		public void noteKeyPress(final Key key) {}

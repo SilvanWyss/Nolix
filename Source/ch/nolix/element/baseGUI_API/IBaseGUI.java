@@ -7,17 +7,17 @@ import ch.nolix.common.rasterAPI.Rectangular;
 import ch.nolix.common.skillAPI.IRequestableContainer;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.skillAPI.Refreshable;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.IResizableInputTaker;
 
 //interface
 /**
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 140
+ * @lines 30
  * @param <G> The type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
-extends IInputTaker, IRequestableContainer, Closable, Rectangular, Refreshable, Titleble<G> {
+extends Closable, IRequestableContainer, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**

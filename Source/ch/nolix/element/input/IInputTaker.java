@@ -9,13 +9,13 @@ import ch.nolix.element.elementEnum.DirectionOfRotation;
 /**
  * @author Silvan
  * @month 2019-08
- * @lines 270
+ * @lines 240
  */
 public interface IInputTaker {
 	
 	//method
 	/**
-	 * Lets the current {@link IBaseGUI} note the given input.
+	 * Lets the current {@link IInputTaker} note the given input.
 	 * 
 	 * @param input
 	 * @throws InvalidArgumentException if the given input is not valid.
@@ -30,10 +30,6 @@ public interface IInputTaker {
 			noteKeyInput(input.as(KeyInput.class));
 		}
 		
-		else if (input instanceof ResizeInput) {
-			noteResizeInput(input.as(ResizeInput.class));
-		}
-		
 		else {
 			throw new InvalidArgumentException(input);
 		}
@@ -41,7 +37,7 @@ public interface IInputTaker {
 	
 	//method
 	/**
-	 * Lets the current {@link IBaseGUI} note the given keyInput.
+	 * Lets the current {@link IInputTaker} note the given keyInput.
 	 * 
 	 * @param keyInput
 	 */
@@ -61,7 +57,7 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IBaseGUI} note a key press.
+	 * Lets the current {@link IInputTaker} note a key press.
 	 * 
 	 * @param key
 	 */
@@ -228,28 +224,6 @@ public interface IInputTaker {
 	 * @param directionOfRotation
 	 */
 	public abstract void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation);
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IInputTaker} note a resize.
-	 * The given viewAreaWidth and viewAreaHeight are the new size of the view area.
-	 * 
-	 * @param viewAreaWidth
-	 * @param viewAreaHeight
-	 */
-	public abstract void noteResize(int viewAreaWidth, int viewAreaHeight);
-	
-	//method
-	/**
-	 * Lets the current {@link IInputTaker} note a resize.
-	 * The viewAreaWidth and viewAreaHeight of the given resizeInput are the new size of the view area.
-	 * 
-	 * @param viewAreaWidth
-	 * @param viewAreaHeight
-	 */
-	public default void noteResizeInput(final ResizeInput resizeInput) {
-		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeigh());
-	}
 	
 	//method declaration
 	/**

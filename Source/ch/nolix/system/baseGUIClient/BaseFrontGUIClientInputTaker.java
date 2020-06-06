@@ -4,7 +4,7 @@ package ch.nolix.system.baseGUIClient;
 //own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
-import ch.nolix.element.input.IInputTaker;
+import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.input.KeyInput;
 import ch.nolix.element.input.KeyInputType;
@@ -16,9 +16,9 @@ import ch.nolix.element.input.ResizeInput;
 /**
  * @author Silvan Wyss
  * @month 2019-08
- * @lines 170
+ * @lines 200
  */
-final class BaseFrontGUIClientInputTaker implements IInputTaker {
+final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	
 	//attribute
 	/**
@@ -167,6 +167,15 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+		parentFrontGuiClientoid.noteInputOnCounterpart(new ResizeInput(viewAreaWidth, viewAreaHeight));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void noteRightMouseButtonClick() {
 		
 		//TODO: Use correct cursor position.
@@ -193,14 +202,5 @@ final class BaseFrontGUIClientInputTaker implements IInputTaker {
 		
 		//TODO: Use correct cursor position.
 		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonRelease));	
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		parentFrontGuiClientoid.noteInputOnCounterpart(new ResizeInput(viewAreaWidth, viewAreaHeight));
 	}
 }
