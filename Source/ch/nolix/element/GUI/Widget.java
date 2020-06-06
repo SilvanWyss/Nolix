@@ -19,6 +19,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -30,12 +31,12 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1780
+ * @lines 1790
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements Recalculable, TopLeftPositionedRecangular {
+implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
@@ -694,6 +695,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param key
 	 */
+	@Override
 	public final void noteKeyPress(final Key key) {
 		if (isEnabled()) {
 			
@@ -711,6 +713,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param key
 	 */
+	@Override
 	public final void noteKeyRelease(final Key key) {
 		if (isEnabled()) {
 			
@@ -728,6 +731,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param key
 	 */
+	@Override
 	public final void noteKeyTyping(final Key key) {
 		if (isEnabled()) {
 			
@@ -743,6 +747,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a left mouse button click.
 	 */
+	@Override
 	public final void noteLeftMouseButtonClick() {
 		if (isEnabled()) {
 			
@@ -758,6 +763,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a left mouse button pressy.
 	 */
+	@Override
 	public final void noteLeftMouseButtonPress() {
 		if (isEnabled()) {
 			
@@ -774,6 +780,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a left mouse button release.
 	 */
+	@Override
 	public final void noteLeftMouseButtonRelease() {
 		if (isEnabled()) {
 			
@@ -790,6 +797,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse move.
 	 */
+	@Override
 	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		setCursorPosition(cursorXPosition, cursorYPosition);
 		noteMouseMove();
@@ -799,6 +807,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel click.
 	 */
+	@Override
 	public final void noteMouseWheelClick() {
 		if (isEnabled()) {
 			
@@ -814,6 +823,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel press.
 	 */
+	@Override
 	public final void noteMouseWheelPress() {
 		if (isEnabled()) {
 			
@@ -829,6 +839,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel release.
 	 */
+	@Override
 	public final void noteMouseWheelRelease() {
 		if (isEnabled()) {
 			
@@ -846,6 +857,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @param directionOfRotation
 	 */
+	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
 		if (isEnabled()) {
 			
@@ -861,6 +873,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a right mouse button click.
 	 */
+	@Override
 	public final void noteRightMouseButtonClick() {
 		if (isEnabled()) {
 			
@@ -876,6 +889,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a right mouse button press.
 	 */
+	@Override
 	public final void noteRightMouseButtonPress() {
 		if (isEnabled()) {
 			
@@ -891,6 +905,7 @@ implements Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Lets the current {@link Widget} note a right mouse button release.
 	 */
+	@Override
 	public final void noteRightMouseButtonRelease() {
 		if (isEnabled()) {
 		
