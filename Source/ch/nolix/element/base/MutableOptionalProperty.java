@@ -6,16 +6,39 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 70
+ * @lines 90
  * @param <V> The value of an optional property.
  */
 public final class MutableOptionalProperty<V> extends SingleProperty<V> {
+	
+	//constructor
+	/**
+	 * Creates a new {@link MutableOptionalProperty} with the given name, setterMethod and valueCreator.
+	 * 
+	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @throws ArgumentIsNullException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public <E extends IElement> MutableOptionalProperty(
+		final String name,
+		final IElementTaker<V> setterMethod,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator
+	) {
 		
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator, v -> ((E)v).getSpecification());
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link MutableOptionalProperty}

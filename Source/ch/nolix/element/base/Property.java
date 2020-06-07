@@ -24,8 +24,8 @@ public final class Property<V> extends SingleProperty<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given setterMethod is blank.
+	 * @throws ArgumentIsNullException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is null.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 */
 	@SuppressWarnings("unchecked")
