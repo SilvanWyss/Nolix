@@ -279,7 +279,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -691,9 +691,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a key press.
-	 * 
-	 * @param key
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteKeyPress(final Key key) {
@@ -709,9 +707,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a key release.
-	 * 
-	 * @param key
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteKeyRelease(final Key key) {
@@ -727,9 +723,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a key typing.
-	 * 
-	 * @param key
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteKeyTyping(final Key key) {
@@ -745,7 +739,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a left mouse button click.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteLeftMouseButtonClick() {
@@ -761,7 +755,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a left mouse button pressy.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteLeftMouseButtonPress() {
@@ -778,7 +772,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a left mouse button release.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteLeftMouseButtonRelease() {
@@ -795,7 +789,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a mouse move.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
@@ -805,7 +799,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a mouse wheel click.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseWheelClick() {
@@ -821,7 +815,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a mouse wheel press.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseWheelPress() {
@@ -837,7 +831,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a mouse wheel release.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseWheelRelease() {
@@ -853,9 +847,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a mouse wheel rotation step.
-	 * 
-	 * @param directionOfRotation
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
@@ -871,7 +863,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a right mouse button click.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteRightMouseButtonClick() {
@@ -887,7 +879,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a right mouse button press.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteRightMouseButtonPress() {
@@ -903,7 +895,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a right mouse button release.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteRightMouseButtonRelease() {
@@ -930,7 +922,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void recalculate() {
@@ -1122,30 +1114,6 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 		this.customCursorIcon = customCursorIcon;
 		
 		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Sets the position of the cursor on the current {@link Widget} recursively.
-	 * 
-	 * @param cursorXPosition
-	 * @param cursorYPosition
-	 * @return the current {@link Widget}.
-	 */
-	private void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
-		
-		this.cursorXPosition = cursorXPosition;
-		this.cursorYPosition = cursorYPosition;
-				
-		final var cursorXPositionOnScrolledArea = getCursorXPositionOnContentArea();
-		final var cursorYPositionOnScrolledArea = getCursorYPositionOnContentArea();
-		
-		for (final var w : getRefPaintableWidgets()) {
-			w.setCursorPosition(
-				cursorXPositionOnScrolledArea - w.getXPosition(),
-				cursorYPositionOnScrolledArea - w.getYPosition()
-			);
-		}
 	}
 	
 	protected int getCursorXPositionOnContentArea() {
@@ -1765,6 +1733,30 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 		
 		if (paintsPaintableWidgetAPriori()) {
 			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));
+		}
+	}
+	
+	//method
+	/**
+	 * Sets the position of the cursor on the current {@link Widget} recursively.
+	 * 
+	 * @param cursorXPosition
+	 * @param cursorYPosition
+	 * @return the current {@link Widget}.
+	 */
+	private void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+		
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+				
+		final var cursorXPositionOnScrolledArea = getCursorXPositionOnContentArea();
+		final var cursorYPositionOnScrolledArea = getCursorYPositionOnContentArea();
+		
+		for (final var w : getRefPaintableWidgets()) {
+			w.setCursorPosition(
+				cursorXPositionOnScrolledArea - w.getXPosition(),
+				cursorYPositionOnScrolledArea - w.getYPosition()
+			);
 		}
 	}
 	
