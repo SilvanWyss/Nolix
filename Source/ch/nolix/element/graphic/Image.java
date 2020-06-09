@@ -329,19 +329,29 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		
 		Validator.assertThat(factor).thatIsNamed(VariableNameCatalogue.FACTOR).isPositive();
 		
-		final var image = new Image((int)(factor * getWidth()), (int)(factor * getHeight()));
-		final var reziprocalFactor = 1.0 / factor;
+		return toScaledImage(factor, factor);
+	}
+	
+	//method
+	public Image toScaledImage(final double widthFactor, final double heightFactor) {
+		
+		Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
+		Validator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
+		
+		final var image = new Image((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
+		final var reziprocalWidthFactor = 1.0 / widthFactor;
+		final var reziprocalHeightFactor = 1.0 / heightFactor;
 		
 		//sourceYs[y] := the source Image's y for the new Image's y
 		final var sourceYs = new int[image.getHeight() + 1];
 		for (var i = 1; i <= image.getHeight(); i++) {
-			sourceYs[i] = (int)((i - 1) * reziprocalFactor) + 1;
+			sourceYs[i] = (int)((i - 1) * reziprocalHeightFactor) + 1;
 		}
 		
 		for (var x = 1; x <= image.getWidth(); x++) {
 			
 			//sourceX := the source Image's x for the new Image's x
-			final var sourceX = (int)((x - 1) * reziprocalFactor) + 1;
+			final var sourceX = (int)((x - 1) * reziprocalWidthFactor) + 1;
 			
 			for (var  y = 1; y <= image.getHeight(); y++) {
 				final var sourceY = sourceYs[y];
