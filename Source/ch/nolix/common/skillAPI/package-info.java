@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.common.skillAPI} package is an API that declares types with action skills.
+ * The {@link ch.nolix.common.skillAPI} package is an API that declares types that can do certain actions.
  * 
  * @author Silvan Wyss
  * @month 2019-07
