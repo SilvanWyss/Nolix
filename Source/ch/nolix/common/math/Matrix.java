@@ -8,7 +8,7 @@ import ch.nolix.common.commonTypeHelper.DoubleHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.skillAPI.ApproximativeEqualing;
+import ch.nolix.common.requestAPI.ApproximativeEqualing;
 import ch.nolix.common.validator.Validator;
 
 //class

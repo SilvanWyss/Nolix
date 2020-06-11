@@ -3,7 +3,7 @@ package ch.nolix.element.testableGUI;
 
 //own imports
 import ch.nolix.common.attributeAPI.Titled;
-import ch.nolix.common.skillAPI.IRequestableContainer;
+import ch.nolix.common.requestAPI.IRequestableContainer;
 import ch.nolix.element.input.IInputTaker;
 
 //interface

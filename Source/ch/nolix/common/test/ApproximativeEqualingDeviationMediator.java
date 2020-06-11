@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.skillAPI.ApproximativeEqualing;
+import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
 /**

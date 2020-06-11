@@ -7,7 +7,7 @@ import java.util.ArrayList;
 //own imports
 import ch.nolix.common.baseTest.TestAccessor;
 import ch.nolix.common.functionAPI.IFunction;
-import ch.nolix.common.skillAPI.ApproximativeEqualing;
+import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
 /**

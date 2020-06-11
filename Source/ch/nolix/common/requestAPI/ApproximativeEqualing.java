@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.skillAPI;
+package ch.nolix.common.requestAPI;
 
 //interface
 /**

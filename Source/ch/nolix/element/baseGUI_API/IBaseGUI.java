@@ -4,7 +4,7 @@ package ch.nolix.element.baseGUI_API;
 //own imports
 import ch.nolix.common.mutableAttributeAPI.Titleble;
 import ch.nolix.common.rasterAPI.Rectangular;
-import ch.nolix.common.skillAPI.IRequestableContainer;
+import ch.nolix.common.requestAPI.IRequestableContainer;
 import ch.nolix.common.skillAPI.Closable;
 import ch.nolix.common.skillAPI.Refreshable;
 import ch.nolix.element.input.IResizableInputTaker;

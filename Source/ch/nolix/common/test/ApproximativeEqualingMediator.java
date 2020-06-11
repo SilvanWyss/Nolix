@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
-//own imports
-import ch.nolix.common.skillAPI.ApproximativeEqualing;
+import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
 /**
