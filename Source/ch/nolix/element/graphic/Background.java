@@ -51,6 +51,11 @@ public final class Background extends Element<Background> implements ISmartMutab
 		bi -> Node.withAttribute(bi.getRefElement1().getSpecification(), bi.getRefElement2().getSpecification())
 	);
 	
+	//constructor
+	public Background() {
+		reset();
+	}
+	
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
