@@ -443,6 +443,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void recalculateSelfStage2() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected boolean redirectsInputsToShownWidgets() {
 		return true;
 	}

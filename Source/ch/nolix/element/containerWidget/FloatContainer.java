@@ -107,34 +107,6 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public void recalculateSelf() {
-		
-		final var contentAreaWidth = getContentAreaWidth();
-		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();
-		
-		var y = 0;
-		var x = 0;
-		final var row = new LinkedList<Widget<?, ?>>();
-		for (final var w : widgets) {
-			
-			final var widgetWidth = w.getWidth();
-			
-			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
-				x = 0;
-				y += row.getMaxByInt(w2 -> w2.getHeight()) + widgetMargin;
-				row.clear();
-			}
-			
-			w.setPositionOnParent(x, y);
-			row.addAtEnd(w);
-			x += widgetMargin + widgetWidth;
-		}
-		
-		super.recalculateSelf();
-	}
-	
-	//method
-	@Override
 	public FloatContainer reset() {
 		
 		super.reset();
@@ -272,4 +244,33 @@ implements Clearable<FloatContainer> {
 	 */
 	@Override
 	protected void paintContentArea(final FloatContainerLook floatContainerLook, final IPainter painter) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void recalculateSelfStage2() {
+		
+		final var contentAreaWidth = getContentAreaWidth();
+		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();
+		
+		var y = 0;
+		var x = 0;
+		final var row = new LinkedList<Widget<?, ?>>();
+		for (final var w : widgets) {
+			
+			final var widgetWidth = w.getWidth();
+			
+			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
+				x = 0;
+				y += row.getMaxByInt(w2 -> w2.getHeight()) + widgetMargin;
+				row.clear();
+			}
+			
+			w.setPositionOnParent(x, y);
+			row.addAtEnd(w);
+			x += widgetMargin + widgetWidth;
+		}
+	}
 }

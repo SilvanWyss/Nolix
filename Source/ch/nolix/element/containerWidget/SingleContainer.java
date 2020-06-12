@@ -288,4 +288,11 @@ implements Clearable<SingleContainer> {
 	 */
 	@Override
 	protected void paintContentArea(final SingleContainerLook singleContainerLook, final IPainter painter) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculateSelfStage2() {}
 }

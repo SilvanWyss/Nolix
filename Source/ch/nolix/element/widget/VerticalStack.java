@@ -57,12 +57,42 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void recalculateSelf() {
+	protected int getContentAreaHeight() {
 		
-		//Calls method of the base class.
-		super.recalculateSelf();
+		int contentHeight = getChildWidgets().getSumByInt(w -> w.getHeight());
+				
+		//Handles the case that the current vertical stack is not empty.
+		if (containsAny()) {
+			contentHeight += (getChildWidgets().getSize() - 1) * getElementMargin();
+		}
 		
-		//Enumerates the content position of the current vertical stack.
+		return contentHeight;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected int getContentAreaWidth() {
+		
+		//Handles the case that the current vertical stack is empty.
+		if (isEmpty()) {
+			return 0;
+		}
+		
+		//Handles the case that the current vertical stack is not empty.
+		return getChildWidgets().getMaxByInt(w -> w.getWidth());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void recalculateSelfStage2() {
+				
+		//Enumerates the content position of the current VerticalStack.
 		switch (getContentPosition()) {
 			case LeftTop:
 			case LeftBottom:
@@ -100,38 +130,5 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				
 				break;
 		}
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected int getContentAreaHeight() {
-		
-		int contentHeight = getChildWidgets().getSumByInt(w -> w.getHeight());
-				
-		//Handles the case that the current vertical stack is not empty.
-		if (containsAny()) {
-			contentHeight += (getChildWidgets().getSize() - 1) * getElementMargin();
-		}
-		
-		return contentHeight;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected int getContentAreaWidth() {
-		
-		//Handles the case that the current vertical stack is empty.
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		//Handles the case that the current vertical stack is not empty.
-		return getChildWidgets().getMaxByInt(w -> w.getWidth());
 	}
 }

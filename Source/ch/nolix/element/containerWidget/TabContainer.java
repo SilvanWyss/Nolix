@@ -262,26 +262,6 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void recalculateSelf() {
-		
-		//Calls method of the base class.
-		super.recalculateSelf();	
-		
-		//Handles the case that the current tab container contains a selected widget.
-		if (containsSelectedTabWithWidget()) {
-			getRefSelectedWidget().setPositionOnParent(
-				0,				
-				menu.getHeight()
-				+ getRefLook().getRecursiveOrDefaultMenuMargin()
-			);
-		}
-	}
-	
-	//method
-	/**
 	 * Selects the tab of the current {@link TabContainer} that has the given header.
 	 * 
 	 * @param header
@@ -562,6 +542,26 @@ implements Clearable<TabContainer> {
 				.getRefFocusLook()
 				.setBackgroundColor(selectedMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void recalculateSelfStage2() {
+		
+		//Calls method of the base class.
+		super.recalculateSelf();	
+		
+		//Handles the case that the current tab container contains a selected widget.
+		if (containsSelectedTabWithWidget()) {
+			getRefSelectedWidget().setPositionOnParent(
+				0,				
+				menu.getHeight()
+				+ getRefLook().getRecursiveOrDefaultMenuMargin()
+			);
 		}
 	}
 	

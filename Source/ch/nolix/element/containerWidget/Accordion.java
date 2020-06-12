@@ -252,15 +252,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	public boolean isEmpty() {
 		return getRefTabs().isEmpty();
 	}
-	
-	@Override
-	public void recalculateSelf() {
-						
-		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
-				
-		//Calls method of the base class.
-		super.recalculateSelf();
-	}
 		
 	//method
 	/**
@@ -418,6 +409,15 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	@Override
 	protected void paintContentArea(final AccordionLook accordionLook, final IPainter painter) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void recalculateSelfStage2() {
+		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
+	}
 	
 	//method
 	/**

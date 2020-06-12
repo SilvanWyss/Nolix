@@ -321,4 +321,11 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 				painter.paintFilledPolygon(bottomRightToTopLeftLineXs, bottomRightToTopLeftLineYs);
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculateSelfStage2() {}
 }

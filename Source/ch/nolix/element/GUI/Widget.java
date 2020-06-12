@@ -31,7 +31,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1790
+ * @lines 1800
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -931,7 +931,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 		
 		recalculateSelf();
 	}
-		
+	
 	//method
 	/**
 	 * Avoids that the current {@link Widget} greys out when it is disabled.
@@ -1514,10 +1514,19 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Recalculates the current {@link Widget} itself.
 	 */
-	protected void recalculateSelf() {
+	protected final void recalculateSelf() {
+		
 		width = calculatedWidth();
 		height = calculatedHeight();
+		
+		recalculateSelfStage2();
 	}
+	
+	//method
+	/**
+	 * Recalculates the current {@link Widget} itself stage 2.
+	 */
+	protected abstract void recalculateSelfStage2();
 	
 	//method declaration
 	/**

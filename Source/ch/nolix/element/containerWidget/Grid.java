@@ -346,17 +346,11 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	/**
-	 * Sets the relative position of the current {@link Grid}.
-	 * 
-	 * @param relativeXPosition
-	 * @param relativeYPosition
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void recalculateSelf () {
-		
-		//Calls method of the base class.
-		super.recalculateSelf();
-				
+	protected void recalculateSelfStage2() {
+						
 		var y = 0;
 		
 		if (hasInnerAndOuterLines()) {

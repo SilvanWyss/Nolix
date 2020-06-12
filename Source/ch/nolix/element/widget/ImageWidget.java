@@ -166,4 +166,11 @@ implements Clearable<ImageWidget> {
 			painter.paintImage(getRefImage());
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculateSelfStage2() {}
 }

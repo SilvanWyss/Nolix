@@ -57,11 +57,41 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void recalculateSelf() {
+	protected int getContentAreaHeight() {
 		
-		//Calls method of the base class.
-		super.recalculateSelf();
+		//Handles the case that the current horizontal stack is empty.
+		if (isEmpty()) {
+			return 0;
+		}
 		
+		//Handles the case that the current horizontal stack is not empty.
+		return getChildWidgets().getMaxByInt(r -> r.getHeight());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected int getContentAreaWidth() {
+		
+		int contentWidth = getChildWidgets().getSumByInt(w -> w.getWidth());
+		
+		//Handles the case that the current horizontal stack is not empty.
+		if (containsAny()) {
+			contentWidth += (getChildWidgets().getSize() - 1) * getElementMargin();
+		}
+		
+		return contentWidth;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void recalculateSelfStage2() {
+				
 		//Enumerates the content position of the current horizontal stack.
 		switch (getContentPosition()) {
 			case LeftTop:
@@ -100,38 +130,5 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 				break;
 		}
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final int getContentAreaHeight() {
-		
-		//Handles the case that the current horizontal stack is empty.
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		//Handles the case that the current horizontal stack is not empty.
-		return getChildWidgets().getMaxByInt(r -> r.getHeight());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final int getContentAreaWidth() {
-		
-		int contentWidth = getChildWidgets().getSumByInt(w -> w.getWidth());
-		
-		//Handles the case that the current horizontal stack is not empty.
-		if (containsAny()) {
-			contentWidth += (getChildWidgets().getSize() - 1) * getElementMargin();
-		}
-		
-		return contentWidth;
 	}
 }

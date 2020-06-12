@@ -164,64 +164,6 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	@Override
-	public final void recalculateSelf() {
-				
-		super.recalculateSelf();
-		
-		final var look = getRefLook();
-		final var contentWidth = Calculator.getMax(1, getContentAreaWidth());
-		
-		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
-		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
-		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();
-		
-		for (final var i : items) {
-			
-			final var label = i.getRefLabel();
-			
-			label.setMinWidth(contentWidth);
-
-			label
-			.getRefBaseLook()
-			.reset()						
-			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor())
-			.setPaddings(look.getRecursiveOrDefaultItemPadding())
-			.setTextSize(look.getRecursiveOrDefaultTextSize());
-			
-			if (baseItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefBaseLook()
-				.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-			
-			label
-			.getRefHoverLook()
-			.reset()
-			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
-			
-			if (hoverItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefHoverLook()
-				.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-			
-			label
-			.getRefFocusLook()
-			.reset()
-			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
-			
-			if (selectedItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefFocusLook()
-				.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-		}
-	}
-	
-	//method
 	public final IM removeSelectCommand() {
 		
 		selectCommand = null;
@@ -366,6 +308,65 @@ implements Clearable<IM> {
 	 */
 	@Override
 	protected final void paintContentArea(final ItemMenuLook itemMenuLook, final IPainter painter) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculateSelfStage2() {
+				
+		final var look = getRefLook();
+		final var contentWidth = Calculator.getMax(1, getContentAreaWidth());
+		
+		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
+		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
+		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();
+		
+		for (final var i : items) {
+			
+			final var label = i.getRefLabel();
+			
+			label.setMinWidth(contentWidth);
+
+			label
+			.getRefBaseLook()
+			.reset()						
+			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor())
+			.setPaddings(look.getRecursiveOrDefaultItemPadding())
+			.setTextSize(look.getRecursiveOrDefaultTextSize());
+			
+			if (baseItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefBaseLook()
+				.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefHoverLook()
+			.reset()
+			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
+			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (hoverItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefHoverLook()
+				.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefFocusLook()
+			.reset()
+			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
+			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (selectedItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefFocusLook()
+				.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+		}
+	}
 	
 	//method
 	protected final void select(final ItemMenuItem item) {

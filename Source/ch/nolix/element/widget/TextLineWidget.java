@@ -235,4 +235,11 @@ extends BorderWidget<TLW, TLWL> {
 	protected void paintContentArea(final TLWL textLineWidgetLook, final IPainter painter) {
 		painter.paintText(getShownText(), getTextFormat());
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculateSelfStage2() {}
 }
