@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.SelectionMenu;
 
 /**
@@ -15,14 +14,14 @@ import ch.nolix.element.widget.SelectionMenu;
 public final class SelectionMenuTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link SelectionMenu}.
+	 * Creates a {@link Frame} with a {@link SelectionMenu}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Selection Menu Tutorial");
+		final var frame = new Frame("SelectionMenu Tutorial");
 		
 		//Creates a SelectionMenu.
 		final var selectionMenu =
@@ -41,19 +40,18 @@ public final class SelectionMenuTutorial {
 			"Richard David Precht"
 		);
 		
-		//Configures the look of the selectionMenu.
+		//Configures the look of the SelectionMenu.
 		selectionMenu
-		.setMaxHeight(200)			
+		.setProposalHeight(200)
 		.applyOnBaseLook(
 			bl ->
-			bl			
+			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setItemPadding(5)
 		);
 		
-		//Adds the selectionMenu to the frame.
+		//Adds the SelectionMenu to the Frame.
 		frame.addLayerOnTop(selectionMenu);
 	}
 	
