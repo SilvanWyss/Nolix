@@ -31,7 +31,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1800
+ * @lines 1810
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -213,6 +213,8 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return true if the current {@link Widget} belongs to a {@link LayerGUI}, directly or indirectly.
 	 */
 	public final boolean belongsToGUI() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (parent != null && parent.belongsToGUI());
 	}
 	
@@ -222,6 +224,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final boolean belongsToParent() {
 		return (parent != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} belongs directly to another {@link Widget}.
+	 */
+	public final boolean belongsToWidget() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (parent != null && parent.isWidget());
 	}
 	
 	//method
