@@ -1,23 +1,26 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
+//own import
 import ch.nolix.element.GUI.Widget;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 60
  */
 public final class VerticalLine extends Line<VerticalLine> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "VerticalLine";
-
+	
+	//attribute
+	private boolean isAskedForLength = false;
+	
 	//constructor
 	/**
-	 * Creates a new vertical line.
+	 * Creates a new {@link VerticalLine}.
 	 */
 	public VerticalLine() {
 		resetAndApplyDefaultConfiguration();
@@ -25,7 +28,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	
 	//method
 	/**
-	 * @return the height of this line when it is not collapsed.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getHeightWhenNotCollapsed() {
@@ -39,23 +42,23 @@ public final class VerticalLine extends Line<VerticalLine> {
 	@Override
 	public int getLength() {
 		
-		if (!belongsToParent()) {
+		if (!belongsToWidget() || isAskedForLength) {
 			return DEFAULT_LENGTH;
 		}
 		
-		//TODO: Use a safer condition.
-		for (final var st : Thread.currentThread().getStackTrace()) {
-			if (st.getFileName() == Line.TYPE_NAME && st.getMethodName() == "getLength") {
-				return DEFAULT_LENGTH;
-			}
-		}
-			
-		return getParent().getRef().as(Widget.class).getHeight();
+		isAskedForLength = true;
+		
+		final var length =
+		getParentWidget().getRefPaintableWidgets().getMaxIntOrDefaultValue(Widget::getHeight, DEFAULT_LENGTH);
+		
+		isAskedForLength = false;
+		
+		return length;
 	}
 	
 	//method
 	/**
-	 * @return the width of this line when it is not collapsed.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getWidthWhenNotCollapsed() {
