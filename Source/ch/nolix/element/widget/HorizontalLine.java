@@ -1,23 +1,26 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
+//own import
 import ch.nolix.element.GUI.Widget;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 60
  */
 public final class HorizontalLine extends Line<HorizontalLine> {
-
-	//type name
+	
+	//constant
 	public static final String TYPE_NAME = "HorizontalLine";
+	
+	//attribute
+	private boolean isAskedForLength = false;
 	
 	//constructor
 	/**
-	 * Creates a new horizontal line.
+	 * Creates a new {@link HorizontalLine}
 	 */
 	public HorizontalLine() {
 		resetAndApplyDefaultConfiguration();
@@ -25,7 +28,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	
 	//method
 	/**
-	 * @return the height of this line when it is not collapsed.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getHeightWhenNotCollapsed() {
@@ -39,23 +42,23 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	@Override
 	public int getLength() {
 		
-		if (!belongsToParent()) {
+		if (!belongsToWidget() || isAskedForLength) {
 			return DEFAULT_LENGTH;
 		}
 		
-		//TODO: Ask a safer condition.
-		for (final var st : Thread.currentThread().getStackTrace()) {
-			if (st.getFileName() == Line.TYPE_NAME && st.getMethodName() == "getLength") {
-				return DEFAULT_LENGTH;
-			}
-		}
-			
-		return getParent().getRef().as(Widget.class).getWidth();
+		isAskedForLength = true;
+		
+		final var width =
+		getParentWidget().getRefPaintableWidgets().getMaxIntOrDefaultValue(Widget::getWidth, DEFAULT_LENGTH);
+		
+		isAskedForLength = false;
+		
+		return width;
 	}
 	
 	//method
 	/**
-	 * @return the width of this line when it is not collapsed.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getWidthWhenNotCollapsed() {
