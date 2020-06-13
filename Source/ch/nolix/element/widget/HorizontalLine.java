@@ -20,7 +20,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link HorizontalLine}
+	 * Creates a new {@link HorizontalLine}.
 	 */
 	public HorizontalLine() {
 		resetAndApplyDefaultConfiguration();
@@ -31,7 +31,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getHeightWhenNotCollapsed() {
+	public int getHeightWhenNotCollapsed() {
 		return getThickness();
 	}
 	
@@ -48,12 +48,12 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 		
 		isAskedForLength = true;
 		
-		final var width =
+		final var length =
 		getParentWidget().getRefPaintableWidgets().getMaxIntOrDefaultValue(Widget::getWidth, DEFAULT_LENGTH);
 		
 		isAskedForLength = false;
 		
-		return width;
+		return length;
 	}
 	
 	//method
@@ -61,7 +61,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getWidthWhenNotCollapsed() {
+	public int getWidthWhenNotCollapsed() {
 		return getLength();
 	}
 }
