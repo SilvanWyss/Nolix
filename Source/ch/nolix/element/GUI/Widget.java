@@ -31,7 +31,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1810
+ * @lines 1830
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -430,6 +430,19 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 		}
 		
 		return parent.getRefGUI();
+	}
+	
+	//method
+	/**
+	 * @return the {@link Widget} the current {@link Widget} belongs to.
+	 * @throws ArgumentDoesNotBelongToParentException
+	 * if the current {@link Widget} does not belong to a {@link Widget}.
+	 */
+	public final Widget<?, ?> getParentWidget() {
+		
+		assertBelongsToWidget();
+				
+		return getParent().getRefWidget();
 	}
 	
 	//method
@@ -1553,6 +1566,17 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	protected final void supposeGUIIsAlive() {
 		if (belongsToGUI() && parent.GUIIsClosed()) {
 			throw new ClosedArgumentException(getParentGUI());
+		}
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotBelongToParentException
+	 * if the current {@link Widget} does not belong to a {@link Widget}.
+	 */
+	private void assertBelongsToWidget() {
+		if (!belongsToWidget()) {
+			throw new ArgumentDoesNotBelongToParentException(this, Widget.class);
 		}
 	}
 	
