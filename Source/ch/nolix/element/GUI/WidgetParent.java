@@ -2,6 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 
@@ -57,6 +58,17 @@ public final class WidgetParent {
 		}
 		
 		return widget.getParentGUI();
+	}
+	
+	//method
+	public Widget<?, ?> getRefWidget() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (widget == null) {
+			throw new InvalidArgumentException(this, "is not a Widget");
+		}
+		
+		return widget;
 	}
 	
 	//method
