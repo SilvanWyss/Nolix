@@ -1,0 +1,49 @@
+package ch.nolix.elementTutorial.widgetTutorial;
+
+import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.elementEnum.ContentPosition;
+import ch.nolix.element.widget.HorizontalLine;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.VerticalStack;
+
+public final class HorizontalLineTutorial {
+	
+	/**
+	 * Creates a {@link HorizontalStack} with 3 {@link Label}s and 2 {@link HorizontalLines}.
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		//Creates a Frame.
+		final var frame = new Frame("HorizontalLine Tutorial");
+	
+		//Creates a VerticalStack with 3 Labels and 2 HorizontalLines.
+		final var verticalStack =
+		new VerticalStack(
+			new Label("Lorem ipsum dolor sit amet, consectetur adipisici elit"),
+			new HorizontalLine(),
+			new Label("Ut enim ad minim veniam"),
+			new HorizontalLine(),
+			new Label("quis nostrud exercitation")
+		);
+		
+		//Configures the look of the VerticalStack.
+		verticalStack
+		.setContentPosition(ContentPosition.Top)
+		.setElementMargin(50)
+		.applyOnBaseLook(
+			bl ->
+			bl
+			.setBorderThicknesses(5)
+			.setPaddings(50)
+			.setBackgroundColor(Color.LAVENDER)
+		);
+		
+		//Adds the VerticalStack to the Frame.
+		frame.addLayerOnTop(verticalStack);
+	}
+	
+	private HorizontalLineTutorial() {}
+}
