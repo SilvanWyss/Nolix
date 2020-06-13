@@ -16,7 +16,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
  */
 public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 
-	//type name
+	//constant
 	public static final String TYPE_NAME = "DeepConfiguration";
 	
 	//attribute name

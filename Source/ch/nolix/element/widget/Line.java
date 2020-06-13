@@ -24,7 +24,7 @@ import ch.nolix.element.painter.IPainter;
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "Line";
 	
 	//min length to thickness ratio

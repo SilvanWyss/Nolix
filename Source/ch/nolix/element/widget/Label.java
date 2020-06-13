@@ -19,7 +19,7 @@ import ch.nolix.element.input.Key;
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "Label";
 	
 	//optional attribute

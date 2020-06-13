@@ -13,7 +13,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
  */
 public class StandardConfiguration extends Configuration<StandardConfiguration> {
 
-	//type name
+	//constant
 	public static final String TYPE_NAME = "StandardConfiguration";
 	
 	//static method

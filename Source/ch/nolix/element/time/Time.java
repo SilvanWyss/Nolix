@@ -30,7 +30,7 @@ import ch.nolix.element.elementAPI.IElement;
  */
 public final class Time implements IElement {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "Time";
 	
 	//constants
