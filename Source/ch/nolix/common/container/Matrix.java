@@ -280,7 +280,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public int getColumnIndexOf(final int index) {
 		
 		//Asserts that the current matrix contains an element at the given index.
-		supposeContainsAt(index);
+		assertContainsAt(index);
 		
 		return ((index - 1) % getColumnCount() + 1);
 	}
@@ -349,7 +349,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Asserts that the current matrix contains an element
 		//at the given row index and the given column index.
-		supposeContainsAt(rowIndex, columnIndex);
+		assertContainsAt(rowIndex, columnIndex);
 		
 		return ((rowIndex - 1) * getColumnCount() + columnIndex);
 	}
@@ -385,7 +385,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public E getRefAt(final int rowIndex, final int columnIndex) {
 		
 		//Asserts that the current matrix contains an element at the given row index and column index.
-		supposeContainsAt(rowIndex, columnIndex);
+		assertContainsAt(rowIndex, columnIndex);
 		
 		return (E)elements[rowIndex - 1][columnIndex - 1];
 	}
@@ -413,7 +413,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public int getRowIndexOf(final int index) {
 		
 		//Asserts that the current matrix contains an element at the given index.
-		supposeContainsAt(index);
+		assertContainsAt(index);
 		
 		return ((index - 1) / getColumnCount() + 1);
 	}
@@ -526,7 +526,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	) {
 		
 		//Asserts that the current matrix contains an element at the given row index and column index.
-		supposeContainsAt(rowIndex, columnIndex);
+		assertContainsAt(rowIndex, columnIndex);
 		
 		//Asserts that the given element is not null.
 		Validator
@@ -675,7 +675,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 */
-	private void supposeContainsAt(final int index) {
+	private void assertContainsAt(final int index) {
 		
 		Validator
 		.assertThat(index)
@@ -699,7 +699,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws BiggerArgumentException
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 */
-	private void supposeContainsAt(final int rowIndex, final int columnIndex) {
+	private void assertContainsAt(final int rowIndex, final int columnIndex) {
 		
 		Validator
 		.assertThat(rowIndex)
