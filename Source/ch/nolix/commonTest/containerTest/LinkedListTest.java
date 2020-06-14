@@ -16,13 +16,13 @@ import ch.nolix.common.test.Test;
 
 //class
 /**
- * A {@link ListTest} is a test for {@link LinkedList}.
+ * A {@link LinkedListTest} is a test for {@link LinkedList}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 660
+ * @lines 700
  */
-public final class ListTest extends Test {
+public final class LinkedListTest extends Test {
 	
 	//method
 	@TestCase

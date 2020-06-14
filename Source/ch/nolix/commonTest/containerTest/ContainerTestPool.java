@@ -18,7 +18,7 @@ public final class ContainerTestPool extends TestPool {
 	 */
 	public ContainerTestPool() {
 		super(
-			ListTest.class,
+			LinkedListTest.class,
 			MatrixTest.class,
 			ReadContainerTest.class
 		);
