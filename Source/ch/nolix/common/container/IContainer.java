@@ -31,7 +31,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2030
+ * @lines 2010
  * @param <E> The type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -877,35 +877,12 @@ public interface IContainer<E> extends Iterable<E> {
 		return getRefAt(new Random().nextInt(getElementCount()) + 1);
 	}
 	
-	//method
+	//method declaration
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
-	 * 
 	 * @param index
 	 * @return the element at the given index.
-	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws UnexistringAttributeException
-	 * if the current {@link IContainer} does not contain an element at the given index.
 	 */
-	public default E getRefAt(final int index) {
-		
-		//Asserts that the given index is positive.
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
-		
-		//Iterates the current IContainer.
-		var i = 1;
-		for (final var e : this) {
-			
-			//Asserts that the current index is the given index.
-			if (i == index) {
-				return e;
-			}
-			
-			i++;
-		}
-		
-		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
-	}
+	public abstract E getRefAt(int index);
 	
 	//method
 	/**
