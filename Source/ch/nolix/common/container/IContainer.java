@@ -32,7 +32,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 2030
- * @param <E> The type of the elements of a {@link IContainer}.
+ * @param <E> The type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
 	
@@ -66,7 +66,21 @@ public interface IContainer<E> extends Iterable<E> {
 	 * contains at least 2 elements the given selector selects together.
 	 */
 	public default boolean contains(final I2ElementTakerBooleanGetter<E> selector) {
-		return contains(e -> contains(e2 -> selector.getOutput(e, e2)));
+		
+		//Iterates the current IContainer.
+		for (final var e : this) {
+			
+			//Iterates the current IContainer for the current element.
+			for (final var e2 : this) {
+				
+				//Handles the case that the given selector selects the current elements.
+				if (selector.getOutput(e, e2)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
 	}
 	
 	//method
@@ -1963,8 +1977,6 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param n
 	 * @return a new sub container of the current {@link IContainer} without the first n elements.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
-	 * @throws BiggerArgumentException
-	 * if the given n is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	public default IContainer<E> withoutFirst(final int n) {
 		
@@ -1972,9 +1984,6 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Asserts that the given n is positive.
 		Validator.assertThat(n).thatIsNamed("n").isPositive();
-		
-		//Asserts that the given n is not bigger than the element count of the current IContainer.
-		Validator.assertThat(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {
@@ -2010,8 +2019,6 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new sub container of the current {@link IContainer}
 	 * without the last n elements of the current {@link IContainer}.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
-	 * @throws BiggerArgumentException
-	 * if the given n is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	public default IContainer<E> withoutLast(final int n) {
 		
@@ -2019,9 +2026,6 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Asserts that the given n is positive.
 		Validator.assertThat(n).thatIsNamed("n").isPositive();
-		
-		//Asserts that the given n is not bigger than the element count of the current IContainer.
-		Validator.assertThat(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {
