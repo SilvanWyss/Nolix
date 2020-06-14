@@ -380,7 +380,7 @@ implements Clearable<TabContainer> {
 		
 		//Handles the case that the current tab container contains tabs.
 		if (containsAny()) {
-			height += getRefTabs().getMaxByInt(t -> t.getHeight());
+			height += getRefTabs().getMaxInt(t -> t.getHeight());
 		}
 		
 		return height;
@@ -403,7 +403,7 @@ implements Clearable<TabContainer> {
 			return
 			Calculator.getMax(
 				menu.getWidth(),
-				getRefTabs().getMaxByInt(t -> t.getWidth())
+				getRefTabs().getMaxInt(t -> t.getWidth())
 			);
 		}
 	}

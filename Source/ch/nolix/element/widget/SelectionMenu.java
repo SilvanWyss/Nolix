@@ -112,7 +112,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 			return 0;
 		}
 		
-		return getItems().getMaxByInt(i -> i.getRefLabel().getWidth());
+		return getItems().getMaxInt(i -> i.getRefLabel().getWidth());
 	}
 	
 	//method

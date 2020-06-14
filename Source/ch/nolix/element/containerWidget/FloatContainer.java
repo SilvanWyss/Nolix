@@ -167,7 +167,7 @@ implements Clearable<FloatContainer> {
 			return
 			Calculator.getMax(
 				look.getRecursiveOrDefaultProposeContentWidth(),
-				widgets.getMaxByInt(w -> w.getWidth())
+				widgets.getMaxInt(w -> w.getWidth())
 			);
 		}
 		
@@ -178,7 +178,7 @@ implements Clearable<FloatContainer> {
 		return
 		Calculator.getMax(
 			getProposedContentAreaWidth(),
-			widgets.getMaxByInt(w -> w.getWidth())
+			widgets.getMaxInt(w -> w.getWidth())
 		);
 	}
 	
@@ -264,7 +264,7 @@ implements Clearable<FloatContainer> {
 			
 			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
 				x = 0;
-				y += row.getMaxByInt(w2 -> w2.getHeight()) + widgetMargin;
+				y += row.getMaxInt(w2 -> w2.getHeight()) + widgetMargin;
 				row.clear();
 			}
 			

@@ -65,7 +65,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		}
 		
 		//Handles the case that the current horizontal stack is not empty.
-		return getChildWidgets().getMaxByInt(r -> r.getHeight());
+		return getChildWidgets().getMaxInt(r -> r.getHeight());
 	}
 	
 	//method
