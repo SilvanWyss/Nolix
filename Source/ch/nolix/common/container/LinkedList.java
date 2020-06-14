@@ -8,6 +8,7 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
@@ -20,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1160
+ * @lines 1190
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
@@ -538,6 +539,37 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		}
 		
 		return ((double)getSequenceCount(sequencePattern) / getElementCount());
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param index
+	 * @return the element at the given index.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws UnexistringAttributeException
+	 * if the current {@link IContainer} does not contain an element at the given index.
+	 */
+	@Override
+	public E getRefAt(final int index) {
+		
+		//Asserts that the given index is positive.
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		
+		//Iterates the current LinkedList.
+		var i = 1;
+		for (final var e : this) {
+			
+			//Asserts that the current index is the given index.
+			if (i == index) {
+				return e;
+			}
+			
+			i++;
+		}
+		
+		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
 	}
 		
 	//method
