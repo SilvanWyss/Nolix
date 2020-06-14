@@ -4,7 +4,9 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -18,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 100
+ * @lines 120
  * @param <E> The type of the elements of a sub container.
  */
 public final class SubContainer<E> implements IContainer<E> {
@@ -84,7 +86,20 @@ public final class SubContainer<E> implements IContainer<E> {
 	public int getElementCount() {
 		return (endIndex - startIndex + 1);
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public E getRefAt(final int index) {
+		
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isNotBiggerThan(getElementCount());
+		
+		return container.getRefAt(startIndex + index - 1);
+	}
+	
 	//method
 	/**
 	 * @return a new iterator for this sub container.

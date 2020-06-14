@@ -4,6 +4,11 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.validator.Validator;
+
 //class
 final class MultiReadContainer<E> implements IContainer<E> {
 	
@@ -36,5 +41,24 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	@Override
 	public int getElementCount() {
 		return containers.getSumByInt(c -> c.getElementCount());
+	}
+	
+	//method
+	@Override
+	public E getRefAt(final int index) {
+		
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		
+		var i = 1;
+		for (final var e : this) {
+			
+			if (i == index) {
+				return e;
+			}
+			
+			i++;
+		}
+		
+		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
 	}
 }

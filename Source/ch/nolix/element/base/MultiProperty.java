@@ -4,6 +4,7 @@ package ch.nolix.element.base;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
@@ -17,7 +18,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 190
+ * @lines 200
  * @param <V> The type of the values of a {@link MultiProperty}.
  */
 public final class MultiProperty<V> extends BaseProperty<V> implements IContainer<V> {
@@ -80,6 +81,15 @@ public final class MultiProperty<V> extends BaseProperty<V> implements IContaine
 	 */
 	public void clear() {	
 		values.clear();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public V getRefAt(final int index) {
+		return values.getRefAt(index);
 	}
 	
 	//method

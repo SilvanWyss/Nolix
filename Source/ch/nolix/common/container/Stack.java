@@ -25,6 +25,12 @@ public final class Stack<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
+	public E getRefAt(final int index) {
+		return linkedList.getRefAt(index);
+	}
+	
+	//method
 	public E getRefLast() {
 		return linkedList.getRefLast();
 	}

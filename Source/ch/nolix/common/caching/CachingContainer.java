@@ -47,6 +47,12 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
+	public E getRefAt(final int index) {
+		return elements.getRefAt(index).getRefElement2();
+	}
+	
+	//method
 	public E getRefById(final String id) {
 		return elements.getRefFirst(e -> e.getRefElement1().equals(id)).getRefElement2();
 	}

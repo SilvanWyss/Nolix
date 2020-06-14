@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.container;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -13,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2020-01
  * @param <E> The type of the element of a {@link SingleContainer}.
- * @lines 80
+ * @lines 90
  */
 public final class SingleContainer<E> implements IContainer<E> {
 	
@@ -51,6 +52,18 @@ public final class SingleContainer<E> implements IContainer<E> {
 	@Override
 	public SingleContainerIterator<E> iterator() {
 		return new SingleContainerIterator<>(this);
+	}
+	
+	//method
+	/**
+	 * @inheritDoc
+	 */
+	@Override
+	public E getRefAt(final int index) {
+		
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isEqualTo(1);
+		
+		return getRefElement();
 	}
 	
 	//method

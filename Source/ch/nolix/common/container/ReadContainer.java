@@ -146,6 +146,18 @@ public final class ReadContainer<E> implements IContainer<E> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public E getRefAt(final int index) {
+		return container.getRefAt(index);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode() {
 		return toString().hashCode();

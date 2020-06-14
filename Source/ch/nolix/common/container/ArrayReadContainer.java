@@ -4,6 +4,7 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
@@ -12,7 +13,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 80
+ * @lines 90
  * @param <E> The type of the elements of a {@link ArrayReadContainer}.
  */
 final class ArrayReadContainer<E> implements IContainer<E> {
@@ -57,6 +58,19 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	@Override
 	public int getElementCount() {
 		return array.length;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public E getRefAt(final int index) {
+		
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isNotBiggerThan(getElementCount());
+		
+		return array[index - 1];
 	}
 	
 	//method
