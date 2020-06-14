@@ -129,7 +129,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 		//Handles the case that the given object is a read container.		
 			final ReadContainer<?> accessorContainer = (ReadContainer<?>)object;
 			
-			if (getSize() != accessorContainer.getSize()) {
+			if (getElementCount() != accessorContainer.getElementCount()) {
 				return false;
 			}
 			
@@ -141,8 +141,8 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * @return the number of elements of this read container.
 	 */
 	@Override
-	public int getSize() {
-		return container.getSize();
+	public int getElementCount() {
+		return container.getElementCount();
 	}
 	
 	//method

@@ -227,7 +227,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return the number of attributes of the current {@link BaseNode}.
 	 */
 	public int getAttributeCount() {
-		return getRefAttributes().getSize();
+		return getRefAttributes().getElementCount();
 	}
 	
 	//method

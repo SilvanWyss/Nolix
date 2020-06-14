@@ -226,7 +226,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
 	 */
 	public default boolean containsLessThan(final IContainer<?> container) {
-		return (getSize() < container.getSize());
+		return (getElementCount() < container.getElementCount());
 	}
 	
 	//method
@@ -248,7 +248,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
 	 */
 	public default boolean containsMoreThan(final IContainer<?> container) {
-		return (getSize() > container.getSize());
+		return (getElementCount() > container.getElementCount());
 	}
 	
 	//method
@@ -433,7 +433,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * if the current {@link IContainer} contains less element than the value of the given start index.
 	 */
 	public default IContainer<E> from(final int startIndex) {
-		return new SubContainer<>(this, startIndex, getSize());
+		return new SubContainer<>(this, startIndex, getElementCount());
 	}
 	
 	//method
@@ -471,7 +471,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyArgumentException(this);
 		}
 		
-		return (getSumByDoubleNorm(doubleNorm) / getSize());
+		return (getSumByDoubleNorm(doubleNorm) / getElementCount());
 	}
 	
 	//method
@@ -490,7 +490,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyArgumentException(this);
 		}
 		
-		return (getSumByInt(intNorm) / getSize());
+		return (getSumByInt(intNorm) / getElementCount());
 	}
 	
 	//method
@@ -509,7 +509,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyArgumentException(this);
 		}
 		
-		return (getSumByLong(longNorm) / getSize());
+		return (getSumByLong(longNorm) / getElementCount());
 	}
 	
 	//method
@@ -557,6 +557,12 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		return elementCount;
 	}
+	
+	//method declaration
+	/**
+	 * @return the number of elements of the current {@link IContainer}.
+	 */
+	public abstract int getElementCount();
 	
 	//method
 	/**
@@ -851,7 +857,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyArgumentException(this);
 		}
 		
-		return ((double)getCount(selector) / getSize());
+		return ((double)getCount(selector) / getElementCount());
 	}
 	
 	//method
@@ -868,7 +874,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyArgumentException(this);
 		}
 		
-		return getRefAt(new Random().nextInt(getSize()) + 1);
+		return getRefAt(new Random().nextInt(getElementCount()) + 1);
 	}
 	
 	//method
@@ -1280,7 +1286,7 @@ public interface IContainer<E> extends Iterable<E> {
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
-		if (getSize() > 1) {
+		if (getElementCount() > 1) {
 			throw new InvalidArgumentException(this, "contains several elements");
 		}
 		
@@ -1442,12 +1448,6 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
-	//method declaration
-	/**
-	 * @return the number of elements of the current {@link IContainer}.
-	 */
-	public abstract int getSize();
-	
 	//method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
@@ -1566,7 +1566,7 @@ public interface IContainer<E> extends Iterable<E> {
 			sum += Math.pow(doubleNorm.getOutput(e) - average, 2);
 		}
 		
-		return (sum / getSize());
+		return (sum / getElementCount());
 	}
 	
 	//method
@@ -1588,7 +1588,7 @@ public interface IContainer<E> extends Iterable<E> {
 			sum += Math.pow(intNorm.getOutput(e) - average, 2);
 		}
 		
-		return (sum / getSize());
+		return (sum / getElementCount());
 	}
 	
 	//method
@@ -1610,7 +1610,7 @@ public interface IContainer<E> extends Iterable<E> {
 			sum += Math.pow(longNorm.getOutput(e) - average, 2);
 		}
 		
-		return (sum / getSize());
+		return (sum / getElementCount());
 	}
 	
 	//method
@@ -1676,7 +1676,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E[] toArray() {
 
 		//Creates array.
-		final var array = (E[])new Object[getSize()];
+		final var array = (E[])new Object[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
@@ -1700,7 +1700,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
 		
 		//Creates array.
-		final var array = (E2[])(new Object[getSize()]);
+		final var array = (E2[])(new Object[getElementCount()]);
 		
 		//Fills up the array.
 		var i = 0;
@@ -1723,7 +1723,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
 		
 		//Creates array.
-		final var array = new byte[getSize()];
+		final var array = new byte[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
@@ -1746,7 +1746,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
 		
 		//Creates array.
-		final var array = new char[getSize()];
+		final var array = new char[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
@@ -1769,7 +1769,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Creates array.
-		final var array = new double[getSize()];
+		final var array = new double[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
@@ -1806,7 +1806,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Creates array.
-		final var array = new int[getSize()];
+		final var array = new int[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
@@ -1839,7 +1839,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
 		//Creates the array.
-		final var array = new long[getSize()];
+		final var array = new long[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
@@ -1892,7 +1892,7 @@ public interface IContainer<E> extends Iterable<E> {
 		.isNotNull();
 		
 		//Enumerates the element count of the current IContainer.
-		switch (getSize()) {
+		switch (getElementCount()) {
 			case 0:
 				return StringCatalogue.EMPTY_STRING;
 			case 1:
@@ -1918,7 +1918,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default String[] toStringArray() {
 		
-		final var stringArray = new String[getSize()];
+		final var stringArray = new String[getElementCount()];
 		
 		//Iterates the elements of the current IContainer.
 		var i = 0;
@@ -1980,7 +1980,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default IContainer<E> withoutFirst(final int n) {
 		
-		final var elementCount = getSize();
+		final var elementCount = getElementCount();
 		
 		//Asserts that the given n is positive.
 		Validator.assertThat(n).thatIsNamed("n").isPositive();
@@ -2022,7 +2022,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default IContainer<E> withoutLast(final int n) {
 		
-		final var elementCount = getSize();
+		final var elementCount = getElementCount();
 		
 		//Asserts that the given n is positive.
 		Validator.assertThat(n).thatIsNamed("n").isPositive();

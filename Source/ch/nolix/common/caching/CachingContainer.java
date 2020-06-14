@@ -53,8 +53,8 @@ public final class CachingContainer<E> implements IContainer<E> {
 	
 	//method
 	@Override
-	public int getSize() {
-		return elements.getSize();
+	public int getElementCount() {
+		return elements.getElementCount();
 	}
 	
 	//method

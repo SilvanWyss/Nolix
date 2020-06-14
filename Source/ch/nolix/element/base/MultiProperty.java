@@ -96,8 +96,8 @@ public final class MultiProperty<V> extends BaseProperty<V> implements IContaine
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getSize() {
-		return values.getSize();
+	public int getElementCount() {
+		return values.getElementCount();
 	}
 	
 	//method

@@ -27,7 +27,7 @@ public final class DirectionTest extends Test {
 		= Direction.LeftToRight.getAttributes();
 		
 		//verification
-			expect(attributes.getSize()).isEqualTo(1);
+			expect(attributes.getElementCount()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
 			.isEqualTo(Node.fromString("LeftToRight"));

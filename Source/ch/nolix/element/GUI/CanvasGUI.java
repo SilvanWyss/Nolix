@@ -202,7 +202,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final var xTranslation = attributes.getRefAt(1).toInt();
 		final var yTranslation = attributes.getRefAt(2).toInt();
 		
-		switch (attributes.getSize()) {
+		switch (attributes.getElementCount()) {
 			case 2:
 				return pr -> {
 					
@@ -271,7 +271,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		final var attributes = paintFilledRectangleCommand.getAttributesAsNodes();
 		
-		switch (attributes.getSize()) {
+		switch (attributes.getElementCount()) {
 			case 2:
 				
 				final var width = attributes.getRefAt(1).toInt();
@@ -308,7 +308,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final var attributes = paintImageCommand.getAttributesAsNodes();
 		final var imageId = attributes.getRefFirst(a -> a.hasHeader(PascalCaseNameCatalogue.ID)).toString();
 		
-		switch (attributes.getSize()) {
+		switch (attributes.getElementCount()) {
 			case 1:	
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintImageById(imageId);
 			case 3:
@@ -331,7 +331,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final var attributes = paintTextCommand.getAttributesAsNodes();
 		final var text = attributes.getRefAt(1).toString();
 		
-		switch (attributes.getSize()) {
+		switch (attributes.getElementCount()) {
 			case 1:
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text);
 			case 2:

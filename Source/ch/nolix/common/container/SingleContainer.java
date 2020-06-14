@@ -74,7 +74,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	 * @inheritDoc
 	 */
 	@Override
-	public int getSize() {
+	public int getElementCount() {
 		return (isEmpty() ? 0 : 1);
 	}
 }

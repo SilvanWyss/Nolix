@@ -55,7 +55,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getSize() {
+	public int getElementCount() {
 		return array.length;
 	}
 	

@@ -208,7 +208,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	public int getPixelCount() {
-		return pixels.getSize();
+		return pixels.getElementCount();
 	}
 	
 	//method
@@ -252,7 +252,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		final var pixelContainer = new ReadContainer<Color>(pixels);
 		
 		Validator
-		.assertThat(pixelContainer.getSize())
+		.assertThat(pixelContainer.getElementCount())
 		.thatIsNamed("number of pixels")
 		.isEqualTo(getPixelCount());
 		

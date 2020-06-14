@@ -241,7 +241,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	public int getTabCount() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-		return tabs.getSize();
+		return tabs.getElementCount();
 	}
 	
 	//method

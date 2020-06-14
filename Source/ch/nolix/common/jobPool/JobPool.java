@@ -83,7 +83,7 @@ public final class JobPool {
 	private boolean newWorkerIsNeeded() {
 		return
 		jobWrappers.containsAny()
-		&& workers.getSize() < getOptimalWorkerCount()
-		&& 10 * workers.getSize() < jobWrappers.getSize();
+		&& workers.getElementCount() < getOptimalWorkerCount()
+		&& 10 * workers.getElementCount() < jobWrappers.getElementCount();
 	}
 }

@@ -452,7 +452,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		
 			final var list = (LinkedList<?>)object;
 			
-			if (getSize() != list.getSize()) {
+			if (getElementCount() != list.getElementCount()) {
 				return false;
 			}
 			
@@ -537,7 +537,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 			throw new EmptyArgumentException(this);
 		}
 		
-		return ((double)getSequenceCount(sequencePattern) / getSize());
+		return ((double)getSequenceCount(sequencePattern) / getElementCount());
 	}
 		
 	//method
@@ -584,11 +584,11 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	public E getRefSecondLast() {
 		
 		//Asserts that the current List contains more than 1 element.
-		if (getSize() < 2) {
+		if (getElementCount() < 2) {
 			throw new InvalidArgumentException(this, "contains less than 2 elements");
 		}
 		
-		return getRefAt(getSize() - 1);
+		return getRefAt(getElementCount() - 1);
 	}
 	
 	//method
@@ -601,7 +601,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * @return the number of sequences from the current {@link LinkedList} that match the given sequence pattern.
 	 */
 	public int getSequenceCount(final SequencePattern<E> sequencePattern) {
-		return getSequences(sequencePattern).getSize();
+		return getSequences(sequencePattern).getElementCount();
 	}
 	
 	//method
@@ -624,7 +624,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * @return the number of elements of the current {@link LinkedList}.
 	 */
 	@Override
-	public int getSize() {
+	public int getElementCount() {
 		return elementCount;
 	}
 	
@@ -680,7 +680,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		
 		//Handles the case that the current list contains any elements.
 		if (containsAny()) {
-			final var orderedList = getOrderedSubList(1, getSize(), norm);
+			final var orderedList = getOrderedSubList(1, getElementCount(), norm);
 			clear();
 			addAtEnd(orderedList);
 		}

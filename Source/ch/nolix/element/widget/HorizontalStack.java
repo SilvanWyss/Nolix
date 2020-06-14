@@ -79,7 +79,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		
 		//Handles the case that the current horizontal stack is not empty.
 		if (containsAny()) {
-			contentWidth += (getChildWidgets().getSize() - 1) * getElementMargin();
+			contentWidth += (getChildWidgets().getElementCount() - 1) * getElementMargin();
 		}
 		
 		return contentWidth;

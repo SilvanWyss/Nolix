@@ -20,8 +20,8 @@ public final class Stack<E> implements IContainer<E> {
 
 	//method
 	@Override
-	public int getSize() {
-		return linkedList.getSize();
+	public int getElementCount() {
+		return linkedList.getElementCount();
 	}
 	
 	//method

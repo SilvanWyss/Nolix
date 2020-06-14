@@ -785,8 +785,8 @@ public class Matrix implements ApproximativeEqualing {
 			}
 		}
 		
-		values = new double[newValues.getSize()][values.length];
-		for (int i = 0; i < newValues.getSize(); i++) {
+		values = new double[newValues.getElementCount()][values.length];
+		for (int i = 0; i < newValues.getElementCount(); i++) {
 			values[i] = newValues.getRefAt(i + 1);
 		}
 		

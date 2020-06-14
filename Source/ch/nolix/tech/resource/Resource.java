@@ -116,7 +116,7 @@ public final class Resource implements IResource, Named {
 	 */
 	@Override
 	public final int getBaseResourceCount() {
-		return getBaseResources().getSize();
+		return getBaseResources().getElementCount();
 	}
 	
 	//method

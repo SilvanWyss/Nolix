@@ -359,7 +359,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			throw new InvalidArgumentException(
 				"attributes",
 				attributes,
-				"contains more than " + getRefWidgets().getSize() + " Widgets"
+				"contains more than " + getRefWidgets().getElementCount() + " Widgets"
 			);
 		}
 		

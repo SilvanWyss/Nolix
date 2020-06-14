@@ -197,10 +197,10 @@ public final class ListTest extends Test {
 		list1.forEach(s -> list2.addAtEnd(s));
 		
 		//verification
-			expect(list2.getSize()).isEqualTo(list1.getSize());
+			expect(list2.getElementCount()).isEqualTo(list1.getElementCount());
 			
 			//Iterates list1.
-			for (int i = 1; i <= list1.getSize(); i++) {
+			for (int i = 1; i <= list1.getElementCount(); i++) {
 				expect(list2.getRefAt(i)).isEqualTo(list1.getRefAt(i));
 			}
 	}
@@ -223,7 +223,7 @@ public final class ListTest extends Test {
 		final var subList = list.from(4);
 		
 		//verification
-			expect(subList.getSize()).isEqualTo(3);
+			expect(subList.getElementCount()).isEqualTo(3);
 			
 			final Iterator<String> iterator = subList.iterator();
 			
@@ -258,7 +258,7 @@ public final class ListTest extends Test {
 		final var subList = list.withoutFirst();
 		
 		//verification
-		expect(subList.getSize()).isEqualTo(5);
+		expect(subList.getElementCount()).isEqualTo(5);
 		expect(!subList.contains("x"));
 	}
 	
@@ -382,11 +382,11 @@ public final class ListTest extends Test {
 		final LinkedList<LinkedList<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expect(sequences.getSize()).isEqualTo(3);
+			expect(sequences.getElementCount()).isEqualTo(3);
 			
 			//Iterates the sequences.
 			for (final var s : sequences) {
-				expect(s.getSize()).isEqualTo(2);
+				expect(s.getElementCount()).isEqualTo(2);
 				expect(s.getRefAt(1)).isEqualTo("x");
 			}
 	}
@@ -420,11 +420,11 @@ public final class ListTest extends Test {
 		final LinkedList<LinkedList<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expect(sequences.getSize()).isEqualTo(4);
+			expect(sequences.getElementCount()).isEqualTo(4);
 			
 			//Iterates the sequences.
 			for (final var s : sequences) {
-				expect(s.getSize()).isEqualTo(2);
+				expect(s.getElementCount()).isEqualTo(2);
 				expect(s.getRefAt(1)).isEqualTo("x");
 				expect(s.getRefAt(2)).isEqualTo("xxxx");
 			}
@@ -438,7 +438,7 @@ public final class ListTest extends Test {
 		final var list = new LinkedList<String>("x", "x", "x", "x", "x", "x");
 		
 		//execution & verification
-		expect(list.getSize()).isEqualTo(6);
+		expect(list.getElementCount()).isEqualTo(6);
 	}
 	
 	//method
@@ -581,7 +581,7 @@ public final class ListTest extends Test {
 		list.order(s -> s.length());
 		
 		//verification
-			expect(list.getSize()).isEqualTo(6);
+			expect(list.getElementCount()).isEqualTo(6);
 			
 			expect(list.getRefAt(1)).isEqualTo("x");
 			expect(list.getRefAt(2)).isEqualTo("xx");
@@ -609,7 +609,7 @@ public final class ListTest extends Test {
 		list.order(s -> s);
 		
 		//verification
-			expect(list.getSize()).isEqualTo(6);
+			expect(list.getElementCount()).isEqualTo(6);
 			
 			expect(list.getRefAt(1)).isEqualTo("elephant");
 			expect(list.getRefAt(2)).isEqualTo("jaguar");

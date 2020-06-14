@@ -54,7 +54,7 @@ public final class WebSocketCompleteMessage {
 	//method
 	public byte[] getMessageAsByteArray() {
 		
-		final var byteArray = new byte[message.getSize()];
+		final var byteArray = new byte[message.getElementCount()];
 		var i = 0;
 		for (final var b : message) {
 			byteArray[i] = b.byteValue();

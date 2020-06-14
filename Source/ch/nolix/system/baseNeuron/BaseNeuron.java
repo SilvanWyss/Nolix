@@ -137,7 +137,7 @@ implements ISmartObject<N> {
 	 * @return the number of input neurons of this neuron.
 	 */
 	public final int getInputNeuronCount() {
-		return inputConnections.getSize();
+		return inputConnections.getElementCount();
 	}
 	
 	//method declaration

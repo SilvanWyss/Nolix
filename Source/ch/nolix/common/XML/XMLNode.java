@@ -122,12 +122,12 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	
 	//method
 	public int getAttributeCount() {
-		return attributes.getSize();
+		return attributes.getElementCount();
 	}
 	
 	//method
 	public int getChildNodeCount() {
-		return childNodes.getSize();
+		return childNodes.getElementCount();
 	}
 	
 	//method

@@ -45,7 +45,7 @@ public abstract class StatisticalModel {
 		
 		Validator.assertThat(index).thatIsNamed("index").isPositive();
 		
-		while (forecasts.getSize() < index) {
+		while (forecasts.getElementCount() < index) {
 			forecasts.addAtEnd(calculateNextValue());
 		}
 		
@@ -57,7 +57,7 @@ public abstract class StatisticalModel {
 
 	//method
 	protected final int getIndexOfNextValue() {
-		return (getInputValuesCount() + forecasts.getSize() + 1);
+		return (getInputValuesCount() + forecasts.getElementCount() + 1);
 	}
 
 	//method
@@ -68,12 +68,12 @@ public abstract class StatisticalModel {
 		Validator
 		.assertThat(index)
 		.thatIsNamed(VariableNameCatalogue.INDEX)
-		.isNotBiggerThan(inputValues.length + forecasts.getSize());
+		.isNotBiggerThan(inputValues.length + forecasts.getElementCount());
 		
-		if (index > forecasts.getSize()) {
-			return inputValues[getInputValuesCount() + forecasts.getSize() - index];
+		if (index > forecasts.getElementCount()) {
+			return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];
 		}
 		
-		return forecasts.getRefAt(forecasts.getSize() - index + 1);
+		return forecasts.getRefAt(forecasts.getElementCount() - index + 1);
 	}
 }

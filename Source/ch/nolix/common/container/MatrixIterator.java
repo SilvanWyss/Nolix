@@ -46,7 +46,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 */
 	@Override
 	public final boolean hasNext() {
-		return (nextElementIndex <= parentMatrix.getSize());
+		return (nextElementIndex <= parentMatrix.getElementCount());
 	}
 	
 	//method

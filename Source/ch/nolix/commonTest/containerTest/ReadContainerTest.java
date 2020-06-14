@@ -22,7 +22,7 @@ public final class ReadContainerTest extends Test {
 		final var readContainer = new ReadContainer<String>(array1, array2, array3);
 		
 		//verification
-			expect(readContainer.getSize()).isEqualTo(9);
+			expect(readContainer.getElementCount()).isEqualTo(9);
 			
 			expect(readContainer.getRefAt(1)).isEqualTo("apple");
 			expect(readContainer.getRefAt(2)).isEqualTo("banana");

@@ -34,7 +34,7 @@ extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	public TransformNeuron<Iterable<O>, O> getRefFanNeuron(final int index) {
 		
 		//Handles the case that the fan neuron for the element at the given index exists already.
-		if (fanNeurons.getSize() >= index) {
+		if (fanNeurons.getElementCount() >= index) {
 			return fanNeurons.getRefAt(index);
 		}
 		

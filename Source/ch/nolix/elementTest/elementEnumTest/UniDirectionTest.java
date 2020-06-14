@@ -27,7 +27,7 @@ public final class UniDirectionTest extends Test {
 		= UniDirection.Horizontal.getAttributes();
 		
 		//verification
-			expect(attributes.getSize()).isEqualTo(1);
+			expect(attributes.getElementCount()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
 			.isEqualTo(Node.fromString("Horizontal"));

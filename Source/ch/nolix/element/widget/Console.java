@@ -348,10 +348,10 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		clearEditLine();
 		
-		final int lineCount = lines.getSize();
+		final int lineCount = lines.getElementCount();
 		
 		//This loop suffers from being optimized away by the compiler or the JVM.
-		while (getLines().getSize() == lineCount) {
+		while (getLines().getElementCount() == lineCount) {
 			supposeGUIIsAlive();
 			
 			//The following statement, that is actually unnecessary,
@@ -598,7 +598,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		final var look = getRefLook();
 		
 		var contentAreaHeight =
-		getLines().getSize() * look.getRecursiveOrDefaultTextSize();
+		getLines().getElementCount() * look.getRecursiveOrDefaultTextSize();
 		
 		if (isEditable()) {
 			contentAreaHeight += look.getRecursiveOrDefaultTextSize();

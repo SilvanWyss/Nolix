@@ -63,7 +63,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				
 		//Handles the case that the current vertical stack is not empty.
 		if (containsAny()) {
-			contentHeight += (getChildWidgets().getSize() - 1) * getElementMargin();
+			contentHeight += (getChildWidgets().getElementCount() - 1) * getElementMargin();
 		}
 		
 		return contentHeight;

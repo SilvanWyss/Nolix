@@ -64,7 +64,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getSize() {
+	public int getElementCount() {
 		
 		var size = 0;
 		

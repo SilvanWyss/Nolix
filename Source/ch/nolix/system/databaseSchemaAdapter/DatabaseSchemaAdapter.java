@@ -31,10 +31,10 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {
 		
 		CentralLicenseManager
-		.when(loadedAndCreatedEntitySets.getSize())
+		.when(loadedAndCreatedEntitySets.getElementCount())
 		.isBiggerThan(10)
 		.thenRequireFeature(DatabaseClassic.class)
-		.andWhen(loadedAndCreatedEntitySets.getSize())
+		.andWhen(loadedAndCreatedEntitySets.getElementCount())
 		.isBiggerThan(30)
 		.thenRequireFeature(DatabaseUltimate.class);
 		

@@ -25,7 +25,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expectNot(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(0);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(0);
 		expect(result.toString()).isEqualTo("");
 	}
 	
@@ -41,7 +41,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expectNot(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(0);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(0);
 		expect(result.toString()).isEqualTo("");
 	}
 	
@@ -58,7 +58,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(0);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(0);
 		expect(result.toString()).isEqualTo("a");
 	}
 	
@@ -75,7 +75,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(1);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(1);
 		expect(result.toString()).isEqualTo("a(b)");
 	}
 	
@@ -92,7 +92,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(3);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(3);
 		expect(result.toString()).isEqualTo("a(b,c,d)");
 	}
 	
@@ -109,7 +109,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(1);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(1);
 		expect(result.toString()).isEqualTo("a(b(c))");
 	}
 	
@@ -126,7 +126,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(2);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(2);
 		expect(result.toString()).isEqualTo("a(b(c),d(e))");
 	}
 	
@@ -143,7 +143,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.getRefAttributes().getSize()).isEqualTo(2);
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(2);
 		expect(result.toString()).isEqualTo("a(b(c,d),e(f,g))");
 	}
 	
@@ -289,7 +289,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expectNot(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(0);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(0);
 		expect(testUnit.toString()).isEqualTo("");
 	}
 	
@@ -305,7 +305,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expectNot(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(0);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(0);
 		expect(testUnit.toString()).isEqualTo("");
 	}
 	
@@ -321,7 +321,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(0);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(0);
 		expect(testUnit.toString()).isEqualTo("a");
 	}
 	
@@ -337,7 +337,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(1);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(1);
 		expect(testUnit.toString()).isEqualTo("a(b)");
 	}
 	
@@ -353,7 +353,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(3);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(3);
 		expect(testUnit.toString()).isEqualTo("a(b,c,d)");
 	}
 	
@@ -369,7 +369,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(1);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(1);
 		expect(testUnit.toString()).isEqualTo("a(b(c))");
 	}
 	
@@ -385,7 +385,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(2);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(2);
 		expect(testUnit.toString()).isEqualTo("a(b(c),d(e))");
 	}
 	
@@ -401,7 +401,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//verification
 		expect(testUnit.hasHeader());
-		expect(testUnit.getRefAttributes().getSize()).isEqualTo(2);
+		expect(testUnit.getRefAttributes().getElementCount()).isEqualTo(2);
 		expect(testUnit.toString()).isEqualTo("a(b(c,d),e(f,g))");
 	}
 	

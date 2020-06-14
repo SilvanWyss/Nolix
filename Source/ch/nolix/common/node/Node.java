@@ -423,7 +423,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @return the number of attributes of the current {@link Node}.
 	 */
 	public int getAttributesCount() {
-		return attributes.getSize();
+		return attributes.getElementCount();
 	}
 
 	//method

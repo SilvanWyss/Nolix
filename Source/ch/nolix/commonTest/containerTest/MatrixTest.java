@@ -65,13 +65,13 @@ public final class MatrixTest extends Test {
 		final var column3 = matrix.getColumn(3);
 		
 		//verification
-			expect(column1.getSize()).isEqualTo(3);
+			expect(column1.getElementCount()).isEqualTo(3);
 			expect(column1.toString()).isEqualTo("apple,elephant,flower");
 			
-			expect(column2.getSize()).isEqualTo(3);
+			expect(column2.getElementCount()).isEqualTo(3);
 			expect(column2.toString()).isEqualTo("banana,lion,tree");
 			
-			expect(column3.getSize()).isEqualTo(3);
+			expect(column3.getElementCount()).isEqualTo(3);
 			expect(column3.toString()).isEqualTo("cerish,monkey,palm");
 	}
 	
@@ -149,13 +149,13 @@ public final class MatrixTest extends Test {
 		final var row3 = matrix.getRow(3);
 		
 		//verification
-			expect(row1.getSize()).isEqualTo(3);
+			expect(row1.getElementCount()).isEqualTo(3);
 			expect(row1.toString()).isEqualTo("apple,banana,cerish");
 			
-			expect(row2.getSize()).isEqualTo(3);
+			expect(row2.getElementCount()).isEqualTo(3);
 			expect(row2.toString()).isEqualTo("elephant,lion,monkey");
 			
-			expect(row3.getSize()).isEqualTo(3);
+			expect(row3.getElementCount()).isEqualTo(3);
 			expect(row3.toString()).isEqualTo("flower,tree,palm");
 	}
 	

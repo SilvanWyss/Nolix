@@ -181,7 +181,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @return the number of sessions on the session stack of the current {@link Client}.
 	 */
 	public final int getSessionStackSize() {
-		return sessions.getSize();
+		return sessions.getElementCount();
 	}
 	
 	//method

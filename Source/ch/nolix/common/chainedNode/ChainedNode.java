@@ -227,7 +227,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return the number of attributes of the current {@link ChainedNode}.
 	 */
 	public int getAttributeCount() {
-		return attributes.getSize();
+		return attributes.getElementCount();
 	}
 	
 	//method

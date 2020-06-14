@@ -33,7 +33,7 @@ public final class TableauTest extends Test {
 		
 		//verification
 		expect(project.containsAny());
-		expect(project.getRefTasks().getSize()).isEqualTo(2);
+		expect(project.getRefTasks().getElementCount()).isEqualTo(2);
 		expect(project.getRefTasks().contains(task1));
 		expect(project.getRefTasks().contains(task2));
 	}
