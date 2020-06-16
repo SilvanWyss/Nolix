@@ -36,14 +36,15 @@ public enum WebSocketFramePayloadLengthSpecification {
 		
 		Validator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
 		
-		if (payloadLength <= 125) {
+		if (payloadLength < 126) {
 			return IN_7_BITS;
 		}
 		
-		if (payloadLength <= 65536) {
+		if (payloadLength < 65536) {
 			return IN_16_BITS;
 		}
 		
+		//TODO: Throw Exception if payloadLength >= 2^64.
 		return WebSocketFramePayloadLengthSpecification.IN_64_BITS;
 	}
 }
