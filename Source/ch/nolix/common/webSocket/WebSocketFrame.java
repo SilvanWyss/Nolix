@@ -126,10 +126,10 @@ public final class WebSocketFrame {
 		var byteRepresentationLength = BigDecimal.valueOf(2);
 		
 		switch (getPayloadLengthSpecification()) {
-			case IN_16_BITS:
+			case _16_BITS:
 				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
 				break;
-			case IN_64_BITS:
+			case _64_BITS:
 				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(8));
 				break;
 			default:
@@ -224,7 +224,7 @@ public final class WebSocketFrame {
 		var i = 2;
 		final var extendedPayloadLengthBytes = getPayloadLength().toBigInteger().toByteArray();
 		switch (getPayloadLengthSpecification()) {
-			case IN_16_BITS:
+			case _16_BITS:
 				
 				var j = 0;
 				while (j < extendedPayloadLengthBytes.length) {
@@ -234,7 +234,7 @@ public final class WebSocketFrame {
 				
 				i += 2;
 				break;
-			case IN_64_BITS:
+			case _64_BITS:
 				
 				var j2 = 0;
 				while (j2 < extendedPayloadLengthBytes.length) {
@@ -266,16 +266,16 @@ public final class WebSocketFrame {
 	//method
 	private BigDecimal determinePayloadLength(final InputStream inputStream) throws IOException {
 		switch (getPayloadLengthSpecification()) {
-			case IN_7_BITS:
+			case _7_BITS:
 				return BigDecimal.valueOf(get7BitsPayloadLength());
-			case IN_16_BITS:
+			case _16_BITS:
 				
 				final var headerNext2Bytes = inputStream.readNBytes(2);
 				
 				return
 				BigDecimal.valueOf(0x100l * (headerNext2Bytes[0] & 0b11111111))
 				.add(BigDecimal.valueOf(headerNext2Bytes[1] & 0b11111111));
-			case IN_64_BITS:
+			case _64_BITS:
 				
 				final var headerNext4Bytes = inputStream.readNBytes(2);
 				

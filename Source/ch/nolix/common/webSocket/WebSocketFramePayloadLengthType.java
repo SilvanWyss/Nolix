@@ -1,50 +1,51 @@
 //package declaration
 package ch.nolix.common.webSocket;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //enum
 public enum WebSocketFramePayloadLengthType {
-	IN_7_BITS,
-	IN_16_BITS,
-	IN_64_BITS;
+	_7_BITS,
+	_16_BITS,
+	_64_BITS;
 	
 	//static method
-	public static WebSocketFramePayloadLengthType fromCode(final int number) {
+	public static WebSocketFramePayloadLengthType fromCode(final int code) {
 		
-		Validator.assertThat(number).thatIsNamed(VariableNameCatalogue.NUMBER).isNotNegative();
+		Validator.assertThat(code).thatIsNamed(VariableNameCatalogue.CODE).isNotNegative();
 		
-		if (number <= 125) {
-			return IN_7_BITS;
+		if (code < 126) {
+			return _7_BITS;
 		}
 		
-		if (number == 126) {
-			return IN_16_BITS;
+		if (code == 126) {
+			return _16_BITS;
 		}
 		
-		if (number == 127) {
-			return IN_64_BITS;
+		if (code == 127) {
+			return _64_BITS;
 		}
 		
-		throw new InvalidArgumentException(VariableNameCatalogue.NUMBER, "number", "is not valid");
+		throw new InvalidArgumentException(VariableNameCatalogue.CODE, code, "is not valid");
 	}
 	
 	//static method
-	public static WebSocketFramePayloadLengthType fromPayloadLength(final int payloadLength) {
+	public static WebSocketFramePayloadLengthType fromPayloadLength(final long payloadLength) {
 		
 		Validator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
 		
 		if (payloadLength < 126) {
-			return IN_7_BITS;
+			return _7_BITS;
 		}
 		
 		if (payloadLength < 65536) {
-			return IN_16_BITS;
+			return _16_BITS;
 		}
 		
-		//TODO: Throw Exception if payloadLength >= 2^64.
-		return WebSocketFramePayloadLengthType.IN_64_BITS;
+		//payloadLength < 2^63
+		return WebSocketFramePayloadLengthType._64_BITS;
 	}
 }
