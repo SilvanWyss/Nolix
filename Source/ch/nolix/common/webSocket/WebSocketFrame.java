@@ -160,7 +160,7 @@ public final class WebSocketFrame {
 	}
 	
 	//method
-	public WebSocketFramePayloadLengthSpecification getPayloadLengthSpecification() {
+	public WebSocketFramePayloadLengthType getPayloadLengthSpecification() {
 		return firstNibble.getPayloadLengthSpecification();
 	}
 	

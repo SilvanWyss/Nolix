@@ -11,7 +11,7 @@ final class WebSocketFrameFirstNibble {
 	private final boolean mFINBit;
 	private final int opcode;
 	private final boolean maskBit;
-	private final WebSocketFramePayloadLengthSpecification payloadLengthSpecification;
+	private final WebSocketFramePayloadLengthType payloadLengthSpecification;
 	private final int m7BitPayloadLength;
 	
 	//static method
@@ -35,10 +35,10 @@ final class WebSocketFrameFirstNibble {
 		this.mFINBit = mFINBit;
 		this.opcode = opcodeMeaning.toNumber();
 		this.maskBit = maskBit;		
-		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromPayloadLength(payloadLength);
+		payloadLengthSpecification = WebSocketFramePayloadLengthType.fromPayloadLength(payloadLength);
 		
 		this.m7BitPayloadLength =
-		payloadLengthSpecification == WebSocketFramePayloadLengthSpecification.IN_7_BITS ? payloadLength : 0;
+		payloadLengthSpecification == WebSocketFramePayloadLengthType.IN_7_BITS ? payloadLength : 0;
 	}
 	
 	//constructor
@@ -62,7 +62,7 @@ final class WebSocketFrameFirstNibble {
 		
 		opcode = byte1 & 0b1111;
 		maskBit = wrapperByte2.getBitAt(1);
-		payloadLengthSpecification = WebSocketFramePayloadLengthSpecification.fromCode(byte2 & 0b01111111);
+		payloadLengthSpecification = WebSocketFramePayloadLengthType.fromCode(byte2 & 0b01111111);
 		m7BitPayloadLength = byte2 & 0x7F;
 	}
 	
@@ -130,7 +130,7 @@ final class WebSocketFrameFirstNibble {
 	}
 	
 	//method
-	public WebSocketFramePayloadLengthSpecification getPayloadLengthSpecification() {
+	public WebSocketFramePayloadLengthType getPayloadLengthSpecification() {
 		return payloadLengthSpecification;
 	}
 	

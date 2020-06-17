@@ -6,13 +6,13 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //enum
-public enum WebSocketFramePayloadLengthSpecification {
+public enum WebSocketFramePayloadLengthType {
 	IN_7_BITS,
 	IN_16_BITS,
 	IN_64_BITS;
 	
 	//static method
-	public static WebSocketFramePayloadLengthSpecification fromCode(final int number) {
+	public static WebSocketFramePayloadLengthType fromCode(final int number) {
 		
 		Validator.assertThat(number).thatIsNamed(VariableNameCatalogue.NUMBER).isNotNegative();
 		
@@ -32,7 +32,7 @@ public enum WebSocketFramePayloadLengthSpecification {
 	}
 	
 	//static method
-	public static WebSocketFramePayloadLengthSpecification fromPayloadLength(final int payloadLength) {
+	public static WebSocketFramePayloadLengthType fromPayloadLength(final int payloadLength) {
 		
 		Validator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
 		
@@ -45,6 +45,6 @@ public enum WebSocketFramePayloadLengthSpecification {
 		}
 		
 		//TODO: Throw Exception if payloadLength >= 2^64.
-		return WebSocketFramePayloadLengthSpecification.IN_64_BITS;
+		return WebSocketFramePayloadLengthType.IN_64_BITS;
 	}
 }
