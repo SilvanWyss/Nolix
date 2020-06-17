@@ -121,6 +121,30 @@ public final class WebSocketFrame {
 	}
 	
 	//method
+	public BigDecimal getLengthInBytes() {
+		
+		var byteRepresentationLength = BigDecimal.valueOf(2);
+		
+		switch (getPayloadLengthSpecification()) {
+			case IN_16_BITS:
+				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
+				break;
+			case IN_64_BITS:
+				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(8));
+				break;
+			default:
+		}
+		
+		if (masksPayload()) {
+			byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(MASK_LENGTH_IN_BYTES));
+		}
+		
+		byteRepresentationLength = byteRepresentationLength.add(getPayloadLength());
+		
+		return byteRepresentationLength;
+	}
+	
+	//method
 	public boolean getMaskBit() {
 		return firstNibble.getMaskBit();
 	}
@@ -143,30 +167,6 @@ public final class WebSocketFrame {
 	//method
 	public byte[] getPayload() {
 		return payload;
-	}
-	
-	//method
-	public BigDecimal getSizeInBytes() {
-		
-		var byteRepresentationLength = BigDecimal.valueOf(2);
-		
-		switch (getPayloadLengthSpecification()) {
-			case IN_16_BITS:
-				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
-				break;
-			case IN_64_BITS:
-				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(8));
-				break;
-			default:
-		}
-		
-		if (masksPayload()) {
-			byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(MASK_LENGTH_IN_BYTES));
-		}
-		
-		byteRepresentationLength = byteRepresentationLength.add(getPayloadLength());
-		
-		return byteRepresentationLength;
 	}
 	
 	//method
@@ -216,7 +216,7 @@ public final class WebSocketFrame {
 	@SuppressWarnings("incomplete-switch")
 	public byte[] toBytes() {
 		
-		final var bytes = new byte[getSizeInBytes().intValue()];
+		final var bytes = new byte[getLengthInBytes().intValue()];
 		
 		bytes[0] = firstNibble.getByte1();
 		bytes[1] = firstNibble.getByte2();
