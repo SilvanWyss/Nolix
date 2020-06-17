@@ -15,6 +15,9 @@ import ch.nolix.common.wrapperException.WrapperException;
 //class
 public final class WebSocketFrame {
 	
+	//constant
+	public static final int MASK_LENGTH_IN_BYTES = 4;
+	
 	//static method
 	public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
 		
@@ -72,7 +75,7 @@ public final class WebSocketFrame {
 			
 			firstNibble = WebSocketFrameFirstNibble.fromNibble(inputStream.readNBytes(2));
 			payloadLength = determinePayloadLength(inputStream);
-			maskingKey = getMaskBit() ? inputStream.readNBytes(4) : null;
+			maskingKey = getMaskBit() ? inputStream.readNBytes(MASK_LENGTH_IN_BYTES) : null;
 			
 			//TODO: Handle payloadLength > MAX_INT.
 			payload = inputStream.readNBytes(getPayloadLength().intValue());
@@ -158,7 +161,7 @@ public final class WebSocketFrame {
 		}
 		
 		if (masksPayload()) {
-			byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(4));
+			byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(MASK_LENGTH_IN_BYTES));
 		}
 		
 		byteRepresentationLength = byteRepresentationLength.add(getPayloadLength());
