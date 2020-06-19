@@ -16,7 +16,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 public final class WebSocketFrame {
 	
 	//constant
-	public static final int MASK_LENGTH_IN_BYTES = 4;
+	private static final int MASK_LENGTH_IN_BYTES = 4;
 	
 	//static method
 	public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
@@ -147,6 +147,11 @@ public final class WebSocketFrame {
 	//method
 	public boolean getMaskBit() {
 		return firstNibble.getMaskBit();
+	}
+	
+	//method
+	public int getMaskLength() {
+		return (masksPayload() ? MASK_LENGTH_IN_BYTES : 0);
 	}
 	
 	//method
