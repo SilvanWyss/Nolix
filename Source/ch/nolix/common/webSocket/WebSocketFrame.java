@@ -74,7 +74,7 @@ public final class WebSocketFrame {
 		try {
 			
 			firstNibble = WebSocketFrameFirstNibble.fromNibble(inputStream.readNBytes(2));
-			payloadLength = determinePayloadLength(inputStream);
+			payloadLength = calculatePayloadLength(inputStream);
 			maskingKey = getMaskBit() ? inputStream.readNBytes(MASK_LENGTH_IN_BYTES) : null;
 			
 			//TODO: Handle payloadLength > MAX_INT.
@@ -231,11 +231,11 @@ public final class WebSocketFrame {
 		switch (getPayloadLengthType()) {
 			case _16_BITS:
 				
-				
 				bytes[2] = payloadLengthBytes[0];
 				bytes[3] = payloadLengthBytes[1];
 				
 				i += 2;
+				
 				break;
 			case _64_BITS:
 				
@@ -249,6 +249,7 @@ public final class WebSocketFrame {
 				bytes[9] = payloadLengthBytes[7];
 				
 				i += 8;
+				
 				break;
 		}
 		
@@ -270,37 +271,51 @@ public final class WebSocketFrame {
 	}
 
 	//method
-	private WebSocketFramePayloadLength determinePayloadLength(final InputStream inputStream) throws IOException {
+	private WebSocketFramePayloadLength calculatePayloadLength(final InputStream inputStream) throws IOException {
 		switch (getPayloadLengthType()) {
 			case _7_BITS:
-				return new WebSocketFramePayloadLength(firstNibble.get7BitsPayloadLength());
+				return calculatePayloadLengthWhenPayloadLengthIs7Bits();
 			case _16_BITS:
-				
-				final var headerNext2Bytes = inputStream.readNBytes(2);
-				
-				return
-				new WebSocketFramePayloadLength(
-					(0x100l * (headerNext2Bytes[0] & 0b11111111))
-					+ (headerNext2Bytes[1] & 0b11111111)
-				);
+				return calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
 			case _64_BITS:
-				
-				final var headerNext4Bytes = inputStream.readNBytes(2);
-				
-				return
-				new WebSocketFramePayloadLength(
-					(headerNext4Bytes[0] & 0xFF)
-					+ (0x100l * (headerNext4Bytes[1] & 0b11111111))
-					+ (0x10000l * (headerNext4Bytes[2] & 0b11111111))
-					+ (0x1000000l * (headerNext4Bytes[3] & 0b11111111))
-				);
+				return calculatePayloadLengthWhenPayloadLengthI64Bits(inputStream);
 			default:
-				throw
-				new InvalidArgumentException(
-					"payload length specification",
-					getPayloadLengthType(),
-					"is not valid"
-				);
+				throw new InvalidArgumentException(getPayloadLengthType());
 		}
+	}
+	
+	//method
+	private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs7Bits() {
+		return new WebSocketFramePayloadLength(firstNibble.get7BitsPayloadLength());
+	}
+	
+	//method
+	private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs16Bits(
+		final InputStream inputStream
+	) throws IOException {
+		
+		final var headerNext2Bytes = inputStream.readNBytes(2);
+		
+		return
+		new WebSocketFramePayloadLength(
+			(0x100l * (headerNext2Bytes[0] & 0b11111111))
+			+ (headerNext2Bytes[1] & 0b11111111)
+		);
+	}
+	
+	//method
+	private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthI64Bits(
+		final InputStream inputStream
+	) throws IOException {
+		
+		final var headerNext4Bytes = inputStream.readNBytes(2);
+		
+		return
+		new WebSocketFramePayloadLength(
+			(headerNext4Bytes[0] & 0xFF)
+			+ (0x100l * (headerNext4Bytes[1] & 0b11111111))
+			+ (0x10000l * (headerNext4Bytes[2] & 0b11111111))
+			+ (0x1000000l * (headerNext4Bytes[3] & 0b11111111))
+		);
 	}
 }
