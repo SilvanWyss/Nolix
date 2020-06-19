@@ -94,7 +94,7 @@ final class WebSocketFrameFirstNibble {
 			byte2 |= 0b1000000;
 		}
 		
-		switch (getPayloadLengthSpecification()) {
+		switch (getPayloadLengthType()) {
 			case _7_BITS:
 				byte2 |= m7BitPayloadLength;
 				break;
@@ -130,7 +130,7 @@ final class WebSocketFrameFirstNibble {
 	}
 	
 	//method
-	public WebSocketFramePayloadLengthType getPayloadLengthSpecification() {
+	public WebSocketFramePayloadLengthType getPayloadLengthType() {
 		return payloadLengthSpecification;
 	}
 	

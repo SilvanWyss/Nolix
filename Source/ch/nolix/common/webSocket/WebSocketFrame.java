@@ -125,7 +125,7 @@ public final class WebSocketFrame {
 		
 		var byteRepresentationLength = BigDecimal.valueOf(2);
 		
-		switch (getPayloadLengthSpecification()) {
+		switch (getPayloadLengthType()) {
 			case _16_BITS:
 				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
 				break;
@@ -160,8 +160,8 @@ public final class WebSocketFrame {
 	}
 	
 	//method
-	public WebSocketFramePayloadLengthType getPayloadLengthSpecification() {
-		return firstNibble.getPayloadLengthSpecification();
+	public WebSocketFramePayloadLengthType getPayloadLengthType() {
+		return firstNibble.getPayloadLengthType();
 	}
 	
 	//method
@@ -223,7 +223,7 @@ public final class WebSocketFrame {
 		
 		var i = 2;
 		final var payloadLengthBytes = payloadLength.toBytes();
-		switch (getPayloadLengthSpecification()) {
+		switch (getPayloadLengthType()) {
 			case _16_BITS:
 				
 				
@@ -266,7 +266,7 @@ public final class WebSocketFrame {
 
 	//method
 	private WebSocketFramePayloadLength determinePayloadLength(final InputStream inputStream) throws IOException {
-		switch (getPayloadLengthSpecification()) {
+		switch (getPayloadLengthType()) {
 			case _7_BITS:
 				return new WebSocketFramePayloadLength(firstNibble.get7BitsPayloadLength());
 			case _16_BITS:
@@ -293,7 +293,7 @@ public final class WebSocketFrame {
 				throw
 				new InvalidArgumentException(
 					"payload length specification",
-					getPayloadLengthSpecification(),
+					getPayloadLengthType(),
 					"is not valid"
 				);
 		}
