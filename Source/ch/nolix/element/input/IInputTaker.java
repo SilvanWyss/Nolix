@@ -9,7 +9,7 @@ import ch.nolix.element.elementEnum.DirectionOfRotation;
 /**
  * @author Silvan
  * @month 2019-08
- * @lines 240
+ * @lines 330
  */
 public interface IInputTaker {
 	
@@ -205,17 +205,62 @@ public interface IInputTaker {
 	 */
 	public abstract void noteMouseWheelClick();
 	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a mouse wheel click at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteMouseWheelClick(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteMouseWheelClick();
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a mouse wheel press.
 	 */
 	public abstract void noteMouseWheelPress();
 	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a mouse wheel press at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteMouseWheelPress(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteMouseWheelPress();
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a mouse wheel release.
 	 */
 	public abstract void noteMouseWheelRelease();
+	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a mouse wheel release at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteMouseWheelRelease(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteMouseWheelRelease();
+	}
 	
 	//method declaration
 	/**
@@ -231,15 +276,60 @@ public interface IInputTaker {
 	 */
 	public abstract void noteRightMouseButtonClick();
 	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a right mouse button click at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteRightMouseButtonClick(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteRightMouseButtonClick();
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a right mouse button press.
 	 */
 	public abstract void noteRightMouseButtonPress();
 	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a right mouse button press at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteRightMouseButtonPress(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteRightMouseButtonPress();
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a right mouse button release.
 	 */
 	public abstract void noteRightMouseButtonRelease();
+	
+	//method
+	/**
+	 * Lets the current {@link IInputTaker} note a right mouse button release at the given position.
+	 * 
+	 * @param cursorXPositionOnViewArea
+	 * @param cursorYPositionOnViewArea
+	 */
+	public default void noteRightMouseButtonRelease(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {
+		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		noteRightMouseButtonRelease();
+	}
 }
