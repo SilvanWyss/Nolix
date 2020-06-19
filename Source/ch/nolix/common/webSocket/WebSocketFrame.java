@@ -30,7 +30,7 @@ public final class WebSocketFrame {
 	
 	//attributes
 	private final WebSocketFrameFirstNibble firstNibble;
-	private final BigDecimal payloadLength;
+	private final WebSocketFramePayloadLength payloadLength;
 	private final byte[] payload;
 	
 	//optional attribute
@@ -54,7 +54,7 @@ public final class WebSocketFrame {
 			payload.length
 		);
 		
-		payloadLength = BigDecimal.valueOf(payload.length);
+		payloadLength = new WebSocketFramePayloadLength(payload.length);
 		this.payload = payload;
 		maskingKey = null;
 	}
@@ -78,7 +78,7 @@ public final class WebSocketFrame {
 			maskingKey = getMaskBit() ? inputStream.readNBytes(MASK_LENGTH_IN_BYTES) : null;
 			
 			//TODO: Handle payloadLength > MAX_INT.
-			payload = inputStream.readNBytes(getPayloadLength().intValue());
+			payload = inputStream.readNBytes((int)getPayloadLength());
 			
 			if (masksPayload()) {
 				for (var i = 0; i < payload.length; i++) {
@@ -139,7 +139,7 @@ public final class WebSocketFrame {
 			byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(MASK_LENGTH_IN_BYTES));
 		}
 		
-		byteRepresentationLength = byteRepresentationLength.add(getPayloadLength());
+		byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(getPayloadLength()));
 		
 		return byteRepresentationLength;
 	}
@@ -155,8 +155,8 @@ public final class WebSocketFrame {
 	}
 		
 	//method
-	public BigDecimal getPayloadLength() {
-		return payloadLength;
+	public long getPayloadLength() {
+		return payloadLength.getValue();
 	}
 	
 	//method
@@ -222,25 +222,26 @@ public final class WebSocketFrame {
 		bytes[1] = firstNibble.getByte2();
 		
 		var i = 2;
-		final var extendedPayloadLengthBytes = getPayloadLength().toBigInteger().toByteArray();
+		final var payloadLengthBytes = payloadLength.toBytes();
 		switch (getPayloadLengthSpecification()) {
 			case _16_BITS:
 				
-				var j = 0;
-				while (j < extendedPayloadLengthBytes.length) {
-					bytes[i + j] = extendedPayloadLengthBytes[j];
-					j++;
-				}
+				
+				bytes[2] = payloadLengthBytes[0];
+				bytes[3] = payloadLengthBytes[1];
 				
 				i += 2;
 				break;
 			case _64_BITS:
 				
-				var j2 = 0;
-				while (j2 < extendedPayloadLengthBytes.length) {
-					bytes[i + j2] = extendedPayloadLengthBytes[j2];
-					j2++;
-				}
+				bytes[2] = payloadLengthBytes[0];
+				bytes[3] = payloadLengthBytes[1];
+				bytes[4] = payloadLengthBytes[2];
+				bytes[5] = payloadLengthBytes[3];
+				bytes[6] = payloadLengthBytes[4];
+				bytes[7] = payloadLengthBytes[5];
+				bytes[8] = payloadLengthBytes[6];
+				bytes[9] = payloadLengthBytes[7];
 				
 				i += 8;
 				break;
@@ -264,26 +265,30 @@ public final class WebSocketFrame {
 	}
 
 	//method
-	private BigDecimal determinePayloadLength(final InputStream inputStream) throws IOException {
+	private WebSocketFramePayloadLength determinePayloadLength(final InputStream inputStream) throws IOException {
 		switch (getPayloadLengthSpecification()) {
 			case _7_BITS:
-				return BigDecimal.valueOf(get7BitsPayloadLength());
+				return new WebSocketFramePayloadLength(firstNibble.get7BitsPayloadLength());
 			case _16_BITS:
 				
 				final var headerNext2Bytes = inputStream.readNBytes(2);
 				
 				return
-				BigDecimal.valueOf(0x100l * (headerNext2Bytes[0] & 0b11111111))
-				.add(BigDecimal.valueOf(headerNext2Bytes[1] & 0b11111111));
+				new WebSocketFramePayloadLength(
+					(0x100l * (headerNext2Bytes[0] & 0b11111111))
+					+ (headerNext2Bytes[1] & 0b11111111)
+				);
 			case _64_BITS:
 				
 				final var headerNext4Bytes = inputStream.readNBytes(2);
 				
 				return
-				BigDecimal.valueOf(headerNext4Bytes[0] & 0xFF)
-				.add(BigDecimal.valueOf(0x100l * (headerNext4Bytes[1] & 0b11111111)))
-				.add(BigDecimal.valueOf(0x10000l * (headerNext4Bytes[2] & 0b11111111)))
-				.add(BigDecimal.valueOf(0x1000000l * (headerNext4Bytes[3] & 0b11111111)));
+				new WebSocketFramePayloadLength(
+					(headerNext4Bytes[0] & 0xFF)
+					+ (0x100l * (headerNext4Bytes[1] & 0b11111111))
+					+ (0x10000l * (headerNext4Bytes[2] & 0b11111111))
+					+ (0x1000000l * (headerNext4Bytes[3] & 0b11111111))
+				);
 			default:
 				throw
 				new InvalidArgumentException(
@@ -292,10 +297,5 @@ public final class WebSocketFrame {
 					"is not valid"
 				);
 		}
-	}
-	
-	//method
-	private int get7BitsPayloadLength() {
-		return firstNibble.get7BitsPayloadLength();
 	}
 }
