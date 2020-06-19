@@ -1,4 +1,4 @@
-package ch.nolix.techTutorial.genericMathTutorial;
+package ch.nolix.techAPITutorial.genericMathTutorial;
 
 import ch.nolix.common.functionAPI.IIntTaker;
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;

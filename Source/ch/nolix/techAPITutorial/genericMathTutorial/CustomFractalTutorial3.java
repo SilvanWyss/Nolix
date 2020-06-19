@@ -1,4 +1,4 @@
-package ch.nolix.techTutorial.genericMathTutorial;
+package ch.nolix.techAPITutorial.genericMathTutorial;
 
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.common.sequencer.Sequencer;
@@ -10,7 +10,7 @@ import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
-public final class BlackWhiteJuliaFractalTutorial {
+public final class CustomFractalTutorial3 {
 	
 	public static void main(String[] args) {
 		
@@ -18,22 +18,24 @@ public final class BlackWhiteJuliaFractalTutorial {
 		Registrator.register();
 		
 		final var maxIterationCount = 100;
-		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.8, 0.15);
+		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.745, 0.25);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame(
-			"Black White Julia Fractal Tutorial",
+			"Custom Fractal Tutorial 3",
 			new ImageWidget(
 				CentralInstanceProvider.create(IFractalBuilder.class)
-				.setRealComponentInterval(-2.0, 2.0)
-				.setImaginaryComponentInterval(-1.5, 1.5)
+				.setRealComponentInterval(-1.5, 1.5)
+				.setImaginaryComponentInterval(-1.0, 1.0)
 				.setWidthInPixel(800)
 				.setStartValuesFunction(c -> new IComplexNumber[]{c})
 				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
-				.setColorFunction(i -> i < maxIterationCount ? Color.WHITE : Color.BLACK)
+				.setColorFunction(
+					i -> i < maxIterationCount ?	new Color((10 * i) % 256, i % 256, (20 * i) % 256) : Color.BLACK
+				)
 				.setBigDecimalScale(20)
 				.build()
 				.startImageBuild()
@@ -45,5 +47,5 @@ public final class BlackWhiteJuliaFractalTutorial {
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
-	private BlackWhiteJuliaFractalTutorial() {}
+	private CustomFractalTutorial3() {}
 }
