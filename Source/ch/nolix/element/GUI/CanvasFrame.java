@@ -32,18 +32,6 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 	
 	//method
 	@Override
-	public int getViewAreaCursorXPosition() {
-		return getRefVisualizer().getViewAreaCursorXPosition();
-	}
-
-	//method
-	@Override
-	public int getViewAreaCursorYPosition() {
-		return getRefVisualizer().getViewAreaCursorYPosition();
-	}
-	
-	//method
-	@Override
 	public int getWidth() {
 		return getRefVisualizer().getWidth();
 	}
@@ -52,17 +40,5 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 	@Override
 	public boolean isRootGUI() {
 		return true;
-	}
-	
-	//method
-	@Override
-	public int getViewAreaHeight() {
-		return getRefVisualizer().getViewAreaHeight();
-	}
-	
-	//method
-	@Override
-	public int getViewAreaWidth() {
-		return getRefVisualizer().getViewAreaWidth();
 	}
 }
