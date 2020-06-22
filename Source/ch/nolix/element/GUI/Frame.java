@@ -57,28 +57,4 @@ public final class Frame extends LayerGUI<Frame> {
 	public boolean isRootGUI() {
 		return true;
 	}
-
-	//method
-	@Override
-	public int getViewAreaCursorXPosition() {
-		return getRefVisualizer().getViewAreaCursorXPosition();
-	}
-	
-	//method
-	@Override
-	public int getViewAreaCursorYPosition() {
-		return getRefVisualizer().getViewAreaCursorYPosition();
-	}
-	
-	//method
-	@Override
-	public int getViewAreaHeight() {
-		return getRefVisualizer().getViewAreaHeight();
-	}
-	
-	//method
-	@Override
-	public int getViewAreaWidth() {
-		return getRefVisualizer().getViewAreaWidth();
-	}
 }
