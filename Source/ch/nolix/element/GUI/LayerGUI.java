@@ -692,8 +692,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			refresh();
 		}
 		else {
-			setViewAreaWidth(viewAreaWidth);
-			setViewAreaHeight(viewAreaHeight);
+			setViewAreaSize(viewAreaWidth, viewAreaHeight);
 		}
 	}
 	
