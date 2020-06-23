@@ -2,8 +2,11 @@
 package ch.nolix.system.baseGUIClient;
 
 //own imports
+import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.functionAPI.IIntGetter;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.input.KeyInput;
@@ -16,28 +19,48 @@ import ch.nolix.element.input.ResizeInput;
 /**
  * @author Silvan Wyss
  * @month 2019-08
- * @lines 200
+ * @lines 260
  */
 final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	
-	//attribute
-	/**
-	 * The {@link BaseFrontGUIClient} the current {@link BaseFrontGUIClientInputTaker} belongs to.
-	 */
-	private final BaseFrontGUIClient<?> parentFrontGuiClientoid;
+	//attributes
+	private final IElementTaker<IInput<?>> inputTaker;
+	private final IIntGetter cursorXPositionOnViewAreaGetter;
+	private final IIntGetter cursorYPositionOnViewAreaGetter;
 	
 	//constructor
 	/**
-	 * Creates a new {@link BaseFrontGUIClientInputTaker} that will belong to the given parentFrontGuiClientoid.
+	 * Creates a new {@link BaseFrontGUIClientInputTaker}
+	 * with the given inputTaker, cursorXPositionOnViewAreaGetter and cursorYPositionOnViewAreaGetter.
 	 * 
-	 * @param parentFrontGuiClientoid
-	 * @throws ArgumentIsNullException if the given parentFrontGuiClientoid is null.
+	 * @param inputTaker
+	 * @param cursorXPositionOnViewAreaGetter
+	 * @param cursorYPositionOnViewAreaGetter
+	 * @throws ArgumentIsNullException if the given inputTaker is null.
+	 * @throws ArgumentIsNullException if the given cursorXPositionOnViewAreaGetter is null.
+	 * @throws ArgumentIsNullException if the given cursorYPositionOnViewAreaGetter is null.
 	 */
-	public BaseFrontGUIClientInputTaker(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+	public BaseFrontGUIClientInputTaker(
+		final IElementTaker<IInput<?>> inputTaker,
+		final IIntGetter cursorXPositionOnViewAreaGetter,
+		final IIntGetter cursorYPositionOnViewAreaGetter
+	) {
 		
-		Validator.assertThat(parentFrontGuiClientoid).thatIsNamed("parent FrontGUIClientoid").isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
-		this.parentFrontGuiClientoid = parentFrontGuiClientoid;
+		Validator
+		.assertThat(cursorXPositionOnViewAreaGetter)
+		.thatIsNamed("cursor x-position on view area getter")
+		.isNotNull();
+		
+		Validator
+		.assertThat(cursorYPositionOnViewAreaGetter)
+		.thatIsNamed("cursor y-position on view area getter")
+		.isNotNull();
+		
+		this.inputTaker = inputTaker;
+		this.cursorXPositionOnViewAreaGetter = cursorXPositionOnViewAreaGetter;
+		this.cursorYPositionOnViewAreaGetter = cursorYPositionOnViewAreaGetter;
 	}
 	
 	//method
@@ -46,7 +69,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteKeyPress(final Key key) {
-		parentFrontGuiClientoid.noteInputOnCounterpart(new KeyInput(key, KeyInputType.Press));
+		inputTaker.run(new KeyInput(key, KeyInputType.Press));
 	}
 	
 	//method
@@ -55,7 +78,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteKeyRelease(final Key key) {
-		parentFrontGuiClientoid.noteInputOnCounterpart(new KeyInput(key, KeyInputType.Release));
+		inputTaker.run(new KeyInput(key, KeyInputType.Release));
 	}
 	
 	//method
@@ -64,7 +87,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteKeyTyping(Key key) {
-		parentFrontGuiClientoid.noteInputOnCounterpart(new KeyInput(key, KeyInputType.Typing));
+		inputTaker.run(new KeyInput(key, KeyInputType.Typing));
 	}
 	
 	//method
@@ -73,9 +96,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonClick() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.LeftMouseButtonClick));
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.LeftMouseButtonClick
+			)
+		);
 	}
 	
 	//method
@@ -84,9 +111,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonPress() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.LeftMouseButtonPress));	
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.LeftMouseButtonPress
+			)
+		);	
 	}
 	
 	//method
@@ -95,9 +126,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteLeftMouseButtonRelease() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.LeftMouseButtonRelease));
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.LeftMouseButtonRelease
+			)
+		);
 	}
 	
 	//method
@@ -106,7 +141,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
-		parentFrontGuiClientoid.noteInputOnCounterpart(
+		inputTaker.run(
 			new MouseInput(cursorXPositionOnViewArea, cursorYPositionOnViewArea, MouseInputType.MouseMove)
 		);
 	}
@@ -117,9 +152,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelClick() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.MouseWheelClick));
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.MouseWheelClick
+			)
+		);
 	}
 	
 	//method
@@ -128,9 +167,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelPress() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.MouseWheelPress));
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.MouseWheelPress
+			)
+		);
 	}
 	
 	//method
@@ -139,9 +182,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelRelease() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.MouseWheelRelease));		
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.MouseWheelRelease
+			)
+		);
 	}
 	
 	//method
@@ -150,12 +197,10 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(
+		inputTaker.run(
 			new MouseInput(
-				0,
-				0,
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
 				directionOfRotation == DirectionOfRotation.Backward ?
 				MouseInputType.BackwardMouseWheelRotationStep : MouseInputType.ForwardMouseWheelRotationStep
 			)
@@ -168,7 +213,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		parentFrontGuiClientoid.noteInputOnCounterpart(new ResizeInput(viewAreaWidth, viewAreaHeight));
+		inputTaker.run(new ResizeInput(viewAreaWidth, viewAreaHeight));
 	}
 	
 	//method
@@ -177,9 +222,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonClick() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonClick));	
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.RightMouseButtonClick
+			)
+		);
 	}
 	
 	//method
@@ -188,9 +237,13 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonPress() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonPress));		
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.RightMouseButtonPress
+			)
+		);	
 	}
 	
 	//method
@@ -199,8 +252,12 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {
-		
-		//TODO: Use correct cursor position.
-		parentFrontGuiClientoid.noteInputOnCounterpart(new MouseInput(0, 0, MouseInputType.RightMouseButtonRelease));	
+		inputTaker.run(
+			new MouseInput(
+				cursorXPositionOnViewAreaGetter.getOutput(),
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.RightMouseButtonRelease
+			)
+		);
 	}
 }

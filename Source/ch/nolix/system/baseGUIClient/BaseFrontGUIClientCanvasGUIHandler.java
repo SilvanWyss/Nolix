@@ -16,7 +16,14 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	
 	//constructor
 	public BaseFrontGUIClientCanvasGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
-		mGUI = new CanvasFrame(new BaseFrontGUIClientInputTaker(parentFrontGuiClientoid));
+		mGUI =
+		new CanvasFrame(
+			new BaseFrontGUIClientInputTaker(
+				parentFrontGuiClientoid::noteInputOnCounterpart,
+				this::getCursorXPositionOnViewArea,
+				this::getCursorYPositionOnViewArea
+			)
+		);
 	}
 	
 	//method
@@ -52,6 +59,16 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 			default:
 				throw new InvalidArgumentException("GUI command", pGUICommand, "is not valid");
 		}
+	}
+	
+	//method
+	private int getCursorXPositionOnViewArea() {
+		return mGUI.getViewAreaCursorXPosition();
+	}
+	
+	//method
+	private int getCursorYPositionOnViewArea() {
+		return mGUI.getViewAreaCursorYPosition();
 	}
 	
 	//method

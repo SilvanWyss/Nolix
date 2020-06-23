@@ -12,11 +12,18 @@ import ch.nolix.element.GUI.GUI;
 final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandler {
 	
 	//attribute
-	private final Frame mGUI;
+	private Frame mGUI;
 	
 	//constructor
 	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
-		mGUI = new Frame(new BaseFrontGUIClientInputTaker(parentFrontGuiClientoid));
+		mGUI =
+		new Frame(
+			new BaseFrontGUIClientInputTaker(
+				parentFrontGuiClientoid::noteInputOnCounterpart,
+				this::getCursorXPositionOnViewArea,
+				this::getCursorYPositionOnViewArea
+			)
+		);
 	}
 	
 	//method
@@ -47,6 +54,16 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 			default:
 				throw new InvalidArgumentException("GUI command", pGUICommand, "is not valid");
 		}
+	}
+	
+	//method
+	private int getCursorXPositionOnViewArea() {
+		return mGUI.getViewAreaCursorXPosition();
+	}
+	
+	//method
+	private int getCursorYPositionOnViewArea() {
+		return mGUI.getViewAreaCursorYPosition();
 	}
 	
 	//method
