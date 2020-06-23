@@ -50,7 +50,7 @@ import ch.nolix.element.widget.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 880
+ * @lines 870
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -614,8 +614,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			inputTaker.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 		}
 		else {
-			setViewAreaCursorXPosition(viewAreaCursorXPosition);
-			setViewAreaCursorYPosition(viewAreaCursorYPosition);
+			setViewAreaCursorPosition(viewAreaCursorXPosition, viewAreaCursorYPosition);
 			getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 			refresh();
 		}

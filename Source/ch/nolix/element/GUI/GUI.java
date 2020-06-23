@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 390
+ * @lines 360
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -44,8 +44,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//constant
 	public static final String DEFAULT_TITLE = "GUI";
 	
-	//constant
+	//constants
 	private static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
+	private static final String VIEW_AREA_CURSOR_POSITION_HEADER = "ViewAreaCursorPosition";
 	
 	//attribute
 	private final MutableProperty<String> title =
@@ -66,21 +67,12 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MutableProperty<Integer> viewAreaCursorXPosition =
+	private final MutableProperty<IntPair> viewAreaCursorPosition =
 	new MutableProperty<>(
-		"ViewAreaCursorXPosition",
-		this::setViewAreaCursorXPosition,
-		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
-	);	
-	
-	//attribute
-	private final MutableProperty<Integer> viewAreaCursorYPosition =
-	new MutableProperty<>(
-		"ViewAreaCursorYPosition",
-		this::setViewAreaCursorYPosition,
-		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		VIEW_AREA_CURSOR_POSITION_HEADER,
+		vas -> setViewAreaCursorPosition(vas.getValue1(), vas.getValue2()),
+		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),
+		vas -> Node.withAttribute(vas.getValue1(), vas.getValue2())
 	);
 	
 	//attributes
@@ -160,7 +152,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
 	 */
 	public final int getViewAreaCursorXPosition() {
-		return viewAreaCursorXPosition.getValue();
+		return viewAreaCursorPosition.getValue().getValue1();
 	}
 	
 	//method
@@ -168,14 +160,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
 	 */
 	public final int getViewAreaCursorYPosition() {
-		return viewAreaCursorYPosition.getValue();
+		return viewAreaCursorPosition.getValue().getValue2();
 	}
 	
 	//method
 	/**
 	 * @return the height of the view area of the current {@link GUI}.
 	 */
-	public int getViewAreaHeight() {
+	public final int getViewAreaHeight() {
 		return viewAreaSize.getValue().getValue2();
 	}
 	
@@ -183,7 +175,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the width of the view area of the current {@link GUI}.
 	 */
-	public int getViewAreaWidth() {
+	public final int getViewAreaWidth() {
 		return viewAreaSize.getValue().getValue1();
 	}
 	
@@ -271,8 +263,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		setTitle(DEFAULT_TITLE);
 		setViewAreaSize(0, 0);
-		setViewAreaCursorXPosition(0);
-		setViewAreaCursorYPosition(0);
+		setViewAreaCursorPosition(0, 0);
 		
 		return asConcrete();
 	}
@@ -362,23 +353,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	}
 	
 	//method
-	/**
-	 * Sets the x-position of the cursor on the view area of the current {@link GUI}.
-	 * 
-	 * @param viewAreaCursorXPosition
-	 */
-	protected void setViewAreaCursorXPosition(final int viewAreaCursorXPosition) {
-		this.viewAreaCursorXPosition.setValue(viewAreaCursorXPosition);
-	}
-	
-	//method
-	/**
-	 * Setst the y-position of the cursor on the view area of the current {@link GUI}.
-	 * 
-	 * @param viewAreaCursorYPosition
-	 */
-	protected void setViewAreaCursorYPosition(final int viewAreaCursorYPosition) {
-		this.viewAreaCursorYPosition.setValue(viewAreaCursorYPosition);
+	protected void setViewAreaCursorPosition(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+		viewAreaCursorPosition.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
 	}
 	
 	//method
