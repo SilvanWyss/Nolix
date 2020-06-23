@@ -18,12 +18,16 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 	public static MouseInput fromSpecification(final BaseNode specification) {
 		return
 		new MouseInput(
+			MouseInputType.fromSpecification(specification.getRefFirstAttribute(INPUT_TYPE_HEADER)),
 			Discrete2DPoint.fromSpecification(
 				specification.getRefFirstAttribute(PascalCaseNameCatalogue.CURSOR_POSITION)
-			),
-			MouseInputType.fromSpecification(specification.getRefFirstAttribute(INPUT_TYPE_HEADER))
+			)
 		);
 	}
+	
+	//attribute
+	private final Property<MouseInputType> inputType =
+	new Property<>(INPUT_TYPE_HEADER, this::setInputType, MouseInputType::fromSpecification);
 	
 	//attribute
 	private final Property<Discrete2DPoint> cursorPosition =
@@ -32,21 +36,17 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 		this::setCursorPosition,
 		Discrete2DPoint::fromSpecification
 	);
-	
-	//attribute
-	private final Property<MouseInputType> inputType =
-	new Property<>(INPUT_TYPE_HEADER, this::setInputType, MouseInputType::fromSpecification);
-	
+		
 	//constructor
-	public MouseInput(final int cursorXPosition, final int cursorYPosition, final MouseInputType inputType) {
-		setCursorPosition(cursorXPosition, cursorYPosition);
+	public MouseInput(final MouseInputType inputType, final int cursorXPosition, final int cursorYPosition) {
 		setInputType(inputType);
+		setCursorPosition(cursorXPosition, cursorYPosition);
 	}
 	
 	//constructor
-	private MouseInput(final Discrete2DPoint cursorPosition, final MouseInputType inputType) {
-		setCursorPosition(cursorPosition);
+	private MouseInput(final MouseInputType inputType, final Discrete2DPoint cursorPosition) {
 		setInputType(inputType);
+		setCursorPosition(cursorPosition);
 	}
 	
 	//method
