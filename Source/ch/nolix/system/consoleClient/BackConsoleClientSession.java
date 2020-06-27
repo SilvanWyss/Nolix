@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.StandardConfiguration;
@@ -181,5 +182,14 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 		updateCounterpart();
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final Class<BackConsoleClient> internalGetRefClientClass() {
+		return BackConsoleClient.class;
 	}
 }

@@ -11,7 +11,7 @@ import ch.nolix.system.client.StandardClientSession;
  * @lines 20
  */
 final class BackNetNeuronSession extends StandardClientSession {
-
+	
 	//method
 	/**
 	 * Initializes this net back neuron session.
