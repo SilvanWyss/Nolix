@@ -14,7 +14,6 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	public DatabaseApplication(final String name, final DatabaseAdapter databaseAdapter) {
 		super(
 			name,
-			BackGUIClient.class,
 			LoginSession.class,
 			new DatabaseApplicationContext(databaseAdapter)
 		);
@@ -28,7 +27,6 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	) {
 		super(
 			name,
-			BackGUIClient.class,
 			LoginSession.class,
 			new DatabaseApplicationContext(databaseAdapter, pGUILook)
 		);

@@ -26,7 +26,7 @@ public final class CursorPositionTutorial {
 	public static void main(String[] args) {
 		
 		//Creates an Application.
-		final var application =	new Application<>("Application", BackGUIClient.class, MainSession.class);
+		final var application =	new Application<BackGUIClient>("Application", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the Application.
 		new FrontGUIClient(application);

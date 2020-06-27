@@ -42,25 +42,22 @@ public class Application<C extends Client<C>> implements Named {
 	 * Creates a new {@link Application} with the given name, clientClass and initialSessionClass.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public Application(final String name, final Class<C> clientClass, final Class<?> initialSessionClass) {
+	public Application(final String name, final Class<?> initialSessionClass) {
 		
 		//Asserts that the given name is not null or blank and sets the name of the current Application.
 		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
-		
-		//Asserts that the given clientClass is not null and sets the client class of the current Application.
-		this.clientClass = Validator.assertThat(clientClass).thatIsNamed("client class").isNotNull().andReturn();
 		
 		//Asserts that the given initialSessionClass is not null.
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
 		this.initialSessionClass = initialSessionClass;
+		clientClass = createInitialSession().internalGetRefClientClass();
 		this.context = null;
 	}
 	
@@ -69,7 +66,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and context.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param context
 	 * @throws ArgumentIsNullException if the given name is null.
@@ -80,13 +76,12 @@ public class Application<C extends Client<C>> implements Named {
 	 */
 	public Application(
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final IElementGetter<?> context
 	) {
 		
 		//Calls other constructor.
-		this(name, clientClass, initialSessionClass, (Object)context);
+		this(name, initialSessionClass, (Object)context);
 	}
 	
 	//constructor
@@ -97,7 +92,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * that will listen to {@link Clients} on the given port.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
 	 * @throws ArgumentIsNullException if the given name is null.
@@ -109,14 +103,13 @@ public class Application<C extends Client<C>> implements Named {
 	 */
 	public Application(
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final IElementGetter<?> context,
 		final int port
 	) {
 		
 		//Calls other constructor.
-		this(name, clientClass, initialSessionClass, (Object)context, port);
+		this(name, initialSessionClass, (Object)context, port);
 	}
 	
 	//constructor
@@ -127,7 +120,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * that will listen to {@link Clients} on the given port.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
 	 * @throws ArgumentIsNullException if the given name is null.
@@ -138,13 +130,12 @@ public class Application<C extends Client<C>> implements Named {
 	 */
 	public Application(
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final int port
 	) {
 		
 		//Calls other constructor.
-		this(name, clientClass, initialSessionClass);
+		this(name, initialSessionClass);
 		
 		//Creates a NetServer for the current Application.
 		new NetServer(port).addMainApplication(this);
@@ -155,7 +146,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and context.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param context
 	 * @throws ArgumentIsNullException if the given name is null.
@@ -166,16 +156,12 @@ public class Application<C extends Client<C>> implements Named {
 	 */
 	public Application(
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final Object context
 	) {
 		
 		//Asserts that the given name is not null or blank and sets the name of the current Application.
 		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
-				
-		//Asserts that the given clientClass is not null and sets the client class of the current Application.
-		this.clientClass = Validator.assertThat(clientClass).thatIsNamed("client class").isNotNull().andReturn();
 		
 		//Asserts that the given initialSessionClass is not null.
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
@@ -184,6 +170,7 @@ public class Application<C extends Client<C>> implements Named {
 		Validator.assertThat(context).thatIsNamed(VariableNameCatalogue.CONTEXT).isNotNull();
 		
 		this.initialSessionClass = initialSessionClass;
+		clientClass = createInitialSession().internalGetRefClientClass();
 		this.context = context;
 	}
 	
@@ -195,7 +182,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * that will listen to {@link Clients} on the given port.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
 	 * @throws ArgumentIsNullException if the given name is null.
@@ -207,14 +193,13 @@ public class Application<C extends Client<C>> implements Named {
 	 */
 	public Application(
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final Object context,
 		final int port
 	) {
 		
 		//Calls other constructor.
-		this(name, clientClass, initialSessionClass, context);
+		this(name, initialSessionClass, context);
 		
 		//Creates a NetServer for the current Application.
 		new NetServer(port).addMainApplication(this);

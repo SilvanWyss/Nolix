@@ -123,7 +123,6 @@ public final class NetServer extends Server {
 	 * The {@link NetServer} will have a main application with the given name, clientClass and initialSessionClass.
 	 * 
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
@@ -132,12 +131,11 @@ public final class NetServer extends Server {
 	 */
 	public <C extends Client<C>> NetServer(
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass
 	) {
 		
 		//Calls other constructor.
-		this(new Application<C>(name, clientClass, initialSessionClass));
+		this(new Application<C>(name, initialSessionClass));
 	}
 	
 	//method

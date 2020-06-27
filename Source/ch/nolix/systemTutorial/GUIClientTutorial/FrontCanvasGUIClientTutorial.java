@@ -12,7 +12,7 @@ public final class FrontCanvasGUIClientTutorial {
 	public static void main(String[] args) {
 				
 		//Creates an Application.
-		final var application =	new Application<>("Application", BackGUIClient.class, MainSession.class);
+		final var application =	new Application<BackGUIClient>("Application", MainSession.class);
 		
 		//Creates a FrontBrowserGUIClient that will connect to the application.
 		new FrontCanvasGUIClient(application);
