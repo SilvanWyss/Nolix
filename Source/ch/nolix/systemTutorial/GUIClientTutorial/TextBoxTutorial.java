@@ -6,31 +6,27 @@ import ch.nolix.element.widget.TextBox;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 
 public final class TextBoxTutorial {
 	
 	public static void main(String[] args) {
 		
-		//Defines port.
-		final var port = 50000;
-		
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer(port, new Application<>("TextBox Tutorial", BackGUIClient.class, MainSession.class));
+		new NetServer("TextBox Tutorial", BackGUIClient.class, MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient(port);
+		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
-		ShellProvider.startFirefox(port);
+		ShellProvider.startFirefoxToLoopBackAddress();
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
 		protected void initializeStage2() {
-						
+			
 			//Creates a TextBox.
 			final var textBox = new TextBox();
 			
@@ -41,8 +37,7 @@ public final class TextBoxTutorial {
 				bl ->
 				bl
 				.setBorderThicknesses(5)
-				.setBorderColors(Color.REBECCA_PURPLE)
-				.setBackgroundColor(Color.WHITE_SMOKE)
+				.setBackgroundColor(Color.LAVENDER)
 				.setPaddings(5)
 			);
 			
