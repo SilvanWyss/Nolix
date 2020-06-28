@@ -6,27 +6,22 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
-import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 
 public class LabelTutorial {
 	
 	public static void main(String[] args) {
-		
-		//Defines port.
-		final var port = 50000;
-		
+				
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer(port, new Application<>("Label Tutorial", BackGUIClient.class, MainSession.class));
+		new NetServer("LabelTutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient(port);
+		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
-		ShellProvider.startFirefox(port);
+		ShellProvider.startFirefoxToLoopBackAddress();
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {
@@ -37,7 +32,7 @@ public class LabelTutorial {
 			//Creates clockCaptionLabel.
 			final var clockCaptionLabel = new Label("Time:");
 			
-			//Configures the look of clockCaptionLabel.
+			//Configures the look of the clockCaptionLabel.
 			clockCaptionLabel.applyOnBaseLook(bl -> bl.setTextSize(50));
 			
 			//Creates clockLabel.
@@ -45,7 +40,7 @@ public class LabelTutorial {
 			
 			//Configures the look of the clockLabel.
 			clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
-		
+			
 			//Adds the clockCaptionLabel and clockLabel to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(new HorizontalStack(clockCaptionLabel, clockLabel));
 			
