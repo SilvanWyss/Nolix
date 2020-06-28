@@ -20,7 +20,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 350
+ * @lines 370
  */
 public final class FileSystemAccessor {
 	
@@ -117,6 +117,30 @@ public final class FileSystemAccessor {
 		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
+	}
+	
+	//static method
+	/**
+	 * Creates a new file with the given path. The file will have the given content.
+	 * 
+	 * @param path
+	 * @param writeMode
+	 * @param content
+	 * @return a new {@link FileAccessor} to the created file.
+	 * @throws ArgumentIsNullException if the given path is null.
+	 * @throws InvalidArgumentException if the given path is blank.
+	 * @throws InvalidArgumentException
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * and there exists already a file system item with the given path.
+	 * @throws ArgumentIsNullException if the given content is null.
+	 */
+	public static FileAccessor createFile(final String path, final WriteMode writeMode, final byte[] content) {
+		
+		final var fileAccessor = createFile(path, writeMode);
+		
+		fileAccessor.overwriteFile(content);
+		
+		return fileAccessor;
 	}
 	
 	//static method
