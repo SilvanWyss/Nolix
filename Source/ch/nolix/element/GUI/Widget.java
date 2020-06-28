@@ -6,7 +6,7 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -75,12 +75,12 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	private WidgetParent parent;
 	
 	//optional attributes
-	private IFunction leftMouseButtonClickCommand;
-	private IFunction leftMouseButtonPressCommand;
-	private IFunction leftMouseButtonReleaseCommand;
-	private IFunction rightMouseButtonClickCommand;
-	private IFunction rightMouseButtonPressCommand;
-	private IFunction rightMouseButtonReleaseCommand;
+	private IAction leftMouseButtonClickCommand;
+	private IAction leftMouseButtonPressCommand;
+	private IAction leftMouseButtonReleaseCommand;
+	private IAction rightMouseButtonClickCommand;
+	private IAction rightMouseButtonPressCommand;
+	private IAction rightMouseButtonReleaseCommand;
 	
 	//constructor
 	/**
@@ -1209,7 +1209,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonClickCommand is null.
 	 */
-	public final W setLeftMouseButtonClickCommand(final IFunction leftMouseButtonClickCommand) {
+	public final W setLeftMouseButtonClickCommand(final IAction leftMouseButtonClickCommand) {
 		
 		//Asserts that the given leftMouseButtonClickCommand is not null.
 		Validator.assertThat(leftMouseButtonClickCommand).thatIsNamed("left mouse button click command").isNotNull();
@@ -1227,7 +1227,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonPressCommand is null.
 	 */
-	public final W setLeftMouseButtonPressCommand(final IFunction leftMouseButtonPressCommand) {
+	public final W setLeftMouseButtonPressCommand(final IAction leftMouseButtonPressCommand) {
 		
 		//Asserts that the given leftMouseButtonPressCommand is not null.
 		Validator.assertThat(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
@@ -1245,7 +1245,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseCommand is null.
 	 */
-	public final W setLeftMouseButtonReleaseCommand(final IFunction leftMouseButtonReleaseCommand) {
+	public final W setLeftMouseButtonReleaseCommand(final IAction leftMouseButtonReleaseCommand) {
 		
 		//Asserts that the given leftMouseButtonReleaseCommandd is not null.
 		Validator.assertThat(leftMouseButtonReleaseCommand).thatIsNamed("left mouse button release command").isNotNull();
@@ -1287,7 +1287,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given rightMouseButtonClickCommand is null.
 	 */
-	public final W setRightMouseButtonClickCommand(final IFunction rightMouseButtonClickCommand) {
+	public final W setRightMouseButtonClickCommand(final IAction rightMouseButtonClickCommand) {
 		
 		//Asserts that the given rightMouseButtonClickCommand is not null.
 		Validator.assertThat(rightMouseButtonClickCommand).thatIsNamed("right mouse button click command").isNotNull();
@@ -1305,7 +1305,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given rightMouseButtonPressCommand is null.
 	 */
-	public final W setRightMouseButtonPressCommand(final IFunction rightMouseButtonPressCommand) {
+	public final W setRightMouseButtonPressCommand(final IAction rightMouseButtonPressCommand) {
 		
 		//Asserts that the given rightMouseButtonPressCommand is not null.
 		Validator.assertThat(rightMouseButtonPressCommand).thatIsNamed("right mouse button press command").isNotNull();
@@ -1323,7 +1323,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseCommand is null.
 	 */
-	public final W setRightMouseButtonReleaseCommand(final IFunction rightMouseButtonReleaseCommand) {
+	public final W setRightMouseButtonReleaseCommand(final IAction rightMouseButtonReleaseCommand) {
 		
 		//Asserts that the given rightMouseButtonReleaseCommand is not null.
 		Validator.assertThat(rightMouseButtonReleaseCommand).thatIsNamed("right mouse button release command").isNotNull();

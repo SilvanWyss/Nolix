@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.common.baseTest.TestAccessor;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
@@ -113,7 +113,7 @@ public abstract class Test extends ch.nolix.common.baseTest.BaseTest {
 	 * @param closure
 	 * @return a new closure mediator that belongs to this test and is for the given closure.
 	 */
-	protected final ClosureMediator expect(final IFunction closure) {
+	protected final ClosureMediator expect(final IAction closure) {
 		return new ClosureMediator(this, closure);
 	}
 	

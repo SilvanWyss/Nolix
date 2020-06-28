@@ -5,7 +5,7 @@ import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.futureAPI.IFuture;
 import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.common.jobPool.JobPool;
@@ -72,7 +72,7 @@ public final class Sequencer {
 	 * @return a {@link IFuture} for the given job.
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
-	public static IFuture enqueue(final IFunction job) {
+	public static IFuture enqueue(final IAction job) {
 		return jobPool.enqueue(job);
 	}
 	
@@ -113,7 +113,7 @@ public final class Sequencer {
 	 * @param job
 	 * @throws ArgumentIsNullException if the given result job is null.
 	 */
-	public static void runForeverCatchingAnyError(final IFunction job) {
+	public static void runForeverCatchingAnyError(final IAction job) {
 		
 		//Asserts that the given job is not null.
 		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
@@ -137,7 +137,7 @@ public final class Sequencer {
 	 * @return a new {@link Future}.
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
-	public static Future runInBackground(final IFunction job) {
+	public static Future runInBackground(final IAction job) {
 		return new Future(new JobRunner(job, 1));
 	}
 	

@@ -2,7 +2,7 @@
 package ch.nolix.common.jobPool;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
@@ -15,13 +15,13 @@ final class JobWrapper implements Runnable {
 	//attributes
 	private boolean finished = false;
 	private boolean running = false;
-	private final IFunction job;
+	private final IAction job;
 	
 	//optional attribute
 	private Throwable error;
 	
 	//constructor
-	public JobWrapper(final IFunction job) {
+	public JobWrapper(final IAction job) {
 		this.job = Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
 	}
 	

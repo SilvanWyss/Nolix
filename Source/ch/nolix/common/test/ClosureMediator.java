@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 
 //class
@@ -16,7 +16,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 public final class ClosureMediator extends Mediator {
 	
 	//attribute
-	final IFunction closure;
+	final IAction closure;
 	
 	//constructor
 	/**
@@ -27,7 +27,7 @@ public final class ClosureMediator extends Mediator {
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws ArgumentIsNullException if the given closure is null.
 	 */
-	ClosureMediator(final Test test, final IFunction closure) {
+	ClosureMediator(final Test test, final IAction closure) {
 		
 		//Calls constructor of the base class.
 		super(test);

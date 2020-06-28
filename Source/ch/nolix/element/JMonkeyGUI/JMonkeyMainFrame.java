@@ -13,7 +13,7 @@ import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
 //own imports
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.MainFrame;
 import ch.nolix.element._3D_GUI.Shape;
@@ -136,7 +136,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * 
 	 * @param method
 	 */
-	private void enqueue(final IFunction method) {
+	private void enqueue(final IAction method) {
 		
 		Validator.assertThat(method).thatIsNamed("method").isNotNull();
 		

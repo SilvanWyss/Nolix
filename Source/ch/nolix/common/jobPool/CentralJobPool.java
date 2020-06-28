@@ -2,7 +2,7 @@
 package ch.nolix.common.jobPool;
 
 //own imports
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.futureAPI.IFuture;
 
 //class
@@ -32,7 +32,7 @@ public final class CentralJobPool {
 	 * @return a {@link IFuture} for the given job.
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
-	public static IFuture enqueue(final IFunction job) {
+	public static IFuture enqueue(final IAction job) {
 		return jobPool.enqueue(job);
 	}
 	

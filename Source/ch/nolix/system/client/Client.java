@@ -8,7 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.endPoint5.LocalEndPoint;
 import ch.nolix.common.endPoint5.NetEndPoint;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -51,7 +51,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	//optional attributes
 	private Session<C> currentSession;
 	private String infoString;
-	private IFunction temporaryPreCloseAction;
+	private IAction temporaryPreCloseAction;
 	
 	//multi-attribute
 	private final LinkedList<Session<C>> sessions = new LinkedList<>();
@@ -641,7 +641,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param preCloseAction
 	 * @throws ArgumentIsNullException if the given preCloseAction is null.
 	 */
-	protected final void internal_setPreCloseAction(final IFunction preCloseAction) {
+	protected final void internal_setPreCloseAction(final IAction preCloseAction) {
 		
 		//Handles the case that the current Client is not connected.
 		if (!internal_isConnected()) {
@@ -726,7 +726,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param preCloseAction
 	 * @throws ArgumentIsNullException if the given preCloseAction is null.
 	 */
-	private void setPreCloseActionWhenConnected(final IFunction preCloseAction) {
+	private void setPreCloseActionWhenConnected(final IAction preCloseAction) {
 		endPoint.setPreCloseAction(preCloseAction);	
 	}
 	
@@ -737,7 +737,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param preCloseAction
 	 * @throws ArgumentIsNullException if the given preCloseAction is null.
 	 */
-	private void setPreCloseActionWhenNotConnected(IFunction preCloseAction) {
+	private void setPreCloseActionWhenNotConnected(IAction preCloseAction) {
 		
 		//Asserts that the pre-close action is not null.
 		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();

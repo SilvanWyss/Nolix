@@ -2,7 +2,7 @@
 package ch.nolix.common.jobPool;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.futureAPI.IFuture;
 
 //class
@@ -31,7 +31,7 @@ public final class JobPool {
 	 * @return a {@link IFuture} for the given job.
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
-	public IFuture enqueue(final IFunction job) {
+	public IFuture enqueue(final IAction job) {
 		
 		final var jobWrapper = new JobWrapper(job);
 		jobWrappers.addAtEnd(jobWrapper);

@@ -3,7 +3,7 @@ package ch.nolix.common.closableElement;
 
 //own imports
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.functionAPI.IFunction;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Closable;
@@ -21,7 +21,7 @@ public abstract class ClosableElement implements Closable {
 	private CloseController parentCloseController = new CloseController(this);
 	
 	//optional attribute
-	private IFunction preCloseAction;
+	private IAction preCloseAction;
 	
 	//method
 	/**
@@ -65,7 +65,7 @@ public abstract class ClosableElement implements Closable {
 	 * @param preCloseAction
 	 * @throws ArgumentIsNullException if the given preCloseAction is null.
 	 */
-	public final void setPreCloseAction(final IFunction preCloseAction) {
+	public final void setPreCloseAction(final IAction preCloseAction) {
 		
 		//Asserts that the given pre-close action is not null.
 		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();
