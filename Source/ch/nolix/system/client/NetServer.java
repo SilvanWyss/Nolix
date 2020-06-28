@@ -98,23 +98,20 @@ public final class NetServer extends Server {
 	 * 
 	 * @param port
 	 * @param name
-	 * @param clientClass
 	 * @param initialSessionClass
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public <C extends Client<C>> NetServer(
 		final int port,
 		final String name,
-		final Class<C> clientClass,
 		final Class<?> initialSessionClass
 	) {
 		
 		//Calls other constructor.
-		this(port ,new Application<C>(name, clientClass, initialSessionClass));
+		this(port ,new Application<C>(name, initialSessionClass));
 	}
 	
 	//constructor
