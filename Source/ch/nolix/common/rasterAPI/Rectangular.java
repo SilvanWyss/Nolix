@@ -7,7 +7,7 @@ package ch.nolix.common.rasterAPI;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 30
+ * @lines 40
  */
 public interface Rectangular {
 	
@@ -24,6 +24,14 @@ public interface Rectangular {
 	 * @return the height of the current {@link Rectangular}.
 	 */
 	public abstract int getHeight();
+	
+	//method
+	/**
+	 * @return the perimeter of the current {@link Rectangular}.
+	 */
+	public default int getPerimeter() {
+		return (2 * (getWidth() + getHeight()));
+	}
 	
 	//method declaration
 	/**
