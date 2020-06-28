@@ -40,7 +40,7 @@ public final class TextBoxTutorial {
 				.setPaddings(5)
 			);
 			
-			//Adds the TextBox to the GUI of the current BackGUIClientSession.
+			//Adds the TextBox to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(textBox);
 		}
 	}
