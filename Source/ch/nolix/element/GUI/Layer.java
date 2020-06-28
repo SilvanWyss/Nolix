@@ -6,6 +6,7 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -39,7 +40,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 920
+ * @lines 970
  */
 public final class Layer extends Element<Layer>
 implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IResizableInputTaker {
@@ -115,8 +116,9 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	//optional attribute
 	private Widget<?, ?> rootWidget;
 	
-	//optional attribute
+	//optional attributes
 	private IElementTaker<Layer> leftMouseButtonPressAction;
+	private IElementTaker<Layer> mouseMoveAction;
 	
 	//constructor
 	/**
@@ -383,6 +385,14 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	
 	//method
 	/**
+	 * @return true if the current {@link Layer} has a mouse move action.
+	 */
+	public boolean hasMouseMoveAction() {
+		return (mouseMoveAction != null);
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -488,6 +498,10 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
+		
+		if (hasMouseMoveAction()) {
+			mouseMoveAction.run(this);
+		}
 		
 		if (rootWidget != null) {
 			rootWidget.recalculate(); //TODO
@@ -876,6 +890,40 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press command").isNotNull();
 		
 		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the mouse move action of the current {@link Layer}.
+	 * 
+	 * @param mouseMoveAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
+	 */
+	public Layer setMouseMoveAction(final IAction mouseMoveAction) {
+		
+		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		
+		this.mouseMoveAction = l -> mouseMoveAction.run();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the mouse move action of the current {@link Layer}.
+	 * 
+	 * @param mouseMoveAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
+	 */
+	public Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
+		
+		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		
+		this.mouseMoveAction = mouseMoveAction;
 		
 		return this;
 	}
