@@ -15,7 +15,7 @@ public class LabelTutorial {
 	public static void main(String[] args) {
 				
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer("LabelTutorial", MainSession.class);
+		new NetServer("Label Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
