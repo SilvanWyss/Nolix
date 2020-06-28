@@ -142,7 +142,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	
 	//method
 	private byte[] readFileToBytes() {
-		return getRefGUI().onFrontEnd().readFile();
+		return getRefGUI().fromFrontEnd().readFileToBytes().getRefElement();
 	}
 	
 	//method

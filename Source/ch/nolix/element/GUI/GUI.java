@@ -15,6 +15,8 @@ import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
+import ch.nolix.element.baseGUI_API.IFrontEndReader;
+import ch.nolix.element.baseGUI_API.IFrontEndWriter;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.graphic.Image;
@@ -36,7 +38,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 360
+ * @lines 380
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -78,7 +80,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//attributes
 	private final CachingContainer<Image> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
-	private IFrontEnd frontEnd = new LocalFrontEnd();
+	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
+	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
 	private boolean closed = false;
 	
 	//optional attribute
@@ -122,6 +125,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		if (isVisible()) {
 			visualizer.noteClose();
 		}
+	}
+	
+	//method
+	/**
+	 * @return the {@link IFrontEndReader} of the current {@link GUI}.
+	 */
+	public final IFrontEndReader fromFrontEnd() {
+		return frontEndReader;
 	}
 	
 	//method declaration
@@ -228,10 +239,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the {@link IFrontEnd} of the current {@link GUI}.
+	 * @return the {@link IFrontEndWriter} of the current {@link GUI}.
 	 */
-	public final IFrontEnd onFrontEnd() {
-		return frontEnd;
+	public final IFrontEndWriter onFrontEnd() {
+		return frontEndWriter;
 	}
 	
 	//method declaration
@@ -270,16 +281,23 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Sets the frontend of the current {@link GUI}.
+	 * Sets the front-end reader and the front-end writer of the current {@link GUI}.
 	 * 
-	 * @param frontEnd
-	 * @throws ArgumentIsNullException if the given frontEnd is null.
+	 * @param frontEndReader
+	 * @param frontEndWriter
+	 * @throws ArgumentIsNullException if the given frontEndReader is null.
+	 * @throws ArgumentIsNullException if the given frontEndWriter is null.
 	 */
-	public final void setFrontEnd(final IFrontEnd frontEnd) {
+	public final void setFrontEndReaderAndFrontEndWriter(
+		final IFrontEndReader frontEndReader,
+		final IFrontEndWriter frontEndWriter
+	) {
 		
-		Validator.assertThat(frontEnd).thatIsNamed("front end").isNotNull();
+		Validator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
+		Validator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
 		
-		this.frontEnd = frontEnd;
+		this.frontEndReader = frontEndReader;
+		this.frontEndWriter = frontEndWriter;
 	}
 	
 	//method

@@ -130,7 +130,10 @@ public final class EntitySession extends HeaderedSession {
 							3,
 							new Uploader().setLeftMouseButtonPressAction(
 								() -> {
-									final var image = Image.fromBytes(getRefGUI().onFrontEnd().readFile());
+									
+									final var image =
+									Image.fromBytes(getRefGUI().fromFrontEnd().readFileToBytes().getRefElement());
+									
 									((OptionalValueProperty<Image>)optionalProperty).setValue(image);
 								}
 							)
