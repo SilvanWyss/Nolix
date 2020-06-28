@@ -1,11 +1,14 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
+import ch.nolix.common.localComputer.ShellProvider;
+import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.widget.Label;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Application;
+import ch.nolix.system.client.NetServer;
 
 /**
  * The {@link CursorPositionTutorial} is a tutorial for {@link FrontGUIClient}s.
@@ -13,7 +16,7 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2020-02
- * @lines 60
+ * @lines 70
  */
 public final class CursorPositionTutorial {
 	
@@ -25,11 +28,14 @@ public final class CursorPositionTutorial {
 	 */
 	public static void main(String[] args) {
 		
-		//Creates an Application.
-		final var application =	new Application<BackGUIClient>("Application", MainSession.class);
+		//Creates a NetServer with an Application for BackGUIClients.
+		new NetServer("Cursor position Tutorial", MainSession.class);
 		
-		//Creates a FrontGUIClient that will connect to the Application.
-		new FrontGUIClient(application);
+		//Creates a FrontGUIClient that will connect to the NetServer.
+		new FrontGUIClient();
+		
+		//Starts a web browser that will connect to the NetServer.
+		ShellProvider.startFirefoxToLoopBackAddress();
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {
@@ -38,23 +44,25 @@ public final class CursorPositionTutorial {
 		
 		@Override
 		protected void initializeStage2() {
-			
-			//TODO: Add mouse move command to GUI.
-			updateCursorPosition();
-			cursorPositionLabel.setLeftMouseButtonPressAction(this::updateCursorPosition);
-			
+									
 			//Configures the look of the cursorPositionLabel.
 			cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));
 			
-			//Adds the cursorPositionLabel to the GUI of the current BackGUIClientSession at the left top.
-			getRefGUI().addLayerOnTop(ExtendedContentPosition.LeftTop, cursorPositionLabel);	
+			//Creates Layer
+			final var layer = new Layer(ExtendedContentPosition.LeftTop, cursorPositionLabel);
+			
+			//Sets mouse move action to Layer.
+			layer.setMouseMoveAction(this::updateCursorPosition);
+			
+			//Adds the Layer to the GUI of the current MainSession
+			getRefGUI().addLayerOnTop(layer);	
 		}
 		
 		private void updateCursorPosition() {
 			cursorPositionLabel.setText(
-				"Cursor position: "
+				"Cursor position: x="
 				+ getRefGUI().getViewAreaCursorXPosition()
-				+ ", "
+				+ " y="
 				+ getRefGUI().getViewAreaCursorYPosition()
 			);
 		}
