@@ -38,4 +38,12 @@ public interface Rectangular {
 	 * @return the width of the current {@link Rectangular}.
 	 */
 	public abstract int getWidth();
+	
+	//method
+	/**
+	 * @return true if the current {@link Rectangular} is quadratic.
+	 */
+	public default boolean isQuadratic() {
+		return (getWidth() == getHeight());
+	}
 }
