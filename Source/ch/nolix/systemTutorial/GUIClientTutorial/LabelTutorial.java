@@ -72,4 +72,6 @@ public class LabelTutorial {
 			);
 		}
 	}
+	
+	private LabelTutorial() {}
 }
