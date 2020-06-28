@@ -50,10 +50,10 @@ public final class CreateEntitySession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Create")
 				.setRole(ButtonRole.CreateButton)
-				.setLeftMouseButtonPressCommand(() -> createEntity()),
+				.setLeftMouseButtonPressAction(() -> createEntity()),
 				new Button("Cancel")
 				.setRole(ButtonRole.CancelButton)
-				.setLeftMouseButtonPressCommand(() -> cancel())
+				.setLeftMouseButtonPressAction(() -> cancel())
 			)
 		);
 	}

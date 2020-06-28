@@ -75,7 +75,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	//attributes
 	private VerticalStack tabVerticalStack = new VerticalStack();
 	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
-	private final Label headerLabel = new Label().setLeftMouseButtonPressCommand(this::noteExpandButtonPress);
+	private final Label headerLabel = new Label().setLeftMouseButtonPressAction(this::noteExpandButtonPress);
 	
 	//optional attributes
 	private Accordion parentAccordion;

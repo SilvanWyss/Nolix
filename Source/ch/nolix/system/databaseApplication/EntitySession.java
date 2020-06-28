@@ -49,11 +49,11 @@ public final class EntitySession extends HeaderedSession {
 			new Button()
 			.setText("<--")
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonReleaseCommand(() -> pop()),
+			.setLeftMouseButtonReleaseAction(() -> pop()),
 			new Button()
 			.setText(entitySetName)
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonPressCommand(() -> openEntitySetSession())
+			.setLeftMouseButtonPressAction(() -> openEntitySetSession())
 		);
 	}
 	
@@ -128,7 +128,7 @@ public final class EntitySession extends HeaderedSession {
 						dataGrid.setWidget(
 							rowIndex,
 							3,
-							new Uploader().setLeftMouseButtonPressCommand(
+							new Uploader().setLeftMouseButtonPressAction(
 								() -> {
 									final var image = Image.fromBytes(getRefGUI().onFrontEnd().readFile());
 									((OptionalValueProperty<Image>)optionalProperty).setValue(image);
@@ -227,10 +227,10 @@ public final class EntitySession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Save")
 				.setRole(ButtonRole.SaveButton)
-				.setLeftMouseButtonPressCommand(() -> save()),
+				.setLeftMouseButtonPressAction(() -> save()),
 				new Button("Reset changes")
 				.setRole(ButtonRole.CancelButton)
-				.setLeftMouseButtonPressCommand(() -> cancel())
+				.setLeftMouseButtonPressAction(() -> cancel())
 			)
 		)
 		.setRole(ContainerRole.MainContainer);
@@ -250,7 +250,7 @@ public final class EntitySession extends HeaderedSession {
 				final var entityId = e.getId();
 				multiReferenceHorizontalStack.addWidget(
 					new Button(e.getIdAsString())
-					.setLeftMouseButtonPressCommand(() -> push(new EntitySession(entitySetName, entityId)))
+					.setLeftMouseButtonPressAction(() -> push(new EntitySession(entitySetName, entityId)))
 				);
 			}
 			final var tab = new TabContainerTab(mr.getHeader(), multiReferenceHorizontalStack);

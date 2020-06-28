@@ -41,9 +41,9 @@ public final class ReferencePropertySession extends HeaderedSession {
 			createReferencesSelectionMenu(),
 			new HorizontalStack(
 				new Button("Select")
-				.setLeftMouseButtonPressCommand(() -> select()),
+				.setLeftMouseButtonPressAction(() -> select()),
 				new Button("Cancel")
-				.setLeftMouseButtonPressCommand(() -> cancel())
+				.setLeftMouseButtonPressAction(() -> cancel())
 			)
 		);
 	}

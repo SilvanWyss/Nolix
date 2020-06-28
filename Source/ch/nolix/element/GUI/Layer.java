@@ -116,7 +116,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	private Widget<?, ?> rootWidget;
 	
 	//optional attribute
-	private IElementTaker<Layer> leftMouseButtonPressCommand;
+	private IElementTaker<Layer> leftMouseButtonPressAction;
 	
 	//constructor
 	/**
@@ -377,8 +377,8 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	/**
 	 * @return true if the current {@link Layer} has a left mouse button press command.
 	 */
-	public boolean hasLeftMouseButtonPressCommand() {
-		return (leftMouseButtonPressCommand != null);
+	public boolean hasLeftMouseButtonPressAction() {
+		return (leftMouseButtonPressAction != null);
 	}
 	
 	//method
@@ -459,8 +459,8 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	@Override
 	public void noteLeftMouseButtonPress() {
 		
-		if (hasLeftMouseButtonPressCommand() && (rootWidget == null || !rootWidget.isUnderCursor())) {
-			leftMouseButtonPressCommand.run(this);
+		if (hasLeftMouseButtonPressAction() && (rootWidget == null || !rootWidget.isUnderCursor())) {
+			leftMouseButtonPressAction.run(this);
 		}
 		
 		if (rootWidget != null) {
@@ -867,15 +867,15 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 	/**
 	 * Sets the left mouse button press command of the current {@link Layer}.
 	 * 
-	 * @param leftMouseButtonPressCommand
+	 * @param leftMouseButtonPressAction
 	 * @return the current {@link Layer}.
-	 * @throws ArgumentIsNullException if the given leftMouseButtonPressCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
-	public Layer setLeftMouseButtonPressCommand(final IElementTaker<Layer> leftMouseButtonPressCommand) {
+	public Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
 		
-		Validator.assertThat(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
+		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press command").isNotNull();
 		
-		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
+		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 		
 		return this;
 	}

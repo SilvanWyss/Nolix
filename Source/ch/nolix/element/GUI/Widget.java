@@ -75,12 +75,12 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	private WidgetParent parent;
 	
 	//optional attributes
-	private IAction leftMouseButtonClickCommand;
-	private IAction leftMouseButtonPressCommand;
-	private IAction leftMouseButtonReleaseCommand;
-	private IAction rightMouseButtonClickCommand;
-	private IAction rightMouseButtonPressCommand;
-	private IAction rightMouseButtonReleaseCommand;
+	private IAction leftMouseButtonClickAction;
+	private IAction leftMouseButtonPressAction;
+	private IAction leftMouseButtonReleaseAction;
+	private IAction rightMouseButtonClickAction;
+	private IAction rightMouseButtonPressAction;
+	private IAction rightMouseButtonReleaseAction;
 	
 	//constructor
 	/**
@@ -603,48 +603,48 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * @return true if the current {@link Widget} has a left mouse button click command.
 	 */
-	public final boolean hasLeftMouseButtonClickCommand() {
-		return (leftMouseButtonClickCommand != null);
+	public final boolean hasLeftMouseButtonClickAction() {
+		return (leftMouseButtonClickAction != null);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link Widget} has a left mouse button press command.
 	 */
-	public final boolean hasLeftMouseButtonPressCommand() {
-		return (leftMouseButtonPressCommand != null);
+	public final boolean hasLeftMouseButtonPressAction() {
+		return (leftMouseButtonPressAction != null);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link Widget} has a left mouse button release command.
 	 */
-	public final boolean hasLeftMouseButtonReleaseCommand() {
-		return (leftMouseButtonReleaseCommand != null);
+	public final boolean hasLeftMouseButtonReleaseAction() {
+		return (leftMouseButtonReleaseAction != null);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link Widget} has a right mouse button click command.
 	 */
-	public final boolean hasRightMouseButtonClickCommand() {
-		return (rightMouseButtonClickCommand != null);
+	public final boolean hasRightMouseButtonClickAction() {
+		return (rightMouseButtonClickAction != null);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link Widget} has a right mouse button press command.
 	 */
-	public final boolean hasRightMouseButtonPressCommand() {
-		return (rightMouseButtonPressCommand != null);
+	public final boolean hasRightMouseButtonPressAction() {
+		return (rightMouseButtonPressAction != null);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link Widget} has a right mouse button release command.
 	 */
-	public final boolean hasRightMouseButtonReleaseCommand() {
-		return (rightMouseButtonReleaseCommand != null);
+	public final boolean hasRightMouseButtonReleaseAction() {
+		return (rightMouseButtonReleaseAction != null);
 	}
 	
 	//method
@@ -976,9 +976,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W removeLeftMouseButtonClickCommand() {
+	public final W removeLeftMouseButtonClickAction() {
 		
-		leftMouseButtonClickCommand = null;
+		leftMouseButtonClickAction = null;
 		
 		return asConcrete();
 	}
@@ -989,9 +989,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W removeLeftMouseButtonPressCommand() {
+	public final W removeLeftMouseButtonPressAction() {
 		
-		leftMouseButtonPressCommand = null;
+		leftMouseButtonPressAction = null;
 		
 		return asConcrete();
 	}
@@ -1002,9 +1002,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W removeLeftMouseButtonReleaseCommand() {
+	public final W removeLeftMouseButtonReleaseAction() {
 		
-		leftMouseButtonReleaseCommand = null;
+		leftMouseButtonReleaseAction = null;
 		
 		return asConcrete();
 	}
@@ -1015,9 +1015,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W removeRightMouseButtonClickCommand() {
+	public final W removeRightMouseButtonClickAction() {
 		
-		rightMouseButtonClickCommand = null;
+		rightMouseButtonClickAction = null;
 		
 		return asConcrete();
 	}
@@ -1028,9 +1028,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W removeRightMouseButtonPressCommand() {
+	public final W removeRightMouseButtonPressAction() {
 		
-		rightMouseButtonPressCommand = null;
+		rightMouseButtonPressAction = null;
 		
 		return asConcrete();
 	}
@@ -1041,9 +1041,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W removeRightMouseButtonReleaseCommand() {
+	public final W removeRightMouseButtonReleaseAction() {
 		
-		rightMouseButtonReleaseCommand = null;
+		rightMouseButtonReleaseAction = null;
 		
 		return asConcrete();
 	}
@@ -1057,12 +1057,12 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 				
 		setNormal();
 		
-		removeLeftMouseButtonClickCommand();
-		removeLeftMouseButtonPressCommand();
-		removeLeftMouseButtonReleaseCommand();
-		removeRightMouseButtonClickCommand();
-		removeRightMouseButtonPressCommand();
-		removeRightMouseButtonReleaseCommand();
+		removeLeftMouseButtonClickAction();
+		removeLeftMouseButtonPressAction();
+		removeLeftMouseButtonReleaseAction();
+		removeRightMouseButtonClickAction();
+		removeRightMouseButtonPressAction();
+		removeRightMouseButtonReleaseAction();
 		
 		/*
 		 * Calls method of the base class.
@@ -1205,16 +1205,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Sets the left mouse button click command of the current {@link Widget}.
 	 * 
-	 * @param leftMouseButtonClickCommand
+	 * @param leftMouseButtonClickAction
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given leftMouseButtonClickCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonClickAction is null.
 	 */
-	public final W setLeftMouseButtonClickCommand(final IAction leftMouseButtonClickCommand) {
+	public final W setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {
 		
-		//Asserts that the given leftMouseButtonClickCommand is not null.
-		Validator.assertThat(leftMouseButtonClickCommand).thatIsNamed("left mouse button click command").isNotNull();
+		//Asserts that the given leftMouseButtonClickAction is not null.
+		Validator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click command").isNotNull();
 		
-		this.leftMouseButtonClickCommand = leftMouseButtonClickCommand;
+		this.leftMouseButtonClickAction = leftMouseButtonClickAction;
 		
 		return asConcrete();
 	}
@@ -1223,16 +1223,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Sets the left mouse button press command of the current {@link Widget}.
 	 * 
-	 * @param leftMouseButtonPressCommand
+	 * @param leftMouseButtonPressAction
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given leftMouseButtonPressCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
-	public final W setLeftMouseButtonPressCommand(final IAction leftMouseButtonPressCommand) {
+	public final W setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
 		
-		//Asserts that the given leftMouseButtonPressCommand is not null.
-		Validator.assertThat(leftMouseButtonPressCommand).thatIsNamed("left mouse button press command").isNotNull();
+		//Asserts that the given leftMouseButtonPressAction is not null.
+		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press command").isNotNull();
 		
-		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
+		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 		
 		return asConcrete();
 	}	
@@ -1241,16 +1241,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Sets the left mouse button release command of the current {@link Widget}.
 	 * 
-	 * @param leftMouseButtonReleaseCommand
+	 * @param leftMouseButtonReleaseAction
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseCommand is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseAction is null.
 	 */
-	public final W setLeftMouseButtonReleaseCommand(final IAction leftMouseButtonReleaseCommand) {
+	public final W setLeftMouseButtonReleaseAction(final IAction leftMouseButtonReleaseAction) {
 		
-		//Asserts that the given leftMouseButtonReleaseCommandd is not null.
-		Validator.assertThat(leftMouseButtonReleaseCommand).thatIsNamed("left mouse button release command").isNotNull();
+		//Asserts that the given leftMouseButtonReleaseActiond is not null.
+		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release command").isNotNull();
 		
-		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
+		this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
 		
 		return asConcrete();
 	}
@@ -1283,16 +1283,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Sets the right mouse button click command of the current {@link Widget}.
 	 * 
-	 * @param rightMouseButtonClickCommand
+	 * @param rightMouseButtonClickAction
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given rightMouseButtonClickCommand is null.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonClickAction is null.
 	 */
-	public final W setRightMouseButtonClickCommand(final IAction rightMouseButtonClickCommand) {
+	public final W setRightMouseButtonClickAction(final IAction rightMouseButtonClickAction) {
 		
-		//Asserts that the given rightMouseButtonClickCommand is not null.
-		Validator.assertThat(rightMouseButtonClickCommand).thatIsNamed("right mouse button click command").isNotNull();
+		//Asserts that the given rightMouseButtonClickAction is not null.
+		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click command").isNotNull();
 		
-		this.rightMouseButtonClickCommand = rightMouseButtonClickCommand;
+		this.rightMouseButtonClickAction = rightMouseButtonClickAction;
 		
 		return asConcrete();
 	}
@@ -1301,16 +1301,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Sets the right mouse button press command of the current {@link Widget}.
 	 * 
-	 * @param rightMouseButtonPressCommand
+	 * @param rightMouseButtonPressAction
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given rightMouseButtonPressCommand is null.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonPressAction is null.
 	 */
-	public final W setRightMouseButtonPressCommand(final IAction rightMouseButtonPressCommand) {
+	public final W setRightMouseButtonPressAction(final IAction rightMouseButtonPressAction) {
 		
-		//Asserts that the given rightMouseButtonPressCommand is not null.
-		Validator.assertThat(rightMouseButtonPressCommand).thatIsNamed("right mouse button press command").isNotNull();
+		//Asserts that the given rightMouseButtonPressAction is not null.
+		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press command").isNotNull();
 		
-		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
+		this.rightMouseButtonPressAction = rightMouseButtonPressAction;
 		
 		return asConcrete();
 	}
@@ -1319,16 +1319,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	/**
 	 * Sets the right mouse button release command of the current {@link Widget}.
 	 * 
-	 * @param rightMouseButtonReleaseCommand
+	 * @param rightMouseButtonReleaseAction
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseCommand is null.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseAction is null.
 	 */
-	public final W setRightMouseButtonReleaseCommand(final IAction rightMouseButtonReleaseCommand) {
+	public final W setRightMouseButtonReleaseAction(final IAction rightMouseButtonReleaseAction) {
 		
-		//Asserts that the given rightMouseButtonReleaseCommand is not null.
-		Validator.assertThat(rightMouseButtonReleaseCommand).thatIsNamed("right mouse button release command").isNotNull();
+		//Asserts that the given rightMouseButtonReleaseAction is not null.
+		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release command").isNotNull();
 		
-		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
+		this.rightMouseButtonReleaseAction = rightMouseButtonReleaseAction;
 		
 		return asConcrete();
 	}
@@ -1662,8 +1662,8 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 					break;
 			}
 			
-			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {				
-				leftMouseButtonPressCommand.run();
+			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressAction()) {				
+				leftMouseButtonPressAction.run();
 			}
 		}
 	}
@@ -1687,8 +1687,8 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 			}
 		}
 		else {
-			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
-				leftMouseButtonReleaseCommand.run();
+			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseAction()) {
+				leftMouseButtonReleaseAction.run();
 			}
 		}
 	}

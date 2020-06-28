@@ -31,7 +31,7 @@ public final class ButtonTutorial {
 		final var button = new Button("Change background color");
 		
 		//Sets left mouse button release command to the Button.
-		button.setLeftMouseButtonReleaseCommand(() -> {
+		button.setLeftMouseButtonReleaseAction(() -> {
 			
 			frame.setBackgroundColor(counter % 2 == 0 ? Color.WHITE : Color.LIGHT_GREEN);
 			

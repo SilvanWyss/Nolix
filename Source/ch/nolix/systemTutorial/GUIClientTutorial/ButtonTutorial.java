@@ -49,7 +49,7 @@ public final class ButtonTutorial {
 			final var button =
 			new Button()
 			.setText("Change background color")
-			.setLeftMouseButtonPressCommand(this::changeBackgroundColor);
+			.setLeftMouseButtonPressAction(this::changeBackgroundColor);
 			
 			//Configures the look of the Button.
 			button

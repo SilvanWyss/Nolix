@@ -74,10 +74,10 @@ extends ObjectTest<W> {
 			expect(widget.isNormal());
 			
 			expectNot(
-				widget.hasLeftMouseButtonPressCommand(),
-				widget.hasLeftMouseButtonReleaseCommand(),
-				widget.hasRightMouseButtonPressCommand(),
-				widget.hasRightMouseButtonReleaseCommand()
+				widget.hasLeftMouseButtonPressAction(),
+				widget.hasLeftMouseButtonReleaseAction(),
+				widget.hasRightMouseButtonPressAction(),
+				widget.hasRightMouseButtonReleaseAction()
 			);
 	}
 }

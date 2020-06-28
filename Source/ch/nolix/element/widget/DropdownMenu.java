@@ -15,7 +15,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//attributes
 	private final Label originLabel = new Label();
-	private final Button expandButton = new Button(" v ").setLeftMouseButtonReleaseCommand(() -> expand());
+	private final Button expandButton = new Button(" v ").setLeftMouseButtonReleaseAction(() -> expand());
 	private final HorizontalStack originHorizontalStack = new HorizontalStack(originLabel, expandButton);
 	
 	//optional attribute

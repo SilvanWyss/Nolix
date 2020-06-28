@@ -38,7 +38,7 @@ public final class HomeSession extends HeaderedSession {
 				column,
 				new Button(es.getName())
 				.setRole(ButtonRole.LinkButton)
-				.setLeftMouseButtonPressCommand(
+				.setLeftMouseButtonPressAction(
 					() -> openEntitySetSession(es.getName())
 				)
 			);

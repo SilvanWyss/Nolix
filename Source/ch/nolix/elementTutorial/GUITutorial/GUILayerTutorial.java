@@ -37,8 +37,8 @@ public class GUILayerTutorial {
 			ExtendedContentPosition.Center,
 			new VerticalStack(
 				new HorizontalStack(
-					new Button("Close").setLeftMouseButtonReleaseCommand(() -> frame.removeTopLayer()),
-					new Button("Close").setLeftMouseButtonReleaseCommand(() -> frame.removeTopLayer())
+					new Button("Close").setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer()),
+					new Button("Close").setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer())
 				)
 				.setElementMargin(200)
 			)
@@ -57,7 +57,7 @@ public class GUILayerTutorial {
 		
 		//Creates showButton.
 		final var showButton = new Button("Show");
-		showButton.setLeftMouseButtonReleaseCommand(() -> 	frame.addLayerOnTop(dialogLayer));
+		showButton.setLeftMouseButtonReleaseAction(() -> 	frame.addLayerOnTop(dialogLayer));
 		
 		//Adds the showButton to the frame.
 		frame.addLayerOnTop(ExtendedContentPosition.Center, showButton);

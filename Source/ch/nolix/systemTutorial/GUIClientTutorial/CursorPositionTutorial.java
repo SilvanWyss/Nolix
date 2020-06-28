@@ -41,7 +41,7 @@ public final class CursorPositionTutorial {
 			
 			//TODO: Add mouse move command to GUI.
 			updateCursorPosition();
-			cursorPositionLabel.setLeftMouseButtonPressCommand(this::updateCursorPosition);
+			cursorPositionLabel.setLeftMouseButtonPressAction(this::updateCursorPosition);
 			
 			//Configures the look of the cursorPositionLabel.
 			cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));

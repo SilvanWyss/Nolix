@@ -36,7 +36,7 @@ public final class EntitySetSession extends HeaderedSession {
 		return new LinkedList<>(
 			new Button("Home")
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonPressCommand(() -> openHomeSession())		
+			.setLeftMouseButtonPressAction(() -> openHomeSession())		
 		);
 	}
 	
@@ -48,7 +48,7 @@ public final class EntitySetSession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Create")
 				.setRole(ButtonRole.CreateButton)
-				.setLeftMouseButtonPressCommand(() -> openCreateEntitySession())
+				.setLeftMouseButtonPressAction(() -> openCreateEntitySession())
 			),
 			createEntitiesGrid()
 		);
@@ -96,7 +96,7 @@ public final class EntitySetSession extends HeaderedSession {
 					1,
 					new Button("Open")
 					.setRole(ButtonRole.LinkButton)
-					.setLeftMouseButtonPressCommand(
+					.setLeftMouseButtonPressAction(
 						() -> openEntitySession(entitySetName, e.getId())
 					)
 				);
@@ -122,7 +122,7 @@ public final class EntitySetSession extends HeaderedSession {
 								columnIndex,
 								new Button(String.valueOf(referenceProperty.getRefEntity().getId()))
 								.setRole(ButtonRole.LinkButton)
-								.setLeftMouseButtonPressCommand(
+								.setLeftMouseButtonPressAction(
 									() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
 								)
 							);
@@ -142,7 +142,7 @@ public final class EntitySetSession extends HeaderedSession {
 						columnIndex,
 						new Button("Delete")
 						.setRole(ButtonRole.DeleteButton)
-						.setLeftMouseButtonPressCommand(
+						.setLeftMouseButtonPressAction(
 							() -> openDeleteEntitySession(e.getId())
 						)
 					);
