@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
@@ -94,7 +95,14 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			case Protocol.GUI_TYPE_HEADER:
 				return new Node(getGUIType());
 			case Protocol.GET_FILE_HEADER:
-				return new Node(new String(readFileToBytes(), StandardCharsets.UTF_8));
+				
+				final var data = readFileToBytes();
+				
+				if (data.isEmpty()) {
+					return new Node();
+				}
+				
+				return Node.withAttribute(new Node(new String(data.getRefElement(), StandardCharsets.UTF_8)));
 			default:
 				
 				//Calls method of the base class.
@@ -141,8 +149,8 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	}
 	
 	//method
-	private byte[] readFileToBytes() {
-		return getRefGUI().fromFrontEnd().readFileToBytes().getRefElement();
+	private SingleContainer<byte[]> readFileToBytes() {
+		return getRefGUI().fromFrontEnd().readFileToBytes();
 	}
 	
 	//method

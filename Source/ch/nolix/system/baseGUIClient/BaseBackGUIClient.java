@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -86,11 +87,15 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	byte[] getFileFromCounterpart() {
-		return
-		internal_getDataFromCounterpart(
-			new ChainedNode(Protocol.GET_FILE_HEADER)).toString().getBytes(StandardCharsets.UTF_8
-		);
+	SingleContainer<byte[]> getFileFromCounterpart() {
+		
+		final var data = internal_getDataFromCounterpart(new ChainedNode(Protocol.GET_FILE_HEADER));
+		
+		if (!data.containsOneAttribute()) {
+			return new SingleContainer<>();
+		}
+		
+		return new SingleContainer<>(data.getRefOneAttribute().toString().getBytes(StandardCharsets.UTF_8));
 	}
 	
 	//method

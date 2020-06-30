@@ -19,7 +19,12 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	//method
 	protected final void initialize() {
 		
-		mGUI.setTitle(getApplicationName());
+		mGUI
+		.setTitle(getApplicationName())
+		.setFrontEndReaderAndFrontEndWriter(
+			new BaseBackGUIClientFrontEndReader(getParentClient()),
+			new BaseBackGIUIClientFrontEndWriter(getParentClient())
+		);
 		
 		initializeStage2();
 	}
