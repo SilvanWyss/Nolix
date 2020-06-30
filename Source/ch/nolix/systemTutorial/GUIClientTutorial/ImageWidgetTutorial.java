@@ -19,7 +19,7 @@ public final class ImageWidgetTutorial {
 		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
-		ShellProvider.startFirefoxToLoopBackAddress();
+		ShellProvider.startFirefoxOpeningLoopBackAddress();
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {

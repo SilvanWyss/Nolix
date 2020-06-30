@@ -64,7 +64,7 @@ public final class ShellProvider {
 	}
 	
 	//static method
-	public static void startFirefoxToLoopBackAddress() {
+	public static void startFirefoxOpeningLoopBackAddress() {
 		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP_PORT);
 	}
 	
