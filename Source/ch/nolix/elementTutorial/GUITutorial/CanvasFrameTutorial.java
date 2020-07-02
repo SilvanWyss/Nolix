@@ -14,13 +14,13 @@ import ch.nolix.element.textFormat.TextFormat;
 import ch.nolix.system.baseGUIClient.PaintRun;
 
 /**
- * The {@link CanvasFrameTutorial} provides a tutorial for {@link CanvasFrame}s.
+ * The {@link CanvasFrameTutorial} is a tutorial for {@link CanvasFrame}s.
  * Of the {@link CanvasFrameTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2019-08
  */
-public class CanvasFrameTutorial {
+public final class CanvasFrameTutorial {
 	
 	/**
 	 * Creates a new {@link CanvasFrame} and sets some paint commands to it.
@@ -29,12 +29,11 @@ public class CanvasFrameTutorial {
 	 */
 	public static void main(String[] args) {
 		
-		//Creates a CanvasFrame.
+		//Creates CanvasFrame.
 		final var canvasFrame = new CanvasFrame("CanvasFrame Tutorial", new InputTaker());
 		
-		//Create paintCommands.
-		final var paintCommands = new LinkedList<IElementTaker<PaintRun>>();
-		paintCommands.addAtEnd(
+		//Create paint commands.
+		final var paintCommands = new LinkedList<IElementTaker<PaintRun>>(
 			pr -> {
 				var painter = pr.getRefPainterByIndex(1);
 				painter.setColorGradient(new ColorGradient(UniDirection.Vertical, Color.BLUE, Color.MIDNIGHT_BLUE));
@@ -49,7 +48,7 @@ public class CanvasFrameTutorial {
 			}
 		);
 		
-		//Sets the paintCommands to the canvasFrame.
+		//Sets the paint commands to the CanvasFrame.
 		canvasFrame.setPaintCommands(paintCommands);
 	}
 	
