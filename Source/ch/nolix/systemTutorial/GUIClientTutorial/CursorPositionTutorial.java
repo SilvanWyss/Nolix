@@ -48,13 +48,13 @@ public final class CursorPositionTutorial {
 			//Configures the look of the cursorPositionLabel.
 			cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));
 			
-			//Creates Layer
+			//Creates Layer.
 			final var layer = new Layer(ExtendedContentPosition.LeftTop, cursorPositionLabel);
 			
 			//Sets mouse move action to Layer.
 			layer.setMouseMoveAction(this::updateCursorPosition);
 			
-			//Adds the Layer to the GUI of the current MainSession
+			//Adds the Layer to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(layer);	
 		}
 		

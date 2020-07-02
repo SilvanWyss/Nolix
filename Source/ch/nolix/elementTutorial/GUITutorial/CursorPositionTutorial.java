@@ -1,7 +1,7 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.widget.Label;
 
@@ -21,8 +21,8 @@ public final class CursorPositionTutorial {
 	 */
 	public static void main(String[] args) {
 		
-		//Creates a Frame.
-		final var frame = new Frame("Cursor Position Tutorial");
+		//Creates Frame.
+		final var frame = new Frame("Cursor position Tutorial");
 		
 		//Creates cursorPositionLabel.
 		final var cursorPositionLabel = new Label();
@@ -30,18 +30,19 @@ public final class CursorPositionTutorial {
 		//Configures the look of the cursorPositionLabel.
 		cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));
 		
-		//Adds the cursorPositionLabel to the Frame at the left top.
-		frame.addLayerOnTop(ExtendedContentPosition.LeftTop, cursorPositionLabel);
+		//Creates Layer.
+		final var layer = new Layer(ExtendedContentPosition.LeftTop, cursorPositionLabel);
 		
-		//Updates the cursorPositionLabel as long as the Frame is open.
-		Sequencer
-		.asLongAs(frame::isOpen)
-		.runInBackground(
+		//Sets mouse move action to Layer.
+		layer.setMouseMoveAction(
 			() ->
 			cursorPositionLabel.setText(
-				"Cursor position: " + frame.getViewAreaCursorXPosition() + ", " + frame.getViewAreaCursorYPosition()
+				"Cursor position: x=" + frame.getViewAreaCursorXPosition() + " y=" + frame.getViewAreaCursorYPosition()
 			)
 		);
+		
+		//Adds the Layer to the Frame.
+		frame.addLayerOnTop(layer);
 	}
 	
 	/**
