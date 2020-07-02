@@ -4,62 +4,56 @@ import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.VerticalStack;
 
 /**
- * The {@link GUILayerTutorial} provides a tutorial for {@link Layer}s.
+ * The {@link GUILayerTutorial} is a tutorial for {@link Layer}s.
  * Of the {@link GUILayerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2019-05
  */
-public class GUILayerTutorial {
+public final class GUILayerTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link Button}.
-	 * The button will add a second {@link Layer} to the frame when it is clicked on.
+	 * Creates a {@link Frame} with a {@link Button}.
+	 * The button will add another {@link Layer} to the {@link Frame} when it is clicked on.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
-		//Creates a Frame.
+		//Creates Frame.
 		final var frame = new Frame("GUILayer Tutorial");
 		
-		//Configures the look of the frame.
-		frame.setBackgroundColor(Color.ALICE_BLUE);
+		//Configures the look of the Frame.
+		frame.setBackgroundColor(Color.LAVENDER);
 		
 		//Creates dialogLayer.
 		final var dialogLayer = new Layer(
 			ExtendedContentPosition.Center,
 			new VerticalStack(
-				new HorizontalStack(
-					new Button("Close").setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer()),
-					new Button("Close").setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer())
-				)
-				.setElementMargin(200)
+				new Button("Close")
+				.setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer())
 			)
 			.applyOnBaseLook(
 				bl ->
 				bl
 				.setBorderThicknesses(5)
-				.setBorderColors(Color.DARK_BLUE)
 				.setBackgroundColor(Color.WHITE)
-				.setLeftPadding(10)
-				.setRightPadding(10)
+				.setLeftPadding(200)
+				.setRightPadding(200)
 				.setTopPadding(200)
-				.setBottomPadding(10)
+				.setBottomPadding(5)
 			)
 		);
 		
 		//Creates showButton.
 		final var showButton = new Button("Show");
-		showButton.setLeftMouseButtonReleaseAction(() -> 	frame.addLayerOnTop(dialogLayer));
+		showButton.setLeftMouseButtonReleaseAction(() -> frame.addLayerOnTop(dialogLayer));
 		
-		//Adds the showButton to the frame.
+		//Adds the showButton to the Frame.
 		frame.addLayerOnTop(ExtendedContentPosition.Center, showButton);
 	}
 	
