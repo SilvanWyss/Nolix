@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.common.skillAPI;
 
+//own import
+import ch.nolix.common.requestAPI.CloseStateRequestable;
+
 //interface
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 20
  */
-public interface Closable {
+public interface Closable extends CloseStateRequestable {
 	
 	//method
 	/**
@@ -22,18 +25,4 @@ public interface Closable {
 	 * Closes the current {@link Closable}.
 	 */
 	public abstract void close();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link Closable} is closed.
-	 */
-	public abstract boolean isClosed();
-	
-	//method
-	/**
-	 * @return true if the current {@link Closable} is not closed.
-	 */
-	public default boolean isOpen() {
-		return !isClosed();
-	}
 }
