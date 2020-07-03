@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 
 import ch.nolix.common.independentContainer.List;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 
 //class
 /**
@@ -77,7 +77,7 @@ public abstract class BaseTest {
 	 * 
 	 * @param element
 	 */
-	protected final void registerToClose(final Closable element) {
+	protected final void registerToClose(final Closeable element) {
 		if (element != null) {
 			registerToClose(element.asAutoClosable());
 		}

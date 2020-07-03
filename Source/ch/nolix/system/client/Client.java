@@ -18,7 +18,7 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalLabelable;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -31,7 +31,7 @@ import ch.nolix.common.validator.Validator;
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
-implements Closable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
+implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";

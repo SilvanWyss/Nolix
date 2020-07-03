@@ -2,7 +2,7 @@
 package ch.nolix.common.invalidArgumentException;
 
 //own imports
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 
 //class
 /**
@@ -25,7 +25,7 @@ public final class ClosedArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argument
 	 */
-	public ClosedArgumentException(final Closable argument) {
+	public ClosedArgumentException(final Closeable argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);

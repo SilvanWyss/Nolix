@@ -5,7 +5,7 @@ import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseNeuron.BaseNeuron;
 import ch.nolix.system.client.StandardClient;
@@ -24,7 +24,7 @@ import ch.nolix.system.client.StandardClient;
  */
 public final class FrontNetNeuron<O>
 extends BaseNeuron<FrontNetNeuron<O>, Object, O>
-implements Closable {
+implements Closeable {
 
 	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 0;

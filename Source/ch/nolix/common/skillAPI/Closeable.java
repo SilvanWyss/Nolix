@@ -10,11 +10,11 @@ import ch.nolix.common.requestAPI.CloseStateRequestable;
  * @month 2015-12
  * @lines 20
  */
-public interface Closable extends CloseStateRequestable {
+public interface Closeable extends CloseStateRequestable {
 	
 	//method
 	/**
-	 * @return the current {@link Closable} as {@link AutoCloseable}.
+	 * @return the current {@link Closeable} as {@link AutoCloseable}.
 	 */
 	public default AutoCloseable asAutoClosable() {
 		return this::close;
@@ -22,7 +22,7 @@ public interface Closable extends CloseStateRequestable {
 	
 	//method declaration
 	/**
-	 * Closes the current {@link Closable}.
+	 * Closes the current {@link Closeable}.
 	 */
 	public abstract void close();
 }

@@ -15,7 +15,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.skillAPI.Clearable;
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.skillAPI.Refreshable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableProperty;
@@ -36,7 +36,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
  */
 public abstract class _3D_GUI<G extends _3D_GUI<G>>
 extends ConfigurationElement<G>
-implements Clearable<G>, Closable, Refreshable {
+implements Clearable<G>, Closeable, Refreshable {
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;

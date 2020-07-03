@@ -6,7 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.state.Openness;
 import ch.nolix.common.validator.Validator;
 
@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-06
  * @lines 120
  */
-final class CloseController implements Closable {
+final class CloseController implements Closeable {
 	
 	//attribute
 	private Openness state = Openness.OPEN;

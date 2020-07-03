@@ -6,7 +6,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.skillAPI.Closable;
+import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -15,7 +15,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2016-05
  * @lines 150
  */
-public abstract class ClosableElement implements Closable {
+public abstract class ClosableElement implements Closeable {
 	
 	//attribute
 	private CloseController parentCloseController = new CloseController(this);
