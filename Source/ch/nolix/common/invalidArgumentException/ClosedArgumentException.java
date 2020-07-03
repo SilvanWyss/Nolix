@@ -1,13 +1,10 @@
 //package declaration
 package ch.nolix.common.invalidArgumentException;
 
-//own imports
-import ch.nolix.common.skillAPI.Closeable;
-
 //class
 /**
  * A {@link ClosedArgumentException} is a {@link InvalidArgumentException}
- * that is intended to be thrown when an argument is undesirably closed.
+ * that is supposed to be thrown when an argument is undesirably closed.
  * 
  * @author Silvan Wyss
  * @month 2019-01
@@ -25,7 +22,7 @@ public final class ClosedArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argument
 	 */
-	public ClosedArgumentException(final Closeable argument) {
+	public ClosedArgumentException(final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
