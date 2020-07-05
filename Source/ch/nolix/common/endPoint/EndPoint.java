@@ -2,7 +2,8 @@
 package ch.nolix.common.endPoint;
 
 //own imports
-import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -14,13 +15,12 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 100
+ * @lines 110
  */
-public abstract class EndPoint
-extends ClosableElement
-implements ISender {
+public abstract class EndPoint implements ICloseableElement, ISender {
 	
-	//attribute
+	//attributes
+	private final CloseController closeController = new CloseController(this);
 	private final boolean hasRequestedConnection;
 	
 	//optional attribute
@@ -34,6 +34,15 @@ implements ISender {
 	 */
 	EndPoint(final boolean hasRequestedConnection) {
 		this.hasRequestedConnection = hasRequestedConnection;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method

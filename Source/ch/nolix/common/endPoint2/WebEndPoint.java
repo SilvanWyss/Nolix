@@ -43,6 +43,8 @@ final class WebEndPoint extends BaseNetEndPoint {
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
 		
+		setPreCloseAction(this::runPreClose);
+		
 		new WebEndPointMessageListener(this).start();
 		
 		waitToTargetInfo();
@@ -52,20 +54,6 @@ final class WebEndPoint extends BaseNetEndPoint {
 	@Override
 	public EndPointType getType() {
 		return EndPointType.WEB_SOCKET;
-	}
-	
-	//method
-	@Override
-	protected void noteClose() {
-		if (canWork()) {
-			try {
-				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
-				socket.close();
-			}
-			catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
-			}
-		}
 	}
 	
 	//method
@@ -96,6 +84,19 @@ final class WebEndPoint extends BaseNetEndPoint {
 	//method
 	private boolean canWork() {
 		return !socket.isClosed();
+	}
+	
+	//method
+	private void runPreClose() {
+		if (canWork()) {
+			try {
+				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+				socket.close();
+			}
+			catch (final IOException pIOException) {
+				throw new WrapperException(pIOException);
+			}
+		}
 	}
 	
 	//method

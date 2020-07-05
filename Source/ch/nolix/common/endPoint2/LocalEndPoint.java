@@ -93,7 +93,7 @@ public final class LocalEndPoint extends EndPoint {
 		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Creates a close dependency from the current LocalEndPoint to the given counterpart.
-		createCloseDependency(counterpart);
+		createCloseDependencyTo(counterpart);
 		
 		//Sets the counterpart of this local end point.
 		this.counterpart = counterpart;
@@ -142,13 +142,6 @@ public final class LocalEndPoint extends EndPoint {
 		
 		counterpart.receiveRawMessage(message);
 	}
-
-	//method
-	/**
-	 * Lets this local end point note an abort.
-	 */
-	@Override
-	protected void noteClose() {}
 	
 	//method
 	/**

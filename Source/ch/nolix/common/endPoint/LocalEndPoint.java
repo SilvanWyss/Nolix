@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 90
+ * @lines 80
  */
 public final class LocalEndPoint extends EndPoint {
 
@@ -34,7 +34,7 @@ public final class LocalEndPoint extends EndPoint {
 		counterPart = new LocalEndPoint(this);
 		
 		//Creates an abort dependency between this local end point and its counterpart.
-		createCloseDependency(getCounterPart());
+		createCloseDependencyTo(getCounterPart());
 		
 		//Lets the given target take the counterpart of this local end point.
 		target.run(getCounterPart());
@@ -78,13 +78,6 @@ public final class LocalEndPoint extends EndPoint {
 		
 		counterPart.receive(message);
 	}
-	
-	//method
-	/**
-	 * Lets this local end point note an abort.
-	 */
-	@Override
-	protected void noteClose() {}
 	
 	//method
 	/**

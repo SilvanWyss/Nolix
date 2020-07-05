@@ -27,7 +27,7 @@ public final class NetServer extends Server {
 		internalNetServer =	new ch.nolix.common.endPoint2.NetServer(port);
 		
 		//Creates a close dependency to the internal net server of the current net server.
-		createCloseDependency(internalNetServer);
+		createCloseDependencyTo(internalNetServer);
 		
 		internalNetServer.addMainEndPointTaker(new NetServerEndPointTaker(this));
 	}
@@ -51,7 +51,7 @@ public final class NetServer extends Server {
 		internalNetServer =	new ch.nolix.common.endPoint2.NetServer(port, HTTPMessage);
 		
 		//Creates a close dependency to the internal net server of the current net server.
-		createCloseDependency(internalNetServer);
+		createCloseDependencyTo(internalNetServer);
 		
 		internalNetServer.addMainEndPointTaker(new NetServerEndPointTaker(this));
 	}

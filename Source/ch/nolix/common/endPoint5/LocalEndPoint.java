@@ -82,7 +82,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
 		
-		createCloseDependency(counterpart);
+		createCloseDependencyTo(counterpart);
 		
 		//Clears the target of this local duplex controller.
 		target = null;

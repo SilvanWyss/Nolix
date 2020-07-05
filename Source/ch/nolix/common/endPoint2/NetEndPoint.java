@@ -71,6 +71,8 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		setPreCloseAction(this::runPreClose);
+		
 		try {
 			socket = new Socket(ip, port);
 			socketInputStream = socket.getInputStream();
@@ -104,6 +106,8 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		.assertThat(port)
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+		
+		setPreCloseAction(this::runPreClose);
 		
 		try {
 			socket = new Socket(ip, port);
@@ -192,20 +196,6 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	
 	//method
 	@Override
-	protected void noteClose() {
-		if (canWork()) {
-			try {
-				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
-				socket.close();
-			}
-			catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
-			}
-		}
-	}
-	
-	//method
-	@Override
 	protected void sendRawMessage(final String rawMessage) {
 		
 		assertIsOpen();
@@ -227,5 +217,18 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	//method
 	private boolean canWork() {
 		return !socket.isClosed();
+	}
+	
+	//method
+	private void runPreClose() {
+		if (canWork()) {
+			try {
+				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+				socket.close();
+			}
+			catch (final IOException pIOException) {
+				throw new WrapperException(pIOException);
+			}
+		}
 	}
 }

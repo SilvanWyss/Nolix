@@ -2,7 +2,8 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -16,9 +17,12 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 210
+ * @lines 220
  */
-public class Server extends ClosableElement implements Clearable<Server> {
+public class Server implements Clearable<Server>, ICloseableElement {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
 	private Application<?> mainApplication;
@@ -145,6 +149,15 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	/**
 	 * @return true if the current {@link Server} does not contain a {@link Application}.
 	 */
 	@Override
@@ -200,11 +213,4 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		return mainApplication;
 	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void noteClose() {}
 }

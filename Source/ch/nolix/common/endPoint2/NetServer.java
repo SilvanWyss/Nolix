@@ -96,6 +96,9 @@ public final class NetServer extends Server {
 		//Sets the HTTP message of the current NetServer.
 		this.mHTTPMessage = HTTPMessage;
 		
+		//Sets the pre-close action of the current NetServer.
+		setPreCloseAction(this::runPreClose);
+		
 		try {
 			
 			//Creates the serverSocket of the current NetServer.
@@ -140,20 +143,6 @@ public final class NetServer extends Server {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void noteClose() {
-		try {
-			serverSocket.close();
-		}
-		catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
-		}
-	}
-	
-	//method
-	/**
 	 * The HTTP message of a {@link NetServer} is the message a {@link NetServer} sends to web browsers.
 	 * 
 	 * @return the HTTP message of the current {@link NetServer}.
@@ -168,5 +157,18 @@ public final class NetServer extends Server {
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link NetServer} run a pre-close.
+	 */
+	private void runPreClose() {
+		try {
+			serverSocket.close();
+		}
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
+		}
 	}
 }

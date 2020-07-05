@@ -2,7 +2,8 @@
 package ch.nolix.common.endPoint;
 
 //own imports
-import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.validator.Validator;
 
@@ -13,11 +14,12 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 50
+ * @lines 60
  */
-public class Server extends ClosableElement {
+public class Server implements ICloseableElement {
 
-	//attribute
+	//attributes
+	private final CloseController closeController = new CloseController(this);
 	private final IElementTaker<EndPoint> endPointTaker;
 	
 	/**
@@ -37,6 +39,15 @@ public class Server extends ClosableElement {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	/**
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
@@ -49,11 +60,4 @@ public class Server extends ClosableElement {
 		
 		endPointTaker.run(endPoint);
 	}
-
-	//method
-	/**
-	 * Lets this server note an abort.
-	 */
-	@Override
-	protected void noteClose() {}
 }

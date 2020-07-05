@@ -70,7 +70,7 @@ public final class NetServer extends Server {
 		internalNetServer.addMainEndPointTaker(new NetServerSubDuplexControllerTaker(this));
 		
 		//Creates a close dependency between the current NetServer and its internalNetServer.
-		createCloseDependency(internalNetServer);
+		createCloseDependencyTo(internalNetServer);
 	}
 	
 	//constructor

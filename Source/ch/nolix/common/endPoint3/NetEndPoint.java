@@ -69,7 +69,7 @@ public class NetEndPoint extends EndPoint {
 		
 		internalEndPoint.setReceiver(new Receiver(this));
 		
-		createCloseDependency(internalEndPoint);
+		createCloseDependencyTo(internalEndPoint);
 	}
 
 	public NetEndPoint(int port, String target) {

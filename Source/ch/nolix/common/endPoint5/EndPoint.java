@@ -3,7 +3,8 @@ package ch.nolix.common.endPoint5;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
@@ -18,9 +19,12 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 180
+ * @lines 190
  */
-public abstract class EndPoint extends ClosableElement implements IDataProviderController {
+public abstract class EndPoint implements ICloseableElement, IDataProviderController {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
 	private IDataProviderController receiverController;
@@ -59,6 +63,15 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 		assertIsOpen();
 		
 		appendedCommands.addAtEnd(commands);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method declaration
@@ -148,13 +161,6 @@ public abstract class EndPoint extends ClosableElement implements IDataProviderC
 		//Sets the receiver controller of the current EndPoint.
 		this.receiverController = receiverController;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc)
-	 */
-	@Override
-	protected final void noteClose() {}
 	
 	//method
 	/**

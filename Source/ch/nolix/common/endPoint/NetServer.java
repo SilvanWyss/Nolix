@@ -45,6 +45,8 @@ public final class NetServer extends Server {
 		//Sets the port of this net server.
 		this.port = port;
 		
+		setPreCloseAction(this::runPreClose);
+		
 		try {
 			
 			//Creates the server socket of this net server sub listener.
@@ -80,10 +82,9 @@ public final class NetServer extends Server {
 	
 	//method
 	/**
-	 * Lets this net server note an abort.
+	 * Lets the current {@link NetServer} run a pre-close.
 	 */
-	@Override
-	protected void noteClose() {
+	private void runPreClose() {
 		try {
 			serverSocket.close();
 		}

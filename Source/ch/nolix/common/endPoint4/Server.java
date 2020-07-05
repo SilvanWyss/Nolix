@@ -2,7 +2,8 @@
 package ch.nolix.common.endPoint4;
 
 //own imports
-import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
@@ -15,8 +16,10 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
  * @month 2017-05
  * @lines 80
  */
-public class Server<M, R>
-extends ClosableElement {
+public class Server<M, R> implements ICloseableElement {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//multi-attribute
 	private final LinkedList<IEndPointTaker<M, R>> endPointTaker = new LinkedList<>();
@@ -52,6 +55,15 @@ extends ClosableElement {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	/**
 	 * Removes the end point taker with the given name from this server.
 	 * 
 	 * @param name
@@ -72,11 +84,4 @@ extends ClosableElement {
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);
 	}
-	
-	//method
-	/**
-	 * Lets this server note an abort.
-	 */
-	@Override
-	protected void noteClose() {}
 }

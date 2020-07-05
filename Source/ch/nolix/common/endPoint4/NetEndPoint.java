@@ -77,6 +77,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		);
 	}
 	
+	//constructor
 	NetEndPoint(
 		final ch.nolix.common.endPoint2.EndPoint internalEndPoint,
 		IElementTakerElementGetter<String, M> messageTransformer,
@@ -88,9 +89,10 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		this.replyTransformer = replyTransformer;
 		
 		internalEndPoint.setReceiver(new Receiver<M, R>(this));
-		createCloseDependency(internalEndPoint);
+		createCloseDependencyTo(internalEndPoint);
 	}
-
+	
+	//constructor
 	public NetEndPoint(int port, String target,
 			IElementTakerElementGetter<String, M> messageTransformer,
 			IElementTakerElementGetter<String, R> replyTransformer) {

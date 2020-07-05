@@ -32,7 +32,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.common.endPoint2.NetServer(port);
-		createCloseDependency(internalNetServer);
+		createCloseDependencyTo(internalNetServer);
 		
 		this.messageTransformer = messageTransformer;
 		this.replyTransformer = replyTransformer;

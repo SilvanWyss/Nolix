@@ -2,8 +2,8 @@
 package ch.nolix.common.endPoint4;
 
 //own imports
-import ch.nolix.common.closableElement.ClosableElement;
-//own imports
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.communicationAPI.IReplier;
 import ch.nolix.common.genericCommunicationAPI.IReplyingSender;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -18,15 +18,25 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-05
  * @lines 100
  */
-public abstract class EndPoint<M, R>
-extends ClosableElement
-implements IReplyingSender<M, R> {
+public abstract class EndPoint<M, R> implements ICloseableElement, IReplyingSender<M, R> {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
 	//optional attribute
 	private ch.nolix.common.genericCommunicationAPI.IReplier<M, R> replier;
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
 	
 	//method declaration
 	/**
@@ -61,9 +71,6 @@ implements IReplyingSender<M, R> {
 		//Sets the replier of this end point.
 		this.replier = replier;
 	}
-	
-	@Override
-	protected final void noteClose() {}
 	
 	//method
 	/**

@@ -58,6 +58,8 @@ public final class NetEndPoint extends EndPoint {
 		.thatIsNamed("port")
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		setPreCloseAction(this::runPreClose);
+		
 		try {
 			
 			//Creates the socket of this net end point.
@@ -88,6 +90,8 @@ public final class NetEndPoint extends EndPoint {
 		
 		//Asserts that the given socket is not null.
 		Validator.assertThat(socket).isOfType(Socket.class);
+		
+		setPreCloseAction(this::runPreClose);
 		
 		//Sets the socket of this net end point.
 		this.socket = socket;
@@ -135,10 +139,9 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this net end point note an abort.
+	 * Lets the current {@link NetEndPoint} run a pre-close.
 	 */
-	@Override
-	protected void noteClose() {
+	private void runPreClose() {
 		try {
 			socket.close();
 		}

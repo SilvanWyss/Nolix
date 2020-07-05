@@ -2,7 +2,8 @@
 package ch.nolix.common.endPoint2;
 
 //own imports
-import ch.nolix.common.closableElement.ClosableElement;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.communicationAPI.IReceiver;
 import ch.nolix.common.communicationAPI.ISender;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -23,10 +24,11 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-04
  * @lines 190
  */
-public abstract class EndPoint extends ClosableElement implements ISender {
+public abstract class EndPoint implements ICloseableElement, ISender {
 	
-	//attribute
+	//attributes
 	private final boolean hasRequestedConnection;
+	private final CloseController closeController = new CloseController(this);
 	
 	//optional attributes
 	private String target;
@@ -63,6 +65,15 @@ public abstract class EndPoint extends ClosableElement implements ISender {
 		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 		
 		setTarget(target);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method declaration

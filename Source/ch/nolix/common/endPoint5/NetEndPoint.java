@@ -107,7 +107,7 @@ public class NetEndPoint extends EndPoint {
 		netEndPoint.setReplier(m -> receiveAndGetReply(m));
 		
 		//Creates an abort dependency from this net duplex controller to its net end point.
-		createCloseDependency(netEndPoint);
+		createCloseDependencyTo(netEndPoint);
 	}
 	
 	//method
