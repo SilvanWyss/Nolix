@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
@@ -19,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 230
+ * @lines 240
  */
 public final class Sequencer {
 	
@@ -62,6 +63,16 @@ public final class Sequencer {
 	 */
 	public static AsLongAsMediator asLongAs(final IBooleanGetter condition) {
 		return new AsLongAsMediator(condition);
+	}
+	
+	//static method
+	/**
+	 * @param condition
+	 * @return a new {@link AsSoonAsMediator} with the given condition.
+	 * @throws ArgumentIsNullException if the given condition is null.
+	 */
+	public static AsSoonAsMediator asSoonAs(final IBooleanGetter condition) {
+		return new AsSoonAsMediator(condition);
 	}
 	
 	//static method
