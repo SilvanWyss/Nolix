@@ -99,6 +99,11 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
+	String getTextFromClipboardFromCounterpart() {
+		return internal_getDataFromCounterpart(new ChainedNode(Protocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
+	}
+	
+	//method
 	void saveFileOnCounterpart(final byte[] content) {
 		internal_runOnCounterpart(
 			new ChainedNode(Protocol.SAVE_FILE_HEADER, new Node(new String(content, StandardCharsets.UTF_8)))

@@ -19,6 +19,7 @@ final class Protocol {
 	public static final String ADD_OR_CHANGE_ATTRIBUTES_HEADER = "AddOrChangeAttributes";
 	public static final String ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER = "AddOrChangeWidgetAttributes";
 	public static final String GET_FILE_HEADER = "GetFile";
+	public static final String GET_TEXT_FROM_CLIPBOARD = "GetTextFromClipboard";
 	public static final String OPEN_FILE_EXPLORER_HEADER = "OpenFileExplorer";
 	public static final String RESET_HEADER = "Reset";
 	public static final String SAVE_FILE_HEADER = "SaveFile";

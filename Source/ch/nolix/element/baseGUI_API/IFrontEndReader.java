@@ -8,5 +8,8 @@ import ch.nolix.common.container.SingleContainer;
 public interface IFrontEndReader {
 	
 	//method declaration
+	public abstract String getTextFromClipboard();
+	
+	//method declaration
 	public abstract SingleContainer<byte[]> readFileToBytes();
 }

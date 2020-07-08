@@ -94,6 +94,8 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		switch (request.getHeader()) {
 			case Protocol.GUI_TYPE_HEADER:
 				return new Node(getGUIType());
+			case Protocol.GET_TEXT_FROM_CLIPBOARD:
+				return new Node(getRefGUI().fromFrontEnd().getTextFromClipboard());
 			case Protocol.GET_FILE_HEADER:
 				
 				final var data = readFileToBytes();

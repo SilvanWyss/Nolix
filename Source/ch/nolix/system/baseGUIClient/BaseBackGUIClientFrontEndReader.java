@@ -22,6 +22,12 @@ final class BaseBackGUIClientFrontEndReader implements IFrontEndReader {
 	
 	//method
 	@Override
+	public String getTextFromClipboard() {
+		return parentBackGUIClient.getTextFromClipboardFromCounterpart();
+	}
+	
+	//method
+	@Override
 	public SingleContainer<byte[]> readFileToBytes() {
 		return parentBackGUIClient.getFileFromCounterpart();
 	}
