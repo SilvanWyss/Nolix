@@ -45,7 +45,7 @@ public abstract class Property<V> implements Headered, IElement {
 	@Override
 	public final LinkedList<Node> getAttributes() {
 		return
-		internal_getValues()
+		internalGetValues()
 		.to(v -> Node.fromString(v.toString()));
 	}
 	
@@ -112,26 +112,26 @@ public abstract class Property<V> implements Headered, IElement {
 	public abstract void supposeCanBeSaved();
 	
 	//method declaration
-	protected abstract void internal_clear();
+	protected abstract void internalClear();
 	
 	//method declaration
-	protected abstract LinkedList<Object> internal_getValues();
+	protected abstract LinkedList<Object> internalGetValues();
 	
 	//method
-	protected void internal_noteUpdate() {
+	protected void internalNoteUpdate() {
 		if (belongsToEntity() && !parentEntity.isNew()) {
 			parentEntity.setEdited();
 		}
 	}
 	
 	//method declaration
-	protected abstract void internal_setValue(Object value);
+	protected abstract void internalSetValue(Object value);
 	
 	//method declaration
-	protected abstract void internal_setValues(IContainer<Object> values);
+	protected abstract void internalSetValues(IContainer<Object> values);
 	
 	//method
-	protected void internal_setParentEntity(final Entity parentEntity) {
+	protected void internalSetParentEntity(final Entity parentEntity) {
 		
 		Validator
 		.assertThat(parentEntity)

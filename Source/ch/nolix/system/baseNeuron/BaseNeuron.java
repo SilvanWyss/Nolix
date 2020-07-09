@@ -264,7 +264,7 @@ implements ISmartObject<N> {
 	 * 
 	 * @param output
 	 */
-	protected final void internal_setOutput(final O output) {
+	protected final void internalSetOutput(final O output) {
 		
 		Validator.assertThat(output).thatIsNamed(VariableNameCatalogue.OUTPUT).isNotNull();
 		

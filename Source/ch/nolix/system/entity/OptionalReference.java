@@ -13,7 +13,7 @@ implements Clearable<OptionalReference<E>> {
 	@Override
 	public OptionalReference<E> clear() {
 		
-		internal_clear();
+		internalClear();
 		
 		return this;
 	}
@@ -36,7 +36,7 @@ implements Clearable<OptionalReference<E>> {
 	
 	//method
 	@Override
-	protected final LinkedList<Object> internal_getValues() {
+	protected final LinkedList<Object> internalGetValues() {
 		
 		final var values = new LinkedList<Object>();
 		

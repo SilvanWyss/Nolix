@@ -116,13 +116,13 @@ implements Closeable {
 		
 		//Handles the case that this net back neuron does not have an input neuron.
 		if (getRefInputNeurons().isEmpty()) {
-			internal_setOutput(null);
+			internalSetOutput(null);
 		}
 		
 		//Handles the case that this net back neuron has an input neuron.
 		else {
 			
-			internal_setOutput(getRefOneInput());
+			internalSetOutput(getRefOneInput());
 			final Node output = transformator.getOutput(getRefOutput());
 			
 			//Iterates the clients of the application of this net back neuron.

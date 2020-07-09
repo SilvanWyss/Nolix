@@ -90,6 +90,6 @@ extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 */
 	@Override
 	public void fire() {
-		internal_setOutput(getRefOneInput());
+		internalSetOutput(getRefOneInput());
 	}
 }

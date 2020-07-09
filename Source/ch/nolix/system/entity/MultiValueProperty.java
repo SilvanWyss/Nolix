@@ -23,7 +23,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 		
 		values.addAtEnd(value);
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 	
 	//method
@@ -32,7 +32,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 		
 		this.values.addAtEnd(values);
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 	
 	//method
@@ -40,14 +40,14 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 		
 		this.values.addAtEnd(values);
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 	
 	//method
 	@Override
 	public MultiValueProperty<V> clear() {
 		
-		internal_clear();
+		internalClear();
 		
 		return this;
 	}
@@ -87,20 +87,20 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	
 	//method
 	@Override
-	protected void internal_clear() {
+	protected void internalClear() {
 		values.clear();
 	}
 	
 	//method
 	@Override
-	protected LinkedList<Object> internal_getValues() {
+	protected LinkedList<Object> internalGetValues() {
 		return new LinkedList<>(values);
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected void internal_setValue(final Object value) {
+	protected void internalSetValue(final Object value) {
 		clear();
 		values.addAtEnd((V)value);
 	}
@@ -108,7 +108,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected void internal_setValues(final IContainer<Object> values) {
+	protected void internalSetValues(final IContainer<Object> values) {
 		clear();
 		values.forEach(v -> addValue((V)v));
 	}

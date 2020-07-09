@@ -11,7 +11,7 @@ public class OptionalValueProperty<V> extends SingleProperty<V> implements Clear
 	@Override
 	public OptionalValueProperty<V> clear() {
 		
-		internal_clear();
+		internalClear();
 		
 		return this;
 	}

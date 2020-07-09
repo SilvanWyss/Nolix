@@ -21,6 +21,6 @@ public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient
 	 * @throws ArgumentIsNullException if the given endPoint is null.
 	 */
 	public BackConsoleClient(final EndPoint endPoint) {
-		internal_setEndPoint(endPoint);
+		internalSetEndPoint(endPoint);
 	}
 }

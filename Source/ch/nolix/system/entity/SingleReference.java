@@ -62,30 +62,30 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 			supposeIsAllowedToReference(entity);
 				
 			setValue(entity.getId());
-			internal_noteUpdate();
+			internalNoteUpdate();
 		}
 	}
 	
 	//method
 	@Override
-	protected final void internal_clear() {
+	protected final void internalClear() {
 		
 		supposeIsOptional();
 		
 		referencedEntityId = -1;
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 	
 	//method
 	@Override
-	protected final void internal_setValue(final Object value) {
+	protected final void internalSetValue(final Object value) {
 		setValue((int)value);
 	}
 	
 	//method
 	@Override
-	protected final void internal_setValues(final IContainer<Object> values) {
+	protected final void internalSetValues(final IContainer<Object> values) {
 		setValue((int)new ReadContainer<Object>(values).getRefOne());
 	}
 	

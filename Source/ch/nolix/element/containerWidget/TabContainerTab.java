@@ -306,7 +306,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		if (belongsToTabContainer()) {
-			parentTabContainer.internal_addChildWidget(widget);
+			parentTabContainer.internalAddChildWidget(widget);
 		}
 		
 		//Sets the widget of the current tab container tab.

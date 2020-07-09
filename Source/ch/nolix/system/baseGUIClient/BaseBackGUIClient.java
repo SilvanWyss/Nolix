@@ -50,7 +50,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 			
-		internal_runOnCounterpart(new ChainedNode(Protocol.SHOW_ERROR_MESSAGE_HEADER, new Node(errorMessage)));
+		internalRunOnCounterpart(new ChainedNode(Protocol.SHOW_ERROR_MESSAGE_HEADER, new Node(errorMessage)));
 		
 		return asConcrete();
 	}
@@ -63,7 +63,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	@Override
-	protected void internal_run(final ChainedNode command) {
+	protected void internalRun(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
@@ -82,14 +82,14 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 			default:
 				
 				//Calls method of the base class.
-				super.internal_run(command);
+				super.internalRun(command);
 		}
 	}
 	
 	//method
 	SingleContainer<byte[]> getFileFromCounterpart() {
 		
-		final var data = internal_getDataFromCounterpart(new ChainedNode(Protocol.GET_FILE_HEADER));
+		final var data = internalGetDataFromCounterpart(new ChainedNode(Protocol.GET_FILE_HEADER));
 		
 		if (!data.containsOneAttribute()) {
 			return new SingleContainer<>();
@@ -100,12 +100,12 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	String getTextFromClipboardFromCounterpart() {
-		return internal_getDataFromCounterpart(new ChainedNode(Protocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
+		return internalGetDataFromCounterpart(new ChainedNode(Protocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
 	}
 	
 	//method
 	void saveFileOnCounterpart(final byte[] content) {
-		internal_runOnCounterpart(
+		internalRunOnCounterpart(
 			new ChainedNode(Protocol.SAVE_FILE_HEADER, new Node(new String(content, StandardCharsets.UTF_8)))
 		);
 	}
@@ -154,7 +154,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		if (!knowsCounterpartGUIType()) {
 			counterpartGUIType
 			= BaseFrontGUIClientGUIType.valueOf(
-				internal_getDataFromCounterpart(new ChainedNode(Protocol.GUI_TYPE_HEADER)).getHeader()
+				internalGetDataFromCounterpart(new ChainedNode(Protocol.GUI_TYPE_HEADER)).getHeader()
 			);
 		}
 	}
@@ -166,7 +166,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	private InvisibleLayerGUI getRefGUI() {
 		
 		@SuppressWarnings("rawtypes")
-		final var session = (BaseBackGUIClientSession)internal_getRefCurrentSession();
+		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
 		
 		return session.getRefGUI();
 	}
@@ -198,14 +198,14 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * @param attributes
 	 */
 	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
-		internal_runOnCounterpart(
+		internalRunOnCounterpart(
 			new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), new ChainedNode(Protocol.RESET_HEADER, attributes))
 		);
 	}
 	
 	//method
 	private void runGUICommandOnCounterpart(final ChainedNode pGUICommandOnCounterpart) {
-		internal_runOnCounterpart(new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), pGUICommandOnCounterpart));
+		internalRunOnCounterpart(new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), pGUICommandOnCounterpart));
 	}
 	
 	//method

@@ -49,7 +49,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		}
 		
 		//Sets the pre-close action of the current BaseFrontGUIClient.
-		internal_setPreCloseAction(this::preClose);
+		internalSetPreCloseAction(this::preClose);
 	}
 	
 	//method
@@ -75,7 +75,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	
 	//method
 	public void noteInputOnCounterpart(final IInput<?> input) {
-		internal_runOnCounterpart(new ChainedNode(Protocol.NOTE_INPUT, input.getSpecification()));;
+		internalRunOnCounterpart(new ChainedNode(Protocol.NOTE_INPUT, input.getSpecification()));;
 	}
 	
 	//method
@@ -88,7 +88,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Node internal_getData(final ChainedNode request) {
+	protected Node internalGetData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -108,7 +108,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			default:
 				
 				//Calls method of the base class.
-				return super.internal_getData(request);
+				return super.internalGetData(request);
 		}
 	}
 	
@@ -117,7 +117,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void internal_run(final ChainedNode command) {
+	protected final void internalRun(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
@@ -133,7 +133,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			default:
 				
 				//Calls method of the base class.
-				super.internal_run(command);
+				super.internalRun(command);
 		}
 	}
 	

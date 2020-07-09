@@ -367,12 +367,12 @@ public class Entity implements IElement, OptionalIdentified {
 			//Enumerates the kind of the current property.
 			switch (property.getPropertyKind()) {
 				case VALUE:
-					property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFrom(v));					
+					property.internalSetValue(valueCreator.ofType(property.getValueClass()).createFrom(v));					
 					break;
 				case OPTIONAL_VALUE:
 					
 					if (v.containsAttributes()) {
-						property.internal_setValue(valueCreator.ofType(property.getValueClass()).createFrom(v));
+						property.internalSetValue(valueCreator.ofType(property.getValueClass()).createFrom(v));
 					}
 					
 					break;
@@ -380,24 +380,24 @@ public class Entity implements IElement, OptionalIdentified {
 					
 					final var valueClass = property.getValueClass();
 					
-					property.internal_setValues(
+					property.internalSetValues(
 						v.getRefAttributes().to(a -> valueCreator.ofType(valueClass).createFrom(a))						
 					);
 					
 					break;
 				case REFERENCE:		
-					property.internal_setValue(v.toInt());
+					property.internalSetValue(v.toInt());
 					break;
 				case OPTIONAL_REFERENCE:
 					
 					if (v.containsAttributes()) {
-						property.internal_setValue(v.toInt());
+						property.internalSetValue(v.toInt());
 					}
 					
 					break;
 				case MULTI_REFERENCE:
 					
-					property.internal_setValues(
+					property.internalSetValues(
 						v.getRefAttributes().to(
 							a -> a.toInt()
 						)
@@ -429,7 +429,7 @@ public class Entity implements IElement, OptionalIdentified {
 				@SuppressWarnings("unchecked")
 				final var property = (Property<Entity>)(field.get(this));
 				
-				property.internal_setParentEntity(this);
+				property.internalSetParentEntity(this);
 				properties.addAtEnd(property);
 			}
 			catch (final IllegalArgumentException | IllegalAccessException exception) {

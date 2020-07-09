@@ -22,6 +22,6 @@ public final class BackGUIClient extends BaseBackGUIClient<BackGUIClient> {
 	 * @throws ArgumentIsNullException if the given duplex controller is null.
 	 */
 	public BackGUIClient(final EndPoint endPoint) {
-		internal_setEndPoint(endPoint);
+		internalSetEndPoint(endPoint);
 	}
 }

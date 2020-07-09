@@ -24,7 +24,7 @@ extends BaseNeuron<SourceNeuron<O>, Object, O> {
 	 * @param output
 	 */
 	public SourceNeuron(final O output) {
-		internal_setOutput(output);
+		internalSetOutput(output);
 	}
 	
 	//method

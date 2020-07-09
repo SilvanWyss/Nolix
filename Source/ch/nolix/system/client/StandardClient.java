@@ -24,7 +24,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final Application<StandardClient> targetApplication) {
 
 		//Calls constructor of the base class.
-		internal_connectTo(targetApplication);
+		internalConnectTo(targetApplication);
 	}
 	
 	//constructor
@@ -36,7 +36,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param port
 	 */
 	public StandardClient(String ip, int port) {
-		internal_connectTo(ip, port);
+		internalConnectTo(ip, port);
 	}
 	
 	//constructor
@@ -51,7 +51,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @throws ArgumentIsNullException if the given initialSession is null.
 	 */
 	public StandardClient(final String ip, final int port, final Session<StandardClient> initialSession) {
-		internal_connectTo(ip, port);
+		internalConnectTo(ip, port);
 		push(initialSession);
 	}
 	
@@ -72,7 +72,7 @@ public final class StandardClient extends Client<StandardClient> {
 	) {
 		
 		//Calls constructor of the base class.
-		internal_connectTo(ip, port, targetApplication);
+		internalConnectTo(ip, port, targetApplication);
 	}
 	
 	//constructor
@@ -85,7 +85,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final EndPoint endPoint) {
 		
 		//Calls constructor of the base class.
-		internal_setEndPoint(endPoint);
+		internalSetEndPoint(endPoint);
 	}
 	
 	//method
@@ -93,7 +93,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @return the current {@link Session} of the current {@link StandardClient}.
 	 */
 	public StandardClientSession getRefCurrentSession() {
-		return (StandardClientSession)internal_getRefCurrentSession();
+		return (StandardClientSession)internalGetRefCurrentSession();
 	}
 	
 	//method

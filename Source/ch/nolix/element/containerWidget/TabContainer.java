@@ -566,7 +566,7 @@ implements Clearable<TabContainer> {
 	}
 	
 	//method
-	void internal_addChildWidget(final Widget<?, ?> childWidget) {
+	void internalAddChildWidget(final Widget<?, ?> childWidget) {
 		
 		//Calls other method.
 		addChildWidget(childWidget);

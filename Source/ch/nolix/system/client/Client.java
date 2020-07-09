@@ -125,12 +125,12 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @return the name of the {@link Application} the current {@link Client} belongs to.
 	 */
 	public final String getApplicationName() {
-		return internal_getParentApplication().getName();
+		return internalGetParentApplication().getName();
 	}
 	
 	//method
 	public final int getCurrentSessionIndex() {
-		return sessions.getIndexOf(internal_getRefCurrentSession());
+		return sessions.getIndexOf(internalGetRefCurrentSession());
 	}
 	
 	//method
@@ -152,7 +152,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * does not have a context.
 	 */
 	public final <CO> CO getRefApplicationContext() {
-		return internal_getParentApplication().getRefContext();
+		return internalGetParentApplication().getRefContext();
 	}
 	
 	//method
@@ -164,7 +164,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * does not have a context.
 	 */
 	public final <CO> CO getRefApplicationContextAs(final Class<CO> type) {
-		return internal_getParentApplication().getRefContextAs(type);
+		return internalGetParentApplication().getRefContextAs(type);
 	}
 	
 	//method
@@ -279,9 +279,9 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 			close();
 		}
 		else {
-			internal_getRefCurrentSession().internalCleanForInitialization();
-			internal_getRefCurrentSession().initialize();
-			internal_getRefCurrentSession().updateCounterpart();
+			internalGetRefCurrentSession().internalCleanForInitialization();
+			internalGetRefCurrentSession().initialize();
+			internalGetRefCurrentSession().updateCounterpart();
 		}
 	}
 	
@@ -297,7 +297,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	final void popCurrentSession(final Object result) {
 		
-		internal_getRefCurrentSession().setResult(result);
+		internalGetRefCurrentSession().setResult(result);
 		popCurrentSessionFromStack();
 		
 		if (!this.containsCurrentSession()) {
@@ -375,10 +375,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(final Application<?> application) {
+	protected final void internalConnectTo(final Application<?> application) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new LocalEndPoint());
+		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the given application.
 		application.takeEndPoint(
@@ -395,10 +395,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(final int port) {
+	protected final void internalConnectTo(final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new NetEndPoint(port));
+		internalSetEndPoint(new NetEndPoint(port));
 	}
 	
 	//method
@@ -413,10 +413,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(final int port, final String name) {
+	protected final void internalConnectTo(final int port, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new NetEndPoint(port, name));
+		internalSetEndPoint(new NetEndPoint(port, name));
 	}
 	
 	//method
@@ -427,10 +427,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param server
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(final Server server) {
+	protected final void internalConnectTo(final Server server) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new LocalEndPoint());
+		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
 		server.getRefMainApplication().takeEndPoint(
@@ -447,10 +447,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param name
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(final Server server, final String name) {
+	protected final void internalConnectTo(final Server server, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new LocalEndPoint());
+		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
 		server.getRefApplicationByName(name).takeEndPoint(
@@ -468,10 +468,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(final String ip, final int port) {
+	protected final void internalConnectTo(final String ip, final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new NetEndPoint(ip, port));
+		internalSetEndPoint(new NetEndPoint(ip, port));
 	}
 	
 	//method
@@ -487,10 +487,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internal_connectTo(String ip, int port, String name) {
+	protected final void internalConnectTo(String ip, int port, String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setEndPoint(new NetEndPoint(ip, port, name));
+		internalSetEndPoint(new NetEndPoint(ip, port, name));
 	}
 	
 	//method
@@ -498,12 +498,12 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @return the data the given request requests from the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Node internal_getData(final ChainedNode request) {
+	protected Node internalGetData(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.SESSION_HEADER:
-				return internal_getRefCurrentSession().internal_invokeSessionUserDataMethod(request.getOneAttributeAsNode());
+				return internalGetRefCurrentSession().internalInvokeSessionUserDataMethod(request.getOneAttributeAsNode());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
 		}
@@ -515,7 +515,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * requests from the counterpart of the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Node internal_getDataFromCounterpart(final ChainedNode request) {
+	protected Node internalGetDataFromCounterpart(final ChainedNode request) {
 		return endPoint.getData(request);
 	}
 	
@@ -525,7 +525,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws InvalidArgumentException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
 	 */
-	protected final Application<C> internal_getParentApplication() {
+	protected final Application<C> internalGetParentApplication() {
 		
 		//Asserts that the current client references the application it belongs to.
 		supposeReferencesParentApplication();
@@ -538,7 +538,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @return the current session of the current {@link Client}.
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final Session<C> internal_getRefCurrentSession() {
+	protected final Session<C> internalGetRefCurrentSession() {
 		
 		Sequencer.waitUntil(() -> containsCurrentSession());
 		
@@ -552,7 +552,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	/**
 	 * @return true if the current {@link Client} has requested the connection.
 	 */
-	protected final boolean internal_hasRequestedConnection() {
+	protected final boolean internalHasRequestedConnection() {
 		return endPoint.hasRequestedConnection();
 	}
 	
@@ -560,7 +560,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	/**
 	 * @return true if the current {@link Client} is connected.
 	 */
-	protected final boolean internal_isConnected() {
+	protected final boolean internalIsConnected() {
 		return (endPoint != null);
 	}
 	
@@ -571,12 +571,12 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
-	protected void internal_run(final ChainedNode command) {
+	protected void internalRun(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.SESSION_HEADER:
-				internal_getRefCurrentSession().run(command.getNextNode());
+				internalGetRefCurrentSession().run(command.getNextNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
@@ -589,9 +589,9 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * 
 	 * @param command
 	 */
-	protected final void internal_runOnCounterpart(final ChainedNode command) {
+	protected final void internalRunOnCounterpart(final ChainedNode command) {
 		
-		if (!internal_isConnected()) {
+		if (!internalIsConnected()) {
 			throw new InvalidArgumentException(this, "is not connected");
 		}
 		
@@ -604,7 +604,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * 
 	 * @param commands
 	 */
-	protected final void internal_runOnCounterpart(final ChainedNode... commands) {
+	protected final void internalRunOnCounterpart(final ChainedNode... commands) {
 		endPoint.appendCommand(commands);
 		endPoint.runAppendedCommands();
 	}
@@ -616,7 +616,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @throws ArgumentIsNullException if the given duplex controller is null.
 	 * @throws InvalidArgumentException if the current {@link Client} is connected.
 	 */
-	protected final void internal_setEndPoint(final EndPoint endPoint) {
+	protected final void internalSetEndPoint(final EndPoint endPoint) {
 		
 		//Asserts that the given duplex controller is not null.
 		Validator.assertThat(endPoint).isOfType(EndPoint.class);
@@ -641,10 +641,10 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 * @param preCloseAction
 	 * @throws ArgumentIsNullException if the given preCloseAction is null.
 	 */
-	protected final void internal_setPreCloseAction(final IAction preCloseAction) {
+	protected final void internalSetPreCloseAction(final IAction preCloseAction) {
 		
 		//Handles the case that the current Client is not connected.
-		if (!internal_isConnected()) {
+		if (!internalIsConnected()) {
 			setPreCloseActionWhenNotConnected(preCloseAction);
 		}
 		
@@ -658,8 +658,8 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	/**
 	 * Waits until the current {@link Client} is connected.
 	 */
-	protected final void internal_waitUntilIsConnected() {
-		Sequencer.waitUntil(() -> this.internal_isConnected());
+	protected final void internalWaitUntilIsConnected() {
+		Sequencer.waitUntil(() -> this.internalIsConnected());
 	}
 	
 	//method
@@ -708,7 +708,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	private void popCurrentSessionFromStack() {
 				
 		//Asserts that the current Session of the current Client is the top Session of the current Client.
-		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
+		if (internalGetRefCurrentSession() != sessions.getRefLast()) {
 			throw new InvalidArgumentException(this, "cannot pop a Session that is not the top session.");
 		}
 		
@@ -764,7 +764,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	private void supposeIsNotConnected() {
 		
 		//Asserts that the current client is not connected.
-		if (internal_isConnected()) {
+		if (internalIsConnected()) {
 			throw new InvalidArgumentException(this, "is connected");
 		}
 	}

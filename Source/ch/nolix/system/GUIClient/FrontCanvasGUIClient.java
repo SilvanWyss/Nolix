@@ -30,7 +30,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
-		internal_connectTo(application);
+		internalConnectTo(application);
 				
 		noteResizeOnCounterpart();
 	}
@@ -48,7 +48,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
-		internal_connectTo(port);
+		internalConnectTo(port);
 				
 		noteResizeOnCounterpart();
 	}
@@ -69,7 +69,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
-		internal_connectTo(port, application);
+		internalConnectTo(port, application);
 		
 		noteResizeOnCounterpart();
 	}
@@ -88,7 +88,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
-		internal_connectTo(ip, port);
+		internalConnectTo(ip, port);
 				
 		noteResizeOnCounterpart();
 	}
@@ -110,7 +110,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
-		internal_connectTo(ip, port, application);
+		internalConnectTo(ip, port, application);
 		
 		noteResizeOnCounterpart();
 	}

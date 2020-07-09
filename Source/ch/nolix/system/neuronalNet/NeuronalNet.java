@@ -129,6 +129,6 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
 		inputFanoutNeuron.fireTransitively();
-		internal_setOutput(outputBundleNeuron.getRefOutput());
+		internalSetOutput(outputBundleNeuron.getRefOutput());
 	}
 }

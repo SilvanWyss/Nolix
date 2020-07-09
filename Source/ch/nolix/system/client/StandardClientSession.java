@@ -6,7 +6,7 @@ public abstract class StandardClientSession extends Session<StandardClient> {
 	
 	//method
 	public void run(final String name, final String... arguments) {
-		internal_invokeSessionUserRunMethod(name, arguments);
+		internalInvokeSessionUserRunMethod(name, arguments);
 	}
 	
 	//method

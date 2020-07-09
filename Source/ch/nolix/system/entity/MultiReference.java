@@ -18,7 +18,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 		
 		addValue(entity.getId());
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 		
 		return this;
 	}
@@ -72,28 +72,28 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	
 	//method
 	@Override
-	protected void internal_clear() {
+	protected void internalClear() {
 		
 		referencedEntityIds.clear();
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 
 	//method
 	@Override
-	protected LinkedList<Object> internal_getValues() {
+	protected LinkedList<Object> internalGetValues() {
 		return new LinkedList<>(referencedEntityIds);
 	}
 	
 	//method
 	@Override
-	protected void internal_setValue(final Object value) {
+	protected void internalSetValue(final Object value) {
 		addValue((int)value);
 	}
 
 	//method
 	@Override
-	protected void internal_setValues(IContainer<Object> values) {
+	protected void internalSetValues(IContainer<Object> values) {
 		values.forEach(v -> addValue((int)v));
 	}
 	

@@ -26,7 +26,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 		
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
-		internal_connectTo(application);
+		internalConnectTo(application);
 	}
 	
 	//constructor
@@ -40,7 +40,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 		
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
-		internal_connectTo(port);
+		internalConnectTo(port);
 	}
 	
 	//constructor
@@ -56,7 +56,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 		
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
-		internal_connectTo(server, application);
+		internalConnectTo(server, application);
 	}
 	
 	//constructor
@@ -74,6 +74,6 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 		
 		super(BaseFrontGUIClientGUIType.LayerGUI);
 		
-		internal_connectTo(ip, port, application);
+		internalConnectTo(ip, port, application);
 	}
 }

@@ -43,6 +43,6 @@ extends BaseNeuron<BundleNeuron<O>, O, Iterable<O>> {
 	 */
 	@Override
 	public void fire() {
-		internal_setOutput(getRefInputs());
+		internalSetOutput(getRefInputs());
 	}
 }

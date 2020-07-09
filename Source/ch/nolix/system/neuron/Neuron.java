@@ -179,7 +179,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	 */
 	@Override
 	public void fire() {
-		internal_setOutput(getOutputFunction().getOutput(this));
+		internalSetOutput(getOutputFunction().getOutput(this));
 	}
 	
 	//method

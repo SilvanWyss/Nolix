@@ -191,7 +191,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the current {@link BaseBackGUIClient}.
 	 */
 	public void runLocally(final String command) {
-		internal_invokeSessionUserRunMethod(Node.fromString(command));
+		internalInvokeSessionUserRunMethod(Node.fromString(command));
 		updateCounterpart();
 	}
 	
@@ -226,7 +226,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the data the invoked user data method returns.
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final Node internal_invokeSessionUserDataMethod(
+	protected final Node internalInvokeSessionUserDataMethod(
 			final BaseNode sessionUserDataMethodRequest
 	) {
 		//Extracts the name of the session user data method.
@@ -250,7 +250,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the data the invoked user data method returns.
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final Node internal_invokeSessionUserDataMethod(
+	protected final Node internalInvokeSessionUserDataMethod(
 		final String name,
 		final String... arguments
 	) {
@@ -267,7 +267,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @param arguments
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final void internal_invokeSessionUserRunMethod(
+	protected final void internalInvokeSessionUserRunMethod(
 		final String name,
 		final String... arguments
 	) {
@@ -283,7 +283,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @param arguments
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
-	protected final void internal_invokeSessionUserRunMethod(final BaseNode sessionUserRunMethodRequest) {
+	protected final void internalInvokeSessionUserRunMethod(final BaseNode sessionUserRunMethodRequest) {
 		
 		//Extracts the name of the session user run method.
 		final String sessionUserRunMethodName = sessionUserRunMethodRequest.getHeader();
@@ -292,7 +292,7 @@ public abstract class Session<C extends Client<C>> {
 		final var arguments = sessionUserRunMethodRequest.getRefAttributes().toStringArray();
 		
 		//Extracts the session user run method.
-		internal_invokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
+		internalInvokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
 	}
 	
 	//method declaration
@@ -306,7 +306,7 @@ public abstract class Session<C extends Client<C>> {
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.DATA_METHOD_HEADER:
-				return internal_invokeSessionUserDataMethod(request.getOneAttributeAsNode());
+				return internalInvokeSessionUserDataMethod(request.getOneAttributeAsNode());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
 		}
@@ -376,7 +376,7 @@ public abstract class Session<C extends Client<C>> {
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case Protocol.RUN_METHOD_HEADER:
-				internal_invokeSessionUserRunMethod(command.getOneAttributeAsNode());
+				internalInvokeSessionUserRunMethod(command.getOneAttributeAsNode());
 				break;
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");

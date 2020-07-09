@@ -75,7 +75,7 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 		
 		this.value = value;
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 	
 	//method
@@ -90,18 +90,18 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	
 	//method
 	@Override
-	protected final void internal_clear() {
+	protected final void internalClear() {
 		
 		supposeIsOptional();
 		
 		value = null;
 		
-		internal_noteUpdate();
+		internalNoteUpdate();
 	}
 	
 	//method
 	@Override
-	protected final LinkedList<Object> internal_getValues() {
+	protected final LinkedList<Object> internalGetValues() {
 		
 		final var values = new LinkedList<Object>();
 		
@@ -115,14 +115,14 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected final void internal_setValue(final Object value) {
+	protected final void internalSetValue(final Object value) {
 		setValue((V)value);
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	protected final void internal_setValues(final IContainer<Object> values) {
+	protected final void internalSetValues(final IContainer<Object> values) {
 		setValue((V)(new ReadContainer<>(values).getRefOne()));
 	}
 	

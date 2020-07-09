@@ -104,26 +104,26 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	
 	//method
 	@Override
-	protected final void internal_clear() {
+	protected final void internalClear() {
 		backReferenceCount = 0;
 	}
 	
 	//method
 	@Override
-	protected final LinkedList<Object> internal_getValues() {
+	protected final LinkedList<Object> internalGetValues() {
 		return new LinkedList<>(getBackReferenceCount());
 	}
 	
 	//method
 	@Override
-	protected void internal_setValue(final Object value) {
+	protected void internalSetValue(final Object value) {
 		backReferenceCount = (int)value;
 	}
 
 	//method
 	@Override
-	protected void internal_setValues(IContainer<Object> values) {
-		internal_setValue(values.getRefOne());
+	protected void internalSetValues(IContainer<Object> values) {
+		internalSetValue(values.getRefOne());
 	}
 	
 	//method

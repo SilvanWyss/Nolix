@@ -135,7 +135,7 @@ implements Closeable {
 	 * @param output
 	 */
 	void setOutput(final Node output) {
-		internal_setOutput(transformator.getOutput(output));
+		internalSetOutput(transformator.getOutput(output));
 	}
 	
 	//method
@@ -145,7 +145,7 @@ implements Closeable {
 	 * @param output
 	 */
 	void setOutput(final String output) {
-		internal_setOutput(
+		internalSetOutput(
 			transformator.getOutput(Node.fromString(output))
 		);
 	}

@@ -28,7 +28,7 @@ public abstract class BaseValueProperty<V> extends Property<V> {
 	//method
 	@Override
 	public final String toString() {
-		return internal_getValues().toString();
+		return internalGetValues().toString();
 	}
 	
 	//method
