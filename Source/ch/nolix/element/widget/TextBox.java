@@ -23,8 +23,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	public static final String TYPE_NAME = "TextBox";
 	public static final int MIN_WIDTH = 10;
 	
-	//constants
-	private static final int MIN_CONTENT_AREA_WIDTH = 200;
+	//constant
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
 	
 	//attribute
@@ -184,11 +183,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	@Override
 	protected final int getContentAreaWidth() {
-		return
-		Calculator.getMin(
-			MIN_CONTENT_AREA_WIDTH,
-			getTextFormat().getSwingTextWidth(getText())
-		);
+		return getTextFormat().getSwingTextWidth(getShownText());
 	}
 	
 	//method
@@ -197,42 +192,38 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	@Override
 	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {
+		
+		//Enumerates the given key.
+		switch (key) {
+			case ARROW_LEFT:
 				
-		//Handles the case that the current TextBox is focused.
-		if (isFocused()) {
-			
-			//Enumerates the given key.
-			switch (key) {
-				case ARROW_LEFT:
-					
-					if (getTextCursorPosition() > 0) {
-						setTextCursorPosition(getTextCursorPosition() - 1);
+				if (getTextCursorPosition() > 0) {
+					setTextCursorPosition(getTextCursorPosition() - 1);
+				}
+				
+				break;
+			case ARROW_RIGHT:
+				
+				if (getTextCursorPosition() < getText().length()) {
+					setTextCursorPosition(getTextCursorPosition() + 1);
+				}
+				
+				break;
+			case BACKSPACE:				
+				deleteCharacterBeforeTextCursor();
+				break;
+			case DELETE:				
+				deleteCharacterAfterTextCursor();
+				break;
+			default:
+				if (key.isCharacter()) {
+					if (getParentGUI().isPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
+						insertCharacterAfterCursor(key.toUpperCaseChar());	
 					}
-					
-					break;
-				case ARROW_RIGHT:
-					
-					if (getTextCursorPosition() < getText().length()) {
-						setTextCursorPosition(getTextCursorPosition() + 1);
+					else {
+						insertCharacterAfterCursor(key.toLowerCaseChar());
 					}
-					
-					break;
-				case BACKSPACE:				
-					deleteCharacterBeforeTextCursor();
-					break;
-				case DELETE:				
-					deleteCharacterAfterTextCursor();
-					break;
-				default:
-					if (key.isCharacter()) {
-						if (getParentGUI().isPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
-							insertCharacterAfterCursor(key.toUpperCaseChar());	
-						}
-						else {
-							insertCharacterAfterCursor(key.toLowerCaseChar());
-						}
-					}
-			}
+				}
 		}
 	}
 	

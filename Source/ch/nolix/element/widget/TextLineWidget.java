@@ -42,7 +42,14 @@ extends BorderWidget<TLW, TLWL> {
 	 * @return the shown text of the current {@link TextLineWidget}.
 	 */
 	public final String getShownText() {
-		return getTextFormat().getFirstPart(getText(), getContentAreaWidth(), true);
+		return getText();
+		
+		//TODO
+		/*
+		if (shortensShownTextWhenHasLimitedWidth()) {
+			return getTextFormat().getFirstPart(getText(), getContentAreaWidth(), true);
+		}
+		*/
 	}
 	
 	//method
@@ -100,15 +107,6 @@ extends BorderWidget<TLW, TLWL> {
 		return asConcrete();
 	}
 	
-	//method
-	/**
-	 * @return true if the current {@link TextLineWidget} scrolls its shown text
-	 * when the current {@link TextLineWidget} has a limiting proposal width or max width.
-	 */
-	public final boolean scrollsShownTextWhenHasLimitedWidth() {
-		return !shortensShownTextWhenHasLimitedWidth();
-	}
-	
 	//method declaration
 	/**
 	 * @return true if the current {@link TextLineWidget} shortens its shown text
@@ -146,11 +144,11 @@ extends BorderWidget<TLW, TLWL> {
 	@Override
 	protected int getContentAreaWidth() {
 		
-		//Extracts the look of the current TextLineWidget.
-		final var look = getRefLook();
-		
-		//Handles the case that the current TextLineWidget shortens its text when it has a limited width.
+		//TODO: Handle the case that the current TextLineWidget shortens its text when it has a limited width.
+		/*
 		if (shortensShownTextWhenHasLimitedWidth()) {
+			
+			final var look = getRefLook();
 			
 			if (hasMaxWidth()) {
 				return
@@ -170,9 +168,10 @@ extends BorderWidget<TLW, TLWL> {
 				- look.getRecursiveOrDefaultRightBorderThickness();
 			}
 		}
+		*/
 		
 		//Handles the case that the current TextLineWidget does not shorten its text when it has a limited width.
-		return getTextFormat().getSwingTextWidth(getText());
+		return getTextFormat().getSwingTextWidth(getShownText());
 	}
 	
 	//method
