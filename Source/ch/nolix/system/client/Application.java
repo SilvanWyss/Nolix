@@ -21,7 +21,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 390
+ * @lines 380
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Named {
@@ -265,6 +265,11 @@ public class Application<C extends Client<C>> implements Named {
 		}
 		
 		return (CO)context;
+	}
+	
+	//method
+	public final boolean hasClientConnected() {
+		return clients.containsAny();
 	}
 	
 	//method
