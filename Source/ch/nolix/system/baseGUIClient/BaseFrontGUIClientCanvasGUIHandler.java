@@ -48,11 +48,11 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	@Override
 	public void runGUICommand(ChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
-			case Protocol.SET_TITLE_HEADER:
+			case CommandProtocol.SET_TITLE:
 				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
 				mGUI.refresh();
 				break;
-			case Protocol.SET_PAINT_COMMANDS_HEADER:
+			case CommandProtocol.SET_PAINT_COMMANDS:
 				setPaintCommands(pGUICommand.getAttributes());
 				mGUI.refresh();
 				break;

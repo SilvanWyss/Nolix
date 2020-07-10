@@ -50,7 +50,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 			
-		internalRunOnCounterpart(new ChainedNode(Protocol.SHOW_ERROR_MESSAGE_HEADER, new Node(errorMessage)));
+		internalRunOnCounterpart(new ChainedNode(CommandProtocol.SHOW_ERROR_MESSAGE, new Node(errorMessage)));
 		
 		return asConcrete();
 	}
@@ -67,10 +67,10 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case Protocol.GUI_HEADER:
+			case ObjectProtocol.GUI:
 				runGUICommand(command.getNextNode());
 				break;
-			case Protocol.NOTE_INPUT:
+			case CommandProtocol.NOTE_INPUT:
 				
 				getRefGUI().noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));
 				
@@ -89,7 +89,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	//method
 	SingleContainer<byte[]> getFileFromCounterpart() {
 		
-		final var data = internalGetDataFromCounterpart(new ChainedNode(Protocol.GET_FILE_HEADER));
+		final var data = internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_FILE));
 		
 		if (!data.containsOneAttribute()) {
 			return new SingleContainer<>();
@@ -100,13 +100,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	String getTextFromClipboardFromCounterpart() {
-		return internalGetDataFromCounterpart(new ChainedNode(Protocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
+		return internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
 	}
 	
 	//method
 	void saveFileOnCounterpart(final byte[] content) {
 		internalRunOnCounterpart(
-			new ChainedNode(Protocol.SAVE_FILE_HEADER, new Node(new String(content, StandardCharsets.UTF_8)))
+			new ChainedNode(CommandProtocol.SAVE_FILE, new Node(new String(content, StandardCharsets.UTF_8)))
 		);
 	}
 	
@@ -154,7 +154,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		if (!knowsCounterpartGUIType()) {
 			counterpartGUIType
 			= BaseFrontGUIClientGUIType.valueOf(
-				internalGetDataFromCounterpart(new ChainedNode(Protocol.GUI_TYPE_HEADER)).getHeader()
+				internalGetDataFromCounterpart(new ChainedNode(ObjectProtocol.GUI_TYPE)).getHeader()
 			);
 		}
 	}
@@ -199,13 +199,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
 		internalRunOnCounterpart(
-			new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), new ChainedNode(Protocol.RESET_HEADER, attributes))
+			new ChainedNode(ObjectProtocol.GUI, new LinkedList<>(), new ChainedNode(CommandProtocol.RESET, attributes))
 		);
 	}
 	
 	//method
 	private void runGUICommandOnCounterpart(final ChainedNode pGUICommandOnCounterpart) {
-		internalRunOnCounterpart(new ChainedNode(Protocol.GUI_HEADER, new LinkedList<>(), pGUICommandOnCounterpart));
+		internalRunOnCounterpart(new ChainedNode(ObjectProtocol.GUI, new LinkedList<>(), pGUICommandOnCounterpart));
 	}
 	
 	//method
@@ -219,10 +219,10 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		//Enumerates the header of the given GUICommand.
 		switch (lGUICommand.getHeader()) {
-			case Protocol.RESET_HEADER:
+			case CommandProtocol.RESET:
 				resetGUI(lGUICommand.getAttributesAsNodes());
 				break;
-			case Protocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER:
+			case CommandProtocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES:
 				addOrChangeGUIWidgetsAttributes(						
 					lGUICommand.getAttributes().to(ChainedNode::getAttributesAsNodes)
 				);
@@ -235,7 +235,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	//method
 	private void setGUITitleOnCounterpart(final String title) {
 		runGUICommandOnCounterpart(
-			new ChainedNode(Protocol.SET_TITLE_HEADER, new Node(title))
+			new ChainedNode(CommandProtocol.SET_TITLE, new Node(title))
 		);
 	}
 	
@@ -250,7 +250,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 			runGUICommandOnCounterpart(
 				
 				//TODO: Add a suitable construction mechanic to ChainedNode. 
-				ChainedNode.fromString(Protocol.SET_PAINT_COMMANDS_HEADER + "(" + paintCommands + ")")
+				ChainedNode.fromString(CommandProtocol.SET_PAINT_COMMANDS + "(" + paintCommands + ")")
 			);
 		}
 	}

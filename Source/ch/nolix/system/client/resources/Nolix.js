@@ -2792,20 +2792,27 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require",
     }
     exports.FrontCanvasGUIClientInputTaker = FrontCanvasGUIClientInputTaker;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClientProtocol", ["require", "exports"], function (require, exports) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class FrontCanvasGUIClientProtocol {
+    class FrontCanvasGUIClientCommandProtocol {
+        constructor() { }
     }
-    FrontCanvasGUIClientProtocol.GUI_HEADER = 'GUI';
-    FrontCanvasGUIClientProtocol.NOTE_INPUT_HEADER = 'NoteInput';
-    FrontCanvasGUIClientProtocol.NOTE_MOUSE_MOVE_HEADER = 'NoteMouseMove';
-    FrontCanvasGUIClientProtocol.NOTE_RESIZE_HEADER = "NoteResize";
-    FrontCanvasGUIClientProtocol.SET_PAINT_COMMANDS_HEADER = 'SetPaintCommands';
-    FrontCanvasGUIClientProtocol.SET_TITLE_HEADER = "SetTitle";
-    exports.FrontCanvasGUIClientProtocol = FrontCanvasGUIClientProtocol;
+    FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
+    FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS = 'SetPaintCommands';
+    FrontCanvasGUIClientCommandProtocol.SET_TITLE = "SetTitle";
+    exports.FrontCanvasGUIClientCommandProtocol = FrontCanvasGUIClientCommandProtocol;
 });
-define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "System/FrontCanvasGUIClient/FrontCanvasGUIClientProtocol"], function (require, exports, CanvasGUI_1, FrontCanvasGUIClientProtocol_1) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class FrontCanvasGUIClientObjectProtocol {
+        constructor() { }
+    }
+    FrontCanvasGUIClientObjectProtocol.GUI = 'GUI';
+    exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
+});
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol"], function (require, exports, CanvasGUI_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
@@ -2817,7 +2824,7 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
         }
         canRunCommandOfType(type) {
             switch (type) {
-                case FrontCanvasGUIClientProtocol_1.FrontCanvasGUIClientProtocol.GUI_HEADER:
+                case FrontCanvasGUIClientObjectProtocol_1.FrontCanvasGUIClientObjectProtocol.GUI:
                     return true;
                 default:
                     return false;
@@ -2832,11 +2839,11 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
         runGUICommand(pGUICommand) {
             console.log('The current GUIHandler runs the given pGUICommand: ' + pGUICommand);
             switch (pGUICommand.getHeader()) {
-                case FrontCanvasGUIClientProtocol_1.FrontCanvasGUIClientProtocol.SET_TITLE_HEADER:
+                case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:
                     this.mGUI.setTitle(pGUICommand.getOneAttributeAsString());
                     this.mGUI.refresh();
                     break;
-                case FrontCanvasGUIClientProtocol_1.FrontCanvasGUIClientProtocol.SET_PAINT_COMMANDS_HEADER:
+                case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS:
                     this.setPaintCommands(pGUICommand.getAttributes());
                     this.mGUI.refresh();
                     break;
@@ -2880,7 +2887,7 @@ define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"],
     }
     exports.ReceiverController = ReceiverController;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Common/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Common/EndPoint5/NetEndPoint5", "Common/Node/Node", "System/FrontCanvasGUIClient/ReceiverController", "Common/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, ReceiverController_1, SingleContainer_2) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Common/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Common/EndPoint5/NetEndPoint5", "Common/Node/Node", "System/FrontCanvasGUIClient/ReceiverController", "Common/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, ReceiverController_1, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClient {
@@ -2903,12 +2910,12 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             return FrontCanvasGUIClient.GUI_TYPE;
         }
         noteInputOnCounterpart(input) {
-            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientProtocol_2.FrontCanvasGUIClientProtocol.NOTE_INPUT_HEADER, input.getSpecification()));
+            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.NOTE_INPUT, input.getSpecification()));
         }
         getData(request) {
             console.log('FrontCanvasGUIClient has received the request: ' + request.toString());
             switch (request.getHeader()) {
-                case 'GUI_Type':
+                case 'GUIType':
                     return Node_8.Node.withHeader(this.getGUIType());
                 default:
                     throw new Error('The given request is not valid:' + request.toString());
@@ -2917,7 +2924,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
         run(command) {
             console.log('FrontCanvasGUIClient runs the command: ' + command.toString());
             switch (command.getHeader()) {
-                case FrontCanvasGUIClientProtocol_2.FrontCanvasGUIClientProtocol.GUI_HEADER:
+                case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
                     this.mGUIHandler.runGUICommand(command.getNextNode());
                     break;
                 default:

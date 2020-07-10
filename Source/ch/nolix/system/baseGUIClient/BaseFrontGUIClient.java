@@ -75,7 +75,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	
 	//method
 	public void noteInputOnCounterpart(final IInput<?> input) {
-		internalRunOnCounterpart(new ChainedNode(Protocol.NOTE_INPUT, input.getSpecification()));;
+		internalRunOnCounterpart(new ChainedNode(CommandProtocol.NOTE_INPUT, input.getSpecification()));;
 	}
 	
 	//method
@@ -92,11 +92,11 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case Protocol.GUI_TYPE_HEADER:
+			case ObjectProtocol.GUI_TYPE:
 				return new Node(getGUIType());
-			case Protocol.GET_TEXT_FROM_CLIPBOARD:
+			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
 				return new Node(getRefGUI().fromFrontEnd().getTextFromClipboard());
-			case Protocol.GET_FILE_HEADER:
+			case CommandProtocol.GET_FILE:
 				
 				final var data = readFileToBytes();
 				
@@ -121,13 +121,13 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case Protocol.GUI_HEADER:
+			case ObjectProtocol.GUI:
 				mGUIHandler.runGUICommand(command.getNextNode());
 				break;
-			case Protocol.SAVE_FILE_HEADER:
+			case CommandProtocol.SAVE_FILE:
 				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
 				break;
-			case Protocol.SHOW_ERROR_MESSAGE_HEADER:
+			case CommandProtocol.SHOW_ERROR_MESSAGE:
 				PopupWindowProvider.showErrorWindow(command.getOneAttributeAsString());
 				break;
 			default:
