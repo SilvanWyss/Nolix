@@ -19,7 +19,7 @@ import ch.nolix.element.textFormat.TextFormat;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 200
+ * @lines 240
  * @param <TLW> The type of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
@@ -42,9 +42,10 @@ extends BorderWidget<TLW, TLWL> {
 	 * @return the shown text of the current {@link TextLineWidget}.
 	 */
 	public final String getShownText() {
+		
 		return getText();
 		
-		//TODO
+		//TODO: Handle the case that the current TextLineWidget shortens its text when it has a limited width.
 		/*
 		if (shortensShownTextWhenHasLimitedWidth()) {
 			return getTextFormat().getFirstPart(getText(), getContentAreaWidth(), true);

@@ -162,7 +162,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//method declaration
 	private LinkedList<EntitySet> getEntitySetsFromDatabase() {
-		//TODO: Implement GeneralEntity.
+		//TODO: Create GeneralEntity.
 		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));
 	}
 	

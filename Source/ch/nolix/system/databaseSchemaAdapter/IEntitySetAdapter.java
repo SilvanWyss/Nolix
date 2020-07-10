@@ -13,7 +13,7 @@ public interface IEntitySetAdapter extends Named {
 	
 	//method
 	public default EntityType<?> createEntityType() {
-		//TODO: Implement.
+		//TODO: Implement method.
 		return null;
 	}
 }

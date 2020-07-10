@@ -24,7 +24,7 @@ public abstract class ColumnSQLHelper {
 	
 	//method
 	public final String getSQLDataType() {
-		//TODO: Implement column.getValueType().getSQLHelper(DatabaseEngine).getSQLDataType().
+		//TODO: column.getValueType().getSQLHelper(DatabaseEngine).getSQLDataType()
 		return null;
 	}
 }

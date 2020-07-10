@@ -253,7 +253,7 @@ public final class WebSocketFrame {
 				break;
 		}
 		
-		//TODO: Implement ArrayHelper.on(byte[]).fromIndex(int).write(byte).andGetNextIndex().
+		//TODO: ArrayHelper.on(byte[]).fromIndex(int).write(byte).andGetNextIndex()
 		if (firstNibble.getMaskBit()) {
 			for (final var b : maskingKey) {
 				bytes[i] = b;
@@ -261,7 +261,7 @@ public final class WebSocketFrame {
 			}
 		}
 		
-		//TODO: Implement ArrayHelper.on(byte[]).fromIndex(int).write(byte).
+		//TODO: ArrayHelper.on(byte[]).fromIndex(int).write(byte)
 		for (final var b : payload) {
 			bytes[i] = b;
 			i++;
