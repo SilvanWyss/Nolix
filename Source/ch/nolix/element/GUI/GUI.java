@@ -3,6 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.caching.CachingContainer;
+import ch.nolix.common.closeableElement.CloseController;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -78,11 +79,11 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attributes
+	private final CloseController closeController = new CloseController(this);
 	private final CachingContainer<Image> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
 	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
-	private boolean closed = false;
 	
 	//optional attribute
 	private final IVisualizer visualizer;
@@ -100,6 +101,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		Validator.assertThat(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
 		
 		this.visualizer = visualizer;
+		
+		setPreCloseAction(this::preClose);
 	}
 	
 	//constructor
@@ -110,21 +113,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @param visibility
 	 */
 	public GUI(final Visibility visibility) {
+		
 		visualizer = visibility == Visibility.VISIBLE ? new FrameVisualizer() : null;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void close() {
 		
-		closed = true;
-		
-		if (isVisible()) {
-			visualizer.noteClose();
-		}
+		setPreCloseAction(this::preClose);
 	}
 	
 	//method
@@ -140,6 +132,15 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @return the cursor icon of the current {@link GUI}.
 	 */
 	public abstract CursorIcon getCursorIcon();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
 	
 	//method
 	/**
@@ -197,15 +198,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final boolean hasRole(final String role) {
 		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean isClosed() {
-		return closed;
 	}
 	
 	//method
@@ -373,6 +365,13 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//method
 	protected void setViewAreaCursorPosition(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
 		viewAreaCursorPosition.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
+	}
+	
+	//method
+	private void preClose() {
+		if (isVisible()) {
+			visualizer.noteClose();
+		}
 	}
 	
 	//method
