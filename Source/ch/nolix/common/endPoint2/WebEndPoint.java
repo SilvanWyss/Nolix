@@ -74,7 +74,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 				sendPongFrameForPingFrame(controlFrame);
 				break;
 			case CONNECTION_CLOSE:
-				//TODO: Handle close frames.
+				close();
 				break;
 			default:
 				throw new InvalidArgumentException("control frame", controlFrame, "is not valid");
@@ -88,14 +88,16 @@ final class WebEndPoint extends BaseNetEndPoint {
 	
 	//method
 	private void runPreClose() {
+		
 		if (canWork()) {
-			try {
-				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
-				socket.close();
-			}
-			catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
-			}
+			sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+		}
+		
+		try {
+			socket.close();
+		}
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
 		}
 	}
 	
