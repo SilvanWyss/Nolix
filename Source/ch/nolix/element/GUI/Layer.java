@@ -498,18 +498,15 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
-		
-		if (hasMouseMoveAction()) {
-			mouseMoveAction.run(this);
-		}
-		
+				
 		if (rootWidget != null) {
-			rootWidget.recalculate(); //TODO
 			rootWidget.noteMouseMove(
 				cursorXPosition - rootWidget.getXPosition(),
 				cursorYPosition - rootWidget.getYPosition()
 			);
 		}
+		
+		runProbableMouseMoveAction();
 	}
 	
 	//method
@@ -725,9 +722,6 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 					
 					break;
 			}
-			
-			//TODO
-			//rootWidget.noteMouseMove(cursorXPosition - rootWidget.getCursorXPosition(), cursorYPosition - rootWidget.getCursorYPosition());
 		}
 	}
 	
@@ -968,5 +962,17 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer,
 		}
 		
 		this.parentGUI = parentGUI;
+	}
+	
+	//method
+	/**
+	 * Runs the mouse move action of the current {@link Layer} if the current {@link Layer} has a mouse move action.
+	 */
+	private void runProbableMouseMoveAction() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (mouseMoveAction != null) {
+			mouseMoveAction.run(this);
+		}
 	}
 }
