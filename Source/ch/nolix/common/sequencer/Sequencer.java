@@ -20,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 240
+ * @lines 250
  */
 public final class Sequencer {
 	
@@ -73,6 +73,16 @@ public final class Sequencer {
 	 */
 	public static AsSoonAsMediator asSoonAs(final IBooleanGetter condition) {
 		return new AsSoonAsMediator(condition);
+	}
+	
+	//static method
+	/**
+	 * @param condition
+	 * @return a new {@link AsSoonAsMediator} with the negation of the given condition.
+	 * @throws ArgumentIsNullException if the given condition is null.
+	 */
+	public static AsSoonAsMediator asSoonAsNoMore(final IBooleanGetter condition) {
+		return new AsSoonAsMediator(IBooleanGetter.createNegator(condition));
 	}
 	
 	//static method
