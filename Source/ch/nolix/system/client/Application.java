@@ -227,6 +227,9 @@ public class Application<C extends Client<C>> implements Named {
 	 * @return the {@link Client}s of the current {@link Application}.
 	 */
 	public final IContainer<C> getRefClients() {
+		
+		removeClosedClients();
+		
 		return clients;
 	}
 	
@@ -268,8 +271,11 @@ public class Application<C extends Client<C>> implements Named {
 	}
 	
 	//method
+	/**
+	 * @return true if the current {@link Application} has a {@link Client} connected.
+	 */
 	public final boolean hasClientConnected() {
-		return clients.containsAny();
+		return getRefClients().containsAny();
 	}
 	
 	//method
@@ -347,17 +353,6 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//method
 	/**
-	 * Removes the given client of the current {@link Application}.
-	 * 
-	 * @param client
-	 * @throws InvalidArgumentException if the current {@link Application} does not contain the given client.
-	 */
-	final void removeClient(final Client<C> client) {
-		clients.removeFirst(client);	
-	}
-	
-	//method
-	/**
 	 * @return the constructor of the {@link Client} class of the current {@link Application}.
 	 */
 	private Constructor<C> getClientConstructor() {		
@@ -383,5 +378,13 @@ public class Application<C extends Client<C>> implements Named {
 		final var constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
 		return constructor;
+	}
+	
+	//method
+	/**
+	 * Removes the closed {@link Clients} of the current {@link Application}.
+	 */
+	private void removeClosedClients() {
+		clients.removeAll(Client::isClosed);
 	}
 }

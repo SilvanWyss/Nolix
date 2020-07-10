@@ -10,7 +10,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	
 	//attribute
 	private final InvisibleLayerGUI mGUI = new InvisibleLayerGUI();
-	
+		
 	//method
 	protected final InvisibleLayerGUI getRefGUI() {
 		return mGUI;
@@ -18,6 +18,8 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	
 	//method
 	protected final void initialize() {
+		
+		getParentClient().createCloseDependencyTo(mGUI);
 		
 		mGUI
 		.setTitle(getApplicationName())

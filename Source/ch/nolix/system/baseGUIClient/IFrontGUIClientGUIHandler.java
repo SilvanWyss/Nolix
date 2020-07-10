@@ -15,8 +15,5 @@ abstract interface IFrontGUIClientGUIHandler {
 	public abstract GUI<?> getRefGUI();
 	
 	//method declaration
-	public abstract void noteClose();
-	
-	//method declaration
 	public abstract void runGUICommand(ChainedNode pGUICommand);
 }

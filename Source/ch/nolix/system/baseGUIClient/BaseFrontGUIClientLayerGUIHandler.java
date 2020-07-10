@@ -16,6 +16,7 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 	
 	//constructor
 	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+		
 		mGUI =
 		new Frame(
 			new BaseFrontGUIClientInputTaker(
@@ -24,6 +25,8 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 				this::getCursorYPositionOnViewArea
 			)
 		);
+		
+		parentFrontGuiClientoid.createCloseDependencyTo(mGUI);
 	}
 	
 	//method
@@ -38,12 +41,6 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 		return mGUI;
 	}
 	
-	//method
-	@Override
-	public void noteClose() {
-		mGUI.close();
-	}
-		
 	//method
 	@Override
 	public void runGUICommand(final ChainedNode pGUICommand) {

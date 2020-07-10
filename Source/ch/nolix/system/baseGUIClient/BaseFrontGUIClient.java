@@ -47,22 +47,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			default:
 				throw new InvalidArgumentException(pGUIType);
 		}
-		
-		//Sets the pre-close action of the current BaseFrontGUIClient.
-		internalSetPreCloseAction(this::preClose);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void close() {
-						
-		//Calls method of the base class.
-		super.close();
-		
-		preClose();
 	}
 	
 	//method
@@ -144,12 +128,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	private GUI<?> getRefGUI() {
 		return mGUIHandler.getRefGUI();
 	}
-	
-	//method
-	private void preClose() {
-		getRefGUI().close();
-	}
-	
+		
 	//method
 	private SingleContainer<byte[]> readFileToBytes() {
 		return getRefGUI().fromFrontEnd().readFileToBytes();

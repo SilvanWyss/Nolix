@@ -16,6 +16,7 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	
 	//constructor
 	public BaseFrontGUIClientCanvasGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+		
 		mGUI =
 		new CanvasFrame(
 			new BaseFrontGUIClientInputTaker(
@@ -24,12 +25,8 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 				this::getCursorYPositionOnViewArea
 			)
 		);
-	}
-	
-	//method
-	@Override
-	public void noteClose() {
-		mGUI.close();
+		
+		parentFrontGuiClientoid.createCloseDependencyTo(mGUI);
 	}
 	
 	//method

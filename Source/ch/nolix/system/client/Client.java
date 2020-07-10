@@ -3,12 +3,13 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.endPoint5.LocalEndPoint;
 import ch.nolix.common.endPoint5.NetEndPoint;
-import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.generalSkillAPI.TypeRequestable;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -18,7 +19,6 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalLabelable;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -27,17 +27,18 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 780
+ * @lines 730
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
-implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
+implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
 	protected static final String SESSION_USER_DATA_METHOD_HEADER = "SessionUserDataMethod";
 	
-	//attribute
+	//attributes
+	private final CloseController closeController = new CloseController(this);
 	private EndPoint endPoint;
 	
 	//optional attribute
@@ -51,7 +52,6 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	//optional attributes
 	private Session<C> currentSession;
 	private String infoString;
-	private IAction temporaryPreCloseAction;
 	
 	//multi-attribute
 	private final LinkedList<Session<C>> sessions = new LinkedList<>();
@@ -62,20 +62,6 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	public final boolean belongsToApplication() {
 		return (parentApplication != null);
-	}
-	
-	//method
-	/**
-	 * Closes the current {@link Client}.
-	 */
-	@Override
-	public void close() {
-		
-		endPoint.close();
-		
-		if (parentApplication != null) {
-			parentApplication.removeClient(this);
-		}
 	}
 	
 	//method
@@ -165,6 +151,15 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	 */
 	public final <CO> CO getRefApplicationContextAs(final Class<CO> type) {
 		return internalGetParentApplication().getRefContextAs(type);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -621,28 +616,7 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		//Sets the receiver controller of the duplex controller of the current client.
 		endPoint.setReceiverController(new ClientReceiverController(this));
 		
-		//Assigns the probable pre-close action of the current Client to the endPoint of the current Client.
-		assignProbablePreCloseActionToEndPoint();
-	}
-	
-	//method
-	/**
-	 * Sets the pre-close action of the current {@link Client}.
-	 * 
-	 * @param preCloseAction
-	 * @throws ArgumentIsNullException if the given preCloseAction is null.
-	 */
-	protected final void internalSetPreCloseAction(final IAction preCloseAction) {
-		
-		//Handles the case that the current Client is not connected.
-		if (!internalIsConnected()) {
-			setPreCloseActionWhenNotConnected(preCloseAction);
-		}
-		
-		//Handles the case that the current Client is connected.
-		else {
-			setPreCloseActionWhenConnected(preCloseAction);
-		}
+		createCloseDependencyTo(endPoint);
 	}
 	
 	//method
@@ -684,18 +658,6 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	}
 	
 	//method
-	/**
-	 * Assigns the pre-close action of the current {@link Client} to the endPoint of the current {@link Client}
-	 * if the current {@link Client} has a pre-close action.
-	 */
-	private void assignProbablePreCloseActionToEndPoint() {
-		if (temporaryPreCloseAction != null) {
-			endPoint.setPreCloseAction(temporaryPreCloseAction);
-			temporaryPreCloseAction = null;
-		}
-	}
-	
-	//method
 	private void popCurrentSessionFromStack() {
 				
 		//Asserts that the current Session of the current Client is the top Session of the current Client.
@@ -708,32 +670,6 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 		topSession.removeParentClient();
 		
 		currentSession = sessions.containsAny() ? sessions.getRefLast() : null;
-	}
-	
-	//method
-	/**
-	 * Sets the pre-close action of the current {@link Client} when the current {@link Client} is not connected.
-	 * 
-	 * @param preCloseAction
-	 * @throws ArgumentIsNullException if the given preCloseAction is null.
-	 */
-	private void setPreCloseActionWhenConnected(final IAction preCloseAction) {
-		endPoint.setPreCloseAction(preCloseAction);	
-	}
-	
-	//method
-	/**
-	 * Sets the pre-close action of the current {@link Client} when the current {@link Client} is connected.
-	 * 
-	 * @param preCloseAction
-	 * @throws ArgumentIsNullException if the given preCloseAction is null.
-	 */
-	private void setPreCloseActionWhenNotConnected(IAction preCloseAction) {
-		
-		//Asserts that the pre-close action is not null.
-		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();
-		
-		temporaryPreCloseAction = preCloseAction;
 	}
 	
 	//method

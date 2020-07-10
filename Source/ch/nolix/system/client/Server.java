@@ -157,6 +157,11 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	}
 	
 	//method
+	public final boolean hasClientConnected() {
+		return applications.contains(Application::hasClientConnected);
+	}
+	
+	//method
 	/**
 	 * @return true if the current {@link Server} does not contain a {@link Application}.
 	 */
