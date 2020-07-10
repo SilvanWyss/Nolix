@@ -194,15 +194,6 @@ implements Closeable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	
 	//method
 	/**
-	 * @return the type of the current {@link Client}.
-	 */
-	@Override
-	public final String getType() {
-		return getClass().getSimpleName();
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
