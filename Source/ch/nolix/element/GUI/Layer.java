@@ -6,7 +6,6 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -21,6 +20,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.baseGUI_API.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
@@ -40,10 +40,15 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 970
+ * @lines 1150
  */
 public final class Layer extends Element<Layer>
-implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStringIdRequestable, IResizableInputTaker {
+implements 
+Clearable<Layer>,
+IConfigurableElement<Layer>,
+IContainsElementByStringIdRequestable,
+IOccupiableCanvasInputActionManager<Layer>,
+IResizableInputTaker {
 	
 	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -117,8 +122,16 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	private Widget<?, ?> rootWidget;
 	
 	//optional attributes
-	private IElementTaker<Layer> leftMouseButtonPressAction;
 	private IElementTaker<Layer> mouseMoveAction;
+	private IElementTaker<Layer> leftMouseButtonClickAction;
+	private IElementTaker<Layer> leftMouseButtonPressAction;
+	private IElementTaker<Layer> leftMouseButtonReleaseAction;
+	private IElementTaker<Layer> rightMouseButtonClickAction;
+	private IElementTaker<Layer> rightMouseButtonPressAction;
+	private IElementTaker<Layer> rightMouseButtonReleaseAction;
+	private IElementTaker<Layer> mouseWheelClickAction;
+	private IElementTaker<Layer> mouseWheelPressAction;
+	private IElementTaker<Layer> mouseWheelReleaseAction;
 	
 	//constructor
 	/**
@@ -210,6 +223,17 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 		return attributes;
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean freeAreaIsUnderCursor() {
+		
+		//TODO: Check if the current Layer is under cursor.
+		return (rootWidget == null || !rootWidget.isUnderCursor());
+	}
+
 	//method
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
@@ -377,22 +401,6 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	
 	//method
 	/**
-	 * @return true if the current {@link Layer} has a left mouse button press command.
-	 */
-	public boolean hasLeftMouseButtonPressAction() {
-		return (leftMouseButtonPressAction != null);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Layer} has a mouse move action.
-	 */
-	public boolean hasMouseMoveAction() {
-		return (mouseMoveAction != null);
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -416,6 +424,17 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	@Override
 	public boolean isEmpty() {
 		return (rootWidget == null);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isUnderCursor() {
+		
+		//TODO: Check if current Layer is under cursor.
+		return true;
 	}
 	
 	//method
@@ -457,8 +476,13 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteLeftMouseButtonClick() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonClick();
+		}
+		
+		if (leftMouseButtonClickAction != null) {
+			leftMouseButtonClickAction.run(this);
 		}
 	}
 	
@@ -469,12 +493,12 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	@Override
 	public void noteLeftMouseButtonPress() {
 		
-		if (hasLeftMouseButtonPressAction() && (rootWidget == null || !rootWidget.isUnderCursor())) {
-			leftMouseButtonPressAction.run(this);
-		}
-		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonPress();
+		}
+		
+		if (rightMouseButtonPressAction != null) {
+			rightMouseButtonClickAction.run(this);
 		}
 	}
 	
@@ -484,9 +508,14 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteLeftMouseButtonRelease() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonRelease();
-		}		
+		}
+		
+		if (leftMouseButtonReleaseAction != null) {
+			leftMouseButtonReleaseAction.run(this);
+		}
 	}
 	
 	//method
@@ -506,7 +535,9 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 			);
 		}
 		
-		runProbableMouseMoveAction();
+		if (mouseMoveAction != null) {
+			mouseMoveAction.run(this);
+		}
 	}
 	
 	//method
@@ -515,9 +546,14 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteMouseWheelClick() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelClick();
-		}		
+		}
+		
+		if (mouseWheelClickAction != null) {
+			mouseWheelClickAction.run(this);
+		}
 	}
 	
 	//method
@@ -526,8 +562,13 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteMouseWheelPress() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelPress();
+		}
+		
+		if (mouseWheelPressAction != null) {
+			mouseMoveAction.run(this);
 		}
 	}
 	
@@ -537,8 +578,13 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteMouseWheelRelease() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelRelease();
+		}
+		
+		if (mouseWheelReleaseAction != null) {
+			mouseWheelReleaseAction.run(this);
 		}
 	}
 	
@@ -566,8 +612,13 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteRightMouseButtonClick() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteRightMouseButtonClick();
+		}
+		
+		if (rightMouseButtonClickAction != null) {
+			rightMouseButtonClickAction.run(this);
 		}
 	}
 	
@@ -577,8 +628,13 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteRightMouseButtonPress() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteRightMouseButtonPress();
+		}
+		
+		if (rightMouseButtonPressAction != null) {
+			rightMouseButtonPressAction.run(this);
 		}
 	}
 	
@@ -588,8 +644,13 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {
+		
 		if (rootWidget != null) {
 			rootWidget.noteRightMouseButtonRelease();
+		}
+		
+		if (rightMouseButtonReleaseAction != null) {
+			rightMouseButtonReleaseAction.run(this);
 		}
 	}
 	
@@ -873,7 +934,25 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	
 	//method
 	/**
-	 * Sets the left mouse button press command of the current {@link Layer}.
+	 * Sets the left mouse button click action of the current {@link Layer}.
+	 * 
+	 * @param leftMouseButtonClickAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonClickAction is null.
+	 */
+	@Override
+	public Layer setLeftMouseButtonClickAction(final IElementTaker<Layer> leftMouseButtonClickAction) {
+		
+		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
+		
+		this.leftMouseButtonClickAction = leftMouseButtonClickAction;
+		
+		return this;
+	}
+
+	//method
+	/**
+	 * Sets the left mouse button press action of the current {@link Layer}.
 	 * 
 	 * @param leftMouseButtonPressAction
 	 * @return the current {@link Layer}.
@@ -881,7 +960,7 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 */
 	public Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
 		
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press command").isNotNull();
+		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
 		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 		
@@ -890,17 +969,18 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	
 	//method
 	/**
-	 * Sets the mouse move action of the current {@link Layer}.
+	 * Sets the left mouse button release action of the current {@link Layer}.
 	 * 
-	 * @param mouseMoveAction
+	 * @param leftMouseButtonReleaseAction
 	 * @return the current {@link Layer}.
-	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseAction is null.
 	 */
-	public Layer setMouseMoveAction(final IAction mouseMoveAction) {
+	@Override
+	public Layer setLeftMouseButtonReleaseAction(IElementTaker<Layer> leftMouseButtonReleaseAction) {
 		
-		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
-		this.mouseMoveAction = l -> mouseMoveAction.run();
+		this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
 		
 		return this;
 	}
@@ -913,11 +993,120 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
+	@Override
 	public Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
 		
 		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
 		this.mouseMoveAction = mouseMoveAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the mouse wheel click action of the current {@link Layer}.
+	 * 
+	 * @param mouseWheelClickAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given mouseWheelClickAction is null.
+	 */
+	@Override
+	public Layer setMouseWheelClickAction(IElementTaker<Layer> mouseWheelClickAction) {
+		
+		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
+		
+		this.mouseWheelClickAction = mouseWheelClickAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the mouse wheel press action of the current {@link Layer}.
+	 * 
+	 * @param mouseWheelPressAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given mouseWheelPressAction is null.
+	 */
+	@Override
+	public Layer setMouseWheelPressAction(IElementTaker<Layer> mouseWheelPressAction) {
+		
+		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
+		
+		this.mouseWheelPressAction = mouseWheelPressAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the mouse wheel release action of the current {@link Layer}.
+	 * 
+	 * @param mouseWheelReleaseAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given mouseWheelReleaseAction is null.
+	 */
+	@Override
+	public Layer setMouseWheelReleaseAction(IElementTaker<Layer> mouseWheelReleaseAction) {
+		
+		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
+		
+		this.mouseWheelReleaseAction = mouseWheelReleaseAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button click action of the current {@link Layer}.
+	 * 
+	 * @param rightMouseButtonClickAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonClickAction is null.
+	 */
+	@Override
+	public Layer setRightMouseButtonClickAction(IElementTaker<Layer> rightMouseButtonClickAction) {
+		
+		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
+		
+		this.rightMouseButtonClickAction = rightMouseButtonClickAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button press action of the current {@link Layer}.
+	 * 
+	 * @param rightMouseButtonPressAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonPressAction is null.
+	 */
+	@Override
+	public Layer setRightMouseButtonPressAction(IElementTaker<Layer> rightMouseButtonPressAction) {
+		
+		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
+		
+		this.rightMouseButtonPressAction = rightMouseButtonPressAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button release action of the current {@link Layer}.
+	 * 
+	 * @param rightMouseButtonReleaseAction
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseAction is null.
+	 */
+	@Override
+	public Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
+		
+		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		
+		this.rightMouseButtonReleaseAction = rightMouseButtonReleaseAction;
 		
 		return this;
 	}
@@ -962,17 +1151,5 @@ implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByStri
 		}
 		
 		this.parentGUI = parentGUI;
-	}
-	
-	//method
-	/**
-	 * Runs the mouse move action of the current {@link Layer} if the current {@link Layer} has a mouse move action.
-	 */
-	private void runProbableMouseMoveAction() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (mouseMoveAction != null) {
-			mouseMoveAction.run(this);
-		}
 	}
 }
