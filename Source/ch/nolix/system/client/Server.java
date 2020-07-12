@@ -12,12 +12,12 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link Server} contains {@link Application}s.
+ * A {@link Server} can contain {@link Application}s.
  * A {@link Server} is clearable and closable.
  * 
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 220
+ * @lines 210
  */
 public class Server implements Clearable<Server>, ICloseableElement {
 	
@@ -25,7 +25,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
-	private Application<?> mainApplication;
+	private Application<?> defaultApplication;
 	
 	//multi-attribute
 	private final LinkedList<Application<?>> applications = new LinkedList<>();
@@ -37,16 +37,8 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	public Server() {}
 	
 	//constructor
-	/**
-	 * Creates a new {@link Server} with the given applications.
-	 * 
-	 * @param applications
-	 * @throws ArgumentIsNullException if one of the given applications is null.
-	 * @throws InvalidArgumentException
-	 * if the given applications contains several {@link Application}s with the same name.
-	 */
-	public Server(final Application<?>... applications) {
-		addApplication(applications);
+	public Server(final Application<?> defaultApplication) {
+		addDefaultApplication(defaultApplication);
 	}
 	
 	//method
@@ -55,15 +47,15 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 * 
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link Application}
-	 * with the same name as the given application.
+	 * @throws InvalidArgumentException if the current {@link Server}
+	 * contains already a {@link Application} with the same name as the given application.
 	 */
 	public final void addApplication(final Application<?> application) {
 		
 		//Asserts that the given application is not null.
 		Validator.assertThat(application).isOfType(Application.class);
 		
-		//Asserts that the given the current Server
+		//Asserts that the current Server
 		//does not contain already an Application with the same name as the given application..
 		if (containsApplication(application.getName())) {
 			throw
@@ -78,26 +70,27 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	
 	//method
 	/**
-	 * Adds the given mainApplication to the current {@link Server}.
-	 * A main {@link Application} will take all {@link Client}s without target.
+	 * Adds the given defaultApplication to the current {@link Server}.
+	 * A default {@link Application} will take the {@link Client}s without target.
 	 * 
-	 * @param mainApplication
-	 * @throws ArgumentIsNullException if the given mainApplication is null.
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link Application}
-	 * with the same name as the given mainApplication.
+	 * @param defaultApplication
+	 * @throws ArgumentIsNullException if the given defaultApplication is null.
+	 * @throws InvalidArgumentException if the current {@link Server} contains already a default {@link Application}.
+	 * @throws InvalidArgumentException if the current {@link Server}
+	 * contains already a {@link Application} with the same name as the given defaultApplication.
 	 */
-	public final void addMainApplication(final Application<?> mainApplication) {
+	public final void addDefaultApplication(final Application<?> defaultApplication) {
 		
-		//Asserts that the current Server does not contain already a main Application.
-		if (containsMainApplication()) {
-			throw new InvalidArgumentException(this, "contains already a main Application");
+		//Asserts that the current Server does not contain already a default Application.
+		if (containsDefaultApplication()) {
+			throw new InvalidArgumentException(this, "contains already a default Application");
 		}
 		
-		addApplication(mainApplication);
+		addApplication(defaultApplication);
 		
-		this.mainApplication = mainApplication;
+		this.defaultApplication = defaultApplication;
 	}
-		
+	
 	//method
 	/**
 	 * Adds the given applications to the current {@link Server}.
@@ -110,7 +103,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	public final void addApplication(final Application<?>... applications) {
 		
 		//Iterates the given applications.
-		for (Application<?> a: applications) {
+		for (final var a: applications) {
 			addApplication(a);
 		}
 	}
@@ -122,10 +115,10 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 * @return the current {@link Server}.
 	 */
 	@Override
-	public Server clear() {
+	public final Server clear() {
 		
 		applications.clear();
-		mainApplication = null;
+		defaultApplication = null;
 		
 		return this;
 	}
@@ -141,10 +134,21 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	
 	//method
 	/**
-	 * @return true if the current {@link Server} contains a main {@link Application}.
+	 * @return true if the current {@link Server} contains a default {@link Application}.
 	 */
-	public final boolean containsMainApplication() {
-		return (mainApplication != null);
+	public final boolean containsDefaultApplication() {
+		return (defaultApplication != null);
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @return the {@link Application} with the given name from the current {@link Server}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link Server} does not contain a {@link Application} with the given name.
+	 */
+	public final Application<?> getRefApplication(final String name) {
+		return applications.getRefFirst(a -> a.hasName(name));
 	}
 	
 	//method
@@ -157,6 +161,25 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	}
 	
 	//method
+	/**
+	 * @return the default {@link Application} of the current {@link Server}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link Server} does not contain a default {@link Application}.
+	 */
+	public final Application<?> getRefDefaultApplication() {
+		
+		//Asserts that the current Server contains a default Application.
+		if (!containsDefaultApplication()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "default Application");
+		}
+		
+		return defaultApplication;
+	}
+
+	//method
+	/**
+	 * @return true if the current {@link Server} has a {@link Client} connected.
+	 */
 	public final boolean hasClientConnected() {
 		return applications.contains(Application::hasClientConnected);
 	}
@@ -177,45 +200,18 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 * @param client
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the given client does not have a target
-	 * and if the current {@link Server} does not contain a main {@link Applicaiton}.
+	 * and if the current {@link Server} does not contain a default {@link Applicaiton}.
 	 */
-	public void takeClient(final Client<?> client) {
+	public final void takeClient(final Client<?> client) {
 		
 		//Handles the case that the given client does not have a target.
 		if (!client.hasTarget()) {
-			getRefMainApplication().takeClient(client);
+			getRefDefaultApplication().takeClient(client);
 		}
 		
 		//Handles the case that the given client has a target.
 		else {
-			getRefApplicationByName(client.getTarget()).takeClient(client);
+			getRefApplication(client.getTarget()).takeClient(client);
 		}
-	}
-	
-	//method
-	/**
-	 * @param name
-	 * @return the {@link Application} with the given name from the current {@link Server}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Server} does not contain a {@link Application} with the given name.
-	 */
-	final Application<?> getRefApplicationByName(final String name) {
-		return applications.getRefFirst(a -> a.hasName(name));
-	}
-	
-	//method
-	/**
-	 * @return the main {@link Application} of the current {@link Server}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Server} does not contain a main {@link Application}.
-	 */
-	final Application<?> getRefMainApplication() {
-		
-		//Asserts that the current Server contains a main Application.
-		if (!containsMainApplication()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "main Application");
-		}
-		
-		return mainApplication;
 	}
 }

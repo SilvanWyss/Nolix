@@ -38,17 +38,17 @@ public final class NetServer extends Server {
 	//constructor
 	/**
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
-	 * The {@link NetServer} will have the given mainApplication.
+	 * The {@link NetServer} will have the given defaultApplication.
 	 * 
-	 * @param mainApplication.
-	 * @throws ArgumentIsNullException if the given mainApplication is null.
+	 * @param defaultApplication.
+	 * @throws ArgumentIsNullException if the given defaultApplication is null.
 	 */
-	public NetServer(final Application<?> mainApplication) {
+	public NetServer(final Application<?> defaultApplication) {
 		
 		//Calls other constructor.
 		this();
 		
-		addMainApplication(mainApplication);
+		addDefaultApplication(defaultApplication);
 	}
 	
 	//constructor
@@ -76,25 +76,27 @@ public final class NetServer extends Server {
 	//constructor
 	/**
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
-	 * The {@link NetServer} will have the given mainApplication.
+	 * The {@link NetServer} will have the given defaultApplication.
 	 * 
 	 * @param port
-	 * @param mainApplication.
+	 * @param defaultApplication.
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
-	 * @throws ArgumentIsNullException if the given mainApplication is null.
+	 * @throws ArgumentIsNullException if the given defaultApplication is null.
 	 */
-	public NetServer(final int port, final Application<?> mainApplication) {
+	public NetServer(final int port, final Application<?> defaultApplication) {
 		
 		//Calls other constructor.
 		this(port);
 		
-		addMainApplication(mainApplication);
+		addDefaultApplication(defaultApplication);
 	}
 	
 	//constructor
 	/**
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
-	 * The {@link NetServer} will have a main application with the given name, clientClass and initialSessionClass.
+	 * 
+	 * The {@link NetServer} will have a default {@link Application}
+	 * with the given name, clientClass and initialSessionClass.
 	 * 
 	 * @param port
 	 * @param name
@@ -117,7 +119,9 @@ public final class NetServer extends Server {
 	//constructor
 	/**
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
-	 * The {@link NetServer} will have a main application with the given name, clientClass and initialSessionClass.
+	 * 
+	 * The {@link NetServer} will have a default {@link Application}
+	 * with the given name, clientClass and initialSessionClass.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
@@ -153,12 +157,12 @@ public final class NetServer extends Server {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
-			getRefMainApplication().takeEndPoint(endPoint);
+			getRefDefaultApplication().takeEndPoint(endPoint);
 		}
 		
 		//Handles the case that the given endPoint has a target.
 		else {
-			getRefApplicationByName(endPoint.getTarget()).takeEndPoint(endPoint);
+			getRefApplication(endPoint.getTarget()).takeEndPoint(endPoint);
 		}
 	}
 }

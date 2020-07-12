@@ -419,7 +419,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
-		server.getRefMainApplication().takeEndPoint(
+		server.getRefDefaultApplication().takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
@@ -439,7 +439,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
-		server.getRefApplicationByName(name).takeEndPoint(
+		server.getRefApplication(name).takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}

@@ -21,7 +21,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 380
+ * @lines 330
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Named {
@@ -87,34 +87,6 @@ public class Application<C extends Client<C>> implements Named {
 	//constructor
 	/**
 	 * Creates a new {@link Application} that:
-	 * -Has the given name, clientClass, initialSessionClass and context.
-	 * -Will create a {@link NetServer} for itself, and for itself only,
-	 * that will listen to {@link Clients} on the given port.
-	 * 
-	 * @param name
-	 * @param initialSessionClass
-	 * @param port
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given clientClass is null.
-	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 * @throws ArgumentIsNullException if the given context is null.
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
-	 */
-	public Application(
-		final String name,
-		final Class<?> initialSessionClass,
-		final IElementGetter<?> context,
-		final int port
-	) {
-		
-		//Calls other constructor.
-		this(name, initialSessionClass, (Object)context, port);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Application} that:
 	 * -Has the given name, clientClass and initialSessionClass.
 	 * -Will create a {@link NetServer} for itself, and for itself only,
 	 * that will listen to {@link Clients} on the given port.
@@ -138,7 +110,7 @@ public class Application<C extends Client<C>> implements Named {
 		this(name, initialSessionClass);
 		
 		//Creates a NetServer for the current Application.
-		new NetServer(port).addMainApplication(this);
+		new NetServer(port).addDefaultApplication(this);
 	}
 	
 	//constructor
@@ -172,37 +144,6 @@ public class Application<C extends Client<C>> implements Named {
 		this.initialSessionClass = initialSessionClass;
 		clientClass = createInitialSession().internalGetRefClientClass();
 		this.context = context;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Application} that:
-	 * -Has the given name, clientClass, initialSessionClass and context.
-	 * -Will create a {@link NetServer} for itself, and for itself only,
-	 * that will listen to {@link Clients} on the given port.
-	 * 
-	 * @param name
-	 * @param initialSessionClass
-	 * @param port
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given clientClass is null.
-	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 * @throws ArgumentIsNullException if the given context is null.
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
-	 */
-	public Application(
-		final String name,
-		final Class<?> initialSessionClass,
-		final Object context,
-		final int port
-	) {
-		
-		//Calls other constructor.
-		this(name, initialSessionClass, context);
-		
-		//Creates a NetServer for the current Application.
-		new NetServer(port).addMainApplication(this);
 	}
 	
 	//method
