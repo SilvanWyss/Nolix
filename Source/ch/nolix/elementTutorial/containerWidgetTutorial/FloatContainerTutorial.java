@@ -4,7 +4,6 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.FloatContainer;
 import ch.nolix.element.elementEnum.ContentPosition;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Label;
 
 /**
@@ -13,11 +12,12 @@ import ch.nolix.element.widget.Label;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 70
  */
 public final class FloatContainerTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link FloatContainerTutorial}.
+	 * Creates a {@link Frame} with a {@link FloatContainer}.
 	 * 
 	 * @param args
 	 */
@@ -37,18 +37,17 @@ public final class FloatContainerTutorial {
 			new Label("F")
 		);
 		
-		//Configures the look of the floatContainer.
+		//Configures the look of the FloatContainer.
 		floatContainer.applyOnBaseLook(
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(20)
 			.setProposeContentWidth(1000)
 		);
 		
-		//Configures the look of the child Widgets of the floatContainer.
+		//Configures the look of the child Widgets of the FloatContainer.
 		for (final var cw : floatContainer.getChildWidgets()) {
 			cw
 			.as(Label.class)
@@ -56,13 +55,12 @@ public final class FloatContainerTutorial {
 			.setContentPosition(ContentPosition.Center)
 			.applyOnBaseLook(
 				bl ->
-				bl.setBackgroundColor(Color.LIGHT_GREEN)
+				bl.setBackgroundColor(Color.BLUE)
 				.setTextSize(50)
-				.setTextColor(Color.DARK_GREEN)
 			);
 		}
 		
-		//Adds the floatContainer to the frame.
+		//Adds the FloatContainer to the frame.
 		frame.addLayerOnTop(floatContainer);
 	}
 	

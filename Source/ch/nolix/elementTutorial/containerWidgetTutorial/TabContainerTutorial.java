@@ -4,7 +4,6 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.containerWidget.TabContainerTab;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Area;
 
 /**
@@ -13,11 +12,12 @@ import ch.nolix.element.widget.Area;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 50
  */
 public final class TabContainerTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link TabContainer}.
+	 * Creates a {@link Frame} with a {@link TabContainer}.
 	 * 
 	 * @param args
 	 */
@@ -30,23 +30,22 @@ public final class TabContainerTutorial {
 		final var tabContainer =
 		new TabContainer()
 		.addTab(
-			new TabContainerTab("A", new Area(500, 200, Color.LIGHT_GREEN)),
+			new TabContainerTab("A", new Area(500, 200, Color.BLUE)),
 			new TabContainerTab("B", new Area(500, 200, Color.GREEN)),
-			new TabContainerTab("C", new Area(500, 200, Color.LIGHT_GREEN)),
+			new TabContainerTab("C", new Area(500, 200, Color.BLUE)),
 			new TabContainerTab("D", new Area(500, 200, Color.GREEN))
 		);
 		
-		//Configures the look of the tabContainer.
+		//Configures the look of the TabContainer.
 		tabContainer.applyOnBaseLook(
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(20)
 		);
 		
-		//Adds the tabContainer to the frame.
+		//Adds the TabContainer to the Frame.
 		frame.addLayerOnTop(tabContainer);
 	}
 	

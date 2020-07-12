@@ -4,7 +4,6 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.containerWidget.AccordionTab;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Area;
 
 /**
@@ -13,39 +12,38 @@ import ch.nolix.element.widget.Area;
  * 
  * @author Silvan Wyss
  * @month 2018-08
+ * @lines 50
  */
 public final class AccordionTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link Accordion}.
+	 * Creates a {@link Frame} with a {@link Accordion}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		
+				
 		//Creates a Frame.
 		final var frame = new Frame("Accordion Container Tutorial");
 		
 		//Creates an Accordion.
 		final var accordion =
 		new Accordion(
-			new AccordionTab("A", new Area(500, 200, Color.LIGHT_GREEN)),
+			new AccordionTab("A", new Area(500, 200, Color.BLUE)),
 			new AccordionTab("B", new Area(500, 200, Color.GREEN)),
-			new AccordionTab("C", new Area(500, 200, Color.LIGHT_GREEN)),
+			new AccordionTab("C", new Area(500, 200, Color.BLUE)),
 			new AccordionTab("D", new Area(500, 200, Color.GREEN))
 		);
 		
-		//Configures the look of the accordion.
+		//Configures the look of the Accordion.
 		accordion.applyOnBaseLook(
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.ALICE_BLUE)
+			.setBackgroundColor(Color.LAVENDER)
 		);
 		
-		//Adds the accordion to the frame.
+		//Adds the Accordion to the Frame.
 		frame.addLayerOnTop(accordion);
 	}
 	
