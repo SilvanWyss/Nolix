@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -22,7 +23,7 @@ import ch.nolix.element.widget.Label;
  * 
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 520
+ * @lines 570
  */
 public final class TabContainer
 extends ContainerWidget<TabContainer, TabContainerLook>
@@ -364,9 +365,7 @@ implements Clearable<TabContainer> {
 			list.addAtEnd(getRefSelectedWidget());
 		}
 	}
-	
-
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}
@@ -551,10 +550,7 @@ implements Clearable<TabContainer> {
 	 */
 	@Override
 	protected void recalculateSelfStage2() {
-		
-		//Calls method of the base class.
-		super.recalculateSelf();	
-		
+				
 		//Handles the case that the current tab container contains a selected widget.
 		if (containsSelectedTabWithWidget()) {
 			getRefSelectedWidget().setPositionOnParent(
