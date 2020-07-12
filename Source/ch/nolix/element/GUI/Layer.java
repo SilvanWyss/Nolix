@@ -15,7 +15,7 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.requestAPI.IRequestableContainer;
+import ch.nolix.common.requestAPI.IContainsElementByIdRequestable;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -43,7 +43,7 @@ import ch.nolix.element.painter.IPainter;
  * @lines 970
  */
 public final class Layer extends Element<Layer>
-implements Clearable<Layer>, IConfigurableElement<Layer>, IRequestableContainer, IResizableInputTaker {
+implements Clearable<Layer>, IConfigurableElement<Layer>, IContainsElementByIdRequestable, IResizableInputTaker {
 	
 	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
