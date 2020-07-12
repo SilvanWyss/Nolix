@@ -522,7 +522,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			inputTaker.noteKeyPress(key);
 		}		
 		else {
-			getRefKeyBoard().noteKeyPress(key);
+			getRefKeyBoardForMutating().noteKeyPress(key);
 			getRefTopOrBackgroundLayer().noteKeyPress(key);
 			refresh();
 		}
@@ -538,7 +538,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			inputTaker.noteKeyRelease(key);
 		}		
 		else {
-			getRefKeyBoard().noteKeyRelease(key);
+			getRefKeyBoardForMutating().noteKeyRelease(key);
 			getRefTopOrBackgroundLayer().noteKeyRelease(key);
 			refresh();
 		}

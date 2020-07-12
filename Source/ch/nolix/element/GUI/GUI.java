@@ -23,6 +23,8 @@ import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.inputDevice.KeyBoard;
+import ch.nolix.element.inputDeviceAPI.IKeyBoard;
+import ch.nolix.element.inputDeviceAPI.IMutableKeyBoard;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -39,7 +41,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 380
+ * @lines 390
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -148,6 +150,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public final CachingContainer<Image> getRefImageCache() {
 		return imageCache;
+	}
+	
+	//method
+	/**
+	 * @return the {@link IKeyBoard} of the current {@link GUI}.
+	 */
+	public IKeyBoard getRefKeyBoard() {
+		return keyBoard;
 	}
 	
 	//method
@@ -320,9 +330,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the {@link KeyBoard} of the current {@link GUI}.
+	 * @return the {@link IMutableKeyBoard} of the current {@link GUI} .
 	 */
-	protected final KeyBoard getRefKeyBoard() {
+	protected final IMutableKeyBoard getRefKeyBoardForMutating() {
 		return keyBoard;
 	}
 	
