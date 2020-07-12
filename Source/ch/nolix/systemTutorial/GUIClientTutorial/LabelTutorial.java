@@ -15,13 +15,16 @@ public class LabelTutorial {
 	public static void main(String[] args) {
 				
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer("Label Tutorial", MainSession.class);
+		final var netServer = new NetServer("Label Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		
+		//Closes the NetServer as soon as it does not have a client connected any more.
+		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {

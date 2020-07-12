@@ -1,6 +1,7 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
 import ch.nolix.common.localComputer.ShellProvider;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.widget.Label;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.GUIClient.FrontGUIClient;
@@ -14,13 +15,16 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		final var port = 50000;
 		
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer(port, "Hello World GUI Tutorial", MainSession.class);
+		final var netServer = new NetServer(port, "Hello World GUI Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient(port);
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefox(port);
+		
+		//Closes the NetServer as soon as it does not have a client connected any more.
+		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {

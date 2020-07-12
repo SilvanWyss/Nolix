@@ -1,6 +1,7 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
 import ch.nolix.common.localComputer.ShellProvider;
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.ImageWidget;
@@ -13,13 +14,16 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a NetServer with an Application for BackGUIClients.
-		new NetServer("ImageWidget Tutorial", MainSession.class);
+		final var netServer = new NetServer("ImageWidget Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		
+		//Closes the NetServer as soon as it does not have a client connected any more.
+		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {
