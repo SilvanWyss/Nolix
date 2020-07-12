@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.element.inputDevice;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.inputDeviceAPI.IMutableKeyBoard;
 
 //class
-public final class KeyBoard {
+public final class KeyBoard implements IMutableKeyBoard {
 	
 	//attribute
 	private boolean shiftIsLocked = false;
@@ -14,11 +16,13 @@ public final class KeyBoard {
 	private final LinkedList<Key> pressedKeys = new LinkedList<>();
 	
 	//method
-	public boolean isPressed(final Key key) {
+	@Override
+	public boolean keyIsPressed(final Key key) {
 		return pressedKeys.containsEqualing(key);
 	}
 	
 	//method
+	@Override
 	public void noteKeyPress(final Key key) {
 		
 		if (!pressedKeys.containsEqualing(key)) {
@@ -31,11 +35,12 @@ public final class KeyBoard {
 	}
 	
 	//method
+	@Override
 	public void noteKeyRelease(final Key key) {
 		pressedKeys.removeFirst(k -> k.equals(key));
 	}
 	
-	//method
+	@Override
 	public boolean shiftIsLocked() {
 		return shiftIsLocked;
 	}

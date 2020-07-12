@@ -202,20 +202,20 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @param key
-	 * @return true if the given key is pressed on the current {@link GUI}.
-	 */
-	public final boolean isPressed(final Key key) {
-		return keyBoard.isPressed(key);
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean isVisible() {
 		return (visualizer != null);
+	}
+	
+	//method
+	/**
+	 * @param key
+	 * @return true if the given key is pressed on the current {@link GUI}.
+	 */
+	public final boolean keyIsPressed(final Key key) {
+		return keyBoard.keyIsPressed(key);
 	}
 	
 	//method

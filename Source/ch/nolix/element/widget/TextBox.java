@@ -217,7 +217,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				break;
 			default:
 				if (key.isCharacter()) {
-					if (getParentGUI().isPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
+					if (getParentGUI().keyIsPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
 						insertCharacterAfterCursor(key.toUpperCaseChar());	
 					}
 					else {
