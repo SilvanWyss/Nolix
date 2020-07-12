@@ -5,7 +5,7 @@ package ch.nolix.element.baseGUI_API;
 import ch.nolix.common.closeableElement.ICloseableElement;
 import ch.nolix.common.mutableAttributeAPI.Titleble;
 import ch.nolix.common.rasterAPI.Rectangular;
-import ch.nolix.common.requestAPI.IContainsElementByIdRequestable;
+import ch.nolix.common.requestAPI.IContainsElementByStringIdRequestable;
 import ch.nolix.common.skillAPI.Refreshable;
 import ch.nolix.element.input.IResizableInputTaker;
 
@@ -17,7 +17,7 @@ import ch.nolix.element.input.IResizableInputTaker;
  * @param <G> The type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
-extends ICloseableElement, IContainsElementByIdRequestable, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
+extends ICloseableElement, IContainsElementByStringIdRequestable, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**
