@@ -21,6 +21,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.inputDeviceAPI.IKeyBoard;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -31,7 +32,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1830
+ * @lines 1840
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -477,6 +478,15 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	 */
 	public final WL getRefHoverLook() {
 		return hoverLook;
+	}
+	
+	//method
+	/**
+	 * @return the {@link IKeyBoard} of the {@link GUI} the current {@link Widget} belongs to.
+	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
+	 */
+	public final IKeyBoard getRefKeyBoard() {
+		return getParentGUI().getRefKeyBoard();
 	}
 	
 	//method
