@@ -5,5 +5,5 @@ package ch.nolix.common.canvasAPI;
 public interface IOccupiableHoverableCanvas extends IHoverableCanvas {
 	
 	//method declaration
-	public abstract boolean freeContentAreaIsUnderCursor();
+	public abstract boolean freeAreaIsUnderCursor();
 }

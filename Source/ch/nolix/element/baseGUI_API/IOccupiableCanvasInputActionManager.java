@@ -11,7 +11,7 @@ public interface IOccupiableCanvasInputActionManager<OCIAM extends IOccupiableCa
 extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	
 	//method
-	public default OCIAM setLeftMouseButtonClickActionOnFreeContentArea(
+	public default OCIAM setLeftMouseButtonClickActionOnfreeArea(
 		final IElementTaker<OCIAM> leftMouseButtonClickAction
 	) {
 		
@@ -20,7 +20,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setLeftMouseButtonClickAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					leftMouseButtonClickAction.run(ociam);
 				}
 			}
@@ -28,7 +28,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setLeftMouseButtonPressActionOnFreeContentArea(
+	public default OCIAM setLeftMouseButtonPressActionOnfreeArea(
 		final IElementTaker<OCIAM> leftMouseButtonPressAction
 	) {
 		
@@ -37,7 +37,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setLeftMouseButtonPressAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					leftMouseButtonPressAction.run(ociam);
 				}
 			}
@@ -45,7 +45,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setLeftMouseButtonReleaseActionOnFreeContentArea(
+	public default OCIAM setLeftMouseButtonReleaseActionOnfreeArea(
 		final IElementTaker<OCIAM> leftMouseButtonReleaseAction
 	) {
 		
@@ -54,7 +54,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setLeftMouseButtonReleaseAction(
 			ociam ->  {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					leftMouseButtonReleaseAction.run(ociam);
 				}
 			}
@@ -62,14 +62,14 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseMoveActionOnFreeContentArea(final IElementTaker<OCIAM> mouseMoveAction) {
+	public default OCIAM setMouseMoveActionOnfreeArea(final IElementTaker<OCIAM> mouseMoveAction) {
 		
 		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
 		return
 		setMouseMoveAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					mouseMoveAction.run(ociam);
 				}
 			}
@@ -77,7 +77,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseWheelClickActionOnFreeContentArea(
+	public default OCIAM setMouseWheelClickActionOnfreeArea(
 		final IElementTaker<OCIAM> mouseWheelClickAction
 	) {
 		
@@ -86,7 +86,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setMouseWheelClickAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					mouseWheelClickAction.run(ociam);
 				}
 			}
@@ -94,7 +94,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseWheelPressActionOnFreeContentArea(
+	public default OCIAM setMouseWheelPressActionOnfreeArea(
 		final IElementTaker<OCIAM> mouseWheelPressAction
 	) {
 		
@@ -103,7 +103,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setMouseWheelPressAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					mouseWheelPressAction.run(ociam);
 				}
 			}
@@ -111,7 +111,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseWheelReleaseActionOnFreeContentArea(
+	public default OCIAM setMouseWheelReleaseActionOnfreeArea(
 		final IElementTaker<OCIAM> mouseWheelReleaseAction
 	) {
 		
@@ -120,7 +120,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setMouseWheelReleaseAction(
 			ociam ->  {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					mouseWheelReleaseAction.run(ociam);
 				}
 			}
@@ -128,7 +128,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setRightMouseButtonClickActionOnFreeContentArea(
+	public default OCIAM setRightMouseButtonClickActionOnfreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonClickAction
 	) {
 		
@@ -137,7 +137,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setRightMouseButtonClickAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					rightMouseButtonClickAction.run(ociam);
 				}
 			}
@@ -145,7 +145,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setRightMouseButtonPressActionOnFreeContentArea(
+	public default OCIAM setRightMouseButtonPressActionOnfreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonPressAction
 	) {
 		
@@ -154,7 +154,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setRightMouseButtonPressAction(
 			ociam -> {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					rightMouseButtonPressAction.run(ociam);
 				}
 			}
@@ -162,7 +162,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setRightMouseButtonReleaseActionOnFreeContentArea(
+	public default OCIAM setRightMouseButtonReleaseActionOnfreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonReleaseAction
 	) {
 		
@@ -171,7 +171,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		return
 		setRightMouseButtonReleaseAction(
 			ociam ->  {
-				if (freeContentAreaIsUnderCursor()) {
+				if (freeAreaIsUnderCursor()) {
 					rightMouseButtonReleaseAction.run(ociam);
 				}
 			}
