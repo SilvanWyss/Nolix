@@ -1,7 +1,6 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Label;
 
 /**
@@ -10,11 +9,12 @@ import ch.nolix.element.widget.Label;
  *
  * @author Silvan Wyss
  * @month 2019-05
+ * @lines 40
  */
 public final class LabelShorteningTextTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link Label}.
+	 * Creates a {@link Frame} with a {@link Label}.
 	 * 
 	 * @param args
 	 */

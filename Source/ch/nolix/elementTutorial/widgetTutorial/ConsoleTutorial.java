@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Console;
 
 /**
@@ -11,11 +10,12 @@ import ch.nolix.element.widget.Console;
  * 
  * @author Silvan Wyss
  * @month 2018-06
+ * @lines 50
  */
 public final class ConsoleTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link Console}.
+	 * Creates a {@link Frame} with a {@link Console}.
 	 * 
 	 * @param args
 	 */
@@ -36,10 +36,8 @@ public final class ConsoleTutorial {
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(5)
-			.setTextColor(Color.DARK_BLUE)
 		);
 		
 		//Adds the console to the frame.

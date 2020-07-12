@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Label;
 
 /**
@@ -11,11 +10,12 @@ import ch.nolix.element.widget.Label;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 50
  */
 public final class ScrollTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a scrollable {@link Label}.
+	 * Creates a {@link Frame} with a scrollable {@link Label}.
 	 * 
 	 * @param args
 	 */
@@ -27,7 +27,7 @@ public final class ScrollTutorial {
 		//Creates a Label.
 		final var label = new Label("PLATON");
 		
-		//Configures the look of the label.
+		//Configures the look of the Label.
 		label
 		.setMaxWidth(1000)
 		.setMaxHeight(500)
@@ -35,13 +35,12 @@ public final class ScrollTutorial {
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setTextSize(500)
 			.remainTextWhenLimited()
 		);
 		
-		//Adds the label to the frame.
+		//Adds the Label to the frame.
 		frame.addLayerOnTop(label);
 	}
 	

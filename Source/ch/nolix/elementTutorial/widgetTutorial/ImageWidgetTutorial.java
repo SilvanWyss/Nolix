@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.ImageWidget;
 
@@ -12,11 +11,12 @@ import ch.nolix.element.widget.ImageWidget;
  * 
  * @author Silvan Wyss
  * @month 2018-08
+ * @lines 50
  */
 public final class ImageWidgetTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link ImageWidget}.
+	 * Creates a {@link Frame} with a {@link ImageWidget}.
 	 * 
 	 * @param args
 	 */
@@ -42,8 +42,7 @@ public final class ImageWidgetTutorial {
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(5)
 		);
 		

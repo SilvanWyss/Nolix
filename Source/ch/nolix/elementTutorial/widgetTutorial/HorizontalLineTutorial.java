@@ -7,6 +7,14 @@ import ch.nolix.element.widget.HorizontalLine;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.VerticalStack;
 
+/**
+ * The {@link HorizontalLineTutorial} is a tutorial for {@link HorizontalLineTutorial}s.
+ * Of the {@link HorizontalLineTutorial} an instance cannot be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2020-06
+ * @lines 60
+ */
 public final class HorizontalLineTutorial {
 	
 	/**
@@ -45,5 +53,8 @@ public final class HorizontalLineTutorial {
 		frame.addLayerOnTop(verticalStack);
 	}
 	
+	/**
+	 * Avoids that an instance of the {@link HorizontalLineTutorial} can be created.
+	 */
 	private HorizontalLineTutorial() {}
 }

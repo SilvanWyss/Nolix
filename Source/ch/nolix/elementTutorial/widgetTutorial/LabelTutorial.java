@@ -3,7 +3,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
@@ -14,11 +13,12 @@ import ch.nolix.element.widget.Label;
  *
  * @author Silvan Wyss
  * @month 2017-09
+ * @lines 70
  */
 public final class LabelTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with 2 {@link Label}s.
+	 * Creates a {@link Frame} with 2 {@link Label}s.
 	 * 
 	 * @param args
 	 */

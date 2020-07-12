@@ -5,8 +5,21 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.ImageWidget;
 
+/**
+ * The {@link ImageWidgetTutorial2} is a tutorial for {@link ImageWidget}s.
+ * Of the {@link ImageWidgetTutorial2} an instance cannot be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2018-08
+ * @lines 50
+ */
 public class ImageWidgetTutorial2 {
 	
+	/**
+	 * Creates a {@link Frame} with a {@link ImageWidget}.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
@@ -31,4 +44,10 @@ public class ImageWidgetTutorial2 {
 		//Adds the ImageWidget to the Frame.
 		frame.addLayerOnTop(imageWidget);
 	}
+	
+	
+	/**
+	 * Avoids that an instance of the {@link ImageWidgetTutorial2} can be created.
+	 */
+	private ImageWidgetTutorial2() {}
 }

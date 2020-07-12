@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.Checkbox;
 
 /**
@@ -11,11 +10,12 @@ import ch.nolix.element.widget.Checkbox;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 40
  */
 public final class CheckboxTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link Checkbox}.
+	 * Creates a {@link Frame} with a {@link Checkbox}.
 	 * 
 	 * @param args
 	 */
@@ -33,8 +33,7 @@ public final class CheckboxTutorial {
 			bl
 			.setTextSize(50)
 			.setLineThickness(5)
-			.setTextColor(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 		);
 		
 		//Adds the checkbox to the frame.

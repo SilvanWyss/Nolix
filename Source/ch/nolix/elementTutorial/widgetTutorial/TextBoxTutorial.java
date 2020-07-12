@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.TextBox;
 
 /**
@@ -11,18 +10,19 @@ import ch.nolix.element.widget.TextBox;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 40
  */
 public final class TextBoxTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link TextBox}.
+	 * Creates a {@link Frame} with a {@link TextBox}.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Text Box Tutorial");
+		final var frame = new Frame("TextBox Tutorial");
 		
 		//Creates a TextBox.
 		final var textBox = new TextBox();
@@ -34,8 +34,7 @@ public final class TextBoxTutorial {
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(5)
 		);
 		

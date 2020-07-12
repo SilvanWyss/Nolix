@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.widget.DropdownMenu;
 
 /**
@@ -11,11 +10,12 @@ import ch.nolix.element.widget.DropdownMenu;
  * 
  * @author Silvan Wyss
  * @month 2018-05
+ * @lines 50
  */
 public final class DropdownMenuTutorial {
 	
 	/**
-	 * Creates a {@link FrameVisualizer} with a {@link DropdownMenu}.
+	 * Creates a {@link Frame} with a {@link DropdownMenu}.
 	 * 
 	 * @param args
 	 */
@@ -36,9 +36,7 @@ public final class DropdownMenuTutorial {
 			"Karl Marx",
 			"Friedrich Nietzsche",
 			"Ludwig Wittgenstein",
-			"Theodor W. Adorno",
-			"Jürgen Habermas",
-			"Richard David Precht"
+			"Theodor W. Adorno"
 		);
 		
 		//Configures the look of the dropdownMenu.
@@ -46,8 +44,7 @@ public final class DropdownMenuTutorial {
 			bl ->
 			bl			
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setItemPadding(5)
 		);
 		

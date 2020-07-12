@@ -33,7 +33,7 @@ public final class ButtonTutorial {
 		//Sets left mouse button release command to the Button.
 		button.setLeftMouseButtonReleaseAction(() -> {
 			
-			frame.setBackgroundColor(counter % 2 == 0 ? Color.WHITE : Color.LIGHT_GREEN);
+			frame.setBackgroundColor(counter % 2 == 0 ? Color.WHITE : Color.BLUE);
 			
 			counter++;
 		});
@@ -45,14 +45,12 @@ public final class ButtonTutorial {
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(5)
 			.setTextSize(50)
-			.setTextColor(Color.DARK_BLUE)
 		)
-		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LIGHT_GREY))
-		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LIGHT_GREY));
+		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LAVENDER))
+		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LAVENDER));
 		
 		//Adds the Button to the Frame.
 		frame.addLayerOnTop(button);
