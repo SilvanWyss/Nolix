@@ -6,7 +6,6 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -15,6 +14,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
 import ch.nolix.common.skillAPI.Recalculable;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.baseGUI_API.IInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementAPI.IConfigurableElement;
@@ -32,12 +32,12 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1840
+ * @lines 2000
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
+implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
@@ -76,12 +76,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	private WidgetParent parent;
 	
 	//optional attributes
-	private IAction leftMouseButtonClickAction;
-	private IAction leftMouseButtonPressAction;
-	private IAction leftMouseButtonReleaseAction;
-	private IAction rightMouseButtonClickAction;
-	private IAction rightMouseButtonPressAction;
-	private IAction rightMouseButtonReleaseAction;
+	private IElementTaker<W> mouseMoveAction;
+	private IElementTaker<W> leftMouseButtonClickAction;
+	private IElementTaker<W> leftMouseButtonPressAction;
+	private IElementTaker<W> leftMouseButtonReleaseAction;
+	private IElementTaker<W> rightMouseButtonClickAction;
+	private IElementTaker<W> rightMouseButtonPressAction;
+	private IElementTaker<W> rightMouseButtonReleaseAction;
+	private IElementTaker<W> mouseWheelClickAction;
+	private IElementTaker<W> mouseWheelPressAction;
+	private IElementTaker<W> mouseWheelReleaseAction;
 	
 	//constructor
 	/**
@@ -611,7 +615,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a left mouse button click command.
+	 * @return true if the current {@link Widget} has a left mouse button click action.
 	 */
 	public final boolean hasLeftMouseButtonClickAction() {
 		return (leftMouseButtonClickAction != null);
@@ -619,7 +623,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a left mouse button press command.
+	 * @return true if the current {@link Widget} has a left mouse button press action.
 	 */
 	public final boolean hasLeftMouseButtonPressAction() {
 		return (leftMouseButtonPressAction != null);
@@ -627,7 +631,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a left mouse button release command.
+	 * @return true if the current {@link Widget} has a left mouse button release action.
 	 */
 	public final boolean hasLeftMouseButtonReleaseAction() {
 		return (leftMouseButtonReleaseAction != null);
@@ -635,7 +639,39 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a right mouse button click command.
+	 * @return true if the current {@link Widget} has a mouse move action.
+	 */
+	public final boolean hasMouseMoveAction() {
+		return (mouseMoveAction != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} has a mouse wheel click action.
+	 */
+	public final boolean hasMouseWheelClickAction() {
+		return (mouseWheelClickAction != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} has a mouse wheel press action.
+	 */
+	public final boolean hasMouseWheelPressAction() {
+		return (mouseWheelPressAction != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} has a mouse wheel release action.
+	 */
+	public final boolean hasMouseWheelReleaseAction() {
+		return (mouseWheelReleaseAction != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} has a right mouse button click action.
 	 */
 	public final boolean hasRightMouseButtonClickAction() {
 		return (rightMouseButtonClickAction != null);
@@ -643,7 +679,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a right mouse button press command.
+	 * @return true if the current {@link Widget} has a right mouse button press action.
 	 */
 	public final boolean hasRightMouseButtonPressAction() {
 		return (rightMouseButtonPressAction != null);
@@ -651,7 +687,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a right mouse button release command.
+	 * @return true if the current {@link Widget} has a right mouse button release action.
 	 */
 	public final boolean hasRightMouseButtonReleaseAction() {
 		return (rightMouseButtonReleaseAction != null);
@@ -780,8 +816,9 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	public final void noteLeftMouseButtonClick() {
 		if (isEnabled()) {
 			
+			noteLeftMouseButtonClickOnSelfWhenEnabled_();
 			noteLeftMouseButtonClickOnSelfWhenEnabled();
-			
+									
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonClick);
 			}
@@ -904,6 +941,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	public final void noteRightMouseButtonClick() {
 		if (isEnabled()) {
 			
+			noteRightMouseButtonClickOnSelfWhenEnabled_();
 			noteRightMouseButtonClickOnSelfWhenEnabled();
 		
 			if (redirectsInputsToShownWidgets()) {
@@ -920,6 +958,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	public final void noteRightMouseButtonPress() {
 		if (isEnabled()) {
 			
+			noteRightMouseButtonPressOnSelfWhenEnabled_();
 			noteRightMouseButtonPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
@@ -935,7 +974,8 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	@Override
 	public final void noteRightMouseButtonRelease() {
 		if (isEnabled()) {
-		
+			
+			noteRightMouseButtonReleaseOnSelfWhenEnabled_();
 			noteRightMouseButtonReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
@@ -982,7 +1022,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the left mouse button click command of the current {@link Widget}.
+	 * Removes the left mouse button click action of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -995,7 +1035,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the left mouse button press command of the current {@link Widget}.
+	 * Removes the left mouse button press action of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -1008,7 +1048,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the left mouse button release command of the current {@link Widget}.
+	 * Removes the left mouse button release action of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -1021,7 +1061,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the right mouse button click command of the current {@link Widget}.
+	 * Removes the right mouse button click action of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -1034,7 +1074,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the right mouse button press command of the current {@link Widget}.
+	 * Removes the right mouse button press action of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -1047,7 +1087,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Removes the right mouse button release command of the current {@link Widget}.
+	 * Removes the right mouse button release action of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
@@ -1213,54 +1253,125 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the left mouse button click command of the current {@link Widget}.
+	 * Sets the left mouse button click action of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonClickAction
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonClickAction is null.
 	 */
-	public final W setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {
+	@Override
+	public final W setLeftMouseButtonClickAction(final IElementTaker<W> leftMouseButtonClickAction) {
 		
-		//Asserts that the given leftMouseButtonClickAction is not null.
-		Validator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click command").isNotNull();
+		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
 		
 		this.leftMouseButtonClickAction = leftMouseButtonClickAction;
+		
+		return asConcrete();
+	}
+
+	//method
+	/**
+	 * Sets the left mouse button press action of the current {@link Widget}.
+	 * 
+	 * @param leftMouseButtonPressAction
+	 * @return the current {@link Widget}.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
+	 */
+	public final W setLeftMouseButtonPressAction(final IElementTaker<W> leftMouseButtonPressAction) {
+		
+		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		
+		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 		
 		return asConcrete();
 	}
 	
 	//method
 	/**
-	 * Sets the left mouse button press command of the current {@link Widget}.
-	 * 
-	 * @param leftMouseButtonPressAction
-	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
-	 */
-	public final W setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
-		
-		//Asserts that the given leftMouseButtonPressAction is not null.
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press command").isNotNull();
-		
-		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
-		
-		return asConcrete();
-	}	
-		
-	//method
-	/**
-	 * Sets the left mouse button release command of the current {@link Widget}.
+	 * Sets the left mouse button release action of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonReleaseAction
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseAction is null.
 	 */
-	public final W setLeftMouseButtonReleaseAction(final IAction leftMouseButtonReleaseAction) {
+	@Override
+	public final W setLeftMouseButtonReleaseAction(IElementTaker<W> leftMouseButtonReleaseAction) {
 		
-		//Asserts that the given leftMouseButtonReleaseActiond is not null.
-		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release command").isNotNull();
+		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
 		this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the mouse move action of the current {@link Widget}.
+	 * 
+	 * @param mouseMoveAction
+	 * @return the current {@link Widget}.
+	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
+	 */
+	@Override
+	public final W setMouseMoveAction(final IElementTaker<W> mouseMoveAction) {
+		
+		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		
+		this.mouseMoveAction = mouseMoveAction;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the mouse wheel click action of the current {@link Widget}.
+	 * 
+	 * @param mouseWheelClickAction
+	 * @return the current {@link Widget}.
+	 * @throws ArgumentIsNullException if the given mouseWheelClickAction is null.
+	 */
+	@Override
+	public final W setMouseWheelClickAction(IElementTaker<W> mouseWheelClickAction) {
+		
+		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
+		
+		this.mouseWheelClickAction = mouseWheelClickAction;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the mouse wheel press action of the current {@link Widget}.
+	 * 
+	 * @param mouseWheelPressAction
+	 * @return the current {@link Widget}.
+	 * @throws ArgumentIsNullException if the given mouseWheelPressAction is null.
+	 */
+	@Override
+	public final W setMouseWheelPressAction(IElementTaker<W> mouseWheelPressAction) {
+		
+		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
+		
+		this.mouseWheelPressAction = mouseWheelPressAction;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the mouse wheel release action of the current {@link Widget}.
+	 * 
+	 * @param mouseWheelReleaseAction
+	 * @return the current {@link Widget}.
+	 * @throws ArgumentIsNullException if the given mouseWheelReleaseAction is null.
+	 */
+	@Override
+	public final W setMouseWheelReleaseAction(IElementTaker<W> mouseWheelReleaseAction) {
+		
+		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
+		
+		this.mouseWheelReleaseAction = mouseWheelReleaseAction;
 		
 		return asConcrete();
 	}
@@ -1291,16 +1402,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the right mouse button click command of the current {@link Widget}.
+	 * Sets the right mouse button click action of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonClickAction
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given rightMouseButtonClickAction is null.
 	 */
-	public final W setRightMouseButtonClickAction(final IAction rightMouseButtonClickAction) {
+	@Override
+	public final W setRightMouseButtonClickAction(IElementTaker<W> rightMouseButtonClickAction) {
 		
-		//Asserts that the given rightMouseButtonClickAction is not null.
-		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click command").isNotNull();
+		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
 		
 		this.rightMouseButtonClickAction = rightMouseButtonClickAction;
 		
@@ -1309,16 +1420,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the right mouse button press command of the current {@link Widget}.
+	 * Sets the right mouse button press action of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonPressAction
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given rightMouseButtonPressAction is null.
 	 */
-	public final W setRightMouseButtonPressAction(final IAction rightMouseButtonPressAction) {
+	@Override
+	public final W setRightMouseButtonPressAction(IElementTaker<W> rightMouseButtonPressAction) {
 		
-		//Asserts that the given rightMouseButtonPressAction is not null.
-		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press command").isNotNull();
+		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
 		
 		this.rightMouseButtonPressAction = rightMouseButtonPressAction;
 		
@@ -1327,16 +1438,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the right mouse button release command of the current {@link Widget}.
+	 * Sets the right mouse button release action of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonReleaseAction
 	 * @return the current {@link Widget}.
 	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseAction is null.
 	 */
-	public final W setRightMouseButtonReleaseAction(final IAction rightMouseButtonReleaseAction) {
+	@Override
+	public final W setRightMouseButtonReleaseAction(IElementTaker<W> rightMouseButtonReleaseAction) {
 		
-		//Asserts that the given rightMouseButtonReleaseAction is not null.
-		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release command").isNotNull();
+		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
 		
 		this.rightMouseButtonReleaseAction = rightMouseButtonReleaseAction;
 		
@@ -1645,6 +1756,16 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note a left mouse button click on itself for the case when it is enabled.
+	 */
+	private void noteLeftMouseButtonClickOnSelfWhenEnabled_() {
+		if (showAreaIsUnderCursor() && hasLeftMouseButtonClickAction()) {				
+			leftMouseButtonClickAction.run(asConcrete());
+		}
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Widget} note a left mouse button press on itself for the case when it is enabled.
 	 */
 	private void noteLeftMouseButtonPressOnSelfWhenEnabled_() {		
@@ -1673,7 +1794,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 			}
 			
 			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressAction()) {				
-				leftMouseButtonPressAction.run();
+				leftMouseButtonPressAction.run(asConcrete());
 			}
 		}
 	}
@@ -1698,7 +1819,7 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 		}
 		else {
 			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseAction()) {
-				leftMouseButtonReleaseAction.run();
+				leftMouseButtonReleaseAction.run(asConcrete());
 			}
 		}
 	}
@@ -1745,6 +1866,40 @@ implements IInputTaker, Recalculable, TopLeftPositionedRecangular {
 				default:
 					break;
 			}
+			
+			if (showAreaIsUnderCursor() && hasMouseMoveAction()) {				
+				mouseMoveAction.run(asConcrete());
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button click on itself for the case when it is enabled.
+	 */
+	private void noteRightMouseButtonClickOnSelfWhenEnabled_() {
+		if (showAreaIsUnderCursor() && hasRightMouseButtonClickAction()) {				
+			rightMouseButtonClickAction.run(asConcrete());
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button press on itself for the case when it is enabled.
+	 */
+	private void noteRightMouseButtonPressOnSelfWhenEnabled_() {
+		if (showAreaIsUnderCursor() && hasRightMouseButtonPressAction()) {				
+			rightMouseButtonPressAction.run(asConcrete());
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a right mouse button release on itself for the case when it is enabled.
+	 */
+	private void noteRightMouseButtonReleaseOnSelfWhenEnabled_() {
+		if (showAreaIsUnderCursor() && hasRightMouseButtonReleaseAction()) {				
+			rightMouseButtonReleaseAction.run(asConcrete());
 		}
 	}
 	
