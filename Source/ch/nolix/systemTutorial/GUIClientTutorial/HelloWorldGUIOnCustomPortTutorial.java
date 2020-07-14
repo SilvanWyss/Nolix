@@ -15,7 +15,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		final var port = 50000;
 		
 		//Creates a NetServer with an Application for BackGUIClients.
-		final var netServer = new NetServer(port, "Hello World GUI Tutorial", MainSession.class);
+		final var netServer = new NetServer(port, "Hello World GUI on custom port Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient(port);
