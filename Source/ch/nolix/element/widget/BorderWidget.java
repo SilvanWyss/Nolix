@@ -39,7 +39,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1570
+ * @lines 1560
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -915,8 +915,9 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return the x-position of the content area of the current {@link BorderWidget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	protected final int getContentAreaXPosition() {
 		
 		final BWL currentStructure = getRefLook();
@@ -929,8 +930,9 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return the y-position of the content area of the current {@link BorderWidget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	protected final int getContentAreaYPosition() {
 		
 		final var look = getRefLook();
@@ -939,24 +941,6 @@ extends Widget<BW, BWL> {
 		look.getRecursiveOrDefaultTopBorderThickness()
 		- getShowAreaYPositionOnScrolledArea()
 		+ contentArea.getYPositionOnScrolledArea();
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the cursor on the content area of the current {@link BorderWidget}.
-	 */
-	@Override
-	protected final int getCursorXPositionOnContentArea() {
-		return (getCursorXPosition() - getContentAreaXPosition());
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the cursor on the content area of the current {@link BorderWidget}.
-	 */
-	@Override
-	protected final int getCursorYPositionOnContentArea() {
-		return (getCursorYPosition() - getContentAreaYPosition());
 	}
 	
 	//method

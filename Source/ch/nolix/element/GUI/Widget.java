@@ -32,7 +32,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2000
+ * @lines 2020
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1191,14 +1191,6 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 		return asConcrete();
 	}
 	
-	protected int getCursorXPositionOnContentArea() {
-		return cursorXPosition;
-	}
-	
-	protected int getCursorYPositionOnContentArea() {
-		return cursorYPosition;
-	}
-	
 	//method
 	/**
 	 * Sets the current {@link Widget} disabled.
@@ -1540,6 +1532,38 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * @param list
 	 */
 	protected abstract void fillUpShownWidgets(LinkedList<Widget<?, ?>> list);
+	
+	//method
+	/**
+	 * @return the x-position of the content area of the current {@link Widget} on the current {@link Widget}.
+	 */
+	protected int getContentAreaXPosition() {
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the content area of the current {@link Widget} on the current {@link Widget}.
+	 */
+	protected int getContentAreaYPosition() {
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the cursor on the content area of the current {@link Widget}.
+	 */
+	protected final int getCursorXPositionOnContentArea() {
+		return (getCursorXPosition() - getContentAreaXPosition());
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the cursor on the content area of the current {@link Widget}.
+	 */
+	protected final int getCursorYPositionOnContentArea() {
+		return (getCursorYPosition() - getContentAreaYPosition());
+	}
 	
 	//method declaration
 	/**
