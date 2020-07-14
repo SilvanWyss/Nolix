@@ -6,14 +6,14 @@ import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.ImageWidget;
 
 /**
- * The {@link ImageWidgetTutorial2} is a tutorial for {@link ImageWidget}s.
- * Of the {@link ImageWidgetTutorial2} an instance cannot be created.
+ * The {@link ImageWidgetWithImageFromFileTutorial} is a tutorial for {@link ImageWidget}s.
+ * Of the {@link ImageWidgetWithImageFromFileTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08
  * @lines 50
  */
-public class ImageWidgetTutorial2 {
+public class ImageWidgetWithImageFromFileTutorial {
 	
 	/**
 	 * Creates a {@link Frame} with a {@link ImageWidget}.
@@ -44,10 +44,9 @@ public class ImageWidgetTutorial2 {
 		//Adds the ImageWidget to the Frame.
 		frame.addLayerOnTop(imageWidget);
 	}
-	
-	
+		
 	/**
-	 * Avoids that an instance of the {@link ImageWidgetTutorial2} can be created.
+	 * Avoids that an instance of the {@link ImageWidgetWithImageFromFileTutorial} can be created.
 	 */
-	private ImageWidgetTutorial2() {}
+	private ImageWidgetWithImageFromFileTutorial() {}
 }
