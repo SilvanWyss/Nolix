@@ -932,28 +932,6 @@ public class Color extends Element<Color> {
 	
 	//method
 	/**
-	 * @return the integer value of the current {@link Color}.
-	 */
-	public long getIntValue() {
-		
-		//Handles the case that the current color does not have a full alpha value.
-		if (!hasFullAlphaValue()) {
-			return
-			16777216l * getRedValue()
-			+ 65536 * getGreenValue()
-			+ 256 * getBlueValue()
-			+ getAlphaValue();
-		}
-		
-		//Handles the case that the current color has a fuel alpha value.
-		return
-		65536l * getRedValue()
-		+ 256 * getGreenValue()
-		+ getBlueValue();
-	}
-	
-	//method
-	/**
 	 * When a {@link Color} is inverted, the alpha value does not change.
 	 * 
 	 * @return a new {@link Color} that is the inverted color of the current {@link Color}.
@@ -1141,6 +1119,28 @@ public class Color extends Element<Color> {
 	
 	//method
 	/**
+	 * @return the integer value of the current {@link Color}.
+	 */
+	public long toLong() {
+		
+		//Handles the case that the current Color does not have a full alpha value.
+		if (!hasFullAlphaValue()) {
+			return
+			16777216l * getRedValue()
+			+ 65536 * getGreenValue()
+			+ 256 * getBlueValue()
+			+ getAlphaValue();
+		}
+		
+		//Handles the case that the current Color has a full alpha value.
+		return
+		65536l * getRedValue()
+		+ 256 * getGreenValue()
+		+ getBlueValue();
+	}
+	
+	//method
+	/**
 	 * Sets the alpha value of the current {@link Color}.
 	 * 
 	 * @param alphaValue
@@ -1189,7 +1189,7 @@ public class Color extends Element<Color> {
 		.thatIsNamed("green value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
- this.greenValue = (short)greenValue;
+		this.greenValue = (short)greenValue;
 	}
 	
 	//method
@@ -1207,7 +1207,7 @@ public class Color extends Element<Color> {
 		.thatIsNamed("red value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
- this.redValue = (short)redValue;
+		this.redValue = (short)redValue;
 	}
 	
 	//method
@@ -1274,10 +1274,11 @@ public class Color extends Element<Color> {
 		
 		//Handles the case that the given value is a color name.
 		else {
-			setValue(pair.getRefElement2().getIntValue());
+			setValue(pair.getRefElement2().toLong());
 		}
 	}
-		
+	
+	//method
 	private int getValue(final String string) {
 		
 		var value = 0;

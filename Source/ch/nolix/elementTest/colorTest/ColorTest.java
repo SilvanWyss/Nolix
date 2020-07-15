@@ -12,7 +12,7 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 220
+ * @lines 230
  */
 public final class ColorTest extends Test {
 	
@@ -24,7 +24,7 @@ public final class ColorTest extends Test {
 		final var color = new Color("0x000000");
 		
 		//verification
-		expect(color.getIntValue()).isEqualTo(0);
+		expect(color.toLong()).isEqualTo(0);
 		expect(color.hasFullAlphaValue());
 	}
 
@@ -36,7 +36,7 @@ public final class ColorTest extends Test {
 		final var color = new Color("0xFFFFFF");
 		
 		//verification
-		expect(color.getIntValue()).isEqualTo(16777215);
+		expect(color.toLong()).isEqualTo(16777215);
 		expect(color.hasFullAlphaValue());
 	}
 
@@ -136,7 +136,7 @@ public final class ColorTest extends Test {
 		final var invertedColor = color.getInvertedColor();
 		
 		//verification
-		expect(invertedColor.getIntValue()).isEqualTo(0xFFFFFF);
+		expect(invertedColor.toLong()).isEqualTo(0xFFFFFF);
 	}
 	
 	//method
@@ -150,7 +150,7 @@ public final class ColorTest extends Test {
 		final var invertedColor = color.getInvertedColor();
 		
 		//verification
-		expect(invertedColor.getIntValue()).isEqualTo(0x000000);
+		expect(invertedColor.toLong()).isEqualTo(0x000000);
 	}
 	
 	//method
