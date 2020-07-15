@@ -3,7 +3,6 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
@@ -14,6 +13,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -244,6 +244,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				return createPaintImageByIdCommand(painterIndex, paintCommand);
 			case CanvasGUIProtocol.PAINT_TEXT_HEADER:
 				return createPaintTextCommand(painterIndex, paintCommand);
+			case CanvasGUIProtocol.REGISTER_IMAGE_HEADER:
+				return createRegisterImageCommand(painterIndex, paintCommand);
 			case CanvasGUIProtocol.SET_COLOR_HEADER:
 				return createSetColorCommand(painterIndex, paintCommand);
 			case CanvasGUIProtocol.SET_COLOR_GRADIENT_HEADER:
@@ -306,7 +308,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {
 		
 		final var attributes = paintImageCommand.getAttributesAsNodes();
-		final var imageId = attributes.getRefFirst(a -> a.hasHeader(PascalCaseNameCatalogue.ID)).toString();
+		final var imageId = attributes.getRefAt(1).toString();
 		
 		switch (attributes.getElementCount()) {
 			case 1:	
@@ -348,6 +350,18 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 			default:
 				throw new InvalidArgumentException("paint text command", paintTextCommand,"is not valid");
 		}
+	}
+	
+	//method
+	private IElementTaker<PaintRun> createRegisterImageCommand(
+		final int painterIndex,
+		final ChainedNode registerImageCommand
+	) {
+		
+		final var id = registerImageCommand.getAttributeAt(1).toString();
+		final var image = Image.fromSpecification(registerImageCommand.getAttributeAt(2).toNode());
+				
+		return pr -> pr.getRefPainterByIndex(painterIndex).registerImageAtId(id, image);
 	}
 	
 	//method

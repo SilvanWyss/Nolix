@@ -290,10 +290,8 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			appendPaintCommand(
 				CanvasGUIProtocol.REGISTER_IMAGE_HEADER
 				+ "("
-				+ PascalCaseNameCatalogue.ID
-				+ "("
 				+ id
-				+ "),"
+				+ ","
 				+ image.getSpecification()
 				+ ")"
 			);
