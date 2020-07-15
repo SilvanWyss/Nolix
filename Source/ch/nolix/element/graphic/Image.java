@@ -108,9 +108,6 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public static Image fromString(final String string) {
 		return fromSpecification(Node.fromString(string));
 	}
-
-	//attribute
-	private final Matrix<Color> pixels;
 	
 	//attribute
 	private final Property<Integer> width =
@@ -129,6 +126,12 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		BaseNode::getOneAttributeAsInt,
 		h -> Node.withOneAttribute(h)
 	);
+		
+	//attribute
+	private final Matrix<Color> pixels;
+	
+	//optional attribute
+	private BufferedImage bufferedImage;
 	
 	//constructor
 	public Image(final int width, final int height) {
@@ -220,6 +223,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	@Override
 	public Image reset() {
 		
+		deleteBufferedImage();
+		
 		final var pixelCount = getPixelCount();
 		for (var i = 1; i <= pixelCount; i++) {
 			pixels.setAt(i, Color.WHITE);
@@ -241,6 +246,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public Image setPixel(int xPosition, int yPosition, final Color color) {
 		
+		deleteBufferedImage();
+		
 		pixels.setAt(yPosition, xPosition, color);
 		
 		return this;
@@ -248,6 +255,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	public Image setPixelArray(final Iterable<Color> pixels) {
+		
+		deleteBufferedImage();
 		
 		final var pixelContainer = new ReadContainer<Color>(pixels);
 		
@@ -268,22 +277,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public BufferedImage toBufferedImage() {
 		
-		final var bufferedImage =
-		new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-		final var raster = bufferedImage.getRaster();
-		
-		for (var y = 0; y < getHeight(); y++) {
-			for (var x = 0; x < getWidth(); x++) {
+		generateBufferedImageIfNeeded();
 				
-				final var pixel = pixels.getRefAt(y + 1, x + 1);
-				
-				//TODO: raster.setSample(x, y, 0, pixel.getAlphaValue())
-				raster.setSample(x, y, 0, pixel.getRedValue());
-				raster.setSample(x, y, 1, pixel.getGreenValue());
-				raster.setSample(x, y, 2, pixel.getBlueValue());
-			}
-		}
-		
 		return bufferedImage;
 	}
 	
@@ -360,6 +355,37 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		}
 		
 		return image;
+	}
+	
+	//method
+	private void deleteBufferedImage() {
+		bufferedImage = null;
+	}
+	
+	//method
+	private void generateBufferedImageIfNeeded() {
+		if (bufferedImage == null) {
+			generateBufferedImageWhenNeeded();
+		}
+	}
+	
+	//method
+	private void generateBufferedImageWhenNeeded() {
+		
+		bufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+		final var raster = bufferedImage.getRaster();
+		
+		for (var y = 0; y < getHeight(); y++) {
+			for (var x = 0; x < getWidth(); x++) {
+				
+				final var pixel = pixels.getRefAt(y + 1, x + 1);
+				
+				//TODO: Apply alpha value.
+				raster.setSample(x, y, 0, pixel.getRedValue());
+				raster.setSample(x, y, 1, pixel.getGreenValue());
+				raster.setSample(x, y, 2, pixel.getBlueValue());
+			}
+		}	
 	}
 	
 	//method
