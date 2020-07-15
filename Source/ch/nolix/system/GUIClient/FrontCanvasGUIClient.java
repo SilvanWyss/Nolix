@@ -2,6 +2,7 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
+import ch.nolix.common.endPoint2.NetServer;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClient;
 import ch.nolix.system.baseGUIClient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
@@ -15,9 +16,24 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 110
+ * @lines 130
  */
 public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGUIClient> {
+	
+	//constructor
+	/**
+	 * Creates a new {@link FrontCanvasGUIClient} that will connect to the default application
+	 * on the default port on the local machine.
+	 */
+	public FrontCanvasGUIClient() {
+		
+		//Calls constructor of the base class.
+		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		
+		internalConnectTo(NetServer.DEFAULT_PORT);
+		
+		noteResizeOnCounterpart();
+	}
 	
 	//constructor
 	/**
