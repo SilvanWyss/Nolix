@@ -10,7 +10,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 200
+ * @lines 230
  */
 public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
 	
@@ -41,7 +41,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the x-position of the cursor on the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getCursorXPosition() {
-		return (parentBorderWidget.getCursorXPosition() - parentBorderWidget.getShowAreaXPositionOnScrolledArea());
+		return (parentBorderWidget.getCursorXPosition() + parentBorderWidget.getShowAreaXPositionOnScrolledArea());
 	}
 	
 	//method
@@ -49,7 +49,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the y-position of the cursor on the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getCursorYPosition() {
-		return (parentBorderWidget.getCursorYPosition() - parentBorderWidget.getShowAreaYPositionOnScrolledArea());
+		return (parentBorderWidget.getCursorYPosition() + parentBorderWidget.getShowAreaYPositionOnScrolledArea());
 	}
 	
 	//method
