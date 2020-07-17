@@ -18,26 +18,26 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
-public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook>
-implements Clearable<IM> {
+public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
+implements Clearable<TIM> {
 	
 	//constant
 	private static final String SELECTED_ITEM_HEADER = "SelectedItem";
 	
 	//attribute
-	private final MultiProperty<ItemMenuItem> items =
+	private final MultiProperty<TextItemMenuItem> items =
 	new MultiProperty<>(
 		PascalCaseNameCatalogue.ITEM,
 		i -> addItem(i),
-		s -> ItemMenuItem.fromSpecification(s),
+		s -> TextItemMenuItem.fromSpecification(s),
 		i -> i.getSpecification()
 	);
 	
 	//optional attribute
-	private IElementTaker<ItemMenuItem> selectCommand;
+	private IElementTaker<TextItemMenuItem> selectCommand;
 	
 	//method
-	public final IM addItem(final ItemMenuItem item) {
+	public final TIM addItem(final TextItemMenuItem item) {
 		
 		supposeDoesNotContainItemWithText(item.getText());
 		
@@ -49,7 +49,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM addItem(final ItemMenuItem... items) {
+	public final TIM addItem(final TextItemMenuItem... items) {
 		
 		for (final var i : items) {
 			addItem(i);
@@ -59,36 +59,36 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public IM addItems(final Iterable<String> texts) {
+	public TIM addItems(final Iterable<String> texts) {
 		
-		texts.forEach(t -> addItem(new ItemMenuItem(t)));
+		texts.forEach(t -> addItem(new TextItemMenuItem(t)));
 		
 		return asConcrete();
 	}
 	
 	//method
-	public IM addItem(final String text) {
-		return addItem(new ItemMenuItem(text));
+	public TIM addItem(final String text) {
+		return addItem(new TextItemMenuItem(text));
 	}
 	
 	//method
-	public IM addItem(final String... texts) {
+	public TIM addItem(final String... texts) {
 		return addItems(new ReadContainer<String>(texts));
 	}
 	
 	//method
-	public IM addItem(final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
-		return addItem(new ItemMenuItem(text, selectCommand));
+	public TIM addItem(final String text, final IElementTaker<TextItemMenu<?>> selectCommand) {
+		return addItem(new TextItemMenuItem(text, selectCommand));
 	}
 	
 	//method
-	public IM addItem(final String id, final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
-		return addItem(new ItemMenuItem(id, text, selectCommand));
+	public TIM addItem(final String id, final String text, final IElementTaker<TextItemMenu<?>> selectCommand) {
+		return addItem(new TextItemMenuItem(id, text, selectCommand));
 	}
 	
 	//method
-	public IM addItem(final String id, final String text) {
-		return addItem(new ItemMenuItem(id, text));
+	public TIM addItem(final String id, final String text) {
+		return addItem(new TextItemMenuItem(id, text));
 	}
 	
 	//method
@@ -105,7 +105,7 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public final IM clear() {
+	public final TIM clear() {
 		
 		unselectAllItems();
 		items.clear();
@@ -143,7 +143,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IContainer<ItemMenuItem> getItems() {
+	public final IContainer<TextItemMenuItem> getItems() {
 		return items;
 	}
 	
@@ -164,7 +164,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM removeSelectCommand() {
+	public final TIM removeSelectCommand() {
 		
 		selectCommand = null;
 		
@@ -173,7 +173,7 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	public IM reset() {
+	public TIM reset() {
 		
 		super.reset();
 		
@@ -184,7 +184,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM selectItemById(final String id) {
+	public final TIM selectItemById(final String id) {
 		
 		select(items.getRefFirst(i -> i.hasId(id)));
 		
@@ -192,7 +192,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM selectItemByText(final String text) {
+	public final TIM selectItemByText(final String text) {
 		
 		select(items.getRefFirst(i -> i.hasText(text)));
 		
@@ -200,7 +200,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM selectFirstItem() {
+	public final TIM selectFirstItem() {
 		
 		select(items.getRefFirst());
 		
@@ -208,7 +208,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM setSelectCommand(final IElementTaker<ItemMenuItem> selectCommand) {
+	public final TIM setSelectCommand(final IElementTaker<TextItemMenuItem> selectCommand) {
 		
 		this.selectCommand = Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
 		
@@ -216,7 +216,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public final IM unselectAllItems() {
+	public final TIM unselectAllItems() {
 		
 		if (containsSelectedItem()) {
 			getSelectedItem().unselect();
@@ -227,8 +227,8 @@ implements Clearable<IM> {
 	
 	//method
 	@Override
-	protected final ItemMenuLook createLook() {
-		return new ItemMenuLook();
+	protected final TextItemMenuLook createLook() {
+		return new TextItemMenuLook();
 	}
 	
 	//method
@@ -244,7 +244,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	protected ItemMenuItem getSelectedItem() {
+	protected TextItemMenuItem getSelectedItem() {
 		
 		supposeContainsSelectedItem();
 		
@@ -252,7 +252,7 @@ implements Clearable<IM> {
 	}
 	
 	//method declaration
-	protected abstract void noteAddItem(final ItemMenuItem item);
+	protected abstract void noteAddItem(final TextItemMenuItem item);
 	
 	//method declaration
 	protected abstract void noteClear();
@@ -300,14 +300,14 @@ implements Clearable<IM> {
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method declaration
-	protected abstract void noteSelectItem(ItemMenuItem item);
+	protected abstract void noteSelectItem(TextItemMenuItem item);
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paintContentArea(final ItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected final void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	/**
@@ -369,7 +369,7 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	protected final void select(final ItemMenuItem item) {
+	protected final void select(final TextItemMenuItem item) {
 		
 		//For better performance, this implementation does not use all comfortable methods.
 			final var selectedItem = items.getRefFirstOrNull(i -> i.isSelected());

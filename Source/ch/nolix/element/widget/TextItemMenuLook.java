@@ -9,7 +9,7 @@ import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.layerElement.LayerProperty;
 
 //class
-public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
+public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 	
 	//constant
 	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
@@ -30,29 +30,29 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	);
 	
 	//attribute
-	private final LayerProperty<ItemMenuItemLook> baseItemLook =
+	private final LayerProperty<TextItemMenuItemLook> baseItemLook =
 	new LayerProperty<>(
 		NORMAL_ITEM_LOOK_HEADER,
-		new ItemMenuItemLook(),
-		s -> ItemMenuItemLook.fromSpecification(s),
+		new TextItemMenuItemLook(),
+		s -> TextItemMenuItemLook.fromSpecification(s),
 		bil -> bil.getSpecification()
 	);
 	
 	//attribute
-	private final LayerProperty<ItemMenuItemLook> hoverItemLookProperty =
+	private final LayerProperty<TextItemMenuItemLook> hoverItemLookProperty =
 	new LayerProperty<>(
 		HOVER_ITEM_LOOK_HEADER,
-		new ItemMenuItemLook(),
-		s -> ItemMenuItemLook.fromSpecification(s),
+		new TextItemMenuItemLook(),
+		s -> TextItemMenuItemLook.fromSpecification(s),
 		hilp -> hilp.getSpecification()
 	);
 	
 	//attribute
-	private final LayerProperty<ItemMenuItemLook> selectionItemLookProperty =
+	private final LayerProperty<TextItemMenuItemLook> selectionItemLookProperty =
 	new LayerProperty<>(
 		SELECTION_ITEM_LOOK_HEADER,
-		new ItemMenuItemLook(),
-		s -> ItemMenuItemLook.fromSpecification(s),
+		new TextItemMenuItemLook(),
+		s -> TextItemMenuItemLook.fromSpecification(s),
 		silp -> silp.getSpecification()
 	);
 	
@@ -62,22 +62,22 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	}
 	
 	//method
-	public ItemMenuItemLook getRefRecursiveOrDefaultBaseItemLook() {
+	public TextItemMenuItemLook getRefRecursiveOrDefaultBaseItemLook() {
 		return baseItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public ItemMenuItemLook getRefRecursiveOrDefaultHoverItemLook() {
+	public TextItemMenuItemLook getRefRecursiveOrDefaultHoverItemLook() {
 		return hoverItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public ItemMenuItemLook getRefRecursiveOrDefaultSelectionItemLook() {
+	public TextItemMenuItemLook getRefRecursiveOrDefaultSelectionItemLook() {
 		return selectionItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public ItemMenuLook setBaseItemLook(final ItemMenuItemLook itemMenuItemLook) {
+	public TextItemMenuLook setBaseItemLook(final TextItemMenuItemLook itemMenuItemLook) {
 		
 		baseItemLook.setValue(itemMenuItemLook);
 		
@@ -85,7 +85,7 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	}
 	
 	//method
-	public ItemMenuLook setHoverItemLook(final ItemMenuItemLook hoverMenuItemLook) {
+	public TextItemMenuLook setHoverItemLook(final TextItemMenuItemLook hoverMenuItemLook) {
 		
 		hoverItemLookProperty.setValue(hoverMenuItemLook);
 		
@@ -93,7 +93,7 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	}
 	
 	//method
-	public ItemMenuLook setItemPadding(final int itemPadding) {
+	public TextItemMenuLook setItemPadding(final int itemPadding) {
 		
 		Validator.assertThat(itemPadding).thatIsNamed("item padding").isNotNegative();
 		
@@ -103,7 +103,7 @@ public final class ItemMenuLook extends BorderWidgetLook<ItemMenuLook> {
 	}
 	
 	//method
-	public ItemMenuLook setSelectionItemLook(final ItemMenuItemLook itemMenuItemLook) {
+	public TextItemMenuLook setSelectionItemLook(final TextItemMenuItemLook itemMenuItemLook) {
 		
 		selectionItemLookProperty.setValue(itemMenuItemLook);
 		

@@ -15,18 +15,18 @@ import ch.nolix.element.base.OptionalProperty;
 import ch.nolix.element.base.Property;
 
 //class
-public final class ItemMenuItem extends Element<ItemMenuItem> {
+public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	
 	//constant
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static ItemMenuItem fromSpecification(final BaseNode specification) {
-		return new ItemMenuItem(specification);
+	public static TextItemMenuItem fromSpecification(final BaseNode specification) {
+		return new TextItemMenuItem(specification);
 	}
 	
 	//attribute
-	private ItemMenu<?> parentItemMenu;
+	private TextItemMenu<?> parentItemMenu;
 	
 	//attribute
 	private final Property<String> text =
@@ -47,7 +47,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	);
 	
 	//optional attribute
-	private IElementTaker<ItemMenu<?>> selectCommand;
+	private IElementTaker<TextItemMenu<?>> selectCommand;
 	
 	//attribute
 	private final MutableProperty<Boolean> selectionFlag =
@@ -62,13 +62,13 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	private final Label label = new Label();
 	
 	//constructor
-	public ItemMenuItem(final String text) {
+	public TextItemMenuItem(final String text) {
 		setText(text);
 		unselect();
 	}
 	
 	//constructor
-	public ItemMenuItem(final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+	public TextItemMenuItem(final String text, final IElementTaker<TextItemMenu<?>> selectCommand) {
 		
 		this(text);
 		
@@ -76,7 +76,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//constructor
-	public ItemMenuItem(final String id, final String text) {
+	public TextItemMenuItem(final String id, final String text) {
 		
 		this(text);	
 		
@@ -84,7 +84,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//constructor
-	public ItemMenuItem(final String id, final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+	public TextItemMenuItem(final String id, final String text, final IElementTaker<TextItemMenu<?>> selectCommand) {
 		
 		this(text, selectCommand);
 		
@@ -92,7 +92,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//constructor
-	private ItemMenuItem(final BaseNode specification) {
+	private TextItemMenuItem(final BaseNode specification) {
 		unselect();
 		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}
@@ -165,7 +165,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//method
-	public void setParentMenu(final ItemMenu<?> parentItemMenu) {
+	public void setParentMenu(final TextItemMenu<?> parentItemMenu) {
 		
 		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull().andReturn();
 		
@@ -173,7 +173,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 
 	//method
-	private ItemMenu<?> getParentItemMenu() {
+	private TextItemMenu<?> getParentItemMenu() {
 		
 		if (parentItemMenu == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "parent item menu");

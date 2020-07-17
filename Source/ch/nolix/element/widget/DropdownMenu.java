@@ -11,7 +11,7 @@ import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.input.Key;
 
 //class
-public final class DropdownMenu extends ItemMenu<DropdownMenu> {
+public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//attributes
 	private final Label originLabel = new Label();
@@ -49,7 +49,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 			throw new InvalidArgumentException(this, "is already expanded");
 		}
 		
-		selectionMenu = new SelectionMenu(getItems().to(ItemMenuItem::getText));
+		selectionMenu = new SelectionMenu(getItems().to(TextItemMenuItem::getText));
 		
 		selectionMenu.setSelectCommand(
 			i -> { select(i); getParentGUI().removeTopLayer(); selectionMenu = null; }
@@ -99,11 +99,11 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		
 		getRefBaseLook()
 		.setHoverItemLook(
-			new ItemMenuItemLook()
+			new TextItemMenuItemLook()
 			.setBackgroundColor(Color.LIGHT_GREY)
 		)
 		.setSelectionItemLook(
-			new ItemMenuItemLook()
+			new TextItemMenuItemLook()
 			.setBackgroundColor(Color.GREY)
 		);
 	}
@@ -132,7 +132,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteAddItem(ItemMenuItem item) {
+	protected void noteAddItem(TextItemMenuItem item) {
 		if (isExpanded()) {
 			selectionMenu.addItem(item.getText());
 		}
@@ -167,7 +167,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem(final ItemMenuItem item) {
+	protected void noteSelectItem(final TextItemMenuItem item) {
 		originLabel.setText(item.getText());
 	}
 }

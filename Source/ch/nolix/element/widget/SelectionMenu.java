@@ -6,7 +6,7 @@ import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 
 //class
-public final class SelectionMenu extends ItemMenu<SelectionMenu> {
+public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	
 	//attribute
 	private final VerticalStack menu = new VerticalStack();
@@ -17,7 +17,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	}
 	
 	//constructor
-	public SelectionMenu(final ItemMenuItem... items) {
+	public SelectionMenu(final TextItemMenuItem... items) {
 		
 		this();
 		
@@ -74,11 +74,11 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 		getRefBaseLook()
 		.setBackgroundColor(Color.WHITE_SMOKE)
 		.setHoverItemLook(
-			new ItemMenuItemLook()
+			new TextItemMenuItemLook()
 			.setBackgroundColor(Color.LIGHT_GREY)
 		)
 		.setSelectionItemLook(
-			new ItemMenuItemLook()
+			new TextItemMenuItemLook()
 			.setBackgroundColor(Color.GREY)
 		);
 	}
@@ -117,7 +117,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void noteAddItem(final ItemMenuItem itemMenuItem) {
+	protected void noteAddItem(final TextItemMenuItem itemMenuItem) {
 		menu.addWidget(itemMenuItem.getRefLabel());
 	}
 
@@ -136,5 +136,5 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem(ItemMenuItem item) {}
+	protected void noteSelectItem(TextItemMenuItem item) {}
 }

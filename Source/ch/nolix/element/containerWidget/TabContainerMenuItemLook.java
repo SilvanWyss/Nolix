@@ -10,10 +10,10 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerElement;
-import ch.nolix.element.widget.ItemMenuItemLook;
+import ch.nolix.element.widget.TextItemMenuItemLook;
 
 //class
-public final class TabContainerMenuItemLook extends LayerElement<ItemMenuItemLook> {
+public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "MenuItemLook";

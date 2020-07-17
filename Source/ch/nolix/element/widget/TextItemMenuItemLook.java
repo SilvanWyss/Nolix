@@ -8,8 +8,8 @@ import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 
 //class
-public final class ItemMenuItemLook
-extends LayerElement<ItemMenuItemLook> {
+public final class TextItemMenuItemLook
+extends LayerElement<TextItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "ItemLook";
@@ -19,11 +19,11 @@ extends LayerElement<ItemMenuItemLook> {
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 		
 	//static method
-	public static ItemMenuItemLook fromSpecification(
+	public static TextItemMenuItemLook fromSpecification(
 		final BaseNode specification
 	) {
 		
-		final var selectionMenuItemLook = new ItemMenuItemLook();
+		final var selectionMenuItemLook = new TextItemMenuItemLook();
 		selectionMenuItemLook.reset(specification);
 		
 		return selectionMenuItemLook;
@@ -74,7 +74,7 @@ extends LayerElement<ItemMenuItemLook> {
 	}
 	
 	//method
-	public ItemMenuItemLook setBackgroundColor(final Color backgroundColor) {
+	public TextItemMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
 		this.backgroundColor.setValue(backgroundColor);
 		
@@ -82,7 +82,7 @@ extends LayerElement<ItemMenuItemLook> {
 	}
 	
 	//method
-	public ItemMenuItemLook setTextColor(final Color textColor) {
+	public TextItemMenuItemLook setTextColor(final Color textColor) {
 		
 		this.textColor.setValue(textColor);
 		
