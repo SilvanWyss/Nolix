@@ -1124,7 +1124,7 @@ extends Widget<BW, BWL> {
 	 */
 	@Override
 	protected final void noteLeftMouseButtonPressOnSelfWhenEnabled() {
-				
+		
 		//Handles the case that the vertical scrollbar cursor is under the cursor.
 		if (verticalScrollbarCursorIsUnderCursor()) {
 			
@@ -1144,6 +1144,7 @@ extends Widget<BW, BWL> {
 			getCursorXPosition()
 			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
+		
 		else if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteLeftMouseButtonPressOnContentAreaWhenEnabled();
 		}
