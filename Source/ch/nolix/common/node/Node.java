@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.node;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -87,7 +88,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public static Node withOneAttribute(final boolean attribute) {
 		
 		final var node = new Node();
-		node.setHeader(String.valueOf(attribute));
+		node.addAttribute(new Node(String.valueOf(attribute)));
 		
 		return node;
 	}
