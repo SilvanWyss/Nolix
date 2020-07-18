@@ -497,8 +497,8 @@ IResizableInputTaker {
 			rootWidget.noteLeftMouseButtonPress();
 		}
 		
-		if (rightMouseButtonPressAction != null) {
-			rightMouseButtonClickAction.run(this);
+		if (leftMouseButtonPressAction != null) {
+			leftMouseButtonPressAction.run(this);
 		}
 	}
 	
