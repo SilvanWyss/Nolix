@@ -31,7 +31,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2010
+ * @lines 2020
  * @param <E> The type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -646,6 +646,18 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Handles the case that the current IContainer contains elements.
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param intNorm
+	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
+	 * if the current {@link IContainer} contains elements, otherwise 0.
+	 */
+	public default int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
+		return getMaxIntOrDefaultValue(intNorm, 0);
 	}
 	
 	//method
