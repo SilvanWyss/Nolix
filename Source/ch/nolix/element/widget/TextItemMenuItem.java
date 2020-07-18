@@ -53,9 +53,9 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	private final MutableProperty<Boolean> selectionFlag =
 	new MutableProperty<>(
 		SELECTION_FLAG_HEADER,
-		sf -> setSelectionFlag(sf),
-		s -> s.toBoolean(),
-		sf -> Node.withOneAttribute(sf)
+		this::setSelectionFlag,
+		BaseNode::getOneAttributeAsBoolean,
+		Node::withOneAttribute
 	);
 	
 	//attribute
