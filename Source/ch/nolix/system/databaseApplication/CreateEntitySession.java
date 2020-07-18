@@ -125,7 +125,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					);
 					
 					final var dropdownMenu = new DropdownMenu();
-					dropdownMenu.setSelectCommand(
+					dropdownMenu.setSelectAction(
 						i -> referenceProperty.set(referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
 					);
 					for (final var e : referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
@@ -151,7 +151,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					
 					if (optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().containsAny()) {
 						final var dropdownMenu2 = new DropdownMenu();
-						dropdownMenu2.setSelectCommand(
+						dropdownMenu2.setSelectAction(
 							i -> optionalRreferenceProperty.set(optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
 						);
 						for (final var e : optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {

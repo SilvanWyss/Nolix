@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
@@ -14,14 +15,6 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	//constructor
 	public SelectionMenu() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	public SelectionMenu(final TextItemMenuItem... items) {
-		
-		this();
-		
-		addItem(items);
 	}
 	
 	//constructor
@@ -42,7 +35,7 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	
 	//method
 	public String getSelectedItemId() {
-		return getSelectedItem().getId();
+		return getRefSelectedItem().getId();
 	}
 	
 	//method
@@ -54,11 +47,11 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	//method
 	@Override
 	public void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
-		
-		var selectedItem = getItems().getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
+				
+		var selectedItem = getRefItems().getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
 		
 		if (selectedItem != null) {
-			select(selectedItem);
+			selectItem(selectedItem);
 		}
 	}
 	
@@ -101,18 +94,13 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 			return 0;
 		}
 		
-		return getItems().getSumByInt(i -> i.getHeight());
+		return getRefItems().getSumByInt(i -> i.getHeight());
 	}
 	
 	//method
 	@Override
 	protected int getContentAreaWidth() {
-		
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		return getItems().getMaxInt(i -> i.getRefLabel().getWidth());
+		return getRefItems().getMaxIntOrZero(TextItemMenuItem::getWidth);
 	}
 	
 	//method
@@ -137,4 +125,8 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	//method
 	@Override
 	protected void noteSelectItem(TextItemMenuItem item) {}
+	
+	//method
+	@Override
+	protected void recalculateSelfStage3() {}
 }

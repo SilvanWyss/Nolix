@@ -169,7 +169,7 @@ public final class EntitySession extends HeaderedSession {
 					
 					final var dropdownMenu = new DropdownMenu();
 					
-					dropdownMenu.setSelectCommand(
+					dropdownMenu.setSelectAction(
 						i -> referenceProperty.set(referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
 					);
 					
@@ -198,7 +198,7 @@ public final class EntitySession extends HeaderedSession {
 					
 						final var dropdownMenu2 = new DropdownMenu();
 						
-						dropdownMenu2.setSelectCommand(
+						dropdownMenu2.setSelectAction(
 							i -> optionalReferenceProperty.set(optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
 						);
 						

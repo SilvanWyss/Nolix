@@ -133,8 +133,8 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	}
 	
 	//method
-	public void select() {
-		
+	void select() {
+				
 		selectionFlag.setValue(true);
 		label.setFocused();
 		
@@ -144,7 +144,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	}
 	
 	//method
-	public void unselect() {
+	void unselect() {		
 		selectionFlag.setValue(false);
 		label.setNormal();
 	}

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
@@ -8,8 +9,7 @@ import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 
 //class
-public final class TextItemMenuItemLook
-extends LayerElement<TextItemMenuItemLook> {
+public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "ItemLook";

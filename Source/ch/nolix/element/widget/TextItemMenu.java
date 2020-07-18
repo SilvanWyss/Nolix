@@ -3,14 +3,12 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.math.Calculator;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
@@ -20,26 +18,54 @@ import ch.nolix.element.painter.IPainter;
 //class
 public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
 implements Clearable<TIM> {
-	
-	//constant
-	private static final String SELECTED_ITEM_HEADER = "SelectedItem";
-	
+		
 	//attribute
 	private final MultiProperty<TextItemMenuItem> items =
 	new MultiProperty<>(
 		PascalCaseNameCatalogue.ITEM,
-		i -> addItem(i),
-		s -> TextItemMenuItem.fromSpecification(s),
-		i -> i.getSpecification()
+		this::addItem,
+		TextItemMenuItem::fromSpecification,
+		TextItemMenuItem::getSpecification
 	);
 	
 	//optional attribute
-	private IElementTaker<TextItemMenuItem> selectCommand;
+	private IElementTaker<TextItemMenuItem> selectAction;
+	
+	//method
+	public TIM addItem(final String item) {
+		return addItem(new TextItemMenuItem(item));
+	}
+	
+	//method
+	public final TIM addItem(final String... items) {
+		return addItems(new ReadContainer<>(items));
+	}
+	
+	//method
+	public TIM addItem(final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
+		return addItem(new TextItemMenuItem(item, selectAction));
+	}
+	
+	//method
+	public TIM addItem(final String id, final String item) {
+		return addItem(new TextItemMenuItem(id, item));
+	}
+	
+	//method
+	public TIM addItem(final String id, final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
+		return addItem(new TextItemMenuItem(id, item, selectAction));
+	}
 	
 	//method
 	public final TIM addItem(final TextItemMenuItem item) {
 		
-		supposeDoesNotContainItemWithText(item.getText());
+		Validator.assertThat(item).thatIsNamed(VariableNameCatalogue.ITEM).isNotNull();
+		
+		assertDoesNotContainItem(item.getText());
+		
+		if (item.hasId()) {
+			assertDoesNotContainItemWithId(item.getId());
+		}
 		
 		item.setParentMenu(this);
 		items.add(item);
@@ -49,65 +75,18 @@ implements Clearable<TIM> {
 	}
 	
 	//method
-	public final TIM addItem(final TextItemMenuItem... items) {
+	public TIM addItems(final Iterable<String> items) {
 		
-		for (final var i : items) {
-			addItem(i);
-		}
+		items.forEach(this::addItem);
 		
 		return asConcrete();
-	}
-	
-	//method
-	public TIM addItems(final Iterable<String> texts) {
-		
-		texts.forEach(t -> addItem(new TextItemMenuItem(t)));
-		
-		return asConcrete();
-	}
-	
-	//method
-	public TIM addItem(final String text) {
-		return addItem(new TextItemMenuItem(text));
-	}
-	
-	//method
-	public TIM addItem(final String... texts) {
-		return addItems(new ReadContainer<String>(texts));
-	}
-	
-	//method
-	public TIM addItem(final String text, final IElementTaker<TextItemMenu<?>> selectCommand) {
-		return addItem(new TextItemMenuItem(text, selectCommand));
-	}
-	
-	//method
-	public TIM addItem(final String id, final String text, final IElementTaker<TextItemMenu<?>> selectCommand) {
-		return addItem(new TextItemMenuItem(id, text, selectCommand));
-	}
-	
-	//method
-	public TIM addItem(final String id, final String text) {
-		return addItem(new TextItemMenuItem(id, text));
-	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		switch (attribute.getHeader()) {
-			case SELECTED_ITEM_HEADER:
-				selectItemByText(attribute.getOneAttributeAsString());
-				break;
-			default:				
-				super.addOrChangeAttribute(attribute);
-		}
 	}
 	
 	//method
 	@Override
 	public final TIM clear() {
 		
-		unselectAllItems();
+		unselectItems();
 		items.clear();
 		noteClear();
 		
@@ -115,46 +94,45 @@ implements Clearable<TIM> {
 	}
 	
 	//method
-	public final boolean containsItemWithId(final String id) {
-		return items.contains(i -> i.hasId(id));
+	public final boolean containsItem(final String text) {
+		return getRefItems().contains(i -> i.hasText(text));
 	}
 	
 	//method
-	public final boolean containsItemWithText(final String text) {
-		return items.contains(i -> i.hasText(text));
+	public final boolean containsItemWithId(final String id) {
+		return getRefItems().contains(i -> i.hasId(id));
 	}
 	
 	//method
 	public final boolean containsSelectedItem() {
-		return items.contains(i -> i.isSelected());
+		return getRefItems().contains(TextItemMenuItem::isSelected);
 	}
 	
 	//method
-	@Override
-	public final LinkedList<Node> getAttributes() {
-		
-		final var attributes = super.getAttributes();
-		
-		if (containsSelectedItem()) {
-			attributes.addAtEnd(new Node(SELECTED_ITEM_HEADER,	getSelectedItemText()));
-		}
-		
-		return attributes;
+	public final int getIndexOfSelectedItem() {
+		return getRefItems().getIndexOf(getRefSelectedItem());
 	}
 	
 	//method
-	public final IContainer<TextItemMenuItem> getItems() {
+	public final TextItemMenuItem getRefFirstItem() {
+		return getRefItems().getRefFirst();
+	}
+	
+	//method
+	public final IContainer<TextItemMenuItem> getRefItems() {
 		return items;
 	}
 	
-	//method
-	public final String getSelectedItemText() {
-		return getSelectedItem().getText();
+	public final TextItemMenuItem getRefSelectedItem() {
+		
+		assertContainsSelectedItem();
+		
+		return getRefItems().getRefFirst(TextItemMenuItem::isSelected);
 	}
 	
 	//method
-	public final boolean hasSelectCommand() {
-		return (selectCommand != null);
+	public final boolean hasSelectAction() {
+		return (selectAction != null);
 	}
 	
 	//method
@@ -164,9 +142,9 @@ implements Clearable<TIM> {
 	}
 	
 	//method
-	public final TIM removeSelectCommand() {
+	public final TIM removeSelectAction() {
 		
-		selectCommand = null;
+		selectAction = null;
 		
 		return asConcrete();
 	}
@@ -178,23 +156,7 @@ implements Clearable<TIM> {
 		super.reset();
 		
 		clear();
-		removeSelectCommand();
-		
-		return asConcrete();
-	}
-	
-	//method
-	public final TIM selectItemById(final String id) {
-		
-		select(items.getRefFirst(i -> i.hasId(id)));
-		
-		return asConcrete();
-	}
-	
-	//method
-	public final TIM selectItemByText(final String text) {
-		
-		select(items.getRefFirst(i -> i.hasText(text)));
+		removeSelectAction();
 		
 		return asConcrete();
 	}
@@ -202,24 +164,43 @@ implements Clearable<TIM> {
 	//method
 	public final TIM selectFirstItem() {
 		
-		select(items.getRefFirst());
+		selectItem(getRefFirstItem());
 		
 		return asConcrete();
 	}
 	
 	//method
-	public final TIM setSelectCommand(final IElementTaker<TextItemMenuItem> selectCommand) {
+	public final TIM selectItem(final String item) {
 		
-		this.selectCommand = Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
+		selectItem(getRefItems().getRefFirst(i -> i.hasText(item)));
+		
+		return asConcrete();
+	}
+		
+	//method
+	public final TIM selectItemById(final String id) {
+		
+		selectItem(getRefItems().getRefFirst(i -> i.hasId(id)));
 		
 		return asConcrete();
 	}
 	
 	//method
-	public final TIM unselectAllItems() {
+	public final TIM setSelectAction(final IElementTaker<TextItemMenuItem> selectAction) {
 		
-		if (containsSelectedItem()) {
-			getSelectedItem().unselect();
+		this.selectAction = Validator.assertThat(selectAction).thatIsNamed("select command").isNotNull().andReturn();
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final TIM unselectItems() {
+		
+		//For better performance, this implementation does not use all comfortable methods.
+		final var selectedItem = items.getRefFirstOrNull(TextItemMenuItem::isSelected);
+		
+		if (selectedItem != null) {
+			selectedItem.unselect();
 		}
 		
 		return asConcrete();
@@ -232,23 +213,8 @@ implements Clearable<TIM> {
 	}
 	
 	//method
-	protected final LinkedList<Label> getRefItemLables() {
-		
-		final var itemLabels = new LinkedList<Label>();
-		
-		for (final var i : items) {
-			itemLabels.addAtEnd(i.getRefLabel());
-		}
-		
-		return itemLabels;
-	}
-	
-	//method
-	protected TextItemMenuItem getSelectedItem() {
-		
-		supposeContainsSelectedItem();
-		
-		return items.getRefFirst(i -> i.isSelected());
+	protected final IContainer<Label> getRefItemLables() {
+		return getRefItems().to(TextItemMenuItem::getRefLabel);
 	}
 	
 	//method declaration
@@ -315,93 +281,83 @@ implements Clearable<TIM> {
 	 */
 	@Override
 	protected final void recalculateSelfStage2() {
-				
-		final var look = getRefLook();
-		final var contentWidth = Calculator.getMax(1, getContentAreaWidth());
 		
+		recalculateSelfStage3();
+		
+		final var look = getRefLook();
 		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
 		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
 		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();
+		final var itemLables = getRefItemLables();
+		final var labelWidth = itemLables.getMaxIntOrDefaultValue(Label::getWidth, 10); //TODO
 		
-		for (final var i : items) {
-			
-			final var label = i.getRefLabel();
-			
-			label.setMinWidth(contentWidth);
+		for (final var l : itemLables) {
+						
+			l.setMinWidth(labelWidth);
 
-			label
+			l
 			.getRefBaseLook()
-			.reset()						
-			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor())
+			.reset()
+			.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setPaddings(look.getRecursiveOrDefaultItemPadding())
-			.setTextSize(look.getRecursiveOrDefaultTextSize());
+			.setTextSize(look.getRecursiveOrDefaultTextSize())
+			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor());
 			
-			if (baseItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefBaseLook()
-				.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-			
-			label
+			l
 			.getRefHoverLook()
 			.reset()
 			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
 			
-			if (hoverItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefHoverLook()
-				.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-			
-			label
+			l
 			.getRefFocusLook()
 			.reset()
 			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
 			
-			if (selectedItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefFocusLook()
-				.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
+			//TODO
+			l.recalculate();
 		}
 	}
 	
+	//method declaration
+	protected abstract void recalculateSelfStage3();
+	
 	//method
-	protected final void select(final TextItemMenuItem item) {
+	protected final void selectItem(final TextItemMenuItem item) {
+				
+		unselectItems();
 		
-		//For better performance, this implementation does not use all comfortable methods.
-			final var selectedItem = items.getRefFirstOrNull(i -> i.isSelected());
-			
-			if (selectedItem != null) {
-				selectedItem.unselect();
-			}
-			
-			items.forEach(i -> i.unselect());
-		
-			if (selectCommand != null) {
-				selectCommand.run(item);
-			}
-			
 		item.select();
+		runProbableSelectActionFor(item);
 		noteSelectItem(item);
 	}
-	
+			
 	//method
-	private void supposeContainsSelectedItem() {
+	private void assertContainsSelectedItem() {
 		if (!containsSelectedItem()) {
-			throw new InvalidArgumentException(
-				this,
-				"does not contain a selected item"
-			);
+			throw new ArgumentDoesNotHaveAttributeException(this, "selected item");
 		}
 	}
 	
 	//method
-	private void supposeDoesNotContainItemWithText(final String text) {
-		if (containsItemWithText(text)) {
-			throw new InvalidArgumentException(this, "contains an item with the text '" + text + "'");
+	private void assertDoesNotContainItem(final String text) {
+		if (containsItem(text)) {
+			throw new InvalidArgumentException(this, "contains already an item with the text '" + text + "'");
+		}
+	}
+	
+	//method
+	private void assertDoesNotContainItemWithId(final String id) {
+		if (containsItemWithId(id)) {
+			throw new InvalidArgumentException(this, "contains already an item with the id '" + id + "'");
+		}
+	}
+	
+	//method
+	private void runProbableSelectActionFor(final TextItemMenuItem item) {
+		if (selectAction != null) {
+			selectAction.run(item);
 		}
 	}
 }
