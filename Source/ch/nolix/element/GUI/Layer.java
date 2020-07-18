@@ -40,7 +40,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1150
+ * @lines 1140
  */
 public final class Layer extends Element<Layer>
 implements 
@@ -91,27 +91,27 @@ IResizableInputTaker {
 	private final MutableOptionalProperty<ColorGradient> backgroundColorGradient =
 	new MutableOptionalProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER, 
-		bcg -> setBackgroundColorGradient(bcg),
-		s -> ColorGradient.fromSpecification(s),
-		bcg -> bcg.getSpecification()
+		this::setBackgroundColorGradient,
+		ColorGradient::fromSpecification,
+		ColorGradient::getSpecification
 	);
 	
 	//attribute
 	private final MutableProperty<ExtendedContentPosition> contentPosition =
 	new MutableProperty<>(
 		ContentPosition.TYPE_NAME,
-		cp -> setContentPosition(cp),
-		s -> ExtendedContentPosition.fromSpecification(s),
-		cp -> cp.getSpecification()
+		this::setContentPosition,
+		ExtendedContentPosition::fromSpecification,
+		ExtendedContentPosition::getSpecification
 	);
 	
 	//attribute
 	private final MutableProperty<Discrete2DPoint> freeContentPosition =
 	new MutableProperty<>(
 		FREE_CONTENT_POSITION_HEADER,
-		fcp -> setFreeContentPosition(fcp.getX(), fcp.getY()),
-		s -> Discrete2DPoint.fromSpecification(s),
-		fcp -> fcp.getSpecification()
+		fcp -> setFreeContentPosition_(fcp.getX(), fcp.getY()),
+		Discrete2DPoint::fromSpecification,
+		Discrete2DPoint::getSpecification
 	);
 	
 	//attributes
@@ -230,10 +230,10 @@ IResizableInputTaker {
 	@Override
 	public boolean freeAreaIsUnderCursor() {
 		
-		//TODO: Check if the current Layer is under cursor.
-		return (rootWidget == null || !rootWidget.isUnderCursor());
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (isUnderCursor() && (rootWidget == null || !rootWidget.isUnderCursor()));
 	}
-
+	
 	//method
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
@@ -335,7 +335,7 @@ IResizableInputTaker {
 	
 	//method
 	/**
-	 * @return the triggerable {@link Widget}s of the current {@link Layer}.
+	 * @return the {@link Widget}s of the current {@link Layer} that are supposed to be painted.
 	 */
 	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
 		
@@ -818,7 +818,7 @@ IResizableInputTaker {
 	@Override
 	public Layer reset() {
 		
-		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION);
+		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
 		clear();
 		resetConfiguration();
 		
@@ -899,28 +899,16 @@ IResizableInputTaker {
 	/**
 	 * Sets the free content position of the current {@link Layer}.
 	 * 
-	 * @param freeContentPosition
-	 * @return the current {@link Layer}.
-	 * @throws ArgumentIsNullException if the given freeContentPosition is null.
-	 */
-	public Layer setFreeContentPosition(final Discrete2DPoint freeContentPosition) {
-		
-		this.freeContentPosition.setValue(freeContentPosition);
-		
-		return this;
-	}
-	
-	/**
-	 * Sets the free content position of the current {@link Layer}.
-	 * 
 	 * @param x
 	 * @param y
 	 * @return the current {@link Layer}.
 	 */
 	public Layer setFreeContentPosition(final int x, final int y) {
 		
-		//Calls other method.
-		return setFreeContentPosition(new Discrete2DPoint(x, y));
+		setContentPosition(ExtendedContentPosition.Free);
+		setFreeContentPosition_(x, y);
+		
+		return this;
 	}
 	
 	//method
@@ -1151,5 +1139,10 @@ IResizableInputTaker {
 		}
 		
 		this.parentGUI = parentGUI;
+	}
+	
+	//method
+	private void setFreeContentPosition_(final int x, final int y) {
+		freeContentPosition.setValue(new Discrete2DPoint(x, y));
 	}
 }
