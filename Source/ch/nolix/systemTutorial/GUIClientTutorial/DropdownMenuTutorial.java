@@ -5,7 +5,7 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.DropdownMenu;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
-import ch.nolix.system.GUIClient.FrontGUIClient;
+import ch.nolix.system.GUIClient.FrontCanvasGUIClient;
 import ch.nolix.system.client.NetServer;
 
 public final class DropdownMenuTutorial {
@@ -15,8 +15,9 @@ public final class DropdownMenuTutorial {
 		//Creates a NetServer with an Application for BackGUIClients.
 		final var netServer = new NetServer("DropdownMenu Tutorial", MainSession.class);
 		
-		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient();
+		//TODO: Add expansion state of DropdownMenu to its specification.
+		//Creates a FrontCanvasGUIClient that will connect to the NetServer.
+		new FrontCanvasGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
