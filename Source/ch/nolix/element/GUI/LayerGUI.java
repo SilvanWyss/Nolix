@@ -253,7 +253,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public LG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
+	public final LG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
 		return addLayerOnTop(new Layer(contentPosition, rootWidget));
 	}
 
@@ -265,7 +265,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @return the current {@link LayerGUI}.
 	 * @throws ArgumentIsNullException if the given layer is null.
 	 */
-	public LG addLayerOnTop(final Layer layer) {
+	public final LG addLayerOnTop(final Layer layer) {
 		
 		//Asserts that the given layer is not null.
 		Validator.assertThat(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
@@ -295,7 +295,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
+	public final void addOrChangeAttribute(final BaseNode attribute) {
 				
 		//Handles the case that the given attribute specifies a Widget.
 		if (canCreateWidget(attribute.getHeader())) {
@@ -334,7 +334,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @return the current {@link GUI}.
 	 * @throws InvalidArgumentException if the given attributes are not valid.
 	 */
-	public <S extends BaseNode> LG addOrChangeAttributesOfWidgets(
+	public final <S extends BaseNode> LG addOrChangeAttributesOfWidgets(
 		final IContainer<IContainer<S>> attributes
 	) {
 		
@@ -373,7 +373,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean containsElement(final String name) {
+	public final boolean containsElement(final String name) {
 		return layers.contains(l -> l.containsElement(name));
 	}
 	
@@ -432,7 +432,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
@@ -463,7 +463,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * does not contain a {@link Widget} with the given id.
 	 */
 	@SuppressWarnings("unchecked")
-	public <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
+	public final <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
 		return (W)getRefWidgets().getRefFirst(w -> w.hasId(id));
 	}
 	
@@ -514,7 +514,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void recalculate() {
+	public final void recalculate() {
 		if (containsAny()) {
 			topLayer.recalculate();
 		}
@@ -527,7 +527,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param layer
 	 * @return the current {@link LayerGUI}.
 	 */
-	public LG removeLayer(final Layer layer) {
+	public final LG removeLayer(final Layer layer) {
 		
 		if (!isTopLayer(layer)) {
 			
@@ -545,7 +545,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
 	 */
-	public LG removeTopLayer() {
+	public final LG removeTopLayer() {
 		
 		//Asserts that the current LayerGUI is not empty.
 		if (isEmpty()) {
@@ -578,7 +578,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LG reset() {
+	public final LG reset() {
 		
 		super.reset();
 		
@@ -592,7 +592,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LG resetConfiguration() {
+	public final LG resetConfiguration() {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
@@ -610,7 +610,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @return the current {@link LayerGUI}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
-	public LG setBackgroundColor(final Color backgroundColor) {
+	public final LG setBackgroundColor(final Color backgroundColor) {
 		
 		backGround.setBackgroundColor(backgroundColor);
 		
@@ -636,7 +636,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * if the current {@link LayerGUI} contains {@link Layer}s,
 	 * otherwise the background of the current {@link LayerGUI}.
 	 */
-	protected Layer getRefTopOrBackgroundLayer() {
+	protected final Layer getRefTopOrBackgroundLayer() {
 		
 		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {
