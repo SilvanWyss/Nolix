@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.chainedNode;
 
+//own imports
 import ch.nolix.common.commonTypeHelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -25,7 +26,7 @@ import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 700
+ * @lines 710
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -78,6 +79,15 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.reset(string);
+		
+		return chainedNode;
+	}
+	
+	//static method
+	public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
+		
+		final var chainedNode = new ChainedNode(header);
+		chainedNode.setNextNode(nextNode);
 		
 		return chainedNode;
 	}
