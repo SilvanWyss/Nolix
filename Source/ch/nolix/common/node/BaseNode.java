@@ -15,6 +15,7 @@ import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalHeaderable;
+import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.processProperty.WriteMode;
 import ch.nolix.common.validator.Validator;
 
@@ -29,7 +30,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 730
+ * @lines 750
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -564,6 +565,21 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public int toInt() {
 		return StringHelper.toInt(toString());
+	}
+	
+	//method
+	/**
+	 * @return the {@link IntPair} the current {@link BaseNode} represents.
+	 * @throws UnrepresentingArgumentException if the current {@link BaseNode} does not represent a {@link IntPair}.
+	 */
+	public IntPair toIntPair() {
+		
+		//Asserts that the current BaseNode contains 2 attributes.
+		if (getAttributeCount() != 2) {
+			throw new UnrepresentingArgumentException(this, IntPair.class);
+		}
+		
+		return new IntPair(getRefAttributeAt(1).toInt(), getRefAttributeAt(2).toInt());
 	}
 	
 	//method
