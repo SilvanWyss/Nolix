@@ -60,8 +60,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
 		this::setTitle,
-		BaseNode::getOneAttributeAsString,
-		t -> new Node(PascalCaseNameCatalogue.TITLE, t)
+		BaseNode::getHeaderOfOneAttribute,
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -69,8 +69,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	new MutableProperty<>(
 		VIEW_AREA_SIZE_HEADER,
 		vas -> setViewAreaSize(vas.getValue1(), vas.getValue2()),
-		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),
-		vas -> Node.withAttribute(vas.getValue1(), vas.getValue2())
+		BaseNode::toIntPair,
+		Node::fromIntPair
 	);
 	
 	//attribute
@@ -78,16 +78,16 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	new MutableProperty<>(
 		CURSOR_POSITION_ON_VIEW_AREA_HEADER,
 		cpova -> setCursorPositionOnViewArea(cpova.getValue1(), cpova.getValue2()),
-		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),
-		vas -> Node.withAttribute(vas.getValue1(), vas.getValue2())
+		BaseNode::toIntPair,
+		Node::fromIntPair
 	);
 	
 	//attributes
 	private final CloseController closeController = new CloseController(this);
-	private final CachingContainer<Image> imageCache = new CachingContainer<>();
-	private final KeyBoard keyBoard = new KeyBoard();
 	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
+	private final CachingContainer<Image> imageCache = new CachingContainer<>();
+	private final KeyBoard keyBoard = new KeyBoard();
 	
 	//optional attribute
 	private final IVisualizer visualizer;
@@ -139,6 +139,22 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
+	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
+	 */
+	public final int getCursorXPositionOnViewArea() {
+		return cursorPositionOnViewArea.getValue().getValue1();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
+	 */
+	public final int getCursorYPositionOnViewArea() {
+		return cursorPositionOnViewArea.getValue().getValue2();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -158,7 +174,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the {@link IKeyBoard} of the current {@link GUI}.
 	 */
-	public IKeyBoard getRefKeyBoard() {
+	public final IKeyBoard getRefKeyBoard() {
 		return keyBoard;
 	}
 	
@@ -169,22 +185,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final String getTitle() {
 		return title.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
-	 */
-	public final int getCursorXPositionOnViewArea() {
-		return cursorPositionOnViewArea.getValue().getValue1();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
-	 */
-	public final int getCursorYPositionOnViewArea() {
-		return cursorPositionOnViewArea.getValue().getValue2();
 	}
 	
 	//method
@@ -366,7 +366,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	}
 	
 	//method
-	protected void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
+	protected final void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
 		
 		Validator.assertThat(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
 		Validator.assertThat(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
@@ -374,14 +374,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		this.viewAreaSize.setValue(new IntPair(viewAreaWidth, viewAreaHeight));
 	}
 	
-	//method
-	protected void setCursorPositionOnViewArea(final IntPair cursorPositionOnViewArea) {
-		this.cursorPositionOnViewArea.setValue(cursorPositionOnViewArea);
-	}
-	
 	//TODO: Make this method private.
 	//method
-	protected void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+	protected final void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
 		cursorPositionOnViewArea.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
 	}
 	
