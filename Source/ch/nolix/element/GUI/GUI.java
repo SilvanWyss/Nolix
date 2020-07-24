@@ -53,7 +53,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//constants
 	private static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
-	private static final String VIEW_AREA_CURSOR_POSITION_HEADER = "ViewAreaCursorPosition";
+	private static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
 	
 	//attribute
 	private final MutableProperty<String> title =
@@ -74,10 +74,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MutableProperty<IntPair> viewAreaCursorPosition =
+	private final MutableProperty<IntPair> cursorPositionOnViewArea =
 	new MutableProperty<>(
-		VIEW_AREA_CURSOR_POSITION_HEADER,
-		vas -> setViewAreaCursorPosition(vas.getValue1(), vas.getValue2()),
+		CURSOR_POSITION_ON_VIEW_AREA_HEADER,
+		cpova -> setCursorPositionOnViewArea(cpova.getValue1(), cpova.getValue2()),
 		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),
 		vas -> Node.withAttribute(vas.getValue1(), vas.getValue2())
 	);
@@ -175,16 +175,16 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
 	 */
-	public final int getViewAreaCursorXPosition() {
-		return viewAreaCursorPosition.getValue().getValue1();
+	public final int getCursorXPositionOnViewArea() {
+		return cursorPositionOnViewArea.getValue().getValue1();
 	}
 	
 	//method
 	/**
 	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
 	 */
-	public final int getViewAreaCursorYPosition() {
-		return viewAreaCursorPosition.getValue().getValue2();
+	public final int getCursorYPositionOnViewArea() {
+		return cursorPositionOnViewArea.getValue().getValue2();
 	}
 	
 	//method
@@ -278,7 +278,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		setTitle(DEFAULT_TITLE);
 		setViewAreaSize(0, 0);
-		setViewAreaCursorPosition(0, 0);
+		setCursorPositionOnViewArea(0, 0);
 		
 		return asConcrete();
 	}
@@ -375,8 +375,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	}
 	
 	//method
-	protected void setViewAreaCursorPosition(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
-		viewAreaCursorPosition.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
+	protected void setCursorPositionOnViewArea(final IntPair cursorPositionOnViewArea) {
+		this.cursorPositionOnViewArea.setValue(cursorPositionOnViewArea);
+	}
+	
+	//TODO: Make this method private.
+	//method
+	protected void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+		cursorPositionOnViewArea.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
 	}
 	
 	//method

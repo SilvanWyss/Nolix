@@ -614,7 +614,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 			inputTaker.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 		}
 		else {
-			setViewAreaCursorPosition(viewAreaCursorXPosition, viewAreaCursorYPosition);
+			setCursorPositionOnViewArea(viewAreaCursorXPosition, viewAreaCursorYPosition);
 			getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 			refresh();
 		}

@@ -49,9 +49,9 @@ public final class CursorPositionTutorial {
 		private void updateCursorPosition() {
 			cursorPositionLabel.setText(
 				"Cursor position: x="
-				+ getRefGUI().getViewAreaCursorXPosition()
+				+ getRefGUI().getCursorXPositionOnViewArea()
 				+ " y="
-				+ getRefGUI().getViewAreaCursorYPosition()
+				+ getRefGUI().getCursorYPositionOnViewArea()
 			);
 		}
 	}

@@ -37,7 +37,7 @@ public final class CursorPositionTutorial {
 		layer.setMouseMoveAction(
 			() ->
 			cursorPositionLabel.setText(
-				"Cursor position: x=" + frame.getViewAreaCursorXPosition() + " y=" + frame.getViewAreaCursorYPosition()
+				"Cursor position: x=" + frame.getCursorXPositionOnViewArea() + " y=" + frame.getCursorYPositionOnViewArea()
 			)
 		);
 		

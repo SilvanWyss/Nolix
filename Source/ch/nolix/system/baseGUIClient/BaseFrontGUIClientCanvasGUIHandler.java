@@ -60,12 +60,12 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	
 	//method
 	private int getCursorXPositionOnViewArea() {
-		return mGUI.getViewAreaCursorXPosition();
+		return mGUI.getCursorXPositionOnViewArea();
 	}
 	
 	//method
 	private int getCursorYPositionOnViewArea() {
-		return mGUI.getViewAreaCursorYPosition();
+		return mGUI.getCursorYPositionOnViewArea();
 	}
 	
 	//method
