@@ -26,7 +26,7 @@ import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 710
+ * @lines 760
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -84,6 +84,31 @@ public final class ChainedNode implements OptionalHeadered {
 	}
 	
 	//static method
+	/**
+	 * @param header
+	 * @param attributes
+	 * @return a new {@link ChainedNode} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if one of the given attribute is null.
+	 */
+	public static ChainedNode withHeaderAndAttributes(final String header, final IContainer<ChainedNode> attributes) {
+		
+		final var chainedNode = new ChainedNode(header);
+		chainedNode.addAttributes(attributes);
+		
+		return chainedNode;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param nextNode
+	 * @return a new {@link ChainedNode} with the given header and nextNode.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given nextNode is null.
+	 */
 	public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
 		
 		final var chainedNode = new ChainedNode(header);
@@ -115,7 +140,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param attributes
 	 */
 	public <BN extends BaseNode> ChainedNode(final Iterable<BN> attributes) {
-		addAttributes(attributes);
+		addAttributesFromNodes(attributes);
 	}
 	
 	//constructor
@@ -156,7 +181,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public <BN extends BaseNode> ChainedNode(final String header, final Iterable<BN> attributes) {
 		setHeader(header);	
-		addAttributes(attributes);
+		addAttributesFromNodes(attributes);
 	}
 	
 	//constructor
@@ -175,7 +200,7 @@ public final class ChainedNode implements OptionalHeadered {
 		final ChainedNode nextNode
 	) {
 		setHeader(header);	
-		addAttributes(attributes);
+		addAttributesFromNodes(attributes);
 		setNextNode(nextNode);
 	}
 	
@@ -477,6 +502,17 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * Adds the given attribtue to the current {@link ChainedNode}.
+	 * 
+	 * @param attribute
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 */
+	private void addAttribute(final ChainedNode attribute) {
+		attributes.addAtEnd(attribute);
+	}
+	
+	//method
+	/**
 	 * Adds the given attributes to the current {@link ChainedNode}.
 	 * 
 	 * @param attributes
@@ -493,8 +529,19 @@ public final class ChainedNode implements OptionalHeadered {
 	 * Adds the given attributes to the current {@link ChainedNode}.
 	 * 
 	 * @param attributes
+	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	private <BN extends BaseNode> void addAttributes(final Iterable<BN> attributes) {
+	private void addAttributes(final Iterable<ChainedNode> attributes) {
+		attributes.forEach(this::addAttribute);
+	}
+	
+	//method
+	/**
+	 * Adds the given attributes to the current {@link ChainedNode}.
+	 * 
+	 * @param attributes
+	 */
+	private <BN extends BaseNode> void addAttributesFromNodes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
 		}
