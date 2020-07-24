@@ -1505,6 +1505,140 @@ define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNo
     }
     exports.NetEndPoint5 = NetEndPoint5;
 });
+define("Common/Math/CentralCalculator", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CentralCalculator {
+        static getMax(...values) {
+            if (values === undefined) {
+                throw new Error('The given values is undefined.');
+            }
+            if (values === null) {
+                throw new Error('The given values is empty.');
+            }
+            if (values.length === 0) {
+                throw new Error('There is not given a value.');
+            }
+            var max = values[0];
+            for (const v of values) {
+                if (v > max) {
+                    max = v;
+                }
+            }
+            return max;
+        }
+        static getMin(...values) {
+            if (values === undefined) {
+                throw new Error('The given values is undefined.');
+            }
+            if (values === null) {
+                throw new Error('The given values is empty.');
+            }
+            if (values.length === 0) {
+                throw new Error('There is not given a value.');
+            }
+            var min = values[0];
+            for (const v of values) {
+                if (v < min) {
+                    min = v;
+                }
+            }
+            return min;
+        }
+        constructor() { }
+    }
+    exports.CentralCalculator = CentralCalculator;
+});
+define("Common/Pair/Pair", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Pair {
+        constructor(element1, element2) {
+            if (element1 === null) {
+                throw new Error('The given element1 is null.');
+            }
+            if (element1 === undefined) {
+                throw new Error('The given element1 is undefined.');
+            }
+            if (element2 === null) {
+                throw new Error('The given element2 is null.');
+            }
+            if (element2 === undefined) {
+                throw new Error('The given element2 is undefined.');
+            }
+            this.element1 = element1;
+            this.element2 = element2;
+        }
+        getRefElement1() {
+            return this.element1;
+        }
+        getRefElement2() {
+            return this.element2;
+        }
+    }
+    exports.Pair = Pair;
+});
+define("Common/Raster/TopLeftPositionedRectangle", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class TopLeftPositionedRectangle {
+        constructor(xPosition, yPosition, width, height) {
+            if (xPosition === null) {
+                throw new Error('The given xPosition is null.');
+            }
+            if (xPosition === undefined) {
+                throw new Error('The given xPosition is undefined.');
+            }
+            if (yPosition === null) {
+                throw new Error('The given yPosition is null.');
+            }
+            if (yPosition === undefined) {
+                throw new Error('The given yPosition is undefined.');
+            }
+            if (width === null) {
+                throw new Error('The given width is null.');
+            }
+            if (width === undefined) {
+                throw new Error('The given width is undefined.');
+            }
+            if (height === null) {
+                throw new Error('The given height is null.');
+            }
+            if (height === undefined) {
+                throw new Error('The given height is undefined.');
+            }
+            if (width < 0) {
+                throw new Error('The given width is negative.');
+            }
+            if (height < 0) {
+                throw new Error('The given height is negative.');
+            }
+            this.xPosition = xPosition;
+            this.yPosition = yPosition;
+            this.width = width;
+            this.height = height;
+        }
+        getBottomYPosition() {
+            return (this.yPosition + this.height);
+        }
+        getHeight() {
+            return this.height;
+        }
+        getRightXPosition() {
+            return (this.xPosition + this.width);
+        }
+        getWidth() {
+            return this.width;
+        }
+        getXPosition() {
+            return this.xPosition;
+        }
+        getYPosition() {
+            return this.yPosition;
+        }
+    }
+    exports.TopLeftPositionedRectangle = TopLeftPositionedRectangle;
+});
 define("Common/Test/NumberMediator", ["require", "exports", "Common/Test/Mediator"], function (require, exports, Mediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2012,6 +2146,18 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
         paintTextWithTextFormatAndMaxLength(xPosition, yPosition, text, textFormat, maxLength) {
             this.canvasRenderingContext.fillText(text, xPosition, yPosition);
         }
+        popState() {
+            this.canvasRenderingContext.closePath();
+            this.canvasRenderingContext.restore();
+        }
+        pushStateWithClipArea(xPosition, yPosition, clipAreaWidth, clipAreaHeight) {
+            const fillStyle = this.canvasRenderingContext.fillStyle;
+            this.canvasRenderingContext.save();
+            this.canvasRenderingContext.fillStyle = fillStyle;
+            this.canvasRenderingContext.rect(xPosition, yPosition, clipAreaWidth, clipAreaHeight);
+            this.canvasRenderingContext.clip();
+            this.canvasRenderingContext.beginPath();
+        }
         setColor(color) {
             this.canvasRenderingContext.fillStyle = color.getHTMLCode();
         }
@@ -2025,14 +2171,14 @@ define("Element/PainterAPI/IPainter", ["require", "exports"], function (require,
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/CanvasGUI/CanvasGUIGlobalPainter", "Common/Container/SingleContainer"], function (require, exports, CanvasGUIGlobalPainter_1, SingleContainer_1) {
+define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/CanvasGUI/CanvasGUIGlobalPainter", "Common/Math/CentralCalculator", "Common/Container/SingleContainer", "Common/Raster/TopLeftPositionedRectangle"], function (require, exports, CanvasGUIGlobalPainter_1, CentralCalculator_1, SingleContainer_1, TopLeftPositionedRectangle_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIPainter {
         static createPainterFor(canvasRenderingContext) {
-            return new CanvasGUIPainter(0, 0, new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
+            return new CanvasGUIPainter(0, 0, SingleContainer_1.SingleContainer.withoutElement(), new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
         }
-        constructor(xPosition, yPosition, globalPainter, parentPainterContainer) {
+        constructor(xPosition, yPosition, optionalClipAreaOnViewArea, globalPainter, parentPainterContainer) {
             if (xPosition === null) {
                 throw new Error('The given xPosition is null.');
             }
@@ -2055,15 +2201,24 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             this.yPosition = yPosition;
             this.globalPainter = globalPainter;
             this.parentPainter = parentPainterContainer.isEmpty() ? undefined : parentPainterContainer.getRefElement();
+            if (optionalClipAreaOnViewArea.containsAny()) {
+                this.clipAreaOnViewArea = optionalClipAreaOnViewArea.getRefElement();
+            }
         }
         createPainter() {
-            return new CanvasGUIPainter(0, 0, this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
+            return new CanvasGUIPainter(0, 0, this.getOptionalClipAreaOnViewArea(), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
         createPainterWithTranslation(xTranslation, yTranslation) {
-            return new CanvasGUIPainter(xTranslation, yTranslation, this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
+            return new CanvasGUIPainter(xTranslation, yTranslation, this.getOptionalClipAreaOnViewArea(), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
-        createPainterWithTranslationAndPaintArea(xTranslation, yTranslation, paintAreaWidth, paintAreaHeight) {
-            return this.createPainterWithTranslation(xTranslation, yTranslation);
+        createPainterWithTranslationAndPaintArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight) {
+            if (!this.hasClipArea()) {
+                return this.createPainterWithTranslationAndPaintAreaWhenDoesNotHaveClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight);
+            }
+            return this.createPainterWithTranslationAndPaintAreaWhenHasClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight);
+        }
+        getOptionalClipAreaOnViewArea() {
+            return (this.hasClipArea() ? SingleContainer_1.SingleContainer.withElement(this.clipAreaOnViewArea) : SingleContainer_1.SingleContainer.withoutElement());
         }
         getXPositionOnViewArea() {
             if (this.parentPainter === undefined) {
@@ -2077,30 +2232,69 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             }
             return this.parentPainter.getYPositionOnViewArea() + this.yPosition;
         }
+        hasClipArea() {
+            return (this.clipAreaOnViewArea !== undefined);
+        }
         paintFilledRectangle(width, height) {
+            this.pushStateIfNeeded();
             this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), width, height);
+            this.popStateIfNeeded();
         }
         paintFilledRectangleAtPosition(xPosition, yPosition, width, height) {
+            this.pushStateIfNeeded();
             this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea() + xPosition, this.getYPositionOnViewArea() + yPosition, width, height);
+            this.popStateIfNeeded();
         }
         paintImage(image) {
+            this.pushStateIfNeeded();
             this.globalPainter.paintImage(image);
+            this.popStateIfNeeded();
         }
         paintText(text) {
+            this.pushStateIfNeeded();
             this.globalPainter.paintText(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text);
+            this.popStateIfNeeded();
         }
         paintTextWithTextFormat(text, textFormat) {
+            this.pushStateIfNeeded();
             this.globalPainter.paintTextWithTextFormat(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat);
+            this.popStateIfNeeded();
         }
         paintTextWithTextFormatAndMaxLength(text, textFormat, maxLength) {
+            this.pushStateIfNeeded();
             this.globalPainter.paintTextWithTextFormatAndMaxLength(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat, maxLength);
+            this.popStateIfNeeded();
         }
         setColor(color) {
             this.globalPainter.setColor(color);
         }
         translate(xTranslation, yTranslation) {
+            this.pushStateIfNeeded();
             this.xPosition += xTranslation;
             this.yPosition += yTranslation;
+            this.popStateIfNeeded();
+        }
+        createPainterWithTranslationAndPaintAreaWhenDoesNotHaveClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight) {
+            return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(this.getXPositionOnViewArea() + xTranslation, this.getYPositionOnViewArea() + yTranslation, clipAreaWidth, clipAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
+        }
+        createPainterWithTranslationAndPaintAreaWhenHasClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight) {
+            const clipAreaOnViewAreaXPosition = CentralCalculator_1.CentralCalculator.getMax(this.clipAreaOnViewArea.getXPosition(), this.getXPositionOnViewArea() + xTranslation);
+            const clipAreaOnViewAreaYPosition = CentralCalculator_1.CentralCalculator.getMax(this.clipAreaOnViewArea.getYPosition(), this.getYPositionOnViewArea() + yTranslation);
+            const clipAreaOnViewAreaRightXPosition = CentralCalculator_1.CentralCalculator.getMin(clipAreaOnViewAreaXPosition + this.clipAreaOnViewArea.getWidth(), clipAreaOnViewAreaXPosition + clipAreaWidth);
+            const clipAreaOnViewAreaBottomPosition = CentralCalculator_1.CentralCalculator.getMin(clipAreaOnViewAreaYPosition + this.clipAreaOnViewArea.getHeight(), clipAreaOnViewAreaYPosition + clipAreaHeight);
+            const clipAreaOnViewAreaWidth = clipAreaOnViewAreaRightXPosition - clipAreaOnViewAreaXPosition;
+            const clipAreaOnViewAreaHeight = clipAreaOnViewAreaBottomPosition - clipAreaOnViewAreaYPosition;
+            return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(clipAreaOnViewAreaXPosition, clipAreaOnViewAreaYPosition, clipAreaOnViewAreaWidth, clipAreaOnViewAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
+        }
+        popStateIfNeeded() {
+            if (this.hasClipArea()) {
+                this.globalPainter.popState();
+            }
+        }
+        pushStateIfNeeded() {
+            if (this.hasClipArea()) {
+                this.globalPainter.pushStateWithClipArea(this.clipAreaOnViewArea.getXPosition(), this.clipAreaOnViewArea.getYPosition(), this.clipAreaOnViewArea.getWidth(), this.clipAreaOnViewArea.getHeight());
+            }
         }
     }
     exports.CanvasGUIPainter = CanvasGUIPainter;
@@ -2332,7 +2526,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
         }
         noteResize() {
             this.canvas.width = this.window.document.body.clientWidth;
-            this.canvas.height = this.window.document.body.clientHeight;
+            this.canvas.height = 500;
             this.inputTaker.noteResize(this.getViewAreaWidth(), this.getViewAreaHeight());
         }
         noteRightMouseButtonClick() {
@@ -2799,6 +2993,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
         constructor() { }
     }
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
+    FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
     FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS = 'SetPaintCommands';
     FrontCanvasGUIClientCommandProtocol.SET_TITLE = "SetTitle";
     exports.FrontCanvasGUIClientCommandProtocol = FrontCanvasGUIClientCommandProtocol;
@@ -2842,6 +3037,8 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:
                     this.mGUI.setTitle(pGUICommand.getOneAttributeAsString());
                     this.mGUI.refresh();
+                    break;
+                case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON:
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS:
                     this.setPaintCommands(pGUICommand.getAttributes());
