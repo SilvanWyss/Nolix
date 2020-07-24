@@ -16,6 +16,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.UnconnectedArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalLabelable;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
@@ -27,7 +28,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 730
+ * @lines 740
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -574,14 +575,27 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Runs the given command on the counterpart of the current {@link Client}.
 	 * 
 	 * @param command
+	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void internalRunOnCounterpart(final ChainedNode command) {
 		
-		if (!internalIsConnected()) {
-			throw new InvalidArgumentException(this, "is not connected");
-		}
+		assertIsConnected();
 		
 		endPoint.run(command);
+	}
+	
+	//method
+	/**
+	 * Runs the given commands on the counterpart of the current {@link Client}.
+	 * 
+	 * @param commands
+	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
+	 */
+	protected void internalRunOnCounterpart(final Iterable<ChainedNode> commands) {
+		
+		assertIsConnected();
+		
+		endPoint.run(commands);
 	}
 	
 	//method
@@ -658,8 +672,21 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	}
 	
 	//method
+	/**
+	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
+	 */
+	private void assertIsConnected() {
+		if (!internalIsConnected()) {
+			throw new UnconnectedArgumentException(this);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Client} pop its current {@link Session}.
+	 */
 	private void popCurrentSessionFromStack() {
-				
+		
 		//Asserts that the current Session of the current Client is the top Session of the current Client.
 		if (internalGetRefCurrentSession() != sessions.getRefLast()) {
 			throw new InvalidArgumentException(this, "cannot pop a Session that is not the top session.");
