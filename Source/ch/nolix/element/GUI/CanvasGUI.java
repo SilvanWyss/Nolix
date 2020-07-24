@@ -8,6 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.state.Visibility;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
@@ -22,12 +23,19 @@ import ch.nolix.system.baseGUIClient.PaintRun;
 //class
 public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
-	//constant
+	//constants
 	public static final Color BACKGROUND_COLOR = Color.WHITE;
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
 	
 	//attribute
-	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	
+	private MutableProperty<CursorIcon> cursorIcon =
+	new MutableProperty<>(
+		CursorIcon.TYPE_NAME,
+		this::setCursorIcon,
+		CursorIcon::fromSpecification,
+		CursorIcon::getSpecification
+	);
+		
 	//multi-attribute
 	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
@@ -47,11 +55,10 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		return false;
 	}
 	
-	//TODO: Add cursorIcon to the specification of the current CanvasGUI.
 	//method
 	@Override
 	public CursorIcon getCursorIcon() {
-		return cursorIcon;
+		return cursorIcon.getValue();
 	}
 	
 	//method
@@ -63,6 +70,9 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	@Override
 	public CG resetConfiguration() {
+		
+		setCursorIcon(DEFAULT_CURSOR_ICON);
+		
 		return asConcrete();
 	}
 	
@@ -78,6 +88,14 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	@Override
 	public final void recalculate() {}
+	
+	//method
+	public final CG setCursorIcon(final CursorIcon cursorIcon) {
+		
+		this.cursorIcon.setValue(cursorIcon);
+		
+		return asConcrete();
+	}
 	
 	//method
 	public final void setPaintCommands(final IContainer<IElementTaker<PaintRun>> paintCommands) {
