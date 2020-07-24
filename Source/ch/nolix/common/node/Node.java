@@ -10,6 +10,7 @@ import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -19,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 560
+ * @lines 570
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -36,6 +37,19 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		node.resetFromFile(filePath);
 		
 		return node;
+	}
+	
+	//static method
+	/**
+	 * @param intPair
+	 * @return a new {@link Node} from the given intPair.
+	 * @throws ArgumentIsNullException if the given intPair is null.
+	 */
+	public static Node fromIntPair(final IntPair intPair) {
+		
+		Validator.assertThat(intPair).thatIsNamed(IntPair.class).isNotNull();
+		
+		return withAttribute(intPair.getValue1(), intPair.getValue2());
 	}
 	
 	//static method
