@@ -15,7 +15,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 360
+ * @lines 350
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
@@ -217,7 +217,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				break;
 			default:
 				if (key.isCharacter()) {
-					if (getParentGUI().keyIsPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
+					if (getRefKeyBoard().keyIsPressed(Key.SHIFT) ^ getRefKeyBoard().shiftIsLocked()) {
 						insertCharacterAfterCursor(key.toUpperCaseChar());	
 					}
 					else {

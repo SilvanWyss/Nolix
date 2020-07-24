@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -23,7 +24,7 @@ import ch.nolix.element.textFormat.TextFormat;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 790
+ * @lines 840
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable<Console> {
 	
@@ -700,7 +701,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 					break;
 				default:
 					if (key.isCharacter()) {
-						if (getParentGUI().keyIsPressed(Key.SHIFT) ^ getParentGUI().shiftIsLocked()) {
+						if (getRefKeyBoard().keyIsPressed(Key.SHIFT) ^ getRefKeyBoard().shiftIsLocked()) {
 							insertCharacterAfterCursor(key.toUpperCaseChar());	
 						}
 						else {

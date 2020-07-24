@@ -21,7 +21,6 @@ import ch.nolix.element.baseGUI_API.IFrontEndWriter;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.element.input.Key;
 import ch.nolix.element.inputDevice.KeyBoard;
 import ch.nolix.element.inputDeviceAPI.IKeyBoard;
 import ch.nolix.element.inputDeviceAPI.IMutableKeyBoard;
@@ -43,7 +42,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 390
+ * @lines 380
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -223,15 +222,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @param key
-	 * @return true if the given key is pressed on the current {@link GUI}.
-	 */
-	public final boolean keyIsPressed(final Key key) {
-		return keyBoard.keyIsPressed(key);
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link GUI} note a resize.
 	 * The size of the view area of the current {@link GUI} will be set to the size of the view area of the given pGUI.
 	 * 
@@ -320,14 +310,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		this.title.setValue(title);
 		
 		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * @return true if shift is locked on the current {@link GUI}.
-	 */
-	public final boolean shiftIsLocked() {
-		return keyBoard.shiftIsLocked();
 	}
 	
 	//method
