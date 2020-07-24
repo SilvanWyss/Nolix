@@ -42,7 +42,7 @@ import ch.nolix.element.painter.IPainter;
  * @month 2019-05
  * @lines 1140
  */
-public final class Layer extends Element<Layer>
+public class Layer extends Element<Layer>
 implements 
 Clearable<Layer>,
 IConfigurableElement<Layer>,
@@ -178,7 +178,7 @@ IResizableInputTaker {
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
+	public final void addOrChangeAttribute(final BaseNode attribute) {
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {
 			setRootWidget(LayerGUI.createWidgetFrom(attribute));
 		}
@@ -194,7 +194,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 */
 	@Override
-	public Layer clear() {
+	public final Layer clear() {
 		
 		rootWidget = null;
 		
@@ -206,7 +206,7 @@ IResizableInputTaker {
 	 * {@inheridDoc}
 	 */
 	@Override
-	public boolean containsElement(final String id) {
+	public final boolean containsElement(final String id) {
 		return getRefWidgets().contains(w -> w.hasId(id));
 	}
 	
@@ -228,7 +228,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean freeAreaIsUnderCursor() {
+	public final boolean freeAreaIsUnderCursor() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (isUnderCursor() && (rootWidget == null || !rootWidget.isUnderCursor()));
@@ -238,7 +238,7 @@ IResizableInputTaker {
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
 	 */
-	public Color getBackgroundColor() {
+	public final Color getBackgroundColor() {
 		return backgroundColor.getValue();
 	}
 	
@@ -246,12 +246,12 @@ IResizableInputTaker {
 	/**
 	 * @return the background {@link ColorGradient} of the current {@link Layer}.
 	 */
-	public ColorGradient getBackgroundColorGradient() {
+	public final ColorGradient getBackgroundColorGradient() {
 		return backgroundColorGradient.getValue();
 	}
 	
 	//method
-	public ExtendedContentPosition getContentPosition() {
+	public final ExtendedContentPosition getContentPosition() {
 		return contentPosition.getValue();
 	}
 	
@@ -259,7 +259,7 @@ IResizableInputTaker {
 	/**
 	 * @return the x-free-position of the current {@link Layer}.
 	 */
-	public int getContentXFreePosition() {
+	public final int getContentXFreePosition() {
 		return freeContentPosition.getValue().getX();
 	}
 	
@@ -267,7 +267,7 @@ IResizableInputTaker {
 	/**
 	 * @return the y-free-position of the current {@link Layer}.
 	 */
-	public int getContentYFreePosition() {
+	public final int getContentYFreePosition() {
 		return freeContentPosition.getValue().getY();
 	}
 	
@@ -275,7 +275,7 @@ IResizableInputTaker {
 	/**
 	 * @return the {@link CursorIcon} of the current {@link Layer}.
 	 */
-	public CursorIcon getCursorIcon() {
+	public final CursorIcon getCursorIcon() {
 		
 		if (rootWidget != null && rootWidget.isUnderCursor()) {
 			return rootWidget.getCursorIcon();
@@ -288,7 +288,7 @@ IResizableInputTaker {
 	/**
 	 * @return the x-position of the cursor on the current {@link Layer}.
 	 */
-	public int getCursorXPosition() {
+	public final int getCursorXPosition() {
 		return cursorXPosition;
 	}
 	
@@ -296,7 +296,7 @@ IResizableInputTaker {
 	/**
 	 * @return the y-position of the cursor on the current {@link Layer}.
 	 */
-	public int getCursorYPosition() {
+	public final int getCursorYPosition() {
 		return cursorYPosition;
 	}
 	
@@ -305,7 +305,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getId() {
+	public final String getId() {
 		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
 	}
 	
@@ -314,7 +314,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
@@ -329,7 +329,7 @@ IResizableInputTaker {
 	/**
 	 * @return the root {@link Widget} of the current {@link Layer}.
 	 */
-	public Widget<?, ?> getRefRootWidget() {
+	public final Widget<?, ?> getRefRootWidget() {
 		return rootWidget;
 	}
 	
@@ -370,7 +370,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getToken() {
+	public final String getToken() {
 		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TOKEN);
 	}
 	
@@ -378,7 +378,7 @@ IResizableInputTaker {
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
 	 */
-	public boolean hasBackgroundColor() {
+	public final boolean hasBackgroundColor() {
 		return backgroundColor.containsAny();
 	}
 	
@@ -395,7 +395,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasId() {
+	public final boolean hasId() {
 		return false;
 	}
 	
@@ -404,7 +404,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasRole(final String role) {
+	public final boolean hasRole(final String role) {
 		return false;
 	}
 	
@@ -413,7 +413,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasToken(final String token) {
+	public final boolean hasToken(final String token) {
 		return false;
 	}
 	
@@ -422,7 +422,7 @@ IResizableInputTaker {
 	 * @return true if the current {@link Layer} has a root {@link Widget}.
 	 */
 	@Override
-	public boolean isEmpty() {
+	public final boolean isEmpty() {
 		return (rootWidget == null);
 	}
 	
@@ -431,7 +431,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isUnderCursor() {
+	public final boolean isUnderCursor() {
 		
 		//TODO: Check if current Layer is under cursor.
 		return true;
@@ -442,7 +442,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyPress(Key key) {
+	public final void noteKeyPress(Key key) {
 		if (rootWidget != null) {
 			rootWidget.noteKeyPress(key);
 		}
@@ -453,7 +453,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyRelease(Key key) {
+	public final void noteKeyRelease(Key key) {
 		if (rootWidget != null) {
 			rootWidget.noteKeyRelease(key);
 		}
@@ -464,7 +464,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyTyping(final Key key) {
+	public final void noteKeyTyping(final Key key) {
 		if (rootWidget != null) {
 			rootWidget.noteKeyTyping(key);
 		}
@@ -475,7 +475,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonClick() {
+	public final void noteLeftMouseButtonClick() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonClick();
@@ -491,7 +491,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonPress() {
+	public final void noteLeftMouseButtonPress() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonPress();
@@ -507,7 +507,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonRelease() {
+	public final void noteLeftMouseButtonRelease() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonRelease();
@@ -523,7 +523,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
+	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
@@ -545,7 +545,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelClick() {
+	public final void noteMouseWheelClick() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelClick();
@@ -561,7 +561,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelPress() {
+	public final void noteMouseWheelPress() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelPress();
@@ -577,7 +577,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelRelease() {
+	public final void noteMouseWheelRelease() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelRelease();
@@ -593,7 +593,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelRotationStep(directionOfRotation);
 		}		
@@ -604,14 +604,14 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
+	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteRightMouseButtonClick() {
+	public final void noteRightMouseButtonClick() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteRightMouseButtonClick();
@@ -627,7 +627,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteRightMouseButtonPress() {
+	public final void noteRightMouseButtonPress() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteRightMouseButtonPress();
@@ -643,7 +643,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteRightMouseButtonRelease() {
+	public final void noteRightMouseButtonRelease() {
 		
 		if (rootWidget != null) {
 			rootWidget.noteRightMouseButtonRelease();
@@ -660,7 +660,7 @@ IResizableInputTaker {
 	 * 
 	 * @param painter
 	 */
-	public void paint(final IPainter painter) {
+	public final void paint(final IPainter painter) {
 		
 		//Paints the background of the current GUILayer.
 			//Handles the case that the current GUILayer has a background color.
@@ -692,7 +692,7 @@ IResizableInputTaker {
 	/**
 	 * Recalculates the current {@link Layer}.
 	 */
-	public void recalculate() {
+	public final void recalculate() {
 		
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -792,7 +792,7 @@ IResizableInputTaker {
 	 * 
 	 * @return the current {@link Layer}.
 	 */
-	public Layer removeBackground() {
+	public final Layer removeBackground() {
 		
 		backgroundColor.clear();
 		backgroundColorGradient.clear();
@@ -805,7 +805,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Layer removeId() {
+	public final Layer removeId() {
 		return this;
 	}
 	
@@ -816,7 +816,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 */
 	@Override
-	public Layer reset() {
+	public final Layer reset() {
 		
 		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
 		clear();
@@ -831,7 +831,7 @@ IResizableInputTaker {
 	 * 
 	 * @return the current {@link Layer}.
 	 */
-	public Layer resetConfiguration() {
+	public final Layer resetConfiguration() {
 		
 		removeBackground();
 		setContentPosition(DEFAULT_CONTENT_POSITION);
@@ -854,7 +854,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
-	public Layer setBackgroundColor(final Color backgroundColor) {
+	public final Layer setBackgroundColor(final Color backgroundColor) {
 		
 		removeBackground();
 		
@@ -872,7 +872,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given backgroundColorGradient is null.
 	 */
-	public Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+	public final Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
 		removeBackground();
 		
@@ -889,7 +889,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 */
-	public Layer setContentPosition(final ExtendedContentPosition contentPosition) {
+	public final Layer setContentPosition(final ExtendedContentPosition contentPosition) {
 		
 		this.contentPosition.setValue(contentPosition);
 		
@@ -903,7 +903,7 @@ IResizableInputTaker {
 	 * @param y
 	 * @return the current {@link Layer}.
 	 */
-	public Layer setFreeContentPosition(final int x, final int y) {
+	public final Layer setFreeContentPosition(final int x, final int y) {
 		
 		setContentPosition(ExtendedContentPosition.Free);
 		setFreeContentPosition_(x, y);
@@ -916,7 +916,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Layer setId(final String id) {
+	public final Layer setId(final String id) {
 		throw new ArgumentDoesNotSupportMethodException(this, "setId");
 	}
 	
@@ -929,7 +929,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given leftMouseButtonClickAction is null.
 	 */
 	@Override
-	public Layer setLeftMouseButtonClickAction(final IElementTaker<Layer> leftMouseButtonClickAction) {
+	public final Layer setLeftMouseButtonClickAction(final IElementTaker<Layer> leftMouseButtonClickAction) {
 		
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
 		
@@ -946,7 +946,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
-	public Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
+	public final Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
 		
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
@@ -964,7 +964,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseAction is null.
 	 */
 	@Override
-	public Layer setLeftMouseButtonReleaseAction(IElementTaker<Layer> leftMouseButtonReleaseAction) {
+	public final Layer setLeftMouseButtonReleaseAction(IElementTaker<Layer> leftMouseButtonReleaseAction) {
 		
 		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
@@ -982,7 +982,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
 	@Override
-	public Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
+	public final Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
 		
 		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
@@ -1000,7 +1000,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given mouseWheelClickAction is null.
 	 */
 	@Override
-	public Layer setMouseWheelClickAction(IElementTaker<Layer> mouseWheelClickAction) {
+	public final Layer setMouseWheelClickAction(IElementTaker<Layer> mouseWheelClickAction) {
 		
 		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
 		
@@ -1018,7 +1018,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given mouseWheelPressAction is null.
 	 */
 	@Override
-	public Layer setMouseWheelPressAction(IElementTaker<Layer> mouseWheelPressAction) {
+	public final Layer setMouseWheelPressAction(IElementTaker<Layer> mouseWheelPressAction) {
 		
 		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
 		
@@ -1036,7 +1036,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given mouseWheelReleaseAction is null.
 	 */
 	@Override
-	public Layer setMouseWheelReleaseAction(IElementTaker<Layer> mouseWheelReleaseAction) {
+	public final Layer setMouseWheelReleaseAction(IElementTaker<Layer> mouseWheelReleaseAction) {
 		
 		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
 		
@@ -1054,7 +1054,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given rightMouseButtonClickAction is null.
 	 */
 	@Override
-	public Layer setRightMouseButtonClickAction(IElementTaker<Layer> rightMouseButtonClickAction) {
+	public final Layer setRightMouseButtonClickAction(IElementTaker<Layer> rightMouseButtonClickAction) {
 		
 		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
 		
@@ -1072,7 +1072,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given rightMouseButtonPressAction is null.
 	 */
 	@Override
-	public Layer setRightMouseButtonPressAction(IElementTaker<Layer> rightMouseButtonPressAction) {
+	public final Layer setRightMouseButtonPressAction(IElementTaker<Layer> rightMouseButtonPressAction) {
 		
 		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
 		
@@ -1090,7 +1090,7 @@ IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseAction is null.
 	 */
 	@Override
-	public Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
+	public final Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
 		
 		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
 		
@@ -1107,7 +1107,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
+	public final Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		Validator.assertThat(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
 				
@@ -1126,7 +1126,7 @@ IResizableInputTaker {
 	 * @param parentGUI
 	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 */
-	void setParentGUI(final LayerGUI<?> parentGUI) {
+	final void setParentGUI(final LayerGUI<?> parentGUI) {
 		
 		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
