@@ -49,7 +49,7 @@ import ch.nolix.element.widget.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 870
+ * @lines 800
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -522,6 +522,25 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
+	 * Removes the given layer from the current {@link LayerGUI}.
+	 * 
+	 * @param layer
+	 * @return the current {@link LayerGUI}.
+	 */
+	public LG removeLayer(final Layer layer) {
+		
+		if (!isTopLayer(layer)) {
+			
+			layers.remove(layer);
+			
+			return asConcrete();
+		}
+		
+		return removeTopLayer();
+	}
+	
+	//method
+	/**
 	 * Removes the top {@link Layer} from the current {@link LayerGUI}.
 	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
@@ -777,5 +796,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	protected final void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker() {
 		getRefTopOrBackgroundLayer().noteRightMouseButtonRelease();
 		refresh();
-	}	
+	}
+	
+	//method
+	/**
+	 * @param layer
+	 * @return true if the given layer is the top {@link Layer} of the current {@link LayerGUI}.
+	 */
+	private boolean isTopLayer(final Layer layer) {
+		return (topLayer == layer);
+	}
 }
