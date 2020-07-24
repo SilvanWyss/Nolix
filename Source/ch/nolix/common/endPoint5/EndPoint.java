@@ -130,6 +130,14 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 	 */
 	public abstract boolean isNetEndPoint();
 	
+	//method declaration
+	/**
+	 * Lets current {@link EndPoint} run the given commands.
+	 * 
+	 * @param commands
+	 */
+	public abstract void run(Iterable<ChainedNode> commands);
+	
 	//method
 	/**
 	 * Runs the appended commands of the current {@link EndPoint}.
@@ -183,12 +191,4 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 		
 		return receiverController;
 	}
-	
-	//method declaration
-	/**
-	 * Lets current {@link EndPoint} run the given commands.
-	 * 
-	 * @param commands
-	 */
-	abstract void run(LinkedList<ChainedNode> commands);
 }

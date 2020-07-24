@@ -6,6 +6,7 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
@@ -192,13 +193,14 @@ public class NetEndPoint extends EndPoint {
 	 * @throws ClosedArgumentException if this net duplex contorller is closed.
 	 */
 	@Override
-	protected void run(final LinkedList<ChainedNode> commands) {
+	public void run(final Iterable<ChainedNode> commands) {
 			
 		//Asserts that this net duplex controller is open.
 		assertIsOpen();
 		
 		//Creates message.
-		final var message = Protocol.COMMANDS_HEADER + '(' + commands + ')';
+		//A ReadContainer is created for the commands because a ReadContainer has the required toString implementation.
+		final var message = Protocol.COMMANDS_HEADER + '(' + new ReadContainer<>(commands) + ')';
 		
 		//Sends the message and gets reply.
 		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));

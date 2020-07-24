@@ -3,7 +3,6 @@ package ch.nolix.common.endPoint5;
 
 //own imports
 import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.controllerAPI.IDataProviderController;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.Node;
@@ -15,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 200
  */
 public final class LocalEndPoint extends EndPoint {
 	
@@ -198,14 +197,13 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	protected void run(final LinkedList<ChainedNode> commands) {
+	public void run(final Iterable<ChainedNode> commands) {
 		
 		//Asserts that this local duplex controller is open.
 		assertIsOpen();
 		
-		final IDataProviderController counterpartReceiverController
-		= counterpart.getRefReceiverController();
+		final IDataProviderController counterpartReceiverController = counterpart.getRefReceiverController();
 		
-		commands.forEach(c -> counterpartReceiverController.run(c));
+		commands.forEach(counterpartReceiverController::run);
 	}
 }
