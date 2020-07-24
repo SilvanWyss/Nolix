@@ -29,15 +29,17 @@ import ch.nolix.element.painter.IPainter;
 
 //class
 /**
- * A {@link GUI} is mainly a {@link IBaseGUI} and a {@link IElement}.
- * A {@link GUI} contains so-called hard attributes like its title or content elements.
- * A so-called soft attributes of a {@link GUI} is for example the position where the cursor is on.
+ * A {@link GUI} is mainly a {@link IBaseGUI} and a {@link ConfigurationElement}.
+ * A {@link GUI} contains so-called hard attributes and so-called soft attribues.
+ * A hard attribute is an attribute that is not changed implicitly by a user interaction. E.g. title, background color.
+ * A soft attribute is an attribute that can be changed implicitly by a user interaction. E.g. cursor position.
  * 
  * The {@link GUI.getAttributes} method of a {@link GUI} must deliver all attributes; the hard and the soft ones.
  * The reason is because when a {@link GUI} is used in a server-client application,
  * the soft attributes need to be transferred as well.
- * When the soft attributes would be refreshed on client-side only, e.g. by a mouse-move, a new version
- * of the {@link GUI} may be requested from the server without transferring the refreshed soft attributes.
+ * When the soft attributes would be refreshed on client-side only, e.g. by a mouse-move,
+ * and a new version of the {@link GUI} is requested from the server,
+ * the server would deliver a {@link GUI} with its out-dated soft attributes.
  * 
  * @author Silvan Wyss
  * @month 2015-12
