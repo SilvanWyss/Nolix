@@ -18,7 +18,10 @@ import ch.nolix.element.painter.IPainter;
 //class
 public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
 implements Clearable<TIM> {
-		
+	
+	//constant
+	private static final int MIN_ITEM_LABEL_WIDTH = 10;
+	
 	//attribute
 	private final MultiProperty<TextItemMenuItem> items =
 	new MultiProperty<>(
@@ -289,7 +292,7 @@ implements Clearable<TIM> {
 		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
 		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();
 		final var itemLables = getRefItemLables();
-		final var labelWidth = itemLables.getMaxIntOrDefaultValue(Label::getWidth, 10); //TODO
+		final var labelWidth = itemLables.getMaxIntOrDefaultValue(Label::getWidth, MIN_ITEM_LABEL_WIDTH);
 		
 		for (final var l : itemLables) {
 						
@@ -315,7 +318,6 @@ implements Clearable<TIM> {
 			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
 			
-			//TODO
 			l.recalculate();
 		}
 	}
