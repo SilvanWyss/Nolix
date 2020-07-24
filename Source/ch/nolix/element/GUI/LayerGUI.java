@@ -25,7 +25,6 @@ import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
-import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -158,9 +157,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		l -> l.getSpecification()
 	);
 	
-	//optional attributes
+	//optional attribute
 	private Layer topLayer;
-	private final IResizableInputTaker inputTaker;
 	
 	//constructor
 	/**
@@ -174,12 +172,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public LayerGUI(final IResizableInputTaker inputTaker) {
 		
-		super(Visibility.VISIBLE);
-		
-		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
-		
+		super(Visibility.VISIBLE, inputTaker);
+				
 		backGround.setParentGUI(this);
-		this.inputTaker = inputTaker;
 	}
 	
 	//constructor
@@ -196,7 +191,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		super(visualizer);
 		
 		backGround.setParentGUI(this);
-		inputTaker = null;
 	}
 	
 	//constructor
@@ -212,12 +206,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public LayerGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
 		
-		super(visualizer);
-		
-		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
+		super(visualizer, inputTaker);
 		
 		backGround.setParentGUI(this);
-		this.inputTaker = inputTaker;
 	}
 	
 	//constructor
@@ -232,7 +223,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		super(visibility);
 		
 		backGround.setParentGUI(this);
-		inputTaker = null;
 	}
 	
 	//constructor
@@ -247,12 +237,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	public LayerGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
-		super(visibility);
-		
-		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
-		
+		super(visibility, inputTaker);
+				
 		backGround.setParentGUI(this);
-		this.inputTaker = inputTaker;
 	}
 
 	//method
@@ -517,234 +504,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyPress(final Key key) {
-		if (hasEventTaker()) {
-			inputTaker.noteKeyPress(key);
-		}		
-		else {
-			getRefKeyBoardForMutating().noteKeyPress(key);
-			getRefTopOrBackgroundLayer().noteKeyPress(key);
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteKeyRelease(final Key key) {		
-		if (hasEventTaker()) {
-			inputTaker.noteKeyRelease(key);
-		}		
-		else {
-			getRefKeyBoardForMutating().noteKeyRelease(key);
-			getRefTopOrBackgroundLayer().noteKeyRelease(key);
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteKeyTyping(final Key key) {		
-		if (hasEventTaker()) {
-			inputTaker.noteKeyTyping(key);
-		}		
-		else {
-			getRefTopOrBackgroundLayer().noteKeyTyping(key);
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteLeftMouseButtonClick() {		
-		if (hasEventTaker()) {
-			inputTaker.noteLeftMouseButtonClick();
-		}		
-		else {
-			getRefTopOrBackgroundLayer().noteLeftMouseButtonClick();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteLeftMouseButtonPress() {
-		if (hasEventTaker()) {
-			inputTaker.noteLeftMouseButtonPress();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteLeftMouseButtonPress();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteLeftMouseButtonRelease() {
-		if (hasEventTaker()) {
-			inputTaker.noteLeftMouseButtonRelease();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteLeftMouseButtonRelease();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteMouseMove(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
-		if (hasEventTaker()) {
-			inputTaker.noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
-		}
-		else {
-			setCursorPositionOnViewArea(viewAreaCursorXPosition, viewAreaCursorYPosition);
-			getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteMouseWheelClick() {
-		if (hasEventTaker()) {
-			inputTaker.noteMouseWheelClick();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteMouseWheelClick();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteMouseWheelPress() {
-		if (hasEventTaker()) {
-			inputTaker.noteMouseWheelPress();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteMouseWheelPress();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteMouseWheelRelease() {
-		if (hasEventTaker()) {
-			inputTaker.noteMouseWheelRelease();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteMouseWheelRelease();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
-		if (hasEventTaker()) {
-			inputTaker.noteMouseWheelRotationStep(directionOfRotation);
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		if (hasEventTaker()) {
-			inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
-			refresh();
-		}
-		else {
-			setViewAreaSize(viewAreaWidth, viewAreaHeight);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteRightMouseButtonClick() {
-		if (hasEventTaker()) {
-			inputTaker.noteRightMouseButtonClick();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteRightMouseButtonClick();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteRightMouseButtonPress() {
-		if (hasEventTaker()) {
-			inputTaker.noteRightMouseButtonPress();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteRightMouseButtonPress();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteRightMouseButtonRelease() {
-		if (hasEventTaker()) {
-			inputTaker.noteRightMouseButtonRelease();
-		}
-		else {
-			getRefTopOrBackgroundLayer().noteRightMouseButtonRelease();
-			refresh();
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final void paint(final IPainter painter) {
 		backGround.paint(painter);
 		layers.forEach(l -> l.paint(painter));
@@ -871,9 +630,152 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return true if the current {@link LayerGUI} has a {@link IInputTaker}.
+	 * {@inheritDoc}
 	 */
-	private boolean hasEventTaker() {
-		return (inputTaker != null);
+	@Override
+	protected final void noteKeyPressWhenDoesNotHaveInputTaker(final Key key) {
+		getRefKeyBoardForMutating().noteKeyPress(key);
+		getRefTopOrBackgroundLayer().noteKeyPress(key);
+		refresh();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyReleaseWhenDoesNotHaveInputTaker(final Key key) {		
+		getRefKeyBoardForMutating().noteKeyRelease(key);
+		getRefTopOrBackgroundLayer().noteKeyRelease(key);
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyTypingWhenDoesNotHaveInputTaker(final Key key) {		
+		getRefTopOrBackgroundLayer().noteKeyTyping(key);
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonClickWhenDoesNotHaveInputTaker() {		
+		getRefTopOrBackgroundLayer().noteLeftMouseButtonClick();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonPressWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteLeftMouseButtonPress();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonReleaseWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteLeftMouseButtonRelease();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseMoveWhenDoesNotHaveInputTaker(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+		getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelClickWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteMouseWheelClick();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelPressWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteMouseWheelPress();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelReleaseWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteMouseWheelRelease();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(final DirectionOfRotation directionOfRotation) {
+		getRefTopOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteResizeWhenDoesNotHaveInputTaker(final int viewAreaWidth, final int viewAreaHeight) {
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonClickWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteRightMouseButtonClick();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonPressWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteRightMouseButtonPress();
+		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker() {
+		getRefTopOrBackgroundLayer().noteRightMouseButtonRelease();
+		refresh();
+	}	
 }

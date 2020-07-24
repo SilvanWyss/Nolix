@@ -19,8 +19,11 @@ import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.baseGUI_API.IFrontEndReader;
 import ch.nolix.element.baseGUI_API.IFrontEndWriter;
 import ch.nolix.element.configuration.ConfigurationElement;
+import ch.nolix.element.elementEnum.DirectionOfRotation;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.graphic.Image;
+import ch.nolix.element.input.IResizableInputTaker;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.inputDevice.KeyBoard;
 import ch.nolix.element.inputDeviceAPI.IKeyBoard;
 import ch.nolix.element.inputDeviceAPI.IMutableKeyBoard;
@@ -42,7 +45,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 380
+ * @lines 680
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -90,6 +93,46 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//optional attribute
 	private final IVisualizer visualizer;
+	private final IResizableInputTaker inputTaker;
+	
+	//constructor
+	/**
+	 * Creates a new {@link GUI}.
+	 * The {@link GUI} will be visible and have the given visualizer.
+	 * The {@link GUI} will have the given inputTaker.
+	 * 
+	 * @param visualizer
+	 * @param inputTaker
+	 * @throws ArgumentIsNullException if the given visualizer is null.
+	 */
+	public GUI(final IVisualizer visualizer, final IResizableInputTaker inputTaker) {
+				
+		Validator.assertThat(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
+		
+		this.visualizer = visualizer;
+		this.inputTaker = inputTaker;
+		setPreCloseAction(this::preClose);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link GUI}.
+	 * The {@link GUI} will be visible according to the given visibility.
+	 * The {@link GUI} will have the given inputTaker.
+	 * 
+	 * @param visibility
+	 * @param inputTaker
+	 */
+	public GUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
+		
+		Validator.assertThat(visibility).thatIsNamed(Visibility.class).isNotNull();
+		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
+		
+		visualizer = visibility == Visibility.VISIBLE ? new FrameVisualizer() : null;
+		this.inputTaker = inputTaker;
+		setPreCloseAction(this::preClose);
+	}
 	
 	//constructor
 	/**
@@ -103,8 +146,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		Validator.assertThat(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
 		
+		this.inputTaker = null;
 		this.visualizer = visualizer;
-		
 		setPreCloseAction(this::preClose);
 	}
 	
@@ -117,8 +160,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final Visibility visibility) {
 		
+		this.inputTaker = null;
 		visualizer = visibility == Visibility.VISIBLE ? new FrameVisualizer() : null;
-		
 		setPreCloseAction(this::preClose);
 	}
 	
@@ -222,13 +265,224 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets the current {@link GUI} note a resize.
-	 * The size of the view area of the current {@link GUI} will be set to the size of the view area of the given pGUI.
-	 * 
-	 * @param pGUI
+	 * {@inheritDoc}
 	 */
-	public final void noteResizeFrom(final GUI<?> pGUI) {
-		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
+	@Override
+	public final void noteKeyPress(final Key key) {
+		if (inputTaker != null) {
+			inputTaker.noteKeyPress(key);
+		}		
+		else {
+			noteKeyPressWhenDoesNotHaveInputTaker(key);
+		}
+	}
+	
+	
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteKeyRelease(final Key key) {		
+		if (inputTaker != null) {
+			inputTaker.noteKeyRelease(key);
+		}		
+		else {
+			noteKeyReleaseWhenDoesNotHaveInputTaker(key);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteKeyTyping(final Key key) {		
+		if (inputTaker != null) {
+			inputTaker.noteKeyTyping(key);
+		}		
+		else {
+			noteKeyTypingWhenDoesNotHaveInputTaker(key);
+		}
+	}
+
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteLeftMouseButtonClick() {		
+		if (inputTaker != null) {
+			inputTaker.noteLeftMouseButtonClick();
+		}		
+		else {
+			noteLeftMouseButtonClickWhenDoesNotHaveInputTaker();
+		}
+	}
+	
+	
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteLeftMouseButtonPress() {
+		if (inputTaker != null) {
+			inputTaker.noteLeftMouseButtonPress();
+		}
+		else {
+			noteLeftMouseButtonPressWhenDoesNotHaveInputTaker();
+		}
+	}
+
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteLeftMouseButtonRelease() {
+		if (inputTaker != null) {
+			inputTaker.noteLeftMouseButtonRelease();
+		}
+		else {
+			noteLeftMouseButtonReleaseWhenDoesNotHaveInputTaker();
+		}
+	}
+		
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
+		
+		setCursorPositionOnViewArea(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		
+		if (inputTaker != null) {
+			inputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		}
+		else {
+			noteMouseMoveWhenDoesNotHaveInputTaker(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelClick() {
+		if (inputTaker != null) {
+			inputTaker.noteMouseWheelClick();
+		}
+		else {
+			noteMouseWheelClickWhenDoesNotHaveInputTaker();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelPress() {
+		if (inputTaker != null) {
+			inputTaker.noteMouseWheelPress();
+		}
+		else {
+			noteMouseWheelPressWhenDoesNotHaveInputTaker();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelRelease() {
+		if (inputTaker != null) {
+			inputTaker.noteMouseWheelRelease();
+		}
+		else {
+			noteMouseWheelReleaseWhenDoesNotHaveInputTaker();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+		if (inputTaker != null) {
+			inputTaker.noteMouseWheelRotationStep(directionOfRotation);
+		}
+		else {
+			noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(directionOfRotation);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+		
+		setViewAreaSize(viewAreaWidth, viewAreaHeight);
+		
+		if (inputTaker != null) {
+			inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
+		}
+		else {
+			noteResizeWhenDoesNotHaveInputTaker(viewAreaWidth, viewAreaHeight);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteRightMouseButtonClick() {
+		if (inputTaker != null) {
+			inputTaker.noteRightMouseButtonClick();
+		}
+		else {
+			noteRightMouseButtonClickWhenDoesNotHaveInputTaker();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteRightMouseButtonPress() {
+		if (inputTaker != null) {
+			inputTaker.noteRightMouseButtonPress();
+		}
+		else {
+			noteRightMouseButtonPressWhenDoesNotHaveInputTaker();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteRightMouseButtonRelease() {
+		if (inputTaker != null) {
+			inputTaker.noteRightMouseButtonRelease();
+		}
+		else {
+			noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker();
+		}
 	}
 	
 	//method
@@ -347,8 +601,63 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		}
 	}
 	
+	//method declaration
+	protected abstract void noteKeyPressWhenDoesNotHaveInputTaker(Key key);
+	
+	//method declaration
+	protected abstract void noteKeyReleaseWhenDoesNotHaveInputTaker(Key key);
+	
+	//method declaration
+	protected abstract void noteKeyTypingWhenDoesNotHaveInputTaker(Key key);
+	
+	//method declaration
+	protected abstract void noteLeftMouseButtonClickWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteLeftMouseButtonPressWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteLeftMouseButtonReleaseWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteMouseMoveWhenDoesNotHaveInputTaker(
+		int cursorXPositionOnViewArea,
+		int cursorYPositionOnViewArea
+	);
+	
+	//method declaration
+	protected abstract void noteMouseWheelClickWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteMouseWheelPressWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteMouseWheelReleaseWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(
+		DirectionOfRotation directionOfRotation
+	);
+	
+	//method declaration
+	protected abstract void noteResizeWhenDoesNotHaveInputTaker(int viewAreaWidth, int viewAreaHeight);
+	
+	//method declaration
+	protected abstract void noteRightMouseButtonClickWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteRightMouseButtonPressWhenDoesNotHaveInputTaker();
+	
+	//method declaration
+	protected abstract void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker();
+		
 	//method
-	protected final void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
+	private void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+		cursorPositionOnViewArea.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
+	}
+	
+	//method
+	private void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
 		
 		Validator.assertThat(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
 		Validator.assertThat(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
@@ -356,13 +665,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		this.viewAreaSize.setValue(new IntPair(viewAreaWidth, viewAreaHeight));
 	}
 	
-	//TODO: Make this method private.
 	//method
-	protected final void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
-		cursorPositionOnViewArea.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
-	}
-	
-	//method
+	/**
+	 * Lets the current {@link GUI} do a pre-close.
+	 */
 	private void preClose() {
 		if (isVisible()) {
 			visualizer.noteClose();

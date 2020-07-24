@@ -8,7 +8,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.state.Visibility;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
@@ -25,32 +24,21 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//constant
 	public static final Color BACKGROUND_COLOR = Color.WHITE;
-
-	//attributes
+	
+	//attribute
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final IResizableInputTaker inputTaker;
 	
 	//multi-attribute
 	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
 	//constructor
 	public CanvasGUI(final IResizableInputTaker inputTaker, final Visibility visibility) {
-		
-		super(visibility);
-		
-		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
-		
-		this.inputTaker = inputTaker;
+		super(visibility, inputTaker);
 	}
 	
 	//constructor
 	public CanvasGUI(final IResizableInputTaker inputTaker, final IVisualizer visualizer) {
-		
-		super(visualizer);
-		
-		Validator.assertThat(inputTaker).thatIsNamed("event taker").isNotNull();
-		
-		this.inputTaker = inputTaker;
+		super(visualizer, inputTaker);
 	}
 	
 	//method
@@ -59,6 +47,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		return false;
 	}
 	
+	//TODO: Add cursorIcon to the specification of the current CanvasGUI.
 	//method
 	@Override
 	public CursorIcon getCursorIcon() {
@@ -69,96 +58,6 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	@Override
 	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
 		return new LinkedList<>();
-	}
-	
-	//method
-	@Override
-	public final void noteKeyPress(final Key key) {
-		inputTaker.noteKeyPress(key);
-	}
-	
-	//method
-	@Override
-	public final void noteKeyRelease(final Key key) {
-		inputTaker.noteKeyRelease(key);
-	}
-	
-	//method
-	@Override
-	public final void noteKeyTyping(final Key key) {
-		inputTaker.noteKeyTyping(key);
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonClick() {
-		inputTaker.noteLeftMouseButtonClick();
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonPress() {
-		inputTaker.noteLeftMouseButtonPress();
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonRelease() {
-		inputTaker.noteLeftMouseButtonRelease();		
-	}
-	
-	//method
-	@Override
-	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
-		inputTaker.noteMouseMove(cursorXPosition, cursorYPosition);		
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelClick() {
-		inputTaker.noteMouseWheelClick();		
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelPress() {
-		inputTaker.noteMouseWheelPress();
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelRelease() {
-		inputTaker.noteMouseWheelRelease();		
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelRotationStep(DirectionOfRotation directionOfRotation) {
-		inputTaker.noteMouseWheelRotationStep(directionOfRotation);		
-	}
-		
-	//method
-	@Override
-	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonClick() {
-		inputTaker.noteRightMouseButtonClick();		
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonPress() {
-		inputTaker.noteRightMouseButtonPress();		
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonRelease() {
-		inputTaker.noteRightMouseButtonRelease();		
 	}
 	
 	//method
@@ -190,6 +89,116 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	public final void setPaintCommandsFromChainedNodes(final IContainer<ChainedNode> paintCommands) {
 		setPaintCommands(paintCommands.to(pc -> createPaintCommand(pc)));
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyPressWhenDoesNotHaveInputTaker(Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyReleaseWhenDoesNotHaveInputTaker(Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyTypingWhenDoesNotHaveInputTaker(Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonClickWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonPressWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteLeftMouseButtonReleaseWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseMoveWhenDoesNotHaveInputTaker(
+		final int cursorXPositionOnViewArea,
+		final int cursorYPositionOnViewArea
+	) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelClickWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelPressWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelReleaseWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(
+		final DirectionOfRotation directionOfRotation
+	) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteResizeWhenDoesNotHaveInputTaker(final int viewAreaWidth, final int viewAreaHeight) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonClickWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonPressWhenDoesNotHaveInputTaker() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker() {}
 	
 	//method
 	private IElementTaker<PaintRun> createCreatePainterCommand(

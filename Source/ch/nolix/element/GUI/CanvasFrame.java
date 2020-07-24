@@ -22,6 +22,8 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 		this(inputTaker);
 		
 		setTitle(title);
+		
+		initialize();
 	}
 	
 	//method
