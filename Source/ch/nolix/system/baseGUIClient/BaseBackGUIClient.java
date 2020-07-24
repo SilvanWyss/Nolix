@@ -122,11 +122,10 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		//Enumerates the front end type of the current back GUI client.
 		switch (getCounterpartGUIType()) {
 			case LayerGUI:
-				resetGUIOnCounterpart(getRefGUI().getAttributes());
+				updateLayerGUIOnCounterpart();
 				break;
 			case CanvasGUI:
-				setGUITitleOnCounterpart(getRefGUI().getTitle());
-				setGUIPaintCommandsOnCounterpart(getRefGUI().getPaintCommands());
+				updateCanvasGUIOnCounterpart();
 				break;
 		}
 	}
@@ -139,9 +138,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * @param attributes
 	 * @throws InvalidArgumentException if the given attributes are not valid.
 	 */
-	private void addOrChangeGUIWidgetsAttributes(
-		final IContainer<IContainer<Node>> attributes
-	) {
+	private void addOrChangeGUIWidgetsAttributes(final IContainer<IContainer<Node>> attributes) {
 		getRefGUI().addOrChangeAttributesOfWidgets(attributes);
 	}
 	
@@ -192,20 +189,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	/**
-	 * Resets the dialog of the other side of this dialog client with the given attributes.
-	 * 
-	 * @param attributes
-	 */
-	private void resetGUIOnCounterpart(final Iterable<Node> attributes) {
-		internalRunOnCounterpart(
-			new ChainedNode(ObjectProtocol.GUI, new LinkedList<>(), new ChainedNode(CommandProtocol.RESET, attributes))
-		);
+	private void runGUICommandOnCounterpart(final ChainedNode pGUICommand) {
+		internalRunOnCounterpart(ChainedNode.withHeaderAndNextNode(ObjectProtocol.GUI, pGUICommand));
 	}
 	
 	//method
-	private void runGUICommandOnCounterpart(final ChainedNode pGUICommandOnCounterpart) {
-		internalRunOnCounterpart(new ChainedNode(ObjectProtocol.GUI, new LinkedList<>(), pGUICommandOnCounterpart));
+	private void runGUICommandsOnCounterpart(final IContainer<ChainedNode> pGUICommands) {
+		internalRunOnCounterpart(pGUICommands.to(c -> ChainedNode.withHeaderAndNextNode(ObjectProtocol.GUI, c)));
 	}
 	
 	//method
@@ -233,25 +223,34 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	private void setGUITitleOnCounterpart(final String title) {
-		runGUICommandOnCounterpart(
-			new ChainedNode(CommandProtocol.SET_TITLE, new Node(title))
-		);
+	/**
+	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
+	 * for the case when it is a {@link CanvasGUI}.
+	 */
+	private void updateCanvasGUIOnCounterpart() {
+		
+		final var canvasGUIUpdateCommands = new LinkedList<ChainedNode>();
+		
+		canvasGUIUpdateCommands.addAtEnd(new ChainedNode(CommandProtocol.SET_TITLE, new Node(getRefGUI().getTitle())));
+		canvasGUIUpdateCommands.addAtEnd(new ChainedNode(CommandProtocol.SET_CURSOR_ICON, getRefGUI().getCursorIcon().getSpecification()));
+		canvasGUIUpdateCommands.addAtEnd();
+		
+		final var paintCommands = getRefGUI().getPaintCommands();
+		if (paintCommands.containsAny()) {
+			canvasGUIUpdateCommands.addAtEnd(
+				ChainedNode.withHeaderAndAttributes(CommandProtocol.SET_PAINT_COMMANDS, paintCommands)
+			);
+		}
+		
+		runGUICommandsOnCounterpart(canvasGUIUpdateCommands);
 	}
 	
 	//method
 	/**
-	 * Sets the given paint commands to the counterpart of the current {@link BaseBackGUIClient}.
-	 * 
-	 * @param paintCommands
+	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
+	 * for the case when it is a {@link LayerGUI}.
 	 */
-	private void setGUIPaintCommandsOnCounterpart(final IContainer<ChainedNode> paintCommands) {
-		if (paintCommands.containsAny()) {			
-			runGUICommandOnCounterpart(
-				
-				//TODO: Add a suitable construction mechanic to ChainedNode. 
-				ChainedNode.fromString(CommandProtocol.SET_PAINT_COMMANDS + "(" + paintCommands + ")")
-			);
-		}
+	private void updateLayerGUIOnCounterpart() {
+		runGUICommandOnCounterpart(new ChainedNode(CommandProtocol.RESET, getRefGUI().getAttributes()));
 	}
 }

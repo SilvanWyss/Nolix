@@ -6,6 +6,7 @@ import ch.nolix.common.chainedNode.ChainedNode;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.GUI.CanvasFrame;
+import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.GUI;
 
 //class
@@ -47,6 +48,10 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 		switch (pGUICommand.getHeader()) {
 			case CommandProtocol.SET_TITLE:
 				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
+				mGUI.refresh();
+				break;
+			case CommandProtocol.SET_CURSOR_ICON:
+				mGUI.setCursorIcon(CursorIcon.fromSpecification(pGUICommand.getOneAttributeAsNode()));
 				mGUI.refresh();
 				break;
 			case CommandProtocol.SET_PAINT_COMMANDS:
