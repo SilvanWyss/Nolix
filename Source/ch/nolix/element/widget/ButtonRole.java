@@ -7,8 +7,6 @@ import ch.nolix.element.elementAPI.IElementEnum;
 
 //enum
 /**
- * A {@link ButtonRole} is not mutable.
- * 
  * @author Silvan Wyss
  * @month 2018-05
  * @lines 30
@@ -19,21 +17,19 @@ public enum ButtonRole implements IElementEnum {
 	CreateButton,
 	DeleteButton,
 	SaveButton,
+	ConfirmButton,
 	CancelButton;
 	
 	//constant
 	public static final String TYPE_NAME = "ButtonRole";
-
+	
 	//static method
 	/**
 	 * @param specification
 	 * @return a new {@link ButtonRole} from the given specification.
-	 * @throws InvalidArgumentException
-	 * if the given specification is not valid.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ButtonRole fromSpecification(
-		final BaseNode specification
-	) {
-		return valueOf(specification.getOneAttributeAsString());
+	public static ButtonRole fromSpecification(final BaseNode specification) {
+		return valueOf(specification.getHeaderOfOneAttribute());
 	}
 }
