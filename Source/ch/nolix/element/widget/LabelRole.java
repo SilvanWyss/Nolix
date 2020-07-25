@@ -18,8 +18,8 @@ public enum LabelRole implements IElementEnum {
 	Level2Header,
 	Level3Header,
 	Level4Header,
-	ParagraphHeader,
-	DynamicInfoLabel;
+	MainText,
+	ParagraphHeader;
 
 	//static method
 	/**
