@@ -23,7 +23,7 @@ import ch.nolix.element.elementAPI.IMutableElement;
  * @lines 780
  * @param <C> The type of a configuration.
  */
-public abstract class Configuration<C extends Configuration<C>> extends Element<C>
+public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>
 implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//attribute headers
@@ -40,7 +40,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//multi-attributes
 	private final LinkedList<Node> attachingAttributes = new LinkedList<>();
-	protected final LinkedList<Configuration<?>> configurations = new LinkedList<>();
+	protected final LinkedList<BaseConfiguration<?>> configurations = new LinkedList<>();
 	
 	//optional attributes
 	private String selectorType;
@@ -123,7 +123,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @throws ArgumentIsNullException if the given configuration is null.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
-	public final C addConfiguration(final Configuration<?> configuration) {
+	public final C addConfiguration(final BaseConfiguration<?> configuration) {
 		
 		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();
@@ -142,7 +142,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @throws ArgumentIsNullException if one of the given configurations is null.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
-	public final C addConfiguration(final Configuration<?>...configurations) {
+	public final C addConfiguration(final BaseConfiguration<?>...configurations) {
 		
 		//Asserts that this configuration is not frozen.
 		supposeNotFrozen();

@@ -11,7 +11,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
  * @month 2016-01
  * @lines 60
  */
-public class StandardConfiguration extends Configuration<StandardConfiguration> {
+public class StandardConfiguration extends BaseConfiguration<StandardConfiguration> {
 
 	//constant
 	public static final String TYPE_NAME = "StandardConfiguration";
