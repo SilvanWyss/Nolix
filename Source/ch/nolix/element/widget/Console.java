@@ -399,25 +399,6 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		return secretLine;
 	}
 	
-	//method
-	/**
-	 * Resets the configuration of this console.
-	 * 
-	 * @return this console.
-	 */
-	@Override
-	public Console resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		setCustomCursorIcon(CursorIcon.Edit);
-		
-		getRefBaseLook().setTextFont(Font.Console);
-		
-		return this;
-	}
-	
 	//methods
 	/**
 	 * Sets this console editable.
@@ -767,6 +748,19 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	@Override
 	protected final void recalculateSelfStage2() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetConfigurationOnSelf() {
+		
+		super.resetConfigurationOnSelf();
+		
+		setCustomCursorIcon(CursorIcon.Edit);
+		getRefBaseLook().setTextFont(Font.Console);
+	}
 	
 	//method
 	private TextFormat getFont() {

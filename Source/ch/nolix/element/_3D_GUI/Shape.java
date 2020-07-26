@@ -70,7 +70,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the configurable elements of this shape.
 	 */
 	@Override
-	public final ReadContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
 		return new ReadContainer<>(getRefShapes());
 	}
 	

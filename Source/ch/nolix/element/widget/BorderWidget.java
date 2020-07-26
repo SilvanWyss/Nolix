@@ -656,29 +656,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * Resets the configuration of the current {@link BorderWidget}.
-	 * 
-	 * @return the current {@link BorderWidget}.
-	 */
-	@Override
-	public BW resetConfiguration() {
-		
-		//Calls method of the base class
-		super.resetConfiguration();
-		
-		setContentPosition(ContentPosition.LeftTop);
-		removeMinWidth();
-		removeMinHeight();
-		removeMaxWidtht();
-		removeMaxHeight();
-		setShowAreaXPositionOnScrolledArea(0);
-		setShowAreaYPositionOnScrolledArea(0);
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link BorderWidget} scroll to bottom.
 	 * 
 	 * @return the current {@link BorderWidget}.
@@ -1380,6 +1357,24 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final boolean redirectsInputsToShownWidgets() {
 		return (isEnabled() && (!hasAnyScrollbar() || showAreaIsUnderCursor()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelf() {
+		
+		super.resetConfigurationOnSelf();
+		
+		setContentPosition(ContentPosition.LeftTop);
+		removeMinWidth();
+		removeMinHeight();
+		removeMaxWidtht();
+		removeMaxHeight();
+		setShowAreaXPositionOnScrolledArea(0);
+		setShowAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method

@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
@@ -32,7 +33,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2020
+ * @lines 2030
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -460,16 +461,6 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public final LinkedList<IConfigurableElement<?>> getRefConfigurables() {		
-		return (LinkedList)getChildWidgets();
-	}
-	
-	//method
-	/**
 	 * @return the focus look of the current {@link Widget}.
 	 */
 	public final WL getRefFocusLook() {
@@ -544,6 +535,16 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final WidgetState getState() {
 		return state;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {		
+		return (LinkedList)getChildWidgets();
 	}
 	
 	//method
@@ -1147,14 +1148,11 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * @return the current {@link Widget}.
 	 */
 	@Override
-	public W resetConfiguration() {
+	public final W resetConfiguration() {
 		
-		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		setGreyOutWhenDisabled();
+		resetConfigurationOnSelf();
 		
-		baseLook.reset();
-		hoverLook.reset();
-		focusLook.reset();
+		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
 				
 		return asConcrete();
 	}
@@ -1703,6 +1701,20 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * @return true if the current {@link Widget} redirects intputs to its shown {@link Widgets}.
 	 */
 	protected abstract boolean redirectsInputsToShownWidgets();
+	
+	//method
+	/**
+	 * Resets the configuration of the current {@link Widget} on itself.
+	 */
+	protected void resetConfigurationOnSelf() {
+		
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
+		setGreyOutWhenDisabled();
+		
+		baseLook.reset();
+		hoverLook.reset();
+		focusLook.reset();
+	}
 	
 	//method
 	/**

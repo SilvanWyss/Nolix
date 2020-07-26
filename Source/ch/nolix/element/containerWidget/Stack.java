@@ -206,21 +206,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final S resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-	
-		removeElementMargin();
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * Sets the element margin of the current {@link Stack}.
 	 * 
 	 * @param elementMargin
@@ -342,4 +327,16 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	@Override
 	protected void paintContentArea(final StackLook stackLook, final IPainter painter) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetConfigurationOnSelf() {
+		
+		super.resetConfigurationOnSelf();
+		
+		removeElementMargin();
+	}
 }

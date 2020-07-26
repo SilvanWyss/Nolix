@@ -169,7 +169,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	 * @return the configurable objects of this 3D GUI.
 	 */
 	@Override
-	public final ReadContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
 		return new ReadContainer<>(getRefShapes());
 	}
 

@@ -40,7 +40,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1140
+ * @lines 1150
  */
 public class Layer extends Element<Layer>
 implements 
@@ -314,7 +314,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
@@ -409,11 +409,8 @@ IResizableInputTaker {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public final boolean hasToken(final String token) {
+	public boolean hasToken() {
 		return false;
 	}
 	
@@ -810,6 +807,12 @@ IResizableInputTaker {
 	}
 	
 	//method
+	@Override
+	public Layer removeToken() {
+		return this;
+	}
+	
+	//method
 	/**
 	 * Resets the current {@link Layer}.
 	 * 
@@ -833,13 +836,11 @@ IResizableInputTaker {
 	 */
 	public final Layer resetConfiguration() {
 		
-		removeBackground();
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 		
-		//Handles the case that the current GUILayer has a root Widget.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget != null) {
-			rootWidget.resetConfiguration();
+		if (containsAny()) {
+			getRefRootWidget().resetConfiguration();
 		}
 		
 		return this;
@@ -937,7 +938,7 @@ IResizableInputTaker {
 		
 		return this;
 	}
-
+	
 	//method
 	/**
 	 * Sets the left mouse button press action of the current {@link Layer}.
@@ -1117,6 +1118,12 @@ IResizableInputTaker {
 		this.rootWidget = rootWidget;
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public Layer setToken(String token) {
+		throw new ArgumentDoesNotSupportMethodException(this, "setToken");
 	}
 	
 	//method

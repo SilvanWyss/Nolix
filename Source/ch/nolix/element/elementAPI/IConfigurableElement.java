@@ -2,67 +2,37 @@
 package ch.nolix.element.elementAPI;
 
 //own imports
-import ch.nolix.common.attributeAPI.Tokened;
+import ch.nolix.common.attributeRequestAPI.RoleRequestable;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
+import ch.nolix.common.mutableOptionalAttributeAPI.OptionalTokenable;
 
 //interface
 /**
- * A {@link IConfigurableElement} is a {@link IMutableElement}, {@link OptionalNamable} and {@link Tokened} that:
- * -Can have a role.
- * -Can contain other {@link IConfigurableElement}.
+ * A {@link IConfigurableElement} is configurable and can contain other {@link IConfigurableElement}s.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 90
+ * @lines 40
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
-extends IMutableElement<C>, OptionalIdentifiableByString<C>, Tokened {
+extends IMutableElement<C>, OptionalIdentifiableByString<C>, OptionalTokenable<C>, RoleRequestable {
 	
 	//method declaration
 	/**
-	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement}.
+	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	public abstract IContainer<IConfigurableElement<?>> getRefConfigurables();
+	public abstract IContainer<IConfigurableElement<?>> getSubConfigurables();
 	
 	//method
 	/**
 	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement} recursively.
 	 */
-	public default IContainer<IConfigurableElement<?>> getRefConfigurablesRecursively() {
+	public default IContainer<IConfigurableElement<?>> getSubConfigurablesRecursively() {
 		return
-		new LinkedList<IConfigurableElement<?>>(getRefConfigurables())
-		.addAtEnd(getRefConfigurables().toFromMany(c -> c.getRefConfigurablesRecursively()));
-	}
-	
-	//method declaration
-	/**
-	 * @param role
-	 * @return true if the current {@link IConfigurableElement} has the given role.
-	 */
-	public abstract boolean hasRole(String role);
-	
-	//method declaration
-	/**
-	 * @param token
-	 * @return true if the current {@link IConfigurableElement} has the given token.
-	 */
-	@Override
-	public abstract boolean hasToken(String token);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public default C reset() {
-		
-		resetConfiguration();
-		
-		return (C)this;
+		new LinkedList<IConfigurableElement<?>>(getSubConfigurables())
+		.addAtEnd(getSubConfigurables().toFromMany(IConfigurableElement::getSubConfigurablesRecursively));
 	}
 	
 	//method declaration
@@ -72,20 +42,4 @@ extends IMutableElement<C>, OptionalIdentifiableByString<C>, Tokened {
 	 * @return the current {@link IConfigurableElement}.
 	 */
 	public abstract C resetConfiguration();
-	
-	//method
-	/**
-	 * Resets the configuration of the current {@link IConfigurableElement} recursively.
-	 * 
-	 * @return the current {@link IConfigurableElement}.
-	 */
-	@SuppressWarnings("unchecked")
-	public default C resetConfigurationRecursively() {
-		
-		resetConfiguration();
-		
-		getRefConfigurables().forEach(c -> c.resetConfigurationRecursively());
-		
-		return (C)this;
-	}
 }

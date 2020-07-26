@@ -192,23 +192,6 @@ public final class Area extends Widget<Area, AreaLook> {
 		
 		return this;
 	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Area resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-				
-		setWidth(500);
-		setHeight(200);
-		removeBackgroundColor();
-		
-		return this;
-	}
 	
 	//method
 	/**
@@ -452,6 +435,17 @@ public final class Area extends Widget<Area, AreaLook> {
 	@Override
 	protected boolean redirectsInputsToShownWidgets() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelf() {					
+		setWidth(500);
+		setHeight(200);
+		removeBackgroundColor();
 	}
 	
 	//method

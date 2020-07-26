@@ -119,22 +119,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	
 	//method
 	/**
-	 * Resets the configuration of this line.
-	 * 
-	 * @return this line.
-	 */
-	@Override
-	public final L resetConfiguration() {
-		
-		setThickness(DEFAULT_THICKNESS);
-		setColor(DEFAULT_COLOR);
-		
-		//Calls method of the base class.
-		return super.resetConfiguration();
-	}
-	
-	//method
-	/**
 	 * Sets the color of this line.
 	 * 
 	 * @param color
@@ -326,5 +310,15 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	@Override
 	protected final boolean redirectsInputsToShownWidgets() {
 		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetConfigurationOnSelf() {	
+		setThickness(DEFAULT_THICKNESS);
+		setColor(DEFAULT_COLOR);
 	}
 }

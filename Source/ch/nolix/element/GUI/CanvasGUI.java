@@ -63,7 +63,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
 		return new LinkedList<>();
 	}
 	

@@ -434,7 +434,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<IConfigurableElement<?>> getRefConfigurables() {
+	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		

@@ -1,18 +1,16 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalTokenable;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 /**
@@ -23,7 +21,7 @@ import ch.nolix.element.elementAPI.IMutableElement;
  * @lines 230
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
-implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, OptionalTokenable<CE> {
+implements IConfigurableElement<CE> {
 	
 	//optional attributes
 	private String id;
@@ -121,15 +119,6 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean hasToken(String token) {
-		return OptionalTokenable.super.hasToken(token);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final CE removeId() {
 		
 		id = null;
@@ -157,6 +146,7 @@ implements IConfigurableElement<CE>, IMutableElement<CE>, ISmartObject<CE>, Opti
 	public CE reset() {
 		
 		removeId();
+		removeToken();
 		resetConfiguration();
 		
 		return asConcrete();

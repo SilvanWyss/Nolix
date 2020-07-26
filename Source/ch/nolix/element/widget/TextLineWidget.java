@@ -78,23 +78,6 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public TLW resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		getRefBaseLook()
-		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
-		.setTextColor(Color.BLACK);
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * Sets the text of the current {@link TextLineWidget}.
 	 * 
 	 * @param text
@@ -242,4 +225,18 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final void recalculateSelfStage2() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelf() {
+		
+		super.resetConfigurationOnSelf();
+		
+		getRefBaseLook()
+		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
+		.setTextColor(Color.BLACK);
+	}
 }

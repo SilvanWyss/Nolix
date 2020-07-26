@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -16,7 +17,7 @@ import ch.nolix.element.input.Key;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 220
+ * @lines 240
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	

@@ -138,22 +138,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TextBox resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		setProposalWidth(200);
-		setCustomCursorIcon(CursorIcon.Edit);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public boolean shortensShownTextWhenHasLimitedWidth() {
 		return false;
 	}
@@ -338,6 +322,19 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
 		
 		setTextCursorPosition(getTextCursorPosition() + 1);;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelf() {
+		
+		super.resetConfigurationOnSelf();
+		
+		setProposalWidth(200);
+		setCustomCursorIcon(CursorIcon.Edit);
 	}
 	
 	//method
