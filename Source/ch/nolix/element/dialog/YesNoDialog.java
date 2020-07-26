@@ -1,0 +1,48 @@
+//package declaration
+package ch.nolix.element.dialog;
+
+//own imports
+import ch.nolix.common.functionAPI.IAction;
+import ch.nolix.common.validator.Validator;
+import ch.nolix.element.GUI.Layer;
+import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.ButtonRole;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.widget.VerticalStack;
+
+//class
+public final class YesNoDialog extends Layer {
+	
+	//constructor
+	public YesNoDialog(final String yesNoQuestion, final IAction confirmAction) {
+		
+		Validator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotBlank();
+		Validator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
+		
+		setRootWidget(
+			new VerticalStack()
+			.setRole(ContainerRole.DialogContainer)
+			.addWidget(
+				new Label()
+				.setRole(LabelRole.MainText)
+				.setText(yesNoQuestion),
+				new HorizontalStack(
+					new Button("No")
+					.setRole(ButtonRole.CancelButton)
+					.setLeftMouseButtonPressAction(l -> l.getParentGUI().removeLayer(this)),
+					new Button("Yes")
+					.setRole(ButtonRole.ConfirmButton)
+					.setLeftMouseButtonPressAction(
+						l -> {
+							l.getParentGUI().removeLayer(this);
+							confirmAction.run();
+						}
+					)
+				)
+			)
+		);
+	}
+}
