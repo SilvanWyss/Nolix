@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseApplication;
 
 //own imports
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
@@ -23,7 +23,7 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	public DatabaseApplication(
 		final String name,
 		final DatabaseAdapter databaseAdapter,
-		final StandardConfiguration pGUILook
+		final Configuration pGUILook
 	) {
 		super(
 			name,

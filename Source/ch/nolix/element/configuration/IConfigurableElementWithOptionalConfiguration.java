@@ -27,7 +27,7 @@ extends IConfigurableElement<CEWOC> {
 	 * @return the configuration of the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 * @throws Exception if the current {@link IConfigurableElementWithOptionalConfiguration} does not have a configuration.
 	 */
-	public abstract StandardConfiguration getConfiguration();
+	public abstract Configuration getConfiguration();
 	
 	//method declaration
 	/**
@@ -45,7 +45,7 @@ extends IConfigurableElement<CEWOC> {
 	 * @param configuration
 	 * @return the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 */
-	public abstract CEWOC setConfiguration(StandardConfiguration configuration);
+	public abstract CEWOC setConfiguration(Configuration configuration);
 	
 	//method
 	/**

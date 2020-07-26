@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Console;
@@ -21,7 +21,7 @@ import ch.nolix.element.widget.Uploader;
 import ch.nolix.element.widget.VerticalStack;
 
 //class
-public abstract class GUILookTest<GL extends StandardConfiguration> extends ObjectTest<GL> {
+public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<GL> {
 	
 	//method
 	@TestCase

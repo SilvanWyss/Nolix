@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.dialogTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.dialog.YesNoDialog;
 import ch.nolix.element.widget.Button;
@@ -26,7 +26,7 @@ public final class YesNoDialogTutorial {
 		
 		//Sets a Configuration to the Frame.
 		frame.setConfiguration(
-			new StandardConfiguration()
+			new Configuration()
 			.addConfiguration(
 				new DeepConfiguration()
 				.setSelectorType("Button")

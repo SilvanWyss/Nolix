@@ -3,13 +3,13 @@ package ch.nolix.template.GUILook;
 
 //own imports
 import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.LabelRole;
 
 //class
-public final class RedLineGUILook extends StandardConfiguration {
+public final class RedLineGUILook extends Configuration {
 
 	//constructor
 	public RedLineGUILook() {

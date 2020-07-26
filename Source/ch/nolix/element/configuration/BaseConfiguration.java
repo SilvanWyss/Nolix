@@ -180,8 +180,8 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			case SELECTOR_NAME_HEADER:
 				setSelectorId(attribute.getOneAttributeAsString());
 				break;
-			case StandardConfiguration.TYPE_NAME:
-				addConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
+			case Configuration.TYPE_NAME:
+				addConfiguration(new Configuration(attribute.getRefAttributes()));
 				break;
 			case DeepConfiguration.TYPE_NAME:
 				addConfiguration(new DeepConfiguration(attribute.getRefAttributes()));

@@ -3,7 +3,7 @@ package ch.nolix.system.databaseApplication;
 
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //class
@@ -13,7 +13,7 @@ public final class DatabaseApplicationContext {
 	private final DatabaseAdapter databaseAdapter;
 	
 	//optional attribute
-	private final StandardConfiguration mGUILook;
+	private final Configuration mGUILook;
 	
 	//constructor
 	public DatabaseApplicationContext(final DatabaseAdapter databaseAdapter) {
@@ -27,7 +27,7 @@ public final class DatabaseApplicationContext {
 	//constructor
 	public DatabaseApplicationContext(
 		final DatabaseAdapter databaseAdapter,
-		final StandardConfiguration pGUILook
+		final Configuration pGUILook
 	) {
 			
 		Validator.assertThat(databaseAdapter).thatIsNamed(DatabaseAdapter.class).isNotNull();
@@ -43,7 +43,7 @@ public final class DatabaseApplicationContext {
 	}
 	
 	//method
-	public StandardConfiguration getGUILook() {
+	public Configuration getGUILook() {
 		
 		supposeHasGUILook();
 		

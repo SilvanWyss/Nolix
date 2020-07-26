@@ -11,7 +11,7 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
  * @month 2016-01
  * @lines 60
  */
-public class StandardConfiguration extends BaseConfiguration<StandardConfiguration> {
+public class Configuration extends BaseConfiguration<Configuration> {
 
 	//constant
 	public static final String TYPE_NAME = "StandardConfiguration";
@@ -24,15 +24,15 @@ public class StandardConfiguration extends BaseConfiguration<StandardConfigurati
 	 * @throws InvalidArgumentException
 	 * if the file with the given file path does not represent a standard configuration.
 	 */
-	public static StandardConfiguration createConfigurationFromFile(final String filePath) {
-		return new StandardConfiguration().resetFrom(filePath);
+	public static Configuration createConfigurationFromFile(final String filePath) {
+		return new Configuration().resetFrom(filePath);
 	}
 	
 	//constructor
 	/**
 	 * Creates a new configuration with default attributes.
 	 */
-	public StandardConfiguration() {}
+	public Configuration() {}
 	
 	//constructor
 	/**
@@ -41,7 +41,7 @@ public class StandardConfiguration extends BaseConfiguration<StandardConfigurati
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public <S extends BaseNode> StandardConfiguration(final Iterable<? extends BaseNode> attributes) {
+	public <S extends BaseNode> Configuration(final Iterable<? extends BaseNode> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

@@ -20,7 +20,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 implements ISmartObject<CE> {
 	
 	//optional attribute
-	private StandardConfiguration configuration;
+	private Configuration configuration;
 	
 	//method
 	/**
@@ -35,7 +35,7 @@ implements ISmartObject<CE> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case VariableNameCatalogue.CONFIGURATION:
-				setConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
+				setConfiguration(new Configuration(attribute.getRefAttributes()));
 				break;
 			default:
 				
@@ -108,7 +108,7 @@ implements ISmartObject<CE> {
 	 * @return this configuration element.
 	 * @throws ArgumentIsNullException if the given configuration is null.
 	 */
-	public CE setConfiguration(StandardConfiguration configuration) {
+	public CE setConfiguration(Configuration configuration) {
 		
 		//Asserts that the given configuration is not null.
 		Validator

@@ -4,7 +4,7 @@ package ch.nolix.template.consoleClientLook;
 //own imports
 import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
 
 //class
@@ -13,7 +13,7 @@ import ch.nolix.element.containerWidget.ContainerRole;
  * @month 2017-09
  * @lines 50
  */
-public final class BlackRedConsoleClientLook extends StandardConfiguration {
+public final class BlackRedConsoleClientLook extends Configuration {
 
 	//constructor
 	/**

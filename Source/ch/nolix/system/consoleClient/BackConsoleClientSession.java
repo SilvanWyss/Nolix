@@ -4,7 +4,7 @@ package ch.nolix.system.consoleClient;
 //own imports
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.element.GUI.WidgetIdCatalogue;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.VerticalStack;
@@ -103,7 +103,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * @return the current {@link BackConsoleClientSession}.
 	 * @throws ArgumentIsNullException if the given look is null.
 	 */
-	public BackConsoleClientSession setLook(final StandardConfiguration look) {
+	public BackConsoleClientSession setLook(final Configuration look) {
 		
 		getRefGUI().setConfiguration(look);
 		

@@ -6,13 +6,13 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleLayerGUI;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.VerticalStack;
 
 //class
-public abstract class ConsoleClientLookTest<CCL extends StandardConfiguration> extends ObjectTest<CCL> {
+public abstract class ConsoleClientLookTest<CCL extends Configuration> extends ObjectTest<CCL> {
 	
 	//method
 	@TestCase
