@@ -7,7 +7,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalTokenable;
-import ch.nolix.common.requestAPI.IContainsElementByStringIdRequestable;
+import ch.nolix.common.requestAPI.ContainsElementByStringIdRequestable;
 
 //interface
 /**
@@ -19,7 +19,7 @@ import ch.nolix.common.requestAPI.IContainsElementByStringIdRequestable;
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
 extends
-IContainsElementByStringIdRequestable,
+ContainsElementByStringIdRequestable,
 IMutableElement<C>,
 OptionalIdentifiableByString<C>,
 OptionalTokenable<C>,
