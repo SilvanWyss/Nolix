@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.common.multiAttributeRequestAPI} package declares types with a certain multi-attribute.
+ * The {@link ch.nolix.common.multiAttributeRequestAPI} package declares types
+ * that can be asked if they have a certain multi-attribute.
  * 
  * @author Silvan Wyss
  * @month 2020-07

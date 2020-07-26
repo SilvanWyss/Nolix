@@ -1,7 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.common.requestAPI} package
- * is an API that declares types that can be requested for certain information.
+ * The {@link ch.nolix.common.requestAPI} package that declares types that can be asked for certain information.
  * 
  * @author Silvan Wyss
  * @month 2020-06
