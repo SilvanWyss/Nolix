@@ -7,6 +7,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalTokenable;
+import ch.nolix.common.requestAPI.IContainsElementByStringIdRequestable;
 
 //interface
 /**
@@ -14,10 +15,24 @@ import ch.nolix.common.mutableOptionalAttributeAPI.OptionalTokenable;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 60
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
-extends IMutableElement<C>, OptionalIdentifiableByString<C>, OptionalTokenable<C>, RoleRequestable {
+extends
+IContainsElementByStringIdRequestable,
+IMutableElement<C>,
+OptionalIdentifiableByString<C>,
+OptionalTokenable<C>,
+RoleRequestable {
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public default boolean containsElement(final String id) {
+		return getSubConfigurablesRecursively().contains(sc -> sc.hasId(id));
+	}
 	
 	//method declaration
 	/**

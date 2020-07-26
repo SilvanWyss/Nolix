@@ -14,7 +14,6 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.requestAPI.IContainsElementByStringIdRequestable;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -46,7 +45,6 @@ public class Layer extends Element<Layer>
 implements 
 Clearable<Layer>,
 IConfigurableElement<Layer>,
-IContainsElementByStringIdRequestable,
 IOccupiableCanvasInputActionManager<Layer>,
 IResizableInputTaker {
 	
@@ -199,15 +197,6 @@ IResizableInputTaker {
 		rootWidget = null;
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheridDoc}
-	 */
-	@Override
-	public final boolean containsElement(final String id) {
-		return getRefWidgets().contains(w -> w.hasId(id));
 	}
 	
 	//method

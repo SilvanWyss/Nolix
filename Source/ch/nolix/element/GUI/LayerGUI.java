@@ -375,15 +375,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsElement(final String name) {
-		return layers.contains(l -> l.containsElement(name));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.

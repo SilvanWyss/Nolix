@@ -48,13 +48,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	public CanvasGUI(final IResizableInputTaker inputTaker, final IVisualizer visualizer) {
 		super(visualizer, inputTaker);
 	}
-	
-	//method
-	@Override
-	public final boolean containsElement(final String name) {
-		return false;
-	}
-	
+		
 	//method
 	@Override
 	public CursorIcon getCursorIcon() {
