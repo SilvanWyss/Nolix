@@ -49,7 +49,7 @@ import ch.nolix.element.widget.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 800
+ * @lines 810
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -272,7 +272,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		layer.setParentGUI(this);
 		layers.add(layer);
-		topLayer = layer;	
+		topLayer = layer;
+		
+		updateFromConfiguration();
 		
 		return asConcrete();
 	}
