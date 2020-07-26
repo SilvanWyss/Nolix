@@ -49,7 +49,7 @@ import ch.nolix.element.widget.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 810
+ * @lines 790
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -431,10 +431,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		for (final var l : layers) {
 			configurables.addAtEnd(l);
-		}
-		
-		for (final var w : getRefWidgets()) {
-			configurables.addAtEnd(w);
 		}
 		
 		return configurables;

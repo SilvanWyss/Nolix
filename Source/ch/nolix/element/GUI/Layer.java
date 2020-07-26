@@ -3,25 +3,22 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseGUI_API.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
+import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.ContentPosition;
@@ -39,12 +36,11 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1150
+ * @lines 1070
  */
-public class Layer extends Element<Layer>
+public class Layer extends ConfigurableElement<Layer>
 implements 
 Clearable<Layer>,
-IConfigurableElement<Layer>,
 IOccupiableCanvasInputActionManager<Layer>,
 IResizableInputTaker {
 	
@@ -291,31 +287,6 @@ IResizableInputTaker {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final String getId() {
-		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
-		
-		final var configurables = new LinkedList<IConfigurableElement<?>>();
-		
-		if (containsAny()) {
-			configurables.addAtEnd(rootWidget);
-		}
-		
-		return configurables;
-	}
-	
-	//method
-	/**
 	 * @return the root {@link Widget} of the current {@link Layer}.
 	 */
 	public final Widget<?, ?> getRefRootWidget() {
@@ -359,8 +330,15 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getToken() {
-		throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TOKEN);
+	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
+		
+		final var configurables = new LinkedList<IConfigurableElement<?>>();
+		
+		if (containsAny()) {
+			configurables.addAtEnd(rootWidget);
+		}
+		
+		return configurables;
 	}
 	
 	//method
@@ -384,22 +362,7 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean hasId() {
-		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final boolean hasRole(final String role) {
-		return false;
-	}
-	
-	//method
-	@Override
-	public boolean hasToken() {
 		return false;
 	}
 	
@@ -788,21 +751,6 @@ IResizableInputTaker {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final Layer removeId() {
-		return this;
-	}
-	
-	//method
-	@Override
-	public Layer removeToken() {
-		return this;
-	}
-	
-	//method
-	/**
 	 * Resets the current {@link Layer}.
 	 * 
 	 * @return the current {@link Layer}.
@@ -899,15 +847,6 @@ IResizableInputTaker {
 		setFreeContentPosition_(x, y);
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final Layer setId(final String id) {
-		throw new ArgumentDoesNotSupportMethodException(this, "setId");
 	}
 	
 	//method
@@ -1107,12 +1046,6 @@ IResizableInputTaker {
 		this.rootWidget = rootWidget;
 		
 		return this;
-	}
-	
-	//method
-	@Override
-	public Layer setToken(String token) {
-		throw new ArgumentDoesNotSupportMethodException(this, "setToken");
 	}
 	
 	//method
