@@ -168,6 +168,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		expandedDropdownMenu =
 		new SelectionMenu()
 		.addItems(getRefItems().to(TextItemMenuItem::getText))
+		.setContinuousKeyPressAction(this::noteContinuousKeyPressWhenExpanded)
 		
 		//TODO: Add ExpandedDropdownMenuBorderThickness and ExpandedDropdownMenuBorderColor to DropdownMenuLook.
 		.applyOnBaseLook(bl -> bl.setBorderThicknesses(1))
@@ -207,6 +208,13 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 			.setRootWidget(expandedDropdownMenu.setFocused())
 			.setLeftMouseButtonPressActionOnFreeArea(this::collapse)
 		);
+	}
+	
+	//method
+	private void noteContinuousKeyPressWhenExpanded(final Key key) {
+		if (key == Key.ESCAPE) {
+			collapse();
+		}
 	}
 	
 	//method
