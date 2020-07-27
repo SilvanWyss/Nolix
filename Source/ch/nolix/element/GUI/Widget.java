@@ -6,6 +6,7 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionAPI.I2ElementTaker;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
@@ -33,7 +34,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2030
+ * @lines 2070
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -77,6 +78,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	private WidgetParent parent;
 	
 	//optional attributes
+	private I2ElementTaker<W, Key> continuousKeyPressAction;
 	private IElementTaker<W> mouseMoveAction;
 	private IElementTaker<W> leftMouseButtonClickAction;
 	private IElementTaker<W> leftMouseButtonPressAction;
@@ -769,6 +771,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	public final void noteKeyPress(final Key key) {
 		if (isEnabled()) {
 			
+			noteContinuousKeyPressOnSelfWhenEnabled_(key);
 			noteKeyPressOnSelfWhenEnabled(key);
 			
 			if (redirectsInputsToShownWidgets()) {
@@ -1166,6 +1169,24 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	public final W setCollapsed() {
 		
 		state = WidgetState.Collapsed;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the continuous key press action of the current {@link Widget}. 
+	 * 
+	 * @return the current {@link Widget}.
+	 * @throws ArgumentIsNullException if the given continuousKeyPressAction is null.
+	 */
+	@Override
+	public final W setContinuousKeyPressAction(final I2ElementTaker<W, Key> continuousKeyPressAction) {
+		
+		//Asserts that the given customCursorIcon is not null.
+		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
+		
+		this.continuousKeyPressAction = continuousKeyPressAction;
 		
 		return asConcrete();
 	}
@@ -1788,6 +1809,21 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	private void fillUpWidgetsForPaintingRecursively(final LinkedList<Widget<?, ?>> list) {
 		fillUpShownWidgets(list);
 		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note a continuous key press on itself for the case when it is enabled.
+	 * 
+	 * @param key
+	 */
+	private void noteContinuousKeyPressOnSelfWhenEnabled_(final Key key) {
+		
+		//Handles the case that the current Widget has a continuous key press action.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (continuousKeyPressAction != null) {
+			continuousKeyPressAction.getOutput(asConcrete(), key);
+		}
 	}
 	
 	//method

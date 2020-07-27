@@ -2,12 +2,25 @@
 package ch.nolix.element.baseGUI_API;
 
 //own imports
+import ch.nolix.common.functionAPI.I2ElementTaker;
 import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.input.Key;
 
 //interface
 public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
+	
+	//method
+	public default IAM setContinuousKeyPressAction(final IElementTaker<Key> continuousKeyPressAction) {
+		
+		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
+		
+		return setContinuousKeyPressAction((iam, k) -> continuousKeyPressAction.run(k));
+	}
+	
+	//method declaration
+	public abstract IAM setContinuousKeyPressAction(final I2ElementTaker<IAM, Key> continuousKeyPressAction);
 	
 	//method
 	public default IAM setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {

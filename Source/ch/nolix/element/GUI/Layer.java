@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionAPI.I2ElementTaker;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -116,6 +117,7 @@ IResizableInputTaker {
 	private Widget<?, ?> rootWidget;
 	
 	//optional attributes
+	private I2ElementTaker<Layer, Key> continuousKeyPressAction;
 	private IElementTaker<Layer> mouseMoveAction;
 	private IElementTaker<Layer> leftMouseButtonClickAction;
 	private IElementTaker<Layer> leftMouseButtonPressAction;
@@ -391,7 +393,12 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyPress(Key key) {
+	public final void noteKeyPress(final Key key) {
+		
+		if (continuousKeyPressAction != null) {
+			continuousKeyPressAction.getOutput(this, key);
+		}
+		
 		if (rootWidget != null) {
 			rootWidget.noteKeyPress(key);
 		}
@@ -772,8 +779,7 @@ IResizableInputTaker {
 	 * @return the current {@link Layer}.
 	 */
 	public final Layer resetConfiguration() {
-		
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+				
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 		
 		if (containsAny()) {
@@ -832,6 +838,23 @@ IResizableInputTaker {
 		this.contentPosition.setValue(contentPosition);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the continuous key press action of the current {@link Layer}. 
+	 * 
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given continuousKeyPressAction is null.
+	 */
+	public final Layer setContinuousKeyPressAction(final I2ElementTaker<Layer, Key> continuousKeyPressAction) {
+		
+		//Asserts that the given customCursorIcon is not null.
+		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
+		
+		this.continuousKeyPressAction = continuousKeyPressAction;
+		
+		return asConcrete();
 	}
 	
 	/**
