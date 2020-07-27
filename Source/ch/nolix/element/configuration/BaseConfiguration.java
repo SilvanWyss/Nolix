@@ -20,7 +20,7 @@ import ch.nolix.element.elementAPI.IMutableElement;
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 780
+ * @lines 800
  * @param <C> The type of a configuration.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>
@@ -681,6 +681,23 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		this.selectorToken = selectorToken;
 		
 		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the selector type of the current {@link BaseConfiguration}.
+	 * 
+	 * @param selectorType
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws ArgumentIsNullException if the given selectorType is null.
+	 * @throws FrozenArgumentException if the current {@link BaseConfiguration} is frozen.
+	 */
+	public final C setSelectorType(final Class<?> selectorType) {
+		
+		//Asserts that the given selectorType is not null.
+		Validator.assertThat(selectorType).thatIsNamed("selector type").isNotNull();
+		
+		return setSelectorType(selectorType.getSimpleName());
 	}
 	
 	//method
