@@ -1,5 +1,6 @@
 package ch.nolix.elementTutorial.dialogTutorial;
 
+import ch.nolix.common.container.Stack;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.Configuration;
@@ -29,7 +30,7 @@ public final class YesNoDialogTutorial {
 			new Configuration()
 			.addConfiguration(
 				new DeepConfiguration()
-				.setSelectorType("Button")
+				.setSelectorType(Button.class)
 				.addAttachingAttribute(
 					"MinWidth(200)",
 					"CursorIcon(Hand)",
@@ -43,7 +44,7 @@ public final class YesNoDialogTutorial {
 				.addAttachingAttribute("BaseBackgroundColor(Lavender)", "ContentPosition(Center)")
 				.addConfiguration(
 					new DeepConfiguration()
-					.setSelectorType("Stack")
+					.setSelectorType(Stack.class)
 					.addAttachingAttribute("ElementMargin(0)"),
 					new DeepConfiguration()
 					.addSelectorRole(LabelRole.MainText)
