@@ -20,5 +20,5 @@ public interface I2ElementTaker<E1, E2> {
 	 * @param element1
 	 * @param element2
 	 */
-	public abstract boolean getOutput(E1 element1, E2 element2);
+	public abstract void getOutput(E1 element1, E2 element2);
 }
