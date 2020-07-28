@@ -2,7 +2,6 @@
 package ch.nolix.element.elementAPI;
 
 //own imports
-import ch.nolix.common.attributeRequestAPI.RoleRequestable;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
@@ -22,8 +21,7 @@ extends
 ContainsElementByStringIdRequestable,
 IMutableElement<C>,
 OptionalIdentifiableByString<C>,
-OptionalTokenable<C>,
-RoleRequestable {
+OptionalTokenable<C> {
 	
 	//method
 	/**
@@ -49,6 +47,13 @@ RoleRequestable {
 		new LinkedList<IConfigurableElement<?>>(getSubConfigurables())
 		.addAtEnd(getSubConfigurables().toFromMany(IConfigurableElement::getSubConfigurablesRecursively));
 	}
+	
+	//method declaration
+	/**
+	 * @param role
+	 * @return true if the current {@link IConfigurable} has the given role.
+	 */
+	public abstract boolean hasRole(String role);
 	
 	//method declaration
 	/**
