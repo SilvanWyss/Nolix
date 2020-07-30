@@ -37,7 +37,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1070
+ * @lines 1100
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -299,32 +299,34 @@ IResizableInputTaker {
 	/**
 	 * @return the {@link Widget}s of the current {@link Layer} that are supposed to be painted.
 	 */
-	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
+	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current GUILayer does not have a root Widget.
-			if (rootWidget == null) {
-				return new LinkedList<>();
-			}
-			
-			//Handles the case that the current GUILayer has a root Widget.			
-			return rootWidget.getRefPaintableWidgets().addAtEnd(rootWidget);
+		
+		//Handles the case that the current GUILayer does not have a root Widget.
+		if (rootWidget == null) {
+			return new LinkedList<>();
+		}
+		
+		//Handles the case that the current GUILayer has a root Widget.			
+		return rootWidget.getRefPaintableWidgets().addAtEnd(rootWidget);
 	}
 	
 	//method
 	/**
 	 * @return the triggerable {@link Widget}s of the current {@link Layer} recursively.
 	 */
-	public final LinkedList<Widget<?, ?>> getRefWidgets() {
+	public final IContainer<Widget<?, ?>> getRefWidgets() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current Layer does not have a root Widget.
-			if (rootWidget == null) {
-				return new LinkedList<>();
-			}
-			
-			//Handles the case that the current Layer has a root Widget.
-			return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
+		
+		//Handles the case that the current Layer does not have a root Widget.
+		if (rootWidget == null) {
+			return new LinkedList<>();
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
 	}
 	
 	//method
@@ -383,9 +385,7 @@ IResizableInputTaker {
 	 */
 	@Override
 	public final boolean isUnderCursor() {
-		
-		//TODO: Check if current Layer is under cursor.
-		return true;
+		return parentGUI.viewAreaIsUnderCursor();
 	}
 	
 	//method
