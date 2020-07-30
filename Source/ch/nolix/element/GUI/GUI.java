@@ -11,6 +11,7 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.IntPair;
+import ch.nolix.common.processProperty.ChangeState;
 import ch.nolix.common.skillAPI.Recalculable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
@@ -45,7 +46,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 680
+ * @lines 700
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -90,6 +91,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
 	private final CachingContainer<Image> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
+	private boolean viewAreaSizeHasChangedSinceLastRecalculation = true;
 	
 	//optional attribute
 	private final IVisualizer visualizer;
@@ -505,6 +507,20 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * {@inheritDoc}
 	 */
+	public final void recalculate() {
+		if (!viewAreaSizeHasChangedSinceLastRecalculation) {
+			recalculate(ChangeState.UNCHANGED);
+		}
+		else {
+			recalculate(ChangeState.CHANGED);
+			viewAreaSizeHasChangedSinceLastRecalculation = false;
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public final void refresh() {
 		recalculate();
@@ -650,7 +666,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method declaration
 	protected abstract void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker();
-		
+	
+	//method declaration	
+	protected abstract void recalculate(ChangeState viewAreaChangeState);
+	
 	//method
 	private void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
 		cursorPositionOnViewArea.setValue(new IntPair(viewAreaCursorXPosition, viewAreaCursorYPosition));
@@ -663,6 +682,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		Validator.assertThat(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
 		
 		this.viewAreaSize.setValue(new IntPair(viewAreaWidth, viewAreaHeight));
+		viewAreaSizeHasChangedSinceLastRecalculation = true;
 	}
 	
 	//method

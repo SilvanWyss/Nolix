@@ -11,6 +11,7 @@ import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.processProperty.ChangeState;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
@@ -49,7 +50,7 @@ import ch.nolix.element.widget.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 790
+ * @lines 800
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -500,17 +501,6 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void recalculate() {
-		if (containsAny()) {
-			topLayer.recalculate();
-		}
-	}
-	
-	//method
-	/**
 	 * Removes the given layer from the current {@link LayerGUI}.
 	 * 
 	 * @param layer
@@ -785,6 +775,20 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	protected final void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker() {
 		getRefTopOrBackgroundLayer().noteRightMouseButtonRelease();
 		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculate(ChangeState viewAreaChangeState) {
+		if (viewAreaChangeState == ChangeState.CHANGED) {
+			layers.forEach(Layer::recalculate);
+		}
+		else if (topLayer != null) {
+			topLayer.recalculate();
+		}
 	}
 	
 	//method
