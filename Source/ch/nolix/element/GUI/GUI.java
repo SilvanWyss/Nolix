@@ -46,7 +46,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 700
+ * @lines 720
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -580,6 +580,22 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		this.title.setValue(title);
 		
 		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * @return true if the view area of the current {@link GUI} is under the cursor.
+	 */
+	public final boolean viewAreaIsUnderCursor() {
+		
+		final var cursorXPositionOnViewArea = getCursorXPositionOnViewArea();
+		final var cursorYPositionOnViewArea = getCursorYPositionOnViewArea();
+		
+		return
+		cursorXPositionOnViewArea >= 0
+		&& cursorYPositionOnViewArea >= 0
+		&& cursorXPositionOnViewArea < getViewAreaWidth()
+		&& cursorYPositionOnViewArea < getViewAreaHeight();
 	}
 	
 	//method
