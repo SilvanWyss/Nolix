@@ -153,9 +153,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	private final MultiProperty<Layer> layers =
 	new MultiProperty<>(
 		PascalCaseNameCatalogue.LAYER,
-		l -> addLayerOnTop(l),
-		s -> Layer.fromSpecification(s),
-		l -> l.getSpecification()
+		this::addLayerOnTop,
+		Layer::fromSpecification,
+		Layer::getSpecification
 	);
 	
 	//optional attribute
@@ -462,14 +462,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @return the {@link Widget}s of the current {@link LayerGUI}.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgets() {
-		return layers.toFromMany(l -> l.getRefWidgets());
+		return layers.toFromMany(Layer::getRefWidgets);
 	}
 
 	//method
 	/**
 	 * @return the {@link Widget}s, that are for painting, of the current {@link LayerGUI}.
 	 */
-	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
+	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {
@@ -575,7 +575,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
-		layers.forEach(l -> l.resetConfiguration());
+		layers.forEach(Layer::resetConfiguration);
 		
 		return asConcrete();
 	}
