@@ -54,7 +54,11 @@ public final class YesNoDialogTutorial {
 					.addAttachingAttribute("BaseBackgroundColor(LightGreen)", "HoverBackgroundColor(Green)"),
 					new DeepConfiguration()
 					.addSelectorRole(ButtonRole.CancelButton)
-					.addAttachingAttribute("CursorIcon(Hand)", "BaseBackgroundColor(Salmon)", "HoverBackgroundColor(Red)")
+					.addAttachingAttribute(
+						"CursorIcon(Hand)",
+						"BaseBackgroundColor(Salmon)",
+						"HoverBackgroundColor(Red)"
+					)
 				)
 			)
 		);
