@@ -29,9 +29,9 @@ public final class Frame extends LayerGUI<Frame> {
 		
 		super(Visibility.VISIBLE);
 		
-		setTitle(title);
-		
 		initialize();
+		
+		setTitle(title);
 	}
 	
 	//constructor
@@ -39,10 +39,10 @@ public final class Frame extends LayerGUI<Frame> {
 		
 		super(Visibility.VISIBLE);
 		
+		initialize();
+		
 		setTitle(title);
 		addLayerOnTop(rootWidget);
-		
-		initialize();
 	}
 	
 	//method
