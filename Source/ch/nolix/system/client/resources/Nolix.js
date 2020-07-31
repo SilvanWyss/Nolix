@@ -388,6 +388,35 @@ define("Common/BaseTest/BaseTest", ["require", "exports", "Common/Container/Link
     }
     exports.BaseTest = BaseTest;
 });
+define("Common/Pair/Pair", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Pair {
+        constructor(element1, element2) {
+            if (element1 === null) {
+                throw new Error('The given element1 is null.');
+            }
+            if (element1 === undefined) {
+                throw new Error('The given element1 is undefined.');
+            }
+            if (element2 === null) {
+                throw new Error('The given element2 is null.');
+            }
+            if (element2 === undefined) {
+                throw new Error('The given element2 is undefined.');
+            }
+            this.element1 = element1;
+            this.element2 = element2;
+        }
+        getRefElement1() {
+            return this.element1;
+        }
+        getRefElement2() {
+            return this.element2;
+        }
+    }
+    exports.Pair = Pair;
+});
 define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -422,6 +451,11 @@ define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"]
                 .replace(',', this.COMMA_CODE)
                 .replace('(', this.OPEN_BRACKET_CODE)
                 .replace(')', this.CLOSED_BRACKET_CODE);
+        }
+        static fromNumberPair(numberPair) {
+            return new Node()
+                .addAttribute(Node.withHeaderFromNumber(numberPair.getRefElement1()))
+                .addAttribute(Node.withHeaderFromNumber(numberPair.getRefElement2()));
         }
         static fromString(string) {
             return new Node().resetFrom(string);
@@ -1549,35 +1583,6 @@ define("Common/Math/CentralCalculator", ["require", "exports"], function (requir
     }
     exports.CentralCalculator = CentralCalculator;
 });
-define("Common/Pair/Pair", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class Pair {
-        constructor(element1, element2) {
-            if (element1 === null) {
-                throw new Error('The given element1 is null.');
-            }
-            if (element1 === undefined) {
-                throw new Error('The given element1 is undefined.');
-            }
-            if (element2 === null) {
-                throw new Error('The given element2 is null.');
-            }
-            if (element2 === undefined) {
-                throw new Error('The given element2 is undefined.');
-            }
-            this.element1 = element1;
-            this.element2 = element2;
-        }
-        getRefElement1() {
-            return this.element1;
-        }
-        getRefElement2() {
-            return this.element2;
-        }
-    }
-    exports.Pair = Pair;
-});
 define("Common/Raster/TopLeftPositionedRectangle", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2417,6 +2422,8 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
                     return Key_1.Key.CAPS_LOCK;
                 case 'Delete':
                     return Key_1.Key.DELETE;
+                case 'Escape':
+                    return Key_1.Key.ESCAPE;
                 case 'Enter':
                     return Key_1.Key.ENTER;
                 case 'Shift':
@@ -2448,7 +2455,7 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/CanvasGUIProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Element/TextFormat/TextFormat"], function (require, exports, CanvasGUIProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_8, PaintProcess_1, TextFormat_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/CanvasGUIProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Element/TextFormat/TextFormat"], function (require, exports, CanvasGUIProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_8, PaintProcess_1, Pair_1, TextFormat_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -2485,6 +2492,9 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
         }
         getViewAreaHeight() {
             return this.canvas.height;
+        }
+        getViewAreaSize() {
+            return new Pair_1.Pair(this.getViewAreaWidth(), this.getViewAreaHeight());
         }
         getViewAreaWidth() {
             return this.canvas.width;
@@ -2525,8 +2535,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             this.inputTaker.noteMouseWheelRelease();
         }
         noteResize() {
-            this.canvas.width = this.window.document.body.clientWidth;
-            this.canvas.height = 500;
+            this.updateCanvasSize();
             this.inputTaker.noteResize(this.getViewAreaWidth(), this.getViewAreaHeight());
         }
         noteRightMouseButtonClick() {
@@ -2727,6 +2736,10 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
         setCursorPosition(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
             this.cursorXPositionOnViewArea = cursorXPositionOnViewArea;
             this.cursorYPositionOnViewArea = cursorYPositionOnViewArea;
+        }
+        updateCanvasSize() {
+            this.canvas.width = this.window.document.body.clientWidth;
+            this.canvas.height = this.window.innerHeight - 50;
         }
     }
     CanvasGUI.DEFAULT_TITLE = 'GUI';
@@ -3004,7 +3017,10 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     class FrontCanvasGUIClientObjectProtocol {
         constructor() { }
     }
+    FrontCanvasGUIClientObjectProtocol.CLIP_BOARD_TEXT = 'ClipBoardText';
     FrontCanvasGUIClientObjectProtocol.GUI = 'GUI';
+    FrontCanvasGUIClientObjectProtocol.GUI_TYPE = 'GUIType';
+    FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
 define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol"], function (require, exports, CanvasGUI_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1) {
@@ -3030,6 +3046,9 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
         }
         getCursorYPositionOnViewArea() {
             return this.mGUI.getCursorYPositionOnViewArea();
+        }
+        getViewAreaSize() {
+            return this.mGUI.getViewAreaSize();
         }
         runGUICommand(pGUICommand) {
             console.log('The current GUIHandler runs the given pGUICommand: ' + pGUICommand);
@@ -3112,10 +3131,20 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
         getData(request) {
             console.log('FrontCanvasGUIClient has received the request: ' + request.toString());
             switch (request.getHeader()) {
-                case 'GUIType':
+                case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
+                    return this.getDataFromGUI(request.getNextNode());
+                case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI_TYPE:
                     return Node_8.Node.withHeader(this.getGUIType());
                 default:
                     throw new Error('The given request is not valid:' + request.toString());
+            }
+        }
+        getDataFromGUI(pGUIDataRequest) {
+            switch (pGUIDataRequest.getHeader()) {
+                case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE:
+                    return Node_8.Node.fromNumberPair(this.mGUIHandler.getViewAreaSize());
+                default:
+                    throw new Error('The given GUI data request is not valid.');
             }
         }
         run(command) {

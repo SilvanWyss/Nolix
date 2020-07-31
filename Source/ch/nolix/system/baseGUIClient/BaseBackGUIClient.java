@@ -21,7 +21,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 240
+ * @lines 260
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -87,7 +87,19 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	SingleContainer<byte[]> getFileFromCounterpart() {
+	final void configureGUI(final InvisibleLayerGUI pGUI) {
+		
+		final var viewAreaSize =
+		internalGetDataFromCounterpart(
+			ChainedNode.withHeaderAndNextNode(ObjectProtocol.GUI, new ChainedNode(ObjectProtocol.VIEW_AREA_SIZE))
+		)
+		.toIntPair();
+		
+		pGUI.noteResize(viewAreaSize.getValue1(), viewAreaSize.getValue2());
+	}
+	
+	//method
+	final SingleContainer<byte[]> getFileFromCounterpart() {
 		
 		final var data = internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_FILE));
 		
@@ -99,12 +111,12 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	String getTextFromClipboardFromCounterpart() {
+	final String getTextFromClipboardFromCounterpart() {
 		return internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
 	}
 	
 	//method
-	void saveFileOnCounterpart(final byte[] content) {
+	final void saveFileOnCounterpart(final byte[] content) {
 		internalRunOnCounterpart(
 			new ChainedNode(CommandProtocol.SAVE_FILE, new Node(new String(content, StandardCharsets.UTF_8)))
 		);

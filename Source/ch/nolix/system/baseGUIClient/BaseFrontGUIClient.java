@@ -12,7 +12,6 @@ import ch.nolix.common.localComputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.input.IInput;
-import ch.nolix.element.input.ResizeInput;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
 
@@ -20,7 +19,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 180
+ * @lines 150
  * @param <FGC> The type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
@@ -63,11 +62,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	}
 	
 	//method
-	public final void noteResizeOnCounterpart() {
-		noteInputOnCounterpart(new ResizeInput(getRefGUI().getViewAreaWidth(), getRefGUI().getViewAreaHeight()));
-	}
-	
-	//method
 	/**
 	 * {@inheritDoc}
 	 */
@@ -76,6 +70,8 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
+			case ObjectProtocol.GUI:
+				return getDataFromGUI(request.getNextNode());
 			case ObjectProtocol.GUI_TYPE:
 				return new Node(getGUIType());
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
@@ -118,6 +114,24 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				
 				//Calls method of the base class.
 				super.internalRun(command);
+		}
+	}
+	
+	//method
+	/**
+	 * @param pGUIDataRequest
+	 * @return the data the given pGUIDataRequest requests
+	 * from the {@link GUI} of the current {@link BaseFrontGUIClient}.
+	 * @throws InvalidArgumentException if the given pGUIDataRequest is not valid.
+	 */
+	private Node getDataFromGUI(final ChainedNode pGUIDataRequest) {
+		
+		//Enumerates the header of the given pGUIDataRequest.
+		switch (pGUIDataRequest.getHeader()) {
+			case ObjectProtocol.VIEW_AREA_SIZE:
+				return Node.fromIntPair(getRefGUI().getViewAreaSize());
+			default:
+				throw new InvalidArgumentException("GUI data request", pGUIDataRequest, "is not valid");
 		}
 	}
 	

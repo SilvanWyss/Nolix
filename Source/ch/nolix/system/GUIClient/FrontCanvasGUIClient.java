@@ -16,7 +16,7 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 130
+ * @lines 120
  */
 public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGUIClient> {
 	
@@ -31,8 +31,6 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internalConnectTo(NetServer.DEFAULT_PORT);
-		
-		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -47,8 +45,6 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internalConnectTo(application);
-				
-		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -65,8 +61,6 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internalConnectTo(port);
-				
-		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -86,8 +80,6 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internalConnectTo(port, application);
-		
-		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -105,8 +97,6 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internalConnectTo(ip, port);
-				
-		noteResizeOnCounterpart();
 	}
 	
 	//constructor
@@ -127,7 +117,5 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 		super(BaseFrontGUIClientGUIType.CanvasGUI);
 		
 		internalConnectTo(ip, port, application);
-		
-		noteResizeOnCounterpart();
 	}
 }

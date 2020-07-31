@@ -10,19 +10,21 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	
 	//attribute
 	private final InvisibleLayerGUI mGUI = new InvisibleLayerGUI();
-		
+	
 	//method
 	protected final InvisibleLayerGUI getRefGUI() {
 		return mGUI;
 	}
 	
+	//TODO: Rename initialize method to internalInitialize.
 	//method
 	protected final void initialize() {
 		
 		getParentClient().createCloseDependencyTo(mGUI);
-		mGUI.reset();
+		getParentClient().configureGUI(mGUI);
 		
 		mGUI
+		.reset()
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(
 			new BaseBackGUIClientFrontEndReader(getParentClient()),
@@ -35,15 +37,10 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	//method declaration
 	protected abstract void initializeStage2();
 	
+	//TODO: Rename updateCounterpart method to internalUpdateCounterpart.
 	//method
 	@Override
 	protected final void updateCounterpart() {
-		
-		if (getParentClient().getSessionStackSize() > 1) {
-			final var secondTopSession = (BaseBackGUIClientSession<BGUIC>)getParentClient().getRefSecondTopSession();
-			mGUI.noteResizeFrom(secondTopSession.getRefGUI());
-		}
-		
 		getParentClient().updateGUIOnCounterpart();
 	}
 }
