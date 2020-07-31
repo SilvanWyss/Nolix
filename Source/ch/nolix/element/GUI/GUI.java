@@ -46,7 +46,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 720
+ * @lines 730
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -237,6 +237,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public final int getViewAreaHeight() {
 		return viewAreaSize.getValue().getValue2();
+	}
+	
+	//method
+	/**
+	 * @return the view area size of the current {@link GUI}.
+	 */
+	public final IntPair getViewAreaSize() {
+		return viewAreaSize.getValue();
 	}
 	
 	//method
