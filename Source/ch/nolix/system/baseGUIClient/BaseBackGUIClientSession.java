@@ -20,11 +20,16 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	//method
 	protected final void initialize() {
 		
+		/*
+		 * Important:
+		 * Reset the GUI before let the parent Client configure it, otherwise the view area size of the GUI is reset.
+		 */
+		mGUI.reset();
+		
 		getParentClient().createCloseDependencyTo(mGUI);
 		getParentClient().configureGUI(mGUI);
 		
 		mGUI
-		.reset()
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(
 			new BaseBackGUIClientFrontEndReader(getParentClient()),
@@ -32,6 +37,8 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 		);
 		
 		initializeStage2();
+		
+		mGUI.recalculate();
 	}
 	
 	//method declaration
