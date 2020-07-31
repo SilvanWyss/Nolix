@@ -55,8 +55,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public static final String DEFAULT_TITLE = "GUI";
 	
 	//constants
-	private static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
-	private static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
+	public static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
+	public static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
 	
 	//attribute
 	private final MutableProperty<String> title =
