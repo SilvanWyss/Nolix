@@ -209,9 +209,6 @@ public abstract class Session<C extends Client<C>> {
 	}
 	
 	//method
-	protected void internalCleanForInitialization() {}
-	
-	//method
 	/**
 	 * @return the {@link Client} class of the current {@link Session}.
 	 */

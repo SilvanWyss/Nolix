@@ -266,7 +266,6 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 			close();
 		}
 		else {
-			internalGetRefCurrentSession().internalCleanForInitialization();
 			internalGetRefCurrentSession().initialize();
 			internalGetRefCurrentSession().updateCounterpart();
 		}

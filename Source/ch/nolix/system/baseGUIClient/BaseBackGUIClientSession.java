@@ -20,6 +20,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	protected final void initialize() {
 		
 		getParentClient().createCloseDependencyTo(mGUI);
+		mGUI.reset();
 		
 		mGUI
 		.setTitle(getApplicationName())
@@ -33,12 +34,6 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	
 	//method declaration
 	protected abstract void initializeStage2();
-	
-	//method
-	@Override
-	protected final void internalCleanForInitialization() {
-		mGUI.reset();
-	}
 	
 	//method
 	@Override
