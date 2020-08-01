@@ -630,6 +630,16 @@ define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"]
     Node.CLOSED_BRACKET_CODE = "$C";
     exports.Node = Node;
 });
+define("Common/Constant/StringCatalogue", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class StringCatalogue {
+    }
+    StringCatalogue.BINARY_PREFIX = '0b';
+    StringCatalogue.EMPTY = '';
+    StringCatalogue.HEXADECIMAL_PREFIX = '0x';
+    exports.StringCatalogue = StringCatalogue;
+});
 define("Common/ChainedNode/Task", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -640,7 +650,7 @@ define("Common/ChainedNode/Task", ["require", "exports"], function (require, exp
         Task[Task["READ_NEXT_NODE"] = 2] = "READ_NEXT_NODE";
     })(Task = exports.Task || (exports.Task = {}));
 });
-define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Container/LinkedList", "Common/Node/Node", "Common/ChainedNode/Task"], function (require, exports, LinkedList_3, Node_1, Task_1) {
+define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/StringCatalogue", "Common/ChainedNode/Task"], function (require, exports, LinkedList_3, Node_1, StringCatalogue_1, Task_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ChainedNode {
@@ -736,6 +746,12 @@ define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Containe
         getHeader() {
             if (this.header === undefined) {
                 throw new Error('The current ChainedNode does not have a header.');
+            }
+            return this.header;
+        }
+        getHeaderOrEmptyString() {
+            if (this.header === undefined) {
+                return StringCatalogue_1.StringCatalogue.EMPTY;
             }
             return this.header;
         }
@@ -2285,10 +2301,10 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
         createPainterWithTranslationAndPaintAreaWhenHasClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight) {
             const clipAreaOnViewAreaXPosition = CentralCalculator_1.CentralCalculator.getMax(this.clipAreaOnViewArea.getXPosition(), this.getXPositionOnViewArea() + xTranslation);
             const clipAreaOnViewAreaYPosition = CentralCalculator_1.CentralCalculator.getMax(this.clipAreaOnViewArea.getYPosition(), this.getYPositionOnViewArea() + yTranslation);
-            const clipAreaOnViewAreaRightXPosition = CentralCalculator_1.CentralCalculator.getMin(clipAreaOnViewAreaXPosition + this.clipAreaOnViewArea.getWidth(), clipAreaOnViewAreaXPosition + clipAreaWidth);
-            const clipAreaOnViewAreaBottomPosition = CentralCalculator_1.CentralCalculator.getMin(clipAreaOnViewAreaYPosition + this.clipAreaOnViewArea.getHeight(), clipAreaOnViewAreaYPosition + clipAreaHeight);
-            const clipAreaOnViewAreaWidth = clipAreaOnViewAreaRightXPosition - clipAreaOnViewAreaXPosition;
-            const clipAreaOnViewAreaHeight = clipAreaOnViewAreaBottomPosition - clipAreaOnViewAreaYPosition;
+            const clipAreaOnViewAreaRightXPosition = CentralCalculator_1.CentralCalculator.getMin(this.clipAreaOnViewArea.getXPosition() + this.clipAreaOnViewArea.getWidth(), this.getXPositionOnViewArea() + xTranslation + clipAreaWidth);
+            const clipAreaOnViewAreaBottomPosition = CentralCalculator_1.CentralCalculator.getMin(this.clipAreaOnViewArea.getYPosition() + this.clipAreaOnViewArea.getHeight(), this.getYPositionOnViewArea() + yTranslation + clipAreaHeight);
+            const clipAreaOnViewAreaWidth = CentralCalculator_1.CentralCalculator.getMax(0, clipAreaOnViewAreaRightXPosition - clipAreaOnViewAreaXPosition);
+            const clipAreaOnViewAreaHeight = CentralCalculator_1.CentralCalculator.getMax(0, clipAreaOnViewAreaBottomPosition - clipAreaOnViewAreaYPosition);
             return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(clipAreaOnViewAreaXPosition, clipAreaOnViewAreaYPosition, clipAreaOnViewAreaWidth, clipAreaOnViewAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
         popStateIfNeeded() {
@@ -2477,6 +2493,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             this.window = window;
             this.canvas = window.document.createElement('canvas');
             this.window.document.body.appendChild(this.canvas);
+            this.updateCanvasSize();
             this.canvasRenderingContext2D = this.canvas.getContext('2d');
             this.connectInputMethods();
             this.reset();
@@ -2656,7 +2673,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             }
         }
         createPaintTextCommand(painterIndex, textualPaintTextCommand) {
-            const text = textualPaintTextCommand.getFirstAttributeAsString();
+            const text = textualPaintTextCommand.getAttributeAt(1).getHeaderOrEmptyString();
             switch (textualPaintTextCommand.getAttributeCount()) {
                 case 1:
                     return pp => pp.getRefPainterByIndex(painterIndex).paintText(text);

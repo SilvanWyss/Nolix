@@ -353,7 +353,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {
 		
 		final var attributes = paintTextCommand.getAttributesAsNodes();
-		final var text = attributes.getRefAt(1).toString();
+		final var text = attributes.getRefAt(1).getHeaderOrEmptyString();
 		
 		switch (attributes.getElementCount()) {
 			case 1:
