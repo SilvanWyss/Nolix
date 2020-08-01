@@ -510,8 +510,8 @@ define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"]
         getOneAttributeAsNumber() {
             return this.getRefOneAttribute().toNumber();
         }
-        getOneAttributeAsString() {
-            return this.getRefOneAttribute().toString();
+        getOneAttributeHeader() {
+            return this.getRefOneAttribute().getHeader();
         }
         getRefAttributes() {
             return this.attributes;
@@ -634,6 +634,7 @@ define("Common/Constant/StringCatalogue", ["require", "exports"], function (requ
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class StringCatalogue {
+        constructor() { }
     }
     StringCatalogue.BINARY_PREFIX = '0b';
     StringCatalogue.EMPTY = '';
@@ -966,10 +967,27 @@ define("Common/CommonTypeHelper/StringHelper", ["require", "exports"], function 
     }
     exports.StringHelper = StringHelper;
 });
+define("Common/Constant/CommonFontCodeCatalogue", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CommonFontCodeCatalogue {
+        constructor() { }
+    }
+    CommonFontCodeCatalogue.ARIAL = 'Arial';
+    CommonFontCodeCatalogue.ARIAL_BLACK = 'Arial Black';
+    CommonFontCodeCatalogue.COMIC_SANS_MS = 'Comic Sans MS';
+    CommonFontCodeCatalogue.IMPACT = 'Impact';
+    CommonFontCodeCatalogue.LUCIDA_CONSOLE = 'Lucida Console';
+    CommonFontCodeCatalogue.PAPYRUS = 'Papyrus';
+    CommonFontCodeCatalogue.TAHOMA = 'Tahoma';
+    CommonFontCodeCatalogue.VERDANA = 'Verdana';
+    exports.CommonFontCodeCatalogue = CommonFontCodeCatalogue;
+});
 define("Common/Constant/PascalCaseNameCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PascalCaseNameCatalogue {
+        constructor() { }
     }
     PascalCaseNameCatalogue.CURSOR_POSITION = 'CursorPosition';
     PascalCaseNameCatalogue.HEIGHT = 'Height';
@@ -1505,7 +1523,7 @@ define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNo
                 case 'Data':
                     return reply.getRefOneAttribute();
                 case 'Error':
-                    throw new Error(reply.getOneAttributeAsString());
+                    throw new Error(reply.getOneAttributeHeader());
             }
         }
         getTarget() {
@@ -1554,6 +1572,26 @@ define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNo
         }
     }
     exports.NetEndPoint5 = NetEndPoint5;
+});
+define("Common/Enum/RotationDirection", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var RotationDirection;
+    (function (RotationDirection) {
+        RotationDirection[RotationDirection["Forward"] = 0] = "Forward";
+        RotationDirection[RotationDirection["Backward"] = 1] = "Backward";
+    })(RotationDirection = exports.RotationDirection || (exports.RotationDirection = {}));
+});
+define("Common/Enum/RotationDirectionMapper", ["require", "exports", "Common/Enum/RotationDirection"], function (require, exports, RotationDirection_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class RotationDirectionMapper {
+        static createRotationDirectionFromWheelEvent(wheelEvent) {
+            return (wheelEvent.deltaY > 0 ? RotationDirection_1.RotationDirection.Forward : RotationDirection_1.RotationDirection.Backward);
+        }
+        constructor() { }
+    }
+    exports.RotationDirectionMapper = RotationDirectionMapper;
 });
 define("Common/Math/CentralCalculator", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -2022,7 +2060,7 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
             this.blueValue = blueValue;
         }
         static fromSpecification(specification) {
-            return Color.fromString(specification.getOneAttributeAsString());
+            return Color.fromString(specification.getOneAttributeHeader());
         }
         static fromString(string) {
             if (string === null) {
@@ -2053,6 +2091,63 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
     Color.BLACK = new Color(0, 0, 0);
     Color.WHITE = new Color(255, 255, 255);
     exports.Color = Color;
+});
+define("Element/TextFormat/FontType", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var FontType;
+    (function (FontType) {
+        FontType[FontType["Arial"] = 0] = "Arial";
+        FontType[FontType["ArialBlack"] = 1] = "ArialBlack";
+        FontType[FontType["ComicSansMS"] = 2] = "ComicSansMS";
+        FontType[FontType["Impact"] = 3] = "Impact";
+        FontType[FontType["LucidaConsole"] = 4] = "LucidaConsole";
+        FontType[FontType["Papyrus"] = 5] = "Papyrus";
+        FontType[FontType["Tahoma"] = 6] = "Tahoma";
+        FontType[FontType["Verdana"] = 7] = "Verdana";
+    })(FontType = exports.FontType || (exports.FontType = {}));
+});
+define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/CommonFontCodeCatalogue", "Element/TextFormat/FontType"], function (require, exports, CommonFontCodeCatalogue_1, FontType_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Font {
+        static fromSpecification(fontSpecification) {
+            return new Font(FontType_1.FontType[fontSpecification.getOneAttributeHeader()]);
+        }
+        constructor(fontType) {
+            if (fontType === null) {
+                throw new Error('The given fontType is null.');
+            }
+            if (fontType === undefined) {
+                throw new Error('The given fontType is undefined.');
+            }
+            this.fontType = fontType;
+        }
+        getCode() {
+            switch (this.fontType) {
+                case FontType_1.FontType.Arial:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.ARIAL;
+                case FontType_1.FontType.ArialBlack:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.ARIAL_BLACK;
+                case FontType_1.FontType.ComicSansMS:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.COMIC_SANS_MS;
+                case FontType_1.FontType.Impact:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.IMPACT;
+                case FontType_1.FontType.LucidaConsole:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.LUCIDA_CONSOLE;
+                case FontType_1.FontType.Papyrus:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.PAPYRUS;
+                case FontType_1.FontType.Tahoma:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.TAHOMA;
+                case FontType_1.FontType.Verdana:
+                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.VERDANA;
+            }
+        }
+        getFontType() {
+            return this.fontType;
+        }
+    }
+    exports.Font = Font;
 });
 define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "Element/Base/Element", "Common/Container/Matrix", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_1, Element_1, Matrix_1, Node_4, PascalCaseNameCatalogue_1) {
     "use strict";
@@ -2094,15 +2189,21 @@ define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "E
     Image.PIXEL_ARRAY_HEADER = 'PixelArray';
     exports.Image = Image;
 });
-define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Color"], function (require, exports, Color_2) {
+define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font"], function (require, exports, Color_2, Font_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TextFormat {
         static fromSpecification(specification) {
             const attributes = specification.getRefAttributes();
-            return new TextFormat(attributes.getRefAt(4).getOneAttributeAsNumber(), Color_2.Color.fromSpecification(attributes.getRefAt(5)));
+            return new TextFormat(Font_1.Font.fromSpecification(attributes.getRefAt(1)), attributes.getRefAt(4).getOneAttributeAsNumber(), Color_2.Color.fromSpecification(attributes.getRefAt(5)));
         }
-        constructor(textSize, textColor) {
+        constructor(textFont, textSize, textColor) {
+            if (textFont === null) {
+                throw new Error('The given textFont is null.');
+            }
+            if (textFont === undefined) {
+                throw new Error('The given textFont is undefined.');
+            }
             if (textSize === null) {
                 throw new Error('The given textSize is null.');
             }
@@ -2118,11 +2219,18 @@ define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Co
             if (textColor === undefined) {
                 throw new Error('The given textColor is undefined.');
             }
+            this.textFont = textFont;
             this.textSize = textSize;
             this.textColor = textColor;
         }
         getTextColor() {
             return this.textColor;
+        }
+        getTextFont() {
+            return this.textFont;
+        }
+        getTextFontCode() {
+            return this.textFont.getCode();
         }
         getTextSize() {
             return this.textSize;
@@ -2130,7 +2238,7 @@ define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Co
     }
     exports.TextFormat = TextFormat;
 });
-define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/TextFormat"], function (require, exports, Color_3, TextFormat_1) {
+define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font", "Element/TextFormat/FontType", "Element/TextFormat/TextFormat"], function (require, exports, Color_3, Font_2, FontType_2, TextFormat_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIGlobalPainter {
@@ -2160,7 +2268,7 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
                 + yPosition
                 + ').');
             this.canvasRenderingContext.textBaseline = 'top';
-            this.canvasRenderingContext.font = textFormat.getTextSize() + 'px Arial';
+            this.canvasRenderingContext.font = textFormat.getTextSize() + 'px ' + textFormat.getTextFontCode();
             this.canvasRenderingContext.fillStyle = textFormat.getTextColor().getHTMLCode();
             this.canvasRenderingContext.fillText(text, xPosition, yPosition);
         }
@@ -2183,9 +2291,10 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
             this.canvasRenderingContext.fillStyle = color.getHTMLCode();
         }
     }
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE = FontType_2.FontType.Verdana;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE = 10;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_3.Color.BLACK;
-    CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(new Font_2.Font(CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE), CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
     exports.CanvasGUIGlobalPainter = CanvasGUIGlobalPainter;
 });
 define("Element/PainterAPI/IPainter", ["require", "exports"], function (require, exports) {
@@ -2471,7 +2580,7 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/CanvasGUIProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Element/TextFormat/TextFormat"], function (require, exports, CanvasGUIProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_8, PaintProcess_1, Pair_1, TextFormat_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/CanvasGUIProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat"], function (require, exports, CanvasGUIProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_8, PaintProcess_1, Pair_1, RotationDirectionMapper_1, TextFormat_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -2551,7 +2660,12 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             console.log('The current CanvasGUI notes a mouse wheel release.');
             this.inputTaker.noteMouseWheelRelease();
         }
+        noteMouseWheelRotationStep(rotationDirection) {
+            console.log('The current CanvasGUI notes a mouse wheel rotation step.');
+            this.inputTaker.noteMouseWheelRotationStep(rotationDirection);
+        }
         noteResize() {
+            console.log('The current CanvasGUI notes a resize.');
             this.updateCanvasSize();
             this.inputTaker.noteResize(this.getViewAreaWidth(), this.getViewAreaHeight());
         }
@@ -2613,6 +2727,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             this.canvas.onmousedown = (me) => this.noteMouseButtonPress(me);
             this.canvas.onmouseup = (me) => this.noteMouseButtonRelease(me);
             this.canvas.onclick = (me) => this.noteMouseButtonClick(me);
+            this.canvas.onwheel = (we) => this.noteMouseWheelInput(we);
         }
         createCreatePainterCommand(painterIndex, textualCreatePainterCommand) {
             const attributes = textualCreatePainterCommand.getAttributes();
@@ -2746,6 +2861,9 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
                     throw new Error('The given mouseEvent is not valid.');
             }
         }
+        noteMouseWheelInput(wheelEvent) {
+            this.noteMouseWheelRotationStep(RotationDirectionMapper_1.RotationDirectionMapper.createRotationDirectionFromWheelEvent(wheelEvent));
+        }
         paintBackground(painter) {
             painter.setColor(CanvasGUI.BACKGROUND_COLOR);
             painter.paintFilledRectangle(this.getViewAreaWidth(), this.getViewAreaHeight());
@@ -2816,36 +2934,36 @@ define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "
     KeyInput.INPUT_TYPE_HEADER = 'InputType';
     exports.KeyInput = KeyInput;
 });
-define("Element/Input/MouseInputEnum", ["require", "exports"], function (require, exports) {
+define("Element/Input/MouseInputType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var MouseInputEnum;
-    (function (MouseInputEnum) {
-        MouseInputEnum[MouseInputEnum["MouseMove"] = 0] = "MouseMove";
-        MouseInputEnum[MouseInputEnum["LeftMouseButtonPress"] = 1] = "LeftMouseButtonPress";
-        MouseInputEnum[MouseInputEnum["LeftMouseButtonRelease"] = 2] = "LeftMouseButtonRelease";
-        MouseInputEnum[MouseInputEnum["LeftMouseButtonClick"] = 3] = "LeftMouseButtonClick";
-        MouseInputEnum[MouseInputEnum["RightMouseButtonPress"] = 4] = "RightMouseButtonPress";
-        MouseInputEnum[MouseInputEnum["RightMouseButtonRelease"] = 5] = "RightMouseButtonRelease";
-        MouseInputEnum[MouseInputEnum["RightMouseButtonClick"] = 6] = "RightMouseButtonClick";
-        MouseInputEnum[MouseInputEnum["MouseWheelPress"] = 7] = "MouseWheelPress";
-        MouseInputEnum[MouseInputEnum["MouseWheelRelease"] = 8] = "MouseWheelRelease";
-        MouseInputEnum[MouseInputEnum["MouseWheelClick"] = 9] = "MouseWheelClick";
-        MouseInputEnum[MouseInputEnum["ForwardMouseWheelRotationStep"] = 10] = "ForwardMouseWheelRotationStep";
-        MouseInputEnum[MouseInputEnum["BackwardMouseWheelRotationStep"] = 11] = "BackwardMouseWheelRotationStep";
-    })(MouseInputEnum = exports.MouseInputEnum || (exports.MouseInputEnum = {}));
+    var MouseInputType;
+    (function (MouseInputType) {
+        MouseInputType[MouseInputType["MouseMove"] = 0] = "MouseMove";
+        MouseInputType[MouseInputType["LeftMouseButtonPress"] = 1] = "LeftMouseButtonPress";
+        MouseInputType[MouseInputType["LeftMouseButtonRelease"] = 2] = "LeftMouseButtonRelease";
+        MouseInputType[MouseInputType["LeftMouseButtonClick"] = 3] = "LeftMouseButtonClick";
+        MouseInputType[MouseInputType["RightMouseButtonPress"] = 4] = "RightMouseButtonPress";
+        MouseInputType[MouseInputType["RightMouseButtonRelease"] = 5] = "RightMouseButtonRelease";
+        MouseInputType[MouseInputType["RightMouseButtonClick"] = 6] = "RightMouseButtonClick";
+        MouseInputType[MouseInputType["MouseWheelPress"] = 7] = "MouseWheelPress";
+        MouseInputType[MouseInputType["MouseWheelRelease"] = 8] = "MouseWheelRelease";
+        MouseInputType[MouseInputType["MouseWheelClick"] = 9] = "MouseWheelClick";
+        MouseInputType[MouseInputType["ForwardMouseWheelRotationStep"] = 10] = "ForwardMouseWheelRotationStep";
+        MouseInputType[MouseInputType["BackwardMouseWheelRotationStep"] = 11] = "BackwardMouseWheelRotationStep";
+    })(MouseInputType = exports.MouseInputType || (exports.MouseInputType = {}));
 });
-define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputEnum", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_10, MouseInputEnum_1, Node_6, PascalCaseNameCatalogue_2) {
+define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputType", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_10, MouseInputType_1, Node_6, PascalCaseNameCatalogue_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MouseInput extends Input_2.Input {
-        constructor(mouseInputEnum, cursorXPosition, cursorYPosition) {
+        constructor(mouseInputType, cursorXPosition, cursorYPosition) {
             super();
-            if (mouseInputEnum === null) {
-                throw new Error('The given mouseInputEnum is null.');
+            if (mouseInputType === null) {
+                throw new Error('The given mouseInputType is null.');
             }
-            if (mouseInputEnum === undefined) {
-                throw new Error('The given mouseInputEnum is undefined.');
+            if (mouseInputType === undefined) {
+                throw new Error('The given mouseInputType is undefined.');
             }
             if (cursorXPosition === null) {
                 throw new Error('The given cursorXPosition is null.');
@@ -2859,7 +2977,7 @@ define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input",
             if (cursorYPosition === undefined) {
                 throw new Error('The given cursorYPosition is undefined.');
             }
-            this.mouseInputEnum = mouseInputEnum;
+            this.mouseInputType = mouseInputType;
             this.cursorXPosition = cursorXPosition;
             this.cursorYPosition = cursorYPosition;
         }
@@ -2879,7 +2997,7 @@ define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input",
             return MouseInput.TYPE_NAME;
         }
         toEnum() {
-            return this.mouseInputEnum;
+            return this.mouseInputType;
         }
         getCursorPositionSpecification() {
             const sizeSpecification = Node_6.Node.withHeader(PascalCaseNameCatalogue_2.PascalCaseNameCatalogue.CURSOR_POSITION);
@@ -2888,12 +3006,28 @@ define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input",
             return sizeSpecification;
         }
         getInputTypeSpecification() {
-            return Node_6.Node.withHeaderAndAttribute(MouseInput.INPUT_TYPE_HEADER, Node_6.Node.withHeader(MouseInputEnum_1.MouseInputEnum[this.mouseInputEnum]));
+            return Node_6.Node.withHeaderAndAttribute(MouseInput.INPUT_TYPE_HEADER, Node_6.Node.withHeader(MouseInputType_1.MouseInputType[this.mouseInputType]));
         }
     }
     MouseInput.TYPE_NAME = 'MouseInput';
     MouseInput.INPUT_TYPE_HEADER = 'InputType';
     exports.MouseInput = MouseInput;
+});
+define("Element/Input/MouseInputTypeMapper", ["require", "exports", "Element/Input/MouseInputType", "Common/Enum/RotationDirection"], function (require, exports, MouseInputType_2, RotationDirection_2) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class MouseInputTypeMapper {
+        static createMouseInputTypeFromRotationDirection(rotationDirection) {
+            switch (rotationDirection) {
+                case RotationDirection_2.RotationDirection.Forward:
+                    return MouseInputType_2.MouseInputType.ForwardMouseWheelRotationStep;
+                case RotationDirection_2.RotationDirection.Backward:
+                    return MouseInputType_2.MouseInputType.BackwardMouseWheelRotationStep;
+            }
+        }
+        constructor() { }
+    }
+    exports.MouseInputTypeMapper = MouseInputTypeMapper;
 });
 define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_11, Node_7, PascalCaseNameCatalogue_3) {
     "use strict";
@@ -2944,7 +3078,7 @@ define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input"
     ResizeInput.TYPE_NAME = 'ResizeInput';
     exports.ResizeInput = ResizeInput;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require", "exports", "Element/Input/KeyInput", "Element/Input/KeyInputType", "Element/Input/MouseInput", "Element/Input/MouseInputEnum", "Element/Input/ResizeInput"], function (require, exports, KeyInput_1, KeyInputType_2, MouseInput_1, MouseInputEnum_2, ResizeInput_1) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require", "exports", "Element/Input/KeyInput", "Element/Input/KeyInputType", "Element/Input/MouseInput", "Element/Input/MouseInputType", "Element/Input/MouseInputTypeMapper", "Element/Input/ResizeInput"], function (require, exports, KeyInput_1, KeyInputType_2, MouseInput_1, MouseInputType_3, MouseInputTypeMapper_1, ResizeInput_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClientInputTaker {
@@ -2981,37 +3115,40 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require",
             this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Typing));
         }
         noteLeftMouseButtonClick() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.LeftMouseButtonClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LeftMouseButtonClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteLeftMouseButtonPress() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.LeftMouseButtonPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LeftMouseButtonPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteLeftMouseButtonRelease() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.LeftMouseButtonRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LeftMouseButtonRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseMove, cursorXPositionOnViewArea, cursorYPositionOnViewArea));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseMove, cursorXPositionOnViewArea, cursorYPositionOnViewArea));
         }
         noteMouseWheelClick() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseWheelClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseWheelClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseWheelPress() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseWheelPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseWheelPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseWheelRelease() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.MouseWheelRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseWheelRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+        }
+        noteMouseWheelRotationStep(rotationDirection) {
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputTypeMapper_1.MouseInputTypeMapper.createMouseInputTypeFromRotationDirection(rotationDirection), this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteResize(viewAreaWidth, viewAreaHeight) {
             this.inputTaker(new ResizeInput_1.ResizeInput(viewAreaWidth, viewAreaHeight));
         }
         noteRightMouseButtonClick() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.RightMouseButtonClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RightMouseButtonClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteRightMouseButtonPress() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.RightMouseButtonPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RightMouseButtonPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteRightMouseButtonRelease() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputEnum_2.MouseInputEnum.RightMouseButtonRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RightMouseButtonRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
     }
     exports.FrontCanvasGUIClientInputTaker = FrontCanvasGUIClientInputTaker;
