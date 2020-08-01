@@ -13,6 +13,6 @@ public enum KeyInputType implements IElementEnum {
 	
 	//static method
 	public static KeyInputType fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

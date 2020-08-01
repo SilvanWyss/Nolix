@@ -32,6 +32,6 @@ public enum ContentPosition implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ContentPosition fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

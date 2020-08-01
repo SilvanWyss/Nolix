@@ -29,7 +29,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 		return
 		columnSpecification
 		.getRefFirstAttribute(PascalCaseNameCatalogue.HEADER)
-		.getOneAttributeAsString();
+		.getOneAttributeHeader();
 	}
 	
 	//method

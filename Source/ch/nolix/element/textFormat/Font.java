@@ -33,7 +33,7 @@ public enum Font implements IElementEnum {
 	public static Font fromSpecification(
 		final BaseNode specification
 	) {
-		return Font.valueOf(specification.getOneAttributeAsString());
+		return Font.valueOf(specification.getOneAttributeHeader());
 	}
 	
 	//method

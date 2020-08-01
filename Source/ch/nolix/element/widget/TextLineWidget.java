@@ -33,7 +33,7 @@ extends BorderWidget<TLW, TLWL> {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
-		s -> s.containsOneAttribute() ? s.getOneAttributeAsString() : StringCatalogue.EMPTY_STRING,
+		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
 		t -> t.isEmpty() ? new Node() : Node.withOneAttribute(t)
 	);
 	

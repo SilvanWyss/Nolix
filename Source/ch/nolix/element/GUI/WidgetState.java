@@ -31,6 +31,6 @@ public enum WidgetState implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static WidgetState fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

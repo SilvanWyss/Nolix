@@ -95,7 +95,7 @@ final class NetServerSocketProcessor extends Worker {
 				socket,
 				socketInputStream,
 				socketOutputStream,
-				Node.fromString(firstLine).getOneAttributeAsString()
+				Node.fromString(firstLine).getOneAttributeHeader()
 			);
 		}
 		

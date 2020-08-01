@@ -23,6 +23,6 @@ public enum TaskSize implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static TaskSize fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

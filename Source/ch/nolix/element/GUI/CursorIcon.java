@@ -35,7 +35,7 @@ public enum CursorIcon implements IElementEnum {
 	public static CursorIcon fromSpecification(
 		final BaseNode specification
 	) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 	
 	//method

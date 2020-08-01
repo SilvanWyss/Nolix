@@ -37,10 +37,10 @@ implements IConfigurableElement<CE> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ID:
-				setId(attribute.getOneAttributeAsString());
+				setId(attribute.getOneAttributeHeader());
 				break;
 			case PascalCaseNameCatalogue.TOKEN:
-				setToken(attribute.getOneAttributeAsString());
+				setToken(attribute.getOneAttributeHeader());
 				break;
 			default:
 				

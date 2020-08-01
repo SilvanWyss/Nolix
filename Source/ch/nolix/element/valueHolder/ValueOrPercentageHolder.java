@@ -39,7 +39,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		final BaseNode specification
 	) {
 		
-		var attribute = specification.getOneAttributeAsString();
+		var attribute = specification.getOneAttributeHeader();
 		
 		//Handles the case that the given specification
 		//specifies a value or percentage holder with a percentage.

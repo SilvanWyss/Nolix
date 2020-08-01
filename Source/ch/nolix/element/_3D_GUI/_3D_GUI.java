@@ -47,7 +47,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
 		s -> setTitle(s),
-		BaseNode::getOneAttributeAsString,
+		BaseNode::getOneAttributeHeader,
 		s -> Node.withOneAttribute(s)
 	);
 	

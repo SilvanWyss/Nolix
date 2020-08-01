@@ -33,7 +33,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	new Property<>(
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
-		BaseNode::getOneAttributeAsString,
+		BaseNode::getOneAttributeHeader,
 		Node::withOneAttribute
 	);
 	
@@ -42,7 +42,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	new OptionalProperty<>(
 		PascalCaseNameCatalogue.ID,
 		this::setId,
-		BaseNode::getOneAttributeAsString,
+		BaseNode::getOneAttributeHeader,
 		Node::withOneAttribute
 	);
 	

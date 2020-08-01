@@ -754,7 +754,7 @@ public class Color extends Element<Color> {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Color fromSpecification(final BaseNode specification) {
-		return new Color(specification.getOneAttributeAsString());
+		return new Color(specification.getOneAttributeHeader());
 	}
 	
 	//static method

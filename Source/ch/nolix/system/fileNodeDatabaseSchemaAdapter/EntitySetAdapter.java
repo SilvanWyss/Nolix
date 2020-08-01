@@ -84,6 +84,6 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		return
 		entitySetSpecification
 		.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
-		.getOneAttributeAsString();
+		.getOneAttributeHeader();
 	}
 }

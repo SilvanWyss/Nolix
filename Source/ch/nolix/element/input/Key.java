@@ -369,7 +369,7 @@ public enum Key implements IElementEnum {
 	
 	//static method
 	public static Key fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 	
 	//method

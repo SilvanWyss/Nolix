@@ -22,6 +22,6 @@ public enum MouseInputType implements ISmartElementEnum<MouseInputType> {
 	
 	//static method
 	public static MouseInputType fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

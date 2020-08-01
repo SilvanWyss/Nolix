@@ -30,6 +30,6 @@ public enum LabelRole implements IElementEnum {
 	public static LabelRole fromSpecification(
 		final BaseNode specification
 	) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

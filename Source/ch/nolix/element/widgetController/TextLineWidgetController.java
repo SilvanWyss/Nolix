@@ -24,7 +24,7 @@ abstract class TextLineWidgetController extends BorderWidgetController {
 	
 	//method
 	public final String getText() {
-		return getAttribute("Text").getOneAttributeAsString();
+		return getAttribute("Text").getOneAttributeHeader();
 	}
 	
 	//method

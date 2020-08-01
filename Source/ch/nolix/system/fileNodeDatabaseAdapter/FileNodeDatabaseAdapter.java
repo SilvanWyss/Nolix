@@ -38,7 +38,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 			entitySetAdapters.addAtEnd(
 				new EntitySetAdapter<>(
 					a,
-					schema.getRefEntityTypeByName(a.getRefFirstAttribute().getOneAttributeAsString()),
+					schema.getRefEntityTypeByName(a.getRefFirstAttribute().getOneAttributeHeader()),
 					getValueCreator()
 				)
 			);
@@ -63,7 +63,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	public String getDatabaseName() {
 		return
 		database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
-		.getOneAttributeAsString();
+		.getOneAttributeHeader();
 	}
 	
 	//method

@@ -55,7 +55,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 				setThickness(attribute.getOneAttributeAsInt());
 				break;
 			case Color.TYPE_NAME:
-				setColor(new Color(attribute.getOneAttributeAsString()));
+				setColor(new Color(attribute.getOneAttributeHeader()));
 				break;
 			default:
 				

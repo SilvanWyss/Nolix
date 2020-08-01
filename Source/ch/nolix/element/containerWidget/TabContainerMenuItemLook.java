@@ -63,7 +63,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 				setTextSize(attribute.getOneAttributeAsInt());
 				break;
 			case PascalCaseNameCatalogue.TEXT_COLOR:
-				setTextColor(new Color(attribute.getOneAttributeAsString()));
+				setTextColor(new Color(attribute.getOneAttributeHeader()));
 				break;
 			default:
 				

@@ -31,6 +31,6 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	public static AccordionExpansionBehavior fromSpecification(
 		final BaseNode specification
 	) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

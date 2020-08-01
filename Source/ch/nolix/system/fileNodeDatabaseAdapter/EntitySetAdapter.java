@@ -75,7 +75,7 @@ public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapt
 		return
 		entitySetSpecification
 		.getRefFirstAttribute()
-		.getOneAttributeAsString();
+		.getOneAttributeHeader();
 	}
 	
 	//method

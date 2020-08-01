@@ -30,7 +30,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 730
+ * @lines 720
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -284,16 +284,6 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public int getOneAttributeAsInt() {
 		return getRefOneAttribute().toInt();
-	}
-	
-	//method
-	/**
-	 * @return a string representation of the one attribute of the current {@link BaseNode}.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 */
-	public String getOneAttributeAsString() {
-		return getRefOneAttribute().toString();
 	}
 	
 	//method

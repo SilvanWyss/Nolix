@@ -166,19 +166,19 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.NAME:
-				setName(attribute.getOneAttributeAsString());
+				setName(attribute.getOneAttributeHeader());
 				break;
 			case SELECTOR_TYPE_HEADER:
-				setSelectorType(attribute.getOneAttributeAsString());
+				setSelectorType(attribute.getOneAttributeHeader());
 				break;
 			case SELECTOR_ROLE_HEADER:
 				addSelectorRoles2(attribute.getAttributesAsStrings());
 				break;
 			case SELECTOR_TOKEN_HEADER:
-				setSelectorToken(attribute.getOneAttributeAsString());
+				setSelectorToken(attribute.getOneAttributeHeader());
 				break;
 			case SELECTOR_NAME_HEADER:
-				setSelectorId(attribute.getOneAttributeAsString());
+				setSelectorId(attribute.getOneAttributeHeader());
 				break;
 			case Configuration.TYPE_NAME:
 				addConfiguration(new Configuration(attribute.getRefAttributes()));

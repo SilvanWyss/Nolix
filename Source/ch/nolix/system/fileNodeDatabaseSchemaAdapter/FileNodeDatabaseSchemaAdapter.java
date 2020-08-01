@@ -54,7 +54,7 @@ extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 		DatabaseState.valueOf(		
 			getDatabasePropertiesNode()
 			.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
-			.getOneAttributeAsString()
+			.getOneAttributeHeader()
 		);
 	}
 	

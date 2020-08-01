@@ -37,7 +37,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
-		BaseNode::getOneAttributeAsString,
+		BaseNode::getOneAttributeHeader,
 		h -> new Node(PascalCaseNameCatalogue.HEADER, h)
 	);
 	

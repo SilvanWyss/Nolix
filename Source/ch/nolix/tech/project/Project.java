@@ -29,7 +29,7 @@ public final class Project extends Element<Project> implements IProject {
 	new MutableProperty<>(
 		VariableNameCatalogue.NAME,
 		this::setName,
-		BaseNode::getOneAttributeAsString,
+		BaseNode::getOneAttributeHeader,
 		n -> new Node(VariableNameCatalogue.NAME, n)
 	);
 	

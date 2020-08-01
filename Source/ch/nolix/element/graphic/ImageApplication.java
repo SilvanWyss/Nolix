@@ -12,6 +12,6 @@ public enum ImageApplication implements IElementEnum {
 	
 	//static method
 	public static ImageApplication fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

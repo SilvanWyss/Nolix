@@ -33,6 +33,6 @@ public enum ExtendedContentPosition implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ExtendedContentPosition fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeAsString());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }

@@ -131,7 +131,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DATA_HEADER:
 				return reply.getRefOneAttribute();
 			case Protocol.ERROR_HEADER:
-				throw new RuntimeException(reply.getOneAttributeAsString());
+				throw new RuntimeException(reply.getOneAttributeHeader());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, reply, "is not valid");
 		}
@@ -213,7 +213,7 @@ public class NetEndPoint extends EndPoint {
 				if (!reply.containsAttributes()) {
 					throw new RuntimeException("An error occured by running the commands '" + commands + "'." );
 				}
-				throw new RuntimeException(reply.getOneAttributeAsString());
+				throw new RuntimeException(reply.getOneAttributeHeader());
 			default:
 				throw new RuntimeException("An error occured by running the commands '" + commands + "'." );
 		}

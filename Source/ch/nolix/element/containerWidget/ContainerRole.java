@@ -22,6 +22,6 @@ public enum ContainerRole implements IElementEnum {
 	 * @return a new {@link ContainerRole} from the given specification.
 	 */
 	public static ContainerRole fromSpecification(final BaseNode specification) {
-		return ContainerRole.valueOf(specification.getOneAttributeAsString());
+		return ContainerRole.valueOf(specification.getOneAttributeHeader());
 	}
 }
