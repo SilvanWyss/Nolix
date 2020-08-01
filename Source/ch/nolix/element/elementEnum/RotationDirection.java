@@ -11,7 +11,7 @@ import ch.nolix.element.elementAPI.IElementEnum;
  * @month 2019-07
  * @lines 40
  */
-public enum DirectionOfRotation implements IElementEnum {
+public enum RotationDirection implements IElementEnum {
 	Forward,
 	Backward;
 	
@@ -21,17 +21,17 @@ public enum DirectionOfRotation implements IElementEnum {
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link DirectionOfRotation} from the given specification.
+	 * @return a new {@link RotationDirection} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DirectionOfRotation fromSpecification(final BaseNode specification) {
+	public static RotationDirection fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeHeader());
 	}
 	
 	//method
 	/**
-	 * @return 1 if the current {@link DirectionOfRotation} is {@link DirectionOfRotation#Forward},
-	 * -1 if the current {@link DirectionOfRotation} is {@link DirectionOfRotation#Backward}.
+	 * @return 1 if the current {@link RotationDirection} is {@link RotationDirection#Forward},
+	 * -1 if the current {@link RotationDirection} is {@link RotationDirection#Backward}.
 	 */
 	public int toInt() {
 		

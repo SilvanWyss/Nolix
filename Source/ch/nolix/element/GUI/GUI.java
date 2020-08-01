@@ -20,7 +20,7 @@ import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.baseGUI_API.IFrontEndReader;
 import ch.nolix.element.baseGUI_API.IFrontEndWriter;
 import ch.nolix.element.configuration.ConfigurationElement;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.frameVisualizer.FrameVisualizer;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.IResizableInputTaker;
@@ -427,12 +427,12 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+	public final void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		if (inputTaker != null) {
-			inputTaker.noteMouseWheelRotationStep(directionOfRotation);
+			inputTaker.noteMouseWheelRotationStep(rotationDirection);
 		}
 		else {
-			noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(directionOfRotation);
+			noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(rotationDirection);
 		}
 	}
 	
@@ -676,7 +676,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method declaration
 	protected abstract void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(
-		DirectionOfRotation directionOfRotation
+		RotationDirection rotationDirection
 	);
 	
 	//method declaration

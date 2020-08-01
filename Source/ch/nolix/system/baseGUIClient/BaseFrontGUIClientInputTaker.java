@@ -5,7 +5,7 @@ package ch.nolix.system.baseGUIClient;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IIntGetter;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
@@ -196,10 +196,10 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		inputTaker.run(
 			new MouseInput(
-				directionOfRotation == DirectionOfRotation.Backward ?
+				rotationDirection == RotationDirection.Backward ?
 				MouseInputType.BackwardMouseWheelRotationStep : MouseInputType.ForwardMouseWheelRotationStep,
 				cursorXPositionOnViewAreaGetter.getOutput(),
 				cursorYPositionOnViewAreaGetter.getOutput()

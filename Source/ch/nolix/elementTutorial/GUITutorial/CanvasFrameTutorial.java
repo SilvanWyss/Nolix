@@ -5,7 +5,7 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.elementEnum.UniDirection;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
@@ -85,7 +85,7 @@ public final class CanvasFrameTutorial {
 		public void noteMouseWheelRelease() {}
 		
 		@Override
-		public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {}
+		public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {}
 		
 		@Override
 		public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}

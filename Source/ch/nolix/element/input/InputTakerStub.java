@@ -2,7 +2,7 @@
 package ch.nolix.element.input;
 
 //own import
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 
 //class
 public class InputTakerStub implements IInputTaker {
@@ -49,7 +49,7 @@ public class InputTakerStub implements IInputTaker {
 	
 	//method
 	@Override
-	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {}
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {}
 	
 	//method
 	@Override

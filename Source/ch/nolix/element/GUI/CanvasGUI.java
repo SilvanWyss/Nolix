@@ -13,7 +13,7 @@ import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
@@ -178,7 +178,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	 */
 	@Override
 	protected final void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(
-		final DirectionOfRotation directionOfRotation
+		final RotationDirection rotationDirection
 	) {}
 	
 	//method

@@ -24,7 +24,7 @@ import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.containerWidget.SingleContainer;
 import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
@@ -733,8 +733,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(final DirectionOfRotation directionOfRotation) {
-		getRefTopOrBackgroundLayer().noteMouseWheelRotationStep(directionOfRotation);
+	protected final void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(final RotationDirection rotationDirection) {
+		getRefTopOrBackgroundLayer().noteMouseWheelRotationStep(rotationDirection);
 		refresh();
 	}
 	

@@ -3,7 +3,7 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 
 //interface
 /**
@@ -181,10 +181,10 @@ public interface IInputTaker {
 				noteMouseWheelClick();
 				break;
 			case ForwardMouseWheelRotationStep:
-				noteMouseWheelRotationStep(DirectionOfRotation.Forward);
+				noteMouseWheelRotationStep(RotationDirection.Forward);
 				break;
 			case BackwardMouseWheelRotationStep:
-				noteMouseWheelRotationStep(DirectionOfRotation.Backward);
+				noteMouseWheelRotationStep(RotationDirection.Backward);
 				break;
 		}
 	}
@@ -266,9 +266,9 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a mouse wheel rotation step.
 	 * 
-	 * @param directionOfRotation
+	 * @param rotationDirection
 	 */
-	public abstract void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation);
+	public abstract void noteMouseWheelRotationStep(final RotationDirection rotationDirection);
 	
 	//method declaration
 	/**

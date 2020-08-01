@@ -23,7 +23,7 @@ import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.elementEnum.ContentPosition;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
@@ -549,9 +549,9 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+	public final void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		if (rootWidget != null) {
-			rootWidget.noteMouseWheelRotationStep(directionOfRotation);
+			rootWidget.noteMouseWheelRotationStep(rotationDirection);
 		}		
 	}
 	

@@ -20,7 +20,7 @@ import ch.nolix.element.baseGUI_API.IInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.inputDeviceAPI.IKeyBoard;
@@ -926,13 +926,13 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelRotationStep(final DirectionOfRotation directionOfRotation) {
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		if (isEnabled()) {
 			
-			noteMouseWheelRotationStepOnSelfWhenEnabled(directionOfRotation);
+			noteMouseWheelRotationStepOnSelfWhenEnabled(rotationDirection);
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStep(directionOfRotation));
+				getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStep(rotationDirection));
 			}
 		}
 	}
@@ -1656,9 +1656,9 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * Lets the current {@link Widget} note a mouse wheel rotation step
 	 * for the case when the current {@link Widget} is enabled.
 	 * 
-	 * @param directionOfRotation
+	 * @param rotationDirection
 	 */
-	protected abstract void noteMouseWheelRotationStepOnSelfWhenEnabled(final DirectionOfRotation directionOfRotation);
+	protected abstract void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection);
 	
 	//method declaration
 	/**

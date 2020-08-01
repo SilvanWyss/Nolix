@@ -8,7 +8,7 @@ import java.awt.event.MouseWheelListener;
 //own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.elementEnum.DirectionOfRotation;
+import ch.nolix.element.elementEnum.RotationDirection;
 
 //class
 final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
@@ -30,7 +30,7 @@ final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
 		final MouseWheelEvent mouseWheelEvent
 	) {
 		frameVisualizer.noteMouseWheelRotationStep(
-			mouseWheelEvent.getPreciseWheelRotation() > 0 ? DirectionOfRotation.Forward : DirectionOfRotation.Backward
+			mouseWheelEvent.getPreciseWheelRotation() > 0 ? RotationDirection.Forward : RotationDirection.Backward
 		);
 	}
 }
