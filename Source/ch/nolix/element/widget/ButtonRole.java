@@ -30,6 +30,6 @@ public enum ButtonRole implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ButtonRole fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getHeaderOfOneAttribute());
+		return valueOf(specification.getOneAttributeHeader());
 	}
 }
