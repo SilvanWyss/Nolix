@@ -2,6 +2,8 @@
 package ch.nolix.element.textFormat;
 
 //own imports
+import ch.nolix.common.constant.FontCodeCatalogue;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.elementAPI.IElementEnum;
 
@@ -11,13 +13,16 @@ import ch.nolix.element.elementAPI.IElementEnum;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 50
+ * @lines 60
  */
 public enum Font implements IElementEnum {
 	Arial,
+	ArialBlack,
 	ComicSansMS,
-	Console,
+	Impact,
+	LucidaConsole,
 	Papyrus,
+	Tahoma,
 	Verdana;
 	
 	//constant
@@ -27,29 +32,38 @@ public enum Font implements IElementEnum {
 	/**
 	 * @param specification
 	 * @return a new {@link Font} from the given specification.
-	 * @throws InvalidArgumentException
-	 * if the given specification is not valid.
+	 * @throws InvalidArgumentException if the given specification does not represent a {@link Font}.
 	 */
-	public static Font fromSpecification(
-		final BaseNode specification
-	) {
+	public static Font fromSpecification(final BaseNode specification) {
 		return Font.valueOf(specification.getOneAttributeHeader());
 	}
 	
 	//method
 	/**
-	 * @return the Java font family of this {@link Font}.
+	 * @return the code of the current {@link Font}.
 	 */
-	public String getSwingFontFamily() {
+	public String getCode() {
 		
-		//Enumerates this text font.
+		//Enumerates the current Font.
 		switch (this) {
+			case Arial:
+				return FontCodeCatalogue.ARIAL;
+			case ArialBlack:
+				return FontCodeCatalogue.ARIAL_BLACK;
 			case ComicSansMS:
-				return "Comic Sans MS";
-			case Console:
-				return "Monospaced";
+				return FontCodeCatalogue.COMIC_SANS_MS;
+			case Impact:
+				return FontCodeCatalogue.IMPACT;
+			case LucidaConsole:
+				return FontCodeCatalogue.LUCIDA_CONSOLE;
+			case Papyrus:
+				return FontCodeCatalogue.PAPYRUS;
+			case Tahoma:
+				return FontCodeCatalogue.TAHOMA;
+			case Verdana:
+				return FontCodeCatalogue.VERDANA;
 			default:
-				return toString();
+				throw new InvalidArgumentException(this);
 		}
 	}
 }

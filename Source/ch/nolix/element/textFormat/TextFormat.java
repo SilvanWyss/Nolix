@@ -185,7 +185,7 @@ public final class TextFormat extends Element<TextFormat> {
 		//Creates the swing font of the current text format.
 		this.swingFont
 		= new java.awt.Font(
-			getTextFont().getSwingFontFamily(),
+			getTextFont().getCode(),
 			swingTextStyle,
 			getTextSize()
 		);
