@@ -4,10 +4,10 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.state.Visibility;
 
 //class
-public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
+public class InvisibleGUI extends LayerGUI<InvisibleGUI> {
 	
 	//constructor
-	public InvisibleLayerGUI() {
+	public InvisibleGUI() {
 		
 		super(Visibility.INVISIBLE);
 		
@@ -15,7 +15,7 @@ public class InvisibleLayerGUI extends LayerGUI<InvisibleLayerGUI> {
 	}
 	
 	//constructor
-	public InvisibleLayerGUI(final Widget<?, ?> rootWidget) {
+	public InvisibleGUI(final Widget<?, ?> rootWidget) {
 		
 		this();
 		

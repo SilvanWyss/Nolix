@@ -5,7 +5,7 @@ package ch.nolix.templateTest.GUILookTest;
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.test.ObjectTest;
-import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.widget.Area;
@@ -29,7 +29,7 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 		
 		//setup
 		final var GUI =
-		new InvisibleLayerGUI()
+		new InvisibleGUI()
 		.addLayerOnTop(new VerticalStack(createNonContainerWidgets()));
 		
 		//execution & verification
@@ -41,7 +41,7 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 	public void testCase_configure_whenTheGUIIsEmpty() {
 		
 		//setup
-		final var GUI = new InvisibleLayerGUI();
+		final var GUI = new InvisibleGUI();
 		
 		//execution & verification
 		expect(() -> createTestObject().configure(GUI)).doesNotThrowException();

@@ -2,17 +2,17 @@
 package ch.nolix.system.baseGUIClient;
 
 //own imports
-import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.system.client.Session;
 
 //class
 public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<BGUIC>> extends Session<BGUIC> {
 	
 	//attribute
-	private final InvisibleLayerGUI mGUI = new InvisibleLayerGUI();
+	private final InvisibleGUI mGUI = new InvisibleGUI();
 	
 	//method
-	protected final InvisibleLayerGUI getRefGUI() {
+	protected final InvisibleGUI getRefGUI() {
 		return mGUI;
 	}
 	

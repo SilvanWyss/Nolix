@@ -5,7 +5,7 @@ package ch.nolix.templateTest.consoleClientLookTest;
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.Console;
@@ -28,7 +28,7 @@ public abstract class ConsoleClientLookTest<CCL extends Configuration> extends O
 	//method
 	private GUI<?> createConsoleClientEquivalentGUI() {
 		return
-		new InvisibleLayerGUI(
+		new InvisibleGUI(
 			new VerticalStack(
 				new Console()
 				.setId("InfoPanel"),

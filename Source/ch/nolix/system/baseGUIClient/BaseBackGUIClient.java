@@ -13,7 +13,7 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.InvisibleLayerGUI;
+import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.element.input.InputFactory;
 import ch.nolix.system.client.Client;
 
@@ -87,7 +87,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	final void configureGUI(final InvisibleLayerGUI pGUI) {
+	final void configureGUI(final InvisibleGUI pGUI) {
 		
 		final var viewAreaSize =
 		internalGetDataFromCounterpart(
@@ -172,7 +172,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	/**
 	 * @return the {@link GUI} of the current {@link Session} of the current {@link BaseBackGUIClient}.
 	 */
-	private InvisibleLayerGUI getRefGUI() {
+	private InvisibleGUI getRefGUI() {
 		
 		@SuppressWarnings("rawtypes")
 		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
