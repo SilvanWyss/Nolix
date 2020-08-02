@@ -15,25 +15,13 @@ import ch.nolix.template.consoleClientLook.GreyBlueConsoleClientLook;
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 180
+ * @lines 200
  */
 public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
 	
 	//attributes
 	private final Console infoPanel = new Console().setId(WidgetIdCatalogue.INFO_PANEL).setUneditable();
 	private final Console console = new Console().setId(WidgetIdCatalogue.CONSOLE).setFocused();
-	
-	//constructor
-	public BackConsoleClientSession() {
-		getRefGUI().addLayerOnTop(
-			new VerticalStack(
-				infoPanel,
-				console
-			)
-			.setRole(ContainerRole.MainContainer)
-		)
-		.setConfiguration(new GreyBlueConsoleClientLook());
-	}
 	
 	//method
 	/**
@@ -183,6 +171,32 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void initializeStage2() {
+		
+		getRefGUI()
+		.addLayerOnTop(
+			new VerticalStack(
+				infoPanel,
+				console
+			)
+			.setRole(ContainerRole.MainContainer)
+		)
+		.setConfiguration(new GreyBlueConsoleClientLook());
+		
+		initializeStage3();
+	}
+	
+	//method declaration
+	/**
+	 * Initializes the current {@link BackConsoleClientSession}.
+	 */
+	protected abstract void initializeStage3();
 	
 	//method
 	/**
