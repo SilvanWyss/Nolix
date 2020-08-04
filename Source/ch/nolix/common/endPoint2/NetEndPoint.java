@@ -20,6 +20,11 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2017-05
+ * @lines 240
+ */
 public final class NetEndPoint extends BaseNetEndPoint {
 	
 	//attributes
@@ -71,7 +76,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		setPreCloseAction(this::runPreClose);
+		setPreCloseAction(this::preClose);
 		
 		try {
 			socket = new Socket(ip, port);
@@ -107,7 +112,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		.thatIsNamed(VariableNameCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		setPreCloseAction(this::runPreClose);
+		setPreCloseAction(this::preClose);
 		
 		try {
 			socket = new Socket(ip, port);
@@ -146,6 +151,8 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
+		setPreCloseAction(this::preClose);
+		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
@@ -181,6 +188,8 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
+		setPreCloseAction(this::preClose);
+		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
@@ -189,12 +198,18 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public EndPointType getType() {
 		return EndPointType.REGULAR_SOCKET;
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void sendRawMessage(final String rawMessage) {
 		
@@ -220,7 +235,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	}
 	
 	//method
-	private void runPreClose() {
+	private void preClose() {
 		if (canWork()) {
 			try {
 				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
