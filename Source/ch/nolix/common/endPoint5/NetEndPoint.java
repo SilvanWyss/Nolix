@@ -205,6 +205,10 @@ public class NetEndPoint extends EndPoint {
 		//Sends the message and gets reply.
 		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
 		
+		if (reply == null) {
+			return;
+		}
+		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
 			case Protocol.DONE_HEADER:

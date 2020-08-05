@@ -10,7 +10,7 @@ import ch.nolix.common.container.LinkedList;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 270
+ * @lines 290
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -101,6 +101,15 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasTarget() {
+		return internalEndPoint.hasTarget();
+	}
+	
+	//method
+	/**
 	 * @return true if this end point is a local end point.
 	 */
 	public boolean isLocalEndPoint() {
@@ -118,18 +127,20 @@ public class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * Sends the given message and returns the reply.
-	 * This method throws an exception if there is not received a reply within the timeout.
 	 * 
 	 * @param message
-	 * @return the reply of the given message.
-	 * @throws RuntimeException if this zeta end point is stopped.
-	 * @throws RuntimeException if an error occurs by trying to send the message.
+	 * @return the reply of the given message
+	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
 	@Override
 	public String sendAndGetReply(final String message) {
 		return sendAndWaitToReply(message);
 	}
 	
+	//method
+	/**
+	 * @return the internal end point of the current {@link NetEndPoint}.
+	 */
 	ch.nolix.common.endPoint2.EndPoint getRefInternalEndPoint() {
 		return internalEndPoint;
 	}
@@ -148,17 +159,7 @@ public class NetEndPoint extends EndPoint {
 		return receivedPackages;
 	}
 	
-	//method
-	/**
-	 * Lets this zeta end point return and remove the received package with the given index.
-	 * 
-	 * @param index
-	 * @return the reply with the given index
-	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
-	 */
-	private final Package getAndRemoveReceivedPackage(final int index) {
-		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
-	}
+
 	
 	//method
 	/**
@@ -177,15 +178,6 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @param index
-	 * @return true if this zeta end point has received a package with the given index.
-	 */
-	private final boolean receivedPackage(final int index) {
-		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
-	}
-	
-	//method
-	/**
 	 * Lets this zeta end point receive the given package.
 	 * 
 	 * @param package_
@@ -198,7 +190,9 @@ public class NetEndPoint extends EndPoint {
 				
 				try {
 					final String reply = getRefReplier().getReply(package_.getRefContent());
-					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+					if (isOpen()) {
+						send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+					}
 				}
 				catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
@@ -209,6 +203,27 @@ public class NetEndPoint extends EndPoint {
 			default:
 				getRefReceivedPackages().addAtEnd(package_);
 		}
+	}
+	
+	//method
+	/**
+	 * Lets this zeta end point return and remove the received package with the given index.
+	 * 
+	 * @param index
+	 * @return the reply with the given index
+	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
+	 */
+	private final Package getAndRemoveReceivedPackage(final int index) {
+		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
+	}
+	
+	//method
+	/**
+	 * @param index
+	 * @return true if this zeta end point has received a package with the given index.
+	 */
+	private final boolean receivedPackage(final int index) {
+		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
 	}
 	
 	//method
@@ -236,6 +251,10 @@ public class NetEndPoint extends EndPoint {
 		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
 		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
 		
+		if (response == null) {
+			return null;
+		}
+		
 		//Enumerates the response.
 		switch (response.getMessageRole()) {
 			case SUCCESS_RESPONSE:
@@ -247,10 +266,7 @@ public class NetEndPoint extends EndPoint {
 		}
 	}
 
-	@Override
-	public boolean hasTarget() {
-		return internalEndPoint.hasTarget();
-	}
+
 
 	//method
 	/**
@@ -266,7 +282,10 @@ public class NetEndPoint extends EndPoint {
 		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (!receivedPackage(index)) {
 			
-			assertIsOpen();
+			//Handles the case that the current NetEndPoint is closed.
+			if (isClosed()) {
+				return null;
+			}
 			
 			//This statement, which is actually unnecessary, makes that the current loop is not optimized away.
 			System.err.flush();
