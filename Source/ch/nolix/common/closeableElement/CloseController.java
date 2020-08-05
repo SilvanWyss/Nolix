@@ -111,7 +111,7 @@ public final class CloseController {
 	 * @param parentClosePool
 	 * @throws ArgumentIsNullException if the given parentClosePool is null.
 	 */
-	final void setParentCloseController(final ClosePool parentClosePool) {
+	final void setParentClosePool(final ClosePool parentClosePool) {
 		
 		//Asserts that the given parentClosePool is not null.
 		Validator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();

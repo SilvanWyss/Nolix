@@ -7,19 +7,18 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.state.Openness;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2020-07
- * @lines 150
+ * @lines 140
  */
 final class ClosePool {
 	
 	//attribute
-	private Openness state = Openness.OPEN;
+	private boolean closed = false;
 	
 	//multi-attribute
 	private final LinkedList<ICloseableElement> elements = new LinkedList<>();
@@ -31,10 +30,6 @@ final class ClosePool {
 	 * @param element
 	 */
 	public ClosePool(final ICloseableElement element) {
-		
-		//TODO: Handle elements under construction more suitable.
-		//The given element is supposed to be under construction.
-		
 		elements.addAtEnd(element);
 	}
 	
@@ -56,11 +51,11 @@ final class ClosePool {
 		assertIsOpen();
 		
 		//Asserts that the current ClosePool does not contain already the given element.
-		assertDoesNotContainer(element);
+		assertDoesNotContain(element);
 		
 		//Create close dependencies to the given element.
-		final var additionalElements = getRefCloseDependenciesOf(element);
-		additionalElements.forEach(ae -> ae.getRefCloseController().setParentCloseController(this));
+		final var additionalElements = element.getRefCloseController().getRefCloseDependencies();
+		additionalElements.forEach(ae -> ae.getRefCloseController().setParentClosePool(this));
 		elements.addAtEnd(additionalElements);
 	}
 	
@@ -71,7 +66,7 @@ final class ClosePool {
 	public void close() {
 		
 		//Handles the case that the current ClosePool is open.
-		if (state == Openness.OPEN) {
+		if (isOpen()) {
 			closeWhenOpen();
 		}
 	}
@@ -81,7 +76,15 @@ final class ClosePool {
 	 * @return true if the current {@link ClosePool} is closed.
 	 */
 	public boolean isClosed() {
-		return state == Openness.CLOSED;
+		return closed;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link ClosePool} is open.
+	 */
+	public boolean isOpen() {
+		return !isClosed();
 	}
 	
 	//method
@@ -106,7 +109,7 @@ final class ClosePool {
 	 * @param element
 	 * @throws InvalidArgumentException if the current {@link ClosePool} contains already the given element.
 	 */
-	private void assertDoesNotContainer(final ICloseableElement element) {
+	private void assertDoesNotContain(final ICloseableElement element) {
 		
 		//Asserts that the current ClosePool does not contain the given element.
 		if (contains(element)) {
@@ -121,7 +124,7 @@ final class ClosePool {
 	private void assertIsOpen() {
 		
 		//Asserts that the current ClosePool is open.
-		if (state != Openness.OPEN) {
+		if (!isOpen()) {
 			throw new ClosedArgumentException(this);
 		}
 	}
@@ -131,23 +134,11 @@ final class ClosePool {
 	 * Closes the current {@link ClosePool} for the case when it is open.
 	 */
 	private void closeWhenOpen() {
-		
+				
 		//Sets the current CloseController closing.
-		state = Openness.CLOSING;
+		closed = true;
 		
 		//Lets note all elements of the current CloseController run their probable pre-close action.
 		elements.forEachWithContinuing(e -> e.getRefCloseController().runProbablePreCloseAction());
-					
-		//Sets the current CloseController closed.
-		state = Openness.CLOSED;
-	}
-
-	//method
-	/**
-	 * @param element
-	 * @return the close dependencies of the given element.
-	 */
-	private LinkedList<ICloseableElement> getRefCloseDependenciesOf(final ICloseableElement element) {
-		return new LinkedList<>(element.getRefCloseController().getRefCloseDependencies()).addAtEnd(element);
 	}
 }
