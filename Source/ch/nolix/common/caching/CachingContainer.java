@@ -8,6 +8,7 @@ import java.util.Iterator;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
@@ -16,7 +17,7 @@ import ch.nolix.common.validator.Validator;
 public final class CachingContainer<E> implements IContainer<E> {
 	
 	//constant
-	private static final String AUTO_ID_PREFIX = "$";
+	private static final String AUTO_ID_PREFIX = "Z";
 	
 	//attribute
 	private long autoIdCounter = 0;
@@ -25,8 +26,14 @@ public final class CachingContainer<E> implements IContainer<E> {
 	private final LinkedList<Pair<String, E>> elements = new LinkedList<>();
 	
 	//method
-	public boolean containsId(final String id) {
+	public boolean containsWithId(final String id) {
 		return elements.contains(e -> e.getRefElement1().equals(id));
+	}
+	
+	//method
+	@Override
+	public int getElementCount() {
+		return elements.getElementCount();
 	}
 	
 	//method
@@ -35,7 +42,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	public String getIdOfOrNull(final E element) {
+	public SingleContainer<String> getOptionallyIdOf(final E element) {
 		
 		final var pair = elements.getRefFirstOrNull(e -> e.getRefElement2().equals(element));
 		
@@ -43,7 +50,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 			return null;
 		}
 		
-		return pair.getRefElement1();
+		return new SingleContainer<>(pair.getRefElement1());
 	}
 	
 	//method
@@ -59,22 +66,31 @@ public final class CachingContainer<E> implements IContainer<E> {
 	
 	//method
 	@Override
-	public int getElementCount() {
-		return elements.getElementCount();
-	}
-	
-	//method
-	@Override
 	public Iterator<E> iterator() {
 		return new CachingContainerIterator<>(elements.iterator());
 	}
 	
 	//method
+	public String registerAndGetId(final E element) {
+		
+		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		
+		assertDoesNotContain(element);
+		
+		final var id = createNextAutoId();
+		elements.addAtEnd(new Pair<>(id, element));
+		
+		return id;
+	}
+
+	//method
 	public void registerAtId(final String id, final E element) {
 		
 		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
 		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		
 		assertDoesNotContainId(id);
+		assertDoesNotContain(element);
 		
 		elements.addAtEnd(new Pair<>(id, element));
 	}
@@ -98,8 +114,15 @@ public final class CachingContainer<E> implements IContainer<E> {
 	}
 	
 	//method
-	private void assertDoesNotContainId(String id) {
-		if (containsId(id)) {
+	private void assertDoesNotContain(final E element) {
+		if (contains(element)) {
+			throw new InvalidArgumentException(this, "contains already the given element '" + element + "'");
+		}
+	}
+	
+	//method
+	private void assertDoesNotContainId(final String id) {
+		if (containsWithId(id)) {
 			throw new InvalidArgumentException(VariableNameCatalogue.ID, id, "is already used");
 		}
 	}
@@ -108,7 +131,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	private String createNextAutoId() {
 		
 		autoIdCounter++;
-		while (containsId(AUTO_ID_PREFIX + autoIdCounter)) {
+		while (containsWithId(AUTO_ID_PREFIX + autoIdCounter)) {
 			autoIdCounter++;
 		}
 		
