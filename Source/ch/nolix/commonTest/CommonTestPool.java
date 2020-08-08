@@ -3,6 +3,7 @@ package ch.nolix.commonTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestPool;
+import ch.nolix.commonTest.cachingContainerTest.CachingContainerTestPool;
 import ch.nolix.commonTest.chainedNodeTest.ChainedNodeTestPool;
 import ch.nolix.commonTest.commonTypeHelperTest.CommonTypeHelpersTestPool;
 import ch.nolix.commonTest.commonTypeWrapperTest.CommonTypeWrapperTestPool;
@@ -30,6 +31,7 @@ public final class CommonTestPool extends TestPool {
 	 */
 	public CommonTestPool() {
 		super(
+			new CachingContainerTestPool(),
 			new CommonTypeHelpersTestPool(),
 			new CommonTypeWrapperTestPool(),
 			new ContainerTestPool(),
