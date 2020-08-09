@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2020-01
  * @param <E> The type of the element of a {@link SingleContainer}.
- * @lines 90
+ * @lines 100
  */
 public final class SingleContainer<E> implements IContainer<E> {
 	
@@ -43,6 +43,15 @@ public final class SingleContainer<E> implements IContainer<E> {
 		
 		//Sets the element of the current SingleContainer.
 		this.element = element;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isEmpty() {
+		return (element == null);
 	}
 	
 	//method
