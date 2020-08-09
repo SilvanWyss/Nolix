@@ -21,7 +21,8 @@ public final class ContainerTestPool extends TestPool {
 			GapMatrixTest.class,
 			LinkedListTest.class,
 			MatrixTest.class,
-			ReadContainerTest.class
+			ReadContainerTest.class,
+			SingleContainerTest.class
 		);
 	}
 }
