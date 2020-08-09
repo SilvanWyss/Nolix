@@ -47,7 +47,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 		final var pair = elements.getRefFirstOrNull(e -> e.getRefElement2().equals(element));
 		
 		if (pair == null) {
-			return null;
+			return new SingleContainer<>();
 		}
 		
 		return new SingleContainer<>(pair.getRefElement1());
