@@ -285,7 +285,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		
 		if (idContainer.isEmpty()) {
 			
-			final var id = imageCachingContainer.registerIfNotRegisteredAndGetId(image);
+			final var id = imageCachingContainer.registerAndGetId(image);
 			
 			appendPaintCommand(
 				CanvasGUIProtocol.REGISTER_IMAGE_HEADER
@@ -295,8 +295,10 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 				+ image.getSpecification()
 				+ ")"
 			);
+			
+			return id;
 		}
 		
-		return idContainer.getRefFirst();
+		return idContainer.getRefElement();
 	}
 }
