@@ -130,7 +130,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//attribute
 	private final Matrix<Color> pixels;
 	
-	//optional attribute
+	//optional attributes
+	private Node pixelArraySpecification;
 	private BufferedImage bufferedImage;
 	
 	//constructor
@@ -191,11 +192,10 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
-				
-		final var pixelArraySpecification =	new Node(PIXEL_ARRAY_HEADER);
-		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue()));
+		
+		generatePixelArraySpecificationIfNeeded();		
 		attributes.addAtEnd(pixelArraySpecification);
-				
+		
 		return attributes;
 	}
 	
@@ -223,7 +223,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	@Override
 	public Image reset() {
 		
-		deleteBufferedImage();
+		deletePixelArraySpecificationAndBufferedImage();
 		
 		final var pixelCount = getPixelCount();
 		for (var i = 1; i <= pixelCount; i++) {
@@ -246,7 +246,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public Image setPixel(int xPosition, int yPosition, final Color color) {
 		
-		deleteBufferedImage();
+		deletePixelArraySpecificationAndBufferedImage();
 		
 		pixels.setAt(yPosition, xPosition, color);
 		
@@ -256,7 +256,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public Image setPixelArray(final Iterable<Color> pixels) {
 		
-		deleteBufferedImage();
+		deletePixelArraySpecificationAndBufferedImage();
 		
 		final var pixelContainer = new ReadContainer<Color>(pixels);
 		
@@ -358,7 +358,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//method
-	private void deleteBufferedImage() {
+	private void deletePixelArraySpecificationAndBufferedImage() {
+		pixelArraySpecification = null;
 		bufferedImage = null;
 	}
 	
@@ -386,6 +387,19 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 				raster.setSample(x, y, 2, pixel.getBlueValue());
 			}
 		}	
+	}
+	
+	//method
+	private void generatePixelArraySpecificationIfNeeded() {
+		if (pixelArraySpecification == null) {
+			generatePixelArraySpecificationWhenNeeded();
+		}
+	}
+	
+	//method
+	private void generatePixelArraySpecificationWhenNeeded() {
+		pixelArraySpecification =	new Node(PIXEL_ARRAY_HEADER);
+		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue()));
 	}
 	
 	//method
