@@ -382,7 +382,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		final var id = registerImageCommand.getAttributeAt(1).toString();
 		final var image = Image.fromSpecification(registerImageCommand.getAttributeAt(2).toNode());
-				
+		
 		return pr -> pr.getRefPainterByIndex(painterIndex).registerImageAtId(id, image);
 	}
 	

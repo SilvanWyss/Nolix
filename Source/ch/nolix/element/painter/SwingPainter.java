@@ -162,6 +162,11 @@ public final class SwingPainter implements IPainter {
 	//method
 	@Override
 	public void registerImageAtId(final String id, final Image image) {
+		
+		if (imageCache.containsWithId(id)) {
+			return;
+		}
+		
 		imageCache.registerAtId(id, image);
 	}
 	

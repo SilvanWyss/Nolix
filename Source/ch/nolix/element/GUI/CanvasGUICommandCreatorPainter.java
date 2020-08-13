@@ -224,6 +224,10 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void registerImageAtId(final String id, final Image image) {
 		
+		if (imageCachingContainer.containsWithId(id)) {
+			return;
+		}
+		
 		imageCachingContainer.registerAtId(id, image);
 		
 		appendPaintCommand(
