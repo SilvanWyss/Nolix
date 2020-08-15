@@ -4,6 +4,7 @@ package ch.nolix.system.databaseSchemaAdapter;
 //own imports
 import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
@@ -31,7 +32,17 @@ public final class EntitySet implements Named {
 	private DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter;
 	
 	//multi-attribute
-	private final LinkedList<Column> columns;
+	private final LinkedList<Column> columns = new LinkedList<>();
+	
+	//constructor
+	public EntitySet(final String name, final IContainer<Column> columns) {
+		
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		
+		this.name = name;
+		
+		addColumns(columns);
+	}
 	
 	//constructor
 	<E extends Entity>
@@ -40,11 +51,12 @@ public final class EntitySet implements Named {
 		name = new EntityType<E>(entityClass).getName();
 		
 		final var entityType = new EntityType<E>(entityClass);
-				
-		columns =
-		entityType
-		.getColumns()
-		.to(c -> new Column(c.getHeader(), c.getDataType()));
+			
+		addColumns(
+			entityType
+			.getColumns()
+			.to(c -> new Column(c.getHeader(), c.getDataType()))
+		);
 	}
 	
 	//method
@@ -254,6 +266,11 @@ public final class EntitySet implements Named {
 	//method
 	private void addColumn(final String header, final DataType<?> dataType) {
 		addColumn(new Column(header, dataType));
+	}
+	
+	//method
+	private void addColumns(final IContainer<Column> columns) {
+		columns.forEach(this::addColumn);
 	}
 	
 	//method
