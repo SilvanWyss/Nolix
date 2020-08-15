@@ -6,7 +6,10 @@ import ch.nolix.common.SQL.SQLDatabaseEngine;
 import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.system.dataType.DataType;
 import ch.nolix.system.dataType.MultiReferenceType;
 import ch.nolix.system.dataType.MultiValueType;
@@ -22,25 +25,22 @@ public final class EntitySet implements Named {
 	
 	//attributes
 	private final String name;
-	private final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter;
 	private EntitySetState state = EntitySetState.NEW;
+	
+	//optional attribute
+	private DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter;
 	
 	//multi-attribute
 	private final LinkedList<Column> columns;
 	
 	//constructor
 	<E extends Entity>
-	EntitySet(
-		final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter,
-		final Class<E> entityClass
-	) {
+	EntitySet(final Class<E> entityClass) {
 		
 		name = new EntityType<E>(entityClass).getName();
 		
 		final var entityType = new EntityType<E>(entityClass);
-		
-		this.parentDatabaseSchemaAdapter = parentDatabaseSchemaAdapter;
-		
+				
 		columns =
 		entityType
 		.getColumns()
@@ -179,7 +179,7 @@ public final class EntitySet implements Named {
 				
 				state = EntitySetState.EDITED;
 				
-				parentDatabaseSchemaAdapter.noteMutatedEntitySet(this);
+				getParentDatabaseSchemaAdapter().noteMutatedEntitySet(this);
 				
 				break;
 			case NEW:
@@ -209,6 +209,18 @@ public final class EntitySet implements Named {
 		}
 	}
 	
+	//method
+	final void setParentSchemaAdapter(final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter) {
+		
+		Validator.assertThat(parentDatabaseSchemaAdapter).thatIsNamed(DatabaseSchemaAdapter.class).isNotNull();
+		
+		assertDoesNotBelongToDatabaseSchemaAdapter();
+		
+		this.parentDatabaseSchemaAdapter = parentDatabaseSchemaAdapter;
+	}
+	
+
+
 	//method
 	final void setPersisted() {
 		switch (getState()) {
@@ -242,6 +254,33 @@ public final class EntitySet implements Named {
 	//method
 	private void addColumn(final String header, final DataType<?> dataType) {
 		addColumn(new Column(header, dataType));
+	}
+	
+	//method
+	private void assertBelongsToDatabaseSchemaAdapter() {
+		if (belongsToDatabaseSchemaAdapter()) {
+			throw new ArgumentDoesNotBelongToParentException(this, DatabaseSchemaAdapter.class);
+		}
+	}
+	
+	//method
+	private void assertDoesNotBelongToDatabaseSchemaAdapter() {
+		if (belongsToDatabaseSchemaAdapter()) {
+			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentDatabaseSchemaAdapter());
+		}
+	}
+	
+	//method
+	private boolean belongsToDatabaseSchemaAdapter() {
+		return (parentDatabaseSchemaAdapter != null);
+	}
+
+	//method
+	private DatabaseSchemaAdapter<?> getParentDatabaseSchemaAdapter() {
+		
+		assertBelongsToDatabaseSchemaAdapter();
+		
+		return parentDatabaseSchemaAdapter;
 	}
 	
 	//method

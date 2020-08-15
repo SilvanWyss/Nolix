@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalSkillAPI.IFluentObject;
@@ -17,7 +18,7 @@ import ch.nolix.system.entity.Entity;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 180
+ * @lines 190
  * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
  */
 public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
@@ -38,7 +39,8 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		.isBiggerThan(30)
 		.thenRequireFeature(DatabaseUltimate.class);
 		
-		final var entitySet = new EntitySet(this, entityClass);
+		final var entitySet = new EntitySet(entityClass);
+		entitySet.setParentSchemaAdapter(this);
 		
 		supposeDoesNotContainEntitySet(entitySet.getName());
 		
@@ -163,7 +165,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	//method declaration
 	private LinkedList<EntitySet> getEntitySetsFromDatabase() {
 		//TODO: Create GeneralEntity.
-		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));
+		return getEntitySetAdapters().to(es -> new EntitySet(Entity.class));
 	}
 	
 	//method
