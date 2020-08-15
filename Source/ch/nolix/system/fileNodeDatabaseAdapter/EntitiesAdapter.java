@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseAdapter;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.EntityAccessor;
 
 //class
 public final class EntitiesAdapter<E extends Entity> {
@@ -29,7 +29,7 @@ public final class EntitiesAdapter<E extends Entity> {
 	//method
 	public void add(final E entity) {
 		
-		EntityAccessor.setId(entity, getNextId());
+		Validator.assertThat(entity).thatIsNamed(Entity.class).isNotNull();
 		
 		entitiesSpecification.addAttribute(entity.getRowSpecification());
 	}

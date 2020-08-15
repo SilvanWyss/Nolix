@@ -4,6 +4,7 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -23,11 +24,14 @@ import ch.nolix.element.elementAPI.IElement;
 //class
 public class Entity implements IElement, OptionalIdentified {
 	
+	//static attribute
+	private long latestCreatedId = -1;
+	
 	//attribute
+	private long id = createNextId();
 	private EntityState state = EntityState.NEW;
 	
-	//optional attributes
-	private long id = -1;
+	//optional attribute
 	private IEntitySet<Entity> parentEntitySet;
 	
 	//multi-attribute
@@ -416,6 +420,18 @@ public class Entity implements IElement, OptionalIdentified {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
 		.forEach(br -> br.supposeCanReferenceBackAdditionally(entity, referencingPropertyHeader));
+	}
+	
+	//method
+	private long createNextId() {
+		
+		final var preId = System.currentTimeMillis();
+		
+		final var lId = (preId == latestCreatedId) ? preId + 1 : preId;
+		
+		latestCreatedId = lId;
+		
+		return lId;
 	}
 	
 	//method
