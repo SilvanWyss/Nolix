@@ -20,12 +20,13 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 250
+ * @lines 270
  */
 public final class Sequencer {
 	
-	//static attribute
+	//static attributes
 	private static final JobPool jobPool = new JobPool();
+	private static final ActionMediator actionMediator = new ActionMediator();
 	
 	//static method
 	/**
@@ -192,7 +193,7 @@ public final class Sequencer {
 	 * @param condition
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
-	public static void waitAsLongAs(final IBooleanGetter condition) {
+	public static ActionMediator waitAsLongAs(final IBooleanGetter condition) {
 		
 		//Asserts that the given condition is not null.
 		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
@@ -208,14 +209,19 @@ public final class Sequencer {
 				waitForMilliseconds(100);
 			}
 		}
+		
+		return actionMediator;
 	}
 	
 	//static method
 	/**
 	 * Waits for a second.
 	 */
-	public static void waitForASecond() {
+	public static ActionMediator waitForASecond() {
+		
 		Waiter.waitForSeconds(1);
+		
+		return actionMediator;
 	}
 	
 	//static method
@@ -225,8 +231,11 @@ public final class Sequencer {
 	 * @param durationInMilliseconds
 	 * @throws NegativeArgumentException if the given durationInMilliseconds is negative.
 	 */
-	public static void waitForMilliseconds(final int durationInMilliseconds) {
+	public static ActionMediator waitForMilliseconds(final int durationInMilliseconds) {
+		
 		Waiter.waitForMilliseconds(durationInMilliseconds);
+		
+		return actionMediator;
 	}
 	
 	//static method
@@ -236,8 +245,11 @@ public final class Sequencer {
 	 * @param durationInSeconds
 	 * @throws NegativeArgumentException if the given durationInSeconds is negative.
 	 */
-	public static void waitForSeconds(final int durationInSeconds) {
+	public static ActionMediator waitForSeconds(final int durationInSeconds) {
+		
 		Waiter.waitForSeconds(durationInSeconds);
+		
+		return actionMediator;
 	}
 	
 	//static method
@@ -247,8 +259,11 @@ public final class Sequencer {
 	 * @param condition
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
-	public static void waitUntil(final IBooleanGetter condition) {
+	public static ActionMediator waitUntil(final IBooleanGetter condition) {
+		
 		waitAsLongAs(() -> !condition.getOutput());
+		
+		return actionMediator;
 	}
 
 	//visibility-reducing constructor
