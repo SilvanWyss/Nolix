@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.schemaDataType;
 
-//own import
-import ch.nolix.system.databaseSchemaAdapter.EntitySet;
-
 //class
 public abstract class BaseSchemaValueType<V> extends SchemaDataType<V> {
 	
