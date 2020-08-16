@@ -20,9 +20,10 @@ import ch.nolix.system.dataType.ReferenceType;
 import ch.nolix.system.dataType.ValueType;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
+import ch.nolix.system.schemaDataType.IEntitySet;
 
 //class
-public final class EntitySet implements Named {
+public final class EntitySet implements IEntitySet, Named {
 	
 	//attributes
 	private final String name;

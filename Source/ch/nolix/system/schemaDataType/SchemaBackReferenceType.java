@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.system.schemaDataType;
 
-//own imports
-import ch.nolix.system.databaseSchemaAdapter.EntitySet;
+//own import
 import ch.nolix.system.entity.PropertyKind;
 
 //class
 public final class SchemaBackReferenceType extends BaseSchemaBackReferenceType {
 	
 	//constructor
-	public SchemaBackReferenceType(final EntitySet referencedEntitySet) {
+	public SchemaBackReferenceType(final IEntitySet referencedEntitySet) {
 		super(referencedEntitySet);
 	}
 	

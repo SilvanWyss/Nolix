@@ -3,7 +3,6 @@ package ch.nolix.system.schemaDataType;
 
 //own imports
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.entity.PropertyKind;
 
 //class
@@ -41,8 +40,8 @@ public abstract class SchemaDataType<C> {
 	public abstract boolean isAnyValueType();
 	
 	//method declaration
-	public abstract boolean references(EntitySet entitySet);
+	public abstract boolean references(IEntitySet entitySet);
 	
 	//method declaration
-	public abstract boolean referencesBack(EntitySet entitySet);
+	public abstract boolean referencesBack(IEntitySet entitySet);
 }

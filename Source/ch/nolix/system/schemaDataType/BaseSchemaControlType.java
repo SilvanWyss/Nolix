@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.schemaDataType;
 
-//own import
-import ch.nolix.system.databaseSchemaAdapter.EntitySet;
-
 //class
 public abstract class BaseSchemaControlType<C> extends SchemaDataType<C>{
 	
@@ -38,13 +35,13 @@ public abstract class BaseSchemaControlType<C> extends SchemaDataType<C>{
 	
 	//method
 	@Override
-	public final boolean references(final EntitySet entitySet) {
+	public final boolean references(final IEntitySet entitySet) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBack(final EntitySet entitySet) {
+	public final boolean referencesBack(final IEntitySet entitySet) {
 		return false;
 	}
 }
