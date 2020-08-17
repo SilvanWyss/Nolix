@@ -11,22 +11,22 @@ import ch.nolix.common.invalidArgumentException.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;
-import ch.nolix.system.dataType.DataType;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
+import ch.nolix.system.schemaDataType.SchemaDataType;
 
 //class
 public final class Column implements Headered, IElement {
 	
 	//attributes
 	private final String header;
-	private final DataType<?> dataType;
+	private final SchemaDataType<?> dataType;
 	
 	//constructor
-	Column(final String header,	final DataType<?> valueType) {
+	Column(final String header,	final SchemaDataType<?> valueType) {
 		
 		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
-		Validator.assertThat(valueType).isOfType(DataType.class);
+		Validator.assertThat(valueType).isOfType(SchemaDataType.class);
 		
 		this.header = header;
 		this.dataType = valueType;
@@ -53,7 +53,7 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	public DataType<?> getDataType() {
+	public SchemaDataType<?> getDataType() {
 		return dataType;
 	}
 	
@@ -97,6 +97,11 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
+	public boolean isAnyControlColumn() {
+		return dataType.isAnyControlType();
+	}
+	
+	//method
 	public boolean isAnyDataColumn() {
 		return dataType.isAnyValueType();
 	}
@@ -104,10 +109,5 @@ public final class Column implements Headered, IElement {
 	//method
 	public boolean isAnyReferenceColumn() {
 		return dataType.isAnyReferenceType();
-	}
-	
-	//method
-	public boolean isAnyTechnicalColumn() {
-		return dataType.isAnyTechnicalType();
 	}
 }

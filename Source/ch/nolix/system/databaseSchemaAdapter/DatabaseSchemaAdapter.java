@@ -29,7 +29,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	private final LinkedList<EntitySet> mutatedEntitySetsInOrder = new LinkedList<>();
 	
 	//method
-	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {
+	public final  DSA addEntitySet(final EntitySet entitySet) {
 		
 		CentralLicenseManager
 		.when(loadedAndCreatedEntitySets.getElementCount())
@@ -39,23 +39,12 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		.isBiggerThan(30)
 		.thenRequireFeature(DatabaseUltimate.class);
 		
-		final var entitySet = new EntitySet(entityClass);
 		entitySet.setParentSchemaAdapter(this);
 		
 		supposeDoesNotContainEntitySet(entitySet.getName());
 		
 		loadedAndCreatedEntitySets.addAtEnd(entitySet);
 		noteMutatedEntitySet(entitySet);
-		
-		return asConcrete();
-	}
-	
-	//public final DSA addOrReplaceEntitySet(final Class<Entity> entityClass)
-	
-	//method
-	public final DSA addSchema(final Schema schema) {
-		
-		schema.getRefEntityTypes().forEach(et -> addEntitySet(et.getRefEntityClass()));
 		
 		return asConcrete();
 	}
@@ -164,8 +153,9 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//method declaration
 	private LinkedList<EntitySet> getEntitySetsFromDatabase() {
+		
 		//TODO: Create GeneralEntity.
-		return getEntitySetAdapters().to(es -> new EntitySet(Entity.class));
+		return null;
 	}
 	
 	//method

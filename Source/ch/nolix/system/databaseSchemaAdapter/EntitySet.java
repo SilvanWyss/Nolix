@@ -21,6 +21,13 @@ import ch.nolix.system.dataType.ValueType;
 import ch.nolix.system.databaseAdapter.EntityType;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.schemaDataType.IEntitySet;
+import ch.nolix.system.schemaDataType.SchemaDataType;
+import ch.nolix.system.schemaDataType.SchemaMultiReferenceType;
+import ch.nolix.system.schemaDataType.SchemaMultiValueType;
+import ch.nolix.system.schemaDataType.SchemaOptionalReferenceType;
+import ch.nolix.system.schemaDataType.SchemaOptionalValueType;
+import ch.nolix.system.schemaDataType.SchemaReferenceType;
+import ch.nolix.system.schemaDataType.SchemaValueType;
 
 //class
 public final class EntitySet implements IEntitySet, Named {
@@ -45,25 +52,10 @@ public final class EntitySet implements IEntitySet, Named {
 		addColumns(columns);
 	}
 	
-	//constructor
-	<E extends Entity>
-	EntitySet(final Class<E> entityClass) {
-		
-		name = new EntityType<E>(entityClass).getName();
-		
-		final var entityType = new EntityType<E>(entityClass);
-			
-		addColumns(
-			entityType
-			.getColumns()
-			.to(c -> new Column(c.getHeader(), c.getDataType()))
-		);
-	}
-	
 	//method
 	public EntitySet addColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new ValueType<>(valueClass));
+		addColumn(header, new SchemaValueType(valueClass));
 		
 		return this;
 	}
@@ -71,15 +63,15 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addMultiColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new MultiValueType<>(valueClass));
+		addColumn(header, new SchemaMultiValueType(valueClass));
 		
 		return this;
 	}
 	
 	//method
-	public EntitySet addMultiReferenceColumn(final String header, final Class<Entity> entityClass) {
+	public EntitySet addMultiReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 		
-		addColumn(header, new MultiReferenceType<Entity>(entityClass));
+		addColumn(header, new SchemaMultiReferenceType(referencedEntitySet));
 		
 		return this;
 	}
@@ -87,23 +79,23 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addOptionalColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new OptionalValueType<>(valueClass));
+		addColumn(header, new SchemaOptionalValueType<>(valueClass));
 		
 		return this;
 	}
 	
 	//method
-	public EntitySet addOptionalReferenceColumn(final String header, final Class<Entity> entityClass) {
+	public EntitySet addOptionalReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 		
-		addColumn(header, new OptionalReferenceType<>(entityClass));
+		addColumn(header, new SchemaOptionalReferenceType(referencedEntitySet));
 	
 		return this;
 	}
 		
 	//method
-	public EntitySet addReferenceColumn(final String header, final Class<Entity> entityClass) {
+	public EntitySet addReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 				
-		addColumn(header, new ReferenceType<Entity>(entityClass));
+		addColumn(header, new SchemaReferenceType(referencedEntitySet));
 		
 		return this;
 	}
@@ -265,7 +257,7 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	private void addColumn(final String header, final DataType<?> dataType) {
+	private void addColumn(final String header, final SchemaDataType<?> dataType) {
 		addColumn(new Column(header, dataType));
 	}
 	

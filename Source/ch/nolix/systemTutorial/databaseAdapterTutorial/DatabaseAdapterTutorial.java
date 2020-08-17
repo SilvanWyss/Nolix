@@ -19,7 +19,7 @@ public final class DatabaseAdapterTutorial {
 		
 		//Applies a PetDatabaseSchema to the petDatabase.
 		petDatabaseSchemaAdapter
-		.addSchema(new PetDatabaseSchema())
+		//.addSchema(new PetDatabaseSchema()) //TODO: Create IDatabaseSchema.
 		.saveChanges();
 		
 		//Creates a DatabaseAdapter for the petDatabase.

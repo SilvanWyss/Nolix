@@ -13,7 +13,7 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		
 		if (!sqlDatabaseSchemaAdapter.databaseIsInitialized()) {
 			sqlDatabaseSchemaAdapter
-			.addEntitySet(Person.class)
+			//.addEntitySet(Person.class) //TODO: Create IEntitySet.
 			.saveChanges();
 		}
 	}
