@@ -39,7 +39,7 @@ public final class ServiceProvider {
 		final Class<I> interface_,
 		final S service
 	) {
-		register(interface_, service, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+		register(interface_, service, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method
@@ -60,7 +60,7 @@ public final class ServiceProvider {
 		.isNotNull();
 		
 		switch (writeMode) {
-			case THROW_EXCEPTION_WHEN_EXISTS_ALREADY:
+			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 				
 				if (services.putIfAbsent(interface_, service) != null) {
 					throw
@@ -73,10 +73,10 @@ public final class ServiceProvider {
 				}
 				
 				break;
-			case OVERWRITE_WHEN_EXISTS_ALREADY:
+			case OVERWRITE_WHEN_TARGET_EXISTS_ALREADY:
 				services.put(interface_, service);
 				break;
-			case SKIP_WHEN_EXISTS_ALREADY:
+			case SKIP_WHEN_TARGET_EXISTS_ALREADY:
 				services.putIfAbsent(interface_, service);
 				break;
 		}

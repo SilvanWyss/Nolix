@@ -65,7 +65,7 @@ public interface IElement extends TypeRequestable {
 	public default void saveAsTo(final String type, final String path) {
 		
 		//Calls other method.
-		saveAsTo(type, path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+		saveAsTo(type, path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public interface IElement extends TypeRequestable {
 	public default void saveTo(final String filePath) {
 		
 		//Calls other method.
-		saveTo(filePath, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+		saveTo(filePath, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method

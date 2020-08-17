@@ -29,7 +29,7 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 						"The file '" + path + "' exists already. Do you want to overwrite it?"
 					)
 				) {
-					FileSystemAccessor.createFile(path, WriteMode.OVERWRITE_WHEN_EXISTS_ALREADY, bytes);
+					FileSystemAccessor.createFile(path, WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, bytes);
 				}
 			}
 			else {

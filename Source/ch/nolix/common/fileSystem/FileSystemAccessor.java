@@ -76,7 +76,7 @@ public final class FileSystemAccessor {
 	public static FileAccessor createFile(final String path) {
 		
 		//Calls other method.
-		return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+		return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//static method
@@ -102,12 +102,12 @@ public final class FileSystemAccessor {
 			
 			if (!new File(path).createNewFile()) {
 				switch (writeMode) {
-					case OVERWRITE_WHEN_EXISTS_ALREADY:
+					case OVERWRITE_WHEN_TARGET_EXISTS_ALREADY:
 						deleteFileSystemItem(path);
 						return createFile(path);
-					case SKIP_WHEN_EXISTS_ALREADY:
+					case SKIP_WHEN_TARGET_EXISTS_ALREADY:
 						return new FileAccessor(path);
-					case THROW_EXCEPTION_WHEN_EXISTS_ALREADY:
+					case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 						throw new InvalidArgumentException("file system item",	path, "exists already");		
 				}
 			}
@@ -200,7 +200,7 @@ public final class FileSystemAccessor {
 	public static FileAccessor createFile(final String path, final String content) {
 		
 		//Calls other method.
-		return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY, content);
+		return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY, content);
 	}
 	
 	//static method

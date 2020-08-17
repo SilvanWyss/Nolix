@@ -492,7 +492,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void saveToFile(final String path) {
 		
 		//Calls other method.
-		saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+		saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method

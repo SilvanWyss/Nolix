@@ -55,7 +55,7 @@ public final class InstanceProvider {
 	
 	//method
 	public <I, C extends I> RegistrationMediator register(final Class<I> interface_, final Class<C> class_) {
-		return register(interface_, class_, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+		return register(interface_, class_, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method
@@ -76,7 +76,7 @@ public final class InstanceProvider {
 		.isImplementing(interface_);
 		
 		switch (writeMode) {
-			case THROW_EXCEPTION_WHEN_EXISTS_ALREADY:
+			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 				
 				if (classes.putIfAbsent(interface_, class_) != null) {
 					throw
@@ -89,10 +89,10 @@ public final class InstanceProvider {
 				}
 				
 				break;
-			case OVERWRITE_WHEN_EXISTS_ALREADY:
+			case OVERWRITE_WHEN_TARGET_EXISTS_ALREADY:
 				classes.put(interface_, class_);
 				break;
-			case SKIP_WHEN_EXISTS_ALREADY:
+			case SKIP_WHEN_TARGET_EXISTS_ALREADY:
 				classes.putIfAbsent(interface_, class_);
 				break;
 		}
