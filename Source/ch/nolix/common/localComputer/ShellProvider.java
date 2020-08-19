@@ -1,8 +1,11 @@
 //package declaration
 package ch.nolix.common.localComputer;
 
-//Java import
+//Java imports
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 //own imports
 import ch.nolix.common.constant.IPv4Catalogue;
@@ -29,6 +32,16 @@ public final class ShellProvider {
 		}
 		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
+		}
+	}
+	
+	//static method
+	public static void startDefaultWebBrowserOpeningLoopBackAddress() {
+		try {
+			Desktop.getDesktop().browse(new URI("http://" + IPv4Catalogue.LOOP_BACK_ADDRESS));
+		} 
+		catch (final IOException | URISyntaxException exception) {
+			throw new WrapperException(exception);
 		}
 	}
 	
