@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.fileNodeDatabaseAdapter;
+package ch.nolix.system.nodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.common.attributeAPI.Identified;

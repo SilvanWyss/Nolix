@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.fileNodeDatabaseAdapter;
+package ch.nolix.system.nodeDatabaseAdapter;
 
 import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
 import ch.nolix.common.container.LinkedList;

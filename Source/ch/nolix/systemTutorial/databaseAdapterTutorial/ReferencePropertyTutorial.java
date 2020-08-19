@@ -5,8 +5,8 @@ import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.ValueProperty;
 import ch.nolix.system.entity.Reference;
-import ch.nolix.system.fileNodeDatabaseAdapter.NodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
+import ch.nolix.system.nodeDatabaseAdapter.NodeDatabaseAdapter;
 
 public final class ReferencePropertyTutorial {
 	
