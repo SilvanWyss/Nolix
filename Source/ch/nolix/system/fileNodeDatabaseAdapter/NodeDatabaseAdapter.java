@@ -14,7 +14,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IEntitySet;
 
 //class
-public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
+public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//attribute
 	private final BaseNode database;
@@ -23,7 +23,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	private final LinkedList<EntitySetAdapter<Entity>> entitySetAdapters = new LinkedList<>();
 	
 	//constructor
-	public FileNodeDatabaseAdapter(final BaseNode database, final Schema schema) {
+	public NodeDatabaseAdapter(final BaseNode database, final Schema schema) {
 		
 		//Calls constructor of the base class.
 		super(schema);
@@ -46,7 +46,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//constructor
-	public FileNodeDatabaseAdapter(final String fileNodePath, final Schema schema) {
+	public NodeDatabaseAdapter(final String fileNodePath, final Schema schema) {
 		
 		//Calls other constructor.
 		this(new FileNode(fileNodePath), schema);
@@ -55,7 +55,7 @@ public final class FileNodeDatabaseAdapter extends DatabaseAdapter {
 	//method
 	@Override
 	public DatabaseAdapter createNewDatabaseAdapter() {
-		return new FileNodeDatabaseAdapter(database, getSchema());
+		return new NodeDatabaseAdapter(database, getSchema());
 	}
 
 	//method

@@ -4,7 +4,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseAdapter.Schema;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.ValueProperty;
-import ch.nolix.system.fileNodeDatabaseAdapter.FileNodeDatabaseAdapter;
+import ch.nolix.system.fileNodeDatabaseAdapter.NodeDatabaseAdapter;
 import ch.nolix.system.fileNodeDatabaseSchemaAdapter.FileNodeDatabaseSchemaAdapter;
 
 public final class DatabaseAdapterTutorial {
@@ -23,7 +23,7 @@ public final class DatabaseAdapterTutorial {
 		.saveChanges();
 		
 		//Creates a DatabaseAdapter for the petDatabase.
-		final var petDatabaseAdapter = new FileNodeDatabaseAdapter(
+		final var petDatabaseAdapter = new NodeDatabaseAdapter(
 			petDatabase,
 			new PetDatabaseSchema()
 		);
