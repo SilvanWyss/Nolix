@@ -18,6 +18,11 @@ public abstract class BaseBackReferenceType<E extends Entity> extends DataType<E
 	}
 	
 	//method
+	public final String getBackReferencedEntitiesName() {
+		return getRefContentClass().getSimpleName();
+	}
+	
+	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
 		return true;
