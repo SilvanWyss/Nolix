@@ -20,10 +20,10 @@ public abstract class DataType<C> {
 		this.contentClass = contentClass;
 	}
 	
-	//method
+	//method declaration
 	public abstract boolean canReference(Entity entity);
 	
-	//method
+	//method declaration
 	public abstract PropertyKind getPropertyKind();
 	
 	//method
@@ -31,15 +31,15 @@ public abstract class DataType<C> {
 		return contentClass;
 	}
 	
-	//method
+	//method declaration
 	public abstract boolean isAnyBackReferenceType();
 	
-	//method
+	//method declaration
 	public abstract boolean isAnyReferenceType();
 	
-	//method
+	//method declaration
 	public abstract boolean isAnyTechnicalType();
 	
-	//method
+	//method declaration
 	public abstract boolean isAnyValueType();
 }
