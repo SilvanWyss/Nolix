@@ -51,11 +51,24 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
+	public void addColumn(final Column column) {
+		
+		assertDoesNotContainColumn(column.getHeader());
+		
+		columns.addAtEnd(column);
+	}
+	
+	//method
 	public EntitySet addColumn(final String header, final Class<?> valueClass) {
 		
 		addColumn(header, new SchemaValueType<>(valueClass));
 		
 		return this;
+	}
+	
+	//method
+	private void addColumn(final String header, final SchemaDataType<?> dataType) {
+		addColumn(new Column(header, dataType));
 	}
 	
 	//method
@@ -247,20 +260,7 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	private void addColumn(final Column column) {
-		
-		supposeDoesNotContainColumn(column.getHeader());
-		
-		columns.addAtEnd(column);
-	}
-	
-	//method
-	private void addColumn(final String header, final SchemaDataType<?> dataType) {
-		addColumn(new Column(header, dataType));
-	}
-	
-	//method
-	private void addColumns(final IContainer<Column> columns) {
+	public void addColumns(final IContainer<Column> columns) {
 		columns.forEach(this::addColumn);
 	}
 	
@@ -279,25 +279,25 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	private boolean belongsToDatabaseSchemaAdapter() {
-		return (parentDatabaseSchemaAdapter != null);
-	}
-
-	//method
-	private DatabaseSchemaAdapter<?> getParentDatabaseSchemaAdapter() {
-		
-		assertBelongsToDatabaseSchemaAdapter();
-		
-		return parentDatabaseSchemaAdapter;
-	}
-	
-	//method
-	private void supposeDoesNotContainColumn(final String header) {
+	private void assertDoesNotContainColumn(final String header) {
 		if (containsColumn(header)) {
 			throw new InvalidArgumentException(
 				this,
 				"contains a column with the header '" + header + "'"
 			);
 		}
+	}
+	
+	//method
+	private boolean belongsToDatabaseSchemaAdapter() {
+		return (parentDatabaseSchemaAdapter != null);
+	}
+	
+	//method
+	private DatabaseSchemaAdapter<?> getParentDatabaseSchemaAdapter() {
+		
+		assertBelongsToDatabaseSchemaAdapter();
+		
+		return parentDatabaseSchemaAdapter;
 	}
 }
