@@ -35,11 +35,17 @@ public final class EntitySet implements IEntitySet, Named {
 	private final LinkedList<Column> columns = new LinkedList<>();
 	
 	//constructor
-	public EntitySet(final String name, final IContainer<Column> columns) {
+	public EntitySet(final String name) {
 		
 		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
+	}
+	
+	//constructor
+	public EntitySet(final String name, final IContainer<Column> columns) {
+		
+		this(name);
 		
 		addColumns(columns);
 	}
@@ -47,7 +53,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new SchemaValueType(valueClass));
+		addColumn(header, new SchemaValueType<>(valueClass));
 		
 		return this;
 	}
@@ -55,7 +61,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addMultiColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new SchemaMultiValueType(valueClass));
+		addColumn(header, new SchemaMultiValueType<>(valueClass));
 		
 		return this;
 	}
