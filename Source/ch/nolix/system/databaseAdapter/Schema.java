@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -38,6 +40,15 @@ public abstract class Schema {
 	//method
 	public ReadContainer<EntityType<Entity>> getRefEntityTypes() {
 		return new ReadContainer<>(entityTypes);
+	}
+	
+	//method
+	public IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> getSchemaEntitySets() {
+		
+		final var schemaEntitySets = entityTypes.to(EntityType::toEmptySchemaEntitySet);
+		entityTypes.forEach(et -> et.fillUpColumnsInOwnSchemaEntitySetFrom(schemaEntitySets));
+		
+		return schemaEntitySets;
 	}
 	
 	//method

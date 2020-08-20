@@ -161,7 +161,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	private LinkedList<EntitySet> getEntitySetsFromDatabase() {
 		
 		//TODO: Create GeneralEntity.
-		return null;
+		return new LinkedList<>();
 	}
 	
 	//method

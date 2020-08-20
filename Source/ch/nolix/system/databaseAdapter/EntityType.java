@@ -88,6 +88,21 @@ public final class EntityType<E extends Entity> implements Named {
 	}
 	
 	//method
+	public ch.nolix.system.databaseSchemaAdapter.EntitySet toEmptySchemaEntitySet() {
+		return new ch.nolix.system.databaseSchemaAdapter.EntitySet(getName());
+	}
+	
+	//method
+	public void fillUpColumnsInOwnSchemaEntitySetFrom(
+		final IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> entitySets
+	) {
+		
+		final var ownSchemaEntitySet = entitySets.getRefOne(es -> es.hasSameNameAs(this));
+		
+		fillUpColumnsInOnwSchemaEntitySet(ownSchemaEntitySet, entitySets);
+	}
+	
+	//method
 	private void extractColumns() {
 		
 		columns.clear();
@@ -95,5 +110,20 @@ public final class EntityType<E extends Entity> implements Named {
 		for (final var p : createEmptyEntity().getRefProperties()) {
 			columns.addAtBegin(new Column<>(p.getHeader(), DataTypeHelper.createDatatypeFor(p)));
 		}
+	}
+	
+	//method
+	private void fillUpColumnsInOnwSchemaEntitySet(
+		final ch.nolix.system.databaseSchemaAdapter.EntitySet ownEntitySet,
+		final IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> schemaEntitySets
+	) {
+		ownEntitySet.addColumns(getSchemaColumns(schemaEntitySets));
+	}
+	
+	//method
+	private LinkedList<ch.nolix.system.databaseSchemaAdapter.Column> getSchemaColumns(
+		IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> schemaEntitySets
+	) {
+		return getColumns().to(c -> c.toSchemaColumn(schemaEntitySets));
 	}
 }

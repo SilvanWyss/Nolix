@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodeDatabaseAdapter;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -34,6 +35,8 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 		
 		//Sets the database of the current document node database adapter.
 		this.database = database;
+		
+		initializeDatabaseIfNeeded(schema);
 		
 		for (final var a : database.getRefAttributes(a -> a.hasHeader("EntitySet"))) {
 			entitySetAdapters.addAtEnd(

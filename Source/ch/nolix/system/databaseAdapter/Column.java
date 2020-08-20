@@ -4,10 +4,12 @@ package ch.nolix.system.databaseAdapter;
 //own imports
 import ch.nolix.common.attributeAPI.Headered;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.dataType.DataType;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
+import ch.nolix.system.schemaDataType.SchemaDataType;
 
 //class
 public final class Column<C> implements Headered {
@@ -80,5 +82,19 @@ public final class Column<C> implements Headered {
 	//method
 	public boolean isAnyTechnicalColumn() {
 		return dataType.isAnyTechnicalType();
+	}
+	
+	//method
+	public ch.nolix.system.databaseSchemaAdapter.Column toSchemaColumn(
+		final IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> schemaEntitySets
+	) {
+		return new ch.nolix.system.databaseSchemaAdapter.Column(getHeader(), getSchemaDataType(schemaEntitySets));
+	}
+	
+	//method
+	private SchemaDataType<?> getSchemaDataType(
+		final IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> schemaEntitySets
+	) {
+		return dataType.toSchemaDataType(schemaEntitySets);
 	}
 }

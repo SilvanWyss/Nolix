@@ -165,6 +165,17 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		return valueCreator;
 	}
 	
+	//method
+	protected final void initializeDatabaseIfNeeded(final Schema schema) {
+		
+		final var databaseSchemaAdapter = createDatabaseSchemaAdapter();
+		
+		if (!databaseSchemaAdapter.containsEntitySet()) {
+			databaseSchemaAdapter.addEntitySets(schema.getSchemaEntitySets());
+			databaseSchemaAdapter.saveChanges();
+		}
+	}
+	
 	//method declaration
 	protected abstract void saveChangesToDatabase(IContainer<Entity> mutatedEntitiesInOrder);
 }
