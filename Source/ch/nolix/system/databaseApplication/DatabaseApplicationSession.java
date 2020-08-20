@@ -23,7 +23,6 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 		createNewDatabaseAdapter();
 		
 		getRefGUI()
-		.setTitle(getApplicationName())
 		.addLayerOnTop(
 			new VerticalStack(
 				createTitleWidget(),
