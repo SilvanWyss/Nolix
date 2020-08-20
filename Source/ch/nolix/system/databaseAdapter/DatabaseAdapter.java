@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IDatabaseAdapter;
 import ch.nolix.system.entity.IEntitySet;
@@ -66,6 +68,9 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//method declaration
 	public abstract DatabaseAdapter createNewDatabaseAdapter();
 	
+	//method declaration
+	public abstract DatabaseSchemaAdapter<?> createDatabaseSchemaAdapter();
+	
 	//method
 	@Override
 	public final <V> V createValueFromSpecification(final Class<V> type, final BaseNode specificaiton) {
@@ -75,6 +80,11 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//method
 	public final boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
+	}
+	
+	//method
+	public final boolean databaseIsEmpty() {
+		return getRefEntitySets().contains(EntitySet::containsAny);
 	}
 	
 	//method declaration
