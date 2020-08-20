@@ -23,7 +23,7 @@ public final class Column implements Headered, IElement {
 	private final SchemaDataType<?> dataType;
 	
 	//constructor
-	Column(final String header,	final SchemaDataType<?> valueType) {
+	public Column(final String header, final SchemaDataType<?> valueType) {
 		
 		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
 		Validator.assertThat(valueType).isOfType(SchemaDataType.class);
