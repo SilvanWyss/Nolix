@@ -48,6 +48,14 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	}
 	
 	//method
+	public final DSA addEntitySets(final IContainer<EntitySet> entitySets) {
+		
+		entitySets.forEach(this::addEntitySet);
+		
+		return asConcrete();
+	}
+	
+	//method
 	public final boolean containsEntitySet() {
 		return loadedAndCreatedEntitySets.containsAny();
 	}
