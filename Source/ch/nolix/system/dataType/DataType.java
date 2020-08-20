@@ -2,9 +2,11 @@
 package ch.nolix.system.dataType;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
+import ch.nolix.system.schemaDataType.SchemaDataType;
 
 //class
 public abstract class DataType<C> {
@@ -42,4 +44,9 @@ public abstract class DataType<C> {
 	
 	//method declaration
 	public abstract boolean isAnyValueType();
+	
+	//method declaration
+	public abstract SchemaDataType<?> toSchemaDataType(
+		final IContainer<ch.nolix.system.databaseSchemaAdapter.EntitySet> schemaEntitySets
+	);
 }
