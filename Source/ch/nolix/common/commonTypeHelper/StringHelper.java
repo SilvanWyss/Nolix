@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.commonTypeHelper;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -15,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 320
+ * @lines 330
  */
 public final class StringHelper {
 		
@@ -185,7 +186,17 @@ public final class StringHelper {
 		}
 	}
 	
-	
+	//static method
+	/**
+	 * @param string
+	 * @return the long the given string represents.
+	 * @throws InvalidArgumentException if the given string does not represent a long.
+	 */
+	public static long toLong(final String string) {
+		
+		//TODO: Implement this method like the toInt method.
+		return Long.valueOf(string);
+	}
 	
 	//static method
 	/**
