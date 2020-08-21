@@ -12,6 +12,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endPoint5.EndPoint;
 import ch.nolix.common.functionAPI.IElementGetter;
+import ch.nolix.common.generalSkillAPI.Castable;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -24,7 +25,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * @lines 330
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
-public class Application<C extends Client<C>> implements Named {
+public class Application<C extends Client<C>> implements Castable, Named {
 	
 	//attributes
 	private final String name;
