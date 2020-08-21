@@ -15,13 +15,10 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	//attribute
 	private final BaseNode entitySpecification;
 	
-	//constructor
+	//visibility-reducing constructor
 	EntityAdapter(final BaseNode entitySpecification) {
 		
-		Validator
-		.assertThat(entitySpecification)
-		.thatIsNamed("entity specification")
-		.isNotNull();
+		Validator.assertThat(entitySpecification).thatIsNamed("entity specification").isNotNull();
 		
 		this.entitySpecification = entitySpecification;
 	}
@@ -38,7 +35,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	//method
 	@Override
 	public long getId() {
-		return entitySpecification.getFirstAttributeAsInt();
+		return entitySpecification.getFirstAttributeAsLong();
 	}
 	
 	//method
