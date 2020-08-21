@@ -172,14 +172,9 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 		
 		final var newlyLoadedEntities = new LinkedList<E>();
 		
-		for (
-			final var e :
-			parentDatabaseAdapter
-			.getEntitySetAdapter(this)
-			.getEntities()
-		) {
-			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
-			
+		for (final var e :	parentDatabaseAdapter.getEntitySetAdapter(this).getEntities()) {
+			if (loadedAndCreatedEntities.containsNone(e2 -> e2.hasSameIdAs(e))) {
+				
 				if (!e.isPersisted()) {
 					throw new InvalidArgumentException(e, "is not persisted");
 				}
