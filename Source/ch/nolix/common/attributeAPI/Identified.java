@@ -7,7 +7,7 @@ package ch.nolix.common.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 40
+ * @lines 50
  */
 public interface Identified {
 	
@@ -40,5 +40,16 @@ public interface Identified {
 	 */
 	public default boolean hasId(final long id) {
 		return (getId() == id);
+	}
+	
+	//method
+	/**
+	 * @param object
+	 * @return true if the current {@link Identified} has the given id as the given object.
+	 */
+	public default boolean hasSameIdAs(final Identified object) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (object != null && getId() == object.getId());
 	}
 }
