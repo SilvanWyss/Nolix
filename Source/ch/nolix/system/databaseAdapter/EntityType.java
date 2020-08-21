@@ -63,10 +63,15 @@ public final class EntityType<E extends Entity> implements Named {
 		final ValueCreator<BaseNode> valueCreator
 	) {
 		
+		/*
+		 * The order of these instructions is important. The created Entity has to get a persisted state.
+		 * The setValues method can change the persisted state into edited state. This behavior is correct.
+		 * So the Entity has to be set persisted at the end.
+		 */
 		final var entity = createEmptyEntity();
 		EntityAccessor.setId(entity, id);
-		EntityAccessor.setPersisted(entity);
 		EntityAccessor.setValues(entity, valueSpecificationsInOrder, valueCreator);
+		EntityAccessor.setPersisted(entity);
 		
 		return entity;
 	}
