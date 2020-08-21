@@ -45,7 +45,7 @@ public interface Identified {
 	//method
 	/**
 	 * @param object
-	 * @return true if the current {@link Identified} has the given id as the given object.
+	 * @return true if the current {@link Identified} has the same id as the given object.
 	 */
 	public default boolean hasSameIdAs(final Identified object) {
 		
