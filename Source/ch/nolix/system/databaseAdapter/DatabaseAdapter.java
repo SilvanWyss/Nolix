@@ -84,7 +84,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	public final boolean databaseIsEmpty() {
-		return getRefEntitySets().contains(EntitySet::containsAny);
+		return getRefEntitySets().containsNone(EntitySet::containsAny);
 	}
 	
 	//method declaration
