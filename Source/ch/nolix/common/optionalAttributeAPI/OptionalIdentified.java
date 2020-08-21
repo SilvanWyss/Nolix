@@ -7,7 +7,7 @@ package ch.nolix.common.optionalAttributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2019-09
- * @lines 50
+ * @lines 60
  */
 public interface OptionalIdentified {
 	
@@ -49,5 +49,14 @@ public interface OptionalIdentified {
 	 */
 	public default boolean hasId(final long id) {
 		return (hasId() && getId() == id);
+	}
+	
+	//method
+	/**
+	 * @param object
+	 * @return true if the current {@link OptionalIdentified} has the same id as the given object.
+	 */
+	public default boolean hasSameIdAs(final OptionalIdentified object) {
+		return (object != null && object.hasId() && hasId(object.getId()));
 	}
 }
