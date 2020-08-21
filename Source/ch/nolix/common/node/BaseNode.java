@@ -30,7 +30,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 740
+ * @lines 760
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -252,6 +252,17 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
+	 * @return the long the first attribute of the current {@link BaseNode} represents.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} does not have attributes.
+	 * @throws InvalidArgumentException
+	 * if the first attribute of the current {@link BaseNode} does not represent a long.
+	 */
+	public long getFirstAttributeAsLong() {
+		return getRefFirstAttribute().toLong();
+	}
+	
+	//method
+	/**
 	 * @return the boolean the one attribute of the current {@link BaseNode} represents.
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
@@ -288,13 +299,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return the long the first attribute of the current {@link BaseNode} represents.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} does not have attributes.
+	 * @return the long the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 * @throws InvalidArgumentException
-	 * if the first attribute of the current {@link BaseNode} does not represent a long.
+	 * if the one attribute of the current {@link BaseNode} does not represent a long.
 	 */
-	public long getFirstAttributeAsLong() {
-		return getRefFirstAttribute().toLong();
+	public long getOneAttributeAsLong() {
+		return getRefOneAttribute().toLong();
 	}
 	
 	//method
