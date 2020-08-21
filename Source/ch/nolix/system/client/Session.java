@@ -93,6 +93,14 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
+	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
+	 */
+	public Application<C> getParentApplication() {
+		return getParentClient().internalGetParentApplication();
+	}
+	
+	//method
+	/**
 	 * @return the parent client of the current {@link Session}.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
