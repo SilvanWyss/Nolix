@@ -30,7 +30,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 720
+ * @lines 740
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -284,6 +284,17 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public int getOneAttributeAsInt() {
 		return getRefOneAttribute().toInt();
+	}
+	
+	//method
+	/**
+	 * @return the long the first attribute of the current {@link BaseNode} represents.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} does not have attributes.
+	 * @throws InvalidArgumentException
+	 * if the first attribute of the current {@link BaseNode} does not represent a long.
+	 */
+	public long getFirstAttributeAsLong() {
+		return getRefFirstAttribute().toLong();
 	}
 	
 	//method
@@ -559,6 +570,15 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		return new IntPair(getRefAttributeAt(1).toInt(), getRefAttributeAt(2).toInt());
+	}
+	
+	//method
+	/**
+	 * @return the long the current {@link BaseNode} represents.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a long.
+	 */
+	public long toLong() {
+		return StringHelper.toLong(toString());
 	}
 	
 	//method
