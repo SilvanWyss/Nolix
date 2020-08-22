@@ -23,13 +23,13 @@ public final class Column implements Headered, IElement {
 	private final SchemaDataType<?> dataType;
 	
 	//constructor
-	public Column(final String header, final SchemaDataType<?> valueType) {
+	public Column(final String header, final SchemaDataType<?> dataType) {
 		
 		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
-		Validator.assertThat(valueType).isOfType(SchemaDataType.class);
+		Validator.assertThat(dataType).thatIsNamed(VariableNameCatalogue.DATA_TYPE).isNotNull();
 		
 		this.header = header;
-		this.dataType = valueType;
+		this.dataType = dataType;
 	}
 	
 	//method
