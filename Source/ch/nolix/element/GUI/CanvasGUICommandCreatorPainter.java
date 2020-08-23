@@ -45,7 +45,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		final var painter = new CanvasGUICommandCreatorPainter(bottom, imageCachingContainer);
 		
 		appendPaintCommand(
-			CanvasGUIProtocol.CREATE_PAINTER_HEADER
+			CanvasGUICommandProtocol.CREATE_PAINTER
 			+ '('
 			+ xTranslation
 			+ ','
@@ -67,7 +67,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		final var painter = new CanvasGUICommandCreatorPainter(bottom, imageCachingContainer);
 		
 		appendPaintCommand(
-			CanvasGUIProtocol.CREATE_PAINTER_HEADER
+			CanvasGUICommandProtocol.CREATE_PAINTER
 			+ '('
 			+ xTranslation
 			+ ','
@@ -109,7 +109,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintFilledPolygon(final int[] x, final int[] y) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_FILLED_POLYGON_HEADER
+			CanvasGUICommandProtocol.PAINT_FILLED_POLYGON
 			+ '('
 			+ ArrayHelper.createString(x)
 			+ ','
@@ -127,7 +127,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		final int height
 	) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER
+			CanvasGUICommandProtocol.PAINT_FILLED_RECTANGLE
 			+ "("
 			+ xPostiion
 			+ ","
@@ -144,7 +144,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintImage(final Image image) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
+			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
 			+ registerImageIfNotRegisteredAndGetId(image)
 			+ ')'
@@ -155,7 +155,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintImage(final Image image, final int width, final int height) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
+			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
 			+ registerImageIfNotRegisteredAndGetId(image)
 			+ ','
@@ -170,7 +170,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintImageById(final String id) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
+			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
 			+ id
 			+ ')'
@@ -181,7 +181,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintImageById(final String id, final int width, final int height) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER
+			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
 			+ id
 			+ ','
@@ -196,7 +196,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintText(final String text, final TextFormat textFormat) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_TEXT_HEADER
+			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
 			+ BaseNode.createReproducingString(text)
 			+ ','
@@ -209,7 +209,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void paintText(final String text, TextFormat textFormat, final int maxTextWidth) {
 		appendPaintCommand(
-			CanvasGUIProtocol.PAINT_TEXT_HEADER
+			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
 			+ BaseNode.createReproducingString(text)
 			+ ','
@@ -231,7 +231,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		imageCachingContainer.registerAtId(id, image);
 		
 		appendPaintCommand(
-			CanvasGUIProtocol.REGISTER_IMAGE_HEADER
+			CanvasGUICommandProtocol.REGISTER_IMAGE
 			+ "("
 			+ PascalCaseNameCatalogue.ID
 			+ "("
@@ -246,7 +246,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void setColor(final Color color) {
 		appendPaintCommand(
-			CanvasGUIProtocol.SET_COLOR_HEADER
+			CanvasGUICommandProtocol.SET_COLOR
 			+ "("
 			+ color.getSpecification()
 			+ ")"
@@ -257,7 +257,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void setColorGradient(final ColorGradient colorGradient) {
 		appendPaintCommand(
-			CanvasGUIProtocol.SET_COLOR_GRADIENT_HEADER
+			CanvasGUICommandProtocol.SET_COLOR_GRADIENT
 			+ '('
 			+ colorGradient.getSpecification()
 			+ ')'
@@ -268,7 +268,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void translate(final int xTranslation, final int yTranslation) {
 		appendPaintCommand(
-			CanvasGUIProtocol.TRANSLATE_HEADER
+			CanvasGUICommandProtocol.TRANSLATE
 			+ '('
 			+ xTranslation
 			+ ','
@@ -292,7 +292,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			final var id = imageCachingContainer.registerAndGetId(image);
 			
 			appendPaintCommand(
-				CanvasGUIProtocol.REGISTER_IMAGE_HEADER
+				CanvasGUICommandProtocol.REGISTER_IMAGE
 				+ "("
 				+ id
 				+ ","

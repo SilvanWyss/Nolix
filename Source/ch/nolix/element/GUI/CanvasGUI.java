@@ -258,21 +258,21 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createPaintCommand(final int painterIndex,	final ChainedNode paintCommand) {
 		switch (paintCommand.getHeader()) {
-			case CanvasGUIProtocol.CREATE_PAINTER_HEADER:
+			case CanvasGUICommandProtocol.CREATE_PAINTER:
 				return createCreatePainterCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER:
+			case CanvasGUICommandProtocol.PAINT_FILLED_RECTANGLE:
 				return createPaintFilledRectangleCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.PAINT_IMAGE_BY_ID_HEADER:
+			case CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID:
 				return createPaintImageByIdCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.PAINT_TEXT_HEADER:
+			case CanvasGUICommandProtocol.PAINT_TEXT:
 				return createPaintTextCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.REGISTER_IMAGE_HEADER:
+			case CanvasGUICommandProtocol.REGISTER_IMAGE:
 				return createRegisterImageCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.SET_COLOR_HEADER:
+			case CanvasGUICommandProtocol.SET_COLOR:
 				return createSetColorCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.SET_COLOR_GRADIENT_HEADER:
+			case CanvasGUICommandProtocol.SET_COLOR_GRADIENT:
 				return createSetColorGradientCommand(painterIndex, paintCommand);
-			case CanvasGUIProtocol.TRANSLATE_HEADER:
+			case CanvasGUICommandProtocol.TRANSLATE:
 				return createTranslateCommand(painterIndex, paintCommand);
 			default:
 				throw new InvalidArgumentException("painter command",	paintCommand, "is not valid");
