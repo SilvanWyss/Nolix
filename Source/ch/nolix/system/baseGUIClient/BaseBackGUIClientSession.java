@@ -25,8 +25,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 		 * Reset the GUI before let the parent Client configure it, otherwise the view area size of the GUI is reset.
 		 */
 		mGUI.reset();
-		
-		getParentClient().createCloseDependencyTo(mGUI);
+				
 		getParentClient().configureGUI(mGUI);
 		
 		mGUI
@@ -39,6 +38,11 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 		initializeStage2();
 		
 		mGUI.recalculate();
+	}
+	
+	//method
+	protected final void initializeAfterCreation() {
+		getParentClient().createCloseDependencyTo(mGUI);
 	}
 	
 	//method declaration

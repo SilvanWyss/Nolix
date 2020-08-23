@@ -14,6 +14,13 @@ public abstract class StandardClientSession extends Session<StandardClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void initializeAfterCreation() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final Class<StandardClient> internalGetRefClientClass() {
 		return StandardClient.class;
 	}

@@ -308,8 +308,9 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		sessions.addAtEnd(session);
 		currentSession = session;
 		
-		//Initializes the given session.	
-		session.initialize();	
+		//Initializes the given session.
+		session.initializeAfterCreation();
+		session.initialize();
 		if (!isClosed()) {
 			session.updateCounterpart();
 		}

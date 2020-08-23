@@ -141,12 +141,6 @@ public abstract class Session<C extends Client<C>> {
 		return getParentClient().getRefApplicationContextAs(type);
 	}
 	
-	//method declaration
-	/**
-	 * Initializes the current {@link Session}.
-	 */
-	protected abstract void initialize();
-	
 	//method
 	/**
 	 * Pops the current {@link Session} from its parent {@link Client}.
@@ -215,6 +209,18 @@ public abstract class Session<C extends Client<C>> {
 	public final void setNext(final Session<C> session) {
 		getParentClient().setNext(session);
 	}
+	
+	//method declaration
+	/**
+	 * Initializes the current {@link Session}.
+	 */
+	protected abstract void initialize();
+	
+	//method declaration
+	/**
+	 * Initializes the current {@link Session} after it has been created.
+	 */
+	protected abstract void initializeAfterCreation();
 	
 	//method
 	/**
