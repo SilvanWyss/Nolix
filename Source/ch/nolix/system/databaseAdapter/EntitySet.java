@@ -62,6 +62,8 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	@SuppressWarnings("unchecked")
 	public EntitySet<E> addEntity(final E entity) {
 		
+		//TODO: Assert that the given entity references or references back only an Entity that are or will be contained too.
+		
 		entity.supposeIsNew();
 		
 		entity.setParentEntitySet((EntitySet<Entity>)this);
