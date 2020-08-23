@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.common.attributeAPI.Identified;
+import ch.nolix.common.attributeAPI.ShortDescripted;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -20,7 +21,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.elementAPI.IElement;
 
 //class
-public abstract class Entity implements IElement, Identified {
+public abstract class Entity implements IElement, Identified, ShortDescripted {
 	
 	//static attribute
 	private static long latestCreatedId = -1;
@@ -138,6 +139,12 @@ public abstract class Entity implements IElement, Identified {
 		}
 		
 		return rowSpecification;
+	}
+	
+	//method
+	@Override
+	public String getShortDescription() {
+		return getIdAsString();
 	}
 	
 	//method

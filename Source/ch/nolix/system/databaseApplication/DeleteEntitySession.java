@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.widget.Button;
@@ -51,7 +52,11 @@ public final class DeleteEntitySession extends HeaderedSession {
 	protected VerticalStack createSubSubContentWidget() {
 		return
 		new VerticalStack(
-			new Label("Do you want to delete the entity (id: " + entityId + ")?"),
+			new Label(
+				"Do you want to delete the entity "
+				+ getRefEntitySet().getRefEntityById(entityId).getShortDescriptionInQuotes()
+				+ "?"
+			),
 			new HorizontalStack(
 				new Button("Yes")
 				.setRole(ButtonRole.ActionButton)

@@ -170,11 +170,11 @@ public final class EntitySession extends HeaderedSession {
 					final var dropdownMenu = new DropdownMenu();
 					
 					dropdownMenu.setSelectAction(
-						i -> referenceProperty.set(referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getText())))
+						i -> referenceProperty.set(referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntityById(Long.valueOf(i.getId())))
 					);
 					
 					for (final var e : referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-						dropdownMenu.addItem(e.getIdAsString(), e.getIdAsString());
+						dropdownMenu.addItem(e.getIdAsString(), e.getShortDescription());
 					}
 					dropdownMenu.selectItemById(String.valueOf(referenceProperty.getReferencedEntityId()));
 					

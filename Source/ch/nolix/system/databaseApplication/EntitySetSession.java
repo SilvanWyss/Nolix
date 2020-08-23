@@ -120,7 +120,7 @@ public final class EntitySetSession extends HeaderedSession {
 							entitiesGrid.setWidget(
 								rowIndex,
 								columnIndex,
-								new Button(String.valueOf(referenceProperty.getRefEntity().getId()))
+								new Button(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
 								.setRole(ButtonRole.LinkButton)
 								.setLeftMouseButtonPressAction(
 									() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
