@@ -5,23 +5,22 @@ package ch.nolix.system.entity;
 import java.lang.reflect.Field;
 
 //own imports
+import ch.nolix.common.attributeAPI.Identified;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.optionalAttributeAPI.OptionalIdentified;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valueCreator.ValueCreator;
 import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.elementAPI.IElement;
 
 //class
-public abstract class Entity implements IElement, OptionalIdentified {
+public abstract class Entity implements IElement, Identified {
 	
 	//static attribute
 	private static long latestCreatedId = -1;
@@ -67,9 +66,7 @@ public abstract class Entity implements IElement, OptionalIdentified {
 		
 		final var attributes = new LinkedList<Node>();
 		
-		if (hasId()) {
-			attributes.addAtEnd(new Node(getId()));
-		}
+		attributes.addAtEnd(new Node(getId()));
 		
 		for (final var p : getRefProperties()) {
 			attributes.addAtEnd(p.getSpecification());
@@ -81,9 +78,6 @@ public abstract class Entity implements IElement, OptionalIdentified {
 	//method
 	@Override
 	public final long getId() {
-	
-		supposeHasId();
-		
 		return id;
 	}
 	
@@ -155,11 +149,6 @@ public abstract class Entity implements IElement, OptionalIdentified {
 	@Override
 	public final String getType() {
 		return getClass().getSimpleName();
-	}
-	
-	//method
-	public final boolean hasId() {
-		return (id > -1);
 	}
 	
 	//method
@@ -496,13 +485,6 @@ public abstract class Entity implements IElement, OptionalIdentified {
 	private void supposeDoesNotBelongToEntitySet() {
 		if (belongsToEntitySet()) {
 			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentEntitySet());
-		}
-	}
-	
-	//method
-	private void supposeHasId() {
-		if (!hasId()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
 		}
 	}
 }
