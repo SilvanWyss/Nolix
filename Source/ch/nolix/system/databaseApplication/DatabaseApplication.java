@@ -2,6 +2,7 @@
 package ch.nolix.system.databaseApplication;
 
 //own imports
+import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.Application;
@@ -12,13 +13,15 @@ import ch.nolix.system.databaseAdapter.Schema;
 //class
 public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	
+	//attribute
+	private boolean isReady = false;
+	
 	//constructor
 	public DatabaseApplication(final String name, final DatabaseAdapter databaseAdapter) {
-		super(
-			name,
-			LoginSession.class,
-			new DatabaseApplicationContext(databaseAdapter)
-		);
+		
+		super(name,	StartSession.class,	new DatabaseApplicationContext(databaseAdapter));
+		
+		createInitialDataInBackgroundIfNeeded(databaseAdapter);
 	}
 	
 	//constructor
@@ -27,11 +30,10 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 		final DatabaseAdapter databaseAdapter,
 		final Configuration pGUILook
 	) {
-		super(
-			name,
-			LoginSession.class,
-			new DatabaseApplicationContext(databaseAdapter, pGUILook)
-		);
+		
+		super(name,	StartSession.class,	new DatabaseApplicationContext(databaseAdapter, pGUILook));
+		
+		createInitialDataInBackgroundIfNeeded(databaseAdapter);
 	}
 	
 	//constructor
@@ -40,10 +42,50 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 		final IDatabaseAdapterCreator databaseAdapterCreator,
 		final Schema schema
 	) {
-		super(
-			name,
-			LoginSession.class,
-			new DatabaseApplicationContext(databaseAdapterCreator.createDatabaseAdapter(schema))
-		);
+		this(name, databaseAdapterCreator.createDatabaseAdapter(schema));
+	}
+	
+	//constructor
+	public DatabaseApplication(
+		final String name,
+		final IDatabaseAdapterCreator databaseAdapterCreator,
+		final Schema schema,
+		final Configuration pGUILook
+	) {
+		this(name, databaseAdapterCreator.createDatabaseAdapter(schema), pGUILook);
+	}
+	
+	//method
+	public final boolean isReady() {
+		return isReady;
+	}
+	
+	//method declaration
+	protected abstract void createInitialData(DatabaseAdapter databaseAdapter);
+	
+	//method
+	private void createInitialDataAndSetState(final DatabaseAdapter databaseAdapter) {
+		createInitialData(databaseAdapter.createNewDatabaseAdapter());
+		isReady = true;
+	}
+	
+	//method
+	private void createInitialDataAndSetStateInBackground(final DatabaseAdapter databaseAdapter) {
+		Sequencer.runInBackground(() -> createInitialDataAndSetState(databaseAdapter));
+	}
+	
+	//method
+	private void createInitialDataInBackgroundIfNeeded(final DatabaseAdapter databaseAdapter) {
+		if (!createInitialDataIsNeeded(databaseAdapter)) {
+			isReady = true;
+		}
+		else {			
+			createInitialDataAndSetStateInBackground(databaseAdapter);
+		}
+	}
+	
+	//method
+	private boolean createInitialDataIsNeeded(final DatabaseAdapter databaseAdapter) {
+		return databaseAdapter.databaseIsEmpty();
 	}
 }
