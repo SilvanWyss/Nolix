@@ -21,7 +21,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.elementAPI.IElement;
 
 //class
-public class Entity implements IElement, OptionalIdentified {
+public abstract class Entity implements IElement, OptionalIdentified {
 	
 	//static attribute
 	private static long latestCreatedId = -1;
