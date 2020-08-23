@@ -19,7 +19,7 @@ final class CanvasGUIPainterPool {
 	public void appendPaintCommand(final CanvasGUICommandCreatorPainter browserGUIPainter,	final String command) {
 		paintCommands.addAtEnd(
 			ChainedNode.fromString(
-				CanvasGUICommandProtocol.PAINTER_BY_INDEX
+				CanvasGUIObjectProtocol.PAINTER_BY_INDEX
 				+ '('
 				+ browserGUIPainter.getIndex()
 				+ ')'

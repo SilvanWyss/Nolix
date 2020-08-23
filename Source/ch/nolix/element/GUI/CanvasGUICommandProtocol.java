@@ -5,7 +5,6 @@ package ch.nolix.element.GUI;
 final class CanvasGUICommandProtocol {
 	
 	//constants
-	public static final String PAINTER_BY_INDEX = "PainterByIndex";
 	public static final String CREATE_PAINTER = "CreatePainter";
 	public static final String PAINT_FILLED_RECTANGLE = "PaintFilledRectangle";
 	public static final String PAINT_FILLED_POLYGON = "PaintFilledPolygon";
