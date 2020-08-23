@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -80,13 +81,13 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 	//method
 	@Override
 	protected final void internalSetValue(final Object value) {
-		setValue((int)value);
+		setValue((long)value);
 	}
 	
 	//method
 	@Override
 	protected final void internalSetValues(final IContainer<Object> values) {
-		setValue((int)new ReadContainer<Object>(values).getRefOne());
+		setValue((long)new ReadContainer<Object>(values).getRefOne());
 	}
 	
 	//method
