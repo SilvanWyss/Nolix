@@ -26,7 +26,7 @@ public final class EntityAccessor {
 	 * @param entity
 	 */
 	public static void extractProperties(final Entity entity) {
-		entity.extractProperties();
+		entity.extractPropertiesWhenNotExtracted();
 	}
 	
 	//static method

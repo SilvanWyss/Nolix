@@ -30,13 +30,13 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 		//Calls constructor of the base class.
 		super(schema);
 		
-		//Asserts that the given database if not null.
+		//Asserts that the given database is not null.
 		Validator.assertThat(database).thatIsNamed(VariableNameCatalogue.DATABASE).isNotNull();
 		
-		//Sets the database of the current document node database adapter.
+		//Sets the database of the current NodeDatabaseAdapter.
 		this.database = database;
 		
-		initializeDatabaseIfNeeded(schema);
+		addSchemaIfDatabaseIsEmpty(schema);
 		
 		for (final var a : database.getRefAttributes(a -> a.hasHeader("EntitySet"))) {
 			entitySetAdapters.addAtEnd(
@@ -86,7 +86,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 		(EntitySetAdapter<E>)
 		entitySetAdapters.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
 	}
-		
+	
 	//method
 	@Override
 	protected void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {

@@ -11,7 +11,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.ArgumentHasAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -25,7 +24,7 @@ import ch.nolix.element.elementAPI.IElement;
 public class Entity implements IElement, OptionalIdentified {
 	
 	//static attribute
-	private long latestCreatedId = -1;
+	private static long latestCreatedId = -1;
 	
 	//attribute
 	private long id = createNextId();
@@ -55,6 +54,11 @@ public class Entity implements IElement, OptionalIdentified {
 	//method
 	public final boolean canReferenceEntities() {
 		return getRefProperties().contains(Property::canReferenceEntity);
+	}
+	
+	//method
+	public final void extractProperties() {
+		extractPropertiesIfNotExtracted();
 	}
 	
 	//method
@@ -152,7 +156,7 @@ public class Entity implements IElement, OptionalIdentified {
 	public final String getType() {
 		return getClass().getSimpleName();
 	}
-
+	
 	//method
 	public final boolean hasId() {
 		return (id > -1);
@@ -290,7 +294,7 @@ public class Entity implements IElement, OptionalIdentified {
 	}
 	
 	//method
-	final void extractProperties() {
+	final void extractPropertiesWhenNotExtracted() {
 		
 		properties = new LinkedList<>();
 		
@@ -329,8 +333,6 @@ public class Entity implements IElement, OptionalIdentified {
 	final void setId(final long id) {
 		
 		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
-		
-		supposeHasNoId();
 		
 		this.id = id;
 	}
@@ -390,22 +392,18 @@ public class Entity implements IElement, OptionalIdentified {
 					
 					break;
 				case REFERENCE:		
-					property.internalSetValue(v.toInt());
+					property.internalSetValue(v.toLong());
 					break;
 				case OPTIONAL_REFERENCE:
 					
 					if (v.containsAttributes()) {
-						property.internalSetValue(v.toInt());
+						property.internalSetValue(v.toLong());
 					}
 					
 					break;
 				case MULTI_REFERENCE:
 					
-					property.internalSetValues(
-						v.getRefAttributes().to(
-							a -> a.toInt()
-						)
-					);
+					property.internalSetValues(v.getRefAttributes().to(BaseNode::toLong));
 					
 					break;
 				default:
@@ -464,7 +462,7 @@ public class Entity implements IElement, OptionalIdentified {
 	//method
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
-			extractProperties();
+			extractPropertiesWhenNotExtracted();
 		}
 	}
 	
@@ -505,13 +503,6 @@ public class Entity implements IElement, OptionalIdentified {
 	private void supposeHasId() {
 		if (!hasId()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
-		}
-	}
-	
-	//method
-	private void supposeHasNoId() {
-		if (hasId()) {
-			throw new ArgumentHasAttributeException(this, VariableNameCatalogue.ID);
 		}
 	}
 }

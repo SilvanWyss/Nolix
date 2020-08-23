@@ -27,7 +27,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//constructor
 	public DatabaseAdapter(final Schema schema) {
 		
-		Validator.assertThat(schema).isOfType(Schema.class);
+		Validator.assertThat(schema).thatIsNamed(Schema.class).isNotNull();
 		
 		this.schema = schema;
 				
@@ -166,7 +166,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	}
 	
 	//method
-	protected final void initializeDatabaseIfNeeded(final Schema schema) {
+	protected final void addSchemaIfDatabaseIsEmpty(final Schema schema) {
 		
 		final var databaseSchemaAdapter = createDatabaseSchemaAdapter();
 		
