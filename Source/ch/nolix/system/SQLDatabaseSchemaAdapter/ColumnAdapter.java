@@ -1,10 +1,13 @@
 //package declaration
 package ch.nolix.system.SQLDatabaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.Column;
 import ch.nolix.system.databaseSchemaAdapter.IColumnAdapter;
+import ch.nolix.system.schemaDataType.SchemaDataType;
+import ch.nolix.system.schemaDataType.SchemaValueType;
 
 //class
 public final class ColumnAdapter implements IColumnAdapter {
@@ -26,6 +29,14 @@ public final class ColumnAdapter implements IColumnAdapter {
 		.isNotBlank();
 		
 		this.header = header;
+	}
+	
+	//method
+	@Override
+	public SchemaDataType<?> getDataType() {
+		
+		//TODO: return SchemaDataTypeFactory.fromSpecification(...)
+		return new SchemaValueType<>(Object.class);
 	}
 	
 	//method
