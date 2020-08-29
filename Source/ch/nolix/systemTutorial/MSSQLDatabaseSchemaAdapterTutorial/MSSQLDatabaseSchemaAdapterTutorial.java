@@ -13,11 +13,12 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		
 		if (!sqlDatabaseSchemaAdapter.databaseIsInitialized()) {
 			sqlDatabaseSchemaAdapter
-			//.addEntitySet(Person.class) //TODO: Create IEntitySet.
+			//.addEntitySet(Person.class) //TODO: Implement DatabaseSchemaAdapter.addEntitySet().
 			.saveChanges();
 		}
 	}
-	
+		
+	@SuppressWarnings("unused")
 	private static class Person extends Entity {
 		
 		@SuppressWarnings("unused")
