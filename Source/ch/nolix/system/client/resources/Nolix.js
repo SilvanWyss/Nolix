@@ -417,12 +417,62 @@ define("Common/Pair/Pair", ["require", "exports"], function (require, exports) {
     }
     exports.Pair = Pair;
 });
-define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_2) {
+define("Common/Caching/CachingContainer", ["require", "exports", "Common/Container/LinkedList", "Common/Pair/Pair"], function (require, exports, LinkedList_2, Pair_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CachingContainer {
+        constructor() {
+            this.elements = new LinkedList_2.LinkedList();
+        }
+        contains(element) {
+            return this.elements.contains(e => Object.is(e, element));
+        }
+        containsWithId(id) {
+            return this.elements.contains(e => e.getRefElement1() === id);
+        }
+        getRefById(id) {
+            return this.elements.getRefFirstByCondition(e => e.getRefElement1() === id).getRefElement2();
+        }
+        registerAtId(id, element) {
+            console.log('The current CachingContainer registers an element at the given id \'' + id + '\'.');
+            if (id === null) {
+                throw new Error('The given id is null.');
+            }
+            if (id === undefined) {
+                throw new Error('The given id is undefined.');
+            }
+            if (id.length === 0) {
+                throw new Error('The given id is empty.');
+            }
+            if (element === null) {
+                throw new Error('The given element is null.');
+            }
+            if (element === undefined) {
+                throw new Error('The given element is undefined.');
+            }
+            this.assertDoesNotContainId(id);
+            this.assertDoesNotContain(element);
+            this.elements.addAtEnd(new Pair_1.Pair(id, element));
+        }
+        assertDoesNotContain(element) {
+            if (this.contains(element)) {
+                throw new Error('The current CachingContainer contains already the given element.');
+            }
+        }
+        assertDoesNotContainId(id) {
+            if (this.containsWithId(id)) {
+                throw new Error('The current CachingContainer contains already an element with the given id.');
+            }
+        }
+    }
+    exports.CachingContainer = CachingContainer;
+});
+define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Node {
         constructor() {
-            this.attributes = new LinkedList_2.LinkedList();
+            this.attributes = new LinkedList_3.LinkedList();
         }
         static createOriginStringFromReproducingString(reproducinString) {
             if (reproducinString === null) {
@@ -651,14 +701,14 @@ define("Common/ChainedNode/Task", ["require", "exports"], function (require, exp
         Task[Task["READ_NEXT_NODE"] = 2] = "READ_NEXT_NODE";
     })(Task = exports.Task || (exports.Task = {}));
 });
-define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/StringCatalogue", "Common/ChainedNode/Task"], function (require, exports, LinkedList_3, Node_1, StringCatalogue_1, Task_1) {
+define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/StringCatalogue", "Common/ChainedNode/Task"], function (require, exports, LinkedList_4, Node_1, StringCatalogue_1, Task_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ChainedNode {
         constructor() {
             this.header = undefined;
             this.nextNode = undefined;
-            this.attributes = new LinkedList_3.LinkedList();
+            this.attributes = new LinkedList_4.LinkedList();
         }
         static createReproducingString(string) {
             return string
@@ -967,21 +1017,21 @@ define("Common/CommonTypeHelper/StringHelper", ["require", "exports"], function 
     }
     exports.StringHelper = StringHelper;
 });
-define("Common/Constant/CommonFontCodeCatalogue", ["require", "exports"], function (require, exports) {
+define("Common/Constant/FontCodeCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class CommonFontCodeCatalogue {
+    class FontCodeCatalogue {
         constructor() { }
     }
-    CommonFontCodeCatalogue.ARIAL = 'Arial';
-    CommonFontCodeCatalogue.ARIAL_BLACK = 'Arial Black';
-    CommonFontCodeCatalogue.COMIC_SANS_MS = 'Comic Sans MS';
-    CommonFontCodeCatalogue.IMPACT = 'Impact';
-    CommonFontCodeCatalogue.LUCIDA_CONSOLE = 'Lucida Console';
-    CommonFontCodeCatalogue.PAPYRUS = 'Papyrus';
-    CommonFontCodeCatalogue.TAHOMA = 'Tahoma';
-    CommonFontCodeCatalogue.VERDANA = 'Verdana';
-    exports.CommonFontCodeCatalogue = CommonFontCodeCatalogue;
+    FontCodeCatalogue.ARIAL = 'Arial';
+    FontCodeCatalogue.ARIAL_BLACK = 'Arial Black';
+    FontCodeCatalogue.COMIC_SANS_MS = 'Comic Sans MS';
+    FontCodeCatalogue.IMPACT = 'Impact';
+    FontCodeCatalogue.LUCIDA_CONSOLE = 'Lucida Console';
+    FontCodeCatalogue.PAPYRUS = 'Papyrus';
+    FontCodeCatalogue.TAHOMA = 'Tahoma';
+    FontCodeCatalogue.VERDANA = 'Verdana';
+    exports.FontCodeCatalogue = FontCodeCatalogue;
 });
 define("Common/Constant/PascalCaseNameCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1077,7 +1127,7 @@ define("Common/Container/Matrix", ["require", "exports", "Common/Container/Conta
         }
         getRowIndexOf(index) {
             this.assertContainsAt(index);
-            return ((index - 1) / this.getColumnCount() + 1);
+            return (Math.floor((index - 1) / this.getColumnCount()) + 1);
         }
         getSize() {
             if (this.elements.length === 0) {
@@ -1152,13 +1202,21 @@ define("Common/Container/Matrix", ["require", "exports", "Common/Container/Conta
                 throw new Error('The given rowIndex ' + rowIndex + ' is not positive.');
             }
             if (rowIndex > this.getRowCount()) {
-                throw new Error('The given rowIndex ' + rowIndex + ' is bigger than the number of rows of the current Matrix.');
+                throw new Error('The given rowIndex '
+                    + rowIndex
+                    + ' is bigger than the number of rows of the current Matrix, which is '
+                    + this.getRowCount()
+                    + ' .');
             }
             if (columnIndex < 1) {
                 throw new Error('The given columnIndex ' + columnIndex + ' is not positive.');
             }
             if (columnIndex > this.getColumnCount()) {
-                throw new Error('The given columnIndex ' + columnIndex + ' is bigger than the number of columns of the current Matrix.');
+                throw new Error('The given columnIndex '
+                    + columnIndex
+                    + ' is bigger than the number of columns of the current Matrix, which is'
+                    + this.getColumnCount()
+                    + ' .');
             }
         }
     }
@@ -1401,13 +1459,13 @@ define("Common/EndPoint3/Package", ["require", "exports", "Common/EndPoint3/Mess
     Package.INDEX_STRING_LENGTH = 8;
     exports.Package = Package;
 });
-define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container/LinkedList", "Common/EndPoint3/MessageRole", "Common/EndPoint2/NetEndPoint2", "Common/EndPoint3/Package"], function (require, exports, LinkedList_4, MessageRole_2, NetEndPoint2_1, Package_1) {
+define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container/LinkedList", "Common/EndPoint3/MessageRole", "Common/EndPoint2/NetEndPoint2", "Common/EndPoint3/Package"], function (require, exports, LinkedList_5, MessageRole_2, NetEndPoint2_1, Package_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint3 {
         constructor(ip, port, optionalTarget) {
             this.messageIndex = 0;
-            this.receivedPackages = new LinkedList_4.LinkedList();
+            this.receivedPackages = new LinkedList_5.LinkedList();
             this.receive = (message) => {
                 console.log('The current NetEndPoint3 has received the message: ' + message);
                 this.receivePackage(Package_1.Package.createFromString(message));
@@ -1498,7 +1556,7 @@ define("Common/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function
     NetEndPoint5Protocol.ERROR_HEADER = "Error";
     exports.NetEndPoint5Protocol = NetEndPoint5Protocol;
 });
-define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNode/ChainedNode", "Common/Node/Node", "Common/Container/LinkedList", "Common/EndPoint3/NetEndPoint3", "Common/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_5, NetEndPoint3_1, NetEndPoint5Protocol_1) {
+define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNode/ChainedNode", "Common/Node/Node", "Common/Container/LinkedList", "Common/EndPoint3/NetEndPoint3", "Common/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_6, NetEndPoint3_1, NetEndPoint5Protocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint5 {
@@ -1533,7 +1591,7 @@ define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNo
             return (this.receiverController !== undefined);
         }
         run(command) {
-            const commands = new LinkedList_5.LinkedList();
+            const commands = new LinkedList_6.LinkedList();
             commands.addAtEnd(command);
             this.runCommands(commands);
         }
@@ -1876,13 +1934,13 @@ define("Common/Test/FunctionMediator", ["require", "exports", "Common/Test/Media
     }
     exports.FunctionMediator = FunctionMediator;
 });
-define("Common/Test/TestPool", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_6) {
+define("Common/Test/TestPool", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_7) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TestPool {
         constructor() {
-            this.tests = new LinkedList_6.LinkedList();
-            this.testPools = new LinkedList_6.LinkedList();
+            this.tests = new LinkedList_7.LinkedList();
+            this.testPools = new LinkedList_7.LinkedList();
         }
         run() {
             this.tests.forEach(t => t.run());
@@ -2028,24 +2086,33 @@ define("Element/BaseGUI_API/IInputTaker", ["require", "exports"], function (requ
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/CanvasGUI/CanvasGUIProtocol", ["require", "exports"], function (require, exports) {
+define("Element/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class CanvasGUIProtocol {
+    class CanvasGUICommandProtocol {
     }
-    CanvasGUIProtocol.CREATE_PAINTER_HEADER = 'CreatePainter';
-    CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER = 'PaintFilledRectangle';
-    CanvasGUIProtocol.PAINT_IMAGE_HEADER = 'PaintImage';
-    CanvasGUIProtocol.PAINT_TEXT_HEADER = 'PaintText';
-    CanvasGUIProtocol.SET_COLOR_HEADER = 'SetColor';
-    CanvasGUIProtocol.TRANSLATE_HEADER = 'Translage';
-    exports.CanvasGUIProtocol = CanvasGUIProtocol;
+    CanvasGUICommandProtocol.PAINT_FILLED_RECTANGLE = 'PaintFilledRectangle';
+    CanvasGUICommandProtocol.PAINT_IMAGE = 'PaintImage';
+    CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID = 'PaintImageById';
+    CanvasGUICommandProtocol.PAINT_TEXT = 'PaintText';
+    CanvasGUICommandProtocol.REGISTER_IMAGE = 'RegisterImage';
+    CanvasGUICommandProtocol.SET_COLOR = 'SetColor';
+    CanvasGUICommandProtocol.TRANSLATE = 'Translate';
+    exports.CanvasGUICommandProtocol = CanvasGUICommandProtocol;
+});
+define("Element/CanvasGUI/CanvasGUIObjectProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CanvasGUIObjectProtocol {
+    }
+    CanvasGUIObjectProtocol.CREATE_PAINTER = 'CreatePainter';
+    exports.CanvasGUIObjectProtocol = CanvasGUIObjectProtocol;
 });
 define("Element/Color/Color", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Color {
-        constructor(redValue, greenValue, blueValue) {
+        constructor(redValue, greenValue, blueValue, alphaValue) {
             if (redValue < 0 || redValue > 255) {
                 throw new Error('The given redValue is not valid.');
             }
@@ -2055,9 +2122,13 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
             if (blueValue < 0 || blueValue > 255) {
                 throw new Error('The given blueValue is not valid.');
             }
+            if (alphaValue < 0 || alphaValue > 255) {
+                throw new Error('The given blueValue is not valid.');
+            }
             this.redValue = redValue;
             this.greenValue = greenValue;
             this.blueValue = blueValue;
+            this.alphaValue = alphaValue;
         }
         static fromSpecification(specification) {
             return Color.fromString(specification.getOneAttributeHeader());
@@ -2069,16 +2140,32 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
             if (string === undefined) {
                 throw new Error('The given string is undefined.');
             }
-            if (string.length !== 8) {
-                throw new Error('The given string is not valid.');
+            switch (string.length) {
+                case 8:
+                    return new Color(Number.parseInt('0x' + string.substr(2, 2)), Number.parseInt('0x' + string.substr(4, 2)), Number.parseInt('0x' + string.substr(6, 2)), 255);
+                case 10:
+                    return new Color(Number.parseInt('0x' + string.substr(2, 2)), Number.parseInt('0x' + string.substr(4, 2)), Number.parseInt('0x' + string.substr(6, 2)), Number.parseInt('0x' + string.substr(8, 2)));
+                default:
+                    throw new Error('The given string is not valid.');
             }
-            return new Color(Number.parseInt('0x' + string.substr(2, 2)), Number.parseInt('0x' + string.substr(4, 2)), Number.parseInt('0x' + string.substr(6, 2)));
+        }
+        getAlphaValue() {
+            return this.alphaValue;
+        }
+        getBlueValue() {
+            return this.blueValue;
+        }
+        getGreenValue() {
+            return this.greenValue;
         }
         getHTMLCode() {
             return '#'
                 + this.getNumberAsHexadecimalStringWithLeadingZeros(this.redValue)
                 + this.getNumberAsHexadecimalStringWithLeadingZeros(this.greenValue)
                 + this.getNumberAsHexadecimalStringWithLeadingZeros(this.blueValue);
+        }
+        getRedValue() {
+            return this.redValue;
         }
         getNumberAsHexadecimalStringWithLeadingZeros(number) {
             var string = number.toString(16).toUpperCase();
@@ -2088,8 +2175,8 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
             return string;
         }
     }
-    Color.BLACK = new Color(0, 0, 0);
-    Color.WHITE = new Color(255, 255, 255);
+    Color.BLACK = new Color(0, 0, 0, 255);
+    Color.WHITE = new Color(255, 255, 255, 255);
     exports.Color = Color;
 });
 define("Element/TextFormat/FontType", ["require", "exports"], function (require, exports) {
@@ -2107,7 +2194,7 @@ define("Element/TextFormat/FontType", ["require", "exports"], function (require,
         FontType[FontType["Verdana"] = 7] = "Verdana";
     })(FontType = exports.FontType || (exports.FontType = {}));
 });
-define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/CommonFontCodeCatalogue", "Element/TextFormat/FontType"], function (require, exports, CommonFontCodeCatalogue_1, FontType_1) {
+define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/FontCodeCatalogue", "Element/TextFormat/FontType"], function (require, exports, FontCodeCatalogue_1, FontType_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Font {
@@ -2126,21 +2213,21 @@ define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/Common
         getCode() {
             switch (this.fontType) {
                 case FontType_1.FontType.Arial:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.ARIAL;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL;
                 case FontType_1.FontType.ArialBlack:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.ARIAL_BLACK;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL_BLACK;
                 case FontType_1.FontType.ComicSansMS:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.COMIC_SANS_MS;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.COMIC_SANS_MS;
                 case FontType_1.FontType.Impact:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.IMPACT;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.IMPACT;
                 case FontType_1.FontType.LucidaConsole:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.LUCIDA_CONSOLE;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.LUCIDA_CONSOLE;
                 case FontType_1.FontType.Papyrus:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.PAPYRUS;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.PAPYRUS;
                 case FontType_1.FontType.Tahoma:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.TAHOMA;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.TAHOMA;
                 case FontType_1.FontType.Verdana:
-                    return CommonFontCodeCatalogue_1.CommonFontCodeCatalogue.VERDANA;
+                    return FontCodeCatalogue_1.FontCodeCatalogue.VERDANA;
             }
         }
         getFontType() {
@@ -2161,13 +2248,14 @@ define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "E
             const pixels = new Matrix_1.Matrix();
             const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
             var row = new Array();
-            var x = 1;
+            var i = 1;
             for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
                 row.push(Color_1.Color.fromSpecification(Node_4.Node.withAttribute(a)));
-                x++;
-                if (x > width) {
+                i++;
+                if (i > width) {
                     pixels.addRow(row);
                     row = new Array();
+                    i = 1;
                 }
             }
             return new Image(pixels);
@@ -2178,11 +2266,47 @@ define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "E
         getHeight() {
             return this.pixels.getRowCount();
         }
+        getPixelAtIndex(index) {
+            return this.pixels.getRefAt(index);
+        }
+        getPixelAtPosition(xPosition, yPosition) {
+            return this.pixels.getRefAtRowAndColumn(xPosition, yPosition);
+        }
+        getSizeInPixel() {
+            return (this.getWidth() * this.getHeight());
+        }
         getType() {
             return Image.TYPE_HEADER;
         }
         getWidth() {
             return this.pixels.getColumnCount();
+        }
+        toCanvas() {
+            this.generateCanvasIfNeeded();
+            return this.canvas;
+        }
+        generateCanvasIfNeeded() {
+            if (this.generatingCanvasIsNeeded()) {
+                this.generateCanvasWhenNeeded();
+            }
+        }
+        generateCanvasWhenNeeded() {
+            const width = this.getWidth();
+            const height = this.getHeight();
+            this.canvas = document.createElement('canvas');
+            this.canvas.width = width;
+            this.canvas.height = height;
+            const context = this.canvas.getContext('2d');
+            for (var rowIndex = 1; rowIndex <= height; rowIndex++) {
+                for (var columnIndex = 1; columnIndex <= width; columnIndex++) {
+                    const pixel = this.getPixelAtPosition(rowIndex, columnIndex);
+                    context.fillStyle = pixel.getHTMLCode();
+                    context.fillRect(columnIndex - 1, rowIndex - 1, 1, 1);
+                }
+            }
+        }
+        generatingCanvasIsNeeded() {
+            return (this.canvas === undefined);
         }
     }
     Image.TYPE_HEADER = 'Image';
@@ -2242,19 +2366,40 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIGlobalPainter {
-        constructor(canvasRenderingContext) {
+        constructor(imageCache, canvasRenderingContext) {
+            if (imageCache === null) {
+                throw new Error('The given imageCache is null.');
+            }
+            if (imageCache === undefined) {
+                throw new Error('The given imageCache is undefined.');
+            }
             if (canvasRenderingContext === null) {
                 throw new Error('The given canvasRenderingContext is null.');
             }
             if (canvasRenderingContext === undefined) {
                 throw new Error('The given canvasRenderingContext is undefined.');
             }
+            this.imageCache = imageCache;
             this.canvasRenderingContext = canvasRenderingContext;
         }
         paintFilledRectangle(xPosition, yPosition, width, height) {
             this.canvasRenderingContext.fillRect(xPosition, yPosition, width, height);
         }
-        paintImage(image) {
+        paintImage(xPosition, yPosition, image) {
+            this.paintImageWithSize(xPosition, yPosition, image, image.getWidth(), image.getHeight());
+        }
+        paintImageById(xPosition, yPosition, id) {
+            if (this.imageCache.containsWithId(id)) {
+                this.paintImage(xPosition, yPosition, this.imageCache.getRefById(id));
+            }
+        }
+        paintImageByIdWithSize(xPosition, yPosition, id, width, height) {
+            if (this.imageCache.containsWithId(id)) {
+                this.paintImageWithSize(xPosition, yPosition, this.imageCache.getRefById(id), width, height);
+            }
+        }
+        paintImageWithSize(xPosition, yPosition, image, width, height) {
+            this.canvasRenderingContext.drawImage(image.toCanvas(), xPosition, yPosition, width, height);
         }
         paintText(xPosition, yPosition, text) {
             this.paintTextWithTextFormat(xPosition, yPosition, text, CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT);
@@ -2287,6 +2432,11 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
             this.canvasRenderingContext.clip();
             this.canvasRenderingContext.beginPath();
         }
+        registerImageAtId(id, image) {
+            if (!this.imageCache.containsWithId(id)) {
+                this.imageCache.registerAtId(id, image);
+            }
+        }
         setColor(color) {
             this.canvasRenderingContext.fillStyle = color.getHTMLCode();
         }
@@ -2305,8 +2455,8 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIPainter {
-        static createPainterFor(canvasRenderingContext) {
-            return new CanvasGUIPainter(0, 0, SingleContainer_1.SingleContainer.withoutElement(), new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
+        static createPainterFor(imageCache, canvasRenderingContext) {
+            return new CanvasGUIPainter(0, 0, SingleContainer_1.SingleContainer.withoutElement(), new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(imageCache, canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
         }
         constructor(xPosition, yPosition, optionalClipAreaOnViewArea, globalPainter, parentPainterContainer) {
             if (xPosition === null) {
@@ -2377,7 +2527,22 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
         }
         paintImage(image) {
             this.pushStateIfNeeded();
-            this.globalPainter.paintImage(image);
+            this.globalPainter.paintImage(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), image);
+            this.popStateIfNeeded();
+        }
+        paintImageById(id) {
+            this.pushStateIfNeeded();
+            this.globalPainter.paintImageById(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), id);
+            this.popStateIfNeeded();
+        }
+        paintImageByIdWithSize(id, width, height) {
+            this.pushStateIfNeeded();
+            this.globalPainter.paintImageByIdWithSize(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), id, width, height);
+            this.popStateIfNeeded();
+        }
+        paintImageWidthSize(image, width, height) {
+            this.pushStateIfNeeded();
+            this.globalPainter.paintImageWithSize(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), image, width, height);
             this.popStateIfNeeded();
         }
         paintText(text) {
@@ -2394,6 +2559,9 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             this.pushStateIfNeeded();
             this.globalPainter.paintTextWithTextFormatAndMaxLength(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat, maxLength);
             this.popStateIfNeeded();
+        }
+        registerImageAtId(id, image) {
+            this.globalPainter.registerImageAtId(id, image);
         }
         setColor(color) {
             this.globalPainter.setColor(color);
@@ -2435,56 +2603,82 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
     class KeyMapper {
         static createKeyFromKeyboardEvent(keyboardEvent) {
             switch (keyboardEvent.key) {
+                case 'A':
                 case 'a':
                     return Key_1.Key.A;
+                case 'B':
                 case 'b':
                     return Key_1.Key.B;
+                case 'C':
                 case 'c':
                     return Key_1.Key.C;
+                case 'D':
                 case 'd':
                     return Key_1.Key.D;
+                case 'E':
                 case 'e':
                     return Key_1.Key.E;
+                case 'F':
                 case 'f':
                     return Key_1.Key.F;
+                case 'G':
                 case 'g':
                     return Key_1.Key.G;
+                case 'H':
                 case 'h':
                     return Key_1.Key.H;
+                case 'I':
                 case 'i':
                     return Key_1.Key.I;
+                case 'J':
                 case 'j':
                     return Key_1.Key.J;
+                case 'K':
                 case 'k':
                     return Key_1.Key.K;
+                case 'L':
                 case 'l':
                     return Key_1.Key.L;
+                case 'M':
                 case 'm':
                     return Key_1.Key.M;
+                case 'N':
                 case 'n':
                     return Key_1.Key.N;
+                case 'O':
                 case 'o':
                     return Key_1.Key.O;
+                case 'P':
                 case 'p':
                     return Key_1.Key.P;
+                case 'Q':
                 case 'q':
                     return Key_1.Key.Q;
+                case 'R':
                 case 'r':
                     return Key_1.Key.R;
+                case 'S':
                 case 's':
                     return Key_1.Key.S;
+                case 'T':
                 case 't':
                     return Key_1.Key.T;
+                case 'U':
                 case 'u':
                     return Key_1.Key.U;
+                case 'V':
                 case 'v':
                     return Key_1.Key.V;
+                case 'W':
                 case 'w':
                     return Key_1.Key.W;
+                case 'X':
                 case 'x':
                     return Key_1.Key.X;
+                case 'Y':
                 case 'y':
                     return Key_1.Key.Y;
+                case 'Z':
                 case 'z':
                     return Key_1.Key.Z;
                 case '0':
@@ -2553,6 +2747,8 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
                     return Key_1.Key.ENTER;
                 case 'Shift':
                     return Key_1.Key.SHIFT;
+                case ' ':
+                    return Key_1.Key.SPACE;
                 case 'Tab':
                     return Key_1.Key.TABULATOR;
                 default:
@@ -2562,12 +2758,12 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
     }
     exports.KeyMapper = KeyMapper;
 });
-define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_7) {
+define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_8) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PaintProcess {
         constructor(initialPainter, paintCommands) {
-            this.painters = new LinkedList_7.LinkedList();
+            this.painters = new LinkedList_8.LinkedList();
             this.addPainter(initialPainter);
             paintCommands.forEach(pp => pp(this));
         }
@@ -2580,11 +2776,12 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/CanvasGUIProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat"], function (require, exports, CanvasGUIProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_8, PaintProcess_1, Pair_1, RotationDirectionMapper_1, TextFormat_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Graphic/Image", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, Image_1, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
         constructor(window, inputTaker) {
+            this.imageCache = new CachingContainer_1.CachingContainer();
             if (window === null) {
                 throw new Error('The given window is null.');
             }
@@ -2598,12 +2795,12 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
                 throw new Error('The given inputTaker is undefined.');
             }
             this.inputTaker = inputTaker;
-            this.paintCommands = new LinkedList_8.LinkedList();
+            this.paintCommands = new LinkedList_9.LinkedList();
             this.window = window;
             this.canvas = window.document.createElement('canvas');
             this.window.document.body.appendChild(this.canvas);
-            this.updateCanvasSize();
             this.canvasRenderingContext2D = this.canvas.getContext('2d');
+            this.updateCanvasSize();
             this.connectInputMethods();
             this.reset();
         }
@@ -2617,13 +2814,13 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             return this.title;
         }
         getViewAreaHeight() {
-            return this.canvas.height;
+            return this.viewAreaHeight;
         }
         getViewAreaSize() {
-            return new Pair_1.Pair(this.getViewAreaWidth(), this.getViewAreaHeight());
+            return new Pair_2.Pair(this.getViewAreaWidth(), this.getViewAreaHeight());
         }
         getViewAreaWidth() {
-            return this.canvas.width;
+            return this.viewAreaWidth;
         }
         noteKeyPress(key) {
             this.inputTaker.noteKeyPress(key);
@@ -2684,7 +2881,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
         refresh() {
             console.log('The current CanvasGUI refreshes.');
             this.canvasRenderingContext2D.clearRect(0, 0, this.getViewAreaWidth(), this.getViewAreaHeight());
-            const painter = CanvasGUIPainter_1.CanvasGUIPainter.createPainterFor(this.canvasRenderingContext2D);
+            const painter = CanvasGUIPainter_1.CanvasGUIPainter.createPainterFor(this.imageCache, this.canvasRenderingContext2D);
             this.paintBackground(painter);
             new PaintProcess_1.PaintProcess(painter, this.paintCommands);
         }
@@ -2756,15 +2953,19 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
         }
         createPaintCommandUsingPainterIndex(painterIndex, textualPaintCommand) {
             switch (textualPaintCommand.getHeader()) {
-                case CanvasGUIProtocol_1.CanvasGUIProtocol.CREATE_PAINTER_HEADER:
+                case CanvasGUIObjectProtocol_1.CanvasGUIObjectProtocol.CREATE_PAINTER:
                     return this.createCreatePainterCommand(painterIndex, textualPaintCommand);
-                case CanvasGUIProtocol_1.CanvasGUIProtocol.PAINT_FILLED_RECTANGLE_HEADER:
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.PAINT_FILLED_RECTANGLE:
                     return this.createPaintFilledRectangleCommand(painterIndex, textualPaintCommand);
-                case CanvasGUIProtocol_1.CanvasGUIProtocol.PAINT_TEXT_HEADER:
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID:
+                    return this.createPaintImageByIdCommand(painterIndex, textualPaintCommand);
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.PAINT_TEXT:
                     return this.createPaintTextCommand(painterIndex, textualPaintCommand);
-                case CanvasGUIProtocol_1.CanvasGUIProtocol.SET_COLOR_HEADER:
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.REGISTER_IMAGE:
+                    return this.createRegisterImageCommand(painterIndex, textualPaintCommand);
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_COLOR:
                     return this.createSetColorCommand(painterIndex, textualPaintCommand);
-                case CanvasGUIProtocol_1.CanvasGUIProtocol.TRANSLATE_HEADER:
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.TRANSLATE:
                     return this.createTranslateCommand(painterIndex, textualPaintCommand);
                 default:
                     throw new Error('The given textualPaintCommand is not valid.');
@@ -2787,6 +2988,19 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
                     throw new Error('The given textualPaintFilledRectangleCommand is not valid.');
             }
         }
+        createPaintImageByIdCommand(painterIndex, textualPaintImageByIdCommand) {
+            const imageId = textualPaintImageByIdCommand.getAttributeAt(1).getHeader();
+            switch (textualPaintImageByIdCommand.getAttributeCount()) {
+                case 1:
+                    return pp => pp.getRefPainterByIndex(painterIndex).paintImageById(imageId);
+                case 3:
+                    const imageWidth = textualPaintImageByIdCommand.getAttributeAt(2).toNumber();
+                    const imageHeight = textualPaintImageByIdCommand.getAttributeAt(3).toNumber();
+                    return pp => pp.getRefPainterByIndex(painterIndex).paintImageByIdWithSize(imageId, imageWidth, imageHeight);
+                default:
+                    throw new Error('The given textualPaintImageByIdCommand is not valid.');
+            }
+        }
         createPaintTextCommand(painterIndex, textualPaintTextCommand) {
             const text = textualPaintTextCommand.getAttributeAt(1).getHeaderOrEmptyString();
             switch (textualPaintTextCommand.getAttributeCount()) {
@@ -2802,6 +3016,11 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
                 default:
                     throw new Error('The given textualPaintTextCommand is not valid.');
             }
+        }
+        createRegisterImageCommand(painterIndex, textualRegisterImageCommand) {
+            const id = textualRegisterImageCommand.getAttributeAt(1).getHeader();
+            const image = Image_1.Image.fromSpecification(textualRegisterImageCommand.getAttributeAt(2).toNode());
+            return pp => pp.getRefPainterByIndex(painterIndex).registerImageAtId(id, image);
         }
         createSetColorCommand(painterIndex, textualSetColorCommand) {
             const color = Color_4.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
@@ -2873,12 +3092,19 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Element/CanvasGUI/
             this.cursorYPositionOnViewArea = cursorYPositionOnViewArea;
         }
         updateCanvasSize() {
-            this.canvas.width = this.window.document.body.clientWidth;
-            this.canvas.height = this.window.innerHeight - 50;
+            this.viewAreaWidth = this.window.document.body.clientWidth;
+            this.viewAreaHeight = this.window.innerHeight - 50;
+            this.canvas.width = CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL * this.getViewAreaWidth();
+            this.canvas.height = CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL * this.getViewAreaHeight();
+            this.canvas.style.width = this.getViewAreaWidth() + 'px';
+            this.canvas.style.height = this.getViewAreaHeight() + 'px';
+            this.canvasRenderingContext2D.scale(CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL, CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL);
         }
     }
     CanvasGUI.DEFAULT_TITLE = 'GUI';
     CanvasGUI.BACKGROUND_COLOR = Color_4.Color.WHITE;
+    CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL = 2;
+    CanvasGUI.MODEL_PIXELS_PER_MONITOR_PIXEL = 1 / CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL;
     exports.CanvasGUI = CanvasGUI;
 });
 define("Element/Input/Input", ["require", "exports", "Element/Base/Element"], function (require, exports, Element_2) {
@@ -2898,7 +3124,7 @@ define("Element/Input/KeyInputType", ["require", "exports"], function (require, 
         KeyInputType[KeyInputType["Typing"] = 2] = "Typing";
     })(KeyInputType = exports.KeyInputType || (exports.KeyInputType = {}));
 });
-define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "Element/Input/Key", "Element/Input/KeyInputType", "Common/Container/LinkedList", "Common/Node/Node"], function (require, exports, Input_1, Key_2, KeyInputType_1, LinkedList_9, Node_5) {
+define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "Element/Input/Key", "Element/Input/KeyInputType", "Common/Container/LinkedList", "Common/Node/Node"], function (require, exports, Input_1, Key_2, KeyInputType_1, LinkedList_10, Node_5) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class KeyInput extends Input_1.Input {
@@ -2920,7 +3146,7 @@ define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "
             this.inputType = inputType;
         }
         getAttributes() {
-            const attributes = new LinkedList_9.LinkedList();
+            const attributes = new LinkedList_10.LinkedList();
             attributes.addAtEnd(Node_5.Node.withHeaderAndAttribute(KeyInput.KEY_HEADER, Node_5.Node.withHeader(Key_2.Key[this.key])));
             attributes.addAtEnd(Node_5.Node.withHeaderAndAttribute(KeyInput.INPUT_TYPE_HEADER, Node_5.Node.withHeader(KeyInputType_1.KeyInputType[this.inputType])));
             return attributes;
@@ -2953,7 +3179,7 @@ define("Element/Input/MouseInputType", ["require", "exports"], function (require
         MouseInputType[MouseInputType["BackwardMouseWheelRotationStep"] = 11] = "BackwardMouseWheelRotationStep";
     })(MouseInputType = exports.MouseInputType || (exports.MouseInputType = {}));
 });
-define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputType", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_10, MouseInputType_1, Node_6, PascalCaseNameCatalogue_2) {
+define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputType", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_11, MouseInputType_1, Node_6, PascalCaseNameCatalogue_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MouseInput extends Input_2.Input {
@@ -2982,7 +3208,7 @@ define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input",
             this.cursorYPosition = cursorYPosition;
         }
         getAttributes() {
-            const attributes = new LinkedList_10.LinkedList();
+            const attributes = new LinkedList_11.LinkedList();
             attributes.addAtEnd(this.getInputTypeSpecification());
             attributes.addAtEnd(this.getCursorPositionSpecification());
             return attributes;
@@ -3029,7 +3255,7 @@ define("Element/Input/MouseInputTypeMapper", ["require", "exports", "Element/Inp
     }
     exports.MouseInputTypeMapper = MouseInputTypeMapper;
 });
-define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_11, Node_7, PascalCaseNameCatalogue_3) {
+define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_12, Node_7, PascalCaseNameCatalogue_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ResizeInput extends Input_3.Input {
@@ -3057,7 +3283,7 @@ define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input"
             this.viewAreaHeight = viewAreaHeight;
         }
         getAttributes() {
-            return LinkedList_11.LinkedList.withElement(this.getSizeSpecification());
+            return LinkedList_12.LinkedList.withElement(this.getSizeSpecification());
         }
         getType() {
             return ResizeInput.TYPE_NAME;
