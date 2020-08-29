@@ -14,7 +14,8 @@ import ch.nolix.element.elementAPI.IElementEnum;
 public enum ContainerRole implements IElementEnum {
 	OverallContainer,
 	MainContainer,
-	DialogContainer;
+	DialogContainer,
+	TileContainer;
 	
 	//static method
 	/**
