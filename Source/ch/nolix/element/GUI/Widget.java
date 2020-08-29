@@ -16,6 +16,8 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
 import ch.nolix.common.skillAPI.Recalculable;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.baseGUI_API.IFrontEndReader;
+import ch.nolix.element.baseGUI_API.IFrontEndWriter;
 import ch.nolix.element.baseGUI_API.IInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
@@ -34,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2070
+ * @lines 2090
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -295,6 +297,15 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final boolean freeViewAreaIsUnderCursor() {
 		return (isUnderCursor() && getRefPaintableWidgets().contains(Widget::isUnderCursor));
+	}
+	
+	//method
+	/**
+	 * @return the {@link IFrontEndReader} of the parent {@link GUI} of the current {@link Widget}.
+	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
+	 */
+	public IFrontEndReader fromFrontEnd() {
+		return getParentGUI().fromFrontEnd();
 	}
 	
 	//method
@@ -986,6 +997,15 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonRelease);
 			}
 		}
+	}
+	
+	//method
+	/**
+	 * @return the {@link IFrontEndWriter} of the parent {@link GUI} of the current {@link Widget}.
+	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
+	 */
+	public IFrontEndWriter onFrontEnd() {
+		return getParentGUI().onFrontEnd();
 	}
 	
 	//method
