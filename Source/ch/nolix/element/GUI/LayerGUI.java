@@ -41,6 +41,7 @@ import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.SelectionMenu;
 import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.widget.Uploader;
 import ch.nolix.element.widget.VerticalLine;
 import ch.nolix.element.widget.VerticalStack;
 
@@ -79,7 +80,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		TabContainer.class,
 		TextBox.class,
 		VerticalLine.class,
-		VerticalStack.class
+		VerticalStack.class,
+		Uploader.class
 	);
 	
 	//static method
