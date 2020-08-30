@@ -37,7 +37,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1100
+ * @lines 1110
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -67,6 +67,7 @@ IResizableInputTaker {
 		return new Layer().reset(specification);
 	}
 	
+	//TODO: Make parentGUI optional.
 	//attribute
 	/**
 	 * The {@link GUI} the current {@link Layer} belongs to.
@@ -754,6 +755,19 @@ IResizableInputTaker {
 		backgroundColorGradient.clear();
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Removes the current {@link Layer} from its parent {@link GUI}.
+	 */
+	public final void removeSelfFromGUI() {
+		
+		parentGUI.removeLayer(this);
+		
+		parentGUI = null;
+		
+		//TODO: Prevent that parentGUI can be set again.
 	}
 	
 	//method
