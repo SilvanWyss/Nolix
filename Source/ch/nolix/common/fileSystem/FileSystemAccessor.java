@@ -20,7 +20,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 370
+ * @lines 390
  */
 public final class FileSystemAccessor {
 	
@@ -357,6 +357,19 @@ public final class FileSystemAccessor {
 		}
 		
 		new FileAccessor(path).overwriteFile(content);
+	}
+	
+	//static method
+	/**
+	 * Reads the content of the file with the given filePath to bytes.
+	 * 
+	 * @param filePath
+	 * @return the bytes of the file with the given filePath.
+	 * @throws InvalidArgumentException
+	 * if there does not exist a file with the given filePath in the file system on the local machine.
+	 */
+	public static byte[] readFileToBytes(final String filePath) {
+		return new FileAccessor(filePath).readFileToBytes();
 	}
 	
 	//static method
