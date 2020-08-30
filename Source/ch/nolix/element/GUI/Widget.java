@@ -1293,7 +1293,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	@Override
 	public final W setLeftMouseButtonClickAction(final IElementTaker<W> leftMouseButtonClickAction) {
 		
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
+		Validator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click action").isNotNull();
 		
 		this.leftMouseButtonClickAction = leftMouseButtonClickAction;
 		
