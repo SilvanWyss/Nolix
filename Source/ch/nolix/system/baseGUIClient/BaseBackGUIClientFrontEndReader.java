@@ -2,6 +2,7 @@
 package ch.nolix.system.baseGUIClient;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseGUI_API.IFrontEndReader;
@@ -30,5 +31,13 @@ final class BaseBackGUIClientFrontEndReader implements IFrontEndReader {
 	@Override
 	public SingleContainer<byte[]> readFileToBytes() {
 		return parentBackGUIClient.getFileFromCounterpart();
+	}
+	
+	//method
+	@Override
+	public LinkedList<byte[]> getFilesFromClipboard() {
+		
+		//TODO: Implement.
+		return null;
 	}
 }

@@ -5,17 +5,28 @@ package ch.nolix.element.GUI;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javax.swing.JFileChooser;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
+import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.baseGUI_API.IFrontEndReader;
 
 //class
 public final class LocalFrontEndReader implements IFrontEndReader {
+	
+	//method
+	@Override
+	public LinkedList<byte[]> getFilesFromClipboard() {
+		return getFilePathsFromClipboard().to(FileSystemAccessor::readFileToBytes);
+	}
 	
 	//method
 	@Override
@@ -41,5 +52,20 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 		final var filePath = fileChooser.getSelectedFile().getPath();
 		
 		return new SingleContainer<>(new FileAccessor(filePath).readFileToBytes());
+	}
+	
+	//method
+	private LinkedList<String> getFilePathsFromClipboard() {
+		try {
+			
+			@SuppressWarnings("unchecked")
+			final var files =
+			(List<File>)(Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.javaFileListFlavor));
+			
+			return new ReadContainer<>(files).to(File::getPath);
+		}
+		catch (final IOException | UnsupportedFlavorException exception) {
+			throw new WrapperException(exception);
+		}
 	}
 }

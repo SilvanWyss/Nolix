@@ -1,11 +1,15 @@
 //package declaration
 package ch.nolix.element.baseGUI_API;
 
-//own import
+//own imports
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
 
 //interface
 public interface IFrontEndReader {
+	
+	//method declaration
+	public abstract LinkedList<byte[]> getFilesFromClipboard();
 	
 	//method declaration
 	public abstract String getTextFromClipboard();
