@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.common.endPoint2;
 
-import ch.nolix.common.processProperty.ConnectionOrigin;
 //own imports
+import ch.nolix.common.processProperty.ConnectionOrigin;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -123,7 +123,16 @@ public final class LocalEndPoint extends EndPoint {
 	public boolean isNetEndPoint() {
 		return false;
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isWebEndPoint() {
+		return false;
+	}
+	
 	//method
 	/**
 	 * Lets this local send the given message.

@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 190
+ * @lines 200
  */
 public abstract class EndPoint implements ICloseableElement, ISender {
 	
@@ -135,6 +135,12 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
 	 */
 	public abstract boolean isNetEndPoint();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
+	 */
+	public abstract boolean isWebEndPoint();
 	
 	//method
 	/**

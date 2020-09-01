@@ -58,6 +58,12 @@ final class WebEndPoint extends BaseNetEndPoint {
 	
 	//method
 	@Override
+	public boolean isWebEndPoint() {
+		return true;
+	}
+	
+	//method
+	@Override
 	protected void sendRawMessage(final String rawMessage) {
 		sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));
 	}

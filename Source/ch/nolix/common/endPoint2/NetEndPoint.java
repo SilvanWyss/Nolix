@@ -23,7 +23,7 @@ import ch.nolix.common.wrapperException.WrapperException;
 /**
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 250
+ * @lines 260
  */
 public final class NetEndPoint extends BaseNetEndPoint {
 	
@@ -204,6 +204,15 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	@Override
 	public EndPointType getType() {
 		return EndPointType.REGULAR_SOCKET;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isWebEndPoint() {
+		return true;
 	}
 	
 	//method
