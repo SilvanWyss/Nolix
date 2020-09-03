@@ -20,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 270
+ * @lines 280
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -172,6 +172,15 @@ public class NetEndPoint extends EndPoint {
 	@Override
 	public boolean isNetEndPoint() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isWebEndPoint() {
+		return internalNetEndPoint.isWebEndPoint();
 	}
 	
 	//method
