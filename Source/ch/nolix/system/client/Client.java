@@ -28,7 +28,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 740
+ * @lines 760
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -228,6 +228,15 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 */
 	public final boolean isNetClient() {
 		return endPoint.isNetEndPoint();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Client} is a web{@link Client}.
+	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
+	 */
+	public final boolean isWebClient() {
+		return getRefEndPoint().isWebEndPoint();
 	}
 	
 	//method
@@ -679,6 +688,18 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		if (!internalIsConnected()) {
 			throw new UnconnectedArgumentException(this);
 		}
+	}
+	
+	/**
+	 * @return the {@link EndPoint} of the current {@link Client}.
+	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
+	 */
+	private EndPoint getRefEndPoint() {
+		
+		//Asserts that the current Client is connected.
+		assertIsConnected();
+		
+		return endPoint;
 	}
 	
 	//method
