@@ -168,8 +168,6 @@ public class NetEndPoint extends EndPoint {
 		return receivedPackages;
 	}
 	
-
-	
 	//method
 	/**
 	 * @return the index of the next sent package. of this zeta end point
