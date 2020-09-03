@@ -21,7 +21,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 260
+ * @lines 250
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -141,18 +141,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				break;
 		}
 	}
-
-	//method
-	/**
-	 * Adds or changes the given attributes to the {@link Widget}s
-	 * of the GUI of the current {@link BaseBackGUIClient}.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if the given attributes are not valid.
-	 */
-	private void addOrChangeGUIWidgetsAttributes(final IContainer<IContainer<Node>> attributes) {
-		getRefGUI().addOrChangeAttributesOfWidgets(attributes);
-	}
 	
 	//method
 	/**
@@ -223,11 +211,6 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		switch (lGUICommand.getHeader()) {
 			case CommandProtocol.RESET:
 				resetGUI(lGUICommand.getAttributesAsNodes());
-				break;
-			case CommandProtocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES:
-				addOrChangeGUIWidgetsAttributes(						
-					lGUICommand.getAttributes().to(ChainedNode::getAttributesAsNodes)
-				);
 				break;
 			default:
 				throw new InvalidArgumentException("GUI command", lGUICommand, "is not valid");
