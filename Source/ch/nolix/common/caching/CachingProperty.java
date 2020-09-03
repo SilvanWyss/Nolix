@@ -4,16 +4,17 @@ package ch.nolix.common.caching;
 //own imports
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementGetter;
+import ch.nolix.common.skillAPI.Refreshable;
 import ch.nolix.common.validator.Validator;
 
 //class
-public final class CachingProperty<V> {
+public final class CachingProperty<V> implements Refreshable {
 	
 	//attribute
 	private final IElementGetter<V> valueCreator;
 	
 	//optional attributes
-	private final IBooleanGetter needToRecreateValueFunction;
+	private final IBooleanGetter needToRefreshFunction;
 	private V value;
 	
 	//constructor
@@ -22,31 +23,42 @@ public final class CachingProperty<V> {
 		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 		
 		this.valueCreator = valueCreator;
-		needToRecreateValueFunction = null;
+		needToRefreshFunction = null;
 	}
 	
 	//constructor
-	public CachingProperty(final IElementGetter<V> valueCreator, final IBooleanGetter needToRecreateValueFunction) {
+	public CachingProperty(final IElementGetter<V> valueCreator, final IBooleanGetter needToRefreshFunction) {
 		
 		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		Validator.assertThat(needToRecreateValueFunction).thatIsNamed("need-to-recreate-value-function").isNotNull();
+		Validator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
 		
 		this.valueCreator = valueCreator;
-		this.needToRecreateValueFunction = needToRecreateValueFunction;
+		this.needToRefreshFunction = needToRefreshFunction;
 	}
 	
 	//method
 	public V getValue() {
 		
-		createValueIfNeeded();
+		refreshIfNeeded();
 		
 		return value;
 	}
 	
 	//method
-	private void createValueIfNeeded() {
-		if (value == null || (needToRecreateValueFunction != null && needToRecreateValueFunction.getOutput())) {
-			value = valueCreator.getOutput();
+	@Override
+	public void refresh() {
+		value = valueCreator.getOutput();
+	}
+	
+	//method
+	private void refreshIfNeeded() {
+		if (refreshIsNeeded()) {
+			refresh();
 		}
+	}
+	
+	//method
+	private boolean refreshIsNeeded() {
+		return (value == null || (needToRefreshFunction != null && needToRefreshFunction.getOutput()));
 	}
 }
