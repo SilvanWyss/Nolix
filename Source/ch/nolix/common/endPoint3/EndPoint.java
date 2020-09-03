@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 100
+ * @lines 110
  */
 public abstract class EndPoint implements ICloseableElement, IReplyingSender {
 	
@@ -55,6 +55,12 @@ public abstract class EndPoint implements ICloseableElement, IReplyingSender {
 	 * @return true if this end point has a target.
 	 */
 	public abstract boolean hasTarget();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
+	 */
+	public abstract boolean isWebEndPoint();
 	
 	//method
 	/**

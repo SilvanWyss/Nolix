@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
@@ -10,7 +11,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 10
+ * @lines 220
  */
 public final class LocalEndPoint extends EndPoint {
 
@@ -156,17 +157,6 @@ public final class LocalEndPoint extends EndPoint {
 
 	//method
 	/**
-	 * Lets this local end point receive the given message.
-	 * 
-	 * @param message
-	 * @return the reply to the given message.
-	 */
-	private String receiveAndGetReply(final String message) {
-		return getRefReplier().getReply(message);
-	}
-
-	//method
-	/**
 	 * @return the target of this local end point.
 	 * @throws ArgumentDoesNotHaveAttributeException if this local end point does not have a target.
 	 */
@@ -201,6 +191,15 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isWebEndPoint() {
+		return false;
+	}
+	
+	//method
+	/**
 	 * Lets this local end point send the given message.
 	 * 
 	 * @return the reply to the given message from this local end point.
@@ -208,5 +207,16 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	public String sendAndGetReply(final String message) {
 		return getRefCounterpart().receiveAndGetReply(message);
+	}
+	
+	//method
+	/**
+	 * Lets this local end point receive the given message.
+	 * 
+	 * @param message
+	 * @return the reply to the given message.
+	 */
+	private String receiveAndGetReply(final String message) {
+		return getRefReplier().getReply(message);
 	}
 }

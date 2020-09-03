@@ -10,7 +10,7 @@ import ch.nolix.common.container.LinkedList;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 290
+ * @lines 300
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -122,6 +122,15 @@ public class NetEndPoint extends EndPoint {
 	 */
 	public boolean isNetEndPoint() {
 		return internalEndPoint.isNetEndPoint();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isWebEndPoint() {
+		return internalEndPoint.isWebEndPoint();
 	}
 	
 	//method
