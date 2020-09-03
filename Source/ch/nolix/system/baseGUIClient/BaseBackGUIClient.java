@@ -12,6 +12,8 @@ import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.element.input.InputFactory;
@@ -21,13 +23,20 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 250
+ * @lines 330
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
 	
-	//attribute
+	//constant
+	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
+	
+	//attributes
 	private BaseFrontGUIClientGUIType counterpartGUIType;
+	private boolean isWaitingForFileFromCounterpart = false;
+	
+	//optional attribute
+	private Node latestFileDataFromCounterpart;
 	
 	//method
 	/**
@@ -79,13 +88,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				}
 				
 				break;
+			case CommandProtocol.RECEIVE_FILE:
+				receiveFileDataFromCounterpart(command.getOneAttributeAsNode());
+				break;
 			default:
 				
 				//Calls method of the base class.
 				super.internalRun(command);
 		}
 	}
-	
+
 	//method
 	final void configureGUI(final InvisibleGUI pGUI) {
 		
@@ -101,13 +113,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	//method
 	final SingleContainer<byte[]> getFileFromCounterpart() {
 		
-		final var data = internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_FILE));
+		final var fileData = isWebClient() ? getFileDataFromWebCounterpart() : getFileDataFromNonWebCounterpart();
 		
-		if (!data.containsOneAttribute()) {
+		if (!fileData.containsOneAttribute()) {
 			return new SingleContainer<>();
 		}
 		
-		return new SingleContainer<>(data.getRefOneAttribute().toString().getBytes(StandardCharsets.UTF_8));
+		return new SingleContainer<>(fileData.getRefOneAttribute().toString().getBytes(StandardCharsets.UTF_8));
 	}
 	
 	//method
@@ -144,6 +156,28 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	/**
+	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
+	 * is already waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 */
+	private void assertIsNotWaitingForFileFromCounterpart() {
+		if (isWaitingForFileFromCounterpart()) {
+			throw new InvalidArgumentException(this, "is already waiting for a file from the counterpart");
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
+	 * is not waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 */
+	private void assertIsWaitingForFileFromCounterpart() {
+		if (!isWaitingForFileFromCounterpart()) {
+			throw new InvalidArgumentException(this, "is not waiting for a file from counterpart");
+		}
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link BaseBackGUIClient} fetch the GUI type from the counterpart of the current {@link BaseBackGUIClient}
 	 * if the current {@link BaseBackGUIClient} does not know it.
 	 */
@@ -157,6 +191,29 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
+	private Node getFileDataFromNonWebCounterpart() {
+		return internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_FILE));
+	}
+	
+	//method
+	private Node getFileDataFromWebCounterpart() {
+		
+		assertIsNotWaitingForFileFromCounterpart();
+		
+		isWaitingForFileFromCounterpart = true;
+		
+		internalRunOnCounterpart(new ChainedNode(CommandProtocol.SEND_FILE));
+		
+		Sequencer
+		.forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
+		.waitAsLongAs(this::isWaitingForFileFromCounterpart);
+		
+		isWaitingForFileFromCounterpart = false;
+		
+		return latestFileDataFromCounterpart;
+	}
+	
+	//method
 	/**
 	 * @return the {@link GUI} of the current {@link Session} of the current {@link BaseBackGUIClient}.
 	 */
@@ -167,7 +224,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		return session.getRefGUI();
 	}
-
+	
+	//method
+	/**
+	 * @return true if the current {@link BaseBackGUIClient}
+	 * is waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 */
+	private boolean isWaitingForFileFromCounterpart() {
+		return isWaitingForFileFromCounterpart;
+	}
+	
 	//method
 	/**
 	 * @return true if the current {@link BackGUIClientoidoid}
@@ -175,6 +241,25 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private boolean knowsCounterpartGUIType() {
 		return (counterpartGUIType != null);
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient}
+	 * receive a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 * 
+	 * @param fileData
+	 * @throws ArgumentIsNullException if the given fileData is null.
+	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
+	 * is not waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 */
+	private void receiveFileDataFromCounterpart(final Node fileData) {
+		
+		Validator.assertThat(fileData).thatIsNamed("file data").isNotNull();
+		assertIsWaitingForFileFromCounterpart();
+		
+		isWaitingForFileFromCounterpart = false;
+		latestFileDataFromCounterpart = fileData;
 	}
 	
 	//method
