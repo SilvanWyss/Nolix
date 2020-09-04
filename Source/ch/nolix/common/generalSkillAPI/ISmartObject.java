@@ -11,4 +11,4 @@ package ch.nolix.common.generalSkillAPI;
  * @lines 10
  * @param <SO> The type of a {@link ISmartObject}.
  */
-public interface ISmartObject<SO extends ISmartObject<SO>> extends Castable, IFluentObject<SO>, Listable<SO> {}
+public interface ISmartObject<SO extends ISmartObject<SO>> extends Castable, Listable<SO>, Transformable<SO> {}
