@@ -79,6 +79,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String FOLDER = "Folder";
 	public static final String FOLDER_PATH = "FolderPath";
 	public static final String FUNCTION = "Function";
+	public static final String GENERATOR = "Generator";
 	public static final String GUI = "GUI";
 	public static final String HASH_CODE = "HashCode";
 	public static final String HEADER = "Header";

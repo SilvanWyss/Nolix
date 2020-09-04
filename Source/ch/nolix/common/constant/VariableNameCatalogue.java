@@ -79,6 +79,7 @@ public final class VariableNameCatalogue {
 	public static final String FOLDER = "folder";
 	public static final String FOLDER_PATH = "folder path";
 	public static final String FUNCTION = "function";
+	public static final String GENERATOR = "generator";
 	public static final String GUI = "GUI";
 	public static final String HASH_CODE = "hash code";
 	public static final String HEADER = "header";
