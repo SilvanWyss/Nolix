@@ -212,7 +212,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 */
 	@Override
 	public boolean isWebEndPoint() {
-		return true;
+		return false;
 	}
 	
 	//method
