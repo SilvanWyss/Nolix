@@ -925,7 +925,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Handles the case that this matrix consists of 1 row.
 		if (getRowCount() == 1) {
-			return new Polynom(getColumnCount() - 1).setCoefficients(values[0]);
+			return Polynom.withCoefficients(values[0]);
 		}
 		
 		//Handles the case that this matrix consists of 1 column.
@@ -937,7 +937,7 @@ public class Matrix implements ApproximativeEqualing {
 				values[i] = this.values[i][0];
 			}
 			
-			return new Polynom(getRowCount() - 1).setCoefficients(values);
+			return Polynom.withCoefficients(values);
 		}
 		
 		//Handles the case that this matrix does not consist of 1 row nor of 1 column.

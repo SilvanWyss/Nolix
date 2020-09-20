@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.math;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
@@ -196,7 +197,7 @@ public final class QuadraticFunction {
 	 * @return a new {@link Polynom} representation of the current {@link QuadraticFunction}.
 	 */
 	public Polynom toPolynom() {
-		return new Polynom(3).setCoefficients(a, b, c);
+		return Polynom.withCoefficients(a, b, c);
 	}
 	
 	//method
