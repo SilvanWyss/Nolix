@@ -29,13 +29,14 @@ public abstract class ConsoleClientLookTest<CCL extends Configuration> extends O
 	private GUI<?> createConsoleClientEquivalentGUI() {
 		return
 		new InvisibleGUI(
-			new VerticalStack(
+			new VerticalStack()
+			.setRole(ContainerRole.MainContainer)
+			.addWidget(
 				new Console()
 				.setId("InfoPanel"),
 				new Console()
 				.setId("Console")
 			)
-			.setRole(ContainerRole.MainContainer)
 		);
 	}
 }
