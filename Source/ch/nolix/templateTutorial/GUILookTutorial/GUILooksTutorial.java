@@ -33,12 +33,15 @@ public final class GUILooksTutorial {
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame(
-			"GUI Looks Tutorial",
-			new VerticalStack(
+			"GUILooks Tutorial",
+			new VerticalStack()
+			.setRole(ContainerRole.OverallContainer)
+			.addWidget(
 				new Label("Configure your GUI !").setRole(LabelRole.Title),
 				new HorizontalStack(
 					selectionMenu,
 					new Grid()
+					.setRole(ContainerRole.MainContainer)
 					.setWidget(1, 1, "Checkbox")
 					.setWidget(1, 2, new Checkbox())
 					.setWidget(2, 1, "Button")
@@ -53,7 +56,6 @@ public final class GUILooksTutorial {
 					.setWidget(6, 2, new Downloader().setFileProvider(() -> new byte[0]))
 				)
 			)
-			.setRole(ContainerRole.OverallContainer)
 		);
 		
 		selectionMenu.selectFirstItem();
