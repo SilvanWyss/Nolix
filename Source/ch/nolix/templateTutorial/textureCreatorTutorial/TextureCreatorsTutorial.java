@@ -36,18 +36,18 @@ public final class TextureCreatorsTutorial {
 			.addTab(
 				"Concrete",
 				new ImageWidget(concreteTexture)
-				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(5))
+				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
 			)
 			.addTab(
 				"Jute",
 				new ImageWidget(juteTexture)
-				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE_SMOKE).setPaddings(5))
+				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
 			)
 		);
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link TextureCreatorsTutorial} an instance can be created.
+	 * Avoids that an instance of the {@link TextureCreatorsTutorial} can be created.
 	 */
 	private TextureCreatorsTutorial() {}
 }
