@@ -50,7 +50,7 @@ public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 	}
 	
 	@Override
-	protected SingleContainer createTestObject() {
+	protected SingleContainer createTestUnit() {
 		return new SingleContainer();
 	}
 }

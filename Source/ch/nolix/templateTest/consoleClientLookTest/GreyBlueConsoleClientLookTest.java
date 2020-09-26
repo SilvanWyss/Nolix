@@ -8,7 +8,7 @@ public final class GreyBlueConsoleClientLookTest extends ConsoleClientLookTest<G
 	
 	//method
 	@Override
-	protected GreyBlueConsoleClientLook createTestObject() {
+	protected GreyBlueConsoleClientLook createTestUnit() {
 		return new GreyBlueConsoleClientLook();
 	}
 }

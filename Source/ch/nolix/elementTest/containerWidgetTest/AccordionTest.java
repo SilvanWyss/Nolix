@@ -94,7 +94,7 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 	
 	//method
 	@Override
-	protected Accordion createTestObject() {
+	protected Accordion createTestUnit() {
 		return new Accordion();
 	}
 }

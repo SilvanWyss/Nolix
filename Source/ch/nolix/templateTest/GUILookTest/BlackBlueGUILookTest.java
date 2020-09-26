@@ -9,7 +9,7 @@ public final class BlackBlueGUILookTest extends GUILookTest<BlackBlueGUILook> {
 	
 	//method
 	@Override
-	protected BlackBlueGUILook createTestObject() {
+	protected BlackBlueGUILook createTestUnit() {
 		return new BlackBlueGUILook();
 	}
 }

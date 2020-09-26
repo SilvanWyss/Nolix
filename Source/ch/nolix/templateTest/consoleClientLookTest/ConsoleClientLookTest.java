@@ -22,7 +22,7 @@ public abstract class ConsoleClientLookTest<CCL extends Configuration> extends O
 		final var lGUI = createConsoleClientEquivalentGUI();
 		
 		//execution & verification
-		expect(() -> createTestObject().configure(lGUI)).doesNotThrowException();
+		expect(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
 	}
 	
 	//method

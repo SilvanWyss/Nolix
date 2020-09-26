@@ -9,7 +9,7 @@ public final class RedLineGUILookTest extends GUILookTest<RedLineGUILook> {
 	
 	//method
 	@Override
-	protected RedLineGUILook createTestObject() {
+	protected RedLineGUILook createTestUnit() {
 		return new RedLineGUILook();
 	}
 }

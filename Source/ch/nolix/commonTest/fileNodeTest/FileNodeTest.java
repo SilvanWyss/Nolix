@@ -11,7 +11,7 @@ import ch.nolix.commonTest.nodeTest.BaseNodeTest;
 public final class FileNodeTest extends BaseNodeTest {
 	
 	@Override
-	protected FileNode createTestObject() {
+	protected FileNode createTestUnit() {
 		return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
 	}
 	

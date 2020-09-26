@@ -56,7 +56,7 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 	}
 	
 	//method
-	protected VerticalStack createTestObject() {
+	protected VerticalStack createTestUnit() {
 		return new VerticalStack();
 	}
 }

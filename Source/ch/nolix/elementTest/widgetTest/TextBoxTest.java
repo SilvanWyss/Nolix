@@ -64,7 +64,7 @@ public class TextBoxTest extends BorderWidgetTest<TextBox> {
 	
 	//method
 	@Override
-	protected TextBox createTestObject() {
+	protected TextBox createTestUnit() {
 		return new TextBox();
 	}
 }

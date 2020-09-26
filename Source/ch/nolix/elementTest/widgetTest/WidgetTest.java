@@ -23,7 +23,7 @@ extends ObjectTest<W> {
 	public final void testCase_collapse() {
 		
 		//setup
-		final var widget = createTestObject();
+		final var widget = createTestUnit();
 		
 		//execution
 		widget.setCollapsed();
@@ -37,7 +37,7 @@ extends ObjectTest<W> {
 	public final void testCase_getHeight() {
 		
 		//setup
-		final var widget = createTestObject();
+		final var widget = createTestUnit();
 		
 		//execution
 		widget.setCollapsed();
@@ -51,7 +51,7 @@ extends ObjectTest<W> {
 	public final void testCase_getWidth() {
 		
 		//setup
-		final var widget = createTestObject();
+		final var widget = createTestUnit();
 		
 		//execution
 		widget.setCollapsed();
@@ -65,7 +65,7 @@ extends ObjectTest<W> {
 	public final void testCase_reset() {
 		
 		//setup
-		final var widget = createTestObject();
+		final var widget = createTestUnit();
 		
 		//execution
 		widget.reset();

@@ -8,7 +8,7 @@ public final class BlackRedConsoleClientLookTest extends ConsoleClientLookTest<B
 	
 	//method
 	@Override
-	protected BlackRedConsoleClientLook createTestObject() {
+	protected BlackRedConsoleClientLook createTestUnit() {
 		return new BlackRedConsoleClientLook();
 	}
 }

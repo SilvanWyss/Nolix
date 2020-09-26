@@ -16,7 +16,7 @@ public final class NodeTest extends BaseNodeTest {
 	
 	//method
 	@Override
-	protected Node createTestObject() {
+	protected Node createTestUnit() {
 		return new Node();
 	}
 }

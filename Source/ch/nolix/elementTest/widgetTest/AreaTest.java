@@ -87,7 +87,7 @@ public final class AreaTest extends WidgetTest<Area> {
 	
 	//method
 	@Override
-	protected Area createTestObject() {
+	protected Area createTestUnit() {
 		return new Area();
 	}
 }

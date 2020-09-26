@@ -9,7 +9,7 @@ public final class AnthrazitGUILookTest extends GUILookTest<AnthrazitGUILook> {
 	
 	//method
 	@Override
-	protected AnthrazitGUILook createTestObject() {
+	protected AnthrazitGUILook createTestUnit() {
 		return new AnthrazitGUILook();
 	}
 }

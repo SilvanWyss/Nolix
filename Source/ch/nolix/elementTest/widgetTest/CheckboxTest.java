@@ -62,7 +62,7 @@ public final class CheckboxTest extends WidgetTest<Checkbox> {
 	
 	//method
 	@Override
-	protected Checkbox createTestObject() {
+	protected Checkbox createTestUnit() {
 		return new Checkbox();
 	}
 }

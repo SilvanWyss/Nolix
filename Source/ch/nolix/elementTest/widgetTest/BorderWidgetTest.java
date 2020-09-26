@@ -23,7 +23,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	public final void testCase_removeMaxWidth() {
 		
 		//setup
-		final var borderWidget = createTestObject();
+		final var borderWidget = createTestUnit();
 		borderWidget.setMaxWidth(500);
 		
 		//setup verification
@@ -39,7 +39,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	public final void testCase_setBaseBorderColors() {
 		
 		//setup
-		final var borderWidget = createTestObject();
+		final var borderWidget = createTestUnit();
 		
 		//execution
 		borderWidget.getRefBaseLook().setBorderColors(Color.RED);
@@ -67,7 +67,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	public final void testCase_setBaseBorderColors_borderColorIsNull() {
 		
 		//execution & verification
-		expect(() -> createTestObject().getRefBaseLook().setBorderColors(null))
+		expect(() -> createTestUnit().getRefBaseLook().setBorderColors(null))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given border color is null.");
@@ -78,7 +78,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	public final void testCase_setMaxWidth() {
 		
 		//setup
-		final var borderWidget = createTestObject();
+		final var borderWidget = createTestUnit();
 		
 		//execution
 		borderWidget.setMaxWidth(500);
@@ -92,7 +92,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	public final void testCase_setMaxWidth_maxWidthIsNegative() {
 		
 		//execution & verification
-		expect(() -> createTestObject().setMaxWidth(-100))
+		expect(() -> createTestUnit().setMaxWidth(-100))
 		.throwsException()
 		.ofType(NonPositiveArgumentException.class)
 		.withMessage("The given max width '-100' is not positive.");

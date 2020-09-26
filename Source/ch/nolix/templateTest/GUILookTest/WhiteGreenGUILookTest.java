@@ -9,7 +9,7 @@ public final class WhiteGreenGUILookTest extends GUILookTest<WhiteGreenGUILook> 
 	
 	//method
 	@Override
-	protected WhiteGreenGUILook createTestObject() {
+	protected WhiteGreenGUILook createTestUnit() {
 		return new WhiteGreenGUILook();
 	}
 }

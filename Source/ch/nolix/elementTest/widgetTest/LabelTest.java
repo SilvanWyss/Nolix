@@ -60,7 +60,7 @@ public final class LabelTest extends WidgetTest<Label> {
 	
 	//method
 	@Override
-	protected Label createTestObject() {
+	protected Label createTestUnit() {
 		return new Label();
 	}
 }

@@ -18,7 +18,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getCopy_1A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -34,7 +34,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_1B() {
 		
 		//setup
-		final var testUnit = createTestObject();testUnit.reset("");
+		final var testUnit = createTestUnit();testUnit.reset("");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -50,7 +50,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_2A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset("a");
 		
 		//execution
@@ -67,7 +67,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_2B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset("a(b)");
 		
 		//execution
@@ -84,7 +84,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_2C() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset("a(b,c,d)");
 		
 		//execution
@@ -101,7 +101,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_2D() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset("a(b(c))");
 		
 		//execution
@@ -118,7 +118,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_3A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset("a(b(c),d(e))");
 		
 		//execution
@@ -135,7 +135,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_copy_3B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset("a(b(c,d),e(f,g))");
 		
 		//execution
@@ -152,7 +152,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getRefAttributeAt() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.addAttribute(new Node("a"), new Node("b"), new Node("c"));
 		
 		//execution
@@ -176,7 +176,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getHeader_1A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem(");
 		
 		//execution
@@ -191,7 +191,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getHeader_1B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem)");
 		
 		//execution
@@ -206,7 +206,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getHeader_1C() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem.");
 		
 		//execution
@@ -221,7 +221,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getHeader_1D() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem,");
 		
 		//execution
@@ -236,7 +236,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getRefOneAttribute_1A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.addAttribute(new Node("a"));
 		
 		//execution
@@ -252,7 +252,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_getRefOneAttribute_1B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.reset();
 		
 		//execution
@@ -264,7 +264,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_removeHeader() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem");
 		
 		//setup verification
@@ -282,7 +282,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_1A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset();
@@ -298,7 +298,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_1B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("");
@@ -314,7 +314,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_2A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("a");
@@ -330,7 +330,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_2B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("a(b)");
@@ -346,7 +346,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_2C() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("a(b,c,d)");
@@ -362,7 +362,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_2D() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("a(b(c))");
@@ -378,7 +378,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_3A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("a(b(c),d(e))");
@@ -394,7 +394,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_3B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution
 		testUnit.reset("a(b(c,d),e(f,g))");
@@ -410,7 +410,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_reset_whenTheGivenStringIsNotValid() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		
 		//execution & verification
 		expect(() -> testUnit.reset("a(b).c"))
@@ -423,7 +423,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_setHeader() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem");
 		
 		//setup verification
@@ -441,7 +441,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_toString_1() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.addAttribute(new Node("a"), new Node("b"), new Node("c"));
 		
 		//execution
@@ -456,7 +456,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_toString_2A() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem(");
 		
 		//execution
@@ -471,7 +471,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_toString_2B() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem)");
 		
 		//execution
@@ -486,7 +486,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_toString_2C() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem.");
 		
 		//execution
@@ -501,7 +501,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	public void testCase_toString_2D() {
 		
 		//setup
-		final var testUnit = createTestObject();
+		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem,");
 		
 		//execution
