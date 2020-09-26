@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.template.textureCreator} package defines creators of texture images.
+ * The {@link ch.nolix.template.textureCreator} package defines {@link ch.nolix.system.texture.TextureCreator}s.
  * 
  * @author Silvan Wyss
  * @month 2019-07
