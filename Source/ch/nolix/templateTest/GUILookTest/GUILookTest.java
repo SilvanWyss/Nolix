@@ -18,6 +18,7 @@ import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.SelectionMenu;
 import ch.nolix.element.widget.TextBox;
 import ch.nolix.element.widget.Uploader;
+import ch.nolix.element.widget.VerticalLine;
 import ch.nolix.element.widget.VerticalStack;
 
 //class
@@ -28,12 +29,12 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 	public void testCase_configure_whenTheGUIContainsWidgets() {
 		
 		//setup
-		final var GUI =
+		final var lGUI =
 		new InvisibleGUI()
 		.addLayerOnTop(new VerticalStack(createNonContainerWidgets()));
 		
 		//execution & verification
-		expect(() -> createTestObject().configure(GUI)).doesNotThrowException();
+		expect(() -> createTestObject().configure(lGUI)).doesNotThrowException();
 	}
 	
 	//method
@@ -41,10 +42,10 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 	public void testCase_configure_whenTheGUIIsEmpty() {
 		
 		//setup
-		final var GUI = new InvisibleGUI();
+		final var lGUI = new InvisibleGUI();
 		
 		//execution & verification
-		expect(() -> createTestObject().configure(GUI)).doesNotThrowException();
+		expect(() -> createTestObject().configure(lGUI)).doesNotThrowException();
 	}
 	
 	//method
@@ -61,7 +62,7 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 			new SelectionMenu(),
 			new Uploader(),
 			new TextBox(),
-			new VerticalStack()
+			new VerticalLine()
 		);
 	}
 }
