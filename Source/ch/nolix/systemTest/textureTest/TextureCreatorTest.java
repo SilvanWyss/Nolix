@@ -17,11 +17,6 @@ public final class TextureCreatorTest extends Test {
 		//method
 		@Override
 		protected void fillTexture16x16(final Image texture) {}
-
-		@Override
-		public Color getBaseColor() {
-			return Color.RED;
-		}
 	}
 	
 	//method

@@ -2,7 +2,6 @@
 package ch.nolix.system.texture;
 
 //own imports
-import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 
 //class
@@ -19,14 +18,11 @@ public abstract class TextureCreator {
 	//method
 	public final Image createTexture16x16() {
 		
-		final var texture = new Image(TEXTURE_16x16_WIDTH, TEXTURE_16x16_WIDTH, getBaseColor());
+		final var texture = new Image(TEXTURE_16x16_WIDTH, TEXTURE_16x16_WIDTH);
 		fillTexture16x16(texture);
 		
 		return texture;
 	}
-	
-	//method declaration
-	public abstract Color getBaseColor();
 	
 	//method declaration
 	protected abstract void fillTexture16x16(Image texture);
