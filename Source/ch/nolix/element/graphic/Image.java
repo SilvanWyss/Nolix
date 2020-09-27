@@ -136,6 +136,13 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//constructor
 	public Image(final int width, final int height) {
+		this(width, height, Color.WHITE);
+	}
+	
+	//constructor
+	public Image(final int width, final int height, final Color color) {
+		
+		Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 		
 		setWidth(width);
 		setHeight(height);
@@ -146,22 +153,12 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			final var row = new Color[width];
 			for (var i = 0; i < width; i++) {
-				row[i] = Color.WHITE;
+				row[i] = color;
 			}
 			
 			for (var i = 1; i <= height; i++) {
 				pixels.addRow(row);
 			}
-		}
-	}
-	
-	//constructor
-	public Image(final int width, final int height, final Color color) {
-		
-		this(width, height);
-		
-		for (var i = 1; i <= getPixelCount(); i++) {
-			pixels.setAt(i, color);
 		}
 	}
 	
