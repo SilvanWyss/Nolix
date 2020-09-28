@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.template.resourceCatalogue} package
- * defines catalogues of {@link ch.nolix.tech.resource.Resource}s.
+ * defines catalogues with {@link ch.nolix.tech.resource.Resource}s.
  * 
  * @author Silvan Wyss
  * @month 2019-07
