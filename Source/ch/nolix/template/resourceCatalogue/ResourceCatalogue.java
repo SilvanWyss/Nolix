@@ -1,53 +1,33 @@
 //package declaration
 package ch.nolix.template.resourceCatalogue;
 
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
-import ch.nolix.techAPI.resourceAPI.IResource;
-import ch.nolix.techAPI.resourceAPI.IResourceFactory;
+//own import
+import ch.nolix.tech.resource.Resource;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 50
+ * @lines 30
  */
 public final class ResourceCatalogue {
 	
-	//attributes
-	public final IResource CARBON;
-	public final IResource COLE;
-	public final IResource CARBON_HYDRIDE;
-	public final IResource METHAN;
-	public final IResource SILICIUM;
-	public final IResource METAL;
-	public final IResource ALUMINIUM;
-	public final IResource IRON;
-	public final IResource TITAN;
-	public final IResource SILVER;
-	public final IResource GOLD;
+	//constants
+	public static final Resource CARBON = new Resource("carbon");
+	public static final Resource COLE = new Resource("cole", CARBON);
+	public static final Resource CARBON_HYDRIDE = new Resource("carbone hydride");
+	public static final Resource METHAN = new Resource("methan", CARBON_HYDRIDE);
+	public static final Resource SILICIUM = new Resource("silicium");
+	public static final Resource METAL = new Resource("metal");
+	public static final Resource ALUMINIUM = new Resource("aluminium", METAL);
+	public static final Resource IRON = new Resource("iron", METAL);
+	public static final Resource TITAN = new Resource("titan", METAL);
+	public static final Resource SILVER = new Resource("silver", METAL);
+	public static final Resource GOLD = new Resource("gold", METAL);
 	
-	//constructor
+	//visibility-reducing constructor
 	/**
-	 * Creates a new {@link ResourceCatalogue} using the given resourceFactory.
-	 * 
-	 * @param resourceFactory
-	 * @throws ArgumentIsNullException if the ginve resourceFactory is null.
+	 * Avoids that an instance of the {@link ResourceCatalogue} can be created.
 	 */
-	public ResourceCatalogue(final IResourceFactory resourceFactory) {
-		
-		Validator.assertThat(resourceFactory).thatIsNamed(IResourceFactory.class).isNotNull();
-		
-		CARBON = resourceFactory.create("Carbon");
-		COLE = resourceFactory.create("Cole", CARBON);
-		CARBON_HYDRIDE = resourceFactory.create("Carbon Hydride");
-		METHAN = resourceFactory.create("Methan", CARBON_HYDRIDE);
-		SILICIUM = resourceFactory.create("Silicium");
-		METAL = resourceFactory.create("Metal");
-		ALUMINIUM = resourceFactory.create("Aluminium", METAL);
-		IRON = resourceFactory.create("Iron", METAL);
-		TITAN = resourceFactory.create("Titan", METAL);
-		SILVER = resourceFactory.create("SILVER", METAL);
-		GOLD = resourceFactory.create("Gold", METAL);
-	}
+	private ResourceCatalogue() {}
 }
