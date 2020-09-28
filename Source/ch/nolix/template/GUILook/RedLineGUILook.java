@@ -10,7 +10,7 @@ import ch.nolix.element.widget.LabelRole;
 
 //class
 public final class RedLineGUILook extends Configuration {
-
+	
 	//constructor
 	public RedLineGUILook() {
 		
