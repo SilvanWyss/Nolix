@@ -1,10 +1,3 @@
-/*
- * file:	GreenDesign.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	70
- */
-
 //package declaration
 package ch.nolix.template.GUILook;
 
@@ -16,11 +9,8 @@ import ch.nolix.element.widget.LabelRole;
 
 //class
 public final class WhiteGreenGUILook extends Configuration {
-
+	
 	//constructor
-	/**
-	 * Creates a new green design.
-	 */
 	public WhiteGreenGUILook() {
 		
 		setName("Green");
