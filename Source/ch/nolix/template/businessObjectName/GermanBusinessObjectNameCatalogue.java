@@ -1,8 +1,8 @@
 //package info
-package ch.nolix.template.constant;
+package ch.nolix.template.businessObjectName;
 
 //class
-public final class GermanObjectNameCatalogue {
+public final class GermanBusinessObjectNameCatalogue {
 	
 	//constants
 	public static final String ABTEILUNG = "Abteilung";
@@ -49,5 +49,5 @@ public final class GermanObjectNameCatalogue {
 	public static final String VORNAME = "Vorname";
 	
 	//visibility-reducing constructor
-	private GermanObjectNameCatalogue() {}
+	private GermanBusinessObjectNameCatalogue() {}
 }
