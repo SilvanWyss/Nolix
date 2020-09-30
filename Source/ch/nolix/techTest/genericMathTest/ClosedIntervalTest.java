@@ -30,22 +30,63 @@ public final class ClosedIntervalTest extends Test {
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given maximum is null.");
 	}
+		
+	//method
+	@TestCase
+	public void testCase_getLength_1A() {
+		
+		//setup
+		final var scale = 20;
+		final var testUnit = new ClosedInterval(-1.0, -1.0, scale);
+		
+		//execution
+		final var result = testUnit.getLength();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+	}
 	
 	//method
 	@TestCase
-	public void testCase_getLength() {
+	public void testCase_getLength_1B() {
 		
-		//execution & verification
-		expect(new ClosedInterval(-1.0, -1.0, 10).getLength()).isEqualTo(BigDecimal.valueOf(0.0).setScale(10));
-		expect(new ClosedInterval(-1.0, 0.0, 10).getLength()).isEqualTo(BigDecimal.valueOf(1.0).setScale(10));
-		expect(new ClosedInterval(-1.0, 1.0, 10).getLength()).isEqualTo(BigDecimal.valueOf(2.0).setScale(10));
+		//setup
+		final var scale = 20;
+		final var testUnit = new ClosedInterval(-1.0, 0.0, scale);
+		
+		//execution
+		final var result = testUnit.getLength();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getLength_1C() {
+		
+		//setup
+		final var scale = 20;
+		final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
+		
+		//execution
+		final var result = testUnit.getLength();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(2.0).setScale(scale));
 	}
 	
 	//method
 	@TestCase
 	public void testCase_toString() {
 		
-		//execution & verification
-		expect(new ClosedInterval(-1.0, 1.0, 5).toString()).isEqualTo("[-1.00000, 1.00000]");
+		//setip
+		final var testUnit = new ClosedInterval(-1.0, 1.0, 5);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("[-1.00000, 1.00000]");
 	}
 }
