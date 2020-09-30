@@ -35,8 +35,10 @@ public final class ClosedIntervalTest extends Test {
 	@TestCase
 	public void testCase_getLength_1A() {
 		
-		//setup
+		//parameter definition
 		final var scale = 20;
+		
+		//setup
 		final var testUnit = new ClosedInterval(-1.0, -1.0, scale);
 		
 		//execution
@@ -49,9 +51,11 @@ public final class ClosedIntervalTest extends Test {
 	//method
 	@TestCase
 	public void testCase_getLength_1B() {
+
+		//parameter definition
+		final var scale = 20;
 		
 		//setup
-		final var scale = 20;
 		final var testUnit = new ClosedInterval(-1.0, 0.0, scale);
 		
 		//execution
@@ -64,9 +68,11 @@ public final class ClosedIntervalTest extends Test {
 	//method
 	@TestCase
 	public void testCase_getLength_1C() {
+
+		//parameter definition
+		final var scale = 20;
 		
 		//setup
-		final var scale = 20;
 		final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
 		
 		//execution
@@ -80,7 +86,7 @@ public final class ClosedIntervalTest extends Test {
 	@TestCase
 	public void testCase_toString() {
 		
-		//setip
+		//setup
 		final var testUnit = new ClosedInterval(-1.0, 1.0, 5);
 		
 		//execution
