@@ -19,7 +19,7 @@ public final class TaskTestPool extends TestPool {
 	public TaskTestPool() {
 		super(
 			TaskTest.class,
-			TableauTest.class
+			ProjectTest.class
 		);
 	}
 }

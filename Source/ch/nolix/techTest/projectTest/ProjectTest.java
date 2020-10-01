@@ -11,29 +11,27 @@ import ch.nolix.tech.project.Task;
 
 //class
 /**
- * A tableau test is a test for the tableau class.
+ * A {@link ProjectTest} is a test for {@link Project}s.
  * 
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 80
  */
-public final class TableauTest extends Test {
-
+public final class ProjectTest extends Test {
+	
 	//method
 	@TestCase
-	public void testCase_addTask() {
+	public void testCase_addTask_1() {
 		
 		//setup
-		final Project project = new Project();
-		final Task task1 = new Task("Task1");
-		final Task task2 = new Task("Task2");
+		final var project = new Project();
+		final var task1 = new Task("Task1");
+		final var task2 = new Task("Task2");
 		
 		//execution
 		project.addTask(task1, task2);
 		
 		//verification
-		expect(project.containsAny());
-		expect(project.getRefTasks().getElementCount()).isEqualTo(2);
 		expect(project.getRefTasks().contains(task1));
 		expect(project.getRefTasks().contains(task2));
 	}
@@ -43,7 +41,7 @@ public final class TableauTest extends Test {
 	public void testCase_addTask_2() {
 		
 		//setup
-		final Project project = new Project();
+		final var project = new Project();
 		final Task task = null;
 		
 		//execution & verification
@@ -57,8 +55,8 @@ public final class TableauTest extends Test {
 	public void testCase_addTask_3() {
 		
 		//setup
-		final Project project = new Project();
-		final Task task = new Task("Task");
+		final var project = new Project();
+		final var task = new Task("Task");
 		project.addTask(task);
 		
 		//execution & verification
@@ -72,18 +70,18 @@ public final class TableauTest extends Test {
 	public void testCase_clear() {
 		
 		//setup
-		final Project project = new Project();
+		final var project = new Project();
 		project.addTask(
 			new Task("Task1"),
 			new Task("Task2"),
 			new Task("Task3"),
-			new Task("Task5")
+			new Task("Task4")
 		);
 		
 		//execution
 		project.clear();
 		
 		//verification
-		expect(() -> project.isEmpty());
+		expect(project.isEmpty());
 	}
 }
