@@ -10,16 +10,13 @@ import ch.nolix.common.baseTest.TestPool;
  * @month 2018-03
  * @lines 20
  */
-public final class TaskTestPool extends TestPool {
+public final class ProjectTestPool extends TestPool {
 	
 	//constructor
 	/**
-	 * Creates a new {@link TaskTestPool}.
+	 * Creates a new {@link ProjectTestPool}.
 	 */
-	public TaskTestPool() {
-		super(
-			TaskTest.class,
-			ProjectTest.class
-		);
+	public ProjectTestPool() {
+		super(ProjectTest.class, TaskTest.class);
 	}
 }

@@ -10,7 +10,7 @@ import ch.nolix.elementTest.financeTest.FinanceTestPool;
 import ch.nolix.elementTest.graphicTest.GraphicTestPool;
 import ch.nolix.elementTest.timeTest.TimeTestPool;
 import ch.nolix.elementTest.widgetTest.WidgetTestPool;
-import ch.nolix.techTest.projectTest.TaskTestPool;
+import ch.nolix.techTest.projectTest.ProjectTestPool;
 
 //class
 /**
@@ -31,7 +31,7 @@ public final class ElementTestPool extends TestPool {
 			new FinanceTestPool(),
 			new GUITestPool(),
 			new GraphicTestPool(),
-			new TaskTestPool(),
+			new ProjectTestPool(),
 			new TimeTestPool(),
 			new WidgetTestPool()
 		);

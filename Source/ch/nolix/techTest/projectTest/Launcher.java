@@ -13,12 +13,12 @@ public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates a new {@link TaskTestPool} and runs it.
+	 * Creates a new {@link ProjectTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
 	public static final void main(String[] args) {
-		new TaskTestPool().run();
+		new ProjectTestPool().run();
 	}
 	
 	//visibility-reducing constructor
