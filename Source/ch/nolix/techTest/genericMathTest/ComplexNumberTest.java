@@ -14,52 +14,254 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getMangitude() {
+	public void testCase_getMagnitude_1A() {
 		
-		//execution & verification
-		expect(new ComplexNumber(0.0, 0.0, 10).getMagnitude()).isEqualTo(BigDecimal.valueOf(0.0).setScale(10));
-		expect(new ComplexNumber(0.0, 1.0, 10).getMagnitude()).isEqualTo(BigDecimal.valueOf(1.0).setScale(10));
-		expect(new ComplexNumber(1.0, 0.0, 10).getMagnitude()).isEqualTo(BigDecimal.valueOf(1.0).setScale(10));
-		expect(new ComplexNumber(3.0, 4.0, 10).getMagnitude()).isEqualTo(BigDecimal.valueOf(5.0).setScale(10));
-		expect(new ComplexNumber(4.0, 3.0, 10).getMagnitude()).isEqualTo(BigDecimal.valueOf(5.0).setScale(10));
+		//parameter definition
+		final var scale = 10;
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, 0.0);
+		
+		//execution
+		final var result = testUnit.getMagnitude();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+	}
+		
+	//method
+	@TestCase
+	public void testCase_getMagnitude_1B() {
+		
+		//parameter definition
+		final var scale = 10;
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.getMagnitude();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
 	}
 	
 	//method
 	@TestCase
-	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary() {
+	public void testCase_getMagnitude_1C() {
 		
-		//execution & verification
-		expectNot(new ComplexNumber(1.0, -1.0).isPureImaginary());
-		expectNot(new ComplexNumber(1.0, 0.0).isPureImaginary());
-		expectNot(new ComplexNumber(1.0, 1.0).isPureImaginary());
+		//parameter definition
+		final var scale = 10;
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0, 0.0);
+		
+		//execution
+		final var result = testUnit.getMagnitude();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
 	}
 	
 	//method
 	@TestCase
-	public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal() {
+	public void testCase_getMagnitude_2A() {
 		
-		//execution & verification
-		expectNot(new ComplexNumber(-1.0, 1.0).isPureReal());
-		expectNot(new ComplexNumber(0.0, 1.0).isPureReal());
-		expectNot(new ComplexNumber(1.0, 1.0).isPureReal());
+		//parameter definition
+		final var scale = 10;
+		
+		//setup
+		final var testUnit = new ComplexNumber(3.0, 4.0);
+		
+		//execution
+		final var result = testUnit.getMagnitude();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(5.0).setScale(scale));
 	}
 	
 	//method
 	@TestCase
-	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary() {
+	public void testCase_getMagnitude_2B() {
 		
-		//execution & verification
-		expect(new ComplexNumber(0.0, -1.0).isPureImaginary());
-		expect(new ComplexNumber(0.0, 1.0).isPureImaginary());
+		//parameter definition
+		final var scale = 10;
+		
+		//setup
+		final var testUnit = new ComplexNumber(4.0, 3.0);
+		
+		//execution
+		final var result = testUnit.getMagnitude();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(5.0).setScale(scale));
 	}
 	
 	//method
 	@TestCase
-	public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal() {
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
 		
-		//execution & verification
-		expect(new ComplexNumber(-1.0, 0.0).isPureReal());
-		expect(new ComplexNumber(0.0, 0.0).isPureReal());
-		expect(new ComplexNumber(1.0, 0.0).isPureReal());
+		//setup
+		final var testUnit = new ComplexNumber(1.0, -1.0);
+		
+		//execution
+		final var result = testUnit.isPureImaginary();
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0, 0.0);
+		
+		//execution
+		final var result = testUnit.isPureImaginary();
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0, 1.0);
+		
+		//execution
+		final var result = testUnit.isPureImaginary();
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, -1.0);
+		
+		//execution
+		final var result = testUnit.isPureImaginary();
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, -1.0);
+		
+		//execution
+		final var result = testUnit.isPureImaginary();
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, -1.0);
+		
+		//execution
+		final var result = testUnit.isPureImaginary();
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(-1.0,  1.0);
+		
+		//execution
+		final var result = testUnit.isPureReal();
+		
+		//verification
+		expectNot(result);
+	}
+		
+	//method
+	@TestCase
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0,  1.0);
+		
+		//execution
+		final var result = testUnit.isPureReal();
+		
+		//verification
+		expectNot(result);
+	}
+		
+	//method
+	@TestCase
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0,  1.0);
+		
+		//execution
+		final var result = testUnit.isPureReal();
+		
+		//verification
+		expectNot(result);
+	}
+		
+	//method
+	@TestCase
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(-1.0,  0.0);
+		
+		//execution
+		final var result = testUnit.isPureReal();
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0,  0.0);
+		
+		//execution
+		final var result = testUnit.isPureReal();
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0,  0.0);
+		
+		//execution
+		final var result = testUnit.isPureReal();
+		
+		//verification
+		expect(result);
 	}
 }
