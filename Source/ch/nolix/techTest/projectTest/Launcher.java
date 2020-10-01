@@ -3,15 +3,17 @@ package ch.nolix.techTest.projectTest;
 
 //class
 /**
+ * Of the {@link Launcher} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 20
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
-	 * Creates a new task test pool and runs it.
+	 * Creates a new {@link TaskTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
@@ -21,7 +23,7 @@ public final class Launcher {
 	
 	//visibility-reducing constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }
