@@ -8,20 +8,20 @@ import ch.nolix.tech.project.Task;
 
 //class
 /**
- * A task test is a test for the task class.
+ * A {@link TaskTest} is a test for {@link Task}s.
  * 
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 30
  */
 public final class TaskTest extends Test {
-
+	
 	//method
 	@TestCase
 	public void testCase_creation() {
-				
+		
 		//setup
-		final Task task = new Task("My task");
+		final var task = new Task("My task");
 		
 		//verification
 		expect(task.getTitle()).isEqualTo("My task");
