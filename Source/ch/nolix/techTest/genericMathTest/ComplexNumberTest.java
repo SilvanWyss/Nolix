@@ -158,7 +158,7 @@ public final class ComplexNumberTest extends Test {
 	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
 		
 		//setup
-		final var testUnit = new ComplexNumber(0.0, -1.0);
+		final var testUnit = new ComplexNumber(0.0, 0.0);
 		
 		//execution
 		final var result = testUnit.isPureImaginary();
@@ -172,7 +172,7 @@ public final class ComplexNumberTest extends Test {
 	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
 		
 		//setup
-		final var testUnit = new ComplexNumber(0.0, -1.0);
+		final var testUnit = new ComplexNumber(0.0, 1.0);
 		
 		//execution
 		final var result = testUnit.isPureImaginary();
