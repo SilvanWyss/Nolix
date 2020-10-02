@@ -61,7 +61,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getWidthWhenNotCollapsed() {
+	protected int getWidthWhenExpanded() {
 		return getLength();
 	}
 }

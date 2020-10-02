@@ -47,8 +47,8 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//method
 	public DropdownMenu collapse() {
 		
-		if (isExpanded()) {
-			collapseWhenExpanded();
+		if (hasMenuExpanded()) {
+			collapseMenuWhenHasMenuExpanded();
 		}
 		
 		return this;
@@ -57,7 +57,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//method
 	public DropdownMenu expand() {
 		
-		if (!isExpanded()) {
+		if (!hasMenuExpanded()) {
 			expandWhenCollapsed();
 		}
 		
@@ -65,14 +65,14 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	}
 	
 	//method
-	@Override
-	public boolean hasRole(final String role) {
-		return false;
+	public boolean hasMenuExpanded() {
+		return (expandedDropdownMenu != null);
 	}
 	
 	//method
-	public boolean isExpanded() {
-		return (expandedDropdownMenu != null);
+	@Override
+	public boolean hasRole(final String role) {
+		return false;
 	}
 	
 	//method
@@ -111,7 +111,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//method
 	@Override
 	protected void noteAddItem(TextItemMenuItem item) {
-		if (isExpanded()) {
+		if (hasMenuExpanded()) {
 			expandedDropdownMenu.addItem(item.getText());
 		}
 	}
@@ -156,7 +156,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	}
 	
 	//method
-	private void collapseWhenExpanded() {
+	private void collapseMenuWhenHasMenuExpanded() {
 		expandedDropdownMenu = null;
 		getParentGUI().removeTopLayer();
 	}

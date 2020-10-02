@@ -326,7 +326,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getWidthWhenNotCollapsed() {
+	protected int getWidthWhenExpanded() {
 		return width;
 	}
 	

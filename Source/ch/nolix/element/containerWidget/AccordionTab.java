@@ -327,7 +327,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 				getRefWidget().setCollapsed();
 			}
 			else {
-				getRefWidget().setNormal();
+				getRefWidget().setExpanded();
 			}
 		}
 		

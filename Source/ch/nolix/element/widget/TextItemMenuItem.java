@@ -144,9 +144,13 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	}
 	
 	//method
-	void unselect() {		
+	void unselect() {
+		
 		selectionFlag.setValue(false);
-		label.setNormal();
+		
+		label
+		.setUnfocused()
+		.setUnhovered();
 	}
 	
 	//method

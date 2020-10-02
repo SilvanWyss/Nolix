@@ -61,7 +61,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getWidthWhenNotCollapsed() {
+	protected int getWidthWhenExpanded() {
 		return getThickness();
 	}
 }

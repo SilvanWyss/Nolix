@@ -3,7 +3,6 @@ package ch.nolix.elementTest.containerWidgetTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.element.GUI.WidgetState;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.TextBox;
@@ -16,7 +15,7 @@ import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
  * 
  * @author Silvan Wyss
  * @month 2016-06
- * @lines 50
+ * @lines 60
  */
 public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 	
@@ -28,7 +27,6 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 		final var verticalStack = new VerticalStack();
 		
 		//verification
-		expect(verticalStack.getState()).isEqualTo(WidgetState.Normal);
 		expect(verticalStack.isEmpty());
 		expectNot(verticalStack.belongsToGUI());
 	}

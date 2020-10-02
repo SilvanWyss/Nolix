@@ -8,7 +8,5 @@ import ch.nolix.common.baseTest.TestPool;
 public final class GUITestPool extends TestPool {
 	
 	//constructor
-	public GUITestPool() {
-		super(WidgetStateTest.class);
-	}
+	public GUITestPool() {}
 }

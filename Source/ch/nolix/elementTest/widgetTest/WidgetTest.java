@@ -8,15 +8,14 @@ import ch.nolix.element.GUI.Widget;
 
 //class
 /**
- * A {@link WidgetTest} is a test for {@link Widget}.
+ * A {@link WidgetTest} is a test for {@link Widget}s.
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 90
- * @param <W> The type of {@link Widget} of a {@link WidgetTest}.
+ * @lines 80
+ * @param <W> The type of the {@link Widget}s of a {@link WidgetTest}.
  */
-public abstract class WidgetTest<W extends Widget<W, ?>>
-extends ObjectTest<W> {
+public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 	
 	//method
 	@TestCase
@@ -71,13 +70,13 @@ extends ObjectTest<W> {
 		widget.reset();
 		
 		//verification
-			expect(widget.isNormal());
-			
-			expectNot(
-				widget.hasLeftMouseButtonPressAction(),
-				widget.hasLeftMouseButtonReleaseAction(),
-				widget.hasRightMouseButtonPressAction(),
-				widget.hasRightMouseButtonReleaseAction()
-			);
+		expectNot(
+			widget.hasLeftMouseButtonPressAction(),
+			widget.hasLeftMouseButtonReleaseAction(),
+			widget.hasRightMouseButtonPressAction(),
+			widget.hasRightMouseButtonReleaseAction(),
+			widget.isFocused(),
+			widget.isHovered()
+		);
 	}
 }

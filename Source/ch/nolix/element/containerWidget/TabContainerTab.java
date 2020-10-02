@@ -324,7 +324,10 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	public TabContainerTab unselect() {
 		
 		selected = false;
-		getRefMenuItem().setNormal();
+		
+		getRefMenuItem()
+		.setUnfocused()
+		.setUnhovered();
 		
 		return this;
 	}

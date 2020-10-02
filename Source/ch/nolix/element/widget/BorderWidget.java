@@ -991,10 +991,10 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return the width of the current {@link BorderWidget} when it is not collapsed.
+	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getWidthWhenNotCollapsed() {
+	protected final int getWidthWhenExpanded() {
 		
 		final var look = getRefLook();
 		

@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -14,6 +13,8 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
+import ch.nolix.common.requestAPI.EnablingRequestable;
+import ch.nolix.common.requestAPI.ExpansionRequestable;
 import ch.nolix.common.skillAPI.Recalculable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseGUI_API.IFrontEndReader;
@@ -41,7 +42,12 @@ import ch.nolix.element.painter.IPainter;
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedRecangular {
+implements
+EnablingRequestable,
+ExpansionRequestable,
+IInputActionManager<W>,
+IInputTaker, Recalculable,
+TopLeftPositionedRecangular {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
@@ -54,10 +60,15 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	private static final String HOVER_PREFIX = "Hover";
 	private static final String FOCUS_PREFIX = "Focus";
 	
-	//attributes
-	private WidgetState state = WidgetState.Normal;
+	//attributes	
 	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
-	private boolean greyOutWhenDisabled = false;
+	private boolean greysOutWhenDisabled = false;
+	
+	//attributes
+	private boolean enabled = true;
+	private boolean expanded = false;
+	private boolean focused = false;
+	private boolean hovered = false;
 	
 	//attributes
 	private final WL baseLook = createLook();
@@ -111,11 +122,10 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
+		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
+		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.STATE:
-				setState(WidgetState.fromSpecification(attribute));
-				break;
 			case CursorIcon.TYPE_NAME:
 				setCustomCursorIcon(CursorIcon.fromSpecification(attribute));
 				break;
@@ -318,10 +328,11 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
-		attributes.addAtEnd(getState().getSpecificationAs(PascalCaseNameCatalogue.STATE));
 		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
-		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_HEADER, greyOutWhenDisabled));
-			
+		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()));
+		
+		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
+		
 		//Extracts the base state attributes of the current Widget.
 		final var baseStateAttributes = getRefBaseLook().getAttributes();
 		baseStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
@@ -499,25 +510,27 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	
 	//method
 	/**
+	 * The current look of a {@link Widget} depends on its state.
+	 * -not hovered, not focused -> base look
+	 * -hovered, not focused -> hover look
+	 * -hovered, focused -> hover look
+	 * -focused, not hovered -> focus look
+	 * 
 	 * @return the current look of the current {@link Widget}.
 	 */
 	public final WL getRefLook() {
 		
-		//Enumerates the state of the current Widget.
-		switch (state) {
-			case Normal:
-			case Disabled:
-			case Collapsed:
-				return getRefBaseLook();
-			case Hovered:
-				return getRefHoverLook();
-			case Focused:
-				return getRefFocusLook();
-			default:
-				throw new InvalidArgumentException(state);
+		if (isHovered()) {
+			return getRefHoverLook();
 		}
+		
+		if (isFocused()) {
+			return getRefFocusLook();
+		}
+		
+		return getRefBaseLook();
 	}
-
+	
 	//method
 	/** 
 	 * @return the paintable {@link Widget}s of the current {@link Widget}.
@@ -540,14 +553,6 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 		fillUpWidgetsForPaintingRecursively(widgetsForPainting);
 		
 		return widgetsForPainting;
-	}
-	
-	//method
-	/**
-	 * @return the state of the current {@link Widget}.
-	 */
-	public final WidgetState getState() {
-		return state;
 	}
 	
 	//method
@@ -624,7 +629,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * @return true if the current {@link Widget} grays out when it is disabled.
 	 */
 	public final boolean greysOutWhenDisabled() {
-		return greyOutWhenDisabled;
+		return greysOutWhenDisabled;
 	}
 	
 	//method
@@ -706,40 +711,23 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	public final boolean hasRightMouseButtonReleaseAction() {
 		return (rightMouseButtonReleaseAction != null);
 	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Widget} is collapsed.
-	 */
-	public final boolean isCollapsed() {
-		return (state == WidgetState.Collapsed);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Widget} is disabled.
-	 */
-	public final boolean isDisabled() {
-		return (state == WidgetState.Disabled);
-	}
-	
-	//method
-	/**
-	 * A {@link Widget} is enabled when it is normal, hovered or focused.
-	 * 
-	 * @return true if the current {@link Widget} is enabled.
-	 */
-	public final boolean isEnabled() {
 		
-		//Enumerates the state of the current Widget.
-		switch (state) {
-			case Normal:
-			case Hovered:
-			case Focused:
-				return true;
-			default:
-				return false;
-		}
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean isEnabled() {
+		return enabled;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean isExpanded() {
+		return expanded;
 	}
 	
 	//method
@@ -747,7 +735,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * @return true if the current {@link Widget} is focused.
 	 */
 	public final boolean isFocused() {
-		return (state == WidgetState.Focused);
+		return focused;
 	}
 	
 	//method
@@ -755,15 +743,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * @return true if the current {@link Widget} is hovered.
 	 */
 	public final boolean isHovered() {
-		return (state == WidgetState.Hovered);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Widget} is normal.
-	 */
-	public final boolean isNormal() {
-		return (state == WidgetState.Normal);
+		return hovered;
 	}
 	
 	//method
@@ -1033,13 +1013,13 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	
 	//method
 	/**
-	 * Avoids that the current {@link Widget} greys out when it is disabled.
+	 * Avoids that the current {@link Widget} grays out when it is disabled.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
 	public final W removeGreyOutWhenDisabled() {
 		
-		greyOutWhenDisabled = false;
+		greysOutWhenDisabled = false;
 		
 		return asConcrete();
 	}
@@ -1128,8 +1108,11 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	@Override
 	public W reset() {
-				
-		setNormal();
+			
+		setEnabled();
+		setExpanded();
+		setUnfocused();
+		setUnhovered();
 		
 		removeLeftMouseButtonClickAction();
 		removeLeftMouseButtonPressAction();
@@ -1188,7 +1171,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final W setCollapsed() {
 		
-		state = WidgetState.Collapsed;
+		expanded = false;
 		
 		return asConcrete();
 	}
@@ -1238,7 +1221,33 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final W setDisabled() {
 		
-		state = WidgetState.Disabled;
+		enabled = false;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the current {@link Widget} enabled.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public final W setEnabled() {
+		
+		enabled = true;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the current {@link Widget} expanded.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public final W setExpanded() {
+		
+		expanded = true;
 		
 		return asConcrete();
 	}
@@ -1251,7 +1260,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final W setFocused() {
 		
-		state = WidgetState.Focused;
+		focused = true;
 		
 		return asConcrete();
 	}
@@ -1264,7 +1273,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final W setGreyOutWhenDisabled() {
 		
-		greyOutWhenDisabled = true;
+		greysOutWhenDisabled = true;
 		
 		return asConcrete();
 	}
@@ -1277,7 +1286,7 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	public final W setHovered() {
 		
-		state = WidgetState.Hovered;
+		hovered = true;
 		
 		return asConcrete();
 	}
@@ -1487,31 +1496,26 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	
 	//method
 	/**
-	 * Sets the current {@link Widget} normal.
+	 * Sets the current {@link Widget} unhovered.
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W setNormal() {
+	public final W setUnhovered() {
 		
-		state = WidgetState.Normal;
+		hovered = false;
 		
 		return asConcrete();
 	}
 	
 	//method
 	/**
-	 * Sets the state of the current {@link Widget}.
+	 * Sets the current {@link Widget} unfocused.
 	 * 
-	 * @param state
-	 * @throws ArgumentIsNullException if the given state is null.
+	 * @return the current {@link Widget}.
 	 */
-	public final W setState(final WidgetState state) {
+	public final W setUnfocused() {
 		
-		//Asserts that the given state is not null.
-		Validator.assertThat(state).thatIsNamed(VariableNameCatalogue.STATE).isNotNull();
-
-		//Sets the state of the current Widget.
-		this.state = state;
+		focused = false;
 		
 		return asConcrete();
 	}
@@ -1612,9 +1616,9 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	
 	//method declaration
 	/**
-	 * @return the width of the current {@link Widget} when it is not collapsed.
+	 * @return the width of the current {@link Widget} when it is expanded.
 	 */
-	protected abstract int getWidthWhenNotCollapsed();
+	protected abstract int getWidthWhenExpanded();
 	
 	//method declaration
 	/**
@@ -1785,11 +1789,11 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	private int calculatedHeight() {
 		
 		//Handles the case that the current Widget is collapsed.
-		if (state == WidgetState.Collapsed) {
+		if (isCollapsed()) {
 			return 0;
 		}
 		
-		//Handles the case that the current Widget is not collapsed.
+		//Handles the case that the current Widget is expanded.
 		return getHeightWhenNotCollapsed();
 	}
 	
@@ -1800,12 +1804,12 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	private int calculatedWidth() {
 		
 		//Handles the case that the current Widget is collapsed.
-		if (state == WidgetState.Collapsed) {
+		if (isCollapsed()) {
 			return 0;
 		}
 		
-		//Handles the case that the current Widget is not collapsed.
-		return getWidthWhenNotCollapsed();
+		//Handles the case that the current Widget is expanded.
+		return getWidthWhenExpanded();
 	}
 	
 	//method
@@ -1862,32 +1866,29 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	private void noteLeftMouseButtonPressOnSelfWhenEnabled_() {		
 		if (!isUnderCursor()) {
-			
-			//Enumerates the state of the current Widget.
-			switch (state) {
-				case Hovered:
-				case Focused:
-					setNormal();
-					break;
-				default:
-					break;
-			}
+			noteLeftMouseButtonPressOnSelfWhenEnabledAndNotUnderCursor();
 		}
 		else {
-			
-			//Enumerates the state of the current Widget.
-			switch (state) {
-				case Normal:
-				case Hovered:
-					setFocused();
-					break;
-				default:
-					break;
-			}
-			
-			if (showAreaIsUnderCursor() && hasLeftMouseButtonPressAction()) {				
-				leftMouseButtonPressAction.run(asConcrete());
-			}
+			noteLeftMouseButtonPressOnSelfWhenEnabledAndUnderCursor();
+		}
+	}
+	
+	//method
+	private void noteLeftMouseButtonPressOnSelfWhenEnabledAndUnderCursor() {
+		
+		if (!isFocused()) {
+			setFocused();
+		}
+		
+		if (hasLeftMouseButtonPressAction() && showAreaIsUnderCursor()) {				
+			leftMouseButtonPressAction.run(asConcrete());
+		}
+	}
+	
+	//method
+	private void noteLeftMouseButtonPressOnSelfWhenEnabledAndNotUnderCursor() {
+		if (isFocused()) {
+			setUnfocused();
 		}
 	}
 	
@@ -1896,23 +1897,25 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 * Lets the current {@link Widget} note a left mouse button release for the case when it is enabled.
 	 */
 	private void noteLeftMouseButtonReleaseOnSelfWhenEnabled_() {
-		
 		if (!isUnderCursor()) {
-			
-			//Enumerates the state of the current Widget.
-			switch (state) {
-				case Hovered:
-				case Focused:
-					setNormal();
-					break;
-				default:
-					break;
-			}
+			noteLeftMouseButtonReleaseOnSelfWhenEnabledAndNotUnderCursor();
 		}
 		else {
-			if (showAreaIsUnderCursor() && hasLeftMouseButtonReleaseAction()) {
-				leftMouseButtonReleaseAction.run(asConcrete());
-			}
+			noteLeftMouseButtonReleaseOnSelfWhenEnabledAndUnderCursor();
+		}
+	}
+	
+	//method
+	private void noteLeftMouseButtonReleaseOnSelfWhenEnabledAndNotUnderCursor() {
+		if (isFocused()) {
+			setUnfocused();
+		}
+	}
+	
+	//method
+	private void noteLeftMouseButtonReleaseOnSelfWhenEnabledAndUnderCursor() {
+		if (hasLeftMouseButtonReleaseAction() && showAreaIsUnderCursor()) {
+			leftMouseButtonReleaseAction.run(asConcrete());
 		}
 	}
 	
@@ -1938,30 +1941,29 @@ implements IInputActionManager<W>, IInputTaker, Recalculable, TopLeftPositionedR
 	 */
 	private void noteMouseMoveOnSelfWhenEnabled_() {
 		if (!isUnderCursor()) {
-			
-			//Enumerates the sate of the current Widget.
-			switch(state) {
-				case Hovered:
-					setNormal();
-					break;
-				default:
-					break;
-			}
+			noteMouseMoveOnSelfWhenEnabledAndNotUnderCursor();
 		}
 		else {
-			
-			//Enumerates the sate of the current Widget.
-			switch(state) {
-				case Normal:
-					setHovered();
-					break;
-				default:
-					break;
-			}
-			
-			if (showAreaIsUnderCursor() && hasMouseMoveAction()) {				
-				mouseMoveAction.run(asConcrete());
-			}
+			noteMouseMoveOnSelfWhenEnabledAndUnderCursor();
+		}
+	}
+	
+	//method
+	private void noteMouseMoveOnSelfWhenEnabledAndUnderCursor() {
+		
+		if (!isHovered()) {
+			setHovered();
+		}
+		
+		if (hasMouseMoveAction() && showAreaIsUnderCursor()) {				
+			mouseMoveAction.run(asConcrete());
+		}
+	}
+	
+	//method
+	private void noteMouseMoveOnSelfWhenEnabledAndNotUnderCursor() {
+		if (isHovered()) {
+			setUnhovered();
 		}
 	}
 	
