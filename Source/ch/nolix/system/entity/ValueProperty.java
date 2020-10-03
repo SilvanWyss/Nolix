@@ -7,6 +7,14 @@ import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 //class
 public final class ValueProperty<V> extends SingleProperty<V> {
 	
+	//constructor
+	public ValueProperty() {}
+	
+	//constructor
+	public ValueProperty(final V value) {
+		setValue(value);
+	}
+	
 	//method
 	@Override
 	public PropertyKind getPropertyKind() {
