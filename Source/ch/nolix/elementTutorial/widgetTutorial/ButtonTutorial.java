@@ -10,12 +10,9 @@ import ch.nolix.element.widget.Button;
  * Of the {@link ButtonTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
- * @lines 60
+ * @month 50
  */
 public final class ButtonTutorial {
-	
-	private static int counter = 1;
 	
 	/**
 	 * Creates a {@link Frame} with a {@link Button}.
@@ -30,13 +27,10 @@ public final class ButtonTutorial {
 		//Creates a Button.
 		final var button = new Button("Change background color");
 		
-		//Sets left mouse button release command to the Button.
-		button.setLeftMouseButtonReleaseAction(() -> {
-			
-			frame.setBackgroundColor(counter % 2 == 0 ? Color.WHITE : Color.BLUE);
-			
-			counter++;
-		});
+		//Defines a left mouse button release action for the Button.
+		button.setLeftMouseButtonReleaseAction(() -> 
+			frame.setBackgroundColor(frame.getBackgroundColor().equals(Color.WHITE) ? Color.YELLOW : Color.WHITE)
+		);
 		
 		//Configures the look of the Button.
 		button
@@ -49,8 +43,7 @@ public final class ButtonTutorial {
 			.setPaddings(5)
 			.setTextSize(50)
 		)
-		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LAVENDER))
-		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LAVENDER));
+		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.SKY_BLUE));
 		
 		//Adds the Button to the Frame.
 		frame.addLayerOnTop(button);
