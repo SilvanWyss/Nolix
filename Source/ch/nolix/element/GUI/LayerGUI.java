@@ -51,7 +51,7 @@ import ch.nolix.element.widget.VerticalStack;
  * 
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 800
+ * @lines 810
  * @param <LG> The type of a {@link LayerGUI}.
  */
 public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
@@ -398,7 +398,15 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the {@link CursorIcon} of the current GUI.
+	 * @return the background {@link Color} of the current {@link LayerGUI}.
+	 */
+	public final Color getBackgroundColor() {
+		return backGround.getBackgroundColor();
+	}
+	
+	//method
+	/**
+	 * @return the {@link CursorIcon} of the current {@link LayerGUI}.
 	 */
 	public final CursorIcon getCursorIcon() {		
 		
