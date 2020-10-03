@@ -17,7 +17,7 @@ import ch.nolix.element.input.Key;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 240
+ * @lines 230
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -188,10 +188,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		
 		getRefBaseLook()
 		.setBorderThicknesses(1)
-		.setLeftBorderColor(Color.GREY)
-		.setRightBorderColor(Color.BLACK)
-		.setTopBorderColor(Color.GREY)
-		.setBottomBorderColor(Color.BLACK)
 		.setBackgroundColor(Color.WHITE_SMOKE)
 		.setLeftPadding(10)
 		.setRightPadding(10);
