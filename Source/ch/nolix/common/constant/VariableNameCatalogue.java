@@ -107,6 +107,7 @@ public final class VariableNameCatalogue {
 	public static final String NAME = "name";
 	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
+	public static final String NOUN = "noun";
 	public static final String NUMBER = "number";
 	public static final String OPCODE = "opcode";
 	public static final String OUTPUT = "output";

@@ -107,6 +107,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String NAME = "Name";
 	public static final String NEXT_ELEMENT = "NextElement";
 	public static final String NODE = "Node";
+	public static final String NOUN = "Noun";
 	public static final String NUMBER = "Number";
 	public static final String OPCODE = "Opcode";
 	public static final String OUTPUT = "Output";
