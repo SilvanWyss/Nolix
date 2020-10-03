@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.common.generalSkillAPI;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.language.EnglishNounHelper;
 
 //interface
 /**
@@ -9,7 +11,7 @@ import ch.nolix.common.container.LinkedList;
  * 
  * @author Silvan Wyss
  * @month 2018-11
- * @lines 100
+ * @lines 110
  */
 public interface TypeRequestable {
 	
@@ -19,6 +21,14 @@ public interface TypeRequestable {
 	 */
 	public default String getType() {
 		return getClass().getSimpleName();
+	}
+	
+	//method
+	/**
+	 * @return the plural of the type of the current {@link TypeRequestable}.
+	 */
+	public default String getTypeInPlural() {
+		return EnglishNounHelper.getPlural(getType());
 	}
 	
 	//method
