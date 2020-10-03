@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.system.entity;
 
+//own import
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 
 //class
 public final class ValueProperty<V> extends SingleProperty<V> {
 	
 	//method
-		@Override
-		public PropertyKind getPropertyKind() {
-			return PropertyKind.VALUE;
-		}
+	@Override
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.VALUE;
+	}
 	
 	//method
 	@Override
