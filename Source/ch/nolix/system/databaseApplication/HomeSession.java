@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.widget.Button;
@@ -36,7 +37,7 @@ public final class HomeSession extends HeaderedSession {
 			entitySetsGrid.setWidget(
 				row,
 				column,
-				new Button(es.getName())
+				new Button(es.getNameInPlural())
 				.setRole(ButtonRole.LinkButton)
 				.setLeftMouseButtonPressAction(
 					() -> openEntitySetSession(es.getName())
