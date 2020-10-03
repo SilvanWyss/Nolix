@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.common.attributeAPI;
 
+//own import
+import ch.nolix.common.language.EnglishNounHelper;
+
 //interface
 /**
  * A {@link Named} has a name.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 50
+ * @lines 60
  */
 public interface Named {
 	
@@ -16,6 +19,14 @@ public interface Named {
 	 * @return the name of the current {@link Named}.
 	 */
 	public abstract String getName();
+	
+	//method
+	/**
+	 * @return the plural of the name of the current {@link Named}.
+	 */
+	public default String getNameInPlural() {
+		return EnglishNounHelper.getPlural(getName());
+	}
 	
 	//method
 	/**
