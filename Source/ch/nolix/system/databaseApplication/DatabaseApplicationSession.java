@@ -4,6 +4,8 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
 import ch.nolix.element.widget.VerticalStack;
@@ -55,13 +57,30 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 	private void createNewDatabaseAdapter() {
 		databaseAdapter = getRefApplicationContextAs(DatabaseApplicationContext.class).createDatabaseAdapter();
 	}
-
+	
 	//method
-	private Label createTitleWidget() {
+	private Label createTitleLabel() {
 		return
 		new Label()
-		.setText(getApplicationName())
-		.setRole(LabelRole.Title);
+		.setRole(LabelRole.Title)
+		.setText(getApplicationName());
+	}
+	
+	//method
+	private HorizontalStack createTitleWidget() {
+		
+		final var titleHorizontalStack = new HorizontalStack();
+		
+		titleHorizontalStack.addWidget(createTitleLabel());
+		
+		final var parentDatabaseApplication = getParentApplication().as(DatabaseApplication.class);
+		if (parentDatabaseApplication.hasPageLogo()) {
+			titleHorizontalStack.addWidget(
+				new ImageWidget(parentDatabaseApplication.getPageLogo())
+			);
+		}
+
+		return titleHorizontalStack;
 	}
 	
 	//method
