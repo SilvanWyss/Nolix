@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
@@ -8,6 +9,7 @@ import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.containerWidget.TabContainer;
 import ch.nolix.element.containerWidget.TabContainerTab;
+import ch.nolix.element.dialog.ErrorDialog;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
@@ -282,53 +284,53 @@ public final class EntitySession extends HeaderedSession {
 	//TODO: Refactor this method.
 	//method
 	private void save() {
-		
-		final var entity = getRefEntity();
-		
-		for (final var p : entity.getRefProperties()) {
-			switch (p.getPropertyKind()) {
-				case VALUE:
-					
-					final var property = (ValueProperty<?>)p;
-					
-					final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
-					
-					property.setValueFromString(dataTextBox.getText());
-					
-					break;
-				case OPTIONAL_VALUE:
-					
-					final var optionalProperty = (OptionalValueProperty<?>)p;
-					
-					if (optionalProperty.getValueClass() == Image.class) {
-						break;
-					}
-					
-					final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
-					
-					if (optionalDataTextBox.getText().isBlank()) {
-						optionalProperty.clear();
-					}
-					else {
-						optionalProperty.setValueFromSpecification(Node.fromString(optionalDataTextBox.getText()));
-					}
-					
-					break;
-				default:
-					break;
-			}
-		}
-		
 		try {
+			
+			final var entity = getRefEntity();
+			
+			for (final var p : entity.getRefProperties()) {
+				switch (p.getPropertyKind()) {
+					case VALUE:
+						
+						final var property = (ValueProperty<?>)p;
+						
+						final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
+						
+						property.setValueFromString(dataTextBox.getText());
+						
+						break;
+					case OPTIONAL_VALUE:
+						
+						final var optionalProperty = (OptionalValueProperty<?>)p;
+						
+						if (optionalProperty.getValueClass() == Image.class) {
+							break;
+						}
+						
+						final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
+						
+						if (optionalDataTextBox.getText().isBlank()) {
+							optionalProperty.clear();
+						}
+						else {
+							optionalProperty.setValueFromSpecification(Node.fromString(optionalDataTextBox.getText()));
+						}
+						
+						break;
+					default:
+						break;
+				}
+			}
+			
 			getRefDatabaseAdapter().saveChanges();
-			setNext(new MessageSession("The changes have been saved."));
+			pop();
 		}
 		catch (final Exception exception) {
 			if (exception.getMessage() == null) {
-				getParentClient().showErrorMessageOnCounterpart("An error occured.");
+				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
 			}
 			else {
-				getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
+				getRefGUI().addLayerOnTop(new ErrorDialog(exception.getMessage()));
 			}
 		}
 	}
