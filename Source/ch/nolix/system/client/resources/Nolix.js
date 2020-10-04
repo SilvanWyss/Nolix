@@ -2597,6 +2597,57 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
     }
     exports.CanvasGUIPainter = CanvasGUIPainter;
 });
+define("Element/CursorIcon/CursorIconType", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var CursorIconType;
+    (function (CursorIconType) {
+        CursorIconType[CursorIconType["Arrow"] = 0] = "Arrow";
+        CursorIconType[CursorIconType["Cross"] = 1] = "Cross";
+        CursorIconType[CursorIconType["Edit"] = 2] = "Edit";
+        CursorIconType[CursorIconType["Hand"] = 3] = "Hand";
+        CursorIconType[CursorIconType["Move"] = 4] = "Move";
+        CursorIconType[CursorIconType["Wait"] = 5] = "Wait";
+    })(CursorIconType = exports.CursorIconType || (exports.CursorIconType = {}));
+});
+define("Element/CursorIcon/CursorIcon", ["require", "exports", "Element/CursorIcon/CursorIconType"], function (require, exports, CursorIconType_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CursorIcon {
+        static fromSpecification(specification) {
+            return new CursorIcon(CursorIconType_1.CursorIconType[specification.getOneAttributeHeader()]);
+        }
+        constructor(cursorIconType) {
+            if (cursorIconType === null) {
+                console.log('The given cursorIconType is null.');
+            }
+            if (cursorIconType === undefined) {
+                console.log('The given cursorIconType is undefined.');
+            }
+            this.cursorIconType = cursorIconType;
+        }
+        toEnum() {
+            return this.cursorIconType;
+        }
+        toHTMLCode() {
+            switch (this.toEnum()) {
+                case CursorIconType_1.CursorIconType.Arrow:
+                    return 'default';
+                case CursorIconType_1.CursorIconType.Cross:
+                    return 'crosshair';
+                case CursorIconType_1.CursorIconType.Edit:
+                    return 'text';
+                case CursorIconType_1.CursorIconType.Hand:
+                    return 'pointer';
+                case CursorIconType_1.CursorIconType.Move:
+                    return 'move';
+                case CursorIconType_1.CursorIconType.Wait:
+                    return 'wait';
+            }
+        }
+    }
+    exports.CursorIcon = CursorIcon;
+});
 define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], function (require, exports, Key_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2892,6 +2943,10 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             this.paintCommands.clear();
             this.refresh();
         }
+        setCursorIcon(cursorIcon) {
+            console.log('The current CanvasGUI sets the cursorIcon ' + cursorIcon + '.');
+            this.canvas.style.cursor = cursorIcon.toHTMLCode();
+        }
         setPaintCommands(paintCommands) {
             this.paintCommands.refill(paintCommands);
         }
@@ -2909,6 +2964,9 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             }
             this.title = title;
             this.window.document.title = this.title;
+        }
+        webBrowserIsFirefox() {
+            return navigator.userAgent.includes('Firefox');
         }
         connectInputMethods() {
             this.window.onresize = () => this.noteResize();
@@ -3385,6 +3443,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
     class FrontCanvasGUIClientCommandProtocol {
         constructor() { }
     }
+    FrontCanvasGUIClientCommandProtocol.GET_FILE = 'GetFile';
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
     FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
     FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS = 'SetPaintCommands';
@@ -3403,7 +3462,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
-define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol"], function (require, exports, CanvasGUI_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1) {
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol"], function (require, exports, CanvasGUI_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
@@ -3438,6 +3497,7 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
                     this.mGUI.refresh();
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON:
+                    this.mGUI.setCursorIcon(CursorIcon_1.CursorIcon.fromSpecification(pGUICommand.getOneAttributeAsNode()));
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS:
                     this.setPaintCommands(pGUICommand.getAttributes());
