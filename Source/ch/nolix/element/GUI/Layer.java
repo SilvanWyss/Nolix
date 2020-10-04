@@ -37,7 +37,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1110
+ * @lines 1160
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -54,6 +54,9 @@ IResizableInputTaker {
 	static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	static final String ROOT_WIDGET_HEADER = "RootWidget";
 	static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
+	
+	//constant
+	private static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
 	
 	//static method
 	/**
@@ -73,6 +76,22 @@ IResizableInputTaker {
 	 * The {@link GUI} the current {@link Layer} belongs to.
 	 */
 	private LayerGUI<?> parentGUI;
+	
+	//attribute
+	private final MutableProperty<Boolean> configurationAllowed =
+	new MutableProperty<>(
+		CONFIGURATION_ALLOWED_HEADER,
+		ca -> {
+			if (ca) {
+				setConfigurationAllowed();
+			}
+			else {
+				setConfigurationNotAllowed();
+			}
+		},
+		BaseNode::toBoolean,
+		Node::withOneAttribute
+	);
 	
 	//attribute
 	private final MutableOptionalProperty<Color> backgroundColor =
@@ -182,6 +201,14 @@ IResizableInputTaker {
 		else {
 			super.addOrChangeAttribute(attribute);
 		}
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Layer} allowes to be configurated.
+	 */
+	public final boolean allowesConfiguration() {
+		return configurationAllowed.getValue();
 	}
 	
 	//method
@@ -779,6 +806,7 @@ IResizableInputTaker {
 	@Override
 	public final Layer reset() {
 		
+		setConfigurationAllowed();
 		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
 		clear();
 		resetConfiguration();
@@ -835,6 +863,32 @@ IResizableInputTaker {
 		removeBackground();
 		
 		this.backgroundColorGradient.setValue(backgroundColorGradient);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Layer} be allowed to be configured.
+	 * 
+	 * @return the current {@link Layer}.
+	 */
+	public final Layer setConfigurationAllowed() {
+		
+		configurationAllowed.setValue(true);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Layer} be not allowed to be configured.
+	 * 
+	 * @return the current {@link Layer}.
+	 */
+	public final Layer setConfigurationNotAllowed() {
+		
+		configurationAllowed.setValue(false);
 		
 		return this;
 	}

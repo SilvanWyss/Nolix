@@ -200,6 +200,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		//Adds the expandedDropdownMenu on the top of the GUI of the current DropdownMenu.
 		getParentGUI().addLayerOnTop(
 			new Layer()
+			.setConfigurationNotAllowed()
 			.setFreeContentPosition(
 				getXPositionOnGUI() + getWidth() - expandedDropdownMenu.getWidth(),
 				getYPositionOnGUI() + getHeight()

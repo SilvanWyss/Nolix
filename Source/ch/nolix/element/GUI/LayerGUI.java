@@ -441,7 +441,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
 		for (final var l : layers) {
-			configurables.addAtEnd(l);
+			if (l.allowesConfiguration()) {
+				configurables.addAtEnd(l);
+			}
 		}
 		
 		return configurables;
@@ -585,7 +587,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
-		layers.forEach(Layer::resetConfiguration);
+		layers.getRefSelected(Layer::allowesConfiguration).forEach(Layer::resetConfiguration);
 		
 		return asConcrete();
 	}
