@@ -15,6 +15,8 @@ import ch.nolix.element.widget.VerticalStack;
 //class
 public final class ErrorDialog extends Layer {
 	
+	//TODO: public ErrorDialog(final Exception exception) {...
+	
 	//constructor
 	public ErrorDialog(final String errorMessage) {
 		
