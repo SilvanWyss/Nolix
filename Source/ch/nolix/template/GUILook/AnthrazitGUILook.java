@@ -16,6 +16,7 @@ public final class AnthrazitGUILook extends Configuration {
 		addAttachingAttribute("BackgroundColor(0x101010)");
 		
 		addConfiguration(
+			new AnthrazitDialogLook(),
 			new DeepConfiguration()
 			.setSelectorType("Widget")
 			.addAttachingAttribute(
@@ -32,7 +33,7 @@ public final class AnthrazitGUILook extends Configuration {
 			),
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.MainContainer)
-			.addAttachingAttribute("MaxHeight(500)")
+			.addAttachingAttribute("MinHeight(500)", "MaxHeight(600)")
 			.addConfiguration(
 				new DeepConfiguration()
 				.addAttachingAttribute("BaseTextSize(15)")
@@ -66,8 +67,8 @@ public final class AnthrazitGUILook extends Configuration {
 				"ContentPosition(Center)",
 				"BaseLeftPadding(5)",
 				"BaseRightPadding(5)",
-				"BaseTextColor(0x000080)",
-				"HoverTextColor(0x0000F0)"		
+				"BaseTextColor(0x0000C0)",
+				"HoverTextColor(0x0040FF)"		
 			),
 			new DeepConfiguration()
 			.setSelectorType("TextBox")
