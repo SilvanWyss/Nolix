@@ -2,6 +2,7 @@
 package ch.nolix.system.entity;
 
 //own imports
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -65,6 +66,12 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 			setValue(entity.getId());
 			internalNoteUpdate();
 		}
+	}
+	
+	//method
+	@Override
+	public final String toString() {
+		return (referencesEntity() ? getRefEntity().getShortDescription() : StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method
