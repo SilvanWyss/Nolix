@@ -15,7 +15,7 @@ import ch.nolix.system.databaseAdapter.Schema;
 
 //class
 public abstract class DatabaseApplication extends Application<BackGUIClient> {
-		
+	
 	//attribute
 	private boolean isReady = false;
 	
