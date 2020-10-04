@@ -6,6 +6,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
+//TODO: Delete DatabaseApplicationContext.
 //class
 public final class DatabaseApplicationContext {
 	
