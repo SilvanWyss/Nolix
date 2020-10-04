@@ -3,6 +3,7 @@ package ch.nolix.system.databaseApplication;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.dialog.ErrorDialog;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.DropdownMenu;
@@ -196,10 +197,10 @@ public final class CreateEntitySession extends HeaderedSession {
 		}
 		catch (final Exception exception) {
 			if (exception.getMessage() == null) {
-				getParentClient().showErrorMessageOnCounterpart("An error occured.");
+				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
 			}
 			else {
-				getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
+				getRefGUI().addLayerOnTop(new ErrorDialog(exception.getMessage()));
 			}
 		}
 	}
