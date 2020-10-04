@@ -37,7 +37,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1160
+ * @lines 1190
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -132,6 +132,11 @@ IResizableInputTaker {
 	//attributes
 	private int cursorXPosition = 0;
 	private int cursorYPosition = 0;
+	
+	//attribute
+	private boolean notedLeftMouseButtonPress = false;
+	//TODO: private boolean notedRightMouseButtonPress = false;
+	//TODO: private boolean notedMouseWheelPress = false;
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
@@ -418,6 +423,14 @@ IResizableInputTaker {
 	
 	//method
 	/**
+	 * @return true if the current {@link Layer} noted a left mouse button press.
+	 */
+	public final boolean notedLeftMouseButtonPress() {
+		return notedLeftMouseButtonPress;
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -477,6 +490,8 @@ IResizableInputTaker {
 	@Override
 	public final void noteLeftMouseButtonPress() {
 		
+		notedLeftMouseButtonPress = true;
+		
 		if (rootWidget != null) {
 			rootWidget.noteLeftMouseButtonPress();
 		}
@@ -492,13 +507,8 @@ IResizableInputTaker {
 	 */
 	@Override
 	public final void noteLeftMouseButtonRelease() {
-		
-		if (rootWidget != null) {
-			rootWidget.noteLeftMouseButtonRelease();
-		}
-		
-		if (leftMouseButtonReleaseAction != null) {
-			leftMouseButtonReleaseAction.run(this);
+		if (notedLeftMouseButtonPress()) {
+			noteLeftMouseButtonReleaseWhenNotedLeftMouseButtonPress();
 		}
 	}
 	
@@ -1159,6 +1169,18 @@ IResizableInputTaker {
 		}
 		
 		this.parentGUI = parentGUI;
+	}
+	
+	//method
+	private void noteLeftMouseButtonReleaseWhenNotedLeftMouseButtonPress() {
+		
+		if (rootWidget != null) {
+			rootWidget.noteLeftMouseButtonRelease();
+		}
+		
+		if (leftMouseButtonReleaseAction != null) {
+			leftMouseButtonReleaseAction.run(this);
+		}
 	}
 	
 	//method
