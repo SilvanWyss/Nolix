@@ -60,96 +60,98 @@ public final class EntitySetSession extends HeaderedSession {
 		final var entitiesGrid = new Grid().setRole(ContainerRole.MainContainer);
 		
 		//Sets the header of the entities grid.
-			int columnIndex = 2;
-			for (final var c : getRefEntitySet().getColumns()) {
-				if (c.getDataType().getPropertyKind() == PropertyKind.VALUE) {
-					
-					entitiesGrid.setWidget(
-						1,
-						columnIndex,
-						new Label(c.getHeader())
-						.setRole(LabelRole.Level2Header)
-					);
-					
-					columnIndex++;
-				}
+		int columnIndex = 2;
+		for (final var c : getRefEntitySet().getColumns()) {
+			if (c.getDataType().getPropertyKind() == PropertyKind.VALUE) {
 				
-				if (c.getDataType().getPropertyKind() == PropertyKind.REFERENCE) {
-					
-					entitiesGrid.setWidget(
-						1,
-						columnIndex,
-						new Label(c.getHeader())
-						.setRole(LabelRole.Level2Header)
-					);
-					
-					columnIndex++;
+				entitiesGrid.setWidget(
+					1,
+					columnIndex,
+					new Label(c.getHeader())
+					.setRole(LabelRole.Level2Header)
+				);
+				
+				columnIndex++;
+			}
+			
+			if (c.getDataType().getPropertyKind() == PropertyKind.REFERENCE) {
+				
+				entitiesGrid.setWidget(
+					1,
+					columnIndex,
+					new Label(c.getHeader())
+					.setRole(LabelRole.Level2Header)
+				);
+				
+				columnIndex++;
+			}
+		}
+			
+		//Fills up the entities into the entities grid.
+		int rowIndex = 2;
+		for (final var e : getRefEntitySet().getRefEntities()) {
+			
+			entitiesGrid.setWidget(
+				rowIndex,
+				1,
+				new Button("Open")
+				.setRole(ButtonRole.LinkButton)
+				.setLeftMouseButtonPressAction(
+					() -> openEntitySession(entitySetName, e.getId())
+				)
+			);
+			
+			columnIndex = 2;
+			
+			//Inserts the Propertys of the Entitys into the grid in the in the same order as the columns.
+			final var properties = e.getRefProperties();
+			for (final var p : getRefEntitySet().getColumns().to(c -> properties.getRefFirst(pr -> pr.hasSameHeaderAs(c)))) {	
+				switch (p.getPropertyKind()) {
+					case VALUE:
+						
+						entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
+						
+						columnIndex++;
+						
+						break;
+					case REFERENCE:						
+						
+						@SuppressWarnings("unchecked")
+						final var referenceProperty = (Reference<Entity>)p;
+						
+						entitiesGrid.setWidget(
+							rowIndex,
+							columnIndex,
+							new Button(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
+							.setRole(ButtonRole.LinkButton)
+							.setLeftMouseButtonPressAction(
+								() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
+							)
+						);
+						
+						columnIndex++;
+						
+						break;
+					default:
+						break;
 				}
 			}
 			
-		//Fills up the entities into the entities grid.
-			int rowIndex = 2;
-			for (final var e : getRefEntitySet().getRefEntities()) {
-				
+			if (!e.isReferenced()) {
+			
 				entitiesGrid.setWidget(
 					rowIndex,
-					1,
-					new Button("Open")
-					.setRole(ButtonRole.LinkButton)
+					columnIndex,
+					new Button("Delete")
+					.setRole(ButtonRole.DeleteButton)
 					.setLeftMouseButtonPressAction(
-						() -> openEntitySession(entitySetName, e.getId())
+						() -> openDeleteEntitySession(e.getId())
 					)
 				);
-				
-				columnIndex = 2;
-				for (final var p : e.getRefProperties()) {
-					
-					switch (p.getPropertyKind()) {
-						case VALUE:
-							
-							entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
-							
-							columnIndex++;
-							
-							break;
-						case REFERENCE:						
-							
-							@SuppressWarnings("unchecked")
-							final var referenceProperty = (Reference<Entity>)p;
-							
-							entitiesGrid.setWidget(
-								rowIndex,
-								columnIndex,
-								new Button(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
-								.setRole(ButtonRole.LinkButton)
-								.setLeftMouseButtonPressAction(
-									() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
-								)
-							);
-							
-							columnIndex++;
-							
-							break;
-						default:
-							break;
-					}
-				}
-				
-				if (!e.isReferenced()) {
-				
-					entitiesGrid.setWidget(
-						rowIndex,
-						columnIndex,
-						new Button("Delete")
-						.setRole(ButtonRole.DeleteButton)
-						.setLeftMouseButtonPressAction(
-							() -> openDeleteEntitySession(e.getId())
-						)
-					);
-				}
-				
-				rowIndex++;
 			}
+			
+			rowIndex++;
+		}
 		
 		return entitiesGrid;
 	}
