@@ -45,7 +45,7 @@ public final class GUILooksTutorial {
 					.setWidget(1, 1, "Checkbox")
 					.setWidget(1, 2, new Checkbox())
 					.setWidget(2, 1, "Button")
-					.setWidget(2, 2, new Button())
+					.setWidget(2, 2, new Button().setText("Action"))
 					.setWidget(3, 1, "TextBox")
 					.setWidget(3, 2, new TextBox())
 					.setWidget(4, 1, "DropdownMenu")
