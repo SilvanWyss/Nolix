@@ -8,6 +8,7 @@ import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painter.IPainter;
 
 //class
 public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
@@ -147,6 +148,18 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	@Override
 	protected void noteSelectItem(final TextItemMenuItem item) {
 		originLabel.setText(item.getText());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {
+		
+		//TODO: Apply all possible attributes of the itemMenuLook to the originLabel and expandButton.
+		originLabel.getRefBaseLook().setTextColor(itemMenuLook.getRecursiveOrDefaultTextColor());
+		expandButton.getRefBaseLook().setTextColor(itemMenuLook.getRecursiveOrDefaultTextColor());
 	}
 	
 	//method

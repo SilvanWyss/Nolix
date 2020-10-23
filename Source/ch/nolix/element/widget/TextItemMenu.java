@@ -13,7 +13,6 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.input.Key;
-import ch.nolix.element.painter.IPainter;
 
 //class
 public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
@@ -270,13 +269,6 @@ implements Clearable<TIM> {
 	
 	//method declaration
 	protected abstract void noteSelectItem(TextItemMenuItem item);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	/**

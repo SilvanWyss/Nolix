@@ -5,6 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.painter.IPainter;
 
 //class
 public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
@@ -125,6 +126,13 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	//method
 	@Override
 	protected void noteSelectItem(TextItemMenuItem item) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	@Override
