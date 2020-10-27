@@ -158,6 +158,8 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {
 		
 		//TODO: Apply all possible attributes of the itemMenuLook to the originLabel and expandButton.
+		originHorizontalStack.getRefBaseLook().setBackgroundColor(itemMenuLook.getRecursiveOrDefaultBackgroundColor());
+		
 		originLabel.getRefBaseLook().setTextColor(itemMenuLook.getRecursiveOrDefaultTextColor());
 		expandButton.getRefBaseLook().setTextColor(itemMenuLook.getRecursiveOrDefaultTextColor());
 	}
