@@ -3,6 +3,7 @@ package ch.nolix.templateTutorial.GUILookTutorial;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.dialog.InfoDialog;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Checkbox;
 import ch.nolix.element.widget.Console;
@@ -45,7 +46,15 @@ public final class GUILooksTutorial {
 					.setWidget(1, 1, "Checkbox")
 					.setWidget(1, 2, new Checkbox())
 					.setWidget(2, 1, "Button")
-					.setWidget(2, 2, new Button().setText("Action"))
+					.setWidget(
+						2,
+						2,
+						new Button()
+						.setText("Action")
+						.setLeftMouseButtonPressAction(
+							b -> b.getParentGUI().addLayerOnTop(new InfoDialog("Button pressed!"))
+						)
+					)
 					.setWidget(3, 1, "TextBox")
 					.setWidget(3, 2, new TextBox())
 					.setWidget(4, 1, "DropdownMenu")
