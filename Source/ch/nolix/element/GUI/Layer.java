@@ -3,11 +3,13 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.I2ElementTaker;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -16,6 +18,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.OptionalProperty;
 import ch.nolix.element.baseGUI_API.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -37,7 +40,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1190
+ * @lines 1240
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -78,11 +81,20 @@ IResizableInputTaker {
 	private LayerGUI<?> parentGUI;
 	
 	//attribute
+	private final OptionalProperty<LayerRole> role =
+	new OptionalProperty<>(
+		PascalCaseNameCatalogue.ROLE,
+		this::setRole,
+		LayerRole::fromSpecification,
+		LayerRole::getSpecification
+	);
+	
+	//attribute
 	private final MutableProperty<Boolean> configurationAllowed =
 	new MutableProperty<>(
 		CONFIGURATION_ALLOWED_HEADER,
 		ca -> {
-			if (ca) {
+			if (ca.booleanValue()) {
 				setConfigurationAllowed();
 			}
 			else {
@@ -135,8 +147,8 @@ IResizableInputTaker {
 	
 	//attribute
 	private boolean notedLeftMouseButtonPress = false;
-	//TODO: private boolean notedRightMouseButtonPress = false;
-	//TODO: private boolean notedMouseWheelPress = false;
+	//TODO: private boolean notedRightMouseButtonPress = false
+	//TODO: private boolean notedMouseWheelPress = false
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
@@ -364,6 +376,18 @@ IResizableInputTaker {
 	
 	//method
 	/**
+	 * @return the role of the current {@link Layer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
+	 */
+	public LayerRole getRole() {
+		
+		assertHasRole();
+		
+		return role.getValue();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -396,11 +420,19 @@ IResizableInputTaker {
 	
 	//method
 	/**
+	 * @return true if the current {@link Layer} has a role.
+	 */
+	public final boolean hasRole() {
+		return role.containsAny();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean hasRole(final String role) {
-		return false;
+		return (hasRole() && getRole().toString().equals(role));
 	}
 	
 	//method
@@ -1131,6 +1163,22 @@ IResizableInputTaker {
 	
 	//method
 	/**
+	 * Sets the role of the current {@link Layer}.
+	 * 
+	 * @param role
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given role is null.
+	 * @throws InvalidArgumentException if the current {@link Layer} has already a role.
+	 */
+	public final Layer setRole(final LayerRole role) {
+		
+		this.role.setValue(role);
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Sets the root {@link Widget} of the current {@link Layer}.
 	 * 
 	 * @param rootWidget
@@ -1169,6 +1217,16 @@ IResizableInputTaker {
 		}
 		
 		this.parentGUI = parentGUI;
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
+	 */
+	private void assertHasRole() {
+		if (!hasRole()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
+		}
 	}
 	
 	//method
