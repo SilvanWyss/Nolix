@@ -34,7 +34,7 @@ public final class TextureCreatorTest extends Test {
 		expect(result.getHeight()).isEqualTo(100);
 		for (var i = 1; i <= 100; i++) {
 			for (var j = 1; j <= 100; j++) {
-				expect(result.getPixel(i, j)).isEqualTo(Color.RED);
+				expect(result.getPixel(i, j)).isEqualTo(Color.WHITE);
 			}
 		}		
 	}
@@ -54,7 +54,7 @@ public final class TextureCreatorTest extends Test {
 		expect(result.getHeight()).isEqualTo(16);
 		for (var i = 1; i <= 16; i++) {
 			for (var j = 1; j <= 16; j++) {
-				expect(result.getPixel(i, j)).isEqualTo(Color.RED);
+				expect(result.getPixel(i, j)).isEqualTo(Color.WHITE);
 			}
 		}
 	}
