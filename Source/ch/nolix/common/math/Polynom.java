@@ -4,6 +4,8 @@ package ch.nolix.common.math;
 //own imports
 import ch.nolix.common.commonTypeHelper.DoubleHelper;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -16,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 320
+ * @lines 340
  */
 public final class Polynom {
 	
@@ -59,6 +61,21 @@ public final class Polynom {
 	@Override
 	public boolean equals(final Object object) {
 		return (object instanceof Polynom && equals((Polynom)object));
+	}
+	
+	//method
+	/**
+	 * @param degree
+	 * @return the coefficient for the given degree from the current {@link Polynom}.
+	 * @throws ArgumentIsOutOfRangeException
+	 * if the given degree is not between 0 and the degree of the current {@link Polynom}.
+	 */
+	public double getCoefficientForDegree(final int degree) {
+		
+		//Asserts that the given degree is between 0 and the degree of the current Polynom.
+		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isBetween(0, getDegree());
+		
+		return coefficients[degree];
 	}
 	
 	//method
