@@ -75,7 +75,7 @@ public final class Polynom {
 		//Asserts that the given degree is between 0 and the degree of the current Polynom.
 		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isBetween(0, getDegree());
 		
-		return coefficients[degree];
+		return coefficients[coefficients.length - degree - 1];
 	}
 	
 	//method
