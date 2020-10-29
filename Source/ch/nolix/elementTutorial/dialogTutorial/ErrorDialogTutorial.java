@@ -17,7 +17,8 @@ public final class ErrorDialogTutorial {
 		
 		//Adds a Button, that can open a ErrorDialog, to the Frame.
 		frame.addLayerOnTop(
-			new Button("Fix everything")
+			new Button()
+			.setText("Fix everything")
 			.setLeftMouseButtonPressAction(
 				() -> frame.addLayerOnTop(new ErrorDialog("There is not enough time to fix everything."))
 			)

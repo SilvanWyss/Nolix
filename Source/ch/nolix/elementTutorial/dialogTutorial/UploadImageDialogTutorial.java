@@ -28,7 +28,8 @@ public class UploadImageDialogTutorial {
 		frame.addLayerOnTop(
 			new VerticalStack(
 				imageWidget,
-				new Button("Change image")
+				new Button()
+				.setText("Change image")
 				.setLeftMouseButtonPressAction(
 					() -> {
 						if (imageWidget.isEmpty()) {

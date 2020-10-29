@@ -58,11 +58,13 @@ public final class DeleteEntitySession extends HeaderedSession {
 				+ "?"
 			),
 			new HorizontalStack(
-				new Button("Yes")
+				new Button()
 				.setRole(ButtonRole.ActionButton)
+				.setText("Yes")
 				.setLeftMouseButtonPressAction(() -> deleteEntity()),
-				new Button("No")
+				new Button()
 				.setRole(ButtonRole.ActionButton)
+				.setText("No")
 				.setLeftMouseButtonPressAction(() -> cancel())
 			)
 		);

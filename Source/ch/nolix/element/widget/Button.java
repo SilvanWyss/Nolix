@@ -17,7 +17,7 @@ import ch.nolix.element.input.Key;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 230
+ * @lines 220
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -36,21 +36,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Button} with the given text.
-	 * 
-	 * @param text
-	 * @throws ArgumentIsNullException if the given text is null.
-	 */
-	public Button(final String text) {
-		
-		//Calls other constructor.
-		this();
-		
-		setText(text);
 	}
 	
 	//method

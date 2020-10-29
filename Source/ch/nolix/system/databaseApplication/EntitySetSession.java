@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidget.ContainerRole;
@@ -34,8 +35,9 @@ public final class EntitySetSession extends HeaderedSession {
 	@Override
 	protected LinkedList<Button> createLinkButtons() {
 		return new LinkedList<>(
-			new Button("Home")
+			new Button()
 			.setRole(ButtonRole.LinkButton)
+			.setText("Home")
 			.setLeftMouseButtonPressAction(() -> openHomeSession())		
 		);
 	}
@@ -46,8 +48,9 @@ public final class EntitySetSession extends HeaderedSession {
 		return
 		new VerticalStack(
 			new HorizontalStack(
-				new Button("Create")
+				new Button()
 				.setRole(ButtonRole.CreateButton)
+				.setText("Create")
 				.setLeftMouseButtonPressAction(() -> openCreateEntitySession())
 			),
 			createEntitiesGrid()
@@ -94,8 +97,9 @@ public final class EntitySetSession extends HeaderedSession {
 			entitiesGrid.setWidget(
 				rowIndex,
 				1,
-				new Button("Open")
+				new Button()
 				.setRole(ButtonRole.LinkButton)
+				.setText("Open")
 				.setLeftMouseButtonPressAction(
 					() -> openEntitySession(entitySetName, e.getId())
 				)
@@ -122,8 +126,9 @@ public final class EntitySetSession extends HeaderedSession {
 						entitiesGrid.setWidget(
 							rowIndex,
 							columnIndex,
-							new Button(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
+							new Button()
 							.setRole(ButtonRole.LinkButton)
+							.setText(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
 							.setLeftMouseButtonPressAction(
 								() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
 							)
@@ -142,8 +147,9 @@ public final class EntitySetSession extends HeaderedSession {
 				entitiesGrid.setWidget(
 					rowIndex,
 					columnIndex,
-					new Button("Delete")
+					new Button()
 					.setRole(ButtonRole.DeleteButton)
+					.setText("Delete")
 					.setLeftMouseButtonPressAction(
 						() -> openDeleteEntitySession(e.getId())
 					)

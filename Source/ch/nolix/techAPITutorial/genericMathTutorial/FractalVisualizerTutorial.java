@@ -54,7 +54,8 @@ public final class FractalVisualizerTutorial {
 							widthTextBox
 						)
 					),
-					new Button("Generate")
+					new Button()
+					.setText("Generate")
 					.setLeftMouseButtonPressAction(this::generateFractal),
 					imageWidet
 				)

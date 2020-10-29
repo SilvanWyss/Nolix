@@ -30,7 +30,8 @@ public final class MessageSession extends DatabaseApplicationSession {
 		return
 		new VerticalStack(
 			new Label(message),
-			new Button("Ok")
+			new Button()
+			.setText("Ok")
 			.setLeftMouseButtonPressAction(() -> ok())
 		);
 	}

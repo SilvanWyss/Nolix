@@ -230,11 +230,13 @@ public final class EntitySession extends HeaderedSession {
 		new VerticalStack(
 			createDataGrid(),
 			new HorizontalStack(
-				new Button("Save")
+				new Button()
 				.setRole(ButtonRole.SaveButton)
+				.setText("Save")
 				.setLeftMouseButtonPressAction(() -> save()),
-				new Button("Reset changes")
+				new Button()
 				.setRole(ButtonRole.CancelButton)
+				.setText("Reset changes")
 				.setLeftMouseButtonPressAction(() -> cancel())
 			)
 		)
@@ -254,7 +256,8 @@ public final class EntitySession extends HeaderedSession {
 				final var entitySetName = e.getParentEntitySet().getName();
 				final var entityId = e.getId();
 				multiReferenceHorizontalStack.addWidget(
-					new Button(e.getIdAsString())
+					new Button()
+					.setText(e.getIdAsString())
 					.setLeftMouseButtonPressAction(() -> push(new EntitySession(entitySetName, entityId)))
 				);
 			}

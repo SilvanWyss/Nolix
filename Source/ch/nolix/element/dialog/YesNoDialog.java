@@ -30,11 +30,13 @@ public final class YesNoDialog extends Layer {
 				.setRole(LabelRole.MainText)
 				.setText(yesNoQuestion),
 				new HorizontalStack(
-					new Button("No")
+					new Button()
 					.setRole(ButtonRole.CancelButton)
+					.setText("No")
 					.setLeftMouseButtonPressAction(l -> l.getParentGUI().removeLayer(this)),
-					new Button("Yes")
+					new Button()
 					.setRole(ButtonRole.ConfirmButton)
+					.setText("Yes")
 					.setLeftMouseButtonPressAction(
 						l -> {
 							l.getParentGUI().removeLayer(this);

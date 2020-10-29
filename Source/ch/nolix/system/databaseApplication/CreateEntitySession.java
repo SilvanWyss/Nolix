@@ -49,11 +49,13 @@ public final class CreateEntitySession extends HeaderedSession {
 		new VerticalStack(
 			createDataEntryGrid(),
 			new HorizontalStack(
-				new Button("Create")
+				new Button()
 				.setRole(ButtonRole.CreateButton)
+				.setText("Create")
 				.setLeftMouseButtonPressAction(() -> createEntity()),
-				new Button("Cancel")
+				new Button()
 				.setRole(ButtonRole.CancelButton)
+				.setText("Cancel")
 				.setLeftMouseButtonPressAction(() -> cancel())
 			)
 		);

@@ -25,7 +25,7 @@ public final class ButtonTutorial {
 		final var frame = new Frame("Button Tutorial");
 		
 		//Creates a Button.
-		final var button = new Button("Change background color");
+		final var button = new Button().setText("Change background color");
 		
 		//Defines a left mouse button release action for the Button.
 		button.setLeftMouseButtonReleaseAction(() -> 

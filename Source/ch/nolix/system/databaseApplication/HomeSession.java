@@ -37,8 +37,9 @@ public final class HomeSession extends HeaderedSession {
 			entitySetsGrid.setWidget(
 				row,
 				column,
-				new Button(es.getNameInPlural())
+				new Button()
 				.setRole(ButtonRole.LinkButton)
+				.setText(es.getNameInPlural())
 				.setLeftMouseButtonPressAction(
 					() -> openEntitySetSession(es.getName())
 				)
