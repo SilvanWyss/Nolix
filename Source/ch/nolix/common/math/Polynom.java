@@ -136,8 +136,8 @@ public final class Polynom {
 		final var degree = getDegree();
 		final var integratedDegree = degree + integrationCount;
 		
-		final var integratedCoefficients = new double[integratedDegree];
-		for (var i = 0; i < degree; i++) {
+		final var integratedCoefficients = new double[integratedDegree + 1];
+		for (var i = 0; i < integratedDegree; i++) {
 			if (coefficients[i] == 0.0) {
 				integratedCoefficients[i] = 0.0;
 			}
@@ -145,7 +145,7 @@ public final class Polynom {
 				
 				var integratedCoefficient = coefficients[i];
 				
-				for (var j = degree - i; j < integratedDegree - i; j++) {
+				for (var j = degree - i + 1; j < integratedDegree - i + 1; j++) {
 					integratedCoefficient /= j;
 				}
 				
