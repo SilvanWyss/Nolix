@@ -108,7 +108,8 @@ public final class EntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						2,
-						new TextBox(property.getValue().toString())
+						new TextBox()
+						.setText(property.getValue().toString())
 						.setId(property.getHeader())
 					);
 					
@@ -150,7 +151,8 @@ public final class EntitySession extends HeaderedSession {
 					dataGrid.setWidget(
 						rowIndex,
 						2,
-						new TextBox(value)
+						new TextBox()
+						.setText(value)
 						.setId(optionalProperty.getHeader())
 					);
 					

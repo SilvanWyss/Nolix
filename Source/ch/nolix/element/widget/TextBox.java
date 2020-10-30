@@ -15,7 +15,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 350
+ * @lines 340
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
@@ -41,19 +41,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	public TextBox() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link TextBox} with the given text.
-	 * 
-	 * @throws ArgumentIsNullException if the given text is null.
-	 */
-	public TextBox(final String text) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setText(text);
 	}
 	
 	//method
