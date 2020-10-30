@@ -25,16 +25,6 @@ public final class Frame extends LayerGUI<Frame> {
 	}
 	
 	//constructor
-	public Frame(final String title) {
-		
-		super(Visibility.VISIBLE);
-		
-		initialize();
-		
-		setTitle(title);
-	}
-	
-	//constructor
 	public Frame(final String title, final Widget<?, ?> rootWidget) {
 		
 		super(Visibility.VISIBLE);

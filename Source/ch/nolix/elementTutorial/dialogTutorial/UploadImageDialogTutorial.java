@@ -17,7 +17,9 @@ public class UploadImageDialogTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("ErrorDialog Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("ErrorDialog Tutorial");
 		
 		//Loads an Image from file.
 		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");

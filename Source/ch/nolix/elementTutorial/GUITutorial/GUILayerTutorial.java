@@ -25,7 +25,9 @@ public final class GUILayerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates Frame.
-		final var frame = new Frame("GUILayer Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("GUILayer Tutorial");
 		
 		//Configures the look of the Frame.
 		frame.setBackgroundColor(Color.LAVENDER);

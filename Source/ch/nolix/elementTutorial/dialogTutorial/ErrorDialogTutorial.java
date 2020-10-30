@@ -13,7 +13,9 @@ public final class ErrorDialogTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("ErrorDialog Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("ErrorDialog Tutorial");
 		
 		//Adds a Button, that can open a ErrorDialog, to the Frame.
 		frame.addLayerOnTop(

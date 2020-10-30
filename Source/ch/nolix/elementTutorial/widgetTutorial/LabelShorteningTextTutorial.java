@@ -21,7 +21,9 @@ public final class LabelShorteningTextTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Label Shortening Text Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("Label Shortening Text Tutorial");
 		
 		//Creates a Label with a long text.
 		final var label = new Label("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");

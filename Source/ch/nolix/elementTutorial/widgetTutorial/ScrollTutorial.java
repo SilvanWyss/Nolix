@@ -22,7 +22,9 @@ public final class ScrollTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Scroll Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("Scroll Tutorial");
 		
 		//Creates a Label.
 		final var label = new Label("PLATON");

@@ -23,7 +23,9 @@ public class ImageWidgetWithImageFromFileTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("ImageWidget Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("ImageWidget Tutorial");
 		
 		//Creates an Image.
 		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");

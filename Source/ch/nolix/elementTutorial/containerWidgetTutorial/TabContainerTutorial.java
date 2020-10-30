@@ -24,7 +24,9 @@ public final class TabContainerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame("Tab Container Tutorial");
+		final var frame =
+		new Frame()
+		.setTitle("Tab Container Tutorial");
 		
 		//Creates a TabContainer.
 		final var tabContainer =
