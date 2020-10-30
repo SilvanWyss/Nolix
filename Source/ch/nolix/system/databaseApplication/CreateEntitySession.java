@@ -94,7 +94,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						1,
-						new Label(p.getHeader())
+						new Label().setText(p.getHeader())
 					)
 					.setWidget(
 						rowIndex,
@@ -124,7 +124,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						1,
-						new Label(p.getHeader())
+						new Label().setText(p.getHeader())
 					);
 					
 					final var dropdownMenu = new DropdownMenu();
@@ -149,7 +149,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						1,
-						new Label(optionalRreferenceProperty.getHeader())
+						new Label().setText(optionalRreferenceProperty.getHeader())
 					);
 					
 					if (optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().containsAny()) {

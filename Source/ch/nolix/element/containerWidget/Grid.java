@@ -174,7 +174,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	public Grid setWidget(final int rowIndex, final int columnIndex, final String text) {
-		return setWidget(rowIndex, columnIndex, new Label(text));
+		return setWidget(rowIndex, columnIndex, new Label().setText(text));
 	}
 	
 	//method

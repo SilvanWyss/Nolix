@@ -15,7 +15,7 @@ import ch.nolix.element.input.Key;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 180
+ * @lines 190
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	
@@ -31,21 +31,6 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	public Label() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Label} with the given text.
-	 * 
-	 * @param text
-	 * @throws ArgumentIsNullException if the given text is null.
-	 */
-	public Label(final String text) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		//Sets the text of the current label.
-		setText(text);
 	}
 	
 	//method

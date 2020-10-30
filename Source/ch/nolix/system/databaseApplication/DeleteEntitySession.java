@@ -52,7 +52,8 @@ public final class DeleteEntitySession extends HeaderedSession {
 	protected VerticalStack createSubSubContentWidget() {
 		return
 		new VerticalStack(
-			new Label(
+			new Label()
+			.setText(
 				"Do you want to delete the entity "
 				+ getRefEntitySet().getRefEntityById(entityId).getShortDescriptionInQuotes()
 				+ "?"

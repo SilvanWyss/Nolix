@@ -18,7 +18,7 @@ public final class DefaultFractalTutorial {
 		final var frame =
 		new Frame()
 		.setTitle("Default Fractal Tutorial")
-		.addLayerOnTop(new Label("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100)));
+		.addLayerOnTop(new Label().setText("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100)));
 		
 		//Sets the image of a Fractal to the frame. The creation of the image may last a few seconds.
 		frame.addLayerOnTop(new ImageWidget(CentralInstanceProvider.create(IFractalBuilder.class).build().toImage()));

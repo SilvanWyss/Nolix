@@ -26,7 +26,7 @@ public final class LabelShorteningTextTutorial {
 		.setTitle("Label Shortening Text Tutorial");
 		
 		//Creates a Label with a long text.
-		final var label = new Label("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");
+		final var label = new Label().setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");
 		
 		//Configures the look of the label.
 		label

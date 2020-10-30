@@ -31,12 +31,12 @@ public final class FloatContainerTutorial {
 		//Creates a FloatConatiner.
 		final var floatContainer =
 		new FloatContainer(
-			new Label("A"),
-			new Label("B"),
-			new Label("C"),
-			new Label("D"),
-			new Label("E"),
-			new Label("F")
+			new Label().setText("A"),
+			new Label().setText("B"),
+			new Label().setText("C"),
+			new Label().setText("D"),
+			new Label().setText("E"),
+			new Label().setText("F")
 		);
 		
 		//Configures the look of the FloatContainer.

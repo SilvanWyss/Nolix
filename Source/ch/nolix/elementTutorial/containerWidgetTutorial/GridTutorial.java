@@ -32,10 +32,10 @@ public final class GridTutorial {
 		//Creates a Grid
 		final var grid =
 		new Grid()
-		.setWidget(1, 1, new Label("A"))
-		.setWidget(1, 2, new Label("B"))
-		.setWidget(1, 3, new Label("C"))
-		.setWidget(1, 4, new Label("D"))
+		.setWidget(1, 1, new Label().setText("A"))
+		.setWidget(1, 2, new Label().setText("B"))
+		.setWidget(1, 3, new Label().setText("C"))
+		.setWidget(1, 4, new Label().setText("D"))
 		.setWidget(2, 1, new Area(200, 100, Color.BLUE))
 		.setWidget(2, 3, new Area(200, 100, Color.BLUE))
 		.setWidget(3, 2, new Area(200, 100, Color.BLUE))

@@ -22,7 +22,7 @@ public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 	public void testCase_reset_2() {
 		
 		//setup
-		final var singleContainer = new SingleContainer(new Label("Test"));
+		final var singleContainer = new SingleContainer(new Label().setText("Test"));
 		
 		//setup verification
 		expect(singleContainer.containsAny());
@@ -40,7 +40,7 @@ public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 		
 		//setup
 		final var singleContainer = new SingleContainer();
-		final var label = new Label("Test");
+		final var label = new Label().setText("Test");
 		
 		//execution
 		singleContainer.setWidget(label);

@@ -29,7 +29,8 @@ public final class MessageSession extends DatabaseApplicationSession {
 	protected VerticalStack createContentWidget() {
 		return
 		new VerticalStack(
-			new Label(message),
+			new Label()
+			.setText(message),
 			new Button()
 			.setText("Ok")
 			.setLeftMouseButtonPressAction(() -> ok())

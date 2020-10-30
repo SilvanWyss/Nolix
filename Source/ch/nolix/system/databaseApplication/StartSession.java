@@ -17,7 +17,7 @@ public final class StartSession extends BackGUIClientSession {
 	@Override
 	protected void initializeStage2() {
 		
-		getRefGUI().addLayerOnTop(new Label(MESSAGE).setRole(LabelRole.MainText));
+		getRefGUI().addLayerOnTop(new Label().setText(MESSAGE).setRole(LabelRole.MainText));
 		
 		final var parentApplication = getParentApplication().as(DatabaseApplication.class);
 		

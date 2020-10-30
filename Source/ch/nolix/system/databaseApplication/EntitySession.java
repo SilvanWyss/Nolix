@@ -103,7 +103,7 @@ public final class EntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						1,
-						new Label(p.getHeader())
+						new Label().setText(p.getHeader())
 					)
 					.setWidget(
 						rowIndex,
@@ -120,7 +120,7 @@ public final class EntitySession extends HeaderedSession {
 					
 					final var optionalProperty = (OptionalValueProperty<?>)p;
 					
-					dataGrid.setWidget(rowIndex, 1,	new Label(p.getHeader()));
+					dataGrid.setWidget(rowIndex, 1,	new Label().setText(p.getHeader()));
 					
 					if (optionalProperty.getValueClass() == Image.class) {				
 						
@@ -168,7 +168,7 @@ public final class EntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						1,
-						new Label(p.getHeader())
+						new Label().setText(p.getHeader())
 					);
 					
 					final var dropdownMenu = new DropdownMenu();
@@ -195,7 +195,7 @@ public final class EntitySession extends HeaderedSession {
 					.setWidget(
 						rowIndex,
 						1,
-						new Label(p.getHeader())
+						new Label().setText(p.getHeader())
 					);
 					
 					if (optionalReferenceProperty.getRefEntitySetOfReferencedEntities().containsAny()) {

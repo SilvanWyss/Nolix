@@ -39,7 +39,9 @@ public final class GUILooksTutorial {
 			new VerticalStack()
 			.setRole(ContainerRole.OverallContainer)
 			.addWidget(
-				new Label("Configure your GUI !").setRole(LabelRole.Title),
+				new Label()
+				.setRole(LabelRole.Title)
+				.setText("Configure your GUI !"),
 				new HorizontalStack(
 					selectionMenu,
 					new Grid()

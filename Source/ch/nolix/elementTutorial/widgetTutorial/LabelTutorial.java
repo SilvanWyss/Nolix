@@ -30,7 +30,7 @@ public final class LabelTutorial {
 		.setTitle("Label Tutorial");
 		
 		//Creates clockCaptionLabel.
-		final var clockCaptionLabel = new Label("Time:");
+		final var clockCaptionLabel = new Label().setText("Time:");
 		
 		//Configures the look of clockCaptionLabel.
 		clockCaptionLabel.applyOnBaseLook(bl -> bl.setTextSize(50));

@@ -30,7 +30,7 @@ public final class HelloWorldGUITutorial {
 		protected void initializeStage2() {
 			
 			//Creates Label.
-			final var label = new Label("Hello World");
+			final var label = new Label().setText("Hello World");
 			
 			//Configures the look of the Label.
 			label.applyOnBaseLook(bl -> bl.setTextSize(50));

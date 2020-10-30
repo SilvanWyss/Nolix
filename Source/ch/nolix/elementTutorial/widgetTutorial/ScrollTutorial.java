@@ -27,7 +27,7 @@ public final class ScrollTutorial {
 		.setTitle("Scroll Tutorial");
 		
 		//Creates a Label.
-		final var label = new Label("PLATON");
+		final var label = new Label().setText("PLATON");
 		
 		//Configures the look of the Label.
 		label

@@ -32,11 +32,11 @@ public final class HorizontalLineTutorial {
 		//Creates a VerticalStack with 3 Labels and 2 HorizontalLines.
 		final var verticalStack =
 		new VerticalStack(
-			new Label("Lorem ipsum dolor sit amet, consectetur adipisici elit"),
+			new Label().setText("Lorem ipsum dolor sit amet, consectetur adipisici elit"),
 			new HorizontalLine(),
-			new Label("Ut enim ad minim veniam"),
+			new Label().setText("Ut enim ad minim veniam"),
 			new HorizontalLine(),
-			new Label("quis nostrud exercitation")
+			new Label().setText("quis nostrud exercitation")
 		);
 		
 		//Configures the look of the VerticalStack.

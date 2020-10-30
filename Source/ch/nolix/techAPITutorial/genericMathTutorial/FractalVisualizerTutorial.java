@@ -50,7 +50,7 @@ public final class FractalVisualizerTutorial {
 				new VerticalStack(
 					new VerticalStack(
 						new HorizontalStack(
-							new Label("Width:"),
+							new Label().setText("Width:"),
 							widthTextBox
 						)
 					),
@@ -81,7 +81,7 @@ public final class FractalVisualizerTutorial {
 		@Override
 		protected void initializeStage2() {
 			
-			getRefGUI().addLayerOnTop(new Label("Please wait"));
+			getRefGUI().addLayerOnTop(new Label().setText("Please wait"));
 			
 			Sequencer.runInBackground(this::generateImage);
 		}

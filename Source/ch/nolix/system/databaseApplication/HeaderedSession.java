@@ -45,7 +45,8 @@ public abstract class HeaderedSession extends UserSession {
 	//method
 	private Label createHeaderWidget() {
 		return
-		new Label(getHeader())
-		.setRole(LabelRole.Level1Header);
+		new Label()
+		.setRole(LabelRole.Level1Header)
+		.setText(getHeader());
 	}
 }

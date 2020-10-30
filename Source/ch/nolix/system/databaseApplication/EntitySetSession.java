@@ -70,8 +70,9 @@ public final class EntitySetSession extends HeaderedSession {
 				entitiesGrid.setWidget(
 					1,
 					columnIndex,
-					new Label(c.getHeader())
+					new Label()
 					.setRole(LabelRole.Level2Header)
+					.setText(c.getHeader())
 				);
 				
 				columnIndex++;
@@ -82,8 +83,9 @@ public final class EntitySetSession extends HeaderedSession {
 				entitiesGrid.setWidget(
 					1,
 					columnIndex,
-					new Label(c.getHeader())
+					new Label()
 					.setRole(LabelRole.Level2Header)
+					.setText(c.getHeader())
 				);
 				
 				columnIndex++;
@@ -113,7 +115,7 @@ public final class EntitySetSession extends HeaderedSession {
 				switch (p.getPropertyKind()) {
 					case VALUE:
 						
-						entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
+						entitiesGrid.setWidget(rowIndex, columnIndex, new Label().setText(p.toString()));
 						
 						columnIndex++;
 						
