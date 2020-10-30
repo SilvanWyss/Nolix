@@ -17,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 210
+ * @lines 250
  */
 public class Server implements Clearable<Server>, ICloseableElement {
 	
@@ -70,6 +70,40 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	
 	//method
 	/**
+	 * Adds the given applications to the current {@link Server}.
+	 * 
+	 * @param applications
+	 * @throws ArgumentIsNullException if one of the given applications is null.
+	 * @throws InvalidArgumentException if the current {@link Server}
+	 * contains already an other application with the same name as one of the given applications.
+	 */
+	public final void addApplication(final Application<?>... applications) {
+		
+		//Iterates the given applications.
+		for (final var a: applications) {
+			addApplication(a);
+		}
+	}
+	
+	/**
+	 * Adds a new {@link Application} with the given name and initialSessionClass to the current {@link Server}.
+	 * 
+	 * @param name
+	 * @param initialSessionClass
+	 * @throws InvalidArgumentException
+	 * if the current {@link Server} contains already a {@link Application} with the given name.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 */
+	public final void addApplication(final String name, Class<Session<?>> initialSessionClass) {
+		
+		//Calls other method.
+		addApplication(new Application<>(name, initialSessionClass));
+	}
+	
+	//method
+	/**
 	 * Adds the given defaultApplication to the current {@link Server}.
 	 * A default {@link Application} will take the {@link Client}s without target.
 	 * 
@@ -91,21 +125,22 @@ public class Server implements Clearable<Server>, ICloseableElement {
 		this.defaultApplication = defaultApplication;
 	}
 	
-	//method
 	/**
-	 * Adds the given applications to the current {@link Server}.
+	 * Adds a new default {@link Application} with the given name and initialSessionClass to the current {@link Server}.
 	 * 
-	 * @param applications
-	 * @throws ArgumentIsNullException if one of the given applications is null.
-	 * @throws InvalidArgumentException if the current {@link Server}
-	 * contains already an other application with the same name as one of the given applications.
+	 * @param name
+	 * @param initialSessionClass
+	 * @throws InvalidArgumentException if the current {@link Server} contains already a default {@link Application}.
+	 * @throws InvalidArgumentException
+	 * if the current {@link Server} contains already a {@link Application} with the given name.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final void addApplication(final Application<?>... applications) {
+	public final void addDefaultApplication(final String name, Class<Session<?>> initialSessionClass) {
 		
-		//Iterates the given applications.
-		for (final var a: applications) {
-			addApplication(a);
-		}
+		//Calls other method.
+		addDefaultApplication(new Application<>(name, initialSessionClass));
 	}
 	
 	//method
