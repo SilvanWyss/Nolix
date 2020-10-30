@@ -48,11 +48,9 @@ public final class CheckBoxTest extends WidgetTest<CheckBox> {
 	public void testCase_uncheck() {
 		
 		//setup
-		final var checkBox = new CheckBox(true);
-		
-		//setup verification
-		expect(checkBox.isChecked());
-		
+		final var checkBox = new CheckBox();
+		checkBox.check();
+				
 		//execution		
 		checkBox.uncheck();
 		

@@ -36,19 +36,6 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		resetAndApplyDefaultConfiguration();
 	}
 	
-	//constructor
-	/**
-	 * Creates a new {@link CheckBox}.
-	 * 
-	 * @param checked
-	 */
-	public CheckBox(final boolean checked) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setCheckFlag(checked);
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}
