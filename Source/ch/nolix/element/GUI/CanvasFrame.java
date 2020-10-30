@@ -16,16 +16,6 @@ public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
 		initialize();
 	}
 	
-	//constructor
-	public CanvasFrame(final String title, final IResizableInputTaker inputTaker) {
-		
-		this(inputTaker);
-		
-		setTitle(title);
-		
-		initialize();
-	}
-	
 	//method
 	@Override
 	public int getHeight() {

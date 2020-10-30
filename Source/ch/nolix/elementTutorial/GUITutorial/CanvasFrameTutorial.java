@@ -30,7 +30,9 @@ public final class CanvasFrameTutorial {
 	public static void main(String[] args) {
 		
 		//Creates CanvasFrame.
-		final var canvasFrame = new CanvasFrame("CanvasFrame Tutorial", new InputTaker());
+		final var canvasFrame =
+		new CanvasFrame(new InputTaker())
+		.setTitle("CanvasFrame Tutorial");
 		
 		//Create paint commands.
 		final var paintCommands = new LinkedList<IElementTaker<PaintRun>>(
