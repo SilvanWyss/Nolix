@@ -11,7 +11,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.widget.BorderWidget;
 import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.CheckBox;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.LabelRole;
@@ -63,7 +63,7 @@ public final class AnthrazitGUILook extends Configuration {
 		//constructor
 		public CheckboxLook() {
 			
-			setSelectorType(Checkbox.class);
+			setSelectorType(CheckBox.class);
 			
 			addAttachingAttribute("CursorIcon(Hand)", "BaseBackgroundColor(0x101010)");
 		}

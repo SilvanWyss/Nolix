@@ -17,7 +17,7 @@ import ch.nolix.element.painter.IPainter;
  * @month 2016-05
  * @lines 320
  */
-public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
+public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 
 	//constant
 	public static final String TYPE_NAME = "Checkbox";
@@ -30,19 +30,19 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Checkbox}.
+	 * Creates a new {@link CheckBox}.
 	 */
-	public Checkbox() {
+	public CheckBox() {
 		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Checkbox}.
+	 * Creates a new {@link CheckBox}.
 	 * 
 	 * @param checked
 	 */
-	public Checkbox(final boolean checked) {
+	public CheckBox(final boolean checked) {
 		
 		resetAndApplyDefaultConfiguration();
 		
@@ -70,11 +70,11 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	
 	//method
 	/**
-	 * Checks the current {@link Checkbox}.
+	 * Checks the current {@link CheckBox}.
 	 * 
-	 * @return the current {@link Checkbox}.
+	 * @return the current {@link CheckBox}.
 	 */
-	public Checkbox check() {
+	public CheckBox check() {
 		
 		checked = true;
 		
@@ -107,7 +107,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Checkbox} is checked.
+	 * @return true if the current {@link CheckBox} is checked.
 	 */
 	public boolean isChecked() {
 		return checked;
@@ -118,7 +118,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Checkbox reset() {
+	public CheckBox reset() {
 		
 		super.reset();
 		
@@ -129,12 +129,12 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	
 	//method
 	/**
-	 * Sets the check flag of the current {@link Checkbox}.
+	 * Sets the check flag of the current {@link CheckBox}.
 	 * 
 	 * @param checked
-	 * @return the current {@link Checkbox}.
+	 * @return the current {@link CheckBox}.
 	 */
-	public Checkbox setCheckFlag(boolean checked) {
+	public CheckBox setCheckFlag(boolean checked) {
 		
 		if (!checked) {
 			uncheck();
@@ -148,11 +148,11 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	
 	//method
 	/**
-	 * Unchecks the current {@link Checkbox}.
+	 * Unchecks the current {@link CheckBox}.
 	 * 
-	 * @return the current {@link Checkbox}.
+	 * @return the current {@link CheckBox}.
 	 */
-	public Checkbox uncheck() {
+	public CheckBox uncheck() {
 		
 		checked = false;
 		
@@ -172,11 +172,11 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	
 	//method
 	/**
-	 * @return a new widget look for the current {@link Checkbox}.
+	 * @return a new widget look for the current {@link CheckBox}.
 	 */
 	@Override
-	protected CheckboxLook createLook() {
-		return new CheckboxLook();
+	protected CheckBoxLook createLook() {
+		return new CheckBoxLook();
 	}
 	
 	//method
@@ -274,7 +274,7 @@ public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final CheckboxLook checkBoxLook, final IPainter painter) {
+	protected void paintContentArea(final CheckBoxLook checkBoxLook, final IPainter painter) {
 				
 		final var s = checkBoxLook.getRecursiveOrDefaultTextSize();
 		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();

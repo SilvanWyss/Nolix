@@ -20,7 +20,7 @@ public final class WidgetTestPool extends TestPool {
 		super(
 			AreaTest.class,
 			CaptionPositionTest.class,
-			CheckboxTest.class,
+			CheckBoxTest.class,
 			LabelTest.class,
 			TextBoxTest.class
 		);

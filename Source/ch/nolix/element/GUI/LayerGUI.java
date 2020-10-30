@@ -31,7 +31,7 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.CheckBox;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.DropdownMenu;
@@ -65,7 +65,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		Accordion.class,
 		Area.class,
 		Button.class,
-		Checkbox.class,
+		CheckBox.class,
 		Console.class,
 		Downloader.class,
 		DropdownMenu.class,

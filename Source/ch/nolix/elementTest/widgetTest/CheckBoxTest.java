@@ -3,24 +3,24 @@ package ch.nolix.elementTest.widgetTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.CheckBox;
 
 //class
 /**
- * A {@link CheckboxTest} is a test for {@link Checkbox}.
+ * A {@link CheckBoxTest} is a test for {@link CheckBox}.
  * 
  * @author Silvan Wyss
  * @month 2017-03
  * @lines 60
  */
-public final class CheckboxTest extends WidgetTest<Checkbox> {
+public final class CheckBoxTest extends WidgetTest<CheckBox> {
 	
 	//method
 	@TestCase
 	public void testCase_creation() {
 		
 		//execution
-		final var checkBox = new Checkbox();
+		final var checkBox = new CheckBox();
 		
 		//verification
 		expectNot(checkBox.isChecked());
@@ -31,7 +31,7 @@ public final class CheckboxTest extends WidgetTest<Checkbox> {
 	public void testCase_check() {
 		
 		//setup
-		final var checkBox = new Checkbox();
+		final var checkBox = new CheckBox();
 		
 		//setup verification
 		expectNot(checkBox.isChecked());
@@ -48,7 +48,7 @@ public final class CheckboxTest extends WidgetTest<Checkbox> {
 	public void testCase_uncheck() {
 		
 		//setup
-		final var checkBox = new Checkbox(true);
+		final var checkBox = new CheckBox(true);
 		
 		//setup verification
 		expect(checkBox.isChecked());
@@ -62,7 +62,7 @@ public final class CheckboxTest extends WidgetTest<Checkbox> {
 	
 	//method
 	@Override
-	protected Checkbox createTestUnit() {
-		return new Checkbox();
+	protected CheckBox createTestUnit() {
+		return new CheckBox();
 	}
 }

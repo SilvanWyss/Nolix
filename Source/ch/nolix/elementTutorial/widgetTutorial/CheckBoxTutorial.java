@@ -2,20 +2,20 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.CheckBox;
 
 /**
- * The {@link CheckboxTutorial} provides a tutorial for {@link Checkbox}s.
- * Of the {@link CheckboxTutorial} an instance cannot be created.
+ * The {@link CheckBoxTutorial} provides a tutorial for {@link CheckBox}s.
+ * Of the {@link CheckBoxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
  * @lines 40
  */
-public final class CheckboxTutorial {
+public final class CheckBoxTutorial {
 	
 	/**
-	 * Creates a {@link Frame} with a {@link Checkbox}.
+	 * Creates a {@link Frame} with a {@link CheckBox}.
 	 * 
 	 * @param args
 	 */
@@ -25,7 +25,7 @@ public final class CheckboxTutorial {
 		final var frame = new Frame("Checkbox Tutorial");
 		
 		//Creates a Checkbox.
-		final var checkBox = new Checkbox();
+		final var checkBox = new CheckBox();
 		
 		//Configures the look of the checkbox.
 		checkBox.applyOnBaseLook(
@@ -41,7 +41,7 @@ public final class CheckboxTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link CheckboxTutorial} can be created.
+	 * Avoids that an instance of the {@link CheckBoxTutorial} can be created.
 	 */
-	private CheckboxTutorial() {}
+	private CheckBoxTutorial() {}
 }

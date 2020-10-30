@@ -5,7 +5,7 @@ import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.dialog.InfoDialog;
 import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.CheckBox;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.DropdownMenu;
@@ -44,7 +44,7 @@ public final class GUILooksTutorial {
 					new Grid()
 					.setRole(ContainerRole.MainContainer)
 					.setWidget(1, 1, "Checkbox")
-					.setWidget(1, 2, new Checkbox())
+					.setWidget(1, 2, new CheckBox())
 					.setWidget(2, 1, "Button")
 					.setWidget(
 						2,
