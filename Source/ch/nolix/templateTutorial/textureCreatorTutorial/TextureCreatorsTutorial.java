@@ -30,8 +30,9 @@ public final class TextureCreatorsTutorial {
 		final var juteTexture = new JuteTextureCreator().createTexture(80, 50).toScaledImage(10);
 		
 		//Creates a Frame that will show the textures.
-		new Frame(
-			"TextureCreators Tutorial",
+		new Frame()
+		.setTitle("TextureCreators Tutorial")
+		.addLayerOnTop(
 			new Accordion()
 			.addTab(
 				"Concrete",

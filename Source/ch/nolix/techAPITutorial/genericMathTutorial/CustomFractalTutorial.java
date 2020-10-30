@@ -20,8 +20,9 @@ public class CustomFractalTutorial {
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
-		new Frame(
-			"Custom Fractal Tutorial",
+		new Frame()
+		.setTitle("Custom Fractal Tutorial")
+		.addLayerOnTop(
 			new ImageWidget(
 				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 1.5)

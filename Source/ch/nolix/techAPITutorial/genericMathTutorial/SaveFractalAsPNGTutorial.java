@@ -18,10 +18,9 @@ public class SaveFractalAsPNGTutorial {
 		
 		//Creates a Frame.
 		final var frame =
-		new Frame(
-			"Save Fractal as PNG Tutorial",
-			new Label("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100))
-		);
+		new Frame()
+		.setTitle("Save Fractal as PNG Tutorial")
+		.addLayerOnTop(new Label("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100)));
 		
 		//Creates an image of a Fractal.
 		final var image = CentralInstanceProvider.create(IFractalBuilder.class).build().toImage();

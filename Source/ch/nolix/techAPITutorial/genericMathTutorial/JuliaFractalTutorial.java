@@ -22,8 +22,9 @@ public final class JuliaFractalTutorial {
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
-		new Frame(
-			"Julia Fractal Tutorial",
+		new Frame()
+		.setTitle("Julia Fractal Tutorial")
+		.addLayerOnTop(
 			new ImageWidget(
 				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 2.0)

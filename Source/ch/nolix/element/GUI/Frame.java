@@ -24,17 +24,6 @@ public final class Frame extends LayerGUI<Frame> {
 		initialize();
 	}
 	
-	//constructor
-	public Frame(final String title, final Widget<?, ?> rootWidget) {
-		
-		super(Visibility.VISIBLE);
-		
-		initialize();
-		
-		setTitle(title);
-		addLayerOnTop(rootWidget);
-	}
-	
 	//method
 	@Override
 	public int getHeight() {

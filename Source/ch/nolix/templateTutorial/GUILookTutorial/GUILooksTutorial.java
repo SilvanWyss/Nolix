@@ -33,8 +33,9 @@ public final class GUILooksTutorial {
 		.addItem("WhiteGreen", i -> i.getParentGUI().setConfiguration(new WhiteGreenGUILook()));	
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.
-		new Frame(
-			"GUILooks Tutorial",
+		new Frame()
+		.setTitle("GUILooks Tutorial")
+		.addLayerOnTop(
 			new VerticalStack()
 			.setRole(ContainerRole.OverallContainer)
 			.addWidget(

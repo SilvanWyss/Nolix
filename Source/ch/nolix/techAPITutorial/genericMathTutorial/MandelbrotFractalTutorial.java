@@ -20,8 +20,9 @@ public class MandelbrotFractalTutorial {
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
-		new Frame(
-			"Mandelrbrot Fractal Tutorial",
+		new Frame()
+		.setTitle("Mandelrbrot Fractal Tutorial")
+		.addLayerOnTop(
 			new ImageWidget(
 				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.5, 1.0)
