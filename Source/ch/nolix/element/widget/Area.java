@@ -23,7 +23,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 460
+ * @lines 410
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
@@ -43,59 +43,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Area} with the given backgroundColor.
-	 * 
-	 * @param backgroundColor
-	 * @throws ArgumentIsNullException if the given backgroundColor is null.
-	 */
-	public Area(final Color backgroundColor) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setBackgroundColor(backgroundColor);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Area} with the given width and height.
-	 * 
-	 * @param width
-	 * @param height
-	 * @throws NonPositiveArgumentException if the given width is not positive.
-	 * @throws NonPositiveArgumentException if the given height is not positive.
-	 */
-	public Area(final int width, final int height) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setSize(width, height);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Area} with the given width, height and background color.
-	 * 
-	 * @param width
-	 * @param height
-	 * @param backgroundColor
-	 * @throws NonPositiveArgumentException if the given width is not positive.
-	 * @throws NonPositiveArgumentException if the given height is not positive.
-	 * @throws ArgumentIsNullException if the given background color is null.
-	 */
-	public Area(
-		final int width,
-		final int height,
-		final Color backgroundColor
-	) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setSize(width, height);
-		setBackgroundColor(backgroundColor);
 	}
 	
 	//method

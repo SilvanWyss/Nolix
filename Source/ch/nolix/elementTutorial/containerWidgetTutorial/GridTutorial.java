@@ -36,12 +36,12 @@ public final class GridTutorial {
 		.setWidget(1, 2, new Label().setText("B"))
 		.setWidget(1, 3, new Label().setText("C"))
 		.setWidget(1, 4, new Label().setText("D"))
-		.setWidget(2, 1, new Area(200, 100, Color.BLUE))
-		.setWidget(2, 3, new Area(200, 100, Color.BLUE))
-		.setWidget(3, 2, new Area(200, 100, Color.BLUE))
-		.setWidget(3, 4, new Area(200, 100, Color.BLUE))
-		.setWidget(4, 1, new Area(200, 100, Color.BLUE))
-		.setWidget(4, 3, new Area(200, 100, Color.BLUE));
+		.setWidget(2, 1, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE))
+		.setWidget(2, 3, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE))
+		.setWidget(3, 2, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE))
+		.setWidget(3, 4, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE))
+		.setWidget(4, 1, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE))
+		.setWidget(4, 3, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE));
 		
 		//Configures the look of the Grid.
 		grid.applyOnBaseLook(

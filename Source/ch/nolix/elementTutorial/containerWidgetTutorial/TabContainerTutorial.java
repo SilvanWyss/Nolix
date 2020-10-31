@@ -32,10 +32,10 @@ public final class TabContainerTutorial {
 		final var tabContainer =
 		new TabContainer()
 		.addTab(
-			new TabContainerTab("A", new Area(500, 200, Color.BLUE)),
-			new TabContainerTab("B", new Area(500, 200, Color.GREEN)),
-			new TabContainerTab("C", new Area(500, 200, Color.BLUE)),
-			new TabContainerTab("D", new Area(500, 200, Color.GREEN))
+			new TabContainerTab("A", new Area().setSize(500, 200).setBackgroundColor(Color.BLUE)),
+			new TabContainerTab("B", new Area().setSize(500, 200).setBackgroundColor(Color.GREEN)),
+			new TabContainerTab("C", new Area().setSize(500, 200).setBackgroundColor(Color.BLUE)),
+			new TabContainerTab("D", new Area().setSize(500, 200).setBackgroundColor(Color.GREEN))
 		);
 		
 		//Configures the look of the TabContainer.

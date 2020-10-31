@@ -21,7 +21,7 @@ public final class AreaTest extends WidgetTest<Area> {
 	public void testCase_containsPoint() {
 		
 		//setup
-		final var area = new Area(500, 200);
+		final var area = new Area().setSize(500, 200);
 		area.recalculate();
 		
 		//execution & verification
@@ -44,8 +44,8 @@ public final class AreaTest extends WidgetTest<Area> {
 	public void testCase_equals() {
 		
 		//setup 
-		final var area = new Area(2000, 1000, Color.GREEN);
-		final var area2 = new Area(2000, 1000, Color.GREEN);
+		final var area = new Area().setSize(2000, 1000).setBackgroundColor(Color.GREEN);
+		final var area2 = new Area().setSize(2000, 1000).setBackgroundColor(Color.GREEN);
 		
 		//execution & verification
 		expect(area.equals(area2));
@@ -56,7 +56,7 @@ public final class AreaTest extends WidgetTest<Area> {
 	public void testCase_removeBackgroundColor() {
 		
 		//setup
-		final var area = new Area(Color.GREEN);
+		final var area = new Area().setBackgroundColor(Color.GREEN);
 		
 		//setup verification
 		expect(area.hasBackgroundColor());

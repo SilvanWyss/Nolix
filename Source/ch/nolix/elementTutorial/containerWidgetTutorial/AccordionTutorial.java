@@ -31,10 +31,10 @@ public final class AccordionTutorial {
 		//Creates an Accordion.
 		final var accordion =
 		new Accordion(
-			new AccordionTab("A", new Area(500, 200, Color.BLUE)),
-			new AccordionTab("B", new Area(500, 200, Color.GREEN)),
-			new AccordionTab("C", new Area(500, 200, Color.BLUE)),
-			new AccordionTab("D", new Area(500, 200, Color.GREEN))
+			new AccordionTab("A", new Area().setSize(500,  200).setBackgroundColor(Color.BLUE)),
+			new AccordionTab("B", new Area().setSize(500,  200).setBackgroundColor(Color.GREEN)),
+			new AccordionTab("C", new Area().setSize(500,  200).setBackgroundColor(Color.BLUE)),
+			new AccordionTab("D", new Area().setSize(500,  200).setBackgroundColor(Color.GREEN))
 		);
 		
 		//Configures the look of the Accordion.
