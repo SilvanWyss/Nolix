@@ -25,8 +25,11 @@ public final class ProductManagerTutorial {
 		//Creates a ProductManager.
 		final var productManager = new ProductManager(nodeDatabaseAdapterCreator);
 		
-		//Creates a NetServer with the ProductManager as default application.
-		final var netServer = new NetServer(productManager);
+		//Creates a NetServer.
+		final var netServer = new NetServer();
+		
+		//Adds the PRoductManager as default Application to the NetServer.
+		netServer.addDefaultApplication(productManager);
 		
 		//Starts a web browser that will connect to the default application of the NetServer.
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();

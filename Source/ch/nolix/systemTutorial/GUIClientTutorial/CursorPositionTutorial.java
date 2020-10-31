@@ -13,8 +13,11 @@ public final class CursorPositionTutorial {
 	
 	public static void main(String[] args) {
 		
-		//Creates a NetServer with an Application for BackGUIClients.
-		final var netServer = new NetServer("Cursor position Tutorial", MainSession.class);
+		//Creates a NetServer.
+		final var netServer = new NetServer();
+		
+		//Adds a default Application to the NetServer.
+		netServer.addDefaultApplication("Cursor position Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

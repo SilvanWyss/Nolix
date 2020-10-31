@@ -96,7 +96,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final void addApplication(final String name, Class<Session<?>> initialSessionClass) {
+	public final void addApplication(final String name, Class<?> initialSessionClass) {
 		
 		//Calls other method.
 		addApplication(new Application<>(name, initialSessionClass));
@@ -137,7 +137,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final void addDefaultApplication(final String name, Class<Session<?>> initialSessionClass) {
+	public final void addDefaultApplication(final String name, Class<?> initialSessionClass) {
 		
 		//Calls other method.
 		addDefaultApplication(new Application<>(name, initialSessionClass));

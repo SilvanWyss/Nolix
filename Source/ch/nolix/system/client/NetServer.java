@@ -12,7 +12,7 @@ import ch.nolix.common.localComputer.LocalComputer;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 160
+ * @lines 120
  */
 public final class NetServer extends Server {
 	
@@ -33,22 +33,6 @@ public final class NetServer extends Server {
 		
 		//Calls other constructor.
 		this(DEFAULT_PORT);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
-	 * The {@link NetServer} will have the given defaultApplication.
-	 * 
-	 * @param defaultApplication.
-	 * @throws ArgumentIsNullException if the given defaultApplication is null.
-	 */
-	public NetServer(final Application<?> defaultApplication) {
-		
-		//Calls other constructor.
-		this();
-		
-		addDefaultApplication(defaultApplication);
 	}
 	
 	//constructor
@@ -114,29 +98,6 @@ public final class NetServer extends Server {
 		
 		//Calls other constructor.
 		this(port ,new Application<C>(name, initialSessionClass));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
-	 * 
-	 * The {@link NetServer} will have a default {@link Application}
-	 * with the given name, clientClass and initialSessionClass.
-	 * 
-	 * @param name
-	 * @param initialSessionClass
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given clientClass is null.
-	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 */
-	public <C extends Client<C>> NetServer(
-		final String name,
-		final Class<?> initialSessionClass
-	) {
-		
-		//Calls other constructor.
-		this(new Application<C>(name, initialSessionClass));
 	}
 	
 	//method

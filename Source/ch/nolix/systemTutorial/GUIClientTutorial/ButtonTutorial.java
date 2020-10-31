@@ -13,8 +13,11 @@ public final class ButtonTutorial {
 	
 	public static void main(String[] args) {
 		
-		//Creates a NetServer with an Application for BackGUIClients.
-		final var netServer = new NetServer("Button Tutorial", MainSession.class);
+		//Creates a NetServer.
+		final var netServer = new NetServer();
+		
+		//Adds a default Application to the NetServer.
+		netServer.addDefaultApplication("Button Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

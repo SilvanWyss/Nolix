@@ -11,8 +11,11 @@ public final class WebConsoleClientTutorial {
 
 	public static void main(final String[] arguments) {
 		
-		//Creates a NetServer with an Application for BackConsoleClients.
-		final var netServer = new NetServer("WebConsoleClientTutorial", MainSession.class);
+		//Creates a NetServer.
+		final var netServer = new NetServer();
+		
+		//Adds a default Application to the NetServer.
+		netServer.addDefaultApplication("WebConsoleClient Tutorial", MainSession.class);
 		
 		//Creates a FrontConsoleClient that will connect to the NetServer.
 		new FrontConsoleClient();

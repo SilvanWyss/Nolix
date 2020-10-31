@@ -20,7 +20,7 @@ public final class FractalVisualizerTutorial {
 	
 	public static void main(String[] args) {
 		
-		new NetServer(new FractalVisualizer());
+		new NetServer().addDefaultApplication(new FractalVisualizer());
 		
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 	}
