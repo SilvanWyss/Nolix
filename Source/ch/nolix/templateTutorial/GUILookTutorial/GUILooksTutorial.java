@@ -62,7 +62,7 @@ public final class GUILooksTutorial {
 					.setWidget(3, 1, "TextBox")
 					.setWidget(3, 2, new TextBox())
 					.setWidget(4, 1, "DropdownMenu")
-					.setWidget(4, 2, new DropdownMenu("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"))
+					.setWidget(4, 2, new DropdownMenu().addItem("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"))
 					.setWidget(5, 1, "Console")
 					.setWidget(5, 2, new Console())
 					.setWidget(6, 1, "Downloader")

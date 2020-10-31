@@ -36,7 +36,8 @@ public final class DropdownMenuTutorial {
 			
 			//Creates a DropdownMenu.
 			final var dropdownMenu =
-			new DropdownMenu(
+			new DropdownMenu()
+			.addItem(
 				"Gottfried Wilhelm Leibniz",
 				"Immanuel Kant",
 				"Johann Gottlieb Fichte",

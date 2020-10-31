@@ -33,22 +33,6 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		resetAndApplyDefaultConfiguration();
 	}
 	
-	//constructor
-	public DropdownMenu(final Iterable<String> items) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addItems(items);
-	}
-	
-	//constructor
-	public DropdownMenu(final String... items) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addItem(items);
-	}
-	
 	//method
 	public DropdownMenu collapse() {
 		
