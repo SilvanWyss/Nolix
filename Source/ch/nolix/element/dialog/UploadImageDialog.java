@@ -71,7 +71,7 @@ public final class UploadImageDialog extends Layer {
 			.setRole(ContainerRole.DialogContainer)
 			.addWidget(
 				imageWidget,
-				new Uploader(this::selectImage),
+				new Uploader().setFileTaker(this::selectImage),
 				new HorizontalStack()
 				.addWidget(
 					new Button()

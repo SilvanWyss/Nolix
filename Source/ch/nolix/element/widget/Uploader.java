@@ -29,14 +29,6 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 		resetAndApplyDefaultConfiguration();
 	}
 	
-	//constructor
-	public Uploader(final IElementTaker<byte[]> fileTaker) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setFileTaker(fileTaker);
-	}
-	
 	//method
 	public final boolean hasFileTaker() {
 		return (fileTaker != null);
