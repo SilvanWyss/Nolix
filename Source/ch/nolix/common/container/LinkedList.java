@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.container;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -21,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1200
+ * @lines 1160
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
@@ -45,52 +46,13 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	//optional attributes
 	private LinkedListNode<E> firstNode;
 	private LinkedListNode<E> lastNode;
-		
+	
 	//constructor
 	/**
 	 * Creates a new {@link LinkedList} that is empty.
 	 * The complexity of this method is O(1).
 	 */
 	public LinkedList() {}
-	
-	//constructor
-	/**
-	 * Creates a new {@link LinkedList} with the given element.
-	 * The complexity of this method is O(1).
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
-	 */
-	public LinkedList(final E element) {
-		addAtEnd(element);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link LinkedList} with the given elements.
-	 * The complexity of this method is O(n) if n elements are given.
-	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if the given element container is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public LinkedList(final E... elements) {
-		addAtEnd(elements);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link LinkedList} with the given elements.
-	 * The complexity of this method is O(n) if n elements are given.
-	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if the given element container is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
-	 */
-	public <E2 extends E> LinkedList(final Iterable<E2> elements) {
-		addAtEnd(elements);
-	}
 	
 	//method
 	/**
@@ -524,7 +486,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 			);
 			
 			if (group == null) {
-				groups.addAtEnd(new LinkedList<E>(e));
+				groups.addAtEnd(new LinkedList<E>().addAtEnd(e));
 			}
 			else {
 				group.addAtEnd(e);
@@ -1123,7 +1085,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
-			return new LinkedList<>(startNode.getElement());
+			return new LinkedList<E>().addAtEnd(startNode.getElement());
 		}
 		
 		//Handles the case when the sub list contains 2 elements.

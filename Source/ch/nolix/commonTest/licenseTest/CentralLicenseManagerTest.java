@@ -56,7 +56,7 @@ public final class CentralLicenseManagerTest extends Test {
 		
 		@Override
 		public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-			return new LinkedList<>(TestLicense.class);
+			return LinkedList.withElements(TestLicense.class);
 		}
 	}
 }

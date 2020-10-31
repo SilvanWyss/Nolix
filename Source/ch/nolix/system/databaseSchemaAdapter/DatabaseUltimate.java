@@ -12,6 +12,6 @@ public final class DatabaseUltimate extends Feature {
 	//method
 	@Override
 	public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-		return new LinkedList<>(Nolix2020Ultimate.class);
+		return LinkedList.withElements(Nolix2020Ultimate.class);
 	}
 }

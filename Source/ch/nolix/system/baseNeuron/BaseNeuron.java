@@ -101,7 +101,7 @@ implements ISmartObject<N> {
 	 */
 	public void fireTransitively() {
 		
-		final LinkedList<BaseNeuron<?, ?, ?>> nextNeurons = new LinkedList<>(this);
+		final LinkedList<BaseNeuron<?, ?, ?>> nextNeurons = LinkedList.withElements(this);
 		final LinkedList<BaseNeuron<?, ?, ?>> visitedNeurons = new LinkedList<>();
 				
 		while (nextNeurons.containsAny()) {

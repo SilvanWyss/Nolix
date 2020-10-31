@@ -77,7 +77,8 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	@Override
 	public LinkedList<Node> getAttributes() {
 		
-		final var attributes = new LinkedList<Node>(
+		final var attributes =
+		LinkedList.withElements(
 			new Node(getRowIndex()),
 			new Node(getColumnIndex())
 		);

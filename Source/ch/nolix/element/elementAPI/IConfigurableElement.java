@@ -43,9 +43,12 @@ OptionalTokenable<C> {
 	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement} recursively.
 	 */
 	public default IContainer<IConfigurableElement<?>> getSubConfigurablesRecursively() {
-		return
-		new LinkedList<IConfigurableElement<?>>(getSubConfigurables())
-		.addAtEnd(getSubConfigurables().toFromMany(IConfigurableElement::getSubConfigurablesRecursively));
+		
+		final var subConfigurables = new LinkedList<IConfigurableElement<?>>();
+		subConfigurables.addAtEnd(getSubConfigurables());
+		subConfigurables.addAtEnd(getSubConfigurables().toFromMany(IConfigurableElement::getSubConfigurablesRecursively));
+		
+		return subConfigurables;
 	}
 	
 	//method declaration

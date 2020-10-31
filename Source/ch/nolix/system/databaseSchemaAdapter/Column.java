@@ -46,7 +46,7 @@ public final class Column implements Headered, IElement {
 	@Override
 	public LinkedList<Node> getAttributes() {
 		return 
-		new LinkedList<>(
+		LinkedList.withElements(
 			new Node(PascalCaseNameCatalogue.HEADER, getHeader()),
 			new Node(dataType.getPropertyKind().toString())
 		);

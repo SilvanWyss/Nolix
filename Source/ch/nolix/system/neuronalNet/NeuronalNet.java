@@ -91,8 +91,8 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 */
 	public LinkedList<BaseNeuron<?, ?, ?>> getRefNeurons() {
 	
-		final LinkedList<BaseNeuron<?, ?, ?>> neurons =
-		new LinkedList<>(inputFanoutNeuron.getRefFanNeurons());
+		final var neurons = new LinkedList<BaseNeuron<?, ?, ?>>();
+		neurons.addAtEnd(inputFanoutNeuron.getRefFanNeurons());
 		
 		for (final BaseNeuron<?, ?, ?> n : neurons) {
 			for (final BaseNeuron<?, ?, ?> on : n.getRefOutputNeurons()) {

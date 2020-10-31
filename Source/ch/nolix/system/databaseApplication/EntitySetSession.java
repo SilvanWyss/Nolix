@@ -34,7 +34,8 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	@Override
 	protected LinkedList<Button> createLinkButtons() {
-		return new LinkedList<>(
+		return
+		LinkedList.withElements(
 			new Button()
 			.setRole(ButtonRole.LinkButton)
 			.setText("Home")

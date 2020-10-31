@@ -61,7 +61,7 @@ public class _3DPoint implements IElement {
 	@Override
 	public LinkedList<Node> getAttributes() {
 		return
-		new LinkedList<>(
+		LinkedList.withElements(
 			new Node(DoubleHelper.toString(getX())),
 			new Node(DoubleHelper.toString(getY())),
 			new Node(DoubleHelper.toString(getZ()))

@@ -82,7 +82,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	//method
 	@Override
 	protected LinkedList<Object> internalGetValues() {
-		return new LinkedList<>(referencedEntityIds);
+		return LinkedList.withElements(referencedEntityIds);
 	}
 	
 	//method

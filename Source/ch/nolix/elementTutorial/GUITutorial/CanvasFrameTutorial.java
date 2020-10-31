@@ -1,5 +1,6 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.element.GUI.CanvasFrame;
@@ -35,7 +36,9 @@ public final class CanvasFrameTutorial {
 		.setTitle("CanvasFrame Tutorial");
 		
 		//Create paint commands.
-		final var paintCommands = new LinkedList<IElementTaker<PaintRun>>(
+		@SuppressWarnings("unchecked")
+		final IContainer<IElementTaker<PaintRun>> paintCommands =
+		LinkedList.withElements(
 			pr -> {
 				var painter = pr.getRefPainterByIndex(1);
 				painter.setColorGradient(new ColorGradient(UniDirection.Vertical, Color.BLUE, Color.MIDNIGHT_BLUE));

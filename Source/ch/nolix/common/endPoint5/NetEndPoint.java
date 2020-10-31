@@ -191,7 +191,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public void run(final ChainedNode command) {
-		run(new LinkedList<>(command));
+		run(LinkedList.withElements(command));
 	}
 	
 	//method

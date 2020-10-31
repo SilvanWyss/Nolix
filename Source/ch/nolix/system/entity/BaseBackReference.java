@@ -111,7 +111,7 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	//method
 	@Override
 	protected final LinkedList<Object> internalGetValues() {
-		return new LinkedList<>(getBackReferenceCount());
+		return LinkedList.withElements(getBackReferenceCount());
 	}
 	
 	//method

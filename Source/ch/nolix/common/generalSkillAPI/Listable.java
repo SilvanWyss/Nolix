@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.generalSkillAPI;
 
+//own import
 import ch.nolix.common.container.LinkedList;
 
 //interface
@@ -20,7 +21,7 @@ public interface Listable<L extends Listable<L>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public default LinkedList<L> intoList() {
-		return new LinkedList<>((L)this);
+		return LinkedList.withElements((L)this);
 	}
 	
 	//method
@@ -32,6 +33,6 @@ public interface Listable<L extends Listable<L>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public default <T> LinkedList<T> intoListAs(final Class<T> type) {
-		return new LinkedList<>((T)this);
+		return LinkedList.withElements((T)this);
 	}
 }

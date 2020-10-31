@@ -7,7 +7,7 @@ public final class AsSoonAsNoMoreMethodTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var cats = new LinkedList<>("Garfield", "Simba", "Smokey");
+		final var cats = LinkedList.withElements("Garfield", "Simba", "Smokey");
 		
 		Sequencer
 		.asSoonAsNoMore(cats::containsAny)

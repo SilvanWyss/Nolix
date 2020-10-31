@@ -13,6 +13,6 @@ public final class DatabaseClassic extends Feature {
 	//method
 	@Override
 	public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-		return new LinkedList<>(Nolix2020Classic.class, Nolix2020Ultimate.class);
+		return LinkedList.withElements(Nolix2020Classic.class, Nolix2020Ultimate.class);
 	}
 }

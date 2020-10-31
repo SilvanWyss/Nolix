@@ -30,6 +30,6 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	//method
 	@Override
 	protected final LinkedList<Object> internalGetValues() {
-		return new LinkedList<>(getReferencedEntityId());
+		return LinkedList.withElements(getReferencedEntityId());
 	}
 }

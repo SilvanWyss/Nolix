@@ -283,7 +283,8 @@ public final class Time implements IElement {
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return new LinkedList<>(
+		return
+		LinkedList.withElements(
 			Node.fromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),

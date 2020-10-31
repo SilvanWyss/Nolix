@@ -231,7 +231,8 @@ public final class TextFormat extends Element<TextFormat> {
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return new LinkedList<>(
+		return
+		LinkedList.withElements(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
 			new Node(BOLD_FLAG_HEADER, bold),
 			new Node(ITALIC_FLAG_HEADER, italic),

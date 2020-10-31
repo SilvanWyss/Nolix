@@ -54,7 +54,7 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 	//method
 	private LinkedList<Widget<?, ?>> createNonContainerWidgets() {
 		return
-		new LinkedList<>(
+		LinkedList.withElements(
 			new Area(),
 			new Button(),
 			new Console(),

@@ -862,7 +862,7 @@ public class Color extends Element<Color> {
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return new LinkedList<>(Node.fromString(getHexadecimalValue()));
+		return LinkedList.withElements(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method

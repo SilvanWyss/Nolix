@@ -141,7 +141,7 @@ public class Candlestick extends Element<Candlestick> {
 	@Override
 	public LinkedList<Node> getAttributes() {
 		return
-		new LinkedList<>(
+		LinkedList.withElements(
 			time.getSpecification(),
 			new Node(OPENING_PRICE_HEADER, getOpeningPrice()),
 			new Node(CLOSING_PRICE_HEADER, getClosingPrice()),

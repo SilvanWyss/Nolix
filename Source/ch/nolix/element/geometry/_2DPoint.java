@@ -56,7 +56,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return new LinkedList<>(new Node(DoubleHelper.toString(getX())),	new Node(DoubleHelper.toString(getY())));
+		return LinkedList.withElements(new Node(DoubleHelper.toString(getX())),	new Node(DoubleHelper.toString(getY())));
 	}
 	
 	//method

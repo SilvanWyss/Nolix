@@ -101,7 +101,7 @@ final class NetServerSocketProcessor extends Worker {
 		
 		if (firstLine.startsWith("G")) {
 			
-			final var lines = new LinkedList<>(firstLine);
+			final var lines = LinkedList.withElements(firstLine);
 			fillUpUntilEmptyLineFollows(lines, socketInputStream);
 			
 			if (WebSocketHandShakeRequest.canBe(lines)) {

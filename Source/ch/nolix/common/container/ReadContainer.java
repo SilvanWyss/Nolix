@@ -40,8 +40,9 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * 
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
+	@SuppressWarnings("unchecked")
 	public <E2 extends E> ReadContainer(final E2 element) {
-		this(new LinkedList<E>(element));
+		this(LinkedList.withElements(element));
 	}
 	
 	//constructor

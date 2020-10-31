@@ -94,7 +94,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	//method
 	@Override
 	protected LinkedList<Object> internalGetValues() {
-		return new LinkedList<>(values);
+		return LinkedList.withElements(values);
 	}
 	
 	//method

@@ -39,7 +39,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		final var neuronalNet = forwardMultiLayerNetCreator.createNeuronalNet();
 		
 		//Creates inputs for the neuronal net.
-		final var inputs = new LinkedList<>(0.01, 0.01, 0.01, 0.01, 0.01);
+		final var inputs = LinkedList.withElements(0.01, 0.01, 0.01, 0.01, 0.01);
 		
 		//Sets the inputs to the neuronal net.
 		neuronalNet.addInputNeuron(new SourceNeuron<Iterable<Double>>(inputs));
