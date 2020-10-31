@@ -101,7 +101,7 @@ IResizableInputTaker {
 				setConfigurationNotAllowed();
 			}
 		},
-		BaseNode::toBoolean,
+		BaseNode::getOneAttributeAsBoolean,
 		Node::withOneAttribute
 	);
 	
