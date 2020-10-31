@@ -62,7 +62,9 @@ public final class EntitySession extends HeaderedSession {
 	//method
 	@Override
 	protected VerticalStack createSubSubContentWidget() {
-		return new VerticalStack(
+		return
+		new VerticalStack()
+		.addWidget(
 			createMainDataWidget(),
 			createReferenceDataWidget(),
 			createBackReferenceDataWidget()
@@ -229,7 +231,8 @@ public final class EntitySession extends HeaderedSession {
 	
 	private VerticalStack createMainDataWidget() {
 		return
-		new VerticalStack(
+		new VerticalStack()
+		.addWidget(
 			createDataGrid(),
 			new HorizontalStack()
 			.addWidget(

@@ -26,7 +26,8 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 		
 		getRefGUI()
 		.addLayerOnTop(
-			new VerticalStack(
+			new VerticalStack()
+			.addWidget(
 				createTitleWidget(),
 				createContentWidget()
 			)

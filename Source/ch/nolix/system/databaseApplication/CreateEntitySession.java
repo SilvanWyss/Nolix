@@ -46,7 +46,8 @@ public final class CreateEntitySession extends HeaderedSession {
 		getRefEntitySet().addEntity(newEntity);
 		
 		return
-		new VerticalStack(
+		new VerticalStack()
+		.addWidget(
 			createDataEntryGrid(),
 			new HorizontalStack()
 			.addWidget(

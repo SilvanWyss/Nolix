@@ -28,7 +28,8 @@ public class UploadImageDialogTutorial {
 		final var imageWidget = new ImageWidget(image);
 		
 		frame.addLayerOnTop(
-			new VerticalStack(
+			new VerticalStack()
+			.addWidget(
 				imageWidget,
 				new Button()
 				.setText("Change image")

@@ -31,7 +31,10 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 		//setup
 		final var lGUI =
 		new InvisibleGUI()
-		.addLayerOnTop(new VerticalStack(createNonContainerWidgets()));
+		.addLayerOnTop(
+			new VerticalStack()
+			.addWidgets(createNonContainerWidgets())
+		);
 		
 		//execution & verification
 		expect(() -> createTestUnit().configure(lGUI)).doesNotThrowException();

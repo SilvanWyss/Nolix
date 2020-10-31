@@ -37,7 +37,8 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 		
 		//setup
 		final var verticalStack =
-		new VerticalStack(
+		new VerticalStack()
+		.addWidget(
 			new Label(),
 			new Button(),
 			new TextBox()

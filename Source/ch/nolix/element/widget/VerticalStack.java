@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.widget;
 
-import ch.nolix.common.container.IContainer;
-import ch.nolix.element.GUI.Widget;
+//own import
 import ch.nolix.element.containerWidget.Stack;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 130
+ * @lines 100
  */
 public final class VerticalStack extends Stack<VerticalStack> {
 	
@@ -23,35 +22,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	public VerticalStack() {
 		resetAndApplyDefaultConfiguration();
 	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link VerticalStack} with the given widgets
-	 * 
-	 * @param widgets
-	 * @throws ArgumentIsNullException if one of the given widgets is null.
-	 */
-	public VerticalStack(final IContainer<Widget<?, ?>> widgets) {
 		
-		resetAndApplyDefaultConfiguration();
-		
-		addWidgets(widgets);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link VerticalStack} with the given widgets
-	 * 
-	 * @param widgets
-	 * @throws ArgumentIsNullException if one of the given widgets is null.
-	 */
-	public VerticalStack(final Widget<?, ?>... widgets) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addWidget(widgets);
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}

@@ -37,7 +37,8 @@ public final class ReferencePropertySession extends HeaderedSession {
 	@Override
 	protected Widget<?, ?> createSubSubContentWidget() {
 		return
-		new VerticalStack(
+		new VerticalStack()
+		.addWidget(
 			createReferencesSelectionMenu(),
 			new HorizontalStack()
 			.addWidget(

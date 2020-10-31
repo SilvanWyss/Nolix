@@ -31,7 +31,8 @@ public final class HorizontalLineTutorial {
 	
 		//Creates a VerticalStack with 3 Labels and 2 HorizontalLines.
 		final var verticalStack =
-		new VerticalStack(
+		new VerticalStack()
+		.addWidget(
 			new Label().setText("Lorem ipsum dolor sit amet, consectetur adipisici elit"),
 			new HorizontalLine(),
 			new Label().setText("Ut enim ad minim veniam"),

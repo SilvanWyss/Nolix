@@ -47,8 +47,10 @@ public final class FractalVisualizerTutorial {
 			
 			getRefGUI()
 			.addLayerOnTop(
-				new VerticalStack(
-					new VerticalStack(
+				new VerticalStack()
+				.addWidget(
+					new VerticalStack()
+					.addWidget(
 						new HorizontalStack()
 						.addWidget(
 							new Label().setText("Width:"),

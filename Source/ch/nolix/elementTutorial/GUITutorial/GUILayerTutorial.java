@@ -35,7 +35,8 @@ public final class GUILayerTutorial {
 		//Creates dialogLayer.
 		final var dialogLayer = new Layer(
 			ExtendedContentPosition.Center,
-			new VerticalStack(
+			new VerticalStack()
+			.addWidget(
 				new Button()
 				.setText("Close")
 				.setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer())

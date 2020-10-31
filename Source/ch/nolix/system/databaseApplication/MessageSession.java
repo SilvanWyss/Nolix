@@ -28,7 +28,8 @@ public final class MessageSession extends DatabaseApplicationSession {
 	@Override
 	protected VerticalStack createContentWidget() {
 		return
-		new VerticalStack(
+		new VerticalStack()
+		.addWidget(
 			new Label()
 			.setText(message),
 			new Button()
