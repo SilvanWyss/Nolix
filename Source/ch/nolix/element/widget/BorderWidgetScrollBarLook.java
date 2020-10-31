@@ -9,7 +9,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
-public final class ScrollbarLook extends Element<ScrollbarLook> implements IMutableElement<ScrollbarLook> {
+public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook> implements IMutableElement<BorderWidgetScrollBarLook> {
 	
 	//constants
 	public static final Color DEFAULT_SCROLLBAR_COLOR = Color.LIGHT_GREY;
@@ -23,11 +23,11 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	private static final String SCROLLBAR_CURSOR_COLOR_HEADER = "ScrollbarCursorColor";
 	
 	//static method
-	public static ScrollbarLook fromSpecification(
+	public static BorderWidgetScrollBarLook fromSpecification(
 		final BaseNode specification
 	) {
 		
-		final var scrollbarLook = new ScrollbarLook();
+		final var scrollbarLook = new BorderWidgetScrollBarLook();
 		scrollbarLook.reset(specification);
 		
 		return scrollbarLook;
@@ -52,7 +52,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	);
 	
 	//constructor
-	public ScrollbarLook() {
+	public BorderWidgetScrollBarLook() {
 		reset();
 	}
 	
@@ -74,7 +74,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	
 	//method
 	@Override
-	public ScrollbarLook reset() {
+	public BorderWidgetScrollBarLook reset() {
 		
 		setScrollbarColor(DEFAULT_SCROLLBAR_COLOR);
 		setScrollbarCursorColor(DEFAULT_SCROLLBAR_CURSOR_COLOR);
@@ -83,7 +83,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	}
 	
 	//method
-	public ScrollbarLook setScrollbarColor(final Color scrollbarColor) {
+	public BorderWidgetScrollBarLook setScrollbarColor(final Color scrollbarColor) {
 		
 		this.scrollbarColor.setValue(scrollbarColor);
 		
@@ -91,7 +91,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements IMuta
 	}
 	
 	//method
-	public ScrollbarLook setScrollbarCursorColor(final Color scrollbarCursorColor) {
+	public BorderWidgetScrollBarLook setScrollbarCursorColor(final Color scrollbarCursorColor) {
 		
 		this.scrollbarCursorColor.setValue(scrollbarCursorColor);
 		
