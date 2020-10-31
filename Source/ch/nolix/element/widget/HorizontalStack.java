@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
-import ch.nolix.element.GUI.Widget;
+//own import
 import ch.nolix.element.containerWidget.Stack;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 130
+ * @lines 100
  */
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
@@ -22,34 +21,6 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 */
 	public HorizontalStack() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link HorizontalStack} with the given widgets.
-	 * 
-	 * @param widgets
-	 * @throws ArgumentIsNullException if one of the given widgets is null.
-	 */
-	public <W extends Widget<?, ?>> HorizontalStack(final Iterable<W> widgets) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addWidgets(widgets);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link HorizontalStack} with the given widgets.
-	 * 
-	 * @param widgets
-	 * @throws ArgumentIsNullException if one of the given widgets is null.
-	 */
-	public HorizontalStack(final Widget<?, ?>... widgets) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addWidget(widgets);
 	}
 	
 	//method

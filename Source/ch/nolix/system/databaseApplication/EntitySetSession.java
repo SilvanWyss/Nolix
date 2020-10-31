@@ -47,7 +47,8 @@ public final class EntitySetSession extends HeaderedSession {
 	protected VerticalStack createSubSubContentWidget() {
 		return
 		new VerticalStack(
-			new HorizontalStack(
+			new HorizontalStack()
+			.addWidget(
 				new Button()
 				.setRole(ButtonRole.CreateButton)
 				.setText("Create")

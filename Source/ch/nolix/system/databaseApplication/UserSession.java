@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.widget.Button;
@@ -28,6 +29,8 @@ public abstract class UserSession extends DatabaseApplicationSession {
 	
 	//method
 	private HorizontalStack createNavigationWidget() {
-		return new HorizontalStack(createLinkButtons());
+		return
+		new HorizontalStack()
+		.addWidgets(createLinkButtons());
 	}
 }

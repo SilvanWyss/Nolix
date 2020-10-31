@@ -72,7 +72,8 @@ public final class UploadImageDialog extends Layer {
 			.addWidget(
 				imageWidget,
 				new Uploader(this::selectImage),
-				new HorizontalStack(
+				new HorizontalStack()
+				.addWidget(
 					new Button()
 					.setRole(ButtonRole.CancelButton)
 					.setText("Cancel")

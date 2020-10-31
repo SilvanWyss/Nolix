@@ -19,7 +19,11 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//attributes
 	private final Label originLabel = new Label();
 	private final Button expandButton = new Button().reset().setText(" v ").setLeftMouseButtonReleaseAction(() -> expand());
-	private final HorizontalStack originHorizontalStack = new HorizontalStack(originLabel, expandButton);
+	
+	//attribute
+	private final HorizontalStack originHorizontalStack =
+	new HorizontalStack()
+	.addWidget(originLabel, expandButton);
 	
 	//optional attribute
 	private SelectionMenu expandedDropdownMenu;

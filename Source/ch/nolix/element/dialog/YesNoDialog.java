@@ -29,7 +29,8 @@ public final class YesNoDialog extends Layer {
 				new Label()
 				.setRole(LabelRole.MainText)
 				.setText(yesNoQuestion),
-				new HorizontalStack(
+				new HorizontalStack()
+				.addWidget(
 					new Button()
 					.setRole(ButtonRole.CancelButton)
 					.setText("No")

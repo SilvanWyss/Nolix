@@ -231,7 +231,8 @@ public final class EntitySession extends HeaderedSession {
 		return
 		new VerticalStack(
 			createDataGrid(),
-			new HorizontalStack(
+			new HorizontalStack()
+			.addWidget(
 				new Button()
 				.setRole(ButtonRole.SaveButton)
 				.setText("Save")

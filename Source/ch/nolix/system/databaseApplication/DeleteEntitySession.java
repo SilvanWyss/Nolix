@@ -58,7 +58,8 @@ public final class DeleteEntitySession extends HeaderedSession {
 				+ getRefEntitySet().getRefEntityById(entityId).getShortDescriptionInQuotes()
 				+ "?"
 			),
-			new HorizontalStack(
+			new HorizontalStack()
+			.addWidget(
 				new Button()
 				.setRole(ButtonRole.ActionButton)
 				.setText("Yes")
