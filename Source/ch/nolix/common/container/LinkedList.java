@@ -21,10 +21,23 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1190
+ * @lines 1200
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
+	
+	//static method
+	/**
+	 * @param <E2>
+	 * @param elements
+	 * @return a new {@link LinkedList} with the given elements.
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public static <E2> LinkedList<E2> withElements(final E2... elements) {
+		return new LinkedList<E2>().addAtEnd(elements);
+	}
 	
 	//attribute
 	private int elementCount = 0;
