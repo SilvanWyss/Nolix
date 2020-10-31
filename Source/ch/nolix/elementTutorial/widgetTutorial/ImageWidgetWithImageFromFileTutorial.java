@@ -31,7 +31,7 @@ public class ImageWidgetWithImageFromFileTutorial {
 		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Creates an ImageWidget with the Image.
-		final var imageWidget = new ImageWidget(image);
+		final var imageWidget = new ImageWidget().setImage(image);
 		
 		//Configures the look of the ImageWidget.
 		imageWidget.applyOnBaseLook(

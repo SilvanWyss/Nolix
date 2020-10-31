@@ -77,7 +77,7 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 		final var parentDatabaseApplication = getParentApplication().as(DatabaseApplication.class);
 		if (parentDatabaseApplication.hasPageLogo()) {
 			titleHorizontalStack.addWidget(
-				new ImageWidget(parentDatabaseApplication.getPageLogo())
+				new ImageWidget().setImage(parentDatabaseApplication.getPageLogo())
 			);
 		}
 

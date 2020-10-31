@@ -37,7 +37,7 @@ public final class ImageWidgetTutorial {
 		}
 		
 		//Creates an ImageWidget with the image.
-		final var imageWidget = new ImageWidget(image);
+		final var imageWidget = new ImageWidget().setImage(image);
 		
 		//Configures the look of the ImageWidget.
 		imageWidget.applyOnBaseLook(

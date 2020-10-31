@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.Widget;
@@ -27,15 +28,7 @@ implements Clearable<ImageWidget> {
 	public ImageWidget() {
 		resetAndApplyDefaultConfiguration();
 	}
-	
-	//constructor
-	public ImageWidget(final Image image) {
 		
-		this();
-		
-		setImage(image);
-	}
-	
 	//method
 	@Override
 	public ImageWidget clear() {

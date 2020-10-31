@@ -23,7 +23,8 @@ public class MandelbrotFractalTutorial {
 		new Frame()
 		.setTitle("Mandelrbrot Fractal Tutorial")
 		.addLayerOnTop(
-			new ImageWidget(
+			new ImageWidget()
+			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.5, 1.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)

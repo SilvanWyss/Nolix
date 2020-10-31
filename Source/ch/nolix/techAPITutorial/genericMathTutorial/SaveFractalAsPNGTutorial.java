@@ -32,7 +32,7 @@ public class SaveFractalAsPNGTutorial {
 				new Downloader()
 				.setText("Save as PNG")
 				.setFileProvider(() -> image.toPNG()),
-				new ImageWidget(image)
+				new ImageWidget().setImage(image)
 			)
 		);
 	}

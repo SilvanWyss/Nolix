@@ -25,7 +25,8 @@ public final class JuliaFractalTutorial {
 		new Frame()
 		.setTitle("Julia Fractal Tutorial")
 		.addLayerOnTop(
-			new ImageWidget(
+			new ImageWidget()
+			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 2.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)

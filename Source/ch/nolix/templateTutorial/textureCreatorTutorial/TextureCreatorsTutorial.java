@@ -36,12 +36,12 @@ public final class TextureCreatorsTutorial {
 			new Accordion()
 			.addTab(
 				"Concrete",
-				new ImageWidget(concreteTexture)
+				new ImageWidget().setImage(concreteTexture)
 				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
 			)
 			.addTab(
 				"Jute",
-				new ImageWidget(juteTexture)
+				new ImageWidget().setImage(juteTexture)
 				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
 			)
 		);

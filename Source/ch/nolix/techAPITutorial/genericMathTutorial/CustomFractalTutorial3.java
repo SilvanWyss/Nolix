@@ -25,7 +25,8 @@ public final class CustomFractalTutorial3 {
 		new Frame()
 		.setTitle("Custom Fractal Tutorial 3")
 		.addLayerOnTop(
-			new ImageWidget(
+			new ImageWidget()
+			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-1.5, 1.5)
 				.setImaginaryComponentInterval(-1.0, 1.0)

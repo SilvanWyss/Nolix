@@ -25,7 +25,7 @@ public class UploadImageDialogTutorial {
 		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Create a ImageWidget.
-		final var imageWidget = new ImageWidget(image);
+		final var imageWidget = new ImageWidget().setImage(image);
 		
 		frame.addLayerOnTop(
 			new VerticalStack()

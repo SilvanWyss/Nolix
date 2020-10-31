@@ -127,7 +127,7 @@ public final class EntitySession extends HeaderedSession {
 					if (optionalProperty.getValueClass() == Image.class) {				
 						
 						if (optionalProperty.hasValue()) {
-							dataGrid.setWidget(rowIndex, 2, new ImageWidget((Image)optionalProperty.getValue()));
+							dataGrid.setWidget(rowIndex, 2, new ImageWidget().setImage((Image)optionalProperty.getValue()));
 						}
 						
 						dataGrid.setWidget(
