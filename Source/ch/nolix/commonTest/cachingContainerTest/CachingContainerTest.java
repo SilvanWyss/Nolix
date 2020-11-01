@@ -23,6 +23,7 @@ public final class CachingContainerTest extends Test {
 	}
 	
 	//method
+	@TestCase
 	public void testCase_getRefById() {
 		
 		//setup
