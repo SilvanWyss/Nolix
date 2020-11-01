@@ -249,12 +249,12 @@ extends Widget<BW, BWL> {
 			}
 			else {
 				return
-				look.getRecursiveOrDefaultHoverScrollbarLook().getScrollBarColor();
+				look.getRecursiveOrDefaultHoverScrollBarLook().getScrollBarColor();
 			}
 		}
 		else {
 			return
-			look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollBarColor();
+			look.getRecursiveOrDefaultSelectionScrollBarLook().getScrollBarColor();
 		}
 	}
 	
@@ -271,11 +271,11 @@ extends Widget<BW, BWL> {
 				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollCursorColor();
 			}
 			else {
-				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollCursorColor();
+				return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollCursorColor();
 			}
 		}
 		else {
-			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollCursorColor();
+			return look.getRecursiveOrDefaultSelectionScrollBarLook().getScrollCursorColor();
 		}
 	}
 	
@@ -417,11 +417,11 @@ extends Widget<BW, BWL> {
 				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollBarColor();
 			}
 			else {
-				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollBarColor();
+				return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollBarColor();
 			}
 		}
 		else {
-			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollBarColor();
+			return look.getRecursiveOrDefaultSelectionScrollBarLook().getScrollBarColor();
 		}
 	}
 	
@@ -438,11 +438,11 @@ extends Widget<BW, BWL> {
 				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollCursorColor();
 			}
 			else {
-				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollCursorColor();
+				return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollCursorColor();
 			}
 		}
 		else {
-			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollCursorColor();
+			return look.getRecursiveOrDefaultSelectionScrollBarLook().getScrollCursorColor();
 		}
 	}
 	

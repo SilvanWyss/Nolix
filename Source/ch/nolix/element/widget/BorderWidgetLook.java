@@ -34,15 +34,15 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//constants
 	public static final Image DEFAULT_BACKGROUND_IMAGE = new Image(200, 100, Color.BLACK);
 	public static final int DEFAULT_PADDING = 0;
-	public static final BorderWidgetScrollBarLook DEFAULT_BASE_SCROLLBAR_LOOK = new BorderWidgetScrollBarLook();
+	public static final BorderWidgetScrollBarLook DEFAULT_BASE_SCROLL_BAR_LOOK = new BorderWidgetScrollBarLook();
 	
 	//constant
-	public static final BorderWidgetScrollBarLook DEFAULT_HOVER_SCROLLBAR_LOOK =
+	public static final BorderWidgetScrollBarLook DEFAULT_HOVER_SCROLL_BAR_LOOK =
 	new BorderWidgetScrollBarLook()
 	.setScrollCursorColor(Color.DIM_GREY);
 	
 	//constant
-	public static final BorderWidgetScrollBarLook DEFAULT_SELECTION_SCROLLBAR_LOOK =
+	public static final BorderWidgetScrollBarLook DEFAULT_SELECTION_SCROLL_BAR_LOOK =
 	new BorderWidgetScrollBarLook()
 	.setScrollCursorColor(Color.DIM_GREY);
 	
@@ -72,9 +72,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
 	
 	//constants
-	private static final String BASE_SCROLLBAR_LOOK_HEADER = "BaseScrollbarLook";
-	private static final String HOVER_SCROLLBAR_LOOK_HEADER = "HoverScrollbarLook";
-	private static final String SELECTION_SCROLLBAR_LOOK_HEADER = "SelectionScrollbarLook";
+	private static final String BASE_SCROLL_BAR_LOOK_HEADER = "BaseScrollBarLook";
+	private static final String HOVER_SCROLL_BAR_LOOK_HEADER = "HoverScrollBarLook";
+	private static final String SELECTION_SCROLL_BAR_LOOK_HEADER = "SelectionScrollBarLook";
 	
 	//optional attributes
 	private int leftBorderThickness = -1;
@@ -101,9 +101,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private int bottomPadding = -1;
 	
 	//optional attributes
-	private BorderWidgetScrollBarLook baseScrollbarLook;
-	private BorderWidgetScrollBarLook hoverScrollbarLook;
-	private BorderWidgetScrollBarLook selectionScrollbarLook;
+	private BorderWidgetScrollBarLook baseScrollBarLook;
+	private BorderWidgetScrollBarLook hoverScrollBarLook;
+	private BorderWidgetScrollBarLook selectionScrollBarLook;
 	
 	//method
 	/**
@@ -171,13 +171,13 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 			case BOTTOM_PADDING_HEADER:
 				setBottomPadding(attribute.getOneAttributeAsInt());
 				break;
-			case BASE_SCROLLBAR_LOOK_HEADER:
+			case BASE_SCROLL_BAR_LOOK_HEADER:
 				setBaseScrollbarLook(BorderWidgetScrollBarLook.fromSpecification(attribute));
 				break;
-			case HOVER_SCROLLBAR_LOOK_HEADER:
-				setHoverScrollbarLook(BorderWidgetScrollBarLook.fromSpecification(attribute));
+			case HOVER_SCROLL_BAR_LOOK_HEADER:
+				setHoverScrollBarLook(BorderWidgetScrollBarLook.fromSpecification(attribute));
 				break;
-			case SELECTION_SCROLLBAR_LOOK_HEADER:
+			case SELECTION_SCROLL_BAR_LOOK_HEADER:
 				setSelectionScrollbarLook(BorderWidgetScrollBarLook.fromSpecification(attribute));
 				break;
 			default:
@@ -273,24 +273,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default base scrollbar look of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default base scroll bar look of the current {@link BorderWidgetLook}.
 	 */
 	public final BorderWidgetScrollBarLook getRecursiveOrDefaultBaseScrollbarLook() {
 		
-		//Handles the case that the current border widget look has a base scrollbar look.
-		if (hasBaseScrollbarLook()) {
-			return baseScrollbarLook;
+		//Handles the case that the current border widget look has a base scroll bar look.
+		if (hasBaseScrollBarLook()) {
+			return baseScrollBarLook;
 		}
 		
 		//Handles the case that the current border widget look
-		//does not have a base scrollbar look but a base look.
+		//does not have a base scroll bar look but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultBaseScrollbarLook();
 		}
 		
 		//Handles the case that the current border widget look
-		//does not have a base scrollbar look or base look.
-		return DEFAULT_BASE_SCROLLBAR_LOOK;
+		//does not have a base scroll bar look or base look.
+		return DEFAULT_BASE_SCROLL_BAR_LOOK;
 	}
 	
 	//method
@@ -361,24 +361,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default hover scrollbar look of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default hover scroll bar look of the current {@link BorderWidgetLook}.
 	 */
-	public final BorderWidgetScrollBarLook getRecursiveOrDefaultHoverScrollbarLook() {
+	public final BorderWidgetScrollBarLook getRecursiveOrDefaultHoverScrollBarLook() {
 		
-		//Handles the case that the current border widget look has a hover scrollbar look.
-		if (hasHoverScrollbarLook()) {
-			return hoverScrollbarLook;
+		//Handles the case that the current border widget look has a hover scroll bar look.
+		if (hasHoverScrollBarLook()) {
+			return hoverScrollBarLook;
 		}
 		
 		//Handles the case that the current border widget look
-		//does not have a hover scrollbar look but a base look.
+		//does not have a hover scroll bar look but a base look.
 		if (hasBaseLook()) {
-			return getRefBaseLook().getRecursiveOrDefaultHoverScrollbarLook();
+			return getRefBaseLook().getRecursiveOrDefaultHoverScrollBarLook();
 		}
 		
 		//Handles the case that the current border widget look
-		//does not have a hover scrollbar look or base look.
-		return DEFAULT_HOVER_SCROLLBAR_LOOK;
+		//does not have a hover scroll bar look or base look.
+		return DEFAULT_HOVER_SCROLL_BAR_LOOK;
 	}
 	
 	//method
@@ -515,24 +515,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default selection scrollbar look of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default selection scroll bar look of the current {@link BorderWidgetLook}.
 	 */
-	public final BorderWidgetScrollBarLook getRecursiveOrDefaultSelectionScrollbarLook() {
+	public final BorderWidgetScrollBarLook getRecursiveOrDefaultSelectionScrollBarLook() {
 		
-		//Handles the case that the current border widget look has a selection scrollbar look.
-		if (hasSelectionScrollbarLook()) {
-			return selectionScrollbarLook;
+		//Handles the case that the current border widget look has a selection scroll bar look.
+		if (hasSelectionScrollBarLook()) {
+			return selectionScrollBarLook;
 		}
 		
 		//Handles the case that the current border widget look
-		//does not have a selection scrollbar look but a base look.
+		//does not have a selection scroll bar look but a base look.
 		if (hasBaseLook()) {
-			return getRefBaseLook().getRecursiveOrDefaultSelectionScrollbarLook();
+			return getRefBaseLook().getRecursiveOrDefaultSelectionScrollBarLook();
 		}
 		
 		//Handles the case that the current border widget look
-		//does not have a selection scrollbar look or base look.
-		return DEFAULT_SELECTION_SCROLLBAR_LOOK;
+		//does not have a selection scroll bar look or base look.
+		return DEFAULT_SELECTION_SCROLL_BAR_LOOK;
 	}
 	
 	//method
@@ -675,7 +675,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeBaseScrollbarLook() {
 		
-		baseScrollbarLook = null;
+		baseScrollBarLook = null;
 		
 		return asConcrete();
 	}
@@ -759,7 +759,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeHoverScrollbarLook() {
 		
-		hoverScrollbarLook = null;
+		hoverScrollBarLook = null;
 		
 		return asConcrete();
 	}
@@ -881,7 +881,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL removeSelectionScrollbarLook() {
 		
-		selectionScrollbarLook = null;
+		selectionScrollBarLook = null;
 		
 		return asConcrete();
 	}
@@ -1003,22 +1003,22 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the base scrollbar look of the current {@link BorderWidgetLook}.
+	 * Sets the base scroll bar look of the current {@link BorderWidgetLook}.
 	 * 
 	 * @param baseScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws ArgumentIsNullException if the given base scrollbar look is null.
+	 * @throws ArgumentIsNullException if the given base scroll bar look is null.
 	 */
 	public final BWL setBaseScrollbarLook(final BorderWidgetScrollBarLook baseScrollbarLook) {
 		
-		//Asserts that the given base scrollbar look is not null.
+		//Asserts that the given base scroll bar look is not null.
 		Validator
 		.assertThat(baseScrollbarLook)
-		.thatIsNamed("base scrollbar look")
+		.thatIsNamed("base scroll bar look")
 		.isNotNull();
 		
-		//Sets the base scrollbar look of the current border widget look.
-		this.baseScrollbarLook = baseScrollbarLook;
+		//Sets the base scroll bar look of the current border widget look.
+		this.baseScrollBarLook = baseScrollbarLook;
 		
 		return asConcrete();
 	}
@@ -1122,22 +1122,22 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the hover scrollbar look of the current {@link BorderWidgetLook}.
+	 * Sets the hover scroll bar look of the current {@link BorderWidgetLook}.
 	 * 
-	 * @param hoverScrollbarLook
+	 * @param hoverScrollBarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws ArgumentIsNullException if the given hover scrollbar look is null.
+	 * @throws ArgumentIsNullException if the given hover scroll bar look is null.
 	 */
-	public final BWL setHoverScrollbarLook(final BorderWidgetScrollBarLook hoverScrollbarLook) {
+	public final BWL setHoverScrollBarLook(final BorderWidgetScrollBarLook hoverScrollBarLook) {
 		
-		//Asserts that the given hover scrollbar look is not null.
+		//Asserts that the given hover scroll bar look is not null.
 		Validator
-		.assertThat(hoverScrollbarLook)
-		.thatIsNamed("hover scrollbar look")
+		.assertThat(hoverScrollBarLook)
+		.thatIsNamed("hover scroll bar look")
 		.isNotNull();
 		
-		//Sets the hover scrollbar look of the current border widget look.
-		this.hoverScrollbarLook = hoverScrollbarLook;
+		//Sets the hover scroll bar look of the current border widget look.
+		this.hoverScrollBarLook = hoverScrollBarLook;
 		
 		return asConcrete();
 	}
@@ -1274,22 +1274,22 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the selection scrollbar look of the current {@link BorderWidgetLook}.
+	 * Sets the selection scroll bar look of the current {@link BorderWidgetLook}.
 	 * 
-	 * @param selectionScrollbarLook
+	 * @param selectionScrollBarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws ArgumentIsNullException if the given selection scrollbar look is null.
+	 * @throws ArgumentIsNullException if the given selection scroll bar look is null.
 	 */
-	public final BWL setSelectionScrollbarLook(final BorderWidgetScrollBarLook selectionScrollbarLook) {
+	public final BWL setSelectionScrollbarLook(final BorderWidgetScrollBarLook selectionScrollBarLook) {
 		
-		//Asserts that the given selection scrollbar look is not null.
+		//Asserts that the given selection scroll bar look is not null.
 		Validator
-		.assertThat(selectionScrollbarLook)
-		.thatIsNamed("selection scrollbar look")
+		.assertThat(selectionScrollBarLook)
+		.thatIsNamed("selection scroll bar look")
 		.isNotNull();
 		
-		//Sets the selection scrollbar look of the current border widget look.
-		this.selectionScrollbarLook = selectionScrollbarLook;
+		//Sets the selection scroll bar look of the current border widget look.
+		this.selectionScrollBarLook = selectionScrollBarLook;
 		
 		return asConcrete();
 	}
@@ -1442,22 +1442,22 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Fills up the specifications of the scrollbar looks of the current {@link BorderWidgetLook} into the given list.
+	 * Fills up the specifications of the scroll bar looks of the current {@link BorderWidgetLook} into the given list.
 	 * 
 	 * @param list
 	 */
 	private void fillUpScrollbarLooksSpecifications(final LinkedList<Node> list) {
 		
-		if (hasBaseScrollbarLook()) {
-			list.addAtEnd(baseScrollbarLook.getSpecificationAs(BASE_SCROLLBAR_LOOK_HEADER));
+		if (hasBaseScrollBarLook()) {
+			list.addAtEnd(baseScrollBarLook.getSpecificationAs(BASE_SCROLL_BAR_LOOK_HEADER));
 		}
 		
-		if (hasHoverScrollbarLook()) {
-			list.addAtEnd(hoverScrollbarLook.getSpecificationAs(HOVER_SCROLLBAR_LOOK_HEADER));
+		if (hasHoverScrollBarLook()) {
+			list.addAtEnd(hoverScrollBarLook.getSpecificationAs(HOVER_SCROLL_BAR_LOOK_HEADER));
 		}
 		
-		if (hasSelectionScrollbarLook()) {
-			list.addAtEnd(selectionScrollbarLook.getSpecificationAs(SELECTION_SCROLLBAR_LOOK_HEADER));
+		if (hasSelectionScrollBarLook()) {
+			list.addAtEnd(selectionScrollBarLook.getSpecificationAs(SELECTION_SCROLL_BAR_LOOK_HEADER));
 		}
 	}
 	
@@ -1526,10 +1526,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a base scrollbar look.
+	 * @return true if the current {@link BorderWidgetLook} has a base scroll bar look.
 	 */
-	private boolean hasBaseScrollbarLook() {
-		return (baseScrollbarLook != null);
+	private boolean hasBaseScrollBarLook() {
+		return (baseScrollBarLook != null);
 	}
 	
 	//method
@@ -1558,10 +1558,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a hover scrollbar look.
+	 * @return true if the current {@link BorderWidgetLook} has a hover scroll bar look.
 	 */
-	private boolean hasHoverScrollbarLook() {
-		return (hoverScrollbarLook != null);
+	private boolean hasHoverScrollBarLook() {
+		return (hoverScrollBarLook != null);
 	}
 	
 	//method
@@ -1689,10 +1689,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a selection scrollbar look.
+	 * @return true if the current {@link BorderWidgetLook} has a selection scroll bar look.
 	 */
-	private boolean hasSelectionScrollbarLook() {
-		return (selectionScrollbarLook != null);
+	private boolean hasSelectionScrollBarLook() {
+		return (selectionScrollBarLook != null);
 	}
 	
 	//method
