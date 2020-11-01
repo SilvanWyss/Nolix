@@ -16,14 +16,16 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
+import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.InputFactory;
+import ch.nolix.element.input.MouseInput;
 import ch.nolix.system.client.Client;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 330
+ * @lines 380
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -33,6 +35,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//attributes
 	private BaseFrontGUIClientGUIType counterpartGUIType;
+	private boolean isNotingMouseInput = false;
 	private boolean isWaitingForFileFromCounterpart = false;
 	
 	//optional attribute
@@ -80,13 +83,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 				runGUICommand(command.getNextNode());
 				break;
 			case CommandProtocol.NOTE_INPUT:
-				
-				getRefGUI().noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));
-				
-				if (!isClosed()) {
-					updateGUIOnCounterpart();
-				}
-				
+				noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));				
 				break;
 			case CommandProtocol.RECEIVE_FILE:
 				receiveFileDataFromCounterpart(command.getOneAttributeAsNode());
@@ -227,6 +224,14 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	/**
+	 * @return true if the current {@link BaseBackGUIClient} is noting a mouse move.
+	 */
+	private boolean isNotingMouseInput() {
+		return isNotingMouseInput;
+	}
+	
+	//method
+	/**
 	 * @return true if the current {@link BaseBackGUIClient}
 	 * is waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
 	 */
@@ -241,6 +246,51 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private boolean knowsCounterpartGUIType() {
 		return (counterpartGUIType != null);
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient} note the given input.
+	 * 
+	 * @param input
+	 */
+	private void noteInput(final IInput<?> input) {
+		if (!(isNotingMouseInput() && (input instanceof MouseInput))) {
+			noteInputAndLockWhenIsFreeForInput(input);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient} note the given input and lock inputs when it is free for inputs.
+	 * 
+	 * @param input
+	 */
+	private void noteInputAndLockWhenIsFreeForInput(final IInput<?> input) {
+		try {
+			
+			isNotingMouseInput = true;
+			
+			noteInputWhenIsFreeForInput(input);
+		}
+		finally {
+			isNotingMouseInput = false;
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient} note the given input when is free for inputs.
+	 * 
+	 * @param input
+	 */
+	private void noteInputWhenIsFreeForInput(final IInput<?> input) {
+		
+		getRefGUI().noteInput(input);
+		
+		if (!isClosed()) {
+			updateGUIOnCounterpart();
+		}
 	}
 	
 	//method
@@ -302,6 +352,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		}
 	}
 	
+	//TODO: Create several sub methods for this method.
 	//method
 	/**
 	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
