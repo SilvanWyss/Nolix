@@ -44,7 +44,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	//method
 	public SingleContainer<String> getOptionallyIdOf(final E element) {
 		
-		final var pair = elements.getRefFirstOrNull(e -> e.getRefElement2().equals(element));
+		final var pair = elements.getRefFirstOrNull(e -> e.getRefElement2() == element);
 		
 		if (pair == null) {
 			return new SingleContainer<>();
