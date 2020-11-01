@@ -212,11 +212,11 @@ public class NetEndPoint extends EndPoint {
 		final var message = Protocol.COMMANDS_HEADER + '(' + new ReadContainer<>(commands) + ')';
 		
 		//Sends the message and gets reply.
-		final Node reply = Node.fromString(internalNetEndPoint.sendAndGetReply(message));
-		
-		if (reply == null) {
+		final var replyMessage = internalNetEndPoint.sendAndGetReply(message);
+		if (replyMessage == null) {
 			return;
 		}
+		final var reply = Node.fromString(replyMessage);
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
