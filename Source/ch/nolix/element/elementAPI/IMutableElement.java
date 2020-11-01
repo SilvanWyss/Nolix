@@ -88,6 +88,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		}
 	}
 	
+	//TODO: Rename reset methods to resetFrom.
 	//method
 	/**
 	 * Resets this {@link IMutableElement} with the given specification.
