@@ -144,4 +144,40 @@ public final class CachingContainerTest extends Test {
 		//verification
 		expect(result).isEqualTo(garfieldId);
 	}
+		
+	//method
+	@TestCase
+	public void testCase_toList_whenContainsElements() {
+		
+		//setup
+		final var testUnit = new CachingContainer<>();
+		final var garfield = new Cat("Garfield");
+		final var simba = new Cat("Simba");
+		testUnit.registerAndGetId(garfield);
+		testUnit.registerAndGetId(simba);
+		
+		//execution
+		final var result = testUnit.toList();
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(2);
+		expect(result.containsAll(garfield, simba));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toList_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = new CachingContainer<>();
+		
+		//setup verification
+		expect(testUnit.isEmpty());
+		
+		//execution
+		final var result = testUnit.toList();
+		
+		//verification
+		expect(result.isEmpty());
+	}
 }
