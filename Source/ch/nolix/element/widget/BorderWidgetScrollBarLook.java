@@ -9,46 +9,41 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
-public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook> implements IMutableElement<BorderWidgetScrollBarLook> {
-	
-	//constants
-	public static final Color DEFAULT_SCROLLBAR_COLOR = Color.LIGHT_GREY;
-	public static final Color DEFAULT_SCROLLBAR_CURSOR_COLOR = Color.DARK_GREY;
+public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook>
+implements IMutableElement<BorderWidgetScrollBarLook> {
 	
 	//constant
-	public static final String TYPE_NAME = "ScrollbarLook";
+	public static final String TYPE_NAME = "ScrollBarLook";
 	
 	//constants
-	private static final String SCROLLBAR_COLOR_HEADER = "ScrollbarColor";
-	private static final String SCROLLBAR_CURSOR_COLOR_HEADER = "ScrollbarCursorColor";
+	public static final Color DEFAULT_SCROLL_BAR_COLOR = Color.LIGHT_GREY;
+	public static final Color DEFAULT_SCROLL_CURSOR_COLOR = Color.DARK_GREY;
+		
+	//constants
+	private static final String SCROLL_BAR_COLOR_HEADER = "ScrollBarColor";
+	private static final String SCROLL_CURSOR_COLOR_HEADER = "ScrollCursorColor";
 	
 	//static method
-	public static BorderWidgetScrollBarLook fromSpecification(
-		final BaseNode specification
-	) {
-		
-		final var scrollbarLook = new BorderWidgetScrollBarLook();
-		scrollbarLook.reset(specification);
-		
-		return scrollbarLook;
+	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode specification) {
+		return new BorderWidgetScrollBarLook().reset(specification);
 	}
 	
 	//attribute
-	private final MutableProperty<Color> scrollbarColor =
+	private final MutableProperty<Color> scrollBarColor =
 	new MutableProperty<>(
-			SCROLLBAR_COLOR_HEADER,
-		c -> setScrollbarColor(c),
+		SCROLL_BAR_COLOR_HEADER,
+		this::setScrollBarColor,
 		Color::fromSpecification,
-		c -> c.getSpecification()
+		Color::getSpecification
 	);
 	
 	//attribute
-	private final MutableProperty<Color> scrollbarCursorColor =
+	private final MutableProperty<Color> scrollBarCursorColor =
 	new MutableProperty<>(
-		SCROLLBAR_CURSOR_COLOR_HEADER,
-		c -> setScrollbarCursorColor(c),
+		SCROLL_CURSOR_COLOR_HEADER,
+		this::setScrollCursorColor,
 		Color::fromSpecification,
-		c -> c.getSpecification()
+		Color::getSpecification
 	);
 	
 	//constructor
@@ -63,37 +58,37 @@ public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollB
 	}
 	
 	//method
-	public Color getScrollbarColor() {
-		return scrollbarColor.getValue();
+	public Color getScrollBarColor() {
+		return scrollBarColor.getValue();
 	}
 	
 	//method
-	public Color getScrollbarCursorColor() {
-		return scrollbarCursorColor.getValue();
+	public Color getScrollCursorColor() {
+		return scrollBarCursorColor.getValue();
 	}
 	
 	//method
 	@Override
 	public BorderWidgetScrollBarLook reset() {
 		
-		setScrollbarColor(DEFAULT_SCROLLBAR_COLOR);
-		setScrollbarCursorColor(DEFAULT_SCROLLBAR_CURSOR_COLOR);
+		setScrollBarColor(DEFAULT_SCROLL_BAR_COLOR);
+		setScrollCursorColor(DEFAULT_SCROLL_CURSOR_COLOR);
 		
 		return this;
 	}
 	
 	//method
-	public BorderWidgetScrollBarLook setScrollbarColor(final Color scrollbarColor) {
+	public BorderWidgetScrollBarLook setScrollBarColor(final Color scrollBarColor) {
 		
-		this.scrollbarColor.setValue(scrollbarColor);
+		this.scrollBarColor.setValue(scrollBarColor);
 		
 		return this;
 	}
 	
 	//method
-	public BorderWidgetScrollBarLook setScrollbarCursorColor(final Color scrollbarCursorColor) {
+	public BorderWidgetScrollBarLook setScrollCursorColor(final Color scrollBarCursorColor) {
 		
-		this.scrollbarCursorColor.setValue(scrollbarCursorColor);
+		this.scrollBarCursorColor.setValue(scrollBarCursorColor);
 		
 		return this;
 	}

@@ -245,16 +245,16 @@ extends Widget<BW, BWL> {
 		if (!isMovingHorizontalScrollbarCursor()) {
 			if (!horizontalScrollbarCursorIsUnderCursor()) {
 				return
-				look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
+				look.getRecursiveOrDefaultBaseScrollbarLook().getScrollBarColor();
 			}
 			else {
 				return
-				look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
+				look.getRecursiveOrDefaultHoverScrollbarLook().getScrollBarColor();
 			}
 		}
 		else {
 			return
-			look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
+			look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollBarColor();
 		}
 	}
 	
@@ -268,14 +268,14 @@ extends Widget<BW, BWL> {
 		
 		if (!isMovingHorizontalScrollbarCursor()) {
 			if (!horizontalScrollbarCursorIsUnderCursor()) {
-				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollCursorColor();
 			}
 			else {
-				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollCursorColor();
 			}
 		}
 		else {
-			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
+			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollCursorColor();
 		}
 	}
 	
@@ -414,14 +414,14 @@ extends Widget<BW, BWL> {
 		
 		if (!isMovingVerticalScrollbarCursor()) {
 			if (!verticalScrollbarCursorIsUnderCursor()) {
-				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
+				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollBarColor();
 			}
 			else {
-				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
+				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollBarColor();
 			}
 		}
 		else {
-			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
+			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollBarColor();
 		}
 	}
 	
@@ -435,14 +435,14 @@ extends Widget<BW, BWL> {
 		
 		if (!isMovingVerticalScrollbarCursor()) {
 			if (!verticalScrollbarCursorIsUnderCursor()) {
-				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollCursorColor();
 			}
 			else {
-				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollCursorColor();
 			}
 		}
 		else {
-			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
+			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollCursorColor();
 		}
 	}
 	

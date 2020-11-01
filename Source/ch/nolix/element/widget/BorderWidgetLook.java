@@ -39,12 +39,12 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//constant
 	public static final BorderWidgetScrollBarLook DEFAULT_HOVER_SCROLLBAR_LOOK =
 	new BorderWidgetScrollBarLook()
-	.setScrollbarCursorColor(Color.DIM_GREY);
+	.setScrollCursorColor(Color.DIM_GREY);
 	
 	//constant
 	public static final BorderWidgetScrollBarLook DEFAULT_SELECTION_SCROLLBAR_LOOK =
 	new BorderWidgetScrollBarLook()
-	.setScrollbarCursorColor(Color.DIM_GREY);
+	.setScrollCursorColor(Color.DIM_GREY);
 	
 	//constants
 	private static final String BORDER_THICKNESS_HEADER = "BorderThickness";
