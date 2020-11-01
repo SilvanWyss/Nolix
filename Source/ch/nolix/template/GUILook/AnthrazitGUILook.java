@@ -29,9 +29,9 @@ public final class AnthrazitGUILook extends Configuration {
 			setSelectorType(BorderWidget.class);
 			
 			addAttachingAttribute(
-				"BaseBaseScrollbarLook(ScrollbarColor(0x101010),ScrollbarCursorColor(0x000000))",
-				"BaseHoverScrollbarLook(ScrollbarColor(0x101010),ScrollbarCursorColor(0xF0F0F0))",
-				"BaseSelectionScrollbarLook(ScrollbarColor(0x101010),ScrollbarCursorColor(0xF0F0F0))"
+				"BaseBaseScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0x000000))",
+				"BaseHoverScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0xF0F0F0))",
+				"BaseSelectionScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0xF0F0F0))"
 			);
 		}
 	}
