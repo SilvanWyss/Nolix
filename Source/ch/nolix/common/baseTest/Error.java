@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.baseTest;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;

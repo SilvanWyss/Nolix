@@ -7,6 +7,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+//own import
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
