@@ -4,7 +4,9 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -16,10 +18,21 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 160
+ * @lines 190
  * @param <E> The type of the elements of a read container.
  */
 public final class ReadContainer<E> implements IContainer<E> {
+	
+	//static method
+	/**
+	 * Creates a new {@link ReadContainer} for the given array.
+	 * 
+	 * @param array
+	 * @throws ArgumentIsNullException if the given array is null.
+	 */
+	public static <E2> ReadContainer<E2> forArray(final E2[] array) {
+		return new ReadContainer<>(new ArrayReadContainer<>(array));
+	}
 	
 	//attribute
 	private final IContainer<E> container;
