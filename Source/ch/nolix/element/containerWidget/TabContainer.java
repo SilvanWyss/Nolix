@@ -76,7 +76,7 @@ implements Clearable<TabContainer> {
 	public TabContainer(final TabContainerTab... tabs) {
 		
 		//Calls other constructor.
-		this(new ReadContainer<TabContainerTab>(tabs));
+		this(ReadContainer.forArray(tabs));
 	}
 	
 	//method
@@ -162,7 +162,7 @@ implements Clearable<TabContainer> {
 	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer addTab(TabContainerTab... tabs) {
-		return addTabs(new ReadContainer<TabContainerTab>(tabs));
+		return addTabs(ReadContainer.forArray(tabs));
 	}
 	
 	//method

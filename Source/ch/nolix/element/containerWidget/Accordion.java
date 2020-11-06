@@ -122,7 +122,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)
 		.isNotNull();
 		
-		return addTabs(new ReadContainer<AccordionTab>(tabs));
+		return addTabs(ReadContainer.forArray(tabs));
 	}
 	
 	//method

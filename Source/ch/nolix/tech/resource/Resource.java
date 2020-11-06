@@ -56,7 +56,7 @@ public final class Resource implements IResource, Named {
 	public Resource(final String name, final IResource... baseResources) {
 		
 		//Calls other constructor.
-		this(name, new ReadContainer<IResource>(baseResources));
+		this(name, ReadContainer.forArray(baseResources));
 	}
 	
 	//constructor

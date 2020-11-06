@@ -130,7 +130,7 @@ public abstract class SQLConnection implements AutoCloseable {
 	
 	//method
 	public final SQLConnection execute(final String... SQLStatements) {
-		return execute(new ReadContainer<String>(SQLStatements));
+		return execute(ReadContainer.forArray(SQLStatements));
 	}
 	
 	//method

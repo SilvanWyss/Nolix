@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 200
+ * @lines 180
  * @param <E> The type of the elements of a read container.
  */
 public final class ReadContainer<E> implements IContainer<E> {
@@ -69,19 +69,6 @@ public final class ReadContainer<E> implements IContainer<E> {
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> ReadContainer(final E2 element) {
 		this(LinkedList.withElements(element));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new read container for the given array.
-	 * 
-	 * @param array
-	 * @throws ArgumentIsNullException if the given array is null.
-	 */
-	public <E2 extends E> ReadContainer(final E2[] array) {
-		
-		//Calls other constructor.
-		this(new ArrayReadContainer<E2>(array));
 	}
 	
 	//constructor

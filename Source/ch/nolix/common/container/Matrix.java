@@ -43,7 +43,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public Matrix<E> addColumn(final E... elements) {
 		
 		//Calls other method.
-		return addColumn(new ReadContainer<E>(elements));
+		return addColumn(ReadContainer.forArray(elements));
 	}
 	
 	//method
@@ -136,7 +136,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public Matrix<E> addRow(final E... elements) {
 		
 		//Calls other method.
-		return addRow(new ReadContainer<E>(elements));
+		return addRow(ReadContainer.forArray(elements));
 	}
 	
 	//method

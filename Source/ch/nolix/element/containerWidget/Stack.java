@@ -96,7 +96,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
 	public final S addWidget(final Widget<?, ?>... widgets) {
-		return addWidgets(new ReadContainer<Widget<?, ?>>(widgets));
+		return addWidgets(ReadContainer.forArray(widgets));
 	}
 	
 	//method

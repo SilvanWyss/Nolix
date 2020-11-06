@@ -24,7 +24,7 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	//method
 	@SuppressWarnings("unchecked")
 	public default IEntitySet<E> addEntity(final E... entities) {
-		return addEntities(new ReadContainer<>(entities));
+		return addEntities(ReadContainer.forArray(entities));
 	}
 	
 	//method declaration

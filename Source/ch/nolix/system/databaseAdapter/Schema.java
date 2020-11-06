@@ -24,7 +24,7 @@ public abstract class Schema {
 	
 	//constructor
 	public Schema(final Class<?>... entityClasses) {
-		this(new ReadContainer<Class<?>>(entityClasses));
+		this(ReadContainer.forArray(entityClasses));
 	}
 	
 	//method

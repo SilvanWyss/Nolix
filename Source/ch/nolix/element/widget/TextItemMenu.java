@@ -40,7 +40,7 @@ implements Clearable<TIM> {
 	
 	//method
 	public final TIM addItem(final String... items) {
-		return addItems(new ReadContainer<>(items));
+		return addItems(ReadContainer.forArray(items));
 	}
 	
 	//method

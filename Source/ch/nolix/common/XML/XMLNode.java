@@ -59,7 +59,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	
 	//method
 	public XMLNode addAttributes(final XMLAttribute... attributes) {
-		return addAttributes(new ReadContainer<XMLAttribute>(attributes));
+		return addAttributes(ReadContainer.forArray(attributes));
 	}
 	
 	//method
@@ -84,7 +84,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	
 	//method
 	public XMLNode addChildNode(final XMLNode... childNodes) {
-		return addChildNodes(new ReadContainer<XMLNode>(childNodes));
+		return addChildNodes(ReadContainer.forArray(childNodes));
 	}
 	
 	//method

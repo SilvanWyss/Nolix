@@ -251,7 +251,7 @@ public final class FileSystemAccessor {
 	 */
 	public static LinkedList<FileAccessor> getFileAccessors(final String path) {
 		return
-		new ReadContainer<File>(new File(path).listFiles())
+		ReadContainer.forArray(new File(path).listFiles())
 		.getRefSelected(f -> f.isFile())
 		.to(f -> new FileAccessor(f.getAbsolutePath()));
 	}
@@ -296,7 +296,7 @@ public final class FileSystemAccessor {
 	 */
 	public static LinkedList<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
 		return
-		new ReadContainer<File>(new File(path).listFiles())
+		ReadContainer.forArray(new File(path).listFiles())
 		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
 	}
 	

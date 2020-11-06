@@ -106,7 +106,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void addAttribute(final BaseNode... attributes) {
 		
 		//Calls other method.
-		addAttributes(new ReadContainer<BaseNode>(attributes));
+		addAttributes(ReadContainer.forArray(attributes));
 	}
 	
 	//method

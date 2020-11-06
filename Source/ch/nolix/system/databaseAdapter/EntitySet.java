@@ -78,7 +78,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EntitySet<E> addEntity(final E... entities) {
-		return addEntities(new ReadContainer<E>(entities));
+		return addEntities(ReadContainer.forArray(entities));
 	}
 	
 	//method
