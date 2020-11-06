@@ -210,7 +210,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the lines of this console.
 	 */
 	public ReadContainer<String> getLines() {
-		return new ReadContainer<>(lines);
+		return ReadContainer.forIterable(lines);
 	}
 	
 	//method

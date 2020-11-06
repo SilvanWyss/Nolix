@@ -464,7 +464,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public IContainer<Node> getRefAttributes() {
-		return new ReadContainer<>(attributes);
+		return ReadContainer.forIterable(attributes);
 	}
 	
 	//method

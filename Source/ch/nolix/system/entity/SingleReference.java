@@ -94,7 +94,7 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 	//method
 	@Override
 	protected final void internalSetValues(final IContainer<Object> values) {
-		setValue((long)new ReadContainer<Object>(values).getRefOne());
+		setValue((long)ReadContainer.forIterable(values).getRefOne());
 	}
 	
 	//method

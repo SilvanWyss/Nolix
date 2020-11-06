@@ -83,7 +83,7 @@ implements
 			extractProperties();
 		}
 		
-		return new ReadContainer<>(layerProperties);
+		return ReadContainer.forIterable(layerProperties);
 	}
 	
 	//method

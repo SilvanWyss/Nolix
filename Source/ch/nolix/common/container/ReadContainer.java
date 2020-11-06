@@ -105,7 +105,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * @throws ArgumentIsNullException if the given container is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public <E2 extends E> ReadContainer(final IContainer<E2> container) {
+	private <E2 extends E> ReadContainer(final IContainer<E2> container) {
 		
 		//Asserts that the given container is not null.
 		Validator.assertThat(container).thatIsNamed("container").isNotNull();

@@ -72,7 +72,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	
 	//method
 	public ReadContainer<V> getValues() {
-		return new ReadContainer<>(values);
+		return ReadContainer.forIterable(values);
 	}
 
 	//method

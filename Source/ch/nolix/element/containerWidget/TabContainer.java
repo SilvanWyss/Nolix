@@ -249,7 +249,7 @@ implements Clearable<TabContainer> {
 	 * @return the tabs of the current {@link TabContainer}.
 	 */
 	public ReadContainer<TabContainerTab> getRefTabs() {
-		return new ReadContainer<>(tabs);
+		return ReadContainer.forIterable(tabs);
 	}
 	
 	//method

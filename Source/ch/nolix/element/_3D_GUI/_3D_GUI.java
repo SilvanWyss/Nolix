@@ -170,9 +170,9 @@ implements Clearable<G>, Closeable, Refreshable {
 	 */
 	@Override
 	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
-		return new ReadContainer<>(getRefShapes());
+		return ReadContainer.forIterable(getRefShapes().asContainerWithElementsOfEvaluatedType());
 	}
-
+	
 	//method
 	/**
 	 * @return the root shape of this 3D GUI.
@@ -413,6 +413,6 @@ implements Clearable<G>, Closeable, Refreshable {
 			shapes.addAtEnd(getRefRootShape());
 		}
 		
-		return new ReadContainer<>(shapes);
+		return ReadContainer.forIterable(shapes);
 	}
 }

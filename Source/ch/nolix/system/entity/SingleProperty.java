@@ -123,7 +123,7 @@ public abstract class SingleProperty<V> extends BaseValueProperty<V> {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected final void internalSetValues(final IContainer<Object> values) {
-		setValue((V)(new ReadContainer<>(values).getRefOne()));
+		setValue((V)(ReadContainer.forIterable(values).getRefOne()));
 	}
 	
 	//method

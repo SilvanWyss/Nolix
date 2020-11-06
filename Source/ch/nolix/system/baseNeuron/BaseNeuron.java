@@ -157,7 +157,7 @@ implements ISmartObject<N> {
 	 * @return the input connections of this neuron.
 	 */
 	public final ReadContainer<InputConnection<I>> getRefInputConnections() {
-		return new ReadContainer<>(inputConnections);
+		return ReadContainer.forIterable(inputConnections);
 	}
 	
 	//method
@@ -165,7 +165,7 @@ implements ISmartObject<N> {
 	 * @return the input neurons of this neuron.
 	 */
 	public final ReadContainer<BaseNeuron<?, ?, I>> getRefInputNeurons() {
-		return new ReadContainer<>(inputConnections.to(ic -> ic.getRefInputNeuron()));
+		return ReadContainer.forIterable(inputConnections.to(ic -> ic.getRefInputNeuron()));
 	}
 	
 	//method
@@ -173,7 +173,7 @@ implements ISmartObject<N> {
 	 * @return the inputs of this neuron.
 	 */
 	public final ReadContainer<I> getRefInputs() {
-		return new ReadContainer<>(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
+		return ReadContainer.forIterable(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
 	}
 	
 	//method
@@ -229,7 +229,7 @@ implements ISmartObject<N> {
 	 * @return the output neurons of this neuron.
 	 */
 	public final ReadContainer<BaseNeuron<?, O, ?>> getRefOutputNeurons() {
-		return new ReadContainer<>(outputNeurons);
+		return ReadContainer.forIterable(outputNeurons);
 	}
 	
 	//method

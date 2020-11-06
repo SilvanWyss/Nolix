@@ -71,7 +71,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	@Override
 	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
-		return new ReadContainer<>(getRefShapes());
+		return ReadContainer.forIterable(getRefShapes().asContainerWithElementsOfEvaluatedType());
 	}
 	
 	//method

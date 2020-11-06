@@ -90,7 +90,8 @@ public final class SubNode extends BaseNode {
 	@Override
 	@SuppressWarnings("unchecked")
 	public ReadContainer<SubNode> getRefAttributes() {
-		return new ReadContainer<>(
+		return
+		ReadContainer.forIterable(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubNode(simplePersistentSpecification, a)
 			)

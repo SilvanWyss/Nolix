@@ -87,7 +87,8 @@ public final class FileNode extends BaseNode {
 	@Override
 	@SuppressWarnings("unchecked")
 	public IContainer<SubNode> getRefAttributes() {
-		return new ReadContainer<>(
+		return
+		ReadContainer.forIterable(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubNode(this, a)
 			)

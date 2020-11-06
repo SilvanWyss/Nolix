@@ -81,7 +81,7 @@ extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 * @return the fan neurons of this fanout neuron.
 	 */
 	public ReadContainer<BaseNeuron<?, ?, O>> getRefFanNeurons() {
-		return new ReadContainer<>(fanNeurons);
+		return ReadContainer.forIterable(fanNeurons.asContainerWithElementsOfEvaluatedType());
 	}
 
 	//method

@@ -107,7 +107,7 @@ public final class Resource implements IResource, Named {
 			);
 		}
 		
-		this.baseResources = new ReadContainer<>(internalBaseResources);
+		this.baseResources = ReadContainer.forIterable(internalBaseResources);
 	}
 	
 	//method

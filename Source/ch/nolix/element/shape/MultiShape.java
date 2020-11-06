@@ -118,7 +118,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 */
 	@Override
 	public ReadContainer<Shape<?>> getRefShapes() {
-		return new ReadContainer<>(shapes);
+		return ReadContainer.forIterable(shapes);
 	}
 	
 	//method

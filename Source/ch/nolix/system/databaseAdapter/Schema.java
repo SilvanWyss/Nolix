@@ -39,7 +39,7 @@ public abstract class Schema {
 
 	//method
 	public ReadContainer<EntityType<Entity>> getRefEntityTypes() {
-		return new ReadContainer<>(entityTypes);
+		return ReadContainer.forIterable(entityTypes);
 	}
 	
 	//method
