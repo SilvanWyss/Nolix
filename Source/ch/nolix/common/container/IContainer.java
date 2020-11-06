@@ -31,10 +31,21 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2020
+ * @lines 2030
  * @param <E> The type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
+	
+	//method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return the current {@link IContainer} as a {@link IContainer} with elements of the evaluated type.
+	 */
+	@SuppressWarnings("unchecked")
+	public default <E2> IContainer<E2> asContainerWithElementsOfEvaluatedType() {
+		return (IContainer<E2>)this;
+	}
 	
 	//method
 	/**
