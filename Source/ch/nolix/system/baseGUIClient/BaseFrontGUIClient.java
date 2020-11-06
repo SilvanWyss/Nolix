@@ -59,7 +59,9 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	//method
 	public void noteInputOnCounterpart(final IInput<?> input) {
 		if (isOpen()) {
-			internalRunOnCounterpart(new ChainedNode(CommandProtocol.NOTE_INPUT, input.getSpecification()));
+			internalRunOnCounterpart(
+				ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.NOTE_INPUT, input.getSpecification())
+			);
 		}
 	}
 	

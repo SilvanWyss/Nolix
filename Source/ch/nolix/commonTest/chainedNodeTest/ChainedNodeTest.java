@@ -232,7 +232,7 @@ public final class ChainedNodeTest extends Test {
 	public void testCase_toInt_1A() {
 		
 		//setup
-		final var testUnit = new ChainedNode("-100");
+		final var testUnit = ChainedNode.withHeader("-100");
 		
 		//execution
 		final var result = testUnit.toInt();
@@ -246,7 +246,7 @@ public final class ChainedNodeTest extends Test {
 	public void testCase_toInt_1B() {
 		
 		//setup
-		final var testUnit = new ChainedNode("0");
+		final var testUnit = ChainedNode.withHeader("0");
 		
 		//execution
 		final var result = testUnit.toInt();
@@ -260,7 +260,7 @@ public final class ChainedNodeTest extends Test {
 	public void testCase_toInt_1C() {
 		
 		//setup
-		final var testUnit = new ChainedNode("100");
+		final var testUnit = ChainedNode.withHeader("100");
 		
 		//execution
 		final var result = testUnit.toInt();

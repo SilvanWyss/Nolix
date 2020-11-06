@@ -62,7 +62,9 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 			
-		internalRunOnCounterpart(new ChainedNode(CommandProtocol.SHOW_ERROR_MESSAGE, new Node(errorMessage)));
+		internalRunOnCounterpart(
+			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, new Node(errorMessage))
+		);
 		
 		return asConcrete();
 	}
@@ -100,7 +102,10 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		final var viewAreaSize =
 		internalGetDataFromCounterpart(
-			ChainedNode.withHeaderAndNextNode(ObjectProtocol.GUI, new ChainedNode(ObjectProtocol.VIEW_AREA_SIZE))
+			ChainedNode.withHeaderAndNextNode(
+				ObjectProtocol.GUI,
+				ChainedNode.withHeader(ObjectProtocol.VIEW_AREA_SIZE)
+			)
 		)
 		.toIntPair();
 		
@@ -121,13 +126,17 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//method
 	final String getTextFromClipboardFromCounterpart() {
-		return internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
+		return
+		internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
 	}
 	
 	//method
 	final void saveFileOnCounterpart(final byte[] content) {
 		internalRunOnCounterpart(
-			new ChainedNode(CommandProtocol.SAVE_FILE, new Node(new String(content, StandardCharsets.UTF_8)))
+			ChainedNode.withHeaderAndAttributesFromNodes(
+				CommandProtocol.SAVE_FILE,
+				new Node(new String(content, StandardCharsets.UTF_8))
+			)
 		);
 	}
 	
@@ -180,16 +189,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 */
 	private void fetchCounterpartGUITypeIfNeeded() {
 		if (!knowsCounterpartGUIType()) {
-			counterpartGUIType
-			= BaseFrontGUIClientGUIType.valueOf(
-				internalGetDataFromCounterpart(new ChainedNode(ObjectProtocol.GUI_TYPE)).getHeader()
+			counterpartGUIType =
+			BaseFrontGUIClientGUIType.valueOf(
+				internalGetDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)).getHeader()
 			);
 		}
 	}
 	
 	//method
 	private Node getFileDataFromNonWebCounterpart() {
-		return internalGetDataFromCounterpart(new ChainedNode(CommandProtocol.GET_FILE));
+		return internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_FILE));
 	}
 	
 	//method
@@ -199,7 +208,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		isWaitingForFileFromCounterpart = true;
 		
-		internalRunOnCounterpart(new ChainedNode(CommandProtocol.SEND_FILE));
+		internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_FILE));
 		
 		Sequencer
 		.forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
@@ -362,8 +371,16 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		final var canvasGUIUpdateCommands = new LinkedList<ChainedNode>();
 		
-		canvasGUIUpdateCommands.addAtEnd(new ChainedNode(CommandProtocol.SET_TITLE, new Node(getRefGUI().getTitle())));
-		canvasGUIUpdateCommands.addAtEnd(new ChainedNode(CommandProtocol.SET_CURSOR_ICON, getRefGUI().getCursorIcon().getSpecification()));
+		canvasGUIUpdateCommands.addAtEnd(
+			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_TITLE, new Node(getRefGUI().getTitle()))
+		);
+		
+		canvasGUIUpdateCommands.addAtEnd(
+			ChainedNode.withHeaderAndAttributesFromNodes(
+				CommandProtocol.SET_CURSOR_ICON,
+				getRefGUI().getCursorIcon().getSpecification()
+			)
+		);
 		canvasGUIUpdateCommands.addAtEnd();
 		
 		final var paintCommands = getRefGUI().getPaintCommands();

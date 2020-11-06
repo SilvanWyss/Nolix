@@ -115,10 +115,10 @@ public final class NetEndPointTest extends Test {
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
-		netEndPoint.run(new ChainedNode("COMMAND"));
+		netEndPoint.run(ChainedNode.withHeader("COMMAND"));
 		
 		//verification
-		expect(endPointTakerMock.getReceivedCommandOrNull()).isEqualTo(new ChainedNode("COMMAND"));
+		expect(endPointTakerMock.getReceivedCommandOrNull()).isEqualTo(ChainedNode.withHeader("COMMAND"));
 		
 		//cleanup
 		netEndPoint.close();
@@ -139,10 +139,10 @@ public final class NetEndPointTest extends Test {
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
-		final var data = netEndPoint.getData(new ChainedNode("REQUEST"));
+		final var data = netEndPoint.getData(ChainedNode.withHeader("REQUEST"));
 		
 		//verification
-		expect(endPointTakerMock.getReceivedRequestOrNull()).isEqualTo(new ChainedNode("REQUEST"));
+		expect(endPointTakerMock.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));
 		expect(data).isEqualTo(new Node("DATA"));
 		
 		//cleanup
