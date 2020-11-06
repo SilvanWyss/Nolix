@@ -209,7 +209,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Creates message.
 		//A ReadContainer is created for the commands because a ReadContainer has the required toString implementation.
-		final var message = Protocol.COMMANDS_HEADER + '(' + new ReadContainer<>(commands) + ')';
+		final var message = Protocol.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
 		
 		//Sends the message and gets reply.
 		final var replyMessage = internalNetEndPoint.sendAndGetReply(message);

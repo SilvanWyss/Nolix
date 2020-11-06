@@ -237,7 +237,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
 	 */
 	public default boolean containsLessThan(final Iterable<?> container) {
-		return containsLessThan(new ReadContainer<>(container));
+		return containsLessThan(ReadContainer.forIterable(container));
 	}
 	
 	//method
@@ -259,7 +259,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
 	 */
 	public default boolean containsMoreThan(final Iterable<?> container) {
-		return containsMoreThan(new ReadContainer<>(container));
+		return containsMoreThan(ReadContainer.forIterable(container));
 	}
 	
 	//method
