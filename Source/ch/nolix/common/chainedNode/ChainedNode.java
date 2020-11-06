@@ -26,7 +26,7 @@ import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 780
+ * @lines 770
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -62,11 +62,15 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public static ChainedNode fromNode(final BaseNode node) {
 		
-		if (!node.hasHeader()) {
-			return new ChainedNode(node.getRefAttributes());
+		final var chainedNode = new ChainedNode();
+		
+		if (node.hasHeader()) {
+			chainedNode.setHeader(node.getHeader());
 		}
 		
-		return new ChainedNode(node.getHeader(), node.getRefAttributes());
+		chainedNode.addAttributesFromNodes(node.getRefAttributes());
+				
+		return chainedNode;
 	}
 	
 	//static method
@@ -162,16 +166,6 @@ public final class ChainedNode implements OptionalHeadered {
 	public ChainedNode() {
 		header = null;
 		nextNode = null;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link ChainedNode} with the given attributes.
-	 * 
-	 * @param attributes
-	 */
-	public <BN extends BaseNode> ChainedNode(final Iterable<BN> attributes) {
-		addAttributesFromNodes(attributes);
 	}
 	
 	//constructor
