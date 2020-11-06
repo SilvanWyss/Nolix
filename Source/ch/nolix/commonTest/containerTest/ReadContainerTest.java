@@ -19,7 +19,7 @@ public final class ReadContainerTest extends Test {
 		final String[] array3 = {"flower", "tree", "palm"};
 		
 		//execution
-		final var readContainer = new ReadContainer<String>(array1, array2, array3);
+		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
 			expect(readContainer.getElementCount()).isEqualTo(9);
@@ -44,7 +44,7 @@ public final class ReadContainerTest extends Test {
 			final String[] array2 = {"elephant", "lion", "monkey"};
 			final String[] array3 = {"flower", "tree", "palm"};
 			
-			final var readContainer = new ReadContainer<String>(array1, array2, array3);
+			final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//execution & verification
 			expect(readContainer.containsEqualing("apple"));
@@ -71,7 +71,7 @@ public final class ReadContainerTest extends Test {
 			final String[] array2 = { "B", "BB", "BBB" };
 			final String[] array3 = { "C", "CC", "CCC" };
 			
-			final var readContainer = new ReadContainer<String>(array1, array2, array3);
+			final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//execution & verification
 		expect(readContainer.getRefSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
