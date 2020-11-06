@@ -9,11 +9,11 @@ import ch.nolix.common.test.Test;
 
 //class
 /**
- * A {@link ChainedNodeTest} is a test for {@link ChainedNode}.
+ * A {@link ChainedNodeTest} is a test for {@link ChainedNode}s.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 270
+ * @lines 290
  */
 public final class ChainedNodeTest extends Test {
 	
@@ -277,7 +277,7 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = new ChainedNode();
 		
 		//execution & verification
-		expect(() -> testUnit.toInt())
+		expect(testUnit::toInt)
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class)
 		.withMessage("The given ChainedNode does not represent an Integer.");
@@ -291,7 +291,7 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = ChainedNode.fromString("100(x)");
 				
 		//execution & verification
-		expect(() -> testUnit.toInt())
+		expect(testUnit::toInt)
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class)
 		.withMessage("The given ChainedNode '100(x)' does not represent an Integer.");
