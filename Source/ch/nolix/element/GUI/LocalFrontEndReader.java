@@ -62,7 +62,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 			final var files =
 			(List<File>)(Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.javaFileListFlavor));
 			
-			return new ReadContainer<>(files).to(File::getPath);
+			return ReadContainer.forIterable(files).to(File::getPath);
 		}
 		catch (final IOException | UnsupportedFlavorException exception) {
 			throw new WrapperException(exception);

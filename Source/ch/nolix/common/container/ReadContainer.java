@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 190
+ * @lines 170
  * @param <E> The type of the elements of a read container.
  */
 public final class ReadContainer<E> implements IContainer<E> {
@@ -97,31 +97,6 @@ public final class ReadContainer<E> implements IContainer<E> {
 		
 		//Sets the container of this read container.
 		this.container = (IContainer<E>)container;
-	}
-	
-	//method
-	/**
-	 * Creates a new read container for the given container.
-	 * 
-	 * @param container
-	 * @throws ArgumentIsNullException if the given container is null.
-	 */
-	public <E2 extends E> ReadContainer(final Iterable<E2> container) {
-		
-		//Calls other constructor.
-		this(new IterableReadContainer<E2>(container));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new read container for the given containers.
-	 * 
-	 * @param containers
-	 * @throws ArgumentIsNullException if one of the given containers is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public <E2 extends E> ReadContainer(final Iterable<E2>... containers) {
-		this(new MultiReadContainer<E2>(containers));
 	}
 	
 	//method

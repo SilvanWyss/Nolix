@@ -42,7 +42,7 @@ extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 			fanNeurons.addAtEnd(
 				new TransformNeuron<Iterable<O>, O>(
 					this,
-					n -> new ReadContainer<O>(n).getRefAt(index)
+					n -> ReadContainer.forIterable(n).getRefAt(index)
 				)
 			);
 			

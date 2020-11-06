@@ -66,7 +66,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Asserts that the given elements are not null.
 		Validator.assertThatTheElements(elements).areNotNull();
 		
-		final var elements_ = new ReadContainer<E>(elements);
+		final var elements_ = ReadContainer.forIterable(elements);
 		
 		//Handles the case that the current {@link Matrix} is empty.
 		if (isEmpty()) {
@@ -159,7 +159,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Asserts that the given elements are not null.
 		Validator.assertThatTheElements(elements).areNotNull();
 		
-		final var elements_ = new ReadContainer<E>(elements);
+		final var elements_ = ReadContainer.forIterable(elements);
 		
 		//Handles the case that the current matrix is empty.
 		if (isEmpty()) {

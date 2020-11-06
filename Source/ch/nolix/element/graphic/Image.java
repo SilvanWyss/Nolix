@@ -255,7 +255,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
-		final var pixelContainer = new ReadContainer<Color>(pixels);
+		final var pixelContainer = ReadContainer.forIterable(pixels);
 		
 		Validator
 		.assertThat(pixelContainer.getElementCount())

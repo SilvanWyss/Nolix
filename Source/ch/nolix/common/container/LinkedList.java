@@ -121,7 +121,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Handles the case that the given elements is not empty.
-		if (new ReadContainer<E>(elements).isEmpty()) {
+		if (ReadContainer.forIterable(elements).isEmpty()) {
 			
 			final var preNode = new LinkedListNode<E>(null);
 			
