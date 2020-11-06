@@ -26,7 +26,7 @@ import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 770
+ * @lines 790
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -114,6 +114,29 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
+		
+		return chainedNode;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ChainedNode} with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given attributes is null.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
+	 */
+	public static <BN extends BaseNode> ChainedNode withHeaderAndAttributes(
+		final String header,
+		final Iterable<BN> attributes
+	) {
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
+		chainedNode.addAttributesFromNodes(attributes);
 		
 		return chainedNode;
 	}
