@@ -6,20 +6,20 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A read container provides methods to read on a given container.
- * 
- * A read container prevents that its accessed container can be mutated,
- * but not that the elements of its accessed container can be mutated.
+ * A {@link ReadContainer} can read a given container.
+ * A {@link ReadContainer} prevents that its accessed container can be mutated.
+ * A {@link ReadContainer} does not prevent that the elements of its accessed container can be mutated.
  * 
  * @author Silvan Wyss
  * @month 2017-06
  * @lines 180
- * @param <E> The type of the elements of a read container.
+ * @param <E> The type of the elements of a {@link ReadContainer}.
  */
 public final class ReadContainer<E> implements IContainer<E> {
 	
@@ -89,7 +89,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates a new read container for a new empty container.
+	 * Creates a new {@link ReadContainer} for an empty container.
 	 */
 	public ReadContainer() {
 		
@@ -99,7 +99,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates a new read container for the given container.
+	 * Creates a new {@link ReadContainer} for the given container.
 	 * 
 	 * @param container
 	 * @throws ArgumentIsNullException if the given container is null.
@@ -108,40 +108,41 @@ public final class ReadContainer<E> implements IContainer<E> {
 	private <E2 extends E> ReadContainer(final IContainer<E2> container) {
 		
 		//Asserts that the given container is not null.
-		Validator.assertThat(container).thatIsNamed("container").isNotNull();
+		Validator.assertThat(container).thatIsNamed(VariableNameCatalogue.CONTAINER).isNotNull();
 		
-		//Sets the container of this read container.
+		//Sets the container of the current ReadContainer.
 		this.container = (IContainer<E>)container;
 	}
 	
 	//method
 	/**
-	 * An object equals a read container
-	 * if it is a read container containing exactly the same elements.
+	 * An object equals a {@link ReadContainer}
+	 * if it is a {@link ReadContainer} that contains exactly the same elements.
 	 * 
-	 * @return true if the given object equals this read container..
+	 * @param object
+	 * @return true if the given object equals the current {@link ReadContainer}.
 	 */
 	@Override
 	public boolean equals(final Object object) {
 		
-		//Handles the case that the given object is not a read container.
+		//Handles the case that the given object is not a ReadContainer.
 		if (!(object instanceof ReadContainer<?>)) {
 			return false;
 		}
 		
-		//Handles the case that the given object is a read container.		
-			final ReadContainer<?> accessorContainer = (ReadContainer<?>)object;
+		//Handles the case that the given object is a ReadContainer.		
+			final var readContainer = (ReadContainer<?>)object;
 			
-			if (getElementCount() != accessorContainer.getElementCount()) {
+			if (getElementCount() != readContainer.getElementCount()) {
 				return false;
 			}
 			
-			return containsAll(accessorContainer);
+			return containsAll(readContainer);
 	}
 
 	//method
 	/**
-	 * @return the number of elements of this read container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getElementCount() {
@@ -168,7 +169,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @return a new iterator of this read container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Iterator<E> iterator() {
@@ -177,9 +178,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if this read container contains n elements.
-	 * 
-	 * @return a string representation of this read container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() {
