@@ -19,14 +19,14 @@ import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
 /**
  * A {@link ChainedNode} can have:
  * -1 header
- * -several attributes that are {@link ChainedNode}s
+ * -several attributes which are {@link ChainedNode}s
  * -a next node which is a {@link ChainedNode}
  * 
  * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 790
+ * @lines 850
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -39,21 +39,6 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//constant
 	private static final String NEXT_NODE_VARIABLE_NAME = "next node";
-	
-	//static method
-	/**
-	 * @param string
-	 * @return a reproducing {@link String} for the given string.
-	 */
-	public static String createReproducingStringFor(final String string) {
-		return
-		string
-		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
-		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-		.replace(String.valueOf(CharacterCatalogue.COMMA), BaseNode.COMMA_CODE)
-		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
-	}
 	
 	//static method
 	/**
@@ -82,23 +67,53 @@ public final class ChainedNode implements OptionalHeadered {
 	public static ChainedNode fromString(final String string) {
 		
 		final var chainedNode = new ChainedNode();
-		chainedNode.reset(string);
+		chainedNode.resetFrom(string);
 		
 		return chainedNode;
 	}
 	
 	//static method
 	/**
+	 * @param string
+	 * @return an escape {@link String} for the given string.
+	 */
+	public static String getEscapeStringFor(final String string) {
+		return
+		string
+		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
+		.replace(String.valueOf(CharacterCatalogue.COMMA), BaseNode.COMMA_CODE)
+		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+	}
+	
+	//static method
+	/**
 	 * @param attributes
 	 * @return a new {@link ChainedNode} with the given attributes.
-	 * @throws ArgumentIsNullException if the given attributes is null.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode> ChainedNode withAttributes(final BN... attributes) {
+	public static <BN extends BaseNode> ChainedNode withAttributesFromNodes(final BN... attributes) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.addAttributes(attributes);
+		
+		return chainedNode;
+	}
+	
+	//static method
+	/**
+	 * Creates a new {@link ChainedNode} with the given attributes.
+	 * 
+	 * @param attributes
+	 * @return a new {@link ChainedNode} with the given attributes.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
+	 */
+	public static <BN extends BaseNode> ChainedNode withAttributesFromNodes(final Iterable<BN> attributes) {
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.addAttributesFromNodes(attributes);
 		
 		return chainedNode;
 	}
@@ -117,30 +132,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		return chainedNode;
 	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link ChainedNode} with the given header and attributes.
-	 * 
-	 * @param header
-	 * @param attributes
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if the given attributes is null.
-	 * @throws ArgumentIsNullException if one of the given attributes is null.
-	 */
-	public static <BN extends BaseNode> ChainedNode withHeaderAndAttributes(
-		final String header,
-		final Iterable<BN> attributes
-	) {
 		
-		final var chainedNode = new ChainedNode();
-		chainedNode.setHeader(header);
-		chainedNode.addAttributesFromNodes(attributes);
-		
-		return chainedNode;
-	}
-	
 	//static method
 	/**
 	 * @param header
@@ -150,10 +142,57 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	public static ChainedNode withHeaderAndAttributes(final String header, final IContainer<ChainedNode> attributes) {
+	public static ChainedNode withHeaderAndAttributes(final String header, final Iterable<ChainedNode> attributes) {
 		
 		final var chainedNode = new ChainedNode(header);
 		chainedNode.addAttributes(attributes);
+		
+		return chainedNode;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ChainedNode} with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @return a new {@link ChainedNode} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public static <BN extends BaseNode> ChainedNode withHeaderAndAttributesFromNodes(
+		final String header,
+		final BN... attributes
+	) {
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
+		chainedNode.addAttributesFromNodes(attributes);
+		
+		return chainedNode;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ChainedNode} with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @return a new {@link ChainedNode} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
+	 */
+	public static <BN extends BaseNode> ChainedNode withHeaderAndAttributesFromNodes(
+		final String header,
+		final Iterable<BN> attributes
+	) {
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
+		chainedNode.addAttributesFromNodes(attributes);
 		
 		return chainedNode;
 	}
@@ -169,7 +208,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
 		
-		final var chainedNode = new ChainedNode(header);
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
 		chainedNode.setNextNode(nextNode);
 		
 		return chainedNode;
@@ -349,6 +389,21 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * @return a reproducing {@link String} representation of the header of the current {@link BaseNode}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
+	 */
+	public String getEscapeHeader() {
+		
+		//Asserts that the current ChainedNode has a header.
+		if (header == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
+		}
+		
+		return getEscapeStringFor(header);
+	}
+
+	//method
+	/**
 	 * @return the header of the current {@link ChainedNode}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
 	 */
@@ -435,21 +490,6 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public String getOneAttributeAsString() {
 		return getOneAttribute().toString();
-	}
-	
-	//method
-	/**
-	 * @return a reproducing {@link String} representation of the header of the current {@link BaseNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a header.
-	 */
-	public String getReproducingHeader() {
-		
-		//Asserts that the current ChainedNode has a header.
-		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
-		}
-		
-		return createReproducingStringFor(header);
 	}
 	
 	//method
@@ -577,6 +617,19 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param attributes
 	 */
+	@SuppressWarnings("unchecked")
+	private <BN extends BaseNode> void addAttributesFromNodes(final BN... attributes) {
+		for (final var a : attributes) {
+			this.attributes.addAtEnd(fromNode(a));
+		}
+	}
+	
+	//method
+	/**
+	 * Adds the given attributes to the current {@link ChainedNode}.
+	 * 
+	 * @param attributes
+	 */
 	private <BN extends BaseNode> void addAttributesFromNodes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
@@ -641,7 +694,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param string
 	 * @throws UnrepresentingArgumentException if the given string does nor represent a {@link ChainedNode}.
 	 */
-	private void reset(final String string) {
+	private void resetFrom(final String string) {
 		
 		reset();
 		
