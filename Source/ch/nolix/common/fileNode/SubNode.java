@@ -58,9 +58,12 @@ public final class SubNode extends BaseNode {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
-	public void addAttribute(final BaseNode attribute) {
+	public SubNode addAttribute(final BaseNode attribute) {
+		
 		internalSpecification.addAttribute(attribute);
 		simplePersistentSpecification.save();
+		
+		return this;
 	}
 
 	//method

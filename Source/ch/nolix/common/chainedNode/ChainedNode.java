@@ -26,7 +26,7 @@ import ch.nolix.common.optionalAttributeAPI.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 830
+ * @lines 850
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -80,11 +80,32 @@ public final class ChainedNode implements OptionalHeadered {
 	public static String getEscapeStringFor(final String string) {
 		return
 		string
+		
+		//It is essential to replace the dollar symbol at first.
 		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+		
 		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
 		.replace(String.valueOf(CharacterCatalogue.COMMA), BaseNode.COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
 		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+	}
+	
+	//static method
+	/**
+	 * @param escapeString
+	 * @return an origin {@link String} from the given escapeString.
+	 */
+	public static String getOriginStringFromEscapeString(final String escapeString) {
+			
+		return
+		escapeString
+		.replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
+		.replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+		.replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+		.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+		
+		//It is essential to replace the dollar symbol code at last.
+		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
 	}
 	
 	//static method
@@ -632,7 +653,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Handles the case that the current ChainedNode has a header.
 		if (header != null) {
-			stringBuilder.append(BaseNode.createReproducingString(header));
+			stringBuilder.append(BaseNode.getEscapeStringFor(header));
 		}
 		
 		//Handles the case that the current ChainedNode contains attributes.
@@ -830,7 +851,7 @@ public final class ChainedNode implements OptionalHeadered {
 	private void setProbableHeader(final String string, final int startIndex, final int headerLength) {
 		if (headerLength > 0) {
 			this.header =
-			BaseNode.createOriginStringFromReproducingString(
+			getOriginStringFromEscapeString(
 				string.substring(startIndex, startIndex + headerLength)
 			);
 		}

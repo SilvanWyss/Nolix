@@ -8,7 +8,6 @@ import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.fileSystem.FileSystemAccessor;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
@@ -17,25 +16,20 @@ import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.processProperty.WriteMode;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * A {@link BaseNode} can have:
  * -1 header
- * -several attributes that are a {@link BaseNode} themselves
- * 
- * The methods of a {@link BaseNode} are not final
- * that they can be overwritten by an implementation with a better performance.
- * 
+ * -several attributes which are a {@link BaseNode}s
+ *  
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 760
+ * @lines 730
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//constants
-	public static final String DOT_CODE = "$D";
 	public static final String COMMA_CODE = "$M";
 	public static final String DOLLAR_SYMBOL_CODE = "$X";
 	public static final String OPEN_BRACKET_CODE = "$O";
@@ -44,49 +38,35 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	//static method
 	/**
 	 * @param string
-	 * @return a reproducing string for the given string on the specification context.
-	 * @throws ArgumentIsNullException if the given string is null.
+	 * @return an escape {@link String} for the given string.
 	 */
-	public static String createReproducingString(final String string) {
-		
-		//Asserts that the given string is not null.
-		Validator.assertThat(string).isNotNull();
-		
+	public static String getEscapeStringFor(final String string) {
 		return
-			string
-			
-			//It is important that the dollar symbol is replaced at first.
-			.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
-			
-			.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-			.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
-			.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-			.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+		string
+		
+		//It is essential to replace the dollar symbol at first.
+		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+		
+		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
+		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
 	}
 	
 	//static method
 	/**
-	 * @param reproducingString
-	 * @return an origin string from the given reproducing string on the specification context.
-	 * @throws ArgumentIsNullException if the given reproducingString is null.
+	 * @param escapeString
+	 * @return an origin {@link String} from the given escapeString.
 	 */
-	public static String createOriginStringFromReproducingString(final String reproducingString) {
-		
-		//Asserts that the given reproducing string is not null.
-		Validator
-		.assertThat(reproducingString)
-		.thatIsNamed("reproducing string")
-		.isNotNull();
-		
-		return
-			reproducingString
-			.replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
-			.replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-			.replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-			.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+	public static String getOriginStringFromEscapeString(final String escapeString) {
 			
-			//It is important that the dollar symbol code is replaced at last.
-			.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+		return
+		escapeString
+		.replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+		.replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+		.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+		
+		//It is essential to replace the dollar symbol code at last.
+		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
 	}
 	
 	//method declaration
@@ -95,7 +75,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addAttribute(BaseNode attribute);
+	public abstract BaseNode addAttribute(BaseNode attribute);
 	
 	//method
 	/**
@@ -103,10 +83,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * 
 	 * @param attributes
 	 */
-	public void addAttribute(final BaseNode... attributes) {
-		
-		//Calls other method.
-		addAttributes(ReadContainer.forArray(attributes));
+	public BaseNode addAttribute(final BaseNode... attributes) {
+
+		//Iterates the given attributes.
+		for (final var a : attributes) {
+			addAttribute(a);
+		}
+
+		return this;
 	}
 	
 	//method
@@ -115,20 +99,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * 
 	 * @param attributes
 	 */
-	public <S extends BaseNode> void addAttributes(final Iterable<S> attributes) {
+	public <BN extends BaseNode> BaseNode addAttributes(final Iterable<BN> attributes) {
 		
 		//Iterates the given attributes.
 		attributes.forEach(this::addAttribute);
+		
+		return this;
 	}
-	
-	//method
-	/**
-	 * @return true if all attributes of the current {@link BaseNode} do not have attributes
-	 */
-	public boolean allAttributesDoNotHaveAttributes() {
-		return getRefAttributes().containsNone(BaseNode::containsAttributes);
-	}
-	
+		
 	//method
 	/**
 	 * @param selector
@@ -324,7 +302,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return a reproducing string representation of the header of the current {@link BaseNode}.
 	 */
 	public String getReproducingHeader() {
-		return createReproducingString(getHeader());
+		return getEscapeStringFor(getHeader());
 	}
 	
 	//method declaration
@@ -667,7 +645,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		if (index > startIndex) {
-			this.setHeader(createOriginStringFromReproducingString(substring.substring(startIndex, index)));
+			this.setHeader(getOriginStringFromEscapeString(substring.substring(startIndex, index)));
 		}
 		
 		if (index == substring.length()) {
@@ -721,7 +699,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		if (containsAttributes()) {
 			
 			//Handles the case that all attributes of the current specification do not contain any attributes.
-			if (allAttributesDoNotHaveAttributes()) {
+			if (getRefAttributes().containsNone(BaseNode::containsAttributes)) {
 				stringBuilder
 				.append(CharacterCatalogue.OPEN_BRACKET)
 				.append(getRefAttributes().toString())

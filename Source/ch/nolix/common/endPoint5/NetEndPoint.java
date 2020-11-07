@@ -252,7 +252,7 @@ public class NetEndPoint extends EndPoint {
 			if (exception.getMessage() == null) {
 				return Protocol.ERROR_HEADER;
 			}
-			return (Protocol.ERROR_HEADER + '(' + BaseNode.createReproducingString(exception.getMessage()) + ')');
+			return (Protocol.ERROR_HEADER + '(' + BaseNode.getEscapeStringFor(exception.getMessage()) + ')');
 		}
 	}
 	

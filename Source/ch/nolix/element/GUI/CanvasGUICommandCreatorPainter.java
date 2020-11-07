@@ -198,7 +198,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
-			+ BaseNode.createReproducingString(text)
+			+ BaseNode.getEscapeStringFor(text)
 			+ ','
 			+ textFormat.getSpecification()
 			+ ')'
@@ -211,7 +211,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
-			+ BaseNode.createReproducingString(text)
+			+ BaseNode.getEscapeStringFor(text)
 			+ ','
 			+ textFormat.getSpecification()
 			+ ','

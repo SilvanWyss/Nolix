@@ -355,8 +355,11 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Adds the given attribute to the current {@link Node}.
 	 */
 	@Override
-	public void addAttribute(final BaseNode attribute) {
+	public Node addAttribute(final BaseNode attribute) {
+		
 		addAttribute(attribute.getCopy());
+		
+		return this;
 	}
 	
 	//method

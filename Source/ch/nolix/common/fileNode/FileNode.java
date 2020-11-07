@@ -55,9 +55,12 @@ public final class FileNode extends BaseNode {
 	 * @param attribute
 	 */
 	@Override
-	public void addAttribute(final BaseNode attribute) {
+	public FileNode addAttribute(final BaseNode attribute) {
+		
 		internalSpecification.addAttribute(attribute);
 		save();
+		
+		return this;
 	}
 
 	//method

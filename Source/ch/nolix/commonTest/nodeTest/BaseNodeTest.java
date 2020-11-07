@@ -487,21 +487,6 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.setHeader("Lorem.");
-		
-		//execution
-		final var result = testUnit.toString();
-		
-		//verification
-		expect(result).isEqualTo("Lorem$D");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_toString_2D() {
-		
-		//setup
-		final var testUnit = createTestUnit();
 		testUnit.setHeader("Lorem,");
 		
 		//execution
