@@ -20,7 +20,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 340
+ * @lines 350
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable<S> {
@@ -200,6 +200,19 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	public final S removeWidget(final Widget<?, ?> widget) {
 		
 		widgets.removeFirst(widget);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public final S reset() {
+		
+		super.reset();
+		
+		removeElementMargin();
 		
 		return asConcrete();
 	}
