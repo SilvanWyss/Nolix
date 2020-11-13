@@ -30,8 +30,8 @@ public final class AnthrazitGUILook extends Configuration {
 			
 			addAttachingAttribute(
 				"BaseBaseScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0x000000))",
-				"BaseHoverScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0xF0F0F0))",
-				"BaseSelectionScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0xF0F0F0))"
+				"BaseHoverScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0xE0E000))",
+				"BaseSelectionScrollBarLook(ScrollBarColor(0x101010),ScrollCursorColor(0xE0E000))"
 			);
 		}
 	}
@@ -51,7 +51,7 @@ public final class AnthrazitGUILook extends Configuration {
 				"BaseLeftPadding(5)",
 				"BaseRightPadding(5)",
 				"BaseBackgroundColor(0x101010)",
-				"HoverBackgroundColor(0xF0F0F0)",
+				"HoverBackgroundColor(0xE0E000)",
 				"HoverTextColor(0x000000)"
 			);
 		}
@@ -65,7 +65,11 @@ public final class AnthrazitGUILook extends Configuration {
 			
 			setSelectorType(CheckBox.class);
 			
-			addAttachingAttribute("CursorIcon(Hand)", "BaseBackgroundColor(0x101010)");
+			addAttachingAttribute(
+				"CursorIcon(Hand)",
+				"BaseBackgroundColor(0x101010)",
+				"HoverBackgroundColor(0xE0E000)"
+			);
 		}
 	}
 	
@@ -128,7 +132,7 @@ public final class AnthrazitGUILook extends Configuration {
 				"BaseLeftPadding(5)",
 				"BaseRightPadding(5)",
 				"BaseBackgroundColor(0x101010)",
-				"HoverBackgroundColor(0xF0F0F0)",
+				"HoverBackgroundColor(0xE0E000)",
 				"HoverTextColor(0x000000)"
 			);
 		}
@@ -216,7 +220,7 @@ public final class AnthrazitGUILook extends Configuration {
 			setSelectorType(TextItemMenu.class);
 			
 			addAttachingAttribute(
-				"MinWidth(100)",
+				"MinWidth(200)",
 				"MaxHeight(200)",
 				"BaseBackgroundColor(0x101010)"
 			);
