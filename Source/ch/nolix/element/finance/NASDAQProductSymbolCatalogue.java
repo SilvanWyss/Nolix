@@ -14,7 +14,7 @@ import ch.nolix.common.container.LinkedList;
 /**
  * This class manages the product symbols of NASDAQ (National Association of Securities Dealers Automated Quotations).
  */
-public class NASDAQProductSymbolManager {
+public class NASDAQProductSymbolCatalogue {
 	
 	//NASDAQ product symbols
 	public static final String ADVANCED_MICRO_DEVICES_INC = "AMD";
@@ -58,5 +58,5 @@ public class NASDAQProductSymbolManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private NASDAQProductSymbolManager() {}
+	private NASDAQProductSymbolCatalogue() {}
 }
