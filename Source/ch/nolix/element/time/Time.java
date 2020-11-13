@@ -5,6 +5,7 @@ package ch.nolix.element.time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+//own imports
 import ch.nolix.common.commonTypeHelper.StringHelper;
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -14,15 +15,18 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;
 
-//TODO: Add timeZone to Time.
+//TODO: Add timeZone attribute to Time.
 //class
 /**
- * A time stores a point in time with a precision of 1 millisecond.
- * A time stores a point in time according to the Gregorian calendar.
- * Since the Gregorian calendar is not proleptic a time can only store a point in time after 1600-01-01 00:00:000.
- * Not proleptic means that the Greogioan calender does officially not allow calculations backwards behind the point of its release, that was in 1582.
- * A time is not mutable.
- * Technically, a time is a wrapper around JDK's GregorianCalendar.
+ * {@link Time} stores a point in time with a precision of 1 millisecond.
+ * 
+ * {@link Time} stores a point in time according to the Gregorian calendar.
+ * Since the Gregorian calendar is not proleptic a {@link Time} can only store a point in time after 1600-01-01 00:00:000.
+ * Not proleptic means that the Greogioan calender does officially not allow
+ * calculations backwards behind the point of its release, that was in 1582.
+ * 
+ * {@link Time} is not mutable.
+ * Technically, a {@link Time} is a wrapper around JDK's {@link GregorianCalendar}.
  * 
  * @author Silvan Wyss
  * @month 2016-08
@@ -47,38 +51,82 @@ public final class Time implements IElement {
 	
 	//static method
 	/**
-	 * @return a new time that represents the current time on the machine it is created on.
+	 * @return a new {@link Time} that represents the current time on the machine it is created on.
 	 */
-	public static Time createCurrentTime() {
-		final Time time = new Time();
+	public static Time fromCurrentTime() {
+		
+		final var time = new Time();
 		time.gregorianCalendar.setTimeInMillis(new GregorianCalendar().getTimeInMillis());
+		
 		return time;
 	}
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new time from the given specification.
+	 * @return a new {@link Time} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Time fromSpecification(final BaseNode specification) {
-		return new Time(specification.getOneAttributeHeader());
+		return fromString(specification.getOneAttributeHeader());
+	}
+	
+	//static method
+	/**
+	 * Creates a new {@link Time} from the given string.
+	 * 
+	 * @param string
+	 * @throws ArgumentIsNullException if the given string is null.
+	 */
+	public static Time fromString(final String string) {
+				
+		//Asserts that the given string is not null.
+		Validator.assertThat(string).thatIsNamed("string").isNotNull();
+		
+		final var time = new Time();
+		
+		//Creates array of values of the given string.
+		final String[] array = string.split("-");
+		
+		Validator
+		.assertThat(array.length)
+		.thatIsNamed("numer of values of '" + string + "'")
+		.isEqualToAny(3, 5, 6, 7);
+		
+		if (array.length >= 3) {
+			time.setYear(StringHelper.toInt(array[0]));
+			time.setMonthOfYear(StringHelper.toInt(array[1]));
+			time.setDayOfMonth(StringHelper.toInt(array[2]));
+		}
+		if (array.length >= 5) {
+			time.setMinuteOfHour(StringHelper.toInt(array[4]));
+		}
+		if (array.length >= 6) {
+			time.setSecondOfMinute(StringHelper.toInt(array[5]));
+		}
+		if (array.length >= 7) {
+			time.setMillisecondOfSecond(StringHelper.toInt(array[6]));
+		}
+		
+		return time;
 	}
 	
 	//static method
 	/**
 	 * @param unixTimeStamp
-	 * @return a new time from the given unix time stamp.
+	 * @return a new {@link Time} from the given unixTimeStamp.
 	 */
-	public static Time createFromUnixTimeStamp(final long unixTimeStamp) {
-		final Time time = new Time();
+	public static Time fromUnixTimeStamp(final long unixTimeStamp) {
+		
+		final var time = new Time();
 		time.gregorianCalendar.setTimeInMillis(1000 * unixTimeStamp);
+		
 		return time;
 	}
 	
 	//constructor
 	/**
-	 * Creates a new time with default values.
+	 * Creates a new {@link Time} with default values.
 	 */
 	public Time() {
 		gregorianCalendar.setLenient(true);
@@ -87,7 +135,7 @@ public final class Time implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new time with the given year.
+	 * Creates a new {@link Time} with the given year.
 	 * 
 	 * @param year
 	 */
@@ -101,16 +149,13 @@ public final class Time implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new time with the given year and month of year.
+	 * Creates a new {@link Time} with the given year and monthOfYear.
 	 * 
 	 * @param year
 	 * @param monthOfYear
 	 * @param dayOfMonth
 	 */
-	public Time(
-		final int year,
-		final int monthOfYear
-	) {
+	public Time(final int year,	final int monthOfYear) {
 		
 		//Calls other constructor.
 		this(year);
@@ -120,17 +165,13 @@ public final class Time implements IElement {
 
 	//constructor
 	/**
-	 * Creates a new time with the given year, month of year and day of month.
+	 * Creates a new {@link Time} with the given year, monthOfYear and dayOfMonth.
 	 * 
 	 * @param year
 	 * @param monthOfYear
 	 * @param dayOfMonth
 	 */
-	public Time(
-		final int year,
-		final int monthOfYear,
-		final int dayOfMonth
-	) {
+	public Time(final int year,	final int monthOfYear, final int dayOfMonth) {
 		
 		//Calls other constructor.
 		this(year, monthOfYear);
@@ -140,19 +181,14 @@ public final class Time implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new time with the given year, month of year, day of month and hour of day.
+	 * Creates a new {@link Time} with the given year, monthOfYear, dayOfMonth and hourOfDay.
 	 * 
 	 * @param year
 	 * @param monthOfYear
 	 * @param dayOfMonth
 	 * @param hourOfDay
 	 */
-	public Time(
-		final int year,
-		final int monthOfYear,
-		final int dayOfMonth,
-		final int hourOfDay
-	) {
+	public Time(final int year, final int monthOfYear,final int dayOfMonth, final int hourOfDay) {
 		
 		//Calls other constructor.
 		this(year, monthOfYear, dayOfMonth);
@@ -162,7 +198,7 @@ public final class Time implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new time with the given year, month of year, day of month, hour of day and minute of hour.
+	 * Creates a new {@link Time} with the given year, monthOfYear, dayOfMonth, hourOfDay and minuteOfHour.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -186,7 +222,8 @@ public final class Time implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new time with the given year, month of year, day of month, hour of day, minute of hour and second and of minute.
+	 * Creates a new {@link Time} with the given
+	 * year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour and secondOfMinute.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -212,7 +249,8 @@ public final class Time implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new time with the given year, month of year, day of month, hour of day, minute of hour, second and of minute and millisecond of second.
+	 * Creates a new {@link Time} with the given
+	 * year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -238,48 +276,9 @@ public final class Time implements IElement {
 		setMillisecondOfSecond(millisecondOfSecond);
 	}
 	
-	//constructor
-	/**
-	 * Creates a new time the given string represents.
-	 * 
-	 * @param string
-	 * @throws ArgumentIsNullException if the given string is null.
-	 */
-	public Time(final String string) {
-		
-		//Calls other constructor.
-		this();
-		
-		//Asserts that the given string is not null.
-		Validator.assertThat(string).thatIsNamed("string").isNotNull();
-		
-		//Creates array of values of the given string.
-		final String[] array = string.split("-");
-		
-		Validator
-		.assertThat(array.length)
-		.thatIsNamed("numer of values of '" + string + "'")
-		.isEqualToAny(3, 5, 6, 7);
-		
-		if (array.length >= 3) {
-			setYear(StringHelper.toInt(array[0]));
-			setMonthOfYear(StringHelper.toInt(array[1]));
-			setDayOfMonth(StringHelper.toInt(array[2]));
-		}
-		if (array.length >= 5) {
-			setMinuteOfHour(StringHelper.toInt(array[4]));
-		}
-		if (array.length >= 6) {
-			setSecondOfMinute(StringHelper.toInt(array[5]));
-		}
-		if (array.length >= 7) {
-			setMillisecondOfSecond(StringHelper.toInt(array[6]));
-		}
-	}
-	
 	//method
 	/**
-	 * @return the attributes of this time.
+	 * @return the attributes of the current {@link Time}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -300,7 +299,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the day of this time.
+	 * @return the day of the current {@link Time}.
 	 */
 	public Time getDay() {
 		return
@@ -313,7 +312,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the day of the month of this time.
+	 * @return the day of the month of the current {@link Time}.
 	 */
 	public int getDayOfMonth() {
 		return gregorianCalendar.get(Calendar.DAY_OF_MONTH);
@@ -321,10 +320,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * This method returns a negative value if this time is after the given time.
+	 * This method returns a negative value if the current {@link Time} is after the given time.
 	 * 
 	 * @param time
-	 * @return the number of days from this time to the given time.
+	 * @return the number of days from the current {@link Time} to the given time.
 	 */
 	public int getDaysTo(final Time time) {
 		return (int)(getMillisecondsTo(time) / TimeUnitCatalogue.MILLISECONDS_PER_DAY);
@@ -332,7 +331,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the hour of this time.
+	 * @return the hour of the current {@link Time}.
 	 */
 	public Time getHour() {
 		return
@@ -346,7 +345,7 @@ public final class Time implements IElement {
 
 	//method
 	/**
-	 * @return the hour of the month of this time.
+	 * @return the hour of the month of the current {@link Time}.
 	 */
 	public int getHourOfDay() {
 		return gregorianCalendar.get(Calendar.HOUR_OF_DAY);
@@ -354,7 +353,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the milliseconds of this time.
+	 * @return the milliseconds of the current {@link Time}.
 	 */
 	public long getMilliseconds() {
 		return gregorianCalendar.getTimeInMillis();
@@ -362,7 +361,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the millisecond of the second of this time.
+	 * @return the millisecond of the second of the current {@link Time}.
 	 */
 	public int getMillisecondOfSecond() {
 		return gregorianCalendar.get(Calendar.MILLISECOND);
@@ -370,10 +369,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * This method returns a negative value if this time is after the given time.
+	 * This method returns a negative value if the current {@link Time} is after the given time.
 	 * 
 	 * @param time
-	 * @return the number of milliseconds from this time to the given time.
+	 * @return the number of milliseconds from the current {@link Time} to the given time.
 	 */
 	public long getMillisecondsTo(final Time time) {
 		return (time.getMilliseconds() - this.getMilliseconds());
@@ -381,7 +380,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the minute of this time.
+	 * @return the minute of the current {@link Time}.
 	 */
 	public Time getMinute() {
 		return
@@ -396,7 +395,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the minute of the hour of this time.
+	 * @return the minute of the hour of the current {@link Time}.
 	 */
 	public int getMinuteOfHour() {
 		return gregorianCalendar.get(Calendar.MINUTE);
@@ -404,7 +403,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the month of this time.
+	 * @return the month of the current {@link Time}.
 	 */
 	public Time getMonth() {
 		return new Time(getYearAsInt(), getMonthOfYear());
@@ -412,7 +411,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the month of the year of this time.
+	 * @return the month of the year of the current {@link Time}.
 	 */
 	public int getMonthOfYear() {
 		return (gregorianCalendar.get(Calendar.MONTH) + 1);
@@ -420,7 +419,7 @@ public final class Time implements IElement {
 		
 	//method
 	/**
-	 * @return the next day of this time.
+	 * @return the next day of the current {@link Time}.
 	 */
 	public Time getNextDay() {
 		return getWithAddedOrSubtractedDays(1).getDay();
@@ -428,7 +427,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the next hour of this time.
+	 * @return the next hour of the current {@link Time}.
 	 */
 	public Time getNextHour() {
 		return getWithAddedOrSubtractedHours(1).getHour();
@@ -436,7 +435,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the next minute of this time.
+	 * @return the next minute of the current {@link Time}.
 	 */
 	public Time getNextMinute() {
 		return getWithAddedOrSubtractedMinutes(1).getMinute();
@@ -444,22 +443,22 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the next month of this time.
+	 * @return the next month of the current {@link Time}.
 	 */
 	public Time getNextMonth() {
 		
-		//Handles the case that the month of the year of this time is not December.
+		//Handles the case that the month of the year of the current {@link Time} is not December.
 		if (getMonthOfYear() < 12) {
 			return new Time(getYearAsInt(), getMonthOfYear() + 1);
 		}
 		
-		//Handles the case that the month of the year of this time is December.
+		//Handles the case that the month of the year of the current {@link Time} is December.
 		return new Time(getYearAsInt() + 1, 1);
 	}
 	
 	//method
 	/**
-	 * @return the next second of this time.
+	 * @return the next second of the current {@link Time}.
 	 */
 	public Time getNextSecond() {
 		return getWithAddedOrSubtractedSeconds(1).getSecond();
@@ -467,7 +466,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the next year of this time.
+	 * @return the next year of the current {@link Time}.
 	 */
 	public Time getNextYear() {
 		return new Time(getYearAsInt() + 1);
@@ -475,7 +474,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the second of this time.
+	 * @return the second of the current {@link Time}.
 	 */
 	public Time getSecond() {
 		return
@@ -491,7 +490,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the second of the minute of this time.
+	 * @return the second of the minute of the current {@link Time}.
 	 */
 	public int getSecondOfMinute() {
 		return gregorianCalendar.get(Calendar.SECOND);
@@ -500,7 +499,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param days
-	 * @return a new time with the given days added or subtracted to this time.
+	 * @return a new {@link Time} with the given days added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedDays(final int days) {
 		final Time time = getCopy();
@@ -511,7 +510,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param hours
-	 * @return a new time with the given hours added or subtracted to this time.
+	 * @return a new {@link Time} with the given hours added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedHours(final int hours) {
 		final Time time = getCopy();
@@ -522,7 +521,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param milliseconds
-	 * @return a new time with the given milliseconds added or subtracted to this time.
+	 * @return a new {@link Time} with the given milliseconds added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedMilliseconds(final int milliseconds) {
 		final Time time = getCopy();
@@ -533,7 +532,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param minutes
-	 * @return a new time with the given minutes added or subtracted to this time.
+	 * @return a new {@link Time} with the given minutes added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedMinutes(final int minutes) {
 		final Time time = getCopy();
@@ -544,7 +543,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param seconds
-	 * @return a new time with the given seconds added or subtracted to this time.
+	 * @return a new {@link Time} with the given seconds added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedSeconds(final int seconds) {
 		final Time time = getCopy();
@@ -558,7 +557,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the year of this time.
+	 * @return the year of the current {@link Time}.
 	 */
 	public int getYearAsInt() {
 		return gregorianCalendar.get(Calendar.YEAR);
@@ -567,7 +566,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param time
-	 * @return true if this time is after the given time.
+	 * @return true if the current {@link Time} is after the given time.
 	 */
 	public boolean isAfter(final Time time) {
 		return (getMilliseconds() > time.getMilliseconds());
@@ -576,7 +575,7 @@ public final class Time implements IElement {
 	//method
 	/**
 	 * @param time
-	 * @return true if this time is before the given time.
+	 * @return true if the current {@link Time} is before the given time.
 	 */
 	public boolean isBefore(final Time time) {
 		return (getMilliseconds() < time.getMilliseconds());
@@ -584,7 +583,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return true if this time is in a leap year.
+	 * @return true if the current {@link Time} is in a leap year.
 	 */
 	public boolean isInLeapYear() {
 		return gregorianCalendar.isLeapYear(getYearAsInt());
@@ -592,7 +591,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Adds the given days to this time.
+	 * Adds the given days to the current {@link Time}.
 	 * 
 	 * @param days
 	 */
@@ -602,7 +601,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Adds the given hours to this time.
+	 * Adds the given hours to the current {@link Time}.
 	 * 
 	 * @param hours
 	 */
@@ -612,7 +611,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Adds the given milliseconds to this time.
+	 * Adds the given milliseconds to the current {@link Time}.
 	 * 
 	 * @param milliseconds
 	 */
@@ -622,7 +621,7 @@ public final class Time implements IElement {
 
 	//method
 	/**
-	 * Adds the given minutes to this time.
+	 * Adds the given minutes to the current {@link Time}.
 	 * 
 	 * @param minutes
 	 */
@@ -632,7 +631,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Adds the given seconds to this time.
+	 * Adds the given seconds to the current {@link Time}.
 	 * 
 	 * @param seconds
 	 */
@@ -642,7 +641,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return a copy of this time.
+	 * @return a copy of the current {@link Time}.
 	 */
 	private Time getCopy() {
 		final Time time = new Time();
@@ -652,9 +651,7 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Resets this time.
-	 * 
-	 * @throws InvalidArgumentException if this time is frozen.
+	 * Resets the current {@link Time}.
 	 */
 	private void reset() {
 		setYear(DEFAULT_YEAR);
@@ -668,11 +665,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the day of the month of this time.
+	 * Sets the day of the month of the current {@link Time}.
 	 * 
 	 * @param dayOfMonth
-	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
+	 * @return the current {@link Time}.
 	 */
 	private void setDayOfMonth(final int dayOfMonth) {
 		gregorianCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -680,10 +676,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the hour of the day of this time.
+	 * Sets the hour of the day of the current {@link Time}.
 	 * 
 	 * @param hourOfDay
-	 * @return this time.
+	 * @return the current {@link Time}.
 	 */
 	private void setHourOfDay(final int hourOfDay) {
 		gregorianCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
@@ -691,11 +687,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the millisecond of the second of this time.
+	 * Sets the millisecond of the second of the current {@link Time}.
 	 * 
 	 * @param millisecondOfSecond
-	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
+	 * @return the current {@link Time}.
 	 */
 	private void setMillisecondOfSecond(final int millisecondOfSecond) {
 		gregorianCalendar.set(Calendar.MILLISECOND, millisecondOfSecond);
@@ -703,10 +698,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the minute of the hour of this time
+	 * Sets the minute of the hour of the current {@link Time}
 	 * 
 	 * @param minuteOfHour
-	 * @return this time.
+	 * @return the current {@link Time}.
 	 */
 	private void setMinuteOfHour(final int minuteOfHour) {
 		gregorianCalendar.set(Calendar.MINUTE, minuteOfHour);
@@ -714,11 +709,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the month of the year of this time.
+	 * Sets the month of the year of the current {@link Time}.
 	 * 
 	 * @param monthOfYear
-	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
+	 * @return the current {@link Time}.
 	 */
 	private void setMonthOfYear(final int monthOfYear) {
 		gregorianCalendar.set(Calendar.MONTH, monthOfYear - 1);
@@ -726,10 +720,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the second of the minute of this time.
+	 * Sets the second of the minute of the current {@link Time}.
 	 * 
 	 * @param secondOfMinute
-	 * @return this time.
+	 * @return the current {@link Time}.
 	 */
 	private void setSecondOfMinute(final int secondOfMinute) {
 		gregorianCalendar.set(Calendar.SECOND, secondOfMinute);
@@ -737,10 +731,10 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * Sets the year of this time.
+	 * Sets the year of the current {@link Time}.
 	 * 
 	 * @param year
-	 * @return this time.
+	 * @return the current {@link Time}.
 	 */
 	private void setYear(final int year) {
 		gregorianCalendar.set(Calendar.YEAR, year);

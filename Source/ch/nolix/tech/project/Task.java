@@ -87,7 +87,7 @@ public final class Task extends Element<Task> implements ITask {
 	 */
 	public Task(final String title) {
 		setTitle(title);
-		setCreationDate(Time.createCurrentTime());
+		setCreationDate(Time.fromCurrentTime());
 	}
 	
 	//constructor
@@ -276,7 +276,7 @@ public final class Task extends Element<Task> implements ITask {
 	 */
 	@Override
 	public Task setSolved() {
-		return setSolved(Time.createCurrentTime());
+		return setSolved(Time.fromCurrentTime());
 	}
 	
 	//method

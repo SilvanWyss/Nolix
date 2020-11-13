@@ -46,7 +46,7 @@ public final class QuandlDataProvider {
 			while ((line = bufferedReader.readLine()) != null) {
 				
 				final var stringArray = line.split(",");
-				final var time = new Time(stringArray[0]);
+				final var time = Time.fromString(stringArray[0]);
 				
 				if (!time.isBefore(startDate) && !time.isAfter(endDate)) {
 					dailyCandleSticks.addAtBegin(

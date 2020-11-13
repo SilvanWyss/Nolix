@@ -61,7 +61,7 @@ public class LabelTutorial {
 				() -> {
 					
 					//Gets the current time.
-					final var currentTime = Time.createCurrentTime();
+					final var currentTime = Time.fromCurrentTime();
 					
 					//Creates text.
 					final var text =
