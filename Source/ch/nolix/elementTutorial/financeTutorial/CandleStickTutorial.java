@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.financeTutorial;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SequencePattern;
-import ch.nolix.element.finance.NYSEProductSymbolManager;
+import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;
 import ch.nolix.element.time.Time;
@@ -28,7 +28,7 @@ public final class CandleStickTutorial {
 		//Loads the candle sticks.
 		final LinkedList<VolumeCandlestick> candleSticks
 		= new QuandlDataProvider().getCandleSticksPerDay(
-			NYSEProductSymbolManager.BOEING,
+			NYSEProductSymbolCatalogue.BOEING,
 			new Time(2015, 1, 1),
 			new Time(2015, 12, 31)
 		);

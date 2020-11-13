@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.financeTutorial;
 
-import ch.nolix.element.finance.NYSEProductSymbolManager;
+import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.time.Time;
 
@@ -20,7 +20,7 @@ public final class DataProviderTutorial {
 	 */
 	public static void main(final String[] arguments) {
 		new QuandlDataProvider().getCandleSticksPerDay(
-			NYSEProductSymbolManager.BP,
+			NYSEProductSymbolCatalogue.BP,
 			new Time(2017, 2, 1, 16, 0),
 			new Time(2017, 2, 3, 22, 0)
 		)

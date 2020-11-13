@@ -14,7 +14,7 @@ import ch.nolix.common.container.LinkedList;
 /**
  * This class manages the product symbols of NYSE (New York Stock Exchange).
  */
-public final class NYSEProductSymbolManager {
+public final class NYSEProductSymbolCatalogue {
 
 	//NYSE product symbols
 	public static final String AMERICAN_ELECTRIC_POWER_CO_INC = "AEP";
@@ -114,5 +114,5 @@ public final class NYSEProductSymbolManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private NYSEProductSymbolManager() {}
+	private NYSEProductSymbolCatalogue() {}
 }
