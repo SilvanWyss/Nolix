@@ -23,7 +23,7 @@ import ch.nolix.element.widget.Label;
  * 
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 570
+ * @lines 540
  */
 public final class TabContainer
 extends ContainerWidget<TabContainer, TabContainerLook>
@@ -48,35 +48,6 @@ implements Clearable<TabContainer> {
 	 */
 	public TabContainer() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link TabContainer} with the given tabs.
-	 * 
-	 * @param tabs
-	 * @throws ArgumentIsNullException if the given tabs is null.
-	 * @throws ArgumentIsNullException if one of the given tabs is null.
-	 */
-	public TabContainer(final Iterable<TabContainerTab> tabs) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addTabs(tabs);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link TabContainer} with the given tabs.
-	 * 
-	 * @param tabs
-	 * @throws ArgumentIsNullException if the given tabs is null.
-	 * @throws ArgumentIsNullException if one of the given tabs is null.
-	 */
-	public TabContainer(final TabContainerTab... tabs) {
-		
-		//Calls other constructor.
-		this(ReadContainer.forArray(tabs));
 	}
 	
 	//method
