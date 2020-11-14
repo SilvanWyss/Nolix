@@ -87,7 +87,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		parentBorderWidget.getMinHeight()
 		- look.getRecursiveOrDefaultTopBorderThickness()
 		- look.getRecursiveOrDefaultBottomBorderThickness()
-		- parentBorderWidget.getHorizontalScrollbarThickness();
+		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -102,7 +102,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		parentBorderWidget.getMinWidth()
 		- look.getRecursiveOrDefaultLeftBorderThickness()
 		- look.getRecursiveOrDefaultRightBorderThickness()
-		- parentBorderWidget.getVerticalScrollbarThickness();
+		- parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
@@ -145,7 +145,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		parentBorderWidget.getProposalHeight()
 		- look.getRecursiveOrDefaultTopBorderThickness()
 		- look.getRecursiveOrDefaultBottomBorderThickness()
-		- parentBorderWidget.getHorizontalScrollbarThickness();
+		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -160,7 +160,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		parentBorderWidget.getProposalWidth()
 		- look.getRecursiveOrDefaultLeftBorderThickness()
 		- look.getRecursiveOrDefaultRightBorderThickness()
-		- parentBorderWidget.getVerticalScrollbarThickness();
+		- parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method

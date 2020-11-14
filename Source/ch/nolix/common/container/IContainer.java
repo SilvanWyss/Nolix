@@ -31,7 +31,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 2030
+ * @lines 2060
  * @param <E> The type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1199,6 +1199,29 @@ public interface IContainer<E> extends Iterable<E> {
 			this,
 			"does not contain any elements the given selector selects together"
 		);
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n).
+	 * 
+	 * @param selector
+	 * @return either the first element the given selector selects from the current {@link IContainer}
+	 * or an empty {@link SingleContainer}.
+	 */
+	public default SingleContainer<E> getRefFirstOptionally(final IElementTakerBooleanGetter<E> selector) {
+		
+		//Iterates the current IContainer.
+		for (final var e : this) {
+			
+			//Handles the case that the given selector selects the current element.
+			if (selector.getOutput(e)) {
+				return new SingleContainer<>(e);
+			}
+		}
+		
+		//Handles the case that the given selector does not select an element from the current IContainer.
+		return new SingleContainer<>();
 	}
 	
 	//method

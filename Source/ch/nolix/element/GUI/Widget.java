@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.functionAPI.I2ElementTaker;
 import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
@@ -381,11 +382,11 @@ TopLeftPositionedRecangular {
 	 */
 	public CursorIcon getCursorIcon() {
 		
-		final var widgetUnderCursor = getRefPaintableWidgets().getRefFirstOrNull(Widget::isUnderCursor);
-		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getCursorIcon();
+		final var widgetContainer = getRefWidgetUnderCursor();
+		if (widgetContainer.containsAny()) {
+			return widgetContainer.getRefElement().getCursorIcon();
 		}
-		
+				
 		return getCustomCursorIcon();
 	}
 	
@@ -1833,6 +1834,11 @@ TopLeftPositionedRecangular {
 	private void fillUpWidgetsForPaintingRecursively(final LinkedList<Widget<?, ?>> list) {
 		fillUpShownWidgets(list);
 		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
+	}
+	
+	//method
+	private SingleContainer<Widget<?, ?>> getRefWidgetUnderCursor() {
+		return getRefPaintableWidgets().getRefFirstOptionally(Widget::isUnderCursor);
 	}
 	
 	//method

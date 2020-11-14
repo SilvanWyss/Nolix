@@ -275,7 +275,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	/**
 	 * @return the recursive or default base scroll bar look of the current {@link BorderWidgetLook}.
 	 */
-	public final BorderWidgetScrollBarLook getRecursiveOrDefaultBaseScrollbarLook() {
+	public final BorderWidgetScrollBarLook getRecursiveOrDefaultBaseScrollBarLook() {
 		
 		//Handles the case that the current border widget look has a base scroll bar look.
 		if (hasBaseScrollBarLook()) {
@@ -285,7 +285,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		//Handles the case that the current border widget look
 		//does not have a base scroll bar look but a base look.
 		if (hasBaseLook()) {
-			return getRefBaseLook().getRecursiveOrDefaultBaseScrollbarLook();
+			return getRefBaseLook().getRecursiveOrDefaultBaseScrollBarLook();
 		}
 		
 		//Handles the case that the current border widget look

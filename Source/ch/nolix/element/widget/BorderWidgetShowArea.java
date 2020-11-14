@@ -85,7 +85,7 @@ implements TopLeftPositionedRecangular {
 		parentBorderWidget.getMaxHeight()
 		- look.getRecursiveOrDefaultTopBorderThickness()
 		- look.getRecursiveOrDefaultBottomBorderThickness()
-		- parentBorderWidget.getHorizontalScrollbarThickness();
+		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -100,7 +100,7 @@ implements TopLeftPositionedRecangular {
 		parentBorderWidget.getMaxWidth()
 		- look.getRecursiveOrDefaultLeftBorderThickness()
 		- look.getRecursiveOrDefaultRightBorderThickness()
-		- parentBorderWidget.getVerticalScrollbarThickness();
+		- parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
