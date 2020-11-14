@@ -24,22 +24,6 @@ implements Clearable<FloatContainer> {
 		resetAndApplyDefaultConfiguration();
 	}
 	
-	//constructor
-	public FloatContainer(final Iterable<Widget<?, ?>> widgets) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addWidgets(widgets);
-	}
-	
-	//constructor
-	public FloatContainer(final Widget<?, ?>... widgets) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addWidget(widgets);
-	}
-
 	//own imports
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {

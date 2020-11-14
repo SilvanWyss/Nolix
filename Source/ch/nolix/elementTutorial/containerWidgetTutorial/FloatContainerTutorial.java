@@ -30,7 +30,8 @@ public final class FloatContainerTutorial {
 		
 		//Creates a FloatConatiner.
 		final var floatContainer =
-		new FloatContainer(
+		new FloatContainer()
+		.addWidget(
 			new Label().setText("A"),
 			new Label().setText("B"),
 			new Label().setText("C"),
