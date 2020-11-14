@@ -42,7 +42,8 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		
 		//setup
 		final var accordion =
-		new Accordion(
+		new Accordion()
+		.addTab(
 			new AccordionTab(),
 			new AccordionTab(),
 			new AccordionTab(),

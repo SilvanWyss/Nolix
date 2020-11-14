@@ -22,7 +22,7 @@ import ch.nolix.element.widget.VerticalStack;
 /**
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 450
+ * @lines 430
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
@@ -61,21 +61,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	public Accordion() {
 		resetAndApplyDefaultConfiguration();
-	}
-	
-	//method
-	/**
-	 * Creates a new {@link Accordion} with the given tabs.
-	 * 
-	 * @param tabs
-	 * @throws ArgumentIsNullException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
-	 */
-	public Accordion(final AccordionTab... tabs) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		addTab(tabs);
 	}
 	
 	//method

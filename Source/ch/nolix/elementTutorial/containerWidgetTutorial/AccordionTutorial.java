@@ -30,7 +30,8 @@ public final class AccordionTutorial {
 		
 		//Creates an Accordion.
 		final var accordion =
-		new Accordion(
+		new Accordion()
+		.addTab(
 			new AccordionTab("A", new Area().setSize(500,  200).setBackgroundColor(Color.BLUE)),
 			new AccordionTab("B", new Area().setSize(500,  200).setBackgroundColor(Color.GREEN)),
 			new AccordionTab("C", new Area().setSize(500,  200).setBackgroundColor(Color.BLUE)),
