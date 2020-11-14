@@ -756,6 +756,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 */
 	@Override
 	protected final void noteResizeWhenDoesNotHaveInputTaker(final int viewAreaWidth, final int viewAreaHeight) {
+		getRefTopOrBackgroundLayer().noteResize(viewAreaWidth, viewAreaHeight);
 		refresh();
 	}
 	

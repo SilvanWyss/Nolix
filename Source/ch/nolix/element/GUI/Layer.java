@@ -31,6 +31,7 @@ import ch.nolix.element.elementEnum.ExtendedContentPosition;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.BorderWidget;
 
 //class
 /**
@@ -40,7 +41,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1240
+ * @lines 1250
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -630,7 +631,16 @@ IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
+	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+		if (containsAny() && getRefRootWidget() instanceof BorderWidget) {
+			
+			final var borderWidget = getRefRootWidget().as(BorderWidget.class);
+			
+			if (borderWidget.hasAutomaticSize()) {					
+				borderWidget.setProposalSize(viewAreaWidth, viewAreaHeight);
+			}
+		}
+	}
 	
 	//method
 	/**

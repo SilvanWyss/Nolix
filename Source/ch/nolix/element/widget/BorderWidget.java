@@ -61,7 +61,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1530
+ * @lines 1580
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -76,6 +76,7 @@ extends Widget<BW, BWL> {
 	private static final int SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
 		
 	//constants
+	private static final String AUTOMATIC_SIZE_HEADER = "AutomaticSize";
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	private static final String MIN_HEIGHT_HEADER = "MinHeight";
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
@@ -84,6 +85,22 @@ extends Widget<BW, BWL> {
 	private static final String PROPOSAL_HEIGHT_HEADER = "ProposalHeight";
 	private static final String SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER = "ShowAreaXPositionOnScrolledArea";
 	private static final String SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER = "ShowAreaYPositionOnScrolledArea";
+	
+	//attribute
+	private MutableProperty<Boolean> automaticSize =
+	new MutableProperty<>(
+		AUTOMATIC_SIZE_HEADER,
+		as -> {
+			if (as) {
+				activateAutomaticSize();
+			}
+			else {
+				deactivateAutomaticSize();
+			}
+		},
+		BaseNode::getOneAttributeAsBoolean,
+		Node::withOneAttribute
+	);
 	
 	//attribute
 	private MutableProperty<ContentPosition> contentPosition =
@@ -180,6 +197,32 @@ extends Widget<BW, BWL> {
 	//optional attributes
 	private int verticalScrollingCursorStartYPosition;
 	private int horizontalScrollingCursorStartXPosition;
+	
+	//method
+	/**
+	 * Lets the current {@link BorderWidget} active automatic size.
+	 * 
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW activateAutomaticSize() {
+		
+		this.automaticSize.setValue(true);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BorderWidget} deactive automatic size.
+	 * 
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW deactivateAutomaticSize() {
+		
+		this.automaticSize.setValue(false);
+		
+		return asConcrete();
+	}
 	
 	//method
 	/**
@@ -455,6 +498,14 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * @return true if the current {@link BorderWidget} has automatic size.
+	 */
+	public final boolean hasAutomaticSize() {
+		return automaticSize.getValue();
+	}
+	
+	//method
+	/**
 	 * This method determines if the current {@link BorderWidget} has a horizontal scroll bar.
 	 * 
 	 * There can be the following issues.
@@ -616,6 +667,7 @@ extends Widget<BW, BWL> {
 		
 		super.reset();
 		
+		deactivateAutomaticSize();
 		showAreaXPositionOnScrolledArea.setValue(0);
 		showAreaYPositionOnScrolledArea.setValue(0);
 		
