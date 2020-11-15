@@ -15,7 +15,7 @@ import ch.nolix.common.processProperty.ChangeState;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.MultiProperty;
+import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.containerWidget.Accordion;
@@ -152,8 +152,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	private final Layer backGround = new Layer();
 	
 	//attribute
-	private final MultiProperty<Layer> layers =
-	new MultiProperty<>(
+	private final MultiValue<Layer> layers =
+	new MultiValue<>(
 		PascalCaseNameCatalogue.LAYER,
 		this::addLayerOnTop,
 		Layer::fromSpecification,

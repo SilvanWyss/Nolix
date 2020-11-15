@@ -8,8 +8,8 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MultiProperty;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MultiValue;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.techAPI.projectAPI.IProject;
 import ch.nolix.techAPI.projectAPI.ITask;
 
@@ -25,8 +25,8 @@ import ch.nolix.techAPI.projectAPI.ITask;
 public final class Project extends Element<Project> implements IProject {
 	
 	//attribute
-	private final MutableProperty<String> name =
-	new MutableProperty<>(
+	private final MutableValue<String> name =
+	new MutableValue<>(
 		VariableNameCatalogue.NAME,
 		this::setName,
 		BaseNode::getOneAttributeHeader,
@@ -34,8 +34,8 @@ public final class Project extends Element<Project> implements IProject {
 	);
 	
 	//attribute
-	private final MultiProperty<ITask> tasks =
-	new MultiProperty<>(
+	private final MultiValue<ITask> tasks =
+	new MultiValue<>(
 		Task.TYPE_NAME,
 		t -> addTask(t),
 		s -> Task.fromSpecification(s),

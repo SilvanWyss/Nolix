@@ -6,9 +6,9 @@ import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MutableOptionalProperty;
-import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.base.Property;
+import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.base.MutableValue;
+import ch.nolix.element.base.Value;
 import ch.nolix.element.time.Time;
 import ch.nolix.techAPI.projectAPI.ITask;
 import ch.nolix.techAPI.projectAPI.TaskSize;
@@ -42,8 +42,8 @@ public final class Task extends Element<Task> implements ITask {
 	}
 	
 	//attribute
-	private final MutableProperty<String> title =
-	new MutableProperty<>(
+	private final MutableValue<String> title =
+	new MutableValue<>(
 		TITLE_HEADER,
 		t -> setTitle(t),
 		BaseNode::getOneAttributeHeader,
@@ -51,8 +51,8 @@ public final class Task extends Element<Task> implements ITask {
 	);
 	
 	//attribute
-	private final Property<Time> creationDate =
-	new Property<>(
+	private final Value<Time> creationDate =
+	new Value<>(
 		CREATION_DATE_HEADER,
 		cd -> setCreationDate(cd),
 		s -> Time.fromSpecification(s),
@@ -60,8 +60,8 @@ public final class Task extends Element<Task> implements ITask {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Time> solveTime =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Time> solveTime =
+	new MutableOptionalValue<>(
 		SOLVE_DATE_HEADER,
 		st -> setSolved(st),
 		s -> Time.fromSpecification(s),
@@ -69,8 +69,8 @@ public final class Task extends Element<Task> implements ITask {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<TaskSize> size =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<TaskSize> size =
+	new MutableOptionalValue<>(
 		SIZE_HEADER,
 		s -> setSize(s),
 		s -> TaskSize.fromSpecification(s),

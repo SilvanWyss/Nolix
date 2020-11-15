@@ -10,8 +10,8 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.base.MutableOptionalProperty;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.elementEnum.RotationDirection;
@@ -87,8 +87,8 @@ extends Widget<BW, BWL> {
 	private static final String SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER = "ShowAreaYPositionOnScrolledArea";
 	
 	//attribute
-	private MutableProperty<Boolean> automaticSize =
-	new MutableProperty<>(
+	private MutableValue<Boolean> automaticSize =
+	new MutableValue<>(
 		AUTOMATIC_SIZE_HEADER,
 		as -> {
 			if (as) {
@@ -103,8 +103,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private MutableProperty<ContentPosition> contentPosition =
-	new MutableProperty<>(
+	private MutableValue<ContentPosition> contentPosition =
+	new MutableValue<>(
 		ContentPosition.TYPE_NAME,
 		this::setContentPosition,
 		ContentPosition::fromSpecification,
@@ -112,8 +112,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Integer> minWidth =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Integer> minWidth =
+	new MutableOptionalValue<>(
 		MIN_WIDTH_HEADER,
 		this::setMinWidth,
 		BaseNode::getOneAttributeAsInt,
@@ -121,8 +121,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Integer> minHeight =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Integer> minHeight =
+	new MutableOptionalValue<>(
 		MIN_HEIGHT_HEADER,
 		this::setMinHeight,
 		BaseNode::getOneAttributeAsInt,
@@ -130,8 +130,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Integer> maxWidth =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Integer> maxWidth =
+	new MutableOptionalValue<>(
 		MAX_WIDTH_HEADER,
 		this::setMaxWidth,
 		BaseNode::getOneAttributeAsInt,
@@ -139,8 +139,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Integer> maxHeight =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Integer> maxHeight =
+	new MutableOptionalValue<>(
 		MAX_HEIGHT_HEADER,
 		this::setMaxHeight,
 		BaseNode::getOneAttributeAsInt,
@@ -148,8 +148,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Integer> proposalWidth =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Integer> proposalWidth =
+	new MutableOptionalValue<>(
 		PROPOSAL_WIDTH_HEADER,
 		this::setProposalWidth,
 		BaseNode::getOneAttributeAsInt,
@@ -157,8 +157,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Integer> proposalHeight =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Integer> proposalHeight =
+	new MutableOptionalValue<>(
 		PROPOSAL_HEIGHT_HEADER,
 		this::setProposalHeight,
 		BaseNode::getOneAttributeAsInt,
@@ -166,8 +166,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableProperty<Integer> showAreaXPositionOnScrolledArea =
-	new MutableProperty<>(
+	private final MutableValue<Integer> showAreaXPositionOnScrolledArea =
+	new MutableValue<>(
 		SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
 		this::setShowAreaXPositionOnScrolledArea,
 		BaseNode::getOneAttributeAsInt,
@@ -175,8 +175,8 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableProperty<Integer> showAreaYPositionOnScrolledArea =
-	new MutableProperty<>(
+	private final MutableValue<Integer> showAreaYPositionOnScrolledArea =
+	new MutableValue<>(
 		SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
 		this::setShowAreaYPositionOnScrolledArea,
 		BaseNode::getOneAttributeAsInt,

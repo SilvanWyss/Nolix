@@ -4,7 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementAPI.IMutableElement;
 
@@ -29,8 +29,8 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	}
 	
 	//attribute
-	private final MutableProperty<Color> scrollBarColor =
-	new MutableProperty<>(
+	private final MutableValue<Color> scrollBarColor =
+	new MutableValue<>(
 		SCROLL_BAR_COLOR_HEADER,
 		this::setScrollBarColor,
 		Color::fromSpecification,
@@ -38,8 +38,8 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	);
 	
 	//attribute
-	private final MutableProperty<Color> scrollBarCursorColor =
-	new MutableProperty<>(
+	private final MutableValue<Color> scrollBarCursorColor =
+	new MutableValue<>(
 		SCROLL_CURSOR_COLOR_HEADER,
 		this::setScrollCursorColor,
 		Color::fromSpecification,

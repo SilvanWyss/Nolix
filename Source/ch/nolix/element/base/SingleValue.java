@@ -16,9 +16,9 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 160
- * @param <V> The type of the value of a {@link SingleProperty}.
+ * @param <V> The type of the value of a {@link SingleValue}.
  */
-abstract class SingleProperty<V> extends BaseProperty<V> {
+abstract class SingleValue<V> extends Property<V> {
 	
 	//attribute
 	private final IElementTaker<V> setterMethod;
@@ -28,7 +28,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 
 	//constructor
 	/**
-	 * Creates a new {@link SingleProperty} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * Creates a new {@link SingleValue} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
@@ -39,7 +39,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public SingleProperty(
+	public SingleValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
@@ -61,7 +61,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//method
 	/**
-	 * @return true if the current {@link SingleProperty} has a value.
+	 * @return true if the current {@link SingleValue} has a value.
 	 */
 	public final boolean containsAny() {
 		return (value != null);
@@ -69,8 +69,8 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//method
 	/**
-	 * @return the value of the current {@link SingleProperty}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleProperty} does not have a value.
+	 * @return the value of the current {@link SingleValue}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleValue} does not have a value.
 	 */
 	public final V getValue() {
 		
@@ -84,7 +84,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//method
 	/**
-	 * @return true if the current {@link SingleProperty} has a value.
+	 * @return true if the current {@link SingleValue} has a value.
 	 */
 	public final boolean hasValue() {
 		return (value != null);
@@ -92,7 +92,7 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//method
 	/**
-	 * @return true if the current {@link SingleProperty} does not have a value.
+	 * @return true if the current {@link SingleValue} does not have a value.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -101,17 +101,17 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link SingleProperty} is optional.
+	 * @return true if the current {@link SingleValue} is optional.
 	 */
 	public abstract boolean isOptional();
 	
 	//method
 	/**
-	 * Sets the value of the current {@link SingleProperty}.
+	 * Sets the value of the current {@link SingleValue}.
 	 * 
 	 * @param value
 	 * @throws ArgumentIsNullException if the given value is null.
-	 * @throws InvalidArgumentException if the current {@link SingleProperty} is not mutable and has already a value.
+	 * @throws InvalidArgumentException if the current {@link SingleValue} is not mutable and has already a value.
 	 */
 	public final void setValue(final V value) {
 		
@@ -138,9 +138,9 @@ abstract class SingleProperty<V> extends BaseProperty<V> {
 	
 	//method
 	/**
-	 * Removes the value of the current {@link SingleProperty}.
+	 * Removes the value of the current {@link SingleValue}.
 	 * 
-	 * @return the current {@link SingleProperty}.
+	 * @return the current {@link SingleValue}.
 	 */
 	void clear() {	
 		value = null;

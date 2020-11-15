@@ -18,7 +18,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.skillAPI.Closeable;
 import ch.nolix.common.skillAPI.Refreshable;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementAPI.IConfigurableElement;
@@ -43,8 +43,8 @@ implements Clearable<G>, Closeable, Refreshable {
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//attribute
-	private final MutableProperty<String> title =
-	new MutableProperty<>(
+	private final MutableValue<String> title =
+	new MutableValue<>(
 		PascalCaseNameCatalogue.TITLE,
 		s -> setTitle(s),
 		BaseNode::getOneAttributeHeader,
@@ -52,8 +52,8 @@ implements Clearable<G>, Closeable, Refreshable {
 	);
 	
 	//attribute
-	private final MutableProperty<Color> backgroundColor =
-	new MutableProperty<>(
+	private final MutableValue<Color> backgroundColor =
+	new MutableValue<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification,

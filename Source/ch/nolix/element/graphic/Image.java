@@ -22,7 +22,7 @@ import ch.nolix.common.runningJar.RunningJar;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.Property;
+import ch.nolix.element.base.Value;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementAPI.IMutableElement;
 
@@ -110,8 +110,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//attribute
-	private final Property<Integer> width =
-	new Property<>(
+	private final Value<Integer> width =
+	new Value<>(
 		PascalCaseNameCatalogue.WIDTH,
 		w -> setWidth(w),
 		BaseNode::getOneAttributeAsInt,
@@ -119,8 +119,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	);
 	
 	//attribute
-	private final Property<Integer> height =
-	new Property<>(
+	private final Value<Integer> height =
+	new Value<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h),
 		BaseNode::getOneAttributeAsInt,

@@ -15,7 +15,7 @@ import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementAPI.IMutableElement;
 import ch.nolix.element.elementEnum.ContentPosition;
 import ch.nolix.element.widget.Label;
@@ -33,8 +33,8 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
 	
 	//attribute
-	private final MutableProperty<String> header =
-	new MutableProperty<>(
+	private final MutableValue<String> header =
+	new MutableValue<>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
 		BaseNode::getOneAttributeHeader,

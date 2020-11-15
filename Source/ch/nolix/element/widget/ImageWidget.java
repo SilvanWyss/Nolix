@@ -5,7 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.base.MutableOptionalProperty;
+import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -16,8 +16,8 @@ extends BorderWidget<ImageWidget, ImageWidgetLook>
 implements Clearable<ImageWidget> {
 	
 	//attribute
-	private final MutableOptionalProperty<Image> image =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValue<Image> image =
+	new MutableOptionalValue<>(
 		Image.TYPE_NAME,
 		i -> setImage(i),
 		s -> Image.fromSpecification(s),

@@ -5,7 +5,7 @@ package ch.nolix.element.input;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.Property;
+import ch.nolix.element.base.Value;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 
 //class
@@ -26,12 +26,12 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 	}
 	
 	//attribute
-	private final Property<MouseInputType> inputType =
-	new Property<>(INPUT_TYPE_HEADER, this::setInputType, MouseInputType::fromSpecification);
+	private final Value<MouseInputType> inputType =
+	new Value<>(INPUT_TYPE_HEADER, this::setInputType, MouseInputType::fromSpecification);
 	
 	//attribute
-	private final Property<Discrete2DPoint> cursorPosition =
-	new Property<>(
+	private final Value<Discrete2DPoint> cursorPosition =
+	new Value<>(
 		PascalCaseNameCatalogue.CURSOR_POSITION,
 		this::setCursorPosition,
 		Discrete2DPoint::fromSpecification

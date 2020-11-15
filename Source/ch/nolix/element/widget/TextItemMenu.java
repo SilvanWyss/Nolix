@@ -11,7 +11,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.MultiProperty;
+import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.input.Key;
 
 //class
@@ -22,8 +22,8 @@ implements Clearable<TIM> {
 	private static final int MIN_ITEM_LABEL_WIDTH = 10;
 	
 	//attribute
-	private final MultiProperty<TextItemMenuItem> items =
-	new MultiProperty<>(
+	private final MultiValue<TextItemMenuItem> items =
+	new MultiValue<>(
 		PascalCaseNameCatalogue.ITEM,
 		this::addItem,
 		TextItemMenuItem::fromSpecification,
