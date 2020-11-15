@@ -8,7 +8,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
-import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.MutableProperty;
 
 //class
 /**
@@ -23,8 +23,8 @@ public final class Sphere extends BaseShape<Sphere> {
 	public static final double DEFAULT_DIAMETER = 2.0 * DEFAULT_RADIUS;
 	
 	//attribute	
-	private final MutableValueProperty<Double> radius =
-	new MutableValueProperty<>(
+	private final MutableProperty<Double> radius =
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.RADIUS,
 		r -> setRadius(r),
 		BaseNode::getOneAttributeAsDouble,

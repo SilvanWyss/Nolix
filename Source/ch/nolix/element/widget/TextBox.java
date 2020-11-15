@@ -7,7 +7,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -27,8 +27,8 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
 	
 	//attribute
-	private MutableValueProperty<Integer> textCursorPosition =
-	new MutableValueProperty<>(
+	private MutableProperty<Integer> textCursorPosition =
+	new MutableProperty<>(
 		TEXT_CURSOR_POSITION_HEADER,
 		this::setTextCursorPosition,
 		BaseNode::getOneAttributeAsInt,

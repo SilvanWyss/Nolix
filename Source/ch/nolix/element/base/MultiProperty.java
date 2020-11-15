@@ -19,9 +19,9 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 200
- * @param <V> The type of the values of a {@link MultiValueProperty}.
+ * @param <V> The type of the values of a {@link MultiProperty}.
  */
-public final class MultiValueProperty<V> extends Property<V> implements IContainer<V> {
+public final class MultiProperty<V> extends BaseProperty<V> implements IContainer<V> {
 	
 	//attribute
 	private final IElementTaker<V> adderMethod;
@@ -31,7 +31,7 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//constructor
 	/**
-	 * Creates a new {@link MultiValueProperty} with the given name, valueCreator, adderMethod and specificationCreator.
+	 * Creates a new {@link MultiProperty} with the given name, valueCreator, adderMethod and specificationCreator.
 	 * 
 	 * @param name
 	 * @param valueCreator
@@ -43,7 +43,7 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public MultiValueProperty(
+	public MultiProperty(
 		final String name,
 		final IElementTaker<V> adderMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
@@ -65,11 +65,11 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//method
 	/**
-	 * Adds the given value to the current {@link MultiValueProperty}.
+	 * Adds the given value to the current {@link MultiProperty}.
 	 * 
 	 * @param value
 	 * @throws ArgumentIsNullException if the given value is null.
-	 * @throws InvalidArgumentException if the current {@link MultiValueProperty} contains already the given value.
+	 * @throws InvalidArgumentException if the current {@link MultiProperty} contains already the given value.
 	 */
 	public void add(final V value) {
 		values.addAtEndRegardingSingularity(value);
@@ -77,7 +77,7 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//method
 	/**
-	 * Removes all values of the current {@link MultiValueProperty}.
+	 * Removes all values of the current {@link MultiProperty}.
 	 */
 	public void clear() {	
 		values.clear();
@@ -94,8 +94,8 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//method
 	/**
-	 * @return the last value of the current {@link MultiValueProperty}.
-	 * @throws EmptyArgumentException if the current {@link MultiValueProperty} is empty.
+	 * @return the last value of the current {@link MultiProperty}.
+	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
 	 */
 	public V getRefLast() {
 		return values.getRefLast();
@@ -139,10 +139,10 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//method
 	/**
-	 * Removes the given value of the current {@link MultiValueProperty}.
+	 * Removes the given value of the current {@link MultiProperty}.
 	 * 
 	 * @param value
-	 * @throws InvalidArgumentException if the current {@link MultiValueProperty} does not contain the given value.
+	 * @throws InvalidArgumentException if the current {@link MultiProperty} does not contain the given value.
 	 */
 	public void remove(final V value) {
 		values.removeFirst(value);
@@ -150,10 +150,10 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//method
 	/**
-	 * Removes and returns the last value of the current {@link MultiValueProperty}.
+	 * Removes and returns the last value of the current {@link MultiProperty}.
 	 * 
-	 * @return the last element of the current {@link MultiValueProperty}.
-	 * @throws EmptyArgumentException if the current {@link MultiValueProperty} is empty.
+	 * @return the last element of the current {@link MultiProperty}.
+	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
 	 */
 	public V removeAndGetRefLast() {
 		return values.removeAndGetRefLast();
@@ -161,12 +161,12 @@ public final class MultiValueProperty<V> extends Property<V> implements IContain
 	
 	//method
 	/**
-	 * Removes the last value of the current {@link MultiValueProperty}.
+	 * Removes the last value of the current {@link MultiProperty}.
 	 * 
-	 * @return the current {@link MultiValueProperty}.
-	 * @throws EmptyArgumentException if the current {@link MultiValueProperty} is empty.
+	 * @return the current {@link MultiProperty}.
+	 * @throws EmptyArgumentException if the current {@link MultiProperty} is empty.
 	 */
-	public MultiValueProperty<V> removeLast() {
+	public MultiProperty<V> removeLast() {
 		
 		values.removeLast();
 		

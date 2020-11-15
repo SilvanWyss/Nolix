@@ -7,7 +7,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MutableOptionalValueProperty;
+import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.smartElementAPI.ISmartMutableElement;
@@ -23,24 +23,24 @@ public final class Background extends Element<Background> implements ISmartMutab
 	private static final String BACKGROUND_IMAGE_HEADER = "BackgroundImage";
 	
 	//attribute
-	private final MutableOptionalValueProperty<Color> backgroundColor =
-	new MutableOptionalValueProperty<>(
+	private final MutableOptionalProperty<Color> backgroundColor =
+	new MutableOptionalProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValueProperty<ColorGradient> backgroundColorGradient =
-	new MutableOptionalValueProperty<>(
+	private final MutableOptionalProperty<ColorGradient> backgroundColorGradient =
+	new MutableOptionalProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		this::setBackgroundColorGradient,
 		ColorGradient::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValueProperty<Pair<Image, ImageApplication>> backgroundImage =
-	new MutableOptionalValueProperty<>(
+	private final MutableOptionalProperty<Pair<Image, ImageApplication>> backgroundImage =
+	new MutableOptionalProperty<>(
 		BACKGROUND_IMAGE_HEADER,
 		this::setBackgroundImage,
 		s ->

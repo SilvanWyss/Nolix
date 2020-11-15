@@ -17,7 +17,7 @@ import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementAPI.IMutableElement;
 import ch.nolix.element.widget.HorizontalStack;
@@ -48,8 +48,8 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	}
 	
 	//attribute
-	private final MutableValueProperty<String> header =
-	new MutableValueProperty<>(
+	private final MutableProperty<String> header =
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
 		BaseNode::getOneAttributeHeader,
@@ -57,8 +57,8 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	);
 	
 	//attribute
-	private final MutableValueProperty<Boolean> expanded =
-	new MutableValueProperty<>(
+	private final MutableProperty<Boolean> expanded =
+	new MutableProperty<>(
 		EXPANDED_FLAG_HEADER,
 		e -> {
 			if (e) {

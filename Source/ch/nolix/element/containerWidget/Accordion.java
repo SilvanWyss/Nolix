@@ -11,8 +11,8 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.base.MultiValueProperty;
-import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.MultiProperty;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -35,8 +35,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	Color.LIGHT_GREY;
 	
 	//attribute
-	private final MutableValueProperty<AccordionExpansionBehavior> expansionBehavior =
-	new MutableValueProperty<>(
+	private final MutableProperty<AccordionExpansionBehavior> expansionBehavior =
+	new MutableProperty<>(
 		AccordionExpansionBehavior.TYPE_NAME,
 		eb -> setExpansionBehavior(eb),
 		s -> AccordionExpansionBehavior.fromSpecification(s),
@@ -44,8 +44,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	);
 	
 	//attribute
-	private final MultiValueProperty<AccordionTab> tabs =
-	new MultiValueProperty<>(
+	private final MultiProperty<AccordionTab> tabs =
+	new MultiProperty<>(
 		PascalCaseNameCatalogue.TAB,
 		t -> addTab(t),
 		s -> AccordionTab.fromSpecification(s),

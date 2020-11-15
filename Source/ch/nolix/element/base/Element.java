@@ -21,7 +21,7 @@ import ch.nolix.element.smartElementAPI.ISmartElement;
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
 	
 	//multi-attribute
-	private LinkedList<Property<?>> properties;
+	private LinkedList<BaseProperty<?>> baseProperties;
 	
 	//method
 	/**
@@ -50,7 +50,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	public LinkedList<Node> getAttributes() {
 		
 		final var attributes = new LinkedList<Node>();
-		getRefProperties().forEach(p -> p.fillUpSpecificationsOfValues(attributes));
+		getRefBaseProperties().forEach(p -> p.fillUpSpecificationsOfValues(attributes));
 		
 		return attributes;
 	}
@@ -80,7 +80,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	protected void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Extracts the property with the name of the given attribute.
-		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
+		final var property = getRefBaseProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
 		
 		//Handles the case that the property was not found.
 		if (property == null) {
@@ -94,14 +94,14 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	/**
 	 * @return the properties of the current {@link Element}.
 	 */
-	private IContainer<Property<?>> getRefProperties() {
+	private IContainer<BaseProperty<?>> getRefBaseProperties() {
 		
 		//Handles the case that the properties of the current Entity are not extracted yet.
-		if (!propertiesAreExtracted()) {
-			extractProperties();
+		if (!basePropertiesAreExtracted()) {
+			extractBaseProperties();
 		}
 		
-		return properties;
+		return baseProperties;
 	}
 	
 	//method
@@ -110,20 +110,20 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 * 
 	 * @param field
 	 */
-	private void extractProbableProperty(final Field field) {
+	private void extractProbableBaseProperty(final Field field) {
 		
 		//Handles the case that the current field is a property.
-		if (Property.class.isAssignableFrom(field.getType())) {
+		if (BaseProperty.class.isAssignableFrom(field.getType())) {
 			try {
 				
 				field.setAccessible(true);
 				
-				final var property = (Property<?>)(field.get(this));
+				final var property = (BaseProperty<?>)(field.get(this));
 				
 				//Asserts that the current property is not null.
-				Validator.assertThat(property).isOfType(MutableValueProperty.class);
+				Validator.assertThat(property).isOfType(MutableProperty.class);
 				
-				properties.addAtEnd(property);
+				baseProperties.addAtEnd(property);
 			}
 			catch (final IllegalAccessException illegalAccessException) {
 				
@@ -142,14 +142,14 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	/**
 	 * Extracts the properties of the current {@link Element}.
 	 */
-	private void extractProperties() {
+	private void extractBaseProperties() {
 		
-		properties = new LinkedList<>();
+		baseProperties = new LinkedList<>();
 		
 		//Iterates the classes of the current {@link Entity}.
 		Class<?> lClass = getClass();
 		while (lClass != null) {
-			extractProperties(lClass);
+			extractBaseProperties(lClass);
 			lClass = lClass.getSuperclass();
 		}
 	}
@@ -160,11 +160,11 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 * 
 	 * @param pClass
 	 */
-	private void extractProperties(final Class<?> pClass) {
+	private void extractBaseProperties(final Class<?> pClass) {
 		
 		//Iterates the fields of the given class.
 		for (final var f : pClass.getDeclaredFields()) {
-			extractProbableProperty(f);
+			extractProbableBaseProperty(f);
 		}
 	}
 	
@@ -172,7 +172,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	/**
 	 * @return true if the properties of the current {@link Element} are extracted.
 	 */
-	private boolean propertiesAreExtracted() {
-		return (properties != null);
+	private boolean basePropertiesAreExtracted() {
+		return (baseProperties != null);
 	}
 }

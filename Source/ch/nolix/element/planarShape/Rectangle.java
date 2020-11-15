@@ -6,7 +6,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
-import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.MutableProperty;
 
 //class
 /**
@@ -25,8 +25,8 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	private static final String Y_LENGTH_HEADER = "YLength";
 
 	//attribute
-	private final MutableValueProperty<Double> xLength =
-	new MutableValueProperty<>(
+	private final MutableProperty<Double> xLength =
+	new MutableProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl),
 		BaseNode::getOneAttributeAsDouble,
@@ -34,8 +34,8 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	);
 	
 	//attribute
-	private final MutableValueProperty<Double> yLength =
-	new MutableValueProperty<>(
+	private final MutableProperty<Double> yLength =
+	new MutableProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl),
 		BaseNode::getOneAttributeAsDouble,

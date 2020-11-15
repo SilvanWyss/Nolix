@@ -10,9 +10,9 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.MutableValueProperty;
-import ch.nolix.element.base.OptionalValueProperty;
-import ch.nolix.element.base.ValueProperty;
+import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.OptionalProperty;
+import ch.nolix.element.base.Property;
 
 //class
 public final class TextItemMenuItem extends Element<TextItemMenuItem> {
@@ -29,8 +29,8 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	private TextItemMenu<?> parentItemMenu;
 	
 	//attribute
-	private final ValueProperty<String> text =
-	new ValueProperty<>(
+	private final Property<String> text =
+	new Property<>(
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
 		BaseNode::getOneAttributeHeader,
@@ -38,8 +38,8 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	);
 	
 	//attribute
-	private final OptionalValueProperty<String> id =
-	new OptionalValueProperty<>(
+	private final OptionalProperty<String> id =
+	new OptionalProperty<>(
 		PascalCaseNameCatalogue.ID,
 		this::setId,
 		BaseNode::getOneAttributeHeader,
@@ -50,8 +50,8 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	private IElementTaker<TextItemMenu<?>> selectCommand;
 	
 	//attribute
-	private final MutableValueProperty<Boolean> selectionFlag =
-	new MutableValueProperty<>(
+	private final MutableProperty<Boolean> selectionFlag =
+	new MutableProperty<>(
 		SELECTION_FLAG_HEADER,
 		this::setSelectionFlag,
 		BaseNode::getOneAttributeAsBoolean,

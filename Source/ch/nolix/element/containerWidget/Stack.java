@@ -10,7 +10,7 @@ import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.base.MutableOptionalValueProperty;
+import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
@@ -29,8 +29,8 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
 	//attribute
-	private final MutableOptionalValueProperty<Integer> elementMargin =
-	new MutableOptionalValueProperty<>(
+	private final MutableOptionalProperty<Integer> elementMargin =
+	new MutableOptionalProperty<>(
 		ELEMENT_MARGIN_HEADER,
 		em -> setElementMargin(em),
 		BaseNode::getOneAttributeAsInt,

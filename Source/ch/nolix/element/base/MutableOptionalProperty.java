@@ -15,11 +15,11 @@ import ch.nolix.element.elementAPI.IElement;
  * @lines 90
  * @param <V> The value of an optional property.
  */
-public final class MutableOptionalValueProperty<V> extends SingleValueProperty<V> {
+public final class MutableOptionalProperty<V> extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link MutableOptionalValueProperty} with the given name, setterMethod and valueCreator.
+	 * Creates a new {@link MutableOptionalProperty} with the given name, setterMethod and valueCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
@@ -29,7 +29,7 @@ public final class MutableOptionalValueProperty<V> extends SingleValueProperty<V
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public <E extends IElement> MutableOptionalValueProperty(
+	public <E extends IElement> MutableOptionalProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator
@@ -41,7 +41,7 @@ public final class MutableOptionalValueProperty<V> extends SingleValueProperty<V
 	
 	//constructor
 	/**
-	 * Creates a new {@link MutableOptionalValueProperty}
+	 * Creates a new {@link MutableOptionalProperty}
 	 * with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
@@ -53,7 +53,7 @@ public final class MutableOptionalValueProperty<V> extends SingleValueProperty<V
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public MutableOptionalValueProperty(
+	public MutableOptionalProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,

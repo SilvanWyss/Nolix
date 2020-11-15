@@ -2,58 +2,65 @@
 package ch.nolix.element.base;
 
 //own imports
-import ch.nolix.common.attributeAPI.Named;
-import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
-* @author Silvan Wyss
-* @month 2017-10
-* @lines 100
-* @param <V> The type of the values of a {@link Property}.
-*/
-public abstract class Property<V> implements Named {
-	
-	//attributes
-	private final String name;
-	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
-	final IElementTakerElementGetter<V, Node> specificationCreator;
+ * @author Silvan Wyss
+ * @month 2018-02
+ * @lines 80
+ * @param <V> The type of the value of a {@link Property}.
+ */
+public final class Property<V> extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Property} with the given name, valueCreator and specificationCreator.
+	 * Creates a new {@link Property} with the given name, setterMethod and valueCreator.
 	 * 
 	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @throws ArgumentIsNullException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public <E extends IElement> Property(
+		final String name,
+		final IElementTaker<V> setterMethod,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator
+	) {
+		
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator, v -> ((E)v).getSpecification());
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Property} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * 
+	 * @param name
+	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
 	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is blank.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	Property(
+	public Property(
 		final String name,
+		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		//Asserts that the given name is not null or blank.
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
-				
-		//Asserts that the given value creator is not null.
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		
-		//Asserts that the given specification creator is not null.
-		Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
-		
-		this.name = name;
-		this.valueCreator = valueCreator;
-		this.specificationCreator = specificationCreator;
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator, specificationCreator);
 	}
 	
 	//method
@@ -61,45 +68,16 @@ public abstract class Property<V> implements Named {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getName() {
-		return name;
+	public boolean isMutable() {
+		return false;
 	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link Property} does not contain a value.
-	 */
-	public abstract boolean isEmpty();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link Property} is mutable.
-	 */
-	public abstract boolean isMutable();
-	
-	//method declaration
-	/**
-	 * Adds or change the given value to the current {@link Property}.
-	 * 
-	 * @param value
-	 */
-	abstract void addOrChangeValue(V value);
 	
 	//method
 	/**
-	 * Adds or changes the value from the given specification to the current {@link Property}.
-	 * 
-	 * @param specification
+	 * {@inheritDoc}
 	 */
-	final void addOrChangeValueFromSpecification(final BaseNode specification) {
-		addOrChangeValue(valueCreator.getOutput(specification));
+	@Override
+	public boolean isOptional() {
+		return false;
 	}
-	
-	//method declaration
-	/**
-	 * Fills up the specifications of the values of the current {@link Property} into the given list.
-	 * 
-	 * @param list
-	 */
-	abstract void fillUpSpecificationsOfValues(LinkedList<Node> list);
 }

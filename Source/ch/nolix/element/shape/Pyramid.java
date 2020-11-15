@@ -8,7 +8,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
-import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.MutableProperty;
 
 //class
 public final class Pyramid extends BaseShape<Pyramid> {
@@ -18,8 +18,8 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute
-	private final MutableValueProperty<Double> sideLength =
-	new MutableValueProperty<>(
+	private final MutableProperty<Double> sideLength =
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.SIDE_LENGTH,
 		sl -> setSideLength(sl),
 		BaseNode::getOneAttributeAsDouble,
@@ -27,8 +27,8 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	);
 	
 	//attribute
-	private final MutableValueProperty<Double> height =
-	new MutableValueProperty<>(
+	private final MutableProperty<Double> height =
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h),
 		BaseNode::getOneAttributeAsDouble,

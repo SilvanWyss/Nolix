@@ -7,7 +7,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.ValueProperty;
+import ch.nolix.element.base.Property;
 
 //class
 public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput> {
@@ -173,12 +173,12 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	}
 	
 	//attribute
-	private final ValueProperty<Key> key =
-	new ValueProperty<>(PascalCaseNameCatalogue.KEY, this::setKey, Key::fromSpecification);
+	private final Property<Key> key =
+	new Property<>(PascalCaseNameCatalogue.KEY, this::setKey, Key::fromSpecification);
 	
 	//attribute
-	private final ValueProperty<KeyInputType> inputType =
-	new ValueProperty<>(INPUT_TYPE_HEADER, this::setInputType, KeyInputType::fromSpecification);
+	private final Property<KeyInputType> inputType =
+	new Property<>(INPUT_TYPE_HEADER, this::setInputType, KeyInputType::fromSpecification);
 	
 	//constructor
 	public KeyInput(final Key key, final KeyInputType inputType) {
