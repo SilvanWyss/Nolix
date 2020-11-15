@@ -2,7 +2,7 @@ package ch.nolix.systemTutorial.MSSQLDatabaseSchemaAdapterTutorial;
 
 import ch.nolix.system.MSSQLDatabaseSchemaAdapter.MSSQLDatabaseSchemaAdapter;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.ValueProperty;
+import ch.nolix.system.entity.Value;
 
 public final class MSSQLDatabaseSchemaAdapterTutorial {
 	
@@ -22,10 +22,10 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 	private static class Person extends Entity {
 		
 		@SuppressWarnings("unused")
-		private final ValueProperty<String> Surname = new ValueProperty<>();
+		private final Value<String> Surname = new Value<>();
 		
 		@SuppressWarnings("unused")
-		private final ValueProperty<String> Name = new ValueProperty<>();
+		private final Value<String> Name = new Value<>();
 	}
 	
 	private MSSQLDatabaseSchemaAdapterTutorial() {}

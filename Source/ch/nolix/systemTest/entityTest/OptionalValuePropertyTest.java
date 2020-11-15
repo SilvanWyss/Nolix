@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
-import ch.nolix.system.entity.OptionalValueProperty;
+import ch.nolix.system.entity.OptionalValue;
 
 //class
 public final class OptionalValuePropertyTest extends Test {
@@ -19,7 +19,7 @@ public final class OptionalValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
 		EntityAccessor.extractProperties(entity);
 		entity.testUnit.clear();
@@ -41,7 +41,7 @@ public final class OptionalValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
 		EntityAccessor.extractProperties(entity);
 		entity.testUnit.setValue("x");
@@ -63,7 +63,7 @@ public final class OptionalValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
 		entity.testUnit.clear();
 		
@@ -84,7 +84,7 @@ public final class OptionalValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValueProperty<String> testUnit = new OptionalValueProperty<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
 		entity.testUnit.setValue("x");
 		

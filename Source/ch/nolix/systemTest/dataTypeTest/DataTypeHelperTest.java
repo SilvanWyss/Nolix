@@ -19,12 +19,12 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.MultiBackReference;
 import ch.nolix.system.entity.MultiReference;
-import ch.nolix.system.entity.MultiValueProperty;
+import ch.nolix.system.entity.MultiValue;
 import ch.nolix.system.entity.OptionalBackReference;
 import ch.nolix.system.entity.OptionalReference;
-import ch.nolix.system.entity.OptionalValueProperty;
+import ch.nolix.system.entity.OptionalValue;
 import ch.nolix.system.entity.Reference;
-import ch.nolix.system.entity.ValueProperty;
+import ch.nolix.system.entity.Value;
 
 //class
 public final class DataTypeHelperTest extends Test {
@@ -33,21 +33,21 @@ public final class DataTypeHelperTest extends Test {
 	private static final class Entity1A extends Entity {
 		
 		//attribute
-		public final ValueProperty<String> valueProperty = new ValueProperty<>();
+		public final Value<String> valueProperty = new Value<>();
 	}
 	
 	//static class
 	private static final class Entity1B extends Entity {
 		
 		//attribute
-		public final OptionalValueProperty<String> optionalValueProperty = new OptionalValueProperty<>();
+		public final OptionalValue<String> optionalValueProperty = new OptionalValue<>();
 	}
 	
 	//static class
 	private static final class Entity1C extends Entity {
 		
 		//attribute
-		public final MultiValueProperty<String> multiValueProperty = new MultiValueProperty<>();
+		public final MultiValue<String> multiValueProperty = new MultiValue<>();
 	}
 	
 	//static class

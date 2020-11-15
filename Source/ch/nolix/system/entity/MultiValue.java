@@ -8,7 +8,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 
 //class
-public final class MultiValueProperty<V> extends BaseValueProperty<V> implements Clearable<MultiValueProperty<V>> {
+public final class MultiValue<V> extends BaseValueProperty<V> implements Clearable<MultiValue<V>> {
 	
 	//multi-attribute
 	private final LinkedList<V> values = new LinkedList<>();
@@ -45,7 +45,7 @@ public final class MultiValueProperty<V> extends BaseValueProperty<V> implements
 	
 	//method
 	@Override
-	public MultiValueProperty<V> clear() {
+	public MultiValue<V> clear() {
 		
 		internalClear();
 		

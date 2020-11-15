@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
-import ch.nolix.system.entity.MultiValueProperty;
+import ch.nolix.system.entity.MultiValue;
 
 //class
 public final class MultiValuePropertyTest extends Test {
@@ -19,7 +19,7 @@ public final class MultiValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		EntityAccessor.extractProperties(entity);
 		entity.testUnit.clear();
@@ -41,7 +41,7 @@ public final class MultiValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		EntityAccessor.extractProperties(entity);
 		entity.testUnit.addValue("a", "b", "c");
@@ -63,7 +63,7 @@ public final class MultiValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		entity.testUnit.clear();
 		
@@ -84,7 +84,7 @@ public final class MultiValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValueProperty<String> testUnit = new MultiValueProperty<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		entity.testUnit.addValue("a", "b", "c");
 		

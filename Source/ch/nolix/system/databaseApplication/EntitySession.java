@@ -23,9 +23,9 @@ import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.MultiReference;
-import ch.nolix.system.entity.OptionalValueProperty;
+import ch.nolix.system.entity.OptionalValue;
 import ch.nolix.system.entity.OptionalReference;
-import ch.nolix.system.entity.ValueProperty;
+import ch.nolix.system.entity.Value;
 import ch.nolix.system.entity.Reference;
 
 //class
@@ -100,7 +100,7 @@ public final class EntitySession extends HeaderedSession {
 			switch (p.getPropertyKind()) {
 				case VALUE:
 					
-					final var property = (ValueProperty<?>)p;
+					final var property = (Value<?>)p;
 					
 					dataGrid
 					.setWidget(
@@ -121,7 +121,7 @@ public final class EntitySession extends HeaderedSession {
 					break;
 				case OPTIONAL_VALUE:
 					
-					final var optionalProperty = (OptionalValueProperty<?>)p;
+					final var optionalProperty = (OptionalValue<?>)p;
 					
 					dataGrid.setWidget(rowIndex, 1,	new Label().setText(p.getHeader()));
 					
@@ -140,7 +140,7 @@ public final class EntitySession extends HeaderedSession {
 									final var image =
 									Image.fromBytes(getRefGUI().fromFrontEnd().readFileToBytes().getRefElement());
 									
-									((OptionalValueProperty<Image>)optionalProperty).setValue(image);
+									((OptionalValue<Image>)optionalProperty).setValue(image);
 								}
 							)
 						);
@@ -302,7 +302,7 @@ public final class EntitySession extends HeaderedSession {
 				switch (p.getPropertyKind()) {
 					case VALUE:
 						
-						final var property = (ValueProperty<?>)p;
+						final var property = (Value<?>)p;
 						
 						final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
 						
@@ -311,7 +311,7 @@ public final class EntitySession extends HeaderedSession {
 						break;
 					case OPTIONAL_VALUE:
 						
-						final var optionalProperty = (OptionalValueProperty<?>)p;
+						final var optionalProperty = (OptionalValue<?>)p;
 						
 						if (optionalProperty.getValueClass() == Image.class) {
 							break;

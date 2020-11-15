@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
-import ch.nolix.system.entity.ValueProperty;
+import ch.nolix.system.entity.Value;
 
 //class
 public final class ValuePropertyTest extends Test {
@@ -19,7 +19,7 @@ public final class ValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final ValueProperty<String> testUnit = new ValueProperty<>();
+			public final Value<String> testUnit = new Value<>();
 		};
 		EntityAccessor.extractProperties(entity);
 		entity.testUnit.setValue("x");
@@ -41,7 +41,7 @@ public final class ValuePropertyTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final ValueProperty<String> testUnit = new ValueProperty<>();
+			public final Value<String> testUnit = new Value<>();
 		};
 		entity.testUnit.setValue("x");
 		

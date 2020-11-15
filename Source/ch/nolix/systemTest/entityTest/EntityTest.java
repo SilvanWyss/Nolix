@@ -6,7 +6,7 @@ import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.ValueProperty;
+import ch.nolix.system.entity.Value;
 
 //class
 public final class EntityTest extends Test {
@@ -15,8 +15,8 @@ public final class EntityTest extends Test {
 	private static final class Cat extends Entity {
 		
 		//attributes
-		public final ValueProperty<String> name = new ValueProperty<>();
-		public final ValueProperty<Integer> weightInGram = new ValueProperty<>();
+		public final Value<String> name = new Value<>();
+		public final Value<Integer> weightInGram = new Value<>();
 	}
 	
 	//method

@@ -5,13 +5,13 @@ package ch.nolix.system.entity;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 
 //class
-public final class ValueProperty<V> extends SingleProperty<V> {
+public final class Value<V> extends SingleValue<V> {
 	
 	//constructor
-	public ValueProperty() {}
+	public Value() {}
 	
 	//constructor
-	public ValueProperty(final V value) {
+	public Value(final V value) {
 		setValue(value);
 	}
 	

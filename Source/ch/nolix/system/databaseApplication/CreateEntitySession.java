@@ -14,7 +14,7 @@ import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.system.databaseAdapter.EntitySet;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.OptionalReference;
-import ch.nolix.system.entity.ValueProperty;
+import ch.nolix.system.entity.Value;
 import ch.nolix.system.entity.Reference;
 
 //class
@@ -90,7 +90,7 @@ public final class CreateEntitySession extends HeaderedSession {
 			switch (p.getPropertyKind()) {
 				case VALUE:
 					
-					final var property = (ValueProperty<?>)p;
+					final var property = (Value<?>)p;
 					
 					dataGrid
 					.setWidget(
@@ -184,7 +184,7 @@ public final class CreateEntitySession extends HeaderedSession {
 				switch (p.getPropertyKind()) {
 					case VALUE:
 						
-						final var property = (ValueProperty<?>)p;
+						final var property = (Value<?>)p;
 				
 						final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
 						
