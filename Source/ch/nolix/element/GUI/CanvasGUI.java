@@ -9,7 +9,7 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperty.ChangeState;
 import ch.nolix.common.state.Visibility;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValueProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementAPI.IConfigurableElement;
@@ -29,8 +29,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
 	
 	//attribute
-	private MutableProperty<CursorIcon> cursorIcon =
-	new MutableProperty<>(
+	private MutableValueProperty<CursorIcon> cursorIcon =
+	new MutableValueProperty<>(
 		CursorIcon.TYPE_NAME,
 		this::setCursorIcon,
 		CursorIcon::fromSpecification,

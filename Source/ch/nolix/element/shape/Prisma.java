@@ -8,7 +8,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValueProperty;
 
 //class
 public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
@@ -17,8 +17,8 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute
-	private final MutableProperty<Double> height =
-	new MutableProperty<>(
+	private final MutableValueProperty<Double> height =
+	new MutableValueProperty<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h),
 		BaseNode::getOneAttributeAsDouble,

@@ -6,8 +6,8 @@ import java.awt.image.BufferedImage;
 
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.element.base.MutableOptionalProperty;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableOptionalValueProperty;
+import ch.nolix.element.base.MutableValueProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 
@@ -26,8 +26,8 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	public static final Color DEFAULT_COLOR = Color.LIGHT_GREY;
 	
 	//attribute
-	private MutableProperty<Color> defaultColor
-	= new MutableProperty<>(
+	private MutableValueProperty<Color> defaultColor
+	= new MutableValueProperty<>(
 		PascalCaseNameCatalogue.DEFAULT_COLOR,
 		c -> setDefaultColor(c),
 		Color::fromSpecification,
@@ -35,8 +35,8 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Image> defaultTexture =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValueProperty<Image> defaultTexture =
+	new MutableOptionalValueProperty<>(
 		PascalCaseNameCatalogue.DEFAULT_TEXTURE,
 		t -> setDefaultTexture(t),
 		s -> Image.fromSpecification(s),

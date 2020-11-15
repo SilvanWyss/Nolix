@@ -8,7 +8,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
-import ch.nolix.element.base.Property;
+import ch.nolix.element.base.ValueProperty;
 
 //class
 public final class ResizeInput extends Element<ResizeInput> implements IInput<ResizeInput> {
@@ -26,8 +26,8 @@ public final class ResizeInput extends Element<ResizeInput> implements IInput<Re
 	}
 	
 	//attribute
-	private final Property<IntPair> size =
-	new Property<>(
+	private final ValueProperty<IntPair> size =
+	new ValueProperty<>(
 		PascalCaseNameCatalogue.SIZE,
 		this::setViewAreaSize,
 		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),

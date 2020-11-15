@@ -6,30 +6,53 @@ import ch.nolix.common.functionAPI.IElementTaker;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2018-02
- * @lines 60
- * @param <V> The type of the value of a {@link MutableProperty}.
+ * @lines 80
+ * @param <V> The type of the value of a {@link ValueProperty}.
  */
-public final class MutableProperty<V> extends SingleProperty<V> {
+public final class ValueProperty<V> extends SingleValueProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link MutableProperty} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * Creates a new {@link ValueProperty} with the given name, setterMethod and valueCreator.
+	 * 
+	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @throws ArgumentIsNullException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public <E extends IElement> ValueProperty(
+		final String name,
+		final IElementTaker<V> setterMethod,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator
+	) {
+		
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator, v -> ((E)v).getSpecification());
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ValueProperty} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
 	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is blank.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public MutableProperty(
+	public ValueProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
@@ -46,7 +69,7 @@ public final class MutableProperty<V> extends SingleProperty<V> {
 	 */
 	@Override
 	public boolean isMutable() {
-		return true;
+		return false;
 	}
 	
 	//method

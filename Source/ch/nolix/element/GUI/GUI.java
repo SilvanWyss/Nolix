@@ -15,7 +15,7 @@ import ch.nolix.common.processProperty.ChangeState;
 import ch.nolix.common.skillAPI.Recalculable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValueProperty;
 import ch.nolix.element.baseGUI_API.IBaseGUI;
 import ch.nolix.element.baseGUI_API.IFrontEndReader;
 import ch.nolix.element.baseGUI_API.IFrontEndWriter;
@@ -59,8 +59,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
 	
 	//attribute
-	private final MutableProperty<String> title =
-	new MutableProperty<>(
+	private final MutableValueProperty<String> title =
+	new MutableValueProperty<>(
 		PascalCaseNameCatalogue.TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
@@ -68,8 +68,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MutableProperty<IntPair> viewAreaSize =
-	new MutableProperty<>(
+	private final MutableValueProperty<IntPair> viewAreaSize =
+	new MutableValueProperty<>(
 		VIEW_AREA_SIZE_HEADER,
 		vas -> setViewAreaSize(vas.getValue1(), vas.getValue2()),
 		BaseNode::toIntPair,
@@ -77,8 +77,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MutableProperty<IntPair> cursorPositionOnViewArea =
-	new MutableProperty<>(
+	private final MutableValueProperty<IntPair> cursorPositionOnViewArea =
+	new MutableValueProperty<>(
 		CURSOR_POSITION_ON_VIEW_AREA_HEADER,
 		cpova -> setCursorPositionOnViewArea(cpova.getValue1(), cpova.getValue2()),
 		BaseNode::toIntPair,

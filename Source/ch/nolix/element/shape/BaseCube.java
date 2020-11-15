@@ -6,7 +6,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.BaseShape;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValueProperty;
 
 //class
 /**
@@ -27,8 +27,8 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	private static final String Z_LENGTH_HEADER = "ZLength";
 	
 	//attribute
-	private final MutableProperty<Double> xLength =
-	new MutableProperty<>(
+	private final MutableValueProperty<Double> xLength =
+	new MutableValueProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl),
 		BaseNode::getOneAttributeAsDouble,
@@ -36,8 +36,8 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	);
 	
 	//attribute
-	private final MutableProperty<Double> yLength =
-	new MutableProperty<>(
+	private final MutableValueProperty<Double> yLength =
+	new MutableValueProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl),
 		BaseNode::getOneAttributeAsDouble,
@@ -45,8 +45,8 @@ public final class BaseCube extends BaseShape<BaseCube> {
 	);
 	
 	//attribute
-	private final MutableProperty<Double> zLength =
-	new MutableProperty<>(
+	private final MutableValueProperty<Double> zLength =
+	new MutableValueProperty<>(
 		Z_LENGTH_HEADER,
 		zl -> setZLength(zl),
 		BaseNode::getOneAttributeAsDouble,

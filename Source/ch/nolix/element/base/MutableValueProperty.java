@@ -12,13 +12,13 @@ import ch.nolix.common.node.Node;
  * @author Silvan Wyss
  * @month 2018-02
  * @lines 60
- * @param <V> The type of the value of a {@link OptionalProperty}.
+ * @param <V> The type of the value of a {@link MutableValueProperty}.
  */
-public final class OptionalProperty<V> extends SingleProperty<V> {
+public final class MutableValueProperty<V> extends SingleValueProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link OptionalProperty} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * Creates a new {@link MutableValueProperty} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
@@ -29,7 +29,7 @@ public final class OptionalProperty<V> extends SingleProperty<V> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public OptionalProperty(
+	public MutableValueProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
@@ -46,7 +46,7 @@ public final class OptionalProperty<V> extends SingleProperty<V> {
 	 */
 	@Override
 	public boolean isMutable() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -55,6 +55,6 @@ public final class OptionalProperty<V> extends SingleProperty<V> {
 	 */
 	@Override
 	public boolean isOptional() {
-		return true;
+		return false;
 	}
 }

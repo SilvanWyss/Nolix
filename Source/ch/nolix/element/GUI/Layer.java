@@ -16,9 +16,9 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillAPI.Clearable;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.MutableOptionalProperty;
-import ch.nolix.element.base.MutableProperty;
-import ch.nolix.element.base.OptionalProperty;
+import ch.nolix.element.base.MutableOptionalValueProperty;
+import ch.nolix.element.base.MutableValueProperty;
+import ch.nolix.element.base.OptionalValueProperty;
 import ch.nolix.element.baseGUI_API.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -82,8 +82,8 @@ IResizableInputTaker {
 	private LayerGUI<?> parentGUI;
 	
 	//attribute
-	private final OptionalProperty<LayerRole> role =
-	new OptionalProperty<>(
+	private final OptionalValueProperty<LayerRole> role =
+	new OptionalValueProperty<>(
 		PascalCaseNameCatalogue.ROLE,
 		this::setRole,
 		LayerRole::fromSpecification,
@@ -91,8 +91,8 @@ IResizableInputTaker {
 	);
 	
 	//attribute
-	private final MutableProperty<Boolean> configurationAllowed =
-	new MutableProperty<>(
+	private final MutableValueProperty<Boolean> configurationAllowed =
+	new MutableValueProperty<>(
 		CONFIGURATION_ALLOWED_HEADER,
 		ca -> {
 			if (ca.booleanValue()) {
@@ -107,8 +107,8 @@ IResizableInputTaker {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Color> backgroundColor =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValueProperty<Color> backgroundColor =
+	new MutableOptionalValueProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification,
@@ -116,8 +116,8 @@ IResizableInputTaker {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<ColorGradient> backgroundColorGradient =
-	new MutableOptionalProperty<>(
+	private final MutableOptionalValueProperty<ColorGradient> backgroundColorGradient =
+	new MutableOptionalValueProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER, 
 		this::setBackgroundColorGradient,
 		ColorGradient::fromSpecification,
@@ -125,8 +125,8 @@ IResizableInputTaker {
 	);
 	
 	//attribute
-	private final MutableProperty<ExtendedContentPosition> contentPosition =
-	new MutableProperty<>(
+	private final MutableValueProperty<ExtendedContentPosition> contentPosition =
+	new MutableValueProperty<>(
 		ContentPosition.TYPE_NAME,
 		this::setContentPosition,
 		ExtendedContentPosition::fromSpecification,
@@ -134,8 +134,8 @@ IResizableInputTaker {
 	);
 	
 	//attribute
-	private final MutableProperty<Discrete2DPoint> freeContentPosition =
-	new MutableProperty<>(
+	private final MutableValueProperty<Discrete2DPoint> freeContentPosition =
+	new MutableValueProperty<>(
 		FREE_CONTENT_POSITION_HEADER,
 		fcp -> setFreeContentPosition_(fcp.getX(), fcp.getY()),
 		Discrete2DPoint::fromSpecification,

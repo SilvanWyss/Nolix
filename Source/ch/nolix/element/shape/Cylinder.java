@@ -7,7 +7,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValueProperty;
 
 //class
 public final class Cylinder extends Prisma<Cylinder> {
@@ -16,8 +16,8 @@ public final class Cylinder extends Prisma<Cylinder> {
 	public static final double DEFAULT_RADIUS = 1.0;
 	
 	//attribute	
-	private final MutableProperty<Double> radius =
-	new MutableProperty<>(
+	private final MutableValueProperty<Double> radius =
+	new MutableValueProperty<>(
 		PascalCaseNameCatalogue.RADIUS,
 		r -> setRadius(r),
 		BaseNode::getOneAttributeAsDouble,

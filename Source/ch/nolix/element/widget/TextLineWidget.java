@@ -8,7 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.MutableValueProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
@@ -29,8 +29,8 @@ extends BorderWidget<TLW, TLWL> {
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
 	
 	//attribute
-	private MutableProperty<String> text =
-	new MutableProperty<>(
+	private MutableValueProperty<String> text =
+	new MutableValueProperty<>(
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
 		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
