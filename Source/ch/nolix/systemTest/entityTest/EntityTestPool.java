@@ -10,7 +10,6 @@ public final class EntityTestPool extends TestPool {
 	//constructor
 	public EntityTestPool() {
 		super(
-			EntityTest.class,
 			EntityWithBackReferenceTest.class,
 			MultiValuePropertyTest.class,
 			OptionalValuePropertyTest.class,
