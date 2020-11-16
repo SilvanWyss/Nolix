@@ -8,7 +8,7 @@ import ch.nolix.common.test.Test;
 
 //class
 /**
-* This class is a test class for the matrix class.
+* A {@link MatrixTest} is a test for {@link Matrix}es.
 * 
 * @author Silvan Wyss
 * @month 2016-06
@@ -16,17 +16,18 @@ import ch.nolix.common.test.Test;
 */
 public final class MatrixTest extends Test {
 	
-	//loop test case
+	//method
+	@TestCase
 	public void loopTest_createIdendityMatrix() {
 				
-		//number of main loop iterations
-		final int n = 100;
+		//test parameters
+		final var n = 100;
 		
-		//main loop
-		for (int i = 1; i <= n; i++) {
+		//test loop
+		for (var i = 1; i <= n; i++) {
 			
 			//execution
-			final Matrix matrix = Matrix.createIdendityMatrix(i);
+			final var matrix = Matrix.createIdendityMatrix(i);
 			
 			//verification
 			expect(matrix.getRowCount()).isEqualTo(i);
@@ -34,34 +35,36 @@ public final class MatrixTest extends Test {
 		}
 	}
 	
-	//loop test case
+	//method
+	@TestCase
 	public void loopTest_getRank() {
 		
-		//number of main loop iterations
-		final int n = 10;
+		//test parameters
+		final var n = 10;
 		
-		//main loop
-		for (int i = 1; i <= n; i++) {
+		//test loop
+		for (var i = 1; i <= n; i++) {
 			
 			//setup
-			final Matrix matrix = Matrix.createIdendityMatrix(i);
+			final var matrix = Matrix.createIdendityMatrix(i);
 			
 			//execution & verification
 			expect(matrix.getRank()).isEqualTo(i);
 		}
 	}
 	
-	//loop test case
+	//method
+	@TestCase
 	public void loop_testGetTrace() {
 		
-		//number of main loop iterations
-		final int n = 100;
+		//test parameters
+		final var n = 100;
 		
-		//main loop
-		for (int i = 1; i <= n; i++) {
+		//test loop
+		for (var i = 1; i <= n; i++) {
 			
 			//setup
-			final Matrix matrix = Matrix.createIdendityMatrix(i);
+			final var matrix = Matrix.createIdendityMatrix(i);
 			
 			//execution & verification
 			expect(matrix.getTrace()).isEqualTo(i);
@@ -70,14 +73,14 @@ public final class MatrixTest extends Test {
 
 	//method
 	@TestCase
-	public void testCase_Add() {
+	public void testCase_add() {
 		
 		//setup
-		final Matrix matrix1 = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
-		final Matrix matrix2 = new Matrix(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
+		final var matrix1 = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
+		final var matrix2 = new Matrix(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
 		
 		//execution
-		final Matrix sum = matrix1.getSum(matrix2);
+		final var sum = matrix1.getSum(matrix2);
 		
 		//verification
 		final Matrix expectedMatrix = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
@@ -86,17 +89,17 @@ public final class MatrixTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_AppendAtRight() {
+	public void testCase_appendAtRight() {
 		
 		//setup
-		final Matrix matrix1 = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
-		final Matrix matrix2 = new Matrix(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
+		final var matrix1 = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
+		final var matrix2 = new Matrix(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
 
 		//execution
 		matrix1.appendAtRight(matrix2);
 		
 		//verification
-		final Matrix expectedMatrix = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
+		final var expectedMatrix = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
 		expect(matrix1).isEqualTo(expectedMatrix);
 	}
 	
@@ -105,7 +108,7 @@ public final class MatrixTest extends Test {
 	public void testCase_getInverse_1() {
 		
 		//setup
-		final Matrix matrix = new Matrix(2).setValues(1.0, 2.0, 3.0, 4.0);
+		final var matrix = new Matrix(2).setValues(1.0, 2.0, 3.0, 4.0);
 		
 		//execution
 		final Matrix inverse = matrix.getInverse();
@@ -119,10 +122,10 @@ public final class MatrixTest extends Test {
 	public void testCase_getInverse_2() {
 		
 		//setup
-		final Matrix matrix = new Matrix(3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
+		final var matrix = new Matrix(3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
 			
 		//execution
-		final Matrix inverse = matrix.getInverse();
+		final var inverse = matrix.getInverse();
 
 		//verification
 		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(3));
@@ -133,10 +136,10 @@ public final class MatrixTest extends Test {
 	public void testCase_getInverse_3() {
 		
 		//setup
-		final Matrix matrix = new Matrix(4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
-			
+		final var matrix = new Matrix(4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
+		
 		//execution
-		final Matrix inverse = matrix.getInverse();
+		final var inverse = matrix.getInverse();
 
 		//verification
 		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(4));
@@ -147,8 +150,8 @@ public final class MatrixTest extends Test {
 	public void testCase_getProduct() {
 		
 		//setup
-		final Matrix matrix1 = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
-		final Matrix matrix2 = new Matrix(3, 2).setValues(1, 1, 2, 2, 3, 3);
+		final var matrix1 = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
+		final var matrix2 = new Matrix(3, 2).setValues(1, 1, 2, 2, 3, 3);
 		
 		//execution
 		final Matrix product = matrix1.getProduct(matrix2);
@@ -163,7 +166,7 @@ public final class MatrixTest extends Test {
 	public void testCase_getSolutionAsExtendedMatrix_1() {
 		
 		//setup
-		final Matrix matrix = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
+		final var matrix = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
 
 		//execution
 		final double[] solution = matrix.getSolutionAsExtendedMatrix();
@@ -179,7 +182,7 @@ public final class MatrixTest extends Test {
 	public void testCase_getSolutionAsExtendedMatrix_2() {
 		
 		//setup
-		final Matrix matrix = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
+		final var matrix = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
 		
 		//execution
 		final double[] solution = matrix.getSolutionAsExtendedMatrix();
@@ -196,7 +199,7 @@ public final class MatrixTest extends Test {
 	public void testCase_getTransposed() {
 		
 		//setup
-		final Matrix matrix = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
+		final var matrix = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
 		
 		//execution
 		final Matrix transposed = matrix.getTransposed();
@@ -211,7 +214,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_1() {
 		
 		//setup
-		final Matrix matrix = new Matrix(1);
+		final var matrix = new Matrix(1);
 
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0]");
@@ -222,7 +225,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_2() {
 		
 		//setup
-		final Matrix matrix = new Matrix(2);
+		final var matrix = new Matrix(2);
 
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0,0;0,0]");
@@ -233,7 +236,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_3() {
 		
 		//setup
-		final Matrix matrix = new Matrix(3);
+		final var matrix = new Matrix(3);
 
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0,0,0;0,0,0;0,0,0]");
@@ -244,7 +247,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_4() {
 		
 		//setup
-		final Matrix matrix = new Matrix(4);
+		final var matrix = new Matrix(4);
 		
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
@@ -255,7 +258,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_5() {
 		
 		//setup
-		final Matrix matrix = Matrix.createIdendityMatrix(1);
+		final var matrix = Matrix.createIdendityMatrix(1);
 		
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1]");
@@ -266,7 +269,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_6() {
 		
 		//setup
-		final Matrix matrix = Matrix.createIdendityMatrix(2);
+		final var matrix = Matrix.createIdendityMatrix(2);
 		
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1,0;0,1]");
@@ -277,7 +280,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_7() {
 		
 		//setup
-		final Matrix matrix = Matrix.createIdendityMatrix(3);
+		final var matrix = Matrix.createIdendityMatrix(3);
 				
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1,0,0;0,1,0;0,0,1]");
@@ -288,7 +291,7 @@ public final class MatrixTest extends Test {
 	public void testCase_toString_8() {
 		
 		//setup
-		final Matrix matrix = Matrix.createIdendityMatrix(4);
+		final var matrix = Matrix.createIdendityMatrix(4);
 				
 		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
