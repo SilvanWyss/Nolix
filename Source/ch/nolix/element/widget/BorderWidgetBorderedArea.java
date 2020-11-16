@@ -100,10 +100,10 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
-		//Paints the vertical scroll bar if the parent BorderWidget has a vertical scrollbar.
+		//Paints the vertical scroll bar if the parent BorderWidget has a vertical scroll bar.
 		if (parentBorderWidget.hasVerticalScrollBar()) {
 			
-			//Paints the vertical scrollbar.				
+			//Paints the vertical scroll bar.				
 				painter.setColor(parentBorderWidget.getVerticalScrollBarColor());
 				
 				painter.paintFilledRectangle(
@@ -113,7 +113,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 					parentBorderWidget.getShowArea().getHeight()
 				);
 			
-			//Paints the vertical scrollbar cursor.				
+			//Paints the vertical scroll bar cursor.				
 				painter.setColor(parentBorderWidget.getVerticalScrollBarCursorColor());
 				
 				painter.paintFilledRectangle(
@@ -124,10 +124,10 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 				);
 		}
 		
-		//Paints the horizontal scrollbar if the parent BorderWidget has a horizontal scrollbar.
+		//Paints the horizontal scroll bar if the parent BorderWidget has a horizontal scroll bar.
 		if (parentBorderWidget.hasHorizontalScrollBar()) {
 			
-			//Paints the horizontal scrollbar.	
+			//Paints the horizontal scroll bar.	
 				painter.setColor(parentBorderWidget.getHorizontalScrollBarColor());
 				
 				painter.paintFilledRectangle(
@@ -137,7 +137,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 					parentBorderWidget.getHorizontalScrollBarThickness()
 				);
 			
-			//Paints the horizontal scrollbar cursor.			
+			//Paints the horizontal scroll bar cursor.			
 				painter.setColor(parentBorderWidget.getHorizontalScrollBarCursorColor());
 				
 				painter.paintFilledRectangle(
