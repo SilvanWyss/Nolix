@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1160
+ * @lines 1170
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
@@ -370,7 +370,17 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		
 		return addAtEnd(element);
 	}
-		
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public <E2> LinkedList<E2> asContainerWithElementsOfEvaluatedType() {
+		return (LinkedList<E2>)this;
+	}
+	
 	//method
 	/**
 	 * Removes all elements of the current {@link LinkedList}.
