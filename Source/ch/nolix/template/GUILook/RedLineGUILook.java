@@ -30,9 +30,9 @@ public final class RedLineGUILook extends Configuration {
 			new DeepConfiguration()
 			.setSelectorType("BorderWidget")
 			.addAttachingAttribute(
-				"BaseBaseScrollbarLook(ScrollbarColor(Black),ScrollbarCursorColor(DarkBlue))",
-				"BaseHoverScrollbarLook(ScrollbarColor(Black),ScrollbarCursorColor(Blue))",
-				"BaseSelectionScrollbarLook(ScrollbarColor(Black),ScrollbarCursorColor(Blue))"
+				"BaseBaseScrollBarLook(ScrollBarColor(Black),ScrollCursorColor(DarkBlue))",
+				"BaseHoverScrollBarLook(ScrollBarColor(Black),ScrollCursorColor(Blue))",
+				"BaseSelectionScrollBarLook(ScrollBarColor(Black),ScrollCursorColor(Blue))"
 			),
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.OverallContainer)
