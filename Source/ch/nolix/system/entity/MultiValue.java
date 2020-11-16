@@ -94,7 +94,7 @@ public final class MultiValue<V> extends BaseValueProperty<V> implements Clearab
 	//method
 	@Override
 	protected LinkedList<Object> internalGetValues() {
-		return LinkedList.withElements(values);
+		return values.getCopy().asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
