@@ -107,7 +107,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 				painter.setColor(parentBorderWidget.getVerticalScrollBarColor());
 				
 				painter.paintFilledRectangle(
-					parentBorderWidget.getVerticalScrollbarXPositionOnBorderedArea(),
+					parentBorderWidget.getVerticalScrollBarXPositionOnBorderedArea(),
 					0,
 					parentBorderWidget.getVerticalScrollBarThickness(),
 					parentBorderWidget.getShowArea().getHeight()
@@ -117,8 +117,8 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 				painter.setColor(parentBorderWidget.getVerticalScrollBarCursorColor());
 				
 				painter.paintFilledRectangle(
-					parentBorderWidget.getVerticalScrollbarXPositionOnBorderedArea(),
-					parentBorderWidget.getVerticalScrollbarCursorYPositionOnVerticalScrollBar(),
+					parentBorderWidget.getVerticalScrollBarXPositionOnBorderedArea(),
+					parentBorderWidget.getVerticalScrollBarCursorYPositionOnVerticalScrollBar(),
 					parentBorderWidget.getVerticalScrollBarThickness(),
 					parentBorderWidget.getVerticalScrollBarCursorHeight()
 				);
@@ -141,7 +141,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 				painter.setColor(parentBorderWidget.getHorizontalScrollBarCursorColor());
 				
 				painter.paintFilledRectangle(
-					parentBorderWidget.getHorizontalScrollBarCursorXPositionOnHorizontalScrollbar(),
+					parentBorderWidget.getHorizontalScrollBarCursorXPositionOnHorizontalScrollBar(),
 					parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
 					parentBorderWidget.getHorizontalScrollBarCursorWidth(),
 					parentBorderWidget.getHorizontalScrollBarThickness()
