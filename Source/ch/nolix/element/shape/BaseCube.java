@@ -5,7 +5,7 @@ package ch.nolix.element.shape;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element._3D_GUI.BaseShape;
+import ch.nolix.element._3D_GUI.AtomicShape;
 import ch.nolix.element.base.MutableValue;
 
 //class
@@ -14,7 +14,7 @@ import ch.nolix.element.base.MutableValue;
  * @month 2017-11
  * @lines 200
  */
-public final class BaseCube extends BaseShape<BaseCube> {
+public final class BaseCube extends AtomicShape<BaseCube> {
 	
 	//constants	
 	public static final double DEFAULT_X_LENGTH = 1.0;

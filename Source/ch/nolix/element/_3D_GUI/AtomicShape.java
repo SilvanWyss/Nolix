@@ -13,14 +13,14 @@ import ch.nolix.element.graphic.Image;
 
 //class
 /**
- * A {@link BaseShape} is a {@link Shape} that does not contain other shapes.
+ * A {@link AtomicShape} is a {@link Shape} that does not contain other shapes.
  * 
  * @author Silvan Wyss
  * @month 2017-11
  * @lines 130
- * @param <BS> The type of a {@link BaseShape}.
+ * @param <BS> The type of a {@link AtomicShape}.
  */
-public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
+public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> {
 
 	//constant
 	public static final Color DEFAULT_COLOR = Color.LIGHT_GREY;
@@ -45,7 +45,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * @return the default color of the current {@link BaseShape}.
+	 * @return the default color of the current {@link AtomicShape}.
 	 */
 	public final Color getDefaultColor() {
 		return defaultColor.getValue();
@@ -53,8 +53,8 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * @return the default texture of the current {@link BaseShape} as {@link BufferedImage}.
-	 * @throws UnexistingAttribute if the current {@link BaseShape} does not have a default texture.
+	 * @return the default texture of the current {@link AtomicShape} as {@link BufferedImage}.
+	 * @throws UnexistingAttribute if the current {@link AtomicShape} does not have a default texture.
 	 */
 	public final BufferedImage getDefaultTextureAsBufferedImage() {
 		
@@ -64,8 +64,8 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * @return the default texture of the current {@link BaseShape}.
-	 * @throws UnexistingAttribute if the current {@link BaseShape} does not have a default texture.
+	 * @return the default texture of the current {@link AtomicShape}.
+	 * @throws UnexistingAttribute if the current {@link AtomicShape} does not have a default texture.
 	 */
 	public final Image getRefDefaultTexture() {
 		return defaultTexture.getValue();
@@ -73,7 +73,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * @return the shapes of the current {@link BaseShape}.
+	 * @return the shapes of the current {@link AtomicShape}.
 	 */
 	@Override
 	public final ReadContainer<Shape<?>> getRefShapes() {
@@ -82,7 +82,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * @return true of the current {@link BaseShape} has a default texture.
+	 * @return true of the current {@link AtomicShape} has a default texture.
 	 */
 	public final boolean hasDefaultTexture() {
 		return defaultTexture.containsAny();
@@ -90,9 +90,9 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * Removes the default texture of the current {@link BaseShape}.
+	 * Removes the default texture of the current {@link AtomicShape}.
 	 * 
-	 * @return the current {@link BaseShape}.
+	 * @return the current {@link AtomicShape}.
 	 */
 	public final BS removeDefaultTexture() {
 		
@@ -116,10 +116,10 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 
 	//method
 	/**
-	 * Sets the default color of the current {@link BaseShape}.
+	 * Sets the default color of the current {@link AtomicShape}.
 	 * 
 	 * @param defaultColor
-	 * @return the current {@link BaseShape}.
+	 * @return the current {@link AtomicShape}.
 	 * @throws ArgumentIsNullException if the given default color is null.
 	 */
 	public final BS setDefaultColor(final Color defaultColor) {
@@ -131,10 +131,10 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//method
 	/**
-	 * Sets the default texture of the current {@link BaseShape}.
+	 * Sets the default texture of the current {@link AtomicShape}.
 	 * 
 	 * @param defaultTexture
-	 * @return the current {@link BaseShape}.
+	 * @return the current {@link AtomicShape}.
 	 * @throws ArgumentIsNullException if the given default texture is null.
 	 */
 	public final BS setDefaultTexture(final Image defaultTexture) {

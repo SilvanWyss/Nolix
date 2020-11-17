@@ -7,7 +7,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element._3D_GUI.BaseShape;
+import ch.nolix.element._3D_GUI.AtomicShape;
 import ch.nolix.element.base.MutableValue;
 
 //class
@@ -16,7 +16,7 @@ import ch.nolix.element.base.MutableValue;
  * @month 2017-11
  * @lines 130
  */
-public final class Sphere extends BaseShape<Sphere> {
+public final class Sphere extends AtomicShape<Sphere> {
 	
 	//constants
 	public static final double DEFAULT_RADIUS = 1.0;

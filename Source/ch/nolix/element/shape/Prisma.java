@@ -7,11 +7,11 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element._3D_GUI.BaseShape;
+import ch.nolix.element._3D_GUI.AtomicShape;
 import ch.nolix.element.base.MutableValue;
 
 //class
-public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
+public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	
 	//constant
 	public static final double DEFAULT_HEIGHT = 2.0;
