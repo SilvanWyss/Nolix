@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.instanceProvider;
 
+//own import
 import ch.nolix.common.processProperty.WriteMode;
 
 //class
@@ -10,27 +11,27 @@ public final class CentralInstanceProvider {
 	private static final InstanceProvider instanceProvider =	new InstanceProvider();
 	
 	//static method
-	public static boolean containsClassFor(final Class<?> _interface) {
-		return instanceProvider.containsClassFor(_interface);
+	public static boolean containsClassFor(final Class<?> pInterface) {
+		return instanceProvider.containsClassFor(pInterface);
 	}
 	
 	//static method
-	public static <I, C extends I> C create(final Class<I> _interface, final Object... arguments) {
-		return instanceProvider.create(_interface, arguments);
+	public static <I, C extends I> C create(final Class<I> pInterface, final Object... arguments) {
+		return instanceProvider.create(pInterface, arguments);
 	}
 	
 	//static method
-	public static <I, C extends I> RegistrationMediator register(final Class<I> _interface,	final Class<C> _class) {		
-		return instanceProvider.register(_interface, _class);
+	public static <I, C extends I> RegistrationMediator register(final Class<I> pInterface,	final Class<C> pClass) {		
+		return instanceProvider.register(pInterface, pClass);
 	}
 	
 	//static method
 	public static <I, C extends I> RegistrationMediator register(
-		final Class<I> _interface,
-		final Class<C> _class,
+		final Class<I> pInterface,
+		final Class<C> pClass,
 		final WriteMode writeMode
 	) {
-		return instanceProvider.register(_interface, _class, writeMode);
+		return instanceProvider.register(pInterface, pClass, writeMode);
 	}
 	
 	//visibility-reducing constructor
