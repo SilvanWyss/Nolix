@@ -2,7 +2,6 @@
 package ch.nolix.systemTest.entityTest;
 
 //own imports
-import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.BackReference;
