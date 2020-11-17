@@ -4,6 +4,7 @@ package ch.nolix.element._3D_GUI;
 //Java import
 import java.awt.image.BufferedImage;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.element.base.MutableOptionalValue;
@@ -17,30 +18,30 @@ import ch.nolix.element.graphic.Image;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 130
+ * @lines 140
  * @param <BS> The type of a {@link AtomicShape}.
  */
 public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> {
-
+	
 	//constant
 	public static final Color DEFAULT_COLOR = Color.LIGHT_GREY;
 	
 	//attribute
-	private MutableValue<Color> defaultColor
-	= new MutableValue<>(
+	private MutableValue<Color> defaultColor =
+	new MutableValue<>(
 		PascalCaseNameCatalogue.DEFAULT_COLOR,
-		c -> setDefaultColor(c),
+		this::setDefaultColor,
 		Color::fromSpecification,
-		c -> c.getSpecification()
+		Color::getSpecification
 	);
 	
 	//attribute
 	private final MutableOptionalValue<Image> defaultTexture =
 	new MutableOptionalValue<>(
 		PascalCaseNameCatalogue.DEFAULT_TEXTURE,
-		t -> setDefaultTexture(t),
-		s -> Image.fromSpecification(s),
-		t -> t.getSpecification()
+		this::setDefaultTexture,
+		Image::fromSpecification,
+		Image::getSpecification
 	);
 	
 	//method
