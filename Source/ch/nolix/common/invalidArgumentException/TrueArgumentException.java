@@ -32,8 +32,8 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	 * for an argument that has the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public TrueArgumentException(final Object argument, final String argumentName) {
 		

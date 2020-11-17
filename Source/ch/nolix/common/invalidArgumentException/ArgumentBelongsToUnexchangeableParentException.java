@@ -16,13 +16,13 @@ public class ArgumentBelongsToUnexchangeableParentException extends InvalidArgum
 	//static method
 	/**
 	 * @return a safe type name for the given parent.
-	 * @throws RuntimeException if the given parent is null.
+	 * @throws IllegalArgumentException if the given parent is null.
 	 */
 	private static String createSafeTypeName(final Object parent) {
 		
 		//Asserts that the given parent is not null.
 		if (parent == null) {
-			throw new RuntimeException("The given parent is null.");
+			throw new IllegalArgumentException("The given parent is null.");
 		}
 		
 		return parent.getClass().getSimpleName();
@@ -35,7 +35,7 @@ public class ArgumentBelongsToUnexchangeableParentException extends InvalidArgum
 	 * 
 	 * @param argument
 	 * @param parent
-	 * @throws RuntimeException if the given parent is null.
+	 * @throws IllegalArgumentException if the given parent is null.
 	 */
 	public ArgumentBelongsToUnexchangeableParentException(final Object argument, final Object parent) {
 		

@@ -60,8 +60,8 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param unwantedValue
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public EqualArgumentException(
 		final String argumentName,
@@ -80,8 +80,8 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param unwantedValue
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public EqualArgumentException(
 		final String argumentName,
@@ -100,8 +100,8 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param unwantedValue
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public EqualArgumentException(
 		final String argumentName,

@@ -77,8 +77,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NonPositiveArgumentException(
 		final String argumentName,
@@ -95,8 +95,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NonPositiveArgumentException(
 		final String argumentName,
@@ -113,8 +113,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NonPositiveArgumentException(
 		final String argumentName,
@@ -131,8 +131,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NonPositiveArgumentException(
 		final String argumentName,

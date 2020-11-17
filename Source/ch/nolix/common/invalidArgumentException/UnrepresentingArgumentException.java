@@ -17,18 +17,18 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	/**
 	 * @param noun
 	 * @return a pronoun for the given noun.
-	 * @throws RuntimeException if the given noun is null or blank.
+	 * @throws IllegalArgumentException if the given noun is null or blank.
 	 */
 	private static String getPronoun(final String noun) {
 		
 		//Asserts that the given noun is not null.
 		if (noun == null) {
-			throw new RuntimeException("The given noun is null.");
+			throw new IllegalArgumentException("The given noun is null.");
 		}
 		
 		//Asserts that the given noun is not blank.
 		if (noun.isBlank()) {
-			throw new RuntimeException("The given noun is blank.");
+			throw new IllegalArgumentException("The given noun is blank.");
 		}
 		
 		//Enumerates the first character of the given noun.
@@ -53,13 +53,13 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	/**
 	 * @param type
 	 * @return a type name for the given type.
-	 * @throws RuntimeException if the given type is null.
+	 * @throws IllegalArgumentException if the given type is null.
 	 */
 	private static String getTypeName(final Class<?> type) {
 		
 		//Asserts that the given type is not null.
 		if (type == null) {
-			throw new RuntimeException("The given type is null.");
+			throw new IllegalArgumentException("The given type is null.");
 		}
 		
 		return type.getSimpleName();
@@ -69,7 +69,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	/**
 	 * @param type
 	 * @return a type name with a suitable pronoun for the given type.
-	 * @throws RuntimeException if the given type is null.
+	 * @throws IllegalArgumentException if the given type is null.
 	 */
 	private static String getTypeNameWithPronoun(final Class<?> type) {
 		
@@ -84,7 +84,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	 * 
 	 * @param argument
 	 * @param type
-	 * @RuntimeException if the given type is null.
+	 * @throws IllegalArgumentException if the given type is null.
 	 */
 	public UnrepresentingArgumentException(final Object argument, final Class<?> type) {
 		
@@ -99,9 +99,9 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	 * @param argumentName
 	 * @param argument
 	 * @param type
-	 * @throws RuntimeException if the given argumentName is null.
-	 * @throws RuntimeException if the given argumentName is blank.
-	 * @RuntimeException if the given type is null.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given type is null.
 	 */
 	public UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
 		

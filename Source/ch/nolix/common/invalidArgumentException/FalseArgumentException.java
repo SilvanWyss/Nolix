@@ -32,8 +32,8 @@ public final class FalseArgumentException extends InvalidArgumentException {
 	 * for an argument with the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public FalseArgumentException(final String argumentName, final Object argument) {
 		

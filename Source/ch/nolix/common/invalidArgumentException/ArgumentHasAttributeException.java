@@ -10,12 +10,12 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 		
 		//Asserts that the given attributeName is not null.
 		if (attributeName == null) {
-			throw new RuntimeException("The given attribute name is null.");
+			throw new IllegalArgumentException("The given attribute name is null.");
 		}
 		
 		//Asserts that the given attributeName is not blank.
 		if (attributeName.isBlank()) {
-			throw new RuntimeException("The given attribute name is blank.");
+			throw new IllegalArgumentException("The given attribute name is blank.");
 		}
 		
 		return attributeName;
@@ -26,7 +26,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 		
 		//Asserts that the given attribute type is not null.
 		if (attributeType == null) {
-			throw new RuntimeException("The given attribute type is null.");
+			throw new IllegalArgumentException("The given attribute type is null.");
 		}
 		
 		return attributeType.getSimpleName();

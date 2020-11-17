@@ -19,13 +19,13 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	//static method
 	/**
 	 * @return a safe argument name for the given argument type.
-	 * @throws RuntimeException if the given argument type is null.
+	 * @throws IllegalArgumentException if the given argument type is null.
 	 */
 	private static String createSafeArgumentName(final Class<?> argumentType) {
 		
 		//Asserts that the given argument type is not null.
 		if (argumentType == null) {
-			throw new RuntimeException("The given argument type is null.");
+			throw new IllegalArgumentException("The given argument type is null.");
 		}
 		
 		return argumentType.getSimpleName();
@@ -46,7 +46,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	 * Creates a new {@link ArgumentIsNullException} for an argument of the given argument type.
 	 * 
 	 * @param argumentType
-	 * @throws RuntimeException if the given argument type is null.
+	 * @throws IllegalArgumentException if the given argument type is null.
 	 */
 	public ArgumentIsNullException(final Class<?> argumentType) {
 		
@@ -59,8 +59,8 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	 * Creates a new null argument name exception for an argument with the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public ArgumentIsNullException(final String argumentName) {
 		

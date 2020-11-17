@@ -17,13 +17,13 @@ public final class UninstantiableArgumentException extends InvalidArgumentExcept
 	/**
 	 * @param _class
 	 * @return a safe class for the given class.
-	 * @throws RuntimeException if the given class is null.
+	 * @throws IllegalArgumentException if the given class is null.
 	 */
 	private static Class<?> createSafeClass(final Class<?> _class) {
 		
 		//Asserts that the given class is not null.
 		if (_class == null) {
-			throw new RuntimeException("The given class is null.");
+			throw new IllegalArgumentException("The given class is null.");
 		}
 		
 		return _class;
@@ -34,7 +34,7 @@ public final class UninstantiableArgumentException extends InvalidArgumentExcept
 	 * Creates a new {@link UninstantiableArgumentException} for the given class.
 	 * 
 	 * @param _class
-	 * @throws RuntimeException if the given class is null.
+	 * @throws IllegalArgumentException if the given class is null.
 	 */
 	public UninstantiableArgumentException(final Class<?> _class) {
 		

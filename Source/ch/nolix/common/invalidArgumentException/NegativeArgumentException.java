@@ -75,8 +75,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NegativeArgumentException(final String argumentName, final BigDecimal argument) {
 		
@@ -91,8 +91,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NegativeArgumentException(final String argumentName, final BigInteger argument) {
 		
@@ -107,8 +107,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NegativeArgumentException(final String argumentName, final double argument) {
 		
@@ -123,8 +123,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public NegativeArgumentException(final String argumentName, final long argument) {
 		

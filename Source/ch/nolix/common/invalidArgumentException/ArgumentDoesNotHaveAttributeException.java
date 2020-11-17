@@ -19,13 +19,13 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	/**
 	 * @param attributeType
 	 * @return a safe attribute type for the given argument type.
-	 * @throws RuntimeException if the given attribute type is null.
+	 * @throws IllegalArgumentException if the given attribute type is null.
 	 */
 	private static String createSafeAttributeType(final Class<?> attributeType) {
 		
 		//Asserts that the given attribute type is not null.
 		if (attributeType == null) {
-			throw new RuntimeException("The given attribute type is null.");
+			throw new IllegalArgumentException("The given attribute type is null.");
 		}
 		
 		return attributeType.getSimpleName();
@@ -35,25 +35,25 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	/**
 	 * @param attributeName
 	 * @return a safe attribute name for the given argument ma,e.
-	 * @throws RuntimeException if the given attribute name is null.
-	 * @throws RuntimeException if the given attribute name is empty.
-	 * @throws RuntimeException if the given attribute name is blank.
+	 * @throws IllegalArgumentException if the given attribute name is null.
+	 * @throws IllegalArgumentException if the given attribute name is empty.
+	 * @throws IllegalArgumentException if the given attribute name is blank.
 	 */
 	private static String createSafeAttribtueName(final String attributeName) {
 		
 		//Asserts that the given attribute name is not null.
 		if (attributeName == null) {
-			throw new RuntimeException("The given attribtue name is null.");
+			throw new IllegalArgumentException("The given attribtue name is null.");
 		}
 		
 		//Asserts that the given attribute name is not empty.
 		if (attributeName.isEmpty()) {
-			throw new RuntimeException("The given attribtue name is empty.");
+			throw new IllegalArgumentException("The given attribtue name is empty.");
 		}
 		
 		//Asserts that the given attribute name is not blank.
 		if (attributeName.isBlank()) {
-			throw new RuntimeException("The given attribtue name is blank.");
+			throw new IllegalArgumentException("The given attribtue name is blank.");
 		}
 		
 		return attributeName;
@@ -66,7 +66,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * 
 	 * @param argument
 	 * @param attributeType
-	 * @throws ArgumentIsNullException if the given argument is null.
+	 * @throws IllegalArgumentException if the given argument is null.
 	 */
 	public ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
 		
@@ -81,9 +81,9 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * 
 	 * @param argument
 	 * @param attributeName
-	 * @throws RuntimeException if the given object is null.
-	 * @throws RuntimeException if the given attribute name is empty.
-	 * @throws RuntimeException if the given attribute name is blank.
+	 * @throws IllegalArgumentException if the given object is null.
+	 * @throws IllegalArgumentException if the given attribute name is empty.
+	 * @throws IllegalArgumentException if the given attribute name is blank.
 	 */
 	public ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
 		

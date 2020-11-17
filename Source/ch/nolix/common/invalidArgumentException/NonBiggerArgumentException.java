@@ -45,8 +45,8 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public NonBiggerArgumentException(
 		final String argumentName,
@@ -64,8 +64,8 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public NonBiggerArgumentException(
 		final String argumentName,

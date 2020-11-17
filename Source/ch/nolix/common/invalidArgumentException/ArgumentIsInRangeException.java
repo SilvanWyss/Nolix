@@ -43,8 +43,8 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	 * @param argument
 	 * @param min
 	 * @param max
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public ArgumentIsInRangeException(
 		final String argumentName,
@@ -84,8 +84,8 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	 * @param argument
 	 * @param min
 	 * @param max
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */
 	public ArgumentIsInRangeException(
 		final String argumentName,

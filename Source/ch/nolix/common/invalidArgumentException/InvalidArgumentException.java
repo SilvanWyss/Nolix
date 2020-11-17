@@ -77,19 +77,19 @@ public class InvalidArgumentException extends RuntimeException {
 	//static method
 	/**
 	 * @return the given argumentName if it is valid.
-	 * @throws RuntimeException if the given argumentName is null.
-	 * @throws RuntimeException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
 	private static String validateAndGetArgumentName(final String argumentName) {
 		
 		//Asserts that the given argumentName is not null.
 		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
+			throw new IllegalArgumentException("The given argument name is null.");
 		}
 		
 		//Asserts that the given argumentName is not blank.
 		if (argumentName.isBlank()) {
-			throw new RuntimeException("The given argument name is blank.");
+			throw new IllegalArgumentException("The given argument name is blank.");
 		}
 		
 		return argumentName;
@@ -99,19 +99,19 @@ public class InvalidArgumentException extends RuntimeException {
 	/**
 	 * @param errorPredicate
 	 * @return the given errorPredicate if it is valid.
-	 * @throws RuntimeException if the given error predicate is null.
-	 * @throws RuntimeException if the given error predicate is blank.
+	 * @throws IllegalArgumentException if the given error predicate is null.
+	 * @throws IllegalArgumentException if the given error predicate is blank.
 	 */
 	private static String validateAndGetErrorPredicate(final String errorPredicate) {
 		
 		//Asserts that the given errorPredicate is not null.
 		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new IllegalArgumentException("The given error predicate is null.");
 		}
 		
 		//Asserts that the given errorPredicate is not blank.
 		if (errorPredicate.isBlank()) {
-			throw new RuntimeException("The given error predicate is blank.");
+			throw new IllegalArgumentException("The given error predicate is blank.");
 		}
 		
 		return errorPredicate;
@@ -140,8 +140,8 @@ public class InvalidArgumentException extends RuntimeException {
 	 * 
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given errorPredicate is null.
-	 * @throws RuntimeException if the given errorPredicate is blank.
+	 * @throws IllegalArgumentException if the given errorPredicate is null.
+	 * @throws IllegalArgumentException if the given errorPredicate is blank.
 	 */
 	public InvalidArgumentException(final Object argument, final String errorPredicate) {
 		
@@ -156,10 +156,10 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @param argumentName
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given argumentName is null.
-	 * @throws RuntimeException if the given argumentName is blank.
-	 * @throws RuntimeException if the given errorPredicate is null.
-	 * @throws RuntimeException if the given errorPredicate is blank.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given errorPredicate is null.
+	 * @throws IllegalArgumentException if the given errorPredicate is blank.
 	 */
 	public InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
 		super(

@@ -9,11 +9,11 @@ public final class RunException extends RuntimeException {
 	private static String createSafeErrorMessage(final String actionName) {
 		
 		if (actionName == null) {
-			throw new RuntimeException("The given action name is null.");
+			throw new IllegalArgumentException("The given action name is null.");
 		}
 		
 		if (actionName.isBlank()) {
-			throw new RuntimeException("The given action name is blank.");
+			throw new IllegalArgumentException("The given action name is blank.");
 		}
 		
 		return ("An error occured by " + actionName + ".");

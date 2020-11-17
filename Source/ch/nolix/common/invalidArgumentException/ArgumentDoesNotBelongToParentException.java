@@ -11,13 +11,13 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	//static method
 	/**
 	 * @return the parent type name of the given parent type.
-	 * @throws RuntimeException if the given parent type is null.
+	 * @throws IllegalArgumentException if the given parent type is null.
 	 */
 	private static String getParentTypeName(final Class<?> parentType) {
 		
 		//Asserts that the given parent type is not null.
 		if (parentType == null) {
-			throw new RuntimeException("The given parent type is null.");
+			throw new IllegalArgumentException("The given parent type is null.");
 		}
 		
 		return parentType.getSimpleName();
@@ -26,19 +26,19 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	//static method
 	/**
 	 * @return the parent type name of the given parent type.
-	 * @throws RuntimeException if the given parent type is null.
-	 * @throws RuntimeException if the given parent type is blank.
+	 * @throws IllegalArgumentException if the given parent type is null.
+	 * @throws IllegalArgumentException if the given parent type is blank.
 	 */
 	private static String getParentTypeName(final String parentType) {
 		
 		//Asserts that the given parent type is not null.
 		if (parentType == null) {
-			throw new RuntimeException("The given parent type is null.");
+			throw new IllegalArgumentException("The given parent type is null.");
 		}
 		
 		//Asserts that the given parent type is not blank.
 		if (parentType.isBlank()) {
-			throw new RuntimeException("The given parent type is blank.");
+			throw new IllegalArgumentException("The given parent type is blank.");
 		}
 		
 		return parentType;
@@ -62,7 +62,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	 * 
 	 * @param object
 	 * @param parent type
-	 * @throws RuntimeException if the given parent type is null.
+	 * @throws IllegalArgumentException if the given parent type is null.
 	 */
 	public ArgumentDoesNotBelongToParentException(final Object object, final Class<?> parentType) {
 		
@@ -76,8 +76,8 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	 * 
 	 * @param object
 	 * @param parent type
-	 * @throws RuntimeException if the given parent type is null.
-	 * @throws RuntimeException if the given parent type is blank.
+	 * @throws IllegalArgumentException if the given parent type is null.
+	 * @throws IllegalArgumentException if the given parent type is blank.
 	 */
 	public ArgumentDoesNotBelongToParentException(final Object object, final String parentType) {
 		

@@ -21,13 +21,13 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	/**
 	 * @param limit
 	 * @return an error predicate for the given limit.
-	 * @throws RuntimeException if the given limit is null.
+	 * @throws IllegalArgumentException if the given limit is null.
 	 */
 	private static String createErrorPredicate(final BigDecimal limit) {
 		
 		//Asserts that the given limit is not null.
 		if (limit == null) {
-			throw new RuntimeException("The given limit is null.");
+			throw new IllegalArgumentException("The given limit is null.");
 		}
 		
 		return ("is smaller than " + limit);
@@ -37,13 +37,13 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	/**
 	 * @param limit
 	 * @return an error predicate for the given limit.
-	 * @throws RuntimeException if the given limit is null.
+	 * @throws IllegalArgumentException if the given limit is null.
 	 */
 	private static String createErrorPredicate(final BigInteger limit) {
 		
 		//Asserts that the given limit is not null.
 		if (limit == null) {
-			throw new RuntimeException("The given limit is null.");
+			throw new IllegalArgumentException("The given limit is null.");
 		}
 		
 		return ("is smaller than " + limit);
@@ -55,7 +55,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given limit is null.
+	 * @throws IllegalArgumentException if the given limit is null.
 	 */
 	public SmallerArgumentException(final BigDecimal argument, final BigDecimal limit) {
 		
@@ -69,7 +69,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given limit is null.
+	 * @throws IllegalArgumentException if the given limit is null.
 	 */
 	public SmallerArgumentException(final BigInteger argument, final BigInteger limit) {
 		
@@ -111,9 +111,9 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
-	 * @throws RuntimeException if the given limit is null.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given limit is null.
 	 */
 	public SmallerArgumentException(
 		final String argumentName,
@@ -136,9 +136,9 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
-	 * @throws RuntimeException if the given limit is null.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given limit is null.
 	 */
 	public SmallerArgumentException(
 		final String argumentName,
@@ -161,8 +161,8 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public SmallerArgumentException(
 		final String argumentName,
@@ -185,8 +185,8 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
 	public SmallerArgumentException(
 		final String argumentName,

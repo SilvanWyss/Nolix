@@ -19,19 +19,19 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	/**
 	 * @param methodName
 	 * @return a safe method name for the given method name.
-	 * @throws RuntimeException if the given attribute name is null.
-	 * @throws RuntimeException if the given attribute name is blank.
+	 * @throws IllegalArgumentException if the given attribute name is null.
+	 * @throws IllegalArgumentException if the given attribute name is blank.
 	 */
 	private static String createSafeMethodName(final String methodName) {
 		
 		//Asserts that the given method name is not null.
 		if (methodName == null) {
-			throw new RuntimeException("The given method name is null.");
+			throw new IllegalArgumentException("The given method name is null.");
 		}
 		
 		//Asserts that the given method name is not blank.
 		if (methodName.isBlank()) {
-			throw new RuntimeException("The given method name is blank.");
+			throw new IllegalArgumentException("The given method name is blank.");
 		}
 		
 		return methodName;
@@ -44,9 +44,9 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	 * 
 	 * @param argument
 	 * @param methodName
-	 * @throws RuntimeException if the given argument is null.
-	 * @throws RuntimeException if the given method name is null.
-	 * @throws RuntimeException if the given method name is blank.
+	 * @throws IllegalArgumentException if the given argument is null.
+	 * @throws IllegalArgumentException if the given method name is null.
+	 * @throws IllegalArgumentException if the given method name is blank.
 	 */
 	public ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
 		
