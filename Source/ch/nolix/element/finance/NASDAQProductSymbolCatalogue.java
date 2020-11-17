@@ -33,7 +33,7 @@ public final class NASDAQProductSymbolCatalogue {
 	
 	//constant
 	public static final IContainer<String> PRODUCT_SYMBOLS =
-	ReadContainer.forElements(
+	ReadContainer.withElements(
 		ADVANCED_MICRO_DEVICES_INC,
 		CENTURY_ALUMINIUM_CORPORATION,
 		FACEBOOK,

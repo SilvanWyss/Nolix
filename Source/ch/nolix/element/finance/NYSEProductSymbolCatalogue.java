@@ -61,7 +61,7 @@ public final class NYSEProductSymbolCatalogue {
 	
 	//constant
 	public static final IContainer<String> PRODUCT_SYMBOLS =
-	ReadContainer.forElements(
+	ReadContainer.withElements(
 		AMERICAN_ELECTRIC_POWER_CO_INC,
 		APPLE,
 		ALPHABET,

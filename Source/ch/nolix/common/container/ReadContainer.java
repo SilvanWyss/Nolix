@@ -49,19 +49,6 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//static method
 	/**
-	 * Creates a new {@link ReadContainer} for the given elements.
-	 * 
-	 * @param arrays
-	 * @throws ArgumentIsNullException if the given elements is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public static <E2> ReadContainer<E2> forElements(final E2... elements) {
-		return new ReadContainer<>(LinkedList.withElements(elements));
-	}
-	
-	//static method
-	/**
 	 * Creates a new {@link ReadContainer} for the given iterable object.
 	 * 
 	 * @param object
@@ -82,6 +69,19 @@ public final class ReadContainer<E> implements IContainer<E> {
 	@SuppressWarnings("unchecked")
 	public static <E2> ReadContainer<E2> forIterables(final Iterable<E2>... objects) {
 		return new ReadContainer<>(new MultiReadContainer<>(objects));
+	}
+	
+	//static method
+	/**
+	 * Creates a new {@link ReadContainer} with the given elements.
+	 * 
+	 * @param arrays
+	 * @throws ArgumentIsNullException if the given elements is null.
+	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public static <E2> ReadContainer<E2> withElements(final E2... elements) {
+		return new ReadContainer<>(LinkedList.withElements(elements));
 	}
 	
 	//attribute
