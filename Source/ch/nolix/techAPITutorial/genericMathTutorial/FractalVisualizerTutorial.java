@@ -3,7 +3,6 @@ package ch.nolix.techAPITutorial.genericMathTutorial;
 import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.common.processProperty.ProcessingMode;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.ImageWidget;
@@ -69,7 +68,7 @@ public final class FractalVisualizerTutorial {
 			
 			fractalBuilder.setWidthInPixel(Integer.valueOf(widthTextBox.getText()));
 			
-			imageWidet.setImage(pushAndGetResult(new GenerateImageSession(fractalBuilder), Image.class));
+			imageWidet.setImage(pushAndGetResult(new GenerateImageSession(fractalBuilder)));
 		}
 	}
 	

@@ -176,13 +176,11 @@ public abstract class Session<C extends Client<C>> {
 	 * Pushes the given session to the parent {@link Client} of the current {@link Session}.
 	 * 
 	 * @param session
-	 * @param resultType - The type of the result of the given session.
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
-	 * @throws ArgumentIsNullException if the given resultType is null.
 	 */
-	public final <R> R pushAndGetResult(final Session<C> session, final Class<R> resultType) {
-		return getParentClient().pushAndGetResult(session, resultType);
+	public final <R> R pushAndGetResult(final Session<C> session) {
+		return getParentClient().pushAndGetResult(session);
 	}
 	
 	//method

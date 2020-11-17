@@ -28,7 +28,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 760
+ * @lines 720
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -78,16 +78,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return true if the current {@link Client} contais a next session.
 	 */
 	public final boolean containsNextSession() {
-		
-		if (!containsCurrentSession()) {
-			return false;
-		}
-		
-		if (getCurrentSessionIndex() == getSessionStackSize()) {
-			return false;
-		}
-		
-		return true;
+		return (containsCurrentSession() && getSessionStackSize() > getCurrentSessionIndex());
 	}
 	
 	//method
@@ -95,16 +86,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return true if the current {@link Client} contains a previous session.
 	 */
 	public final boolean containsPreviousSession() {
-		
-		if (!containsCurrentSession()) {
-			return false;
-		}
-		
-		if (getCurrentSessionIndex() < 2) {
-			return false;
-		}
-		
-		return true;
+		return (containsCurrentSession() && getCurrentSessionIndex() > 1);
 	}
 	
 	//method
@@ -330,12 +312,10 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Pushes the given session to the current {@link Client} with the given pop function.
 	 * 
 	 * @param session
-	 * @param popFunction
 	 * @throws ArgumentIsNullException if the given session is null.
-	 * @throws ArgumentIsNullException if the given pop function is null.
 	 */
 	@SuppressWarnings("unchecked")
-	final <R> R pushAndGetResult(final Session<C> session, final Class<R> resultType) {
+	final <R> R pushAndGetResult(final Session<C> session) {
 		
 		push(session);
 		
@@ -532,14 +512,10 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	//method
 	/**
 	 * @return the current session of the current {@link Client}.
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final Session<C> internalGetRefCurrentSession() {
 		
-		Sequencer.waitUntil(() -> containsCurrentSession());
-		
-		//Asserts that the current client contains a current session.
-		supposeContainsCurrentSession();
+		Sequencer.waitUntil(this::containsCurrentSession);
 		
 		return currentSession;
 	}
@@ -647,7 +623,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Waits until the current {@link Client} is connected.
 	 */
 	protected final void internalWaitUntilIsConnected() {
-		Sequencer.waitUntil(() -> this.internalIsConnected());
+		Sequencer.waitUntil(this::internalIsConnected);
 	}
 	
 	//method
@@ -718,18 +694,6 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		topSession.removeParentClient();
 		
 		currentSession = sessions.containsAny() ? sessions.getRefLast() : null;
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Client} does not contain a current session.
-	 */	
-	private void supposeContainsCurrentSession() {
-		
-		//Asserts that the current client contains a current session.
-		if (!containsCurrentSession()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "current Session");
-		}
 	}
 	
 	//method
