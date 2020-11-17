@@ -1,22 +1,21 @@
-/*
- * file:	NYSEProductSymbolManager.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	110
- */
-
 //package declaration
 package ch.nolix.element.finance;
 
-import ch.nolix.common.container.LinkedList;
+//own imports
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.ReadContainer;
 
 //class
 /**
- * This class manages the product symbols of NYSE (New York Stock Exchange).
+ * The {@link NYSEProductSymbolCatalogue} defines product symbols of the NYSE (New York Stock Exchange).
+ * 
+ * @author Silvan Wyss
+ * @date 2017-01-01
+ * @lines 110
  */
 public final class NYSEProductSymbolCatalogue {
-
-	//NYSE product symbols
+	
+	//constants
 	public static final String AMERICAN_ELECTRIC_POWER_CO_INC = "AEP";
 	public static final String APPLE = "AAPL";
 	public static final String ALPHABET = "GOOG";
@@ -60,59 +59,54 @@ public final class NYSEProductSymbolCatalogue {
 	public static final String WALMART_STORES_INC = "WMT";
 	public static final String YAHOO = "YHOO";
 	
-	//static method
-	/**
-	 * @return the product symbols of the NYSE
-	 */
-	public static LinkedList<String> getProductSymbols() {
-		return new LinkedList<String>()
-		.addAtEnd(
-			AMERICAN_ELECTRIC_POWER_CO_INC,
-			APPLE,
-			ALPHABET,
-			AT_T_INC,
-			BANK_OF_AMERICA,
-			BLACK_ROCK_INC,
-			BOEING,
-			BP,
-			CABOT_OIL_GAS_CORPORATION,
-			CHEVRON_CORPORATION,
-			CREDIT_SUISSE_GROUP_AG,
-			EXXON_MOBILE_CORPORATION,
-			FORD,
-			GENERAL_ELECTRIC_COMPANY,
-			GENERAL_MOTORS,
-			HILTON_WORLDWIDE_HOLDINGS_INC,
-			HP_INC,
-			INTERNATIONAL_BUSINESS_MACHINES_CORPORATION,
-			JOHNSON_JOHNSON,
-			JPMORGAN_CHASE_COMPANY,
-			MACYS_INC,
-			MARATHON_OIL_CORPORATION,
-			MONSANTO_COMPANY,
-			NIKE_INC,
-			NOVARTIS_AG,
-			OPPENHEIMER_HOLDINGS_INC,
-			ORACLE_CORPORATION,
-			PERFORMANCE_SPORTS_GROUP_LTD,
-			PFIZER_INC,
-			PHILIP_MORIS_INTERNATIONAL_INC,
-			THE_GOLDMAN_SACHS_GROUP,
-			THE_WALT_DISNEY_COMPANY,
-			TOYOTA_MOTOR_CORPORATION,
-			TWITTER_INC,
-			UBS_GROUP_AG,
-			UNILEVER_NV,
-			UNITED_STATES_STEEL_CORPORATION,
-			VISA_INC,
-			WALMART_STORES_INC,
-			YAHOO
-		);
-	}
+	//constant
+	public static final IContainer<String> PRODUCT_SYMBOLS =
+	ReadContainer.forElements(
+		AMERICAN_ELECTRIC_POWER_CO_INC,
+		APPLE,
+		ALPHABET,
+		AT_T_INC,
+		BANK_OF_AMERICA,
+		BLACK_ROCK_INC,
+		BOEING,
+		BP,
+		CABOT_OIL_GAS_CORPORATION,
+		CHEVRON_CORPORATION,
+		CREDIT_SUISSE_GROUP_AG,
+		EXXON_MOBILE_CORPORATION,
+		FORD,
+		GENERAL_ELECTRIC_COMPANY,
+		GENERAL_MOTORS,
+		HILTON_WORLDWIDE_HOLDINGS_INC,
+		HP_INC,
+		INTERNATIONAL_BUSINESS_MACHINES_CORPORATION,
+		JOHNSON_JOHNSON,
+		JPMORGAN_CHASE_COMPANY,
+		MACYS_INC,
+		MARATHON_OIL_CORPORATION,
+		MONSANTO_COMPANY,
+		NIKE_INC,
+		NOVARTIS_AG,
+		OPPENHEIMER_HOLDINGS_INC,
+		ORACLE_CORPORATION,
+		PERFORMANCE_SPORTS_GROUP_LTD,
+		PFIZER_INC,
+		PHILIP_MORIS_INTERNATIONAL_INC,
+		THE_GOLDMAN_SACHS_GROUP,
+		THE_WALT_DISNEY_COMPANY,
+		TOYOTA_MOTOR_CORPORATION,
+		TWITTER_INC,
+		UBS_GROUP_AG,
+		UNILEVER_NV,
+		UNITED_STATES_STEEL_CORPORATION,
+		VISA_INC,
+		WALMART_STORES_INC,
+		YAHOO
+	);
 	
 	//visibility-reducing constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link NYSEProductSymbolCatalogue} can be created.
 	 */
 	private NYSEProductSymbolCatalogue() {}
 }
