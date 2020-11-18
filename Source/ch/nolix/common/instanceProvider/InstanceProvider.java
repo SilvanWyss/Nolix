@@ -5,6 +5,7 @@ package ch.nolix.common.instanceProvider;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperty.WriteMode;
@@ -18,23 +19,23 @@ public final class InstanceProvider {
 	private final HashMap<Class<?>, Class<?>> classes = new HashMap<>();
 	
 	//method
-	public boolean containsClassFor(final Class<?> interface_) {
-		return classes.containsKey(interface_);
+	public boolean containsClassFor(final Class<?> pInterface) {
+		return classes.containsKey(pInterface);
 	}
 	
 	//method
 	//Important: The CoreClassProvider will found only the first (!) constructor with the given amount of parameters.
 	@SuppressWarnings("unchecked")
-	public <I, C extends I> C create(final Class<I> interface_,	final Object[] arguments) {
+	public <I, C extends I> C create(final Class<I> pInterface,	final Object[] arguments) {
 		
-		final var class_ = classes.get(interface_);
+		final var lClass = classes.get(pInterface);
 		
 		//Asserts that the given interface is registered.
-		if (class_ == null) {
-			throw new InvalidArgumentException(interface_, "is not registered at the ClassProvider");
+		if (lClass == null) {
+			throw new InvalidArgumentException(pInterface, "is not registered at the ClassProvider");
 		}
 		
-		for (final var c : class_.getConstructors()) {
+		for (final var c : lClass.getConstructors()) {
 			if (c.getParameterCount() == arguments.length) {
 				c.setAccessible(true);
 				try {
@@ -54,46 +55,46 @@ public final class InstanceProvider {
 	}
 	
 	//method
-	public <I, C extends I> RegistrationMediator register(final Class<I> interface_, final Class<C> class_) {
-		return register(interface_, class_, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
+	public <I, C extends I> RegistrationMediator register(final Class<I> pInterface, final Class<C> pClass) {
+		return register(pInterface, pClass, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method
 	public <I, C extends I> RegistrationMediator register(
-		final Class<I> interface_,
-		final Class<C> class_,
+		final Class<I> pInterface,
+		final Class<C> pClass,
 		final WriteMode writeMode
 	) {
 		
 		Validator
-		.assertThat(interface_)
+		.assertThat(pInterface)
 		.thatIsNamed(VariableNameCatalogue.INTERFACE)
 		.isInterface();
 		
 		Validator
-		.assertThat(class_)
+		.assertThat(pClass)
 		.thatIsNamed(VariableNameCatalogue.CLASS)
-		.isImplementing(interface_);
+		.isImplementing(pInterface);
 		
 		switch (writeMode) {
 			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 				
-				if (classes.putIfAbsent(interface_, class_) != null) {
+				if (classes.putIfAbsent(pInterface, pClass) != null) {
 					throw
 					new InvalidArgumentException(
 						this,
 						"contains already a class that implements the interface '"
-						+ interface_.getCanonicalName()
+						+ pInterface.getCanonicalName()
 						+ "'"
 					);
 				}
 				
 				break;
 			case OVERWRITE_WHEN_TARGET_EXISTS_ALREADY:
-				classes.put(interface_, class_);
+				classes.put(pInterface, pClass);
 				break;
 			case SKIP_WHEN_TARGET_EXISTS_ALREADY:
-				classes.putIfAbsent(interface_, class_);
+				classes.putIfAbsent(pInterface, pClass);
 				break;
 		}
 		
