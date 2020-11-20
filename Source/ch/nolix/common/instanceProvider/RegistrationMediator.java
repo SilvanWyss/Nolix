@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.instanceProvider;
 
+//own imports
 import ch.nolix.common.processProperty.WriteMode;
 import ch.nolix.common.validator.Validator;
 
@@ -19,16 +20,16 @@ public final class RegistrationMediator {
 	}
 	
 	//method
-	public <I, C extends I> RegistrationMediator register(final Class<I> interface_, final Class<C> class_) {		
-		return parentClassProvider.register(interface_, class_);
+	public <I, C extends I> RegistrationMediator register(final Class<I> pInterface, final Class<C> pClass) {		
+		return parentClassProvider.register(pInterface, pClass);
 	}
 	
 	//method
 	public <I, C extends I> RegistrationMediator register(
-		final Class<I> interface_,
-		final Class<C> class_,
+		final Class<I> pInterface,
+		final Class<C> pClass,
 		final WriteMode writeMode
 	) {
-		return parentClassProvider.register(interface_, class_, writeMode);
+		return parentClassProvider.register(pInterface, pClass, writeMode);
 	}
 }
