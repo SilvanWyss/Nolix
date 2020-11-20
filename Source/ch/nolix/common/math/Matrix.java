@@ -4,10 +4,12 @@ package ch.nolix.common.math;
 //Java import
 import java.util.Random;
 
+//own imports
 import ch.nolix.common.commonTypeHelper.DoubleHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
 import ch.nolix.common.requestAPI.ApproximativeEqualing;
 import ch.nolix.common.validator.Validator;
 
@@ -25,6 +27,9 @@ import ch.nolix.common.validator.Validator;
  * @lines 1140
  */
 public class Matrix implements ApproximativeEqualing {
+	
+	//static attribute
+	private static final Random random = new Random();
 	
 	//multi-attribute
 	private double[][] values;
@@ -88,10 +93,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Creates matrix.
 		final Matrix matrix = new Matrix(rowCount, columnCount);
-		
-		//Fills up the matrix with random values.
-		final var random = new Random();
-		
+				
 		//Iterates the rows of the matrix.
 		for (int i = 0; i < matrix.getRowCount(); i++) {
 			
@@ -579,7 +581,7 @@ public class Matrix implements ApproximativeEqualing {
 		final Matrix matrix = getClone().transformToEquivalentUpperLeftMatrix();
 		
 		if (matrix.getRowCount() != getRowCount()) {
-			throw new RuntimeException("Coefficient matrix of this extended matrix is not regular.");
+			throw new InvalidArgumentException(this, "does not have a regular coefficient Matrix");
 		}
 		
 		for (int i = matrix.getRowCount() - 1; i >= 0; i--) {
@@ -920,7 +922,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Asserts that the upper left element of this matrix is 0.
 		if (values[0][0] == 0) {
-			throw new RuntimeException("Matrix does not represent a polynom because its upper left element is 0.");
+			throw new UnrepresentingArgumentException(this, Polynom.class);
 		}
 		
 		//Handles the case that this matrix consists of 1 row.
@@ -931,17 +933,17 @@ public class Matrix implements ApproximativeEqualing {
 		//Handles the case that this matrix consists of 1 column.
 		if (getColumnCount() == 1) {
 			
-			final double[] values = new double[getRowCount()];
+			final double[] lValues = new double[getRowCount()];
 			
 			for (int i = 0; i < getRowCount(); i++) {
-				values[i] = this.values[i][0];
+				lValues[i] = this.values[i][0];
 			}
 			
-			return Polynom.withCoefficients(values);
+			return Polynom.withCoefficients(lValues);
 		}
 		
 		//Handles the case that this matrix does not consist of 1 row nor of 1 column.
-		throw new RuntimeException("Matrix contains not exactly 1 row or exactly 1 column");
+		throw new UnrepresentingArgumentException(this, Polynom.class);
 	}
 	
 	//method
@@ -959,17 +961,17 @@ public class Matrix implements ApproximativeEqualing {
 		//Handles the case that this matrix contains 1 column.
 		if (getColumnCount() == 1) {
 			
-			final double[] values = new double[getRowCount()];
+			final double[] lValues = new double[getRowCount()];
 			
 			for (int i = 0; i < getRowCount(); i++) {
-				values[i] = this.values[i][0];
+				lValues[i] = this.values[i][0];
 			}
 			
-			return new Vector(getRowCount()).setValues(values);
+			return new Vector(getRowCount()).setValues(lValues);
 		}
 		
 		//Handles the case that this matrix does not either contain 1 row nor 1 column.
-		throw new RuntimeException("Matrix does not either contain 1 row nor 1 column.");
+		throw new UnrepresentingArgumentException(this, Vector.class);
 	}
 	
 	//method
@@ -1117,15 +1119,15 @@ public class Matrix implements ApproximativeEqualing {
 	 */
 	public Matrix transpose() {
 		
-		double[][] values = new double[getColumnCount()][getRowCount()];
+		double[][] lValues = new double[getColumnCount()][getRowCount()];
 		
 		for (int i = 0; i < getRowCount(); i++) {
 			for (int j = 0; j < getColumnCount(); j++) {
-				values[j][i] = this.values[i][j];
+				lValues[j][i] = this.values[i][j];
 			}
 		}
 		
-		this.values = values;
+		this.values = lValues;
 		
 		return this;
 	}
