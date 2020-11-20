@@ -4,6 +4,7 @@ package ch.nolix.common.serviceProvider;
 //Java import
 import java.util.HashMap;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.processProperty.WriteMode;
@@ -17,16 +18,16 @@ public final class ServiceProvider {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <S> S get(final Class<S> interface_) {
+	public <S> S get(final Class<S> pInterface) {
 		
-		final var service = (S)services.get(interface_);
+		final var service = (S)services.get(pInterface);
 		
 		if (service == null) {
 			throw
 			new InvalidArgumentException(
 				this,
 				"does not contain a service for the interface '"
-				+ interface_.getCanonicalName()
+				+ pInterface.getCanonicalName()
 				+ "'."
 			);
 		}
@@ -35,49 +36,35 @@ public final class ServiceProvider {
 	}
 	
 	//method
-	public <I, S extends I> void register(
-		final Class<I> interface_,
-		final S service
-	) {
-		register(interface_, service, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
+	public <I, S extends I> void register(final Class<I> pInterface, final S service) {
+		register(pInterface, service, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
 	}
 	
 	//method
-	public <I, S extends I> void register(
-		final Class<I> interface_,
-		final S service,
-		final WriteMode writeMode
-	) {
+	public <I, S extends I> void register(final Class<I> pInterface, final S service, final WriteMode writeMode) {
 		
-		Validator
-		.assertThat(interface_)
-		.thatIsNamed(VariableNameCatalogue.INTERFACE)
-		.isNotNull();
-		
-		Validator
-		.assertThat(service)
-		.thatIsNamed(VariableNameCatalogue.SERVICE)
-		.isNotNull();
+		Validator.assertThat(pInterface).thatIsNamed(VariableNameCatalogue.INTERFACE).isNotNull();
+		Validator.assertThat(service).thatIsNamed(VariableNameCatalogue.SERVICE).isNotNull();
 		
 		switch (writeMode) {
 			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 				
-				if (services.putIfAbsent(interface_, service) != null) {
+				if (services.putIfAbsent(pInterface, service) != null) {
 					throw
 					new InvalidArgumentException(
 						this,
 						"contains already a service with the given interface '"
-						+ interface_.getCanonicalName()
+						+ pInterface.getCanonicalName()
 						+ "'"
 					);
 				}
 				
 				break;
 			case OVERWRITE_WHEN_TARGET_EXISTS_ALREADY:
-				services.put(interface_, service);
+				services.put(pInterface, service);
 				break;
 			case SKIP_WHEN_TARGET_EXISTS_ALREADY:
-				services.putIfAbsent(interface_, service);
+				services.putIfAbsent(pInterface, service);
 				break;
 		}
 	}
