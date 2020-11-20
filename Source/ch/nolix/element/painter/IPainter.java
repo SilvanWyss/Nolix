@@ -11,13 +11,10 @@ import ch.nolix.element.textFormat.TextFormat;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 210
+ * @lines 220
  */
 public interface IPainter {
-	
-	//constant
-	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
-	
+		
 	//method
 	/**
 	 * @return a new {@link IPainter} from the current {@link IPainter}.
@@ -50,6 +47,12 @@ public interface IPainter {
 		int paintAreaWidth,
 		int paintAreaHeight
 	);
+	
+	//method declaration
+	/**
+	 * @return the default {@link TextFormat} of the current {@link IPainter}.
+	 */
+	public abstract TextFormat getDefaultTextFormat();
 	
 	//method declaration
 	/**
@@ -143,7 +146,7 @@ public interface IPainter {
 	public default void paintText(final String text) {
 		
 		//Calls other method.
-		paintText(text, DEFAULT_TEXT_FORMAT);
+		paintText(text, getDefaultTextFormat());
 	}
 	
 	//method
@@ -158,7 +161,7 @@ public interface IPainter {
 	public default void paintText(final String text, final int maxWidth) {
 		
 		//Calls other method.
-		paintText(text, DEFAULT_TEXT_FORMAT, maxWidth);
+		paintText(text, getDefaultTextFormat(), maxWidth);
 	}
 	
 	//method declaration

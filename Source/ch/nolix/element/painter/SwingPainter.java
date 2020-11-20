@@ -17,6 +17,9 @@ import ch.nolix.element.textFormat.TextFormat;
 //class
 public final class SwingPainter implements IPainter {
 	
+	//constant
+	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
+	
 	//attributes
 	private final CachingContainer<Image> imageCache;
 	private final Graphics graphics;
@@ -65,6 +68,12 @@ public final class SwingPainter implements IPainter {
 				paintAreaHeight
 			)
 		);
+	}
+	
+	//method
+	@Override
+	public TextFormat getDefaultTextFormat() {
+		return DEFAULT_TEXT_FORMAT;
 	}
 	
 	//method

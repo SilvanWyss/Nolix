@@ -18,6 +18,9 @@ import ch.nolix.element.textFormat.TextFormat;
 //class
 final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
+	//constant
+	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
+	
 	//attributes
 	private final CanvasGUIPainterPool bottom;
 	private final CachingContainer<Image> imageCachingContainer;
@@ -97,6 +100,12 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	public IContainer<ChainedNode> getCommands() {
 		return bottom.getPaintCommands();
+	}
+	
+	//method
+	@Override
+	public TextFormat getDefaultTextFormat() {
+		return DEFAULT_TEXT_FORMAT;
 	}
 	
 	//method
