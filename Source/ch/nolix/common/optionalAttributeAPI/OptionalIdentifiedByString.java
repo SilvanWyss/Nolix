@@ -39,6 +39,6 @@ public interface OptionalIdentifiedByString {
 	 * @return true if the current {@link OptionalIdentifiedByString} has the given id.
 	 */
 	public default boolean hasId(final String id) {
-		return (hasId() && getId() == id);
+		return (hasId() && getId().equals(id));
 	}
 }
