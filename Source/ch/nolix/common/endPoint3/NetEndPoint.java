@@ -213,28 +213,28 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * Lets the current {@link NetEndPoint} receive the given package.
 	 * 
-	 * @param lPackage
+	 * @param pPackage
 	 */
-	void receive(final Package lPackage) {
+	void receive(final Package pPackage) {
 		
 		//Enumerates the message role of the given package.
-		switch (lPackage.getMessageRole()) {
+		switch (pPackage.getMessageRole()) {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getRefReplier().getReply(lPackage.getRefContent());
+					final String reply = getRefReplier().getReply(pPackage.getRefContent());
 					if (isOpen()) {
-						send(new Package(lPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+						send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 					}
 				}
 				catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
-					send(new Package(lPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+					send(new Package(pPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
 				}
 				
 				break;
 			default:
-				getRefReceivedPackages().addAtEnd(lPackage);
+				getRefReceivedPackages().addAtEnd(pPackage);
 		}
 	}
 	
@@ -263,10 +263,10 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * Lets the current {@link NedEndPoint} send the given package.
 	 * 
-	 * @param lPackage
+	 * @param pPackage
 	 */
-	private void send(final Package lPackage) {
-		internalEndPoint.send(lPackage.toString());
+	private void send(final Package pPackage) {
+		internalEndPoint.send(pPackage.toString());
 	}
 	
 	//method
