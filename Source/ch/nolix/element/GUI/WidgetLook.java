@@ -17,16 +17,16 @@ import ch.nolix.element.textFormat.Font;
 /**
  * A {@link WidgetLook} stores the state-dependent attributes of a {@link Widget}.
  * 
- * For each attribute A, a {@link WidgetLook} provides, a {@link WidgetLook} has a method getRecursiveOrDefaultA().
+ * For each attribute A, a {@link WidgetLook} has a getRecursiveOrDefaultA method.
  * Step 1: If the {@link WidgetLook} has a value for A,
- * 			getRecursiveOrDefaultA() must return thevalue.
+ *         the getRecursiveOrDefaultA method must return the value.
  * Step 2: If the {@link WidgetLook} has a base look,
- * 			getRecursiveOrDefaultA() must return getRecursiveOrDefaultA() of the base structure.
- * Step 3: getRecursiveOrDefaultA() must return the default value for A.
+ *         the getRecursiveOrDefaultA method must return getRecursiveOrDefaultA() of the base structure.
+ * Step 3: The getRecursiveOrDefaultA method must return the default value for A.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 290
+ * @lines 280
  * @param <WL> The type of a {@link WidgetLook}.
  */
 public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement<WL> {
@@ -44,8 +44,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		Font.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
-		s -> Font.fromSpecification(s),
-		f -> f.getSpecification()
+		Font::fromSpecification,
+		Font::getSpecification
 	);
 	
 	//attribute
@@ -53,8 +53,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	new LayerProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
 		Boolean.FALSE,
-		s -> s.toBoolean(),
-		btf -> new Node(btf)
+		BaseNode::toBoolean,
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -63,7 +63,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		DEFAULT_TEXT_SIZE,
 		BaseNode::getOneAttributeAsInt,
-		ts -> Node.withOneAttribute(ts)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -72,13 +72,12 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		Color::fromSpecification,
-		tc -> tc.getSpecification()
+		Color::getSpecification
 	);
 	
 	//method
 	/**
-	 * @return the recursive or default bold text flag
-	 * of the current {@link WidgetLook}.
+	 * @return the recursive or default bold text flag of the current {@link WidgetLook}.
 	 */
 	public final boolean getRecursiveOrDefaultBoldTextFlag() {
 		return boldTextFlag.getRecursiveOrDefaultValue();
@@ -86,8 +85,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the recursive or default text color
-	 * of the current {@link WidgetLook}.
+	 * @return the recursive or default text color of the current {@link WidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultTextColor() {
 		return textColor.getRecursiveOrDefaultValue();
@@ -95,8 +93,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the recursive or default text font
-	 * of the current {@link WidgetLook}.
+	 * @return the recursive or default text font of the current {@link WidgetLook}.
 	 */
 	public final Font getRecursiveOrDefaultTextFont() {
 		return font.getRecursiveOrDefaultValue();
@@ -104,8 +101,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 	//method
 	/**
-	 * @return the recursive or default text size
-	 * of the current {@link WidgetLook}.
+	 * @return the recursive or default text size of the current {@link WidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTextSize() {
 		return textSize.getRecursiveOrDefaultValue();
@@ -283,8 +279,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link WidgetLook} does not have a base look.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link WidgetLook} does not have a base look.
 	 */
 	private void supposeHasBaseLook() {
 		if (!hasBaseLook()) {
