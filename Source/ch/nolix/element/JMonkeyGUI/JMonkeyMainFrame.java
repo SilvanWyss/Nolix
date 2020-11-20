@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.JMonkeyGUI;
 
-//Java imports
-import java.util.concurrent.Callable;
-
 //JMonkey import
 import com.jme3.app.SimpleApplication;
 import com.jme3.input.event.KeyInputEvent;
@@ -13,6 +10,7 @@ import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
 //own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element._3D_GUI.MainFrame;
@@ -132,41 +130,13 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
 	//method
 	/**
-	 * Enqueues the given function to this JMonkey main frame.
-	 * 
-	 * @param method
-	 */
-	private void enqueue(final IAction method) {
-		
-		Validator.assertThat(method).thatIsNamed("method").isNotNull();
-		
-		simpleApplication.enqueue(
-			new Callable<Object>() {
-
-				//method
-				/**
-				 * Calls this callable object.
-				 * 
-				 * @return null.
-				 */
-				@Override
-				public Object call() {
-					method.run();
-					return null;
-				}
-			}
-		);
-	}
-
-	//method
-	/**
 	 * @return true if this JMonkey main frame is closed.
 	 */
 	@Override
 	public boolean isClosed() {
 		return closed;
 	}
-
+	
 	//method
 	/**
 	 * Closes this JMonkey main frame.
@@ -212,14 +182,14 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {}
-
+	
 	//method
 	/**
 	 * Refreshes this JMonkey main frmae.
 	 */
 	@Override
 	public void refresh() {
-		enqueue(() -> direct_refresh());
+		enqueue(this::direct_refresh);
 	}
 	
 	//method
@@ -239,6 +209,19 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		enqueue(() -> direct_attachRootShape(rootShape));
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Enqueues the given function to this JMonkey main frame.
+	 * 
+	 * @param method
+	 */
+	private void enqueue(final IAction method) {
+		
+		Validator.assertThat(method).thatIsNamed(VariableNameCatalogue.METHOD).isNotNull();
+		
+		simpleApplication.enqueue(method::run);
 	}
 	
 	//method
