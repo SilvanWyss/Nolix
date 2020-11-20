@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.dataType;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.Property;
@@ -19,17 +20,17 @@ public final class DataTypeHelper {
 			case MULTI_VALUE:
 				return new MultiValueType<>(property.getValueClass());
 			case REFERENCE:
-				return (DataType<C>)new ReferenceType<E>((Class<E>)(property.getValueClass()));
+				return (DataType<C>)new ReferenceType<>((Class<E>)(property.getValueClass()));
 			case OPTIONAL_REFERENCE:
-				return (DataType<C>)new OptionalReferenceType<E>((Class<E>)(property.getValueClass()));
+				return (DataType<C>)new OptionalReferenceType<>((Class<E>)(property.getValueClass()));
 			case MULTI_REFERENCE:
-				return (DataType<C>)new MultiReferenceType<E>((Class<E>)(property.getValueClass()));
+				return (DataType<C>)new MultiReferenceType<>((Class<E>)(property.getValueClass()));
 			case BACK_REFERENCE:
-				return (DataType<C>)new BackReferenceType<E>((Class<E>)(property.getValueClass()));
+				return (DataType<C>)new BackReferenceType<>((Class<E>)(property.getValueClass()));
 			case OPTIONAL_BACK_REFERENCE:
-				return (DataType<C>)new OptionalBackReferenceType<E>((Class<E>)(property.getValueClass()));
+				return (DataType<C>)new OptionalBackReferenceType<>((Class<E>)(property.getValueClass()));
 			case MULTI_BACK_REFERENCE:
-				return (DataType<C>)new MultiBackReferenceType<E>((Class<E>)(property.getValueClass()));
+				return (DataType<C>)new MultiBackReferenceType<>((Class<E>)(property.getValueClass()));
 			default:
 				throw new InvalidArgumentException(property);
 		}
