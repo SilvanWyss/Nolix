@@ -1,20 +1,16 @@
-/*
- * file:	Test.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	480
- */
-
 //package declaration
 package ch.nolix.common.simpleTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestAccessor;
+//own import
 import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
 /**
- * A test contains test cases and can run them.
+ * A {@link SimpleTest} is a {@link BaseTest}, that has validation methods.
+ * 
+ * @author Silvan Wyss
+ * @date 2016-01-01
+ * @lines 440
  */
 public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	
@@ -25,17 +21,26 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given actual value does not equal approximatively the given expected value
+	 * Generates an error if the given actual value does not equal approximatively the given expected value.
 	 */
-	protected final void expectApproximativeEquality(final ApproximativeEqualing expectedValue, final ApproximativeEqualing actualValue) {
+	protected final void expectApproximativeEquality(
+		final ApproximativeEqualing expectedValue,
+		final ApproximativeEqualing actualValue
+	) {
 		if (expectedValue != null && actualValue == null) {
-			new TestAccessor(this).addExpectationError("Expected value is an object, but actual value is null.");
+			addExpectationError("Expected value is an object, but actual value is null.");
 		}
 		if (expectedValue == null && actualValue != null) {
-			new TestAccessor(this).addExpectationError("Expected value is null, but actual value is an object.");
+			addExpectationError("Expected value is null, but actual value is an object.");
 		}
 		if (expectedValue != null && actualValue != null && !expectedValue.equalsApproximatively(actualValue)) {
-			new TestAccessor(this).addExpectationError("'" + expectedValue.toString() + "' was expected, but '" + actualValue.toString() + "' was received, what does not equal.");
+			addExpectationError(
+				"'"
+				+ expectedValue.toString()
+				+ "' was expected, but '"
+				+ actualValue.toString()
+				+ "' was received, what does not equal."
+			);
 		}
 	}
 	
@@ -43,11 +48,13 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given values are not approximatively equal to each other
+	 * Generates an error if the given values are not approximatively equal to each other.
 	 */
 	protected final void expectApproximativeEquality(double expectedValue, double actualValue) {
 		if (Math.abs(expectedValue - actualValue) > EPSILON) {
-			new TestAccessor(this).addExpectationError("Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			addExpectationError(
+				"Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received."
+			);
 		}
 	}
 	
@@ -55,11 +62,14 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given values are not approximatively equal to each other with a smaller tolerance than the given epsilon
+	 * Generates an error
+	 * if the given values are not approximatively equal to each other with a smaller tolerance than the given epsilon.
 	 */
 	protected final void expectApproximativeEquality(double expectedValue, double actualValue, final double epsilon) {
 		if (Math.abs(expectedValue - actualValue) > epsilon) {
-			new TestAccessor(this).addExpectationError("Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			addExpectationError(
+				"Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received."
+			);
 		}
 	}
 	
@@ -67,11 +77,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param min
 	 * @param value
-	 * @throws Error if the given value is not bigger than the given min
+	 * Generates an error if the given value is not bigger than the given min.
 	 */
-	protected final void expectBiggerValue(double min, double value) {
+	protected final void expectBiggerValue(double min, final double value) {
 		if (value <= min) {
-			new TestAccessor(this).addExpectationError("A value bigger than " + min + " was expected, but " + value + " was received.");
+			addExpectationError("A value bigger than " + min + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -79,11 +89,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param min
 	 * @param value
-	 * @throws Error if the given value is not bigger than the given min
+	 * Generates an error if the given value is not bigger than the given min.
 	 */
-	protected final void expectBiggerValue(int min, int value) {
+	protected final void expectBiggerValue(final int min, int value) {
 		if (value <= min) {
-			new TestAccessor(this).addExpectationError("A value bigger than " + min + " was expected, but " + value + " was received.");
+			addExpectationError("A value bigger than " + min + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -91,28 +101,28 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param min
 	 * @param value
-	 * @throws Error if the given value is not bigger than the given min
+	 * Generates an error if the given value is not bigger than the given min.
 	 */
-	protected final void expectBiggerValue(long min, long value) {
+	protected final void expectBiggerValue(final long min, long value) {
 		if (value <= min) {
-			new TestAccessor(this).addExpectationError("A value bigger than " + min + " was expected, but " + value + " was received.");
+			addExpectationError("A value bigger than " + min + " was expected, but " + value + " was received.");
 		}
 	}
 	
 	//static method
 	/**
 	 * @param string
-	 * @throws Error if the given string is not a empty string
+	 * Generates an error if the given string is not an empty {@link String}.
 	 */
 	protected final void expectEmptyString(String string) {
 		
 		if (string == null) {
-			new TestAccessor(this).addExpectationError("Empty string was expected, but null was received.");
+			addExpectationError("Empty string was expected, but null was received.");
 			return;
 		}
 		
 		if (string.length() > 0) {
-			new TestAccessor(this).addExpectationError("Empty string was expected, but '" + string + "' was received.");
+			addExpectationError("Empty string was expected, but '" + string + "' was received.");
 		}
 	}
 	
@@ -120,11 +130,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given values are not equal
+	 * Generates an error if the given values are not equal.
 	 */
 	protected final void expectEquality(double expectedValue, double actualValue) {
 		if (expectedValue != actualValue) {
-			new TestAccessor(this).addExpectationError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			addExpectationError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -132,11 +142,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given values are not equal
+	 * Generates an error if the given values are not equal.
 	 */
-	protected final void expectEquality(int expectedValue, int actualValue) {
+	protected final void expectEquality(final int expectedValue, int actualValue) {
 		if (expectedValue != actualValue) {
-			new TestAccessor(this).addExpectationError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			addExpectationError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -144,11 +154,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given values are not equal
+	 * Generates an error if the given values are not equal.
 	 */
-	protected final void expectEquality(long expectedValue, long actualValue) {
+	protected final void expectEquality(final long expectedValue, long actualValue) {
 		if (expectedValue != actualValue) {
-			new TestAccessor(this).addExpectationError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			addExpectationError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -156,64 +166,64 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
-	 * @throws Error if the given objects are not equal
+	 * Generates an error if the given objects are not equal.
 	 */
 	protected final void expectEquality(Object expectedValue, Object actualValue) {
 		
 		if (expectedValue != null && actualValue == null) {
-			new TestAccessor(this).addExpectationError("An object was expected, but null was received.");
+			addExpectationError("An object was expected, but null was received.");
 		}
 		
 		if (expectedValue == null && actualValue != null) {
-			new TestAccessor(this).addExpectationError("Null was expected, but " + actualValue + " was received.");
+			addExpectationError("Null was expected, but " + actualValue + " was received.");
 		}
 		
 		if (expectedValue != null && actualValue != null && !expectedValue.equals(actualValue)) {
-			new TestAccessor(this).addExpectationError(expectedValue + " was expected, but " + actualValue + " was received.");
+			addExpectationError(expectedValue + " was expected, but " + actualValue + " was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param boolean0
-	 * @throws Error if the given boolean is true
+	 * Generates an error if the given boolean is true.
 	 */
-	protected final void expectFalse(boolean boolean_) {
-		if (boolean_) {
-			new TestAccessor(this).addExpectationError("False boolean was expected, but true was received.");
+	protected final void expectFalse(final boolean pBoolean) {
+		if (pBoolean) {
+			addExpectationError("False boolean was expected, but true was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not negative
+	 * Generates an error if the given value is not negative.
 	 */
-	protected final void expectNegativeValue(double value) {
+	protected final void expectNegativeValue(final double value) {
 		if (value >= 0) {
-			new TestAccessor(this).addExpectationError("Negative value was expected, but " + value + " was received.");
+			addExpectationError("Negative value was expected, but " + value + " was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not negative
+	 * Generates an error if the given value is not negative.
 	 */
-	protected final void expectNegativeValue(int value) {
+	protected final void expectNegativeValue(final int value) {
 		if (value >= 0) {
-			new TestAccessor(this).addExpectationError("Negative value was expected, but " + value + " was received.");
+			addExpectationError("Negative value was expected, but " + value + " was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not negative
+	 * Generates an error if the given value is not negative.
 	 */
-	protected final void expectNegativeValue(long value) {
+	protected final void expectNegativeValue(final long value) {
 		if (value >= 0) {
-			new TestAccessor(this).addExpectationError("Negative value was expected, but " + value + " was received.");
+			addExpectationError("Negative value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -221,145 +231,145 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param value1
 	 * @param value2
-	 * @throws Error if the given values are equal
+	 * Generates an error if the given values are equal.
 	 */
 	protected final void expectNoEquality(Object value1, Object value2) {
 		if ((value1 == null && value2 == null) || (value1 != null && value2 != null && value1.equals(value2))) {
-			new TestAccessor(this).addExpectationError("Two unequal values were expected, but two equal values were received");
+			addExpectationError("Two unequal values were expected, but two equal values were received");
 		}
 	}
 	
 	//method
 	/**
 	 * @param string
-	 * @throws Error if the given string is null or an empty string
+	 * Generates an error if the given string is null or an empty string.
 	 */
 	protected final void expectNonEmptyString(final String string) {
 		
 		//Handles the case that the given string is null.
 		if (string == null) {
-			new TestAccessor(this).addExpectationError("Non-empty string was expected, but null was received.");
+			addExpectationError("Non-empty string was expected, but null was received.");
 			return;
 		}
 		
 		//Handles the case that the given string is empty.
 		if (string.length() == 0) {
-			new TestAccessor(this).addExpectationError("Non-empty string was expected, but empty string was received.");
+			addExpectationError("Non-empty string was expected, but empty string was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is zero
+	 * Generates an error if the given value is 0.0.
 	 */
-	protected final void expectNotZero(double value) {
+	protected final void expectNotZero(final double value) {
 		if (value == 0) {
-			new TestAccessor(this).addExpectationError("Non zero value was expected, but 0 was received.");
+			addExpectationError("Non zero value was expected, but 0 was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is zero
+	 * Generates an error if the given value is 0.
 	 */
-	protected final void expectNotZero(int value) {
+	protected final void expectNotZero(final int value) {
 		if (value == 0) {
-			new TestAccessor(this).addExpectationError("Non zero value was expected, but 0 was received.");
+			addExpectationError("Non zero value was expected, but 0 was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is zero
+	 * Generates an error if the given value is 0.
 	 */
-	protected final void expectNotZero(long value) {
+	protected final void expectNotZero(final long value) {
 		if (value == 0) {
-			new TestAccessor(this).addExpectationError("Non zero value was expected, but 0 was received.");
+			addExpectationError("Non zero value was expected, but 0 was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param reference
-	 * @throws Error if the given object is not null
+	 * Generates an error if the given object is not null.
 	 */
-	protected final void expectNull(Object object_) {
-		if (object_ != null) {
-			new TestAccessor(this).addExpectationError("Null was expected, but a " + object_.getClass().getSimpleName() + " was received");
+	protected final void expectNull(Object object) {
+		if (object != null) {
+			addExpectationError("Null was expected, but a " + object.getClass().getSimpleName() + " was received");
 		}
 	}
 	
 	//method
 	/**
 	 * @param reference
-	 * @throws Error if the given reference is null
+	 * Generates an error if the given reference is null.
 	 */
 	protected final void expectObject(Object reference) {
 		if (reference == null) {
-			new TestAccessor(this).addExpectationError("Object was expected, but null was received.");
+			addExpectationError("Object was expected, but null was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not 1
+	 * Generates an error if the given value is not 1.
 	 */
-	protected final void expectOne(double value) {
+	protected final void expectOne(final double value) {
 		expectEquality(1.0, value);
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not 1
+	 * Generates an error if the given value is not 1.
 	 */
-	protected final void expectOne(int value) {
+	protected final void expectOne(final int value) {
 		expectEquality(1, value);
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not 1
+	 * Generates an error if the given value is not 1.
 	 */
-	protected final void expectOne(long value) {
+	protected final void expectOne(final long value) {
 		expectEquality(1, value);
 	}
 
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not positive
+	 * Generates an error if the given value is not positive.
 	 */
-	protected final void expectPositiveValue(double value) {
+	protected final void expectPositiveValue(final double value) {
 		if (value <= 0) {
-			new TestAccessor(this).addExpectationError("Positive value was expected, but " + value + " was received");
+			addExpectationError("Positive value was expected, but " + value + " was received");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not positive
+	 * Generates an error if the given value is not positive.
 	 */
-	protected final void expectPositiveValue(int value) {
+	protected final void expectPositiveValue(final int value) {
 		if (value <= 0) {
-			new TestAccessor(this).addExpectationError("Positive value was expected, but " + value + " was received");
+			addExpectationError("Positive value was expected, but " + value + " was received");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not positive
+	 * Generates an error if the given value is not positive.
 	 */
-	protected final void expectPositiveValue(long value) {
+	protected final void expectPositiveValue(final long value) {
 		if (value <= 0) {
-			new TestAccessor(this).addExpectationError("Positive value was expected, but " + value + " was received");
+			addExpectationError("Positive value was expected, but " + value + " was received");
 		}
 	}
 	
@@ -367,11 +377,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param max
 	 * @param value
-	 * @throws Error if the given value is not smaller than the given max
+	 * Generates an error if the given value is not smaller than the given max.
 	 */
-	protected final void expectSmallerValue(double max, double value) {
+	protected final void expectSmallerValue(double max, final double value) {
 		if (value >= max) {
-			new TestAccessor(this).addExpectationError("A value smaller than " + max + " was expected, but " + value + " was received.");
+			addExpectationError("A value smaller than " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -379,11 +389,11 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param max
 	 * @param value
-	 * @throws Error if the given value is not smaller than the given max
+	 * Generates an error if the given value is not smaller than the given max.
 	 */
-	protected final void expectSmallerValue(int max, int value) {
+	protected final void expectSmallerValue(final int max, int value) {
 		if (value >= max) {
-			new TestAccessor(this).addExpectationError("A value smaller than " + max + " was expected, but " + value + " was received.");
+			addExpectationError("A value smaller than " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -391,49 +401,49 @@ public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	/**
 	 * @param max
 	 * @param value
-	 * @throws Error if the given value is not smaller than the given max
+	 * Generates an error if the given value is not smaller than the given max.
 	 */
-	protected final void expectSmallerValue(long max, long value) {
+	protected final void expectSmallerValue(final long max, long value) {
 		if (value >= max) {
-			new TestAccessor(this).addExpectationError("A value smaller than " + max + " was expected, but " + value + " was received.");
+			addExpectationError("A value smaller than " + max + " was expected, but " + value + " was received.");
 		}
 	}
 
 	//method
 	/**
-	 * @param boolean_
-	 * @throws Error if the given boolean is false
+	 * @param pBoolean
+	 * Generates an error if the given boolean is false.
 	 */
-	protected final void expectTrue(boolean boolean_) {
-		if (!boolean_) {
-			new TestAccessor(this).addExpectationError("True boolean was expected, but false was received.");
+	protected final void expectTrue(final boolean pBoolean) {
+		if (!pBoolean) {
+			addExpectationError("True boolean was expected, but false was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not 0
+	 * Generates an error if the given value is not 0.
 	 */
-	protected final void expectZero(double value) {
+	protected final void expectZero(final double value) {
 		expectEquality(0.0, value);
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not 0
+	 * Generates an error if the given value is not 0.
 	 */
-	protected final void expectZero(int value) {
+	protected final void expectZero(final int value) {
 		expectEquality(0, value);
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the given value is not 0
+	 * Generates an error if the given value is not 0.
 	 */
-	protected final void expectZero(long value) {
+	protected final void expectZero(final long value) {
 		expectEquality(0, value);
 	}
 }
