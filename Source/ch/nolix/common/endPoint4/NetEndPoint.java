@@ -1,47 +1,96 @@
 //package declaration
 package ch.nolix.common.endPoint4;
 
+//own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * a net end point can send messages to an other net end point.
+ * A {@link NedEndPoint} can send messages to another {@link NedEndPoint}.
  * 
  * @author Silvan Wyss
- * @month 2017-05
- * @lines 10
+ * @date 2017-06-10
+ * @lines 350
  */
 public class NetEndPoint<M, R> extends EndPoint<M, R> {
-	
-	static final String DEFAULT_TARGET = "DefaultTarget";
-	
-	//constant
-	private int nextSentPackageIndex = 1;
-	
+		
 	//attributes
 	private final ch.nolix.common.endPoint2.EndPoint internalEndPoint;
 	private final IElementTakerElementGetter<String, M> messageTransformer;
 	private final IElementTakerElementGetter<String, R> replyTransformer;
+	private int nextSentPackageIndex = 1;
 	
 	//multi-attribute
 	private final LinkedList<Package> receivedPackages = new LinkedList<>();
 	
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint}
+	 * that will connect to the default target on the given port on the local machine.
+	 * The {@link NetEndPoint} will have the  given messageTransformer and replyTransformer.
+	 * 
+	 * @param port
+	 * @param messageTransformer
+	 * @param replyTransformer
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsNullException if the given messageTransformer is null.
+	 * @throws ArgumentIsNullException if the given replyTransformer is null.
+	 */
 	public NetEndPoint(
 		final int port,
 		IElementTakerElementGetter<String, M> messageTransformer,
 		IElementTakerElementGetter<String, R> replyTransformer
 	) {
 		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(port),
-			messageTransformer,
-			replyTransformer
-		);
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(port), messageTransformer, replyTransformer);
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint}
+	 * that will connect to the given target on the given port on the local machine.
+	 * The {@link NetEndPoint} will have the  given messageTransformer and replyTransformer.
+	 * 
+	 * @param port
+	 * @param target
+	 * @param messageTransformer
+	 * @param replyTransformer
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 * @throws ArgumentIsNullException if the given messageTransformer is null.
+	 * @throws ArgumentIsNullException if the given replyTransformer is null.
+	 */
+	public NetEndPoint(int port, String target,
+		IElementTakerElementGetter<String, M> messageTransformer,
+		IElementTakerElementGetter<String, R> replyTransformer
+	) {
+		
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(port, target), messageTransformer, replyTransformer);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint}
+	 * that will connect to the default target on the given port on the machine with the given ip.
+	 * The {@link NetEndPoint} will have the  given messageTransformer and replyTransformer.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param messageTransformer
+	 * @param replyTransformer
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsNullException if the given messageTransformer is null.
+	 * @throws ArgumentIsNullException if the given replyTransformer is null.
+	 */
 	public NetEndPoint(
 		final String ip,
 		final int port,
@@ -49,40 +98,60 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		IElementTakerElementGetter<String, R> replyTransformer
 	) {
 		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(
-				ip, port
-			),
-			messageTransformer,
-			replyTransformer
-		);
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(ip, port), messageTransformer, replyTransformer);
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint}
+	 * that will connect to the given target on the given port on the machine with the given ip.
+	 * The {@link NetEndPoint} will have the  given messageTransformer and replyTransformer.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param target
+	 * @param messageTransformer
+	 * @param replyTransformer
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 * @throws ArgumentIsNullException if the given messageTransformer is null.
+	 * @throws ArgumentIsNullException if the given replyTransformer is null.
+	 */
 	public NetEndPoint(
 		final String ip,
 		final int port,
 		final String target,
 		IElementTakerElementGetter<String, M> messageTransformer,
-		IElementTakerElementGetter<String, R> replyTransformer) {
+		IElementTakerElementGetter<String, R> replyTransformer
+	) {
 		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(
-				ip, port, target
-			),
-			messageTransformer,
-			replyTransformer
-		);
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(ip, port, target), messageTransformer, replyTransformer);
 	}
 	
 	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} with the given internalEndPoint.
+	 * The {@link NetEndPoint} will have the  given messageTransformer and replyTransformer.
+	 * 
+	 * @param internalEndPoint
+	 * @param messageTransformer
+	 * @param replyTransformer
+	 * @throws ArgumentIsNullException if the given internalEndPoint is null.
+	 * @throws ArgumentIsNullException if the given messageTransformer is null.
+	 * @throws ArgumentIsNullException if the given replyTransformer is null.
+	 */
 	NetEndPoint(
 		final ch.nolix.common.endPoint2.EndPoint internalEndPoint,
-		IElementTakerElementGetter<String, M> messageTransformer,
-		IElementTakerElementGetter<String, R> replyTransformer
+		final IElementTakerElementGetter<String, M> messageTransformer,
+		final IElementTakerElementGetter<String, R> replyTransformer
 	) {
+		
+		Validator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();
+		Validator.assertThat(messageTransformer).thatIsNamed("messageTransformer").isNotNull();
+		Validator.assertThat(replyTransformer).thatIsNamed("reply transformer").isNotNull();
 		
 		this.internalEndPoint = internalEndPoint;
 		this.messageTransformer = messageTransformer;
@@ -92,22 +161,9 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		createCloseDependencyTo(internalEndPoint);
 	}
 	
-	//constructor
-	public NetEndPoint(int port, String target,
-			IElementTakerElementGetter<String, M> messageTransformer,
-			IElementTakerElementGetter<String, R> replyTransformer) {
-		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(port, target),
-			messageTransformer,
-			replyTransformer
-		);
-	}
-
 	//method
 	/**
-	 * @return the target of this end point.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getTarget() {
@@ -116,7 +172,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
-	 * @return true if this end point has requested the connection.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasRequestedConnection() {
@@ -125,7 +181,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
-	 * @return true if this net end point has a target.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasTarget() {
@@ -134,7 +190,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
-	 * @return true if this end point is a local end point.
+	 * {@inheritDoc}
 	 */
 	public boolean isLocalEndPoint() {
 		return internalEndPoint.isLocalEndPoint();
@@ -150,26 +206,27 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
-	 * Sends the given message and returns the reply.
-	 * This method throws an exception if there is not received a reply within the timeout.
+	 * Lets the current {@link NetEndPoint} send the given message and returns the reply.
 	 * 
 	 * @param message
 	 * @return the reply of the given message.
-	 * @throws RuntimeException if this zeta end point is stopped.
-	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */
 	@Override
 	public R sendAndGetReply(final M message) {
 		return sendAndWaitToReply(message);
 	}
 	
+	//method
+	/**
+	 * @return the internal end point of the current {@link NetEndPoint}.
+	 */
 	ch.nolix.common.endPoint2.EndPoint getRefInternalEndPoint() {
 		return internalEndPoint;
 	}
 	
 	//method
 	/**
-	 * Lets this zeta end point receive the given message.
+	 * Lets the current {@link NetEndPoint} receive the given message.
 	 * 
 	 * @param message
 	 */
@@ -179,43 +236,9 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
-	 * Lets this zeta end point wait to and return and remove the received package with the given index.
-	 * 
-	 * @param index
-	 * @param timeoutCheck
-	 * @return the received package with the given index.
-	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
+	 * @return the index of the next sent package. of the current {@link NetEndPoint}
 	 */
-	Package waitToAndGetAndRemoveReceivedPackage(
-		final int index
-	) {
-		
-		while (!receivedPackage(index));
-
-		return getAndRemoveReceivedPackage(index);
-	}
-	
-	final LinkedList<Package> getRefReceivedPackages() {
-		return receivedPackages;
-	}
-	
-	//method
-	/**
-	 * Lets this zeta end point return and remove the received package with the given index.
-	 * 
-	 * @param index
-	 * @return the reply with the given index
-	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
-	 */
-	private final Package getAndRemoveReceivedPackage(final int index) {
-		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
-	}
-	
-	//method
-	/**
-	 * @return the index of the next sent package. of this zeta end point
-	 */
-	final int getNextSentPackageIndex() {
+	private int getNextSentPackageIndex() {
 		
 		//Resets the index of the text sent package if it has reached the maximum value.
 		if (nextSentPackageIndex == Integer.MAX_VALUE) {
@@ -228,62 +251,80 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
+	 * Lets the current {@link NetEndPoint} return and remove the received package with the given index.
+	 * 
 	 * @param index
-	 * @return true if this zeta end point has received a package with the given index.
+	 * @return the reply with the given index
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has not received a package with the given index.
 	 */
-	private final boolean receivedPackage(final int index) {
-		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
+	private final Package getAndRemoveReceivedPackage(final int index) {
+		return receivedPackages.removeAndGetRefFirst(rp -> rp.hasIndex(index));
 	}
 	
 	//method
 	/**
-	 * Lets this zeta end point receive the given package.
-	 * 
-	 * @param package_
+	 * @return the received packages of the current {@link NetEndPoint}.
 	 */
-	void receive(final Package package_) {
+	private IContainer<Package> getRefReceivedPackages() {
+		return receivedPackages;
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link NetEndPoint} receive the given pPackage.
+	 * 
+	 * @param pPackage
+	 */
+	private void receive(final Package pPackage) {
 		
 		//Enumerates the message role of the given package.
-		switch (package_.getMessageRole()) {
+		switch (pPackage.getMessageRole()) {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final R reply = getRefReplier().getReply(messageTransformer.getOutput(package_.getRefContent()));
-					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
+					final R reply = getRefReplier().getReply(messageTransformer.getOutput(pPackage.getRefContent()));
+					send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
 				}
 				catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
-					send(new Package(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+					send(new Package(pPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
 				}
 				
 				break;
 			default:
-				getRefReceivedPackages().addAtEnd(package_);
+				receivedPackages.addAtEnd(pPackage);
 		}
 	}
-	
+
 	//method
 	/**
-	 * Lets this end point send the given package.
-	 * 
-	 * @param package_
+	 * @param index
+	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
-	private void send(final Package package_) {
-		internalEndPoint.send(package_.toString());
+	private final boolean receivedPackage(final int index) {
+		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
+	}
+
+	//method
+	/**
+	 * Lets the current {@link NetEndPoint} send the given package.
+	 * 
+	 * @param pPackage
+	 */
+	private void send(final Package pPackage) {
+		internalEndPoint.send(pPackage.toString());
 	}
 	
 	//method
 	/**
-	 * Sends the given message and waits to the reply.
+	 * Les the current {@link NetEndPoint} send the given message and wait to the reply.
 	 * 
 	 * @param message
-	 * @param timeoutCheck
 	 * @return the reply to the given message.
 	 */
-	private R sendAndWaitToReply(
-		final M message
-	) {
-		//Sends message nd receives reply.
+	private R sendAndWaitToReply(final M message) {
+		
+		//Sends message and receives the reply.
 		final int index = getNextSentPackageIndex();
 		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message.toString()));
 		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
@@ -297,5 +338,21 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 			default:
 				throw new RuntimeException("An error occured.");
 		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link NetEndPoint} wait to and return and remove the received package with the given index.
+	 * 
+	 * @param index
+	 * @return the received package with the given index.
+	 * @throws Exception
+	 * if the current {@link NetEndPoint} reaches its timeout before it receives a package with the given index.
+	 */
+	private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
+		
+		while (!receivedPackage(index));
+	
+		return getAndRemoveReceivedPackage(index);
 	}
 }
