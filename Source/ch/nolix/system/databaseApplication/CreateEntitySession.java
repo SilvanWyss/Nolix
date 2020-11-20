@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.dialog.ErrorDialog;
@@ -54,11 +55,11 @@ public final class CreateEntitySession extends HeaderedSession {
 				new Button()
 				.setRole(ButtonRole.CreateButton)
 				.setText("Create")
-				.setLeftMouseButtonPressAction(() -> createEntity()),
+				.setLeftMouseButtonPressAction(this::createEntity),
 				new Button()
 				.setRole(ButtonRole.CancelButton)
 				.setText("Cancel")
-				.setLeftMouseButtonPressAction(() -> cancel())
+				.setLeftMouseButtonPressAction(this::cancel)
 			)
 		);
 	}
