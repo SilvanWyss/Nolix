@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.container.LinkedList;
@@ -17,32 +18,29 @@ import ch.nolix.common.wrapperException.WrapperException;
 public abstract class SQLConnection implements AutoCloseable {
 	
 	//attributes
-	private final SQLDatabaseEngine SQLDatabaseEngine;
+	private final SQLDatabaseEngine mSQLDatabaseEngine;
 	private final Connection connection;
 	
 	//constructor
-	public SQLConnection(
-		final SQLDatabaseEngine SQLDatabaseEngine,
-		final Connection connection
-	) {
+	public SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
 		
-		Validator.assertThat(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
-		Validator.assertThat(connection).isOfType(Connection.class);
+		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		Validator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
 		
-		this.SQLDatabaseEngine = SQLDatabaseEngine;
+		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		this.connection = connection;
 	}
 	
 	//constructor
 	public SQLConnection(
-		final SQLDatabaseEngine SQLDatabaseEngine,
+		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final int port,
 		final String databaseName,
 		final String userName,
 		final String userPassword
 	) {
 		this(
-			SQLDatabaseEngine,
+			pSQLDatabaseEngine,
 			IPv4Catalogue.LOOP_BACK_ADDRESS,
 			port,
 			databaseName,
@@ -53,7 +51,7 @@ public abstract class SQLConnection implements AutoCloseable {
 	
 	//constructor
 	public SQLConnection(
-		final SQLDatabaseEngine SQLDatabaseEngine,
+		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
 		final String databaseName,
@@ -61,9 +59,9 @@ public abstract class SQLConnection implements AutoCloseable {
 		final String userPassword
 	) {
 		
-		Validator.assertThat(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
+		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 		
-		this.SQLDatabaseEngine = SQLDatabaseEngine;
+		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		
 		registerSQLDatabaseEngineDriver();
 		
@@ -75,8 +73,8 @@ public abstract class SQLConnection implements AutoCloseable {
 				userPassword
 			);
 		}
-		catch (final SQLException SQLException) {
-			throw new WrapperException(SQLException);
+		catch (final SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
 		}
 	}
 	
@@ -86,8 +84,8 @@ public abstract class SQLConnection implements AutoCloseable {
 		try {
 			connection.close();
 		}
-		catch (SQLException SQLException) {
-			throw new WrapperException(SQLException);
+		catch (SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
 		}
 	}
 	
@@ -97,40 +95,37 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final SQLConnection execute(final Iterable<String> SQLStatements) {	
+	public final SQLConnection execute(final Iterable<String> pSQLStatements) {
 		
-		try {
+		try (final var statement = connection.createStatement()) {
 			
-			final var statement = connection.createStatement();
-			
-			for (final var SQLS : SQLStatements) {
-				statement.addBatch(SQLS);
+			for (final var lSQLStatement : pSQLStatements) {
+				statement.addBatch(lSQLStatement);
 			}
 			
 			statement.executeBatch();		
-		} catch (final SQLException SQLException) {
-			throw new WrapperException(SQLException);
+		} catch (final SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
 		}
 		
 		return this;
 	}
 	
 	//method
-	public final SQLConnection execute(final String SQLStatement) {
+	public final SQLConnection execute(final String pSQLStatement) {
 		
-		try {
-			connection.createStatement().execute(SQLStatement);
-		} catch (final SQLException SQLException) {
-			close();
-			throw new WrapperException(SQLException);
+		try (final var statement = connection.createStatement()) {
+			statement.execute(pSQLStatement);
+		} catch (final SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
 		}
 		
 		return this;
 	}
 	
 	//method
-	public final SQLConnection execute(final String... SQLStatements) {
-		return execute(ReadContainer.forArray(SQLStatements));
+	public final SQLConnection execute(final String... pSQLStatements) {
+		return execute(ReadContainer.forArray(pSQLStatements));
 	}
 	
 	//method
@@ -139,36 +134,38 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final LinkedList<LinkedList<String>> getRows(final String SQLQuery) {
-		try {
+	public final LinkedList<LinkedList<String>> getRows(final String pSQLQuery) {
+		try (final var statement = connection.createStatement()) {
 			
 			final var rows = new LinkedList<LinkedList<String>>();
 			
-			final var result = connection.createStatement().executeQuery(SQLQuery);
-			final var columnCount = result.getMetaData().getColumnCount();
+			try (final var result = statement.executeQuery(pSQLQuery)) {
 			
-			while (result.next()) {
-				final var line = new LinkedList<String>();
-				for (var i = 1; i <= columnCount; i++) {
-					line.addAtEnd(result.getString(i));
+				final var columnCount = result.getMetaData().getColumnCount();
+				
+				while (result.next()) {
+					final var line = new LinkedList<String>();
+					for (var i = 1; i <= columnCount; i++) {
+						line.addAtEnd(result.getString(i));
+					}
+					rows.addAtEnd(line);
 				}
-				rows.addAtEnd(line);
+				
+				return rows;
 			}
-			
-			return rows;
-		} catch (SQLException SQLException) {
-			throw new WrapperException(SQLException);
+		} catch (SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
 		}
 	}
 	
 	//method
-	public final LinkedList<String> getRowsAsString(final String SQLQuery) {
-		return getRows(SQLQuery).toStrings();
+	public final LinkedList<String> getRowsAsString(final String pSQLQuery) {
+		return getRows(pSQLQuery).toStrings();
 	}
 	
 	//method
 	public final SQLDatabaseEngine getSQLDatabaseEngine() {
-		return SQLDatabaseEngine;
+		return mSQLDatabaseEngine;
 	}
 	
 	//method
