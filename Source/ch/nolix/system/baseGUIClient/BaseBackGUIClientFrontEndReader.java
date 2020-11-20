@@ -38,6 +38,6 @@ final class BaseBackGUIClientFrontEndReader implements IFrontEndReader {
 	public LinkedList<byte[]> getFilesFromClipboard() {
 		
 		//TODO: Implement.
-		return null;
+		return new LinkedList<>();
 	}
 }

@@ -37,7 +37,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	public LinkedList<IColumnAdapter> getColumnAdapters() {
 		
 		//TODO: Implement.
-		return null;
+		return new LinkedList<>();
 	}
 	
 	//method
