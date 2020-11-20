@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.common.math;
 
-//own imports
-import ch.nolix.common.validator2.Validator;
+import ch.nolix.common.simpleValidator.SimpleValidator;
 
 //class
 public final class Vector {
@@ -43,7 +42,7 @@ public final class Vector {
 	 */
 	public Vector(int length) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("length", length);
+		SimpleValidator.throwExceptionIfValueIsNotPositive("length", length);
 		
 		values = new double[length];
 	}
@@ -74,7 +73,7 @@ public final class Vector {
 	 */
 	public Vector add(Vector vector) {
 		
-		Validator.throwExceptionIfValueIsNotEqual("vector size", getSize(), vector.getSize());
+		SimpleValidator.throwExceptionIfValueIsNotEqual("vector size", getSize(), vector.getSize());
 		
 		for (int i = 0; i < values.length; i++) {
 			values[i] += vector.values[i];
@@ -172,7 +171,7 @@ public final class Vector {
 	 */
 	public final double getValueAt(int index) {
 		
-		Validator.throwExceptionIfValueIsNotInRange("index", 1, getSize(), index);
+		SimpleValidator.throwExceptionIfValueIsNotInRange("index", 1, getSize(), index);
 		
 		return values[index - 1];
 	}
@@ -209,7 +208,7 @@ public final class Vector {
 	 */
 	public final Vector setValues(double... values) {
 		
-		Validator.throwExceptionIfValueIsNotEqual("number of values", getSize(), values.length);
+		SimpleValidator.throwExceptionIfValueIsNotEqual("number of values", getSize(), values.length);
 		
 		for (int i = 0; i < this.values.length; i++) {
 			this.values[i] = values[i];

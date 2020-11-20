@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.common.validator2;
+package ch.nolix.common.simpleValidator;
 
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsZeroException;
@@ -19,7 +19,7 @@ import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
 /**
  * This class provides methods to validate values.
  */
-public final class Validator {
+public final class SimpleValidator {
 		
 	//static method
 	/**
@@ -29,7 +29,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfStringIsNullOrEmpty(String name, String string) {
 		
-		Validator.throwExceptionIfValueIsNull(name, string);
+		SimpleValidator.throwExceptionIfValueIsNull(name, string);
 		
 		if (string.length() < 1) {
 			throw new EmptyArgumentException(name, string);
@@ -316,5 +316,5 @@ public final class Validator {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private Validator() {}
+	private SimpleValidator() {}
 }
