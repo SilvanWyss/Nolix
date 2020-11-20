@@ -21,35 +21,31 @@ import ch.nolix.element.widget.VerticalStack;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-08
- * @lines 430
+ * @date 2018-08-13
+ * @lines 420
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
-	//constant
-	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR =
-	AccordionExpansionBehavior.Single;
-	
-	//constant
-	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =
-	Color.LIGHT_GREY;
+	//constants
+	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.Single;
+	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =	Color.LIGHT_GREY;
 	
 	//attribute
 	private final MutableValue<AccordionExpansionBehavior> expansionBehavior =
 	new MutableValue<>(
 		AccordionExpansionBehavior.TYPE_NAME,
-		eb -> setExpansionBehavior(eb),
-		s -> AccordionExpansionBehavior.fromSpecification(s),
-		eb -> eb.getSpecification()
+		this::setExpansionBehavior,
+		AccordionExpansionBehavior::fromSpecification,
+		AccordionExpansionBehavior::getSpecification
 	);
 	
 	//attribute
 	private final MultiValue<AccordionTab> tabs =
 	new MultiValue<>(
 		PascalCaseNameCatalogue.TAB,
-		t -> addTab(t),
-		s -> AccordionTab.fromSpecification(s),
-		t -> t.getSpecification()
+		this::addTab,
+		AccordionTab::fromSpecification,
+		AccordionTab::getSpecification
 	);
 	
 	//attribute
@@ -102,10 +98,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	public Accordion addTab(final AccordionTab... tabs) {
 		
 		//Asserts that the given tabs is not null.
-		Validator
-		.assertThat(tabs)
-		.thatIsNamed(MultiVariableNameCatalogue.TABS)
-		.isNotNull();
+		Validator.assertThat(tabs).thatIsNamed(MultiVariableNameCatalogue.TABS).isNotNull();
 		
 		return addTabs(ReadContainer.forArray(tabs));
 	}
@@ -134,12 +127,9 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
 		//Asserts that the given tabs is not null.
-		Validator
-		.assertThat(tabs)
-		.thatIsNamed(MultiVariableNameCatalogue.TABS)
-		.isNotNull();
+		Validator.assertThat(tabs).thatIsNamed(MultiVariableNameCatalogue.TABS).isNotNull();
 		
-		tabs.forEach(t -> addTab(t));
+		tabs.forEach(this::addTab);
 		
 		return this;
 	}
@@ -165,7 +155,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	public Accordion collapse() {
 		
-		getRefTabs().forEach(t -> t.collapse());
+		getRefTabs().forEach(AccordionTab::collapse);
 		
 		return this;
 	}
@@ -178,7 +168,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	public Accordion expand() {
 		
-		getRefTabs().forEach(t -> t.expand());
+		getRefTabs().forEach(AccordionTab::expand);
 		
 		return this;
 	}
@@ -411,7 +401,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * @param tab
 	 */
 	void collapse(final AccordionTab tab) {
-		if (!expandsAtLeastOneTabWhenNotEmpty()	|| getRefTabs().getCount(t -> t.isExpanded()) > 1) {
+		if (!expandsAtLeastOneTabWhenNotEmpty()	|| getRefTabs().getCount(AccordionTab::isExpanded) > 1) {
 			tab.collapse();
 		}
  	}
@@ -428,7 +418,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		switch (getExpansionBehavior()) {
 			case SingleOrNone:
 			case Single:
-				getRefTabs().forEach(t -> t.collapse());
+				getRefTabs().forEach(AccordionTab::collapse);
 				break;
 			default:
 		}
