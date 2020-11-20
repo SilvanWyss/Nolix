@@ -5,6 +5,7 @@ package ch.nolix.element.textFormat;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -287,15 +288,13 @@ public final class TextFormat extends Element<TextFormat> {
 		}
 		
 		//Handles the case that an ellipsis has to be attached to the first part.
-		if (attachEllipsis) {
-			if (firstPart.length() < text.length()) {
+		if (attachEllipsis && firstPart.length() < text.length()) {
 				
-				while (getSwingTextWidth(firstPart + CharacterCatalogue.ELLIPSIS) > maxWidth) {
-					firstPart = firstPart.substring(0, firstPart.length() - 1);
-				}
-			
-				firstPart += CharacterCatalogue.ELLIPSIS;
+			while (getSwingTextWidth(firstPart + CharacterCatalogue.ELLIPSIS) > maxWidth) {
+				firstPart = firstPart.substring(0, firstPart.length() - 1);
 			}
+		
+			firstPart += CharacterCatalogue.ELLIPSIS;
 		}
 		
 		return firstPart;
