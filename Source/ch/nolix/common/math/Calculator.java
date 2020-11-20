@@ -36,12 +36,12 @@ public final class Calculator {
 		//Asserts that the count of the given yValues equals the count of the given xValues.
 		Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
-		final var FPNPairs = new LinkedList<FPNPair>();
+		final var lFPNPairs = new LinkedList<FPNPair>();
 		for (var i = 0; i < xValues.length; i++) {
-			FPNPairs.addAtEnd(new FPNPair(xValues[i], yValues[i]));
+			lFPNPairs.addAtEnd(new FPNPair(xValues[i], yValues[i]));
 		}
 		
-		return FPNPairs;
+		return lFPNPairs;
 	}
 	
 	//static method
