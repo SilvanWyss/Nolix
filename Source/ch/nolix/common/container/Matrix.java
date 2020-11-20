@@ -66,17 +66,17 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Asserts that the given elements are not null.
 		Validator.assertThatTheElements(elements).areNotNull();
 		
-		final var elements_ = ReadContainer.forIterable(elements);
+		final var lElements = ReadContainer.forIterable(elements);
 		
 		//Handles the case that the current {@link Matrix} is empty.
 		if (isEmpty()) {
-			if (elements_.containsAny()) {
+			if (lElements.containsAny()) {
 				
-				this.elements = new Object[elements_.getElementCount()][1];
+				this.elements = new Object[lElements.getElementCount()][1];
 				
 				//Iterates the given elements.
 				var i = 0;
-				for (final var e : elements_) {
+				for (final var e : lElements) {
 					
 					this.elements[i][0] = e;
 					
@@ -90,7 +90,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Asserts that as many elements are given as the number of rows of the current matrix.
 			Validator
-			.assertThat(elements_.getElementCount())
+			.assertThat(lElements.getElementCount())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
 			
@@ -98,7 +98,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Iterates the given elements.
 			var i = 0;
-			for (final var e : elements_) {
+			for (final var e : lElements) {
 				
 				final var row = new Object[columnCount + 1];
 				
@@ -159,17 +159,17 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Asserts that the given elements are not null.
 		Validator.assertThatTheElements(elements).areNotNull();
 		
-		final var elements_ = ReadContainer.forIterable(elements);
+		final var lElements = ReadContainer.forIterable(elements);
 		
 		//Handles the case that the current matrix is empty.
 		if (isEmpty()) {
-			if (elements_.containsAny()) {
+			if (lElements.containsAny()) {
 				
-				this.elements = new Object[1][elements_.getElementCount()];
+				this.elements = new Object[1][lElements.getElementCount()];
 				
 				//Iterates the given elements.
 				var i = 0;
-				for (final var e : elements_) {
+				for (final var e : lElements) {
 					
 					this.elements[0][i] = e;
 					
@@ -183,7 +183,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Asserts that as many elements are given as the number of columns of the current matrix.
 			Validator
-			.assertThat(elements_.getElementCount())
+			.assertThat(lElements.getElementCount())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getColumnCount());
 			
@@ -198,7 +198,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Iterates the given elements.
 			var i = 0;
-			for (final var e : elements_) {
+			for (final var e : lElements) {
 				
 				newElements[rowCount][i] = e;
 				
