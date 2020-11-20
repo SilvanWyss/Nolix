@@ -1,20 +1,21 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own import
+//own imports
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidget.Stack;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 100
+ * @date 2016-01-01
+ * @lines 90
  */
 public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//constant
 	public static final String TYPE_NAME = "VerticalStack";
-
+	
 	//constructor
 	/**
 	 * Creates a new {@link VerticalStack}.
@@ -22,7 +23,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	public VerticalStack() {
 		resetAndApplyDefaultConfiguration();
 	}
-		
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -30,9 +31,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	@Override
 	protected int getContentAreaHeight() {
 		
-		int contentHeight = getChildWidgets().getSumByInt(w -> w.getHeight());
-				
-		//Handles the case that the current vertical stack is not empty.
+		var contentHeight = getChildWidgets().getSumByInt(Widget::getHeight);
+			
+		//Handles the case that the current VerticalStack is not empty.
 		if (containsAny()) {
 			contentHeight += (getChildWidgets().getElementCount() - 1) * getElementMargin();
 		}
@@ -46,14 +47,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	@Override
 	protected int getContentAreaWidth() {
-		
-		//Handles the case that the current vertical stack is empty.
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		//Handles the case that the current vertical stack is not empty.
-		return getChildWidgets().getMaxInt(w -> w.getWidth());
+		return (isEmpty() ? 0 : getChildWidgets().getMaxInt(Widget::getWidth));
 	}
 	
 	//method
@@ -62,7 +56,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	@Override
 	protected void recalculateSelfStage2() {
-				
+		
 		//Enumerates the content position of the current VerticalStack.
 		switch (getContentPosition()) {
 			case LeftTop:
