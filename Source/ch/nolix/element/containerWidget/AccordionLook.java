@@ -30,7 +30,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_HEADER_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_BACKGROUND_COLOR,
 		Color::fromSpecification,
-		thbc -> thbc.getSpecification()
+		Color::getSpecification
 	);
 	
 	//attribute
@@ -39,7 +39,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_HEADER_TEXT_SIZE_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_SIZE,
 		BaseNode::getOneAttributeAsInt,
-		thts -> Node.withOneAttribute(thts)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -48,7 +48,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_HEADER_TEXT_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_COLOR,
 		Color::fromSpecification,
-		thtc -> thtc.getSpecification()
+		Color::getSpecification
 	);
 	
 	//attribute
@@ -57,7 +57,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_BACKGROUND_COLOR,
 		Color::fromSpecification,
-		tbc -> tbc.getSpecification()
+		Color::getSpecification
 	);
 	
 	//method
