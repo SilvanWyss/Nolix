@@ -36,7 +36,7 @@ public final class ReferencePropertyTutorial {
 			catDatabaseAdapter.saveChanges();
 			
 			var garfield = new Cat();
-			garfield.Name.setValue("Garfield");
+			garfield.name.setValue("Garfield");
 			
 			jon =
 			catDatabaseAdapter
@@ -54,7 +54,7 @@ public final class ReferencePropertyTutorial {
 			catDatabaseAdapter
 			.getRefEntitySet(Cat.class)
 			.getRefEntities()
-			.getRefFirst(c -> c.Name.getValue().equals("Garfield"));
+			.getRefFirst(c -> c.name.getValue().equals("Garfield"));
 			
 			final var garfieldOwner = garfield.person.getRefEntity();
 			garfieldOwner.name.setValue("Jon Arbuckle");
@@ -85,7 +85,7 @@ public final class ReferencePropertyTutorial {
 	private static final class Cat extends Entity {
 		
 		//attributes
-		public final Value<String> Name = new Value<>();
+		public final Value<String> name = new Value<>();
 		public final Reference<Person> person = new Reference<>();
 	}
 	
