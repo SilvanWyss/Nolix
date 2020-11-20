@@ -229,6 +229,8 @@ public final class WebSocketFrame {
 		var i = 2;
 		final var payloadLengthBytes = payloadLength.toBytes();
 		switch (getPayloadLengthType()) {
+			case _7_BITS:
+				break;
 			case _16_BITS:
 				
 				bytes[2] = payloadLengthBytes[0];
