@@ -308,7 +308,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
 		
-		setTextCursorPosition(getTextCursorPosition() + 1);;
+		setTextCursorPosition(getTextCursorPosition() + 1);
 	}
 	
 	//method
