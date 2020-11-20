@@ -12,7 +12,7 @@ import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 /**
  * @author Silvan Wyss
  * @month 2020-08
- * @lines 210
+ * @lines 200
  */
 public final class SequencerMediator {
 	
@@ -114,17 +114,6 @@ public final class SequencerMediator {
 	 */
 	public ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
 		return Sequencer.forMaxSeconds(maxDurationInSeconds);
-	}
-	
-	//method
-	/**
-	 * Runs the given job forever catching any error.
-	 * 
-	 * @param job
-	 * @throws ArgumentIsNullException if the given result job is null.
-	 */
-	public void runForeverCatchingAnyError(final IAction job) {
-		Sequencer.runForeverCatchingAnyError(job);
 	}
 	
 	//method

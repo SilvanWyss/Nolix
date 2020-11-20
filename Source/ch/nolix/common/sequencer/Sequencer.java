@@ -10,7 +10,6 @@ import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.futureAPI.IFuture;
 import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.common.jobPool.JobPool;
-import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -20,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 270
+ * @lines 250
  */
 public final class Sequencer {
 	
@@ -126,29 +125,6 @@ public final class Sequencer {
 	 */
 	public static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
 		return ForMaxMillisecondsMediator.forMaxSeconds(maxDurationInSeconds);
-	}
-	
-	//static method
-	/**
-	 * Runs the given job forever catching any error.
-	 * 
-	 * @param job
-	 * @throws ArgumentIsNullException if the given result job is null.
-	 */
-	public static void runForeverCatchingAnyError(final IAction job) {
-		
-		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
-		
-		//infinite loop
-		while (true) {
-			try {
-				job.run();
-			}
-			catch (final Throwable error) {
-				Logger.logError(error);
-			}
-		}
 	}
 	
 	//static method
