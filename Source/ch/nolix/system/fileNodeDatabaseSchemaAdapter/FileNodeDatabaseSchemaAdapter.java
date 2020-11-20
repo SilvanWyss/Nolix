@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.fileNodeDatabaseSchemaAdapter;
 
+//own imports
 import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -16,8 +17,7 @@ import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.databaseSchemaAdapter.IEntitySetAdapter;
 
 //class
-public final class FileNodeDatabaseSchemaAdapter
-extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
+public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 	
 	//attribute
 	private final BaseNode fileNodeDatabase;
@@ -74,7 +74,7 @@ extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 		return
 		fileNodeDatabase
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
-		.to(a -> new EntitySetAdapter(a));
+		.to(EntitySetAdapter::new);
 	}
 	
 	//method
@@ -131,13 +131,13 @@ extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
 		}
 		
 		//Handles the created entity sets.
-		createdEntitySets.forEach(es -> addEntitySetToDatabase(es));
+		createdEntitySets.forEach(this::addEntitySetToDatabase);
 		
 		//Handles the changed entity sets.
-		changedEntitySets.forEach(es -> changeEntitySetOnDatabase(es));
+		changedEntitySets.forEach(this::changeEntitySetOnDatabase);
 		
 		//Handles the deleted entity sets.
-		changedEntitySets.forEach(es -> deleteEntitySetFromDatabase(es));
+		changedEntitySets.forEach(this::deleteEntitySetFromDatabase);
 		
 		setDatabaseReady();
 	}
