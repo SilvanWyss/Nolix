@@ -11,13 +11,13 @@ package ch.nolix.commonTest.commonTypeHelperTest;
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.commonTypeHelper.CharacterHelper;
-import ch.nolix.common.test2.Test;
+import ch.nolix.common.simpleTest.SimpleTest;
 
 //class
 /**
 * This class is a test class for the character helper class.
 */
-public class CharacterHelperTest extends Test {
+public class CharacterHelperTest extends SimpleTest {
 
 	//method
 	@TestCase

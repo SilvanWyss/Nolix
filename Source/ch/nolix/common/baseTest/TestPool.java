@@ -11,7 +11,7 @@ import ch.nolix.common.skillAPI.Runnable;
 //class
 /**
  * A {@link TestPool} contains either {@link BaseTest}s or other test {@link Class}s.
- * A {@link Test}Pool can run its test {@link Class}s recursively.
+ * A {@link SimpleTest}Pool can run its test {@link Class}s recursively.
  * 
  * @author Silvan Wyss
  * @month 2016-01

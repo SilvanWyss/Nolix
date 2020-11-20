@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.common.test2;
+package ch.nolix.common.simpleTest;
 
 //own imports
 import ch.nolix.common.baseTest.TestAccessor;
@@ -16,7 +16,7 @@ import ch.nolix.common.requestAPI.ApproximativeEqualing;
 /**
  * A test contains test cases and can run them.
  */
-public abstract class Test extends ch.nolix.common.baseTest.BaseTest {
+public abstract class SimpleTest extends ch.nolix.common.baseTest.BaseTest {
 	
 	//constant
 	private static final double EPSILON = 0.000000001;
