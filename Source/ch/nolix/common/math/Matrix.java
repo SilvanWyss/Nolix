@@ -687,19 +687,12 @@ public class Matrix implements ApproximativeEqualing {
 			return false;
 		}
 		
-		for (int i = 0; i < getRowCount(); i++) {
-			for (int j = 0; j < getColumnCount(); j++) {
-				if (i != j) {
-					if (!Calculator.isApproximatelyZero(values[i][j])) {
-						return false;
-					}
-				}
-				else {
-					if (!Calculator.isApproximatelyOne(values[i][j])) {
-						return false;
-					}
-				}
+		final var rowCount = getRowCount();
+		for (int i = 1; i <= rowCount; i++) {
+			if (!canBeLineInIdentityMatrix(i)) {
+				return false;
 			}
+			
 		}
 		
 		return true;
@@ -1133,10 +1126,33 @@ public class Matrix implements ApproximativeEqualing {
 	}
 	
 	//method
+	/** 
+	 * @param lineIndex
+	 * @return true if the line with the given index of this {@link Matrix}
+	 * allows to the current {@link Matrix} to be a identity {@link Matrix}.
+	 */
+	private boolean canBeLineInIdentityMatrix(final int lineIndex) {
+		
+		final var columnCount = getColumnCount();
+		for (int j = 0; j < columnCount; j++) {
+			if (lineIndex != j) {
+				if (!Calculator.isApproximatelyZero(values[lineIndex - 1][j])) {
+					return false;
+				}
+			}
+			else if (!Calculator.isApproximatelyOne(values[lineIndex - 1][j])) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	//method
 	/**
 	 * @throws InvalidArgumentException if this matrix is not quadratic.
 	 */
-	private final void supposeIsQuadratic() {
+	private void supposeIsQuadratic() {
 		if (!isQuadratic()) {
 			throw new InvalidArgumentException(
 				this,
