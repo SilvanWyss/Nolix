@@ -1,16 +1,20 @@
 //package declaration
 package ch.nolix.common.endPoint3;
 
-//own import
+//own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * a net end point can send messages to an other net end point.
+ * A {@link NetEndPoint} is a {@link EndPoint} that can send messages to an other {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 300
+ * @lines 320
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -23,66 +27,88 @@ public class NetEndPoint extends EndPoint {
 	//multi-attribute
 	private final LinkedList<Package> receivedPackages = new LinkedList<>();
 	
-	public NetEndPoint(
-		final int port
-	) {
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect
+	 * to the default target on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 */
+	public NetEndPoint(final int port) {
 		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(port)
-		);
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(port));
 	}
 	
 	//constructor
-	public NetEndPoint(
-		final String ip,
-		final int port
-	) {
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect to the given target on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @param target
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsNullException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 */
+	public NetEndPoint(final int port, final String target) {
 		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(
-				ip, port
-			)
-		);
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(port, target));
 	}
 	
 	//constructor
-	public NetEndPoint(
-		final String ip,
-		final int port,
-		final String target) {
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect
+	 * to the default target on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 */
+	public NetEndPoint(final String ip,	final int port) {
 		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(
-				ip, port, target
-			)
-		);
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(ip, port));
 	}
 	
-	NetEndPoint(
-		final ch.nolix.common.endPoint2.EndPoint internalEndPoint
-	) {
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect
+	 * to the given target on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param target
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsNullException if the given target is null.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 */
+	public NetEndPoint(final String ip,	final int port,	final String target) {
+		
+		//Calls other constructor.
+		this(new ch.nolix.common.endPoint2.NetEndPoint(ip, port, target));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} with the given internalEndPoint.
+	 * 
+	 * @param internalEndPoint
+	 * @throws ArgumentIsNullException if the given internalEndPoint is null.
+	 */
+	NetEndPoint(final ch.nolix.common.endPoint2.EndPoint internalEndPoint) {
+		
+		Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 		
 		this.internalEndPoint = internalEndPoint;
-		
-		internalEndPoint.setReceiver(new Receiver(this));
-		
 		createCloseDependencyTo(internalEndPoint);
+		internalEndPoint.setReceiver(this::receive);		
 	}
-
-	public NetEndPoint(int port, String target) {
-		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.common.endPoint2.NetEndPoint(port, target)
-		);
-	}
-
+	
 	//method
 	/**
-	 * @return the target of this end point.
+	 * @return the target of the current {@link NetEndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if this net end point does not have a target.
 	 */
 	@Override
@@ -92,7 +118,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if this end point has requested the connection.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasRequestedConnection() {
@@ -110,7 +136,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if this end point is a local end point.
+	 * @return true if the current {@link NedEndPoint} is a local end point.
 	 */
 	public boolean isLocalEndPoint() {
 		return internalEndPoint.isLocalEndPoint();
@@ -118,7 +144,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if this end point is a net end point.
+	 * @return true if the current {@link NedEndPoint} is a net end point.
 	 */
 	public boolean isNetEndPoint() {
 		return internalEndPoint.isNetEndPoint();
@@ -156,7 +182,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this zeta end point receive the given message.
+	 * Lets the current {@link NetEndPoint} receive the given message.
 	 * 
 	 * @param message
 	 */
@@ -170,7 +196,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return the index of the next sent package. of this zeta end point
+	 * @return the index of the next sent package. of the current {@link NetEndPoint}
 	 */
 	final int getNextSentPackageIndex() {
 		
@@ -185,40 +211,40 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this zeta end point receive the given package.
+	 * Lets the current {@link NetEndPoint} receive the given package.
 	 * 
-	 * @param package_
+	 * @param lPackage
 	 */
-	void receive(final Package package_) {
+	void receive(final Package lPackage) {
 		
 		//Enumerates the message role of the given package.
-		switch (package_.getMessageRole()) {
+		switch (lPackage.getMessageRole()) {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getRefReplier().getReply(package_.getRefContent());
+					final String reply = getRefReplier().getReply(lPackage.getRefContent());
 					if (isOpen()) {
-						send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+						send(new Package(lPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 					}
 				}
 				catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
-					send(new Package(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+					send(new Package(lPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
 				}
 				
 				break;
 			default:
-				getRefReceivedPackages().addAtEnd(package_);
+				getRefReceivedPackages().addAtEnd(lPackage);
 		}
 	}
 	
 	//method
 	/**
-	 * Lets this zeta end point return and remove the received package with the given index.
+	 * Lets the current {@link NetEndPoint} return and remove the received package with the given index.
 	 * 
 	 * @param index
 	 * @return the reply with the given index
-	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has not received a package with the given index.
 	 */
 	private final Package getAndRemoveReceivedPackage(final int index) {
 		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
@@ -227,7 +253,7 @@ public class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * @param index
-	 * @return true if this zeta end point has received a package with the given index.
+	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
 	private final boolean receivedPackage(final int index) {
 		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
@@ -235,12 +261,12 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this end point send the given package.
+	 * Lets the current {@link NedEndPoint} send the given package.
 	 * 
-	 * @param package_
+	 * @param lPackage
 	 */
-	private void send(final Package package_) {
-		internalEndPoint.send(package_.toString());
+	private void send(final Package lPackage) {
+		internalEndPoint.send(lPackage.toString());
 	}
 	
 	//method
@@ -272,17 +298,15 @@ public class NetEndPoint extends EndPoint {
 				throw new RuntimeException("An error occured.");
 		}
 	}
-
-
-
+	
 	//method
 	/**
-	 * Lets this zeta end point wait to and return and remove the received package with the given index.
+	 * Lets the current {@link NetEndPoint} wait to and return and remove the received package with the given index.
 	 * 
 	 * @param index
 	 * @param timeoutCheck
 	 * @return the received package with the given index.
-	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
+	 * @throws RuntimeException if the current {@link NetEndPoint} reaches its timeout before it receives a package with the given index.
 	 */
 	private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
 		
