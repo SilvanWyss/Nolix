@@ -2,7 +2,6 @@
 package ch.nolix.common.sequencer;
 
 //own imports
-import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IBooleanGetter;
 import ch.nolix.common.functionAPI.IElementGetter;
@@ -19,42 +18,14 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 250
+ * @lines 220
  */
 public final class Sequencer {
 	
 	//static attributes
 	private static final JobPool jobPool = new JobPool();
 	private static final ActionMediator actionMediator = new ActionMediator();
-	
-	//static method
-	/**
-	 * @param timeIntervalInMilliseconds
-	 * @return a new {@link AfterAllMediator} with the given time interval in milliseconds.
-	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
-	 */
-	public static AfterAllMediator afterAllMilliseconds(final int timeIntervalInMilliseconds) {
-		return new AfterAllMediator(timeIntervalInMilliseconds);
-	}
-	
-	//static method
-	/**
-	 * @return a new {@link AfterAllMediator} with 1 second as time interval.
-	 */
-	public static AfterAllMediator afterAllSeconds() {
-		return new AfterAllMediator(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
-	}
-	
-	//static method
-	/**
-	 * @param timeIntervalInSeconds
-	 * @return a new {@link AfterAllMediator} with the given time interval in seconds.
-	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
-	 */
-	public static AfterAllMediator afterAllSeconds(final int timeIntervalInSeconds) {
-		return new AfterAllMediator(TimeUnitCatalogue.MILLISECONDS_PER_HOUR * timeIntervalInSeconds);
-	}
-	
+			
 	//static method
 	/**
 	 * @param condition

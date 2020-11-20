@@ -12,38 +12,10 @@ import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
 /**
  * @author Silvan Wyss
  * @month 2020-08
- * @lines 200
+ * @lines 170
  */
 public final class SequencerMediator {
-	
-	//method
-	/**
-	 * @param timeIntervalInMilliseconds
-	 * @return a new {@link AfterAllMediator} with the given time interval in milliseconds.
-	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
-	 */
-	public AfterAllMediator afterAllMilliseconds(final int timeIntervalInMilliseconds) {
-		return Sequencer.afterAllMilliseconds(timeIntervalInMilliseconds);
-	}
-	
-	//method
-	/**
-	 * @return a new {@link AfterAllMediator} with 1 second as time interval.
-	 */
-	public AfterAllMediator afterAllSeconds() {
-		return Sequencer.afterAllSeconds();
-	}
-	
-	//method
-	/**
-	 * @param timeIntervalInSeconds
-	 * @return a new {@link AfterAllMediator} with the given time interval in seconds.
-	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
-	 */
-	public AfterAllMediator afterAllSeconds(final int timeIntervalInSeconds) {
-		return Sequencer.afterAllSeconds(timeIntervalInSeconds);
-	}
-	
+		
 	//method
 	/**
 	 * @param condition

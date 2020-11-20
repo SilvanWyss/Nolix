@@ -3,6 +3,8 @@ package ch.nolix.common.sequencer;
 
 //own imports
 import ch.nolix.common.functionAPI.IBooleanGetter;
+import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.validator.Validator;
 
@@ -12,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 220
+ * @lines 200
  */
 public final class AfterAllMediator {
 
@@ -45,26 +47,6 @@ public final class AfterAllMediator {
 		
 		maxRunCount = null;
 		this.condition = condition;
-		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new after all mediator with the given time interval in milliseconds.
-	 * 
-	 * @param timeIntervalInMilliseconds
-	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
-	 */
-	AfterAllMediator(final int timeIntervalInMilliseconds) {
-	
-		//Asserts that the given time interval in milliseconds is not negative.
-		Validator
-		.assertThat(timeIntervalInMilliseconds)
-		.thatIsNamed("time interval in milliseconds")
-		.isNotNegative();
-		
-		maxRunCount = null;
-		condition = null;
 		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 	}
 	
@@ -111,12 +93,12 @@ public final class AfterAllMediator {
 		
 		//Handles the case that this after all mediator does not have a max run count.
 		if (!hasMaxRunCount()) {
-			runWhenDoesNotHaveRunCount(job);
+			runWhenDoesNotHaveMaxRunCount(job);
 		}
 		
 		//Handles the case that this after all mediator has a max run count.
 		else {
-			runWhenHasRunCount(job);
+			runWhenHasMaxRunCount(job);
 		}
 	}
 	
@@ -174,23 +156,17 @@ public final class AfterAllMediator {
 	 * 
 	 * @param job
 	 */
-	private void runWhenDoesNotHaveRunCount(IAction job) {
-					
-		//Handles the case that this after all mediator does not have a condition.
+	private void runWhenDoesNotHaveMaxRunCount(IAction job) {
+			
+		//Asserts that the current AfterAllMediator has a condition.
 		if (!hasCondition()) {
-			while (true) {
-				job.run();
-				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-			}
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONDITION);
 		}
 		
-		//Handles the case of this after all mediator has a condition.
-		else {
-			while (condition.getOutput()) {
-				job.run();
-				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-			}
-		}
+		while (condition.getOutput()) {
+			job.run();
+			Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+		}		
 	}
 	
 	//method
@@ -199,7 +175,7 @@ public final class AfterAllMediator {
 	 * 
 	 * @param job
 	 */
-	private void runWhenHasRunCount(IAction job) {
+	private void runWhenHasMaxRunCount(IAction job) {
 		
 		//Handles the case that this after all mediator does not have a condition.
 		if (!hasCondition()) {
