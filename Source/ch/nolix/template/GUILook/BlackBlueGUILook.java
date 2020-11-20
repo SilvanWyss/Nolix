@@ -68,7 +68,5 @@ public final class BlackBlueGUILook extends Configuration {
 				"BasePadding(10)"
 			)
 		);
-		
-		freeze();
 	}
 }

@@ -1,16 +1,13 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillAPI.Freezable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementAPI.IConfigurableElement;
@@ -19,55 +16,41 @@ import ch.nolix.element.elementAPI.IMutableElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-01
- * @lines 800
- * @param <C> The type of a configuration.
+ * @date 2016-01-01
+ * @lines 610
+ * @param <C> The type of a {@link BaseConfiguration}.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>
-implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
+implements IMutableElement<C> {
 	
 	//attribute headers
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
 	private static final String SELECTOR_ROLE_HEADER = "SelectorRole";
 	private static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
-	private static final String SELECTOR_NAME_HEADER = "SelectorName";
-	
-	//attribute
-	private boolean frozen = false;
-	
-	//optional attribute
-	private String name;
-	
-	//multi-attributes
-	private final LinkedList<Node> attachingAttributes = new LinkedList<>();
-	protected final LinkedList<BaseConfiguration<?>> configurations = new LinkedList<>();
-	
+	private static final String SELECTOR_ID_HEADER = "SelectorId";
+		
 	//optional attributes
 	private String selectorType;
 	private String selectorToken;
 	private String selectorId;
 	
-	//multi-attribute
+	//multi-attributes
 	private final LinkedList<String> selectorRoles = new LinkedList<>();
-	
+	private final LinkedList<Node> attachingAttributes = new LinkedList<>();
+	protected final LinkedList<BaseConfiguration<?>> configurations = new LinkedList<>();
+		
 	//method
 	/**
-	 * Adds the given attaching attribute to this configuration.
+	 * Adds the given attachingAttribute to the current {@link BaseConfiguration}.
 	 * 
 	 * @param attachingAttribute
-	 * @return this configuration.
-	 * @throws ArgumentIsNullException if the given attaching attribute is null.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws ArgumentIsNullException if the given attachingAttribute is null.
 	 */
 	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
 		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
-				
 		attachingAttributes.addAtEnd(
-			new Node(
-				attachingAttribute.getHeader(),
-				attachingAttribute.getRefAttributes())
+			new Node(attachingAttribute.getHeader(), attachingAttribute.getRefAttributes())
 		);
 		
 		return asConcrete();
@@ -75,38 +58,27 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds the given attaching attribute to this configuration.
+	 * Adds the given attachingAttributee to the current {@link BaseConfiguration}.
 	 * 
 	 * @param attachingAttribute
-	 * @return this configuration
-	 * @throws InvalidArgumentException
-	 * if the given attachingAttribute does not represent a standard specification.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}
+	 * @throws InvalidArgumentException if the given attachingAttribute does not represent a {@link Node}.
 	 */
 	public final C addAttachingAttribute(final String attachingAttribute) {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
-		
 		return addAttachingAttribute(Node.fromString(attachingAttribute));
 	}
 	
 	//method
 	/**
-	 * Adds the given attaching attributes to this configuration.
+	 * Adds the given attachingAttributes to the current {@link BaseConfiguration}.
 	 * 
 	 * @param attachingAttributes
-	 * @return this configuration.
-	 * @throws InvalidArgumentException
-	 * if one of the given attaching attributes does not represent a standard specification.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws InvalidArgumentException if one of the given attaching attributes does not represent a {@link Node}.
 	 */
 	public final C addAttachingAttribute(final String... attachingAttributes) {
-
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
-		//Iterates the given attaching attributes.
+		//Iterates the given attachingAttributes.
 		for (final String aa : attachingAttributes) {
 			addAttachingAttribute(aa);
 		}
@@ -116,17 +88,13 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds the given configuration to this configuration.
+	 * Adds the given configuration to the current {@link BaseConfiguration}.
 	 * 
 	 * @param configuration
-	 * @return this configuration.
+	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if the given configuration is null.
-	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final BaseConfiguration<?> configuration) {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		configurations.addAtEnd(configuration);
 		
@@ -135,17 +103,13 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds the given configurations to this configuration.
+	 * Adds the given configurations to the current {@link BaseConfiguration}.
 	 * 
 	 * @param configurations
-	 * @return this configuration.
+	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if one of the given configurations is null.
-	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final BaseConfiguration<?>...configurations) {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		this.configurations.addAtEnd(configurations);
 		
@@ -154,30 +118,26 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this configuration.
+	 * Adds or changes the given attribute to the current {@link BaseConfiguration}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.NAME:
-				setName(attribute.getOneAttributeHeader());
-				break;
 			case SELECTOR_TYPE_HEADER:
 				setSelectorType(attribute.getOneAttributeHeader());
 				break;
 			case SELECTOR_ROLE_HEADER:
-				addSelectorRoles2(attribute.getAttributesAsStrings());
+				addSelectorRolesFromStrings(attribute.getAttributesAsStrings());
 				break;
 			case SELECTOR_TOKEN_HEADER:
 				setSelectorToken(attribute.getOneAttributeHeader());
 				break;
-			case SELECTOR_NAME_HEADER:
+			case SELECTOR_ID_HEADER:
 				setSelectorId(attribute.getOneAttributeHeader());
 				break;
 			case Configuration.TYPE_NAME:
@@ -193,12 +153,11 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds the given selector role to this configuration.
+	 * Adds the given selector role to the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorRole
-	 * @return this configuration.
-	 * @throws InvalidArgumentException if this configuration contains already the given selector role.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already the given selector role.
 	 */
 	public final C addSelectorRole(final Enum<?> selectorRole) {
 		
@@ -209,12 +168,11 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds the given selector roles to this configuration.
+	 * Adds the given selector roles to the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorRoles
-	 * @return this configuration.
-	 * @throws InvalidArgumentException if this configuration contains already one of the given selector role.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already one of the given selector role.
 	 */
 	public final C addSelectorRole(final Enum<?>... selectorRoles) {
 		
@@ -228,16 +186,15 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Adds the given selector roles to this configuration.
+	 * Adds the given selector roles to the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorRoles
-	 * @return this configuration.
-	 * @throws InvalidArgumentException if this configuration contains already one of the given selector role.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already one of the given selector role.
 	 */
 	public final C addSelectorRoles(final Iterable<Enum<?>> selectorRoles) {
 		
-		selectorRoles.forEach(sr -> addSelectorRole(sr));
+		selectorRoles.forEach(this::addSelectorRole);
 		
 		return asConcrete();
 	}
@@ -245,7 +202,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @param selectorRole
-	 * @return true if this configuration contains the given selector role.
+	 * @return true if the current {@link BaseConfiguration} contains the given selector role.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
 		return selectorRoles.containsEqualing(selectorRole);
@@ -253,7 +210,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return true if this configuration contains selector roles.
+	 * @return true if the current {@link BaseConfiguration} contains selector roles.
 	 */
 	public final boolean containsSelectorRoles() {
 		return selectorRoles.containsAny();
@@ -261,7 +218,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method declaration
 	/**
-	 * Lets this configuration configure the given element.
+	 * Lets the current {@link BaseConfiguration} configure the given element.
 	 * 
 	 * @param element
 	 */
@@ -269,87 +226,52 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Freezes this configuration.
-	 * 
-	 * @return this configuration.
-	 */
-	@Override
-	public final C freeze() {
-		
-		frozen = true;
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this configuration.
+	 * @return the attributes of the current {@link BaseConfiguration}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final LinkedList<Node> attributes = super.getAttributes();
-		
-		//Handles the case that this configuration has a name
-		if (hasName()) {
-			attributes.addAtBegin(new Node(PascalCaseNameCatalogue.NAME, name));
-		}
-		
-		//Handles the case that this configuration has a selector type.
+				
+		//Handles the case that the current BaseConfiguration has a selector type.
 		if (hasSelectorType()) {
 			attributes.addAtEnd(new Node(SELECTOR_TYPE_HEADER, selectorType));
 		}
 		
-		//Handles the case that this configuration contains selector roles.		
+		//Handles the case that the current BaseConfiguration contains selector roles.		
 		if (containsSelectorRoles()) {
 			
 			final var specification = Node.fromString(SELECTOR_ROLE_HEADER);
-			getSelectorRoles().forEach(sr -> specification.addAttribute(sr));
+			getSelectorRoles().forEach(specification::addAttribute);
 			
 			attributes.addAtEnd(specification);
 		}
 		
-		//Handles the case that this configuration has a selector token.
+		//Handles the case that the current BaseConfiguration has a selector token.
 		if (hasSelectorToken()) {
 			attributes.addAtEnd(new Node(SELECTOR_TOKEN_HEADER, selectorToken));
 		}
 		
-		//Handles the case that this configuration has a selector id.
+		//Handles the case that the current BaseConfiguration has a selector id.
 		if (hasSelectorId()) {
-			attributes.addAtEnd(new Node(SELECTOR_NAME_HEADER, selectorId));
+			attributes.addAtEnd(new Node(SELECTOR_ID_HEADER, selectorId));
 		}
 		
 		attributes.addAtEnd(attachingAttributes);
-		attributes.addAtEnd(configurations, c -> c.getSpecification());
+		attributes.addAtEnd(configurations, BaseConfiguration::getSpecification);
 		
 		return attributes;
 	}
 	
 	//method
 	/**
-	 * @return the name of this configuration.
-	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a name.
+	 * @return the selector id of the current {@link BaseConfiguration}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector id.
 	 */
-	public final String getName() {
+	public final String getSelectorId() {
 		
-		//Asserts that this configuration has a a name.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (name == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
-		}
-		
-		return name;
-	}
-	
-	//method
-	/**
-	 * @return the selector id of this configuration.
-	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector id.
-	 */
-	public final String getSelectorName() {
-		
-		//Asserts that this configuration has a selector id.
+		//Asserts that the current BaseConfiguration has a selector id.
 		if (!hasSelectorId()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector id");
 		}
@@ -359,7 +281,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return the selector roles of this configuration.
+	 * @return the selector roles of the current {@link BaseConfiguration}.
 	 */
 	public final IContainer<String> getSelectorRoles() {
 		return selectorRoles;
@@ -367,12 +289,12 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return the selector token of this configuration.
-	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector token.
+	 * @return the selector token of the current {@link BaseConfiguration}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector token.
 	 */
 	public final String getSelectorToken() {
 		
-		//Asserts that this configuration has a selector token.
+		//Asserts that the current BaseConfiguration has a selector token.
 		if (!hasSelectorToken()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector token");
 		}
@@ -382,7 +304,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return true if this configuration has attaching attributes.
+	 * @return true if the current {@link BaseConfiguration} has attaching attributes.
 	 */
 	public final boolean hasAttachingAttributes() {
 		return attachingAttributes.containsAny();
@@ -390,12 +312,12 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return the selector type of this configuration.
-	 * @throws ArgumentDoesNotHaveAttributeException if this configuration does not have a selector type.
+	 * @return the selector type of the current {@link BaseConfiguration}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector type.
 	 */
 	public final String getSelectorType() {
 		
-		//Asserts that this configuration has a selector type.
+		//Asserts that the current BaseConfiguration has a selector type.
 		if (!hasSelectorType()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "selector type");
 		}
@@ -405,16 +327,7 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean hasName() {
-		return (name != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this configuration has a selector id.
+	 * @return true if the current {@link BaseConfiguration} has a selector id.
 	 */
 	public final boolean hasSelectorId() {
 		return (selectorId != null);
@@ -423,22 +336,22 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @param selectorId
-	 * @return true if this configuration has the given selector id.
+	 * @return true if the current {@link BaseConfiguration} has the given selector id.
 	 */
 	public final boolean hasSelectorId(final String selectorId) {
 		
-		//Handles the case that this configuration does not have a selector id.
+		//Handles the case that the current BaseConfiguration does not have a selector id.
 		if (!hasSelectorId()) {
 			return false;
 		}
 		
-		//Handles the case that this configuration has a selector id.
-		return getSelectorName().equals(selectorId);
+		//Handles the case that the current BaseConfiguration has a selector id.
+		return getSelectorId().equals(selectorId);
 	}
 	
 	//method
 	/**
-	 * @return true if this configuration has a selector token.
+	 * @return true if the current {@link BaseConfiguration} has a selector token.
 	 */
 	public final boolean hasSelectorToken() {
 		return (selectorToken != null);
@@ -447,22 +360,22 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @param selectorToken
-	 * @return true if this configuration has the given selector token.
+	 * @return true if the current {@link BaseConfiguration} has the given selector token.
 	 */
 	public final boolean hasSelectorToken(final String selectorToken) {
 		
-		//Handles the case that this configuration does not have a selector token.
+		//Handles the case that the current BaseConfiguration does not have a selector token.
 		if (!hasSelectorToken()) {
 			return false;
 		}
 		
-		//Handles the case that this configuration as a selector token.
+		//Handles the case that the current BaseConfiguration as a selector token.
 		return getSelectorToken().equals(selectorToken);
 	}
 	
 	//method
 	/**
-	 * @return true if this configuration has a selector type.
+	 * @return true if the current {@link BaseConfiguration} has a selector type.
 	 */
 	public final boolean hasSelectorType() {
 		return (selectorType != null);
@@ -471,95 +384,63 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	//method
 	/**
 	 * @param selectorType
-	 * @return true if this configuration has the given selector type.
+	 * @return true if the current {@link BaseConfiguration} has the given selector type.
 	 */
 	public final boolean hasSelectorType(final String selectorType) {
 		
-		//Handles the case that this configuration does not have a selector type.
+		//Handles the case that the current BaseConfiguration} does not have a selector type.
 		if (!hasSelectorType()) {
 			return false;
 		}
 		
-		//Handles the case that htis configuration has a selector type.
+		//Handles the case that the current BaseConfiguration has a selector type.
 		return getSelectorType().equals(selectorType);
 	}
 	
 	//method
 	/**
-	 * @return true if this configuration is frozen.
-	 */
-	@Override
-	public final boolean isFrozen() {
-		return frozen;
-	}
-	
-	//method
-	/**
-	 * Removes the selector id of this configuration.
-	 * 
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * Removes the selector id of the current {@link BaseConfiguration}.
 	 */
 	public final void removeSelectorName() {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		selectorId = null;
 	}
 	
 	//method
 	/**
-	 * Removes the selector roles of this configuration.
-	 * 
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * Removes the selector roles of the current {@link BaseConfiguration}.
 	 */
 	public final void removeSelectorRoles() {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		selectorRoles.clear();
 	}
 	
 	//method
 	/**
-	 * Removes the selector token of this configuration.
-	 * 
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * Removes the selector token of the current {@link BaseConfiguration}.
 	 */
 	public final void removeSelectorToken() {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		selectorToken = null;
 	}
 	
 	//method
 	/**
-	 * Removes the selector type of this configuration.
-	 * 
-	 * @throws Exception if this configuration is frozen
+	 * Removes the selector type of the current {@link BaseConfiguration}.
 	 */
 	public final void removeSelectorType() {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		selectorType = null;
 	}
 	
 	//method
 	/**
-	 * Resets this configuration.
+	 * Resets the current {@link BaseConfiguration}.
 	 * 
-	 * @return this configuration.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @return the current {@link BaseConfiguration}.
 	 */
 	@Override
 	public C reset() {
-		
-		removeName();
 		
 		removeSelectorType();
 		removeSelectorRoles();
@@ -574,84 +455,43 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public C removeName() {
-		
-		name = null;
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * @param element
-	 * @return true if this configuration selects the given element.
+	 * @return true if the current {@link BaseConfiguration} selects the given element.
 	 */
 	public final boolean selects(IConfigurableElement<?> element) {
 		
-		//Handles the case that this configuration has a selector type.
+		//Handles the case that the current BaseConfiguration has a selector type.
 		if (hasSelectorType() && !element.isOfType(getSelectorType())) {
 			return false;
 		}
 		
-		//Handles the case that this configuration contains selector roles.
-		if (containsSelectorRoles() && getSelectorRoles().containsNone(sr -> element.hasRole(sr))) {
+		//Handles the case that the current BaseConfiguration contains selector roles.
+		if (containsSelectorRoles() && getSelectorRoles().containsNone(element::hasRole)) {
 			return false;
 		}
 		
-		//Handles the case that this configuration has a selector token.
+		//Handles the case that the current BaseConfiguration has a selector token.
 		if (hasSelectorToken() && !element.hasToken(getSelectorToken())) {
 			return false;
 		}
 		
-		//Handles the case that this configuration has a selector type.
-		if (hasSelectorId() && !element.hasId(getSelectorName())) {
-			return false;
-		}
-
-		return true;
+		//Handles the case that the current BaseConfiguration has a selector type.
+		return !(hasSelectorId() && !element.hasId(getSelectorId()));
 	}
 	
 	//method
 	/**
-	 * Sets the name of this configuration.
-	 * 
-	 * @param name
-	 * @return this configuration.
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws InvalidArgumentException if this configuration is frozen.
-	 */
-	@Override
-	public final C setName(final String name) {
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
-		
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Sets the selector id of this configuration.
+	 * Sets the selector id of the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorId
-	 * @return this configuration.
+	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if the given selector id is null.
 	 * @throws InvalidArgumentException if the given selector id is blank.
-	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorId(final String selectorId) {
 		
 		//Asserts that the given selectorId is not null or blank.
 		Validator.assertThat(selectorId).thatIsNamed("selectorId").isNotBlank();
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		//Sets the selectorId of the current Configuration.
 		this.selectorId = selectorId;
@@ -661,21 +501,17 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Sets the selector token of this configuration.
+	 * Sets the selector token of the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorToken
-	 * @return this configuration.
+	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if the given selector token is null.
 	 * @throws InvalidArgumentException if the given selector token is blank.
-	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorToken(final String selectorToken) {
 		
 		//Asserts that the given selectorToken is not null or blank.
 		Validator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		//Sets the selectorToken of the current Configuration.
 		this.selectorToken = selectorToken;
@@ -690,7 +526,6 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	 * @param selectorType
 	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if the given selectorType is null.
-	 * @throws FrozenArgumentException if the current {@link BaseConfiguration} is frozen.
 	 */
 	public final C setSelectorType(final Class<?> selectorType) {
 		
@@ -702,21 +537,17 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Sets the selector type of this configuration.
+	 * Sets the selector type of the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorType
-	 * @return this configuration.
+	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if the given type selector type is null.
 	 * @throws InvalidArgumentException if the given selector type is blank.
-	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorType(final String selectorType) {
 		
 		//Asserts that the given selectorType is not null or blank.
 		Validator.assertThat(selectorType).thatIsNamed("selectorType").isNotBlank();
-		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
 		
 		//Sets the selectorType of the current Configuration.
 		this.selectorType = selectorType;
@@ -726,10 +557,10 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//method
 	/**
-	 * Sets the attaching attributes of this configuration to the given element.
+	 * Sets the attaching attributes of the current {@link BaseConfiguration} to the given element.
 	 * 
 	 * @param element
-	 * @throws InvalidArgumentException if an attaching attribute of this configuration
+	 * @throws InvalidArgumentException if an attaching attribute of the current {@link BaseConfiguration}
 	 * is not valid for the given element.
 	 */
 	protected final void setAttachingAttributesTo(IConfigurableElement<?> element) {
@@ -747,32 +578,19 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			}
 		}
 	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if this configuration is frozen
-	 */
-	protected final void supposeNotFrozen() {
 		
-		//Asserts that this configuration is not frozen.
-		if (isFrozen()) {
-			throw new InvalidArgumentException(this, "is frozen");
-		}
-	}
-	
 	//method
 	/**
-	 * Adds the given selector role to this configuration.
+	 * Adds the given selector role to the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorRole
 	 * @throws ArgumentIsNullException if the given selector role is null.
 	 * @throws EmptyArgumentException if the given selector role is empty.
-	 * @throws InvalidArgumentException if this configuration contains already the given selector role.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already the given selector role.
 	 */
 	private void addSelectorRole(final String selectorRole) {
 		
-		//Asserts that this configuration contains the given selector role.
+		//Asserts that the current BaseConfiguration contains the given selector role.
 		if (containsSelectorRole(selectorRole)) {
 			throw
 			new InvalidArgumentException(
@@ -781,22 +599,18 @@ implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 			);
 		}
 		
-		//Asserts that this configuration is not frozen.
-		supposeNotFrozen();
-		
 		selectorRoles.addAtEnd(selectorRole);
 	}
 	
 	//method
 	/**
-	 * Adds the given selector roles to this configuration.
+	 * Adds the given selectorRoles to the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorRoles
-	 * @throws EmptyArgumentException if one of the given selector role is empty.
-	 * @throws InvalidArgumentException if this configuration contains already one of the given selector roles.
-	 * @throws InvalidArgumentException if this configuration is frozen.
+	 * @throws EmptyArgumentException if one of the given selector roles is empty.
+	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already one of the given selector roles.
 	 */
-	private void addSelectorRoles2(final Iterable<String> selectorRoles) {
-		selectorRoles.forEach(sr -> addSelectorRole(sr));
+	private void addSelectorRolesFromStrings(final Iterable<String> selectorRoles) {
+		selectorRoles.forEach(this::addSelectorRole);
 	}
 }

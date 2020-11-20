@@ -110,7 +110,5 @@ public final class RedLineGUILook extends Configuration {
 				"BaseBackgroundColor(0xE0E0E0)"
 			)
 		);
-		
-		freeze();
 	}
 }

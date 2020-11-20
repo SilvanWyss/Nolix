@@ -13,7 +13,6 @@ public final class WhiteGreenGUILook extends Configuration {
 	//constructor
 	public WhiteGreenGUILook() {
 		
-		setName("Green");
 		addAttachingAttribute("BackgroundColor(DarkGreen)");
 		
 		addConfiguration(
@@ -65,7 +64,5 @@ public final class WhiteGreenGUILook extends Configuration {
 				"BasePadding(10)"
 			)
 		);
-		
-		freeze();
 	}
 }

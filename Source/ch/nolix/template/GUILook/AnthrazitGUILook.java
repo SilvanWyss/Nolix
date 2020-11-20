@@ -281,7 +281,5 @@ public final class AnthrazitGUILook extends Configuration {
 			new TextItemMenuLook(),	
 			new ConsoleLook()
 		);
-		
-		freeze();
 	}
 }

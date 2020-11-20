@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
@@ -48,7 +49,6 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
@@ -137,13 +137,9 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	 * Removes the max selector level of this deep configuration.
 	 * 
 	 * @return this deep configuration.
-	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	public DeepConfiguration removeMaxSelectorLevel() {
-		
-		//Asserts that this deep configuration is not frozen.
-		supposeNotFrozen();
-		
+				
 		maxSelectorLevel = -1;
 		
 		return this;
@@ -154,7 +150,6 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	 * Resets this deep configuration.
 	 * 
 	 * @return this deep configuration.
-	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	@Override
 	public DeepConfiguration reset() {
@@ -171,16 +166,12 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	 * 
 	 * @param maxSelectorLevel
 	 * @throws NonPositiveArgumentException if the given max selector level is not positive.
-	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	public void setMaxSelectorLevel(int maxSelectorLevel) {
 		
 		//Asserts that the given maxSelectorLevel is positive.
 		Validator.assertThat(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
-		
-		//Asserts that this deep configuration is not frozen.
-		supposeNotFrozen();
-		
+				
 		this.maxSelectorLevel = maxSelectorLevel;
 	}
 	
