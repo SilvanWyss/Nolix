@@ -8,8 +8,7 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var sqlDatabaseSchemaAdapter =
-		new MSSQLDatabaseSchemaAdapter(1433, "TestDB", "sa", "123456");
+		final var sqlDatabaseSchemaAdapter = new MSSQLDatabaseSchemaAdapter(1433, "TestDB", "sa", "123456");
 		
 		if (!sqlDatabaseSchemaAdapter.databaseIsInitialized()) {
 			sqlDatabaseSchemaAdapter
@@ -17,15 +16,15 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 			.saveChanges();
 		}
 	}
-		
+	
 	@SuppressWarnings("unused")
 	private static class Person extends Entity {
 		
 		@SuppressWarnings("unused")
-		private final Value<String> Surname = new Value<>();
+		private final Value<String> surname = new Value<>();
 		
 		@SuppressWarnings("unused")
-		private final Value<String> Name = new Value<>();
+		private final Value<String> name = new Value<>();
 	}
 	
 	private MSSQLDatabaseSchemaAdapterTutorial() {}
