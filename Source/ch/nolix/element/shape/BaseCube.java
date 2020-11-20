@@ -11,7 +11,7 @@ import ch.nolix.element.base.MutableValue;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 200
  */
 public final class BaseCube extends AtomicShape<BaseCube> {
@@ -30,27 +30,27 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	private final MutableValue<Double> xLength =
 	new MutableValue<>(
 		X_LENGTH_HEADER,
-		xl -> setXLength(xl),
+		this::setXLength,
 		BaseNode::getOneAttributeAsDouble,
-		xl -> Node.withOneAttribute(xl)
+		Node::withOneAttribute
 	);
 	
 	//attribute
 	private final MutableValue<Double> yLength =
 	new MutableValue<>(
 		Y_LENGTH_HEADER,
-		yl -> setYLength(yl),
+		this::setYLength,
 		BaseNode::getOneAttributeAsDouble,
-		yl -> Node.withOneAttribute(yl)
+		Node::withOneAttribute
 	);
 	
 	//attribute
 	private final MutableValue<Double> zLength =
 	new MutableValue<>(
 		Z_LENGTH_HEADER,
-		zl -> setZLength(zl),
+		this::setZLength,
 		BaseNode::getOneAttributeAsDouble,
-		zl -> Node.withOneAttribute(zl)
+		Node::withOneAttribute
 	);
 	
 	//constructor
@@ -140,11 +140,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 * @throws NonPositiveArgumentException if the given y-length is not positive.
 	 * @throws NonPositiveArgumentException if the given z-length is not positive.
 	 */
-	public BaseCube setSize(
-		final double xLength,
-		final double yLength,
-		final double zLength
-	) {
+	public BaseCube setSize(final double xLength, final double yLength,	final double zLength) {
 		
 		setXLength(xLength);
 		setYLength(yLength);
@@ -163,7 +159,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 */
 	public BaseCube setXLength(final double xLength) {
 		
-		Validator.assertThat(xLength).thatIsNamed("x length").isPositive();
+		Validator.assertThat(xLength).thatIsNamed("x-length").isPositive();
 		
 		this.xLength.setValue(xLength);
 		
@@ -180,7 +176,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 */
 	public BaseCube setYLength(final double yLength) {
 		
-		Validator.assertThat(yLength).thatIsNamed("y length").isPositive();
+		Validator.assertThat(yLength).thatIsNamed("y-length").isPositive();
 		
 		this.yLength.setValue(yLength);
 		
@@ -197,7 +193,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 */
 	public BaseCube setZLength(final double zLength) {
 		
-		Validator.assertThat(zLength).thatIsNamed("z length").isPositive();
+		Validator.assertThat(zLength).thatIsNamed("z-length").isPositive();
 		
 		this.zLength.setValue((zLength));
 		
