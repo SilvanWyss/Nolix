@@ -238,8 +238,7 @@ public final class Fractal implements IFractal {
 	
 	//method
 	public Image toImageSingleThreaded() {
-		
-		final var widthInPixel = getWidthInPixel();
+				
 		final var heightInpixel = getHeightInPixel();		
 		
 		final var image = new Image(widthInPixel, heightInpixel);
@@ -270,7 +269,7 @@ public final class Fractal implements IFractal {
 							1,
 							sequencesStartValuesFunction.getOutput(c),
 							z -> sequencesNextValueFunction.getOutput(z, c),
-							z -> z.getSquaredMagnitude()
+							IComplexNumber::getSquaredMagnitude
 						)
 						.getConvergenceGrade(
 							getMinMagnitudeForConvergence(),
