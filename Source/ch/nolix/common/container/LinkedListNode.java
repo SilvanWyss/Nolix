@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.container;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -144,8 +145,8 @@ final class LinkedListNode<E> {
 			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
 		}
 				
-		final E element = nextNode.getElement();
+		final E lElement = nextNode.getElement();
 		nextNode.setElement(getElement());
-		setElement(element);
+		setElement(lElement);
 	}
 }
