@@ -48,7 +48,7 @@ final class FrontNetNeuronSession<O> extends StandardClientSession {
 	 */
 	@RunMethod
 	public void Fire() {
-		frontNetNeuron.fireTransitively();
+		frontNetNeuron.fire();
 	}
 	
 	//method

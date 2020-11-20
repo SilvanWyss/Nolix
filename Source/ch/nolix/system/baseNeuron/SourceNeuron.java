@@ -50,5 +50,5 @@ extends BaseNeuron<SourceNeuron<O>, Object, O> {
 	 * Lets this source neuron fire.
 	 */
 	@Override
-	public void fire() {}
+	public void internalUpdate() {}
 }

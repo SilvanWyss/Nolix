@@ -178,7 +178,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	 * @throws ArgumentDoesNotHaveAttributeException if this neuron does not have an output function.
 	 */
 	@Override
-	public void fire() {
+	public void internalUpdate() {
 		internalSetOutput(getOutputFunction().getOutput(this));
 	}
 	

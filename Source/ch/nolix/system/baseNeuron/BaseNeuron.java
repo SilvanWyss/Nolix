@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.baseNeuron;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.generalSkillAPI.ISmartObject;
@@ -13,24 +15,18 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * This class represents a neuron.
- * A neuron has several input neurons, that all provides an input of a certain type.
- * A neuron provides an output of a certain type.
- * 
- * When a neuron fires:
- * -The neuron can update its output.
- * -The neuron can update other stuff.
- * -The neuron can let fire other neurons.
+ * A {@link BaseNeuron} has several input neurons, that all provides an input of a certain type.
+ * A {@link BaseNeuron} provides an output of a certain type.
+ * When a {@link BaseNeuron} fires it can update its output.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 320
- * @param <I> The type of the inputs of a neuron.
- * @param <O> The type of the output of a neuron.
- * @param <N> The type of a neuron.
+ * @param <N> The type of a {@link BaseNeuron}.
+ * @param <I> The type of the inputs of a {@link BaseNeuron}.
+ * @param <O> The type of the output of a {@link BaseNeuron}.
  */
-public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O>
-implements ISmartObject<N> {
+public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements ISmartObject<N> {
 	
 	//attribute
 	private O output;
@@ -41,15 +37,15 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Adds the given input neuron with the given weight to this neuron.
-	 * An input neuron is a neuron this neuron can get an input from.
+	 * Adds the given inputNeuron with the given weight to the current {@link BaseNeuron}.
+	 * An input neuron is a neuron the current {@link BaseNeuron} can get an input from.
 	 * 
 	 * @param weight
 	 * @param inputNeuron
-	 * @return this neuron.
+	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input neuron is null.
-	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
-	 * @throws RuntimeException if this neuron contains already the given input neuron.
+	 * @throws NonSmallerArgumentException if the current {@link BaseNeuron} has reached its maximal number of input neurons.
+	 * @throws RuntimeException if the current {@link BaseNeuron} contains already the given input neuron.
 	 */
 	public final N addInputNeuron(final double weight, final BaseNeuron<?, ?, I> inputNeuron) {
 		
@@ -60,14 +56,14 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Adds the given input neuron to this neuron.
-	 * An input neuron is a neuron this neuron can get an input from.
+	 * Adds the given input neuron to the current {@link BaseNeuron}.
+	 * An input neuron is a neuron the current {@link BaseNeuron} can get an input from.
 	 * 
 	 * @param inputNeuron
-	 * @return this neuron.
+	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input neuron is null.
-	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
-	 * @throws RuntimeException if this neuron contains already the given input neuron.
+	 * @throws NonSmallerArgumentException if the current {@link BaseNeuron} has reached its maximal number of input neurons.
+	 * @throws RuntimeException if the current {@link BaseNeuron} contains already the given input neuron.
 	 */
 	public final N addInputNeuron(final BaseNeuron<?, ?, I> inputNeuron) {
 		
@@ -78,14 +74,14 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Removes all input neurons of this neuron from this neuron.
+	 * Removes all input neurons of the current {@link BaseNeuron} from the current {@link BaseNeuron}.
 	 * 
-	 * @return this neuron.
-	 * @throws UnequalArgumentException if the minimal number of input neurons of this neuron is not 0.
+	 * @return the current {@link BaseNeuron}.
+	 * @throws UnequalArgumentException if the minimal number of input neurons of the current {@link BaseNeuron} is not 0.
 	 */
 	public final N clearInputNeurons() {
 		
-		//Asserts that the minimal number of input neurons of this neuron is 0.
+		//Asserts that the minimal number of input neurons of the current BaseNeuron is 0.
 		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
 		
 		while (getInputNeuronCount() > 0) {
@@ -97,9 +93,9 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Lets this neuron fire transitively.
+	 * Lets the current {@link BaseNeuron} fire.
 	 */
-	public void fireTransitively() {
+	public void fire() {
 		
 		final LinkedList<BaseNeuron<?, ?, ?>> nextNeurons = LinkedList.withElements(this);
 		final LinkedList<BaseNeuron<?, ?, ?>> visitedNeurons = new LinkedList<>();
@@ -109,7 +105,7 @@ implements ISmartObject<N> {
 			final BaseNeuron<?, ?, ?> neuron = nextNeurons.removeAndGetRefFirst();
 			visitedNeurons.addAtEnd(neuron);
 			neuron.fillUpInputNeuronsWithoutOutputPartialRecursively(visitedNeurons);
-			neuron.fire();
+			neuron.internalUpdate();
 			
 			//Iterates the output neurons of the current neuron.
 			for (final BaseNeuron<?, ?, ?> on : neuron.getRefOutputNeurons()) {
@@ -124,17 +120,17 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Lets this neuron fire transitively in background.
+	 * Lets the current {@link BaseNeuron} fire in background.
 	 * 
 	 * @return a new future.
 	 */
-	public final Future fireTransitivelyInBackground() {
-		return Sequencer.runInBackground(() -> fireTransitively());
+	public final Future fireInBackground() {
+		return Sequencer.runInBackground(this::fire);
 	}
 		
 	//method
 	/**
-	 * @return the number of input neurons of this neuron.
+	 * @return the number of input neurons of the current {@link BaseNeuron}.
 	 */
 	public final int getInputNeuronCount() {
 		return inputConnections.getElementCount();
@@ -142,45 +138,45 @@ implements ISmartObject<N> {
 	
 	//method declaration
 	/**
-	 * @return the maximal number of input neurons of this neuron.
+	 * @return the maximal number of input neurons of the current {@link BaseNeuron}.
 	 */
 	public abstract int getMaxInputNeuronCount();
 	
 	//method declaration
 	/**
-	 * @return the minimal number of input neurons of this neuron.
+	 * @return the minimal number of input neurons of the current {@link BaseNeuron}.
 	 */
 	public abstract int getMinInputNeuronCount();
 	
 	//method
 	/**
-	 * @return the input connections of this neuron.
+	 * @return the input connections of the current {@link BaseNeuron}.
 	 */
-	public final ReadContainer<InputConnection<I>> getRefInputConnections() {
+	public final IContainer<InputConnection<I>> getRefInputConnections() {
 		return ReadContainer.forIterable(inputConnections);
 	}
 	
 	//method
 	/**
-	 * @return the input neurons of this neuron.
+	 * @return the input neurons of the current {@link BaseNeuron}.
 	 */
-	public final ReadContainer<BaseNeuron<?, ?, I>> getRefInputNeurons() {
-		return ReadContainer.forIterable(inputConnections.to(ic -> ic.getRefInputNeuron()));
+	public final LinkedList<BaseNeuron<?, ?, I>> getRefInputNeurons() {
+		return inputConnections.to(InputConnection::getRefInputNeuron);
 	}
 	
 	//method
 	/**
-	 * @return the inputs of this neuron.
+	 * @return the inputs of the current {@link BaseNeuron}.
 	 */
-	public final ReadContainer<I> getRefInputs() {
-		return ReadContainer.forIterable(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
+	public final LinkedList<I> getRefInputs() {
+		return inputConnections.to(InputConnection::getRefInputNeuronOutput);
 	}
 	
 	//method
 	/**
-	 * @return the one input of this neuron.
-	 * @throws EmptyArgumentException if this neuron does not have an input.
-	 * @throws InvalidArgumentException if this neuron has several inputs.
+	 * @return the one input of the current {@link BaseNeuron}.
+	 * @throws EmptyArgumentException if the current {@link BaseNeuron} does not have an input.
+	 * @throws InvalidArgumentException if the current {@link BaseNeuron} has several inputs.
 	 */
 	public final I getRefOneInput() {
 		return getRefOneInputConnection().getRefInputNeuronOutput();
@@ -188,9 +184,9 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * @return the one input connection of this neuron.
-	 * @throws EmptyArgumentException if this neuron does not contain an input connection.
-	 * @throws InvalidArgumentException if this neuron contains several input connections.
+	 * @return the one input connection of the current {@link BaseNeuron}.
+	 * @throws EmptyArgumentException if the current {@link BaseNeuron} does not contain an input connection.
+	 * @throws InvalidArgumentException if the current {@link BaseNeuron} contains several input connections.
 	 */
 	public final InputConnection<I> getRefOneInputConnection() {
 		return inputConnections.getRefOne();
@@ -198,9 +194,9 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * @return the one input neuron of this neuron.
+	 * @return the one input neuron of the current {@link BaseNeuron}.
 	 * @throws InvalidArgumentException
-	 * if this neuron does not contain an input neuron or contains several input neurons.
+	 * if the current {@link BaseNeuron} does not contain an input neuron or contains several input neurons.
 	 */
 	public final BaseNeuron<?, ?, I> getRefOneInputNeuron(){
 		return inputConnections.getRefOne().getRefInputNeuron();
@@ -208,13 +204,13 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * @return the output of this neuron.
-	 * @throws ArgumentDoesNotHaveAttributeException if this neuron does not have an output after firing.
+	 * @return the output of the current {@link BaseNeuron}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNeuron} does not have an output after firing.
 	 */
 	public final O getRefOutput() {
 		
 		if (output == null) {
-			fire();
+			internalUpdate();
 		}
 		
 		if (output == null) {
@@ -226,7 +222,7 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * @return the output neurons of this neuron.
+	 * @return the output neurons of the current {@link BaseNeuron}.
 	 */
 	public final ReadContainer<BaseNeuron<?, O, ?>> getRefOutputNeurons() {
 		return ReadContainer.forIterable(outputNeurons);
@@ -234,16 +230,16 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Removes the given input neuron from this neuron.
+	 * Removes the given input neuron from the current {@link BaseNeuron}.
 	 * 
 	 * @param inputNeuron
-	 * @return this neuron.
-	 * @throws NonBiggerArgumentException if this neuron has not more input neurons than its minimal input neuron count says.
-	 * @throws InvalidArgumentException if this neuron does not contain the given input neuron.
+	 * @return the current {@link BaseNeuron}.
+	 * @throws NonBiggerArgumentException if the current {@link BaseNeuron} has not more input neurons than its minimal input neuron count says.
+	 * @throws InvalidArgumentException if the current {@link BaseNeuron} does not contain the given input neuron.
 	 */
 	public final N removeInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
 		
-		//Asserts that this neuron has not more input neurons than its minimal input neuron count says.
+		//Asserts that the current BaseNeuron has not more input neurons than its minimal input neuron count says.
 		Validator.assertThat(getInputNeuronCount()).isBiggerThan(getMinInputNeuronCount());
 		
 		inputConnections.removeFirst(ic -> ic.hasInputNeuron(inputNeuron));
@@ -252,15 +248,9 @@ implements ISmartObject<N> {
 		return asConcrete();
 	}
 	
-	//method declaration
-	/**
-	 * Lets this neuron fire.
-	 */
-	public abstract void fire();
-	
 	//method
 	/**
-	 * Sets the output of this neuron.
+	 * Sets the output of the current {@link BaseNeuron}.
 	 * 
 	 * @param output
 	 */
@@ -271,25 +261,31 @@ implements ISmartObject<N> {
 		this.output = output;
 	}
 	
+	//method declaration
+	/**
+	 * Updates the current {@link BaseNeuron}.
+	 */
+	protected abstract void internalUpdate();
+	
 	//method
 	/**
-	 * Adds the given input connection to this neuron.
+	 * Adds the given input connection to the current {@link BaseNeuron}.
 	 * 
 	 * @param inputConnection
-	 * @return this neuron.
+	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input connection is null.
-	 * @throws NonSmallerArgumentException if this neuron has not less input neurons than its maximal input neurons count says.
-	 * @throws InvalidArgumentException if this neuron contains already the input neuron of the given input connection.
+	 * @throws NonSmallerArgumentException if the current {@link BaseNeuron} has not less input neurons than its maximal input neurons count says.
+	 * @throws InvalidArgumentException if the current {@link BaseNeuron} contains already the input neuron of the given input connection.
 	 */
 	private final void addInputConnection(final InputConnection<I> inputConnection) {
 		
 		//Asserts that the given input neuron is not null.
 		Validator.assertThat(inputConnection).thatIsNamed("input neuron").isNotNull();
 		
-		//Asserts that this neuron has less input neurons than its maximal input neurons count says.
+		//Asserts that the current BaseNeuron} has less input neurons than its maximal input neurons count says.
 		Validator.assertThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
 		
-		//Asserts that this neuron does not contain the input neuron of the given input connection.
+		//Asserts that the current BaseNeuron does not contain the input neuron of the given input connection.
 		if (inputConnections.contains(ic -> ic.hasInputNeuron(inputConnection.getRefInputNeuron()))) {
 			throw new InvalidArgumentException(
 				inputConnection,
@@ -304,13 +300,13 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Fills up the input neurons of this neuron, that do not have an output, into the given list partial recursively.
+	 * Fills up the input neurons of the current {@link BaseNeuron}, that do not have an output, into the given list partial recursively.
 	 * 
 	 * @param list
 	 */
 	private void fillUpInputNeuronsWithoutOutputPartialRecursively(final LinkedList<BaseNeuron<?, ?, ?>> list) {
 		
-		//Iterates the input connections of this neuron.
+		//Iterates the input connections of the current BaseNeuron.
 		for (final var ic : inputConnections) {
 			
 			//Extracts the input neuron of the current input connection.

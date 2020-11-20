@@ -89,7 +89,7 @@ extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 * Lets this neuron fire.
 	 */
 	@Override
-	public void fire() {
+	public void internalUpdate() {
 		internalSetOutput(getRefOneInput());
 	}
 }

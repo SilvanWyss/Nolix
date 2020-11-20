@@ -117,7 +117,7 @@ implements Closeable {
 	 * Lets this net front neuron fire.
 	 */
 	@Override
-	public void fire() {}
+	public void internalUpdate() {}
 	
 	//method
 	/**

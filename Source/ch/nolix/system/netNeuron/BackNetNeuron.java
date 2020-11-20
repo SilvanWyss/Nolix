@@ -112,7 +112,7 @@ implements Closeable {
 	 * Lets this net back neuron fire.
 	 */
 	@Override
-	public void fire() {
+	public void internalUpdate() {
 		
 		//Handles the case that this net back neuron does not have an input neuron.
 		if (getRefInputNeurons().isEmpty()) {

@@ -42,7 +42,7 @@ extends BaseNeuron<BundleNeuron<O>, O, Iterable<O>> {
 	 * @param processor
 	 */
 	@Override
-	public void fire() {
+	public void internalUpdate() {
 		internalSetOutput(getRefInputs());
 	}
 }

@@ -125,10 +125,10 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * Lets this neuronal net fire.
 	 */
 	@Override
-	public void fire() {
+	public void internalUpdate() {
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
-		inputFanoutNeuron.fireTransitively();
+		inputFanoutNeuron.fire();
 		internalSetOutput(outputBundleNeuron.getRefOutput());
 	}
 }

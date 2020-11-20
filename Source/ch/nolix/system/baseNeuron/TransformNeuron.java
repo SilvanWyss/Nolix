@@ -73,7 +73,7 @@ extends BaseNeuron<TransformNeuron<I, O>, I, O> {
 	 * Lets this transform neuron fire.
 	 */
 	@Override
-	public void fire() {
+	public void internalUpdate() {
 		internalSetOutput(transformator.getOutput(getRefOneInput()));
 	}
 }
