@@ -19,7 +19,7 @@ import ch.nolix.element.painter.IPainter;
  * A {@link Stack} is a {@link ContainerWidget} that places its widgets linearly.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 350
  * @param <S> The type of a {@link Stack}.
  */
@@ -32,9 +32,9 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	private final MutableOptionalValue<Integer> elementMargin =
 	new MutableOptionalValue<>(
 		ELEMENT_MARGIN_HEADER,
-		em -> setElementMargin(em),
+		this::setElementMargin,
 		BaseNode::getOneAttributeAsInt,
-		em -> Node.withOneAttribute(em)
+		Node::withOneAttribute
 	);
 	
 	//multi-attribute
@@ -111,7 +111,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final <W extends Widget<?, ?>> S addWidgets(final Iterable<W> widgets) {
 		
-		widgets.forEach(w -> addWidget(w));
+		widgets.forEach(this::addWidget);
 		
 		return asConcrete();
 	}
@@ -208,6 +208,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final S reset() {
 		
 		super.reset();
