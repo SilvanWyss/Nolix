@@ -9,11 +9,11 @@ import ch.nolix.common.validator.Validator;
 final class NetServerHTTPMessage {
 	
 	//constant
-	private final String REQUIRE_JS_SCRIPT =
+	private static final String REQUIRE_JS_SCRIPT =
 	RunningJar.getResource("ch/nolix/system/client/resources/require_js.js");
 	
 	//constant
-	private final String NOLIX_SCRIPT =
+	private static final String NOLIX_SCRIPT =
 	RunningJar.getResource("ch/nolix/system/client/resources/Nolix.js");
 	
 	//attributes
