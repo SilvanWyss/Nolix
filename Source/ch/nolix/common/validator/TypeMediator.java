@@ -4,6 +4,7 @@ package ch.nolix.common.validator;
 //Java import
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
@@ -70,18 +71,18 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	}
 	
 	//method
-	public final void isImplementing(final Class<?> interface_) {
+	public final void isImplementing(final Class<?> pInterface) {
 		
-		new TypeMediator<>(interface_).isInterface();
+		new TypeMediator<>(pInterface).isInterface();
 		
 		isClass();
 		
-		if (!interface_.isAssignableFrom(getRefArgument())) {
+		if (!pInterface.isAssignableFrom(getRefArgument())) {
 			throw
 			new InvalidArgumentException(
 				getArgumentName(),
 				getRefArgument(),
-				"does not implement " + interface_.getName()
+				"does not implement " + pInterface.getName()
 			);
 		}
 	}
@@ -117,41 +118,41 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	}
 	
 	//method
-	public final void isSubClassOf(final Class<?> class_) {
+	public final void isSubClassOf(final Class<?> pClass) {
 		
-		new TypeMediator<>(class_).isClass();
+		new TypeMediator<>(pClass).isClass();
 		
 		isClass();
 		
 		if (
-			!class_.isAssignableFrom(getRefArgument())
-			|| getRefArgument().isAssignableFrom(class_)
+			!pClass.isAssignableFrom(getRefArgument())
+			|| getRefArgument().isAssignableFrom(pClass)
 		) {
 			throw
 			new InvalidArgumentException(
 				getArgumentName(),
 				getRefArgument(),
-				"is not a sub class of " + class_.getName()
+				"is not a sub class of " + pClass.getName()
 			);
 		}
 	}
 	
 	//method
-	public final void isSuperClassOf(final Class<?> class_) {
+	public final void isSuperClassOf(final Class<?> pClass) {
 		
-		new TypeMediator<>(class_).isClass();
+		new TypeMediator<>(pClass).isClass();
 		
 		isClass();
 		
 		if (
-			!getRefArgument().isAssignableFrom(class_)
-			|| class_.isAssignableFrom(getRefArgument())
+			!getRefArgument().isAssignableFrom(pClass)
+			|| pClass.isAssignableFrom(getRefArgument())
 		) {
 			throw
 			new InvalidArgumentException(
 				getArgumentName(),
 				getRefArgument(),
-				"is not a super class of " + class_.getName()
+				"is not a super class of " + pClass.getName()
 			);
 		}
 	}
