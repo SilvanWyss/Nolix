@@ -17,97 +17,94 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-17
  * @lines 110
  */
 final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 	
 	//attribute
-	private final JMonkeyMainFrame mJMonkeyMainFrame_;
+	private final JMonkeyMainFrame mJMonkeyMainFrame;
 	
 	//constructor
 	/**
 	 * Creates a new JMonkey main frame raw input listener
 	 * for the given JMonkey main frame.
 	 * 
-	 * @param JMonkeyMainFrame_
-	 * @throws ArgumentIsNullException
-	 * if the given JMonkey main frame is null.
+	 * @param pJMonkeyMainFrame
+	 * @throws ArgumentIsNullException if the given JpJMonkeyMainFrame is null.
 	 */
-	public JMonkeyMainFrameRawInputListener(
-		final JMonkeyMainFrame JMonkeyMainFrame_
-	) {
+	public JMonkeyMainFrameRawInputListener(final JMonkeyMainFrame pJMonkeyMainFrame) {
 		
-		//Asserts that the given JMonkey main frame is not null.
-		Validator
-		.assertThat(JMonkeyMainFrame_).isOfType(JMonkeyMainFrame.class);
+		//Asserts that the given pJMonkeyMainFrame is not null.
+		Validator.assertThat(pJMonkeyMainFrame).isOfType(JMonkeyMainFrame.class);
 		
-		//Sets the JMonkey main frame
-		//of this JMonkey main frame raw input listener.
-		this.mJMonkeyMainFrame_ = JMonkeyMainFrame_;
+		//Sets the mJMonkeyMainFrame of the current JMonkeyMainFrameRawInputListener.
+		this.mJMonkeyMainFrame = pJMonkeyMainFrame;
 	}
-
+	
 	//method
 	@Override
 	public void beginInput() {}
-
+	
 	//method
 	@Override
 	public void endInput() {}
-
+	
 	//method
 	@Override
 	public void onJoyAxisEvent(JoyAxisEvent joyAxisEvent) {}
-
+	
 	//method
 	@Override
 	public void onJoyButtonEvent(JoyButtonEvent joyButtonEvent) {}
-		
+	
 	//method
 	@Override
 	public void onKeyEvent(KeyInputEvent keyInputEvent) {
-		mJMonkeyMainFrame_.noteKeyPress(keyInputEvent);
+		mJMonkeyMainFrame.noteKeyPress(keyInputEvent);
 	}
-
+	
 	//method
 	@Override
 	public void onMouseButtonEvent(final MouseButtonEvent mouseButtonEvent) {
 		
-		//Enumerates the button index of the given mouse button event.
+		//Enumerates the button index of the given mouseButtonEvent.
 		switch (mouseButtonEvent.getButtonIndex()) {
 			case MouseInput.BUTTON_LEFT:
 				
-				//Handles the case that the given mouse button event is a left mouse button press.
+				//Handles the case that the given mouseButtonEvent is a left mouse button press.
 				if (mouseButtonEvent.isPressed()) {
-					mJMonkeyMainFrame_.noteLeftMouseButtonPress();
+					mJMonkeyMainFrame.noteLeftMouseButtonPress();
 				}
 				
-				//Handles the case that the given mouse button event is a right mouse button release.
+				//Handles the case that the given mouseButtonEvent is a right mouse button release.
 				if (mouseButtonEvent.isReleased()) {
-					mJMonkeyMainFrame_.noteLeftMouseButtonRelease();
+					mJMonkeyMainFrame.noteLeftMouseButtonRelease();
 				}
 				
 				break;
 			case MouseInput.BUTTON_RIGHT:
 				
+				//Handles the case that the given mouseButtonEvent is a right mouse button press.
 				if (mouseButtonEvent.isPressed()) {
 					
-					mJMonkeyMainFrame_.noteRightMouseButtonPress();
+					mJMonkeyMainFrame.noteRightMouseButtonPress();
 				}
 				
+				//Handles the case that the given mouseButtonEvent is a right mouse button release.
 				if (mouseButtonEvent.isReleased()) {
-					mJMonkeyMainFrame_.noteRightMouseButtonRelease();
+					mJMonkeyMainFrame.noteRightMouseButtonRelease();
 				}
 				
 				break;
 			default:
 		}
 	}
-
+	
 	//method
 	@Override
 	public void onMouseMotionEvent(final MouseMotionEvent mouseMotionEvent) {}
-
+	
 	//method
 	@Override
 	public void onTouchEvent(final TouchEvent touchEvent) {}
