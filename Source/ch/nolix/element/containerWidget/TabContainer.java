@@ -2,6 +2,7 @@
 package ch.nolix.element.containerWidget;
 
 //own imports
+import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -19,16 +20,13 @@ import ch.nolix.element.widget.Label;
 
 //class
 /**
- * A {@link TabContainer} is clearable.
- * 
  * @author Silvan Wyss
- * @month 2016-04
- * @lines 540
+ * @date 2016-05-01
+ * @lines 530
  */
-public final class TabContainer
-extends ContainerWidget<TabContainer, TabContainerLook>
+public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook>
 implements Clearable<TabContainer> {
-
+	
 	//constant
 	public static final String TYPE_NAME = "TabContainer";
 	
@@ -81,13 +79,10 @@ implements Clearable<TabContainer> {
 	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
 		
 		//Asserts that the given tabs is not null.
-		Validator
-		.assertThat(tabs)
-		.thatIsNamed("tabs")
-		.isNotNull();
+		Validator.assertThat(tabs).thatIsNamed(MultiVariableNameCatalogue.TABS).isNotNull();
 		
 		//Iterates the given tabs.
-		tabs.forEach(t -> addTab(t));
+		tabs.forEach(this::addTab);
 		
 		return this;
 	}
@@ -104,10 +99,7 @@ implements Clearable<TabContainer> {
 	public TabContainer addTab(final TabContainerTab tab) {
 		
 		//Asserts that the given tab is not null.
-		Validator
-		.assertThat(tab)
-		.thatIsNamed(PascalCaseNameCatalogue.TAB)
-		.isNotNull();
+		Validator.assertThat(tab).thatIsNamed(PascalCaseNameCatalogue.TAB).isNotNull();
 		
 		//Adds the given tab to the current tab container.
 		tab.setParentTabContainer(this);
@@ -154,7 +146,7 @@ implements Clearable<TabContainer> {
 	 * contains a selected tab.
 	 */
 	public boolean containsSelectedTab() {
-		return getRefTabs().contains(t -> t.isSelected());
+		return getRefTabs().contains(TabContainerTab::isSelected);
 	}
 	
 	//method
@@ -191,7 +183,7 @@ implements Clearable<TabContainer> {
 	 * if the current {@link TabContainer} does not contain a selected tab.
 	 */
 	public TabContainerTab getRefSelectedTab() {
-		return getRefTabs().getRefFirst(t -> t.isSelected());
+		return getRefTabs().getRefFirst(TabContainerTab::isSelected);
 	}
 	
 	//method
@@ -350,7 +342,7 @@ implements Clearable<TabContainer> {
 		
 		//Handles the case that the current tab container contains tabs.
 		if (containsAny()) {
-			height += getRefTabs().getMaxInt(t -> t.getHeight());
+			height += getRefTabs().getMaxInt(TabContainerTab::getHeight);
 		}
 		
 		return height;
@@ -373,7 +365,7 @@ implements Clearable<TabContainer> {
 			return
 			Calculator.getMax(
 				menu.getWidth(),
-				getRefTabs().getMaxInt(t -> t.getWidth())
+				getRefTabs().getMaxInt(TabContainerTab::getWidth)
 			);
 		}
 	}
@@ -398,7 +390,7 @@ implements Clearable<TabContainer> {
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {		
-		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(Widget::isUnderCursor);
 	}
 	
 	//method
