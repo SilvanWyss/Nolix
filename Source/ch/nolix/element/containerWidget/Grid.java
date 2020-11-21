@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -70,10 +71,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	@Override
 	public int getContentAreaHeight() {
 		
-		var contentHeight =
-		cells
-		.getRows()
-		.getSumByInt(r -> r.getMaxInt(c -> c.getHeight()));
+		var contentHeight = cells.getRows().getSumByInt(r -> r.getMaxInt(GridCell::getHeight));
 
 		if (hasLines()) {
 			switch (getRefLook().getRecursiveLineTypeOrDefault()) {
@@ -95,10 +93,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	@Override
 	public int getContentAreaWidth() {
 		
-		var contentWidth =
-		cells
-		.getColumns()
-		.getSumByInt(c -> c.getMaxInt(cell -> cell.getWidth()));
+		var contentWidth = cells.getColumns().getSumByInt(c -> c.getMaxInt(GridCell::getWidth));
 		
 		if (hasLines()) {
 			switch (getRefLook().getRecursiveLineTypeOrDefault()) {
@@ -314,7 +309,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 				for (final var r : cells.getRows()) {
 					if (r.getRowIndex() < cells.getRowCount()) {
 						y += elementMargin;
-						y += r.getMaxInt(c -> c.getHeight());
+						y += r.getMaxInt(GridCell::getHeight);
 						y += elementMargin;
 						painter.paintFilledRectangle(0, y, contentAreaWidth, lineThickness);
 						y += lineThickness;
@@ -332,7 +327,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 				for (final var c : cells.getColumns()) {
 					if (c.getColumnIndex() < cells.getColumnCount()) {
 						x += elementMargin;
-						x += c.getMaxInt(c2 -> c2.getWidth());
+						x += c.getMaxInt(GridCell::getWidth);
 						x += elementMargin;
 						painter.paintFilledRectangle(x, 0, lineThickness, contentAreaHeight);
 						x += lineThickness;
@@ -375,12 +370,12 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 					c.getRefWidget().setPositionOnParent(x, y);
 				}
 				
-				x += cells.getColumn(c.getColumnIndex()).getMaxInt(c2 -> c2.getWidth());
+				x += cells.getColumn(c.getColumnIndex()).getMaxInt(GridCell::getWidth);
 				x += getElementMargin();
 				x += getLineThickness();
 			}
 			
-			y += r.getMaxInt(c2 -> c2.getHeight());
+			y += r.getMaxInt(GridCell::getHeight);
 			y += getElementMargin();
 			y += getLineThickness();
 		}
