@@ -52,11 +52,11 @@ public final class EntitySession extends HeaderedSession {
 			new Button()
 			.setText("<--")
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonReleaseAction(() -> pop()),
+			.setLeftMouseButtonReleaseAction(b -> pop()),
 			new Button()
 			.setText(entitySetName)
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonPressAction(() -> openEntitySetSession())
+			.setLeftMouseButtonPressAction(this::openEntitySetSession)
 		);
 	}
 	
@@ -240,11 +240,11 @@ public final class EntitySession extends HeaderedSession {
 				new Button()
 				.setRole(ButtonRole.SaveButton)
 				.setText("Save")
-				.setLeftMouseButtonPressAction(() -> save()),
+				.setLeftMouseButtonPressAction(this::save),
 				new Button()
 				.setRole(ButtonRole.CancelButton)
 				.setText("Reset changes")
-				.setLeftMouseButtonPressAction(() -> cancel())
+				.setLeftMouseButtonPressAction(this::cancel)
 			)
 		)
 		.setRole(ContainerRole.MainContainer);
@@ -260,12 +260,12 @@ public final class EntitySession extends HeaderedSession {
 			
 			final var multiReferenceHorizontalStack = new HorizontalStack();
 			for (final var e : mr.getRefEntities()) {
-				final var entitySetName = e.getParentEntitySet().getName();
-				final var entityId = e.getId();
+				final var lEntitySetName = e.getParentEntitySet().getName();
+				final var lEntityId = e.getId();
 				multiReferenceHorizontalStack.addWidget(
 					new Button()
 					.setText(e.getIdAsString())
-					.setLeftMouseButtonPressAction(() -> push(new EntitySession(entitySetName, entityId)))
+					.setLeftMouseButtonPressAction(() -> push(new EntitySession(lEntitySetName, lEntityId)))
 				);
 			}
 			final var tab = new TabContainerTab(mr.getHeader(), multiReferenceHorizontalStack);
