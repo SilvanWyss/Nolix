@@ -77,7 +77,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		return
 		entitySetSpecification
 		.getRefAttributes(a -> a.hasHeader(PascalCaseNameCatalogue.COLUMN))
-		.to(a -> new ColumnAdapter(a));
+		.to(ColumnAdapter::new);
 	}
 	
 	//method
