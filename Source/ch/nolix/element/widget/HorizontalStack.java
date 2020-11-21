@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own import
+//own imports
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidget.Stack;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 100
  */
 public final class HorizontalStack extends Stack<HorizontalStack> {
@@ -29,14 +30,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 */
 	@Override
 	protected int getContentAreaHeight() {
-		
-		//Handles the case that the current horizontal stack is empty.
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		//Handles the case that the current horizontal stack is not empty.
-		return getChildWidgets().getMaxInt(r -> r.getHeight());
+		return getChildWidgets().getMaxIntOrZero(Widget::getHeight);
 	}
 	
 	//method
@@ -46,11 +40,13 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	@Override
 	protected int getContentAreaWidth() {
 		
-		int contentWidth = getChildWidgets().getSumByInt(w -> w.getWidth());
+		final var childWidget = getChildWidgets();
+		
+		var contentWidth = childWidget.getSumByInt(Widget::getWidth);
 		
 		//Handles the case that the current horizontal stack is not empty.
 		if (containsAny()) {
-			contentWidth += (getChildWidgets().getElementCount() - 1) * getElementMargin();
+			contentWidth += (childWidget.getElementCount() - 1) * getElementMargin();
 		}
 		
 		return contentWidth;
