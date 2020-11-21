@@ -169,20 +169,8 @@ public final class FractalBuilder implements IFractalBuilder {
 	public IFractalBuilder setStartValuesFunction(
 		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
 	) {
-		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
 		
-//		this.sequencesStartValuesFunction
-//		= c -> {
-//			
-//			final var arrayList = new ArrayList<IComplexNumber>();
-//			
-//			final var sequnecesStartValues = sequencesStartValuesFunction.getOutput(c);
-//			for (final var ssv : sequnecesStartValues) {
-//				arrayList.add(ssv);
-//			}
-//			 
-//			return arrayList;
-//		};
+		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
 		
 		return this;
 	}
