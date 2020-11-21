@@ -12,11 +12,11 @@ import ch.nolix.common.skillAPI.IChangesSaver;
 //class
 /**
  * A {@link DatabaseSchemaAdapter} loads the current database scheme
- * from its connected database when it is created or reset. 
+ * from its connected database when the {@link DatabaseSchemaAdapter} is created or reset.
  * 
  * @author Silvan Wyss
- * @month 2018-04
- * @lines 190
+ * @date 2018-04-21
+ * @lines 180
  * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
  */
 public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
@@ -83,7 +83,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	//method
 	public final DSA deleteEntitySet(final EntitySet entitySet) {
 		
-		supposeCanDelete(entitySet);
+		assertCanDelete(entitySet);
 		
 		loadedAndCreatedEntitySets.removeFirst(entitySet);
 		entitySet.setDeleted();
@@ -105,8 +105,8 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	@Override
 	public final DSA reset() {
 		
-		loadedAndCreatedEntitySets.forEach(es -> es.setRejected());
-		mutatedEntitySetsInOrder.forEach(es -> es.setRejected());
+		loadedAndCreatedEntitySets.forEach(EntitySet::setRejected);
+		mutatedEntitySetsInOrder.forEach(EntitySet::setRejected);
 		loadedAndCreatedEntitySets.clear();
 		mutatedEntitySetsInOrder.clear();
 		
@@ -157,20 +157,20 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		mutatedEntitySetsInOrder.addAtEndIfNotContained(entitySet);
 	}
 	
+	//method
+	private void assertCanDelete(final EntitySet entitySet) {
+		//TOOD: Implement.
+	}
+	
 	//method declaration
 	private LinkedList<EntitySet> getEntitySetsFromDatabase() {
 		return getEntitySetAdapters().to(IEntitySetAdapter::toEntitySet);
 	}
 	
 	//method
-	private void supposeCanDelete(final EntitySet entitySet) {
-		//TOOD: Implement.
-	}
-	
-	//method
 	private void supposeDatabaseIsReady() {
 		if (!databaseIsReady()) {
-			throw new RuntimeException("The database is not ready.");
+			throw new IllegalStateException("The database is not ready.");
 		}
 	}
 	
