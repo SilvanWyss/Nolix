@@ -14,15 +14,15 @@ import ch.nolix.element.base.MutableValue;
 public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	
 	//constant
-	public static final double DEFAULT_HEIGHT = 2.0;
-
+	public static final double DEFAULT_HEIGHT = 1.0;
+	
 	//attribute
 	private final MutableValue<Double> height =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEIGHT,
-		h -> setHeight(h),
+		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,
-		h -> Node.withOneAttribute(h)
+		Node::withOneAttribute
 	);
 	
 	//method
