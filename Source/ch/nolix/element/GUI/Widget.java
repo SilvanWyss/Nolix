@@ -268,17 +268,13 @@ TopLeftPositionedRecangular {
 	public final boolean containsPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
 		
 		//For a better performance, this implementation does the cheap comparisons at first.
-			final var thisXPositionOnGUI = getXPositionOnGUI();		
-			if (xPositionOnGUI <= thisXPositionOnGUI || xPositionOnGUI > thisXPositionOnGUI + getWidth()) {
-				return false;
-			}
-			
-			final var thisYPositionOnGUI = getYPositionOnGUI();
-			if (yPositionOnGUI <= thisYPositionOnGUI || yPositionOnGUI > thisYPositionOnGUI + getHeight()) {
-				return false;
-			}
-			
-			return true;
+		final var thisXPositionOnGUI = getXPositionOnGUI();		
+		if (xPositionOnGUI <= thisXPositionOnGUI || xPositionOnGUI > thisXPositionOnGUI + getWidth()) {
+			return false;
+		}
+		
+		final var thisYPositionOnGUI = getYPositionOnGUI();
+		return (yPositionOnGUI > thisYPositionOnGUI && yPositionOnGUI <= thisYPositionOnGUI + getHeight());
 	}
 	
 	//method
