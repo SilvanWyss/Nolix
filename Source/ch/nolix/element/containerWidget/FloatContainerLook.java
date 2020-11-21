@@ -25,7 +25,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		PROPOSE_CONTENT_WIDTH_HEADER,
 		DEFAULT_PROPOSE_CONTENT_WIDTH,
 		BaseNode::getOneAttributeAsInt,
-		pcw -> Node.withOneAttribute(pcw)
+		Node::withOneAttribute
 	);
 		
 	//attribute
@@ -34,7 +34,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		WIDGET_MARGIN_HEADER,
 		DEFAULT_WIDGET_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		wm -> Node.withOneAttribute(wm)
+		Node::withOneAttribute
 	);
 	
 	//method
