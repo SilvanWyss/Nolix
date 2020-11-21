@@ -21,18 +21,18 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	private final MutableValue<Double> sideLength =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.SIDE_LENGTH,
-		sl -> setSideLength(sl),
+		this::setSideLength,
 		BaseNode::getOneAttributeAsDouble,
-		sl -> Node.withOneAttribute(sl)
+		Node::withOneAttribute
 	);
 	
 	//attribute
 	private final MutableValue<Double> height =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEIGHT,
-		h -> setHeight(h),
+		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,
-		h -> Node.withOneAttribute(h)
+		Node::withOneAttribute
 	);
 	
 	//constructor
