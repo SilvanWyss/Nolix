@@ -21,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 1170
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
@@ -270,15 +270,11 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * 
 	 * @param elements
 	 * @return the current {@link LinkedList}.
-	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public <E2 extends E> LinkedList<E> addAtEnd(final Iterable<E2> elements) {
 		
-		//Asserts that the given elements is not null.
-		Validator.assertThat(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
-		
-		elements.forEach(e -> addAtEnd(e));
+		elements.forEach(this::addAtEnd);
 		
 		return this;
 	}
@@ -719,8 +715,6 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public void refill(final Iterable<E> elements) {
-		
-		//TODO: Improve the performance of this implementation.
 		clear();
 		addAtEnd(elements);
 	}
@@ -872,7 +866,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 */
 	public <E2> LinkedList<E> removeFirst(final Iterable<E2> elements) {
 		
-		elements.forEach(e -> removeFirst(e));
+		elements.forEach(this::removeFirst);
 		
 		return this;
 	}
