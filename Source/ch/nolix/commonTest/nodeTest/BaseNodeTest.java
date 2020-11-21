@@ -256,7 +256,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		testUnit.reset();
 		
 		//execution
-		expect(() -> testUnit.getRefOneAttribute()).throwsException().ofType(InvalidArgumentException.class);
+		expect(testUnit::getRefOneAttribute).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method
