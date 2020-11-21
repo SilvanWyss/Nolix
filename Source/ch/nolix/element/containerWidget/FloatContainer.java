@@ -58,7 +58,7 @@ implements Clearable<FloatContainer> {
 	//method
 	public FloatContainer addWidgets(final Iterable<Widget<?, ?>> widets) {
 		
-		widets.forEach(w -> addWidget(w));
+		widets.forEach(this::addWidget);
 		
 		return this;
 	}
@@ -78,7 +78,7 @@ implements Clearable<FloatContainer> {
 		
 		final var attributes = super.getAttributes();
 		
-		attributes.addAtEnd(widgets, w -> w.getSpecification());
+		attributes.addAtEnd(widgets, Widget::getSpecification);
 		
 		return attributes;
 	}
@@ -151,7 +151,7 @@ implements Clearable<FloatContainer> {
 			return
 			Calculator.getMax(
 				look.getRecursiveOrDefaultProposeContentWidth(),
-				widgets.getMaxInt(w -> w.getWidth())
+				widgets.getMaxInt(Widget::getWidth)
 			);
 		}
 		
@@ -162,7 +162,7 @@ implements Clearable<FloatContainer> {
 		return
 		Calculator.getMax(
 			getProposedContentAreaWidth(),
-			widgets.getMaxInt(w -> w.getWidth())
+			widgets.getMaxInt(Widget::getWidth)
 		);
 	}
 	
@@ -248,7 +248,7 @@ implements Clearable<FloatContainer> {
 			
 			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
 				x = 0;
-				y += row.getMaxInt(w2 -> w2.getHeight()) + widgetMargin;
+				y += row.getMaxInt(Widget::getHeight) + widgetMargin;
 				row.clear();
 			}
 			
