@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -51,7 +52,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	private final MutableValue<String> header =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEADER,
-		h -> setHeader(h),
+		this::setHeader,
 		BaseNode::getOneAttributeHeader,
 		h -> new Node(PascalCaseNameCatalogue.HEADER, getHeader())
 	);
@@ -61,7 +62,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	new MutableValue<>(
 		EXPANDED_FLAG_HEADER,
 		e -> {
-			if (e) {
+			if (e.booleanValue()) {
 				expand();
 			}
 			else {
@@ -69,7 +70,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			}
 		},
 		BaseNode::getOneAttributeAsBoolean,
-		e -> Node.withOneAttribute(e)
+		Node::withOneAttribute
 	);
 	
 	//attributes
