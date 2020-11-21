@@ -28,7 +28,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.LINE_THICKNESS,
 		DEFAULT_LINE_THICKNESS,
 		BaseNode::getOneAttributeAsInt,
-		lt -> Node.withOneAttribute(lt)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -37,7 +37,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.COLOR,
 		DEFAULT_LINE_COLOR,
 		Color::fromSpecification,
-		lc -> lc.getSpecification()
+		Color::getSpecification
 	);
 	
 	//attribute
@@ -46,7 +46,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.ELEMENT_MARGIN,
 		DEFAULT_ELEMENT_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		em -> Node.withOneAttribute(em)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -54,8 +54,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new LayerProperty<>(
 		LINE_TYPE_HEADER,
 		DEFAULT_LINE_TYPE,
-		s -> GridLineType.fromSpecification(s),
-		lt -> lt.getSpecification()
+		GridLineType::fromSpecification,
+		GridLineType::getSpecification
 	);
 	
 	//method
