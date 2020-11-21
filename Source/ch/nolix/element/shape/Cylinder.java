@@ -19,9 +19,9 @@ public final class Cylinder extends Prisma<Cylinder> {
 	private final MutableValue<Double> radius =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.RADIUS,
-		r -> setRadius(r),
+		this::setRadius,
 		BaseNode::getOneAttributeAsDouble,
-		r -> Node.withOneAttribute(r)
+		Node::withOneAttribute
 	);
 	
 	//constructor
