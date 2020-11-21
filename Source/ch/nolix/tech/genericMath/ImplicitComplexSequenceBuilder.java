@@ -44,7 +44,7 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 			startIndex,
 			startValues,
 			nextValueFunction,
-			z -> z.getSquaredMagnitude()
+			IComplexNumber::getSquaredMagnitude
 		);
 	}
 	
