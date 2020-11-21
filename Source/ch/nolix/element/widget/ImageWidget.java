@@ -11,24 +11,22 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
-public final class ImageWidget
-extends BorderWidget<ImageWidget, ImageWidgetLook>
-implements Clearable<ImageWidget> {
+public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable<ImageWidget> {
 	
 	//attribute
 	private final MutableOptionalValue<Image> image =
 	new MutableOptionalValue<>(
 		Image.TYPE_NAME,
-		i -> setImage(i),
-		s -> Image.fromSpecification(s),
-		i -> i.getSpecification()
+		this::setImage,
+		Image::fromSpecification,
+		Image::getSpecification
 	);
 	
 	//constructor
 	public ImageWidget() {
 		resetAndApplyDefaultConfiguration();
 	}
-		
+	
 	//method
 	@Override
 	public ImageWidget clear() {
