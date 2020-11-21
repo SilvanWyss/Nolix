@@ -113,18 +113,18 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	private final Value<Integer> width =
 	new Value<>(
 		PascalCaseNameCatalogue.WIDTH,
-		w -> setWidth(w),
+		this::setWidth,
 		BaseNode::getOneAttributeAsInt,
-		w -> Node.withOneAttribute(w)
+		Node::withOneAttribute
 	);
 	
 	//attribute
 	private final Value<Integer> height =
 	new Value<>(
 		PascalCaseNameCatalogue.HEIGHT,
-		h -> setHeight(h),
+		this::setHeight,
 		BaseNode::getOneAttributeAsInt,
-		h -> Node.withOneAttribute(h)
+		Node::withOneAttribute
 	);
 		
 	//attribute
