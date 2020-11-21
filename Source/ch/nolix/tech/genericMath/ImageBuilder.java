@@ -4,6 +4,7 @@ package ch.nolix.tech.genericMath;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -32,7 +33,7 @@ public final class ImageBuilder implements IImageBuilder {
 		
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 						
-		Sequencer.runInBackground(() -> fillImage());
+		Sequencer.runInBackground(this::fillImage);
 		
 		this.fractal = fractal;
 		image = new Image(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
@@ -41,14 +42,14 @@ public final class ImageBuilder implements IImageBuilder {
 	//method
 	@Override
 	public boolean caughtError() {
-		return futures.contains(f -> f.caughtError());
+		return futures.contains(Future::caughtError);
 	}
 	
 	//method
 	@Override
 	public Throwable getError() {
 		
-		final var futureWithError = futures.getRefFirstOrNull(f -> f.caughtError());
+		final var futureWithError = futures.getRefFirstOrNull(Future::caughtError);
 		
 		if (futureWithError == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
@@ -67,7 +68,7 @@ public final class ImageBuilder implements IImageBuilder {
 	@Override
 	public boolean isFinished() {
 		
-		futures.removeAll(f -> f.isFinished());
+		futures.removeAll(Future::isFinished);
 		
 		return futures.containsAny();
 	}
@@ -75,7 +76,7 @@ public final class ImageBuilder implements IImageBuilder {
 	//method
 	@Override
 	public void waitUntilIsFinished() {
-		futures.forEach(f -> f.waitUntilIsFinished());
+		futures.forEach(Future::waitUntilIsFinished);
 	}
 	
 	//method
@@ -97,7 +98,7 @@ public final class ImageBuilder implements IImageBuilder {
 	//method
 	@Override
 	public void waitUntilIsFinishedSuccessfully() {
-		futures.forEach(f -> f.waitUntilIsFinishedSuccessfully());
+		futures.forEach(Future::waitUntilIsFinishedSuccessfully);
 	}
 	
 	//method
@@ -135,7 +136,7 @@ public final class ImageBuilder implements IImageBuilder {
 						1,
 						fractal.getStartValues(c),
 						z -> fractal.getNextValueFunction().getOutput(z, c),
-						z -> z.getSquaredMagnitude()
+						IComplexNumber::getSquaredMagnitude
 					)
 					.getConvergenceGrade(
 						fractal.getMinMagnitudeForConvergence(),
