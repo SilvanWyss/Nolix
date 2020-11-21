@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -53,7 +54,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	@Override
 	public EntitySet<E> addEntities(final Iterable<E> entities) {
 		
-		entities.forEach(e -> addEntity(e));
+		entities.forEach(this::addEntity);
 		
 		return this;
 	}
@@ -165,7 +166,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	
 	//method
 	public LinkedList<E> getRefEditedEntities() {
-		return loadedAndCreatedEntities.getRefSelected(e -> e.isEdited());
+		return loadedAndCreatedEntities.getRefSelected(Entity::isEdited);
 	}
 	
 	//method
