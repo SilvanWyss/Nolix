@@ -71,9 +71,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	//method
 	@Override
 	public String getDatabaseName() {
-		return
-		database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
-		.getOneAttributeHeader();
+		return database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME).getOneAttributeHeader();
 	}
 	
 	//method
@@ -82,9 +80,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	protected <E extends Entity, ES extends IEntitySet<E>> EntitySetAdapter<E> getEntitySetAdapter(
 		final ES entitySet
 	) {
-		return
-		(EntitySetAdapter<E>)
-		entitySetAdapters.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
+		return (EntitySetAdapter<E>)entitySetAdapters.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
 	}
 	
 	//method
@@ -93,30 +89,26 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 		
 		mutatedEntitiesInOrder.forEach(Entity::supposeCanBeSaved);
 		
-		final var newEntities =
-		mutatedEntitiesInOrder.getRefSelected(e -> e.isNew());
+		final var newEntities =	mutatedEntitiesInOrder.getRefSelected(Entity::isNew);
 		
 		for (final var e : newEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).add(e);
 		}
 		
-		final var concernedEntities =
-		mutatedEntitiesInOrder.getRefSelected(e -> e.isConcerned());
+		final var concernedEntities = mutatedEntitiesInOrder.getRefSelected(Entity::isConcerned);
 		
 		//TODO: Handle concernedEntities more suitable.
 		for (final var e : concernedEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
 		
-		final var editedEntities =
-		mutatedEntitiesInOrder.getRefSelected(e -> e.isEdited());
+		final var editedEntities = mutatedEntitiesInOrder.getRefSelected(Entity::isEdited);
 		
 		for (final var e : editedEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
 		
-		final var deletedEntities =
-		mutatedEntitiesInOrder.getRefSelected(e -> e.isDeleted());
+		final var deletedEntities =	mutatedEntitiesInOrder.getRefSelected(Entity::isDeleted);
 		
 		for (final var e : deletedEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).delete(e);
