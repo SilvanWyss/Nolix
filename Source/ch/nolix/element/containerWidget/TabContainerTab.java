@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -23,12 +24,12 @@ import ch.nolix.element.widget.Label;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-04
- * @lines 350
+ * @date 2016-05-01
+ * @lines 370
  */
 public class TabContainerTab extends Element<TabContainerTab>
 implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
-
+	
 	//constant
 	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
 	
@@ -36,9 +37,9 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	private final MutableValue<String> header =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEADER,
-		h -> setHeader(h),
+		this::setHeader,
 		BaseNode::getOneAttributeHeader,
-		h -> new Node(PascalCaseNameCatalogue.HEADER, h)
+		Node::withOneAttribute
 	);
 	
 	//method
