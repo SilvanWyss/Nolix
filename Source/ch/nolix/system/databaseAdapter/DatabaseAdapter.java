@@ -32,11 +32,11 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		this.schema = schema;
 				
 		valueCreator
-		.registerSpecificValueCreator(ch.nolix.common.template.FromNodeSpecificValueCreatorCatalogue.BIG_DECIMAL_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.FromNodeSpecificValueCreatorCatalogue.BINARY_OBJECT_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.FromNodeSpecificValueCreatorCatalogue.BOOLEAN_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.FromNodeSpecificValueCreatorCatalogue.INTEGER_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.FromNodeSpecificValueCreatorCatalogue.STRING_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BIG_DECIMAL_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BINARY_OBJECT_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BOOLEAN_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.INTEGER_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.STRING_CREATOR)
 		.registerSpecificValueCreator(ch.nolix.element.template.FromNodeSpecificValueCreatorCatalogue.IMAGE_CREATOR);
 		
 		reset();

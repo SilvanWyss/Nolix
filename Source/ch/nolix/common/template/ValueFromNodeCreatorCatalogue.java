@@ -10,7 +10,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.valueCreator.SpecificValueCreator;
 
 //class
-public final class FromNodeSpecificValueCreatorCatalogue {
+public final class ValueFromNodeCreatorCatalogue {
 	
 	//constant
 	public static final SpecificValueCreator<BaseNode, BigDecimal> BIG_DECIMAL_CREATOR =
@@ -33,5 +33,5 @@ public final class FromNodeSpecificValueCreatorCatalogue {
 	new SpecificValueCreator<>(String.class, s -> s.getHeader());
 	
 	//visibility-reducing constructor
-	private FromNodeSpecificValueCreatorCatalogue() {}
+	private ValueFromNodeCreatorCatalogue() {}
 }
