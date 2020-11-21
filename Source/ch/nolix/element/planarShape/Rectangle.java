@@ -11,7 +11,7 @@ import ch.nolix.element.base.MutableValue;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-09-23
  * @lines 140
  */
 public final class Rectangle extends AtomicShape<Rectangle> {
@@ -28,18 +28,18 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	private final MutableValue<Double> xLength =
 	new MutableValue<>(
 		X_LENGTH_HEADER,
-		xl -> setXLength(xl),
+		this::setXLength,
 		BaseNode::getOneAttributeAsDouble,
-		xl -> Node.withOneAttribute(xl)
+		Node::withOneAttribute
 	);
 	
 	//attribute
 	private final MutableValue<Double> yLength =
 	new MutableValue<>(
 		Y_LENGTH_HEADER,
-		yl -> setYLength(yl),
+		this::setYLength,
 		BaseNode::getOneAttributeAsDouble,
-		yl -> Node.withOneAttribute(yl)
+		Node::withOneAttribute
 	);
 	
 	//method
