@@ -13,50 +13,34 @@ import ch.nolix.element.base.MutableValue;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 130
+ * @date 2017-11-11
+ * @lines 120
  */
 public final class Sphere extends AtomicShape<Sphere> {
 	
 	//constants
-	public static final double DEFAULT_RADIUS = 1.0;
-	public static final double DEFAULT_DIAMETER = 2.0 * DEFAULT_RADIUS;
+	public static final double DEFAULT_RADIUS = 0.5;
 	
 	//attribute	
 	private final MutableValue<Double> radius =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.RADIUS,
-		r -> setRadius(r),
+		this::setRadius,
 		BaseNode::getOneAttributeAsDouble,
-		r -> Node.withOneAttribute(r)
+		 Node::withOneAttribute
 	);
 	
 	//constructor
 	/**
-	 * Creates a new sphere with a default radius.
+	 * Creates a new {@link Sphere} with a default radius.
 	 */
 	public Sphere() {
 		reset();
 	}
 	
-	//constructor
-	/**
-	 * Creates a new sphere with the given diameter.
-	 * 
-	 * @param diameter
-	 * @throws NonPositiveArgumentException if the given diameter is not positive.
-	 */
-	public Sphere(final double diameter) {
-		
-		//Calls other constructor.
-		this();
-		
-		setDiameter(diameter);
-	}
-	
 	//method
 	/**
-	 * @return the diameter of this sphere.
+	 * @return the diameter of the current {@link Sphere}.
 	 */
 	public double getDiameter() {
 		return 2 * getRadius();
@@ -64,15 +48,15 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * @return the diameter of this sphere as float.
+	 * @return the diameter of the current {@link Sphere} as float.
 	 */
 	public float getDiameterAsFloat() {
-		return 2 * getRadiusAsFloat();
+		return (float)getDiameter();
 	}
 	
 	//method
 	/**
-	 * @return the radius of this sphere.
+	 * @return the radius of the current {@link Sphere}.
 	 */
 	public double getRadius() {
 		return radius.getValue();
@@ -80,7 +64,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * @return the radius of this sphere as float.
+	 * @return the radius of the current {@link Sphere} as float.
 	 */
 	public float getRadiusAsFloat() {
 		return (float)getRadius();
@@ -88,9 +72,9 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * Resets this sphere.
+	 * Resets the current {@link Sphere}.
 	 * 
-	 * @return this sphere.
+	 * @return the current {@link Sphere}.
 	 */
 	@Override
 	public Sphere reset() {
@@ -103,10 +87,10 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * Sets the diameter of this sphere.
+	 * Sets the diameter of the current {@link Sphere}.
 	 * 
 	 * @param diameter
-	 * @return this sphere.
+	 * @return the current {@link Sphere}.
 	 * @throws NonPositiveArgumentException if the given diameter is not positive.
 	 */
 	public Sphere setDiameter(final double diameter) {
@@ -119,10 +103,10 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * Sets the radius of this sphere.
+	 * Sets the radius of the current {@link Sphere}.
 	 * 
 	 * @param radius
-	 * @return this sphere.
+	 * @return the current {@link Sphere}.
 	 * @throws NonPositiveArgumentException if the given radius is not positive.
 	 */
 	public Sphere setRadius(final double radius) {
