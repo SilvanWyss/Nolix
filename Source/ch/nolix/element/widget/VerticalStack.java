@@ -31,11 +31,12 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	@Override
 	protected int getContentAreaHeight() {
 		
-		var contentHeight = getChildWidgets().getSumByInt(Widget::getHeight);
+		final var childWidgets = getChildWidgets();
+		var contentHeight = childWidgets.getSumByInt(Widget::getHeight);
 			
 		//Handles the case that the current VerticalStack is not empty.
 		if (containsAny()) {
-			contentHeight += (getChildWidgets().getElementCount() - 1) * getElementMargin();
+			contentHeight += (childWidgets.getElementCount() - 1) * getElementMargin();
 		}
 		
 		return contentHeight;
@@ -47,7 +48,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	@Override
 	protected int getContentAreaWidth() {
-		return (isEmpty() ? 0 : getChildWidgets().getMaxInt(Widget::getWidth));
+		return getChildWidgets().getMaxIntOrZero(Widget::getWidth);
 	}
 	
 	//method
