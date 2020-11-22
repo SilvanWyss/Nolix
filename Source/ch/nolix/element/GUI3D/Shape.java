@@ -9,7 +9,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.geometry._2DPoint;
+import ch.nolix.element.geometry.Point2D;
 import ch.nolix.element.geometry._3DPoint;
 
 //class
@@ -214,7 +214,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @param position
 	 * @return the current {@link Shape}.
 	 */
-	public final S setPosition(final _2DPoint position) {
+	public final S setPosition(final Point2D position) {
 		
 		//Calls other method.
 		return setPosition(position.to3DPoint());

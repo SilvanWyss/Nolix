@@ -18,8 +18,8 @@ import ch.nolix.element.base.Element;
  * @month 2016-05
  * @lines 140
  */
-public final class _2DPoint extends Element<_2DPoint> {
-
+public final class Point2D extends Element<Point2D> {
+	
 	//constants
 	public static final double DEFAULT_X = 0.0;
 	public static final double DEFAULT_Y = 0.0;
@@ -32,7 +32,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	/**
 	 * Creates a new 2D point with default coordinates.
 	 */
-	public _2DPoint() {
+	public Point2D() {
 		
 		//Calls other constructor
 		this(DEFAULT_X, DEFAULT_Y);
@@ -45,7 +45,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	 * @param x
 	 * @param y
 	 */
-	public _2DPoint(final double x,	final double y) {
+	public Point2D(final double x,	final double y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -64,7 +64,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	 * @param point
 	 * @return the distance of this 2D point to the given point
 	 */
-	public double getDistanceTo(final _2DPoint point) {
+	public double getDistanceTo(final Point2D point) {
 		return
 		Math.sqrt(
 			Math.pow(getX() - point.getY(), 2)
