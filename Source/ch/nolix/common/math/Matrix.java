@@ -10,6 +10,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.requestAPI.ApproximativeEqualing;
 import ch.nolix.common.validator.Validator;
 
@@ -24,10 +25,10 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 1140
+ * @lines 1170
  */
 public class Matrix implements ApproximativeEqualing {
-	
+		
 	//static attribute
 	private static final Random random = new Random();
 	
@@ -366,6 +367,15 @@ public class Matrix implements ApproximativeEqualing {
 		}
 		
 		return columns;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getDefaultMaxDeviation() {
+		return NolixEnvironment.DEFAULT_MAX_DEVIATION;
 	}
 	
 	//method

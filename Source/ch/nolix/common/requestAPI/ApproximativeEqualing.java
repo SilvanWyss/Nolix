@@ -3,36 +3,37 @@ package ch.nolix.common.requestAPI;
 
 //interface
 /**
- * An approximative equaling object can be checked if
- * it equals approximatively another object.
+ * A {@link ApproximativeEqualing} can be asked if it equals approximatively another object.
  * 
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-01
  * @lines 30
  */
 public interface ApproximativeEqualing {
 	
-	//constant
-	public static final double DEFAULT_MAX_DEVIATION = 0.000000001; //10^-9
-	
 	//method
 	/**
 	 * @param object
-	 * @return true if this approximative equaling object
-	 * equals the given object with a deviation
-	 * that is smaller than the default max deviation.
+	 * @return true if the current {@link ApproximativeEqualing}
+	 * equals the given object with a deviation,
+	 * that is smaller than the default max deviation of the current {@link ApproximativeEqualing}.
 	 */
 	public default boolean equalsApproximatively(final Object object) {
-		return equalsApproximatively(object, DEFAULT_MAX_DEVIATION);
+		return equalsApproximatively(object, getDefaultMaxDeviation());
 	}
 	
 	//method declaration
 	/**
 	 * @param object
 	 * @param maxDeviation
-	 * @return true if this object
-	 * equals the given object with a deviation
-	 * that is smaller than the given max deviation.
+	 * @return true if the current {@link ApproximativeEqualing}
+	 * equals the given object with a deviation, that is smaller than the given max deviation.
 	 */
 	public abstract boolean equalsApproximatively(Object object, double maxDeviation);
+	
+	//method
+	/**
+	 * @return the max deviation of the current {@link ApproximativeEqualing}.
+	 */
+	public abstract double getDefaultMaxDeviation();
 }

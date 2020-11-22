@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
@@ -38,10 +39,11 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	 * and has a default max deviation.
 	 */
 	public ApproximativeEqualingDeviationMediator withDefaultMaxDeviation() {
-		return new ApproximativeEqualingDeviationMediator(
+		return
+		new ApproximativeEqualingDeviationMediator(
 			getRefTest(),
 			getRefValue(),
-			ApproximativeEqualing.DEFAULT_MAX_DEVIATION
+			NolixEnvironment.DEFAULT_MAX_DEVIATION
 		);
 	}
 	

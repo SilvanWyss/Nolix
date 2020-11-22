@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.common.nolixEnvironment.NolixEnvironment;
 import ch.nolix.common.requestAPI.ApproximativeEqualing;
 
 //class
@@ -13,7 +15,7 @@ import ch.nolix.common.requestAPI.ApproximativeEqualing;
  * @lines 100
  */
 public final class ApproximativeEqualingDeviationMediator extends Mediator {
-
+	
 	//attributes
 	private final ApproximativeEqualing value;
 	private final double maxDeviation;
@@ -33,7 +35,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	) {
 		
 		//Calls other constructor.
-		this(test, value, ApproximativeEqualing.DEFAULT_MAX_DEVIATION);
+		this(test, value, NolixEnvironment.DEFAULT_MAX_DEVIATION);
 	}
 	
 	//constructor
