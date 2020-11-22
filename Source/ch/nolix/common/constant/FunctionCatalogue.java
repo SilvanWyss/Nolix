@@ -4,18 +4,19 @@ package ch.nolix.common.constant;
 //Java import
 import java.util.Objects;
 
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
-
 //class
 /**
  * Of the {@link FunctionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-12
- * @lines 120
+ * @date 2017-01-01
+ * @lines 110
  */
 public final class FunctionCatalogue {
+	
+	//constants
+	private static final long ZERO = 0l;
+	private static final long ONE = 1l;
 	
 	//static method
 	/**
@@ -35,7 +36,7 @@ public final class FunctionCatalogue {
 	
 	//static method
 	/**
-	 * @return false
+	 * @return false.
 	 */
 	public static boolean getFalse() {
 		return false;
@@ -45,14 +46,9 @@ public final class FunctionCatalogue {
 	/**
 	 * @param object
 	 * @return the hash code of the given object.
-	 * @throws ArgumentIsNullException if the given object is null.
 	 */
 	public static int getHashCode(final Object object) {
-		
-		//Asserts that the given object is not null.
-		Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
-		
-		return object.hashCode();
+		return (object == null ? 0 : object.hashCode());
 	}
 	
 	//static method
@@ -68,7 +64,7 @@ public final class FunctionCatalogue {
 	 * @return 1.
 	 */
 	public static long getOne() {
-		return 1l;
+		return ONE;
 	}
 	
 	//static method
@@ -76,7 +72,7 @@ public final class FunctionCatalogue {
 	 * @param object
 	 * @return the given object.
 	 */
-	public static Object getSelf(final Object object) {
+	public static <O> O getSelf(final O object) {
 		return object;
 	}
 	
@@ -84,14 +80,9 @@ public final class FunctionCatalogue {
 	/**
 	 * @param object
 	 * @return the {@link String} of the given object.
-	 * @throws ArgumentIsNullException if the given object is null.
 	 */
 	public static String getString(final Object object) {
-		
-		//Asserts that the given object is not null.
-		Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
-		
-		return object.toString();
+		return (object == null ? StringCatalogue.NULL_HEADER : object.toString());
 	}
 	
 	//static method
@@ -116,7 +107,7 @@ public final class FunctionCatalogue {
 	 * @return 0.
 	 */
 	public static long getZero() {
-		return 0l;
+		return ZERO;
 	}
 	
 	//visibility-reducing constructor
