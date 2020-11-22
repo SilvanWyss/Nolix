@@ -16,9 +16,12 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//constant
 	private static final int MIN_LABEL_WIDTH = 10;
 	
-	//attributes
+	//attribute
 	private final Label originLabel = new Label();
-	private final Button expandButton = new Button().reset().setText(" v ").setLeftMouseButtonReleaseAction(() -> expand());
+	
+	//attribute
+	private final Button expandButton =
+	new Button().reset().setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
 	
 	//attribute
 	private final HorizontalStack originHorizontalStack =
