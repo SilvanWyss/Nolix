@@ -10,7 +10,7 @@ import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 60
+ * @lines 70
  */
 public abstract class Mediator {
 
@@ -37,11 +37,12 @@ public abstract class Mediator {
 	
 	//method
 	/**
-	 * @throws RuntimeException.
+	 * @throws IllegalCallerException
 	 */
 	@Override
 	public final boolean equals(final Object object) {
-		throw new RuntimeException(
+		throw
+		new IllegalCallerException(
 			"Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method."
 		);
 	}
