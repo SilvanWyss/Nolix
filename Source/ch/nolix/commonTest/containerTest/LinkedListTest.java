@@ -1,55 +1,53 @@
 //package declaration
 package ch.nolix.commonTest.containerTest;
 
-//Java import
-import java.util.Iterator;
-
 //own imports
 import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SequencePattern;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.pair.Pair;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.test.Test;
 
 //class
 /**
- * A {@link LinkedListTest} is a test for {@link LinkedList}.
+ * A {@link LinkedListTest} is a test for {@link LinkedList}s.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 700
+ * @date 2016-01-01
+ * @lines 730
  */
 public final class LinkedListTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_addAtBegin() {
+	public void testCase_addAtBegin_whenTheGivenElementIsNull() {
 		
 		//setup
-		final var list = LinkedList.withElements();
+		final var testUnit = new LinkedList<>();
+		final Object nullElement = null;
 		
 		//execution & verification
-		final String string = null;
-		expect(() -> list.addAtBegin(string))
+		expect(() -> testUnit.addAtBegin(nullElement))
 		.throwsException()
-		.ofType(ArgumentIsNullException.class);
+		.ofType(ArgumentIsNullException.class)
+		.withMessage("The given element is null.");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_addAtEnd() {
+	public void testCase_addAtEnd_whenTheGivenElementIsNull() {
 		
 		//setup
-		final var list = LinkedList.withElements();
+		final var testUnit = LinkedList.withElements();
+		final Object nullElement = null;
 		
 		//execution & verification
-		final String string = null;
-		expect(() -> list.addAtEnd(string))
+		expect(() -> testUnit.addAtEnd(nullElement))
 		.throwsException()
-		.ofType(ArgumentIsNullException.class);
+		.ofType(ArgumentIsNullException.class)
+		.withMessage("The given element is null.");
 	}
 	
 	//method
@@ -57,124 +55,181 @@ public final class LinkedListTest extends Test {
 	public void testCase_clear() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		list.clear();
+		testUnit.clear();
 		
 		//verification
-		expect(list.isEmpty());
+		expect(testUnit.isEmpty());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_contains() {
+	public void testCase_contains_withI2ElementTakerBooleanGetter1A() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-			expect(
-				list.contains(s -> s.equals("x")),
-				list.contains(s -> s.equals("xx")),
-				list.contains(s -> s.equals("xxx")),
-				list.contains(s -> s.equals("xxxx")),
-				list.contains(s -> s.equals("xxxxx")),
-				list.contains(s -> s.equals("xxxxxx"))
-			);
-			
-			expectNot(
-				list.contains(s -> s.equals("xxxxxxx")),
-				list.contains(s -> s.equals("xxxxxxxx")),
-				list.contains(s -> s.equals("xxxxxxxxx")),
-				list.contains(s -> s.equals("xxxxxxxxxx")),
-				list.contains(s -> s.equals("xxxxxxxxxxx")),
-				list.contains(s -> s.equals("xxxxxxxxxxxx"))
-			);
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length());
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_contains_2() {
+	public void testCase_contains_withI2ElementTakerBooleanGetter1B() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-		expect(list.contains((s1, s2) -> s1.length() == s2.length()));
-		expect(list.contains((s1, s2) -> s1.length() + 1 == s2.length()));
-		expect(list.contains((s1, s2) -> s1.length() + 2 == s2.length()));
-		expect(list.contains((s1, s2) -> s1.length() + 3 == s2.length()));
-		expect(list.contains((s1, s2) -> s1.length() + 4 == s2.length()));
-		expect(list.contains((s1, s2) -> s1.length() + 5 == s2.length()));
-		expectNot(list.contains((s1, s2) -> s1.length() + 6 == s2.length()));
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 1);
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_containsOne() {
+	public void testCase_contains_withI2ElementTakerBooleanGetter1C() {
 		
 		//setup
-		final var list = LinkedList.withElements();
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-		expectNot(list.containsOne());
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 2);
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_containsOne_2() {
+	public void testCase_contains_withI2ElementTakerBooleanGetter1D() {
 		
 		//setup
-		final var list = LinkedList.withElements("x");
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-		expect(list.containsOne());
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 3);
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_containsOne_3() {
+	public void testCase_contains_withI2ElementTakerBooleanGetter1E() {
 		
 		//setup
-		final var list = LinkedList.withElements("x", "x");
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//executation and verification
-		expectNot(list.containsOne());
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 4);
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_containsOne_4() {
+	public void testCase_contains_withI2ElementTakerBooleanGetter1F() {
 		
 		//setup
-		final var list
-		= LinkedList.withElements("x", "xx", "xx", "xx", "xx", "xx");
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-		expect(list.containsOne(s -> s.length() == 1));
-		expectNot(list.containsOne(s -> s.length() == 2));
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 5);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_contains_withI2ElementTakerBooleanGetter1G() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 6);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsOne_1A() {
+		
+		//setup
+		final var testUnit = new LinkedList<>();
+		
+		//execution
+		final var result = testUnit.containsOne();
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsOne_1B() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x");
+		
+		//execution
+		final var result = testUnit.containsOne();
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsOne_1C() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx");
+		
+		//execution
+		final var result = testUnit.containsOne();
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsOne_ElementTakerBooleanGetter1A() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx", "xx", "xx", "xx", "xx");
+		
+		//execution
+		final var result = testUnit.containsOne(e -> e.equals("x"));
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsOne_ElementTakerBooleanGetter1B() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "x", "xx", "xx", "xx", "xx");
+		
+		//execution
+		final var result = testUnit.containsOne(e -> e.equals("x"));
+		
+		//verification
+		expectNot(result);
 	}
 	
 	//method
@@ -182,142 +237,168 @@ public final class LinkedListTest extends Test {
 	public void testCase_forEach() {
 		
 		//setup
-			final var list1 = LinkedList.withElements(
-				"x",
-				"xx",
-				"xxx",
-				"xxxx",
-				"xxxxx",
-				"xxxxxx"
-			);
-			
-			final var list2 = LinkedList.withElements();
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var list = new LinkedList<String>();
 		
 		//execution
-		list1.forEach(s -> list2.addAtEnd(s));
+		testUnit.forEach(list::addAtEnd);
 		
 		//verification
-			expect(list2.getElementCount()).isEqualTo(list1.getElementCount());
-			
-			//Iterates list1.
-			for (int i = 1; i <= list1.getElementCount(); i++) {
-				expect(list2.getRefAt(i)).isEqualTo(list1.getRefAt(i));
-			}
+		expect(list.getElementCount()).isEqualTo(6);
+		for (var i = 1; i <= 6; i++) {
+			expect(testUnit.getRefAt(i)).isEqualTo(list.getRefAt(i));
+		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getContainerFrom() {
+	public void testCase_from() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var subList = list.from(4);
+		final var result = testUnit.from(4);
 		
 		//verification
-			expect(subList.getElementCount()).isEqualTo(3);
-			
-			final Iterator<String> iterator = subList.iterator();
-			
-			expect(iterator.hasNext());
-			expect(iterator.next()).isEqualTo("xxxx");
-			expect(iterator.hasNext());
-			expect(iterator.next()).isEqualTo("xxxxx");
-			expect(iterator.hasNext());
-			expect(iterator.next()).isEqualTo("xxxxxx");
-			expectNot(iterator.hasNext());
-			
-			expect(() -> iterator.next())
-			.throwsException()
-			.ofType(ArgumentDoesNotHaveAttributeException.class);
+		expect(result.getElementCount()).isEqualTo(3);
+		expect(result.getRefAt(1)).isEqualTo("xxxx");
+		expect(result.getRefAt(2)).isEqualTo("xxxxx");
+		expect(result.getRefAt(3)).isEqualTo("xxxxxx");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getContainerWithoutFirst() {
-	
-		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
-		
-		//execution
-		final var subList = list.withoutFirst();
-		
-		//verification
-		expect(subList.getElementCount()).isEqualTo(5);
-		expect(!subList.contains("x"));
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getRefByMax() {
+	public void testCase_getElementCount() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"cake",
-			"chocolate",
-			"ice cream",
-			"milk",
-			"meat",
-			"pizza",
-			"sandwich",
-			"toast"	
-		);
+		final var testUnit = LinkedList.withElements("x", "x", "x", "x", "x", "x");
 		
 		//execution & verification
-		expect(list.getRefByMax(s -> s)).isEqualTo("toast");
+		expect(testUnit.getElementCount()).isEqualTo(6);
 	}
 	
 	//method
+	@TestCase
+	public void testCase_getElementCount_whenLinkedListIsEmpty() {
+		
+		//setup
+		final var testUnit = new LinkedList<>();
+		
+		//execution & verification
+		expect(testUnit.getElementCount()).isEqualTo(0);
+	}
+	
+	//method
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1A() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 0);
+		
+		//verification
+		expect(result).isEqualTo(6);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1B() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 1);
+		
+		//verification
+		expect(result).isEqualTo(5);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1C() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 2);
+		
+		//verification
+		expect(result).isEqualTo(4);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1D() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 3);
+		
+		//verification
+		expect(result).isEqualTo(3);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1E() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 4);
+		
+		//verification
+		expect(result).isEqualTo(2);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1F() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 5);
+		
+		//verification
+		expect(result).isEqualTo(1);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getElementCount_withIElementTakterBooleanGetter_1G() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 6);
+		
+		//verification
+		expect(result).isEqualTo(0);
+	}
+	
 	@TestCase
 	public void testCase_getRefByMaxInt() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-		expect(list.getRefByMaxInt(s -> s.length())).isEqualTo("xxxxxx");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getRefByMin() {
+		//execution
+		final var result = testUnit.getRefByMaxInt(String::length);
 		
-		//setup
-		final var list = LinkedList.withElements(
-			"cake",
-			"chocolate",
-			"ice cream",
-			"milk",
-			"meat",
-			"pizza",
-			"sandwich",
-			"toast"
-		);
-		
-		//execution & verification
-		expect(list.getRefByMin(s -> s)).isEqualTo("cake");
+		//verification
+		expect(result).isEqualTo("xxxxxx");
 	}
 	
 	//method
@@ -325,78 +406,87 @@ public final class LinkedListTest extends Test {
 	public void testCase_getRefByMinInt() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-		expect(list.getRefByMinInt(s -> s.length())).isEqualTo("x");
+		//execution
+		final var result = testUnit.getRefByMinInt(String::length);
+		
+		//verification
+		expect(result).isEqualTo("x");
 	}
 	
 	//method
+	@TestCase
 	public void testCase_getRefFirst() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final Pair<String, String> pair = list.getRefFirst((s1, s2) -> s1.length() + 5 == s2.length());
+		final var result = testUnit.getRefFirst();
 		
 		//verification
-		expect(pair.getRefElement1()).isEqualTo("x");
-		expect(pair.getRefElement2()).isEqualTo("xxxxxx");
+		expect(result).isEqualTo("x");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getSequences() {
+	public void testCase_getRefFirst_whenLinkedListIsEmpty() {
 		
 		//setup
-			final var list = LinkedList.withElements(
-				"x",
-				"a",
-				"x",
-				"b",
-				"x",
-				"c"
-			);
+		final var testUnit = new LinkedList<>();
+		
+		//execution & verification
+		expect(testUnit::getRefFirst)
+		.throwsException()
+		.ofType(EmptyArgumentException.class)
+		.withMessage("The given LinkedList is empty.");
+	}
+	
+	//method
+	public void testCase_getRefFirst_withI2ElementTakerBooleanGetter() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getRefFirst((e1, e2) -> e1.length() + 2 == e2.length());
+		
+		//verification
+		expect(result.getRefElement1()).isEqualTo("x");
+		expect(result.getRefElement2()).isEqualTo("xxx");
+	}
+		
+	//method
+	@TestCase
+	public void testCase_getSequences_1A() {
+		
+		//setup
+			final var testUnit = LinkedList.withElements("x", "a", "x", "b", "x", "c");
 			
-			final SequencePattern<String> sequencePattern
-			= new SequencePattern<String>()
-			.addConditionForNext(s -> s.equals("x"))
+			final SequencePattern<String> sequencePattern =
+			new SequencePattern<String>()
+			.addConditionForNext(e -> e.equals("x"))
 			.addBlankForNext();
 		
 		//execution
-		final LinkedList<LinkedList<String>> sequences = list.getSequences(sequencePattern);
+		final var result = testUnit.getSequences(sequencePattern);
 		
 		//verification
-			expect(sequences.getElementCount()).isEqualTo(3);
+			expect(result.getElementCount()).isEqualTo(3);
 			
-			//Iterates the sequences.
-			for (final var s : sequences) {
-				expect(s.getElementCount()).isEqualTo(2);
-				expect(s.getRefAt(1)).isEqualTo("x");
+			for (final var e : result) {
+				expect(e.getElementCount()).isEqualTo(2);
+				expect(e.getRefAt(1)).isEqualTo("x");
 			}
 	}
-	
+		
 	//method
 	@TestCase
-	public void testCase_getSequences_2() {
+	public void testCase_getSequences_1B() {
 		
 		//setup
-			final var list = LinkedList.withElements(
+			final var testUnit = LinkedList.withElements(
 				"x",
 				"x",
 				"xxxx",
@@ -406,59 +496,30 @@ public final class LinkedListTest extends Test {
 				"x",
 				"x",
 				"x",
+				"x",
 				"xxxx",
+				"x",
+				"x",
+				"x",
 				"x",
 				"xxxx"
 			);
 			
-			final SequencePattern<String> sequencePattern
-			= new SequencePattern<String>()
-			.addConditionForNext(s -> s.equals("x"))
-			.addConditionForNext(s -> s.equals("xxxx"));
+			final SequencePattern<String> sequencePattern =
+			new SequencePattern<String>()
+			.addConditionForNext(e -> e.equals("x"))
+			.addConditionForNext(e -> e.equals("xxxx"));
 		
 		//execution
-		final LinkedList<LinkedList<String>> sequences = list.getSequences(sequencePattern);
+		final var result = testUnit.getSequences(sequencePattern);
 		
 		//verification
-			expect(sequences.getElementCount()).isEqualTo(4);
-			
-			//Iterates the sequences.
-			for (final var s : sequences) {
-				expect(s.getElementCount()).isEqualTo(2);
-				expect(s.getRefAt(1)).isEqualTo("x");
-				expect(s.getRefAt(2)).isEqualTo("xxxx");
-			}
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getSize() {
-		
-		//setup
-		final var list = LinkedList.withElements("x", "x", "x", "x", "x", "x");
-		
-		//execution & verification
-		expect(list.getElementCount()).isEqualTo(6);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getSize_2() {
-		
-		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
-		
-		//execution & verification
-		expect(list.getCount(e -> e.length() > 0)).isEqualTo(6);
-		expect(list.getCount(e -> e.length() > 3)).isEqualTo(3);
-		expect(list.getCount(e -> e.length() > 6)).isZero();
+		expect(result.getElementCount()).isEqualTo(4);
+		for (final var e : result) {
+			expect(e.getElementCount()).isEqualTo(2);
+			expect(e.getRefAt(1)).isEqualTo("x");
+			expect(e.getRefAt(2)).isEqualTo("xxxx");
+		}
 	}
 	
 	//method
@@ -466,74 +527,43 @@ public final class LinkedListTest extends Test {
 	public final void testCase_getVarianceByDouble() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			0.0,
-			0.0,
-			0.5,
-			1.0,
-			1.0
-		);
+		final var testUnit = LinkedList.withElements(0.0, 0.0, 0.5,	1.0, 1.0);
 		
-		//execution & verification
-		expect(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
+		//execution
+		final var result = testUnit.getVarianceByDouble(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(0.2);
 	}
+	
 	
 	//method
 	@TestCase
-	public void testCase_isEmpty() {
+	public void testCase_matches_1A() {
 		
 		//setup
-		final var list = LinkedList.withElements();
-		
-		//execution & verification
-		expect(list.isEmpty());
-	}
-	
-	//method
-	@TestCase
-	public void testCase_isEmpty_2() {
-		
-		//setup
-		final var list = LinkedList.withElements("x");
-		
-		//execution & verification
-		expectNot(list.isEmpty());
-	}
-	
-	//method
-	@TestCase
-	public void testCase_matches() {
-		
-		//setup
-			final var list = LinkedList.withElements(
-				"x",
-				"xxxx",
-				"x",
-				"xxxx"
-			);
+			final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
 			
-			final SequencePattern<String> sequencePattern
-			= new SequencePattern<String>()
+			final var sequencePattern =
+			new SequencePattern<String>()
 			.addConditionForNext(s -> s.length() == 1)
 			.addConditionForNext(s -> s.length() == 4)
 			.addConditionForNext(s -> s.length() == 1)
 			.addConditionForNext(s -> s.length() == 4);
 		
-		//execution & verification
-		expect(list.matches(sequencePattern));
+		//execution
+		final var result = testUnit.matches(sequencePattern);
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_matches_2() {
+	public void testCase_matches_1B() {
 		
 		//setup
-			final var list = LinkedList.withElements(
-				"x",
-				"xxxx",
-				"x",
-				"xxxx"
-			);
+			final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
 			
 			final SequencePattern<String> sequencePattern
 			= new SequencePattern<String>()
@@ -542,80 +572,11 @@ public final class LinkedListTest extends Test {
 			.addBlankForNext()
 			.addBlankForNext();
 		
-		//execution & verification
-			expect(list.matches(sequencePattern));
-	}
-	
-	//method
-	@TestCase
-	public void testCase_matches_3() {
-		
-		//setup
-			final var list = new LinkedList<String>();
-			Sequencer.forCount(10).run(() -> list.addAtEnd("x"));
-			
-			final SequencePattern<String> sequencePattern
-			= new SequencePattern<String>()
-			.forNext(10).addBlank();
-		
-		//execution & verification
-			expect(list.matches(sequencePattern));
-	}
-	
-	//method
-	@TestCase
-	public void testCase_sort() {
-		
-		//setup
-		final var list = LinkedList.withElements(
-			"xxxxxx",
-			"xxxxx",
-			"xxxx",
-			"xxx",
-			"xx",
-			"x"
-		);
-		
 		//execution
-		list.order(s -> s.length());
+		final var result = testUnit.matches(sequencePattern);
 		
 		//verification
-			expect(list.getElementCount()).isEqualTo(6);
-			
-			expect(list.getRefAt(1)).isEqualTo("x");
-			expect(list.getRefAt(2)).isEqualTo("xx");
-			expect(list.getRefAt(3)).isEqualTo("xxx");
-			expect(list.getRefAt(4)).isEqualTo("xxxx");
-			expect(list.getRefAt(5)).isEqualTo("xxxxx");
-			expect(list.getRefAt(6)).isEqualTo("xxxxxx");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_sort_2() {
-		
-		//setup
-		final var list = LinkedList.withElements(
-			"python",
-			"elephant",
-			"zebra",
-			"lion",
-			"shark",
-			"jaguar"
-		);
-		
-		//execution
-		list.order(s -> s);
-		
-		//verification
-			expect(list.getElementCount()).isEqualTo(6);
-			
-			expect(list.getRefAt(1)).isEqualTo("elephant");
-			expect(list.getRefAt(2)).isEqualTo("jaguar");
-			expect(list.getRefAt(3)).isEqualTo("lion");
-			expect(list.getRefAt(4)).isEqualTo("python");
-			expect(list.getRefAt(5)).isEqualTo("shark");
-			expect(list.getRefAt(6)).isEqualTo("zebra");
+		expect(result);
 	}
 	
 	//method
@@ -623,27 +584,59 @@ public final class LinkedListTest extends Test {
 	public void testCase_toArray() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final Object[] array = list.toArray();
+		final var result = testUnit.toArray();
 		
 		//verification
-			expect(array.length).isEqualTo(6);
-			
-			expect(array[0]).isEqualTo("x");
-			expect(array[1]).isEqualTo("xx");
-			expect(array[2]).isEqualTo("xxx");
-			expect(array[3]).isEqualTo("xxxx");
-			expect(array[4]).isEqualTo("xxxxx");
-			expect(array[5]).isEqualTo("xxxxxx");
+		expect(result.length).isEqualTo(6);
+		expect(result[0]).isEqualTo("x");
+		expect(result[1]).isEqualTo("xx");
+		expect(result[2]).isEqualTo("xxx");
+		expect(result[3]).isEqualTo("xxxx");
+		expect(result[4]).isEqualTo("xxxxx");
+		expect(result[5]).isEqualTo("xxxxxx");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toOrderedList_1A() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("xxxxxx", "xxxxx", "xxxx","xxx", "xx", "x");
+		
+		//execution
+		final var result = testUnit.toOrderedList(String::length);
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(6);
+		expect(result.getRefAt(1)).isEqualTo("x");
+		expect(result.getRefAt(2)).isEqualTo("xx");
+		expect(result.getRefAt(3)).isEqualTo("xxx");
+		expect(result.getRefAt(4)).isEqualTo("xxxx");
+		expect(result.getRefAt(5)).isEqualTo("xxxxx");
+		expect(result.getRefAt(6)).isEqualTo("xxxxxx");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toOrderedList_1B() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
+		
+		//execution
+		final var result = testUnit.toOrderedList(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(6);
+		expect(result.getRefAt(1)).isEqualTo("elephant");
+		expect(result.getRefAt(2)).isEqualTo("jaguar");
+		expect(result.getRefAt(3)).isEqualTo("lion");
+		expect(result.getRefAt(4)).isEqualTo("python");
+		expect(result.getRefAt(5)).isEqualTo("shark");
+		expect(result.getRefAt(6)).isEqualTo("zebra");
 	}
 	
 	//method
@@ -651,27 +644,19 @@ public final class LinkedListTest extends Test {
 	public void testCase_toIntArray() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final int[] array = list.toIntArray(s -> s.length());
+		final var result = testUnit.toIntArray(String::length);
 		
 		//verification
-			expect(array.length).isEqualTo(6);
-			
-			expect(array[0]).isEqualTo(1);
-			expect(array[1]).isEqualTo(2);
-			expect(array[2]).isEqualTo(3);
-			expect(array[3]).isEqualTo(4);
-			expect(array[4]).isEqualTo(5);
-			expect(array[5]).isEqualTo(6);
+		expect(result.length).isEqualTo(6);
+		expect(result[0]).isEqualTo(1);
+		expect(result[1]).isEqualTo(2);
+		expect(result[2]).isEqualTo(3);
+		expect(result[3]).isEqualTo(4);
+		expect(result[4]).isEqualTo(5);
+		expect(result[5]).isEqualTo(6);
 	}
 	
 	//method
@@ -679,27 +664,72 @@ public final class LinkedListTest extends Test {
 	public void testCase_toString() {
 		
 		//setup
-		final var list = LinkedList.withElements();
+		final var testUnit = LinkedList.withElements("elephant", "jaguar", "lion", "python", "shark", "zebra");
 		
-		//execution & verification
-		expect(list.toString()).isEmpty();
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("elephant,jaguar,lion,python,shark,zebra");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_2() {
+	public void testCase_toString_whenLikedListIsEmpty() {
 		
 		//setup
-		final var list = LinkedList.withElements(
-			"elephant",
-			"jaguar",
-			"lion",
-			"python",
-			"shark",
-			"zebra"
-		);
+		final var testUnit = new LinkedList<>();
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEmpty();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withElements() {
+		
+		//execution
+		final var result = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution & verification
-		expect(list.toString()).isEqualTo("elephant,jaguar,lion,python,shark,zebra");
+			expect(
+				result.contains(s -> s.equals("x")),
+				result.contains(s -> s.equals("xx")),
+				result.contains(s -> s.equals("xxx")),
+				result.contains(s -> s.equals("xxxx")),
+				result.contains(s -> s.equals("xxxxx")),
+				result.contains(s -> s.equals("xxxxxx"))
+			);
+			
+			expectNot(
+				result.contains(s -> s.equals("xxxxxxx")),
+				result.contains(s -> s.equals("xxxxxxxx")),
+				result.contains(s -> s.equals("xxxxxxxxx")),
+				result.contains(s -> s.equals("xxxxxxxxxx")),
+				result.contains(s -> s.equals("xxxxxxxxxxx")),
+				result.contains(s -> s.equals("xxxxxxxxxxxx"))
+			);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withoutFirst() {
+	
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.withoutFirst();
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(5);
+		expect(result.getRefAt(1)).isEqualTo("xx");
+		expect(result.getRefAt(2)).isEqualTo("xxx");
+		expect(result.getRefAt(3)).isEqualTo("xxxx");
+		expect(result.getRefAt(4)).isEqualTo("xxxxx");
+		expect(result.getRefAt(5)).isEqualTo("xxxxxx");
 	}
 }
