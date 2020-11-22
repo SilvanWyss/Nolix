@@ -269,6 +269,104 @@ public final class LinkedListTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_getCount_withIElementTakterBooleanGetter_1A() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 0);
+		
+		//verification
+		expect(result).isEqualTo(6);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getCount_withIElementTakterBooleanGetter_1B() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 1);
+		
+		//verification
+		expect(result).isEqualTo(5);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getCount_withIElementTakterBooleanGetter_1C() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 2);
+		
+		//verification
+		expect(result).isEqualTo(4);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_gettCount_withIElementTakterBooleanGetter_1D() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 3);
+		
+		//verification
+		expect(result).isEqualTo(3);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getCount_withIElementTakterBooleanGetter_1E() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 4);
+		
+		//verification
+		expect(result).isEqualTo(2);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getCount_withIElementTakterBooleanGetter_1F() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 5);
+		
+		//verification
+		expect(result).isEqualTo(1);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getCount_withIElementTakterBooleanGetter_1G() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getCount(e -> e.length() > 6);
+		
+		//verification
+		expect(result).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_getElementCount() {
 		
 		//setup
@@ -287,105 +385,6 @@ public final class LinkedListTest extends Test {
 		
 		//execution & verification
 		expect(testUnit.getElementCount()).isEqualTo(0);
-	}
-	
-	//method
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1A() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 0);
-		
-		//verification
-		expect(result).isEqualTo(6);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1B() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 1);
-		
-		//verification
-		expect(result).isEqualTo(5);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1C() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 2);
-		
-		//verification
-		expect(result).isEqualTo(4);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1D() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 3);
-		
-		//verification
-		expect(result).isEqualTo(3);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1E() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 4);
-		
-		//verification
-		expect(result).isEqualTo(2);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1F() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 5);
-		
-		//verification
-		expect(result).isEqualTo(1);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getElementCount_withIElementTakterBooleanGetter_1G() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getCount(e -> e.length() > 6);
-		
-		//verification
-		expect(result).isEqualTo(0);
 	}
 	
 	@TestCase
