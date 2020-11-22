@@ -45,10 +45,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		BaseNode::getOneAttributeHeader,
 		Node::withOneAttribute
 	);
-	
-	//optional attribute
-	private IElementTaker<TextItemMenu<?>> selectCommand;
-	
+			
 	//attribute
 	private final MutableValue<Boolean> selectionFlag =
 	new MutableValue<>(
@@ -60,6 +57,9 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	
 	//attribute
 	private final Label label = new Label();
+	
+	//optional attribute
+	private IElementTaker<TextItemMenu<?>> selectCommand;
 	
 	//constructor
 	public TextItemMenuItem(final String text) {
@@ -94,7 +94,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//constructor
 	private TextItemMenuItem(final BaseNode specification) {
 		unselect();
-		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
+		specification.getRefAttributes().forEach(this::addOrChangeAttribute);
 	}
 	
 	//method
