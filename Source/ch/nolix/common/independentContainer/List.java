@@ -4,6 +4,8 @@ package ch.nolix.common.independentContainer;
 //Java import
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -162,7 +164,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	private void supposeIsNotEmpty() {
 		if (isEmpty()) {
-			throw new RuntimeException("The current list is empty.");
+			throw new EmptyArgumentException(this);
 		}
 	}
 }
