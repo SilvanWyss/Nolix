@@ -18,8 +18,6 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	//constants
 	private static final String MENU_MARGIN_HEADER = "MenuMargin";
 	private static final String MENU_ITEM_MARGIN_HEADER = "MenuItemMargin";
-	
-	//constants
 	private static final String BASE_MENU_ITEM_LOOK_HEADER = "BaseMenuItemLook";
 	private static final String HOVER_MENU_ITEM_LOOK_HEADER = "HoverMenuItemLook";
 	private static final String SELECTION_MENU_ITEM_LOOK_HEADER = "SelectionMenuItemLook";
@@ -30,7 +28,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 		MENU_ITEM_MARGIN_HEADER,
 		DEFAULT_MENU_ITEM_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		mim -> Node.withOneAttribute(mim)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -39,7 +37,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 		MENU_MARGIN_HEADER,
 		DEFAULT_MENU_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		mm -> Node.withOneAttribute(mm)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -47,8 +45,8 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	new LayerProperty<>(
 		BASE_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
-		s -> TabContainerMenuItemLook.fromSpecification(s),
-		bmil -> bmil.getSpecification()
+		TabContainerMenuItemLook::fromSpecification,
+		TabContainerMenuItemLook::getSpecification
 	);
 	
 	//attribute
@@ -56,8 +54,8 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	new LayerProperty<>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
-		s -> TabContainerMenuItemLook.fromSpecification(s),
-		hmil -> hmil.getSpecification()
+		TabContainerMenuItemLook::fromSpecification,
+		TabContainerMenuItemLook::getSpecification
 	);
 	
 	//attribute
@@ -65,8 +63,8 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	new LayerProperty<>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
-		s -> TabContainerMenuItemLook.fromSpecification(s),
-		smil -> smil.getSpecification()
+		TabContainerMenuItemLook::fromSpecification,
+		TabContainerMenuItemLook::getSpecification
 	);
 	
 	//method
