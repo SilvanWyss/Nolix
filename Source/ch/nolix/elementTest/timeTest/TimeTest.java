@@ -90,9 +90,9 @@ public final class TimeTest extends Test {
 		expect(day.getYearAsInt()).isEqualTo(2010);
 		expect(day.getMonthOfYear()).isEqualTo(10);
 		expect(day.getDayOfMonth()).isEqualTo(10);
-		expect(day.getHourOfDay()).isZero();
-		expect(day.getMinuteOfHour()).isZero();
-		expect(day.getSecondOfMinute()).isZero();
-		expect(day.getMillisecondOfSecond()).isZero();
+		expect(day.getHourOfDay()).isEqualTo(0);
+		expect(day.getMinuteOfHour()).isEqualTo(0);
+		expect(day.getSecondOfMinute()).isEqualTo(0);
+		expect(day.getMillisecondOfSecond()).isEqualTo(0);
 	}
 }

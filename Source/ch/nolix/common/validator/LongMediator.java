@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
 import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.invalidArgumentException.ArgumentIsInRangeException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
@@ -26,7 +27,7 @@ import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 355
+ * @lines 340
  */
 public class LongMediator extends Mediator {
 	
@@ -311,19 +312,6 @@ public class LongMediator extends Mediator {
 		if (argument >= value) {
 			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
 		}
-		
-		return new TerminalLongMediator(getArgumentName(), argument);
-	}
-	
-	//method
-	/**
-	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
-	 * @throws UnequalArgumentException
-	 * if the argument of this long mediator is not 0.
-	 */
-	public TerminalLongMediator isZero() {
-		
-		isEqualTo(0);
 		
 		return new TerminalLongMediator(getArgumentName(), argument);
 	}

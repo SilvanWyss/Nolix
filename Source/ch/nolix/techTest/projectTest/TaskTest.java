@@ -25,10 +25,10 @@ public final class TaskTest extends Test {
 		
 		//verification
 		expect(task.getTitle()).isEqualTo("My task");
-		expect(task.getCreationDate().getHourOfDay()).isZero();
-		expect(task.getCreationDate().getMinuteOfHour()).isZero();
-		expect(task.getCreationDate().getSecondOfMinute()).isZero();
-		expect(task.getCreationDate().getMillisecondOfSecond()).isZero();
+		expect(task.getCreationDate().getHourOfDay()).isEqualTo(0);
+		expect(task.getCreationDate().getMinuteOfHour()).isEqualTo(0);
+		expect(task.getCreationDate().getSecondOfMinute()).isEqualTo(0);
+		expect(task.getCreationDate().getMillisecondOfSecond()).isEqualTo(0);
 		expectNot(task.hasSize());
 		expectNot(task.isSolved());
 	}

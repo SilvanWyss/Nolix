@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidArgumentException.ArgumentIsZeroException;
@@ -22,7 +23,7 @@ import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 240
+ * @lines 230
  */
 public class DoubleMediator extends Mediator {
 	
@@ -224,17 +225,6 @@ public class DoubleMediator extends Mediator {
 		if (argument >= value) {
 			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
 		}
-	}
-	
-	//method
-	/**
-	 * @throws UnequalArgumentException
-	 * if the argument of htis double mediator is not 0.
-	 */
-	public void isZero() {
-		
-		//Asserts that the argument of this double mediator is 0.
-		isEqualTo(0);
 	}
 	
 	//method

@@ -43,6 +43,6 @@ public final class SourceNeuronTest extends Test {
 		final var sourceNeuron = new SourceNeuron<String>("test output");
 		
 		//execution & verification
-		expect(sourceNeuron.getMaxInputNeuronCount()).isZero();
+		expect(sourceNeuron.getMaxInputNeuronCount()).isEqualTo(0);
 	}
 }

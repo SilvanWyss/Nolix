@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
@@ -12,7 +13,7 @@ import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 240
+ * @lines 230
  */
 public final class DoubleMediator extends Mediator {
 
@@ -210,14 +211,6 @@ public final class DoubleMediator extends Mediator {
 		if (this.value > value) {
 			addCurrentTestCaseError("A value that is smaller than or equals " + value + " was expected, but " + this.value + " was received.");
 		}
-	}
-	
-	//method
-	/**
-	 * Generates an error if the value of this double mediator is not zero.
-	 */
-	public void isZero() {
-		isEqualTo(0.0);
 	}
 	
 	//method

@@ -42,7 +42,7 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		widget.setCollapsed();
 		
 		//verification
-		expect(widget.getHeight()).isZero();
+		expect(widget.getHeight()).isEqualTo(0);
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		widget.setCollapsed();
 		
 		//verification
-		expect(widget.getWidth()).isZero();
+		expect(widget.getWidth()).isEqualTo(0);
 	}
 	
 	//method

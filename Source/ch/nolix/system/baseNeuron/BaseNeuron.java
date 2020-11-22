@@ -82,7 +82,7 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	public final N clearInputNeurons() {
 		
 		//Asserts that the minimal number of input neurons of the current BaseNeuron is 0.
-		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
+		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isEqualTo(0);
 		
 		while (getInputNeuronCount() > 0) {
 			removeInputNeuron(getRefInputNeurons().getRefFirst());

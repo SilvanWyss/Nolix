@@ -11,7 +11,7 @@ import ch.nolix.common.nolixEnvironment.NolixEnvironment;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 120
+ * @lines 110
  */
 public final class DoubleDeviationMediator extends Mediator {
 
@@ -107,16 +107,5 @@ public final class DoubleDeviationMediator extends Mediator {
 		
 		//Asserts that the value of this double deviation mediator does not equal 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
 		isNotEqualTo(0.0);
-	}
-	
-	//method
-	/**
-	 * Generates an error if the value of this double deviation mediator
-	 * does not equal 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
-	 */
-	public void isZero() {
-		
-		//Asserts that the value of this double deviation mediator equals 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
-		isEqualTo(0.0);
 	}
 }

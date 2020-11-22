@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
@@ -10,7 +11,7 @@ import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 70
+ * @lines 60
  */
 public final class DoubleDeviationMediator extends Mediator {
 
@@ -57,13 +58,5 @@ public final class DoubleDeviationMediator extends Mediator {
 		if (Math.abs(value - argument) > maxDeviation) {
 			throw new UnequalArgumentException(getArgumentName(), value, argument);
 		}
-	}
-	
-	//method
-	/**
-	 * @throws UnequalArgumentException if the argument of htis named double deviation mediator is not 0.0 with a deviation that is not bigger than the max deviatio of this named double deviation mediator.
-	 */
-	public void isZero() {
-		isEqualTo(0.0);
 	}
 }
