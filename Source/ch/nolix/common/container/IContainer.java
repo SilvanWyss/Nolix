@@ -1884,7 +1884,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * ordered from the smallest to the biggest element according to the given norm.
 	 */
 	public default <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
-		return toList().order(norm);
+		return toList().toOrderedList(norm);
 	}
 	
 	//method

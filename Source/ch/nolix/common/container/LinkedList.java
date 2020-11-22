@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1170
+ * @lines 1150
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
@@ -682,27 +682,6 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	
 	//method
 	/**
-	 * Orders the elements of the current {@link LinkedList} according to the given norm.
-	 * This method uses the merge sort algorithm.
-	 * The complexity of this method is O(n*log(n)) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param norm
-	 * @return the current {@link LinkedList}.
-	 */
-	public <E2> LinkedList<E> order(final IElementTakerComparableGetter<E, E2> norm) {
-		
-		//Handles the case that the current list contains any elements.
-		if (containsAny()) {
-			final var orderedList = getOrderedSubList(1, getElementCount(), norm);
-			clear();
-			addAtEnd(orderedList);
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
 	 * Removes all elements from the current {@link LinkedList}
 	 * and adds the given elements at the end of the current {@link LinkedList}.
 	 * 
@@ -1042,7 +1021,14 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 		return this;
 	}
 	
-
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return getOrderedSubList(1, getElementCount(), norm);
+	}
 	
 	//method
 	/**
