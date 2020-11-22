@@ -1695,11 +1695,10 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return a new array with the elements of the current {@link IContainer}.
 	 */
-	@SuppressWarnings("unchecked")
-	public default E[] toArray() {
-
+	public default Object[] toArray() {
+		
 		//Creates array.
-		final var array = (E[])new Object[getElementCount()];
+		final var array = new Object[getElementCount()];
 		
 		//Fills up the array.
 		var i = 0;
