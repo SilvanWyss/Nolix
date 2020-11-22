@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.invalidArgumentException;
 
+//own import
 import ch.nolix.common.constant.CharacterCatalogue;
 
 //class
@@ -19,7 +20,7 @@ import ch.nolix.common.constant.CharacterCatalogue;
  * For example: NegativeArgumentException, NonPositiveArgumentException, ArgumentIsOutOfRangeException.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 200
  */
 @SuppressWarnings("serial")
@@ -119,7 +120,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//attributes
 	private final String argumentName;
-	private final Object argument;
+	private final transient Object argument;
 	private final String errorPredicate;
 	
 	//constructor
