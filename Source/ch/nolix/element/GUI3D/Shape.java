@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI3D;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -14,13 +15,13 @@ import ch.nolix.element.geometry.Point3D;
 
 //class
 /**
- * The position of a shape
- * is its smallest (!) position in a left-hand (!) coordination system.
+ * The position of a {@link Shape} is a position in a left-hand (!) coordination system.
+ * The position of a {@link Shape} is the position that is nearest to the origin.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 350
- * @param <S> The type of a shape.
+ * @month 2017-11-11
+ * @lines 360
+ * @param <S> The type of a {@link Shape}.
  */
 public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
@@ -36,7 +37,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return true if this shape belongs to a GUI.
+	 * @return true if the current {@link Shape} belongs to a GUI.
 	 */
 	public final boolean belongsToAGUI() {
 		return (mGUI != null);
@@ -44,7 +45,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the attributes of this shape.
+	 * @return the attributes of the current {@link Shape}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -59,7 +60,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the position of this shape.
+	 * @return the position of the current {@link Shape}.
 	 */
 	public final Point3D getPosition() {
 		return position;
@@ -67,7 +68,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the configurable elements of this shape.
+	 * @return the configurable elements of the current {@link Shape}.
 	 */
 	@Override
 	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
@@ -76,8 +77,8 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the render object of this shape.
-	 * @throws ArgumentDoesNotHaveAttributeException if this shape does not have a render object.
+	 * @return the render object of the current {@link Shape}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Shape} does not have a render object.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <RO> RO getRefRenderObject() {
@@ -86,13 +87,13 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method declaration
 	/**
-	 * @return the shapes of this shapes.
+	 * @return the shapes of the current {@link Shape}s.
 	 */
 	public abstract ReadContainer<Shape<?>> getRefShapes();
 	
 	//method
 	/**
-	 * @return the x-position of this shape.
+	 * @return the x-position of the current {@link Shape}.
 	 */
 	public final double getXPosition() {
 		return position.getX();
@@ -100,7 +101,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the x-position of this shape as float.
+	 * @return the x-position of the current {@link Shape} as float.
 	 */
 	public final float getXPositionAsFloat() {
 		return position.getXAsFloat();
@@ -108,7 +109,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the y-position of this shape.
+	 * @return the y-position of the current {@link Shape}.
 	 */
 	public final double getYPosition() {
 		return position.getY();
@@ -116,7 +117,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the xy-position of this shape as float.
+	 * @return the xy-position of the current {@link Shape} as float.
 	 */
 	public final float getYPositionAsFloat() {
 		return position.getYAsFloat();
@@ -124,7 +125,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the z-position of this shape.
+	 * @return the z-position of the current {@link Shape}.
 	 */
 	public final double getZPosition() {
 		return position.getZ();
@@ -132,7 +133,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the z-position of this shape as float.
+	 * @return the z-position of the current {@link Shape} as float.
 	 */
 	public final float getZPositionAsFloat() {
 		return position.getZAsFloat();
@@ -140,7 +141,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return true if this shape has the given role.
+	 * @return true if the current {@link Shape} has the given role.
 	 */
 	@Override
 	public boolean hasRole(final String role) {
@@ -149,7 +150,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * Renders this shape.	
+	 * Renders the current {@link Shape}.	
 	 */
 	public final void render() {
 		getRefShapeRenderManager().render();
@@ -157,18 +158,18 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * Renders this shape recursively.
+	 * Renders the current {@link Shape} recursively.
 	 */
 	public final void renderRecursively() {
-		getRefShapes().forEach(s -> s.renderRecursively());
+		getRefShapes().forEach(Shape::renderRecursively);
 		render();
 	}
 	
 	//method
 	/**
-	 * Resets this shape.
+	 * Resets the current {@link Shape}.
 	 * 
-	 * @return this shape.
+	 * @return the current {@link Shape}.
 	 */
 	@Override
 	public S reset() {
@@ -181,10 +182,10 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * Sets the GUI this shape will belong to.
+	 * Sets the GUI the current {@link Shape} will belong to.
 	 * 
 	 * @param pGUI
-	 * @return this shape.
+	 * @return the current {@link Shape}.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final S setGUI(GUI3D<?> pGUI) {
@@ -192,14 +193,14 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		//Asserts that the given GUI is not null.
 		Validator.assertThat(pGUI).thatIsNamed("GUI").isNotNull();
 		
-		//Asserts that this shape does not belong already to a GUI.
+		//Asserts that the current Shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
 			throw new InvalidArgumentException(this, "belongs already to a GUI");
 		}
 		
 		this.shapeRenderManager = new ShapeRenderManager(this, pGUI.getShapeRendererFor(this));
 		
-		//Sets the GUI of this shape.
+		//Sets the GUI of the current Shape.
 		mGUI = pGUI;
 		
 		getRefShapes().forEach(s -> s.setGUI(pGUI));
@@ -258,12 +259,12 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * Sets the position of this shape.
+	 * Sets the position of the current {@link Shape}.
 	 * 
 	 * @param xPosition
 	 * @param yPosition
 	 * @param zPosition
-	 * @return this shape.
+	 * @return the current {@link Shape}.
 	 */
 	public final S setPosition(
 		final double xPosition,
@@ -275,12 +276,12 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * Translates this shape.
+	 * Translates the current {@link Shape}.
 	 * 
 	 * @param xDelta
 	 * @param yDelta
 	 * @param zDelta
-	 * @return this shape.
+	 * @return the current {@link Shape}.
 	 */
 	public final S translate(
 		final double xDelta,
@@ -296,42 +297,9 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @return the GUI this shape belongs to.
-	 * @throws InvalidArgumentException if this shape does not belong to a GUI.
+	 * @throws InvalidArgumentException if the current {@link Shape} belongs to a GUI. 
 	 */
-	protected final GUI3D<?> getRefGUI() {
-		
-		supposeBelongsToAGUI();
-		
-		return mGUI;
-	}
-
-	//method
-	/**
-	 * @return the shape render manager of this shape.
-	 * @throws ArgumentDoesNotHaveAttributeException if this shape does not have a shape render manager.
-	 */
-	protected final ShapeRenderManager<S, ?, ?> getRefShapeRenderManager() {
-		
-		//Asserts that this shape has a shape render manager.
-		supposeHasShapeRenderManager();
-		
-		return shapeRenderManager;
-	}
-	
-	//method
-	/**
-	 * @return true if this shape has a shape render manager.
-	 */
-	protected final boolean hasShapeRenderManager() {
-		return (shapeRenderManager != null);
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if this shape belongs to a GUI. 
-	 */
-	protected final void supposeBelongsNotToAGUI() {
+	protected final void assertBelongsNotToAGUI() {
 		if (belongsToAGUI()) {
 			throw new InvalidArgumentException(this, "belongs to a GUI");
 		}
@@ -339,9 +307,9 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if this shape belongs not to a GUI. 
+	 * @throws InvalidArgumentException if the current {@link Shape} belongs not to a GUI. 
 	 */
-	protected final void supposeBelongsToAGUI() {
+	protected final void assertBelongsToAGUI() {
 		if (!belongsToAGUI()) {
 			throw new InvalidArgumentException(this, "belongs not to a GUI");
 		}
@@ -349,9 +317,42 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if this shape does not have a shape render manager.
+	 * @return the GUI the current {@link Shape} belongs to.
+	 * @throws InvalidArgumentException if the current {@link Shape} does not belong to a GUI.
 	 */
-	private void supposeHasShapeRenderManager() {
+	protected final GUI3D<?> getRefGUI() {
+		
+		assertBelongsToAGUI();
+		
+		return mGUI;
+	}
+
+	//method
+	/**
+	 * @return the shape render manager of the current {@link Shape}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Shape} does not have a shape render manager.
+	 */
+	protected final ShapeRenderManager<S, ?, ?> getRefShapeRenderManager() {
+		
+		//Asserts that the current Shape has a shape render manager.
+		assertHasShapeRenderManager();
+		
+		return shapeRenderManager;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Shape} has a shape render manager.
+	 */
+	protected final boolean hasShapeRenderManager() {
+		return (shapeRenderManager != null);
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Shape} does not have a shape render manager.
+	 */
+	private void assertHasShapeRenderManager() {
 		if (!hasShapeRenderManager()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, ShapeRenderManager.class);
 		}
