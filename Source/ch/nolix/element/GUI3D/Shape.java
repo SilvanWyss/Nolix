@@ -10,7 +10,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.geometry.Point2D;
-import ch.nolix.element.geometry._3DPoint;
+import ch.nolix.element.geometry.Point3D;
 
 //class
 /**
@@ -25,10 +25,10 @@ import ch.nolix.element.geometry._3DPoint;
 public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//constant
-	public static final _3DPoint DEFAULT_POSITION = new _3DPoint(0.0, 0.0, 0.0);
+	public static final Point3D DEFAULT_POSITION = new Point3D(0.0, 0.0, 0.0);
 	
 	//attribute
-	private _3DPoint position = DEFAULT_POSITION;
+	private Point3D position = DEFAULT_POSITION;
 	
 	//optional attributes
 	private GUI3D<?> mGUI;
@@ -61,7 +61,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the position of this shape.
 	 */
-	public final _3DPoint getPosition() {
+	public final Point3D getPosition() {
 		return position;
 	}
 	
@@ -228,7 +228,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return this frame.
 	 * @throws ArgumentIsNullException if the given position is null.
 	 */
-	public final S setPosition(final _3DPoint position) {
+	public final S setPosition(final Point3D position) {
 		
 		//Asserts that the given position is not null.
 		Validator.assertThat(position).thatIsNamed("position").isNotNull();
@@ -270,7 +270,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		final double yPosition,
 		final double zPosition
 	) {
-		return setPosition(new _3DPoint(xPosition, yPosition, zPosition));
+		return setPosition(new Point3D(xPosition, yPosition, zPosition));
 	}
 	
 	//method

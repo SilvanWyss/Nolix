@@ -18,7 +18,7 @@ import ch.nolix.element.elementAPI.IElement;
  * @month 2016-05
  * @lines 150
  */
-public class _3DPoint implements IElement {
+public class Point3D implements IElement {
 	
 	//constants
 	public static final double DEFAULT_X = 0.0;
@@ -34,7 +34,7 @@ public class _3DPoint implements IElement {
 	/**
 	 * Creates a new 3D point with default coordinates.
 	 */
-	public _3DPoint() {
+	public Point3D() {
 		
 		//Calls other constructor.
 		this(DEFAULT_X, DEFAULT_Y, DEFAULT_Z);
@@ -48,7 +48,7 @@ public class _3DPoint implements IElement {
 	 * @param y
 	 * @param z
 	 */
-	public _3DPoint(final double x, final double y, final double z) {
+	public Point3D(final double x, final double y, final double z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -73,7 +73,7 @@ public class _3DPoint implements IElement {
 	 * @param point
 	 * @return the distance of this 3D point to the given point.
 	 */
-	public double getDistanceTo(final _3DPoint point) {
+	public double getDistanceTo(final Point3D point) {
 		return Math.sqrt(
 			Math.pow(getX() - point.getX(), 2) +
 			Math.pow(getY() - point.getY(), 2) +

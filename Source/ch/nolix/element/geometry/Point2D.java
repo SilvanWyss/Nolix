@@ -126,8 +126,8 @@ public final class Point2D extends Element<Point2D> {
 	 * with the x-coordinate and the y-coordinate of this 2D point
 	 * and a z-coordinate=0.
 	 */
-	public _3DPoint to3DPoint() {
+	public Point3D to3DPoint() {
 		return
-		new _3DPoint(getX(), getY(), 0.0);
+		new Point3D(getX(), getY(), 0.0);
 	}
 }
