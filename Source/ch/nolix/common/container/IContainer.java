@@ -5,6 +5,7 @@ package ch.nolix.common.container;
 import java.util.Random;
 
 //own imports
+import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.I2ElementTakerBooleanGetter;
@@ -281,7 +282,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	public default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
-		return !contains(e -> selector.getOutput(e));
+		return !contains(selector::getOutput);
 	}
 	
 	//method
@@ -1847,7 +1848,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer}.
 	 */
 	public default LinkedList<E> toList() {
-		return to(e -> e);
+		return to(FunctionCatalogue::getSelf);
 	}
 	
 	//method
