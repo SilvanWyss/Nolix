@@ -44,7 +44,7 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		Color::fromSpecification,
-		tc -> tc.getSpecification()
+		Color::getSpecification
 	);
 	
 	//method
