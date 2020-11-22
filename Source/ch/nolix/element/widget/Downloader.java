@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.fileSystem.FileAccessor;
 import ch.nolix.common.functionAPI.IElementGetter;
@@ -15,7 +16,7 @@ import ch.nolix.element.input.Key;
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
 	
-	//constant
+	//constants
 	public static final String DEFAULT_TEXT = "Download";
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Hand;
 	
@@ -109,7 +110,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	public Downloader setFileProvider(final FileAccessor fileAccessor) {
-		return setFileProvider(() -> fileAccessor.readFileToBytes());
+		return setFileProvider(fileAccessor::readFileToBytes);
 	}
 	
 	//method
