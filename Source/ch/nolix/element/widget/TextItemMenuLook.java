@@ -26,7 +26,7 @@ public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 		ITEM_PADDING_HEADER,
 		DEFAULT_ITEM_PADDING,
 		BaseNode::getOneAttributeAsInt,
-		ip -> Node.withOneAttribute(ip)
+		Node::withOneAttribute
 	);
 	
 	//attribute
@@ -34,8 +34,8 @@ public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 	new LayerProperty<>(
 		NORMAL_ITEM_LOOK_HEADER,
 		new TextItemMenuItemLook(),
-		s -> TextItemMenuItemLook.fromSpecification(s),
-		bil -> bil.getSpecification()
+		TextItemMenuItemLook::fromSpecification,
+		TextItemMenuItemLook::getSpecification
 	);
 	
 	//attribute
@@ -43,8 +43,8 @@ public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 	new LayerProperty<>(
 		HOVER_ITEM_LOOK_HEADER,
 		new TextItemMenuItemLook(),
-		s -> TextItemMenuItemLook.fromSpecification(s),
-		hilp -> hilp.getSpecification()
+		TextItemMenuItemLook::fromSpecification,
+		TextItemMenuItemLook::getSpecification
 	);
 	
 	//attribute
@@ -52,8 +52,8 @@ public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 	new LayerProperty<>(
 		SELECTION_ITEM_LOOK_HEADER,
 		new TextItemMenuItemLook(),
-		s -> TextItemMenuItemLook.fromSpecification(s),
-		silp -> silp.getSpecification()
+		TextItemMenuItemLook::fromSpecification,
+		TextItemMenuItemLook::getSpecification
 	);
 	
 	//method
