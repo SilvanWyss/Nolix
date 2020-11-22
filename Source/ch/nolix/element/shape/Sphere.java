@@ -7,7 +7,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element._3D_GUI.AtomicShape;
+import ch.nolix.element.GUI3D.AtomicShape;
 import ch.nolix.element.base.MutableValue;
 
 //class

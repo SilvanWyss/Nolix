@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3D_GUI;
+package ch.nolix.element.GUI3D;
 
 //class
 /**
@@ -8,4 +8,4 @@ package ch.nolix.element._3D_GUI;
  * @lines 10
  * @param <MF> The type of a main frame.
  */
-public abstract class MainFrame<MF extends MainFrame<MF>> extends _3D_GUI<MF> {}
+public abstract class MainFrame<MF extends MainFrame<MF>> extends GUI3D<MF> {}

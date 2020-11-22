@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial._3D_GUITutorial;
+package ch.nolix.elementTutorial.GUI3DTutorial;
 
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
@@ -8,13 +8,13 @@ import ch.nolix.element.shape.MultiShape;
 import ch.nolix.element.shape.Sphere;
 
 /**
- * The {@link _3D_GUITutorial2} is a tutorial for a {@link JMonkeyMainFrame}.
+ * The {@link GUI3DTutorial2} is a tutorial for a {@link JMonkeyMainFrame}.
  * 
  * @author Silvan Wyss
  * @month 2017-10
  * @lines 60
  */
-public final class _3D_GUITutorial2 {
+public final class GUI3DTutorial2 {
 	
 	/**
 	 * Creates a new {@link JMonkeyMainFrame} and adds shapes to it.
@@ -49,7 +49,7 @@ public final class _3D_GUITutorial2 {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link _3D_GUITutorial2} can be created.
+	 * Avoids that an instance of the {@link GUI3DTutorial2} can be created.
 	 */
-	private _3D_GUITutorial2() {}
+	private GUI3DTutorial2() {}
 }

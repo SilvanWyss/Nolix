@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element._3D_GUI;
+package ch.nolix.element.GUI3D;
 
 //Java import
 import java.lang.reflect.InvocationTargetException;
@@ -29,9 +29,9 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
  * @author Silvan Wyss
  * @month 2017-11
  * @lines 410
- * @param <G> The type of a {@link _3D_GUI}.
+ * @param <G> The type of a {@link GUI3D}.
  */
-public abstract class _3D_GUI<G extends _3D_GUI<G>> extends ConfigurationElement<G>
+public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
 implements Clearable<G>, Closeable, Refreshable {
 	
 	//constants
@@ -64,7 +64,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link _3D_GUI}.
+	 * Adds or changes the given attribute to the current {@link GUI3D}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -84,14 +84,14 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * Adds the given shape class with the given shape renderer to the current {@link _3D_GUI}.
+	 * Adds the given shape class with the given shape renderer to the current {@link GUI3D}.
 	 * 
 	 * @param shapeClass
 	 * @param shapeRenderer
-	 * @return the current {@link _3D_GUI}.
+	 * @return the current {@link GUI3D}.
 	 * @throws ArgumentIsNullException if the given shape class is null.
 	 * @throws ArgumentIsNullException if the given shape renderer is null.
-	 * @throws InvalidArgumentException if the current {@link _3D_GUI} contains already
+	 * @throws InvalidArgumentException if the current {@link GUI3D} contains already
 	 * a shape class with the same name as the given shape class.
 	 */
 	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
@@ -116,7 +116,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	//method
 	/**
 	 * @param type
-	 * @return true if the current {@link _3D_GUI} can create a shape of the given type.
+	 * @return true if the current {@link GUI3D} can create a shape of the given type.
 	 */
 	public final boolean canCreateShape(final String type) {
 		return shapeClasses.contains(sc -> sc.getRefElement1().getSimpleName().equals(type));
@@ -124,7 +124,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * Removes the root shape of the current {@link _3D_GUI}.
+	 * Removes the root shape of the current {@link GUI3D}.
 	 */
 	@Override
 	public final G clear() {
@@ -136,7 +136,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link _3D_GUI}.
+	 * @return the attributes of the current {@link GUI3D}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -154,7 +154,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * @return the background color of the current {@link _3D_GUI}.
+	 * @return the background color of the current {@link GUI3D}.
 	 */
 	public final Color getBackgroundColor() {
 		return backgroundColor.getValue();
@@ -171,8 +171,8 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * @return the root shape of the current {@link _3D_GUI}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link _3D_GUI} does not have a root shape.
+	 * @return the root shape of the current {@link GUI3D}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link GUI3D} does not have a root shape.
 	 */
 	public final Shape<?> getRefRootShape() {
 		
@@ -186,7 +186,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * @return the title of the current {@link _3D_GUI}.
+	 * @return the title of the current {@link GUI3D}.
 	 */
 	public final String getTitle() {
 		return title.getValue();
@@ -203,7 +203,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * @return true if the current {@link _3D_GUI} has a root shape.
+	 * @return true if the current {@link GUI3D} has a root shape.
 	 */
 	public final boolean hasRootShape() {
 		return (rootShape != null);
@@ -220,33 +220,33 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link _3D_GUI} note a left mouse button press.
+	 * Lets the current {@link GUI3D} note a left mouse button press.
 	 */
 	public abstract void noteLeftMouseButtonPress();
 	
 	//method declaration
 	/**
-	 * Lets the current {@link _3D_GUI} note a left mouse button release.
+	 * Lets the current {@link GUI3D} note a left mouse button release.
 	 */
 	public abstract void noteLeftMouseButtonRelease();
 	
 	//method declaration
 	/**
-	 * Lets the current {@link _3D_GUI} note a right mouse button press.
+	 * Lets the current {@link GUI3D} note a right mouse button press.
 	 */
 	public abstract void noteRightMouseButtonPress();
 	
 	//method declaration
 	/**
-	 * Lets the current {@link _3D_GUI} note a right mouse button release.
+	 * Lets the current {@link GUI3D} note a right mouse button release.
 	 */
 	public abstract void noteRightMouseButtonRelease();
 	
 	//method
 	/**
-	 * Removes the root shape of the current {@link _3D_GUI}.
+	 * Removes the root shape of the current {@link GUI3D}.
 	 * 
-	 * @return the current {@link _3D_GUI}.
+	 * @return the current {@link GUI3D}.
 	 */
 	public final G removeRootShape() {
 		
@@ -295,10 +295,10 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * Sets the background color of the current {@link _3D_GUI}.
+	 * Sets the background color of the current {@link GUI3D}.
 	 * 
 	 * @param backgroundColor
-	 * @return the current {@link _3D_GUI}.
+	 * @return the current {@link GUI3D}.
 	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
@@ -310,10 +310,10 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * Sets the root shape of the current {@link _3D_GUI}.
+	 * Sets the root shape of the current {@link GUI3D}.
 	 * 
 	 * @param rootShape
-	 * @return the current {@link _3D_GUI}.
+	 * @return the current {@link GUI3D}.
 	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
 	public G setRootShape(final Shape<?> rootShape) {
@@ -329,10 +329,10 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * Sets the title of the current {@link _3D_GUI}.
+	 * Sets the title of the current {@link GUI3D}.
 	 * 
 	 * @param title
-	 * @return the current {@link _3D_GUI}.
+	 * @return the current {@link GUI3D}.
 	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is blank.
 	 */
@@ -349,9 +349,9 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	/**
 	 * @param shape
-	 * @return a new shape renderer for the given shape from the current {@link _3D_GUI}.
+	 * @return a new shape renderer for the given shape from the current {@link GUI3D}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link _3D_GUI} does not contain a shape renderer for the given shape.
+	 * if the current {@link GUI3D} does not contain a shape renderer for the given shape.
 	 */
 	protected final IShapeRenderer<?, ?, ?> getShapeRendererFor(final Shape<?> shape) {
 		return
@@ -364,7 +364,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	/**
 	 * @param type
 	 * @return a new shape of the given type.
-	 * @throws InvalidArgumentException if the current {@link _3D_GUI} cannot create a shape of the given type.
+	 * @throws InvalidArgumentException if the current {@link GUI3D} cannot create a shape of the given type.
 	 */
 	private Shape<?> createShape(final String type) {
 		try {
@@ -394,7 +394,7 @@ implements Clearable<G>, Closeable, Refreshable {
 	
 	//method
 	/**
-	 * @return the shapes of the current {@link _3D_GUI}.
+	 * @return the shapes of the current {@link GUI3D}.
 	 */
 	private final ReadContainer<Shape<?>> getRefShapes() {
 		

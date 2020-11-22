@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial._3D_GUITutorial;
+package ch.nolix.elementTutorial.GUI3DTutorial;
 
 import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
@@ -11,7 +11,7 @@ import ch.nolix.element.shape.Sphere;
  * @month 2017-11
  * @lines 30
  */
-public final class _3D_GUITutorial {
+public final class GUI3DTutorial {
 	
 	/**
 	 * Creates a new main frame and adds a sphere to it as root shape.
@@ -32,5 +32,5 @@ public final class _3D_GUITutorial {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private _3D_GUITutorial() {}
+	private GUI3DTutorial() {}
 }
