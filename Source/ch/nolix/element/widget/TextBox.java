@@ -14,11 +14,11 @@ import ch.nolix.element.painter.IPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-03
+ * @date 2017-01-01
  * @lines 340
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
-
+	
 	//constants
 	public static final String TYPE_NAME = "TextBox";
 	public static final int MIN_WIDTH = 10;
@@ -254,10 +254,10 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	private final void deleteCharacterBeforeTextCursor() {
 		if (!getText().isEmpty() && getTextCursorPosition() > 0) {
 			
-			final var textCursorPosition = getTextCursorPosition();
+			final var lTextCursorPosition = getTextCursorPosition();
 			
-			setText(getText().substring(0, textCursorPosition - 1) + getText().substring(textCursorPosition));
-			setTextCursorPosition(textCursorPosition - 1);
+			setText(getText().substring(0, lTextCursorPosition - 1) + getText().substring(lTextCursorPosition));
+			setTextCursorPosition(lTextCursorPosition - 1);
 		}
 	}
 	
