@@ -26,7 +26,19 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	//static attribute
 	private static long latestCreatedId = -1;
 	
-	//attribute
+	//static method
+	private static long createNextId() {
+		
+		final var preId = System.currentTimeMillis();
+		
+		final var lId = (preId == latestCreatedId) ? preId + 1 : preId;
+		
+		latestCreatedId = lId;
+		
+		return lId;
+	}
+	
+	//attributes
 	private long id = createNextId();
 	private EntityState state = EntityState.NEW;
 	
@@ -414,18 +426,6 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
 		.forEach(br -> br.supposeCanReferenceBackAdditionally(entity, referencingPropertyHeader));
-	}
-	
-	//method
-	private long createNextId() {
-		
-		final var preId = System.currentTimeMillis();
-		
-		final var lId = (preId == latestCreatedId) ? preId + 1 : preId;
-		
-		latestCreatedId = lId;
-		
-		return lId;
 	}
 	
 	//method
