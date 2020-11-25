@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.jobPool;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -61,8 +62,8 @@ final class JobWrapper implements Runnable {
 		try {
 			job.run();
 		}
-		catch (final Throwable error) {
-			this.error = error;
+		catch (final Throwable lError) {
+			error = lError;
 		}
 		finally {
 			running = false;
