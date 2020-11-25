@@ -60,7 +60,7 @@ import ch.nolix.element.painter.IPainter;
  * 6. content area: Contains the content.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 1580
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
@@ -91,7 +91,7 @@ extends Widget<BW, BWL> {
 	new MutableValue<>(
 		AUTOMATIC_SIZE_HEADER,
 		as -> {
-			if (as) {
+			if (as.booleanValue()) {
 				activateAutomaticSize();
 			}
 			else {
