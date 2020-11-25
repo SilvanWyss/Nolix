@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.VerticalStack;
@@ -17,7 +18,7 @@ public final class LoginSession extends DatabaseApplicationSession {
 			new Button()
 			.setRole(ButtonRole.ActionButton)
 			.setText("Login")
-			.setLeftMouseButtonPressAction(() -> login())
+			.setLeftMouseButtonPressAction(this::login)
 		);
 	}
 	
