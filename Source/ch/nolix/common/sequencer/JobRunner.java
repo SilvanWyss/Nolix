@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-06-04
  * @lines 370
  */
 final class JobRunner extends Thread {
@@ -347,9 +347,9 @@ final class JobRunner extends Thread {
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}
 			}
-			catch (final Throwable error) {
-				this.error = error;
-				Logger.logError(error);
+			catch (final Throwable lError) {
+				error = lError;
+				Logger.logError(lError);
 				break;
 			}
 		}
