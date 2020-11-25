@@ -15,11 +15,10 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * A {@link Server} contains {@link IEndPointTaker}s.
- * A {@link Server} is clearable and closable.
  * 
  * @author Silvan Wyss
- * @month 2017-05
- * @lines 200
+ * @date 2017-05-06
+ * @lines 190
  */
 public class Server implements Clearable<Server>, ICloseableElement {
 	
@@ -30,7 +29,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	private IEndPointTaker mainEndPointTaker;
 	
 	//multi-attribute
-	private final LinkedList<IEndPointTaker> endPointTaker = new LinkedList<>();
+	private final LinkedList<IEndPointTaker> endPointTakers = new LinkedList<>();
 	
 	//method
 	/**
@@ -52,7 +51,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 			new InvalidArgumentException(this, "contains another EndPointTaker with the name '" + name + "'");
 		}
 		
-		this.endPointTaker.addAtEnd(endPointTaker);
+		this.endPointTakers.addAtEnd(endPointTaker);
 	}
 
 	//method
@@ -84,7 +83,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	@Override
 	public final Server clear() {
 		
-		endPointTaker.clear();
+		endPointTakers.clear();
 		mainEndPointTaker = null;
 		
 		return this;
@@ -96,7 +95,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 * @return true if the current {@link Server} contains a {@link IEndPointTaker} with the given name.
 	 */
 	public final boolean containsEndPointTaker(final String name) {
-		return endPointTaker.contains(ept -> ept.hasName(name));
+		return endPointTakers.contains(ept -> ept.hasName(name));
 	}
 	
 	//method
@@ -122,7 +121,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 */
 	@Override
 	public final boolean isEmpty() {
-		return endPointTaker.isEmpty();
+		return endPointTakers.isEmpty();
 	}
 	
 	//method
@@ -135,7 +134,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	 */
 	public final void removeEndPointTaker(final String name) {
 		
-		final var endPointTaker = this.endPointTaker.removeAndGetRefFirst(ept -> ept.hasName(name));
+		final var endPointTaker = this.endPointTakers.removeAndGetRefFirst(ept -> ept.hasName(name));
 		
 		//Handles the case that the concerning IEndPointTaker
 		//has been the main IEndPointTaker of the current {@link Server}.
@@ -172,7 +171,7 @@ public class Server implements Clearable<Server>, ICloseableElement {
 		
 		//Handles the case that the given endPoint has a target.
 		else {
-			endPointTaker.getRefFirst(ept -> ept.hasName(endPoint.getTarget())).takeEndPoint(endPoint);
+			endPointTakers.getRefFirst(ept -> ept.hasName(endPoint.getTarget())).takeEndPoint(endPoint);
 		}
 	}
 	
