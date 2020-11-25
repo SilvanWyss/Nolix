@@ -74,14 +74,14 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	public ColumnSQLHelper getSQLHelper(final SQLDatabaseEngine SQLDatabaseEngine) {
+	public ColumnSQLHelper getSQLHelper(final SQLDatabaseEngine pSQLDatabaseEngine) {
 		
 		//Enumerates the given SQLDatabaseEngine.
-		switch (SQLDatabaseEngine) {
+		switch (pSQLDatabaseEngine) {
 			case MSSQL:
 				return new ColumnMSSQLHelper(this);
 			default:
-				throw new UnsupportedArgumentException(SQLDatabaseEngine);
+				throw new UnsupportedArgumentException(pSQLDatabaseEngine);
 		}
 	}
 	
