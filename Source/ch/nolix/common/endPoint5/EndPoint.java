@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link EndPoint} can interact with another {@link EndPoint} of the same type.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 200
  */
 public abstract class EndPoint implements ICloseableElement, IDataProviderController {
@@ -155,9 +155,9 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 		
 		assertIsOpen();
 		
-		final var appendedCommands = this.appendedCommands.getCopy();
-		this.appendedCommands.clear();
-		run(appendedCommands);
+		final var lAppendedCommands = appendedCommands.getCopy();
+		appendedCommands.clear();
+		run(lAppendedCommands);
 	}
 	
 	//method
@@ -189,7 +189,7 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 		
 		Sequencer
 		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
-		.waitUntil(() -> hasReceiverController());
+		.waitUntil(this::hasReceiverController);
 		
 		if (!hasReceiverController()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
