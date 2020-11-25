@@ -37,8 +37,8 @@ import ch.nolix.element.painter.IPainter;
  * A {@link Widget} is a {@link ConfigurableElement}.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 2090
+ * @date 2016-01-01
+ * @lines 2110
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -869,7 +869,7 @@ TopLeftPositionedRecangular {
 	public final void noteMouseWheelClick() {
 		if (isEnabled()) {
 			
-			//TODO: noteMouseWheelClickOnSelfWhenEnabled()
+			noteMouseWheelClickOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteMouseWheelClick);
@@ -885,7 +885,7 @@ TopLeftPositionedRecangular {
 	public final void noteMouseWheelPress() {
 		if (isEnabled()) {
 			
-			//TODO: noteMouseWheelPressOnSelfWhenEnabled()
+			noteMouseWheelPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteMouseWheelPress);
@@ -901,7 +901,7 @@ TopLeftPositionedRecangular {
 	public final void noteMouseWheelRelease() {
 		if (isEnabled()) {
 			
-			//TODO: noteMouseWheelReleaseOnSelfWhenEnabled()
+			noteMouseWheelReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(Widget::noteMouseWheelRelease);
@@ -1671,6 +1671,27 @@ TopLeftPositionedRecangular {
 	 * for the case when the current {@link Widget} is enabled.
 	 */
 	protected abstract void noteMouseMoveOnSelfWhenEnabled();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel click on itself
+	 * for the case when the current {@link Widget} is enabled.
+	 */
+	protected abstract void noteMouseWheelClickOnSelfWhenEnabled();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel press on itself
+	 * for the case when the current {@link Widget} is enabled.
+	 */
+	protected abstract void noteMouseWheelPressOnSelfWhenEnabled();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Widget} note a mouse wheel release on itself
+	 * for the case when the current {@link Widget} is enabled.
+	 */
+	protected abstract void noteMouseWheelReleaseOnSelfWhenEnabled();
 	
 	//method declaration
 	/**

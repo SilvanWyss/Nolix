@@ -61,7 +61,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1580
+ * @lines 1630
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -1212,6 +1212,60 @@ extends Widget<BW, BWL> {
 	 * for the case when the current {@link BorderWidget} is enabled.
 	 */
 	protected abstract void noteMouseMoveOnContentAreaWhenEnabled();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a mouse wheel click on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
+	protected abstract void noteMouseWheelClickOnContentAreaWhenEnabled();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteMouseWheelClickOnSelfWhenEnabled() {
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteMouseWheelClickOnContentAreaWhenEnabled();
+		}
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a mouse wheel press on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
+	protected abstract void noteMouseWheelPressOnContentAreaWhenEnabled();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteMouseWheelPressOnSelfWhenEnabled() {
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteMouseWheelPressOnContentAreaWhenEnabled();
+		}
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a mouse wheel release on the content area
+	 * for the case when the current {@link BorderWidget} is enabled.
+	 */
+	protected abstract void noteMouseWheelReleaseOnContentAreaWhenEnabled();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteMouseWheelReleaseOnSelfWhenEnabled() {
+		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			noteMouseWheelReleaseOnContentAreaWhenEnabled();
+		}
+	}
 	
 	//method
 	/**
