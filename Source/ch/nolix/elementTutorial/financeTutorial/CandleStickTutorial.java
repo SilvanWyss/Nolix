@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.financeTutorial;
 
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SequencePattern;
 import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;
@@ -8,46 +7,49 @@ import ch.nolix.element.finance.VolumeCandlestick;
 import ch.nolix.element.time.Time;
 
 /**
- * This class provides a tutorial for the candle stick class.
+ * The {@link CandleStickTutorial} is a tutorial for {@link CandleStick}s.
  * 
  * @author Silvan Wyss
- * @month 2016-12
- * @lines 60
+ * @date 2017-01-01
+ * @lines 50
  */
 public final class CandleStickTutorial {
 	
 	/**
 	 * Loads all daily candle sticks of the Boeing.inc share of the year 2015.
-	 * The candle sticks contain the real data.
+	 * The candle sticks will contain the real data.
 	 * It is supposed to be probable, that after a hammer a bullish follows.
-	 * A hammer is a candle stick of a special pattern and a bullish is a canlde stick whose closing price is higher than its opening price.
-	 * Lets check this thesis by calculating the percentage of the hammers followed by a bullish from all hammers.
+	 * A hammer is a candle stick of a special pattern.
+	 * A bullish is a candle whose closing price is higher than its opening price.
+	 * Lets check this thesis
+	 * by calculating the percentage of the hammers followed by a bullish in relation to all hammers.
 	 */
 	public static void main(String[] args) {
 		
-		//Loads the candle sticks.
-		final LinkedList<VolumeCandlestick> candleSticks
-		= new QuandlDataProvider().getCandleSticksPerDay(
+		//Loads the CandleSticks.
+		final var candleSticks =
+		new QuandlDataProvider()
+		.getCandleSticksPerDay(
 			NYSEProductSymbolCatalogue.BOEING,
 			new Time(2015, 1, 1),
 			new Time(2015, 12, 31)
 		);
 		
-		//Calculates the percentage.	
-		final double percentage
-		= candleSticks.getSequences(
+		//Calculates the percentage.
+		final double percentage =
+		candleSticks.getSequences(
 			new SequencePattern<VolumeCandlestick>()
-			.addConditionForNext(cs -> cs.isHammer())
+			.addConditionForNext(VolumeCandlestick::isHammer)
 			.addBlankForNext()
 		)
 		.getPercentage(s -> s.getRefAt(2).isBullish());
-	
+		
 		//Prints out the percentage to the console.
 		System.out.format("hammers followed by a bullish from all hammers: %.2f %%", percentage);
 	}
 	
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link CandleStickTutorial} can be created.
 	 */
 	private CandleStickTutorial() {}
 }
