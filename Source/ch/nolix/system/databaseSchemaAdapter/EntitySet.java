@@ -10,6 +10,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.UnsupportedArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.schemaDataType.IEntitySet;
@@ -138,13 +139,12 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	public EntitySetSQLHelper getSQLHelper(final SQLDatabaseEngine SQLDatabaseEngine) {
-		switch (SQLDatabaseEngine) {
+	public EntitySetSQLHelper getSQLHelper(final SQLDatabaseEngine pSQLDatabaseEngine) {
+		switch (pSQLDatabaseEngine) {
 			case MSSQL:
 				return new EntitySetMSSQLHelper(this);
 			default:
-				throw
-				new RuntimeException("The given SQL database engine '" + SQLDatabaseEngine + "' is not supported.");
+				throw new UnsupportedArgumentException(pSQLDatabaseEngine);
 		}
 	}
 	
