@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionAPI.IElementGetter;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
@@ -11,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-29
  * @lines 130
  * @param <R> The type of the result of the resulltJob of a {@link ResultJobRunner}.
  */
@@ -122,9 +123,9 @@ final class ResultJobRunner<R> extends Thread {
 		try {
 			result = resultJob.getOutput();
 		}
-		catch (final Throwable error) {
-			this.error = error;
-			Logger.logError(error);
+		catch (final Throwable lError) {
+			error = lError;
+			Logger.logError(lError);
 		}
 		finally {
 			running = false;
