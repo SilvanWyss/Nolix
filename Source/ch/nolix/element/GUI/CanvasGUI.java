@@ -96,7 +96,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	public final void setPaintCommandsFromChainedNodes(final IContainer<ChainedNode> paintCommands) {
-		setPaintCommands(paintCommands.to(pc -> createPaintCommand(pc)));
+		setPaintCommands(paintCommands.to(this::createPaintCommand));
 	}
 	
 	//method
