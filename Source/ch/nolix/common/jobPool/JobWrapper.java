@@ -73,7 +73,7 @@ final class JobWrapper implements Runnable {
 	
 	//method
 	public void waitUntilIsFinished() {
-		Sequencer.waitUntil(() -> isFinished());
+		Sequencer.waitUntil(this::isFinished);
 	}
 	
 	//method
