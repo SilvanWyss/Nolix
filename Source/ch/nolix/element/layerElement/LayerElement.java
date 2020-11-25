@@ -4,6 +4,7 @@ package ch.nolix.element.layerElement;
 //Java import
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -19,24 +20,21 @@ import ch.nolix.element.elementAPI.IMutableElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-09
- * @lines 220
- * @param <E> The type of an entity.
+ * @date 2017-09-06
+ * @lines 210
+ * @param <E> The type of a {@link LayerElement}.
  */
-public abstract class LayerElement<E extends LayerElement<E>>
-implements
-	ISmartObject<E>,
-	IMutableElement<E> {
+public abstract class LayerElement<E extends LayerElement<E>> implements IMutableElement<E>, ISmartObject<E> {
 	
 	//attribute
 	private LinkedList<LayerProperty<?>> layerProperties;
 	
 	//optional attribute
-	private E baseEntity;
+	private E baseElement;
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this entity.
+	 * Adds or changes the given attribute to the current {@link LayerElement}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -61,7 +59,7 @@ implements
 	
 	//method
 	/**
-	 * @return the attributes of this entity.
+	 * @return the attributes of the current {@link LayerElement}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -74,11 +72,11 @@ implements
 	
 	//method
 	/**
-	 * @return the properties of this entity.
+	 * @return the properties of the current {@link LayerElement}.
 	 */
 	public final IContainer<LayerProperty<?>> getRefProperties() {
 		
-		//Handles the case that the properties of this entity are not extracted yet.
+		//Handles the case that the properties of the current LayerElement are not extracted yet.
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
@@ -88,58 +86,56 @@ implements
 	
 	//method
 	/**
-	 * Removes the values of the properties of this entity.
+	 * Removes the values of the properties of the current {@link LayerElement}.
 	 */
 	@Override
 	public E reset() {
 		
-		getRefProperties().forEach(p -> p.removeValue());
+		getRefProperties().forEach(LayerProperty::removeValue);
 		
 		return asConcrete();
 	}
 		
 	//method
 	/**
-	 * @return the base entity of this entity.
-	 * @throws ArgumentDoesNotHaveAttributeException if this entity does not have a base entity.
+	 * @return the base {@link LayerElement} of the current {@link LayerElement}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link LayerElement} does not have a {@link LayerElement}.
 	 */
-	protected final E getRefBaseEntity() {
+	protected final E getRefBaseElement() {
 		
-		//Asserts that this entity has a base entity.
-		supposeHasBaseEntity();
+		//Asserts that the current LayerElement has a base element.
+		assertHasBaseElement();
 		
-		return baseEntity;
+		return baseElement;
 	}
 	
 	//method
 	/**
-	 * @return true if this entity has a base entity.
+	 * @return true if the current {@link LayerElement} has a base {@link LayerElement}.
 	 */
-	protected final boolean hasBaseEntity() {
-		return (baseEntity != null);
+	protected final boolean hasBaseElement() {
+		return (baseElement != null);
 	}
 
 	//method
 	/**
-	 * Sets the base entity of this entity.
+	 * Sets the base {@link LayerElement} of the current {@link LayerElement}.
 	 * 
-	 * @param baseEntity
-	 * @throws ArgumentIsNullException if the given base entity is null.
+	 * @param baseElement
+	 * @throws ArgumentIsNullException if the given baseElement is null.
 	 */
-	protected final void setBaseEntity(final E baseEntity) {
+	protected final void setBaseElement(final E baseElement) {
 		
-		//Asserts that the given base entity is not null.
-		Validator
-		.assertThat(baseEntity)
-		.thatIsNamed("base entity")
-		.isNotNull();
+		//Asserts that the given baseElement is not null.
+		Validator.assertThat(baseElement).thatIsNamed("base element").isNotNull();
 		
-		this.baseEntity = baseEntity;
+		this.baseElement = baseElement;
 		
 		getRefProperties()
 		.forEach(
 			p -> p.setBaseProperty(
-				baseEntity.getRefProperties().getRefFirst(
+				baseElement.getRefProperties().getRefFirst(
 					p2 -> p2.hasName(p.getName())
 				)
 			)
@@ -148,14 +144,27 @@ implements
 	
 	//method
 	/**
-	 * Extracts the properties of this entity.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link LayerElement} does not have a base {@link LayerElement}.
+	 */
+	private void assertHasBaseElement() {
+		
+		//Asserts that the current LayerElement has a base element.
+		if (!hasBaseElement()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "base element");
+		}
+	}
+	
+	//method
+	/**
+	 * Extracts the properties of the current {@link LayerElement}.
 	 * 
 	 * @throws InvalidArgumentException
-	 * if the properties of this entity are extracted already.
+	 * if the properties of the current {@link LayerElement} are extracted already.
 	 */
 	private void extractProperties() {
 		
-		//Asserts that the properties of this entity are not extracted yet.
+		//Asserts that the properties of the current LayerElement are not extracted yet.
 		if (propertiesAreExtracted()) {
 			throw new InvalidArgumentException(
 				this,
@@ -165,7 +174,7 @@ implements
 		
 		layerProperties = new LinkedList<>();
 		
-		//Iterates the types of this entity.
+		//Iterates the types of the current LayerElement.
 		Class<?> cl = getClass();
 		while (cl != null) {
 			
@@ -201,24 +210,9 @@ implements
 	
 	//method
 	/**
-	 * @return true if the properties of this entity are extracted.
+	 * @return true if the properties of the current {@link LayerElement} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
 		return (layerProperties != null);
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if this entity does not have a base entity.
-	 */
-	private void supposeHasBaseEntity() {
-		
-		//Asserts that this entity has a base entity.
-		if (!hasBaseEntity()) {
-			throw new ArgumentDoesNotHaveAttributeException(
-				this,
-				"base entity"
-			);
-		}
 	}
 }

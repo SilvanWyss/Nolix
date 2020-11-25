@@ -248,7 +248,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		//Asserts that the current widget look has a base look.
 		supposeHasBaseLook();
 		
-		return getRefBaseEntity();
+		return getRefBaseElement();
 	}
 	
 	//method
@@ -256,7 +256,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * @return true if the current {@link WidgetLook} has a base look.
 	 */
 	protected final boolean hasBaseLook() {
-		return hasBaseEntity();
+		return hasBaseElement();
 	}
 	
 	//method
@@ -274,7 +274,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		.thatIsNamed("base look")
 		.isNotNull();
 		
-		setBaseEntity(baseLook);
+		setBaseElement(baseLook);
 	}
 	
 	//method
