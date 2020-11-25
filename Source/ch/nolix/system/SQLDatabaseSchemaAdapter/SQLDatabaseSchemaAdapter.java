@@ -21,21 +21,21 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	private static final String DATABASE_PROPERTIES_TABLE_NAME = "DatabaseProperties";
 	
 	//attribute
-	private final SQLConnection SQLConnection;
+	private final SQLConnection mSQLConnection;
 	
 	//constructor
-	protected SQLDatabaseSchemaAdapter(final SQLConnection SQLConnection) {
+	protected SQLDatabaseSchemaAdapter(final SQLConnection pSQLConnection) {
 		
-		Validator.assertThat(SQLConnection).isOfType(SQLConnection.class);
+		Validator.assertThat(pSQLConnection).isOfType(SQLConnection.class);
 		
-		this.SQLConnection = SQLConnection;
+		this.mSQLConnection = pSQLConnection;
 	}
 	
 	//method
 	public final DatabaseState getDatabaseState() {
 		return
 		DatabaseState.valueOf(
-			SQLConnection
+			mSQLConnection
 			.getRows("SELECT content FROM " + DATABASE_PROPERTIES_TABLE_NAME + " WHERE name = 'State'")
 			.getRefOne()
 			.getRefOne()
@@ -44,7 +44,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	
 	//method
 	public final SQLDatabaseEngine getSQLDatabaseEngine() {
-		return SQLConnection.getSQLDatabaseEngine();
+		return mSQLConnection.getSQLDatabaseEngine();
 	}
 	
 	//method
@@ -57,7 +57,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	//method
 	@Override
 	protected void initializeDatabaseWhenNotInitialized() {
-		SQLConnection.execute(
+		mSQLConnection.execute(
 			"CREATE TABLE "
 			+ DATABASE_PROPERTIES_TABLE_NAME
 			+ "("
@@ -72,7 +72,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	//method
 	@Override
 	protected void lockDatabase() {
-		SQLConnection
+		mSQLConnection
 		.execute(
 			"INSERT INTO "
 			+ DATABASE_PROPERTIES_TABLE_NAME
@@ -109,22 +109,22 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			}
 		}
 		
-		final var SQLExecutor = SQLConnection.createSQLExecutor();
+		final var lSQLExecutor = mSQLConnection.createSQLExecutor();
 		
 		for (final var es : createdEntitySets) {
-			SQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getCreateSQLStatement());
+			lSQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getCreateSQLStatement());
 		}
 		
 		//TODO: Handle changedEntitySets.
 		
 		//TODO: Check if all of the given deletedEntitySets are allowed to be deleted.
 		for (final var es : deletedEntitySets) {
-			SQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getDeleteSQLStatement());
+			lSQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getDeleteSQLStatement());
 		}
 		
-		SQLExecutor.addStatement(getSetDatabaseReadySQLStatement());
+		lSQLExecutor.addStatement(getSetDatabaseReadySQLStatement());
 		
-		SQLExecutor.execute();
+		lSQLExecutor.execute();
 	}
 	
 	//method
