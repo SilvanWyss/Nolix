@@ -9,7 +9,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-05-23
  * @lines 90
  */
 public final class Future implements IFuture {
@@ -74,7 +74,7 @@ public final class Future implements IFuture {
 	 */
 	@Override
 	public void waitUntilIsFinished() {
-		Sequencer.waitUntil(() -> isFinished());
+		Sequencer.waitUntil(this::isFinished);
 	}
 	
 	//method
