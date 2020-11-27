@@ -11,7 +11,7 @@ import ch.nolix.system.entity.Entity;
 
 //class
 public final class EntitiesAdapter<E extends Entity> {
-
+	
 	//attributes
 	private final BaseNode entitiesSpecification;
 	private final ValueCreator<BaseNode> valueCreator;
@@ -81,7 +81,7 @@ public final class EntitiesAdapter<E extends Entity> {
 		return
 		entitiesSpecification
 		.getRefAttributes()
-		.to(a -> new EntityAdapter<E>(a));
+		.to(EntityAdapter::new);
 	}
 	
 	//method
