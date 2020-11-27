@@ -1,18 +1,20 @@
 //package declaration
 package ch.nolix.common.jobPool;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.functionAPI.IAction;
 import ch.nolix.common.futureAPI.IFuture;
 
 //class
 /**
  * A {@link JobPool} runs jobs in the background.
- * A {@link JobPool uses an optimal number of {@link Thread}s to run several jobs efficiently.
+ * A {@link JobPool uses an optimal number of {@link Workers}s to run several jobs efficiently.
  * 
  * @author Silvan Wyss
- * @month 2019-04
- * @lines 80
+ * @date 2019-04-14
+ * @lines 100
  */
 public final class JobPool {
 	
@@ -20,8 +22,8 @@ public final class JobPool {
 	private static final int OPTIMAL_WORKER_COUNT = 100;
 	
 	//multi-attributes
-	private final LinkedList<JobWrapper> jobWrappers = new LinkedList<>();
 	private final LinkedList<Worker> workers = new LinkedList<>();
+	private final LinkedList<JobWrapper> jobWrappers = new LinkedList<>();
 	
 	//method
 	/**
@@ -45,28 +47,34 @@ public final class JobPool {
 	 * @return true if the current {@link JobPool} contains waiting jobs.
 	 */
 	public boolean containsWaitingJobs() {
-		return jobWrappers.containsAny();
-	}
-
-	//method
-	synchronized JobWrapper removeAndGetNextJobWrapperOrNull() {
-		
-		//Handles the case that the current JobPool does not contain job wrappers.
-		if (jobWrappers.isEmpty()) {
-			return null;
-		}
-		
-		//Handles the case that the current JobPool contains job wrappers.
-		return jobWrappers.removeAndGetRefLast();
+		return jobWrappers.contains(JobWrapper::isFresh);
 	}
 	
 	//method
-	void removeWorker(final Worker worker) {
+	/**
+	 * @return true if the current {@link JobPool} is idle.
+	 */
+	public boolean isIdle() {
+		return jobWrappers.containsAny();
+	}
+	
+	//method
+	synchronized SingleContainer<JobWrapper> getRefNextFreshJobWrapperOptionally() {
+		return jobWrappers.getRefFirstOptionally(JobWrapper::isFresh);
+	}
+		
+	//method
+	synchronized void removeJobWrapper(final JobWrapper jobWrapper) {
+		jobWrappers.removeFirst(jobWrapper);
+	}
+	
+	//method
+	synchronized void removeWorker(final Worker worker) {
 		workers.removeFirst(worker);
 	}
 	
 	//method
-	private void createNewWorkerIfNeeded() {
+	private synchronized void createNewWorkerIfNeeded() {
 		
 		//Handles the case that a new worker is needed.
 		if (newWorkerIsNeeded()) {
@@ -80,10 +88,18 @@ public final class JobPool {
 	}
 	
 	//method
-	private boolean newWorkerIsNeeded() {
+	private int getWorkerCount() {
+		return workers.getElementCount();
+	}
+	
+	//method
+	private synchronized boolean newWorkerIsNeeded() {
+		
+		final var workerCount = getWorkerCount();
+		
 		return
 		jobWrappers.containsAny()
-		&& workers.getElementCount() < getOptimalWorkerCount()
-		&& 10 * workers.getElementCount() < jobWrappers.getElementCount();
+		&& workerCount < getOptimalWorkerCount()
+		&& 10 * workerCount < jobWrappers.getElementCount();
 	}
 }

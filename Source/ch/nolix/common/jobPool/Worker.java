@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.jobPool;
 
-//own imports
+//own import
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -21,24 +21,18 @@ final class Worker extends Thread {
 	//method
 	@Override
 	public void run() {
-		
-		var dryRuns = 0;	
+			
 		while (true) {
 			
-			final var jobWrapper = parentJobPool.removeAndGetNextJobWrapperOrNull();
+			final var jobWrapperContainer = parentJobPool.getRefNextFreshJobWrapperOptionally();
 			
-			if (jobWrapper == null) {
-				
-				if (dryRuns > 1000000) {
-					break;
-				}
-				
-				dryRuns++;
+			if (jobWrapperContainer.isEmpty()) {
+				break;
 			}
-			else {
-				jobWrapper.run();
-				dryRuns = 0;
-			}
+			
+			final var jobWrapper = jobWrapperContainer.getRefElement();
+			jobWrapper.run();
+			parentJobPool.removeJobWrapper(jobWrapper);
 		}
 		
 		parentJobPool.removeWorker(this);

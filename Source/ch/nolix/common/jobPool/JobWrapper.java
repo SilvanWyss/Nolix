@@ -23,7 +23,10 @@ final class JobWrapper implements Runnable {
 	
 	//constructor
 	public JobWrapper(final IAction job) {
-		this.job = Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
+		
+		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		
+		this.job = job;
 	}
 	
 	//method
@@ -47,15 +50,19 @@ final class JobWrapper implements Runnable {
 	}
 	
 	//method
+	public boolean isFresh() {
+		return (!isRunning() && !isFinished());
+	}
+	
+	//method
+	public boolean isRunning() {
+		return running;
+	}
+	
+	//method
 	public void run() {
 		
-		if (running) {
-			throw new InvalidArgumentException(this, "is already running");
-		}
-		
-		if (finished) {
-			throw new InvalidArgumentException(this, "is already finished");
-		}
+		assertIsFresh();
 		
 		running = true;
 		
@@ -82,12 +89,23 @@ final class JobWrapper implements Runnable {
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
 		Sequencer.waitAsLongAs(
-			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
-			&& !isFinished()
+			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds	&& !isFinished()
 		);
 		
 		if (!isFinished()) {
 			throw new InvalidArgumentException(this, "reached timeout before having finished");
+		}
+	}
+	
+	//method
+	private void assertIsFresh() {
+		
+		if (isRunning()) {
+			throw new InvalidArgumentException(this, "is already running");
+		}
+		
+		if (isFinished()) {
+			throw new InvalidArgumentException(this, "is already finished");
 		}
 	}
 }
