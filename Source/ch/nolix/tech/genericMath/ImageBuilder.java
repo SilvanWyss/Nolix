@@ -21,6 +21,9 @@ import ch.nolix.techAPI.genericMathAPI.IImageBuilder;
 //class
 public final class ImageBuilder implements IImageBuilder {
 	
+	//constant
+	private static final int LINES_PER_THREAD = 10;
+	
 	//attributes
 	private final Fractal fractal;
 	private final Image image;
@@ -69,9 +72,6 @@ public final class ImageBuilder implements IImageBuilder {
 	@Override
 	public boolean isFinished() {
 		return !jobPool.containsWaitingJobs();
-		//futures.removeAll(IFuture::isFinished);
-		
-		//return futures.containsAny();
 	}
 	
 	//method
@@ -106,11 +106,10 @@ public final class ImageBuilder implements IImageBuilder {
 	private void fillImage() {
 		
 		final var heightInpixel = fractal.getHeightInPixel();		
-		final var linesPerThread = 10;
 		
-		for (var y = 1; y <= heightInpixel - linesPerThread; y += linesPerThread) {
+		for (var y = 1; y <= heightInpixel - LINES_PER_THREAD; y += LINES_PER_THREAD) {
 			final var y_ = y;
-			futures.addAtEnd(jobPool.enqueue(() -> fillLines(y_, y_ + linesPerThread - 1)));
+			futures.addAtEnd(jobPool.enqueue(() -> fillLines(y_, y_ + LINES_PER_THREAD - 1)));
 		}
 	}
 	
