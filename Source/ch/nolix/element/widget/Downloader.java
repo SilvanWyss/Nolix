@@ -18,7 +18,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//constants
 	public static final String DEFAULT_TEXT = "Download";
-	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Hand;
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.HAND;
 	
 	//constant
 	private static final String FILE_GETTER_HEADER = "FileGetter";

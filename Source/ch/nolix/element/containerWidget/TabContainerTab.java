@@ -62,7 +62,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	private final Label menuItem =
 	new Label()
 	.setContentPosition(ContentPosition.Center)
-	.setCustomCursorIcon(CursorIcon.Hand);
+	.setCustomCursorIcon(CursorIcon.HAND);
 	
 	//optional attributes
 	private TabContainer parentTabContainer;

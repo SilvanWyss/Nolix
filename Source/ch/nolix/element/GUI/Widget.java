@@ -51,7 +51,7 @@ IInputTaker, Recalculable,
 TopLeftPositionedRecangular {
 	
 	//constant
-	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//constant
 	private static final String GREY_OUT_WHEN_DISABLED_HEADER = "GreyOutWhenDisabled";

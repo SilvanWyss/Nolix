@@ -44,7 +44,7 @@ public final class ButtonTutorial {
 			
 			//Configures the look of the Button.
 			button
-			.setCustomCursorIcon(CursorIcon.Hand)
+			.setCustomCursorIcon(CursorIcon.HAND)
 			.applyOnBaseLook(
 				bl ->
 				bl

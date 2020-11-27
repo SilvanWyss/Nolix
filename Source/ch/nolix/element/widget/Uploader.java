@@ -84,7 +84,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
 		setContentPosition(ContentPosition.Center);
-		setCustomCursorIcon(CursorIcon.Hand);
+		setCustomCursorIcon(CursorIcon.HAND);
 		
 		getRefBaseLook()
 		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)

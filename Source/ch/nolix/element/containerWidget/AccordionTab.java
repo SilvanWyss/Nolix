@@ -318,7 +318,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			.setBackgroundColor(accordionLook.getRecursiveOrDefaultTabBackgroundColor());
 		}
 		
-		headerLabel.setCustomCursorIcon(CursorIcon.Hand);
+		headerLabel.setCustomCursorIcon(CursorIcon.HAND);
 		headerLabel.getRefBaseLook().setTextColor(Color.GREY);
 		headerLabel.getRefHoverLook().setTextColor(Color.BLACK);
 		headerLabel.getRefFocusLook().setTextColor(Color.BLACK);

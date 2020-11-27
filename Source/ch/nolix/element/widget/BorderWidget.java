@@ -234,14 +234,14 @@ extends Widget<BW, BWL> {
 		if (anyScrollBarCursorIsUnderCursor()) {
 			
 			//TODO: Add cursorIcon attribute to BorderWidgetScrollBarLook.
-			return CursorIcon.Hand;
+			return CursorIcon.HAND;
 		}
 		
 		if (showAreaIsUnderCursor()) {
 			return super.getCursorIcon();
 		}
 		
-		return CursorIcon.Arrow;
+		return CursorIcon.ARROW;
 	}
 	
 	//method

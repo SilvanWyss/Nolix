@@ -412,7 +412,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		//Handles the case that the current LayerGUI does not contain a Layer.
 		if (isEmpty()) {
-			return CursorIcon.Arrow;
+			return CursorIcon.ARROW;
 		}
 		
 		//Handles the case that the current LayerGUI contains Layers.

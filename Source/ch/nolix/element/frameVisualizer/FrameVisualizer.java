@@ -169,7 +169,7 @@ public final class FrameVisualizer implements IVisualizer {
 	 */
 	@Override
 	public void repaint() {
-		frame.setCursor(parentGUI.getCursorIcon().getJavaCursor());
+		frame.setCursor(parentGUI.getCursorIcon().toCursor());
 		frame.repaint();
 	}
 	

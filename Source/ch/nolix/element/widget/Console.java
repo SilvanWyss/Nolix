@@ -775,7 +775,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		super.resetConfigurationOnSelf();
 		
-		setCustomCursorIcon(CursorIcon.Edit);
+		setCustomCursorIcon(CursorIcon.EDIT);
 		getRefBaseLook().setTextFont(Font.LucidaConsole);
 	}
 	

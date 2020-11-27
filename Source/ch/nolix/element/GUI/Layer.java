@@ -314,7 +314,7 @@ IResizableInputTaker {
 			return rootWidget.getCursorIcon();
 		}
 				
-		return CursorIcon.Arrow;
+		return CursorIcon.ARROW;
 	}
 	
 	//method

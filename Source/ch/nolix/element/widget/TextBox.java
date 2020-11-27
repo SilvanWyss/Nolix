@@ -135,7 +135,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		setCustomCursorIcon(CursorIcon.Edit);
+		setCustomCursorIcon(CursorIcon.EDIT);
 		getRefBaseLook().setBorderThicknesses(1);
 	}
 	
@@ -321,7 +321,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		super.resetConfigurationOnSelf();
 		
 		setProposalWidth(200);
-		setCustomCursorIcon(CursorIcon.Edit);
+		setCustomCursorIcon(CursorIcon.EDIT);
 	}
 	
 	//method

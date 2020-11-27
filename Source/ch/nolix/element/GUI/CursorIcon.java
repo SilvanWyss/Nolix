@@ -11,16 +11,16 @@ import ch.nolix.element.elementAPI.IElementEnum;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 60
  */
 public enum CursorIcon implements IElementEnum {
-	Arrow,
-	Cross,
-	Edit,
-	Hand,
-	Move,
-	Wait;
+	ARROW,
+	CROSS,
+	EDIT,
+	HAND,
+	MOVE,
+	WAIT;
 	
 	//constant
 	public static final String TYPE_NAME = "CursorIcon";
@@ -29,37 +29,34 @@ public enum CursorIcon implements IElementEnum {
 	/**
 	 * @param specification
 	 * @return a new {@link CursorIcon} from the given specification.
-	 * @throws InvalidArgumentException
-	 * if the given specification is not valid.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static CursorIcon fromSpecification(
-		final BaseNode specification
-	) {
+	public static CursorIcon fromSpecification(final BaseNode specification) {
 		return valueOf(specification.getOneAttributeHeader());
 	}
 	
 	//method
 	/**
-	 * @return the Java cursor of the current {@link CursorIcon}.
+	 * @return a {@link Cursor} representation of the current {@link CursorIcon}.
 	 */
-	public Cursor getJavaCursor() {
+	public Cursor toCursor() {
 		
 		//Enumerates the current cursor icon.
 		switch (this) {
-			case Arrow:
-				return new Cursor(java.awt.Cursor.DEFAULT_CURSOR);
-			case Cross:
-				return new Cursor(java.awt.Cursor.CROSSHAIR_CURSOR);
-			case Edit:
-				return new Cursor(java.awt.Cursor.TEXT_CURSOR);
-			case Hand:
-				return new Cursor(java.awt.Cursor.HAND_CURSOR);
-			case Move:
-				return new Cursor(java.awt.Cursor.MOVE_CURSOR);
-			case Wait:
-				return new Cursor(java.awt.Cursor.WAIT_CURSOR);
+			case ARROW:
+				return new Cursor(Cursor.DEFAULT_CURSOR);
+			case CROSS:
+				return new Cursor(Cursor.CROSSHAIR_CURSOR);
+			case EDIT:
+				return new Cursor(Cursor.TEXT_CURSOR);
+			case HAND:
+				return new Cursor(Cursor.HAND_CURSOR);
+			case MOVE:
+				return new Cursor(Cursor.MOVE_CURSOR);
+			case WAIT:
+				return new Cursor(Cursor.WAIT_CURSOR);
 			default:
-				return new Cursor(java.awt.Cursor.DEFAULT_CURSOR);
+				return new Cursor(Cursor.DEFAULT_CURSOR);
 		}
 	}
 }

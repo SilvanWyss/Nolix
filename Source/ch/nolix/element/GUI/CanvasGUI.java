@@ -26,7 +26,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//constants
 	public static final Color BACKGROUND_COLOR = Color.WHITE;
-	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.Arrow;
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//attribute
 	private MutableValue<CursorIcon> cursorIcon =
