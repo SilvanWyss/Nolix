@@ -176,7 +176,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	@Override
-	public final String getHeader() {
+	public String getHeader() {
 		return header.getValue();
 	}
 	

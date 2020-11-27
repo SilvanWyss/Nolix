@@ -15,7 +15,7 @@ public final class MultiBackReference<E extends Entity> extends BaseBackReferenc
 	
 	//method
 	@Override
-	public final boolean canReferenceBackSeveralEntities() {
+	public boolean canReferenceBackSeveralEntities() {
 		return true;
 	}
 	

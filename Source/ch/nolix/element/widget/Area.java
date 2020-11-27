@@ -296,7 +296,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteKeyTypingOnSelfWhenEnabled(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenEnabled(final Key key) {}
 	
 	//method
 	/**
@@ -324,35 +324,35 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnSelfWhenEnabled() {}
+	protected void noteMouseMoveOnSelfWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelClickOnSelfWhenEnabled() {}
+	protected void noteMouseWheelClickOnSelfWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelPressOnSelfWhenEnabled() {}
+	protected void noteMouseWheelPressOnSelfWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelReleaseOnSelfWhenEnabled() {}
+	protected void noteMouseWheelReleaseOnSelfWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection) {}
 	
 	//method
 	/**
@@ -394,7 +394,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected void recalculateSelfStage2() {}
 	
 	//method
 	/**

@@ -764,14 +764,14 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected void recalculateSelfStage2() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurationOnSelf() {
+	protected void resetConfigurationOnSelf() {
 		
 		super.resetConfigurationOnSelf();
 		

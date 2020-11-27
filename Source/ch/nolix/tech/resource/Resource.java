@@ -115,7 +115,7 @@ public final class Resource implements IResource, Named {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getBaseResourceCount() {
+	public int getBaseResourceCount() {
 		return getBaseResources().getElementCount();
 	}
 	
@@ -133,7 +133,7 @@ public final class Resource implements IResource, Named {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ReadContainer<IResource> getBaseResources() {
+	public ReadContainer<IResource> getBaseResources() {
 		return baseResources;
 	}
 	
@@ -142,7 +142,7 @@ public final class Resource implements IResource, Named {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean isDirectSubResourceOf(final IResource resource) {
+	public boolean isDirectSubResourceOf(final IResource resource) {
 		return getBaseResources().contains(resource);
 	}
 	
@@ -151,7 +151,7 @@ public final class Resource implements IResource, Named {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean isSubResourceOf(final IResource resource) {
+	public boolean isSubResourceOf(final IResource resource) {
 		
 		//Handles the case that the current resource is a direct sub resource of the given resource.
 		if (isDirectSubResourceOf(resource)) {

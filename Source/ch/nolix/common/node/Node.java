@@ -126,7 +126,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static final Node withOneAttribute(final double attribute) {
+	public static Node withOneAttribute(final double attribute) {
 		
 		final var node = new Node();
 		node.addAttribute(String.valueOf(attribute));
@@ -139,7 +139,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static final Node withOneAttribute(final int attribute) {
+	public static Node withOneAttribute(final int attribute) {
 		
 		final var node = new Node();
 		node.addAttribute(String.valueOf(attribute));

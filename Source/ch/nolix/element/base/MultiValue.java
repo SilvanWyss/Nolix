@@ -187,7 +187,7 @@ public final class MultiValue<V> extends Property<V> implements IContainer<V> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpSpecificationsOfValues(final LinkedList<Node> list) {
+	void fillUpSpecificationsOfValues(final LinkedList<Node> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : this) {

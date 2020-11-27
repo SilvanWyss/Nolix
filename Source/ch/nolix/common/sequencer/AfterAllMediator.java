@@ -109,7 +109,7 @@ public final class AfterAllMediator {
 	 * @return a new future.
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
-	public final Future runInBackground(final IAction job) {
+	public Future runInBackground(final IAction job) {
 		
 		//Handles the case that this after all mediator does not have a max count.
 		if (!hasMaxRunCount()) {

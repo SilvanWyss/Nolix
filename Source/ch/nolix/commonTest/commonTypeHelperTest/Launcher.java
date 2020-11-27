@@ -17,7 +17,7 @@ public final class Launcher {
 	 * 
 	 * @param args
 	 */
-	public static final void main(String[] args) {
+	public static void main(String[] args) {
 		new CommonTypeHelpersTestPool().run();
 	}
 	

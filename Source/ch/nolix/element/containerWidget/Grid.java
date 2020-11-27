@@ -256,7 +256,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**

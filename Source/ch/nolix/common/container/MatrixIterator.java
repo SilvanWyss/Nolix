@@ -45,7 +45,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 * @return true if the current {@link MatrixIterator} has a next element.
 	 */
 	@Override
-	public final boolean hasNext() {
+	public boolean hasNext() {
 		return (nextElementIndex <= parentMatrix.getElementCount());
 	}
 	
@@ -56,7 +56,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 * if the current {@link MatrixIterator} does not have a next element.
 	 */
 	@Override
-	public final E next() {
+	public E next() {
 		
 		//Asserts that this matrix iterator has a next element.
 		supposeHasNextElement();

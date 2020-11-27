@@ -56,7 +56,7 @@ final class Package extends ch.nolix.common.messaging.IndexedPackage<String> {
 	/**
 	 * @return the role of the message of this zeta package.
 	 */
-	public final MessageRole getMessageRole() {
+	public MessageRole getMessageRole() {
 		return messageRole;
 	}
 	

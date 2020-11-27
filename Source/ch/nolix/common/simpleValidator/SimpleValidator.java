@@ -29,7 +29,7 @@ public final class SimpleValidator {
 	 * @throws ArgumentIsNullException if the given string, that has the given name, is null.
 	 * @throws EmptyArgumentException if the given string, that has the given name, is null.
 	 */
-	public static final void throwExceptionIfStringIsNullOrEmpty(final String name, String string) {
+	public static void throwExceptionIfStringIsNullOrEmpty(final String name, String string) {
 		
 		throwExceptionIfValueIsNull(name, string);
 		
@@ -45,7 +45,7 @@ public final class SimpleValidator {
 	 * @param max
 	 * @throws BiggerArgumentException if the given value, that has the given name, is bigger than the given max.
 	 */
-	public static final void throwExceptionIfValueIsBigger(final String name, final double value, final double max) {
+	public static void throwExceptionIfValueIsBigger(final String name, final double value, final double max) {
 		if (value > max) {
 			throw new BiggerArgumentException(name, value, max);
 		}
@@ -58,7 +58,7 @@ public final class SimpleValidator {
 	 * @param max
 	 * @throws BiggerArgumentException if the given value, that has the given name, is bigger than the given max.
 	 */
-	public static final void throwExceptionIfValueIsBigger(final String name, final int value, final int max) {
+	public static void throwExceptionIfValueIsBigger(final String name, final int value, final int max) {
 		if (value > max) {
 			throw new BiggerArgumentException(name, value, max);
 		}
@@ -71,7 +71,7 @@ public final class SimpleValidator {
 	 * @param max
 	 * @throws BiggerArgumentException if the given value, that has the given name, is bigger than the given max.
 	 */
-	public static final void throwExceptionIfValueIsBigger(final String name, long value, final long max) {
+	public static void throwExceptionIfValueIsBigger(final String name, long value, final long max) {
 		if (value > max) {
 			throw new BiggerArgumentException(name, value, max);
 		}
@@ -83,7 +83,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws NegativeArgumentException if the given value, that has the given name, is negative.
 	 */
-	public static final void throwExceptionIfValueIsNegative(final String name, final double value) {
+	public static void throwExceptionIfValueIsNegative(final String name, final double value) {
 		if (value < 0) {
 			throw new NegativeArgumentException(name, value);
 		}
@@ -95,7 +95,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws NegativeArgumentException if the given value, that has the given name, is negative.
 	 */
-	public static final void throwExceptionIfValueIsNegative(final String name, final int value) {
+	public static void throwExceptionIfValueIsNegative(final String name, final int value) {
 		if (value < 0) {
 			throw new NegativeArgumentException(name, value);
 		}
@@ -107,7 +107,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws NegativeArgumentException if the given value, that has the given name, is negative.
 	 */
-	public static final void throwExceptionIfValueIsNegative(final String name, final long value) {
+	public static void throwExceptionIfValueIsNegative(final String name, final long value) {
 		if (value < 0) {
 			throw new NegativeArgumentException(name, value);
 		}
@@ -121,7 +121,7 @@ public final class SimpleValidator {
 	 * @throws UnequalArgumentException
 	 * if the given value, that has the given name, does not equal the given expectedValue.
 	 */
-	public static final void throwExceptionIfValueIsNotEqual(
+	public static void throwExceptionIfValueIsNotEqual(
 		final String name,
 		final double value,
 		final double expectedValue
@@ -139,7 +139,7 @@ public final class SimpleValidator {
 	 * @throws UnequalArgumentException
 	 * if the given value, that has the given name, does not equal the given expectedValue.
 	 */
-	public static final void throwExceptionIfValueIsNotEqual(
+	public static void throwExceptionIfValueIsNotEqual(
 		final String name,
 		final int value,
 		final int expectedValue
@@ -157,7 +157,7 @@ public final class SimpleValidator {
 	 * @throws UnequalArgumentException
 	 * if the given value, that has the given name, does not equal the given expectedValue.
 	 */
-	public static final void throwExceptionIfValueIsNotEqual(
+	public static void throwExceptionIfValueIsNotEqual(
 		final String name,
 		final long value,
 		final long expectedValue
@@ -175,7 +175,7 @@ public final class SimpleValidator {
 	 * @param max
 	 * @throws ArgumentIsOutOfRangeException if the given value, that has the given name, is not in the given range.
 	 */
-	public static final void throwExceptionIfValueIsNotInRange(
+	public static void throwExceptionIfValueIsNotInRange(
 		final String name,
 		final double value,
 		final double min,
@@ -194,7 +194,7 @@ public final class SimpleValidator {
 	 * @param max
 	 * @throws ArgumentIsOutOfRangeException if the given value, that has the given name, is not in the given range.
 	 */
-	public static final void throwExceptionIfValueIsNotInRange(
+	public static void throwExceptionIfValueIsNotInRange(
 		final String name,
 		final int value,
 		final int min,
@@ -213,7 +213,7 @@ public final class SimpleValidator {
 	 * @param max
 	 * @throws ArgumentIsOutOfRangeException if the given value, that has the given name, is not in the given range.
 	 */
-	public static final void throwExceptionIfValueIsNotInRange(
+	public static void throwExceptionIfValueIsNotInRange(
 		final String name,
 		final long value,
 		final long min,
@@ -230,7 +230,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value, that has the with given name, is not positive.
 	 */
-	public static final void throwExceptionIfValueIsNotPositive(final String name, final double value) {
+	public static void throwExceptionIfValueIsNotPositive(final String name, final double value) {
 		if (value < 1) {
 			throw new NonPositiveArgumentException(name, value);
 		}
@@ -242,7 +242,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value, that has the with given name, is not positive.
 	 */
-	public static final void throwExceptionIfValueIsNotPositive(final String name, final int value) {
+	public static void throwExceptionIfValueIsNotPositive(final String name, final int value) {
 		if (value < 1) {
 			throw new NonPositiveArgumentException(name, value);
 		}
@@ -254,7 +254,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value, that has the with given name, is not positive.
 	 */
-	public static final void throwExceptionIfValueIsNotPositive(final String name, final long value) {
+	public static void throwExceptionIfValueIsNotPositive(final String name, final long value) {
 		if (value < 1) {
 			throw new NonPositiveArgumentException(name, value);
 		}
@@ -266,7 +266,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws ArgumentIsNullException if the given value, that has the given name, is null.
 	 */
-	public static final void throwExceptionIfValueIsNull(final String name, final Object value) {
+	public static void throwExceptionIfValueIsNull(final String name, final Object value) {
 		if (value == null) {
 			throw new ArgumentIsNullException(name);
 		}
@@ -279,7 +279,7 @@ public final class SimpleValidator {
 	 * @param min
 	 * @throws SmallerArgumentException if the given value, that has the given name, is smaller than the given min.
 	 */
-	public static final void throwExceptionIfValueIsSmaller(final String name, final double value, final double min) {
+	public static void throwExceptionIfValueIsSmaller(final String name, final double value, final double min) {
 		if (value < min) {
 			throw new SmallerArgumentException(name, value, min);
 		}
@@ -292,7 +292,7 @@ public final class SimpleValidator {
 	 * @param min
 	 * @throws SmallerArgumentException if the given value, that has the given name, is smaller than the given min.
 	 */
-	public static final void throwExceptionIfValueIsSmaller(final String name, final int value, final int min) {
+	public static void throwExceptionIfValueIsSmaller(final String name, final int value, final int min) {
 		if (value < min) {
 			throw new SmallerArgumentException(name, value, min);
 		}
@@ -305,7 +305,7 @@ public final class SimpleValidator {
 	 * @param min
 	 * @throws SmallerArgumentException if the given value, that has the given name, is smaller than the given min.
 	 */
-	public static final void throwExceptionIfValueIsSmaller(final String name, final long value, final long min) {
+	public static void throwExceptionIfValueIsSmaller(final String name, final long value, final long min) {
 		if (value < min) {
 			throw new SmallerArgumentException(name, value, min);
 		}
@@ -317,7 +317,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws ArgumentIsZeroException if the given value, that has the given name, is 0.0.
 	 */
-	public static final void throwExceptionIfValueIsZero(final String name, final double value) {
+	public static void throwExceptionIfValueIsZero(final String name, final double value) {
 		if (value == 0) {
 			throw new ArgumentIsZeroException(name, value);
 		}
@@ -329,7 +329,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws ArgumentIsZeroException if the given value, that has the given name, is 0.
 	 */
-	public static final void throwExceptionIfValueIsZero(final String name, final int value) {
+	public static void throwExceptionIfValueIsZero(final String name, final int value) {
 		if (value == 0) {
 			throw new ArgumentIsZeroException(name, value);
 		}
@@ -341,7 +341,7 @@ public final class SimpleValidator {
 	 * @param value
 	 * @throws ArgumentIsZeroException if the given value, that has the given name, is 0.
 	 */
-	public static final void throwExceptionIfValueIsZero(final String name, final long value) {
+	public static void throwExceptionIfValueIsZero(final String name, final long value) {
 		if (value == 0) {
 			throw new ArgumentIsZeroException(name, value);
 		}

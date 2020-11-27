@@ -59,7 +59,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 	/**
 	 * @return the port of this net server.
 	 */
-	public final int getPort() {
+	public int getPort() {
 		return internalNetServer.getPort();
 	}
 	

@@ -201,7 +201,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getContentAreaHeight() {
+	protected int getContentAreaHeight() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {
@@ -216,7 +216,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getContentAreaWidth() {
+	protected int getContentAreaWidth() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {
@@ -259,7 +259,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -315,5 +315,5 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected void recalculateSelfStage2() {}
 }

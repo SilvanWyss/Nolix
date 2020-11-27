@@ -154,42 +154,42 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	public final boolean isDeleted() {
+	public boolean isDeleted() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.DELETED);
 	}
 	
 	//method
-	public final boolean isEdited() {
+	public boolean isEdited() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.EDITED);
 	}
 	
 	//method
-	public final boolean isNew() {
+	public boolean isNew() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.NEW);
 	}
 	
 	//method
-	public final boolean isPersisted() {
+	public boolean isPersisted() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.PERSISTED);
 	}
 	
 	//method
-	public final boolean isRejected() {
+	public boolean isRejected() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (state == EntitySetState.REJECTED);
 	}
 	
 	//method
-	final void setChanged() {
+	void setChanged() {
 		switch (getState()) {
 			case PERSISTED:
 				
@@ -210,7 +210,7 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	final void setDeleted() {
+	void setDeleted() {
 		switch (getState()) {
 			case NEW:
 				throw new InvalidArgumentException(this, "is created");
@@ -226,7 +226,7 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	final void setParentSchemaAdapter(final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter) {
+	void setParentSchemaAdapter(final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter) {
 		
 		Validator.assertThat(parentDatabaseSchemaAdapter).thatIsNamed(DatabaseSchemaAdapter.class).isNotNull();
 		
@@ -238,7 +238,7 @@ public final class EntitySet implements IEntitySet, Named {
 
 
 	//method
-	final void setPersisted() {
+	void setPersisted() {
 		switch (getState()) {
 			case PERSISTED:
 				break;
@@ -255,7 +255,7 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	final void setRejected() {
+	void setRejected() {
 		state = EntitySetState.REJECTED;
 	}
 	

@@ -30,7 +30,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	}
 	
 	//method
-	public final boolean hasFileTaker() {
+	public boolean hasFileTaker() {
 		return (fileTaker != null);
 	}
 	

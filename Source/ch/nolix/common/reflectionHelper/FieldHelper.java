@@ -31,7 +31,7 @@ public final class FieldHelper {
 	}
 	
 	//static method
-	public static final boolean isStatic(final Field field) {
+	public static boolean isStatic(final Field field) {
 		
 		if (field == null) {
 			throw new ArgumentIsNullException(Field.class);

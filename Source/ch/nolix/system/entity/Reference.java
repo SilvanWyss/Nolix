@@ -29,7 +29,7 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	
 	//method
 	@Override
-	protected final LinkedList<Object> internalGetValues() {
+	protected LinkedList<Object> internalGetValues() {
 		return LinkedList.withElements(getReferencedEntityId());
 	}
 }

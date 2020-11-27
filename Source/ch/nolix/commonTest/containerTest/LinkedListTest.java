@@ -523,7 +523,7 @@ public final class LinkedListTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getVarianceByDouble() {
+	public void testCase_getVarianceByDouble() {
 		
 		//setup
 		final var testUnit = LinkedList.withElements(0.0, 0.0, 0.5,	1.0, 1.0);

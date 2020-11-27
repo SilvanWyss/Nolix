@@ -334,7 +334,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getContentAreaHeight() {
+	protected int getContentAreaHeight() {
 		
 		var height = menu.getHeight();
 		
@@ -353,7 +353,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getContentAreaWidth() {
+	protected int getContentAreaWidth() {
 		
 		//Handles the case that the current tab container does not contain a tabs.
 		if (isEmpty()) {
@@ -418,7 +418,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**

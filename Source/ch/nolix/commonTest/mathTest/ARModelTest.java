@@ -95,7 +95,7 @@ public final class ARModelTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_creation_6() {
+	public void testCase_creation_6() {
 		
 		//exection
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};

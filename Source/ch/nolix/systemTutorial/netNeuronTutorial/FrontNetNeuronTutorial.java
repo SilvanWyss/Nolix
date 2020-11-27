@@ -24,7 +24,7 @@ public final class FrontNetNeuronTutorial {
 	 * 
 	 * @param arguments
 	 */
-	public static final void main(String[] arguments) {
+	public static void main(String[] arguments) {
 		
 		//Defines the port for the BackNetNeuron.
 		final var port = 20000;

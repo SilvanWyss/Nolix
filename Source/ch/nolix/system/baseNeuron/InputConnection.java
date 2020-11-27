@@ -64,7 +64,7 @@ public final class InputConnection<O> {
 	/**
 	 * @return the input neuron of this input connection.
 	 */
-	public final BaseNeuron<?, ?, O> getRefInputNeuron() {
+	public BaseNeuron<?, ?, O> getRefInputNeuron() {
 		return inputNeuron;
 	}
 

@@ -36,7 +36,7 @@ implements Clearable<OptionalReference<E>> {
 	
 	//method
 	@Override
-	protected final LinkedList<Object> internalGetValues() {
+	protected LinkedList<Object> internalGetValues() {
 		
 		final var values = new LinkedList<Object>();
 		

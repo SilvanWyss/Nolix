@@ -61,7 +61,7 @@ public final class AsLongAsMediator {
 	 * 
 	 * @param job
 	 */
-	public final void run(final IAction job) {
+	public void run(final IAction job) {
 		
 		//Handles the case that this as long as mediator does not have a max run count.
 		if (!hasMaxRunCount()) {

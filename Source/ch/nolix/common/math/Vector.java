@@ -11,7 +11,7 @@ package ch.nolix.common.math;
 import ch.nolix.common.simpleValidator.SimpleValidator;
 
 //class
-public final class Vector {
+public class Vector {
 	
 	//constant
 	public static final int DEFAULT_LENTH = 3;
@@ -88,7 +88,7 @@ public final class Vector {
 	 * @return true if this vector equals the given object
 	 */
 	@Override
-	public final boolean equals(Object object) {
+	public boolean equals(Object object) {
 		
 		if (object == null) {
 			return false;
@@ -117,7 +117,7 @@ public final class Vector {
 	/**
 	 * @return a clone of this vector
 	 */
-	public final Vector getClone() {
+	public Vector getClone() {
 		
 		Vector vector = new Vector();
 		vector.values = this.values.clone();
@@ -129,7 +129,7 @@ public final class Vector {
 	/**
 	 * @return the euclid norm of this vector
 	 */
-	public final double getEuclidNorm() {
+	public double getEuclidNorm() {
 		
 		double sum = 0;
 		
@@ -144,7 +144,7 @@ public final class Vector {
 	/**
 	 * @return the manhattan norm of this vector
 	 */
-	public final double getManhattanNorm() {
+	public double getManhattanNorm() {
 		
 		double manhattanNorm = 0;
 		
@@ -159,7 +159,7 @@ public final class Vector {
 	/**
 	 * @return the size of this vector
 	 */
-	public final int getSize() {
+	public int getSize() {
 		return values.length;
 	}
 	
@@ -169,7 +169,7 @@ public final class Vector {
 	 * @return the value at the given index
 	 * @throws Exception if the given index is not positive or the given index is bigger than the size of this vector
 	 */
-	public final double getValueAt(int index) {
+	public double getValueAt(int index) {
 		
 		SimpleValidator.throwExceptionIfValueIsNotInRange("index", 1, getSize(), index);
 		
@@ -189,7 +189,7 @@ public final class Vector {
 	 * @param factor
 	 * @return this vector
 	 */
-	public final Vector multiplyWith(double factor) {
+	public Vector multiplyWith(double factor) {
 		
 		for (int i = 0; i < values.length; i++) {
 			values[i] *= factor;
@@ -206,7 +206,7 @@ public final class Vector {
 	 * @return this vector
 	 * @throws Exception if not as many values are given as the size of this vector
 	 */
-	public final Vector setValues(double... values) {
+	public Vector setValues(double... values) {
 		
 		SimpleValidator.throwExceptionIfValueIsNotEqual("number of values", getSize(), values.length);
 		
@@ -223,7 +223,7 @@ public final class Vector {
 	 * 
 	 * @param value
 	 */
-	public final void setValuesTo(double value) {
+	public void setValuesTo(double value) {
 		for (int i = 0; i < values.length; i++) {
 			values[i] = value;
 		}
@@ -233,7 +233,7 @@ public final class Vector {
 	/**
 	 * @return an array with the values of this vector
 	 */
-	public final double[] toArray() {
+	public double[] toArray() {
 		return values.clone();
 	}
 }

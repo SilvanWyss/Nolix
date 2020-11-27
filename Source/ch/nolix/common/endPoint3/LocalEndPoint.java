@@ -151,7 +151,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	public final LocalEndPoint getRefCounterpart() {
+	public LocalEndPoint getRefCounterpart() {
 		return counterpart;
 	}
 

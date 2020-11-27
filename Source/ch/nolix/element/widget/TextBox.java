@@ -153,7 +153,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @return the width of the content area of current {@link TextBox}.
 	 */
 	@Override
-	protected final int getContentAreaWidth() {
+	protected int getContentAreaWidth() {
 		return getTextFormat().getSwingTextWidth(getShownText());
 	}
 	
@@ -213,7 +213,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @param painter
 	 */
 	@Override
-	protected final void paintContentArea(
+	protected void paintContentArea(
 		final TextBoxLook textBoxLook,
 		final IPainter painter
 	) {
@@ -240,7 +240,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * Deletes the character after the text cursor from the text of the current text box
 	 * if there is a character after the text cursor.
 	 */
-	private final void deleteCharacterAfterTextCursor() {
+	private void deleteCharacterAfterTextCursor() {
 		if (getTextCursorPosition() < getText().length()) {
 			setText(getTextBeforeTextCursor() + getTextAfterTextCursor().substring(1));
 		}
@@ -251,7 +251,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * Deletes the character before the text cursor from the text of the current text box
 	 * if there is a character before the text cursor.
 	 */
-	private final void deleteCharacterBeforeTextCursor() {
+	private void deleteCharacterBeforeTextCursor() {
 		if (!getText().isEmpty() && getTextCursorPosition() > 0) {
 			
 			final var lTextCursorPosition = getTextCursorPosition();
@@ -265,7 +265,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	/**
 	 * @return the text after the text cursor of the current {@link TextBox}.
 	 */
-	private final String getTextAfterTextCursor() {
+	private String getTextAfterTextCursor() {
 		return getText().substring(getTextCursorPosition());
 	}
 	
@@ -273,7 +273,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	/**
 	 * @return the text before the text cursor of the current {@link TextBox}.
 	 */
-	private final String getTextBeforeTextCursor() {
+	private String getTextBeforeTextCursor() {
 		return getText().substring(0, getTextCursorPosition());
 	}
 	
@@ -281,7 +281,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	/**
 	 * @return the text cursor position of the current {@link TextBox}.
 	 */
-	private final int getTextCursorPosition() {
+	private int getTextCursorPosition() {
 		return textCursorPosition.getValue();
 	}
 	
@@ -289,7 +289,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	/**
 	 * @return the x-position of the text cursor of the current {@link TextBox} on the content area.
 	 */
-	private final int getTextCursorXPositionOnContentArea() {
+	private int getTextCursorXPositionOnContentArea() {
 		
 		if (getTextBeforeTextCursor().isEmpty()) {
 			return 2;
@@ -304,7 +304,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * 
 	 * @param character
 	 */
-	private final void insertCharacterAfterCursor(final char character) {
+	private void insertCharacterAfterCursor(final char character) {
 		
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
 		
@@ -331,7 +331,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @param textCursorPosition
 	 * @throws NegativeArgumentException if the given text cursor position is negative.
 	 */
-	private final void setTextCursorPosition(final int textCursorPosition) {
+	private void setTextCursorPosition(final int textCursorPosition) {
 		
 		Validator
 		.assertThat(textCursorPosition)

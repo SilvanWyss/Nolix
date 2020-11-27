@@ -124,7 +124,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -184,5 +184,5 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected void recalculateSelfStage2() {}
 }

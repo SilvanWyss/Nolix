@@ -20,7 +20,7 @@ public final class Timer {
 	/**
 	 * @return the number of milliseconds this timer has run
 	 */
-	public final int getRunMilliseconds() {
+	public int getRunMilliseconds() {
 		
 		int result = (int)runMiliseconds;
 		
@@ -35,7 +35,7 @@ public final class Timer {
 	/**
 	 * @return true if this timer is running
 	 */
-	public final boolean isRunning() {
+	public boolean isRunning() {
 		return running;
 	}
 	
@@ -43,7 +43,7 @@ public final class Timer {
 	/**
 	 * Resets this timer.
 	 */
-	public final synchronized void reset() {
+	public synchronized void reset() {
 		stop();
 		runMiliseconds = 0;
 	}
@@ -52,7 +52,7 @@ public final class Timer {
 	/**
 	 * Starts this timer if it is not already running.
 	 */
-	public final synchronized void start() {
+	public synchronized void start() {
 		if (!isRunning()) {
 			lastStartTimeInMilliseconds = System.currentTimeMillis();
 			running= true;
@@ -63,7 +63,7 @@ public final class Timer {
 	/**
 	 * Stops this timer if it is not already stopped.
 	 */
-	public final synchronized void stop() {
+	public synchronized void stop() {
 		if (isRunning()) {
 			runMiliseconds += System.currentTimeMillis() - lastStartTimeInMilliseconds;
 			running = false;
