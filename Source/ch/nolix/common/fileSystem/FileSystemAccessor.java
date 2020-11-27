@@ -4,6 +4,8 @@ package ch.nolix.common.fileSystem;
 //Java imports
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -19,7 +21,7 @@ import ch.nolix.common.wrapperException.WrapperException;
  * The {@link FileSystemAccessor} can access the file system on the local machine.
  * 
  * @author Silvan Wyss
- * @month 2017-07
+ * @date 2017-07-14
  * @lines 390
  */
 public final class FileSystemAccessor {
@@ -232,7 +234,12 @@ public final class FileSystemAccessor {
 	 * @param path
 	 */
 	public static void deleteFileSystemItem(final String path) {
-		new File(path).delete();
+		try {
+			Files.delete(Path.of(path));
+		}
+		catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
+		}
 	}
 	
 	//static method
@@ -252,7 +259,7 @@ public final class FileSystemAccessor {
 	public static LinkedList<FileAccessor> getFileAccessors(final String path) {
 		return
 		ReadContainer.forArray(new File(path).listFiles())
-		.getRefSelected(f -> f.isFile())
+		.getRefSelected(File::isFile)
 		.to(f -> new FileAccessor(f.getAbsolutePath()));
 	}
 	
