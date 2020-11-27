@@ -12,7 +12,8 @@ import ch.nolix.element.widget.VerticalStack;
  * Of the {@link GUILayerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-22
+ * @lines 60
  */
 public final class GUILayerTutorial {
 	
@@ -27,10 +28,8 @@ public final class GUILayerTutorial {
 		//Creates Frame.
 		final var frame =
 		new Frame()
-		.setTitle("GUILayer Tutorial");
-		
-		//Configures the look of the Frame.
-		frame.setBackgroundColor(Color.LAVENDER);
+		.setTitle("GUILayer Tutorial")
+		.setBackgroundColor(Color.LAVENDER);
 		
 		//Creates dialogLayer.
 		final var dialogLayer = new Layer(
@@ -39,7 +38,7 @@ public final class GUILayerTutorial {
 			.addWidget(
 				new Button()
 				.setText("Close")
-				.setLeftMouseButtonReleaseAction(() -> frame.removeTopLayer())
+				.setLeftMouseButtonReleaseAction(frame::removeTopLayer)
 			)
 			.applyOnBaseLook(
 				bl ->
