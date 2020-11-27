@@ -25,7 +25,7 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		//setup
 			final var accordion =
 			new Accordion()
-			.setExpansionBehavior(AccordionExpansionBehavior.Single);
+			.setExpansionBehavior(AccordionExpansionBehavior.SINGLE);
 			
 			final var tab1 = new AccordionTab();
 		
@@ -64,7 +64,7 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		//setup
 			final var accordion =
 			new Accordion()
-			.setExpansionBehavior(AccordionExpansionBehavior.SingleOrNone);
+			.setExpansionBehavior(AccordionExpansionBehavior.SINGLE_OR_NONE);
 			
 			final var tab1 = new AccordionTab();
 			final var tab2 = new AccordionTab();

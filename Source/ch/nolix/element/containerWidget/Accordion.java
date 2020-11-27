@@ -27,7 +27,7 @@ import ch.nolix.element.widget.VerticalStack;
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
 	//constants
-	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.Single;
+	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
 	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =	Color.LIGHT_GREY;
 	
 	//attribute
@@ -181,8 +181,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		
 		//Enumerates the expansion behavior of the current accordion.
 		switch (getExpansionBehavior()) {
-			case Single:
-			case Multi:
+			case SINGLE:
+			case MULTI:
 				return true;
 			default:
 				return false;
@@ -437,8 +437,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		
 		//Enumerates the expansion behavior of the current accordion.
 		switch (getExpansionBehavior()) {
-			case SingleOrNone:
-			case Single:
+			case SINGLE_OR_NONE:
+			case SINGLE:
 				getRefTabs().forEach(AccordionTab::collapse);
 				break;
 			default:

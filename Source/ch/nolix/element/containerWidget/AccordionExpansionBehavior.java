@@ -10,14 +10,14 @@ import ch.nolix.element.elementAPI.IElementEnum;
  * A {@link AccordionExpansionBehavior} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-08-13
  * @lines 30
  */
 public enum AccordionExpansionBehavior implements IElementEnum {
-	SingleOrNone,
-	Single,
-	MultiOrNone,
-	Multi;
+	SINGLE_OR_NONE,
+	SINGLE,
+	MULTI_OR_NONE,
+	MULTI;
 	
 	//constant
 	public static final String TYPE_NAME = "ExpansionBehavior";
@@ -28,9 +28,7 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	 * @return a new {@link AccordionExpansionBehavior} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static AccordionExpansionBehavior fromSpecification(
-		final BaseNode specification
-	) {
-		return valueOf(specification.getOneAttributeHeader());
+	public static AccordionExpansionBehavior fromSpecification(final BaseNode specification) {
+		return valueOf(specification.getOneAttributeHeader().toUpperCase());
 	}
 }
