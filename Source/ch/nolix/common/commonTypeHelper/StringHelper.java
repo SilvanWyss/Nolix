@@ -113,15 +113,6 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return a new pascal case {@link String} for the given string.
-	 */
-	public static String toPascalCase(final String string) {
-		return new PascalCaseCreator().toPascalCase(string);
-	}
-	
-	//static method
-	/**
-	 * @param string
 	 * @return the double the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a double.
 	 */
@@ -132,6 +123,15 @@ public final class StringHelper {
 		}
 		
 		return Double.valueOf(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return a new pascal case {@link String} for the given string.
+	 */
+	public static String toPascalCase(final String string) {
+		return new PascalCaseCreator().toPascalCase(string);
 	}
 	
 	//static method
