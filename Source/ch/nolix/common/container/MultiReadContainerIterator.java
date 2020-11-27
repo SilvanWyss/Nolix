@@ -4,6 +4,7 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 
@@ -29,11 +30,7 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 			return true;
 		}
 		
-		if (rootIterator.hasNext()) {
-			return true;
-		}
-		
-		return false;
+		return rootIterator.hasNext();
 	}
 	
 	//method
