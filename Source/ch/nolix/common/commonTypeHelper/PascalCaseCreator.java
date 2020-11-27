@@ -22,6 +22,7 @@ final class PascalCaseCreator {
 		switch (firstCharacterType) {
 			case LOWER_CASE_LETTER:
 				stringBuilder.append(Character.toUpperCase(firstCharacter));
+				break;
 			default:
 				stringBuilder.append(firstCharacter);
 		}
