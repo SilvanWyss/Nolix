@@ -5,10 +5,10 @@ import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.time.Time;
 
 /**
- * This class provides a tutorial for the data provider class.
+ * The {@link DataProviderTutorial} is a tutorial for {@link QuandlDataProvider}.
  * 
  * @author Silvan Wyss
- * @month 2017-02
+ * @date 2017-02-06
  * @lines 30
  */
 public final class DataProviderTutorial {
@@ -19,16 +19,17 @@ public final class DataProviderTutorial {
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		new QuandlDataProvider().getCandleSticksPerDay(
+		new QuandlDataProvider()
+		.getCandleSticksPerDay(
 			NYSEProductSymbolCatalogue.BP,
 			new Time(2017, 2, 1, 16, 0),
 			new Time(2017, 2, 3, 22, 0)
 		)
-		.forEach(cs -> System.out.println(cs));
+		.forEach(System.out::println);
 	}
 	
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link QuandlDataProvider} can be created.
 	 */
 	private DataProviderTutorial() {}
 }
