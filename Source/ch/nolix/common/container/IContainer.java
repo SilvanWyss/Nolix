@@ -1906,8 +1906,8 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a String representation of the current {@link IContainer} using the given separator.
 	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
-	public default String toString(final String separator)
-	{
+	public default String toString(final String separator) {
+		
 		//Asserts that the given separator is not null.
 		Validator
 		.assertThat(separator)
