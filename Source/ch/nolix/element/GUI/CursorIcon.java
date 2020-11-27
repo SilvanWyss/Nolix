@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
+//Java imports
 import java.awt.Cursor;
+import java.util.Locale;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
@@ -32,7 +33,7 @@ public enum CursorIcon implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static CursorIcon fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader().toUpperCase());
+		return valueOf(specification.getOneAttributeHeader().toUpperCase(Locale.ENGLISH));
 	}
 	
 	//method

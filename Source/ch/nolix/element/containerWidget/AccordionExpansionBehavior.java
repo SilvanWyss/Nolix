@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//Java import
+import java.util.Locale;
+
 //own imports
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.elementAPI.IElementEnum;
@@ -29,6 +32,6 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static AccordionExpansionBehavior fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader().toUpperCase());
+		return valueOf(specification.getOneAttributeHeader().toUpperCase(Locale.ENGLISH));
 	}
 }
