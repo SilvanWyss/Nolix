@@ -6,50 +6,48 @@ import ch.nolix.system.baseNeuron.SourceNeuron;
 import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
 
 /**
- * The {@link ForwardMultiLayerNetCreatorTutorial}
- * is a tutorial for a {@link ForwardMultiLayerNetCreator}
- * .
+ * The {@link ForwardMultiLayerNetCreatorTutorial} is a tutorial for a {@link ForwardMultiLayerNetCreator}s.
  * Of the {@link ForwardMultiLayerNetCreatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-01
- * @lines 60
+ * @date 2017-01-15
+ * @lines 50
  */
 public final class ForwardMultiLayerNetCreatorTutorial {
 	
 	/**
-	 * 1. Creates a forward multi layer net creator.
-	 * 2. Lets the forward multi layer net creator create a neuronal net.
-	 * 3. Creates the inputs for the neuronal net.
-	 * 4. Fires the neuronal net.
-	 * 5. Prints out the output of the neuronal net to the console.
+	 * 1. Creates a {@link ForwardMultiLayerNetCreator}.
+	 * 2. Lets the {@link ForwardMultiLayerNetCreator} create a {@link NeuronalNet}.
+	 * 3. Adds inputs for the {@link NeuronalNet}.
+	 * 4. Fires the {@link NeuronalNet}.
+	 * 5. Prints out the output of the {@link NeuronalNet} to the console.
 	 * 
 	 * @param args
 	 */
 	public static void main(final String[] args) {
 		
-		//Creates a forward multi layer net creator.
+		//Creates a ForwardMultiLayerNetCreator.
 		final var forwardMultiLayerNetCreator =
 		new ForwardMultiLayerNetCreator<Double>()
 		.setLayerCount(4)
 		.setNeuronsPerLayer(5)
 		.setOutputFunction(Calculator::getSum);
 		
-		//Lets the forward multi layer net creator create a neuronal net.
+		//Lets the ForwardMultiLayerNetCreator create a NeuronalNet.
 		final var neuronalNet = forwardMultiLayerNetCreator.createNeuronalNet();
 		
-		//Creates inputs for the neuronal net.
+		//Creates inputs for the NeuronalNet.
 		final var inputs = LinkedList.withElements(0.01, 0.01, 0.01, 0.01, 0.01);
 		
-		//Sets the inputs to the neuronal net.
+		//Adds the inputs to the NeuronalNet.
 		neuronalNet.addInputNeuron(new SourceNeuron<Iterable<Double>>(inputs));
 		
-		//Fires the neuronal net.
+		//Fires the NeuronalNet.
 		neuronalNet.fire();
 		
-		//Prints out the output of the neuronal net to the console.
+		//Prints out the output of the NeuronalNet to the console.
 		System.out.println("output values:");
-		neuronalNet.getRefOutput().forEach(v -> System.out.println(v));
+		neuronalNet.getRefOutput().forEach(System.out::println);
 	}
 	
 	/**
