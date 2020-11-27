@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronalNet;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
@@ -9,19 +10,21 @@ import ch.nolix.system.neuron.Neuron;
 
 //class
 /**
- * A forward multi layer net creator can create forward multi layer neuronal nets, that:
+ * A {@link ForwardMultiLayerNetCreator} can create {@link NeuronalNet}s, that:
  * -Have a specific number of layers.
- * -Have a specific numbers of neurons per layer.
- * -Have the property that each neuron of a layer contains all neurons of the previous layer as input neurons.
+ * -Have a specific numbers of {link Neuron}s per layer.
+ * -Have the effect that each {@link Neuron} of a layer
+ *  contains all {@link Neuron}s of the previous layer as input neurons.
  * -Are triggered linearly through its layers.
  * 
  * @author Silvan Wyss
- * @month 2017-01
- * @lines 160
- * @param <IO> - The type of the inputs and output of the neuronal nets a forward multi layer net creator creates.
+ * @date 2017-01-15
+ * @lines 170
+ * @param <IO> The type of the inputs and output of the {@link NeuronalNet}s
+ * a {@link ForwardMultiLayerNetCreator} creates.
  */
 public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreator<IO> {
-
+	
 	//attributes
 	private int layerCount = 1;
 	private int neuronsPerLayer = 1;
@@ -29,7 +32,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * @return a new forward multi layer neoronal net.
+	 * @return a new {@link ForwardMultiLayerNetCreator}.
 	 */
 	@Override
 	public NeuronalNet<IO> createNeuronalNet() {
@@ -43,13 +46,13 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 			
 			for (int j = 1; j <= getNeuronsPerLayer(); j++) {
 				
-				//Creates the j-th neuron of the i-th layer.
+				//Creates the j-th Neuron of the i-th layer.
 				final var neuron = new Neuron<IO>();
 				if (i == 1) {
 					inputNeurons.addAtEnd(neuron);
 				}
 				else {
-					previousLayer.forEach(n -> neuron.addInputNeuron(n));
+					previousLayer.forEach(neuron::addInputNeuron);
 				}
 				neuron.setOutputFunction3(outputFunction);
 				
@@ -64,7 +67,8 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * @return the number of layers of the neuronal nets this forward multi layer net creator creates.
+	 * @return the number of layers of the {@link NeuronalNet}s
+	 * the current {@link ForwardMultiLayerNetCreator} creates.
 	 */
 	public int getLayerCount() {
 		return layerCount;
@@ -72,7 +76,8 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * @return the number of neurons per layer of the neuronal nets this forward multi layer net creator creates.
+	 * @return the number of {@link Neuron}s per layer of the {@link NeuronalNet}s
+	 * the current {@link ForwardMultiLayerNetCreator} creates.
 	 */
 	public int getNeuronsPerLayer() {
 		return neuronsPerLayer;
@@ -80,15 +85,15 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * Sets the number of layers of the neuronal nets this forward multi layer net creator creates.
+	 * Sets the number of layers of the {@link NeuronalNet}s the current {@link ForwardMultiLayerNetCreator} creates.
 	 * 
 	 * @param layerCount
-	 * @return this forward multi layer net creator.
-	 * @throws NonPositiveArgumentException if the given layer count is not positive.
+	 * @return the current {@link ForwardMultiLayerNetCreator}r.
+	 * @throws NonPositiveArgumentException if the given layerCount is not positive.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setLayerCount(final int layerCount) {
 		
-		//Asserts that the given layer count is positive.
+		//Asserts that the given layerCount is positive.
 		Validator.assertThat(layerCount).thatIsNamed("number of layers").isPositive();
 		
 		this.layerCount = layerCount;
@@ -98,15 +103,16 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * Sets the number of neurons per layer of the neuronal nets this forward multi layer net creator creates.
+	 * Sets the number of {@link Neuron}s per layer of the {@link NeuronalNet}s
+	 * the current {@link ForwardMultiLayerNetCreator} creates.
 	 * 
 	 * @param neuronsPerLayer
-	 * @return this forward multi layer net creator.
-	 * @throws NonPositiveArgumentException if the given neurons per layer is not positive.
+	 * @return the current {@link ForwardMultiLayerNetCreator}.
+	 * @throws NonPositiveArgumentException if the given neuronsPerLayer is not positive.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setNeuronsPerLayer(final int neuronsPerLayer) {
 		
-		//Asserts that the given layer count is positive.
+		//Asserts that the given neuronsPerLayer is positive.
 		Validator.assertThat(neuronsPerLayer).thatIsNamed("neurons per layer").isPositive();
 		
 		this.neuronsPerLayer = neuronsPerLayer;
@@ -116,20 +122,23 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * Sets the output function of the neurons of the neuronal nets this forward multi layer net creator creates.
+	 * Sets the output function of the {@link Neuron}s of the {@link NeuronalNet}s
+	 * the current {@link ForwardMultiLayerNetCreator} creates.
 	 * 
 	 * @param outputFunction
-	 * @return this forward multi layer net creator.
-	 * @throws ArgumentIsNullException if the given output function is null.
+	 * @return the current {@link ForwardMultiLayerNetCreator}.
+	 * @throws ArgumentIsNullException if the given outputFunction is null.
 	 */
-	public ForwardMultiLayerNetCreator<IO> setOutputFunction(final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction) {
+	public ForwardMultiLayerNetCreator<IO> setOutputFunction(
+		final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction
+	) {
 		
-		//Asserts that the given output function is not null.
+		//Asserts that the given outputFunction is not null.
 		Validator.assertThat(outputFunction).thatIsNamed("output function").isNotNull();
 		
-		//Sets the output function of this forward multilayer net creator.
-		this.outputFunction
-		= in -> {
+		//Sets the outputFunctionn of the current ForwardMultiLayerNetCreator.
+		this.outputFunction =
+		in -> {
 			
 			//Creates input list.
 			final var inputs = new LinkedList<IO>();
@@ -145,17 +154,17 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	
 	//method
 	/**
-	 * Sets the output function of this forward multi layer net creator.
+	 * Sets the weight output function of the current {@link ForwardMultiLayerNetCreator}.
 	 * 
 	 * @param weightOutputFunction
-	 * @return this forward multi layer net creator.
-	 * @throws ArgumentIsNullException if the given weight output function is null.
+	 * @return the current {@link ForwardMultiLayerNetCreator}.
+	 * @throws ArgumentIsNullException if the given weightOutputFunction is null.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setWeightOutputFunction(
 		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> weightOutputFunction
 	) {
 		
-		//Asserts that the given output function is not null.
+		//Asserts that the given weightOutputFunction is not null.
 		Validator.assertThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
 		
 		outputFunction = weightOutputFunction;
