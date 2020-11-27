@@ -19,6 +19,6 @@ public final class Nolix2020Ultimate extends License {
 		
 		final var keyAsInt = Integer.valueOf(key);
 		
-		return (keyAsInt / 20 - keyAsInt % 260 - 9 * keyAsInt + 438159801 == 0);
+		return (keyAsInt / 20 - keyAsInt % 260 - 9 * keyAsInt + 438_159_801 == 0);
 	}
 }

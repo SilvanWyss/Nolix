@@ -180,7 +180,7 @@ public final class WebSocketFrameTest extends Test {
 	public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
 		
 		//setup
-		final var payload = new byte[1000000];
+		final var payload = new byte[1_000_000];
 		final var lByte = new ByteWrapper(1, 0, 1, 0, 1, 1, 0, 0).toByte();
 		for (var i = 0; i < payload.length; i++) {
 			payload[i] = lByte;
@@ -193,7 +193,7 @@ public final class WebSocketFrameTest extends Test {
 		final var result = testUnit.toBytes();
 		
 		//verification
-		expect(result.length).isEqualTo(1000010);
+		expect(result.length).isEqualTo(1_000_010);
 		expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
 		expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("01111111");
 		expect(new ByteWrapper(result[2]).toBitString()).isEqualTo("00000000");
@@ -204,7 +204,7 @@ public final class WebSocketFrameTest extends Test {
 		expect(new ByteWrapper(result[7]).toBitString()).isEqualTo("00001111");
 		expect(new ByteWrapper(result[8]).toBitString()).isEqualTo("01000010");
 		expect(new ByteWrapper(result[9]).toBitString()).isEqualTo("01000000");
-		for (var i = 10; i < 1000010; i++) {
+		for (var i = 10; i < 1_000_010; i++) {
 			expect(result[i]).isEqualTo(lByte);
 		}
 	}

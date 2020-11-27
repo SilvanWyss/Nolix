@@ -36,7 +36,7 @@ public final class ColorTest extends Test {
 		final var color = new Color("0xFFFFFF");
 		
 		//verification
-		expect(color.toLong()).isEqualTo(16777215);
+		expect(color.toLong()).isEqualTo(16_777_215);
 		expect(color.hasFullAlphaValue());
 	}
 

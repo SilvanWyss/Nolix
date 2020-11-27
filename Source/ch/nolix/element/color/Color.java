@@ -737,7 +737,7 @@ public class Color extends Element<Color> {
 	
 	//constants
 	public static final long MIN_COLOR_INT = 0;
-	public static final long MAX_COLOR_INT = 4294967296l;
+	public static final long MAX_COLOR_INT = 42_949_672_96l;
 	
 	//constants
 	public static final short MIN_COLOR_COMPONENT = 0;
@@ -1126,7 +1126,7 @@ public class Color extends Element<Color> {
 		//Handles the case that the current Color does not have a full alpha value.
 		if (!hasFullAlphaValue()) {
 			return
-			16777216l * getRedValue()
+			167_772_16l * getRedValue()
 			+ 65536 * getGreenValue()
 			+ 256 * getBlueValue()
 			+ getAlphaValue();
@@ -1223,7 +1223,7 @@ public class Color extends Element<Color> {
 		Validator.assertThat(value).isBetween(MIN_COLOR_INT, MAX_COLOR_INT);
 		
 		//Handles the case that the given value specifies an alpha value.
-		if (value >= 16777216) {
+		if (value >= 16_777_216) {
 			setAlphaValue((int)(value % 256));
 			value /= 256;
 		}

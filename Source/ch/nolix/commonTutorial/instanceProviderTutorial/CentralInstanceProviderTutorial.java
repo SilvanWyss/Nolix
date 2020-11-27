@@ -10,8 +10,8 @@ public final class CentralInstanceProviderTutorial {
 		CentralInstanceProvider.register(ICity.class, City.class);
 		
 		//Creates instances of the City class, that is found by the ICity interface.
-		final var paris = CentralInstanceProvider.create(ICity.class, "Paris", 12100000);
-		final var london = CentralInstanceProvider.create(ICity.class, "London", 8100000);
+		final var paris = CentralInstanceProvider.create(ICity.class, "Paris", 12_100_000);
+		final var london = CentralInstanceProvider.create(ICity.class, "London", 8_100_000);
 		
 		//Prints out to the console the data of the instances.
 		System.out.println(paris.getName() + ", population: " + paris.getPopulation());
