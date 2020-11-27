@@ -7,9 +7,10 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.futureAPI.IFuture;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.sequencer.Future;
+import ch.nolix.common.jobPool.JobPool;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
@@ -23,39 +24,39 @@ public final class ImageBuilder implements IImageBuilder {
 	//attributes
 	private final Fractal fractal;
 	private final Image image;
+	private final JobPool jobPool = new JobPool();
 	
-	//TODO: Use a JobPool.
 	//multi-attribute
-	private final LinkedList<Future> futures = new LinkedList<>();
+	private final LinkedList<IFuture> futures = new LinkedList<>();
 	
 	//constructor
-	public ImageBuilder(Fractal fractal) {
+	public ImageBuilder(final Fractal fractal) {
 		
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
-						
-		Sequencer.runInBackground(this::fillImage);
 		
 		this.fractal = fractal;
 		image = new Image(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
+		
+		fillImage();
 	}
 	
 	//method
 	@Override
 	public boolean caughtError() {
-		return futures.contains(Future::caughtError);
+		return futures.contains(IFuture::caughtError);
 	}
 	
 	//method
 	@Override
 	public Throwable getError() {
 		
-		final var futureWithError = futures.getRefFirstOrNull(Future::caughtError);
+		final var futureWithError = futures.getRefFirstOptionally(IFuture::caughtError);
 		
-		if (futureWithError == null) {
+		if (futureWithError.isEmpty()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
 		}
 		
-		return futureWithError.getError();
+		return futureWithError.getRefElement().getError();
 	}
 	
 	//method
@@ -67,16 +68,16 @@ public final class ImageBuilder implements IImageBuilder {
 	//method
 	@Override
 	public boolean isFinished() {
+		return !jobPool.containsWaitingJobs();
+		//futures.removeAll(IFuture::isFinished);
 		
-		futures.removeAll(Future::isFinished);
-		
-		return futures.containsAny();
+		//return futures.containsAny();
 	}
 	
 	//method
 	@Override
 	public void waitUntilIsFinished() {
-		futures.forEach(Future::waitUntilIsFinished);
+		futures.forEach(IFuture::waitUntilIsFinished);
 	}
 	
 	//method
@@ -98,27 +99,27 @@ public final class ImageBuilder implements IImageBuilder {
 	//method
 	@Override
 	public void waitUntilIsFinishedSuccessfully() {
-		futures.forEach(Future::waitUntilIsFinishedSuccessfully);
+		futures.forEach(IFuture::waitUntilIsFinishedSuccessfully);
 	}
 	
 	//method
 	private void fillImage() {
-		
-		Sequencer.waitUntil(() -> image != null);
 		
 		final var heightInpixel = fractal.getHeightInPixel();		
 		final var linesPerThread = 10;
 		
 		for (var y = 1; y <= heightInpixel - linesPerThread; y += linesPerThread) {
 			final var y_ = y;
-			futures.addAtEnd(Sequencer.runInBackground(() -> fillLines(y_, y_ + linesPerThread - 1)));
+			futures.addAtEnd(jobPool.enqueue(() -> fillLines(y_, y_ + linesPerThread - 1)));
 		}
 	}
 	
 	//method
-	private void fillLine(final int y) {	
+	private void fillLine(final int y) {
+		
 		final var widthInPixel = fractal.getWidthInPixel();
 		final var unitsPerPixel = fractal.getUnitsPerPixel();
+		
 		for (var x = 1; x <= widthInPixel; x++) {
 			
 			final var c =
