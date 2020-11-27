@@ -35,7 +35,7 @@ public final class WebConsoleClientTutorial {
 			this.setLook(new BlackRedConsoleClientLook());
 			
 			writeLineToConsole("Hello.", "Press q to quit the program.");
-			while (readCharacterFromConsole() != 'q') {}
+			while (readCharacterFromConsole() != 'q');			
 			pop();
 		}
 	}
