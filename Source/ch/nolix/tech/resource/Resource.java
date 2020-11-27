@@ -2,7 +2,6 @@
 package ch.nolix.tech.resource;
 
 //own imports
-import ch.nolix.common.attributeAPI.Named;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -15,10 +14,10 @@ import ch.nolix.techAPI.resourceAPI.IResource;
  * A {@link Resource} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-27
  * @lines 160
  */
-public final class Resource implements IResource, Named {
+public final class Resource implements IResource {
 	
 	//attribute
 	private final String name;
@@ -49,8 +48,8 @@ public final class Resource implements IResource, Named {
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
-	 * equals the name of one of the given base resources.
-	 * @throws InvalidArgumentException if one of the given base resources
+	 * equals the name of one of the given baseResources.
+	 * @throws InvalidArgumentException if one of the given baseResources
 	 * is a sub resource of another of the given base resources.
 	 */
 	public Resource(final String name, final IResource... baseResources) {
@@ -68,9 +67,9 @@ public final class Resource implements IResource, Named {
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
-	 * equals the name of one of the given base resources.
+	 * equals the name of one of the given baseResources.
 	 * @throws InvalidArgumentException if one of the given base resources
-	 * is a sub resource of another of the given base resources.
+	 * is a sub resource of another of the given baseResources.
 	 */
 	public Resource(final String name, final Iterable<IResource> baseResources) {
 		
@@ -78,10 +77,10 @@ public final class Resource implements IResource, Named {
 		
 		final var internalBaseResources = new LinkedList<IResource>();
 		
-		//Iterates the given base resources.
+		//Iterates the given baseResources.
 		for (final var br : baseResources) {
 			
-			//Asserts that the given name does not equal the name of the current base resource.
+			//Asserts that the given name does not equal the name of the current baseResource.
 			if (name.equals(br.getName())) {
 				throw new InvalidArgumentException(
 					VariableNameCatalogue.NAME,
@@ -93,8 +92,8 @@ public final class Resource implements IResource, Named {
 			internalBaseResources.addAtEnd(br);
 		}
 		
-		//Asserts that none of the given base resources
-		//is a sub resource of another of the given base resources.
+		//Asserts that none of the given baseResources
+		//is a sub Resource of another of the given baseResources.
 		if (internalBaseResources.contains((sr1, sr2) -> sr1.isSubResourceOf(sr2))) {
 			
 			final var pair
@@ -153,12 +152,12 @@ public final class Resource implements IResource, Named {
 	@Override
 	public boolean isSubResourceOf(final IResource resource) {
 		
-		//Handles the case that the current resource is a direct sub resource of the given resource.
+		//Handles the case that the current Resource is a direct sub Resource of the given resource.
 		if (isDirectSubResourceOf(resource)) {
 			return true;
 		}
 		
-		//Handles the case that the current resource is not a direct sub resource of the given resource.
+		//Handles the case that the current Resource is not a direct sub Resource of the given resource.
 		return baseResources.contains(br -> br.isSubResourceOf(resource));
 	}
 }
