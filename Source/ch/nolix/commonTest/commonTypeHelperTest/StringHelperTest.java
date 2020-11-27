@@ -51,10 +51,10 @@ public class StringHelperTest extends Test {
 		
 	//method
 	@TestCase
-	public void testCase_toCamelCase_1A() {
+	public void testCase_toPascalCase_1A() {
 		
 		//execution
-		final var result = StringHelper.toCamelCase("Zebra");
+		final var result = StringHelper.toPascalCase("Zebra");
 		
 		//verification
 		expect(result).isEqualTo("Zebra");
@@ -62,10 +62,10 @@ public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toCamelCase_1B() {
+	public void testCase_toPascalCase_1B() {
 		
 		//execution
-		final var result = StringHelper.toCamelCase("ZEBRA");
+		final var result = StringHelper.toPascalCase("ZEBRA");
 		
 		//verification
 		expect(result).isEqualTo("Zebra");
@@ -73,10 +73,10 @@ public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toCamelCase_2A() {
+	public void testCase_toPascalCase_2A() {
 		
 		//execution
-		final var result = StringHelper.toCamelCase("CursorIcon");
+		final var result = StringHelper.toPascalCase("CursorIcon");
 		
 		//verification
 		expect(result).isEqualTo("CursorIcon");
@@ -84,10 +84,10 @@ public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toCamelCase_2B() {
+	public void testCase_toPascalCase_2B() {
 		
 		//execution
-		final var result = StringHelper.toCamelCase("Cursor_Icon");
+		final var result = StringHelper.toPascalCase("Cursor_Icon");
 		
 		//verification
 		expect(result).isEqualTo("CursorIcon");
@@ -95,10 +95,10 @@ public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toCamelCase_2C() {
+	public void testCase_toPascalCase_2C() {
 		
 		//execution
-		final var result = StringHelper.toCamelCase("CURSOR_ICON");
+		final var result = StringHelper.toPascalCase("CURSOR_ICON");
 		
 		//verification
 		expect(result).isEqualTo("CursorIcon");
@@ -106,10 +106,10 @@ public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toCamelCase_whenStringIsEmpty() {
+	public void testCase_toPascalCase_whenStringIsEmpty() {
 		
 		//execution
-		final var result = StringHelper.toCamelCase("");
+		final var result = StringHelper.toPascalCase("");
 		
 		//verification
 		expect(result).isEqualTo("");

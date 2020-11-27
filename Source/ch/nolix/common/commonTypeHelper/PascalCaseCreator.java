@@ -5,15 +5,15 @@ package ch.nolix.common.commonTypeHelper;
 import ch.nolix.common.constant.StringCatalogue;
 
 //class
-final class CamelCaseCreator {
+final class PascalCaseCreator {
 	
 	//method
-	public String toCamelCase(final String string) {
-		return (string.isEmpty() ? StringCatalogue.EMPTY_STRING : toCamelCaseWhenStringNotEmpty(string));
+	public String toPascalCase(final String string) {
+		return (string.isEmpty() ? StringCatalogue.EMPTY_STRING : toPascalCaseWhenStringNotEmpty(string));
 	}
 	
 	//ethod
-	private String toCamelCaseWhenStringNotEmpty(final String string) {
+	private String toPascalCaseWhenStringNotEmpty(final String string) {
 		
 		final var stringBuilder = new StringBuilder();
 		

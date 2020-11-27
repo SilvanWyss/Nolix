@@ -113,10 +113,10 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return a new camel case {@link String} for the given string.
+	 * @return a new pascal case {@link String} for the given string.
 	 */
-	public static String toCamelCase(final String string) {
-		return new CamelCaseCreator().toCamelCase(string);
+	public static String toPascalCase(final String string) {
+		return new PascalCaseCreator().toPascalCase(string);
 	}
 	
 	//static method
