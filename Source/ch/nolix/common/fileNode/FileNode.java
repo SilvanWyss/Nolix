@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.fileNode;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.fileSystem.FileAccessor;
@@ -12,10 +13,10 @@ import ch.nolix.common.node.Node;
 
 //class
 /**
- * A simple persistent specification is a specification that is stored in a file.
+ * A {@link FileNode} is a specification that is stored in a file.
  * 
  * @author Silvan Wyss
- * @month 2017-07
+ * @date 2017-07-14
  * @lines 180
  */
 public final class FileNode extends BaseNode {
@@ -26,7 +27,7 @@ public final class FileNode extends BaseNode {
 	
 	//constructor
 	/**
-	 * Creates a new simple persistent specification with the given file path.
+	 * Creates a new {@link FileNode} with the given file path.
 	 * Creates a new file if there does not exist a file with the given file path.
 	 * Access and changes the file if there exists a file with the given file path.
 	 * 
@@ -44,15 +45,12 @@ public final class FileNode extends BaseNode {
 			fileAccessor = new FileAccessor(filePath);
 		}
 		
-		internalSpecification
-		= Node.fromFile(filePath);
+		internalSpecification = Node.fromFile(filePath);
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to this simple persistent specification.
-	 * 
-	 * @param attribute
+	 * {@inheritDoc}
 	 */
 	@Override
 	public FileNode addAttribute(final BaseNode attribute) {
@@ -65,7 +63,7 @@ public final class FileNode extends BaseNode {
 
 	//method
 	/**
-	 * @return true if this simple persistent specification contains attributes.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean containsAttributes() {
@@ -74,9 +72,8 @@ public final class FileNode extends BaseNode {
 
 	//method
 	/**
-	 * @return true if this simple persistent specification has a header.
-	 * @throws ArgumentDoesNotHaveAttributeException if this simple persistent specification
-	 * does not have a header.
+	 * @return true if this {@link FileNode} has a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if this {@link FileNode} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -85,7 +82,7 @@ public final class FileNode extends BaseNode {
 
 	//method
 	/**
-	 * @return the attributes of this simple persistent specification.
+	 * {@inheritDoc}
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -100,21 +97,17 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * @return the one attribute of this simple persistent specification.
-	 * @throws RuntimeException if this simple persistent specification
-	 * does not contain an attribute or contains several attributes.
+	 * @return the one attribute of this {@link FileNode}.
+	 * @throws RuntimeException if this {@link FileNode} does not contain any or several attributes.
 	 */
 	@Override
 	public SubNode getRefOneAttribute() {
-		return new SubNode(
-			this,
-			internalSpecification.getRefOneAttribute()
-		);
+		return new SubNode(this, internalSpecification.getRefOneAttribute());
 	}
 
 	//method
 	/**
-	 * @return true if this simple persistent specification has a header.
+	 * @return true if this {@link FileNode} has a header.
 	 */
 	@Override
 	public boolean hasHeader() {
@@ -123,21 +116,21 @@ public final class FileNode extends BaseNode {
 
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from this simple persistent specification.
+	 * Removes the first attribute the given selector selects from this {@link FileNode}.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if this simple persistent specification does not contain an attribute the given selector selects.
+	 * if this {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
+		internalSpecification.removeFirstAttribute(selector::getOutput);
 		save();
 	}
 	
 	//method
 	/**
-	 * Removes the attributes of this simple persisten specification.
+	 * Removes the attributes of this {@link FileNode}.
 	 */
 	@Override
 	public void removeAttributes() {
@@ -160,7 +153,7 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * Sets the header of this simple persistent specification.
+	 * Sets the header of this {@link FileNode}.
 	 * 
 	 * @param header
 	 * @return the current {@link FileNode}.
@@ -179,7 +172,7 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * Saves this simple persistent specification.
+	 * Saves this {@link FileNode}.
 	 * 
 	 * @throws RuntimeException if an error occurs.
 	 */
