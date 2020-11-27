@@ -14,11 +14,11 @@ import ch.nolix.element.painter.IPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-05
- * @lines 320
+ * @date 2016-06-01
+ * @lines 350
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
-
+	
 	//constant
 	public static final String TYPE_NAME = "Checkbox";
 	
@@ -26,7 +26,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	private static final String CHECK_FLAG_HEADER = "Checked";
 	
 	//attribute
-	private boolean checked = false;
+	private boolean checked;
 	
 	//constructor
 	/**
@@ -310,10 +310,17 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 				final int[] bottomLeftToTopRightLineXs = new int[4];
 				final int[] bottomLeftToTopRightLineYs = new int[4];
 				
-				bottomLeftToTopRightLineXs[0] = a;		bottomLeftToTopRightLineYs[0] = s;
-				bottomLeftToTopRightLineXs[1] = s;		bottomLeftToTopRightLineYs[1] = a;
-				bottomLeftToTopRightLineXs[2] = s - a;	bottomLeftToTopRightLineYs[2] = 0;
-				bottomLeftToTopRightLineXs[3] = 0;		bottomLeftToTopRightLineYs[3] = s - a;
+				bottomLeftToTopRightLineXs[0] = a;
+				bottomLeftToTopRightLineYs[0] = s;
+				
+				bottomLeftToTopRightLineXs[1] = s;
+				bottomLeftToTopRightLineYs[1] = a;
+				
+				bottomLeftToTopRightLineXs[2] = s - a;
+				bottomLeftToTopRightLineYs[2] = 0;
+				
+				bottomLeftToTopRightLineXs[3] = 0;
+				bottomLeftToTopRightLineYs[3] = s - a;
 				
 				painter.paintFilledPolygon(bottomLeftToTopRightLineXs, bottomLeftToTopRightLineYs);
 				
@@ -321,10 +328,17 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 				final int[] bottomRightToTopLeftLineXs = new int[4];
 				final int[] bottomRightToTopLeftLineYs = new int[4];
 				
-				bottomRightToTopLeftLineXs[0] = s;		bottomRightToTopLeftLineYs[0] = s - a;
-				bottomRightToTopLeftLineXs[1] = a;		bottomRightToTopLeftLineYs[1] = 0;
-				bottomRightToTopLeftLineXs[2] = 0;		bottomRightToTopLeftLineYs[2] = a;
-				bottomRightToTopLeftLineXs[3] = s - a;	bottomRightToTopLeftLineYs[3] = s;
+				bottomRightToTopLeftLineXs[0] = s;
+				bottomRightToTopLeftLineYs[0] = s - a;
+				
+				bottomRightToTopLeftLineXs[1] = a;
+				bottomRightToTopLeftLineYs[1] = 0;
+				
+				bottomRightToTopLeftLineXs[2] = 0;
+				bottomRightToTopLeftLineYs[2] = a;
+				
+				bottomRightToTopLeftLineXs[3] = s - a;
+				bottomRightToTopLeftLineYs[3] = s;
 				
 				painter.paintFilledPolygon(bottomRightToTopLeftLineXs, bottomRightToTopLeftLineYs);
 		}
@@ -335,5 +349,5 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected void recalculateSelfStage2() {}
 }
