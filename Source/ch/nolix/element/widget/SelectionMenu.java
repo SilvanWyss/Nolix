@@ -90,12 +90,7 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	//method
 	@Override
 	protected int getContentAreaHeight() {
-		
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		return getRefItems().getSumByInt(i -> i.getHeight());
+		return getRefItems().getSumByInt(TextItemMenuItem::getHeight);
 	}
 	
 	//method
