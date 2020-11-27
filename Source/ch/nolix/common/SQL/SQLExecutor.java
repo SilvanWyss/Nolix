@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.SQL;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -17,11 +18,11 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	private final LinkedList<String> statements = new LinkedList<>();
 	
 	//constructor
-	SQLExecutor(final SQLConnection SQLConnection) {
+	SQLExecutor(final SQLConnection pSQLConnection) {
 		
-		Validator.assertThat(SQLConnection).isOfType(SQLConnection.class);
+		Validator.assertThat(pSQLConnection).isOfType(SQLConnection.class);
 		
-		this.mSQLConnection = SQLConnection;
+		this.mSQLConnection = pSQLConnection;
 	}
 	
 	//method
