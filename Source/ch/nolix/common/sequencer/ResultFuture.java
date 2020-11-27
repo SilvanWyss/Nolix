@@ -9,7 +9,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-29
  * @lines 90
  * @param <R> The type of the result of a {@link ResultFuture}.
  */
@@ -76,7 +76,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 */
 	@Override
 	public void waitUntilIsFinished() {
-		Sequencer.waitUntil(() -> isFinished());
+		Sequencer.waitUntil(this::isFinished);
 	}
 	
 	//method
