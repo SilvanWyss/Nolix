@@ -1,30 +1,29 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.generalSkillAPI.ISmartObject;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A configuration elemenet is a configuration element that can have a configuration.
+ * A {@link ConfigurationElement} is a {@link ConfigurationElement} that can have a {@link Configuration}.
  * 
  * @author Silvan Wyss
- * @month 2016-04
- * @lines 120
+ * @date 2016-05-01
+ * @lines 130
  */
-public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE>
-implements ISmartObject<CE> {
+public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE> {
 	
 	//optional attribute
 	private Configuration configuration;
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this configuration element.
+	 * Adds or changes the given attribute to the current {@link ConfigurationElement}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -46,15 +45,15 @@ implements ISmartObject<CE> {
 	
 	//method
 	/**
-	 * @return the attributes of this configuration element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
-		LinkedList<Node> attributes = super.getAttributes();
+		final var attributes = super.getAttributes();
 		
-		//Handles the case that this configuration element has a configuration.
+		//Handles the case that the current ConfigurationElement has a configuration.
 		if (hasConfiguration()) {
 			attributes.addAtEnd(configuration.getSpecificationAs(VariableNameCatalogue.CONFIGURATION));
 		}
@@ -64,7 +63,7 @@ implements ISmartObject<CE> {
 	
 	//method
 	/**
-	 * @return true if this configuration element has a configuration.
+	 * @return true if the current {@link ConfigurationElement} has a {@link Configuration}.
 	 */
 	public final boolean hasConfiguration() {
 		return (configuration != null);
@@ -72,9 +71,9 @@ implements ISmartObject<CE> {
 	
 	//method
 	/**
-	 * Removes the configuration of this configuration element.
+	 * Removes the {@link Configuration} of the current {@link ConfigurationElement}.
 	 * 
-	 * @return this configuration element.
+	 * @return the current {@link ConfigurationElement}.
 	 */
 	public CE removeConfiguration() {
 		
@@ -86,9 +85,9 @@ implements ISmartObject<CE> {
 	
 	//method
 	/**
-	 * Resets this configuration element.
+	 * Resets the current {@link ConfigurationElement}.
 	 * 
-	 * @return this configuration element.
+	 * @return the current {@link ConfigurationElement}.
 	 */
 	@Override
 	public CE reset() {
@@ -102,19 +101,16 @@ implements ISmartObject<CE> {
 	
 	//method
 	/**
-	 * Sets the configuration of this configuration element.
+	 * Sets the {@link Configuration} of the current {@link ConfigurationElement}.
 	 * 
 	 * @param configuration
-	 * @return this configuration element.
+	 * @return the current {@link ConfigurationElement}.
 	 * @throws ArgumentIsNullException if the given configuration is null.
 	 */
 	public CE setConfiguration(Configuration configuration) {
 		
 		//Asserts that the given configuration is not null.
-		Validator
-		.assertThat(configuration)
-		.thatIsNamed(VariableNameCatalogue.CONFIGURATION)
-		.isNotNull();
+		Validator.assertThat(configuration).thatIsNamed(VariableNameCatalogue.CONFIGURATION).isNotNull();
 		
 		this.configuration = configuration;
 		updateFromConfiguration();
@@ -124,11 +120,11 @@ implements ISmartObject<CE> {
 	
 	//method
 	/**
-	 * Updates this element from its configuration.
+	 * Updates the current {@link Configuration} from its {@link Configuration}.
 	 */
 	public void updateFromConfiguration() {
 		
-		//Handles the case that this configuraiton element has a configuration.
+		//Handles the case that the current ConfigurationElement has a Configuration.
 		if (hasConfiguration()) {
 			resetConfiguration();
 			configuration.configure(this);
