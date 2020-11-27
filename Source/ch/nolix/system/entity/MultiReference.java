@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
@@ -36,17 +37,17 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	}
 	
 	//method
-		@Override
-		public PropertyKind getPropertyKind() {
-			return PropertyKind.MULTI_REFERENCE;
-		}
+	@Override
+	public PropertyKind getPropertyKind() {
+		return PropertyKind.MULTI_REFERENCE;
+	}
 	
 	//method
 	public LinkedList<E> getRefEntities() {
 		
 		final var entitySet = getRefEntitySetOfReferencedEntities();
 		
-		return referencedEntityIds.to(rei -> entitySet.getRefEntityById(rei));
+		return referencedEntityIds.to(entitySet::getRefEntityById);
 	}
 	
 	//method
