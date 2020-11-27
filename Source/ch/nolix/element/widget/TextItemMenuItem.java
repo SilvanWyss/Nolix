@@ -193,10 +193,15 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		
 		this.id.setValue(id);
 	}
-
+	
 	//method
 	private void setSelectionFlag(final boolean selected) {
-		if (selected) select(); else unselect();
+		if (selected) {
+			select();
+		}
+		else {
+			unselect();
+		}
 	}
 	
 	//method
