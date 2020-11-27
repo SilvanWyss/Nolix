@@ -5,36 +5,36 @@ import ch.nolix.common.sequencer.ResultFuture;
 import ch.nolix.common.sequencer.Sequencer;
 
 /**
- * The result future tutorial is a tutorial for the result future.
- * Of this class an instance cannot be created.
+ * The {@link ResultFutureTutorial} is a tutorial for {@link ResultFuture}s.
+ * Of the {@link ResultFutureTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-10
+ * @date 2017-10-05
  * @lines 40
  */
 public final class ResultFutureTutorial {
 	
 	/**
-	 * Calculates the rank of a matrix in background.
+	 * Calculates the rank of a {@link Matrix} in background.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
-		final Matrix matrix = Matrix.createIdendityMatrix(100);
+		final var matrix = Matrix.createIdendityMatrix(2000);
 		
-		final ResultFuture<Integer> future = Sequencer.runInBackground(() -> matrix.getRank());
+		final var resultFuture = Sequencer.runInBackground(matrix::getRank);
 		
 		System.out.println("Calculations are done in background.");
 		System.out.println("...");
 		
-		future.waitUntilIsFinished();
+		resultFuture.waitUntilIsFinished();
 		
-		System.out.println("rank: " + future.getResult());
+		System.out.println("rank: " + resultFuture.getResult());
 	}
 	
 	/**
-	 * Avoids that an instance of this class can becreated.
+	 * Avoids that an instance of the {@link ResultFutureTutorial} can be created.
 	 */
 	private ResultFutureTutorial() {}
 }
