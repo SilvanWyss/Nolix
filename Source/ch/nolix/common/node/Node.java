@@ -19,8 +19,8 @@ import ch.nolix.common.validator.Validator;
  * that is completely stored in the memory like a common object.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 570
+ * @date 2016-01-01
+ * @lines 580
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -531,7 +531,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public void removeAttributes() {
 		attributes.clear();
 	}
-
+	
 	//method
 	/**
 	 * Removes the first attribute the given selector selects from the current {@link Node}.
@@ -542,7 +542,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		attributes.removeFirst(a -> selector.getOutput(a));
+		attributes.removeFirst(selector::getOutput);
 	}
 	
 	//method
