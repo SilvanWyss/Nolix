@@ -2,8 +2,11 @@
 package ch.nolix.common.validator;
 
 //Java import
-import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
@@ -17,12 +20,12 @@ import ch.nolix.common.invalidArgumentException.NonEmptyArgumentException;
  * A {@link StringMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-08
- * @lines 260
+ * @date 2016-09-01
+ * @lines 250
  */
 public class StringMediator extends ArgumentMediator<String> {
 	
-	//constructor
+	//visibility-reducing constructor
 	/**
 	 * Creates a new {@link StringMediator} for the given argument.
 	 * 
@@ -34,7 +37,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		super(argument);
 	}
 	
-	//constructor
+	//visibility-reducing constructor
 	/**
 	 * Creates a new {@link StringMediator} for the given argument with the given argument name.
 	 * 
@@ -65,10 +68,10 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
 		}
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the argument of the current string mediator does not have the given length.
+		//Asserts that the argument of the current StringMediator does not have the given length.
 		if (getRefArgument().length() != length) {
 			throw
 			new InvalidArgumentException(
@@ -89,10 +92,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isBlank() {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the argument of the current string mediator is blank.
+		//Asserts that the argument of the current StringMediator is blank.
 		if (!getRefArgument().isBlank()) {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not blank");
 		}
@@ -108,10 +111,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isEmpty() {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the argument of the current string mediator is not empty.
+		//Asserts that the argument of the current StringMediator is not empty.
 		if (!getRefArgument().isEmpty()) {
 			throw new NonEmptyArgumentException(getArgumentName(), getRefArgument());
 		}
@@ -127,10 +130,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotEmpty() {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the argument of the current string mediator is not empty.
+		//Asserts that the argument of the current StringMediator is not empty.
 		if (getRefArgument().isEmpty()) {
 			throw new EmptyArgumentException(getRefArgument());
 		}
@@ -146,10 +149,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotBlank() {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the the argument of the current string mediator is not blank.
+		//Asserts that the the argument of the current StringMediator is not blank.
 		if (getRefArgument().isBlank()) {
 			throw 
 			new InvalidArgumentException(
@@ -172,10 +175,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotLongerThan(final int maxLength) {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the argument of the current string mediator is not longer than the given max length says.
+		//Asserts that the argument of the current StringMediator is not longer than the given max length says.
 		if (getRefArgument().length() > maxLength) {
 			throw
 			new InvalidArgumentException(
@@ -198,10 +201,10 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> isNotShorterThan(final int minLength) {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
 		
-		//Asserts that the argument of the current string mediator is not shorter than the given min length says.
+		//Asserts that the argument of the current StringMediator is not shorter than the given min length says.
 		if (getRefArgument().length() < minLength) {
 			throw
 			new InvalidArgumentException(
@@ -224,39 +227,26 @@ public class StringMediator extends ArgumentMediator<String> {
 	 */
 	public TerminalArgumentMediator<String> specifiesProbableDirectoryOnLocalMachine(final String directory) {
 		
-		//Asserts that the argument of the current string mediator is not null.
+		//Asserts that the argument of the current StringMediator is not null.
 		isNotNull();
-				
-		boolean specifiesProbableDirectoryOnLocalMachine = true;
-		try {
-			
-			final File file = new File(directory);
-			
-			//Handles the case that the given directory does not exist.
-			if (!file.exists()) {
-				if (file.mkdirs()) {
-					file.delete();
-				}
-				else {
-					specifiesProbableDirectoryOnLocalMachine = false;
-				}
+		
+		var specifiesProbableDirectoryOnLocalMachine = true;
+		
+		final var path = Path.of(directory);
+		if (!Files.exists(path)) {
+			try {
+				Files.createFile(path);
+				Files.delete(path);
+				Files.createDirectory(path);
+				Files.delete(path);
 			}
-			
-			//Handles the case that the given directory exists.
-			else if (file.isFile()) {
+			catch (final IOException pIOExceptione) {
 				specifiesProbableDirectoryOnLocalMachine = false;
 			}
 		}
-		catch(final Exception exception) {
-			specifiesProbableDirectoryOnLocalMachine = false;
-		}
 		
 		if (!specifiesProbableDirectoryOnLocalMachine) {
-			throw
-			new InvalidArgumentException(
-				directory,
-				"is not a probable directory on the local machine"
-			);
+			throw new InvalidArgumentException(directory,	"is not a probable directory on the local machine");
 		}
 		
 		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
