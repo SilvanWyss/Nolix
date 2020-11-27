@@ -144,7 +144,7 @@ implements IMutableElement<C> {
 				addConfiguration(new Configuration(attribute.getRefAttributes()));
 				break;
 			case DeepConfiguration.TYPE_NAME:
-				addConfiguration(new DeepConfiguration(attribute.getRefAttributes()));
+				addConfiguration(new DeepConfiguration().reset(attribute.getRefAttributes()));
 				break;
 			default:
 				addAttachingAttribute(attribute);

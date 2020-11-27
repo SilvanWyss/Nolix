@@ -12,15 +12,15 @@ import ch.nolix.element.elementAPI.IConfigurableElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-01
- * @lines 200
+ * @date 2016-01-01
+ * @lines 180
  */
 public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
-
+	
 	//constant
 	public static final String TYPE_NAME = "DeepConfiguration";
 	
-	//attribute name
+	//constant
 	private static final String MAX_SELECTOR_LEVEL_HEADER = "MaxSelectorLevel";
 	
 	//optional attribute
@@ -28,24 +28,13 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//constructor
 	/**
-	 * Creates a new deep configuration with default attributes.
+	 * Creates a new {@link DeepConfiguration}.
 	 */
 	public DeepConfiguration() {}
-	
-	//constructor
-	/**
-	 * Creates a new deep configuration with the given attributes.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
-	 */
-	public DeepConfiguration(final Iterable<BaseNode> attributes) {
-		addOrChangeAttributes(attributes);
-	}
-	
+		
 	//method
 	/**
-	 * Adds or changes the given attribute to this deep configuration.
+	 * Adds or changes the given attribute to the current {@link DeepConfiguration}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -68,13 +57,12 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	//method
 	/**
 	/**
-	 * Lets this configuration configure the given element.
+	 * Lets the current {@link DeepConfiguration} configure the given element.
 	 * 
 	 * @param element
 	 */
 	@Override
 	public void configure(IConfigurableElement<?> element) {
-
 		if (!hasMaxSelectorLevel()) {
 
 			final var elements = element.getSubConfigurables();
@@ -84,7 +72,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 			}
 				
-			elements.forEach(e -> configure(e));
+			elements.forEach(this::configure);
 		}
 		else {
 			configure(element, getMaxSelectorLevel());
@@ -93,7 +81,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * @return the attributes of this deep configuration.
+	 * @return the attributes of the current {@link DeepConfiguration}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -101,7 +89,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 		//Calls method of the base class.
 		final LinkedList<Node> attributes = super.getAttributes();
 		
-		//Handles the case that this deep configuration has a max selector level.
+		//Handles the case that the current DeepConfiguration has a max selector level.
 		if (hasMaxSelectorLevel()) {
 			attributes.addAtEnd(new Node(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
 		}
@@ -111,12 +99,13 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * @return the max selector level of this deep configuration.
-	 * @throws ArgumentDoesNotHaveAttributeException if this deep configuration does not have a max selector level.
+	 * @return the max selector level of the current {@link DeepConfiguration}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link DeepConfiguration} does not have a max selector level.
 	 */
 	public int getMaxSelectorLevel() {
 		
-		//Asserts that this deep configuration has a max selector level.
+		//Asserts that the current DeepConfiguration has a max selector level.
 		if (!hasMaxSelectorLevel()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "max selector level");
 		}
@@ -126,7 +115,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * @return true if this deep configuration has a max selector level.
+	 * @return true if the current {@link DeepConfiguration} has a max selector level.
 	 */
 	public boolean hasMaxSelectorLevel() {
 		return (maxSelectorLevel != -1);
@@ -134,9 +123,9 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * Removes the max selector level of this deep configuration.
+	 * Removes the max selector level of the current {@link DeepConfiguration}.
 	 * 
-	 * @return this deep configuration.
+	 * @return the current {@link DeepConfiguration}.
 	 */
 	public DeepConfiguration removeMaxSelectorLevel() {
 				
@@ -147,9 +136,9 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * Resets this deep configuration.
+	 * Resets the current {@link DeepConfiguration}.
 	 * 
-	 * @return this deep configuration.
+	 * @return the current {@link DeepConfiguration}.
 	 */
 	@Override
 	public DeepConfiguration reset() {
@@ -162,7 +151,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 		
 	//method
 	/**
-	 * Sets the max selector level of this deep configuration.
+	 * Sets the max selector level of the current {@link DeepConfiguration}.
 	 * 
 	 * @param maxSelectorLevel
 	 * @throws NonPositiveArgumentException if the given max selector level is not positive.
@@ -177,7 +166,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * Lets this deep configuration configure the given element recursively to the given level.
+	 * Lets the current {@link DeepConfiguration} configure the given element recursively to the given level.
 	 * 
 	 * @param element
 	 * @param level
