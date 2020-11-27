@@ -41,7 +41,7 @@ import ch.nolix.element.widget.BorderWidget;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1250
+ * @lines 1260
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -55,9 +55,9 @@ IResizableInputTaker {
 	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);
 	
 	//constants
-	static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
-	static final String ROOT_WIDGET_HEADER = "RootWidget";
-	static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
+	public static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	public static final String ROOT_WIDGET_HEADER = "RootWidget";
+	public static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
 	
 	//constant
 	private static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
@@ -143,13 +143,13 @@ IResizableInputTaker {
 	);
 	
 	//attributes
-	private int cursorXPosition = 0;
-	private int cursorYPosition = 0;
+	private int cursorXPosition;
+	private int cursorYPosition;
 	
 	//attribute
-	private boolean notedLeftMouseButtonPress = false;
-	//TODO: private boolean notedRightMouseButtonPress = false
-	//TODO: private boolean notedMouseWheelPress = false
+	private boolean notedLeftMouseButtonPress;
+	//TODO: private boolean notedRightMouseButtonPress
+	//TODO: private boolean notedMouseWheelPress
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
@@ -699,23 +699,7 @@ IResizableInputTaker {
 	public final void paint(final IPainter painter) {
 		
 		//Paints the background of the current GUILayer.
-			//Handles the case that the current GUILayer has a background color.
-			if (hasBackgroundColor()) {
-				painter.setColor(getBackgroundColor());
-				painter.paintFilledRectangle(
-					parentGUI.getViewAreaWidth(),
-					parentGUI.getViewAreaHeight()
-				);
-			}
-			
-			//Handles the case that the current GUILayer has a background color gradient.
-			else if (hasBackgroundColorGradient()) {
-				painter.setColorGradient(getBackgroundColorGradient());
-				painter.paintFilledRectangle(
-					parentGUI.getViewAreaWidth(),
-					parentGUI.getViewAreaHeight()
-				);
-		}
+		paintBackground(painter);
 		
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -1248,6 +1232,28 @@ IResizableInputTaker {
 		
 		if (leftMouseButtonReleaseAction != null) {
 			leftMouseButtonReleaseAction.run(this);
+		}
+	}
+	
+	//method
+	private void paintBackground(final IPainter painter) {
+		
+		//Handles the case that the current GUILayer has a background color.
+		if (hasBackgroundColor()) {
+			painter.setColor(getBackgroundColor());
+			painter.paintFilledRectangle(
+				parentGUI.getViewAreaWidth(),
+				parentGUI.getViewAreaHeight()
+			);
+		}
+		
+		//Handles the case that the current GUILayer has a background color gradient.
+		else if (hasBackgroundColorGradient()) {
+			painter.setColorGradient(getBackgroundColorGradient());
+			painter.paintFilledRectangle(
+				parentGUI.getViewAreaWidth(),
+				parentGUI.getViewAreaHeight()
+			);
 		}
 	}
 	
