@@ -48,7 +48,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			return fromBufferedImage(bufferedImage);
 			
-		} catch (final IOException pIOException) {
+		}
+		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -79,7 +80,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			return fromBufferedImage(bufferedImage);
 			
-		} catch (final IOException pIOException) {
+		}
+		catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

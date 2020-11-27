@@ -40,7 +40,8 @@ public final class InstanceProvider {
 				c.setAccessible(true);
 				try {
 					return (C)c.newInstance(arguments);
-				} catch (
+				}
+				catch (
 					IllegalAccessException
 					| IllegalArgumentException
 					| InstantiationException

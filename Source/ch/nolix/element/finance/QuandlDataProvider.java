@@ -63,7 +63,8 @@ public final class QuandlDataProvider {
 			}
 			
 			return dailyCandleSticks;
-		} catch (final Exception exception) {
+		}
+		catch (final Exception exception) {
 			throw new WrapperException(exception);
 		}
 	}

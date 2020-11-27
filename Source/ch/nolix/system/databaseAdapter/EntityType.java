@@ -43,7 +43,8 @@ public final class EntityType<E extends Entity> implements Named {
 			constructor.setAccessible(true);
 			
 			return (E)constructor.newInstance();
-		} catch (
+		}
+		catch (
 			final
 			InstantiationException
 			| IllegalAccessException

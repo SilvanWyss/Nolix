@@ -104,7 +104,8 @@ public abstract class SQLConnection implements AutoCloseable {
 			}
 			
 			statement.executeBatch();		
-		} catch (final SQLException pSQLException) {
+		}
+		catch (final SQLException pSQLException) {
 			throw new WrapperException(pSQLException);
 		}
 		
@@ -116,7 +117,8 @@ public abstract class SQLConnection implements AutoCloseable {
 		
 		try (final var statement = connection.createStatement()) {
 			statement.execute(pSQLStatement);
-		} catch (final SQLException pSQLException) {
+		}
+		catch (final SQLException pSQLException) {
 			throw new WrapperException(pSQLException);
 		}
 		
@@ -153,7 +155,8 @@ public abstract class SQLConnection implements AutoCloseable {
 				
 				return rows;
 			}
-		} catch (SQLException pSQLException) {
+		}
+		catch (SQLException pSQLException) {
 			throw new WrapperException(pSQLException);
 		}
 	}
