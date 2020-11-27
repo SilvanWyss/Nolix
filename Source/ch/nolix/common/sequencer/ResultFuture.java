@@ -10,7 +10,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-09-29
- * @lines 90
+ * @lines 100
  * @param <R> The type of the result of a {@link ResultFuture}.
  */
 public final class ResultFuture<R> implements IResultFuture<R> {
