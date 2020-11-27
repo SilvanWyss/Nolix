@@ -9,6 +9,7 @@ package ch.nolix.common.functionAPI;
  * @month 2017-12
  * @lines 20
  */
+@FunctionalInterface
 public interface ILongTakerLongGetter {
 	
 	//method declaration

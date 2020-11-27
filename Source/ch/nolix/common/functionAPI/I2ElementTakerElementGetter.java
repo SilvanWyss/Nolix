@@ -12,6 +12,7 @@ package ch.nolix.common.functionAPI;
 * @param <E2> The type of the second element a {@link IElementTakerLongGetter} takes.
 * @param <E3> The type of the element a {@link IElementTakerLongGetter} returns.
 */
+@FunctionalInterface
 public interface I2ElementTakerElementGetter<E1, E2, E3> {
 
 	//method declaration

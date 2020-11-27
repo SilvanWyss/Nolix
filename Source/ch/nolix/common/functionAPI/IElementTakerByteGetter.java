@@ -10,6 +10,7 @@ package ch.nolix.common.functionAPI;
  * @lines 20
  * @param <E> The type of the elements a {@link IElementTakerByteGetter} takes.
  */
+@FunctionalInterface
 public interface IElementTakerByteGetter<E> {
 	
 	//method declaration

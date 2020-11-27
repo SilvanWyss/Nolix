@@ -9,6 +9,7 @@ package ch.nolix.common.functionAPI;
  * @month 2018-08
  * @lines 20
  */
+@FunctionalInterface
 public interface IDoubleTaker {
 	
 	//method declaration

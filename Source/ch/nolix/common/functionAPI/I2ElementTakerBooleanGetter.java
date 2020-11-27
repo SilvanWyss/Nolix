@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.functionAPI;
 
-//interface
+//functional interface
 /**
  * A {@link I2ElementTakerBooleanGetter} has a method
  * that takes 2 elements of the same type and returns a boolean.
@@ -11,6 +11,7 @@ package ch.nolix.common.functionAPI;
  * @lines 20
  * @param <E> The type of the elements a {@link I2ElementTakerBooleanGetter} getter takes.
  */
+@FunctionalInterface
 public interface I2ElementTakerBooleanGetter<E> {
 	
 	//method declaration

@@ -10,6 +10,7 @@ package ch.nolix.common.functionAPI;
  * @lines 20
  * @param <E2> The type of the elements a {@link IIntTakerElementGetter} returns.
  */
+@FunctionalInterface
 public interface IIntTakerElementGetter<E> {
 	
 	//method declaration

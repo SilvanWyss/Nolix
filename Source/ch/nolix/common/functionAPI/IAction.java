@@ -9,6 +9,7 @@ package ch.nolix.common.functionAPI;
  * @month 2016-05
  * @lines 10
  */
+@FunctionalInterface
 public interface IAction {
 	
 	//method declaration

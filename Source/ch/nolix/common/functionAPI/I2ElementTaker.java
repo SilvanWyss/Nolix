@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.functionAPI;
 
-//interface
+//functional interface
 /**
  * A {@link I2ElementTaker} has a method that takes 2 elements.
  * 
@@ -11,6 +11,7 @@ package ch.nolix.common.functionAPI;
  * @param <E1> The type of the first element a {@link I2ElementTaker} takes.
  * @param <E2> The type of the second element a {@link I2ElementTaker} takes.
  */
+@FunctionalInterface
 public interface I2ElementTaker<E1, E2> {
 	
 	//method declaration

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.functionAPI;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
@@ -13,6 +14,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2016-06
  * @lines 30
  */
+@FunctionalInterface
 public interface IBooleanGetter {
 	
 	//static method

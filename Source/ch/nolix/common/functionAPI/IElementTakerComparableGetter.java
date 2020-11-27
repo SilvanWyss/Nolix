@@ -12,6 +12,7 @@ package ch.nolix.common.functionAPI;
  * @param <E2> The type of the element of the {@link Comparable}
  * a {@link IElementTakerComparableGetter} returns.
  */
+@FunctionalInterface
 public interface IElementTakerComparableGetter<E, E2> {
 	
 	//method declaration

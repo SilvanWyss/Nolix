@@ -11,6 +11,7 @@ package ch.nolix.common.functionAPI;
  * @param <E> The type of the elements a {@link IElementTakerElementGetter} takes.
  * @param <E2> The type of the elements a {@link IElementTakerElementGetter} returns.
  */
+@FunctionalInterface
 public interface IElementTakerElementGetter<E, E2> {
 	
 	//method declaration

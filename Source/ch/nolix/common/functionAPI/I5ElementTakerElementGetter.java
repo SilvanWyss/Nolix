@@ -15,6 +15,7 @@ package ch.nolix.common.functionAPI;
 * @param <E5> The type of the fith element a {@link IElementTakerLongGetter} takes.
 * @param <E6> The type of the element a {@link IElementTakerLongGetter} returns.
 */
+@FunctionalInterface
 public interface I5ElementTakerElementGetter<E1, E2, E3, E4, E5, E6> {
 	
 	//method declaration

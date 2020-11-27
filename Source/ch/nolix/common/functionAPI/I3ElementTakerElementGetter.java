@@ -13,6 +13,7 @@ package ch.nolix.common.functionAPI;
 * @param <E3> The type of the third element a {@link IElementTakerLongGetter} takes.
 * @param <E4> The type of the element a {@link IElementTakerLongGetter} returns.
 */
+@FunctionalInterface
 public interface I3ElementTakerElementGetter<E1, E2, E3, E4> {
 
 	//method declaration
