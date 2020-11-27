@@ -19,8 +19,8 @@ public final class CentralInstanceProviderTutorial {
 	}
 	
 	private static interface ICity {
-		public abstract String getName();
-		public abstract int getPopulation();
+		String getName();
+		int getPopulation();
 	}
 	
 	private static class City implements ICity {

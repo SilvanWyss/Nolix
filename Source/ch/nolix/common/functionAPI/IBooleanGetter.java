@@ -22,7 +22,7 @@ public interface IBooleanGetter {
 	 * @return a new {@link IBooleanGetter} that will return always the negation of the given condition.
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
-	public static IBooleanGetter createNegator(final IBooleanGetter condition) {
+	static IBooleanGetter createNegator(final IBooleanGetter condition) {
 		
 		//Asserts that the given condition is not null.
 		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();

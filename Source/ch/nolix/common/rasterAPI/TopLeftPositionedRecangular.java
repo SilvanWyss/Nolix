@@ -30,7 +30,7 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 	 * @return true if the current {@link TopLeftPositionedRecangular}
 	 * contains the point with the given xPosition and yPosition.
 	 */
-	public default boolean containsPoint(final int xPosition, final int yPosition) {
+	default boolean containsPoint(final int xPosition, final int yPosition) {
 		return
 		getXPosition() <= xPosition
 		&& getYPosition() <= yPosition
@@ -45,7 +45,7 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 	 * @return true if the current {@link TopLeftPositionedRecangular}
 	 * contains the point with the given relativeXPosition and relativeYPosition.
 	 */
-	public default boolean containsPointRelatively(final int relativeXPosition, final int relativeYPosition) {
+	default boolean containsPointRelatively(final int relativeXPosition, final int relativeYPosition) {
 		return
 		relativeXPosition >= 0
 		&& relativeYPosition >= 0

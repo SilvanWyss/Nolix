@@ -15,7 +15,7 @@ public interface Rectangular {
 	/**
 	 * @return the diagonal of the current {@link Rectangular}.
 	 */
-	public default double getDiagonal() {
+	default double getDiagonal() {
 		return Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
 	}
 	
@@ -23,13 +23,13 @@ public interface Rectangular {
 	/**
 	 * @return the height of the current {@link Rectangular}.
 	 */
-	public abstract int getHeight();
+	int getHeight();
 	
 	//method
 	/**
 	 * @return the perimeter of the current {@link Rectangular}.
 	 */
-	public default int getPerimeter() {
+	default int getPerimeter() {
 		return (2 * (getWidth() + getHeight()));
 	}
 	
@@ -37,13 +37,13 @@ public interface Rectangular {
 	/**
 	 * @return the width of the current {@link Rectangular}.
 	 */
-	public abstract int getWidth();
+	int getWidth();
 	
 	//method
 	/**
 	 * @return true if the current {@link Rectangular} is quadratic.
 	 */
-	public default boolean isQuadratic() {
+	default boolean isQuadratic() {
 		return (getWidth() == getHeight());
 	}
 }

@@ -22,5 +22,5 @@ public interface Titleble<T extends Titleble<T>> extends Titled {
 	 * @param title
 	 * @return the current {@link Titleble}.
 	 */
-	public abstract T setTitle(String title);
+	T setTitle(String title);
 }

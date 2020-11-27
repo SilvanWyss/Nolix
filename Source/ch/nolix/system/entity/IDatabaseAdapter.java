@@ -101,7 +101,7 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	 * @param specification
 	 * @return a new value if the given type from the given specification.
 	 */
-	public <V> V createValueFromSpecification(Class<V> type, BaseNode specification);
+	<V> V createValueFromSpecification(Class<V> type, BaseNode specification);
 	
 	//method declaration
 	/**

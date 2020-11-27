@@ -8,13 +8,13 @@ import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
 public interface HoverableByCursor extends TopLeftPositionedRecangular {
 	
 	//method declaration
-	public abstract int getCursorXPosition();
+	int getCursorXPosition();
 	
 	//method declaration
-	public abstract int getCursorYPosition();
+	int getCursorYPosition();
 	
 	//method
-	public default boolean isUnderCursor() {
+	default boolean isUnderCursor() {
 		return containsPointRelatively(getCursorXPosition(), getCursorYPosition());
 	}
 }
