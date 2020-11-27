@@ -10,7 +10,7 @@ import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.NetServer;
 
-public class LabelTutorial {
+public final class LabelTutorial {
 	
 	public static void main(String[] args) {
 				

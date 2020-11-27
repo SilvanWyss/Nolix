@@ -9,7 +9,7 @@ import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
-public class MandelbrotFractalTutorial {
+public final class MandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
 		

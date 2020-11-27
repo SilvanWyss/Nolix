@@ -9,7 +9,7 @@ import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
-public class CustomFractalTutorial {
+public final class CustomFractalTutorial {
 	
 	public static void main(String[] args) {
 		

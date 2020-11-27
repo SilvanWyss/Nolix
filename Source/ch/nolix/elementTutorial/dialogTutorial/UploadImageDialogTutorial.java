@@ -12,7 +12,7 @@ import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Uploader;
 import ch.nolix.element.widget.VerticalStack;
 
-public class UploadImageDialogTutorial {
+public final class UploadImageDialogTutorial {
 	
 	public static void main(String[] args) {
 		

@@ -7,7 +7,7 @@ import ch.nolix.techAPI.projectAPI.IProject;
 import ch.nolix.techAPI.projectAPI.ITask;
 
 //class
-public class Registrator {
+public final class Registrator {
 	
 	//static method
 	public static void register() {

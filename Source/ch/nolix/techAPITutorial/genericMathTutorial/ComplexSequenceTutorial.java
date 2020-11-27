@@ -7,7 +7,7 @@ import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
 
-public class ComplexSequenceTutorial {
+public final class ComplexSequenceTutorial {
 	
 	public static void main(String[] args) {
 		

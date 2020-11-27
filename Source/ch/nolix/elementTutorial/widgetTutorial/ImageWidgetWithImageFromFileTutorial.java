@@ -13,7 +13,7 @@ import ch.nolix.element.widget.ImageWidget;
  * @month 2018-08
  * @lines 50
  */
-public class ImageWidgetWithImageFromFileTutorial {
+public final class ImageWidgetWithImageFromFileTutorial {
 	
 	/**
 	 * Creates a {@link Frame} with a {@link ImageWidget}.

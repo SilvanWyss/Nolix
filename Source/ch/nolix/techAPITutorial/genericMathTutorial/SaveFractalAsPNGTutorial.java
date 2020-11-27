@@ -9,7 +9,7 @@ import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
-public class SaveFractalAsPNGTutorial {
+public final class SaveFractalAsPNGTutorial {
 	
 	public static void main(String[] args) {
 		
