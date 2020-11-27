@@ -15,8 +15,8 @@ import ch.nolix.common.test.Test;
  * A {@link NetEndPointTest} is a test for {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @month 2016-09
- * @lines 90
+ * @month 2017-05-21
+ * @lines 100
  */
 public final class NetEndPointTest extends Test {
 	
@@ -40,7 +40,7 @@ public final class NetEndPointTest extends Test {
 		//method
 		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
-			endPoint.setReplier(m -> getReply(m));
+			endPoint.setReplier(this::getReply);
 		}
 		
 		//method
