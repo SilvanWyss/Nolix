@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.widget.Button;
@@ -44,10 +45,10 @@ public final class ReferencePropertySession extends HeaderedSession {
 			.addWidget(
 				new Button()
 				.setText("Select")
-				.setLeftMouseButtonPressAction(() -> select()),
+				.setLeftMouseButtonPressAction(this::select),
 				new Button()
 				.setText("Cancel")
-				.setLeftMouseButtonPressAction(() -> cancel())
+				.setLeftMouseButtonPressAction(this::cancel)
 			)
 		);
 	}
