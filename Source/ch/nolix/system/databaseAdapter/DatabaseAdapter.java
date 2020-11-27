@@ -37,7 +37,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BOOLEAN_CREATOR)
 		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.INTEGER_CREATOR)
 		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.STRING_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.element.template.FromNodeSpecificValueCreatorCatalogue.IMAGE_CREATOR);
+		.registerSpecificValueCreator(ch.nolix.element.template.FromNodeCreatorCatalogue.IMAGE_CREATOR);
 		
 		reset();
 	}

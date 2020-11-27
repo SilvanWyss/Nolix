@@ -7,12 +7,12 @@ import ch.nolix.common.valueCreator.SpecificValueCreator;
 import ch.nolix.element.graphic.Image;
 
 //class
-public final class FromNodeSpecificValueCreatorCatalogue {
+public final class FromNodeCreatorCatalogue {
 	
 	//constant
 	public static final SpecificValueCreator<BaseNode, Image> IMAGE_CREATOR =
 	new SpecificValueCreator<>(Image.class, Image::fromSpecification);
 	
 	//visibility-reducing constructor
-	private FromNodeSpecificValueCreatorCatalogue() {}
+	private FromNodeCreatorCatalogue() {}
 }
