@@ -40,7 +40,7 @@ public final class EntitySetSession extends HeaderedSession {
 			new Button()
 			.setRole(ButtonRole.LinkButton)
 			.setText("Home")
-			.setLeftMouseButtonPressAction(() -> openHomeSession())		
+			.setLeftMouseButtonPressAction(this::openHomeSession)		
 		);
 	}
 	
@@ -55,7 +55,7 @@ public final class EntitySetSession extends HeaderedSession {
 				new Button()
 				.setRole(ButtonRole.CreateButton)
 				.setText("Create")
-				.setLeftMouseButtonPressAction(() -> openCreateEntitySession())
+				.setLeftMouseButtonPressAction(this::openCreateEntitySession)
 			),
 			createEntitiesGrid()
 		);
