@@ -21,5 +21,5 @@ public interface I2ElementTakerElementGetter<E1, E2, E3> {
 	 * @return an element for the given element1 and element2
 	 * from the current {@link I2ElementTakerElementGetter}.
 	 */
-	public abstract E3 getOutput(E1 element1, E2 element2);
+	E3 getOutput(E1 element1, E2 element2);
 }

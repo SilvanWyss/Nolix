@@ -17,5 +17,5 @@ public interface IBooleanTaker {
 	 * 
 	 * @param value
 	 */
-	public abstract void run(boolean value);
+	void run(boolean value);
 }

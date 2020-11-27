@@ -15,5 +15,5 @@ public interface IIntGetter {
 	/**
 	 * @return an int.
 	 */
-	public abstract int getOutput();
+	int getOutput();
 }

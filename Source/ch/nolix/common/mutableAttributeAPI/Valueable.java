@@ -23,5 +23,5 @@ public interface Valueable<VA extends Valueable<VA, V>, V> extends Valued<VA, V>
 	 * @param value
 	 * @return the current {@link Valueable}.
 	 */
-	public abstract VA setValue(V value);
+	VA setValue(V value);
 }

@@ -19,5 +19,5 @@ public interface IElementTakerComparableGetter<E, E2> {
 	 * @param element
 	 * @return a new {@link IElementTakerComparableGetter} for the given element.
 	 */
-	public abstract Comparable<E2> getValue(E element);
+	Comparable<E2> getValue(E element);
 }

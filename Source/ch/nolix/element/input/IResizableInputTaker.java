@@ -14,7 +14,7 @@ public interface IResizableInputTaker extends IInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default void noteInput(final IInput<?> input) {
+	default void noteInput(final IInput<?> input) {
 		
 		if (input instanceof ResizeInput) {
 			noteResizeInput(input.as(ResizeInput.class));
@@ -33,7 +33,7 @@ public interface IResizableInputTaker extends IInputTaker {
 	 * @param viewAreaWidth
 	 * @param viewAreaHeight
 	 */
-	public abstract void noteResize(int viewAreaWidth, int viewAreaHeight);
+	void noteResize(int viewAreaWidth, int viewAreaHeight);
 	
 	//method
 	/**
@@ -43,7 +43,7 @@ public interface IResizableInputTaker extends IInputTaker {
 	 * @param viewAreaWidth
 	 * @param viewAreaHeight
 	 */
-	public default void noteResizeInput(final ResizeInput resizeInput) {
+	default void noteResizeInput(final ResizeInput resizeInput) {
 		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeigh());
 	}
 }

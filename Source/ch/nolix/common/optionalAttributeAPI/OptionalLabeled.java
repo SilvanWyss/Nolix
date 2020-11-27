@@ -16,14 +16,14 @@ public interface OptionalLabeled {
 	 * @return the info string of the current {@link OptionalLabeled}.
 	 * @throws Exception if the current {@link OptionalLabeled} does not have an info string.
 	 */
-	public abstract String getInfoString();
+	String getInfoString();
 	
 	//method
 	/**
 	 * @return the info string of the current {@link OptionalLabeled} in quotes.
 	 * @throws Exception if the current {@link OptionalLabeled} does not have an info string.
 	 */
-	public default String getInfoStringInQuotes() {
+	default String getInfoStringInQuotes() {
 		return ("'" + getInfoString() + "'");
 	}
 	
@@ -31,14 +31,14 @@ public interface OptionalLabeled {
 	/**
 	 * @return true if the current {@link OptionalLabeled} has an info string.
 	 */
-	public abstract boolean hasInfoString();
+	boolean hasInfoString();
 	
 	//method
 	/**
 	 * @param infoString
 	 * @return true if the current {@link OptionalLabeled} has the given info string.
 	 */
-	public default boolean hasInfoString(final String infoString) {
+	default boolean hasInfoString(final String infoString) {
 		
 		//Handles the case that the current OptionalLabeled does not have an info string.
 		if (!hasInfoString()) {

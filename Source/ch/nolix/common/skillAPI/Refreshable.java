@@ -15,5 +15,5 @@ public interface Refreshable {
 	/**
 	 * Refreshes this refreshable object.
 	 */
-	public abstract void refresh();
+	void refresh();
 }

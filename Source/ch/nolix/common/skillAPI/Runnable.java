@@ -15,5 +15,5 @@ public interface Runnable {
 	/**
 	 * Lets this runnable object run.
 	 */
-	public abstract void run();
+	void run();
 }

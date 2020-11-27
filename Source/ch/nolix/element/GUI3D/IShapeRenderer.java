@@ -20,7 +20,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 * @param renderObject
 	 * @param subRenderObject
 	 */
-	public default void addSubRenderObject(
+	default void addSubRenderObject(
 		final RO renderObject,
 		final SRO subRenderObject
 	) {
@@ -34,7 +34,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	/**
 	 * @return a new render object for the shape of this shape renderer.
 	 */
-	public abstract RO createRenderObject();
+	RO createRenderObject();
 	
 	//method declaration
 	/**
@@ -42,7 +42,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 * 
 	 * @param shape
 	 */
-	public abstract void render(final S shape, final RO renderObject);
+	void render(final S shape, final RO renderObject);
 	
 	//method
 	/**
@@ -52,7 +52,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 * @param renderObject
 	 * @param subRederObject
 	 */
-	public default void removeSubRenderObject(
+	default void removeSubRenderObject(
 		RO renderObject,
 		SRO subRederObject
 	) {

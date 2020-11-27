@@ -17,43 +17,43 @@ import ch.nolix.element.color.Color;
 public interface IFractalBuilder {
 	
 	//method declaration
-	public abstract IFractal build();
+	IFractal build();
 	
 	//method declaration
-	public abstract IFractalBuilder setBigDecimalScale(int bigDecumalScale);
+	IFractalBuilder setBigDecimalScale(int bigDecumalScale);
 	
 	//method declaration
-	public abstract IFractalBuilder setColorFunction(IIntTakerElementGetter<Color> colorFunction);
+	IFractalBuilder setColorFunction(IIntTakerElementGetter<Color> colorFunction);
 	
 	//method declaration
-	public abstract IFractalBuilder setImaginaryComponentInterval(double min, double max);
+	IFractalBuilder setImaginaryComponentInterval(double min, double max);
 	
 	//method declaration
-	public abstract IFractalBuilder setImaginaryComponentInterval(IClosedInterval imaginaryComponentInterval);
+	IFractalBuilder setImaginaryComponentInterval(IClosedInterval imaginaryComponentInterval);
 	
 	//method declaration
-	public abstract IFractalBuilder setMaxIterationCount(int maxIterationCount);
+	IFractalBuilder setMaxIterationCount(int maxIterationCount);
 
 	//method declaration
-	public abstract IFractalBuilder setMinMagnitudeForConvergence(BigDecimal minMagnitudeForConvergence);
+	IFractalBuilder setMinMagnitudeForConvergence(BigDecimal minMagnitudeForConvergence);
 
 	//method declaration
-	public abstract IFractalBuilder setMinMagnitudeForConvergence(double minMagnitudeForConvergence);
+	IFractalBuilder setMinMagnitudeForConvergence(double minMagnitudeForConvergence);
 	
 	//method declaration
-	public abstract IFractalBuilder setNextValueFunction(
+	IFractalBuilder setNextValueFunction(
 		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> nextValueFunction
 	);
 	
 	//method
-	public default IFractalBuilder setNextValueFunctionFor1Predecessor(
+	default IFractalBuilder setNextValueFunctionFor1Predecessor(
 		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction
 	) {
 		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], c));
 	}
 	
 	//method
-	public default IFractalBuilder setNextValueFunctionFor2Predecessor(
+	default IFractalBuilder setNextValueFunctionFor2Predecessor(
 		final I3ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
 		nextValueFunction
 	) {
@@ -61,7 +61,7 @@ public interface IFractalBuilder {
 	}
 	
 	//method
-	public default IFractalBuilder setNextValueFunctionFor3Predecessor(
+	default IFractalBuilder setNextValueFunctionFor3Predecessor(
 		final I4ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
 		nextValueFunction
 	) {
@@ -69,7 +69,7 @@ public interface IFractalBuilder {
 	}
 
 	//method
-	public default IFractalBuilder setNextValueFunctionFor4Predecessor(
+	default IFractalBuilder setNextValueFunctionFor4Predecessor(
 		I5ElementTakerElementGetter<
 			IComplexNumber,
 			IComplexNumber,
@@ -85,19 +85,19 @@ public interface IFractalBuilder {
 	}
 
 	//method declaration
-	public abstract IFractalBuilder setRealComponentInterval(double min, double max);
+	IFractalBuilder setRealComponentInterval(double min, double max);
 
 	//method declaration
-	public abstract IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
+	IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
 
 	//method declaration
-	public abstract IFractalBuilder setStartValues(IComplexNumber... startValues);
+	IFractalBuilder setStartValues(IComplexNumber... startValues);
 	
 	//method declaration
-	public abstract IFractalBuilder setStartValuesFunction(
+	IFractalBuilder setStartValuesFunction(
 		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> startValuesFunction
 	);
 	
 	//method declaration
-	public abstract IFractalBuilder setWidthInPixel(int widthInPixel);
+	IFractalBuilder setWidthInPixel(int widthInPixel);
 }

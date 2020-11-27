@@ -26,7 +26,7 @@ public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends
 	 * @param patchVersion
 	 * @return the current {@link SemanticVersionable}.
 	 */
-	public abstract SV setVersion(final int majorVersion, final int minorVersion, final int patchVersion);
+	SV setVersion(final int majorVersion, final int minorVersion, final int patchVersion);
 	
 	//method declaration
 	/**
@@ -37,7 +37,7 @@ public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends
 	 * @throws ArgumentIsNullException if the given version is null.
 	 * @throws InvalidArgumentException if the given version is blank.
 	 */
-	public default SV setVersion(final String version) {
+	default SV setVersion(final String version) {
 		
 		Validator.assertThat(version).thatIsNamed(VariableNameCatalogue.VERSION).isNotBlank();
 		

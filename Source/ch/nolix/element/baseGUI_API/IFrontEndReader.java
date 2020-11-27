@@ -9,11 +9,11 @@ import ch.nolix.common.container.SingleContainer;
 public interface IFrontEndReader {
 	
 	//method declaration
-	public abstract LinkedList<byte[]> getFilesFromClipboard();
+	LinkedList<byte[]> getFilesFromClipboard();
 	
 	//method declaration
-	public abstract String getTextFromClipboard();
+	String getTextFromClipboard();
 	
 	//method declaration
-	public abstract SingleContainer<byte[]> readFileToBytes();
+	SingleContainer<byte[]> readFileToBytes();
 }

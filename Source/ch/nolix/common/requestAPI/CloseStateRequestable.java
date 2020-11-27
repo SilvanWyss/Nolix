@@ -15,13 +15,13 @@ public interface CloseStateRequestable {
 	/**
 	 * @return true if the current {@link CloseStateRequestable} is closed.
 	 */
-	public abstract boolean isClosed();
+	boolean isClosed();
 	
 	//method
 	/**
 	 * @return true if the current {@link CloseStateRequestable} is not closed.
 	 */
-	public default boolean isOpen() {
+	default boolean isOpen() {
 		return !isClosed();
 	}
 }

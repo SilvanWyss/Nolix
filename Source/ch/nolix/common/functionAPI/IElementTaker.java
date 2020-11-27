@@ -18,5 +18,5 @@ public interface IElementTaker<E> {
 	 * 
 	 * @param element
 	 */
-	public abstract void run(E element);
+	void run(E element);
 }

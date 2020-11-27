@@ -5,5 +5,5 @@ package ch.nolix.element.baseGUI_API;
 public interface IFrontEndWriter {
 	
 	//method declaration
-	public abstract void saveFile(byte[] bytes);
+	void saveFile(byte[] bytes);
 }

@@ -17,7 +17,7 @@ public interface IResultFuture<R> extends IFuture {
 	 * @return the result of the current {@link IResultFuture}.
 	 * @throws Exception if the current {@link IResultFuture} is not finished or has caught an error.
 	 */
-	public abstract R getResult();
+	R getResult();
 	
 	//method
 	/**
@@ -25,7 +25,7 @@ public interface IResultFuture<R> extends IFuture {
 	 * 
 	 * @return the result of the current {@link IResultFuture} after waiting until it is finished.
 	 */
-	public default R waitUntilIsFinishedAndGetResult() {
+	default R waitUntilIsFinishedAndGetResult() {
 		
 		waitUntilIsFinished();
 		

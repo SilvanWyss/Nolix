@@ -9,10 +9,10 @@ import ch.nolix.common.multiAttributeRequestAPI.MultiTokened;
 public interface MultiTokenable<MT extends MultiTokenable<MT>> extends IFluentObject<MT>, MultiTokened {
 	
 	//method declaration
-	public abstract MT addToken(String token);
+	MT addToken(String token);
 	
 	//method
-	public default MT addToken(final String... tokens) {
+	default MT addToken(final String... tokens) {
 		
 		for (final var t : tokens) {
 			addToken(t);
@@ -22,7 +22,7 @@ public interface MultiTokenable<MT extends MultiTokenable<MT>> extends IFluentOb
 	}
 	
 	//method
-	public default MT addTokens(final Iterable<String> tokens) {
+	default MT addTokens(final Iterable<String> tokens) {
 		
 		tokens.forEach(this::addToken);
 		
@@ -30,10 +30,10 @@ public interface MultiTokenable<MT extends MultiTokenable<MT>> extends IFluentOb
 	}
 	
 	//method declaration
-	public abstract MT removeToken(String token);
+	MT removeToken(String token);
 	
 	//method
-	public default MT removeToken(final String... tokens) {
+	default MT removeToken(final String... tokens) {
 		
 		for (final var t : tokens) {
 			removeToken(t);
@@ -43,10 +43,10 @@ public interface MultiTokenable<MT extends MultiTokenable<MT>> extends IFluentOb
 	}
 	
 	//method declaration
-	public abstract MT removeTokens();
+	MT removeTokens();
 	
 	//method
-	public default MT removeTokens(final Iterable<String> tokens) {
+	default MT removeTokens(final Iterable<String> tokens) {
 		
 		tokens.forEach(this::removeToken);
 		

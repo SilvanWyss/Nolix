@@ -7,8 +7,8 @@ import ch.nolix.common.container.IContainer;
 public interface IResourceFactory {
 	
 	//method declaration
-	public abstract IResource create(String name, IResource... baseResources);
+	IResource create(String name, IResource... baseResources);
 	
 	//method declaration
-	public abstract IResource create(String name, IContainer<IResource> baseResources);
+	IResource create(String name, IContainer<IResource> baseResources);
 }

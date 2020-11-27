@@ -16,5 +16,5 @@ public interface ILongTakerLongGetter {
 	 * @param value
 	 * @return a long for the given value.
 	 */
-	public abstract long getOutput(long value);
+	long getOutput(long value);
 }

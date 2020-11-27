@@ -22,5 +22,5 @@ public interface Identifiable<I> extends Identified {
 	 * @param id
 	 * @return the current {@link Identifiable}.
 	 */
-	public abstract I setId(long id);
+	I setId(long id);
 }

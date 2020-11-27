@@ -5,5 +5,5 @@ package ch.nolix.system.databaseAdapter;
 public interface IDatabaseAdapterCreator {
 	
 	//method declaration
-	public abstract DatabaseAdapter createDatabaseAdapter(Schema schema);
+	DatabaseAdapter createDatabaseAdapter(Schema schema);
 }

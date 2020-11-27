@@ -21,7 +21,7 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends O
 	 * 
 	 * @return the current {@link OptionalHeaderable}.
 	 */
-	public abstract OH removeHeader();
+	OH removeHeader();
 	
 	//method declaration
 	/**
@@ -30,5 +30,5 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends O
 	 * @param header
 	 * @return the current {@link OptionalHeaderable}.
 	 */
-	public abstract OH setHeader(String header);
+	OH setHeader(String header);
 }

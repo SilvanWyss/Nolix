@@ -8,8 +8,8 @@ import ch.nolix.element.input.Key;
 public interface IKeyBoard {
 	
 	//method declaration
-	public abstract boolean keyIsPressed(Key key);
+	boolean keyIsPressed(Key key);
 	
 	//method declaration
-	public abstract boolean shiftIsLocked();
+	boolean shiftIsLocked();
 }

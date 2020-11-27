@@ -15,7 +15,7 @@ public interface EnablingRequestable {
 	/**
 	 * @return true if the current {@link EnablingRequestable} is disabled.
 	 */
-	public default boolean isDisabled() {
+	default boolean isDisabled() {
 		return !isEnabled();
 	}
 	
@@ -23,5 +23,5 @@ public interface EnablingRequestable {
 	/**
 	 * @return true if the current {@link EnablingRequestable} is enabled.
 	 */
-	public abstract boolean isEnabled();
+	boolean isEnabled();
 }

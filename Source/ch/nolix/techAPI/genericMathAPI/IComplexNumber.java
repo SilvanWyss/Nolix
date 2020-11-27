@@ -8,62 +8,62 @@ import java.math.BigDecimal;
 public interface IComplexNumber {
 	
 	//method declaration
-	public abstract int getBigDecimalScale();
+	int getBigDecimalScale();
 	
 	//method declaration
-	public abstract IComplexNumber getConjugate();
+	IComplexNumber getConjugate();
 	
 	//method declaration
-	public abstract BigDecimal getImaginaryComponent();
+	BigDecimal getImaginaryComponent();
 	
 	//method declaration
-	public abstract IComplexNumber getInBigDecimalScale(int bigDecimalScale);
+	IComplexNumber getInBigDecimalScale(int bigDecimalScale);
 	
 	//method declaration
-	public abstract BigDecimal getMagnitude();
+	BigDecimal getMagnitude();
 	
 	//method declaration
-	public abstract IComplexNumber getPower(int exponent);
+	IComplexNumber getPower(int exponent);
 	
 	//method declaration
-	public abstract IComplexNumber getProduct(BigDecimal number);
+	IComplexNumber getProduct(BigDecimal number);
 	
 	//method declaration
-	public abstract IComplexNumber getProduct(double number);
+	IComplexNumber getProduct(double number);
 	
 	//method declaration
-	public abstract IComplexNumber getProduct(IComplexNumber complexNumber);
+	IComplexNumber getProduct(IComplexNumber complexNumber);
 	
 	//method declaration
-	public abstract BigDecimal getRealComponent();
+	BigDecimal getRealComponent();
 	
 	//method declaration
-	public abstract int getScale();
+	int getScale();
 	
 	//method declaration
-	public abstract IComplexNumber getPower2();
+	IComplexNumber getPower2();
 	
 	//method declaration
-	public abstract IComplexNumber getPower3();
+	IComplexNumber getPower3();
 	
 	//method declaration
-	public abstract IComplexNumber getPower4();
+	IComplexNumber getPower4();
 	
 	//method declaration
-	public abstract BigDecimal getSquaredMagnitude();
+	BigDecimal getSquaredMagnitude();
 	
 	//method declaration
-	public abstract IComplexNumber getSum(BigDecimal number);
+	IComplexNumber getSum(BigDecimal number);
 	
 	//method declaration
-	public abstract IComplexNumber getSum(double number);
+	IComplexNumber getSum(double number);
 
 	//method declaration
-	public abstract IComplexNumber getSum(IComplexNumber complexNumber);
+	IComplexNumber getSum(IComplexNumber complexNumber);
 	
 	//method declaration
-	public abstract boolean isPureImaginary();
+	boolean isPureImaginary();
 	
 	//method declaration
-	public abstract boolean isPureReal();
+	boolean isPureReal();
 }

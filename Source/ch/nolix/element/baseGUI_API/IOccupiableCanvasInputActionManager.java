@@ -12,7 +12,7 @@ public interface IOccupiableCanvasInputActionManager<OCIAM extends IOccupiableCa
 extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	
 	//method
-	public default OCIAM setLeftMouseButtonClickActionOnFreeArea(
+	default OCIAM setLeftMouseButtonClickActionOnFreeArea(
 		final IElementTaker<OCIAM> leftMouseButtonClickAction
 	) {
 		
@@ -29,7 +29,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setLeftMouseButtonPressActionOnFreeArea(final IAction leftMouseButtonPressAction) {
+	default OCIAM setLeftMouseButtonPressActionOnFreeArea(final IAction leftMouseButtonPressAction) {
 		
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
@@ -37,7 +37,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setLeftMouseButtonPressActionOnFreeArea(
+	default OCIAM setLeftMouseButtonPressActionOnFreeArea(
 		final IElementTaker<OCIAM> leftMouseButtonPressAction
 	) {
 		
@@ -54,7 +54,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setLeftMouseButtonReleaseActionOnFreeArea(
+	default OCIAM setLeftMouseButtonReleaseActionOnFreeArea(
 		final IElementTaker<OCIAM> leftMouseButtonReleaseAction
 	) {
 		
@@ -71,7 +71,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseMoveActionOnFreeArea(final IElementTaker<OCIAM> mouseMoveAction) {
+	default OCIAM setMouseMoveActionOnFreeArea(final IElementTaker<OCIAM> mouseMoveAction) {
 		
 		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
@@ -86,7 +86,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseWheelClickActionOnFreeArea(
+	default OCIAM setMouseWheelClickActionOnFreeArea(
 		final IElementTaker<OCIAM> mouseWheelClickAction
 	) {
 		
@@ -103,7 +103,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseWheelPressActionOnFreeArea(
+	default OCIAM setMouseWheelPressActionOnFreeArea(
 		final IElementTaker<OCIAM> mouseWheelPressAction
 	) {
 		
@@ -120,7 +120,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setMouseWheelReleaseActionOnFreeArea(
+	default OCIAM setMouseWheelReleaseActionOnFreeArea(
 		final IElementTaker<OCIAM> mouseWheelReleaseAction
 	) {
 		
@@ -137,7 +137,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setRightMouseButtonClickActionOnFreeArea(
+	default OCIAM setRightMouseButtonClickActionOnFreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonClickAction
 	) {
 		
@@ -154,7 +154,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setRightMouseButtonPressActionOnFreeArea(
+	default OCIAM setRightMouseButtonPressActionOnFreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonPressAction
 	) {
 		
@@ -171,7 +171,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	}
 	
 	//method
-	public default OCIAM setRightMouseButtonReleaseActionOnFreeArea(
+	default OCIAM setRightMouseButtonReleaseActionOnFreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonReleaseAction
 	) {
 		

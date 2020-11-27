@@ -17,5 +17,5 @@ public interface IIntTaker {
 	 * 
 	 * @param value
 	 */
-	public abstract void run(int value);
+	void run(int value);
 }

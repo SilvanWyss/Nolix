@@ -5,10 +5,10 @@ package ch.nolix.common.endPoint2;
 interface INetEndPointProcessor {
 	
 	//method
-	public default void sendRawMessage(final char rawMessage) {
+	default void sendRawMessage(final char rawMessage) {
 		sendRawMessage(String.valueOf(rawMessage));
 	}
 	
 	//method declaration
-	public abstract void sendRawMessage(final String rawMessage);
+	void sendRawMessage(final String rawMessage);
 }

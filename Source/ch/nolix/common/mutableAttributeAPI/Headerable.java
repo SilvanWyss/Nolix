@@ -22,5 +22,5 @@ public interface Headerable<H extends Headered> extends Headered {
 	 * @param header
 	 * @return the current {@link Headerable}.
 	 */
-	public abstract H setHeader(String header);
+	H setHeader(String header);
 }

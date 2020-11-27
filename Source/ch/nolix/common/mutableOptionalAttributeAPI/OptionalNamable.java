@@ -21,7 +21,7 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> extends Optiona
 	 * 
 	 * @return the current {@link OptionalNamable}.
 	 */
-	public abstract ON removeName();
+	ON removeName();
 	
 	//method declaration
 	/**
@@ -30,5 +30,5 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> extends Optiona
 	 * @param name
 	 * @return the current {@link OptionalNamable}.
 	 */
-	public abstract ON setName(String name);
+	ON setName(String name);
 }

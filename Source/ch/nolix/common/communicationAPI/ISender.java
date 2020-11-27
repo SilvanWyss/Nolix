@@ -17,7 +17,7 @@ public interface ISender {
 	 * 
 	 * @param message
 	 */
-	public abstract void send(String message);
+	void send(String message);
 	
 	//method
 	/**
@@ -25,7 +25,7 @@ public interface ISender {
 	 * 
 	 * @param messages
 	 */
-	public default void send(final String... messages) {
+	default void send(final String... messages) {
 		
 		//Iterates the given messages.
 		for (final var m : messages) {

@@ -20,7 +20,7 @@ public interface IInputTaker {
 	 * @param input
 	 * @throws InvalidArgumentException if the given input is not valid.
 	 */
-	public default void noteInput(final IInput<?> input) {
+	default void noteInput(final IInput<?> input) {
 		
 		if (input instanceof MouseInput) {
 			noteMouseInput(input.as(MouseInput.class));
@@ -41,7 +41,7 @@ public interface IInputTaker {
 	 * 
 	 * @param keyInput
 	 */
-	public default void noteKeyInput(final KeyInput keyInput) {
+	default void noteKeyInput(final KeyInput keyInput) {
 		switch (keyInput.getInputType()) {
 			case Press:
 				noteKeyPress(keyInput.getKey());
@@ -61,7 +61,7 @@ public interface IInputTaker {
 	 * 
 	 * @param key
 	 */
-	public abstract void noteKeyPress(Key key);
+	void noteKeyPress(Key key);
 	
 	//method declaration
 	/**
@@ -69,7 +69,7 @@ public interface IInputTaker {
 	 * 
 	 * @param key
 	 */
-	public abstract void noteKeyRelease(Key key);
+	void noteKeyRelease(Key key);
 	
 	//method declaration
 	/**
@@ -77,13 +77,13 @@ public interface IInputTaker {
 	 * 
 	 * @param key
 	 */
-	public abstract void noteKeyTyping(Key key);
+	void noteKeyTyping(Key key);
 	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a left mouse button click.
 	 */
-	public abstract void noteLeftMouseButtonClick();
+	void noteLeftMouseButtonClick();
 	
 	//method
 	/**
@@ -92,7 +92,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteLeftMouseButtonClick(
+	default void noteLeftMouseButtonClick(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -104,7 +104,7 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a left mouse button press.
 	 */
-	public abstract void noteLeftMouseButtonPress();
+	void noteLeftMouseButtonPress();
 	
 	//method
 	/**
@@ -113,7 +113,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteLeftMouseButtonPress(
+	default void noteLeftMouseButtonPress(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -125,7 +125,7 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a left mouse button release.
 	 */
-	public abstract void noteLeftMouseButtonRelease();
+	void noteLeftMouseButtonRelease();
 	
 	//method
 	/**
@@ -134,7 +134,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteLeftMouseButtonRelease(
+	default void noteLeftMouseButtonRelease(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -148,7 +148,7 @@ public interface IInputTaker {
 	 * 
 	 * @param mouseInput
 	 */
-	public default void noteMouseInput(final MouseInput mouseInput) {
+	default void noteMouseInput(final MouseInput mouseInput) {
 		switch (mouseInput.getInputType()) {
 			case MouseMove:
 				noteMouseMove(mouseInput.getCursorXPosition(), mouseInput.getCursorYPosition());
@@ -197,13 +197,13 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public abstract void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea);
+	void noteMouseMove(int cursorXPositionOnViewArea, int cursorYPositionOnViewArea);
 	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a mouse wheel clcik.
 	 */
-	public abstract void noteMouseWheelClick();
+	void noteMouseWheelClick();
 	
 	//method
 	/**
@@ -212,7 +212,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteMouseWheelClick(
+	default void noteMouseWheelClick(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -224,7 +224,7 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a mouse wheel press.
 	 */
-	public abstract void noteMouseWheelPress();
+	void noteMouseWheelPress();
 	
 	//method
 	/**
@@ -233,7 +233,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteMouseWheelPress(
+	default void noteMouseWheelPress(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -245,7 +245,7 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a mouse wheel release.
 	 */
-	public abstract void noteMouseWheelRelease();
+	void noteMouseWheelRelease();
 	
 	//method
 	/**
@@ -254,7 +254,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteMouseWheelRelease(
+	default void noteMouseWheelRelease(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -268,13 +268,13 @@ public interface IInputTaker {
 	 * 
 	 * @param rotationDirection
 	 */
-	public abstract void noteMouseWheelRotationStep(final RotationDirection rotationDirection);
+	void noteMouseWheelRotationStep(final RotationDirection rotationDirection);
 	
 	//method declaration
 	/**
 	 * Lets the current {@link IInputTaker} note a right mouse button click.
 	 */
-	public abstract void noteRightMouseButtonClick();
+	void noteRightMouseButtonClick();
 	
 	//method
 	/**
@@ -283,7 +283,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteRightMouseButtonClick(
+	default void noteRightMouseButtonClick(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -295,7 +295,7 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a right mouse button press.
 	 */
-	public abstract void noteRightMouseButtonPress();
+	void noteRightMouseButtonPress();
 	
 	//method
 	/**
@@ -304,7 +304,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteRightMouseButtonPress(
+	default void noteRightMouseButtonPress(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {
@@ -316,7 +316,7 @@ public interface IInputTaker {
 	/**
 	 * Lets the current {@link IInputTaker} note a right mouse button release.
 	 */
-	public abstract void noteRightMouseButtonRelease();
+	void noteRightMouseButtonRelease();
 	
 	//method
 	/**
@@ -325,7 +325,7 @@ public interface IInputTaker {
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
 	 */
-	public default void noteRightMouseButtonRelease(
+	default void noteRightMouseButtonRelease(
 		final int cursorXPositionOnViewArea,
 		final int cursorYPositionOnViewArea
 	) {

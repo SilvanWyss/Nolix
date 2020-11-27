@@ -22,5 +22,5 @@ public interface Tokenable<T extends Tokenable<T>> extends Tokened {
 	 * @param token
 	 * @return the current {@link Tokenable}.
 	 */
-	public abstract T setToken(String token);
+	T setToken(String token);
 }

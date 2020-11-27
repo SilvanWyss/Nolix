@@ -17,20 +17,20 @@ public interface OptionalValued<V> {
 	 * @return the value of the current {@link OptionalValued}.
 	 * @throws Exception if the current {@link OptionalValued} does not have a value.
 	 */
-	public abstract V getValue();
+	V getValue();
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link OptionalValued} has a value.
 	 */
-	public abstract boolean hasValue();
+	boolean hasValue();
 	
 	//method
 	/**
 	 * @param value
 	 * @return true if the current {@link OptionalValued} has a value that equals the given value.
 	 */
-	public default boolean hasEqualValue(final Object value) {
+	default boolean hasEqualValue(final Object value) {
 		
 		//Handles the case that the current OptionalValued does not have a value.
 		if (!hasValue()) {
@@ -46,7 +46,7 @@ public interface OptionalValued<V> {
 	 * @param object
 	 * @return true if the current {@link OptionalValued} has an equal value as the given object.
 	 */
-	public default boolean hasEqualValueAs(final OptionalValued<?> object) {
+	default boolean hasEqualValueAs(final OptionalValued<?> object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {
@@ -67,7 +67,7 @@ public interface OptionalValued<V> {
 	 * @param object
 	 * @return true if the current {@link OptionalValued} has the same value as the given object.
 	 */
-	public default boolean hasSameValueAs(final OptionalValued<?> object) {
+	default boolean hasSameValueAs(final OptionalValued<?> object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {
@@ -88,7 +88,7 @@ public interface OptionalValued<V> {
 	 * @param value
 	 * @return true if the current {@link OptionalValued} has the given value.
 	 */
-	public default boolean hasValue(final Object value) {
+	default boolean hasValue(final Object value) {
 		
 		//Handles the case that the current OptionalValued does not have a value.
 		if (!hasValue()) {

@@ -21,5 +21,5 @@ public interface Namable<N extends Namable<N>> extends Named {
 	 * @param name
 	 * @return the current {@link Namable}.
 	 */
-	public abstract N setName(String name);
+	N setName(String name);
 }

@@ -17,7 +17,7 @@ public interface IFluentObject<FO extends IFluentObject<FO>> {
 	 * @return the current {@link IFluentObject} as its concrete type.
 	 */
 	@SuppressWarnings("unchecked")
-	public default FO asConcrete() {
+	default FO asConcrete() {
 		return (FO)this;
 	}
 }

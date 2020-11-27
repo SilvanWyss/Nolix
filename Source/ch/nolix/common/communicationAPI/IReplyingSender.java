@@ -19,5 +19,5 @@ public interface IReplyingSender {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	public abstract String sendAndGetReply(String message);
+	String sendAndGetReply(String message);
 }

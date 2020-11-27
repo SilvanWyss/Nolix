@@ -23,5 +23,5 @@ public interface I3ElementTakerElementGetter<E1, E2, E3, E4> {
 	 * @return an element for the given element1, element2 and element3
 	 * from the current {@link I3ElementTakerElementGetter}.
 	 */
-	public abstract E4 getOutput(E1 element1, E2 element2, E3 element3);
+	E4 getOutput(E1 element1, E2 element2, E3 element3);
 }

@@ -20,7 +20,7 @@ public interface OptionalIdentifiable<OI extends OptionalIdentifiable<OI>> exten
 	 * 
 	 * @return the current {@link OptionalIdentifiable}.
 	 */
-	public abstract OI removeId();
+	OI removeId();
 	
 	//method declaration
 	/**
@@ -29,5 +29,5 @@ public interface OptionalIdentifiable<OI extends OptionalIdentifiable<OI>> exten
 	 * @param id
 	 * @return the current {@link OptionalIdentifiable}.
 	 */
-	public abstract OI setId(int id);
+	OI setId(int id);
 }

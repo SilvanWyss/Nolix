@@ -15,5 +15,5 @@ public interface ILongGetter {
 	/**
 	 * @return a long.
 	 */
-	public abstract long getOutput();
+	long getOutput();
 }

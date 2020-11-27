@@ -21,13 +21,13 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return the attributes of the current {@link IElement}.
 	 */
-	public abstract LinkedList<Node> getAttributes();
+	LinkedList<Node> getAttributes();
 	
 	//method
 	/**
 	 * @return the specification of the current {@link IElement}.
 	 */
-	public default Node getSpecification() {
+	default Node getSpecification() {
 		return new Node(getType(), getAttributes());
 	}
 	
@@ -38,7 +38,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws InvalidArgumentException if the given type is blank.
 	 */
-	public default Node getSpecificationAs(final String type) {
+	default Node getSpecificationAs(final String type) {
 		return new Node(type, getAttributes());
 	}
 	
@@ -46,7 +46,7 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return the specification of the current {@link IElement} without header.
 	 */
-	public default Node getSpecificationWithoutHeader() {
+	default Node getSpecificationWithoutHeader() {
 		return new Node(getAttributes());
 	}
 	
@@ -62,7 +62,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
-	public default void saveAsTo(final String type, final String path) {
+	default void saveAsTo(final String type, final String path) {
 		
 		//Calls other method.
 		saveAsTo(type, path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
@@ -83,7 +83,7 @@ public interface IElement extends TypeRequestable {
 	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
-	public default void saveAsTo(final String type, final String path, final WriteMode writeMode) {
+	default void saveAsTo(final String type, final String path, final WriteMode writeMode) {
 		getSpecificationAs(type).saveToFile(path, writeMode);
 	}
 	
@@ -95,7 +95,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws InvalidArgumentException
 	 * if a file system item with the given file path exists already.
 	 */
-	public default void saveTo(final String filePath) {
+	default void saveTo(final String filePath) {
 		
 		//Calls other method.
 		saveTo(filePath, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
@@ -113,7 +113,7 @@ public interface IElement extends TypeRequestable {
 	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
-	public default void saveTo(final String path, final WriteMode writeMode) {
+	default void saveTo(final String path, final WriteMode writeMode) {
 		getSpecification().saveToFile(path, writeMode);
 	}
 	
@@ -121,7 +121,7 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return a formated string representation of the current {@link IElement}.
 	 */
-	public default String toFormatedString() {
+	default String toFormatedString() {
 		return getSpecification().toFormatedString();
 	}
 	
@@ -129,7 +129,7 @@ public interface IElement extends TypeRequestable {
 	/**
 	 * @return a XML representation of the current {@link IElement}.
 	 */
-	public default XMLNode toXML() {
+	default XMLNode toXML() {
 		return getSpecification().toXML();
 	}
 	
@@ -140,7 +140,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
-	public default XMLNode toXMLAs(final String type) {
+	default XMLNode toXMLAs(final String type) {
 		return getSpecificationAs(type).toXML();
 	}
 }

@@ -19,7 +19,7 @@ public interface TypeRequestable {
 	/**
 	 * @return the type of the current {@link TypeRequestable}.
 	 */
-	public default String getType() {
+	default String getType() {
 		return getClass().getSimpleName();
 	}
 	
@@ -27,7 +27,7 @@ public interface TypeRequestable {
 	/**
 	 * @return the plural of the type of the current {@link TypeRequestable}.
 	 */
-	public default String getTypeInPlural() {
+	default String getTypeInPlural() {
 		return EnglishNounHelper.getPlural(getType());
 	}
 	
@@ -36,7 +36,7 @@ public interface TypeRequestable {
 	 * @return the types of the current {@link TypeRequestable}
 	 * ordered from the most concrete to the most general.
 	 */
-	public default LinkedList<String> getTypes() {
+	default LinkedList<String> getTypes() {
 		
 		final var types = new LinkedList<String>();
 		
@@ -58,7 +58,7 @@ public interface TypeRequestable {
 	 * @param concreteType
 	 * @return true if the current {@link TypeRequestable} is of the given concrete type.
 	 */
-	public default boolean isOfConcreteType(final Class<?> concreteType) {
+	default boolean isOfConcreteType(final Class<?> concreteType) {
 		return (getClass() == concreteType);
 	}
 	
@@ -67,7 +67,7 @@ public interface TypeRequestable {
 	 * @param concreteType
 	 * @return true if the current {@link TypeRequestable} is of the given concrete type.
 	 */
-	public default boolean isOfConcreteType(final String concreteType) {
+	default boolean isOfConcreteType(final String concreteType) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return getClass().getSimpleName().equals(concreteType);
@@ -78,7 +78,7 @@ public interface TypeRequestable {
 	 * @param type
 	 * @return true if the current {@link TypeRequestable} is of the given type.
 	 */
-	public default boolean isOfType(final Class<?> type) {
+	default boolean isOfType(final Class<?> type) {
 		return type.isAssignableFrom(getClass());
 	}
 	
@@ -87,7 +87,7 @@ public interface TypeRequestable {
 	 * @param type
 	 * @return true if the current {@link TypeRequestable} is of the given type.
 	 */
-	public default boolean isOfType(final String type) {
+	default boolean isOfType(final String type) {
 		
 		/*
 		 * For a better performance, this implementation does not use all comfortable methods.

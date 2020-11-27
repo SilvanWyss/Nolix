@@ -17,5 +17,5 @@ public interface IElementTakerByteGetter<E> {
 	 * @param element
 	 * @return a byte for the given element.
 	 */
-	public abstract byte getOutput(E element);
+	byte getOutput(E element);
 }

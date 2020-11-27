@@ -11,7 +11,7 @@ import ch.nolix.common.skillAPI.Clearable;
 public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, Named {
 	
 	//method
-	public default IEntitySet<E> addEntities(final Iterable<E> entities) {
+	default IEntitySet<E> addEntities(final Iterable<E> entities) {
 		
 		entities.forEach(this::addEntity);
 		
@@ -19,38 +19,38 @@ public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, 
 	}
 	
 	//method declaration
-	public abstract IEntitySet<E> addEntity(E entity);
+	IEntitySet<E> addEntity(E entity);
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public default IEntitySet<E> addEntity(final E... entities) {
+	default IEntitySet<E> addEntity(final E... entities) {
 		return addEntities(ReadContainer.forArray(entities));
 	}
 	
 	//method declaration
-	public abstract <E2 extends Entity> boolean canReferenceBackEntityOfType(final Class<E2> type);
+	<E2 extends Entity> boolean canReferenceBackEntityOfType(final Class<E2> type);
 	
 	//method declaration
-	public abstract <E2 extends Entity> boolean canReferenceEntityOfType(final Class<E2> type);
+	<E2 extends Entity> boolean canReferenceEntityOfType(final Class<E2> type);
 	
 	//method declaration
-	public abstract IEntitySet<E> deleteEntity(E entity);
+	IEntitySet<E> deleteEntity(E entity);
 	
 	//method declaration
-	public abstract IDatabaseAdapter getParentDatabaseAdapter();
+	IDatabaseAdapter getParentDatabaseAdapter();
 	
 	//method declaration
-	public abstract IContainer<E> getRefEntities();
+	IContainer<E> getRefEntities();
 	
 	//method declaration
-	public abstract E getRefEntityById(long id);
+	E getRefEntityById(long id);
 	
 	//method declaration
-	public abstract boolean hasChanges();
+	boolean hasChanges();
 	
 	//method declaration
-	public abstract boolean references(Entity entity);
+	boolean references(Entity entity);
 	
 	//method declaration
-	public abstract void noteMutatedEntity(E entity);
+	void noteMutatedEntity(E entity);
 }

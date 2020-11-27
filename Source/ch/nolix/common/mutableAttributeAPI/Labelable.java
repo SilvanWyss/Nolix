@@ -22,5 +22,5 @@ public interface Labelable<S extends Labelable<S>> extends Labeled {
 	 * @param infoString
 	 * @return the current {@link Labelable}.
 	 */
-	public abstract S setInfoString(String infoString);
+	S setInfoString(String infoString);
 }

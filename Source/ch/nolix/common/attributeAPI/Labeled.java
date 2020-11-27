@@ -15,14 +15,14 @@ public interface Labeled {
 	/**
 	 * @return the info string of the current {@link Labeled}.
 	 */
-	public abstract String getInfoString();
+	String getInfoString();
 	
 	//method
 	/**
 	 * @param infoString
 	 * @return true if the current {@link Labeled} has the given info string.
 	 */
-	public default boolean hasInfoString(final String infoString) {
+	default boolean hasInfoString(final String infoString) {
 		return getInfoString().equals(infoString);
 	}
 }

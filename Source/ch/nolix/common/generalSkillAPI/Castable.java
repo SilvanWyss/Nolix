@@ -18,7 +18,7 @@ public interface Castable {
 	 * @throws ClassCastException if the current {@link Castable} is not of the given type.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <T> T as(final Class<T> type) {
+	default <T> T as(final Class<T> type) {
 		return (T)this;
 	}
 }

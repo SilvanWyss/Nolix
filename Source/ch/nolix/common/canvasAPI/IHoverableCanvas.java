@@ -5,5 +5,5 @@ package ch.nolix.common.canvasAPI;
 public interface IHoverableCanvas {
 	
 	//method declaration
-	public abstract boolean isUnderCursor();
+	boolean isUnderCursor();
 }

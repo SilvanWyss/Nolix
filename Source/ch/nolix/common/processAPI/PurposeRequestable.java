@@ -17,13 +17,13 @@ public interface PurposeRequestable {
 	/**
 	 * @return the purpose of the current {@link PurposeRequestable}.
 	 */
-	public abstract Purpose getPurpose();
+	Purpose getPurpose();
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link PurposeRequestable} is functional.
 	 */
-	public default boolean isFunctional() {
+	default boolean isFunctional() {
 		return (getPurpose() == Purpose.FUNCTIONAL);
 	}
 	
@@ -31,7 +31,7 @@ public interface PurposeRequestable {
 	/**
 	 * @return true if the current {@link PurposeRequestable} is technical.
 	 */
-	public default boolean isTechnical() {
+	default boolean isTechnical() {
 		return (getPurpose() == Purpose.TECHNICAL);
 	}
 }

@@ -9,10 +9,10 @@ import ch.nolix.system.schemaDataType.SchemaDataType;
 public interface IColumnAdapter extends Headered {
 	
 	//method declaration
-	public abstract SchemaDataType<?> getDataType();
+	SchemaDataType<?> getDataType();
 	
 	//method
-	public default Column toColumn() {
+	default Column toColumn() {
 		return new Column(getHeader(), getDataType());
 	}
 }

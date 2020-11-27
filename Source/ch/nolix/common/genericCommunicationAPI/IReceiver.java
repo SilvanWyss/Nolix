@@ -18,5 +18,5 @@ public interface IReceiver<M> {
 	 * 
 	 * @param message
 	 */
-	public abstract void receive(M message);
+	void receive(M message);
 }

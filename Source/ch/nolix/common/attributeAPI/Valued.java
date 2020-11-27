@@ -17,13 +17,13 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	/**
 	 * @return the value of the current {@link Valued}.
 	 */
-	public abstract V getValue();
+	V getValue();
 	
 	//method
 	/**
 	 * @return a {@link String} representation of the current {@link Valued}.
 	 */
-	public default String getValueAsString() {
+	default String getValueAsString() {
 		return getValue().toString();
 	}
 	
@@ -32,7 +32,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	 * @param value
 	 * @return true if the current {@link Valued} has a value that equals the given value.
 	 */
-	public default boolean hasEqualValue(final Object value) {
+	default boolean hasEqualValue(final Object value) {
 		return getValue().equals(value);
 	}
 	
@@ -41,7 +41,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	 * @param value
 	 * @return true if the current {@link Valued} has the given value.
 	 */
-	public default boolean hasValue(final Object value) {
+	default boolean hasValue(final Object value) {
 		return (getValue() == value);
 	}
 }

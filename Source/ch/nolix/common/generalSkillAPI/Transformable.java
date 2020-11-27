@@ -29,7 +29,7 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 	 * with the help of an instance of the given transformatorClass.
 	 * @throws ArgumentIsNullException if the given transformatorClass is null.
 	 */
-	public default <O, TC extends  IElementTakerElementGetter<T, O>> O to(final Class<TC> transformatorClass) {
+	default <O, TC extends  IElementTakerElementGetter<T, O>> O to(final Class<TC> transformatorClass) {
 		
 		Validator.assertThat(transformatorClass).thatIsNamed("transformator class").isNotNull();
 		
@@ -55,7 +55,7 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 	 * @return a new {@link Object} from the current {@link Transformable} with the help of the given transformator.
 	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
-	public default <O> O to(final IElementTakerElementGetter<T, O> transformator) {
+	default <O> O to(final IElementTakerElementGetter<T, O> transformator) {
 		
 		Validator.assertThat(transformator).thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).isNotNull();
 		

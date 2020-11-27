@@ -20,7 +20,7 @@ public interface ICloseableElement extends Closeable {
 	/**
 	 * @throws ClosedArgumentException if the current {@link ICloseableElement} is closed.
 	 */
-	public default void assertIsOpen() {
+	default void assertIsOpen() {
 		
 		//Asserts that the current ICloseableElement is open.
 		if (isClosed()) {
@@ -33,7 +33,7 @@ public interface ICloseableElement extends Closeable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default void close() {
+	default void close() {
 		getRefCloseController().close();
 	}
 	
@@ -49,7 +49,7 @@ public interface ICloseableElement extends Closeable {
 	 * @throws InvalidArgumentException
 	 * if the current {@link CloseableElement} has already a close dependency to the given element.
 	 */
-	public default void createCloseDependencyTo(final ICloseableElement element) {
+	default void createCloseDependencyTo(final ICloseableElement element) {
 		getRefCloseController().createCloseDependencyTo(element);
 	}
 	
@@ -57,14 +57,14 @@ public interface ICloseableElement extends Closeable {
 	/**
 	 * @return the {@link CloseController} of the current {@link ICloseableElement}.
 	 */
-	public abstract CloseController getRefCloseController();
+	CloseController getRefCloseController();
 	
 	//method
 	/**
 	 * @param element
 	 * @return true if the current {@link ICloseableElement} has a close dependency to the given element.
 	 */
-	public default boolean hasCloseDependencyTo(final ICloseableElement element) {
+	default boolean hasCloseDependencyTo(final ICloseableElement element) {
 		return getRefCloseController().hasCloseDependencyTo(element);
 	}
 	
@@ -72,7 +72,7 @@ public interface ICloseableElement extends Closeable {
 	/**
 	 * @return true if the current {@link ICloseableElement} has a pre-close action.
 	 */
-	public default boolean hasPreCloseAction() {
+	default boolean hasPreCloseAction() {
 		return getRefCloseController().hasPreCloseAction();
 	}
 	
@@ -81,7 +81,7 @@ public interface ICloseableElement extends Closeable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default boolean isClosed() {
+	default boolean isClosed() {
 		return getRefCloseController().isClosed();
 	}
 	
@@ -93,7 +93,7 @@ public interface ICloseableElement extends Closeable {
 	 * @throws ArgumentIsNullException if the given preCloseAction is null.
 	 * @throws ClosedArgumentException if the current {@link ICloseableElement} is closed.
 	 */
-	public default void setPreCloseAction(final IAction preCloseAction) {
+	default void setPreCloseAction(final IAction preCloseAction) {
 		getRefCloseController().setPreCloseAction(preCloseAction);
 	}
 }

@@ -21,19 +21,19 @@ interface IViewArea extends IInputTaker, TopLeftPositionedRecangular {
 	/**
 	 * @return the x-position of the cursor on the of the current {@link IViewArea}.
 	 */
-	public abstract int getCursorXPosition();
+	int getCursorXPosition();
 	
 	//method declaration
 	/**
 	 * @return the y-position of the cursor on the current {@link IViewArea}.
 	 */
-	public abstract int getCursorYPosition();
+	int getCursorYPosition();
 	
 	//method
 	/**
 	 * @return true if the current {@link IViewArea} is under the cursor.
 	 */
-	public default boolean isUnderCursor() {
+	default boolean isUnderCursor() {
 		return containsPoint(getCursorXPosition(), getCursorYPosition());
 	}
 }

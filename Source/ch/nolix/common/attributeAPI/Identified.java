@@ -15,13 +15,13 @@ public interface Identified {
 	/**
 	 * @return the id of the current {@link Identified}.
 	 */
-	public abstract long getId();
+	long getId();
 	
 	//method
 	/**
 	 * @return the id of the current {@link Identified} as {@link String}.
 	 */
-	public default String getIdAsString() {
+	default String getIdAsString() {
 		return String.valueOf(getId());
 	}
 	
@@ -29,7 +29,7 @@ public interface Identified {
 	/**
 	 * @return the id of the current {@link Identified} in quotes.
 	 */
-	public default String getIdInQuotes() {
+	default String getIdInQuotes() {
 		return ("'" + getIdAsString() + "'");
 	}
 	
@@ -38,7 +38,7 @@ public interface Identified {
 	 * @param id
 	 * @return true if the current {@link Identified} has the given id.
 	 */
-	public default boolean hasId(final long id) {
+	default boolean hasId(final long id) {
 		return (getId() == id);
 	}
 	
@@ -47,7 +47,7 @@ public interface Identified {
 	 * @param object
 	 * @return true if the current {@link Identified} has the same id as the given object.
 	 */
-	public default boolean hasSameIdAs(final Identified object) {
+	default boolean hasSameIdAs(final Identified object) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (object != null && getId() == object.getId());

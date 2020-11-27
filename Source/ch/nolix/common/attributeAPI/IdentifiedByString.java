@@ -15,13 +15,13 @@ public interface IdentifiedByString {
 	/**
 	 * @return the id of the current {@link IdentifiedByString}.
 	 */
-	public abstract String getId();
+	String getId();
 	
 	//method
 	/**
 	 * @return the id of the current {@link IdentifiedByString} in quotes.
 	 */
-	public default String getIdInQuotes() {
+	default String getIdInQuotes() {
 		return ("'" + getId() + "'");
 	}
 	
@@ -30,7 +30,7 @@ public interface IdentifiedByString {
 	 * @param id
 	 * @return true if the current {@link IdentifiedByString} has the given id. 
 	 */
-	public default boolean hasId(final String id) {
+	default boolean hasId(final String id) {
 		return getId().equals(id);
 	}
 }

@@ -10,35 +10,35 @@ import ch.nolix.element.time.Time;
 public interface ITask extends IElement, Resettable<ITask> {
 	
 	//method declaration
-	public abstract Time getCreationDate();
+	Time getCreationDate();
 	
 	//method declaration
-	public abstract TaskSize getSize();
+	TaskSize getSize();
 	
 	//method declaration
-	public abstract Time getSolveDate();
+	Time getSolveDate();
 	
 	//method declaration
-	public abstract String getTitle();
+	String getTitle();
 	
 	//method declaration
-	public abstract boolean hasSize();
+	boolean hasSize();
 	
 	//method declaration
-	public abstract boolean isSolved();
+	boolean isSolved();
 	
 	//method declaration
-	public abstract ITask setSize(TaskSize size);
+	ITask setSize(TaskSize size);
 	
 	//method declaration
-	public abstract ITask setSolved();
+	ITask setSolved();
 	
 	//method declaration
-	public abstract ITask setSolved(final Time solveTime);
+	ITask setSolved(final Time solveTime);
 	
 	//method declaration
-	public abstract ITask setUnsolved();
+	ITask setUnsolved();
 	
 	//method declaration
-	public abstract ITask setTitle(String title);
+	ITask setTitle(String title);
 }

@@ -17,7 +17,7 @@ public interface IElementEnum extends IElement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default LinkedList<Node> getAttributes() {
+	default LinkedList<Node> getAttributes() {
 		return new Node(toString()).intoList();
 	}
 }

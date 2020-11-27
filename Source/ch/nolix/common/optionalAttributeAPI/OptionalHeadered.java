@@ -18,14 +18,14 @@ public interface OptionalHeadered {
 	 * @return the header of the current {@link OptionalHeadered}.
 	 * @throws Exception if the current {@link OptionalHeadered} does not have a header.
 	 */
-	public abstract String getHeader();
+	String getHeader();
 	
 	//method
 	/**
 	 * @return the header of the current {@link OptionalHeadered}.
 	 * @throws Exception if the current {@link OptionalHeadered} does not have a header.
 	 */
-	public default String getHeaderInQuotes() {
+	default String getHeaderInQuotes() {
 		return ("'" + getHeader() + "'");
 	}
 	
@@ -34,7 +34,7 @@ public interface OptionalHeadered {
 	 * @return the header of the current {@link OptionalHeadered} if it has a header,
 	 * otherwise an empty {@link String}.
 	 */
-	public default String getHeaderOrEmptyString() {
+	default String getHeaderOrEmptyString() {
 		
 		//Handles the case that current OptionalHeadered does not have a header.
 		if (!hasHeader()) {
@@ -49,14 +49,14 @@ public interface OptionalHeadered {
 	/**
 	 * @return true if the current {@link OptionalHeadered} has a header.
 	 */
-	public abstract boolean hasHeader();
+	boolean hasHeader();
 	
 	//method
 	/**
 	 * @param header
 	 * @return true if the current {@link OptionalHeadered} has the given header.
 	 */
-	public default boolean hasHeader(final String header) {
+	default boolean hasHeader(final String header) {
 		
 		//Handles the case that current OptionalHeadered does not have a header.
 		if (!hasHeader()) {
@@ -72,7 +72,7 @@ public interface OptionalHeadered {
 	 * @param object
 	 * @return true if current {@link OptionalHeadered} has the same header as the given object.
 	 */
-	public default boolean hasSameHeaderAs(final OptionalHeadered object) {
+	default boolean hasSameHeaderAs(final OptionalHeadered object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

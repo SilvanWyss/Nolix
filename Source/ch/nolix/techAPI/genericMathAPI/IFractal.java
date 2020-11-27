@@ -13,57 +13,57 @@ import ch.nolix.element.graphic.Image;
 public interface IFractal {
 	
 	//method declaration
-	public abstract int getBigDecimalScale();
+	int getBigDecimalScale();
 	
 	//method declaration
-	public abstract Color getColor(int index);
+	Color getColor(int index);
 	
 	//method declaration
-	public abstract int getHeightInPixel();
+	int getHeightInPixel();
 	
 	//method declaration
-	public abstract IClosedInterval getImaginaryComponentInterval();	
+	IClosedInterval getImaginaryComponentInterval();	
 	
 	//method declaration
-	public abstract BigDecimal getMaxImaginaryComponent();
+	BigDecimal getMaxImaginaryComponent();
 	
 	//method declaration
-	public abstract int getMaxIterationCount();
+	int getMaxIterationCount();
 
 	//method declaration
-	public abstract BigDecimal getMaxRealComponent();	
+	BigDecimal getMaxRealComponent();	
 	
 	//method declaration
-	public abstract BigDecimal getMinImaginaryComponent();
+	BigDecimal getMinImaginaryComponent();
 	
 	//method declaration
-	public abstract BigDecimal getMinMagnitudeForConvergence();
+	BigDecimal getMinMagnitudeForConvergence();
 
 	//method declaration
-	public abstract BigDecimal getMinRealComponent();
+	BigDecimal getMinRealComponent();
 	
 	//method declaration
-	public abstract I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
+	I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	getNextValueFunction();
 
 	//method declaration
-	public abstract BigDecimal getPixelsPerUnit();
+	BigDecimal getPixelsPerUnit();
 	
 	//method declaration
-	public abstract IClosedInterval getRealComponentInterval();
+	IClosedInterval getRealComponentInterval();
 	
 	//method declaration
-	public abstract IComplexNumber[] getStartValues(final IComplexNumber complexNumber);
+	IComplexNumber[] getStartValues(final IComplexNumber complexNumber);
 	
 	//method declaration
-	public abstract BigDecimal getUnitsPerPixel();
+	BigDecimal getUnitsPerPixel();
 	
 	//method declaration
-	public abstract int getWidthInPixel();
+	int getWidthInPixel();
 	
 	//method declaration
-	public abstract IImageBuilder startImageBuild();
+	IImageBuilder startImageBuild();
 	
 	//method declaration
-	public abstract Image toImage();
+	Image toImage();
 }

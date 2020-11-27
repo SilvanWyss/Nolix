@@ -18,26 +18,26 @@ public interface IFuture {
 	/**
 	 * @return true if the current {@link IFuture} caught an error.
 	 */
-	public abstract boolean caughtError();
+	boolean caughtError();
 	
 	//method declaration
 	/**
 	 * @return the error of the current {@link IFuture}.
 	 * @throws Exception if the current {@link IFuture} has not caught an error.
 	 */
-	public abstract Throwable getError();
+	Throwable getError();
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link IFuture} is finished.
 	 */
-	public abstract boolean isFinished();
+	boolean isFinished();
 	
 	//method
 	/**
 	 * @return true if the current {@link IFuture} is finished successfully.
 	 */
-	public default boolean isFinishedSuccessfully() {
+	default boolean isFinishedSuccessfully() {
 		return (isFinished() && !caughtError());
 	}
 	
@@ -45,7 +45,7 @@ public interface IFuture {
 	/**
 	 * @return true if the current {@link IFuture} is running.
 	 */
-	public default boolean isRunning() {
+	default boolean isRunning() {
 		return !isFinished();
 	}
 	
@@ -53,7 +53,7 @@ public interface IFuture {
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished.
 	 */
-	public abstract void waitUntilIsFinished();
+	void waitUntilIsFinished();
 	
 	//method declaration
 	/**
@@ -62,7 +62,7 @@ public interface IFuture {
 	 * @param timeoutInMilliseconds
 	 * @throws Exception if the current {@link IFuture} reaches the given timeoutInMilliseconds before it finishes.
 	 */
-	public abstract void waitUntilIsFinished(final int timeoutInMilliseconds);
+	void waitUntilIsFinished(final int timeoutInMilliseconds);
 	
 	//method
 	/**
@@ -70,7 +70,7 @@ public interface IFuture {
 	 * 
 	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
 	 */
-	public default void waitUntilIsFinishedSuccessfully() {
+	default void waitUntilIsFinishedSuccessfully() {
 		
 		waitUntilIsFinished();
 		
@@ -96,7 +96,7 @@ public interface IFuture {
 	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
 	 * @throws Exception if the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
 	 */
-	public default void waitUntilIsFinishedSuccessfully(final int timeoutInMilliseconds) {
+	default void waitUntilIsFinishedSuccessfully(final int timeoutInMilliseconds) {
 		
 		waitUntilIsFinished(timeoutInMilliseconds);
 		

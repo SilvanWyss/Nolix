@@ -22,5 +22,5 @@ public interface Indexable<I> extends Indexed {
 	 * @param index
 	 * @return the current {@link Indexable}.
 	 */
-	public abstract I setIndex(int index);
+	I setIndex(int index);
 }

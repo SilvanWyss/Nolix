@@ -17,5 +17,5 @@ public interface IElementTakerDoubleGetter<E> {
 	 * @param element
 	 * @return a double for the given element.
 	 */
-	public abstract double getOutput(E element);
+	double getOutput(E element);
 }

@@ -15,13 +15,13 @@ public interface Indexed {
 	/**
 	 * @return the index of the current {@link Indexed}.
 	 */
-	public abstract int getIndex();
+	int getIndex();
 	
 	//method
 	/**
 	 * @return the index of the current {@link Indexed} as {@link String}.
 	 */
-	public default String getIndexAsString() {
+	default String getIndexAsString() {
 		return String.valueOf(getIndex());
 	}
 	
@@ -29,7 +29,7 @@ public interface Indexed {
 	/**
 	 * @return the index of the current {@link Indexed} as {@link String} in quotes.
 	 */
-	public default String getIndexAsStringInQuotes() {
+	default String getIndexAsStringInQuotes() {
 		return ("'" + getIndexAsString() + "'");
 	}
 	
@@ -38,7 +38,7 @@ public interface Indexed {
 	 * @param index
 	 * @return true if the current {@link Indexed} has the given index.
 	 */
-	public default boolean hasIndex(final int index) {
+	default boolean hasIndex(final int index) {
 		return (getIndex() == index);
 	}
 	
@@ -47,7 +47,7 @@ public interface Indexed {
 	 * @param object
 	 * @return true if the current {@link Indexed} has the same index as the given object.
 	 */
-	public default boolean hasSameIndexAs(final Indexed object) {
+	default boolean hasSameIndexAs(final Indexed object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

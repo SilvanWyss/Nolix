@@ -23,7 +23,7 @@ extends OptionalIdentifiedByString {
 	 * 
 	 * @return the current {@link OptionalIdentifiableByString}.
 	 */
-	public abstract OIBS removeId();
+	OIBS removeId();
 	
 	//method declaration
 	/**
@@ -32,5 +32,5 @@ extends OptionalIdentifiedByString {
 	 * @param id
 	 * @return the current {@link OptionalIdentifiableByString}.
 	 */
-	public abstract OIBS setId(String id);
+	OIBS setId(String id);
 }

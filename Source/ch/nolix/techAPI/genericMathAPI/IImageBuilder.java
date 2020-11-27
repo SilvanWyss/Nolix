@@ -9,5 +9,5 @@ import ch.nolix.element.graphic.Image;
 public interface IImageBuilder extends IFuture {
 	
 	//method declaration
-	public abstract Image getRefImage();
+	Image getRefImage();
 }

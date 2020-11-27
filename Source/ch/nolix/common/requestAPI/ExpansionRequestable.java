@@ -15,7 +15,7 @@ public interface ExpansionRequestable {
 	/**
 	 * @return true if the current {@link ExpansionRequestable} is collapsed.
 	 */
-	public default boolean isCollapsed() {
+	default boolean isCollapsed() {
 		return !isExpanded();
 	}
 	
@@ -23,5 +23,5 @@ public interface ExpansionRequestable {
 	/**
 	 * @return true if the current {@link ExpansionRequestable} is expanded.
 	 */
-	public abstract boolean isExpanded();
+	boolean isExpanded();
 }

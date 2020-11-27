@@ -15,13 +15,13 @@ public interface Titled {
 	/**
 	 * @return the title of the current {@link Titled}.
 	 */
-	public abstract String getTitle();
+	String getTitle();
 	
 	//method
 	/**
 	 * @return the title of the current {@link Titled} in quotes.
 	 */
-	public default String getTitleInQuotes() {
+	default String getTitleInQuotes() {
 		return ("'" + getTitle() + "'");
 	}
 	
@@ -30,7 +30,7 @@ public interface Titled {
 	 * @param title
 	 * @return true if the current {@link Titled} has the given title.
 	 */
-	public default boolean hasTitle(final String title) {
+	default boolean hasTitle(final String title) {
 		return getTitle().equals(title);
 	}
 	
@@ -39,7 +39,7 @@ public interface Titled {
 	 * @param object
 	 * @return true if the current {@link Titled} has the same title as the given object.
 	 */
-	public default boolean hasSameTitleAs(final Titled object) {
+	default boolean hasSameTitleAs(final Titled object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

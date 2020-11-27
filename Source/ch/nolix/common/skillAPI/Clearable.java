@@ -21,5 +21,5 @@ public interface Clearable<C extends Clearable<C>> extends EmptinessRequestable 
 	 * 
 	 * @return the current {@link Clearable}.
 	 */
-	public abstract C clear();
+	C clear();
 }

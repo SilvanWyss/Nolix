@@ -20,14 +20,14 @@ extends IConfigurableElement<CEWOC> {
 	/**
 	 * @return true if the the current {@link IConfigurableElementWithOptionalConfiguration} has a configuration.
 	 */
-	public abstract boolean hasConfiguration();
+	boolean hasConfiguration();
 	
 	//method declaration
 	/**
 	 * @return the configuration of the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 * @throws Exception if the current {@link IConfigurableElementWithOptionalConfiguration} does not have a configuration.
 	 */
-	public abstract Configuration getConfiguration();
+	Configuration getConfiguration();
 	
 	//method declaration
 	/**
@@ -35,7 +35,7 @@ extends IConfigurableElement<CEWOC> {
 	 * 
 	 * @return the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 */
-	public abstract CEWOC remmoveConfiguration();
+	CEWOC remmoveConfiguration();
 	
 	//method declaration
 	/**
@@ -45,7 +45,7 @@ extends IConfigurableElement<CEWOC> {
 	 * @param configuration
 	 * @return the current {@link IConfigurableElementWithOptionalConfiguration}.
 	 */
-	public abstract CEWOC setConfiguration(Configuration configuration);
+	CEWOC setConfiguration(Configuration configuration);
 	
 	//method
 	/**
@@ -53,7 +53,7 @@ extends IConfigurableElement<CEWOC> {
 	 * the current {@link IConfigurableElementWithOptionalConfiguration}
 	 * if the current {@link IConfigurableElementWithOptionalConfiguration} has a configuration.
 	 */
-	public default void updateFromConfiguration() {
+	default void updateFromConfiguration() {
 		if (hasConfiguration()) {
 			resetConfiguration();
 			getConfiguration().configure(this);

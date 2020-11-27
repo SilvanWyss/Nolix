@@ -23,20 +23,20 @@ public interface IResource extends Named {
 	/**
 	 * @return the number of base resources of the current {@link IResource}.
 	 */
-	public abstract int getBaseResourceCount();
+	int getBaseResourceCount();
 	
 	//method declaration
 	/**
 	 * @return the base resources of the current {@link IResource}.
 	 */
-	public abstract IContainer<IResource> getBaseResources();
+	IContainer<IResource> getBaseResources();
 	
 	//method
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a base resource of the given resource.
 	 */
-	public default boolean isBaseResourceOf(final IResource resource) {
+	default boolean isBaseResourceOf(final IResource resource) {
 		return resource.isSubResourceOf(this);
 	}
 	
@@ -45,7 +45,7 @@ public interface IResource extends Named {
 	 * @param resource
 	 * @return true if the current {@link IResource} is a direct base resource of the given resource.
 	 */
-	public default boolean isDirectBaseResourceOf(final IResource resource) {
+	default boolean isDirectBaseResourceOf(final IResource resource) {
 		return resource.isDirectSubResourceOf(this);
 	}
 	
@@ -54,12 +54,12 @@ public interface IResource extends Named {
 	 * @param resource
 	 * @return true if the current {@link IResource} is a direct sub resource of the given resource.
 	 */
-	public abstract boolean isDirectSubResourceOf(final IResource resource);
+	boolean isDirectSubResourceOf(final IResource resource);
 	
 	//method declaration
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a sub resource of the given resource.
 	 */
-	public abstract boolean isSubResourceOf(final IResource resource);
+	boolean isSubResourceOf(final IResource resource);
 }

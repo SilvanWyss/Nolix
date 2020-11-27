@@ -5,5 +5,5 @@ package ch.nolix.common.databaseConnectionAPI;
 public interface IDatabaseConnection {
 	
 	//method declaration
-	public abstract String getDatabaseName();
+	String getDatabaseName();
 }

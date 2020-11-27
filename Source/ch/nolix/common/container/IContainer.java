@@ -44,7 +44,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the current {@link IContainer} as a {@link IContainer} with elements of the evaluated type.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2> IContainer<E2> asContainerWithElementsOfEvaluatedType() {
+	default <E2> IContainer<E2> asContainerWithElementsOfEvaluatedType() {
 		return (IContainer<E2>)this;
 	}
 	
@@ -55,7 +55,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return true if the current {@link IContainer} contains an element the given selector selects.
 	 */
-	public default boolean contains(final IElementTakerBooleanGetter<E> selector) {
+	default boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -77,7 +77,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer}
 	 * contains at least 2 elements the given selector selects together.
 	 */
-	public default boolean contains(final I2ElementTakerBooleanGetter<E> selector) {
+	default boolean contains(final I2ElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -102,7 +102,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element.
 	 */
-	public default boolean contains(final Object element) {
+	default boolean contains(final Object element) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -125,7 +125,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains all of the given elements.
 	 */
-	public default boolean containsAll(final Iterable<Object> elements) {
+	default boolean containsAll(final Iterable<Object> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -148,7 +148,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains all the given elements.
 	 */
-	public default boolean containsAll(final Object... elements) {
+	default boolean containsAll(final Object... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -168,7 +168,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return true if the current {@link IContainer} contains any element.
 	 */
-	public default boolean containsAny() {
+	default boolean containsAny() {
 		return iterator().hasNext();
 	}
 	
@@ -181,7 +181,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains any of the given elements.
 	 */
-	public default boolean containsAny(final Object... elements) {
+	default boolean containsAny(final Object... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -204,7 +204,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains any of the given elements.
 	 */
-	public default boolean containsAnyFrom(final Iterable<?> elements) {
+	default boolean containsAnyFrom(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -226,7 +226,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer}
 	 * contains an element that equals the given given element.
 	 */
-	public default boolean containsEqualing(final Object element) {
+	default boolean containsEqualing(final Object element) {
 		return contains(e -> e.equals(element));
 	}
 	
@@ -237,7 +237,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
 	 */
-	public default boolean containsLessThan(final IContainer<?> container) {
+	default boolean containsLessThan(final IContainer<?> container) {
 		return (getElementCount() < container.getElementCount());
 	}
 	
@@ -248,7 +248,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
 	 */
-	public default boolean containsLessThan(final Iterable<?> container) {
+	default boolean containsLessThan(final Iterable<?> container) {
 		return containsLessThan(ReadContainer.forIterable(container));
 	}
 	
@@ -259,7 +259,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
 	 */
-	public default boolean containsMoreThan(final IContainer<?> container) {
+	default boolean containsMoreThan(final IContainer<?> container) {
 		return (getElementCount() > container.getElementCount());
 	}
 	
@@ -270,7 +270,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
 	 */
-	public default boolean containsMoreThan(final Iterable<?> container) {
+	default boolean containsMoreThan(final Iterable<?> container) {
 		return containsMoreThan(ReadContainer.forIterable(container));
 	}
 	
@@ -281,7 +281,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
-	public default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
+	default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !contains(selector::getOutput);
 	}
 	
@@ -294,7 +294,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains none of the given elements.
 	 */
-	public default boolean containsNone(final Object... elements) {
+	default boolean containsNone(final Object... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -315,7 +315,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element exactly 1 time.
 	 */
-	public default boolean containsOnce(final E element) {
+	default boolean containsOnce(final E element) {
 		
 		var found = false;
 		
@@ -343,7 +343,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return true if the current {@link IContainer} contains exactly 1 element.
 	 */
-	public default boolean containsOne() {
+	default boolean containsOne() {
 		
 		final var iterator = iterator();
 		
@@ -365,7 +365,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer}
 	 * contains exactly 1 element the given selector selects.
 	 */
-	public default boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
+	default boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
 		
 		var found = false;
 		
@@ -395,7 +395,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer}
 	 * contains exactly 1 element that equals the given element.
 	 */
-	public default boolean containsOneEqualing(final E element) {
+	default boolean containsOneEqualing(final E element) {
 		return containsOne(e -> e.equals(element));
 	}
 	
@@ -408,7 +408,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return true if the current {@link IContainer} contains only elements the given selector selects.
 	 */
-	public default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
+	default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
 		return !contains(e -> !selector.getOutput(e));
 	}
 	
@@ -421,7 +421,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param action
 	 */
-	public default void forEachWithContinuing(final IElementTaker<E> action) {
+	default void forEachWithContinuing(final IElementTaker<E> action) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -444,7 +444,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws SmallerArgumentException
 	 * if the current {@link IContainer} contains less element than the value of the given start index.
 	 */
-	public default IContainer<E> from(final int startIndex) {
+	default IContainer<E> from(final int startIndex) {
 		return new SubContainer<>(this, startIndex, getElementCount());
 	}
 	
@@ -463,7 +463,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws BiggerArgumentException
 	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
 	 */
-	public default IContainer<E> fromUntil(final int startIndex, final int endIndex) {
+	default IContainer<E> fromUntil(final int startIndex, final int endIndex) {
 		return new SubContainer<>(this, startIndex, endIndex);
 	}
 	
@@ -476,7 +476,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -495,7 +495,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
+	default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -514,7 +514,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
+	default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -531,7 +531,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link IContainer}.
 	 */
-	public default int getCount(final IElementTakerBooleanGetter<E> selector) {
+	default int getCount(final IElementTakerBooleanGetter<E> selector) {
 		
 		var elementCount = 0;
 		
@@ -554,7 +554,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param element
 	 * @return the number how many times the current {@link IContainer} contains the given element.
 	 */
-	public default int getCount(final Object element) {
+	default int getCount(final Object element) {
 		
 		var elementCount = 0;
 		
@@ -574,7 +574,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @return the number of elements of the current {@link IContainer}.
 	 */
-	public abstract int getElementCount();
+	int getElementCount();
 	
 	//method
 	/**
@@ -584,7 +584,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the index of the given element in the current {@link IContainer}.
 	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
 	 */
-	public default int getIndexOf(final E element) {
+	default int getIndexOf(final E element) {
 		
 		//Iterates the current IContainer.
 		var index = 1;
@@ -610,7 +610,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
+	default <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
 		return (E2)(norm.getValue(getRefByMax(norm)));
 	}
 	
@@ -623,7 +623,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
 	}
 	
@@ -636,7 +636,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
+	default int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
 	}
 	
@@ -649,7 +649,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
 	 * if the current {@link IContainer} contains elements, otherwise the given defaultValue.
 	 */
-	public default int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
+	default int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
 		
 		//Handles the case that the current IContainer is empty.
 		if (isEmpty()) {
@@ -668,7 +668,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
 	 * if the current {@link IContainer} contains elements, otherwise 0.
 	 */
-	public default int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
+	default int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
 		return getMaxIntOrDefaultValue(intNorm, 0);
 	}
 	
@@ -681,7 +681,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default long getMaxLong(IElementTakerLongGetter<E> longNorm) {
+	default long getMaxLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMaxLong(longNorm));
 	}
 	
@@ -695,7 +695,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2> E2 getMin(final IElementTakerComparableGetter<E, E2> norm) {
+	default <E2> E2 getMin(final IElementTakerComparableGetter<E, E2> norm) {
 		return (E2)(norm.getValue(getRefByMin(norm)));
 	}
 	
@@ -708,7 +708,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMinDouble(doubleNorm));
 	}
 	
@@ -721,7 +721,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default int getMinInt(IElementTakerIntGetter<E> intNorm) {
+	default int getMinInt(IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
 	}
 	
@@ -734,7 +734,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default long getMinLong(IElementTakerLongGetter<E> longNorm) {
+	default long getMinLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
 	}
 	
@@ -747,7 +747,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given selector selects from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getPercentage(final IElementTakerBooleanGetter<E> selector) {
+	default double getPercentage(final IElementTakerBooleanGetter<E> selector) {
 		return (100.0 * getRatio(selector));
 	}
 	
@@ -760,7 +760,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
@@ -798,7 +798,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
+	default int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
@@ -836,7 +836,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
+	default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
@@ -874,7 +874,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given selector selects from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getRatio(final IElementTakerBooleanGetter<E> selector) {
+	default double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -891,7 +891,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefAny() {
+	default E getRefAny() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -906,7 +906,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param index
 	 * @return the element at the given index.
 	 */
-	public abstract E getRefAt(int index);
+	E getRefAt(int index);
 	
 	//method
 	/**
@@ -918,7 +918,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public default <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
+	default <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		var element = getRefFirst();
 		var max = norm.getValue(element);
@@ -946,7 +946,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var element = getRefFirst();
 		var max = doubleNorm.getOutput(element);
@@ -974,7 +974,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
+	default E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
 		var max = intNorm.getOutput(element);
@@ -1002,7 +1002,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
+	default E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var element = getRefFirst();
 		var max = longNorm.getOutput(element);
@@ -1031,7 +1031,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public default <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
+	default <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		var element = getRefFirst();
 		var min = norm.getValue(element);
@@ -1059,7 +1059,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var element = getRefFirst();
 		var min = doubleNorm.getOutput(element);
@@ -1087,7 +1087,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
+	default E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
 		var min = intNorm.getOutput(element);
@@ -1115,7 +1115,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
+	default E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
 		
 		var element = getRefFirst();
 		var min = longNorm.getOutput(element);
@@ -1141,7 +1141,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the first element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefFirst() {
+	default E getRefFirst() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -1160,7 +1160,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
-	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
+	default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1183,7 +1183,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws InvalidArgumentException if the current {@link IContainer}
 	 * does not contain a 2 elements the given selector selects together.
 	 */
-	public default Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
+	default Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1210,7 +1210,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return either the first element the given selector selects from the current {@link IContainer}
 	 * or an empty {@link SingleContainer}.
 	 */
-	public default SingleContainer<E> getRefFirstOptionally(final IElementTakerBooleanGetter<E> selector) {
+	default SingleContainer<E> getRefFirstOptionally(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1231,7 +1231,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return the first element of the current {@link IContainer} or null.
 	 */
-	public default E getRefFirstOrNull() {
+	default E getRefFirstOrNull() {
 		
 		//Handles the case that this list is empty.
 		if (isEmpty()) {
@@ -1249,7 +1249,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
 	 */
-	public default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
+	default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1271,7 +1271,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the first 2 elements of the current {@link IContainer}
 	 * the given selector selects together or null.
 	 */
-	public default Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
+	default Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1294,7 +1294,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer} that are of the given type.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
+	default <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
 		return (LinkedList<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
@@ -1304,7 +1304,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 * @throws InvalidArgumentException if the current {@link IContainer} contains several elements.
 	 */
-	public default E getRefOne() {
+	default E getRefOne() {
 		
 		//Asserts that the current IContainer contains exactly 1 element.
 		if (isEmpty()) {
@@ -1326,7 +1326,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws InvalidArgumentException
 	 * if the given selector does not select an element or selects several elements from the current {@link IContainer}.
 	 */
-	public default E getRefOne(final IElementTakerBooleanGetter<E> selector) {
+	default E getRefOne(final IElementTakerBooleanGetter<E> selector) {
 		
 		E element = null;
 		
@@ -1364,7 +1364,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects from the current {@link IContainer}.
 	 */
-	public default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
+	default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1391,7 +1391,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
+	default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1428,7 +1428,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects not (!) from the current {@link IContainer}.
 	 */
-	public default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+	default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
@@ -1443,7 +1443,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given selectors selects not (!) from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selecors) {
+	default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selecors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1481,7 +1481,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return Math.sqrt(getVarianceByDouble(doubleNorm));
 	}
 	
@@ -1494,7 +1494,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
+	default double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
 		return Math.sqrt(getVarianceByInt(intNorm));
 	}
 	
@@ -1507,7 +1507,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
+	default double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
 		return Math.sqrt(getVarianceByLong(longNorm));
 	}
 	
@@ -1519,7 +1519,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the sum of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
 		
@@ -1539,7 +1539,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the sum of the values
 	 * the given int norm returns from the element of the current {@link IContainer}.
 	 */
-	public default int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
+	default int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var sum = 0;
 		
@@ -1559,7 +1559,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the sum of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
+	default long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var sum = 0;
 		
@@ -1580,7 +1580,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
 		final var average = getAverageByDouble(doubleNorm);
@@ -1602,7 +1602,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
+	default double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var sum = 0.0;
 		final var average = getAverageByInt(intNorm);
@@ -1624,7 +1624,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
+	default double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var sum = 0.0;
 		final var average = getAverageByLong(longNorm);
@@ -1643,7 +1643,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return true if the current {@link IContainer} does not contain an element.
 	 */
-	public default boolean isEmpty() {
+	default boolean isEmpty() {
 		return !iterator().hasNext();
 	}
 	
@@ -1655,7 +1655,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} is ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public default <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
+	default <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		//Iterates the current IContainer.
 		E previous = null;
@@ -1684,7 +1684,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	public default <E2> LinkedList<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+	default <E2> LinkedList<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
@@ -1696,7 +1696,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return a new array with the elements of the current {@link IContainer}.
 	 */
-	public default Object[] toArray() {
+	default Object[] toArray() {
 		
 		//Creates array.
 		final var array = new Object[getElementCount()];
@@ -1720,7 +1720,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
+	default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
 		
 		//Creates array.
 		final var array = (E2[])(new Object[getElementCount()]);
@@ -1743,7 +1743,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the values
 	 * the given byte norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
+	default byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
 		
 		//Creates array.
 		final var array = new byte[getElementCount()];
@@ -1766,7 +1766,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the values
 	 * the given charNorm returns from the elements of the current {@link IContainer}.
 	 */
-	public default char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
+	default char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
 		
 		//Creates array.
 		final var array = new char[getElementCount()];
@@ -1789,7 +1789,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
+	default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Creates array.
 		final var array = new double[getElementCount()];
@@ -1812,7 +1812,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements of the {@link IContainer}
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	public default <O> LinkedList<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
+	default <O> LinkedList<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
 		final var list = new LinkedList<O>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
@@ -1826,7 +1826,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
+	default int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Creates array.
 		final var array = new int[getElementCount()];
@@ -1847,7 +1847,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer}.
 	 */
-	public default LinkedList<E> toList() {
+	default LinkedList<E> toList() {
 		return to(FunctionCatalogue::getSelf);
 	}
 	
@@ -1859,7 +1859,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
+	default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
 		//Creates the array.
 		final var array = new long[getElementCount()];
@@ -1883,7 +1883,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements of the current {@link IContainer}
 	 * ordered from the smallest to the biggest element according to the given norm.
 	 */
-	public default <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	default <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return toList().toOrderedList(norm);
 	}
 	
@@ -1894,7 +1894,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param separator
 	 * @return a String representation the current {@link IContainer} using the given separator.
 	 */
-	public default String toString(final char separator) {
+	default String toString(final char separator) {
 		return toString(String.valueOf(separator));
 	}
 	
@@ -1906,7 +1906,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a String representation of the current {@link IContainer} using the given separator.
 	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
-	public default String toString(final String separator) {
+	default String toString(final String separator) {
 		
 		//Asserts that the given separator is not null.
 		Validator
@@ -1939,7 +1939,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link IContainer}.
 	 */
-	public default String[] toStringArray() {
+	default String[] toStringArray() {
 		
 		final var stringArray = new String[getElementCount()];
 		
@@ -1960,7 +1960,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList}
 	 * with the Strings that represent the elements of the current {@link IContainer}.
 	 */
-	public default LinkedList<String> toStrings() {
+	default LinkedList<String> toStrings() {
 		return to(E::toString);
 	}
 	
@@ -1973,7 +1973,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * with the elements to the given end index.
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
-	public default IContainer<E> until(final int endIndex) {
+	default IContainer<E> until(final int endIndex) {
 		return new SubContainer<>(this, 1, endIndex);
 	}
 	
@@ -1984,7 +1984,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new sub container of the current {@link IContainer} without the first element.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default IContainer<E> withoutFirst() {
+	default IContainer<E> withoutFirst() {
 		
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
@@ -2001,7 +2001,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new sub container of the current {@link IContainer} without the first n elements.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
-	public default IContainer<E> withoutFirst(final int n) {
+	default IContainer<E> withoutFirst(final int n) {
 		
 		final var elementCount = getElementCount();
 		
@@ -2024,7 +2024,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new sub container of the current {@link IContainer} without the last element.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default IContainer<E> withoutLast() {
+	default IContainer<E> withoutLast() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -2043,7 +2043,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * without the last n elements of the current {@link IContainer}.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
-	public default IContainer<E> withoutLast(final int n) {
+	default IContainer<E> withoutLast(final int n) {
 		
 		final var elementCount = getElementCount();
 		

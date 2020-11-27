@@ -10,8 +10,8 @@ import ch.nolix.element.input.IInputTaker;
 public interface ITestableGUI extends IInputTaker, ContainsElementByStringIdRequestable, Titled {
 	
 	//method declaration
-	public abstract GUIController getRefGUIController();
+	GUIController getRefGUIController();
 	
 	//method declaration
-	public abstract GUIElement getRefGUIElement(String id);
+	GUIElement getRefGUIElement(String id);
 }

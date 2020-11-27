@@ -17,5 +17,5 @@ public interface IElementTakerIntGetter<E> {
 	 * @param element
 	 * @return an int for the given element.
 	 */
-	public abstract int getOutput(E element);
+	int getOutput(E element);
 }

@@ -9,11 +9,11 @@ import ch.nolix.element.GUI.GUI;
 abstract interface IFrontGUIClientGUIHandler {
 	
 	//method declaration
-	public abstract BaseFrontGUIClientGUIType getGUIType();
+	BaseFrontGUIClientGUIType getGUIType();
 	
 	//method declaration
-	public abstract GUI<?> getRefGUI();
+	GUI<?> getRefGUI();
 	
 	//method declaration
-	public abstract void runGUICommand(ChainedNode pGUICommand);
+	void runGUICommand(ChainedNode pGUICommand);
 }

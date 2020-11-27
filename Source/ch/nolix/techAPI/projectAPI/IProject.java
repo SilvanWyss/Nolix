@@ -11,10 +11,10 @@ import ch.nolix.element.elementAPI.IElement;
 public interface IProject extends Clearable<IProject>, IElement, Namable<IProject>, Resettable<IProject> {
 	
 	//method declaration
-	public abstract IProject addTask(ITask task);
+	IProject addTask(ITask task);
 	
 	//method
-	public default IProject addTask(final ITask... tasks) {
+	default IProject addTask(final ITask... tasks) {
 		
 		for (final var t : tasks) {
 			addTask(t);
@@ -24,8 +24,8 @@ public interface IProject extends Clearable<IProject>, IElement, Namable<IProjec
 	}
 	
 	//method declaration
-	public abstract IContainer<ITask> getRefTasks();
+	IContainer<ITask> getRefTasks();
 	
 	//method declaration
-	public abstract IProject removeTask(ITask task);
+	IProject removeTask(ITask task);
 }

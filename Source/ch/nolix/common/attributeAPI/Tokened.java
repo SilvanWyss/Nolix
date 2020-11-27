@@ -15,13 +15,13 @@ public interface Tokened {
 	/**
 	 * @return the token of the current {@link Tokened}.
 	 */
-	public abstract String getToken();
+	String getToken();
 	
 	//method
 	/**
 	 * @return the token of the current {@link Tokened} in quotes.
 	 */
-	public default String getTokenInQuotes() {
+	default String getTokenInQuotes() {
 		return ("'" + getToken() + "'");
 	}
 	
@@ -30,7 +30,7 @@ public interface Tokened {
 	 * @param token
 	 * @return true if the current {@link Tokened} has the given token.
 	 */
-	public default boolean hasToken(final String token) {
+	default boolean hasToken(final String token) {
 		return getToken().equals(token);
 	}
 	
@@ -39,7 +39,7 @@ public interface Tokened {
 	 * @param object
 	 * @return true if the current {@link Tokened} has the same token as the given object.
 	 */
-	public default boolean hasSameTokenAs(final Tokened object) {
+	default boolean hasSameTokenAs(final Tokened object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

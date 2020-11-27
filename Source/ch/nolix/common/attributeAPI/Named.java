@@ -18,13 +18,13 @@ public interface Named {
 	/**
 	 * @return the name of the current {@link Named}.
 	 */
-	public abstract String getName();
+	String getName();
 	
 	//method
 	/**
 	 * @return the plural of the name of the current {@link Named}.
 	 */
-	public default String getNameInPlural() {
+	default String getNameInPlural() {
 		return EnglishNounHelper.getPlural(getName());
 	}
 	
@@ -32,7 +32,7 @@ public interface Named {
 	/**
 	 * @return the name of the current {@link Named} in quotes.
 	 */
-	public default String getNameInQuotes() {
+	default String getNameInQuotes() {
 		return ("'" + getName() + "'");
 	}
 	
@@ -41,7 +41,7 @@ public interface Named {
 	 * @param name
 	 * @return true if the current {@link Named} has the given name.
 	 */
-	public default boolean hasName(final String name) {
+	default boolean hasName(final String name) {
 		return getName().equals(name);
 	}
 	
@@ -50,7 +50,7 @@ public interface Named {
 	 * @param object
 	 * @return true if the current {@link Named} has the same name as the given object.
 	 */
-	public default boolean hasSameNameAs(final Named object) {
+	default boolean hasSameNameAs(final Named object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

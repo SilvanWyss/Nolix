@@ -17,5 +17,5 @@ public interface IDoubleTaker {
 	 * 
 	 * @param value
 	 */
-	public abstract void run(double value);
+	void run(double value);
 }

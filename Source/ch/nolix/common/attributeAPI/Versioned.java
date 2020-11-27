@@ -15,5 +15,5 @@ public interface Versioned {
 	/**
 	 * @return the version number of the current {@link Versioned}.
 	 */
-	public abstract int getVersion();
+	int getVersion();
 }

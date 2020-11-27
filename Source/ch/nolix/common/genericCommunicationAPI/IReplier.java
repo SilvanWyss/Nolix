@@ -20,5 +20,5 @@ public interface IReplier<M, R> {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	public abstract R getReply(M message);
+	R getReply(M message);
 }

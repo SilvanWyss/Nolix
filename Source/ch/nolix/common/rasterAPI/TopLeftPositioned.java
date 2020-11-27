@@ -16,11 +16,11 @@ public interface TopLeftPositioned {
 	/**
 	 * @return the top left x-position of the current {@link TopLeftPositioned}.
 	 */
-	public abstract int getXPosition();
+	int getXPosition();
 	
 	//method declaration
 	/**
 	 * @return the top left y-position of the current {@link TopLeftPositioned}.
 	 */
-	public abstract int getYPosition();
+	int getYPosition();
 }

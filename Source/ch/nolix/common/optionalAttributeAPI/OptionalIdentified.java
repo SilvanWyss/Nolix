@@ -16,14 +16,14 @@ public interface OptionalIdentified {
 	 * @return the id of the current {@link OptionalIdentified}.
 	 * @throws Exception if the current {@link OptionalIdentified} does not have an id.
 	 */
-	public abstract long getId();
+	long getId();
 	
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentified} as {@link String}.
 	 * @throws Exception if the current {@link OptionalIdentified} does not have an id.
 	 */
-	public default String getIdAsString() {
+	default String getIdAsString() {
 		return String.valueOf(getId());
 	}
 	
@@ -32,7 +32,7 @@ public interface OptionalIdentified {
 	 * @return the id of the current {@link OptionalIdentified} in quotes.
 	 * @throws Exception if the current {@link OptionalIdentified} does not have an id.
 	 */
-	public default String getIdInQuotes() {
+	default String getIdInQuotes() {
 		return ("'" + getIdAsString() + "'");
 	}
 	
@@ -40,14 +40,14 @@ public interface OptionalIdentified {
 	/**
 	 * @return true if the current {@link OptionalIdentified} has an id.
 	 */
-	public abstract boolean hasId();
+	boolean hasId();
 	
 	//method
 	/**
 	 * @param id
 	 * @return true if the current {@link OptionalIdentified} has the given id.
 	 */
-	public default boolean hasId(final long id) {
+	default boolean hasId(final long id) {
 		return (hasId() && getId() == id);
 	}
 	
@@ -56,7 +56,7 @@ public interface OptionalIdentified {
 	 * @param object
 	 * @return true if the current {@link OptionalIdentified} has the same id as the given object.
 	 */
-	public default boolean hasSameIdAs(final OptionalIdentified object) {
+	default boolean hasSameIdAs(final OptionalIdentified object) {
 		return (object != null && object.hasId() && hasId(object.getId()));
 	}
 }

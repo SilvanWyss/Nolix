@@ -21,7 +21,7 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends Opt
 	 * 
 	 * @return the current {@link OptionalTokenable}.
 	 */
-	public abstract OT removeToken();
+	OT removeToken();
 	
 	//method declaration
 	/**
@@ -30,5 +30,5 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends Opt
 	 * @param token
 	 * @return the current {@link OptionalTokenable}.
 	 */
-	public abstract OT setToken(String token);
+	OT setToken(String token);
 }

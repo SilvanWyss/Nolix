@@ -16,14 +16,14 @@ public interface OptionalNamed {
 	 * @return the name of the current {@link OptionalNamed}.
 	 * @throws Exception if the current {@link OptionalNamed} does not have a name.
 	 */
-	public abstract String getName();
+	String getName();
 	
 	//method
 	/**
 	 * @return the name of the current {@link OptionalNamed} in quotes.
 	 * @throws Exception if the current {@link OptionalNamed} does not have a name.
 	 */
-	public default String getNameInQuotes() {
+	default String getNameInQuotes() {
 		return ("'" + getName() + "'");
 	}
 	
@@ -31,14 +31,14 @@ public interface OptionalNamed {
 	/**
 	 * @return true if the current {@link OptionalNamed} has a name.
 	 */
-	public abstract boolean hasName();
+	boolean hasName();
 	
 	//method
 	/**
 	 * @param name
 	 * @return true if the current {@link OptionalNamed} has the given name.
 	 */
-	public default boolean hasName(final String name) {
+	default boolean hasName(final String name) {
 		
 		//Handles the case that the current OptionalNamed does not have a name.
 		if (!hasName()) {
@@ -54,7 +54,7 @@ public interface OptionalNamed {
 	 * @param object
 	 * @return true if the current {@link OptionalNamed} has the same name as the given object.
 	 */
-	public default boolean hasSameNameAs(final OptionalNamed object) {
+	default boolean hasSameNameAs(final OptionalNamed object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

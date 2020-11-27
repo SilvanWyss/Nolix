@@ -17,5 +17,5 @@ public interface IElementTakerCharGetter<E> {
 	 * @param element
 	 * @return a char for the given element.
 	 */
-	public abstract char getOutput(E element);
+	char getOutput(E element);
 }

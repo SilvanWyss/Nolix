@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 public interface IAmountMediator {
 	
 	//method declaration
-	public abstract BigDecimal getCombinationCount(BigDecimal subAmount);
+	BigDecimal getCombinationCount(BigDecimal subAmount);
 	
 	//method declaration
-	public abstract BigDecimal getCombinationCountWithoutPermutation(BigDecimal subAmount);
+	BigDecimal getCombinationCountWithoutPermutation(BigDecimal subAmount);
 	
 	//method declaration
-	public abstract BigDecimal getCombinationCountWithoutPermutationOrRepetation(BigDecimal subAmount);
+	BigDecimal getCombinationCountWithoutPermutationOrRepetation(BigDecimal subAmount);
 	
 	//method declaration
-	public abstract BigDecimal getCombinationCountWithoutRepetation(BigDecimal subAmount);
+	BigDecimal getCombinationCountWithoutRepetation(BigDecimal subAmount);
 }

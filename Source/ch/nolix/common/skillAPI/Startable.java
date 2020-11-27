@@ -15,11 +15,11 @@ public interface Startable {
 	/**
 	 * @return true if the current {@link Startable} is started.
 	 */
-	public abstract boolean isStarted();
+	boolean isStarted();
 	
 	//method declaration
 	/**
 	 * Starts the current {@link Startable}.
 	 */
-	public abstract void start();
+	void start();
 }

@@ -19,7 +19,7 @@ public interface IPainter {
 	/**
 	 * @return a new {@link IPainter} from the current {@link IPainter}.
 	 */
-	public default IPainter createPainter() {
+	default IPainter createPainter() {
 		return createPainter(0, 0);
 	}
 
@@ -30,7 +30,7 @@ public interface IPainter {
 	 * @return a new {@link IPainter} from the current {@link IPainter}
 	 * with the given translation.
 	 */
-	public abstract IPainter createPainter(int xTranslation, int yTranslation);
+	IPainter createPainter(int xTranslation, int yTranslation);
 	
 	/**
 	 * 
@@ -41,7 +41,7 @@ public interface IPainter {
 	 * @return a new {@link IPainter} from the current {@link IPainter}
 	 * with the given translation and paint area.
 	 */
-	public abstract IPainter createPainter(
+	IPainter createPainter(
 		int xTranslation,
 		int yTranslation,
 		int paintAreaWidth,
@@ -52,14 +52,14 @@ public interface IPainter {
 	/**
 	 * @return the default {@link TextFormat} of the current {@link IPainter}.
 	 */
-	public abstract TextFormat getDefaultTextFormat();
+	TextFormat getDefaultTextFormat();
 	
 	//method declaration
 	/**
 	 * @param id
 	 * @return the {@link Image} with the given id from the current {@link IPainter}.
 	 */
-	public abstract Image getImageById(String id);
+	Image getImageById(String id);
 	
 	//method declaration
 	/**
@@ -67,7 +67,7 @@ public interface IPainter {
 	 * @param textFormat
 	 * @return the width of the given text from the current {@link IPainter} using the given textFormat.
 	 */
-	public abstract int getTextWidth(String text, TextFormat textFormat);
+	int getTextWidth(String text, TextFormat textFormat);
 	
 	//method declaration
 	/**
@@ -76,7 +76,7 @@ public interface IPainter {
 	 * @param x
 	 * @param y
 	 */
-	public abstract void paintFilledPolygon(int[] x, int[] y);
+	void paintFilledPolygon(int[] x, int[] y);
 	
 	//method
 	/**
@@ -85,7 +85,7 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	public default void paintFilledRectangle(final int width, final int height) {
+	default void paintFilledRectangle(final int width, final int height) {
 		paintFilledRectangle(0, 0, width, height);
 	}
 	
@@ -99,7 +99,7 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	public abstract void paintFilledRectangle(int xPosition, int yPosition,	int width, int height);
+	void paintFilledRectangle(int xPosition, int yPosition,	int width, int height);
 	
 	//method
 	/**
@@ -107,7 +107,7 @@ public interface IPainter {
 	 * 
 	 * @param image
 	 */
-	public abstract void paintImage(Image image);
+	void paintImage(Image image);
 	
 	//method declaration
 	/**
@@ -117,7 +117,7 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	public abstract void paintImage(Image image, int width, int height);
+	void paintImage(Image image, int width, int height);
 	
 	//method declaration
 	/**
@@ -125,7 +125,7 @@ public interface IPainter {
 	 * 
 	 * @param id
 	 */
-	public abstract void paintImageById(String id);
+	void paintImageById(String id);
 	
 	//method declaration
 	/**
@@ -135,7 +135,7 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	public abstract void paintImageById(String id, int width, int height);
+	void paintImageById(String id, int width, int height);
 	
 	//method
 	/**
@@ -143,7 +143,7 @@ public interface IPainter {
 	 * 
 	 * @param text
 	 */
-	public default void paintText(final String text) {
+	default void paintText(final String text) {
 		
 		//Calls other method.
 		paintText(text, getDefaultTextFormat());
@@ -158,7 +158,7 @@ public interface IPainter {
 	 * @param text
 	 * @param maxWidth
 	 */
-	public default void paintText(final String text, final int maxWidth) {
+	default void paintText(final String text, final int maxWidth) {
 		
 		//Calls other method.
 		paintText(text, getDefaultTextFormat(), maxWidth);
@@ -171,7 +171,7 @@ public interface IPainter {
 	 * @param text
 	 * @param textFormat
 	 */
-	public abstract void paintText(String text, TextFormat textFormat);
+	void paintText(String text, TextFormat textFormat);
 	
 	//method declaration
 	/**
@@ -183,7 +183,7 @@ public interface IPainter {
 	 * @param textFormat
 	 * @param maxWidth
 	 */
-	public abstract void paintText(String text, TextFormat textFormat, int maxWidth);
+	void paintText(String text, TextFormat textFormat, int maxWidth);
 	
 	//method declaration
 	/**
@@ -192,7 +192,7 @@ public interface IPainter {
 	 * @param id
 	 * @param image
 	 */
-	public abstract void registerImageAtId(String id, Image image);
+	void registerImageAtId(String id, Image image);
 	
 	//method declaration
 	/**
@@ -200,7 +200,7 @@ public interface IPainter {
 	 * 
 	 * @param color
 	 */
-	public abstract void setColor(Color color);
+	void setColor(Color color);
 	
 	//method declaration
 	/**
@@ -208,7 +208,7 @@ public interface IPainter {
 	 * 
 	 * @param colorGradient
 	 */
-	public abstract void setColorGradient(ColorGradient colorGradient);
+	void setColorGradient(ColorGradient colorGradient);
 	
 	//method declaration
 	/**
@@ -217,5 +217,5 @@ public interface IPainter {
 	 * @param xTranslation
 	 * @param yTranslation
 	 */
-	public abstract void translate(int xTranslation, int yTranslation);
+	void translate(int xTranslation, int yTranslation);
 }

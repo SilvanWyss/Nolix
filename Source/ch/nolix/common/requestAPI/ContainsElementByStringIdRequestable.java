@@ -16,5 +16,5 @@ public interface ContainsElementByStringIdRequestable {
 	 * @param id
 	 * @return true if the current {@link ContainsElementByStringIdRequestable} contains an element with the given id.
 	 */
-	public abstract boolean containsElement(String id);
+	boolean containsElement(String id);
 }

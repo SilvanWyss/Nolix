@@ -5,8 +5,8 @@ package ch.nolix.common.incrementAPI;
 public interface Incrementing<V> {
 	
 	//method declaration
-	public abstract V getIncrementOrMax();
+	V getIncrementOrMax();
 	
 	//method declaration
-	public abstract V getValue();
+	V getValue();
 }

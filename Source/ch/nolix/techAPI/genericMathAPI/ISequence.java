@@ -11,17 +11,17 @@ import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 public interface ISequence<N> {
 	
 	//method declaration
-	public abstract int getConvergenceGrade(BigDecimal maxMagnitude, int maxIndex);
+	int getConvergenceGrade(BigDecimal maxMagnitude, int maxIndex);
 	
 	//method declaration
-	public abstract BigDecimal getSquaredMagnitude(int index);
+	BigDecimal getSquaredMagnitude(int index);
 	
 	//method declaration
-	public abstract IElementTakerElementGetter<N, BigDecimal> getSquaredMagnitudeFunction();
+	IElementTakerElementGetter<N, BigDecimal> getSquaredMagnitudeFunction();
 	
 	//method declaration
-	public abstract int getStartIndex();
+	int getStartIndex();
 	
 	//method declaration
-	public abstract N getValue(int index);
+	N getValue(int index);
 }

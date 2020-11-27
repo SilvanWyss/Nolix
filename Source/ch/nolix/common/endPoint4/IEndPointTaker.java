@@ -23,5 +23,5 @@ public interface IEndPointTaker<M, R> extends Named {
 	 * 
 	 * @param endPoint
 	 */
-	public abstract void takeEndPoint(EndPoint<M, R> endPoint);
+	void takeEndPoint(EndPoint<M, R> endPoint);
 }

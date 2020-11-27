@@ -16,5 +16,5 @@ public interface INeuronalNetCreator<IO> {
 	/**
 	 * @return a new neuronal net.
 	 */
-	public abstract NeuronalNet<IO> createNeuronalNet();
+	NeuronalNet<IO> createNeuronalNet();
 }

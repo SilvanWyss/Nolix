@@ -22,5 +22,5 @@ public interface IdentifiableByString<IBS> extends IdentifiedByString {
 	 * @param id
 	 * @return the current {@link IdentifiableByString}.
 	 */
-	public abstract IBS setId(long id);
+	IBS setId(long id);
 }

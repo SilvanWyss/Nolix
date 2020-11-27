@@ -18,7 +18,7 @@ public interface ISender<M> {
 	 * 
 	 * @param message
 	 */
-	public abstract void send(M message);
+	void send(M message);
 	
 	//method
 	/**
@@ -27,7 +27,7 @@ public interface ISender<M> {
 	 * @param messages
 	 */
 	@SuppressWarnings("unchecked")
-	public default void send(final M... messages) {
+	default void send(final M... messages) {
 		
 		//Iterates the given messages.
 		for (final var m : messages) {

@@ -18,7 +18,7 @@ public interface ApproximativeEqualing {
 	 * equals the given object with a deviation,
 	 * that is smaller than the default max deviation of the current {@link ApproximativeEqualing}.
 	 */
-	public default boolean equalsApproximatively(final Object object) {
+	default boolean equalsApproximatively(final Object object) {
 		return equalsApproximatively(object, getDefaultMaxDeviation());
 	}
 	
@@ -29,11 +29,11 @@ public interface ApproximativeEqualing {
 	 * @return true if the current {@link ApproximativeEqualing}
 	 * equals the given object with a deviation, that is smaller than the given max deviation.
 	 */
-	public abstract boolean equalsApproximatively(Object object, double maxDeviation);
+	boolean equalsApproximatively(Object object, double maxDeviation);
 	
 	//method
 	/**
 	 * @return the max deviation of the current {@link ApproximativeEqualing}.
 	 */
-	public abstract double getDefaultMaxDeviation();
+	double getDefaultMaxDeviation();
 }

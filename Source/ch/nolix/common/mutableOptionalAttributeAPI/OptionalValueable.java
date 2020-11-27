@@ -22,7 +22,7 @@ public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> exten
 	 * 
 	 * @return the current {@link OptionalValueable}.
 	 */
-	public abstract OV removeValue();
+	OV removeValue();
 	
 	//method declaration
 	/**
@@ -31,5 +31,5 @@ public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> exten
 	 * @param value
 	 * @return the current {@link OptionalValueable}.
 	 */
-	public abstract OV setValue(V value);
+	OV setValue(V value);
 }

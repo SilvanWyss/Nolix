@@ -27,5 +27,5 @@ public interface I5ElementTakerElementGetter<E1, E2, E3, E4, E5, E6> {
 	 * @return an element for the given element1, element2, element3, element4 and element5
 	 * from the current {@link I5ElementTakerElementGetter}.
 	 */
-	public abstract E6 getOutput(E1 element1, E2 element2, E3 element3, E4 element4, E5 element5);
+	E6 getOutput(E1 element1, E2 element2, E3 element3, E4 element4, E5 element5);
 }

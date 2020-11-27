@@ -34,5 +34,5 @@ public interface IBooleanGetter {
 	/**
 	 * @return a boolean.
 	 */
-	public abstract boolean getOutput();
+	boolean getOutput();
 }

@@ -8,23 +8,23 @@ import ch.nolix.common.rasterAPI.Rectangular;
 public interface IVisualizer extends Rectangular {
 	
 	//method declaration
-	public abstract int getViewAreaCursorXPosition();
+	int getViewAreaCursorXPosition();
 	
 	//method declaration
-	public abstract int getViewAreaCursorYPosition();
+	int getViewAreaCursorYPosition();
 	
 	//method declaration
-	public abstract int getViewAreaHeight();
+	int getViewAreaHeight();
 	
 	//method declaration
-	public abstract int getViewAreaWidth();
+	int getViewAreaWidth();
 	
 	//method declaration
-	public abstract void initialize(GUI<?> parentGUI);
+	void initialize(GUI<?> parentGUI);
 	
 	//method declaration
-	public abstract void noteClose();
+	void noteClose();
 	
 	//method declaration
-	public abstract void repaint();
+	void repaint();
 }

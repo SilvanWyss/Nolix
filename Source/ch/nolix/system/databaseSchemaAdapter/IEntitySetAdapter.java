@@ -9,18 +9,18 @@ import ch.nolix.common.container.LinkedList;
 public interface IEntitySetAdapter extends Named {
 	
 	//method declaration
-	public abstract IColumnAdapter getColumnAdapter(Column column);
+	IColumnAdapter getColumnAdapter(Column column);
 	
 	//method declaration
-	public abstract LinkedList<IColumnAdapter> getColumnAdapters();
+	LinkedList<IColumnAdapter> getColumnAdapters();
 	
 	//method
-	public default LinkedList<Column> getColumns() {
+	default LinkedList<Column> getColumns() {
 		return getColumnAdapters().to(IColumnAdapter::toColumn);
 	}
 	
 	//method declaration
-	public default EntitySet toEntitySet() {
+	default EntitySet toEntitySet() {
 		return new EntitySet(getName(), getColumns());
 	}
 }

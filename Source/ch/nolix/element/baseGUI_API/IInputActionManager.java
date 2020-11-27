@@ -12,7 +12,7 @@ import ch.nolix.element.input.Key;
 public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	
 	//method
-	public default IAM setContinuousKeyPressAction(final IElementTaker<Key> continuousKeyPressAction) {
+	default IAM setContinuousKeyPressAction(final IElementTaker<Key> continuousKeyPressAction) {
 		
 		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
 		
@@ -20,10 +20,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setContinuousKeyPressAction(final I2ElementTaker<IAM, Key> continuousKeyPressAction);
+	IAM setContinuousKeyPressAction(final I2ElementTaker<IAM, Key> continuousKeyPressAction);
 	
 	//method
-	public default IAM setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {
+	default IAM setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {
 		
 		Validator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click action").isNotNull();
 		
@@ -31,10 +31,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setLeftMouseButtonClickAction(IElementTaker<IAM> leftMouseButtonClickAction);
+	IAM setLeftMouseButtonClickAction(IElementTaker<IAM> leftMouseButtonClickAction);
 	
 	//method
-	public default IAM setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
+	default IAM setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
 		
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
@@ -42,10 +42,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setLeftMouseButtonPressAction(IElementTaker<IAM> leftMouseButtonPressAction);
+	IAM setLeftMouseButtonPressAction(IElementTaker<IAM> leftMouseButtonPressAction);
 	
 	//method
-	public default IAM setLeftMouseButtonReleaseAction(final IAction leftMouseButtonReleaseAction) {
+	default IAM setLeftMouseButtonReleaseAction(final IAction leftMouseButtonReleaseAction) {
 		
 		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
@@ -53,10 +53,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setLeftMouseButtonReleaseAction(IElementTaker<IAM> leftMouseButtonReleaseAction);
+	IAM setLeftMouseButtonReleaseAction(IElementTaker<IAM> leftMouseButtonReleaseAction);
 	
 	//method
-	public default IAM setMouseMoveAction(final IAction mouseMoveAction) {
+	default IAM setMouseMoveAction(final IAction mouseMoveAction) {
 		
 		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
@@ -64,10 +64,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setMouseMoveAction(IElementTaker<IAM> mouseMoveAction);
+	IAM setMouseMoveAction(IElementTaker<IAM> mouseMoveAction);
 	
 	//method
-	public default IAM setMouseWheelClickAction(final IAction mouseWheelClickAction) {
+	default IAM setMouseWheelClickAction(final IAction mouseWheelClickAction) {
 		
 		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
 		
@@ -75,10 +75,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setMouseWheelClickAction(IElementTaker<IAM> mouseWheelClickAction);
+	IAM setMouseWheelClickAction(IElementTaker<IAM> mouseWheelClickAction);
 	
 	//method
-	public default IAM setMouseWheelPressAction(final IAction mouseWheelPressAction) {
+	default IAM setMouseWheelPressAction(final IAction mouseWheelPressAction) {
 		
 		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
 		
@@ -86,10 +86,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setMouseWheelPressAction(IElementTaker<IAM> mouseWheelPressAction);
+	IAM setMouseWheelPressAction(IElementTaker<IAM> mouseWheelPressAction);
 	
 	//method
-	public default IAM setMouseWheelReleaseAction(final IAction mouseWheelReleaseAction) {
+	default IAM setMouseWheelReleaseAction(final IAction mouseWheelReleaseAction) {
 		
 		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
 		
@@ -97,10 +97,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setMouseWheelReleaseAction(IElementTaker<IAM> mouseWheelReleaseAction);
+	IAM setMouseWheelReleaseAction(IElementTaker<IAM> mouseWheelReleaseAction);
 	
 	//method
-	public default IAM setRightMouseButtonClickAction(final IAction rightMouseButtonClickAction) {
+	default IAM setRightMouseButtonClickAction(final IAction rightMouseButtonClickAction) {
 		
 		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
 		
@@ -108,10 +108,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setRightMouseButtonClickAction(IElementTaker<IAM> rightMouseButtonClickAction);
+	IAM setRightMouseButtonClickAction(IElementTaker<IAM> rightMouseButtonClickAction);
 	
 	//method
-	public default IAM setRightMouseButtonPressAction(final IAction rightMouseButtonPressAction) {
+	default IAM setRightMouseButtonPressAction(final IAction rightMouseButtonPressAction) {
 		
 		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
 		
@@ -119,10 +119,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setRightMouseButtonPressAction(IElementTaker<IAM> rightMouseButtonPressAction);
+	IAM setRightMouseButtonPressAction(IElementTaker<IAM> rightMouseButtonPressAction);
 	
 	//method
-	public default IAM setRightMouseButtonReleaseAction(final IAction rightMouseButtonReleaseAction) {
+	default IAM setRightMouseButtonReleaseAction(final IAction rightMouseButtonReleaseAction) {
 		
 		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
 		
@@ -130,5 +130,5 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	}
 	
 	//method declaration
-	public abstract IAM setRightMouseButtonReleaseAction(IElementTaker<IAM> rightMouseButtonReleaseAction);
+	IAM setRightMouseButtonReleaseAction(IElementTaker<IAM> rightMouseButtonReleaseAction);
 }

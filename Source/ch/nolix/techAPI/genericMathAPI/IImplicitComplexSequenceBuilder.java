@@ -9,13 +9,13 @@ import ch.nolix.common.skillAPI.IBuilder;
 public interface IImplicitComplexSequenceBuilder extends IBuilder<IImplicitSequence<IComplexNumber>> {
 	
 	//method declaration
-	public abstract IImplicitComplexSequenceBuilder setNextValueFunction(
+	IImplicitComplexSequenceBuilder setNextValueFunction(
 		IElementTakerElementGetter<IComplexNumber[], IComplexNumber> nextValueFunction
 	);
 	
 	//method declaration
-	public abstract IImplicitComplexSequenceBuilder setStartIndex(int startIndex);
+	IImplicitComplexSequenceBuilder setStartIndex(int startIndex);
 	
 	//method declaration
-	public abstract IImplicitComplexSequenceBuilder setStartValues(IComplexNumber... startValues);
+	IImplicitComplexSequenceBuilder setStartValues(IComplexNumber... startValues);
 }

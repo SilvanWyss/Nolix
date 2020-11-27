@@ -28,7 +28,7 @@ OptionalTokenable<C> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public default boolean containsElement(final String id) {
+	default boolean containsElement(final String id) {
 		return getSubConfigurablesRecursively().contains(sc -> sc.hasId(id));
 	}
 	
@@ -36,13 +36,13 @@ OptionalTokenable<C> {
 	/**
 	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	public abstract IContainer<IConfigurableElement<?>> getSubConfigurables();
+	IContainer<IConfigurableElement<?>> getSubConfigurables();
 	
 	//method
 	/**
 	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement} recursively.
 	 */
-	public default IContainer<IConfigurableElement<?>> getSubConfigurablesRecursively() {
+	default IContainer<IConfigurableElement<?>> getSubConfigurablesRecursively() {
 		
 		final var subConfigurables = new LinkedList<IConfigurableElement<?>>();
 		subConfigurables.addAtEnd(getSubConfigurables());
@@ -56,7 +56,7 @@ OptionalTokenable<C> {
 	 * @param role
 	 * @return true if the current {@link IConfigurable} has the given role.
 	 */
-	public abstract boolean hasRole(String role);
+	boolean hasRole(String role);
 	
 	//method declaration
 	/**
@@ -64,5 +64,5 @@ OptionalTokenable<C> {
 	 * 
 	 * @return the current {@link IConfigurableElement}.
 	 */
-	public abstract C resetConfiguration();
+	C resetConfiguration();
 }

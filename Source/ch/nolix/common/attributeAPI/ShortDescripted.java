@@ -28,13 +28,13 @@ public interface ShortDescripted {
 	/**
 	 * @return the short description of the current {@link ShortDescripted}.
 	 */
-	public abstract String getShortDescription();
+	String getShortDescription();
 	
 	//method
 	/**
 	 * @return the short description of the current {@link ShortDescripted} in quotes.
 	 */
-	public default String getShortDescriptionInQuotes() {
+	default String getShortDescriptionInQuotes() {
 		return ("'" + getShortDescription() + "'");
 	}
 }

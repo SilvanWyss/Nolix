@@ -16,5 +16,5 @@ public interface IElementGetter<E> {
 	/**
 	 * @return an element.
 	 */
-	public abstract E getOutput();
+	E getOutput();
 }

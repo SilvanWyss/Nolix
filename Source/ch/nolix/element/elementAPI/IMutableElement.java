@@ -26,7 +26,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attribute
 	 * @return the current {@link IMutableElement}.
 	 */
-	public abstract void addOrChangeAttribute(BaseNode attribute);
+	void addOrChangeAttribute(BaseNode attribute);
 	
 	//method
 	/**
@@ -36,7 +36,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttribute(final BaseNode... attributes) {
+	default void addOrChangeAttribute(final BaseNode... attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -52,7 +52,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttributes(final Iterable<? extends BaseNode> attributes) {
+	default void addOrChangeAttributes(final Iterable<? extends BaseNode> attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -68,7 +68,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public default void addOrChangeAttribute(final String attribute) {
+	default void addOrChangeAttribute(final String attribute) {
 		addOrChangeAttribute(Node.fromString(attribute));
 	}
 	
@@ -80,7 +80,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttribute(final String... attributes) {
+	default void addOrChangeAttribute(final String... attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -97,7 +97,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @return the current {@link IMutableElement}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public default S reset(final BaseNode specification) {
+	default S reset(final BaseNode specification) {
 		return reset(specification.getRefAttributes());
 	}
 	
@@ -110,7 +110,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
 	@SuppressWarnings("unchecked")
-	public default S reset(final Iterable<? extends BaseNode> attributes) {
+	default S reset(final Iterable<? extends BaseNode> attributes) {
 		
 		reset();
 		addOrChangeAttributes(attributes);
@@ -126,7 +126,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @return the current {@link IMutableElement}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public default S reset(final String specification) {
+	default S reset(final String specification) {
 		return reset(Node.fromString(specification));
 	}
 	
@@ -141,7 +141,7 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * @throws InvalidArgumentException
 	 * if the file with the given file path does not represent a {@link Node}.
 	 */
-	public default S resetFrom(final String filePath) {
+	default S resetFrom(final String filePath) {
 		return reset(Node.fromFile(filePath));
 	}
 }

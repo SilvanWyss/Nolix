@@ -17,5 +17,5 @@ public interface ILongTaker {
 	 * 
 	 * @return value
 	 */
-	public abstract void run(long value);
+	void run(long value);
 }

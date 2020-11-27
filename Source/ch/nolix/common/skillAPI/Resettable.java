@@ -18,5 +18,5 @@ public interface Resettable<R extends Resettable<R>> {
 	 * 
 	 * @return the current {@link Resettable}.
 	 */
-	public abstract R reset();
+	R reset();
 }

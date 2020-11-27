@@ -22,13 +22,13 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	/**
 	 * @return the height of the view area of the current {@link IBaseGUI}.
 	 */
-	public abstract int getViewAreaHeight();
+	int getViewAreaHeight();
 	
 	//method declaration
 	/**
 	 * @return the width of the view area of the current {@link IBaseGUI}.
 	 */
-	public abstract int getViewAreaWidth();
+	int getViewAreaWidth();
 	
 	//method declaration
 	/**
@@ -36,14 +36,14 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	 * 
 	 * @return true if the current {@link IBaseGUI} is a root {@link IBaseGUI}.
 	 */
-	public abstract boolean isRootGUI();
+	boolean isRootGUI();
 	
 	//method declaration
 	/**
 	 * 
 	 * @return true if the current {@link IBaseGUI} is visible.
 	 */
-	public abstract boolean isVisible();
+	boolean isVisible();
 	
 	//method
 	/**
@@ -52,7 +52,7 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	 * 
 	 * @param pGUI
 	 */
-	public default void noteResizeFrom(final IBaseGUI<?> pGUI) {
+	default void noteResizeFrom(final IBaseGUI<?> pGUI) {
 		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
 	}
 }

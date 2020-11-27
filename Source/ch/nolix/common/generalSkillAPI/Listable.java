@@ -20,7 +20,7 @@ public interface Listable<L extends Listable<L>> {
 	 * @return a new {@link LinkedList} with the current {@link Listable}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default LinkedList<L> intoList() {
+	default LinkedList<L> intoList() {
 		return LinkedList.withElements((L)this);
 	}
 	
@@ -32,7 +32,7 @@ public interface Listable<L extends Listable<L>> {
 	 * @throws ClassCastException if the current {@link ISmartObject} is not of the given type.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <T> LinkedList<T> intoListAs(final Class<T> type) {
+	default <T> LinkedList<T> intoListAs(final Class<T> type) {
 		return LinkedList.withElements((T)this);
 	}
 }

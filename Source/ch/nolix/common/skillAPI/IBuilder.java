@@ -16,5 +16,5 @@ public interface IBuilder<O> {
 	/**
 	 * @return a new {@link O} from the current {@link IBuilder}.
 	 */
-	public abstract O build();
+	O build();
 }

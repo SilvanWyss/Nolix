@@ -19,5 +19,5 @@ public interface I2ElementTakerBooleanGetter<E> {
 	 * @param element2
 	 * @return a boolean for the given two elements.
 	 */
-	public abstract boolean getOutput(E element1, E element2);
+	boolean getOutput(E element1, E element2);
 }

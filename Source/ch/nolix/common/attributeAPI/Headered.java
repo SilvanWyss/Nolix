@@ -15,13 +15,13 @@ public interface Headered {
 	/**
 	 * @return the header of the current {@link Headered}.
 	 */
-	public abstract String getHeader();
+	String getHeader();
 	
 	//method
 	/**
 	 * @return the header of the current {@link Headered} in quotes.
 	 */
-	public default String getHeaderInQuotes() {
+	default String getHeaderInQuotes() {
 		return ("'" + getHeader() + "'");
 	}
 	
@@ -30,7 +30,7 @@ public interface Headered {
 	 * @param header
 	 * @return true if the current {@link Headered} has the given header.
 	 */
-	public default boolean hasHeader(final String header) {
+	default boolean hasHeader(final String header) {
 		return getHeader().equals(header);
 	}
 	
@@ -39,7 +39,7 @@ public interface Headered {
 	 * @param object
 	 * @return true if the current {@link Headered} has the same header as the given object.
 	 */
-	public default boolean hasSameHeaderAs(final Headered object) {
+	default boolean hasSameHeaderAs(final Headered object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {

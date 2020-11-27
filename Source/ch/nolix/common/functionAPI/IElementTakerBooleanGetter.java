@@ -17,5 +17,5 @@ public interface IElementTakerBooleanGetter<E> {
 	 * @param element
 	 * @return a boolean for the given element.
 	 */
-	public abstract boolean getOutput(E element);
+	boolean getOutput(E element);
 }

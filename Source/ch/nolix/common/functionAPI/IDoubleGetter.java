@@ -15,5 +15,5 @@ public interface IDoubleGetter {
 	/**
 	 * @return a double.
 	 */
-	public abstract double getOutput();
+	double getOutput();
 }

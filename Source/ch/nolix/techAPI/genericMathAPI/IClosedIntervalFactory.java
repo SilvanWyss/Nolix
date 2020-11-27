@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 public interface IClosedIntervalFactory {
 	
 	//method declaration
-	public abstract IClosedInterval create(BigDecimal min, BigDecimal max);
+	IClosedInterval create(BigDecimal min, BigDecimal max);
 	
 	//method declaration
-	public abstract IClosedInterval create(BigDecimal min, BigDecimal max, int bigDecimalScale);
+	IClosedInterval create(BigDecimal min, BigDecimal max, int bigDecimalScale);
 	
 	//method declaration
-	public abstract IClosedInterval create(double min, double max);
+	IClosedInterval create(double min, double max);
 	
 	//method declaration
-	public abstract IClosedInterval create(double min, double max, int bigDecimalScale);
+	IClosedInterval create(double min, double max, int bigDecimalScale);
 }

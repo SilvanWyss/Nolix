@@ -18,13 +18,13 @@ public interface MultiTokened {
 	/**
 	 * @return the tokens of the current {@link MultiTokened}.
 	 */
-	public abstract IContainer<String> getTokens();
+	IContainer<String> getTokens();
 	
 	//method
 	/**
 	 * @return true if the current {@link MultiTokened} has the given token.
 	 */
-	public default boolean hasToken(final String token) {
+	default boolean hasToken(final String token) {
 		return getTokens().containsEqualing(token);
 	}
 }

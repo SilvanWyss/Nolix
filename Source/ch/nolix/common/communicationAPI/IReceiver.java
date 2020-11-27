@@ -17,5 +17,5 @@ public interface IReceiver {
 	 * 
 	 * @param message
 	 */
-	public abstract void receive(String message);
+	void receive(String message);
 }

@@ -21,7 +21,7 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends Opt
 	 * 
 	 * @return the current {@link OptionalLabelable}.
 	 */
-	public abstract OL removeInfoString();
+	OL removeInfoString();
 	
 	//method declaration
 	/**
@@ -30,5 +30,5 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends Opt
 	 * @param infoString
 	 * @return the current {@link OptionalLabelable}.
 	 */
-	public abstract OL setInfoString(String infoString);
+	OL setInfoString(String infoString);
 }

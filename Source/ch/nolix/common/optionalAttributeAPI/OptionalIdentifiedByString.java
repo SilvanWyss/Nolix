@@ -16,14 +16,14 @@ public interface OptionalIdentifiedByString {
 	 * @return the id of the current {@link OptionalIdentifiedByString}.
 	 * @throws Exception if the current {@link OptionalIdentifiedByString} does not have an id.
 	 */
-	public abstract String getId();
+	String getId();
 	
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByString} in quotes.
 	 * @throws Exception if the current {@link OptionalIdentifiedByString} does not have an id.
 	 */
-	public default String getIdInQuotes() {
+	default String getIdInQuotes() {
 		return ("'" + getId() + "'");
 	}
 	
@@ -31,14 +31,14 @@ public interface OptionalIdentifiedByString {
 	/**
 	 * @return true if the current {@link OptionalIdentifiedByString} has an id.
 	 */
-	public abstract boolean hasId();
+	boolean hasId();
 	
 	//method
 	/**
 	 * @param id
 	 * @return true if the current {@link OptionalIdentifiedByString} has the given id.
 	 */
-	public default boolean hasId(final String id) {
+	default boolean hasId(final String id) {
 		return (hasId() && getId().equals(id));
 	}
 }

@@ -20,7 +20,7 @@ public interface IController {
 	 * 
 	 * @param command
 	 */
-	public abstract void run(ChainedNode command);
+	void run(ChainedNode command);
 	
 	//method
 	/**
@@ -29,7 +29,7 @@ public interface IController {
 	 * @param commands
 	 * @throws ArgumentIsNullException if the given commands is null.
 	 */
-	public default void run(final ChainedNode... commands) {
+	default void run(final ChainedNode... commands) {
 		
 		//Asserts that the given commands is not null.
 		Validator.assertThat(commands).thatIsNamed(MultiVariableNameCatalogue.COMMANDS).isNotNull();

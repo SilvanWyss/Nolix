@@ -15,5 +15,5 @@ public interface IAction {
 	/**
 	 * Does something.
 	 */
-	public abstract void run();
+	void run();
 }

@@ -20,25 +20,25 @@ public interface SemanticVersioned {
 	/**
 	 * @return the major version number of the current {@link SemanticVersioned}.
 	 */
-	public abstract int getMajorVersion();
+	int getMajorVersion();
 	
 	//method declaration
 	/**
 	 * @return the minor version number of the current {@link SemanticVersioned}.
 	 */
-	public abstract int getMinorVersion();
+	int getMinorVersion();
 	
 	//method declaration
 	/**
 	 * @return the patch version number of the current {@link SemanticVersioned}.
 	 */
-	public abstract int getPatchVersion();
+	int getPatchVersion();
 	
 	//method
 	/**
 	 * @return the version of the current {@link SemanticVersioned}.
 	 */
-	public default String getVersion() {
+	default String getVersion() {
 		return (getMajorVersion() + "." + getMinorVersion() + "." + getPatchVersion());
 	}
 }

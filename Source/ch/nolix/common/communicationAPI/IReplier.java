@@ -16,5 +16,5 @@ public interface IReplier {
 	 * @param message
 	 * @return the reply to the given message from the current {@link IReplier}.
 	 */
-	public abstract String getReply(String message);
+	String getReply(String message);
 }

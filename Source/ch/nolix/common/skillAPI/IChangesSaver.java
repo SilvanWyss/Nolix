@@ -16,11 +16,11 @@ public interface IChangesSaver<CS extends IChangesSaver<CS>> extends Resettable<
 	/**
 	 * @return true if the current {@link IChangesSaver} has changes.
 	 */
-	public abstract boolean hasChanges();
+	boolean hasChanges();
 	
 	//method declaration
 	/**
 	 * Saves the changes of the current {@link IChangesSaver}.
 	 */
-	public abstract void saveChanges();
+	void saveChanges();
 }

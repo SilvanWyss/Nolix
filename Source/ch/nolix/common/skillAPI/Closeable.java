@@ -16,7 +16,7 @@ public interface Closeable extends CloseStateRequestable {
 	/**
 	 * @return the current {@link Closeable} as {@link AutoCloseable}.
 	 */
-	public default AutoCloseable asAutoClosable() {
+	default AutoCloseable asAutoClosable() {
 		return this::close;
 	}
 	
@@ -24,5 +24,5 @@ public interface Closeable extends CloseStateRequestable {
 	/**
 	 * Closes the current {@link Closeable}.
 	 */
-	public abstract void close();
+	void close();
 }

@@ -17,5 +17,5 @@ public interface IIntTakerElementGetter<E> {
 	 * @param value
 	 * @return an element for the given value from the current {@link IIntTakerElementGetter}.
 	 */
-	public abstract E getOutput(int value);
+	E getOutput(int value);
 }
