@@ -6,6 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.dialog.YesNoDialog;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.HorizontalStack;
@@ -155,9 +156,7 @@ public final class EntitySetSession extends HeaderedSession {
 					new Button()
 					.setRole(ButtonRole.DeleteButton)
 					.setText("Delete")
-					.setLeftMouseButtonPressAction(
-						() -> openDeleteEntitySession(e.getId())
-					)
+					.setLeftMouseButtonPressAction(() -> openDeleteEntityDialogFor(e))
 				);
 			}
 			
@@ -173,13 +172,25 @@ public final class EntitySetSession extends HeaderedSession {
 	}
 	
 	//method
+	private void delete(final Entity entity) {
+		entity.setDeleted();
+		getRefDatabaseAdapter().saveChanges();
+	}
+	
+	//method
 	private void openCreateEntitySession() {
 		push(new CreateEntitySession(entitySetName));
 	}
 	
 	//method
-	private void openDeleteEntitySession(final long entityId) {
-		push(new DeleteEntitySession(entitySetName, entityId));
+	private void openDeleteEntityDialogFor(final Entity entity) {
+		getRefGUI()
+		.addLayerOnTop(
+			new YesNoDialog(
+				"Do you want to delete the entity " + entity.getShortDescriptionInQuotes() + "?",
+				() -> delete(entity)
+			)
+		);
 	}
 	
 	//method
