@@ -2,27 +2,42 @@
 package ch.nolix.common.commonTypeHelper;
 
 //own import
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.constant.StringCatalogue;
 
 //class
 final class CamelCaseCreator {
 	
 	//method
 	public String toCamelCase(final String string) {
-		
-		Validator.assertThat(string).isNotNull();
+		return (string.isEmpty() ? StringCatalogue.EMPTY_STRING : toCamelCaseWhenStringNotEmpty(string));
+	}
+	
+	//ethod
+	private String toCamelCaseWhenStringNotEmpty(final String string) {
 		
 		final var stringBuilder = new StringBuilder();
-			
-		CharacterType previousCharacterType = null;
-		for (var i = 0; i < string.length(); i++) {
+		
+		final var firstCharacter = string.charAt(0);
+		final var firstCharacterType = getCharacterType(firstCharacter);
+		switch (firstCharacterType) {
+			case LOWER_CASE_LETTER:
+				stringBuilder.append(Character.toUpperCase(firstCharacter));
+			default:
+				stringBuilder.append(firstCharacter);
+		}
+		
+		var previousCharacterType = firstCharacterType;
+		for (var i = 1; i < string.length(); i++) {
 			
 			final var character = string.charAt(i);
 			final var characterType = getCharacterType(character);
 			
 			switch (characterType) {
 				case UPPER_CASE_LETTER:
-					if (previousCharacterType == CharacterType.LOWER_CASE_LETTER) {
+					if (
+						previousCharacterType == CharacterType.LOWER_CASE_LETTER
+						|| previousCharacterType == CharacterType.UNDERSCORE
+					) {
 						stringBuilder.append(character);
 					}
 					else {
