@@ -32,7 +32,7 @@ public enum CursorIcon implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static CursorIcon fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(specification.getOneAttributeHeader().toUpperCase());
 	}
 	
 	//method
