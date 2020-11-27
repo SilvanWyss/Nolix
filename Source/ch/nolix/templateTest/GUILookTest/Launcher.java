@@ -9,6 +9,6 @@ public final class Launcher {
 		new GUILooksTestPool().run();
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private Launcher() {}
 }

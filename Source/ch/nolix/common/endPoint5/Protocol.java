@@ -18,7 +18,7 @@ final class Protocol {
 	public static final String DATA_HEADER = "Data";
 	public static final String ERROR_HEADER = "Error";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link Protocol} can be created.
 	 */

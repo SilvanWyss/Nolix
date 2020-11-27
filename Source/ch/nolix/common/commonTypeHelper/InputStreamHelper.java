@@ -39,6 +39,6 @@ public final class InputStreamHelper {
 		}
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private InputStreamHelper() {}
 }

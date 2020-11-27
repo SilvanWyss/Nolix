@@ -13,7 +13,7 @@ public final class AsSoonAsMediator {
 	//attribute
 	private final IBooleanGetter condition;
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	AsSoonAsMediator(final IBooleanGetter condition) {
 		
 		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();

@@ -19,7 +19,7 @@ public final class PortCatalogue {
 	public static final int HTTPS_PORT = 443;
 	public static final int MAX_PORT = 65535;
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link PortCatalogue} can be created.
 	 */

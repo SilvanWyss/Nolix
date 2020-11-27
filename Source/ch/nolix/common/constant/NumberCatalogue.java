@@ -19,7 +19,7 @@ public final class NumberCatalogue {
 	public static final double SQUARE_ROOT_OF_3 = Math.sqrt(3.0);
 	public static final double SQUARE_ROOT_OF_5 = Math.sqrt(5.0);
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link NumberCatalogue} can be created.
 	 */

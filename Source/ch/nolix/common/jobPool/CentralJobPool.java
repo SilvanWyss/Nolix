@@ -36,7 +36,7 @@ public final class CentralJobPool {
 		return jobPool.enqueue(job);
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link CentralJobPool} can be created.
 	 */

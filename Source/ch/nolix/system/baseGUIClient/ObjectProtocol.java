@@ -9,6 +9,6 @@ final class ObjectProtocol {
 	public static final String GUI_TYPE = "GUIType";
 	public static final String VIEW_AREA_SIZE = "ViewAreaSize";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private ObjectProtocol() {}
 }

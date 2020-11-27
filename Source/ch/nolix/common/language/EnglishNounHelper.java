@@ -65,6 +65,6 @@ public final class EnglishNounHelper {
 		return (noun + "s");
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private EnglishNounHelper() {}
 }

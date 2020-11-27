@@ -19,7 +19,7 @@ public final class Launcher {
 		new ElementTestPool().run();
 	}
 
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of this class can be instantiated.
 	 */

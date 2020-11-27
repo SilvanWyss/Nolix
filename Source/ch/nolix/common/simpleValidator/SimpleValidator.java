@@ -347,7 +347,7 @@ public final class SimpleValidator {
 		}
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link SimpleValidator} can be created.
 	 */

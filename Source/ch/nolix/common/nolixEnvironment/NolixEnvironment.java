@@ -22,6 +22,6 @@ public final class NolixEnvironment {
 		return System.getenv(APPDATA_HEADER);
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private NolixEnvironment() {}
 }

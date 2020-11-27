@@ -51,7 +51,7 @@ final class Waiter {
 		}
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link Waiter} can be created.
 	 */

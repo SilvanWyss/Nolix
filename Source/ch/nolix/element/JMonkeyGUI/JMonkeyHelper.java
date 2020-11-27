@@ -23,7 +23,7 @@ public final class JMonkeyHelper {
 		.getResource("com/jme3/asset/Desktop.cfg"));
 	}
 
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

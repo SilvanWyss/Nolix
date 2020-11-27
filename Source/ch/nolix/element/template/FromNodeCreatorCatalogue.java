@@ -13,6 +13,6 @@ public final class FromNodeCreatorCatalogue {
 	public static final SpecificValueCreator<BaseNode, Image> IMAGE_CREATOR =
 	new SpecificValueCreator<>(Image.class, Image::fromSpecification);
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private FromNodeCreatorCatalogue() {}
 }

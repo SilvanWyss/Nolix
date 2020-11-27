@@ -29,6 +29,6 @@ public final class CentralServiceProvider {
 		coreServiceProdiver.register(pInterface, service, writeMode);
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private CentralServiceProvider() {}
 }

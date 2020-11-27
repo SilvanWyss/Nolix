@@ -14,7 +14,7 @@ public final class IPv6Catalogue {
 	//constant
 	public static final String LOOP_BACK_ADDRESS = "::1";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link IPv6Catalogue} can be created.
 	 */

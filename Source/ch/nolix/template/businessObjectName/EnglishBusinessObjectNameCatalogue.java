@@ -43,6 +43,6 @@ public final class EnglishBusinessObjectNameCatalogue {
 	public static final String SURNAME = "surname";
 	public static final String WARE_HOUSE = "ware house";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private EnglishBusinessObjectNameCatalogue() {}
 }

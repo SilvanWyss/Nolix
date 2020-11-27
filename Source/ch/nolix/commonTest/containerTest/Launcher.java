@@ -21,7 +21,7 @@ public final class Launcher {
 		new ContainerTestPool().run();
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

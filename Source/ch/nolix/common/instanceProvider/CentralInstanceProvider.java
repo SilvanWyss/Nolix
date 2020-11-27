@@ -34,6 +34,6 @@ public final class CentralInstanceProvider {
 		return instanceProvider.register(pInterface, pClass, writeMode);
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private CentralInstanceProvider() {}
 }

@@ -179,7 +179,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String WIDTH = "Width";
 	public static final String YEAR = "Year";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link PascalCaseNameCatalogue} can be created.
 	 */

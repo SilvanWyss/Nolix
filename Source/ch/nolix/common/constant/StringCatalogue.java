@@ -20,7 +20,7 @@ public final class StringCatalogue {
 	public static final String NULL_HEADER = "null";
 	public static final String TRUE_HEADER = "true";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link StringCatalogue} can be created.
 	 */

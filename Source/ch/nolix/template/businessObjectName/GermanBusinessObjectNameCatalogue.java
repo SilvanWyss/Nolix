@@ -48,6 +48,6 @@ public final class GermanBusinessObjectNameCatalogue {
 	public static final String VORAUSZAHLUNG = "Vorauszahlung";
 	public static final String VORNAME = "Vorname";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private GermanBusinessObjectNameCatalogue() {}
 }

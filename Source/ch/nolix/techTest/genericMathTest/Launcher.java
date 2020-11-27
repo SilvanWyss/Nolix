@@ -9,6 +9,6 @@ public final class Launcher {
 		new GenericMathTestPool().run();
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private Launcher() {}
 }

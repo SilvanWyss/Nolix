@@ -15,6 +15,6 @@ final class NetEndPointProtocol {
 	public static final char MAIN_TARGET_PREFIX = 'A';
 	public static final char CLOSE_PREFIX = 'C';
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private NetEndPointProtocol() {}
 }

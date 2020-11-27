@@ -49,7 +49,7 @@ public final class NASDAQProductSymbolCatalogue {
 		UNIVERSAL_FOREST_PRODUCTS_INC
 	);
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link NASDAQProductSymbolCatalogue} can be created.
 	 */

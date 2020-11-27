@@ -32,6 +32,6 @@ public final class ValueFromNodeCreatorCatalogue {
 	public static final SpecificValueCreator<BaseNode, String> STRING_CREATOR =
 	new SpecificValueCreator<>(String.class, BaseNode::getHeader);
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private ValueFromNodeCreatorCatalogue() {}
 }

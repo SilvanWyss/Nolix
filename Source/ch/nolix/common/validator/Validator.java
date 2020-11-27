@@ -260,7 +260,7 @@ public final class Validator {
 		return new MultiStringMediator(arguments);
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

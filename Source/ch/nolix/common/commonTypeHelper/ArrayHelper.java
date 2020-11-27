@@ -27,6 +27,6 @@ public final class ArrayHelper {
 		return Arrays.copyOf(array, array.length);
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private ArrayHelper() {}
 }

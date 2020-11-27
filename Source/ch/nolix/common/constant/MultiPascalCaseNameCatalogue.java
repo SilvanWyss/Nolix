@@ -21,7 +21,7 @@ public final class MultiPascalCaseNameCatalogue {
 	public static final String TABS = "Tabs";
 	public static final String VALUES = "Values";
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link MultiPascalCaseNameCatalogue} can be created.
 	 */

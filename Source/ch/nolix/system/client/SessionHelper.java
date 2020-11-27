@@ -42,6 +42,6 @@ final class SessionHelper {
 		.doesNotReturnAnything();
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private SessionHelper() {}
 }

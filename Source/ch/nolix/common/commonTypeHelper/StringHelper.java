@@ -330,7 +330,7 @@ public final class StringHelper {
 		return number;
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link StringHelper} can be created.
 	 */

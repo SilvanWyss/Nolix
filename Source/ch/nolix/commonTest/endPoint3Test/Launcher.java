@@ -21,7 +21,7 @@ public final class Launcher {
 		new EndPointTestPool().run();
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */

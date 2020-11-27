@@ -217,6 +217,6 @@ public final class Logger {
 		logWorker = null;
 	}
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	private Logger() {}
 }

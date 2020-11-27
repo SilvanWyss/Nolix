@@ -38,7 +38,7 @@ public final class CharacterCatalogue {
 	public static final char TABULATOR = '\t';
 	public static final char UNDERSCORE = '_';
 	
-	//visibility-reducing constructor
+	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of the {@link CharacterCatalogue} can be created.
 	 */
