@@ -9,35 +9,35 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 70
  * @param <E>
- * - The type the elements of the sequences of the sequence pattern of a sequence pattern next mediator.
+ * The type the elements of the sequences of the {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */
 public final class SequencePatternNextMediator<E> {
-
+	
 	//attributes
 	private final SequencePattern<E> sequencePattern;
 	private final int count;
 	
 	//constructor
 	/**
-	 * Creates a new sequence pattern next mediator for the given sequence pattern that has the given count.
+	 * Creates a new {@link SequencePatternNextMediator} for the given sequencePattern and with the given count.
 	 * 
 	 * @param sequencePattern
 	 * @param count
-	 * @throws ArgumentIsNullException if the given sequence pattern is null.
+	 * @throws ArgumentIsNullException if the givenSequence pattern is null.
 	 * @throws NegativeArgumentException if the given count is negative.
 	 */
 	SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
 		
-		//Asserts that the given sequence pattern is not null.
-		Validator.assertThat(sequencePattern).isOfType(SequencePattern.class);
+		//Asserts that the given sequencePattern is not null.
+		Validator.assertThat(sequencePattern).thatIsNamed(SequencePattern.class).isNotNull();
 		
 		//Asserts that the given count is not negative.
 		Validator.assertThat(count).thatIsNamed("count").isNotNegative();
 		
-		//Sets the sequence pattern and the count of this sequence pattern next mediator.
+		//Sets the sequencePattern and the count of the current SequencePatternNextMediator.
 		this.sequencePattern = sequencePattern;
 		this.count = count;
 	}
@@ -45,24 +45,26 @@ public final class SequencePatternNextMediator<E> {
 	//method
 	/**
 	 * Adds a blank condition for the next elements
-	 * of the sequences of the sequence pattern of this sequence pattern next mediator.
+	 * of the sequences of the {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
 	 * 
-	 * @return the sequence pattern of this sequence pattern next mediator.
+	 * @return the sequence pattern of this {@link SequencePatternNextMediator}.
 	 */
 	public SequencePattern<E> addBlank() {
-			
-		Sequencer.forCount(count).run(() -> sequencePattern.addBlankForNext());
 		
+		for (var i = 1; i < count; i++) {
+			sequencePattern.addBlankForNext();
+		}
+				
 		return sequencePattern;
 	}
 	
 	//method
 	/**
 	 * Adds the given condition for the next elements
-	 * of the sequences of the sequence pattern of this sequence pattern next mediator.
+	 * of the sequences of the {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
 	 * 
 	 * @param condition
-	 * @return the sequence pattern of this sequence pattern next mediator.
+	 * @return the {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public SequencePattern<E> addCondition(final IElementTakerBooleanGetter<E> condition) {
