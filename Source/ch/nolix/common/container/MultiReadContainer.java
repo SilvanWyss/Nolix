@@ -40,7 +40,7 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	//method
 	@Override
 	public int getElementCount() {
-		return containers.getSumByInt(c -> c.getElementCount());
+		return containers.getSumByInt(IContainer::getElementCount);
 	}
 	
 	//method
