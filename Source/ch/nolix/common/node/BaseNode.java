@@ -598,12 +598,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return a XML representation of the current {@link BaseNode}.
+	 * @return a {@link XMLNode} representation of the current {@link BaseNode}.
 	 */
 	public XMLNode toXML() {
 		
-		//Creates an XML node.
-		final var lXMLNode = new XMLNode(getHeader());
+		//Creates an XMLNode.
+		final var lXMLNode =
+		new XMLNode()
+		.setName(getHeader());
 		
 		//Iterates the attributes of the current specification.
 		for (final BaseNode a : getRefAttributes()) {

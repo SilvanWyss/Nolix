@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.XML;
 
+//own imports
 import ch.nolix.common.commonTypeHelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -8,18 +9,12 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalNamable;
 import ch.nolix.common.mutableOptionalAttributeAPI.OptionalValueable;
-import ch.nolix.common.skillAPI.Freezable;
 import ch.nolix.common.validator.Validator;
 
 //class
-public final class XMLNode
-implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {
-	
-	//attribute
-	private boolean frozen = false;
+public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {
 	
 	//optional attribute
 	private String name;
@@ -31,18 +26,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	
 	//constructor
 	public XMLNode() {}
-	
-	//constructor
-	public XMLNode(final String name) {
-		setName(name);
-	}
-	
-	//constructor
-	public XMLNode(final String name, final String value) {
-		setName(name);
-		setValue(value);
-	}
-	
+		
 	//method
 	public XMLNode addAttribute(final String name, final String value) {
 		return addAttribute(new XMLAttribute(name, value));
@@ -51,7 +35,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	//method
 	public XMLNode addAttribute(final XMLAttribute attribute) {
 		
-		supposeIsNotFrozen();
 		attributes.addAtEnd(attribute);
 		
 		return this;
@@ -65,8 +48,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	//method
 	public XMLNode addAttributes(final Iterable<XMLAttribute> attributes) {
 		
-		supposeIsNotFrozen();
-		
 		//For a better performance, this implementation does not use all comfortable methods.
 		this.attributes.addAtEnd(attributes);
 		
@@ -76,7 +57,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	//method
 	public XMLNode addChildNode(final XMLNode childNode) {
 		
-		supposeIsNotFrozen();
 		childNodes.addAtEnd(childNode);
 		
 		return this;
@@ -89,8 +69,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	
 	//method
 	public XMLNode addChildNodes(final Iterable<XMLNode> childNodes) {
-		
-		supposeIsNotFrozen();
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		this.childNodes.addAtEnd(childNodes);
@@ -106,18 +84,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	//method
 	public boolean containsChildNodes() {
 		return childNodes.containsAny();
-	}
-	
-	//method
-	@Override
-	public XMLNode freeze() {
-		
-		if (!isFrozen()) {
-			frozen = true;
-			childNodes.forEach(cn -> cn.freeze());
-		}
-		
-		return this;
 	}
 	
 	//method
@@ -178,15 +144,7 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	}
 	
 	//method
-	@Override
-	public boolean isFrozen() {
-		return frozen;
-	}
-	
-	//method
 	public XMLNode removeAttributes() {
-		
-		supposeIsNotFrozen();
 		
 		attributes.clear();
 		
@@ -195,8 +153,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	
 	//method
 	public XMLNode removeChildNodes() {
-		
-		supposeIsNotFrozen();
 		
 		childNodes.clear();
 		
@@ -207,8 +163,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	@Override
 	public XMLNode removeName() {
 		
-		supposeIsNotFrozen();
-		
 		name = null;
 		
 		return this;
@@ -217,8 +171,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	//method
 	@Override
 	public XMLNode removeValue() {
-		
-		supposeIsNotFrozen();
 		
 		value = null;
 		
@@ -239,7 +191,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	public XMLNode setValue(final String value) {
 		
 		Validator.assertThat(value).isNotEmpty();
-		supposeIsNotFrozen();
 		
 		this.value = value;
 		
@@ -293,13 +244,6 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	private void supposeHasValue() {
 		if (!hasValue()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VALUE);
-		}
-	}
-	
-	//method
-	private void supposeIsNotFrozen() {
-		if (isFrozen()) {
-			throw new InvalidArgumentException(this, "is frozen");
 		}
 	}
 	
