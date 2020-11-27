@@ -8,26 +8,111 @@ import ch.nolix.common.test.Test;
 
 //class
 /**
- * A {@link StringHelperTest} is a test for the {@link StringHelper} class.
+ * A {@link StringHelperTest} is a test for the {@link StringHelper}.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 70
+ * @date 2016-01-01
+ * @lines 160
  */
 public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_createStringWithoutLastCharacters() {
+	public void testCase_createStringWithoutLastCharacters_1A() {
 		
-		expect(StringHelper.createStringWithoutLastCharacters("cheeseburger", 0))
-		.isEqualTo("cheeseburger");
+		//execution
+		final var result = StringHelper.createStringWithoutLastCharacters("cheeseburger", 0);
 		
-		expect(StringHelper.createStringWithoutLastCharacters("cheeseburger", 6))
-		.isEqualTo("cheese");
+		//verification
+		expect(result).isEqualTo("cheeseburger");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_createStringWithoutLastCharacters_1B() {
 		
-		expect(StringHelper.createStringWithoutLastCharacters("cheeseburger", 12))
-		.isEmpty();
+		//execution
+		final var result = StringHelper.createStringWithoutLastCharacters("cheeseburger", 6);
+		
+		//verification
+		expect(result).isEqualTo("cheese");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_createStringWithoutLastCharacters_1C() {
+		
+		//execution
+		final var result = StringHelper.createStringWithoutLastCharacters("cheeseburger", 12);
+		
+		//verification
+		expect(result).isEqualTo("");
+	}
+		
+	//method
+	@TestCase
+	public void testCase_toCamelCase_1A() {
+		
+		//execution
+		final var result = StringHelper.toCamelCase("Zebra");
+		
+		//verification
+		expect(result).isEqualTo("Zebra");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCamelCase_1B() {
+		
+		//execution
+		final var result = StringHelper.toCamelCase("ZEBRA");
+		
+		//verification
+		expect(result).isEqualTo("Zebra");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCamelCase_2A() {
+		
+		//execution
+		final var result = StringHelper.toCamelCase("CursorIcon");
+		
+		//verification
+		expect(result).isEqualTo("CursorIcon");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCamelCase_2B() {
+		
+		//execution
+		final var result = StringHelper.toCamelCase("Cursor_Icon");
+		
+		//verification
+		expect(result).isEqualTo("CursorIcon");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCamelCase_2C() {
+		
+		//execution
+		final var result = StringHelper.toCamelCase("CURSOR_ICON");
+		
+		//verification
+		expect(result).isEqualTo("CursorIcon");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCamelCase_whenStringIsEmpty() {
+		
+		//execution
+		final var result = StringHelper.toCamelCase("");
+		
+		//verification
+		expect(result).isEqualTo("");
 	}
 	
 	//method
