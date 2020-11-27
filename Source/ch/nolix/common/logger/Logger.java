@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.logger;
 
+//own import
 import ch.nolix.common.independentContainer.List;
 
 //class
@@ -48,10 +49,12 @@ public final class Logger {
 	public static void logError(final Throwable error) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
-			
+						
 			if (error.getMessage() == null || error.getMessage().isBlank()) {
 				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured."));
 			}
@@ -65,8 +68,10 @@ public final class Logger {
 	public static void logError(final String error) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -86,8 +91,10 @@ public final class Logger {
 	) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -107,8 +114,10 @@ public final class Logger {
 	) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -124,8 +133,10 @@ public final class Logger {
 	public static void logFatalError(final String fatalError) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -141,8 +152,10 @@ public final class Logger {
 	public static void logInfo(final String info) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -158,8 +171,10 @@ public final class Logger {
 	public static void logInfo(final String valueName, final double value) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -175,8 +190,10 @@ public final class Logger {
 	public static void logInfo(final String valueName, final long value) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
@@ -192,8 +209,10 @@ public final class Logger {
 	public static void logWarning(final String warning) {
 		if (active) {
 			
-			if (logWorker == null) {
-				logWorker = new LogWorker();
+			synchronized (Logger.class) {
+				if (logWorker == null) {
+					logWorker = new LogWorker();
+				}
 			}
 			
 			logWorker.takeLogEntry(
