@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.processProperty.ChangeState;
+import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;

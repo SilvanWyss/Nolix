@@ -3,7 +3,7 @@ package ch.nolix.element.template;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.valueCreator.SpecificValueCreator;
+import ch.nolix.common.valuecreator.SpecificValueCreator;
 import ch.nolix.element.graphic.Image;
 
 //class

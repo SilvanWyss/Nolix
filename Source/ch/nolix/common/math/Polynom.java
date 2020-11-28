@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.common.math;
 
-//own imports
-import ch.nolix.common.commonTypeHelper.DoubleHelper;
+import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.validator.Validator;
 
 //class

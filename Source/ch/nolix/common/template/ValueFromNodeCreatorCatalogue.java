@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.common.data.BinaryObject;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.valueCreator.SpecificValueCreator;
+import ch.nolix.common.valuecreator.SpecificValueCreator;
 
 //class
 public final class ValueFromNodeCreatorCatalogue {

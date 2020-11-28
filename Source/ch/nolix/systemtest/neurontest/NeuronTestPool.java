@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.neurontest;
 
-//own import
-import ch.nolix.common.baseTest.TestPool;
+import ch.nolix.common.basetest.TestPool;
 
 //class
 public final class NeuronTestPool extends TestPool {

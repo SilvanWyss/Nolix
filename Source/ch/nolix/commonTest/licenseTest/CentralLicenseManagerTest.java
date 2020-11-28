@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.licenseTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.license.CentralLicenseManager;

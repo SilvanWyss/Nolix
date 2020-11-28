@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.commonTest.chainedNodeTest} package defines tests for the {@link ch.nolix.common.chainedNode} package.
+ * The {@link ch.nolix.commonTest.chainedNodeTest} package defines tests for the {@link ch.nolix.common.chainednode} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

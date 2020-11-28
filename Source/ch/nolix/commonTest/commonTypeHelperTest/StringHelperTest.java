@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.commonTest.commonTypeHelperTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.commonTypeHelper.StringHelper;
+import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.test.Test;
 
 //class

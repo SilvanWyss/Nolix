@@ -3,7 +3,7 @@ package ch.nolix.system.entity;
 
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.valueCreator.ValueCreator;
+import ch.nolix.common.valuecreator.ValueCreator;
 
 //class
 /**

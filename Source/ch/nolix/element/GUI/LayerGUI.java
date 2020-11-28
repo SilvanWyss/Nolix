@@ -1,18 +1,17 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.processProperty.ChangeState;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.processproperty.ChangeState;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;

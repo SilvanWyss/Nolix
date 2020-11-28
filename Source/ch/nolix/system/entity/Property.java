@@ -4,13 +4,12 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
-//own imports
-import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.reflectionHelper.ReflectionHelper;
+import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;
 

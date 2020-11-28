@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own import
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 
 //class
 public final class ValueClassBox<V> implements Named {

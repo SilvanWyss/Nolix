@@ -4,13 +4,12 @@ package ch.nolix.element.testableGUI;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.attributeAPI.IdentifiedByString;
+import ch.nolix.common.attributeapi.IdentifiedByString;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.rasterAPI.Rectangular;
+import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperException.WrapperException;
+import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 public abstract class GUIElement implements IdentifiedByString, Rectangular {

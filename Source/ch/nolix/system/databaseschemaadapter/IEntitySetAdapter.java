@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.container.LinkedList;
 
 //interface

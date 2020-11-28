@@ -8,11 +8,11 @@ import java.nio.file.Path;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonEmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonEmptyArgumentException;
 
 //class
 /**

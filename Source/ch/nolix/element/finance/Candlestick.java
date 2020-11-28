@@ -3,7 +3,7 @@ package ch.nolix.element.finance;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;

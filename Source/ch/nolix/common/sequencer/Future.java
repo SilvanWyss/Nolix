@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
-//own imports
-import ch.nolix.common.futureAPI.IFuture;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class

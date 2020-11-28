@@ -4,9 +4,9 @@ package ch.nolix.element.elementAPI;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalIdentifiableByString;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalTokenable;
-import ch.nolix.common.requestAPI.ContainsElementByStringIdRequestable;
+import ch.nolix.common.mutableoptionalattributeapi.OptionalIdentifiableByString;
+import ch.nolix.common.mutableoptionalattributeapi.OptionalTokenable;
+import ch.nolix.common.requestapi.ContainsElementByStringIdRequestable;
 
 //interface
 /**

@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.commonTest.endPoint3Test;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.endPoint3.EndPoint;
-import ch.nolix.common.endPoint3.IEndPointTaker;
-import ch.nolix.common.endPoint3.NetEndPoint;
-import ch.nolix.common.endPoint3.NetServer;
+import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.endpoint3.EndPoint;
+import ch.nolix.common.endpoint3.IEndPointTaker;
+import ch.nolix.common.endpoint3.NetEndPoint;
+import ch.nolix.common.endpoint3.NetServer;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 

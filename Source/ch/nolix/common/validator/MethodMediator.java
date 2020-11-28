@@ -6,8 +6,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 
 //class

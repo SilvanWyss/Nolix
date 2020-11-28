@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.common.worker;
 
-//own imports
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.skillAPI.Startable;
+import ch.nolix.common.skillapi.Startable;
 
 //class
 public abstract class Worker implements Startable {

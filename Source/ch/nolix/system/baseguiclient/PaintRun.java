@@ -4,7 +4,7 @@ package ch.nolix.system.baseguiclient;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.painter.IPainter;
 
 //class

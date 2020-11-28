@@ -4,10 +4,10 @@ package ch.nolix.system.databaseschemaadapter;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.generalSkillAPI.IFluentObject;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.generalskillapi.IFluentObject;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.license.CentralLicenseManager;
-import ch.nolix.common.skillAPI.IChangesSaver;
+import ch.nolix.common.skillapi.IChangesSaver;
 
 //class
 /**

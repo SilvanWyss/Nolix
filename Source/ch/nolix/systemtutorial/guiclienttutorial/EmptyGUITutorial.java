@@ -1,6 +1,6 @@
 package ch.nolix.systemtutorial.guiclienttutorial;
 
-import ch.nolix.common.localComputer.ShellProvider;
+import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.system.client.NetServer;

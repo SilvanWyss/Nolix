@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
-//own imports
-import ch.nolix.common.functionAPI.IAction;
-import ch.nolix.common.functionAPI.IBooleanGetter;
-import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.futureAPI.IFuture;
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.functionapi.IBooleanGetter;
+import ch.nolix.common.functionapi.IElementGetter;
+import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 
 //class
 /**

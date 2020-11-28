@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widgetController;
 
-//own imports
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.input.Key;
 
 //class

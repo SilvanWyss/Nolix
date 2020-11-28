@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.techapi.genericmathapi.IImplicitSequence;

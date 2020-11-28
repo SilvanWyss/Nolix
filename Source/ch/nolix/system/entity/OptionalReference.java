@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.skillapi.Clearable;
 
 //class
 public final class OptionalReference<E extends Entity>

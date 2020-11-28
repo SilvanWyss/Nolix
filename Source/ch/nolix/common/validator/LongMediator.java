@@ -1,24 +1,23 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//own imports
-import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentException.ArgumentIsInRangeException;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidArgumentException.BiggerArgumentException;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.EqualArgumentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentException.NonNegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentException.NonSmallerArgumentException;
-import ch.nolix.common.invalidArgumentException.PositiveArgumentException;
-import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
-import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
-import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
+import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.ArgumentIsInRangeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.EqualArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.NonNegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.NonSmallerArgumentException;
+import ch.nolix.common.invalidargumentexception.PositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.SmallerArgumentException;
+import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 
 //class
 /**

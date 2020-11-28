@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commonTest.endPoint3Test} package defines tests
- * for the {@link ch.nolix.common.endPoint3} package.
+ * for the {@link ch.nolix.common.endpoint3} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

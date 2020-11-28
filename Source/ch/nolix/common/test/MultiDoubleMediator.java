@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.test;
 
-//own imports
-import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
 /**

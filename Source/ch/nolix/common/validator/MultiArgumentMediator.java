@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//own imports
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
 /**

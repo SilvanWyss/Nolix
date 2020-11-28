@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.commonTest.containerTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.GapMatrix;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
 
 //class

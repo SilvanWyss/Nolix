@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.nolixtest;
 
-//own imports
-import ch.nolix.common.baseTest.TestPool;
+import ch.nolix.common.basetest.TestPool;
 import ch.nolix.commonTest.CommonTestPool;
 import ch.nolix.elementTest.ElementTestPool;
 import ch.nolix.nolixlicensetest.NolixLicensesTestPool;

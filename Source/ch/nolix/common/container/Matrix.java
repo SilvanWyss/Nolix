@@ -4,9 +4,9 @@ package ch.nolix.common.container;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 
 //class

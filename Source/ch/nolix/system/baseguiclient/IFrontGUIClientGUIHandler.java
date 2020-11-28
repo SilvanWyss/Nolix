@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.baseguiclient;
 
-//own imports
-import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.element.GUI.GUI;
 
 //interface

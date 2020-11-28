@@ -4,14 +4,13 @@ package ch.nolix.system.databaseadapter;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.valueCreator.ValueCreator;
-import ch.nolix.common.wrapperException.WrapperException;
+import ch.nolix.common.valuecreator.ValueCreator;
+import ch.nolix.common.wrapperexception.WrapperException;
 import ch.nolix.system.datatype.DataTypeHelper;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;

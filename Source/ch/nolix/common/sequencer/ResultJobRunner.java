@@ -3,9 +3,9 @@ package ch.nolix.common.sequencer;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.functionapi.IElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 

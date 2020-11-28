@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.commonTest.cachingContainerTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.simpleDemoObject.Cat;
+import ch.nolix.common.demoobject.Cat;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.test.Test;
 
 //class

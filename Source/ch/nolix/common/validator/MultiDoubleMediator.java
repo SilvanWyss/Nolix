@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.common.validator;
 
-import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentException.NonNegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentException.NonSmallerArgumentException;
+import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.NonNegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.NonSmallerArgumentException;
 
 //class
 /**

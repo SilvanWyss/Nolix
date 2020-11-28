@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.baseGUI_API;
 
-//own imports
-import ch.nolix.common.closeableElement.ICloseableElement;
-import ch.nolix.common.mutableAttributeAPI.Titleble;
-import ch.nolix.common.rasterAPI.Rectangular;
-import ch.nolix.common.skillAPI.Refreshable;
+import ch.nolix.common.closeableelement.ICloseableElement;
+import ch.nolix.common.mutableattributeapi.Titleble;
+import ch.nolix.common.rasterapi.Rectangular;
+import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.element.input.IResizableInputTaker;
 
 //interface

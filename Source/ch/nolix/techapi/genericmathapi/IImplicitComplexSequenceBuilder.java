@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.techapi.genericmathapi;
 
-//own imports
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.skillAPI.IBuilder;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.skillapi.IBuilder;
 
 //interface
 public interface IImplicitComplexSequenceBuilder extends IBuilder<IImplicitSequence<IComplexNumber>> {

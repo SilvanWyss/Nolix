@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.test;
 
-//own imports
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.nolixEnvironment.NolixEnvironment;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.nolixenvironment.NolixEnvironment;
 
 //class
 /**

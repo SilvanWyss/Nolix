@@ -4,9 +4,9 @@ package ch.nolix.common.validator;
 //Java import
 import java.math.BigDecimal;
 
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.SmallerArgumentException;
 
 //class
 public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {

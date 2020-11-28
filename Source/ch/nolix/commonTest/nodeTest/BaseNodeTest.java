@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.commonTest.nodeTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
+import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.ObjectTest;

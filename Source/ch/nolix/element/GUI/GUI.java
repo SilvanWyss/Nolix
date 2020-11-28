@@ -3,16 +3,16 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.closeableElement.CloseController;
+import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.IntPair;
-import ch.nolix.common.processProperty.ChangeState;
-import ch.nolix.common.skillAPI.Recalculable;
+import ch.nolix.common.processproperty.ChangeState;
+import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableValue;

@@ -3,9 +3,9 @@ package ch.nolix.common.test;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
+import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
 
 //class
 /**

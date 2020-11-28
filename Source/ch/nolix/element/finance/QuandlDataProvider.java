@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.wrapperException.WrapperException;
+import ch.nolix.common.wrapperexception.WrapperException;
 import ch.nolix.element.time.Time;
 
 //class

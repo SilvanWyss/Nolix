@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.mathTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.math.ARModel;
 import ch.nolix.common.test.Test;
 

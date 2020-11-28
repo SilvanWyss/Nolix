@@ -5,13 +5,13 @@ package ch.nolix.common.validator;
 import java.util.Iterator;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.independentContainer.ArrayReadContainer;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonEmptyArgumentException;
+import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.independentcontainer.ArrayReadContainer;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonEmptyArgumentException;
 
 //class
 /**

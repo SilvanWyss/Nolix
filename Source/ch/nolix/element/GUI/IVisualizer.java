@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.common.rasterAPI.Rectangular;
+import ch.nolix.common.rasterapi.Rectangular;
 
 //interface
 public interface IVisualizer extends Rectangular {

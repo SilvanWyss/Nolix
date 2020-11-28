@@ -4,8 +4,7 @@ package ch.nolix.techapi.genericmathapi;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
+import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 

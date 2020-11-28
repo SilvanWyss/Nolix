@@ -2,9 +2,9 @@
 package ch.nolix.common.test;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
+import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 
 //class
 /**

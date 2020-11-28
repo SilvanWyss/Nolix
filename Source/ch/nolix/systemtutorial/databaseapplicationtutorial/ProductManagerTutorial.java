@@ -1,6 +1,6 @@
 package ch.nolix.systemtutorial.databaseapplicationtutorial;
 
-import ch.nolix.common.localComputer.ShellProvider;
+import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.databaseadapter.DatabaseAdapter;

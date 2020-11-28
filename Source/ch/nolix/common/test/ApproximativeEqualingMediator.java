@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.common.test;
 
-import ch.nolix.common.nolixEnvironment.NolixEnvironment;
-import ch.nolix.common.requestAPI.ApproximativeEqualing;
+import ch.nolix.common.nolixenvironment.NolixEnvironment;
+import ch.nolix.common.requestapi.ApproximativeEqualing;
 
 //class
 /**

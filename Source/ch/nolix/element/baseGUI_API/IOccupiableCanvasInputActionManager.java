@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.baseGUI_API;
 
-//own imports
-import ch.nolix.common.canvasAPI.IOccupiableHoverableCanvas;
-import ch.nolix.common.functionAPI.IAction;
-import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.canvasapi.IOccupiableHoverableCanvas;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.validator.Validator;
 
 //interface

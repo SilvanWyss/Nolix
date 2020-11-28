@@ -2,9 +2,9 @@
 package ch.nolix.techapi.projectapi;
 
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.mutableAttributeAPI.Namable;
-import ch.nolix.common.skillAPI.Clearable;
-import ch.nolix.common.skillAPI.Resettable;
+import ch.nolix.common.mutableattributeapi.Namable;
+import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.common.skillapi.Resettable;
 import ch.nolix.element.elementAPI.IElement;
 
 //interface

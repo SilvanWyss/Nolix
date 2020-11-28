@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
-//own imports
-import ch.nolix.common.functionAPI.IBooleanGetter;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IAction;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.functionapi.IBooleanGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
 //class

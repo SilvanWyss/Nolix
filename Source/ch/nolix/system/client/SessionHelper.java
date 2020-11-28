@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.common.node.Node;
-import ch.nolix.common.reflectionHelper.MethodHelper;
+import ch.nolix.common.reflectionhelper.MethodHelper;
 import ch.nolix.common.validator.Validator;
 
 //class

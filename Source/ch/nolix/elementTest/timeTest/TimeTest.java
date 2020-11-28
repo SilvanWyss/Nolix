@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.timeTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.time.Time;
 

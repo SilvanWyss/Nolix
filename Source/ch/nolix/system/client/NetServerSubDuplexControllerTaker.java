@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.common.endPoint5.EndPoint;
-import ch.nolix.common.endPoint5.IEndPointTaker;
+import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.endpoint5.IEndPointTaker;
 import ch.nolix.common.validator.Validator;
 
 //class

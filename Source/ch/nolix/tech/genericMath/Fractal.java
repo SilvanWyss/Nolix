@@ -5,12 +5,11 @@ package ch.nolix.tech.genericMath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//own imports
-import ch.nolix.common.functionAPI.I2ElementTakerElementGetter;
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.functionAPI.IIntTakerElementGetter;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.processProperty.ProcessingMode;
+import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.functionapi.IIntTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.processproperty.ProcessingMode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.dialog;
 
-//own imports
-import ch.nolix.common.functionAPI.IAction;
+import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI.Layer;
 import ch.nolix.element.containerWidget.ContainerRole;

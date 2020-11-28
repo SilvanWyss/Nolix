@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.license;
 
-//own import
-import ch.nolix.common.nolixEnvironment.NolixEnvironment;
+import ch.nolix.common.nolixenvironment.NolixEnvironment;
 
 //class
 /**

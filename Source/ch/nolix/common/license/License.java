@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.common.license;
 
-//own imports
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
 /**

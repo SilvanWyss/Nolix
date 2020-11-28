@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own imports
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.skillapi.Clearable;
 
 //interface
 public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, Named {

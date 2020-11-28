@@ -4,14 +4,13 @@ package ch.nolix.common.math;
 //Java import
 import java.util.Random;
 
-//own imports
-import ch.nolix.common.commonTypeHelper.DoubleHelper;
+import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
-import ch.nolix.common.nolixEnvironment.NolixEnvironment;
-import ch.nolix.common.requestAPI.ApproximativeEqualing;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.nolixenvironment.NolixEnvironment;
+import ch.nolix.common.requestapi.ApproximativeEqualing;
 import ch.nolix.common.validator.Validator;
 
 //class

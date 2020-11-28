@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commonTest.commonTypeWrapperTest} package
- * defines tests for the {@link ch.nolix.common.commonTypeWrapper} package.
+ * defines tests for the {@link ch.nolix.common.commontypewrapper} package.
  * 
  * @author Silvan Wyss
  * @month 2019-09

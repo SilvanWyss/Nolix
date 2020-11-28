@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.geometry;
 
-import ch.nolix.common.commonTypeHelper.DoubleHelper;
+import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Vector;
 import ch.nolix.common.node.Node;

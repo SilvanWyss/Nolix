@@ -1,10 +1,9 @@
 //package delcaration
 package ch.nolix.commonTest.fileNodeTest;
 
-//own imports
-import ch.nolix.common.baseTest.Cleanup;
-import ch.nolix.common.fileNode.FileNode;
-import ch.nolix.common.fileSystem.FileSystemAccessor;
+import ch.nolix.common.basetest.Cleanup;
+import ch.nolix.common.filenode.FileNode;
+import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.commonTest.nodeTest.BaseNodeTest;
 
 //class

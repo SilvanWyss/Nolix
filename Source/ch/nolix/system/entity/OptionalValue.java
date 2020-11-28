@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own import
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.skillapi.Clearable;
 
 //class
 public class OptionalValue<V> extends SingleValue<V> implements Clearable<OptionalValue<V>> {

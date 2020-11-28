@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication;
 
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.system.databaseadapter.DatabaseAdapter;

@@ -1,7 +1,7 @@
 package ch.nolix.techapitutorial.genericmathapitutorial;
 
-import ch.nolix.common.localComputer.ShellProvider;
-import ch.nolix.common.processProperty.ProcessingMode;
+import ch.nolix.common.localcomputer.ShellProvider;
+import ch.nolix.common.processproperty.ProcessingMode;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.HorizontalStack;

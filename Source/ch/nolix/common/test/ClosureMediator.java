@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.test;
 
-//own imports
-import ch.nolix.common.functionAPI.IAction;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
 /**

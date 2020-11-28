@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.logger;
 
-//own import
-import ch.nolix.common.independentContainer.List;
+import ch.nolix.common.independentcontainer.List;
 
 //class
 public final class Logger {

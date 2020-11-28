@@ -2,7 +2,7 @@
 package ch.nolix.system.baseneuron;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
 
 //class

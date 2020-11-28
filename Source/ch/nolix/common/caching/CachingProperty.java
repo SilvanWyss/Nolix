@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.common.caching;
 
-//own imports
-import ch.nolix.common.functionAPI.IBooleanGetter;
-import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.skillAPI.Refreshable;
+import ch.nolix.common.functionapi.IBooleanGetter;
+import ch.nolix.common.functionapi.IElementGetter;
+import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.common.validator.Validator;
 
 //class

@@ -11,7 +11,7 @@ import com.jme3.system.AppSettings;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IAction;
+import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.GUI3D.MainFrame;
 import ch.nolix.element.GUI3D.Shape;

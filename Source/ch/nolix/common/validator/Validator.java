@@ -5,9 +5,9 @@ package ch.nolix.common.validator;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
-import ch.nolix.common.independentContainer.List;
-import ch.nolix.common.independentHelper.ArrayHelper;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
+import ch.nolix.common.independentcontainer.List;
+import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
 /**

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.valueHolder;
 
-import ch.nolix.common.commonTypeHelper.StringHelper;
+import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 

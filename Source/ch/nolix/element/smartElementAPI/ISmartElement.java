@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.smartElementAPI;
 
-//own imports
-import ch.nolix.common.generalSkillAPI.ISmartObject;
+import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.element.elementAPI.IElement;
 
 //interface

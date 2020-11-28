@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.messaging;
 
-//own imports
-import ch.nolix.common.attributeAPI.Indexed;
+import ch.nolix.common.attributeapi.Indexed;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 

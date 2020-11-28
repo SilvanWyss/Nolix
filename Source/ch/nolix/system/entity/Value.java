@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own import
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 
 //class
 public final class Value<V> extends SingleValue<V> {

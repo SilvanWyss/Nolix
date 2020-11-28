@@ -1,20 +1,19 @@
 //package declaration
 package ch.nolix.common.validator;
 
-//own imports
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidArgumentException.ArgumentIsZeroException;
-import ch.nolix.common.invalidArgumentException.BiggerArgumentException;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.EqualArgumentException;
-import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
-import ch.nolix.common.invalidArgumentException.NonNegativeArgumentException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
-import ch.nolix.common.invalidArgumentException.NonSmallerArgumentException;
-import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
-import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsZeroException;
+import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.EqualArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.NonNegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.NonSmallerArgumentException;
+import ch.nolix.common.invalidargumentexception.SmallerArgumentException;
+import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
 
 //class
 /**

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.baseguiclient;
 
-//own imports
-import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.functionAPI.IIntGetter;
+import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.functionapi.IIntGetter;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementEnum.RotationDirection;
 import ch.nolix.element.input.IInput;

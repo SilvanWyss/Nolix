@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.common.attributeAPI.Indexed;
+import ch.nolix.common.attributeapi.Indexed;
 import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.chainedNode.ChainedNode;
+import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.independentHelper.ArrayHelper;
+import ch.nolix.common.independenthelper.ArrayHelper;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;

@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.common.math;
 
-import ch.nolix.common.simpleValidator.SimpleValidator;
+import ch.nolix.common.simplevalidator.SimpleValidator;
 
 //class
 public class Vector {

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.baseGUI_API;
 
-//own imports
-import ch.nolix.common.functionAPI.I2ElementTaker;
-import ch.nolix.common.functionAPI.IAction;
-import ch.nolix.common.functionAPI.IElementTaker;
+import ch.nolix.common.functionapi.I2ElementTaker;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.input.Key;
 

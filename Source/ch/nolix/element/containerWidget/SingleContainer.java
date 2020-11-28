@@ -2,9 +2,9 @@
 package ch.nolix.element.containerWidget;
 
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.GUI.LayerGUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.input.Key;

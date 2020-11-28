@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.widgetTest;
 
-import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
-import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
+import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.BorderWidget;
 

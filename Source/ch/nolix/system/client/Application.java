@@ -5,18 +5,17 @@ package ch.nolix.system.client;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.endPoint5.EndPoint;
-import ch.nolix.common.functionAPI.IElementGetter;
-import ch.nolix.common.generalSkillAPI.Castable;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.functionapi.IElementGetter;
+import ch.nolix.common.generalskillapi.Castable;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperException.WrapperException;
+import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

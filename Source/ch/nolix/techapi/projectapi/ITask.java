@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techapi.projectapi;
 
-//own imports
-import ch.nolix.common.skillAPI.Resettable;
+import ch.nolix.common.skillapi.Resettable;
 import ch.nolix.element.elementAPI.IElement;
 import ch.nolix.element.time.Time;
 

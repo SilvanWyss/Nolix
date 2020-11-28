@@ -5,14 +5,14 @@ package ch.nolix.common.container;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.functionAPI.IElementTaker;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.functionAPI.IElementTakerComparableGetter;
-import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.functionapi.IElementTakerComparableGetter;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 
 //class

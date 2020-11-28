@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.testableGUI;
 
-//own imports
-import ch.nolix.common.attributeAPI.Titled;
-import ch.nolix.common.requestAPI.ContainsElementByStringIdRequestable;
+import ch.nolix.common.attributeapi.Titled;
+import ch.nolix.common.requestapi.ContainsElementByStringIdRequestable;
 import ch.nolix.element.input.IInputTaker;
 
 //interface

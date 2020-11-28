@@ -4,8 +4,7 @@ package ch.nolix.techtest.genericmathtest;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.tech.genericMath.ComplexNumber;
 

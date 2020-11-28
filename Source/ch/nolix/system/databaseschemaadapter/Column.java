@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.SQL.SQLDatabaseEngine;
-import ch.nolix.common.attributeAPI.Headered;
+import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.UnsupportedArgumentException;
+import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementAPI.IElement;
 import ch.nolix.system.entity.Entity;

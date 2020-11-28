@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.commonTest.chainedNodeTest;
 
-//own import
-import ch.nolix.common.baseTest.TestPool;
+import ch.nolix.common.basetest.TestPool;
 
 //class
 public final class ChainedNodeTestPool extends TestPool {

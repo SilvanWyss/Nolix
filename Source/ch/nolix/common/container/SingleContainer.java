@@ -3,7 +3,7 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.SQL.SQLDatabaseEngine;
+import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
 
 //class

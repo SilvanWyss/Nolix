@@ -6,12 +6,12 @@ import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.fileSystem.FolderAccessor;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.reflectionWrapper.ClassWrapper;
+import ch.nolix.common.filesystem.FolderAccessor;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.reflectionwrapper.ClassWrapper;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperException.WrapperException;
+import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

@@ -1,21 +1,20 @@
 //package declaration
 package ch.nolix.common.node;
 
-//own imports
-import ch.nolix.common.XML.XMLNode;
-import ch.nolix.common.commonTypeHelper.StringHelper;
+import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.fileSystem.FileAccessor;
-import ch.nolix.common.fileSystem.FileSystemAccessor;
-import ch.nolix.common.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
-import ch.nolix.common.mutableOptionalAttributeAPI.OptionalHeaderable;
+import ch.nolix.common.filesystem.FileAccessor;
+import ch.nolix.common.filesystem.FileSystemAccessor;
+import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
-import ch.nolix.common.processProperty.WriteMode;
+import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.xml.XMLNode;
 
 //class
 /**

@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.pair.Pair;
-import ch.nolix.common.reflectionHelper.FieldHelper;
+import ch.nolix.common.reflectionhelper.FieldHelper;
 
 //class
 public final class ColorPairsExtractor {

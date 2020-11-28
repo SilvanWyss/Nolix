@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.skillAPI.Clearable;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 
 //class

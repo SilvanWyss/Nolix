@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techapi.genericmathapi;
 
-//own imports
-import ch.nolix.common.futureAPI.IFuture;
+import ch.nolix.common.futureapi.IFuture;
 import ch.nolix.element.graphic.Image;
 
 //interface

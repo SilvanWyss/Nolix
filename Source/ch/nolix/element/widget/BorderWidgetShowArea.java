@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.math.Calculator;
-import ch.nolix.common.rasterAPI.TopLeftPositionedRecangular;
+import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painter.IPainter;
 

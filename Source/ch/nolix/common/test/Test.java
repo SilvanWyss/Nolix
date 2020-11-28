@@ -4,10 +4,9 @@ package ch.nolix.common.test;
 //Java import
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.common.baseTest.TestAccessor;
-import ch.nolix.common.functionAPI.IAction;
-import ch.nolix.common.requestAPI.ApproximativeEqualing;
+import ch.nolix.common.basetest.TestAccessor;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.requestapi.ApproximativeEqualing;
 
 //class
 /**
@@ -17,7 +16,7 @@ import ch.nolix.common.requestAPI.ApproximativeEqualing;
  * @month 2016-08
  * @lines 260
  */
-public abstract class Test extends ch.nolix.common.baseTest.BaseTest {
+public abstract class Test extends ch.nolix.common.basetest.BaseTest {
 	
 	//method
 	/**

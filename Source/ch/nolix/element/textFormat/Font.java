@@ -3,7 +3,7 @@ package ch.nolix.element.textFormat;
 
 //own imports
 import ch.nolix.common.constant.FontCodeCatalogue;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.elementAPI.IElementEnum;
 

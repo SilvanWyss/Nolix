@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.commonTest.chainedNodeTest;
 
-//own imports
-import ch.nolix.common.baseTest.TestCase;
-import ch.nolix.common.chainedNode.ChainedNode;
-import ch.nolix.common.invalidArgumentException.UnrepresentingArgumentException;
+import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.chainednode.ChainedNode;
+import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.test.Test;
 
 //class

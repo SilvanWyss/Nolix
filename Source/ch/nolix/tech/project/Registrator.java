@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.tech.project;
 
-//own imports
-import ch.nolix.common.instanceProvider.CentralInstanceProvider;
+import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 import ch.nolix.techapi.projectapi.IProject;
 import ch.nolix.techapi.projectapi.ITask;
 

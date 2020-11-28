@@ -4,20 +4,19 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.attributeAPI.Identified;
-import ch.nolix.common.attributeAPI.ShortDescripted;
+import ch.nolix.common.attributeapi.Identified;
+import ch.nolix.common.attributeapi.ShortDescripted;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.valueCreator.ValueCreator;
-import ch.nolix.common.wrapperException.WrapperException;
+import ch.nolix.common.valuecreator.ValueCreator;
+import ch.nolix.common.wrapperexception.WrapperException;
 import ch.nolix.element.elementAPI.IElement;
 
 //class

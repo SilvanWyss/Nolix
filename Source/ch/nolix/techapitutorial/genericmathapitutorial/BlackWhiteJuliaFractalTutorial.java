@@ -1,6 +1,6 @@
 package ch.nolix.techapitutorial.genericmathapitutorial;
 
-import ch.nolix.common.instanceProvider.CentralInstanceProvider;
+import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;

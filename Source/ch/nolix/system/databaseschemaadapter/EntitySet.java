@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.system.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.SQL.SQLDatabaseEngine;
-import ch.nolix.common.attributeAPI.Named;
+import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidArgumentException.ArgumentBelongsToUnexchangeableParentException;
-import ch.nolix.common.invalidArgumentException.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidArgumentException.UnsupportedArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
+import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.schemadatatype.IEntitySet;
