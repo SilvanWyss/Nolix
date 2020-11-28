@@ -1,4 +1,4 @@
-package ch.nolix.techAPITutorial.genericMathTutorial;
+package ch.nolix.techapitutorial.genericmathapitutorial;
 
 import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.common.processProperty.ProcessingMode;

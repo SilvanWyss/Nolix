@@ -1,4 +1,4 @@
-package ch.nolix.techAPITutorial.genericMathTutorial;
+package ch.nolix.techapitutorial.genericmathapitutorial;
 
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.common.sequencer.Sequencer;
@@ -9,7 +9,7 @@ import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techapi.genericmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.genericmathapi.IFractalBuilder;
 
-public final class MandelbrotFractalTutorial {
+public final class CustomFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -21,16 +21,16 @@ public final class MandelbrotFractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Mandelrbrot Fractal Tutorial")
+		.setTitle("Custom Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
-				.setRealComponentInterval(-2.5, 1.0)
+				.setRealComponentInterval(-2.0, 1.5)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
 				.setStartValues(CentralInstanceProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
+				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
@@ -48,5 +48,5 @@ public final class MandelbrotFractalTutorial {
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
-	private MandelbrotFractalTutorial() {}
+	private CustomFractalTutorial() {}
 }
