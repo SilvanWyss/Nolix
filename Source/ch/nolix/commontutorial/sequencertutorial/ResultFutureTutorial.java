@@ -1,4 +1,4 @@
-package ch.nolix.commonTutorial.sequencerTutorial;
+package ch.nolix.commontutorial.sequencertutorial;
 
 import ch.nolix.common.math.Matrix;
 import ch.nolix.common.sequencer.ResultFuture;

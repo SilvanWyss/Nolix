@@ -1,4 +1,4 @@
-package ch.nolix.commonTutorial.validatorTutorial;
+package ch.nolix.commontutorial.validatortutorial;
 
 import ch.nolix.common.validator.Validator;
 

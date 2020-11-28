@@ -1,4 +1,4 @@
-package ch.nolix.commonTutorial.instanceProviderTutorial;
+package ch.nolix.commontutorial.instanceprovidertutorial;
 
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 

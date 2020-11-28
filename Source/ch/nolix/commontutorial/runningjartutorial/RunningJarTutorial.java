@@ -1,4 +1,4 @@
-package ch.nolix.commonTutorial.runningJarTutorial;
+package ch.nolix.commontutorial.runningjartutorial;
 
 import ch.nolix.common.runningjar.RunningJar;
 
