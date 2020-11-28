@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.processproperty.ConnectionOrigin;
@@ -15,7 +16,6 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.websocket.WebSocketFrame;
 import ch.nolix.common.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 final class WebEndPoint extends BaseNetEndPoint {

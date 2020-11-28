@@ -2,8 +2,8 @@
 package ch.nolix.common.sequencer;
 
 import ch.nolix.common.constant.TimeUnitCatalogue;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

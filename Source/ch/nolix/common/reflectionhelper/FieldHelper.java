@@ -6,9 +6,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 public final class FieldHelper {

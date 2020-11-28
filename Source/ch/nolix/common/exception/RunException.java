@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.wrapperexception;
+package ch.nolix.common.exception;
 
 //class
 @SuppressWarnings("serial")

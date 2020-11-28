@@ -12,12 +12,12 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.processproperty.ConnectionOrigin;
 import ch.nolix.common.processproperty.TargetInfoState;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

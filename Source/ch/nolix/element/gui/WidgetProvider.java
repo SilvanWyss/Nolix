@@ -6,10 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

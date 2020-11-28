@@ -11,8 +11,8 @@ import java.net.URISyntaxException;
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //TODO: Unify method names.
 

@@ -7,8 +7,8 @@ import java.net.ServerSocket;
 
 //own imports
 import ch.nolix.common.constant.PortCatalogue;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

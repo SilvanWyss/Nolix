@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.commontypehelper.InputStreamHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.http.HTTPRequest;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -18,7 +19,6 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.websocket.WebSocketHandShakeRequest;
 import ch.nolix.common.worker.Worker;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 final class NetServerSocketProcessor extends Worker {

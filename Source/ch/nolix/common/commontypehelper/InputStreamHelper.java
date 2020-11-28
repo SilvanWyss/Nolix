@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.wrapperexception.WrapperException;
+import ch.nolix.common.exception.WrapperException;
 
 //class
 public final class InputStreamHelper {

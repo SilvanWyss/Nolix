@@ -11,10 +11,10 @@ import java.nio.file.Path;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.processproperty.WriteMode;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //class
 /**

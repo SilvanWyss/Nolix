@@ -6,9 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.common.wrapperexception.WrapperException;
 
 //interface
 /**

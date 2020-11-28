@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import ch.nolix.common.wrapperexception.WrapperException;
+import ch.nolix.common.exception.WrapperException;
 
 //class
 public final class RunningJar {

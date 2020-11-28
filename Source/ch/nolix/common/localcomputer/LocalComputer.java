@@ -5,7 +5,7 @@ package ch.nolix.common.localcomputer;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import ch.nolix.common.wrapperexception.WrapperException;
+import ch.nolix.common.exception.WrapperException;
 
 //class
 public final class LocalComputer {
