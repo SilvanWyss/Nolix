@@ -9,9 +9,9 @@ import ch.nolix.common.validator.Validator;
 public abstract class ColumnSQLHelper {
 	
 	//attribute
-	final Column column;
+	private final Column column;
 	
-	//constructor
+	//visibility-reduced constructor
 	ColumnSQLHelper(final Column column) {
 		
 		Validator.assertThat(column).isOfType(Column.class);
@@ -26,5 +26,10 @@ public abstract class ColumnSQLHelper {
 	public final String getSQLDataType() {
 		//TODO: column.getValueType().getSQLHelper(DatabaseEngine).getSQLDataType()
 		return null;
+	}
+	
+	//method
+	protected final Column getRefColumn() {
+		return column;
 	}
 }
