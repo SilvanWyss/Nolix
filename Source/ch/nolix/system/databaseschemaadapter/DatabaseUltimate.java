@@ -4,7 +4,7 @@ package ch.nolix.system.databaseschemaadapter;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.license.Feature;
-import ch.nolix.nolixLicense.Nolix2020Ultimate;
+import ch.nolix.nolixlicense.Nolix2020Ultimate;
 
 //class
 public final class DatabaseUltimate extends Feature {

@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.nolixLicenseTest} package defines tests for the {@link ch.nolix.nolixLicense} package.
+ * The {@link ch.nolix.nolixLicenseTest} package defines tests for the {@link ch.nolix.nolixlicense} package.
  * 
  * @author Silvan Wyss
  * @month 2019-11

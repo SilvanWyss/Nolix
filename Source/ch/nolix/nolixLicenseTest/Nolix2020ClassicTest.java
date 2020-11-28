@@ -5,7 +5,7 @@ package ch.nolix.nolixLicenseTest;
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.test.Test;
-import ch.nolix.nolixLicense.Nolix2020Classic;
+import ch.nolix.nolixlicense.Nolix2020Classic;
 
 //class
 public final class Nolix2020ClassicTest extends Test {
