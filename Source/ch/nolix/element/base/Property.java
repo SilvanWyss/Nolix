@@ -13,7 +13,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
 * @author Silvan Wyss
-* @month 2017-10
+* @date 2017-10-29
 * @lines 100
 * @param <V> The type of the values of a {@link Property}.
 */
@@ -22,7 +22,7 @@ public abstract class Property<V> implements Named {
 	//attributes
 	private final String name;
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
-	final IElementTakerElementGetter<V, Node> specificationCreator;
+	protected final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
 	/**
@@ -76,7 +76,7 @@ public abstract class Property<V> implements Named {
 	 * @return true if the current {@link Property} is mutable.
 	 */
 	public abstract boolean isMutable();
-	
+		
 	//method declaration
 	/**
 	 * Adds or change the given value to the current {@link Property}.
