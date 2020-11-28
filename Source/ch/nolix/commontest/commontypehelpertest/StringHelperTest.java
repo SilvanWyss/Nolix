@@ -50,6 +50,83 @@ public class StringHelperTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_toCapitalSnakeCase_1A() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("Zebra");
+		
+		//verification
+		expect(result).isEqualTo("ZEBRA");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCapitalSnakeCase_1B() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("zebra");
+		
+		//verification
+		expect(result).isEqualTo("ZEBRA");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCapitalSnakeCase_1C() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("ZEBRA");
+		
+		//verification
+		expect(result).isEqualTo("ZEBRA");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCapitalSnakeCase_2A() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("Cursor_Icon");
+		
+		//verification
+		expect(result).isEqualTo("CURSOR_ICON");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCapitalSnakeCase_2B() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("cursor_icon");
+		
+		//verification
+		expect(result).isEqualTo("CURSOR_ICON");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCapitalSnakeCase_2C() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("CURSOR_ICON");
+		
+		//verification
+		expect(result).isEqualTo("CURSOR_ICON");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toCapitalSnakeCase_whenStringIsEmpty() {
+		
+		//execution
+		final var result = StringHelper.toCapitalSnakeCase("");
+		
+		//verification
+		expect(result).isEqualTo("");
+	}
+	
+	//method
+	@TestCase
 	public void testCase_toInt() {
 		
 		expect(StringHelper.toInt("1")).isEqualTo(1);
@@ -109,6 +186,17 @@ public class StringHelperTest extends Test {
 	public void testCase_toPascalCase_1B() {
 		
 		//execution
+		final var result = StringHelper.toPascalCase("zebra");
+		
+		//verification
+		expect(result).isEqualTo("Zebra");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toPascalCase_1C() {
+		
+		//execution
 		final var result = StringHelper.toPascalCase("ZEBRA");
 		
 		//verification
@@ -120,7 +208,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toPascalCase_2A() {
 		
 		//execution
-		final var result = StringHelper.toPascalCase("CursorIcon");
+		final var result = StringHelper.toPascalCase("Cursor_Icon");
 		
 		//verification
 		expect(result).isEqualTo("CursorIcon");
@@ -131,7 +219,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toPascalCase_2B() {
 		
 		//execution
-		final var result = StringHelper.toPascalCase("Cursor_Icon");
+		final var result = StringHelper.toPascalCase("cursor_icon");
 		
 		//verification
 		expect(result).isEqualTo("CursorIcon");

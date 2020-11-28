@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 330
+ * @lines 340
  */
 public final class StringHelper {
 		
@@ -113,6 +113,15 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
+	 * @return a new {@link String} in capital snake case for the given string.
+	 */
+	public static String toCapitalSnakeCase(final String string) {
+		return new CapitalSnakeCaseCreator().toCapitalSnakeCase(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
 	 * @return the double the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a double.
 	 */
@@ -128,7 +137,7 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return a new pascal case {@link String} for the given string.
+	 * @return a new {@link String} in pascal case for the given string.
 	 */
 	public static String toPascalCase(final String string) {
 		return new PascalCaseCreator().toPascalCase(string);
