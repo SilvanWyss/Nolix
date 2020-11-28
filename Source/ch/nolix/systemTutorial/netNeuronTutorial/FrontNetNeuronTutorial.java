@@ -1,9 +1,9 @@
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
-import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.common.node.Node;
-import ch.nolix.system.baseNeuron.SourceNeuron;
-import ch.nolix.system.netNeuron.BackNetNeuron;
+import ch.nolix.system.baseneuron.SourceNeuron;
+import ch.nolix.system.netneuron.BackNetNeuron;
+import ch.nolix.system.netneuron.FrontNetNeuron;
 
 //class
 /**

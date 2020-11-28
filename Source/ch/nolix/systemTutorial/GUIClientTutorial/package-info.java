@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemTutorial.GUIClientTutorial} package
- * defines tutorials for the {@link ch.nolix.system.GUIClient} package.
+ * defines tutorials for the {@link ch.nolix.system.guiclient} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

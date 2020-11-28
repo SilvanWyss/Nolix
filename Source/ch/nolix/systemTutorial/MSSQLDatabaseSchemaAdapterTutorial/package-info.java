@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemTutorial.MSSQLDatabaseSchemaAdapterTutorial} package
- * defines tutorials for the {@link ch.nolix.system.MSSQLDatabaseSchemaAdapter} package.
+ * defines tutorials for the {@link ch.nolix.system.mssqldatabaseschemaadapter} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

@@ -15,7 +15,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.wrapperException.WrapperException;
-import ch.nolix.system.baseGUIClient.BaseBackGUIClient;
+import ch.nolix.system.baseguiclient.BaseBackGUIClient;
 
 //class
 /**

@@ -6,8 +6,8 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.invalidArgumentException.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.baseNeuron.BaseNeuron;
-import ch.nolix.system.baseNeuron.InputConnection;
+import ch.nolix.system.baseneuron.BaseNeuron;
+import ch.nolix.system.baseneuron.InputConnection;
 
 //class
 /**

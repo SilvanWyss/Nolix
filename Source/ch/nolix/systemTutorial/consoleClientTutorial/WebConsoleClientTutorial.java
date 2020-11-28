@@ -3,8 +3,8 @@ package ch.nolix.systemTutorial.consoleClientTutorial;
 import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.NetServer;
-import ch.nolix.system.consoleClient.BackConsoleClientSession;
-import ch.nolix.system.consoleClient.FrontConsoleClient;
+import ch.nolix.system.consoleclient.BackConsoleClientSession;
+import ch.nolix.system.consoleclient.FrontConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLook;
 
 public final class WebConsoleClientTutorial {

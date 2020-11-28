@@ -3,14 +3,14 @@ package ch.nolix.systemTutorial.databaseApplicationTutorial;
 import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.NetServer;
-import ch.nolix.system.databaseAdapter.DatabaseAdapter;
-import ch.nolix.system.databaseAdapter.IDatabaseAdapterCreator;
-import ch.nolix.system.databaseAdapter.Schema;
-import ch.nolix.system.databaseApplication.DatabaseApplication;
+import ch.nolix.system.databaseadapter.DatabaseAdapter;
+import ch.nolix.system.databaseadapter.IDatabaseAdapterCreator;
+import ch.nolix.system.databaseadapter.Schema;
+import ch.nolix.system.databaseapplication.DatabaseApplication;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.Reference;
 import ch.nolix.system.entity.Value;
-import ch.nolix.system.nodeDatabaseAdapter.NodeDatabaseAdapterCreator;
+import ch.nolix.system.nodedatabaseadapter.NodeDatabaseAdapterCreator;
 
 public final class ProductManagerTutorial {
 	

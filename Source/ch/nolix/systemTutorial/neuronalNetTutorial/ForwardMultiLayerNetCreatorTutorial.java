@@ -2,8 +2,8 @@ package ch.nolix.systemTutorial.neuronalNetTutorial;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
-import ch.nolix.system.baseNeuron.SourceNeuron;
-import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
+import ch.nolix.system.baseneuron.SourceNeuron;
+import ch.nolix.system.neuronalnet.ForwardMultiLayerNetCreator;
 
 /**
  * The {@link ForwardMultiLayerNetCreatorTutorial} is a tutorial for a {@link ForwardMultiLayerNetCreator}s.

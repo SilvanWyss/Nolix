@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemTutorial.databaseAdapterTutorial} package
- * defines tutorials for the {@link ch.nolix.system.databaseAdapter} package.
+ * defines tutorials for the {@link ch.nolix.system.databaseadapter} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

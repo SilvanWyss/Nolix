@@ -12,7 +12,7 @@ import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.textFormat.TextFormat;
-import ch.nolix.system.baseGUIClient.PaintRun;
+import ch.nolix.system.baseguiclient.PaintRun;
 
 /**
  * The {@link CanvasFrameTutorial} is a tutorial for {@link CanvasFrame}s.

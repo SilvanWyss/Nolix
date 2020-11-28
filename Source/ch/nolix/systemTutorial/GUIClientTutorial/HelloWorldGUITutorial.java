@@ -3,9 +3,9 @@ package ch.nolix.systemTutorial.GUIClientTutorial;
 import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.widget.Label;
-import ch.nolix.system.GUIClient.BackGUIClientSession;
-import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.NetServer;
+import ch.nolix.system.guiclient.BackGUIClientSession;
+import ch.nolix.system.guiclient.FrontGUIClient;
 
 public final class HelloWorldGUITutorial {
 	

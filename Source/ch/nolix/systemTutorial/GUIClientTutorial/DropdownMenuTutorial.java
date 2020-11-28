@@ -4,9 +4,9 @@ import ch.nolix.common.localComputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.DropdownMenu;
-import ch.nolix.system.GUIClient.BackGUIClientSession;
-import ch.nolix.system.GUIClient.FrontCanvasGUIClient;
 import ch.nolix.system.client.NetServer;
+import ch.nolix.system.guiclient.BackGUIClientSession;
+import ch.nolix.system.guiclient.FrontCanvasGUIClient;
 
 public final class DropdownMenuTutorial {
 	
