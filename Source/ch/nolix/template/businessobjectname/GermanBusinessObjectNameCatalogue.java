@@ -20,8 +20,8 @@ public final class GermanBusinessObjectNameCatalogue {
 	public static final String BUCHUNG = "Buchung";
 	public static final String DEBITOR = "Debitor";
 	public static final String DECKUNG = "Deckung";
-	public static final String EMPAENGER = "Empf\u00E4nger";
-	public static final String GESCHAEFTSFALL = "Gesch\u00E4ftsfall";
+	public static final String EMPAENGER = "Empfänger";
+	public static final String GESCHAEFTSFALL = "Geschäftsfall";
 	public static final String GRUPPE = "Gruppe";
 	public static final String KONTO = "Konto";
 	public static final String KREDITOR = "Kreditor";
