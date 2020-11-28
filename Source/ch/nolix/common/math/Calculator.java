@@ -368,7 +368,7 @@ public final class Calculator {
 	 */
 	public static long getSum(final long... values) {
 		
-		var sum = 0l;
+		var sum = 0L;
 		for (final var v : values) {
 			sum += v;
 		}

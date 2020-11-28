@@ -28,7 +28,7 @@ public final class JMonkeyColorHelper {
 			(float)color.getNormalizedRedValue(),			
 			(float)color.getNormalizedGreenValue(),
 			(float)color.getNormalizedBlueValue(),
-			1.0f
+			1.0F
 		);
 	}
 	

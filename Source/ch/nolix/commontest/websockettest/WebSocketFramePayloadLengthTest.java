@@ -85,7 +85,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 	public void testCase_getType_whenPayloadLengthIs9223372036854775807() {
 		
 		//setup
-		final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807l);
+		final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807L);
 		
 		//execution
 		final var result = testUnit.getType();
@@ -183,7 +183,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 	public void testCase_toBytes_whenPayloadLengthIs9223372036854775807() {
 		
 		//setup
-		final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807l);
+		final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807L);
 		
 		//execution
 		final var result = testUnit.toBytes();

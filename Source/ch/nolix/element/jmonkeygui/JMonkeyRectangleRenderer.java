@@ -17,7 +17,7 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 	//method
 	@Override
 	public Geometry createRenderObject() {
-		return new Geometry("Quad", new Quad(1.0f, 1.0f));
+		return new Geometry("Quad", new Quad(1.0F, 1.0F));
 	}
 
 	//method
@@ -33,7 +33,7 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 		geometry.scale(
 			rectangle.getXLengthAsFloat(),
 			rectangle.getYLengthAsFloat(),
-			1.0f
+			1.0F
 		);
 		
 		if (!rectangle.hasDefaultTexture()) {

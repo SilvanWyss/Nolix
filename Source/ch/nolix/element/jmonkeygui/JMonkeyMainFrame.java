@@ -68,8 +68,8 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		reset();
 		
 		final DirectionalLight directionalLight = new DirectionalLight();
-		directionalLight.setColor(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
-		directionalLight.setDirection(new Vector3f(1, 0.5f, -0.5f));
+		directionalLight.setColor(new ColorRGBA(1.0F, 1.0F, 1.0F, 1.0F));
+		directionalLight.setDirection(new Vector3f(1, 0.5F, -0.5F));
 		simpleApplication.getRootNode().addLight(directionalLight);
 				
 		appSettings.setTitle(getTitle());

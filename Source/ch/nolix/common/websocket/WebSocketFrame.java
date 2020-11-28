@@ -299,7 +299,7 @@ public final class WebSocketFrame {
 		
 		return
 		new WebSocketFramePayloadLength(
-			(0x100l * (headerNext2Bytes[0] & 0b11111111))
+			(0x100L * (headerNext2Bytes[0] & 0b11111111))
 			+ (headerNext2Bytes[1] & 0b11111111)
 		);
 	}
@@ -314,9 +314,9 @@ public final class WebSocketFrame {
 		return
 		new WebSocketFramePayloadLength(
 			(headerNext4Bytes[0] & 0xFF)
-			+ (0x100l * (headerNext4Bytes[1] & 0b11111111))
-			+ (0x10000l * (headerNext4Bytes[2] & 0b11111111))
-			+ (0x1000000l * (headerNext4Bytes[3] & 0b11111111))
+			+ (0x100L * (headerNext4Bytes[1] & 0b11111111))
+			+ (0x10000L * (headerNext4Bytes[2] & 0b11111111))
+			+ (0x1000000L * (headerNext4Bytes[3] & 0b11111111))
 		);
 	}
 }

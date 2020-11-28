@@ -18,7 +18,7 @@ implements IJMonkeyShapeRenderer<Cylinder, Geometry> {
 	@Override
 	public Geometry createRenderObject() {
 		
-		final var cylinder = new com.jme3.scene.shape.Cylinder(100, 100, 1.0f, 1.0f, true);
+		final var cylinder = new com.jme3.scene.shape.Cylinder(100, 100, 1.0F, 1.0F, true);
 		
 		return new Geometry("Cylinder", cylinder);
 	}
@@ -36,7 +36,7 @@ implements IJMonkeyShapeRenderer<Cylinder, Geometry> {
 		geometry.scale(cylinder.getRadiusAsFloat(), cylinder.getRadiusAsFloat(), cylinder.getHeightAsFloat());
 		
 		final var rotation = new Quaternion();
-		rotation.fromAngleAxis((float)NumberCatalogue.PI, new Vector3f(0.0f, 1.0f, 1.0f));
+		rotation.fromAngleAxis((float)NumberCatalogue.PI, new Vector3f(0.0F, 1.0F, 1.0F));
 		geometry.setLocalRotation(rotation);
 		
 		final var material =

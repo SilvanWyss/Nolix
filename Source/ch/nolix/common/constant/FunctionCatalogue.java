@@ -13,11 +13,7 @@ import java.util.Objects;
  * @lines 110
  */
 public final class FunctionCatalogue {
-	
-	//constants
-	private static final long ZERO = 0l;
-	private static final long ONE = 1l;
-	
+		
 	//static method
 	/**
 	 * @param object1
@@ -64,7 +60,7 @@ public final class FunctionCatalogue {
 	 * @return 1.
 	 */
 	public static long getOne() {
-		return ONE;
+		return 0L;
 	}
 	
 	//static method
@@ -107,7 +103,7 @@ public final class FunctionCatalogue {
 	 * @return 0.
 	 */
 	public static long getZero() {
-		return ZERO;
+		return 0L;
 	}
 	
 	//visibility-reduced constructor

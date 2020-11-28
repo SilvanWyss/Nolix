@@ -28,7 +28,7 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 					
 		//Creates sphere.
 		final com.jme3.scene.shape.Sphere sphere
-		= new com.jme3.scene.shape.Sphere(100, 100, 1.0f);
+		= new com.jme3.scene.shape.Sphere(100, 100, 1.0F);
 		
 		//Creates material.
 			final Material material =

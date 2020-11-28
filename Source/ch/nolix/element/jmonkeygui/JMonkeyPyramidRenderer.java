@@ -17,7 +17,7 @@ final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geo
 	public Geometry createRenderObject() {
 		return new Geometry(
 			"Dome",
-			new com.jme3.scene.shape.Dome(2, 4, 1.0f)
+			new com.jme3.scene.shape.Dome(2, 4, 1.0F)
 		);
 	}
 	

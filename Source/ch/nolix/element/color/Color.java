@@ -737,7 +737,7 @@ public class Color extends Element<Color> {
 	
 	//constants
 	public static final long MIN_COLOR_INT = 0;
-	public static final long MAX_COLOR_INT = 42_949_672_96l;
+	public static final long MAX_COLOR_INT = 4_294_967_296L;
 	
 	//constants
 	public static final short MIN_COLOR_COMPONENT = 0;
@@ -1126,7 +1126,7 @@ public class Color extends Element<Color> {
 		//Handles the case that the current Color does not have a full alpha value.
 		if (!hasFullAlphaValue()) {
 			return
-			167_772_16l * getRedValue()
+			16_777_216L * getRedValue()
 			+ 65536 * getGreenValue()
 			+ 256 * getBlueValue()
 			+ getAlphaValue();
@@ -1134,7 +1134,7 @@ public class Color extends Element<Color> {
 		
 		//Handles the case that the current Color has a full alpha value.
 		return
-		65536l * getRedValue()
+		65536L * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
 	}
