@@ -16,19 +16,20 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * This class represents a matrix of doubles.
- * A matrix has at least 1 row and 1 column.
+ * A {@link Matrix} represents a mathematical matrix of doubles.
+ * A {@link Matrix} has at least 1 row and 1 column.
  * 
- * All comparisons a matrix does internally are approximative. For example:
- * -The second row of the matrix [4, 5; 0.000000001, 0] counts as a zero row.
- * -The matrix [0.9999999999, 0; 0, 1] counts as an identity matrix.
+ * All comparisons a {@link Matrix} does are approximative.
+ * For example:
+ * -The second row of the matrix [4, 5; 0.000000001, 0] is interpreted as a zero row.
+ * -The matrix [0.9999999999, 0; 0, 1] is interpreted as a identity matrix.
  * 
  * @author Silvan Wyss
- * @month 2016-01
+ * @date 2016-02-01
  * @lines 1170
  */
-public class Matrix implements ApproximativeEqualing {
-		
+public final class Matrix implements ApproximativeEqualing {
+	
 	//static attribute
 	private static final Random random = new Random();
 	
@@ -38,7 +39,7 @@ public class Matrix implements ApproximativeEqualing {
 	//static method
 	/**
 	 * @param size
-	 * @return a new identity matrix with the given size.
+	 * @return a new identity {@link Matrix} with the given size.
 	 * @throws NonPositiveArgumentException if the given size is not positive.
 	 */
 	public static Matrix createIdendityMatrix(final int size) {
@@ -47,8 +48,10 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//static method
 	/**
+	 * The values of the created {@link Matrix} will be all 1.0
+	 * 
 	 * @param size
-	 * @return a new matrix of ones with the given size.
+	 * @return a new {@link Matrix} with the given size.
 	 * @throws NonPositiveArgumentException if the given size is not positive.
 	 */
 	public static Matrix createMatrixOfOnes(final int size) {
@@ -57,21 +60,24 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//static method
 	/**
+	 * The values of the created {@link Matrix} will be all 1.0
+	 * 
 	 * @param rowCount
 	 * @param columnCount
-	 * @return a new matrix of ones with the given number of rows and the given number of columns.
-	 * @throws NonPositiveArgumentException if the given number of rows is not positive.
-	 * @throws NonPositiveArgumentException if the given number of columns is not positive.
+	 * @return a new {@link Matrix} with the given number of rows and the given number of columns.
+	 * @throws NonPositiveArgumentException if the given rowCount is not positive.
+	 * @throws NonPositiveArgumentException if the given columnCount is not positive.
 	 */
-	public static Matrix createMatrixOfOnes(final int rowsCount, final int columnsCount) {
-		return new Matrix(rowsCount, columnsCount).setAllValuesTo(1.0);
+	public static Matrix createMatrixOfOnes(final int rowCount, final int columnCount) {
+		return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
 	}
 	
 	//static method
 	/**
+	 * The values of the created {@link Matrix} will be all a whole random number in [0, 99].
+	 * 
 	 * @param size
-	 * @return a new matrix with the given size.
-	 * The values of the matrix are whole random numbers in [0, 99].
+	 * @return a new {@link Matrix} with the given size.
 	 */
 	public static Matrix createRandomMatrix(final int size) {
 		
@@ -83,23 +89,24 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//static method
 	/**
+	 * The values of the created {@link Matrix} will be all a whole random number in [0, 99].
+	 * 
 	 * @param rowCount
 	 * @param columnCount
-	 * @return a newly created matrix with the given number of rows and the given number of columns.
-	 * The values of the matrix are whole random numbers in [0, 99].
-	 * @throws NonPositiveArgumentException if the given number of rows is not positive.
-	 * @throws NonPositiveArgumentException if the given number of columns is not positive.
+	 * @return a new {@link Matrix} with the given number of rows and the given number of columns.
+	 * @throws NonPositiveArgumentException if the given rowCount is not positive.
+	 * @throws NonPositiveArgumentException if the given columnCount is not positive.
 	 */
-	public static final Matrix createRandomMatrix(final int rowCount, final int columnCount) {
+	public static Matrix createRandomMatrix(final int rowCount, final int columnCount) {
 		
-		//Creates matrix.
-		final Matrix matrix = new Matrix(rowCount, columnCount);
+		//Creates Matrix.
+		final var matrix = new Matrix(rowCount, columnCount);
 				
 		//Iterates the rows of the matrix.
-		for (int i = 0; i < matrix.getRowCount(); i++) {
+		for (var i = 0; i < matrix.getRowCount(); i++) {
 			
 			//Iterates the cells of the current row.
-			for (int j = 0; j < matrix.getColumnCount(); j++) {
+			for (var j = 0; j < matrix.getColumnCount(); j++) {
 				matrix.values[i][j] = random.nextInt(100);
 			}
 		}
@@ -109,9 +116,10 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * Creates a new zero matrix with the given size.
+	 * The values of the created {@link Matrix} will be all 0.0.
 	 * 
 	 * @param size
+	 * @return a new {@link Matrix} with the given size.
 	 * @throws NonPositiveArgumentException if the given size is not positive.
 	 */
 	public Matrix(final int size) {
@@ -124,7 +132,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * Creates a new matrix with the given number of rows and the given number of columns.
+	 * Creates a new {@link Matrix} with the given number of rows and the given number of columns.
 	 * 
 	 * @param rowCount
 	 * @param columnCount
@@ -133,10 +141,10 @@ public class Matrix implements ApproximativeEqualing {
 	 */
 	public Matrix(final int rowCount, final int columnCount) {
 		
-		//Asserts that the given row count is positive.
+		//Asserts that the given rowCount is positive.
 		Validator.assertThat(rowCount).thatIsNamed(VariableNameCatalogue.ROW_COUNT).isPositive();
 		
-		//Asserts that the given row count is positive.
+		//Asserts that the given columnCount is positive.
 		Validator.assertThat(columnCount).thatIsNamed(VariableNameCatalogue.COLUMN_COUNT).isPositive();
 		
 		values = new double[rowCount][columnCount];
@@ -144,51 +152,51 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * Creates a new matrix with the given number of rows and columns.
-	 * The values of the matrix are all set to the given value.
+	 * Creates a new {@link Matrix} with the given number of rows and columns.
+	 * The values of the matrix will be all set to the given value.
 	 * 
 	 * @param rowCount
 	 * @param columnCount
 	 * @param value
-	 * @throws NonPositiveArgumentException if the given row count is not positive.
-	 * @throws NonPositiveArgumentException if the given column count is not positive.
+	 * @throws NonPositiveArgumentException if the given rowCount is not positive.
+	 * @throws NonPositiveArgumentException if the given columnCount is not positive.
 	 */
-	public Matrix(final int rowsCount, final int columnsCount, final double value) {
+	public Matrix(final int rowCount, final int columnCount, final double value) {
 		
 		//Calls other constructor.
-		this(rowsCount, columnsCount);
+		this(rowCount, columnCount);
 		
 		setAllValuesTo(value);
 	}
 	
 	//method
 	/**
-	 * Adds the given matrix to this matrix.
+	 * Adds the given matrix to the current {@link Matrix}.
 	 * 
 	 * @param matrix
-	 * @return this matrix.
-	 * @throws UnequalArgumentException if the given matrix has not as many rows as this matrix.
-	 * @throws UnequalArgumentException if the given matrix has not as many columns as this matrix.
+	 * @return the current {@link Matrix}.
+	 * @throws UnequalArgumentException if the given matrix has not as many rows as the current {@link Matrix}.
+	 * @throws UnequalArgumentException if the given matrix has not as many columns as the current {@link Matrix}.
 	 */
 	public Matrix add(final Matrix matrix) {
 		
-		//Asserts that the given matrix has as many rows as this matrix.
+		//Asserts that the given Matrix has as many rows as the current Matrix.
 		Validator
 		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
 		
-		//Asserts that the given matrix has as many columns as this matrix.
+		//Asserts that the given Matrix has as many columns as the current Matrix.
 		Validator
 		.assertThat(matrix.getColumnCount())
 		.thatIsNamed("number of columns of the given matrix")
 		.isEqualTo(getColumnCount());
 		
-		//Iterates the rows of this matrix.
-		for (int i = 0; i < getRowCount(); i++) {
+		//Iterates the rows of the current Matrix.
+		for (var i = 0; i < getRowCount(); i++) {
 			
 			//Iterates the cells of the current row.
-			for (int j = 0; j < getColumnCount(); j++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				values[i][j] += matrix.values[i][j];
 			}
 		}
@@ -198,29 +206,29 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Appends the given matrix at the right of this matrix.
+	 * Appends the given matrix at the right of the current {@link Matrix}.
 	 * 
 	 * @param matrix
-	 * @return this matrix.
-	 * @throws UnequalArgumentException if the given matrix has not as many rows as this matrix.
+	 * @return the current {@link Matrix}.
+	 * @throws UnequalArgumentException if the given matrix has not as many rows as the current {@link Matrix}.
 	 */
 	public Matrix appendAtRight(final Matrix matrix) {
 		
-		//Asserts that the given matrix has as many rows as this matrix.
+		//Asserts that the given Matrix has as many rows as the current Matrix.
 		Validator
 		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
 		
-		double[][] newValues = new double[getRowCount()][getColumnCount() + matrix.getColumnCount()];
+		var newValues = new double[getRowCount()][getColumnCount() + matrix.getColumnCount()];
 		
-		for (int i = 0; i < getRowCount(); i++) {
+		for (var i = 0; i < getRowCount(); i++) {
 			
-			for (int j = 0; j < getColumnCount(); j++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				newValues[i][j] = values[i][j];
 			}
 			
-			for (int j = 0; j < matrix.getColumnCount(); j++) {
+			for (var j = 0; j < matrix.getColumnCount(); j++) {
 				newValues[i][getColumnCount() + j] = matrix.values[i][j];
 			}
 		}
@@ -232,26 +240,26 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Appends a new row with the given row values on the bottom of this matrix.
+	 * Appends a new row with the given row values on the bottom of the current {@link Matrix}.
 	 * 
 	 * @param values
-	 * @return this matrix.
+	 * @return the current {@link Matrix}.
 	 * @throws InvalidArgumentException
-	 * if not as many row values are given than the number of columns of this matrix.
+	 * if not as many row values are given than the number of columns of the current {@link Matrix}.
 	 */
 	public Matrix appendRowAtBottom(double... rowValues) {
 		
-		//Asserts that as many row values are given than the number of columsn of this matrix.
+		//Asserts that as many row values are given than the number of columns of the current Matrix.
 		Validator.assertThat(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
 		
-		double[][] oldValues = values;
+		var oldValues = values;
 		values = new double[oldValues.length + 1][oldValues[0].length];
 		
-		for (int i = 0; i < oldValues.length; i++) {
+		for (var i = 0; i < oldValues.length; i++) {
 			values[i] = oldValues[i];
 		}
 		
-		for (int i = 0; i < getColumnCount(); i++) {
+		for (var i = 0; i < getColumnCount(); i++) {
 			values[getRowCount() - 1][i] = rowValues[i];
 		}
 		
@@ -260,79 +268,25 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @param object
-	 * @return true if this matrix equals the given object
+	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean equals(Object object) {
-				
-		if (!(object instanceof Matrix)) {
-			return false;
-		}
-		
-		Matrix matrix = (Matrix)object;
-		
-		if (matrix.getRowCount() != getRowCount()) {
-			return false;
-		}
-		
-		if (matrix.getColumnCount() != getColumnCount()) {
-			return false;
-		}
-		
-		for (int r = 0; r < getRowCount(); r++) {
-			for (int c = 0; c < getColumnCount(); c++) {
-				if (matrix.values[r][c] != values[r][c]) {
-					return false;
-				}
-			}
-		}
-		
-		return true;
+	public boolean equals(final Object object) {
+		return (object instanceof Matrix && equals((Matrix)object));		
 	}
 	
 	//method
 	/**
-	 * @param object
-	 * @param epsilon
-	 * @return true
-	 * if this matrix equals approximatively the given object with a tolerance that is smaller than the given epsilon.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equalsApproximatively(final Object object, final double epsilon) {
-		
-		if (object == null) {
-			return false;
-		}
-		
-		if (!(object instanceof Matrix)) {
-			return false;
-		}
-		
-		Matrix matrix = (Matrix)object;
-		
-		if (matrix.getRowCount() != getRowCount()) {
-			return false;
-		}
-		
-		if (matrix.getColumnCount() != getColumnCount()) {
-			return false;
-		}
-		
-		for (int r = 0; r < getRowCount(); r++) {
-			for (int c = 0; c < getColumnCount(); c++) {
-				if (!Calculator.equalsApproximatively(matrix.values[r][c], values[r][c], epsilon)) {
-					return false;
-				}
-			}
-		}
-		
-		return true;
+		return (object instanceof Matrix && equalsApproximatively((Matrix)object, epsilon));
 	}
 	
 	//method
 	/**
-	 * @return the number of columns of this matrix
+	 * @return the number of columns of the current {@link Matrix}
 	 */
 	public int getColumnCount() {
 		return values[0].length;
@@ -340,27 +294,29 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return a clone of this matrix
+	 * @return a clone of the current {@link Matrix}
 	 */
 	public Matrix getClone() {
-		Matrix matrix = new Matrix(1);
+		
+		final var matrix = new Matrix(1);
 		matrix.values = values;
+		
 		return matrix;
 	}
 	
 	//method
 	/**
-	 * @return the column vectors of this matrix
+	 * @return the column vectors of the current {@link Matrix}
 	 */
 	public Vector[] getColumnVectors() {
 		
-		Vector[] columns = new Vector[getColumnCount()];
+		final var columns = new Vector[getColumnCount()];
 		
-		for (int j = 0; j < getColumnCount(); j++) {
+		for (var j = 0; j < getColumnCount(); j++) {
 			
-			double[] columnValues = new double[getRowCount()];
+			var columnValues = new double[getRowCount()];
 			
-			for (int i = 0; i < getRowCount(); i++) {
+			for (var i = 0; i < getRowCount(); i++) {
 				columnValues[i] = values[i][j];
 			}
 			
@@ -381,15 +337,14 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the inverse matrix of this matrix.
-	 * @throws InvalidArgumentExceptionException if this matrix is not regular.
+	 * @return the inverse matrix of the current {@link Matrix}.
+	 * @throws InvalidArgumentExceptionException if the current {@link Matrix} is not regular.
 	 */
 	public Matrix getInverse() {
 		
-		//Asserts that this matrix is quadratic.
-		supposeIsQuadratic();
+		assertIsQuadratic();
 				
-		final Matrix matrix =
+		final var matrix =
 		getClone()
 		.appendAtRight(Matrix.createIdendityMatrix(getRowCount()))
 		.tranformFirstPartToIdentityMatrix();
@@ -404,7 +359,7 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @param columnCount
-	 * @return a matrix with the first columns of this matrix.
+	 * @return a matrix with the first columns of the current {@link Matrix}.
 	 * @throws OutOfRangeException if the given column count is not valid.
 	 */
 	public Matrix getMatrixWithFirstColumns(int columnCount) {
@@ -415,10 +370,10 @@ public class Matrix implements ApproximativeEqualing {
 		.thatIsNamed(VariableNameCatalogue.COLUMN_COUNT)
 		.isBetween(1, getColumnCount());
 		
-		final Matrix matrix = new Matrix(getRowCount(), columnCount);
+		final var matrix = new Matrix(getRowCount(), columnCount);
 		
-		for (int i = 0; i < getRowCount(); i++) {
-			for (int j = 0; j < columnCount; j++) {
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < columnCount; j++) {
 				matrix.values[i][j] = values[i][j];
 			}
 		}
@@ -429,7 +384,7 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @param columnCount
-	 * @return a matrix with the last columns of this matrix.
+	 * @return a matrix with the last columns of the current {@link Matrix}.
 	 * @throws OutOfRangeException if the given column count is not valid.
 	 */
 	public Matrix getMatrixWithLastColumns(final int columnCount) {
@@ -440,10 +395,10 @@ public class Matrix implements ApproximativeEqualing {
 		.thatIsNamed(VariableNameCatalogue.COLUMN_COUNT)
 		.isBetween(1, getColumnCount());
 		
-		final Matrix matrix = new Matrix(getRowCount(), columnCount);
+		final var matrix = new Matrix(getRowCount(), columnCount);
 		
-		for (int i = 0; i < getRowCount(); i++) {
-			for (int j = 0; j < columnCount; j++) {
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < columnCount; j++) {
 				matrix.values[i][j] = values[i][columnCount + j];
 			}
 		}
@@ -457,28 +412,28 @@ public class Matrix implements ApproximativeEqualing {
 	 * 
 	 * @param solutionMatrix
 	 * @return a matrix A so that the matrix X*A-Y is minimal.
-	 * -X is this matrix.
+	 * -X is the current {@link Matrix}.
 	 * -Y is the given solution matrix.
 	 * The following formula is used: A = (X_t*X)^-1*X_t*Y.
 	 * @throws UnequalArgumentException if the given solution matrix has not 1 column.
-	 * @throws UnequalArgumentException if the given solution matrix has not as many rows as this matrix.
+	 * @throws UnequalArgumentException if the given solution matrix has not as many rows as the current {@link Matrix}.
 	 */
 	public Matrix getMinimalFactorMatrix(final Matrix solutionMatrix) {
 		
-		//Asserts that the given solution matrix has 1 column.
+		//Asserts that the given solution Matrix has 1 column.
 		Validator
 		.assertThat(solutionMatrix.getColumnCount())
 		.thatIsNamed("number of columns of the given soluction matrix")
 		.isEqualTo(1);
 		
-		//Asserts that the given solution matrix has as many rows as this matrix.
+		//Asserts that the given solution Matrix has as many rows as the current Matrix.
 		Validator
 		.assertThat(solutionMatrix.getRowCount())
 		.thatIsNamed("number of rows of the given solution matrix")
 		.isEqualTo(getRowCount());
 		
-		final Matrix transposedMatrix = getTransposed();
-		final Matrix matrix = transposedMatrix.getProduct(this);
+		final var transposedMatrix = getTransposed();
+		final var matrix = transposedMatrix.getProduct(this);
 		Matrix inverseMatrix = null;
 		
 		try {
@@ -497,12 +452,12 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @param matrix
-	 * @return the product of this matrix and the given matrix.
-	 * @throws UnequalArgumentException if the given matrix has not as many rows as this matrix columns has.
+	 * @return the product of the current {@link Matrix} and the given matrix.
+	 * @throws UnequalArgumentException if the given matrix has not as many rows as the current {@link Matrix} columns has.
 	 */
 	public Matrix getProduct(final Matrix matrix) {
 		
-		//Asserts that the given matrix has as many rows as the number of columns of this matrix.
+		//Asserts that the given Matrix has as many rows as the number of columns of the current Matrix.
 		Validator
 		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
@@ -510,8 +465,8 @@ public class Matrix implements ApproximativeEqualing {
 		
 		final Matrix product = new Matrix(getRowCount(), matrix.getColumnCount());
 		
-		for (int i = 0; i < product.getRowCount(); i++) {
-			for (int j = 0; j < product.getColumnCount(); j++) {
+		for (var i = 0; i < product.getRowCount(); i++) {
+			for (var j = 0; j < product.getColumnCount(); j++) {
 				for (int k = 0; k < getColumnCount(); k++) {
 					product.values[i][j] += values[i][k] * matrix.values[k][j];
 				}
@@ -523,13 +478,13 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return a pseudo inverse matrix of this matrix.
-	 * @throws InvalidArgumentException if this matrix is not quadratic.
+	 * @return a pseudo inverse matrix of the current {@link Matrix}.
+	 * @throws InvalidArgumentException if the current {@link Matrix} is not quadratic.
 	 */
 	public Matrix getPseudoInverse() {
 		
-		//Asserts that this matrix is quadratic.
-		supposeIsQuadratic();
+		//Asserts that the current Matrix is quadratic.
+		assertIsQuadratic();
 		
 		return
 		getSum(new Matrix(getRowCount())
@@ -539,20 +494,20 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the rank of this matrix.
-	 * @throws InvalidArgumentException if this matrix is not quadratic.
+	 * @return the rank of the current {@link Matrix}.
+	 * @throws InvalidArgumentException if the current {@link Matrix} is not quadratic.
 	 */
 	public int getRank() {
 		
-		//Asserts that this matrix is quadratic.
-		supposeIsQuadratic();
+		//Asserts that the current Matrix is quadratic.
+		assertIsQuadratic();
 		
 		return getClone().transformToEquivalentUpperLeftMatrix().getRowCount();
 	}
 	
 	//method
 	/**
-	 * @return the number of rows of this matrix
+	 * @return the number of rows of the current {@link Matrix}
 	 */
 	public int getRowCount() {
 		return values.length;
@@ -560,13 +515,13 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the row vectors of this matrix
+	 * @return the row vectors of the current {@link Matrix}
 	 */
 	public Vector[] getRowVectors() {
 		
-		Vector[] rows = new Vector[getRowCount()];
+		final var rows = new Vector[getRowCount()];
 		
-		for (int i = 0; i < getRowCount(); i++) {
+		for (var i = 0; i < getRowCount(); i++) {
 			rows[i] = new Vector(values[i].length).setValues(values[i]);
 		}
 		
@@ -575,7 +530,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the size of this matrix
+	 * @return the size of the current {@link Matrix}
 	 */
 	public int getSize() {
 		return (getRowCount() * getColumnCount());
@@ -583,23 +538,23 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the solution when this matrix is an extended matrix of a linear equation system
+	 * @return the solution when the current {@link Matrix} is an extended matrix of a linear equation system
 	 */
 	public double[] getSolutionAsExtendedMatrix() {
-		
-		final double[] solution = new double[getRowCount()];
-		
-		final Matrix matrix = getClone().transformToEquivalentUpperLeftMatrix();
+						
+		final var matrix = getClone().transformToEquivalentUpperLeftMatrix();
 		
 		if (matrix.getRowCount() != getRowCount()) {
 			throw new InvalidArgumentException(this, "does not have a regular coefficient Matrix");
 		}
 		
-		for (int i = matrix.getRowCount() - 1; i >= 0; i--) {
+		final var solution = new double[getRowCount()];
 		
-			double sum = matrix.values[i][matrix.getColumnCount() - 1];
+		for (var i = matrix.getRowCount() - 1; i >= 0; i--) {
+		
+			var sum = matrix.values[i][matrix.getColumnCount() - 1];
 			
-			for (int j = matrix.getColumnCount() - 2; j > i; j--) {
+			for (var j = matrix.getColumnCount() - 2; j > i; j--) {
 				sum -= matrix.values[i][j] * solution[j];
 			}
 			
@@ -612,8 +567,8 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @param matrix
-	 * @return the matrix that is the sum of this matrix and the given matrix
-	 * @throws Exception if the given matrix has not the same size as this matrix
+	 * @return the matrix that is the sum of the current {@link Matrix} and the given matrix
+	 * @throws Exception if the given matrix has not the same size as the current {@link Matrix}
 	 */
 	public Matrix getSum(final Matrix matrix) {
 		return getClone().add(matrix);
@@ -621,7 +576,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the transposed matrix of this matrix.
+	 * @return the transposed matrix of the current {@link Matrix}.
 	 */
 	public Matrix getTransposed() {
 		return getClone().transpose();
@@ -629,16 +584,16 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return the trace of this matrix.
-	 * @throws InvalidArgumentException if this matrix is not quadratic.
+	 * @return the trace of the current {@link Matrix}.
+	 * @throws InvalidArgumentException if the current {@link Matrix} is not quadratic.
 	 */
 	public double getTrace() {
 		
-		//Asserts that this matrix is quadratic.
-		supposeIsQuadratic();
+		//Asserts that the current Matrix is quadratic.
+		assertIsQuadratic();
 		
-		double trace = 0.0;
-		for (int i = 0; i < getRowCount(); i++) {
+		var trace = 0.0;
+		for (var i = 0; i < getRowCount(); i++) {
 			trace += values[i][i];
 		}
 		
@@ -650,18 +605,18 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param rowIndex
 	 * @param columnIndex
 	 * @return the value in the row with the given row index and the column with the given column index.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not contain a row with the given row index.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not contain a column with the given column index.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not contain a row with the given row index.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not contain a column with the given column index.
 	 */
 	public double getValue(final int rowIndex, final int columnIndex) {
 		
-		//Asserts that this matrix contains a row with the given row index.
+		//Asserts that the current Matrix contains a row with the given row index.
 		Validator
 		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isBetween(1, getRowCount());
 		
-		//Asserts that this matrix contains a column with the given column index.
+		//Asserts that the current Matrix contains a column with the given column index.
 		Validator
 		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
@@ -671,6 +626,9 @@ public class Matrix implements ApproximativeEqualing {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode() {
 		return toString().hashCode();
@@ -679,18 +637,15 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @param matrix
-	 * @return true if this matrix has the same size as the given matrix
+	 * @return true if the current {@link Matrix} has the same size as the given matrix
 	 */
 	public boolean hasSameSize(Matrix matrix) {
-		return (
-			getRowCount() == matrix.getRowCount() &&
-			getColumnCount() == matrix.getColumnCount()
-		);
+		return (getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount());
 	}
 	
 	//method
 	/**
-	 * @return true if this matrix is an identity matrix
+	 * @return true if the current {@link Matrix} is an identity matrix
 	 */
 	public boolean isIdentityMatrix() {
 		
@@ -699,7 +654,7 @@ public class Matrix implements ApproximativeEqualing {
 		}
 		
 		final var rowCount = getRowCount();
-		for (int i = 1; i <= rowCount; i++) {
+		for (var i = 1; i <= rowCount; i++) {
 			if (!canBeLineInIdentityMatrix(i)) {
 				return false;
 			}
@@ -711,7 +666,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return true if this matrix is a quadratic matrix
+	 * @return true if the current {@link Matrix} is a quadratic matrix
 	 */
 	public boolean isQuadratic() {
 		return (getRowCount() == getColumnCount());
@@ -719,7 +674,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return true if this matrix is regular
+	 * @return true if the current {@link Matrix} is regular
 	 */
 	public boolean isRegular() {
 		return (isQuadratic() && getRank() == getRowCount());
@@ -727,15 +682,15 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Multiplies this matrix with the given factor.
+	 * Multiplies the current {@link Matrix} with the given factor.
 	 * 
 	 * @param factor
-	 * @return this matrix
+	 * @return the current {@link Matrix}
 	 */
 	public Matrix multiply(double factor) {
 		
-		for (int i = 0; i < getRowCount(); i++) {
-			for (int j = 0; j < getColumnCount(); j++) {
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				values[i][j] *= factor;
 			}
 		}
@@ -749,16 +704,16 @@ public class Matrix implements ApproximativeEqualing {
 	 * 
 	 * @param rowIndex
 	 * @param factor
-	 * @return this matrix.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not contain a row with the given row index.
+	 * @return the current {@link Matrix}.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not contain a row with the given row index.
 	 */
 	public Matrix multiplyRow(final int rowIndex, final double factor) {
 		
-		//Asserts that this matrix contains a row with the given row index.
+		//Asserts that the current Matrix contains a row with the given row index.
 		Validator.assertThat(rowIndex).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		//Iterates the cells of the row with the given row index.
-		for (int i = 0; i < getColumnCount(); i++) {
+		for (var i = 0; i < getColumnCount(); i++) {
 			values[rowIndex][i] *= factor;
 		}
 		
@@ -767,17 +722,17 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Removes the zero rows of this matrix using an epsilon
+	 * Removes the zero rows of the current {@link Matrix} using an epsilon
 	 * 
-	 * @return this matrix
+	 * @return the current {@link Matrix}
 	 */
 	public Matrix removeZeroRows() {
 		
-		LinkedList<double[]> newValues = new LinkedList<>();
+		final var newValues = new LinkedList<double[]>();
 		
 		for (double[] r: values) {
 			
-			boolean isZeroRow = true;
+			var isZeroRow = true;
 			
 			for (double v: r) {
 				if (!Calculator.equalsApproximatively(v, 0.0)) {
@@ -792,7 +747,7 @@ public class Matrix implements ApproximativeEqualing {
 		}
 		
 		values = new double[newValues.getElementCount()][values.length];
-		for (int i = 0; i < newValues.getElementCount(); i++) {
+		for (var i = 0; i < newValues.getElementCount(); i++) {
 			values[i] = newValues.getRefAt(i + 1);
 		}
 		
@@ -801,15 +756,15 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Sets the values of this matrix to the given value.
+	 * Sets the values of the current {@link Matrix} to the given value.
 	 * 
 	 * @param value
-	 * @return this matrix
+	 * @return the current {@link Matrix}
 	 */
 	public Matrix setAllValuesTo(double value) {
 		
-		for (int i = 0; i < values.length; i++) {
-			for (int j = 0; j < values[i].length; j++) {
+		for (var i = 0; i < values.length; i++) {
+			for (var j = 0; j < values[i].length; j++) {
 				values[i][j] = value;
 			}
 		}
@@ -825,19 +780,19 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param rowIndex
 	 * @param columnIndex
 	 * @param value
-	 * @return this matrix.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not contain a row with the given row index.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not contain a column with the given column index.
+	 * @return the current {@link Matrix}.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not contain a row with the given row index.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not contain a column with the given column index.
 	 */
 	public Matrix setValue(final int rowIndex, final int columnIndex, final double value) {
 		
-		//Asserts that this matrix contains a row with the given row index.
+		//Asserts that the current Matrix contains a row with the given row index.
 		Validator
 		.assertThat(rowIndex)
 		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
 		.isBetween(1, getRowCount());
 		
-		//Asserts that this matrix contains a column with the given column index.
+		//Asserts that the current Matrix contains a column with the given column index.
 		Validator
 		.assertThat(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
@@ -850,22 +805,22 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Sets the values of this matrix.
+	 * Sets the values of the current {@link Matrix}.
 	 * 
 	 * @param values
-	 * @return this matrix.
-	 * @throws InvalidArgumentException if not as many values are given as this matrix contains.
+	 * @return the current {@link Matrix}.
+	 * @throws InvalidArgumentException if not as many values are given as the current {@link Matrix} contains.
 	 */
 	public Matrix setValues(final double... values) {
 		
-		//Asserts that as many values are given as this matrix contains.
+		//Asserts that as many values are given as the current Matrix contains.
 		Validator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
 		
-		//Iterates the rows of this matrix.
-		for (int i = 0; i < getRowCount(); i++) {
+		//Iterates the rows of the current Matrix.
+		for (var i = 0; i < getRowCount(); i++) {
 			
 			//Iterates the cells of the current row.
-			for (int j = 0; j < getColumnCount(); j++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				this.values[i][j] = values[i * getColumnCount() + j];
 			}
 		}
@@ -875,17 +830,17 @@ public class Matrix implements ApproximativeEqualing {
 
 	//method
 	/**
-	 * Sets the diagonal values of this matrix to the given value.
+	 * Sets the diagonal values of the current {@link Matrix} to the given value.
 	 * 
 	 * @param value
-	 * @return this matrix
-	 * @throws Exception if this matrix is not quadratic
+	 * @return the current {@link Matrix}
+	 * @throws Exception if the current {@link Matrix} is not quadratic
 	 */
 	public Matrix setDiagonalValuesTo(double value) {
 		
-		supposeIsQuadratic();
+		assertIsQuadratic();
 		
-		for (int i = 0; i < values.length; i++) {
+		for (var i = 0; i < values.length; i++) {
 			values[i][i] = value;
 		}
 		
@@ -898,16 +853,16 @@ public class Matrix implements ApproximativeEqualing {
 	 * 
 	 * @param row1Index
 	 * @param row2Index
-	 * @return this matrix.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not have a row with the given row1 index.
-	 * @throws ArgumentIsOutOfRangeException if this matrix does not have a row with the given row1 index.
+	 * @return the current {@link Matrix}.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not have a row with the given row1 index.
+	 * @throws ArgumentIsOutOfRangeException if the current {@link Matrix} does not have a row with the given row1 index.
 	 */
 	public Matrix swapRows(int row1Index, int row2Index) {
 		
-		//Asserts that this matrix has a row with the given row 1 index.
+		//Asserts that the current Matrix has a row with the given row 1 index.
 		Validator.assertThat(row1Index).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
-		//Asserts that this matrix has a row with the given row 2 index.
+		//Asserts that the current Matrix has a row with the given row 2 index.
 		Validator.assertThat(row2Index).thatIsNamed(VariableNameCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		final double[] temp = values[row1Index - 1];
@@ -919,105 +874,105 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return a polynom representation of this matrix
-	 * @throws Exception if this matrix does not represent a polynom
+	 * @return a polynom representation of the current {@link Matrix}
+	 * @throws Exception if the current {@link Matrix} does not represent a polynom
 	 */
 	public Polynom toPolynom() {
 		
-		//Asserts that the upper left element of this matrix is 0.
+		//Asserts that the upper left element of the current {@link Matrix} is 0.
 		if (values[0][0] == 0) {
 			throw new UnrepresentingArgumentException(this, Polynom.class);
 		}
 		
-		//Handles the case that this matrix consists of 1 row.
+		//Handles the case that the current Matrix consists of 1 row.
 		if (getRowCount() == 1) {
 			return Polynom.withCoefficients(values[0]);
 		}
 		
-		//Handles the case that this matrix consists of 1 column.
+		//Handles the case that the current Matrix consists of 1 column.
 		if (getColumnCount() == 1) {
 			
 			final double[] lValues = new double[getRowCount()];
 			
-			for (int i = 0; i < getRowCount(); i++) {
+			for (var i = 0; i < getRowCount(); i++) {
 				lValues[i] = this.values[i][0];
 			}
 			
 			return Polynom.withCoefficients(lValues);
 		}
 		
-		//Handles the case that this matrix does not consist of 1 row nor of 1 column.
+		//Handles the case that the current Matrix does not consist of 1 row nor of 1 column.
 		throw new UnrepresentingArgumentException(this, Polynom.class);
 	}
 	
 	//method
 	/**
-	 * @return a vector representation of this matrix
-	 * @throws Exception if this matrix does not represent a vector
+	 * @return a vector representation of the current {@link Matrix}
+	 * @throws Exception if the current {@link Matrix} does not represent a vector
 	 */
 	public Vector toVector() {
 				
-		//Handles the case that this matrix contains 1 row.
+		//Handles the case that the current Matrix contains 1 row.
 		if (getRowCount() == 1) {
 			return new Vector(getColumnCount()).setValues(values[0]);
 		}
 		
-		//Handles the case that this matrix contains 1 column.
+		//Handles the case that the current Matrix contains 1 column.
 		if (getColumnCount() == 1) {
 			
-			final double[] lValues = new double[getRowCount()];
+			final var lValues = new double[getRowCount()];
 			
-			for (int i = 0; i < getRowCount(); i++) {
+			for (var i = 0; i < getRowCount(); i++) {
 				lValues[i] = this.values[i][0];
 			}
 			
 			return new Vector(getRowCount()).setValues(lValues);
 		}
 		
-		//Handles the case that this matrix does not either contain 1 row nor 1 column.
+		//Handles the case that the current Matrix does not either contain 1 row nor 1 column.
 		throw new UnrepresentingArgumentException(this, Vector.class);
 	}
 	
 	//method
 	/**
-	 * Transforms the first part of this matrix to an identity matrix.
+	 * Transforms the first part of the current {@link Matrix} to an identity matrix.
 	 * 
-	 * @return this matrix
-	 * @throws InvalidArgumentException if this matrix has more rows than columns.
-	 * @throws InvalidArgumentException if this matrix has linear depending rows.
+	 * @return the current {@link Matrix}
+	 * @throws InvalidArgumentException if the current {@link Matrix} has more rows than columns.
+	 * @throws InvalidArgumentException if the current {@link Matrix} has linear depending rows.
 	 */
 	public Matrix tranformFirstPartToIdentityMatrix() {
 		
-		final int rowCount = getRowCount();
+		final var rowCount = getRowCount();
 		
-		//Asserts that this matrix has not more rows than columns.
-		if (getRowCount() > getColumnCount()) {
+		//Asserts that the current Matrix has not more rows than columns.
+		if (rowCount > getColumnCount()) {
 			throw new InvalidArgumentException(this, "has more rows than columns");
 		}
 		
-		//Transforms this matrix to an equivalent upper left matrix.
+		//Transforms the current Matrix to an equivalent upper left matrix.
 		transformToEquivalentUpperLeftMatrix();
 
-		//Asserts that this matrix does not have a linear depending rows.	
+		//Asserts that the current Matrix does not have a linear depending rows.	
 		if (rowCount != getRowCount()) {
 			throw new InvalidArgumentException(this, "has linear depending rows");
 		}
 		
-		//Iterates the rows of this matrix.
-		for (int i = getRowCount() - 1; i >= 0; i--) {
+		//Iterates the rows of the current Matrix.
+		for (var i = getRowCount() - 1; i >= 0; i--) {
 			
 			if (Calculator.equalsApproximatively(values[i][i], 0.0)) {
 				throw new InvalidArgumentException(this, "has linear depending rows");
 			}
 			
-			final double factor = 1 / values[i][i];
-			for (int j = 0; j < getColumnCount(); j++) {
+			final var factor = 1 / values[i][i];
+			for (var j = 0; j < getColumnCount(); j++) {
 				values[i][j] *= factor;
 			}
 						
-			for (int j = i + 1; j < getRowCount(); j++) {
+			for (var j = i + 1; j < getRowCount(); j++) {
 				
-				double factor2 = values[i][j];
+				final var factor2 = values[i][j];
 				
 				for (int k = 0; k < getColumnCount(); k++) {
 					values[i][k] -= factor2 * values[j][k];
@@ -1030,23 +985,23 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Transforms this matrix to an equivalent upper left matrix.
+	 * Transforms the current {@link Matrix} to an equivalent upper left matrix.
 	 * 
-	 * @return this matrix
+	 * @return the current {@link Matrix}
 	 */
 	public Matrix transformToEquivalentUpperLeftMatrix() {
 		
-		int minColumnIndex = 0;
+		var minColumnIndex = 0;
 		
-		//Iterate over rows of this matrix.
-		for (int i = 0; i < values.length; i++) {
+		//Iterate over rows of the current {@link Matrix}.
+		for (var i = 0; i < values.length; i++) {
 			
-			boolean found = false;
+			var found = false;
 			
 			while (!found && minColumnIndex < values[i].length) {
 				
 				//Iterates over the current row and the rows below the current row.
-				for (int j = i; j < values.length; j++) {
+				for (var j = i; j < values.length; j++) {
 					if (values[j][minColumnIndex] != 0) {
 						found = true;
 						swapRows(i + 1, j + 1);
@@ -1062,9 +1017,9 @@ public class Matrix implements ApproximativeEqualing {
 			if (found) {
 				
 				//Iterates the rows under the current row.
-				for (int j = i + 1; j < values.length; j++) {
+				for (var j = i + 1; j < values.length; j++) {
 										
-					double factor = -values[j][minColumnIndex] / values[i][minColumnIndex];
+					var factor = -values[j][minColumnIndex] / values[i][minColumnIndex];
 					
 					//Iterates the values of the row.
 					for (int k = minColumnIndex; k < values[j].length; k++) {
@@ -1117,16 +1072,16 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * Transposes this matrix.
+	 * Transposes the current {@link Matrix}.
 	 * 
-	 * @return this matrix
+	 * @return the current {@link Matrix}
 	 */
 	public Matrix transpose() {
 		
-		double[][] lValues = new double[getColumnCount()][getRowCount()];
+		final var lValues = new double[getColumnCount()][getRowCount()];
 		
-		for (int i = 0; i < getRowCount(); i++) {
-			for (int j = 0; j < getColumnCount(); j++) {
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				lValues[j][i] = this.values[i][j];
 			}
 		}
@@ -1134,6 +1089,19 @@ public class Matrix implements ApproximativeEqualing {
 		this.values = lValues;
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if the current {@link Matrix} is not quadratic.
+	 */
+	private void assertIsQuadratic() {
+		if (!isQuadratic()) {
+			throw new InvalidArgumentException(
+				this,
+				"is not quadratic"
+			);
+		}
 	}
 	
 	//method
@@ -1145,7 +1113,7 @@ public class Matrix implements ApproximativeEqualing {
 	private boolean canBeLineInIdentityMatrix(final int lineIndex) {
 		
 		final var columnCount = getColumnCount();
-		for (int j = 0; j < columnCount; j++) {
+		for (var j = 0; j < columnCount; j++) {
 			if (lineIndex != j) {
 				if (!Calculator.isApproximatelyZero(values[lineIndex - 1][j])) {
 					return false;
@@ -1161,14 +1129,46 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if this matrix is not quadratic.
+	 * @param matrix
+	 * @return true if the current {@link Matrix} equals the given matrix.
 	 */
-	private void supposeIsQuadratic() {
-		if (!isQuadratic()) {
-			throw new InvalidArgumentException(
-				this,
-				"is not quadratic"
-			);
+	private boolean equals(final Matrix matrix) {
+		
+		if (!hasSameSize(matrix)) {
+			return false;
 		}
+				
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < getColumnCount(); j++) {
+				if (matrix.values[i][j] != values[i][j]) {
+					return false;
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	//method
+	/**
+	 * @param matrix
+	 * @return true if the current {@link Matrix} equals the given matrix with a deviation,
+	 * that is smaller than the given epsilon.
+	 */
+	private boolean equalsApproximatively(final Matrix matrix, final double epsilon) {
+			
+		if (!hasSameSize(matrix)) {
+			return false;
+		}
+		
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < getColumnCount(); j++) {
+				if (!Calculator.equalsApproximatively(matrix.values[i][j], values[i][j], epsilon)) {
+					return false;
+				}
+			}
+		}
+		
+		return true;
 	}
 }
