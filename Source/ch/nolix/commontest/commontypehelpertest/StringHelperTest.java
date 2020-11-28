@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.commontypehelpertest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.test.Test;
@@ -11,7 +12,7 @@ import ch.nolix.common.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 160
+ * @lines 250
  */
 public class StringHelperTest extends Test {
 	
