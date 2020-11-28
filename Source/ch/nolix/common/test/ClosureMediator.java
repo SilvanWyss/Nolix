@@ -10,15 +10,15 @@ import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
  * A {@link ClosureMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 80
  */
 public final class ClosureMediator extends Mediator {
 	
 	//attribute
-	final IAction closure;
+	private final IAction closure;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link ClosureMediator} that belongs to the given test and is for the given closure.
 	 * 
