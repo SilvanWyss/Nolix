@@ -45,7 +45,7 @@ final class CapitalSnakeCaseCreator {
 					break;
 				case UPPER_CASE_LETTER:
 					
-					if (previousCharacterType == CharacterType.UNDERSCORE) {
+					if (previousCharacterType == CharacterType.LOWER_CASE_LETTER) {
 						stringBuilder.append(CharacterCatalogue.UNDERSCORE);
 					}
 					
@@ -57,6 +57,8 @@ final class CapitalSnakeCaseCreator {
 				case OTHER:
 					stringBuilder.append(Character.toUpperCase(character));
 			}
+			
+			previousCharacterType = characterType;
 		}
 		
 		return stringBuilder.toString();
