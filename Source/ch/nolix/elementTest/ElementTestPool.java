@@ -10,7 +10,7 @@ import ch.nolix.elementTest.financeTest.FinanceTestPool;
 import ch.nolix.elementTest.graphicTest.GraphicTestPool;
 import ch.nolix.elementTest.timeTest.TimeTestPool;
 import ch.nolix.elementTest.widgetTest.WidgetTestPool;
-import ch.nolix.techTest.projectTest.ProjectTestPool;
+import ch.nolix.techtest.projecttest.ProjectTestPool;
 
 //class
 /**

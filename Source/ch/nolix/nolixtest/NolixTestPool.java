@@ -7,7 +7,7 @@ import ch.nolix.commonTest.CommonTestPool;
 import ch.nolix.elementTest.ElementTestPool;
 import ch.nolix.nolixlicensetest.NolixLicensesTestPool;
 import ch.nolix.systemtest.SystemTestPool;
-import ch.nolix.techTest.TechTestPool;
+import ch.nolix.techtest.TechTestPool;
 import ch.nolix.templatetest.TemplatesTestPool;
 
 //class

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techTest.genericMathTest;
+package ch.nolix.techtest.genericmathtest;
 
 //own import
 import ch.nolix.common.baseTest.TestPool;

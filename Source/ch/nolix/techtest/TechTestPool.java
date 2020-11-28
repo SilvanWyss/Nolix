@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.techTest;
+package ch.nolix.techtest;
 
 //own imports
 import ch.nolix.common.baseTest.TestPool;
-import ch.nolix.techTest.genericMathTest.GenericMathTestPool;
-import ch.nolix.techTest.projectTest.ProjectTestPool;
+import ch.nolix.techtest.genericmathtest.GenericMathTestPool;
+import ch.nolix.techtest.projecttest.ProjectTestPool;
 
 //class
 public final class TechTestPool extends TestPool {
