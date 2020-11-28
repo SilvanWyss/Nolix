@@ -11,7 +11,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 public final class List<E> implements Iterable<E> {
 	
 	//attribute
-	private int elementCount = 0;
+	private int elementCount;
 	
 	//optional attributes
 	private ListNode<E> beginNode;

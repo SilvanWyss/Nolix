@@ -41,7 +41,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	}
 	
 	//attribute
-	private int elementCount = 0;
+	private int elementCount;
 	
 	//optional attributes
 	private LinkedListNode<E> firstNode;

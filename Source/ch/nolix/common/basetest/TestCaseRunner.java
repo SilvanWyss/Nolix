@@ -18,7 +18,7 @@ public final class TestCaseRunner extends Thread {
 	private final BaseTest testInstance;
 	private TestCaseResult result;
 	private long startTime;
-	private int runtimeInMilliseconds = 0;
+	private int runtimeInMilliseconds;
 	
 	//optional attribute
 	private Error exceptionError;

@@ -16,7 +16,7 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	
 	//attributes
 	private final String referencingPropertyHeader;
-	private int backReferenceCount = 0;
+	private int backReferenceCount;
 	
 	//constructor
 	public BaseBackReference(final String referencingPropertyHeader) {

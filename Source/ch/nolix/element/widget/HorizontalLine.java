@@ -15,7 +15,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	public static final String TYPE_NAME = "HorizontalLine";
 	
 	//attribute
-	private boolean isAskedForLength = false;
+	private boolean isAskedForLength;
 	
 	//constructor
 	/**

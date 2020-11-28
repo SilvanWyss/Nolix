@@ -14,7 +14,7 @@ public final class TestPoolRun {
 	//attributes
 	private final TestPool parentTestPool;
 	private final ILinePrinter linePrinter;
-	private boolean started = false;
+	private boolean started;
 	private int runtimeInMilliseconds = -1;
 	
 	//constructor

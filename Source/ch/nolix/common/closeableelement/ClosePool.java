@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
 final class ClosePool {
 	
 	//attribute
-	private boolean closed = false;
+	private boolean closed;
 	
 	//multi-attribute
 	private final LinkedList<ICloseableElement> elements = new LinkedList<>();

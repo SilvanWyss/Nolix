@@ -26,7 +26,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
 	
 	//attribute
-	private boolean hasTargetInfo = false;
+	private boolean hasTargetInfo;
 	
 	//constructor
 	/**

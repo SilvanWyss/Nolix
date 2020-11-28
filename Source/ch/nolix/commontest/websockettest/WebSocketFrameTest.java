@@ -31,7 +31,7 @@ public final class WebSocketFrameTest extends Test {
 		final var webSocketFrame = new WebSocketFrame(
 			new InputStream() {
 				
-				private int counter = 0;
+				private int counter;
 				
 				@Override
 				public int read() throws IOException {

@@ -34,8 +34,8 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	
 	//attributes
 	private BaseFrontGUIClientGUIType counterpartGUIType;
-	private boolean isNotingMouseInput = false;
-	private boolean isWaitingForFileFromCounterpart = false;
+	private boolean isNotingMouseInput;
+	private boolean isWaitingForFileFromCounterpart;
 	
 	//optional attribute
 	private Node latestFileDataFromCounterpart;

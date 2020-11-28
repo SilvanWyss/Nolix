@@ -16,7 +16,7 @@ import ch.nolix.system.guiclient.BackGUIClient;
 public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	
 	//attribute
-	private boolean isReady = false;
+	private boolean isReady;
 	
 	//optional attribute
 	private Image pageLogo;

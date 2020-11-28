@@ -28,7 +28,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	private final E[] array;
 	
 	//attribute
-	private int nextElementIndex = 0;
+	private int nextElementIndex;
 	
 	//constructor
 	/**

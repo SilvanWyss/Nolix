@@ -24,7 +24,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	private static final String FILE_GETTER_HEADER = "FileGetter";
 	
 	//attribute
-	private boolean providesFile = false;
+	private boolean providesFile;
 	
 	//optional attribute
 	private IElementGetter<byte[]> fileProvider;

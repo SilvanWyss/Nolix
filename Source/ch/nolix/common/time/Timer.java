@@ -12,8 +12,8 @@ package ch.nolix.common.time;
 public final class Timer {
 
 	//attributes
-	private long runMiliseconds = 0;
-	private boolean running = false;
+	private long runMiliseconds;
+	private boolean running;
 	private long lastStartTimeInMilliseconds;
 	
 	//method

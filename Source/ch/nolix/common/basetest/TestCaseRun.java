@@ -15,7 +15,7 @@ public final class TestCaseRun {
 	
 	//attributes
 	private final TestCaseWrapper testCaseWrapper;
-	private boolean started = false;
+	private boolean started;
 	
 	//constructor
 	public TestCaseRun(final BaseTest parentTest, final Method testCase) {

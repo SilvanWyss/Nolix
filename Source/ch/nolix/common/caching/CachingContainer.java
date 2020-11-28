@@ -20,7 +20,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	private static final String AUTO_ID_PREFIX = "Z";
 	
 	//attribute
-	private long autoIdCounter = 0;
+	private long autoIdCounter;
 	
 	//multi-attribute
 	private final LinkedList<Pair<String, E>> elements = new LinkedList<>();

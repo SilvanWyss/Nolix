@@ -15,7 +15,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	public static final String TYPE_NAME = "VerticalLine";
 	
 	//attribute
-	private boolean isAskedForLength = false;
+	private boolean isAskedForLength;
 	
 	//constructor
 	/**

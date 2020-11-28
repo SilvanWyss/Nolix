@@ -14,8 +14,8 @@ import ch.nolix.common.validator.Validator;
 public final class GapMatrix<E> implements Clearable<GapMatrix<E>>, IContainer<E> {
 	
 	//attributes
-	private int columnCount = 0;
-	private int elementCount = 0;
+	private int columnCount;
+	private int elementCount;
 	
 	//multi-attribute
 	private Object[][] rows = new Object[0][0];

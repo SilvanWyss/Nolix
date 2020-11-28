@@ -19,7 +19,7 @@ final class JobRunner extends Thread {
 	
 	//attributes
 	private final IAction job;
-	private int finishedJobCount = 0;
+	private int finishedJobCount;
 	private boolean running = true;
 	
 	//optional attributes

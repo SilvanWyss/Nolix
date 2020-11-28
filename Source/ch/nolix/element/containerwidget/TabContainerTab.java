@@ -56,7 +56,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	}
 	
 	//attribute
-	private boolean selected = false;
+	private boolean selected;
 	
 	//attribute
 	private final Label menuItem =

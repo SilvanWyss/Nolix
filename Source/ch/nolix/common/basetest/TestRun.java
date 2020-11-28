@@ -15,7 +15,7 @@ public final class TestRun {
 	//attributes
 	private final BaseTest parentTest;
 	private final ILinePrinter linePrinter;
-	private boolean started = false;
+	private boolean started;
 	private int runtimeInMilliseconds = -1;
 	
 	//multi-attribute

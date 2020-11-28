@@ -14,8 +14,8 @@ import ch.nolix.common.validator.Validator;
 final class JobWrapper implements Runnable {
 	
 	//attributes
-	private boolean finished = false;
-	private boolean running = false;
+	private boolean finished;
+	private boolean running;
 	private final IAction job;
 	
 	//optional attribute

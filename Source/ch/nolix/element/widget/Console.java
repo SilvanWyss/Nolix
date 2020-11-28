@@ -62,7 +62,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * The text cursor position is the position of the text cursor in the edit line of the current {@link Console}.
 	 * The text cursor position is measured by the number of characters.
 	 */
-	private int textCursorPosition = 0;
+	private int textCursorPosition;
 	
 	//optional attribute
 	/**

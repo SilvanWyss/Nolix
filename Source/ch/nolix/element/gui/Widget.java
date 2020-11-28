@@ -63,13 +63,13 @@ TopLeftPositionedRecangular {
 	
 	//attributes	
 	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
-	private boolean greysOutWhenDisabled = false;
+	private boolean greysOutWhenDisabled;
 	
 	//attributes
 	private boolean enabled = true;
-	private boolean expanded = false;
-	private boolean focused = false;
-	private boolean hovered = false;
+	private boolean expanded;
+	private boolean focused;
+	private boolean hovered;
 	
 	//attributes
 	private final WL baseLook = createLook();
@@ -77,12 +77,12 @@ TopLeftPositionedRecangular {
 	private final WL focusLook = createLook();
 	
 	//attributes
-	private int xPositionOnParent = 0;
-	private int yPositionOnParent = 0;
+	private int xPositionOnParent;
+	private int yPositionOnParent;
 	
 	//attributes
-	private int width = 0;
-	private int height = 0;
+	private int width;
+	private int height;
 	
 	//attributes
 	private int cursorXPosition;

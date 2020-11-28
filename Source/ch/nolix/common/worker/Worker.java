@@ -9,7 +9,7 @@ import ch.nolix.common.skillapi.Startable;
 public abstract class Worker implements Startable {
 	
 	//attribute
-	private boolean started = false;
+	private boolean started;
 	
 	//method
 	@Override

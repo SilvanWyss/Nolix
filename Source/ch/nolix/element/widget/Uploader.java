@@ -18,7 +18,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private boolean isHandlingLeftMouseButtonPress = false;
+	private boolean isHandlingLeftMouseButtonPress;
 	
 	//optional attribute
 	private IElementTaker<byte[]> fileTaker;

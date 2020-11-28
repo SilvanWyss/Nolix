@@ -10,7 +10,7 @@ import ch.nolix.element.inputdeviceapi.IMutableKeyBoard;
 public final class KeyBoard implements IMutableKeyBoard {
 	
 	//attribute
-	private boolean shiftIsLocked = false;
+	private boolean shiftIsLocked;
 	
 	//multi-attribute
 	private final LinkedList<Key> pressedKeys = new LinkedList<>();

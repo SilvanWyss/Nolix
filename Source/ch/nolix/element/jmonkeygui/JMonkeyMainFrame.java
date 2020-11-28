@@ -31,7 +31,7 @@ import ch.nolix.element.shape.Sphere;
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
 	//attributes
-	private boolean closed = false;
+	private boolean closed;
 	private final AppSettings appSettings = new AppSettings(true);
 	
 	//attribute

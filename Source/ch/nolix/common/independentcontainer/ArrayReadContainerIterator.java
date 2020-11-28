@@ -13,7 +13,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 
 	//attributes
 	private final E[] array;
-	private int nextElementIndex = 0;
+	private int nextElementIndex;
 	
 	//method
 	public ArrayReadContainerIterator(final E[] array) {

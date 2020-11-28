@@ -190,8 +190,8 @@ extends Widget<BW, BWL> {
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
 	
 	//attributes
-	private boolean isMovingVerticalScrollBarCursor = false;
-	private boolean isMovingHorizontalScrollBarCursor = false;
+	private boolean isMovingVerticalScrollBarCursor;
+	private boolean isMovingHorizontalScrollBarCursor;
 	
 	//optional attributes
 	private int verticalScrollingCursorStartYPosition;

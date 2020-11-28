@@ -18,7 +18,7 @@ import ch.nolix.common.skillapi.Closeable;
 public abstract class BaseTest {
 	
 	//attribute
-	private boolean isTestInstance = false;
+	private boolean isTestInstance;
 	
 	//multi-attributes
 	private final List<Error> expectationErrors = new List<>();

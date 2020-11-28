@@ -5,9 +5,9 @@ package ch.nolix.element.inputdevice;
 public final class Mouse {
 	
 	//attributes
-	private boolean leftMouseButtonIsPressed = false;
-	private boolean rightMouseButtonIsPressed = false;
-	private boolean mouseWheelIsPressed = false;
+	private boolean leftMouseButtonIsPressed;
+	private boolean rightMouseButtonIsPressed;
+	private boolean mouseWheelIsPressed;
 	
 	//method
 	public boolean leftMouseButtonIsPressed() {
