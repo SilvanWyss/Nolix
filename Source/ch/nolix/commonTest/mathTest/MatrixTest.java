@@ -136,7 +136,9 @@ public final class MatrixTest extends Test {
 	public void testCase_getInverse_3() {
 		
 		//setup
-		final var matrix = new Matrix(4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
+		final var matrix =
+		new Matrix(4)
+		.setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
 		
 		//execution
 		final var inverse = matrix.getInverse();
@@ -202,10 +204,12 @@ public final class MatrixTest extends Test {
 		final var matrix = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
 		
 		//execution
-		final Matrix transposed = matrix.getTransposed();
+		final var transposed = matrix.getTransposed();
 		
 		//verification
-		Matrix expectedTransposed = new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0, 1.0);
+		final var expectedTransposed =
+		new Matrix(3, 4)
+		.setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0, 1.0);
 		expect(transposed).isEqualTo(expectedTransposed);
 	}
 	

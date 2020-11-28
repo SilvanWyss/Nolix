@@ -136,7 +136,11 @@ public final class EntitySetSession extends HeaderedSession {
 							.setRole(ButtonRole.LinkButton)
 							.setText(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
 							.setLeftMouseButtonPressAction(
-								() -> openEntitySession(referenceProperty.getRefEntitySetOfReferencedEntities().getName(), referenceProperty.getRefEntity().getId())
+								() ->
+								openEntitySession(
+									referenceProperty.getRefEntitySetOfReferencedEntities().getName(),
+									referenceProperty.getRefEntity().getId()
+								)
 							)
 						);
 						

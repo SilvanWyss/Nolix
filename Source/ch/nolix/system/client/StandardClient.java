@@ -57,7 +57,8 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates a new standard client that will connect to the given target application on the given port on the machine with the given ip.
+	 * Creates a new {@link StandardClient}
+	 * that will connect to the given target application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port

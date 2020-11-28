@@ -72,8 +72,8 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this approximate equaling deviation mediator
-	 * does not equal to the given value with a deviation that is not bigger than the max deviation of this approximative equaling deviation mediator.
+	 * Generates an error if the value of this approximate equaling deviation mediator does not equal the given value
+	 * with a deviation that is not bigger than the max deviation of this approximative equaling deviation mediator.
 	 * 
 	 * @param value
 	 */
@@ -90,8 +90,8 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this approximate equaling deviation mediator
-	 * equals to the given value with a deviation that is not bigger than the max deviation of this approximative equaling deviation mediator.
+	 * Generates an error if the value of this approximate equaling deviation mediator equals to the given value
+	 * with a deviation that is not bigger than the max deviation of this approximative equaling deviation mediator.
 	 * 
 	 * @param value
 	 */
@@ -102,7 +102,15 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 		}
 		
 		if (this.value != null && this.value.equalsApproximatively(value, maxDeviation)) {
-			addCurrentTestCaseError("'A value that does not equal " + value + " with ±" + maxDeviation + " was expected, but '" + this.value + "' was received.");
+			addCurrentTestCaseError(
+				"A value that does not equal "
+				+ value
+				+ " with ±"
+				+ maxDeviation
+				+ " was expected, but '"
+				+ this.value
+				+ "' was received."
+			);
 		}
 	}
 }

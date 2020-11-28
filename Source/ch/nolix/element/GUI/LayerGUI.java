@@ -390,7 +390,9 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 		
 		//Handles the case that the current GUI has a background ColorGradient.
 		if (backGround.hasBackgroundColorGradient()) {
-			attributes.addAtEnd(backGround.getBackgroundColorGradient().getSpecificationAs(Layer.BACKGROUND_COLOR_GRADIENT_HEADER));
+			attributes.addAtEnd(
+				backGround.getBackgroundColorGradient().getSpecificationAs(Layer.BACKGROUND_COLOR_GRADIENT_HEADER)
+			);
 		}
 		
 		return attributes;
@@ -705,7 +707,10 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseMoveWhenDoesNotHaveInputTaker(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
+	protected final void noteMouseMoveWhenDoesNotHaveInputTaker(
+		final int viewAreaCursorXPosition,
+		final int viewAreaCursorYPosition
+	) {
 		getRefTopOrBackgroundLayer().noteMouseMove(viewAreaCursorXPosition, viewAreaCursorYPosition);
 		refresh();
 	}

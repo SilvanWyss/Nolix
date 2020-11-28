@@ -3,7 +3,8 @@ package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * A non negative argument exception is an exception that is intended to be thrown when an argument is undesired not negative.
+ * A {@link NonNegativeArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when an argument is undesirably not negative.
  * 
  * @author Silvan Wyss
  * @month 2016-11

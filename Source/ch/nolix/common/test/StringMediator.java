@@ -59,7 +59,13 @@ public class StringMediator extends ValueMediator<String> {
 		
 		if (getRefValue() == null || getRefValue().length() != length) {
 			addCurrentTestCaseError(
-				"A string with the length " + length + " was expected, but '" + getRefValue() + "', that has the length " + getRefValue().length() + " was received."
+				"A string with the length "
+				+ length
+				+ " was expected, but '"
+				+ getRefValue()
+				+ "', that has the length "
+				+ getRefValue().length()
+				+ " was received."
 			);
 		}
 	}
@@ -127,7 +133,9 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithLetter() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isLetter(getRefValue().charAt(0))) {
-			addCurrentTestCaseError("A string that starts with a letter was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError(
+				"A string that starts with a letter was expected, but '" + getRefValue() + "' was received."
+			);
 		}
 	}
 	
@@ -137,7 +145,9 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithLowerCaseLetter() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isLowerCase(getRefValue().charAt(0))) {
-			addCurrentTestCaseError("A string that starts with a lower case letter was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError(
+				"A string that starts with a lower case letter was expected, but '" + getRefValue() + "' was received."
+			);
 		}
 	}
 	
@@ -147,7 +157,11 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithUpperCaseLetter() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isUpperCase(getRefValue().charAt(0))) {
-			addCurrentTestCaseError("A string that starts with an upper case letter was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError(
+				"A string that starts with an upper case letter was expected, but '"
+				+ getRefValue()
+				+ "' was received."
+			);
 		}
 	}
 }

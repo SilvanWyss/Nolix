@@ -234,7 +234,8 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * 
 	 * @param inputNeuron
 	 * @return the current {@link BaseNeuron}.
-	 * @throws NonBiggerArgumentException if the current {@link BaseNeuron} has not more input neurons than its minimal input neuron count says.
+	 * @throws NonBiggerArgumentException
+	 * if the current {@link BaseNeuron} has not more input neurons than its minimal input neuron count says.
 	 * @throws InvalidArgumentException if the current {@link BaseNeuron} does not contain the given input neuron.
 	 */
 	public final N removeInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
@@ -274,7 +275,8 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * @param inputConnection
 	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input connection is null.
-	 * @throws NonSmallerArgumentException if the current {@link BaseNeuron} has not less input neurons than its maximal input neurons count says.
+	 * @throws NonSmallerArgumentException
+	 * if the current {@link BaseNeuron} has not less input neurons than its maximal input neurons count says.
 	 * @throws InvalidArgumentException if the current {@link BaseNeuron} contains already the input neuron of the given input connection.
 	 */
 	private final void addInputConnection(final InputConnection<I> inputConnection) {

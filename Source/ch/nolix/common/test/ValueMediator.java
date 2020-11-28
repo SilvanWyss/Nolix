@@ -49,7 +49,9 @@ public class ValueMediator<V> extends Mediator {
 		}
 		
 		if (getRefValue() != null && !getRefValue().equals(value)) {
-			addCurrentTestCaseError("A value that equals '" + value + "' was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError(
+				"A value that equals '" + value + "' was expected, but '" + getRefValue() + "' was received."
+			);
 		}
 	}
 	
@@ -66,7 +68,9 @@ public class ValueMediator<V> extends Mediator {
 		}
 		
 		if (getRefValue() != null && getRefValue().equals(value)) {
-			addCurrentTestCaseError("A value that does not equal '" + value + "' was expected, but " + getRefValue() + " was received.");
+			addCurrentTestCaseError(
+				"A value that does not equal '" + value + "' was expected, but " + getRefValue() + " was received."
+			);
 		}
 	}
 	
@@ -85,7 +89,9 @@ public class ValueMediator<V> extends Mediator {
 		}
 		
 		if (!condition.getOutput(getRefValue())) {
-			addCurrentTestCaseError("A value that fulfils the given condition was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError(
+				"A value that fulfils the given condition was expected, but '" + getRefValue() + "' was received."
+			);
 		}
 	}
 	
@@ -104,7 +110,11 @@ public class ValueMediator<V> extends Mediator {
 		}
 		
 		if (condition.getOutput(getRefValue())) {
-			addCurrentTestCaseError("A value that does not fulfil the given condition was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError(
+				"A value that does not fulfil the given condition was expected, but '"
+				+ getRefValue()
+				+ "' was received."
+			);
 		}
 	}
 	
@@ -165,7 +175,9 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isNotSameAs(final Object value) {
 		if (getRefValue() == value) {
-			addCurrentTestCaseError("An other value than '" + getRefValue() + "' was expected, but the same value was received.");
+			addCurrentTestCaseError(
+				"An other value than '" + getRefValue() + "' was expected, but the same value was received."
+			);
 		}
 	}
 	

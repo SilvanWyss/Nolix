@@ -3,7 +3,8 @@ package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * A not null argument exception is an argument exception that is intended to be thrown when an argument is undesired not null.
+ * A {@link ArgumentIsNotNullException} is a {@link InvalidArgumentException}
+ * that is intended to be thrown when an argument is undesirably not null.
  * 
  * @author Silvan Wyss
  * @month 2017-01

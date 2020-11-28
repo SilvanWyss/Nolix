@@ -82,7 +82,10 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 					setTextCursorPosition(0);
 				}
 			
-				else if (cursorXPositionOnContentArea >= textFormat.getSwingTextWidth(text) - textFormat.getSwingTextWidth(text.charAt(text.length() - 1))) {
+				else if (
+					cursorXPositionOnContentArea >=
+					textFormat.getSwingTextWidth(text) - textFormat.getSwingTextWidth(text.charAt(text.length() - 1))
+				) {
 					setTextCursorPosition(text.length());
 				}
 				

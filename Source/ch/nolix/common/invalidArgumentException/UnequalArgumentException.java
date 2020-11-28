@@ -3,7 +3,8 @@ package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * An unequal argument exception is an argument exception that is intendend to be thrown when an argument does undesired not equal an expected value.
+ * A {@link UnequalArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when an argument does undesirably not equal an expected value.
  * 
  * @author Silvan Wyss
  * @month 2016-12

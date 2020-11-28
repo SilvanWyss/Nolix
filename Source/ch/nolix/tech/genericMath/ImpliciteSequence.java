@@ -138,7 +138,8 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 		while (valuesAndSquaredMagnitudes.size() < index - startIndex + 1) {
 			
 			@SuppressWarnings("unchecked")
-			final var previousValues = (N[])Array.newInstance(valuesAndSquaredMagnitudes.get(0).getRefElement1().getClass(), startValuesCount);
+			final var previousValues =
+			(N[])Array.newInstance(valuesAndSquaredMagnitudes.get(0).getRefElement1().getClass(), startValuesCount);
 			
 			final var endIndex = valuesAndSquaredMagnitudes.size() - startValuesCount;
 			var j = 0;

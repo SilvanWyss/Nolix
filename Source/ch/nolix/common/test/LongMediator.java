@@ -71,7 +71,9 @@ public final class LongMediator extends Mediator {
 		}
 		
 		if (value < min || value > max) {
-			addCurrentTestCaseError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is between " + min + " and " + max + " was expected, but " + value + " was received."
+			);
 		}
 	}
 	
@@ -83,7 +85,9 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isBiggerThan(final long value) {
 		if (this.value <= value) {
-			addCurrentTestCaseError("A value that is bigger than " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is bigger than " + value + " was expected, but " + this.value + " was received."
+			);
 		}
 	}
 	
@@ -95,7 +99,13 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isBiggerThanOrEquals(final long value) {
 		if (this.value < value) {
-			addCurrentTestCaseError("A value that is bigger than or equals " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is bigger than or equals "
+				+ value
+				+ " was expected, but "
+				+ this.value
+				+ " was received."
+			);
 		}
 	}
 	
@@ -114,7 +124,9 @@ public final class LongMediator extends Mediator {
 		}
 		
 		if (this.value % value != 0) {
-			addCurrentTestCaseError("A value that is dividable by " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is dividable by " + value + " was expected, but " + this.value + " was received."
+			);
 		}
 	}
 	
@@ -178,7 +190,9 @@ public final class LongMediator extends Mediator {
 		}
 		
 		if (value >= min && value <= max) {
-			addCurrentTestCaseError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is not between " + min + " and " + max + " was expected, but " + value + " was received."
+			);
 		}
 	}
 	
@@ -190,7 +204,9 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isNotEqualTo(final long value) {
 		if (this.value == value) {
-			addCurrentTestCaseError("A value that does not equal " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(
+				"A value that does not equal " + value + " was expected, but " + this.value + " was received."
+			);
 		}
 	}
 	
@@ -248,7 +264,9 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isSmallerThan(final long value) {
 		if (this.value >= value) {
-			addCurrentTestCaseError("A value that is smaller than " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is smaller than " + value + " was expected, but " + this.value + " was received."
+			);
 		}
 	}
 	
@@ -260,7 +278,13 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isSmallerThanOrEquals(final long value) {
 		if (this.value > value) {
-			addCurrentTestCaseError("A value that is smaller than or equals " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(
+				"A value that is smaller than or equals "
+				+ value
+				+ " was expected, but "
+				+ this.value
+				+ " was received."
+			);
 		}
 	}
 }

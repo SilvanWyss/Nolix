@@ -295,7 +295,8 @@ public class Matrix implements ApproximativeEqualing {
 	/**
 	 * @param object
 	 * @param epsilon
-	 * @return true if this matrix equals approximatively the given object with a tolerance that is smaller than the given epsilon
+	 * @return true
+	 * if this matrix equals approximatively the given object with a tolerance that is smaller than the given epsilon.
 	 */
 	@Override
 	public boolean equalsApproximatively(final Object object, final double epsilon) {

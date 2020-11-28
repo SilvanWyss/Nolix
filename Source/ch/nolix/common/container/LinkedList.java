@@ -1055,7 +1055,8 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	/**
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new {@link LinkedList} with the elements from the given start index to the given end index ordered according to the given norm.
+	 * @return a new {@link LinkedList}
+	 * with the elements from the given start index to the given end index ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private <E2> LinkedList<E> getOrderedSubList(

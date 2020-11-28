@@ -3,7 +3,8 @@ package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * A non bigger argument exception is an argument exception that is intended to be thrown when an argument is undesired not bigger than a given limit.
+ * A {@link NonBiggerArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when an argument is undesirably not bigger than a given limit.
  * 
  * @author Silvan Wyss
  * @month 2016-12
@@ -40,7 +41,8 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
-	 * Creates a new non bigger argument exception for the given argument, that has the given argument name, and for the given limit.
+	 * Creates a new {@link NonBiggerArgumentException}
+	 * for the given argument, that has the given argument name, and for the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -59,7 +61,8 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new non bigger argument exception for the given argument, that has the given argument name, and for the given limit.
+	 * Creates a new {@link NonBiggerArgumentException}
+	 * for the given argument, that has the given argument name, and for the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument

@@ -21,7 +21,8 @@ public class VolumeCandlestick extends Candlestick {
 
 	//constructor
 	/**
-	 * Creates a new volume candlestick with the given time, volume, opening price, closing price, lowest price and highest price.
+	 * Creates a new volume candlestick
+	 * with the given time, volume, opening price, closing price, lowest price and highest price.
 	 * 
 	 * @param time			The time of this candle stick.
 	 * @param volume		The volume of this candle stick.

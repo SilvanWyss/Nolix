@@ -340,7 +340,8 @@ public class Candlestick extends Element<Candlestick> {
 	 * -The lower wick to length ratio of the candlestick is bigger than a given value.
 	 * 
 	 * @param minLowerWickLengthRatio
-	 * @return true if the current {@link CandleStick} is a hammer whose lower wick to length ratio is bigger than or equal to the given min lower wick length ratio.
+	 * @return true if the current {@link CandleStick}
+	 * is a hammer whose lower wick to length ratio is bigger than or equal to the given min lower wick length ratio.
 	 * @throws NegativeArgumentException if the given min lower wick length ratio is negative.
 	 */
 	public final boolean isHammer(final double minLowerWickLengthRatio) {
@@ -388,7 +389,8 @@ public class Candlestick extends Element<Candlestick> {
 	 * An inverted hammer is also called a shooting star.
 	 * 
 	 * @param minUpperWickLengthRatio
-	 * @return true if the current {@link CandleStick} is a hammer whose upper wick to length ratio is bigger than or equal to the given min upper wick length ratio. 
+	 * @return trueif the current {@link CandleStick}
+	 * is a hammer whose upper wick to length ratio is bigger than or equal to the given min upper wick length ratio.
 	 * @throws NegativeArgumentException if the given min upper wick length ratio is negative.
 	 */
 	public final boolean isInvertedHammer(final double minUpperWickLengthRatio) {

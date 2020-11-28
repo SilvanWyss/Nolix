@@ -3,7 +3,8 @@ package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
-* A bigger argument exception is an exception that is intended to be thrown when an argument is undesired bigger than a given limit.
+* A {@link BiggerArgumentException} is a {@link InvalidArgumentException}
+* that is supposed to be thrown when an argument is undesirably bigger than a given limit.
 * 
 * @author Silvan Wyss
 * @month 2016-02
@@ -40,7 +41,8 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new bigger argument exception for the given argument, that has the given argument name, and the given limit.
+	 * Creates a new bigger argument exception for the given argument,
+	 * that has the given argument name, and the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -59,7 +61,8 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new bigger argument exception for the given argument, that has the given argument name, and the given limit.
+	 * Creates a new bigger argument exception for the given argument,
+	 * that has the given argument name, and the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument
