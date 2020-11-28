@@ -5,11 +5,31 @@ package ch.nolix.template.guilook;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.LabelRole;
 
 //class
 public final class RedLineGUILook extends Configuration {
+	
+	//nested class
+	private static final class ButtonLook extends DeepConfiguration {
+		
+		//constructor
+		public ButtonLook() {
+			
+			setSelectorType(Button.class);
+			
+			addAttachingAttribute(
+				"CursorIcon(Hand)",
+				"ContentPosition(Center)",
+				"BaseLeftPadding(5)",
+				"BaseRightPadding(5)",
+				"BaseTextColor(Red)",
+				"HoverTextColor(0xF0F0F0)"
+			);
+		}
+	}
 	
 	//constructor
 	public RedLineGUILook() {
@@ -69,28 +89,7 @@ public final class RedLineGUILook extends Configuration {
 				"BaseTextSize(20)",
 				"BaseBottomPadding(10)"
 			),
-			new DeepConfiguration()
-			.setSelectorType("Button")
-			.addAttachingAttribute(
-				"CursorIcon(Hand)",
-				"ContentPosition(Center)",
-				"BaseLeftPadding(5)",
-				"BaseRightPadding(5)",
-				"BaseTextColor(Red)",
-				"HoverTextColor(0xF0F0F0)"
-			),
-			new DeepConfiguration()
-			.addSelectorRole(
-				ButtonRole.ActionButton,
-				ButtonRole.CancelButton,
-				ButtonRole.CreateButton,
-				ButtonRole.DeleteButton,
-				ButtonRole.SaveButton)
-			.addAttachingAttribute(
-				"MinWidth(100)",
-				"BaseBackgroundColor(0x100060)",						
-				"HoverBackgroundColor(0x100040)"
-			),
+			new ButtonLook(),
 			new DeepConfiguration()
 			.addSelectorRole(ButtonRole.LinkButton)
 			.addAttachingAttribute(						
