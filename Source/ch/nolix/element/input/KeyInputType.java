@@ -3,7 +3,7 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.elementAPI.IElementEnum;
+import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
 public enum KeyInputType implements IElementEnum {

@@ -4,7 +4,7 @@ package ch.nolix.system.baseguiclient;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IIntGetter;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.elementEnum.RotationDirection;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;

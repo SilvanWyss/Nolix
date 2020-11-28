@@ -1,6 +1,6 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Label;
 
 /**

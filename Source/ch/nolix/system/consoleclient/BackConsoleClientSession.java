@@ -2,9 +2,9 @@
 package ch.nolix.system.consoleclient;
 
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.element.GUI.WidgetIdCatalogue;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.gui.WidgetIdCatalogue;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.system.baseguiclient.BaseBackGUIClientSession;

@@ -5,8 +5,8 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.layerElement.LayerElement;
-import ch.nolix.element.layerElement.LayerProperty;
+import ch.nolix.element.layerelement.LayerElement;
+import ch.nolix.element.layerelement.LayerProperty;
 
 //class
 public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLook> {

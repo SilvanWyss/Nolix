@@ -24,7 +24,7 @@ import ch.nolix.common.wrapperexception.WrapperException;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.elementAPI.IMutableElement;
+import ch.nolix.element.elementapi.IMutableElement;
 
 //class
 public final class Image extends Element<Image> implements IMutableElement<Image> {

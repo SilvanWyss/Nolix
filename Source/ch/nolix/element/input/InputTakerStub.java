@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.input;
 
-//own import
-import ch.nolix.element.elementEnum.RotationDirection;
+import ch.nolix.element.elementenum.RotationDirection;
 
 //class
 public class InputTakerStub implements IInputTaker {

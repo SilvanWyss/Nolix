@@ -2,7 +2,7 @@
 package ch.nolix.techapi.projectapi;
 
 import ch.nolix.common.skillapi.Resettable;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.time.Time;
 
 //interface

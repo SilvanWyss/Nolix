@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.elementTest.elementEnumTest} package defines tests for the {@link ch.nolix.element.elementEnum} package.
+ * The {@link ch.nolix.elementTest.elementEnumTest} package defines tests for the {@link ch.nolix.element.elementenum} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

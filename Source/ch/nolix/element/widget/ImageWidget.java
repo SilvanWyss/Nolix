@@ -4,9 +4,9 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 

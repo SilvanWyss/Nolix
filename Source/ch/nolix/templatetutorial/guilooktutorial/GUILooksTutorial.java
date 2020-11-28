@@ -1,9 +1,9 @@
 package ch.nolix.templatetutorial.guilooktutorial;
 
-import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.dialog.InfoDialog;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.CheckBox;
 import ch.nolix.element.widget.Console;

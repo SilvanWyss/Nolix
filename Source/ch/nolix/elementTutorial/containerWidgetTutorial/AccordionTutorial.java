@@ -1,9 +1,9 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidget.Accordion;
-import ch.nolix.element.containerWidget.AccordionTab;
+import ch.nolix.element.containerwidget.Accordion;
+import ch.nolix.element.containerwidget.AccordionTab;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Area;
 
 /**

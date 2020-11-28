@@ -3,7 +3,7 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.smartElementAPI.ISmartElementEnum;
+import ch.nolix.element.smartelementapi.ISmartElementEnum;
 
 //enum
 public enum MouseInputType implements ISmartElementEnum<MouseInputType> {

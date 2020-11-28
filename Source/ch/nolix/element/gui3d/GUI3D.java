@@ -1,0 +1,410 @@
+//package declaration
+package ch.nolix.element.gui3d;
+
+//Java import
+import java.lang.reflect.InvocationTargetException;
+
+//own imports
+import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
+import ch.nolix.common.pair.Pair;
+import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.common.skillapi.Closeable;
+import ch.nolix.common.skillapi.Refreshable;
+import ch.nolix.common.validator.Validator;
+import ch.nolix.element.base.MutableValue;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.configuration.ConfigurationElement;
+import ch.nolix.element.elementapi.IConfigurableElement;
+
+//class
+/**
+ * @author Silvan Wyss
+ * @month 2017-11
+ * @lines 410
+ * @param <G> The type of a {@link GUI3D}.
+ */
+public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
+implements Clearable<G>, Closeable, Refreshable {
+	
+	//constants
+	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+	
+	//attribute
+	private final MutableValue<String> title =
+	new MutableValue<>(
+		PascalCaseNameCatalogue.TITLE,
+		this::setTitle,
+		BaseNode::getOneAttributeHeader,
+		Node::withOneAttribute
+	);
+	
+	//attribute
+	private final MutableValue<Color> backgroundColor =
+	new MutableValue<>(
+		PascalCaseNameCatalogue.BACKGROUND_COLOR,
+		this::setBackgroundColor,
+		Color::fromSpecification,
+		Color::getSpecification
+	);
+	
+	//optional element
+	private Shape<?> rootShape;
+	
+	//multiple element
+	private LinkedList<Pair<Class<?>, IShapeRenderer<?, ?, ?>>> shapeClasses = new LinkedList<>();
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to the current {@link GUI3D}.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	@Override
+	public final void addOrChangeAttribute(final BaseNode attribute) {
+		
+		//Handles the case that the given attribute specifies a shape.
+		if (canCreateShape(attribute.getHeader())) {
+			setRootShape(createShape(attribute.getHeader()));
+			return;
+		}
+		
+		//Handles the case that the given attribute does not specify a shape.
+		super.addOrChangeAttribute(attribute);
+	}
+	
+	//method
+	/**
+	 * Adds the given shape class with the given shape renderer to the current {@link GUI3D}.
+	 * 
+	 * @param shapeClass
+	 * @param shapeRenderer
+	 * @return the current {@link GUI3D}.
+	 * @throws ArgumentIsNullException if the given shape class is null.
+	 * @throws ArgumentIsNullException if the given shape renderer is null.
+	 * @throws InvalidArgumentException if the current {@link GUI3D} contains already
+	 * a shape class with the same name as the given shape class.
+	 */
+	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
+		
+		//Asserts that the given shape class is not null.
+		Validator.assertThat(shapeClass).thatIsNamed("shape class").isNotNull();
+		
+		//Asserts that the given shape renderer is not null.
+		Validator.assertThat(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
+		
+		//Asserts that the current {@link _3D_GUI} does not contain already
+		//a shape class with the same name as the given shape class.
+		if (canCreateShape(shapeClass.getSimpleName())) {
+			throw new InvalidArgumentException(this, "contains already a shape class '" + shapeClass + "'");
+		}
+		
+		shapeClasses.addAtEnd(new Pair<>(shapeClass, shapeRenderer));
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * @param type
+	 * @return true if the current {@link GUI3D} can create a shape of the given type.
+	 */
+	public final boolean canCreateShape(final String type) {
+		return shapeClasses.contains(sc -> sc.getRefElement1().getSimpleName().equals(type));
+	}
+	
+	//method
+	/**
+	 * Removes the root shape of the current {@link GUI3D}.
+	 */
+	@Override
+	public final G clear() {
+		
+		removeRootShape();
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * @return the attributes of the current {@link GUI3D}.
+	 */
+	@Override
+	public LinkedList<Node> getAttributes() {
+		
+		//Calls method of the base class.
+		final LinkedList<Node> attributes = super.getAttributes();
+		
+		//Handles the case that the current {@link _3D_GUI} has a root shape.
+		if (hasRootShape()) {
+			attributes.addAtEnd(getRefRootShape().getSpecification());
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the background color of the current {@link GUI3D}.
+	 */
+	public final Color getBackgroundColor() {
+		return backgroundColor.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
+		return ReadContainer.forIterable(getRefShapes().asContainerWithElementsOfEvaluatedType());
+	}
+	
+	//method
+	/**
+	 * @return the root shape of the current {@link GUI3D}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link GUI3D} does not have a root shape.
+	 */
+	public final Shape<?> getRefRootShape() {
+		
+		//Asserts that the current {@link _3D_GUI} has a root shape.
+		if (!hasRootShape()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "root shape");
+		}
+		
+		return rootShape;
+	}
+	
+	//method
+	/**
+	 * @return the title of the current {@link GUI3D}.
+	 */
+	public final String getTitle() {
+		return title.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link GUI3D} has a root shape.
+	 */
+	public final boolean hasRootShape() {
+		return (rootShape != null);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean isEmpty() {
+		return hasRootShape();
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link GUI3D} note a left mouse button press.
+	 */
+	public abstract void noteLeftMouseButtonPress();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link GUI3D} note a left mouse button release.
+	 */
+	public abstract void noteLeftMouseButtonRelease();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link GUI3D} note a right mouse button press.
+	 */
+	public abstract void noteRightMouseButtonPress();
+	
+	//method declaration
+	/**
+	 * Lets the current {@link GUI3D} note a right mouse button release.
+	 */
+	public abstract void noteRightMouseButtonRelease();
+	
+	//method
+	/**
+	 * Removes the root shape of the current {@link GUI3D}.
+	 * 
+	 * @return the current {@link GUI3D}.
+	 */
+	public final G removeRootShape() {
+		
+		rootShape = null;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void refresh() {
+		
+		//Handles the case that the current {@link _3D_GUI} has a root shape.
+		if (hasRootShape()) {
+			getRefRootShape().renderRecursively();
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public G reset() {
+		
+		setTitle(DEFAULT_TITLE);
+		
+		//Calls method of the base class.
+		return super.reset();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public G resetConfiguration() {
+		
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the background color of the current {@link GUI3D}.
+	 * 
+	 * @param backgroundColor
+	 * @return the current {@link GUI3D}.
+	 * @throws ArgumentIsNullException if the given background color is null.
+	 */
+	public final G setBackgroundColor(final Color backgroundColor) {
+				
+		this.backgroundColor.setValue(backgroundColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the root shape of the current {@link GUI3D}.
+	 * 
+	 * @param rootShape
+	 * @return the current {@link GUI3D}.
+	 * @throws ArgumentIsNullException if the given root shape is null.
+	 */
+	public G setRootShape(final Shape<?> rootShape) {
+		
+		//Sets this GUI to the given root shape.
+		rootShape.setGUI(this);
+		
+		//Sets the given root shape to the current {@link _3D_GUI}.
+		this.rootShape = rootShape;
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the title of the current {@link GUI3D}.
+	 * 
+	 * @param title
+	 * @return the current {@link GUI3D}.
+	 * @throws ArgumentIsNullException if the given title is null.
+	 * @throws EmptyArgumentException if the given title is blank.
+	 */
+	public final G setTitle(final String title) {
+		
+		//Asserts that the given title is not blank.
+		Validator.assertThat(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		
+		//Sets the title of the current 3D_GUI.
+		this.title.setValue(title);
+		
+		return asConcrete();
+	}
+	
+	/**
+	 * @param shape
+	 * @return a new shape renderer for the given shape from the current {@link GUI3D}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link GUI3D} does not contain a shape renderer for the given shape.
+	 */
+	protected final IShapeRenderer<?, ?, ?> getShapeRendererFor(final Shape<?> shape) {
+		return
+		shapeClasses
+		.getRefFirst(sc -> sc.getRefElement1() == shape.getClass())
+		.getRefElement2();
+	}
+	
+	//method
+	/**
+	 * @param type
+	 * @return a new shape of the given type.
+	 * @throws InvalidArgumentException if the current {@link GUI3D} cannot create a shape of the given type.
+	 */
+	private Shape<?> createShape(final String type) {
+		try {
+			return
+			(Shape<?>)
+			shapeClasses
+			.getRefFirst(sc -> sc.getRefElement1().getSimpleName().equals(type))
+			.getRefElement1().getDeclaredConstructor().newInstance();
+		}
+		catch (
+			final 
+			InstantiationException
+			| IllegalAccessException
+			| IllegalArgumentException
+			| InvocationTargetException
+			| NoSuchMethodException
+			| SecurityException
+			exception
+		) {
+			throw new InvalidArgumentException(
+				VariableNameCatalogue.TYPE,
+				type,
+				"is not valid because the current " + getType() + " cannot create a '" + type + "' shape"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the shapes of the current {@link GUI3D}.
+	 */
+	private final ReadContainer<Shape<?>> getRefShapes() {
+		
+		final LinkedList<Shape<?>> shapes = new LinkedList<>();
+		
+		//Handles the case that the current {@link _3D_GUI} has a root shape.
+		if (hasRootShape()) {
+			shapes.addAtEnd(getRefRootShape());
+		}
+		
+		return ReadContainer.forIterable(shapes);
+	}
+}

@@ -10,7 +10,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.smartElementAPI.ISmartElement;
+import ch.nolix.element.smartelementapi.ISmartElement;
 
 //class
 /**

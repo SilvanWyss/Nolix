@@ -11,7 +11,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 public abstract class Property<V> implements Headered, IElement {

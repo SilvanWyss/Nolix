@@ -3,8 +3,8 @@ package ch.nolix.template.guilook;
 
 //own imports
 import ch.nolix.element.configuration.DeepConfiguration;
+import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.LabelRole;
 
 //class

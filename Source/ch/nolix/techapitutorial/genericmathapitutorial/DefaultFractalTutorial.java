@@ -1,7 +1,7 @@
 package ch.nolix.techapitutorial.genericmathapitutorial;
 
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
-import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.tech.genericMath.Registrator;

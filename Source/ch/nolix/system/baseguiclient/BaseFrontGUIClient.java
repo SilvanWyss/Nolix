@@ -9,7 +9,7 @@ import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.localcomputer.PopupWindowProvider;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.gui.GUI;
 import ch.nolix.element.input.IInput;
 import ch.nolix.system.client.Client;
 import ch.nolix.system.guiclient.FrontGUIClient;

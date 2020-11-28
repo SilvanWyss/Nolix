@@ -3,9 +3,9 @@ package ch.nolix.element.widget;
 
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.elementEnum.ContentPosition;
+import ch.nolix.element.elementenum.ContentPosition;
+import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;
 
 //class

@@ -2,9 +2,9 @@
 package ch.nolix.elementTest.containerWidgetTest;
 
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.element.containerWidget.Accordion;
-import ch.nolix.element.containerWidget.AccordionExpansionBehavior;
-import ch.nolix.element.containerWidget.AccordionTab;
+import ch.nolix.element.containerwidget.Accordion;
+import ch.nolix.element.containerwidget.AccordionExpansionBehavior;
+import ch.nolix.element.containerwidget.AccordionTab;
 import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 
 //class

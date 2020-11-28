@@ -3,10 +3,10 @@ package ch.nolix.template.guilook;
 
 //own imports
 import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.containerWidget.Grid;
-import ch.nolix.element.GUI.LayerRole;
-import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.Grid;
+import ch.nolix.element.gui.LayerRole;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.widget.BorderWidget;

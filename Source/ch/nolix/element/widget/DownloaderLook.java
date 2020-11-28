@@ -4,7 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.layerElement.LayerProperty;
+import ch.nolix.element.layerelement.LayerProperty;
 
 //class
 public final class DownloaderLook extends TextLineWidgetLook<DownloaderLook> {

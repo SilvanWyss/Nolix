@@ -5,7 +5,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI3D.Shape;
+import ch.nolix.element.gui3d.Shape;
 
 //class
 /**

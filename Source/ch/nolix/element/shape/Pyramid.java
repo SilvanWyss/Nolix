@@ -7,8 +7,8 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI3D.AtomicShape;
 import ch.nolix.element.base.MutableValue;
+import ch.nolix.element.gui3d.AtomicShape;
 
 //class
 public final class Pyramid extends AtomicShape<Pyramid> {

@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.containerWidgetTest;
 
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.element.containerWidget.SingleContainer;
+import ch.nolix.element.containerwidget.SingleContainer;
 import ch.nolix.element.widget.Label;
 import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 

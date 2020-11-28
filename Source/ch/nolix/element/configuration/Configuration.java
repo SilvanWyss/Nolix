@@ -3,7 +3,7 @@ package ch.nolix.element.configuration;
 
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.elementAPI.IConfigurableElement;
+import ch.nolix.element.elementapi.IConfigurableElement;
 
 //class
 /**

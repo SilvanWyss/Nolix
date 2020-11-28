@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseapplication;
 
-//own imports
-import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;

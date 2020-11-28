@@ -9,7 +9,7 @@ import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.elementapi.IElement;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 import ch.nolix.system.schemadatatype.SchemaDataType;

@@ -5,8 +5,8 @@ package ch.nolix.element.widget;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI.ValueCatalogue;
-import ch.nolix.element.layerElement.LayerProperty;
+import ch.nolix.element.gui.ValueCatalogue;
+import ch.nolix.element.layerelement.LayerProperty;
 
 //class
 public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {

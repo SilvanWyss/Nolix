@@ -5,7 +5,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 /**

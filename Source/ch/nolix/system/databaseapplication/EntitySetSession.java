@@ -3,10 +3,10 @@ package ch.nolix.system.databaseapplication;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.dialog.YesNoDialog;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.HorizontalStack;

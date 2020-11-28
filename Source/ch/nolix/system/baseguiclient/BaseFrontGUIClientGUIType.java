@@ -3,7 +3,7 @@ package ch.nolix.system.baseguiclient;
 
 //own imports
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.elementAPI.IElementEnum;
+import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
 /**

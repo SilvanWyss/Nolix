@@ -4,9 +4,9 @@ package ch.nolix.system.baseguiclient;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.GUI.CanvasFrame;
-import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.gui.CanvasFrame;
+import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.gui.GUI;
 
 //class
 final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHandler {

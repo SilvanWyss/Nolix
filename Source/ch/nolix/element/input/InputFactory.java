@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.input;
 
-//own import
-import ch.nolix.element.elementFactory.ElementFactory;
+import ch.nolix.element.elementfactory.ElementFactory;
 
 //class
 public final class InputFactory extends ElementFactory<IInput<?>> {

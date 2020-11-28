@@ -1,8 +1,8 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;

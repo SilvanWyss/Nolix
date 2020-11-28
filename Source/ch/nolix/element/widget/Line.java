@@ -9,9 +9,9 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.elementEnum.RotationDirection;
+import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 

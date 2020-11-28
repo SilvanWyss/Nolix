@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.element.elementAPI.IElementEnum;
+import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
 public enum Key implements IElementEnum {

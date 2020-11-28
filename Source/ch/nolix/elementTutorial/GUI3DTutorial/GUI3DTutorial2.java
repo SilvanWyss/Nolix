@@ -1,7 +1,7 @@
 package ch.nolix.elementTutorial.GUI3DTutorial;
 
-import ch.nolix.element.JMonkeyGUI.JMonkeyMainFrame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.jmonkeygui.JMonkeyMainFrame;
 import ch.nolix.element.shape.BaseCube;
 import ch.nolix.element.shape.Cylinder;
 import ch.nolix.element.shape.MultiShape;

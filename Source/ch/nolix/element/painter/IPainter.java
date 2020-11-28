@@ -5,7 +5,7 @@ package ch.nolix.element.painter;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.element.textFormat.TextFormat;
+import ch.nolix.element.textformat.TextFormat;
 
 //interface
 /**

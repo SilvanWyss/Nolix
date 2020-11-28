@@ -2,8 +2,8 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Downloader;
 
 /**

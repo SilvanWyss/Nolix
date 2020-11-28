@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own import
-import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.gui.Widget;
 
 //class
 /**

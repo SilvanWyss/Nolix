@@ -5,7 +5,7 @@ import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.test.Test;
-import ch.nolix.element.elementEnum.Direction;
+import ch.nolix.element.elementenum.Direction;
 
 //class
 /**

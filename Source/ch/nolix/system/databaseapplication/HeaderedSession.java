@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication;
 
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
 import ch.nolix.element.widget.VerticalStack;

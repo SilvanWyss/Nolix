@@ -3,15 +3,15 @@ package ch.nolix.elementTutorial.GUITutorial;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.element.GUI.CanvasFrame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.elementEnum.RotationDirection;
-import ch.nolix.element.elementEnum.UniDirection;
+import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.elementenum.UniDirection;
+import ch.nolix.element.gui.CanvasFrame;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
-import ch.nolix.element.textFormat.Font;
-import ch.nolix.element.textFormat.TextFormat;
+import ch.nolix.element.textformat.Font;
+import ch.nolix.element.textformat.TextFormat;
 import ch.nolix.system.baseguiclient.PaintRun;
 
 /**

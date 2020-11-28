@@ -9,8 +9,8 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;
 
 //class

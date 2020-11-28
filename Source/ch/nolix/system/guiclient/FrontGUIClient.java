@@ -2,7 +2,7 @@
 package ch.nolix.system.guiclient;
 
 import ch.nolix.common.endpoint2.NetServer;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.gui.GUI;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClient;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;

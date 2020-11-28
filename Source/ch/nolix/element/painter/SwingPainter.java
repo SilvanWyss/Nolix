@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.element.textFormat.TextFormat;
+import ch.nolix.element.textformat.TextFormat;
 
 //class
 public final class SwingPainter implements IPainter {

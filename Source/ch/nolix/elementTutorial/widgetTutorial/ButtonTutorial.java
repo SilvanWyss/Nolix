@@ -1,8 +1,8 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
 
 /**

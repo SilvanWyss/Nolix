@@ -1,7 +1,7 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.Frame;
 
 /**
  * The {@link EmptyFrameTutorial} is a tutorial for a {@link Frame}s.

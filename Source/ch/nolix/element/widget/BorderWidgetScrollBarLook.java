@@ -6,7 +6,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.elementAPI.IMutableElement;
+import ch.nolix.element.elementapi.IMutableElement;
 
 //class
 public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook>

@@ -1,9 +1,9 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerWidget.TabContainer;
-import ch.nolix.element.containerWidget.TabContainerTab;
+import ch.nolix.element.containerwidget.TabContainer;
+import ch.nolix.element.containerwidget.TabContainerTab;
+import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Area;
 
 /**

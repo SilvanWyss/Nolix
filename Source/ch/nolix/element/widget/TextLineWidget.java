@@ -6,12 +6,12 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.GUI.ValueCatalogue;
-import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.ValueCatalogue;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.textFormat.TextFormat;
+import ch.nolix.element.textformat.TextFormat;
 
 //class
 /**

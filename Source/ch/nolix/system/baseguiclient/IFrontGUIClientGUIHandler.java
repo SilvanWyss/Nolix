@@ -2,7 +2,7 @@
 package ch.nolix.system.baseguiclient;
 
 import ch.nolix.common.chainednode.ChainedNode;
-import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.gui.GUI;
 
 //interface
 abstract interface IFrontGUIClientGUIHandler {

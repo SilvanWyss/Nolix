@@ -3,10 +3,10 @@ package ch.nolix.templatetest.consoleclientlooktest;
 
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.ObjectTest;
-import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.containerWidget.ContainerRole;
+import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.InvisibleGUI;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.VerticalStack;
 

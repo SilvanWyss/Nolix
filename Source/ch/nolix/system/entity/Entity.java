@@ -17,7 +17,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valuecreator.ValueCreator;
 import ch.nolix.common.wrapperexception.WrapperException;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 public abstract class Entity implements IElement, Identified, ShortDescripted {

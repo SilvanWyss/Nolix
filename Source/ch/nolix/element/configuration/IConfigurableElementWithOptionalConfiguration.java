@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-import ch.nolix.element.elementAPI.IConfigurableElement;
+import ch.nolix.element.elementapi.IConfigurableElement;
 
 //interface
 /**

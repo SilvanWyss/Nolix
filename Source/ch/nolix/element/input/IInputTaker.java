@@ -2,7 +2,7 @@
 package ch.nolix.element.input;
 
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.elementEnum.RotationDirection;
+import ch.nolix.element.elementenum.RotationDirection;
 
 //interface
 /**

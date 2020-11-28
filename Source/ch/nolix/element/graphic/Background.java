@@ -10,7 +10,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.smartElementAPI.ISmartMutableElement;
+import ch.nolix.element.smartelementapi.ISmartMutableElement;
 
 //class
 public final class Background extends Element<Background> implements ISmartMutableElement<Background> {
