@@ -4,8 +4,7 @@ package ch.nolix.tech.genericMath;
 //Java import
 import java.math.BigDecimal;
 
-//own import
-import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
+import ch.nolix.techapi.genericmathapi.IComplexNumberFactory;
 
 //class
 public final class ComplexNumberFactory implements IComplexNumberFactory {

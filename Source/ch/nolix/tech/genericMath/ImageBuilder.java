@@ -15,8 +15,8 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
-import ch.nolix.techAPI.genericMathAPI.IImageBuilder;
+import ch.nolix.techapi.genericmathapi.IComplexNumber;
+import ch.nolix.techapi.genericmathapi.IImageBuilder;
 
 //class
 public final class ImageBuilder implements IImageBuilder {

@@ -3,9 +3,9 @@ package ch.nolix.techAPITutorial.genericMathTutorial;
 import ch.nolix.common.functionAPI.IIntTaker;
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
 import ch.nolix.tech.genericMath.Registrator;
-import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
-import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
-import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
+import ch.nolix.techapi.genericmathapi.IComplexNumber;
+import ch.nolix.techapi.genericmathapi.IComplexNumberFactory;
+import ch.nolix.techapi.genericmathapi.IImplicitComplexSequenceBuilder;
 
 public final class ComplexSequenceTutorial {
 	

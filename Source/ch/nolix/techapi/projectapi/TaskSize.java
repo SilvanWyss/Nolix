@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techAPI.projectAPI;
+package ch.nolix.techapi.projectapi;
 
 //own imports
 import ch.nolix.common.node.BaseNode;

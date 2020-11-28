@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techAPI.genericMathAPI;
+package ch.nolix.techapi.genericmathapi;
 
 //Java import
 import java.math.BigDecimal;

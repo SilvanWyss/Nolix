@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techAPI.resourceAPI;
+package ch.nolix.techapi.resourceapi;
 
 //own imports
 import ch.nolix.common.attributeAPI.Named;

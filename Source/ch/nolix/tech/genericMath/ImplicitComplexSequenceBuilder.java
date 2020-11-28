@@ -7,8 +7,8 @@ import java.util.ArrayList;
 //own imports
 import ch.nolix.common.commonTypeHelper.ArrayHelper;
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
-import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
-import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
+import ch.nolix.techapi.genericmathapi.IComplexNumber;
+import ch.nolix.techapi.genericmathapi.IImplicitComplexSequenceBuilder;
 
 //class
 public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSequenceBuilder {

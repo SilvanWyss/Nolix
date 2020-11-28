@@ -9,7 +9,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.techAPI.genericMathAPI.IClosedInterval;
+import ch.nolix.techapi.genericmathapi.IClosedInterval;
 
 //class
 public final class ClosedInterval implements IClosedInterval {

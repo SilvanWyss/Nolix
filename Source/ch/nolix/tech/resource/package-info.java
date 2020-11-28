@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.tech.resource} package
- * provides an implementation of the {@link ch.nolix.techAPI.resourceAPI} package.
+ * provides an implementation of the {@link ch.nolix.techapi.resourceapi} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

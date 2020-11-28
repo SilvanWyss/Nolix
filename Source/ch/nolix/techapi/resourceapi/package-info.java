@@ -6,4 +6,4 @@
  * @month 2019-07
  * @lines 10
  */
-package ch.nolix.techAPI.resourceAPI;
+package ch.nolix.techapi.resourceapi;

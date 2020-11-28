@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techAPI.projectAPI;
+package ch.nolix.techapi.projectapi;
 
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.mutableAttributeAPI.Namable;

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.common.functionAPI.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.techAPI.genericMathAPI.IParametrizedImplicitSequenceCreator;
+import ch.nolix.techapi.genericmathapi.IParametrizedImplicitSequenceCreator;
 
 //class
 public final class ParametrizedImplicitSequenceCreator<N> implements IParametrizedImplicitSequenceCreator<N> {

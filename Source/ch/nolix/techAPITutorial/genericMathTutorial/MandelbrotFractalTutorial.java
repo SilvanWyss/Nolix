@@ -6,8 +6,8 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.tech.genericMath.Registrator;
-import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
-import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
+import ch.nolix.techapi.genericmathapi.IComplexNumberFactory;
+import ch.nolix.techapi.genericmathapi.IFractalBuilder;
 
 public final class MandelbrotFractalTutorial {
 	

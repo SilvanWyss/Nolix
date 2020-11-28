@@ -3,8 +3,8 @@ package ch.nolix.tech.project;
 
 //own imports
 import ch.nolix.common.instanceProvider.CentralInstanceProvider;
-import ch.nolix.techAPI.projectAPI.IProject;
-import ch.nolix.techAPI.projectAPI.ITask;
+import ch.nolix.techapi.projectapi.IProject;
+import ch.nolix.techapi.projectapi.ITask;
 
 //class
 public final class Registrator {

@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.techAPI.resourceAPI.IResource;
+import ch.nolix.techapi.resourceapi.IResource;
 
 //class
 /**

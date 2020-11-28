@@ -10,8 +10,8 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.techAPI.projectAPI.IProject;
-import ch.nolix.techAPI.projectAPI.ITask;
+import ch.nolix.techapi.projectapi.IProject;
+import ch.nolix.techapi.projectapi.ITask;
 
 //class
 /**

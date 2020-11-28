@@ -10,8 +10,8 @@ import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.time.Time;
-import ch.nolix.techAPI.projectAPI.ITask;
-import ch.nolix.techAPI.projectAPI.TaskSize;
+import ch.nolix.techapi.projectapi.ITask;
+import ch.nolix.techapi.projectapi.TaskSize;
 
 //class
 /**
