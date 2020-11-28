@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
@@ -17,16 +18,16 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * A {@link TextFormat} can paint texts with a specific
- * -text font
- * -bold property
- * -italic property
+ * -font
+ * -bold style
+ * -italic style
  * -text size
  * -text color
  * 
  * A {@link TextFormat} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-26
  * @lines 450
  */
 public final class TextFormat extends Element<TextFormat> {
@@ -44,7 +45,7 @@ public final class TextFormat extends Element<TextFormat> {
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attributes
-	private final Font textFont;
+	private final Font font;
 	private final boolean bold;
 	private final boolean italic;
 	private final int textSize;
@@ -61,7 +62,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @return a new {@link TextFormat} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static TextFormat fromSpecification(final Node specification) {
+	public static TextFormat fromSpecification(final BaseNode specification) {
 		
 		//Extracts the attributes of the given specification.
 		final var attributes = specification.getRefAttributes();
@@ -101,62 +102,62 @@ public final class TextFormat extends Element<TextFormat> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link TextFormat} with the given text font.
+	 * Creates a new {@link TextFormat} with the given font.
 	 * 
-	 * @param textFont
-	 * @throws ArgumentIsNullException if the given text font is null.
+	 * @param font
+	 * @throws ArgumentIsNullException if the given font is null.
 	 */
-	public TextFormat(final Font textFont) {
+	public TextFormat(final Font font) {
 		
 		//Calls other constructor.
-		this(textFont, false, false, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(font, false, false, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link TextFormat} with the given text font, text size and text color.
+	 * Creates a new {@link TextFormat} with the given font, text size and text color.
 	 * 
-	 * @param textFont
+	 * @param font
 	 * @param bold
 	 * @param textSize
 	 * @param textColor
-	 * @throws ArgumentIsNullException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(
-		final Font textFont,
+		final Font font,
 		final boolean bold,
 		final int textSize,
 		final Color textColor
 	) {
 		//Calls other constructor.
-		this(textFont, bold, false, textSize, textColor);
+		this(font, bold, false, textSize, textColor);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link TextFormat} with the given text font, text size and text color.
+	 * Creates a new {@link TextFormat} with the given font, text size and text color.
 	 * 
-	 * @param textFont
+	 * @param font
 	 * @param bold
 	 * @param italic
 	 * @param textSize
 	 * @param textColor
-	 * @throws ArgumentIsNullException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(
-		final Font textFont,
+		final Font font,
 		final boolean bold,
 		final boolean italic,
 		final int textSize,
 		final Color textColor
 	) {
 		
-		//Asserts that the given text font is not null.
-		Validator.assertThat(textFont).isOfType(Font.class);
+		//Asserts that the given font is not null.
+		Validator.assertThat(font).isOfType(Font.class);
 		
 		//Asserts that the given text size is positive.
 		Validator.assertThat(textSize).thatIsNamed("text size").isPositive();
@@ -164,7 +165,7 @@ public final class TextFormat extends Element<TextFormat> {
 		//Asserts that the given text color is not null.
 		Validator.assertThat(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
 		
-		this.textFont = textFont;
+		this.font = font;
 		this.bold = bold;
 		this.italic = italic;
 		this.textSize = textSize;
@@ -174,12 +175,12 @@ public final class TextFormat extends Element<TextFormat> {
 			var swingTextStyle = java.awt.Font.PLAIN;
 			
 			//Handles the case that the bold flag of the current text format is true.
-			if (getBoldFlag()) {
+			if (isBold()) {
 				swingTextStyle |= java.awt.Font.BOLD;
 			}
 			
 			//Handles the case that the italic flag of the current text format is true.
-			if (getItalicFlag()) {
+			if (isItalic()) {
 				swingTextStyle |= java.awt.Font.ITALIC;
 			}
 		
@@ -194,23 +195,23 @@ public final class TextFormat extends Element<TextFormat> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link TextFormat} with the given text font, text size and text color.
+	 * Creates a new {@link TextFormat} with the given font, text size and text color.
 	 * 
-	 * @param textFont
+	 * @param font
 	 * @param textSize
 	 * @param textColor
-	 * @throws ArgumentIsNullException if the given text font is null.
+	 * @throws ArgumentIsNullException if the given font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public TextFormat(
-		final Font textFont,
+		final Font font,
 		final int textSize,
 		final Color textColor
 	) {
 		
 		//Calls other constructor.
-		this(textFont, false, false, textSize, textColor);
+		this(font, false, false, textSize, textColor);
 	}
 	
 	//constructor
@@ -234,20 +235,12 @@ public final class TextFormat extends Element<TextFormat> {
 	public LinkedList<Node> getAttributes() {
 		return
 		LinkedList.withElements(
-			textFont.getSpecificationAs(TEXT_FONT_HEADER),
+			font.getSpecificationAs(TEXT_FONT_HEADER),
 			new Node(BOLD_FLAG_HEADER, bold),
 			new Node(ITALIC_FLAG_HEADER, italic),
 			new Node(TEXT_SIZE_HEADER, textSize),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
-	}
-	
-	//method
-	/**
-	 * @return the bold flag of the current {@TextFormat}.
-	 */
-	public boolean getBoldFlag() {
-		return bold;
 	}
 	
 	//method
@@ -315,14 +308,6 @@ public final class TextFormat extends Element<TextFormat> {
 	
 	//method
 	/**
-	 * @return the bold flag of the current {@TextFormat}.
-	 */
-	public boolean getItalicFlag() {
-		return italic;
-	}
-	
-	//method
-	/**
 	 * @return the text color of the current {@link TextFormat}.
 	 */
 	public Color getTextColor() {
@@ -331,16 +316,16 @@ public final class TextFormat extends Element<TextFormat> {
 	
 	//method
 	/**
-	 * @return the text font of the current {@link TextFormat}.
+	 * @return the font of the current {@link TextFormat}.
 	 */
 	public Font getTextFont() {
-		return textFont;
+		return font;
 	}
 	
 	//method
 	/**
 	 * The text size is normative.
-	 * The text height depends on the text font and can differ.
+	 * The text height depends on the font and can differ.
 	 * 
 	 * @return the text height of the current {@link TextFormat}.
 	 */
@@ -370,6 +355,22 @@ public final class TextFormat extends Element<TextFormat> {
 	 */
 	public int getSwingTextWidth(final String text) {
 		return canvas.getFontMetrics(swingFont).stringWidth(text);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@TextFormat} is bold.
+	 */
+	public boolean isBold() {
+		return bold;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@TextFormat} is italic.
+	 */
+	public boolean isItalic() {
+		return italic;
 	}
 	
 	//method
@@ -411,12 +412,12 @@ public final class TextFormat extends Element<TextFormat> {
 	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
 	 * 
 	 * Only the first part of the given text,
-	 * that is not longer than the given max width, will be painted.
+	 * that is not longer than the given maxWidth, will be painted.
 	 * 
 	 * @param graphics
 	 * @param text
 	 * @param maxWidth
-	 * @throws NegativeArgumentException if the given max width is negative.
+	 * @throws NegativeArgumentException if the given maxWidth is negative.
 	 */
 	public void paintSwingText(
 		final Graphics graphics,
@@ -433,14 +434,14 @@ public final class TextFormat extends Element<TextFormat> {
 	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
 	 * 
 	 * Only the first part of the given text,
-	 * that is not longer than the given max width, will be painted.
+	 * that is not longer than the given maxWidth, will be painted.
 	 * 
 	 * @param graphics
 	 * @param xPosition
 	 * @param yPosition
 	 * @param maxWidth
 	 * @param text
-	 * @throws NegativeArgumentException if the given max width is negative.
+	 * @throws NegativeArgumentException if the given maxWidth is negative.
 	 */
 	public void paintSwingText(
 		final Graphics graphics,
