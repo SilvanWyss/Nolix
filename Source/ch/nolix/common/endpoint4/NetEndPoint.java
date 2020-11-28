@@ -4,6 +4,7 @@ package ch.nolix.common.endpoint4;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.exception.GeneralException;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -18,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * @date 2017-06-10
  * @lines 350
  */
-public class NetEndPoint<M, R> extends EndPoint<M, R> {
+public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 		
 	//attributes
 	private final ch.nolix.common.endpoint2.EndPoint internalEndPoint;
@@ -257,7 +258,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * @return the reply with the given index
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has not received a package with the given index.
 	 */
-	private final Package getAndRemoveReceivedPackage(final int index) {
+	private Package getAndRemoveReceivedPackage(final int index) {
 		return receivedPackages.removeAndGetRefFirst(rp -> rp.hasIndex(index));
 	}
 	
@@ -301,7 +302,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * @param index
 	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
-	private final boolean receivedPackage(final int index) {
+	private boolean receivedPackage(final int index) {
 		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
 	}
 
@@ -334,9 +335,9 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 			case SUCCESS_RESPONSE:
 				return replyTransformer.getOutput(response.getRefContent());
 			case ERROR_RESPONSE:
-				throw new RuntimeException(response.getRefContent());
+				throw new GeneralException(response.getRefContent());
 			default:
-				throw new RuntimeException("An error occured.");
+				throw new GeneralException();
 		}
 	}
 	
