@@ -16,7 +16,7 @@ import ch.nolix.element.time.Time;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 420
+ * @lines 430
  */
 public class Candlestick extends Element<Candlestick> {
 	
@@ -349,15 +349,17 @@ public class Candlestick extends Element<Candlestick> {
 		//Asserts that the given min lower wick length ratio is not negative.
 		Validator.assertThat(minLowerWickLengthRatio).thatIsNamed("min lower wick length ration").isNotNegative();
 
-		//Calculates the needed characteristic values.
-		final double length = getLength();
-		final double lowerWick = getLowerWick();
-		final double upperWick = getUpperWick();
-		
-		//Handles the case that the length of the current CandleStick is 0.
-		if (length == 0) {
+		//Calculates the needed length.
+		final var length = getLength();
+				
+		//Handles the case that the length of the current CandleStick is 0.0.
+		if (length == 0.0) {
 			return false;
 		}
+		
+		//Calculates the needed lowerWock and upperWick.
+		final var lowerWick = getLowerWick();
+		final var upperWick = getUpperWick();
 		
 		//Handles the case that the length of the current CandleStick is positive.
 		return (
@@ -398,15 +400,17 @@ public class Candlestick extends Element<Candlestick> {
 		//Asserts that the given min upper wick length ratio is not negative.
 		Validator.assertThat(minUpperWickLengthRatio).thatIsNamed("min upper wick length ratio").isNotNegative();
 
-		//Calculates the needed characteristic values.
-		final double length = getLength();
-		final double lowerWick = getLowerWick();
-		final double upperWick = getUpperWick();
-		
+		//Calculates the needed length.
+		final var length = getLength();
+				
 		//Handles the case that the length of the current CandleStick is 0.
-		if (length == 0) {
+		if (length == 0.0) {
 			return false;
 		}
+		
+		//Calculates the needed lowerWock and upperWick.
+		final var lowerWick = getLowerWick();
+		final var upperWick = getUpperWick();
 		
 		//Handles the case that the length of the current CandleStick is positive.
 		return (
