@@ -3,7 +3,7 @@ package ch.nolix.nolixtest;
 
 import ch.nolix.common.basetest.TestPool;
 import ch.nolix.commontest.CommonTestPool;
-import ch.nolix.elementTest.ElementTestPool;
+import ch.nolix.elementtest.ElementTestPool;
 import ch.nolix.nolixlicensetest.NolixLicensesTestPool;
 import ch.nolix.systemtest.SystemTestPool;
 import ch.nolix.techtest.TechTestPool;

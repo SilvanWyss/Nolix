@@ -1,0 +1,55 @@
+//package declaration
+package ch.nolix.elementtest.containerwidgettest;
+
+import ch.nolix.common.basetest.TestCase;
+import ch.nolix.element.containerwidget.SingleContainer;
+import ch.nolix.element.widget.Label;
+import ch.nolix.elementtest.widgettest.BorderWidgetTest;
+
+//class
+/**
+ * The {@link SingleContainerTest} is a test for {@link SingleContainer}.
+ * 
+ * @author Silvan Wyss
+ * @month 2018-12
+ * @lines 50
+ */
+public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
+	
+	//method
+	@TestCase
+	public void testCase_reset_2() {
+		
+		//setup
+		final var singleContainer = new SingleContainer(new Label().setText("Test"));
+		
+		//setup verification
+		expect(singleContainer.containsAny());
+		
+		//execution
+		singleContainer.reset();
+		
+		//verification
+		expect(singleContainer.isEmpty());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_setWidget() {
+		
+		//setup
+		final var singleContainer = new SingleContainer();
+		final var label = new Label().setText("Test");
+		
+		//execution
+		singleContainer.setWidget(label);
+		
+		//verification
+		expect(singleContainer.getRefWidget()).isSameAs(label);
+	}
+	
+	@Override
+	protected SingleContainer createTestUnit() {
+		return new SingleContainer();
+	}
+}
