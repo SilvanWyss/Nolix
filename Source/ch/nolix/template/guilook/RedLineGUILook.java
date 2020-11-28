@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.template.GUILook;
+package ch.nolix.template.guilook;
 
 //own imports
 import ch.nolix.element.configuration.DeepConfiguration;

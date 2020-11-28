@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.template.resourceCatalogue;
+package ch.nolix.template.resourcecatalogue;
 
 //own import
 import ch.nolix.tech.resource.Resource;

@@ -5,8 +5,8 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.system.texture.TextureCreator;
-import ch.nolix.template.textureCreator.ConcreteTextureCreator;
-import ch.nolix.template.textureCreator.JuteTextureCreator;
+import ch.nolix.template.texturecreator.ConcreteTextureCreator;
+import ch.nolix.template.texturecreator.JuteTextureCreator;
 
 /**
  * The {@link TextureCreatorsTutorial} is a tutorial for {@link TextureCreator}s.

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.guilooktest;
 
-//own import
-import ch.nolix.template.GUILook.RedLineGUILook;
+import ch.nolix.template.guilook.RedLineGUILook;
 
 //class
 public final class RedLineGUILookTest extends GUILookTest<RedLineGUILook> {

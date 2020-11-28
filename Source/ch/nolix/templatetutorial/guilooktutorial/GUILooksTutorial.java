@@ -15,10 +15,10 @@ import ch.nolix.element.widget.LabelRole;
 import ch.nolix.element.widget.SelectionMenu;
 import ch.nolix.element.widget.TextBox;
 import ch.nolix.element.widget.VerticalStack;
-import ch.nolix.template.GUILook.AnthrazitGUILook;
-import ch.nolix.template.GUILook.BlackBlueGUILook;
-import ch.nolix.template.GUILook.RedLineGUILook;
-import ch.nolix.template.GUILook.WhiteGreenGUILook;
+import ch.nolix.template.guilook.AnthrazitGUILook;
+import ch.nolix.template.guilook.BlackBlueGUILook;
+import ch.nolix.template.guilook.RedLineGUILook;
+import ch.nolix.template.guilook.WhiteGreenGUILook;
 
 public final class GUILooksTutorial {
 	

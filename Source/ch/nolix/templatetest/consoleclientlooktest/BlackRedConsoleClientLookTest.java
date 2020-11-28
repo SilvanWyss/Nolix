@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.consoleclientlooktest;
 
-//own import
-import ch.nolix.template.consoleClientLook.BlackRedConsoleClientLook;
+import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLook;
 
 //class
 public final class BlackRedConsoleClientLookTest extends ConsoleClientLookTest<BlackRedConsoleClientLook> {

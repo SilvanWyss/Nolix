@@ -1,5 +1,5 @@
 //package info
-package ch.nolix.template.businessObjectName;
+package ch.nolix.template.businessobjectname;
 
 //class
 public final class EnglishBusinessObjectNameCatalogue {

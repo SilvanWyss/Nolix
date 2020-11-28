@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.guilooktest;
 
-//own import
-import ch.nolix.template.GUILook.AnthrazitGUILook;
+import ch.nolix.template.guilook.AnthrazitGUILook;
 
 //class
 public final class AnthrazitGUILookTest extends GUILookTest<AnthrazitGUILook> {
