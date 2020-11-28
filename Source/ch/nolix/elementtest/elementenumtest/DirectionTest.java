@@ -23,7 +23,7 @@ public final class DirectionTest extends Test {
 		
 		//execution
 		final LinkedList<Node> attributes
-		= Direction.LeftToRight.getAttributes();
+		= Direction.LEFT_TO_RIGHT.getAttributes();
 		
 		//verification
 			expect(attributes.getElementCount()).isEqualTo(1);
@@ -37,7 +37,7 @@ public final class DirectionTest extends Test {
 	public void testCase_getSpecification() {
 		
 		//execution & verification
-		expect(Direction.LeftToRight.getSpecification())
+		expect(Direction.LEFT_TO_RIGHT.getSpecification())
 		.isEqualTo(Node.fromString("Direction(LeftToRight)"));
 	}
 	
@@ -46,7 +46,7 @@ public final class DirectionTest extends Test {
 	public void testCase_getType() {
 		
 		//execution & verification
-		expect(Direction.LeftToRight.getType()).isEqualTo("Direction");
+		expect(Direction.LEFT_TO_RIGHT.getType()).isEqualTo("Direction");
 	}
 	
 	//method
@@ -54,6 +54,6 @@ public final class DirectionTest extends Test {
 	public void testCase_toString() {
 		
 		//execution & verification
-		expect(Direction.LeftToRight.toString()).isEqualTo("LeftToRight");
+		expect(Direction.LEFT_TO_RIGHT.toString()).isEqualTo("LEFT_TO_RIGHT");
 	}
 }

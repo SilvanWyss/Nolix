@@ -169,7 +169,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
 		setMinWidth(100);
-		setContentPosition(ContentPosition.Center);
+		setContentPosition(ContentPosition.CENTER);
 		
 		getRefBaseLook()
 		.setBorderThicknesses(1)

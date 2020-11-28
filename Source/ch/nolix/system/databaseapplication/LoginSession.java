@@ -16,7 +16,7 @@ public final class LoginSession extends DatabaseApplicationSession {
 		new VerticalStack()
 		.addWidget(
 			new Button()
-			.setRole(ButtonRole.ActionButton)
+			.setRole(ButtonRole.ACTION_BUTTON)
 			.setText("Login")
 			.setLeftMouseButtonPressAction(this::login)
 		);

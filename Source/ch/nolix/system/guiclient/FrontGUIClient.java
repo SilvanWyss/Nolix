@@ -25,7 +25,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	public FrontGUIClient() {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(NetServer.DEFAULT_PORT);
 	}
@@ -39,7 +39,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	public FrontGUIClient(Application<BackGUIClient> application) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(application);
 	}
@@ -54,7 +54,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	public FrontGUIClient(final int port) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(port);
 	}
@@ -73,7 +73,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	public FrontGUIClient(final int port, final String name) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(port, name);
 	}
@@ -86,7 +86,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 */
 	public FrontGUIClient(final Server server) {
 		
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(server);
 	}
@@ -106,7 +106,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	public FrontGUIClient(final String ip, final int port) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(ip, port);
 	}
@@ -126,7 +126,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	public FrontGUIClient(final String ip, final int port, final String name) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.LayerGUI);
+		super(BaseFrontGUIClientGUIType.LAYER_GUI);
 		
 		internalConnectTo(ip, port, name);
 	}

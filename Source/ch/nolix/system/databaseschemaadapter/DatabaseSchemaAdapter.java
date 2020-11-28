@@ -67,17 +67,17 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//method
 	public final boolean databaseIsInitialized() {
-		return (getDatabaseState() != DatabaseState.Uninitialized);
+		return (getDatabaseState() != DatabaseState.UNINITIALIZED);
 	}
 	
 	//method
 	public final boolean databaseIsLocked() {
-		return (getDatabaseState() == DatabaseState.Locked);
+		return (getDatabaseState() == DatabaseState.LOCKED);
 	}
 	
 	//method
 	public final boolean databaseIsReady() {
-		return (getDatabaseState() == DatabaseState.Ready);
+		return (getDatabaseState() == DatabaseState.READY);
 	}
 	
 	//method

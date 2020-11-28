@@ -24,14 +24,14 @@ public final class ErrorDialog extends Layer {
 		
 		setRootWidget(
 			new VerticalStack()
-			.setRole(ContainerRole.DialogContainer)
+			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addWidget(
 				new Label()
-				.setRole(LabelRole.ErrorText)
+				.setRole(LabelRole.ERROR_TEXT)
 				.setText(errorMessage),
 				new Button()
 				.setText("Ok")
-				.setRole(ButtonRole.ConfirmButton)
+				.setRole(ButtonRole.CONFIRM_BUTTON)
 				.setLeftMouseButtonPressAction(l -> l.getParentGUI().removeLayer(this))
 			)
 		);

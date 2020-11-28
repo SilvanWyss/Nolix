@@ -2,9 +2,12 @@
 package ch.nolix.element.textformat;
 
 //own imports
+import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.FontCodeCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
@@ -13,17 +16,17 @@ import ch.nolix.element.elementapi.IElementEnum;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 60
+ * @lines 80
  */
 public enum Font implements IElementEnum {
-	Arial,
-	ArialBlack,
-	ComicSansMS,
-	Impact,
-	LucidaConsole,
-	Papyrus,
-	Tahoma,
-	Verdana;
+	ARIAL,
+	ARIAL_BLACK,
+	COMIC_SANS_MS,
+	IMPACT,
+	LUCIDA_CONSOLE,
+	PAPYRUS,
+	TAHOMA,
+	VERDANA;
 	
 	//constant
 	public static final String TYPE_NAME = "Font";
@@ -35,7 +38,16 @@ public enum Font implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification does not represent a {@link Font}.
 	 */
 	public static Font fromSpecification(final BaseNode specification) {
-		return Font.valueOf(specification.getOneAttributeHeader());
+		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LinkedList<Node> getAttributes() {
+		return new Node(StringHelper.toPascalCase(toString())).intoList();
 	}
 	
 	//method
@@ -46,21 +58,21 @@ public enum Font implements IElementEnum {
 		
 		//Enumerates the current Font.
 		switch (this) {
-			case Arial:
+			case ARIAL:
 				return FontCodeCatalogue.ARIAL;
-			case ArialBlack:
+			case ARIAL_BLACK:
 				return FontCodeCatalogue.ARIAL_BLACK;
-			case ComicSansMS:
+			case COMIC_SANS_MS:
 				return FontCodeCatalogue.COMIC_SANS_MS;
-			case Impact:
+			case IMPACT:
 				return FontCodeCatalogue.IMPACT;
-			case LucidaConsole:
+			case LUCIDA_CONSOLE:
 				return FontCodeCatalogue.LUCIDA_CONSOLE;
-			case Papyrus:
+			case PAPYRUS:
 				return FontCodeCatalogue.PAPYRUS;
-			case Tahoma:
+			case TAHOMA:
 				return FontCodeCatalogue.TAHOMA;
-			case Verdana:
+			case VERDANA:
 				return FontCodeCatalogue.VERDANA;
 			default:
 				throw new InvalidArgumentException(this);

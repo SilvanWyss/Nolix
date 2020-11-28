@@ -31,7 +31,7 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 	//method
 	@Override
 	public BaseFrontGUIClientGUIType getGUIType() {
-		return BaseFrontGUIClientGUIType.LayerGUI;
+		return BaseFrontGUIClientGUIType.LAYER_GUI;
 	}
 	
 	//method

@@ -4,9 +4,13 @@ package ch.nolix.element.input;
 //Java import
 import java.awt.event.KeyEvent;
 
+//own imports
+import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
@@ -369,7 +373,13 @@ public enum Key implements IElementEnum {
 	
 	//static method
 	public static Key fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+	}
+	
+	//method
+	@Override
+	public LinkedList<Node> getAttributes() {
+		return new Node(StringHelper.toPascalCase(toString())).intoList();
 	}
 	
 	//method

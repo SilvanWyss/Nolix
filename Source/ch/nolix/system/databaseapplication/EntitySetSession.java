@@ -38,7 +38,7 @@ public final class EntitySetSession extends HeaderedSession {
 		return
 		LinkedList.withElements(
 			new Button()
-			.setRole(ButtonRole.LinkButton)
+			.setRole(ButtonRole.LINK_BUTTON)
 			.setText("Home")
 			.setLeftMouseButtonPressAction(this::openHomeSession)		
 		);
@@ -53,7 +53,7 @@ public final class EntitySetSession extends HeaderedSession {
 			new HorizontalStack()
 			.addWidget(
 				new Button()
-				.setRole(ButtonRole.CreateButton)
+				.setRole(ButtonRole.CREATE_BUTTON)
 				.setText("Create")
 				.setLeftMouseButtonPressAction(this::openCreateEntitySession)
 			),
@@ -64,7 +64,7 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	private Widget<?, ?> createEntitiesGrid() {
 		
-		final var entitiesGrid = new Grid().setRole(ContainerRole.MainContainer);
+		final var entitiesGrid = new Grid().setRole(ContainerRole.MAINT_CONTAINER);
 		
 		//Sets the header of the entities grid.
 		int columnIndex = 2;
@@ -75,7 +75,7 @@ public final class EntitySetSession extends HeaderedSession {
 					1,
 					columnIndex,
 					new Label()
-					.setRole(LabelRole.Level2Header)
+					.setRole(LabelRole.LEVEL2_HEADER)
 					.setText(c.getHeader())
 				);
 				
@@ -88,7 +88,7 @@ public final class EntitySetSession extends HeaderedSession {
 					1,
 					columnIndex,
 					new Label()
-					.setRole(LabelRole.Level2Header)
+					.setRole(LabelRole.LEVEL2_HEADER)
 					.setText(c.getHeader())
 				);
 				
@@ -104,7 +104,7 @@ public final class EntitySetSession extends HeaderedSession {
 				rowIndex,
 				1,
 				new Button()
-				.setRole(ButtonRole.LinkButton)
+				.setRole(ButtonRole.LINK_BUTTON)
 				.setText("Open")
 				.setLeftMouseButtonPressAction(
 					() -> openEntitySession(entitySetName, e.getId())
@@ -133,7 +133,7 @@ public final class EntitySetSession extends HeaderedSession {
 							rowIndex,
 							columnIndex,
 							new Button()
-							.setRole(ButtonRole.LinkButton)
+							.setRole(ButtonRole.LINK_BUTTON)
 							.setText(String.valueOf(referenceProperty.getRefEntity().getShortDescription()))
 							.setLeftMouseButtonPressAction(
 								() ->
@@ -158,7 +158,7 @@ public final class EntitySetSession extends HeaderedSession {
 					rowIndex,
 					columnIndex,
 					new Button()
-					.setRole(ButtonRole.DeleteButton)
+					.setRole(ButtonRole.DELETE_BUTTON)
 					.setText("Delete")
 					.setLeftMouseButtonPressAction(() -> openDeleteEntityDialogFor(e))
 				);

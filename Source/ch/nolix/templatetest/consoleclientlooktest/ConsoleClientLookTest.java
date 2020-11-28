@@ -29,7 +29,7 @@ public abstract class ConsoleClientLookTest<CCL extends Configuration> extends O
 		return
 		new InvisibleGUI(
 			new VerticalStack()
-			.setRole(ContainerRole.MainContainer)
+			.setRole(ContainerRole.MAINT_CONTAINER)
 			.addWidget(
 				new Console()
 				.setId("InfoPanel"),

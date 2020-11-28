@@ -24,7 +24,7 @@ public final class GreyBlueConsoleClientLook extends Configuration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.addSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(
 				"BaseBackgroundColor(White)",
 				"BaseLeftPadding(20)",

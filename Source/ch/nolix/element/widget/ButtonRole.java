@@ -2,23 +2,26 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 30
+ * @lines 40
  */
 public enum ButtonRole implements IElementEnum {
-	ActionButton,
-	LinkButton,
-	CreateButton,
-	DeleteButton,
-	SaveButton,
-	ConfirmButton,
-	CancelButton;
+	ACTION_BUTTON,
+	LINK_BUTTON,
+	CREATE_BUTTON,
+	DELETE_BUTTON,
+	SAVE_BUTTON,
+	CONFIRM_BUTTON,
+	CANCEL_BUTTON;
 	
 	//constant
 	public static final String TYPE_NAME = "ButtonRole";
@@ -30,6 +33,15 @@ public enum ButtonRole implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ButtonRole fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LinkedList<Node> getAttributes() {
+		return new Node(StringHelper.toPascalCase(toString())).intoList();
 	}
 }

@@ -2,19 +2,22 @@
 package ch.nolix.techapi.projectapi;
 
 //own imports
+import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 20
+ * @lines 40
  */
 public enum TaskSize implements IElementEnum {
-	Small,
-	Medium,
-	Big;
+	SMALL,
+	MEDIUM,
+	BIG;
 
 	//static method
 	/**
@@ -23,6 +26,15 @@ public enum TaskSize implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static TaskSize fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LinkedList<Node> getAttributes() {
+		return new Node(StringHelper.toPascalCase(toString())).intoList();
 	}
 }

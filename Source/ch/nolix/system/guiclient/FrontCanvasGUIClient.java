@@ -27,7 +27,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 	public FrontCanvasGUIClient() {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(NetServer.DEFAULT_PORT);
 	}
@@ -41,7 +41,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 	public FrontCanvasGUIClient(final Application<BackGUIClient> application) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(application);
 	}
@@ -57,7 +57,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 	public FrontCanvasGUIClient(final int port) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(port);
 	}
@@ -76,7 +76,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 	public FrontCanvasGUIClient(final int port, final String application) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(port, application);
 	}
@@ -93,7 +93,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 	public FrontCanvasGUIClient(final String ip, final int port) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(ip, port);
 	}
@@ -113,7 +113,7 @@ public final class FrontCanvasGUIClient extends BaseFrontGUIClient<FrontCanvasGU
 	public FrontCanvasGUIClient(final String ip, final int port, final String application) {
 		
 		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(ip, port, application);
 	}

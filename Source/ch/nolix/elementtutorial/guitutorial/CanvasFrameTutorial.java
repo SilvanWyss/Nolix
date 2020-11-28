@@ -41,12 +41,12 @@ public final class CanvasFrameTutorial {
 		LinkedList.withElements(
 			pr -> {
 				var painter = pr.getRefPainterByIndex(1);
-				painter.setColorGradient(new ColorGradient(UniDirection.Vertical, Color.BLUE, Color.MIDNIGHT_BLUE));
+				painter.setColorGradient(new ColorGradient(UniDirection.VERTICAL, Color.BLUE, Color.MIDNIGHT_BLUE));
 				painter.paintFilledRectangle(1000, 500);
 				painter.translate(100, 100);
-				painter.paintText("Nolix", new TextFormat(Font.Arial, false, true, 100, Color.SILVER));
+				painter.paintText("Nolix", new TextFormat(Font.ARIAL, false, true, 100, Color.SILVER));
 				painter.translate(0, 150);
-				painter.paintText("future technology", new TextFormat(Font.Papyrus, false, false, 50, Color.WHITE));
+				painter.paintText("future technology", new TextFormat(Font.PAPYRUS, false, false, 50, Color.WHITE));
 				painter.translate(-50, 100);
 				painter.setColor(Color.SILVER);
 				painter.paintFilledRectangle(900, 2);

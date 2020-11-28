@@ -24,7 +24,7 @@ public final class BlackGreenConsoleClientLook extends Configuration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.addSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(
 				"BaseBackgroundColorGradient(Vertical,0x40C040,0x102010)",	
 				"BaseLeftPadding(30)",

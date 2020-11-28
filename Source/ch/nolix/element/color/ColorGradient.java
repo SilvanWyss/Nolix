@@ -26,14 +26,14 @@ public class ColorGradient implements IElement {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
-	new ColorGradient(UniDirection.Vertical, Color.BLACK, Color.WHITE);
+	new ColorGradient(UniDirection.VERTICAL, Color.BLACK, Color.WHITE);
 	
 	//constant
 	public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT =
-	new ColorGradient(UniDirection.Vertical, Color.RED, Color.WHITE);
+	new ColorGradient(UniDirection.VERTICAL, Color.RED, Color.WHITE);
 	
 	//constants
-	public static final UniDirection DEFAULT_DIRECTION = UniDirection.Vertical;
+	public static final UniDirection DEFAULT_DIRECTION = UniDirection.VERTICAL;
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
 	public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
@@ -162,7 +162,7 @@ public class ColorGradient implements IElement {
 	) {
 		//Enumerates the direction of the current {@link ColorGradient}.
 		switch (getDirection()) {
-			case Horizontal:
+			case HORIZONTAL:
 				return
 				new GradientPaint(
 					xPosition,
@@ -172,7 +172,7 @@ public class ColorGradient implements IElement {
 					yPosition,
 					getColor2().createSwingColor()
 				);
-			case Vertical:
+			case VERTICAL:
 				return
 				new GradientPaint(
 					xPosition,
@@ -182,7 +182,7 @@ public class ColorGradient implements IElement {
 					(float)(yPosition + height),
 					getColor2().createSwingColor()
 				);
-			case DiagonalUp:
+			case DIAGONAL_UP:
 				return
 				new GradientPaint(
 					xPosition,
@@ -192,7 +192,7 @@ public class ColorGradient implements IElement {
 					(float)(yPosition + height),
 					getColor2().createSwingColor()
 				);
-			case DiagonalDown:
+			case DIAGONAL_DOWN:
 				return
 				new GradientPaint(
 					xPosition,

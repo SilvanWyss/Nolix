@@ -19,57 +19,57 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	public static KeyInput[]  fromCharacter(final char character) {
 		switch (character) {
 			case 'a':
-				return new KeyInput[] {new KeyInput(Key.A, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.A, KeyInputType.TYPING)};
 			case 'b':
-				return new KeyInput[] {new KeyInput(Key.B, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.B, KeyInputType.TYPING)};
 			case 'c':
-				return new KeyInput[] {new KeyInput(Key.C, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.C, KeyInputType.TYPING)};
 			case 'd':
-				return new KeyInput[] {new KeyInput(Key.D, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.D, KeyInputType.TYPING)};
 			case 'e':
-				return new KeyInput[] {new KeyInput(Key.E, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.E, KeyInputType.TYPING)};
 			case 'f':
-				return new KeyInput[] {new KeyInput(Key.F, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.F, KeyInputType.TYPING)};
 			case 'g':
-				return new KeyInput[] {new KeyInput(Key.G, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.G, KeyInputType.TYPING)};
 			case 'h':
-				return new KeyInput[] {new KeyInput(Key.H, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.H, KeyInputType.TYPING)};
 			case 'i':
-				return new KeyInput[] {new KeyInput(Key.I, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.I, KeyInputType.TYPING)};
 			case 'j':
-				return new KeyInput[] {new KeyInput(Key.J, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.J, KeyInputType.TYPING)};
 			case 'k':
-				return new KeyInput[] {new KeyInput(Key.K, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.K, KeyInputType.TYPING)};
 			case 'l':
-				return new KeyInput[] {new KeyInput(Key.L, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.L, KeyInputType.TYPING)};
 			case 'm':
-				return new KeyInput[] {new KeyInput(Key.M, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.M, KeyInputType.TYPING)};
 			case 'n':
-				return new KeyInput[] {new KeyInput(Key.N, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.N, KeyInputType.TYPING)};
 			case 'o':
-				return new KeyInput[] {new KeyInput(Key.O, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.O, KeyInputType.TYPING)};
 			case 'p':
-				return new KeyInput[] {new KeyInput(Key.P, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.P, KeyInputType.TYPING)};
 			case 'q':
-				return new KeyInput[] {new KeyInput(Key.Q, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.Q, KeyInputType.TYPING)};
 			case 'r':
-				return new KeyInput[] {new KeyInput(Key.R, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.R, KeyInputType.TYPING)};
 			case 's':
-				return new KeyInput[] {new KeyInput(Key.S, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.S, KeyInputType.TYPING)};
 			case 't':
-				return new KeyInput[] {new KeyInput(Key.T, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.T, KeyInputType.TYPING)};
 			case 'u':
-				return new KeyInput[] {new KeyInput(Key.U, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.U, KeyInputType.TYPING)};
 			case 'v':
-				return new KeyInput[] {new KeyInput(Key.V, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.V, KeyInputType.TYPING)};
 			case 'w':
-				return new KeyInput[] {new KeyInput(Key.W, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.W, KeyInputType.TYPING)};
 			case 'x':
-				return new KeyInput[] {new KeyInput(Key.X, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.X, KeyInputType.TYPING)};
 			case 'y':
-				return new KeyInput[] {new KeyInput(Key.Y, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.Y, KeyInputType.TYPING)};
 			case 'z':
-				return new KeyInput[] {new KeyInput(Key.Z, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.Z, KeyInputType.TYPING)};
 			case 'A':
 				return createTypingBetweenShiftPressAndRelease(Key.A);
 			case 'B':
@@ -123,31 +123,31 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 			case 'Z':
 				return createTypingBetweenShiftPressAndRelease(Key.Z);
 			case '0':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_0, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_0, KeyInputType.TYPING)};
 			case '1':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_1, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_1, KeyInputType.TYPING)};
 			case '2':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_1, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_1, KeyInputType.TYPING)};
 			case '3':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_2, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_2, KeyInputType.TYPING)};
 			case '4':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_4, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_4, KeyInputType.TYPING)};
 			case '5':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_5, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_5, KeyInputType.TYPING)};
 			case '6':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_6, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_6, KeyInputType.TYPING)};
 			case '7':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_7, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_7, KeyInputType.TYPING)};
 			case '8':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_8, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_8, KeyInputType.TYPING)};
 			case '9':
-				return new KeyInput[] {new KeyInput(Key.NUMBER_9, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.NUMBER_9, KeyInputType.TYPING)};
 			case ',':
-				return new KeyInput[] {new KeyInput(Key.COMMA, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.COMMA, KeyInputType.TYPING)};
 			case '.':
-				return new KeyInput[] {new KeyInput(Key.DOT, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.DOT, KeyInputType.TYPING)};
 			case ' ':
-				return new KeyInput[] {new KeyInput(Key.SPACE, KeyInputType.Typing)};
+				return new KeyInput[] {new KeyInput(Key.SPACE, KeyInputType.TYPING)};
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.CHARACTER, character, "is not valid");
 		}
@@ -166,9 +166,9 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	private static KeyInput[] createTypingBetweenShiftPressAndRelease(final Key key) {
 		return
 		new KeyInput[] {
-			new KeyInput(Key.SHIFT, KeyInputType.Press),
-			new KeyInput(key, KeyInputType.Typing),
-			new KeyInput(Key.SHIFT, KeyInputType.Release)
+			new KeyInput(Key.SHIFT, KeyInputType.PRESS),
+			new KeyInput(key, KeyInputType.TYPING),
+			new KeyInput(Key.SHIFT, KeyInputType.RELEASE)
 		};
 	}
 	

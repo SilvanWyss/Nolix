@@ -182,7 +182,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 		.addLayerOnTop(
 			new VerticalStack()
 			.addWidget(infoPanel, console)
-			.setRole(ContainerRole.MainContainer)
+			.setRole(ContainerRole.MAINT_CONTAINER)
 		)
 		.setConfiguration(new GreyBlueConsoleClientLook());
 		

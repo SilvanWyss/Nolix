@@ -51,11 +51,11 @@ public final class EntitySession extends HeaderedSession {
 		LinkedList.withElements(
 			new Button()
 			.setText("<--")
-			.setRole(ButtonRole.LinkButton)
+			.setRole(ButtonRole.LINK_BUTTON)
 			.setLeftMouseButtonReleaseAction(b -> pop()),
 			new Button()
 			.setText(entitySetName)
-			.setRole(ButtonRole.LinkButton)
+			.setRole(ButtonRole.LINK_BUTTON)
 			.setLeftMouseButtonPressAction(this::openEntitySetSession)
 		);
 	}
@@ -248,16 +248,16 @@ public final class EntitySession extends HeaderedSession {
 			new HorizontalStack()
 			.addWidget(
 				new Button()
-				.setRole(ButtonRole.SaveButton)
+				.setRole(ButtonRole.SAVE_BUTTON)
 				.setText("Save")
 				.setLeftMouseButtonPressAction(this::save),
 				new Button()
-				.setRole(ButtonRole.CancelButton)
+				.setRole(ButtonRole.CANCEL_BUTTON)
 				.setText("Reset changes")
 				.setLeftMouseButtonPressAction(this::cancel)
 			)
 		)
-		.setRole(ContainerRole.MainContainer);
+		.setRole(ContainerRole.MAINT_CONTAINER);
 	}
 	
 	//method

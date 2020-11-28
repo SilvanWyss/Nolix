@@ -30,7 +30,7 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 				createTitleWidget(),
 				createContentWidget()
 			)
-			.setRole(ContainerRole.OverallContainer)
+			.setRole(ContainerRole.OVERALL_CONTAINTER)
 		);
 		
 		if (getRefApplicationContextAs(DatabaseApplicationContext.class).hasGUILook()) {
@@ -62,7 +62,7 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 	private Label createTitleLabel() {
 		return
 		new Label()
-		.setRole(LabelRole.Title)
+		.setRole(LabelRole.TITLE)
 		.setText(getApplicationName());
 	}
 	

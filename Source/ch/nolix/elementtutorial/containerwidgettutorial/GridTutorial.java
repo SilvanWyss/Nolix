@@ -50,7 +50,7 @@ public final class GridTutorial {
 			.setBorderThicknesses(5)
 			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(20)
-			.setLineType(GridLineType.InnerLines)
+			.setLineType(GridLineType.INNER_LINES)
 			.setElementMargin(10)
 		);
 		

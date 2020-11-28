@@ -72,7 +72,7 @@ public final class UploadImageDialogTutorial {
 					"ContentPosition(Center)"
 				),
 				new DeepConfiguration()
-				.addSelectorRole(ContainerRole.DialogContainer)
+				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute("ContentPosition(Center)"),
 				new DeepConfiguration()
 				.setSelectorType(Uploader.class)
@@ -84,14 +84,14 @@ public final class UploadImageDialogTutorial {
 					"ContentPosition(Center)"
 				),
 				new DeepConfiguration()
-				.addSelectorRole(ButtonRole.ConfirmButton)
+				.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 				.addAttachingAttribute(
 					"ProposalWidth(250)",
 					"BaseBackgroundColor(LightGreen)",
 					"HoverBackgroundColor(Green)"
 				),
 				new DeepConfiguration()
-				.addSelectorRole(ButtonRole.CancelButton)
+				.addSelectorRole(ButtonRole.CANCEL_BUTTON)
 				.addAttachingAttribute("ProposalWidth(250)", "BaseBackgroundColor(Salmon)", "HoverBackgroundColor(Red)")
 				
 			)

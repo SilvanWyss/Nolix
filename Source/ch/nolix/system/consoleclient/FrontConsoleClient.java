@@ -21,7 +21,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 */
 	public FrontConsoleClient() {
 		
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(NetServer.DEFAULT_PORT);
 	}
@@ -35,7 +35,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 */
 	public FrontConsoleClient(final Application<BackConsoleClient> application) {
 		
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(application);
 	}
@@ -49,7 +49,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 */
 	public FrontConsoleClient(final int port) {
 		
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(port);
 	}
@@ -65,7 +65,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 */
 	public FrontConsoleClient(final Server server, final String application) {
 		
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(server, application);
 	}
@@ -83,7 +83,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 */
 	public FrontConsoleClient(final String ip, final int port, final String application) {
 		
-		super(BaseFrontGUIClientGUIType.CanvasGUI);
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(ip, port, application);
 	}

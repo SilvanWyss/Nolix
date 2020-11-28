@@ -53,11 +53,11 @@ public final class CreateEntitySession extends HeaderedSession {
 			new HorizontalStack()
 			.addWidget(
 				new Button()
-				.setRole(ButtonRole.CreateButton)
+				.setRole(ButtonRole.CREATE_BUTTON)
 				.setText("Create")
 				.setLeftMouseButtonPressAction(this::createEntity),
 				new Button()
-				.setRole(ButtonRole.CancelButton)
+				.setRole(ButtonRole.CANCEL_BUTTON)
 				.setText("Cancel")
 				.setLeftMouseButtonPressAction(this::cancel)
 			)

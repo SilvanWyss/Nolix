@@ -51,7 +51,7 @@ IResizableInputTaker {
 	
 	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
-	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.Top;
+	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.TOP;
 	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);
 	
 	//constants
@@ -723,12 +723,12 @@ IResizableInputTaker {
 									
 			//Enumerates the content position of the current GUILayer.
 			switch (contentPosition.getValue()) {
-				case LeftTop:
+				case LEFT_TOP:
 					
 					getRefRootWidget().setPositionOnParent(0, 0);
 					
 					break;
-				case Left:
+				case LEFT:
 					
 					getRefRootWidget().setPositionOnParent(
 						0,
@@ -736,7 +736,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case LeftBottom:
+				case LEFT_BOTTOM:
 					
 					getRefRootWidget().setPositionOnParent(
 						0,
@@ -744,7 +744,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case Top:
+				case TOP:
 					
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
@@ -752,7 +752,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case Center:
+				case CENTER:
 								
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
@@ -760,7 +760,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case Bottom:
+				case BOTTOM:
 					
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
@@ -768,7 +768,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case RightTop:
+				case RIGHT_TOP:
 					
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
@@ -776,7 +776,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case Right:
+				case RIGHT:
 				
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
@@ -784,7 +784,7 @@ IResizableInputTaker {
 					);
 				
 					break;
-				case RightBottom:
+				case RIGHT_BOTTOM:
 					
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
@@ -792,7 +792,7 @@ IResizableInputTaker {
 					);
 					
 					break;
-				case Free:
+				case FREE:
 					
 					final var freeContentPositionValue = this.freeContentPosition.getValue();	
 					
@@ -970,7 +970,7 @@ IResizableInputTaker {
 	 */
 	public final Layer setFreeContentPosition(final int x, final int y) {
 		
-		setContentPosition(ExtendedContentPosition.Free);
+		setContentPosition(ExtendedContentPosition.FREE);
 		setFreeContentPosition_(x, y);
 		
 		return this;

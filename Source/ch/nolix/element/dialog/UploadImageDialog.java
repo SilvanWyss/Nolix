@@ -67,18 +67,18 @@ public final class UploadImageDialog extends Layer {
 	private void fillUp() {
 		setRootWidget(
 			new VerticalStack()
-			.setRole(ContainerRole.DialogContainer)
+			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addWidget(
 				imageWidget,
 				new Uploader().setFileTaker(this::selectImage),
 				new HorizontalStack()
 				.addWidget(
 					new Button()
-					.setRole(ButtonRole.CancelButton)
+					.setRole(ButtonRole.CANCEL_BUTTON)
 					.setText("Cancel")
 					.setLeftMouseButtonPressAction(this::removeSelfFromGUI),
 					new Button()
-					.setRole(ButtonRole.ConfirmButton)
+					.setRole(ButtonRole.CONFIRM_BUTTON)
 					.setText("Select")
 					.setLeftMouseButtonPressAction(this::confirm)
 				)

@@ -41,10 +41,10 @@ public final class ErrorDialogTutorial {
 					"BaseTextSize(30)"
 				),
 				new DeepConfiguration()
-				.addSelectorRole(ContainerRole.DialogContainer)
+				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute("BaseBackgroundColor(Salmon)", "ContentPosition(Center)"),
 				new DeepConfiguration()
-				.addSelectorRole(LabelRole.ErrorText)
+				.addSelectorRole(LabelRole.ERROR_TEXT)
 				.addAttachingAttribute("BaseBottomPadding(100)")
 			)
 		);

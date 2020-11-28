@@ -106,7 +106,7 @@ public final class AnthrazitGUILook extends Configuration {
 		//constructor
 		public DialogContainerLook() {
 			
-			addSelectorRole(ContainerRole.DialogContainer);
+			addSelectorRole(ContainerRole.DIALOG_CONTAINER);
 			
 			addAttachingAttribute(
 				"BaseBackgroundColor(0x202020)",
@@ -156,7 +156,7 @@ public final class AnthrazitGUILook extends Configuration {
 		//constructor
 		public Level1HeaderLook() {
 			
-			addSelectorRole(LabelRole.Level1Header);
+			addSelectorRole(LabelRole.LEVEL1_HEADER);
 			
 			addAttachingAttribute(
 				"BaseTextSize(30)",
@@ -171,7 +171,7 @@ public final class AnthrazitGUILook extends Configuration {
 		//constructor
 		public Level2HeaderLook() {
 			
-			addSelectorRole(LabelRole.Level1Header);
+			addSelectorRole(LabelRole.LEVEL1_HEADER);
 			
 			addAttachingAttribute(
 				"BaseTextSize(20)",
@@ -185,7 +185,7 @@ public final class AnthrazitGUILook extends Configuration {
 		
 		public OverallContainerLook() {
 			
-			addSelectorRole(ContainerRole.OverallContainer);
+			addSelectorRole(ContainerRole.OVERALL_CONTAINTER);
 			
 			addAttachingAttribute(
 				"ProposalWidth(1000)",
@@ -233,7 +233,7 @@ public final class AnthrazitGUILook extends Configuration {
 		//constructor
 		public TitleLook() {
 			
-			addSelectorRole(LabelRole.Title);
+			addSelectorRole(LabelRole.TITLE);
 			
 			addAttachingAttribute(
 				"BaseTopPadding(20)",

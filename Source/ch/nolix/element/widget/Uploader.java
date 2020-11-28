@@ -82,7 +82,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
-		setContentPosition(ContentPosition.Center);
+		setContentPosition(ContentPosition.CENTER);
 		setCustomCursorIcon(CursorIcon.HAND);
 		
 		getRefBaseLook()

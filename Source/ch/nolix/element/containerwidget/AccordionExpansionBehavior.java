@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.element.containerwidget;
 
-//Java import
-import java.util.Locale;
-
 //own imports
+import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
@@ -14,7 +14,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * 
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 30
+ * @lines 40
  */
 public enum AccordionExpansionBehavior implements IElementEnum {
 	SINGLE_OR_NONE,
@@ -32,6 +32,15 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static AccordionExpansionBehavior fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader().toUpperCase(Locale.ENGLISH));
+		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LinkedList<Node> getAttributes() {
+		return new Node(StringHelper.toPascalCase(toString())).intoList();
 	}
 }

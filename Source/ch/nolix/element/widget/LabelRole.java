@@ -2,25 +2,28 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElementEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 30
+ * @lines 40
  */
 public enum LabelRole implements IElementEnum {
-	Title,
-	SubTitle,
-	Level1Header,
-	Level2Header,
-	Level3Header,
-	Level4Header,
-	ParagraphHeader,
-	MainText,
-	ErrorText;
+	TITLE,
+	SUB_TITLE,
+	LEVEL1_HEADER,
+	LEVEL2_HEADER,
+	LEVEL3_HEADER,
+	LEVEL4_HEADER,
+	PARAGRAPH_HEADER,
+	MAIN_TEXT,
+	ERROR_TEXT;
 
 	//static method
 	/**
@@ -30,6 +33,15 @@ public enum LabelRole implements IElementEnum {
 	public static LabelRole fromSpecification(
 		final BaseNode specification
 	) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LinkedList<Node> getAttributes() {
+		return new Node(StringHelper.toPascalCase(toString())).intoList();
 	}
 }

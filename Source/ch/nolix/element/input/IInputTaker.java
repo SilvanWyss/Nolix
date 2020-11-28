@@ -42,13 +42,13 @@ public interface IInputTaker {
 	 */
 	default void noteKeyInput(final KeyInput keyInput) {
 		switch (keyInput.getInputType()) {
-			case Press:
+			case PRESS:
 				noteKeyPress(keyInput.getKey());
 				break;
-			case Release:
+			case RELEASE:
 				noteKeyRelease(keyInput.getKey());
 				break;
-			case Typing:
+			case TYPING:
 				noteKeyTyping(keyInput.getKey());
 				break;
 		}
@@ -149,41 +149,41 @@ public interface IInputTaker {
 	 */
 	default void noteMouseInput(final MouseInput mouseInput) {
 		switch (mouseInput.getInputType()) {
-			case MouseMove:
+			case MOUSE_MOVE:
 				noteMouseMove(mouseInput.getCursorXPosition(), mouseInput.getCursorYPosition());
 				break;
-			case LeftMouseButtonPress:
+			case LEFT_MOUSE_BUTTON_PRESS:
 				noteLeftMouseButtonPress();
 				break;
-			case LeftMouseButtonRelease:
+			case LEFT_MOUSE_BUTTON_RELEASE:
 				noteLeftMouseButtonRelease();
 				break;
-			case LeftMouseButtonClick:
+			case LEFT_MOUSE_BUTTON_CLICK:
 				noteLeftMouseButtonClick();
 				break;
-			case RightMouseButtonPress:
+			case RIGHT_MOUSE_BUTTON_PRESS:
 				noteRightMouseButtonPress();
 				break;
-			case RightMouseButtonRelease:
+			case RIGHT_MOUSE_BUTTON_RELEASE:
 				noteRightMouseButtonRelease();
 				break;
-			case RightMouseButtonClick:
+			case RIGHT_MOUSE_BUTTON_CLICK:
 				noteRightMouseButtonClick();
 				break;
-			case MouseWheelPress:
+			case MOUSE_WHEEL_PRESS:
 				noteMouseWheelPress();
 				break;
-			case MouseWheelRelease:
+			case MOUSE_WHEEL_RELEASE:
 				noteMouseWheelRelease();
 				break;
-			case MouseWheelClick:
+			case MOUSE_WHEEL_CLICK:
 				noteMouseWheelClick();
 				break;
-			case ForwardMouseWheelRotationStep:
-				noteMouseWheelRotationStep(RotationDirection.Forward);
+			case FORWARD_MOUSE_WHEEL_ROTATION_STEP:
+				noteMouseWheelRotationStep(RotationDirection.FORWARD);
 				break;
-			case BackwardMouseWheelRotationStep:
-				noteMouseWheelRotationStep(RotationDirection.Backward);
+			case BACKWARD_MOUSE_WHEEL_ROTATION_STEP:
+				noteMouseWheelRotationStep(RotationDirection.BACKWARD);
 				break;
 		}
 	}

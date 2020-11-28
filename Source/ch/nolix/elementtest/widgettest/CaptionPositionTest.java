@@ -20,40 +20,40 @@ public final class CaptionPositionTest extends Test {
 	public void testCase_getSpecification() {
 		
 		//execution & verification
-			expect(CaptionPosition.LeftTop.getSpecification().toString())
+			expect(CaptionPosition.LEFT_TOP.getSpecification().toString())
 			.isEqualTo("CaptionPosition(LeftTop)");
 			
-			expect(CaptionPosition.Left.getSpecification().toString())
+			expect(CaptionPosition.LEFT.getSpecification().toString())
 			.isEqualTo("CaptionPosition(Left)");
 			
-			expect(CaptionPosition.LeftBottom.getSpecification().toString())
+			expect(CaptionPosition.LEFT_BOTTOM.getSpecification().toString())
 			.isEqualTo("CaptionPosition(LeftBottom)");
 			
-			expect(CaptionPosition.RightTop.getSpecification().toString())
+			expect(CaptionPosition.RIGHT_TOP.getSpecification().toString())
 			.isEqualTo("CaptionPosition(RightTop)");
 			
-			expect(CaptionPosition.Right.getSpecification().toString())
+			expect(CaptionPosition.RIGHT.getSpecification().toString())
 			.isEqualTo("CaptionPosition(Right)");
 			
-			expect(CaptionPosition.RightBottom.getSpecification().toString())
+			expect(CaptionPosition.RIGHT_BOTTOM.getSpecification().toString())
 			.isEqualTo("CaptionPosition(RightBottom)");
 			
-			expect(CaptionPosition.TopLeft.getSpecification().toString())
+			expect(CaptionPosition.TOP_LEFT.getSpecification().toString())
 			.isEqualTo("CaptionPosition(TopLeft)");
 			
-			expect(CaptionPosition.Top.getSpecification().toString())
+			expect(CaptionPosition.TOP.getSpecification().toString())
 			.isEqualTo("CaptionPosition(Top)");
 			
-			expect(CaptionPosition.TopRight.getSpecification().toString())
+			expect(CaptionPosition.TOP_RIGHT.getSpecification().toString())
 			.isEqualTo("CaptionPosition(TopRight)");
 			
-			expect(CaptionPosition.BottomLeft.getSpecification().toString())
+			expect(CaptionPosition.BOTTOM_LEFT.getSpecification().toString())
 			.isEqualTo("CaptionPosition(BottomLeft)");
 			
-			expect(CaptionPosition.Bottom.getSpecification().toString())
+			expect(CaptionPosition.BOTTOM.getSpecification().toString())
 			.isEqualTo("CaptionPosition(Bottom)");
 			
-			expect(CaptionPosition.BottomRight.getSpecification().toString())
+			expect(CaptionPosition.BOTTOM_RIGHT.getSpecification().toString())
 			.isEqualTo("CaptionPosition(BottomRight)");
 	}
 	
@@ -62,17 +62,17 @@ public final class CaptionPositionTest extends Test {
 	public void testCase_toString() {
 		
 		//execution & verification
-		expect(CaptionPosition.LeftTop.toString()).isEqualTo("LeftTop");
-		expect(CaptionPosition.Left.toString()).isEqualTo("Left");
-		expect(CaptionPosition.LeftBottom.toString()).isEqualTo("LeftBottom");
-		expect(CaptionPosition.RightTop.toString()).isEqualTo("RightTop");
-		expect(CaptionPosition.Right.toString()).isEqualTo("Right");
-		expect(CaptionPosition.RightBottom.toString()).isEqualTo("RightBottom");
-		expect(CaptionPosition.TopLeft.toString()).isEqualTo("TopLeft");
-		expect(CaptionPosition.Top.toString()).isEqualTo("Top");
-		expect(CaptionPosition.TopRight.toString()).isEqualTo("TopRight");
-		expect(CaptionPosition.BottomLeft.toString()).isEqualTo("BottomLeft");
-		expect(CaptionPosition.Bottom.toString()).isEqualTo("Bottom");
-		expect(CaptionPosition.BottomRight.toString()).isEqualTo("BottomRight");
+		expect(CaptionPosition.LEFT_TOP.toString()).isEqualTo("LEFT_TOP");
+		expect(CaptionPosition.LEFT.toString()).isEqualTo("LEFT");
+		expect(CaptionPosition.LEFT_BOTTOM.toString()).isEqualTo("LEFT_BOTTOM");
+		expect(CaptionPosition.RIGHT_TOP.toString()).isEqualTo("RIGHT_TOP");
+		expect(CaptionPosition.RIGHT.toString()).isEqualTo("RIGHT");
+		expect(CaptionPosition.RIGHT_BOTTOM.toString()).isEqualTo("RIGHT_BOTTOM");
+		expect(CaptionPosition.TOP_LEFT.toString()).isEqualTo("TOP_LEFT");
+		expect(CaptionPosition.TOP.toString()).isEqualTo("TOP");
+		expect(CaptionPosition.TOP_RIGHT.toString()).isEqualTo("TOP_RIGHT");
+		expect(CaptionPosition.BOTTOM_LEFT.toString()).isEqualTo("BOTTOM_LEFT");
+		expect(CaptionPosition.BOTTOM.toString()).isEqualTo("BOTTOM");
+		expect(CaptionPosition.BOTTOM_RIGHT.toString()).isEqualTo("BOTTOM_RIGHT");
 	}
 }

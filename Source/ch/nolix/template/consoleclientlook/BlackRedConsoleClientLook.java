@@ -24,7 +24,7 @@ public final class BlackRedConsoleClientLook extends Configuration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.addSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(
 				"ElementMargin(20)"
 			),

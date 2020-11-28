@@ -47,7 +47,7 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 	public DatabaseState getDatabaseState() {
 		
 		if (!fileNodeDatabase.hasHeader()) {
-			return DatabaseState.Uninitialized;
+			return DatabaseState.UNINITIALIZED;
 		}
 		
 		return
@@ -100,7 +100,7 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 		getDatabasePropertiesNode()
 		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
 		.getRefOneAttribute()
-		.setHeader(DatabaseState.Locked.toString());
+		.setHeader(DatabaseState.LOCKED.toString());
 	}
 	
 	//method
@@ -188,6 +188,6 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 		getDatabasePropertiesNode()
 		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
 		.getRefOneAttribute()
-		.setHeader(DatabaseState.Ready.toString());	
+		.setHeader(DatabaseState.READY.toString());	
 	}
 }

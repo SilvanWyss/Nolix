@@ -23,7 +23,7 @@ public final class UniDirectionTest extends Test {
 		
 		//execution
 		final LinkedList<Node> attributes
-		= UniDirection.Horizontal.getAttributes();
+		= UniDirection.HORIZONTAL.getAttributes();
 		
 		//verification
 			expect(attributes.getElementCount()).isEqualTo(1);
@@ -37,7 +37,7 @@ public final class UniDirectionTest extends Test {
 	public void testCase_getSpecification() {
 		
 		//execution & verification
-		expect(UniDirection.Horizontal.getSpecification())
+		expect(UniDirection.HORIZONTAL.getSpecification())
 		.isEqualTo(Node.fromString("UniDirection(Horizontal)"));
 	}
 	
@@ -46,7 +46,7 @@ public final class UniDirectionTest extends Test {
 	public void testCase_getType() {
 		
 		//execution & verification
-		expect(UniDirection.Horizontal.getType()).isEqualTo("UniDirection");
+		expect(UniDirection.HORIZONTAL.getType()).isEqualTo("UniDirection");
 	}
 	
 	//method
@@ -54,6 +54,6 @@ public final class UniDirectionTest extends Test {
 	public void testCase_toString() {
 		
 		//execution & verification
-		expect(UniDirection.Horizontal.toString()).isEqualTo("Horizontal");
+		expect(UniDirection.HORIZONTAL.toString()).isEqualTo("HORIZONTAL");
 	}
 }

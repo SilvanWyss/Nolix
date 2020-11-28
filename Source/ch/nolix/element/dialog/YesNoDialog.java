@@ -23,19 +23,19 @@ public final class YesNoDialog extends Layer {
 		
 		setRootWidget(
 			new VerticalStack()
-			.setRole(ContainerRole.DialogContainer)
+			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addWidget(
 				new Label()
-				.setRole(LabelRole.MainText)
+				.setRole(LabelRole.MAIN_TEXT)
 				.setText(yesNoQuestion),
 				new HorizontalStack()
 				.addWidget(
 					new Button()
-					.setRole(ButtonRole.CancelButton)
+					.setRole(ButtonRole.CANCEL_BUTTON)
 					.setText("No")
 					.setLeftMouseButtonPressAction(l -> l.getParentGUI().removeLayer(this)),
 					new Button()
-					.setRole(ButtonRole.ConfirmButton)
+					.setRole(ButtonRole.CONFIRM_BUTTON)
 					.setText("Yes")
 					.setLeftMouseButtonPressAction(
 						l -> {

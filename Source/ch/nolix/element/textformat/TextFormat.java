@@ -33,7 +33,7 @@ import ch.nolix.element.color.Color;
 public final class TextFormat extends Element<TextFormat> {
 	
 	//constants
-	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
+	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;
 	public static final int DEFAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	

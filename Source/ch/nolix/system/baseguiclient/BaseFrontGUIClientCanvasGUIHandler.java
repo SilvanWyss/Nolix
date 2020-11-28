@@ -32,7 +32,7 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	//method
 	@Override
 	public BaseFrontGUIClientGUIType getGUIType() {
-		return BaseFrontGUIClientGUIType.CanvasGUI;
+		return BaseFrontGUIClientGUIType.CANVAS_GUI;
 	}
 	
 	//method

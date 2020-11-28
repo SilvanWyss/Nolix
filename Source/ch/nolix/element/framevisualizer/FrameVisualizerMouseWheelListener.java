@@ -30,7 +30,7 @@ final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
 		final MouseWheelEvent mouseWheelEvent
 	) {
 		frameVisualizer.noteMouseWheelRotationStep(
-			mouseWheelEvent.getPreciseWheelRotation() > 0 ? RotationDirection.Forward : RotationDirection.Backward
+			mouseWheelEvent.getPreciseWheelRotation() > 0 ? RotationDirection.FORWARD : RotationDirection.BACKWARD
 		);
 	}
 }

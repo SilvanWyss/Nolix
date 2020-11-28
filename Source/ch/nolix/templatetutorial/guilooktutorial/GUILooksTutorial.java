@@ -37,16 +37,16 @@ public final class GUILooksTutorial {
 		.setTitle("GUILooks Tutorial")
 		.addLayerOnTop(
 			new VerticalStack()
-			.setRole(ContainerRole.OverallContainer)
+			.setRole(ContainerRole.OVERALL_CONTAINTER)
 			.addWidget(
 				new Label()
-				.setRole(LabelRole.Title)
+				.setRole(LabelRole.TITLE)
 				.setText("Configure your GUI !"),
 				new HorizontalStack()
 				.addWidget(
 					selectionMenu,
 					new Grid()
-					.setRole(ContainerRole.MainContainer)
+					.setRole(ContainerRole.MAINT_CONTAINER)
 					.setWidget(1, 1, "Checkbox")
 					.setWidget(1, 2, new CheckBox())
 					.setWidget(2, 1, "Button")

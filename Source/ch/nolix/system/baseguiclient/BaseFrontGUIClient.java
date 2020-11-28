@@ -36,10 +36,10 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Enumerates the given pGUIType.
 		switch (pGUIType) {
-			case LayerGUI:
+			case LAYER_GUI:
 				mGUIHandler = new BaseFrontGUIClientLayerGUIHandler(this);
 				break;
-			case CanvasGUI:
+			case CANVAS_GUI:
 				mGUIHandler = new BaseFrontGUIClientCanvasGUIHandler(this);
 				break;
 			default:

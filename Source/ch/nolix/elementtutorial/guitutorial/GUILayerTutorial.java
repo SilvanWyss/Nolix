@@ -33,7 +33,7 @@ public final class GUILayerTutorial {
 		
 		//Creates dialogLayer.
 		final var dialogLayer = new Layer(
-			ExtendedContentPosition.Center,
+			ExtendedContentPosition.CENTER,
 			new VerticalStack()
 			.addWidget(
 				new Button()
@@ -58,7 +58,7 @@ public final class GUILayerTutorial {
 		.setLeftMouseButtonReleaseAction(() -> frame.addLayerOnTop(dialogLayer));
 		
 		//Adds the showButton to the Frame.
-		frame.addLayerOnTop(ExtendedContentPosition.Center, showButton);
+		frame.addLayerOnTop(ExtendedContentPosition.CENTER, showButton);
 	}
 	
 	/**

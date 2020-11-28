@@ -20,7 +20,7 @@ public final class BlackBlueGUILook extends Configuration {
 			.setSelectorType("Layer")
 			.addAttachingAttribute("ContentPosition(Top)"),
 			new DeepConfiguration()
-			.addSelectorRole(ContainerRole.OverallContainer)
+			.addSelectorRole(ContainerRole.OVERALL_CONTAINTER)
 			.addAttachingAttribute(
 				"BaseBackgroundColor(0xE0E0E0)",
 				"BaseTopBorderThickness(50)",
@@ -28,7 +28,7 @@ public final class BlackBlueGUILook extends Configuration {
 				"BasePadding(10)"),
 			new DeepConfiguration()
 			.setSelectorType("TabContainer")
-			.addSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(
 				"MinWidth(600)",
 				"MenuItemMargin(50)",
@@ -50,7 +50,7 @@ public final class BlackBlueGUILook extends Configuration {
 			),
 			new DeepConfiguration()
 			.setSelectorType("Label")
-			.addSelectorRole(LabelRole.Title)
+			.addSelectorRole(LabelRole.TITLE)
 			.addAttachingAttribute(
 				"BaseTextSize(50)",
 				"BaseTextColor(Blue)"

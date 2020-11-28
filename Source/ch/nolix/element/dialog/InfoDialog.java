@@ -23,12 +23,12 @@ public final class InfoDialog extends Layer {
 		
 		setRootWidget(
 			new VerticalStack()
-			.setRole(ContainerRole.DialogContainer)
+			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addWidget(
 				new Label()
 				.setText(info),
 				new Button()
-				.setRole(ButtonRole.ConfirmButton)
+				.setRole(ButtonRole.CONFIRM_BUTTON)
 				.setText("Ok")
 				.setLeftMouseButtonPressAction(this::removeSelfFromGUI)
 			)

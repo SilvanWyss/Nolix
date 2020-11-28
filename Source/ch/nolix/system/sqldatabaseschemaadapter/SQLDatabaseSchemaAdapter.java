@@ -76,7 +76,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			"INSERT INTO "
 			+ DATABASE_PROPERTIES_TABLE_NAME
 			+ " (name, content) VALUES ('State', '"
-			+ DatabaseState.Locked.toString()
+			+ DatabaseState.LOCKED.toString()
 			+ "')"
 		);
 	}
@@ -132,7 +132,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 		"INSERT INTO "
 		+ DATABASE_PROPERTIES_TABLE_NAME
 		+ " (name, content) VALUES ('State', '"
-		+ DatabaseState.Locked.toString()
+		+ DatabaseState.LOCKED.toString()
 		+ "')";
 	}
 }

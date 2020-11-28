@@ -42,7 +42,7 @@ public final class HorizontalLineTutorial {
 		
 		//Configures the look of the VerticalStack.
 		verticalStack
-		.setContentPosition(ContentPosition.Top)
+		.setContentPosition(ContentPosition.TOP)
 		.setElementMargin(50)
 		.applyOnBaseLook(
 			bl ->

@@ -43,20 +43,20 @@ public final class YesNoDialogTutorial {
 					"BaseTextSize(30)"
 				),
 				new DeepConfiguration()
-				.addSelectorRole(ContainerRole.DialogContainer)
+				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute("BaseBackgroundColor(Lavender)", "ContentPosition(Center)")
 				.addConfiguration(
 					new DeepConfiguration()
 					.setSelectorType(Stack.class)
 					.addAttachingAttribute("ElementMargin(0)"),
 					new DeepConfiguration()
-					.addSelectorRole(LabelRole.MainText)
+					.addSelectorRole(LabelRole.MAIN_TEXT)
 					.addAttachingAttribute("BaseBottomPadding(100)"),
 					new DeepConfiguration()
-					.addSelectorRole(ButtonRole.ConfirmButton)
+					.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 					.addAttachingAttribute("BaseBackgroundColor(LightGreen)", "HoverBackgroundColor(Green)"),
 					new DeepConfiguration()
-					.addSelectorRole(ButtonRole.CancelButton)
+					.addSelectorRole(ButtonRole.CANCEL_BUTTON)
 					.addAttachingAttribute(
 						"CursorIcon(Hand)",
 						"BaseBackgroundColor(Salmon)",
