@@ -1,26 +1,26 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.independentHelper.ArrayHelper;
 import ch.nolix.common.invalidArgumentException.ArgumentIsNullException;
 
 //class
 /**
- * A multi double mediator is not mutable.
+ * A {@link MultiDoubleMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 160
+ * @date 2017-01-01
+ * @lines 180
  */
 public final class MultiDoubleMediator extends Mediator {
 
-	//attribute
-	final Iterable<Double> values;
+	//multi-attribute
+	private final Iterable<Double> values;
 	
 	//constructor
 	/**
-	 * Creates a new multi double mediator
-	 * that belongs to the given test and is for the given values.
+	 * Creates a new {@link MultiDoubleMediator} that will belong to the given test and is for the given values.
 	 * 
 	 * @param test
 	 * @param values
@@ -33,8 +33,7 @@ public final class MultiDoubleMediator extends Mediator {
 
 	//constructor
 	/**
-	 * Creates a new multi double mediator
-	 * that belongs to the given test and is for the given values.
+	 * Creates a new {@link MultiDoubleMediator} that will belong to the given test and is for the given values.
 	 * 
 	 * @param test
 	 * @param values
@@ -45,13 +44,14 @@ public final class MultiDoubleMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Sets the values of this multi double mediator.
+		//Sets the values of the current MultiDoubleMediator.
 		this.values = values;
 	}
 	
 	//method
 	/**
-	 * Generates an error for all of the values of this mutli double mediator that are not bigger than the given value.
+	 * Generates an error for all of the values of the current {@link MultiDoubleMediator}
+	 * that are not bigger than the given value.
 	 */
 	public void areBiggerThan(final double value) {
 		
@@ -63,7 +63,7 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is not null.
 		else {
 		
-			//Iterates the values of this multi double mediator.
+			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
 			for (final double v : values) {
 				
@@ -82,7 +82,7 @@ public final class MultiDoubleMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error for all of the values of this mutli double mediator that are not negative.
+	 * Generates an error for all of the values of the current {@link MultiDoubleMediator} that are not negative.
 	 */
 	public void areNegative() {
 		
@@ -94,7 +94,7 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is not null.
 		else {
 		
-			//Iterates the values of this multi double mediator.
+			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
 			for (final double v : values) {
 				
@@ -113,7 +113,7 @@ public final class MultiDoubleMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error for all of the values of this mutli double mediator that are not positive.
+	 * Generates an error for all of the values of the current {@link MultiDoubleMediator} that are not positive.
 	 */
 	public void arePositive() {
 	
@@ -125,7 +125,7 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is not null.
 		else {
 		
-			//Iterates the values of this multi double mediator.
+			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
 			for (final double v : values) {
 				
@@ -144,7 +144,8 @@ public final class MultiDoubleMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error for all of the values of this mutli double mediator that are not smaller than the given value.
+	 * Generates an error for all of the values of the current {@link MultiDoubleMediator}
+	 * that are not smaller than the given value.
 	 */
 	public void areSmallerThan(final double value) {
 		
@@ -156,7 +157,7 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is not null.
 		else {
 		
-			//Iterates the values of this multi double mediator.
+			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
 			for (final double v : values) {
 				
