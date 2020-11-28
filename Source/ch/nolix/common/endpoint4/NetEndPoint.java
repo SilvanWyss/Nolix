@@ -157,7 +157,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		this.messageTransformer = messageTransformer;
 		this.replyTransformer = replyTransformer;
 		
-		internalEndPoint.setReceiver(new Receiver<M, R>(this));
+		internalEndPoint.setReceiver(this::receive);
 		createCloseDependencyTo(internalEndPoint);
 	}
 	
