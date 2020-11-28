@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tech.genericMath;
+package ch.nolix.tech.genericmath;
 
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 import ch.nolix.techapi.genericmathapi.IClosedIntervalFactory;

@@ -2,7 +2,7 @@ package ch.nolix.techapitutorial.genericmathapitutorial;
 
 import ch.nolix.common.functionapi.IIntTaker;
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
-import ch.nolix.tech.genericMath.Registrator;
+import ch.nolix.tech.genericmath.Registrator;
 import ch.nolix.techapi.genericmathapi.IComplexNumber;
 import ch.nolix.techapi.genericmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.genericmathapi.IImplicitComplexSequenceBuilder;

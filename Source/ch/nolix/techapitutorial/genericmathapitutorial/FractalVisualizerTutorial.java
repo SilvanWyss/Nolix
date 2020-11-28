@@ -13,7 +13,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.guiclient.BackGUIClient;
 import ch.nolix.system.guiclient.BackGUIClientSession;
-import ch.nolix.tech.genericMath.FractalBuilder;
+import ch.nolix.tech.genericmath.FractalBuilder;
 
 public final class FractalVisualizerTutorial {
 	

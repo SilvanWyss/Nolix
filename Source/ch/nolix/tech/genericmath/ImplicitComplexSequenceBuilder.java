@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tech.genericMath;
+package ch.nolix.tech.genericmath;
 
 //Java import
 import java.util.ArrayList;
