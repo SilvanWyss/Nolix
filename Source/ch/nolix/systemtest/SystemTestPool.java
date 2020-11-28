@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.systemTest;
+package ch.nolix.systemtest;
 
 //own imports
 import ch.nolix.common.baseTest.TestPool;
-import ch.nolix.systemTest.dataTypeTest.DataTypesTestPool;
-import ch.nolix.systemTest.neuronTest.NeuronTestPool;
-import ch.nolix.systemTest.textureTest.TextureTestPool;
+import ch.nolix.systemtest.datatypetest.DataTypesTestPool;
+import ch.nolix.systemtest.neurontest.NeuronTestPool;
+import ch.nolix.systemtest.texturetest.TextureTestPool;
 
 //class
 public final class SystemTestPool extends TestPool {

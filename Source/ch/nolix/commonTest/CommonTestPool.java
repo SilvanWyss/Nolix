@@ -15,7 +15,7 @@ import ch.nolix.commonTest.sequencerTest.SequencerTestPool;
 import ch.nolix.commonTest.validatorTest.ValidatorTestPool;
 import ch.nolix.commonTest.webSocketTest.WebSocketTestPool;
 import ch.nolix.elementTest.elementEnumTest.ElementEnumTestPool;
-import ch.nolix.systemTest.entityTest.EntityTestPool;
+import ch.nolix.systemtest.entitytest.EntityTestPool;
 
 //class
 /**

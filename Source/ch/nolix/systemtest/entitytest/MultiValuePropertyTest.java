@@ -1,25 +1,25 @@
 //package declaration
-package ch.nolix.systemTest.entityTest;
+package ch.nolix.systemtest.entitytest;
 
 //own imports
 import ch.nolix.common.baseTest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.EntityAccessor;
-import ch.nolix.system.entity.OptionalValue;
+import ch.nolix.system.entity.MultiValue;
 
 //class
-public final class OptionalValuePropertyTest extends Test {
+public final class MultiValuePropertyTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getSpecification_whenOptionalPropertyIsEmpty() {
+	public void testCase_getSpecification_whenMultiPropertyIsEmpty() {
 		
 		//setup
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValue<String> testUnit = new OptionalValue<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		EntityAccessor.extractProperties(entity);
 		entity.testUnit.clear();
@@ -35,16 +35,16 @@ public final class OptionalValuePropertyTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getSpecification_whenOptionalPropertyHasAValue() {
+	public void testCase_getSpecification_whenMultiPropertyContainsValues() {
 		
 		//setup
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValue<String> testUnit = new OptionalValue<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		EntityAccessor.extractProperties(entity);
-		entity.testUnit.setValue("x");
+		entity.testUnit.addValue("a", "b", "c");
 		
 		//execution
 		final var result = entity.testUnit.getSpecification();
@@ -52,18 +52,18 @@ public final class OptionalValuePropertyTest extends Test {
 		//verification
 		expect(result.hasHeader());
 		expect(result.containsAttributes());
-		expect(result.toString()).isEqualTo("testUnit(x)");
+		expect(result.toString()).isEqualTo("testUnit(a,b,c)");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getCellSpecification_whenOptionalPropertyIsEmpty() {
+	public void testCase_getCellSpecification_whenMultiPropertyIsEmpty() {
 		
 		//setup
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValue<String> testUnit = new OptionalValue<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
 		entity.testUnit.clear();
 		
@@ -78,22 +78,22 @@ public final class OptionalValuePropertyTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getCellSpecification_whenOptioanlPropertyHasAValue() {
+	public void testCase_getCellSpecification_whenMultiPropertyContainsValues() {
 		
 		//setup
 		final var entity = new Entity() {
 			
 			//attribute
-			public final OptionalValue<String> testUnit = new OptionalValue<>();
+			public final MultiValue<String> testUnit = new MultiValue<>();
 		};
-		entity.testUnit.setValue("x");
+		entity.testUnit.addValue("a", "b", "c");
 		
 		//execution
 		final var result = entity.testUnit.getCellSpecification();
 		
 		//verification
-		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
-		expect(result.toString()).isEqualTo("x");
+		expectNot(result.hasHeader());
+		expect(result.containsAttributes());
+		expect(result.toString()).isEqualTo("(a,b,c)");
 	}
 }

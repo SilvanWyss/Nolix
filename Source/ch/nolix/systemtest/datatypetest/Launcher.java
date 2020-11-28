@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemTest;
+package ch.nolix.systemtest.datatypetest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new SystemTestPool().run();
+		new DataTypesTestPool().run();
 	}
 	
 	//visibility-reduced constructor

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemTest.neuronTest;
+package ch.nolix.systemtest.neurontest;
 
 //own import
 import ch.nolix.common.baseTest.TestPool;

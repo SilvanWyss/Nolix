@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemTest.dataTypeTest;
+package ch.nolix.systemtest.datatypetest;
 
 //own import
 import ch.nolix.common.baseTest.TestPool;
