@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.templateTest;
+package ch.nolix.templatetest;
 
 //own imports
 import ch.nolix.common.baseTest.TestPool;
-import ch.nolix.templateTest.GUILookTest.GUILooksTestPool;
-import ch.nolix.templateTest.consoleClientLookTest.ConsoleClientLookTestPool;
+import ch.nolix.templatetest.consoleclientlooktest.ConsoleClientLookTestPool;
+import ch.nolix.templatetest.guilooktest.GUILooksTestPool;
 
 //class
 public final class TemplatesTestPool extends TestPool {

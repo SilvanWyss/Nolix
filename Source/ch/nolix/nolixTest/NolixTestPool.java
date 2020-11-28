@@ -8,7 +8,7 @@ import ch.nolix.elementTest.ElementTestPool;
 import ch.nolix.nolixLicenseTest.NolixLicensesTestPool;
 import ch.nolix.systemTest.SystemTestPool;
 import ch.nolix.techTest.TechTestPool;
-import ch.nolix.templateTest.TemplatesTestPool;
+import ch.nolix.templatetest.TemplatesTestPool;
 
 //class
 /**

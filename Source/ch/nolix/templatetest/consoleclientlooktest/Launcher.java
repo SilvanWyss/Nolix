@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.templateTest.consoleClientLookTest;
+package ch.nolix.templatetest.consoleclientlooktest;
 
 //class
 public final class Launcher {
