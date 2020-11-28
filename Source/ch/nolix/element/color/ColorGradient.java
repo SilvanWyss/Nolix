@@ -4,6 +4,7 @@ package ch.nolix.element.color;
 //Java import
 import java.awt.GradientPaint;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -14,11 +15,11 @@ import ch.nolix.element.elementenum.UniDirection;
 
 //class
 /**
- * A color gradient specifies two colors and an uni direction.
- * A color gradient is not mutable.
+ * A {@link ColorGradient} specifies 2 {@link Color}s and a {@link UniDirection}.
+ * A {@link ColorGradient} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-01
  * @lines 240
  */
 public class ColorGradient implements IElement {
@@ -38,10 +39,10 @@ public class ColorGradient implements IElement {
 
 	//static method
 	/**
-	 * Creates new color gradient from the given specification.
+	 * Creates new {@link ColorGradient} from the given specification.
 	 * 
 	 * @param specification
-	 * @return a new color gradient from the given specification.
+	 * @return a new {@link ColorGradient} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ColorGradient fromSpecification(
@@ -73,7 +74,7 @@ public class ColorGradient implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new color gradient.
+	 * Creates a new {@link ColorGradient}.
 	 */
 	public ColorGradient() {
 			
@@ -83,7 +84,7 @@ public class ColorGradient implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new color gradient with the given color 1 and color 2.
+	 * Creates a new {@link ColorGradient} with the given color 1 and color 2.
 	 * 
 	 * @param direction
 	 * @param color1
@@ -102,7 +103,7 @@ public class ColorGradient implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new color gradient with the given direction.
+	 * Creates a new {@link ColorGradient} with the given direction.
 	 * 
 	 * @param direction
 	 * @throws ArgumentIsNullException if the given direction is null.
@@ -115,7 +116,7 @@ public class ColorGradient implements IElement {
 	
 	//constructor
 	/**
-	 * Creates a new color gradient with the given direction, color 1 and color 2.
+	 * Creates a new {@link ColorGradient} with the given direction, color 1 and color 2.
 	 * 
 	 * @param direction
 	 * @param color1
@@ -150,7 +151,7 @@ public class ColorGradient implements IElement {
 	 * @param yPosition
 	 * @param width
 	 * @param height
-	 * @return a new Swing gradient paint of this color gradient
+	 * @return a new Swing gradient paint of the current {@link ColorGradient}
 	 * for the given position and size.
 	 */
 	public GradientPaint createSwingGradientPaint(
@@ -159,7 +160,7 @@ public class ColorGradient implements IElement {
 		final int width,
 		final int height
 	) {
-		//Enumerates the direction of this color gradient.
+		//Enumerates the direction of the current {@link ColorGradient}.
 		switch (getDirection()) {
 			case Horizontal:
 				return
@@ -167,7 +168,7 @@ public class ColorGradient implements IElement {
 					xPosition,
 					yPosition,
 					getColor1().createSwingColor(),
-					(float)xPosition + width,
+					(float)(xPosition + width),
 					yPosition,
 					getColor2().createSwingColor()
 				);
@@ -178,7 +179,7 @@ public class ColorGradient implements IElement {
 					yPosition,
 					getColor1().createSwingColor(),
 					xPosition,
-					(float)yPosition + height,
+					(float)(yPosition + height),
 					getColor2().createSwingColor()
 				);
 			case DiagonalUp:
@@ -187,8 +188,8 @@ public class ColorGradient implements IElement {
 					xPosition,
 					yPosition,
 					getColor1().createSwingColor(),
-					(float)xPosition + width,
-					(float)yPosition + height,
+					(float)(xPosition + width),
+					(float)(yPosition + height),
 					getColor2().createSwingColor()
 				);
 			case DiagonalDown:
@@ -197,8 +198,8 @@ public class ColorGradient implements IElement {
 					xPosition,
 					yPosition,
 					getColor2().createSwingColor(),
-					(float)xPosition + width,
-					(float)yPosition + height,
+					(float)(xPosition + width),
+					(float)(yPosition + height),
 					getColor1().createSwingColor()
 				);
 			default:
@@ -209,7 +210,7 @@ public class ColorGradient implements IElement {
 			
 	//method
 	/**
-	 * @return the attributes of this color gradient.
+	 * @return the attributes of the current {@link ColorGradient}.
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -223,7 +224,7 @@ public class ColorGradient implements IElement {
 	
 	//method
 	/**
-	 * @return the color 1 this color gradient.
+	 * @return the color 1 this {@link ColorGradient}.
 	 */
 	public Color getColor1() {
 		return color1;
@@ -231,7 +232,7 @@ public class ColorGradient implements IElement {
 	
 	//method
 	/**
-	 * @return the color 2 of this color gradient.
+	 * @return the color 2 of the current {@link ColorGradient}.
 	 */
 	public Color getColor2() {
 		return color2;
@@ -239,7 +240,7 @@ public class ColorGradient implements IElement {
 	
 	//method
 	/**
-	 * @return the direction of this color gradient.
+	 * @return the direction of the current {@link ColorGradient}.
 	 */
 	public UniDirection getDirection() {
 		return direction;
