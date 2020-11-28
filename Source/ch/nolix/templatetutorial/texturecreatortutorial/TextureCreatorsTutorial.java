@@ -1,4 +1,4 @@
-package ch.nolix.templateTutorial.textureCreatorTutorial;
+package ch.nolix.templatetutorial.texturecreatortutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;

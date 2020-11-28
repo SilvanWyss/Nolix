@@ -1,4 +1,4 @@
-package ch.nolix.templateTutorial.GUILookTutorial;
+package ch.nolix.templatetutorial.guilooktutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.containerWidget.ContainerRole;
