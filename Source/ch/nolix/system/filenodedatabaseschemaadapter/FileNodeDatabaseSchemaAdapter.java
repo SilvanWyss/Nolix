@@ -59,16 +59,6 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 	}
 	
 	//method
-	protected IEntitySetAdapter getEntitySetAdapter(final EntitySet entitySet) {
-		return getEntitySetAdapter(entitySet.getName());
-	}
-	
-	//method
-	protected IEntitySetAdapter getEntitySetAdapter(final String name) {
-		return getEntitySetAdapters().getRefFirst(esc -> esc.hasName(name));
-	}
-	
-	//method
 	@Override
 	protected LinkedList<IEntitySetAdapter> getEntitySetAdapters() {
 		return
