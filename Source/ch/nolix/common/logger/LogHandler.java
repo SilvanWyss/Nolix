@@ -3,7 +3,7 @@ package ch.nolix.common.logger;
 
 //class
 public abstract class LogHandler {
-
+	
 	//constant
 	public static final HarmLevel DEFAULT_MIN_HARM_LEVEL = HarmLevel.INFO;
 	
@@ -26,45 +26,22 @@ public abstract class LogHandler {
 	}
 	
 	//method
-	public HarmLevel getMinHarmLevel() {
+	public final HarmLevel getMinHarmLevel() {
 		return minHarmLevel;
 	}
 	
+	//method
+	public final boolean wouldLog(final LogEntry logEntry) {
+		return (logEntry != null && !logEntry.getHarmLevel().isLowerThan(getMinHarmLevel()));
+	}
+	
 	//method declaration
-	public abstract void log(LogEntry logEntry);
+	protected abstract void log(final LogEntry logEntry);
 	
 	//method
 	final void takeLogEntry(final LogEntry logEntry) {
-		switch (getMinHarmLevel()) {
-			case INFO:
-				logSafely(logEntry);
-				break;
-			case WARNING:
-				switch (logEntry.getHarmLevel()) {
-					case INFO:
-						break;
-					default:
-						logSafely(logEntry);
-				}
-				break;
-			case ERROR:
-				switch (logEntry.getHarmLevel()) {
-					case INFO:
-					case WARNING:
-						break;
-					default:
-						logSafely(logEntry);
-				}
-				break;
-			case FATAL_ERROR:
-				switch (logEntry.getHarmLevel()) {
-					case INFO:
-					case WARNING:
-					case ERROR:
-						break;
-					default:
-						logSafely(logEntry);
-				}
+		if (wouldLog(logEntry)) {
+			logSafely(logEntry);
 		}
 	}
 	
