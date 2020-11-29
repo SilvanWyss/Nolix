@@ -21,7 +21,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.getType();
 		
 		//verification
-		expect(result).isSameAs(WebSocketFramePayloadLengthType._7_BITS);
+		expect(result).isSameAs(WebSocketFramePayloadLengthType.BITS_7);
 	}
 	
 	//method
@@ -35,7 +35,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.getType();
 		
 		//verification
-		expect(result).isSameAs(WebSocketFramePayloadLengthType._7_BITS);
+		expect(result).isSameAs(WebSocketFramePayloadLengthType.BITS_7);
 	}
 	
 	//method
@@ -49,7 +49,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.getType();
 		
 		//verification
-		expect(result).isSameAs(WebSocketFramePayloadLengthType._16_BITS);
+		expect(result).isSameAs(WebSocketFramePayloadLengthType.BITS_16);
 	}
 	
 	//method
@@ -63,7 +63,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.getType();
 		
 		//verification
-		expect(result).isSameAs(WebSocketFramePayloadLengthType._16_BITS);
+		expect(result).isSameAs(WebSocketFramePayloadLengthType.BITS_16);
 	}
 	
 	//method
@@ -77,7 +77,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.getType();
 		
 		//verification
-		expect(result).isSameAs(WebSocketFramePayloadLengthType._64_BITS);
+		expect(result).isSameAs(WebSocketFramePayloadLengthType.BITS_64);
 	}
 	
 	//method
@@ -91,7 +91,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.getType();
 		
 		//verification
-		expect(result).isSameAs(WebSocketFramePayloadLengthType._64_BITS);
+		expect(result).isSameAs(WebSocketFramePayloadLengthType.BITS_64);
 	}
 	
 	//method

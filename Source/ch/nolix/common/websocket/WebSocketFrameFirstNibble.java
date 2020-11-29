@@ -38,7 +38,7 @@ final class WebSocketFrameFirstNibble {
 		payloadLengthSpecification = WebSocketFramePayloadLengthType.fromPayloadLength(payloadLength);
 		
 		this.m7BitPayloadLength =
-		payloadLengthSpecification == WebSocketFramePayloadLengthType._7_BITS ? payloadLength : 0;
+		payloadLengthSpecification == WebSocketFramePayloadLengthType.BITS_7 ? payloadLength : 0;
 	}
 	
 	//constructor
@@ -95,13 +95,13 @@ final class WebSocketFrameFirstNibble {
 		}
 		
 		switch (getPayloadLengthType()) {
-			case _7_BITS:
+			case BITS_7:
 				byte2 |= m7BitPayloadLength;
 				break;
-			case _16_BITS:
+			case BITS_16:
 				byte2 |= 0b1111110;
 				break;
-			case _64_BITS:
+			case BITS_64:
 				byte2 |= 0b1111111;
 				break;
 		}

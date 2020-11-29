@@ -38,11 +38,11 @@ public final class WebSocketFramePayloadLength {
 	//method
 	public byte[] toBytes() {
 		switch (getType()) {
-			case _7_BITS:
+			case BITS_7:
 				return toBytesWhen7Bits();
-			case _16_BITS:
+			case BITS_16:
 				return toBytesWhen16Bits();
-			case _64_BITS:
+			case BITS_64:
 				return toBytesWhen64Bits();
 			default:
 				throw new InvalidArgumentException(this);

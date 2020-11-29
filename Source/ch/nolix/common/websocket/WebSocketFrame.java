@@ -125,10 +125,10 @@ public final class WebSocketFrame {
 		var byteRepresentationLength = BigDecimal.valueOf(2);
 		
 		switch (getPayloadLengthType()) {
-			case _16_BITS:
+			case BITS_16:
 				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(2));
 				break;
-			case _64_BITS:
+			case BITS_64:
 				byteRepresentationLength = byteRepresentationLength.add(BigDecimal.valueOf(8));
 				break;
 			default:
@@ -228,9 +228,9 @@ public final class WebSocketFrame {
 		var i = 2;
 		final var payloadLengthBytes = payloadLength.toBytes();
 		switch (getPayloadLengthType()) {
-			case _7_BITS:
+			case BITS_7:
 				break;
-			case _16_BITS:
+			case BITS_16:
 				
 				bytes[2] = payloadLengthBytes[0];
 				bytes[3] = payloadLengthBytes[1];
@@ -238,7 +238,7 @@ public final class WebSocketFrame {
 				i += 2;
 				
 				break;
-			case _64_BITS:
+			case BITS_64:
 				
 				bytes[2] = payloadLengthBytes[0];
 				bytes[3] = payloadLengthBytes[1];
@@ -274,11 +274,11 @@ public final class WebSocketFrame {
 	//method
 	private WebSocketFramePayloadLength calculatePayloadLength(final InputStream inputStream) throws IOException {
 		switch (getPayloadLengthType()) {
-			case _7_BITS:
+			case BITS_7:
 				return calculatePayloadLengthWhenPayloadLengthIs7Bits();
-			case _16_BITS:
+			case BITS_16:
 				return calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
-			case _64_BITS:
+			case BITS_64:
 				return calculatePayloadLengthWhenPayloadLengthI64Bits(inputStream);
 			default:
 				throw new InvalidArgumentException(getPayloadLengthType());
