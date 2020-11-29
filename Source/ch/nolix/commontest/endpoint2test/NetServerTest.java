@@ -12,7 +12,7 @@ public final class NetServerTest extends Test {
 	@TestCase
 	public void testCase_close() {
 		
-		//test parameter
+		//parameter definition
 		final var port = 50000;
 		
 		//setup

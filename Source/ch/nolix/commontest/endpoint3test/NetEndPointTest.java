@@ -53,7 +53,7 @@ public final class NetEndPointTest extends Test {
 	@TestCase
 	public void testCase_creation() {
 		
-		//test parameter
+		//parameter definition
 		final var port = 50000;
 		
 		//setup
@@ -78,7 +78,7 @@ public final class NetEndPointTest extends Test {
 	@TestCase
 	public void testCase_sendAndGetReply() {
 		
-		//test parameter
+		//parameter definition
 		final var port = 50000;
 		
 		//setup

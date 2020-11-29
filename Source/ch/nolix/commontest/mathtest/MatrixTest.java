@@ -19,7 +19,7 @@ public final class MatrixTest extends Test {
 	@TestCase
 	public void loopTest_createIdendityMatrix() {
 				
-		//test parameters
+		//parameter definition
 		final var n = 100;
 		
 		//test loop
@@ -38,7 +38,7 @@ public final class MatrixTest extends Test {
 	@TestCase
 	public void loopTest_getRank() {
 		
-		//test parameters
+		//parameter definition
 		final var n = 10;
 		
 		//test loop
@@ -56,7 +56,7 @@ public final class MatrixTest extends Test {
 	@TestCase
 	public void loop_testGetTrace() {
 		
-		//test parameters
+		//parameter definition
 		final var n = 100;
 		
 		//test loop
