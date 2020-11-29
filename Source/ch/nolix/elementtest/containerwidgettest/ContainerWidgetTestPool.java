@@ -19,6 +19,7 @@ public final class ContainerWidgetTestPool extends TestPool {
 		super(
 			AccordionTest.class,
 			SingleContainerTest.class,
+			TabContainerTest.class,
 			VerticalStackTest.class
 		);
 	}
