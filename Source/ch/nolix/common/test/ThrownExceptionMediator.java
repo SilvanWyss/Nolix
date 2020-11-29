@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.test;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -14,15 +15,15 @@ import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
  * a {@link ThrownExceptionMediator} must be created, but an exception cannot be given to it.
  * 
  * @author Silvan Wyss
- * @month 2018-12
- * @lines 200
+ * @date 2018-12-09
+ * @lines 160
  */
-public class ThrownExceptionMediator extends Mediator {
+public abstract class ThrownExceptionMediator extends Mediator {
 	
 	//optional attribute
 	private final Throwable exception;
 	
-	//constructor
+	//visibility-reducing constructor
 	/**
 	 * Creates a new {@link ThrownExceptionMediator} that will belong to the given test.
 	 * 
@@ -38,7 +39,7 @@ public class ThrownExceptionMediator extends Mediator {
 		exception = null;
 	}
 	
-	//constructor
+	//visibility-reducing constructor
 	/**
 	 * Creates a new {@link ThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.
@@ -70,25 +71,13 @@ public class ThrownExceptionMediator extends Mediator {
 	public final void withMessage() {
 		
 		//Handles the case that the current thrown exception mediator has an exception.
-			/*
-			 * For a better performance, this implementation does not use all comfortable methods.
-			 * 
-			 * shorter implementation:
-			 * 
-			 * if (hasException()) {
-			 * ...
-			 * }
-			 */
-			if (exception != null) {
-			
-				//Asserts that the exception of the current thrown exception mediator has a message.
-				if (exception.getMessage() == null) {
-					addCurrentTestCaseError(
-						"An exception with a message was expected,"
-						+ "but an exception without messag was received."
-					);
-				}
-			}
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (exception != null && exception.getMessage() == null) {
+			addCurrentTestCaseError(
+				"An exception with a message was expected,"
+				+ "but an exception without messag was received."
+			);
+		}
 	}
 	
 	//method
@@ -105,38 +94,30 @@ public class ThrownExceptionMediator extends Mediator {
 			throw new ArgumentIsNullException(VariableNameCatalogue.MESSAGE);
 		}
 		
-		//Handles the case that the current thrown exception mediator has an exception.
-			/*
-			 * For a better performance, this implementation does not use all comfortable methods.
-			 * 
-			 * shorter implementation:
-			 * 
-			 * if (hasException()) {
-			 * ...
-			 * }
-			 */
-			if (exception != null) {
-				
-				//Asserts that the exception of the current thrown exception mediator has a message.
-				if (exception.getMessage() == null) {
-					addCurrentTestCaseError(
-						"An exception with the message '"
-						+ message
-						+ "' was expected, but an exception without messag was received."
-					);
-				}
-				
-				//Asserts that the exception of the current thrown exception mediator has the given message.
-				if (!exception.getMessage().equals(message)) {
-					addCurrentTestCaseError(
-						"An exception with the message '"
-						+ message
-						+ "' was expected, but an exception with the message '"
-						+ exception.getMessage()
-						+ "' was thrown."
-					);
-				}
+		//Handles the case that the current ThrownExceptionMediator has an exception.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (exception != null) {
+			
+			//Asserts that the exception of the current ThrownExceptionMediator has a message.
+			if (exception.getMessage() == null) {
+				addCurrentTestCaseError(
+					"An exception with the message '"
+					+ message
+					+ "' was expected, but an exception without messag was received."
+				);
 			}
+			
+			//Asserts that the exception of the current ThrownExceptionMediator has the given message.
+			if (!exception.getMessage().equals(message)) {
+				addCurrentTestCaseError(
+					"An exception with the message '"
+					+ message
+					+ "' was expected, but an exception with the message '"
+					+ exception.getMessage()
+					+ "' was thrown."
+				);
+			}
+		}
 	}
 	
 	//method
@@ -146,27 +127,15 @@ public class ThrownExceptionMediator extends Mediator {
 	 */
 	public final void withoutMessage() {
 		
-		//Handles the case that the current thrown exception mediator has an exception.
-			/*
-			 * For a better performance, this implementation does not use all comfortable methods.
-			 * 
-			 * shorter implementation:
-			 * 
-			 * if (hasException()) {
-			 * ...
-			 * }
-			 */
-			if (exception != null) {
-				
-				//Asserts that the exception of the current thrown exception mediator does not have a message.
-				if (exception.getMessage() != null) {
-					addCurrentTestCaseError(
-						"An exception without message was expected, but an exception with the message '"
-						+ exception.getMessage()
-						+ "' was received."
-					);
-				}
-			}
+		//Handles the case that the current ThrownExceptionMediator has an exception.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (exception != null && exception.getMessage() != null) {
+			addCurrentTestCaseError(
+				"An exception without message was expected, but an exception with the message '"
+				+ exception.getMessage()
+				+ "' was received."
+			);
+		}
 	}
 	
 	//method
@@ -176,19 +145,11 @@ public class ThrownExceptionMediator extends Mediator {
 	 */
 	final Throwable getException() {
 		
-		//Asserts that the current thrown exception mediator has an exception.
-			/*
-			 * For a better performance, this implementation does not use all comfortable methods.
-			 * 
-			 * shorter implementation:
-			 * 
-			 * if (!hasException()) {
-			 * ...
-			 * }
-			 */
-			if (exception == null) {
-				throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.EXCEPTION);
-			}
+		//Asserts that the current ThrownExceptionMediator has an exception.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (exception == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.EXCEPTION);
+		}
 		
 		return exception;
 	}
