@@ -5,6 +5,7 @@ package ch.nolix.commontest.websockettest;
 import java.io.IOException;
 import java.io.InputStream;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypewrapper.ByteWrapper;
 import ch.nolix.common.test.Test;
@@ -35,7 +36,11 @@ public final class WebSocketFrameTest extends Test {
 				
 				@Override
 				public int read() throws IOException {
-					return bytes[counter++];
+					
+					final var lByte = bytes[counter];
+					counter++;
+					
+					return lByte;
 				}
 			}
 		);
