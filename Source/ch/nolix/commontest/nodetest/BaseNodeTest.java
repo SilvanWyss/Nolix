@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.nodetest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
@@ -18,38 +19,6 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		
-		//execution
-		final var result = testUnit.getCopy();
-		
-		//verification
-		expectNot(result.hasHeader());
-		expect(result.getRefAttributes().getElementCount()).isEqualTo(0);
-		expect(result.toString()).isEqualTo("");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_copy_1B() {
-		
-		//setup
-		final var testUnit = createTestUnit();testUnit.reset("");
-		
-		//execution
-		final var result = testUnit.getCopy();
-		
-		//verification
-		expectNot(result.hasHeader());
-		expect(result.getRefAttributes().getElementCount()).isEqualTo(0);
-		expect(result.toString()).isEqualTo("");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_copy_2A() {
-		
-		//setup
-		final var testUnit = createTestUnit();
 		testUnit.reset("a");
 		
 		//execution
@@ -63,7 +32,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method
 	@TestCase
-	public void testCase_copy_2B() {
+	public void testCase_getCopy_1B() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -80,7 +49,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method
 	@TestCase
-	public void testCase_copy_2C() {
+	public void testCase_getCopy_1C() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -97,7 +66,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method
 	@TestCase
-	public void testCase_copy_2D() {
+	public void testCase_getCopy_1D() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -114,7 +83,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method
 	@TestCase
-	public void testCase_copy_3A() {
+	public void testCase_getCopy_2A() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -131,7 +100,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method
 	@TestCase
-	public void testCase_copy_3B() {
+	public void testCase_getCopy_2B() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -146,6 +115,22 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result.toString()).isEqualTo("a(b(c,d),e(f,g))");
 	}
 	
+	//method
+	@TestCase
+	public void testCase_getCopy_whenBaseNodeIsEmpty() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		
+		//execution
+		final var result = testUnit.getCopy();
+		
+		//verification
+		expectNot(result.hasHeader());
+		expect(result.getRefAttributes().getElementCount()).isEqualTo(0);
+		expect(result.toString()).isEqualTo("");
+	}
+
 	//method
 	@TestCase
 	public void testCase_getRefAttributeAt() {
