@@ -131,15 +131,13 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 		Validator.assertThat(baseElement).thatIsNamed("base element").isNotNull();
 		
 		this.baseElement = baseElement;
-		
-		getRefProperties()
-		.forEach(
-			p -> p.setBaseProperty(
-				baseElement.getRefProperties().getRefFirst(
-					p2 -> p2.hasName(p.getName())
-				)
-			)
-		);
+						
+		for (final var p : getRefProperties()) {
+			
+			final var baseProperty = baseElement.getRefProperties().getRefFirst(p2 -> p2.hasSameNameAs(p));
+			
+			p.setBaseProperty(baseProperty);
+		}
 	}
 	
 	//method
