@@ -29,7 +29,7 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 740
+ * @lines 730
  */
 public final class Time implements IElement {
 	
@@ -667,7 +667,6 @@ public final class Time implements IElement {
 	 * Sets the day of the month of the current {@link Time}.
 	 * 
 	 * @param dayOfMonth
-	 * @return the current {@link Time}.
 	 */
 	private void setDayOfMonth(final int dayOfMonth) {
 		gregorianCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -678,7 +677,6 @@ public final class Time implements IElement {
 	 * Sets the hour of the day of the current {@link Time}.
 	 * 
 	 * @param hourOfDay
-	 * @return the current {@link Time}.
 	 */
 	private void setHourOfDay(final int hourOfDay) {
 		gregorianCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
@@ -689,7 +687,6 @@ public final class Time implements IElement {
 	 * Sets the millisecond of the second of the current {@link Time}.
 	 * 
 	 * @param millisecondOfSecond
-	 * @return the current {@link Time}.
 	 */
 	private void setMillisecondOfSecond(final int millisecondOfSecond) {
 		gregorianCalendar.set(Calendar.MILLISECOND, millisecondOfSecond);
@@ -700,7 +697,6 @@ public final class Time implements IElement {
 	 * Sets the minute of the hour of the current {@link Time}
 	 * 
 	 * @param minuteOfHour
-	 * @return the current {@link Time}.
 	 */
 	private void setMinuteOfHour(final int minuteOfHour) {
 		gregorianCalendar.set(Calendar.MINUTE, minuteOfHour);
@@ -711,7 +707,6 @@ public final class Time implements IElement {
 	 * Sets the month of the year of the current {@link Time}.
 	 * 
 	 * @param monthOfYear
-	 * @return the current {@link Time}.
 	 */
 	private void setMonthOfYear(final int monthOfYear) {
 		gregorianCalendar.set(Calendar.MONTH, monthOfYear - 1);
@@ -722,7 +717,6 @@ public final class Time implements IElement {
 	 * Sets the second of the minute of the current {@link Time}.
 	 * 
 	 * @param secondOfMinute
-	 * @return the current {@link Time}.
 	 */
 	private void setSecondOfMinute(final int secondOfMinute) {
 		gregorianCalendar.set(Calendar.SECOND, secondOfMinute);
@@ -733,7 +727,6 @@ public final class Time implements IElement {
 	 * Sets the year of the current {@link Time}.
 	 * 
 	 * @param year
-	 * @return the current {@link Time}.
 	 */
 	private void setYear(final int year) {
 		gregorianCalendar.set(Calendar.YEAR, year);

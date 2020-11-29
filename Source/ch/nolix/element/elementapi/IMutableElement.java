@@ -24,7 +24,6 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 	 * This method is not fluent.
 	 * 
 	 * @param attribute
-	 * @return the current {@link IMutableElement}.
 	 */
 	void addOrChangeAttribute(BaseNode attribute);
 	

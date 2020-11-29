@@ -187,7 +187,6 @@ public abstract class Session<C extends Client<C>> {
 	 * Lets the current {@link BaseBackGUIClient} run the given command locally.
 	 * 
 	 * @param command
-	 * @return the current {@link BaseBackGUIClient}.
 	 */
 	public void runLocally(final String command) {
 		internalInvokeSessionUserRunMethod(Node.fromString(command));

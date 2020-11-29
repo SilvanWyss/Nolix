@@ -249,7 +249,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * Adds a new {@link Layer} on the top of the current {@link LayerGUI}.
 	 * The {@link Layer} will have the given contentPosition and rootWidget.
 	 * 
-	 * @param contentPosition.
+	 * @param contentPosition
 	 * @param rootWidget
 	 * @return the current {@link LayerGUI}.
 	 * @throws ArgumentIsNullException if the given contentPosition is null.

@@ -4,6 +4,7 @@ package ch.nolix.common.math;
 //Java import
 import java.util.Random;
 
+//own imports
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -115,10 +116,10 @@ public final class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * The values of the created {@link Matrix} will be all 0.0.
+	 * Creates a new {@link Matrix} with the given size.
+	 * The values of the {@link Matrix} will be all 0.0.
 	 * 
 	 * @param size
-	 * @return a new {@link Matrix} with the given size.
 	 * @throws NonPositiveArgumentException if the given size is not positive.
 	 */
 	public Matrix(final int size) {

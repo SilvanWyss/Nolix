@@ -63,7 +63,7 @@ public final class NetServer extends Server {
 	 * The {@link NetServer} will have the given defaultApplication.
 	 * 
 	 * @param port
-	 * @param defaultApplication.
+	 * @param defaultApplication
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
 	 */

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.element} package defines elements.
- * An element is reproducible. That means that an element can be represented as a {@link String}.
+ * An element is reproducible. That means that an element can be represented as a {@link java.lang.String}.
  * 
  * @author Silvan Wyss
  * @month 2019-07

@@ -50,7 +50,7 @@ import ch.nolix.element.painter.IPainter;
  * 3. The targetWidth resp. targetHeight of a {@link BorderWidget} is set from its proposalWidth resp. proposalHeight if
  *    it has a proposalWidth resp proposalHeight.
  * 
- * A {@link BackgroundWidget consists of the following areas from outer to inner.
+ * A {@link BorderWidget} consists of the following areas from outer to inner.
  * 1. widget area: Contains the probable shadows and main area.
  * 2. main area: Contains the probable borders and bordered area.
  * 3. bordered area: Contains the probable scroll bars and show area.
@@ -61,8 +61,8 @@ import ch.nolix.element.painter.IPainter;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 1630
- * @param <BW> The type of a {@link BackgroundWidget.
- * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
+ * @param <BW> The type of a {@link BackgroundWidget}.
+ * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
 public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends BorderWidgetLook<BWL>>
 extends Widget<BW, BWL> {

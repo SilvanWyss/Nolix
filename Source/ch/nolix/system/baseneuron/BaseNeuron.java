@@ -273,7 +273,6 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * Adds the given input connection to the current {@link BaseNeuron}.
 	 * 
 	 * @param inputConnection
-	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input connection is null.
 	 * @throws NonSmallerArgumentException
 	 * if the current {@link BaseNeuron} has not less input neurons than its maximal input neurons count says.

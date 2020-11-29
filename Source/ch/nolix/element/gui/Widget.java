@@ -2069,7 +2069,6 @@ TopLeftPositionedRecangular {
 	 * 
 	 * @param cursorXPosition
 	 * @param cursorYPosition
-	 * @return the current {@link Widget}.
 	 */
 	private void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		

@@ -139,8 +139,6 @@ abstract class SingleValue<V> extends Property<V> {
 	//method
 	/**
 	 * Removes the value of the current {@link SingleValue}.
-	 * 
-	 * @return the current {@link SingleValue}.
 	 */
 	void clear() {	
 		value = null;

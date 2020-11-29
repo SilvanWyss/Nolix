@@ -14,7 +14,7 @@ public interface IBuilder<O> {
 	
 	//method declaration
 	/**
-	 * @return a new {@link O} from the current {@link IBuilder}.
+	 * @return a new {@link Object} from the current {@link IBuilder}.
 	 */
 	O build();
 }

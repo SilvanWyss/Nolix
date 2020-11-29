@@ -789,7 +789,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	
 	//method
 	/**
-	 * Removes the first element the given selector selects from {@link IList.
+	 * Removes the first element the given selector selects from {@link LinkedList}.
 	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
@@ -852,7 +852,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	
 	//method
 	/**
-	 * Removes the first appearance of the given element from the current {@link IList.
+	 * Removes the first appearance of the given element from the current {@link LinkedList}.
 	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element

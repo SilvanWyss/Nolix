@@ -164,7 +164,6 @@ public class NetEndPoint extends EndPoint {
 	 * Sends the given message and returns the reply.
 	 * 
 	 * @param message
-	 * @return the reply of the given message
 	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
 	@Override
@@ -275,7 +274,7 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @param timeoutCheck
-	 * @return the reply to the given message.
+	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
 	private String sendAndWaitToReply(final String message) {
 		

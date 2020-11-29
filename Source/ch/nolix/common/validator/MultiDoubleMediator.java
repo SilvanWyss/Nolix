@@ -125,9 +125,8 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//method
 	/**
-	 * @throws ArgumentIsNullException
-	 * if one of the arguments of this multi double mediator is null.
 	 * @param value
+	 * @throws ArgumentIsNullException if one of the arguments of this multi double mediator is null.
 	 * @throws NonSmallerArgumentException
 	 * if one of the argument of this multi double mediator is not smaller than the given value.
 	 */

@@ -6,8 +6,8 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link {@link Pair}} contains 2 elements.
- * A {@link {@link Pair}} is not mutable.
+ * A {@link Pair} contains 2 elements.
+ * A {@link Pair} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12

@@ -190,9 +190,6 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	public boolean isLocalEndPoint() {
 		return internalEndPoint.isLocalEndPoint();
 	}

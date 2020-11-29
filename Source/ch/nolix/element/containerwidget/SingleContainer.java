@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.element.containerwidget;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.gui.LayerGUI;
@@ -53,7 +55,8 @@ implements Clearable<SingleContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void addOrChangeAttribute(Node attribute) {
+	@Override
+	public void addOrChangeAttribute(BaseNode attribute) {
 		
 		//Handles the case that the given attribute specicifies a widget.
 		if (LayerGUI.canCreateWidgetFrom(attribute)) {

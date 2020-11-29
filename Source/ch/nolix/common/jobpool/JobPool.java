@@ -10,7 +10,7 @@ import ch.nolix.common.futureapi.IFuture;
 //class
 /**
  * A {@link JobPool} runs jobs in the background.
- * A {@link JobPool uses an optimal number of {@link Workers}s to run several jobs efficiently.
+ * A {@link JobPool} uses an optimal number of {@link Workers}s to run several jobs efficiently.
  * 
  * @author Silvan Wyss
  * @date 2019-04-14

@@ -56,7 +56,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @inheritDoc
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SingleContainerIterator<E> iterator() {
@@ -65,7 +65,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @inheritDoc
+	 * {@inheritDoc}
 	 */
 	@Override
 	public E getRefAt(final int index) {
@@ -93,7 +93,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @inheritDoc
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getElementCount() {

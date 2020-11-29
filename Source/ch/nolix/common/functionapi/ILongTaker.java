@@ -15,8 +15,6 @@ public interface ILongTaker {
 	//method declaration
 	/**
 	 * Takes the given value.
-	 * 
-	 * @return value
 	 */
 	void run(long value);
 }
