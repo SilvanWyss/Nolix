@@ -37,7 +37,7 @@ public final class KeyBoard implements IMutableKeyBoard {
 	//method
 	@Override
 	public void noteKeyRelease(final Key key) {
-		pressedKeys.removeFirst(k -> k.equals(key));
+		pressedKeys.removeFirst(key);
 	}
 	
 	@Override
