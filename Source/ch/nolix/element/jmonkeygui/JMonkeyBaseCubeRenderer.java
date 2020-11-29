@@ -30,10 +30,8 @@ public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<Base
 		//Creates box.
 		final Box box = new Box(1, 1, 1);
 		
-		//Creates geometry.
-		final Geometry geometry = new Geometry("Box", box);
-		
-		return geometry;
+		//TODO: Fill up Geometry.
+		return new Geometry("Box", box);
 	}
 	
 	//method

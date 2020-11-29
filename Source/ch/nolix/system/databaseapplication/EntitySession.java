@@ -80,11 +80,8 @@ public final class EntitySession extends HeaderedSession {
 	//method
 	private TabContainer createBackReferenceDataWidget() {
 		
-		final var backReferenceDataTabContainer = new TabContainer();
-		
-		//TODO: Fill up backReferenceDataTabContainer.
-		
-		return backReferenceDataTabContainer;
+		//TODO: Fill up TabCotainer..
+		return new TabContainer();
 	}
 	
 	//TODO: Refactor this method.
