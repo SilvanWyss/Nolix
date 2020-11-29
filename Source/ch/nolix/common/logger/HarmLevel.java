@@ -24,4 +24,9 @@ public enum HarmLevel {
 		
 		return false;
 	}
+	
+	//method
+	public final boolean isLowerThan(final HarmLevel harmLevel) {
+		return harmLevel.isHigherThan(this);
+	}
 }
