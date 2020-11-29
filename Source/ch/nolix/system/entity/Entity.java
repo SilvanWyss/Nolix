@@ -4,6 +4,7 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.common.attributeapi.Identified;
 import ch.nolix.common.attributeapi.ShortDescripted;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -30,7 +31,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		
 		final var preId = System.currentTimeMillis();
 		
-		final var lId = (preId == latestCreatedId) ? preId + 1 : preId;
+		final var lId = (preId == latestCreatedId) ? (preId + 1) : preId;
 		
 		latestCreatedId = lId;
 		
