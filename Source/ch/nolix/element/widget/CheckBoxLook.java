@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -11,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 140
  */
 public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
@@ -20,7 +21,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	public static final int DEFAULT_LINE_THICKNESS = 1;
 	
 	//optional attributes
-	private int lineThickness;
+	private int lineThickness = -1;
 	
 	//method
 	/**
