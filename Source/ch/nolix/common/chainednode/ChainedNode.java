@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.chainednode;
 
+//own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -24,8 +25,8 @@ import ch.nolix.common.optionalattributeapi.OptionalHeadered;
  * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 850
+ * @date 2016-01-01
+ * @lines 860
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -300,43 +301,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	@Override
 	public boolean equals(final Object object) {
-		
-		if (!(object instanceof ChainedNode)) {
-			return false;
-		}
-		
-		final var chainedNode = (ChainedNode)object;
-		
-		if (!hasSameHeaderAs(chainedNode)) {
-			return false;
-		}
-		
-		if (getAttributeCount() != chainedNode.getAttributeCount()) {
-			return false;
-		}
-		
-		var i = 1;
-		for (final var a : getAttributes()) {
-			if (!a.equals(chainedNode.getAttributeAt(i++))) {
-				return false;
-			}
-		}
-		
-		if (!hasNextNode()) {
-			if (chainedNode.hasNextNode()) {
-				return false;
-			}
-		}
-		else {
-			if (!chainedNode.hasNextNode()) {
-				return false;
-			}
-			if (!getNextNode().equals(chainedNode.getNextNode())) {
-				return false;
-			}
-		}
-		
-		return true;
+		return (object instanceof ChainedNode && equals((ChainedNode)object));
 	}
 	
 	//method
@@ -681,6 +646,48 @@ public final class ChainedNode implements OptionalHeadered {
 			stringBuilder.append(".");
 			nextNode.appendStringRepresentationTo(stringBuilder);
 		}
+	}
+	
+	//method
+	/**
+	 * @param chainedNode
+	 * @return true if the current {@link ChainedNode} equals the given chainedNode.
+	 */
+	private boolean equals(final ChainedNode chainedNode) {
+		
+		if (!hasSameHeaderAs(chainedNode)) {
+			return false;
+		}
+		
+		if (getAttributeCount() != chainedNode.getAttributeCount()) {
+			return false;
+		}
+		
+		var i = 1;
+		for (final var a : getAttributes()) {
+			
+			if (!a.equals(chainedNode.getAttributeAt(i))) {
+				return false;
+			}
+			
+			i++;
+		}
+		
+		if (!hasNextNode()) {
+			if (chainedNode.hasNextNode()) {
+				return false;
+			}
+		}
+		else {
+			if (!chainedNode.hasNextNode()) {
+				return false;
+			}
+			if (!getNextNode().equals(chainedNode.getNextNode())) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//method
