@@ -217,7 +217,7 @@ public final class EntitySession extends HeaderedSession {
 						);
 						
 						for (final var e : optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-							dropdownMenu2.addItem(e.getIdAsString(), e.getIdAsString());
+							dropdownMenu2.addItem(e.getIdAsString(), e.getShortDescription());
 						}
 						if (optionalReferenceProperty.containsAny()) {
 							dropdownMenu2.selectItemById(String.valueOf(optionalReferenceProperty.getReferencedEntityId()));
