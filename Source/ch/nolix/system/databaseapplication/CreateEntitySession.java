@@ -173,7 +173,7 @@ public final class CreateEntitySession extends HeaderedSession {
 							)
 						);
 						for (final var e : optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-							dropdownMenu2.addItem(e.getShortDescription(), e.getIdAsString());
+							dropdownMenu2.addItem(e.getIdAsString(), e.getShortDescription());
 						}
 						
 						dataGrid.setWidget(rowIndex, 2, dropdownMenu2);
