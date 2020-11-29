@@ -2,6 +2,7 @@
 package ch.nolix.common.endpoint4;
 
 //own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.GeneralException;
@@ -334,7 +335,7 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 			case ERROR_RESPONSE:
 				throw new GeneralException(response.getRefContent());
 			default:
-				throw new GeneralException();
+				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, response, "is not valid");
 		}
 	}
 	

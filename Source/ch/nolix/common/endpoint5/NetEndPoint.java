@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.common.endpoint5;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.controllerapi.IDataProviderController;
+import ch.nolix.common.exception.GeneralException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.node.BaseNode;
@@ -15,10 +17,10 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A net duplex controller can interact with another net duplex controller.
+ * A {@link NetEndPoint} can interact with another {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @ate 2016-01-01
  * @lines 280
  */
 public class NetEndPoint extends EndPoint {
@@ -28,7 +30,7 @@ public class NetEndPoint extends EndPoint {
 		
 	//constructor
 	/**
-	 * Creates a new net duplex controller
+	 * Creates a new {@link NetEndPoint}
 	 * that will connect to the default target on the given port on the local machine.
 	 * 
 	 * @param port
@@ -42,7 +44,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new net duplex controller
+	 * Creates a new {@link NetEndPoint}
 	 * that will connect to the given target on the given port on the local machine.
 	 * 
 	 * @param port
@@ -57,7 +59,7 @@ public class NetEndPoint extends EndPoint {
 
 	//constructor
 	/**
-	 * Creates a new net duplex controller
+	 * Creates a new {@link NetEndPoint}
 	 * that will connect to the default target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -72,7 +74,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new net duplex controller
+	 * Creates a new {@link NetEndPoint}
 	 * that will connect to the given target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -88,33 +90,33 @@ public class NetEndPoint extends EndPoint {
 		this(new ch.nolix.common.endpoint3.NetEndPoint(ip, port, target));
 	}
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
-	 * Creates a new net duplex controller with the given net end point.
+	 * Creates a new {@link NetEndPoint} with the given netEndPoint.
 	 * 
-	 * @param netEndPoint
-	 * @throws ArgumentIsNullException if the given net end point is null.
+	 * @param internalNetEndPoint
+	 * @throws ArgumentIsNullException if the given netEndPoint is null.
 	 */
-	NetEndPoint(final ch.nolix.common.endpoint3.NetEndPoint netEndPoint) {
+	NetEndPoint(final ch.nolix.common.endpoint3.NetEndPoint internalNetEndPoint) {
 		
-		//Asserts that the given net end point is not null.
-		Validator.assertThat(netEndPoint).isOfType(ch.nolix.common.endpoint3.NetEndPoint.class);
+		//Asserts that the given netEndPoint is not null.
+		Validator.assertThat(internalNetEndPoint).isOfType(ch.nolix.common.endpoint3.NetEndPoint.class);
 		
-		//Sets the net end point of this net duplex controller.
-		this.internalNetEndPoint = netEndPoint;
+		//Sets the internalNetEndPoint of the current NetEndPoint.
+		this.internalNetEndPoint = internalNetEndPoint;
 		
-		//Creates the replier of the net end point.
-		netEndPoint.setReplier(m -> receiveAndGetReply(m));
+		//Sets the replier to the internalNetEndPoint of the current NetEndPoint.
+		internalNetEndPoint.setReplier(this::receiveAndGetReply);
 		
-		//Creates an abort dependency from this net duplex controller to its net end point.
-		createCloseDependencyTo(netEndPoint);
+		//Creates a close dependency from the current NetEndPoint to its internalNetEndPoint.
+		createCloseDependencyTo(internalNetEndPoint);
 	}
 	
 	//method
 	/**
 	 * @param request
-	 * @return the data the given request requests from this net duplex controller.
-	 * @throws InvalidArgumentException if this net duplex controller is aborted.
+	 * @return the data the given request requests from this {@link NetEndPoint}.
+	 * @throws InvalidArgumentException if this {@link NetEndPoint} is aborted.
 	 */
 	@Override
 	public Node getData(final ChainedNode request) {
@@ -130,7 +132,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DATA_HEADER:
 				return reply.getRefOneAttribute();
 			case Protocol.ERROR_HEADER:
-				throw new RuntimeException(reply.getOneAttributeHeader());
+				throw new GeneralException(reply.getOneAttributeHeader());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, reply, "is not valid");
 		}
@@ -138,8 +140,8 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return the target of this net duplex controller.
-	 * @throws ArgumentDoesNotHaveAttributeException if this net duplex controller does not have a target.
+	 * @return the target of the current {@link NetEndPoint}.
+	 * @throws ArgumentDoesNotHaveAttributeException if this {@link NetEndPoint} does not have a target.
 	 */
 	@Override
 	public String getTarget() {
@@ -148,7 +150,7 @@ public class NetEndPoint extends EndPoint {
 
 	//method
 	/**
-	 * @return true if this net duplex controller has requested the connection.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasRequestedConnection() {
@@ -157,7 +159,7 @@ public class NetEndPoint extends EndPoint {
 
 	//method
 	/**
-	 * @return true if this net duplex controller has a target.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasTarget() {
@@ -166,7 +168,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if this net duplex controller is a net duplex controller.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isNetEndPoint() {
@@ -184,9 +186,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this net duplex contorller run the given command.
-	 * 
-	 * @param command
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void run(final ChainedNode command) {
@@ -195,15 +195,15 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this net duplex contorller run the given commands.
+	 * Lets the current {@link NetEndPoint} run the given commands.
 	 * 
 	 * @param commands
-	 * @throws ClosedArgumentException if this net duplex contorller is closed.
+	 * @throws ClosedArgumentException if the current {@link NetEndPoint} is closed.
 	 */
 	@Override
 	public void run(final Iterable<ChainedNode> commands) {
 			
-		//Asserts that this net duplex controller is open.
+		//Asserts that this {@link NetEndPoint} is open.
 		assertIsOpen();
 		
 		//Creates message.
@@ -222,23 +222,20 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DONE_HEADER:
 				break;
 			case Protocol.ERROR_HEADER:
-				if (!reply.containsAttributes()) {
-					throw new RuntimeException("An error occured by running the commands '" + commands + "'." );
-				}
-				throw new RuntimeException(reply.getOneAttributeHeader());
+				throw new GeneralException(reply.getOneAttributeHeader());
 			default:
-				throw new RuntimeException("An error occured by running the commands '" + commands + "'." );
+				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, reply, "is not valid");
 		}
 	}
 	
 	//method
 	/**
-	 * Lets this net duplex controller receive the given message.
+	 * Lets the current {@link NetEndPoint} receive the given message.
 	 * This method does not throw any exception and returns a reply in any case
 	 * because the protocol determines that error messages must be sent back.
 	 * The reply must not collide with representations of a {@link Node}.
 	 * 
-	 * @return the reply to the given message from this net duplex controller.
+	 * @return the reply to the given message from the current {@link NetEndPoint}.
 	 */
 	private final String receiveAndGetReply(final String message) {
 		try {
@@ -257,15 +254,15 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this net duplex contorller receive the given message.
+	 * Lets the current {@link NetEndPoint}  receive the given message.
 	 * 
 	 * @param message
-	 * @return the reply to the given message from this net duplex controller.
-	 * @throws UnexistringAttributeException if this net duplex contorller does not have a receiver.
+	 * @return the reply to the given message.
+	 * @throws UnexistringAttributeException if the current {@link NetEndPoint} does not have a receiver.
 	 */
 	private final String receiveAndGetReply(final ChainedNode message) {
 		
-		//Gets the receiver controller of this net duplex controller.
+		//Gets the receiver controller of the current NetEndPoint.
 		final IDataProviderController receiverController = getRefReceiverController();
 		
 		//Enumerates the header of the given message.
