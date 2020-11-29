@@ -9,7 +9,7 @@ public final class RunException extends RuntimeException {
 	private static String createSafeErrorMessage(final String actionName) {
 		
 		if (actionName == null) {
-			throw new NullPointerException("The given action name is null.");
+			throw new IllegalArgumentException("The given action name is null.");
 		}
 		
 		if (actionName.isBlank()) {
