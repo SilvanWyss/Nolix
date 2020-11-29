@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.endpointtest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.communicationapi.IReceiver;
 import ch.nolix.common.constant.VariableNameCatalogue;
@@ -13,43 +14,16 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * This class is a test class for the {@link NetEndPoint} class.
+ * A {@link NetEndPointTest} is a test for {@link NetEndPoint}s.
  * 
  * @author Silvan Wyss
- * @month 2017-05
- * @lines 90
+ * @date 2017-05-20
+ * @lines 80
  */
 public final class NetEndPointTest extends Test {
-
-	//method
-	@TestCase
-	public void testCase_send() {
-		
-		//test parameters
-		final var port = 50000;
-		final String message = "Hello World!";
-		
-		//setup	
-			final ReceiverFake receiverFake = new ReceiverFake();
-		
-			final NetServer netServer = new NetServer(port, ep -> ep.setReceiver(receiverFake));
-			
-			final NetEndPoint netEndPoint = new NetEndPoint(port);
-			
-		//execution			
-		netEndPoint.send(message);
-		Sequencer.waitForMilliseconds(500);
-		
-		//verification
-		expect(receiverFake.getLastReceivedMessage()).isEqualTo(message);
-		
-		//cleanup
-		netServer.close();
-		netEndPoint.close();
-	}
 	
-	//inner class
-	private final class ReceiverFake implements IReceiver {
+	//nested class
+	private static final class ReceiverMock implements IReceiver {
 		
 		//optional attribute
 		private String lastReceivedMessage;
@@ -77,5 +51,30 @@ public final class NetEndPointTest extends Test {
 			
 			lastReceivedMessage = message;
 		}
+	}
+	
+	//method
+	@TestCase
+	public void testCase_send() {
+		
+		//test parameters
+		final var port = 50000;
+		final var message = "Hello World!";
+		
+		//setup	
+		final var receiverFake = new ReceiverMock();
+		final var netServer = new NetServer(port, ep -> ep.setReceiver(receiverFake));
+		final var testUnit = new NetEndPoint(port);
+		
+		//execution
+		testUnit.send(message);
+		Sequencer.waitForMilliseconds(500);
+		
+		//verification
+		expect(receiverFake.getLastReceivedMessage()).isEqualTo(message);
+		
+		//cleanup
+		netServer.close();
+		testUnit.close();
 	}
 }
