@@ -4,8 +4,10 @@ package ch.nolix.common.license;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.exception.GeneralException;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.filesystem.FolderAccessor;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -185,7 +187,7 @@ public final class LicenseManager {
 		}
 		catch (final Exception exception) {
 			throw
-			new RuntimeException(
+			new GeneralException(
 				"There does not exist a license file with the key for the License '" + licenseName + "'"
 			);
 		}

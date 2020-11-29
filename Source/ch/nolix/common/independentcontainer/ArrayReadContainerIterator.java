@@ -4,6 +4,7 @@ package ch.nolix.common.independentcontainer;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;

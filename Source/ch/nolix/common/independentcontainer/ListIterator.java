@@ -4,6 +4,9 @@ package ch.nolix.common.independentcontainer;
 //Java import
 import java.util.Iterator;
 
+//own import
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+
 //class
 public final class ListIterator<E> implements Iterator<E> {
 
@@ -26,7 +29,7 @@ public final class ListIterator<E> implements Iterator<E> {
 	public E next() {
 		
 		if (!hasNext()) {
-			throw new RuntimeException("The current iterator does not have a next element.");
+			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
 		}
 		
 		final E element = nextNode.getRefElement();

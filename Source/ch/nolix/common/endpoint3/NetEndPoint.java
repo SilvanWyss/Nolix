@@ -2,7 +2,9 @@
 package ch.nolix.common.endpoint3;
 
 //own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.exception.GeneralException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -292,9 +294,9 @@ public class NetEndPoint extends EndPoint {
 			case SUCCESS_RESPONSE:
 				return response.getRefContent();
 			case ERROR_RESPONSE:
-				throw new RuntimeException(response.getRefContent());
+				throw new GeneralException(response.getRefContent());
 			default:
-				throw new RuntimeException("An error occured.");
+				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, response, "is not valid");
 		}
 	}
 	

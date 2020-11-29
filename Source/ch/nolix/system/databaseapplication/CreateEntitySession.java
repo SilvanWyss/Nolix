@@ -3,6 +3,7 @@ package ch.nolix.system.databaseapplication;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.exception.GeneralException;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.dialog.ErrorDialog;
 import ch.nolix.element.widget.Button;
@@ -115,7 +116,8 @@ public final class CreateEntitySession extends HeaderedSession {
 					final var referenceProperty = (Reference<Entity>)p;
 					
 					if (referenceProperty.getRefEntitySetOfReferencedEntities().isEmpty()) {
-						throw new RuntimeException(
+						throw
+						new GeneralException(
 							"A '" + entitySetName
 							+ "' cannot be created, because it must have a "
 							+ referenceProperty.getRefEntitySetOfReferencedEntities().getNameInQuotes()

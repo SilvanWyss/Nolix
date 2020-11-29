@@ -4,6 +4,7 @@ package ch.nolix.common.independentcontainer;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 

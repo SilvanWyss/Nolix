@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.common.independentcontainer;
 
+//own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+
 //class
 final class ListNode<E> {
 	
@@ -14,7 +18,7 @@ final class ListNode<E> {
 	public ListNode(final E element) {
 		
 		if (element == null) {
-			throw new RuntimeException("The given element is null.");
+			throw new ArgumentIsNullException(VariableNameCatalogue.ELEMENT);
 		}
 		
 		this.element = element;
@@ -49,7 +53,7 @@ final class ListNode<E> {
 	public void setNextNode(final ListNode<E> nextNode) {
 		
 		if (nextNode == null) {
-			throw new RuntimeException("The given next node is null.");
+			throw new ArgumentIsNullException("next node");
 		}
 		
 		this.nextNode = nextNode;
