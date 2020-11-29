@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+//own imports
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
@@ -11,8 +12,8 @@ import ch.nolix.common.validator.Validator;
  * Of the {@link Waiter} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-06
- * @lines 50
+ * @date 2017-06-04
+ * @lines 60
  */
 final class Waiter {
 	
@@ -25,7 +26,7 @@ final class Waiter {
 	 */
 	public static void waitForSeconds(final int duractionInSeconds) {
 		
-		//Asserts that the given seconds is not negative.
+		//Asserts that the given duractionInSeconds is not negative.
 		Validator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 		
 		waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
@@ -40,13 +41,14 @@ final class Waiter {
 	 */
 	public static void waitForMilliseconds(final int durationInMilliseconds) {
 		
-		//Asserts that the given milliseconds is not negative.
+		//Asserts that the given durationInMilliseconds is not negative.
 		Validator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 		
 		try {
 			Thread.sleep(durationInMilliseconds);
 		}
 		catch (final InterruptedException interruptedException) {
+			Thread.currentThread().interrupt();
 			throw new WrapperException(interruptedException);
 		}
 	}
