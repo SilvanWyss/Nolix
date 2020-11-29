@@ -125,14 +125,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	public int getLineThickness() {
-		
-		final var currentStructure = getRefLook();
-		
-		if (!hasLines()) {
-			return 0;
-		}
-		
-		return currentStructure.getRecursiveLineThicknessOrDefault();
+		return (hasLines() ? getLineThicknessWhenHasLines() : 0);
 	}
 	
 	//method
@@ -454,5 +447,10 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	private void expandTo(final int rowCount, final int columnCount) {
 		expandRowsTo(rowCount);
 		expandColumnsTo(columnCount);
+	}
+	
+	//method
+	private int getLineThicknessWhenHasLines() {
+		return getRefLook().getRecursiveLineThicknessOrDefault();
 	}
 }
