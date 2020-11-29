@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.common.math;
 
+//own imports
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.validator.Validator;
 
@@ -16,10 +18,13 @@ import ch.nolix.common.validator.Validator;
  * -array:	[a_n,... ,a_0]
  * 
  * @author Silvan Wyss
- * @month 2016-02
- * @lines 340
+ * @date 2016-03-01
+ * @lines 360
  */
 public final class Polynom {
+	
+	//constant
+	public static final String DEFAULT_PARAMTER_SYMBOL = "x";
 	
 	//static method
 	public static Polynom withCoefficients(final double... coefficients) {
@@ -231,9 +236,24 @@ public final class Polynom {
 	 */
 	@Override
 	public String toString() {
+		return toString(DEFAULT_PARAMTER_SYMBOL);
+	}
+	
+	//method
+	/**
+	 * @param parameterSymbol
+	 * @return a {@link String} representation of the current {@link Polynom} with the given parameterSymbol
+	 * @throws ArgumentIsNullException if the given parameterSymbol is null.
+	 */
+	public String toString(final String parameterSymbol) {
 		
-		//TODO: Add toString(String parameterSymbol) method.
-		return (isZeroPolynom() ? toStringWhenIsZeroPolynom() : toStringWhenIsNotZeroPolynom());
+		//Handles the case that the current Polynom is a zero Polynom.
+		if  (isZeroPolynom()) {
+			return toStringWhenIsZeroPolynom(parameterSymbol);
+		}
+		
+		//Handles the case that the current Polynom is not a zero Polynom.
+		return toStringWhenIsNotZeroPolynom(parameterSymbol);
 	}
 	
 	//method
@@ -275,16 +295,21 @@ public final class Polynom {
 	}
 	
 	//method
-	private String toStringWhenIsZeroPolynom() {
-		return "x->0.0";
+	private String toStringWhenIsZeroPolynom(final String parameterSymbol) {
+		
+		Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
+		
+		return (parameterSymbol + "->0.0");
 	}
 	
 	//method
-	private String toStringWhenIsNotZeroPolynom() {
+	private String toStringWhenIsNotZeroPolynom(final String parameterSymbol) {
+		
+		Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
 		
 		final var stringBuilder = new StringBuilder();
 		
-		stringBuilder.append("x->");
+		stringBuilder.append(parameterSymbol + "->");
 		
 		var begin = true;
 		
@@ -302,10 +327,12 @@ public final class Polynom {
 				begin = false;
 				
 				if (coefficients[i] != 1) {
-					stringBuilder.append(DoubleHelper.toString(coefficients[i]) + "x^" + coefficientDegree);
+					stringBuilder.append(
+						DoubleHelper.toString(coefficients[i]) + parameterSymbol +"^" + coefficientDegree
+					);
 				}
 				else {
-					stringBuilder.append("x^" + coefficientDegree);
+					stringBuilder.append(parameterSymbol + "^" + coefficientDegree);
 				}
 			}
 		}
@@ -318,7 +345,7 @@ public final class Polynom {
 			}
 			
 			begin = false;
-			stringBuilder.append(DoubleHelper.toString(coefficients[coefficients.length - 2]) + "x");
+			stringBuilder.append(DoubleHelper.toString(coefficients[coefficients.length - 2]) + parameterSymbol);
 		}
 		
 		//Handles the the constant of the current Polynom.
