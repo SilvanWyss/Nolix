@@ -6,5 +6,22 @@ public enum HarmLevel {
 	INFO,
 	WARNING,
 	ERROR,
-	FATAL_ERROR
+	FATAL_ERROR;
+	
+	//method
+	public final boolean isHigherThan(final HarmLevel harmLevel) {
+		
+		switch (this) {
+			case INFO:
+				return false;
+			case WARNING:
+				return (harmLevel == INFO);
+			case ERROR:
+				return (harmLevel == INFO || harmLevel == WARNING);
+			case FATAL_ERROR:
+				return (harmLevel == INFO || harmLevel == WARNING || harmLevel == ERROR);
+		}
+		
+		return false;
+	}
 }
