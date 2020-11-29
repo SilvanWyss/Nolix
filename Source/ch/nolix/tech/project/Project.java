@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.tech.project;
 
+import ch.nolix.businessapi.projectapi.IProject;
+import ch.nolix.businessapi.projectapi.ITask;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -10,8 +12,6 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.techapi.projectapi.IProject;
-import ch.nolix.techapi.projectapi.ITask;
 
 //class
 /**

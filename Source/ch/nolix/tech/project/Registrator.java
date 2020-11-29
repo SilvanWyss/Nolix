@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.tech.project;
 
+import ch.nolix.businessapi.projectapi.IProject;
+import ch.nolix.businessapi.projectapi.ITask;
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
-import ch.nolix.techapi.projectapi.IProject;
-import ch.nolix.techapi.projectapi.ITask;
 
 //class
 public final class Registrator {

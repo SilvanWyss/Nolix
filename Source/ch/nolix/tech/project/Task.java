@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.tech.project;
 
+import ch.nolix.businessapi.projectapi.ITask;
+import ch.nolix.businessapi.projectapi.TaskSize;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -10,8 +12,6 @@ import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.time.Time;
-import ch.nolix.techapi.projectapi.ITask;
-import ch.nolix.techapi.projectapi.TaskSize;
 
 //class
 /**

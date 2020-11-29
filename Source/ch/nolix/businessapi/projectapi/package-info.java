@@ -6,4 +6,4 @@
  * @month 2019-07
  * @lines 10
  */
-package ch.nolix.techapi.projectapi;
+package ch.nolix.businessapi.projectapi;

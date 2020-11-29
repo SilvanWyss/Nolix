@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.projectapi;
+package ch.nolix.businessapi.projectapi;
 
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
@@ -11,7 +11,7 @@ import ch.nolix.element.elementapi.IElementEnum;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2018-03
+ * @date 2018-04-01
  * @lines 40
  */
 public enum TaskSize implements IElementEnum {
