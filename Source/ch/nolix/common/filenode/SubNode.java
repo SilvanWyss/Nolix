@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.filenode;
 
+//own imports
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -12,31 +13,29 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-07
+ * @date 2017-07-14
  * @lines 170
  */
 public final class SubNode extends BaseNode {
-
+	
 	//attribute
-	private final FileNode simplePersistentSpecification;
+	private final FileNode parentFileNode;
 	private final Node internalSpecification;
 	
-	//constructor
+	//visibility-reduces constructor
 	/**
-	 * Creates a new sub specification that:
-	 * -Belongs to the given simple persistent specification.
+	 * Creates a new {@link SubNode} that:
+	 * -Belongs to the given parentFileNode.
 	 * -Has the given internal specification.
 	 * 
-	 * @param simplePersistentSpecification
+	 * @param parentFileNode
 	 * @param internalSpecification
 	 */
-	SubNode(
-		final FileNode simplePersistentSpecification,
-		final Node internalSpecification
-	) {
+	SubNode(final FileNode parentFileNode, final Node internalSpecification) {
+		
 		//Asserts that the given simple persistent specification is not null.
 		Validator
-		.assertThat(simplePersistentSpecification)
+		.assertThat(parentFileNode)
 		.isOfType(FileNode.class);
 		
 		//Asserts that the given internal specification is not null.
@@ -44,16 +43,16 @@ public final class SubNode extends BaseNode {
 		.thatIsNamed("internal specification")
 		.isNotNull();
 		
-		//Sets the simple persistent specification of this sub specification.
-		this.simplePersistentSpecification = simplePersistentSpecification;
+		//Sets the simple persistent specification of the current SubNode.
+		this.parentFileNode = parentFileNode;
 		
-		//Sets the internal specification of this sub specification.
+		//Sets the internal specification of the current SubNode.
 		this.internalSpecification = internalSpecification;
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to this sub specification.
+	 * Adds the given attribute to the current {@link SubNode}.
 	 * 
 	 * @throws RuntimeException if an error occurs.
 	 */
@@ -61,14 +60,14 @@ public final class SubNode extends BaseNode {
 	public SubNode addAttribute(final BaseNode attribute) {
 		
 		internalSpecification.addAttribute(attribute);
-		simplePersistentSpecification.save();
+		parentFileNode.save();
 		
 		return this;
 	}
 
 	//method
 	/**
-	 * @return true if this sub specification contains attributes.
+	 * @return true if this {@link SubNode} contains attributes.
 	 */
 	@Override
 	public boolean containsAttributes() {
@@ -77,8 +76,8 @@ public final class SubNode extends BaseNode {
 	
 	//method
 	/**
-	 * @return the header of this sub specification.
-	 * @throws ArgumentDoesNotHaveAttributeException if this sub specification
+	 * @return the header of the current {@link SubNode}.
+	 * @throws ArgumentDoesNotHaveAttributeException if this {@link SubNode}
 	 * does not have a header.
 	 */
 	@Override
@@ -88,7 +87,7 @@ public final class SubNode extends BaseNode {
 	
 	//method
 	/**
-	 * @return the attributes of this sub specification
+	 * @return the attributes of the current {@link SubNode}
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -96,27 +95,27 @@ public final class SubNode extends BaseNode {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubNode(simplePersistentSpecification, a)
+				a -> new SubNode(parentFileNode, a)
 			)
 		);
 	}
 
 	//method
 	/**
-	 * @return the one attribute of this sub specification.
-	 * @throws EmptyArgumentException if this sub specification does not contain an attribute.
-	 * @throws InvalidArgumentException if this sub specification contains several attributes.
+	 * @return the one attribute of the current {@link SubNode}.
+	 * @throws EmptyArgumentException if this {@link SubNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if this {@link SubNode} contains several attributes.
 	 */
 	@Override
 	public SubNode getRefOneAttribute() {
 		return new SubNode(
-			simplePersistentSpecification, internalSpecification.getRefOneAttribute()
+			parentFileNode, internalSpecification.getRefOneAttribute()
 		);
 	}
 
 	//method
 	/**
-	 * @return true if this sub specification has a header.
+	 * @return true if this {@link SubNode} has a header.
 	 */
 	@Override
 	public boolean hasHeader() {
@@ -125,21 +124,21 @@ public final class SubNode extends BaseNode {
 	
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from this sub specification.
+	 * Removes the first attribute the given selector selects from this {@link SubNode}.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if this sub specification does not contain an attribute the given selector selects.
+	 * if this {@link SubNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
-		simplePersistentSpecification.save();
+		internalSpecification.removeFirstAttribute(selector::getOutput);
+		parentFileNode.save();
 	}
 
 	//method
 	/**
-	 * Sets the given header to this sub specification.
+	 * Sets the given header to the current {@link SubNode}.
 	 * 
 	 * @return the current {@link SubNode}.
 	 * @throws ArgumentIsNullException if the given header is null.
@@ -150,7 +149,7 @@ public final class SubNode extends BaseNode {
 	public SubNode setHeader(final String header) {
 		
 		internalSpecification.setHeader(header);
-		simplePersistentSpecification.save();
+		parentFileNode.save();
 		
 		return this;
 	}
@@ -158,7 +157,7 @@ public final class SubNode extends BaseNode {
 	@Override
 	public void removeAttributes() {
 		internalSpecification.removeAttributes();
-		simplePersistentSpecification.save();
+		parentFileNode.save();
 	}
 
 	//method
@@ -169,7 +168,7 @@ public final class SubNode extends BaseNode {
 	public SubNode removeHeader() {
 		
 		internalSpecification.removeHeader();
-		simplePersistentSpecification.save();
+		parentFileNode.save();
 		
 		return this;
 	}
