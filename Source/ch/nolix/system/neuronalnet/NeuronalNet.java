@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.neuronalnet;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseneuron.BaseNeuron;
@@ -9,15 +10,14 @@ import ch.nolix.system.baseneuron.FanoutNeuron;
 
 //class
 /**
- * A neuronal net is a neuron that contains neurons that are connected to a network.
+ * A {@link NeuronalNet} is a {@link BaseNeuron} that contains {@link BaseNeurons} that are connected to a network.
  * 
  * @author Silvan Wyss
- * @month 2017-01
- * @lines 120
- * @param <IO> The type of the input and output of the neurons of a neuronal net.
+ * @date 2017-01-01
+ * @lines 130
+ * @param <IO> The type of the input and output of the {@link BaseNeurons} of a {@link NeuronalNet}.
  */
-public final class NeuronalNet<IO>
-extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
+public final class NeuronalNet<IO> extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
@@ -29,7 +29,7 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//constructor
 	/**
-	 * Creates a new neuronal net with the given input layer neurons and output layer neurons.
+	 * Creates a new {@link NeuronalNet} with the given input layer neurons and output layer neurons.
 	 * 
 	 * @param inputLayerNeurons
 	 * @param internalOutputNeurons
@@ -52,24 +52,24 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 		.thatIsNamed("output layer neurons")
 		.isNotNull();
 		
-		//Connects the input fanout neuron of this neuronal net to the given input layer neurons.
+		//Connects the input fanout neuron of the current NeuronalNet to the given input layer neurons.
 		int i = 1;
 		for (N iln: inputLayerNeurons) {
 
-			//Connects the input fanout neuron of this neuronal net to the current input layer neuron.
+			//Connects the input fanout neuron of the current NeuronalNet to the current input layer neuron.
 			iln.addInputNeuron(inputFanoutNeuron.getRefFanNeuron(i));
 			
 			//Increments the index.
 			i++;
 		}
 		
-		//Connects the output bundle neuron of this neuronal net to the given output layer neurons.
-		outputLayerNeurons.forEach(oln -> outputBundleNeuron.addInputNeuron(oln));
+		//Connects the output bundle neuron of the current NeuronalNet to the given output layer neurons.
+		outputLayerNeurons.forEach(outputBundleNeuron::addInputNeuron);
 	}
 	
 	//method
 	/**
-	 * @return the maximum number of input neurons of this neuronal net.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getMaxInputNeuronCount() {
@@ -78,7 +78,7 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 
 	//method
 	/**
-	 * @return the minimal number of input neurons of this neuronal net.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getMinInputNeuronCount() {
@@ -87,7 +87,7 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//method
 	/**
-	 * @return the neurons of this neuronal net.
+	 * @return the neurons of the current {@link NeuronalNet}.
 	 */
 	public LinkedList<BaseNeuron<?, ?, ?>> getRefNeurons() {
 	
@@ -112,8 +112,8 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 
 	//method
 	/**
-	 * @return the neurons of this neuronal net
-	 * as neurons whose inputs and output are of the same type as the inputs and output of this neuronal net.
+	 * @return the neurons of the current {@link NeuronalNet}
+	 * as neurons whose inputs and output are of the same type as the inputs and output of the current {@link NeuronalNet}.
 	 */
 	@SuppressWarnings("unchecked")
 	public <N extends BaseNeuron<N, IO, IO>> LinkedList<N> getRefNeuronsAsTyped() {
@@ -122,7 +122,7 @@ extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//method
 	/**
-	 * Lets this neuronal net fire.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void internalUpdate() {
