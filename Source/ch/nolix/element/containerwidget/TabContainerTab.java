@@ -27,7 +27,7 @@ import ch.nolix.element.widget.Label;
  * @date 2016-05-01
  * @lines 370
  */
-public class TabContainerTab extends Element<TabContainerTab>
+public final class TabContainerTab extends Element<TabContainerTab>
 implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
 	
 	//constant
