@@ -4,7 +4,7 @@ package ch.nolix.tech.genericmath;
 //Java import
 import java.math.BigDecimal;
 
-import ch.nolix.techapi.genericmathapi.IClosedIntervalFactory;
+import ch.nolix.techapi.dynamicmathapi.IClosedIntervalFactory;
 
 //class
 public final class ClosedIntervalFactory implements IClosedIntervalFactory {

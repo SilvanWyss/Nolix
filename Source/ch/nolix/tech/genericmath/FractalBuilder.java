@@ -8,9 +8,9 @@ import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IIntTakerElementGetter;
 import ch.nolix.element.color.Color;
-import ch.nolix.techapi.genericmathapi.IClosedInterval;
-import ch.nolix.techapi.genericmathapi.IComplexNumber;
-import ch.nolix.techapi.genericmathapi.IFractalBuilder;
+import ch.nolix.techapi.dynamicmathapi.IClosedInterval;
+import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
+import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 
 //class
 public final class FractalBuilder implements IFractalBuilder {

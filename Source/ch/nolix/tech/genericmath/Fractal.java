@@ -13,9 +13,9 @@ import ch.nolix.common.processproperty.ProcessingMode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.techapi.genericmathapi.IClosedInterval;
-import ch.nolix.techapi.genericmathapi.IComplexNumber;
-import ch.nolix.techapi.genericmathapi.IFractal;
+import ch.nolix.techapi.dynamicmathapi.IClosedInterval;
+import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
+import ch.nolix.techapi.dynamicmathapi.IFractal;
 
 //class
 public final class Fractal implements IFractal {

@@ -2,10 +2,10 @@
 package ch.nolix.tech.genericmath;
 
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
-import ch.nolix.techapi.genericmathapi.IClosedIntervalFactory;
-import ch.nolix.techapi.genericmathapi.IComplexNumberFactory;
-import ch.nolix.techapi.genericmathapi.IFractalBuilder;
-import ch.nolix.techapi.genericmathapi.IImplicitComplexSequenceBuilder;
+import ch.nolix.techapi.dynamicmathapi.IClosedIntervalFactory;
+import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
+import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
+import ch.nolix.techapi.dynamicmathapi.IImplicitComplexSequenceBuilder;
 
 //class
 public final class Registrator {

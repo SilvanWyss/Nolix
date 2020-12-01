@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.techapi.genericmathapi.IParametrizedImplicitSequenceCreator;
+import ch.nolix.techapi.dynamicmathapi.IParametrizedImplicitSequenceCreator;
 
 //class
 public final class ParametrizedImplicitSequenceCreator<N> implements IParametrizedImplicitSequenceCreator<N> {

@@ -12,7 +12,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.techapi.genericmathapi.IImplicitSequence;
+import ch.nolix.techapi.dynamicmathapi.IImplicitSequence;
 
 //class
 public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
