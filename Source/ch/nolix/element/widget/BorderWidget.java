@@ -62,7 +62,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1680
+ * @lines 1750
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
@@ -411,6 +411,62 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * @return the target height of the current {@link BorderWidget}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a target height.
+	 */
+	public final int getTargetHeight() {
+		
+		var targetHeight = -1;
+		
+		if (hasProposalHeight()) {
+			targetHeight = getProposalHeight();
+		}
+		
+		if (hasMinHeight() && getMinHeight() > targetHeight) {
+			targetHeight = getMinHeight();
+		}
+		
+		if (hasMaxHeight() && getMaxHeight() < targetHeight) {
+			targetHeight = getMaxHeight();
+		}
+		
+		if (targetHeight == -1) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "target height");
+		}
+		
+		return targetHeight;
+	}
+	
+	//method
+	/**
+	 * @return the target width of the current {@link BorderWidget}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a target width.
+	 */
+	public final int getTargetWidth() {
+		
+		var targetWidth = -1;
+		
+		if (hasProposalWidth()) {
+			targetWidth = getProposalWidth();
+		}
+		
+		if (hasMinWidth() && getMinWidth() > targetWidth) {
+			targetWidth = getMinWidth();
+		}
+		
+		if (hasMaxWidth() && getMaxWidth() < targetWidth) {
+			targetWidth = getMaxWidth();
+		}
+		
+		if (targetWidth == -1) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "target width");
+		}
+		
+		return targetWidth;
+	}
+	
+	//method
+	/**
 	 * @return color of the vertical scroll bar of the current {@link BorderWidget}.
 	 */
 	public final Color getVerticalScrollBarColor() {
@@ -562,6 +618,22 @@ extends Widget<BW, BWL> {
 	 */
 	public final boolean hasProposalWidth() {
 		return proposalWidth.hasValue();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidget} has a target height.
+	 */
+	public final boolean hasTargetHeight() {
+		return (hasMinHeight() || hasMaxHeight() || hasProposalHeight());
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidget} has a target width.
+	 */
+	public final boolean hasTargetWidth() {
+		return (hasMinWidth() || hasMaxWidth() || hasProposalWidth());
 	}
 	
 	//method
