@@ -8,23 +8,23 @@ import ch.nolix.common.mutableattributeapi.Namable;
 import ch.nolix.common.skillapi.Clearable;
 
 //interface
-public interface IProject<P extends IProject<P>> extends Clearable<P>, IFluentObject<P>, Namable<P> {
+public interface IProject extends Clearable<IProject>, IFluentObject<IProject>, Namable<IProject> {
 	
 	//method declaration
-	P addTask(ITask task);
+	IProject addTask(ITask task);
 	
 	//method
-	default P addTask(final ITask... tasks) {
+	default IProject addTask(final ITask... tasks) {
 		
 		for (final var t : tasks) {
 			addTask(t);
 		}
 		
-		return asConcrete();
+		return this;
 	}
 	
 	//method
-	default P addTasks(final Iterable<ITask> tasks) {
+	default IProject addTasks(final Iterable<ITask> tasks) {
 		
 		tasks.forEach(this::addTask);
 		

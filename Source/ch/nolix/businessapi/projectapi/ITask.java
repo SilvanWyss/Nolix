@@ -2,12 +2,11 @@
 package ch.nolix.businessapi.projectapi;
 
 //own imports
-import ch.nolix.common.skillapi.Resettable;
-import ch.nolix.element.elementapi.IElement;
+import ch.nolix.common.mutableattributeapi.Titleble;
 import ch.nolix.element.time.Time;
 
 //interface
-public interface ITask extends IElement, Resettable<ITask> {
+public interface ITask extends Titleble<ITask>{
 	
 	//method declaration
 	Time getCreationDate();
@@ -17,10 +16,7 @@ public interface ITask extends IElement, Resettable<ITask> {
 	
 	//method declaration
 	Time getSolveDate();
-	
-	//method declaration
-	String getTitle();
-	
+		
 	//method declaration
 	boolean hasSize();
 	
@@ -38,7 +34,4 @@ public interface ITask extends IElement, Resettable<ITask> {
 	
 	//method declaration
 	ITask setUnsolved();
-	
-	//method declaration
-	ITask setTitle(String title);
 }
