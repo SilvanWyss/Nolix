@@ -3,11 +3,10 @@ package ch.nolix.common.generalskillapi;
 
 //interface
 /**
- * A {@link ISmartObject} provides general methods on itself
- * that are independent from its specific purpose.
+ * A {@link ISmartObject} provides some general methods that are about itself.
  * 
  * @author Silvan Wyss
- * @month 2018-11
+ * @date 2018-11-25
  * @lines 10
  * @param <SO> The type of a {@link ISmartObject}.
  */
