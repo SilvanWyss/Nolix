@@ -3,30 +3,37 @@ package ch.nolix.businessapi.projectapi;
 
 //own imports
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.generalskillapi.IFluentObject;
 import ch.nolix.common.mutableattributeapi.Namable;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.common.skillapi.Resettable;
-import ch.nolix.element.elementapi.IElement;
 
 //interface
-public interface IProject extends Clearable<IProject>, IElement, Namable<IProject>, Resettable<IProject> {
+public interface IProject<P extends IProject<P>> extends Clearable<P>, IFluentObject<P>, Namable<P> {
 	
 	//method declaration
-	IProject addTask(ITask task);
+	P addTask(ITask task);
 	
 	//method
-	default IProject addTask(final ITask... tasks) {
+	default P addTask(final ITask... tasks) {
 		
 		for (final var t : tasks) {
 			addTask(t);
 		}
 		
-		return this;
+		return asConcrete();
+	}
+	
+	//method
+	default P addTasks(final Iterable<ITask> tasks) {
+		
+		tasks.forEach(this::addTask);
+		
+		return asConcrete();
 	}
 	
 	//method declaration
 	IContainer<ITask> getRefTasks();
 	
 	//method declaration
-	IProject removeTask(ITask task);
+	void removeTask(ITask task);
 }
