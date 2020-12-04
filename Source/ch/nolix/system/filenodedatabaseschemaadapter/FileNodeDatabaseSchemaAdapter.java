@@ -76,10 +76,7 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 		fileNodeDatabase.addAttribute(
 			new Node(
 				DATABASE_PROPERTIES_HEADER,
-				new Node(
-					PascalCaseNameCatalogue.STATE,
-					"Ready"
-				)
+				new Node(PascalCaseNameCatalogue.STATE, DatabaseState.READY.toString())
 			)
 		);
 	}
