@@ -74,48 +74,39 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
-	 * @return a new {@link TerminalArgumentMediator} for the argument of the current {@link ArgumentMediator}.
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link ArgumentMediator} does not equal the given object.
 	 */
-	public final TerminalArgumentMediator<A> isEqualTo(final A object) {
+	public final void isEqualTo(final A object) {
 		
 		//Asserts that the argument of the current ArgumentMediator equals the given object.
 		if (argument != null && !argument.equals(object)) {
 			throw new UnequalArgumentException(argument, object);
 		}
-		
-		return new TerminalArgumentMediator<>(getRefArgument());
 	}
 	
 	//method
 	/**
-	 * @return a new {@link TerminalArgumentMediator} for the argument of the current {@link ArgumentMediator}.
 	 * @throws InvalidArgumentException if the argument of the current {@link ArgumentMediator} is the given object.
 	 */
-	public final TerminalArgumentMediator<A> isNot(final Object object) {
+	public final void isNot(final Object object) {
 		
 		//Asserts that the argument of the current ArgumentMediator is not the given object.
 		if (argument == object) {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is the given object");
 		}
-		
-		return new TerminalArgumentMediator<>(getRefArgument());
 	}
 	
 	//method
 	/**
-	 * @return a new {@link TerminalArgumentMediator} for the argument of the current {@link ArgumentMediator}.
 	 * @throws ArgumentIsNullException if the argument of the current {@link ArgumentMediator} is null.
 	 */
-	public TerminalArgumentMediator<A> isNotNull() {
+	public final void isNotNull() {
 		
 		//Asserts that the argument of the current ArgumentMediator is not null.
 		if (argument == null) {
 			throw new ArgumentIsNullException(getArgumentName());
 		}
-		
-		return new TerminalArgumentMediator<>(getRefArgument());
 	}
 	
 	//method

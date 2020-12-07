@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.jobpool;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.futureapi.IFuture;
 import ch.nolix.common.validator.Validator;
@@ -13,7 +14,10 @@ final class Future implements IFuture {
 	
 	//constructor
 	public Future(final JobWrapper jobWrapper) {
-		this.jobWrapper = Validator.assertThat(jobWrapper).thatIsNamed(VariableNameCatalogue.JOB).isNotNull().andReturn();
+		
+		Validator.assertThat(jobWrapper).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		
+		this.jobWrapper = jobWrapper;
 	}
 	
 	//method

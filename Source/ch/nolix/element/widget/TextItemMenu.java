@@ -190,7 +190,9 @@ implements Clearable<TIM> {
 	//method
 	public final TIM setSelectAction(final IElementTaker<TextItemMenuItem> selectAction) {
 		
-		this.selectAction = Validator.assertThat(selectAction).thatIsNamed("select command").isNotNull().andReturn();
+		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+		
+		this.selectAction = selectAction;
 		
 		return asConcrete();
 	}

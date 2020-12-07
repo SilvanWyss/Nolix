@@ -51,7 +51,9 @@ public final class LayerProperty<V> implements Named {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		
+		this.name = name;
 		
 		//Asserts that the given default is not null.
 		Validator

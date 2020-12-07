@@ -72,7 +72,9 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		
 		this(text);
 		
-		this.selectCommand = Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
+		Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull();
+		
+		this.selectCommand = selectCommand;
 	}
 	
 	//constructor
@@ -171,7 +173,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//method
 	public void setParentMenu(final TextItemMenu<?> parentItemMenu) {
 		
-		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull().andReturn();
+		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull();
 		
 		this.parentItemMenu = parentItemMenu;
 	}

@@ -1181,8 +1181,8 @@ IResizableInputTaker {
 	 */
 	public final Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		Validator.assertThat(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
-				
+		Validator.assertThat(rootWidget).thatIsNamed("root widget").isNotNull();
+			
 		if (parentGUI != null) {
 			rootWidget.setParent(parentGUI);
 		}

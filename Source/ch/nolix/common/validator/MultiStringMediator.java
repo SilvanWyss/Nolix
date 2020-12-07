@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -43,14 +44,13 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	
 	//method
 	/**
-	 * @return a new {@link TerminalArgumentMediator}
 	 * for the arguments of the current {@link MultiStringMediator}.
 	 * @throws ArgumentIsNullException
 	 * if one of the arguments of the current {@link MultiStringMediator} is null.
 	 * @throws InvalidArgumentException
 	 * if one of the arguments of the current {@link MultiStringMediator} is blank.
 	 */
-	public TerminalArgumentMediator<Iterable<String>> areNotBlank() {
+	public void areNotBlank() {
 		
 		//Asserts that the arguments of the current multi string mediator are not null.
 		areNotNull();
@@ -67,9 +67,6 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 			//Increments index.
 			index++;
 		}
-		
-		//Creates new terminal argument mediator for the arguments of the current multi string mediator.
-		return new TerminalArgumentMediator<>(getRefArguments());
 	}
 	
 	//method

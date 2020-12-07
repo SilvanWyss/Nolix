@@ -233,8 +233,9 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	@Override
 	public final C setInfoString(final String infoString) {
 		
-		this.infoString
-		= Validator.assertThat(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank().andReturn();
+		Validator.assertThat(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank();
+		
+		this.infoString = infoString;
 		
 		return asConcrete();
 	}

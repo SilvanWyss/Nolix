@@ -5,6 +5,7 @@ package ch.nolix.system.client;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -50,12 +51,13 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	 */
 	public Application(final String name, final Class<?> initialSessionClass) {
 		
-		//Asserts that the given name is not null or blank and sets the name of the current Application.
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
-		
+		//Asserts that the given name is not null or blank.
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+				
 		//Asserts that the given initialSessionClass is not null.
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
+		this.name = name;
 		this.initialSessionClass = initialSessionClass;
 		clientClass = createInitialSession().internalGetRefClientClass();
 		this.context = null;
@@ -132,8 +134,8 @@ public class Application<C extends Client<C>> implements Castable, Named {
 		final Object context
 	) {
 		
-		//Asserts that the given name is not null or blank and sets the name of the current Application.
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		//Asserts that the given name is not null or blank.
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
 		
 		//Asserts that the given initialSessionClass is not null.
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
@@ -141,6 +143,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 		//Asserts that the given context is not null.
 		Validator.assertThat(context).thatIsNamed(VariableNameCatalogue.CONTEXT).isNotNull();
 		
+		this.name = name;
 		this.initialSessionClass = initialSessionClass;
 		clientClass = createInitialSession().internalGetRefClientClass();
 		this.context = context;

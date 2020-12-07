@@ -73,7 +73,9 @@ public final class Resource implements IResource {
 	 */
 	public Resource(final String name, final Iterable<IResource> baseResources) {
 		
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		
+		this.name = name;
 		
 		final var internalBaseResources = new LinkedList<IResource>();
 		

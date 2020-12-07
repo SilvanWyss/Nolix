@@ -180,7 +180,9 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	@Override
 	public XMLNode setName(final String name) {
 		
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		
+		this.name = name;
 		
 		return this;
 	}

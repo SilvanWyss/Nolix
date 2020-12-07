@@ -13,7 +13,9 @@ final class Worker extends Thread {
 	//constructor
 	public Worker(final JobPool parentJobPool) {
 		
-		this.parentJobPool = Validator.assertThat(parentJobPool).thatIsNamed("parent job bool").isNotNull().andReturn();
+		Validator.assertThat(parentJobPool).thatIsNamed("parent job bool");
+		
+		this.parentJobPool = parentJobPool;
 	
 		start();
 	}

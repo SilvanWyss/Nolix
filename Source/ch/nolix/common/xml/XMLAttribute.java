@@ -21,8 +21,12 @@ public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {
 	
 	//constructor
 	public XMLAttribute(final String name, final String value) {
-		this.name = Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();	
-		this.value = Validator.assertThat(value).thatIsNamed(VariableNameCatalogue.VALUE).isNotNull().andReturn();
+		
+		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(value).thatIsNamed(VariableNameCatalogue.VALUE).isNotNull();
+		
+		this.name = name;
+		this.value = value;
 	}
 	
 	//method
