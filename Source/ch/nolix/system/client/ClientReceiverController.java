@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.node.Node;

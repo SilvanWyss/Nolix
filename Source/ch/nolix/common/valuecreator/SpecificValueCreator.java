@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.valuecreator;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;

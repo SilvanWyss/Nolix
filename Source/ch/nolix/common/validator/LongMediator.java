@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.validator;
 
+//own imports
 import ch.nolix.common.independenthelper.ArrayHelper;
 import ch.nolix.common.invalidargumentexception.ArgumentIsInRangeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;

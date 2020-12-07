@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.endpoint3test;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.endpoint3.IEndPointTaker;

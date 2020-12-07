@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseschemaadapter;
 
+//own imports
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;

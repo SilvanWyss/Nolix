@@ -1,5 +1,6 @@
 package ch.nolix.commontutorial.validatortutorial;
 
+//own imports
 import ch.nolix.common.validator.Validator;
 
 //class

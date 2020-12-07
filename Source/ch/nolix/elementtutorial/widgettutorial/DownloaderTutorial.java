@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
+//own imports
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.element.color.Color;

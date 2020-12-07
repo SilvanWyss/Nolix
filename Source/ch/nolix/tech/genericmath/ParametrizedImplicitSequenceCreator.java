@@ -4,6 +4,7 @@ package ch.nolix.tech.genericmath;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.techapi.dynamicmathapi.IParametrizedImplicitSequenceCreator;

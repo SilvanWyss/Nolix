@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.Widget;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.containertest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.container.LinkedList;

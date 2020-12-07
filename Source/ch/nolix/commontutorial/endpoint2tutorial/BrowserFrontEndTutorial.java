@@ -1,5 +1,6 @@
 package ch.nolix.commontutorial.endpoint2tutorial;
 
+//own imports
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.endpoint2.NetServer;
 import ch.nolix.common.localcomputer.ShellProvider;

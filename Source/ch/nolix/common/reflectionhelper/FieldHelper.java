@@ -5,6 +5,7 @@ package ch.nolix.common.reflectionhelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;

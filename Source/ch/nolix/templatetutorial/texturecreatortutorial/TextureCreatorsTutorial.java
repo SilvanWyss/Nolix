@@ -1,5 +1,6 @@
 package ch.nolix.templatetutorial.texturecreatortutorial;
 
+//own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerwidget.Accordion;
 import ch.nolix.element.gui.Frame;

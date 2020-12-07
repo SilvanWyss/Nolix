@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.processapi;
 
+//own imports
 import ch.nolix.common.processproperty.Purpose;
 
 //interface

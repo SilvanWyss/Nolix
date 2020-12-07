@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.commontypehelper.InputStreamHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;

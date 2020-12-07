@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.simpletest;
 
+//own imports
 import ch.nolix.common.requestapi.ApproximativeEqualing;
 
 //class

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.template.consoleclientlook;
 
+//own imports
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.gui.WidgetIdCatalogue;

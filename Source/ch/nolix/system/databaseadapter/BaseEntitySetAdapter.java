@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseadapter;
 
+//own imports
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;

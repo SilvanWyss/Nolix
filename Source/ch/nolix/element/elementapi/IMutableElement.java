@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;

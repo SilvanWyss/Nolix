@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.layerelement;
 
+//own imports
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;

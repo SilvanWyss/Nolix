@@ -1,5 +1,6 @@
 package ch.nolix.commontutorial.sequencertutorial;
 
+//own imports
 import ch.nolix.common.math.Matrix;
 import ch.nolix.common.sequencer.ResultFuture;
 import ch.nolix.common.sequencer.Sequencer;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.closeableelement;
 
+//own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ClosedArgumentException;

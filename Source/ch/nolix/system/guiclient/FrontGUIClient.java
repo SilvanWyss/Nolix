@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.guiclient;
 
+//own imports
 import ch.nolix.common.endpoint2.NetServer;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClient;

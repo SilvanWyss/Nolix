@@ -4,6 +4,7 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 //class

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.consoleclientlooktest;
 
+//own imports
 import ch.nolix.template.consoleclientlook.BlackGreenConsoleClientLook;
 
 //class

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseguiclient;
 
+//own imports
 import ch.nolix.element.gui.InvisibleGUI;
 import ch.nolix.system.client.Session;
 

@@ -5,6 +5,7 @@ package ch.nolix.common.validator;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

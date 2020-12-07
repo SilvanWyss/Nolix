@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.common.endpoint5.EndPoint;
 
 //class

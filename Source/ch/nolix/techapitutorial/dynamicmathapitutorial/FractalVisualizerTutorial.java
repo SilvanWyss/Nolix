@@ -1,5 +1,6 @@
 package ch.nolix.techapitutorial.dynamicmathapitutorial;
 
+//own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.processproperty.ProcessingMode;
 import ch.nolix.common.sequencer.Sequencer;

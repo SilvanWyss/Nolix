@@ -4,6 +4,7 @@ package ch.nolix.system.databaseadapter;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;

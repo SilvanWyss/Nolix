@@ -4,6 +4,7 @@ package ch.nolix.techapi.dynamicmathapi;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.common.functionapi.I3ElementTakerElementGetter;
 import ch.nolix.common.functionapi.I4ElementTakerElementGetter;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.xml;
 
+//own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;

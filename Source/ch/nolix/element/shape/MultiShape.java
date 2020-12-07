@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.shape;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

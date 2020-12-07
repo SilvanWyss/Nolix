@@ -4,6 +4,7 @@ package ch.nolix.system.baseguiclient;
 //Java import
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

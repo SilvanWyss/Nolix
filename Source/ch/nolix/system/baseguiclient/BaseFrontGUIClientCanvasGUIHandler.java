@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseguiclient;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

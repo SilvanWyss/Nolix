@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint2;
 
+//own imports
 import ch.nolix.common.processproperty.ConnectionOrigin;
 import ch.nolix.common.validator.Validator;
 

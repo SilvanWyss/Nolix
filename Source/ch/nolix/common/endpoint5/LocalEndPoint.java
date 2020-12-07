@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint5;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

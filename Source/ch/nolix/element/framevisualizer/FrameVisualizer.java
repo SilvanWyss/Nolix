@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.GUI;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.serviceprovider;
 
+//own imports
 import ch.nolix.common.processproperty.WriteMode;
 
 //class

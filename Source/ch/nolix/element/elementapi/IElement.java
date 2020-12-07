@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalskillapi.TypeRequestable;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

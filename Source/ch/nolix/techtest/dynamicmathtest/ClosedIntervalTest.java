@@ -4,6 +4,7 @@ package ch.nolix.techtest.dynamicmathtest;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.test.Test;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;

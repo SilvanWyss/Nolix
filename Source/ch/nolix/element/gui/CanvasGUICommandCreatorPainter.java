@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui;
 
+//own imports
 import ch.nolix.common.attributeapi.Indexed;
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.chainednode.ChainedNode;

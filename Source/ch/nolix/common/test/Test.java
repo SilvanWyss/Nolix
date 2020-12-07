@@ -4,6 +4,7 @@ package ch.nolix.common.test;
 //Java import
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.common.basetest.TestAccessor;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.requestapi.ApproximativeEqualing;

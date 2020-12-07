@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techapi.resourceapi;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 
 //interface

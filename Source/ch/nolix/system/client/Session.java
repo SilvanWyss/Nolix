@@ -4,6 +4,7 @@ package ch.nolix.system.client;
 //Java import
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;

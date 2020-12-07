@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;

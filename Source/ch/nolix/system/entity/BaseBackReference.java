@@ -4,6 +4,7 @@ package ch.nolix.system.entity;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

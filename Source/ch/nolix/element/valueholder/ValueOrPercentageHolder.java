@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.valueholder;
 
+//own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

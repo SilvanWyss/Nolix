@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;

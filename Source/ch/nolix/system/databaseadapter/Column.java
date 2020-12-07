@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseadapter;
 
+//own imports
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.simplevalidator;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsZeroException;

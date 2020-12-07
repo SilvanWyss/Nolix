@@ -1,5 +1,6 @@
 package ch.nolix.commontutorial.sequencertutorial;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sequencer.Sequencer;
 

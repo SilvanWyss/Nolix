@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.endpoint5test;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;

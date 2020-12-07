@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.financetutorial;
 
+//own imports
 import ch.nolix.common.container.SequencePattern;
 import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;

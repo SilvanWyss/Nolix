@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.elementenumtest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.financetest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.finance.Candlestick;

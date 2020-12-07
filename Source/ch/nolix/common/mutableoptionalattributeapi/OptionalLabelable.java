@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.mutableoptionalattributeapi;
 
+//own imports
 import ch.nolix.common.optionalattributeapi.OptionalLabeled;
 
 //interface

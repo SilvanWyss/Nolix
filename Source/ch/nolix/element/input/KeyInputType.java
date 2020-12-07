@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.input;
 
+//own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
 //own imports

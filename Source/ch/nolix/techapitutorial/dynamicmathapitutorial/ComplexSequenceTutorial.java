@@ -1,5 +1,6 @@
 package ch.nolix.techapitutorial.dynamicmathapitutorial;
 
+//own imports
 import ch.nolix.common.functionapi.IIntTaker;
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 import ch.nolix.tech.genericmath.Registrator;

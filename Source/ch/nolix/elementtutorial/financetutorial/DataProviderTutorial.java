@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.financetutorial;
 
+//own imports
 import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.time.Time;

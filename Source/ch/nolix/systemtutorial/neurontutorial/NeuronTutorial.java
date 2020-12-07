@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.neurontutorial;
 
+//own imports
 import ch.nolix.common.math.Calculator;
 import ch.nolix.system.baseneuron.SourceNeuron;
 import ch.nolix.system.neuron.Neuron;

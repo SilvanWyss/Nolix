@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint;
 
+//own imports
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.functionapi.IElementTaker;

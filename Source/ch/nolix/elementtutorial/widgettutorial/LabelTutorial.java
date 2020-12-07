@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
+//own imports
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Frame;

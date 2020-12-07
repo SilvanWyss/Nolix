@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.texturetest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.element.color.Color;

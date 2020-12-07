@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.neurontutorial;
 
+//own imports
 import ch.nolix.system.neuron.Neuron;
 
 /**

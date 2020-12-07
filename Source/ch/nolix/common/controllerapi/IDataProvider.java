@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.controllerapi;
 
+//own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.node.Node;
 

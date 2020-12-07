@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+//own imports
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;

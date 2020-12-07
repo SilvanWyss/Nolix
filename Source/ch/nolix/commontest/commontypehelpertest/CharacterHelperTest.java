@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.commontest.commontypehelpertest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypehelper.CharacterHelper;
 import ch.nolix.common.simpletest.SimpleTest;

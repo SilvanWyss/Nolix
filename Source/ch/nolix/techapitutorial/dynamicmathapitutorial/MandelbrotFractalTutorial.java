@@ -1,5 +1,6 @@
 package ch.nolix.techapitutorial.dynamicmathapitutorial;
 
+//own imports
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;

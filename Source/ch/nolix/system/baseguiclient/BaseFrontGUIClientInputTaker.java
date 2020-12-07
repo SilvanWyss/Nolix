@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.baseguiclient;
 
+//own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IIntGetter;
 import ch.nolix.common.validator.Validator;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.cachingcontainertest;
 
+//own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.demoobject.Cat;

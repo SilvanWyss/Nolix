@@ -5,6 +5,7 @@ package ch.nolix.common.validator;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.independentcontainer.List;
 import ch.nolix.common.independenthelper.ArrayHelper;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;

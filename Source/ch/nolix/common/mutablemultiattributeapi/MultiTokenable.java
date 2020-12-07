@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.mutablemultiattributeapi;
 
+//own imports
 import ch.nolix.common.generalskillapi.IFluentObject;
 import ch.nolix.common.multiattributerequestapi.MultiTokened;
 

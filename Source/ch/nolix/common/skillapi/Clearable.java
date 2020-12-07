@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.skillapi;
 
+//own imports
 import ch.nolix.common.requestapi.EmptinessRequestable;
 
 //interface

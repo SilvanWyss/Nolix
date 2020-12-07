@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint4;
 
+//own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 

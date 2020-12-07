@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.genericmath;
 
+//own imports
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
 import ch.nolix.techapi.dynamicmathapi.IClosedIntervalFactory;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;

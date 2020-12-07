@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui;
 
+//own imports
 import ch.nolix.common.rasterapi.Rectangular;
 
 //interface

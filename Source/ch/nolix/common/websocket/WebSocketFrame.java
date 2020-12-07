@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;

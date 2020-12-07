@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint3;
 
+//own imports
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 

@@ -5,6 +5,7 @@ package ch.nolix.common.reflectionwrapper;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
