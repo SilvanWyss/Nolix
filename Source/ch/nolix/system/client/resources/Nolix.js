@@ -1325,12 +1325,11 @@ define("Common/EndPoint2/NetEndPoint2", ["require", "exports"], function (requir
             this.receiver = receiver;
         }
         receive(message) {
-            console.log("The current NetEndPoint2 has receveived the message: " + message);
             if (message === null) {
                 throw new Error('The given message is null.');
             }
             if (message === undefined) {
-                throw new RTCError('The given message is undefined.');
+                throw new Error('The given message is undefined.');
             }
             if (message.length === 0) {
                 throw new Error('The given message is empty.');
@@ -1347,7 +1346,6 @@ define("Common/EndPoint2/NetEndPoint2", ["require", "exports"], function (requir
             }
         }
         sendRawMessage(rawMessage) {
-            console.log("The current NetEndPoint2 sends the raw message: " + rawMessage);
             this.webSocket.send(rawMessage);
         }
     }
@@ -1396,7 +1394,6 @@ define("Common/EndPoint3/Package", ["require", "exports", "Common/EndPoint3/Mess
             this.index = index;
             this.message = message;
             this.messageRole = messageRole;
-            console.log('The current Package has been created: ' + this.toString());
         }
         static createFromString(string) {
             return new Package(Number.parseInt(string.substring(0, 8)), Package.createMessageRole(string.substring(8, 9)), string.substring(9, string.length));
@@ -1467,7 +1464,6 @@ define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container
             this.messageIndex = 0;
             this.receivedPackages = new LinkedList_5.LinkedList();
             this.receive = (message) => {
-                console.log('The current NetEndPoint3 has received the message: ' + message);
                 this.receivePackage(Package_1.Package.createFromString(message));
             };
             this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget);
@@ -1483,7 +1479,6 @@ define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container
             return this.internalNetEndPoint.hasTarget();
         }
         sendAndGetReply(message) {
-            console.log('The current NetEndPoint3 sends the message: ' + message);
             const messageIndex = this.getNextMessageIndex();
             this.sendPackage(new Package_1.Package(messageIndex, MessageRole_2.MessageRole.STANDARD_MESSAGE, message));
             return 'Ok';
@@ -1563,7 +1558,6 @@ define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNo
         constructor(ip, port, optionalTarget) {
             this.receiverController = undefined;
             this.receiveMessageAndGetReply = (message) => {
-                console.log('The current NetEndPoint5 has received the message: ' + message);
                 try {
                     return this.receiveDocumentNodeMessageAndGetReply(ChainedNode_1.ChainedNode.fromString(message));
                 }
@@ -2382,6 +2376,9 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
             this.imageCache = imageCache;
             this.canvasRenderingContext = canvasRenderingContext;
         }
+        hasGivenClipArea(clipArea) {
+            return (this.currentClipArea === clipArea);
+        }
         paintFilledRectangle(xPosition, yPosition, width, height) {
             this.canvasRenderingContext.fillRect(xPosition, yPosition, width, height);
         }
@@ -2405,13 +2402,6 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
             this.paintTextWithTextFormat(xPosition, yPosition, text, CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT);
         }
         paintTextWithTextFormat(xPosition, yPosition, text, textFormat) {
-            console.log('The current CanvasGUIGlobalPainter paints the text: \''
-                + text
-                + '\' at position ('
-                + xPosition
-                + ', '
-                + yPosition
-                + ').');
             this.canvasRenderingContext.textBaseline = 'top';
             this.canvasRenderingContext.font = textFormat.getTextSize() + 'px ' + textFormat.getTextFontCode();
             this.canvasRenderingContext.fillStyle = textFormat.getTextColor().getHTMLCode();
@@ -2420,15 +2410,23 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
         paintTextWithTextFormatAndMaxLength(xPosition, yPosition, text, textFormat, maxLength) {
             this.canvasRenderingContext.fillText(text, xPosition, yPosition);
         }
-        popState() {
+        popClipArea() {
+            this.currentClipArea = undefined;
             this.canvasRenderingContext.closePath();
             this.canvasRenderingContext.restore();
         }
-        pushStateWithClipArea(xPosition, yPosition, clipAreaWidth, clipAreaHeight) {
+        pushClipArea(clipArea) {
+            if (clipArea === null) {
+                throw new Error('The given clipArea is null.');
+            }
+            if (clipArea === undefined) {
+                throw new Error('The given clipArea is undefined.');
+            }
+            this.currentClipArea = clipArea;
             const fillStyle = this.canvasRenderingContext.fillStyle;
             this.canvasRenderingContext.save();
             this.canvasRenderingContext.fillStyle = fillStyle;
-            this.canvasRenderingContext.rect(xPosition, yPosition, clipAreaWidth, clipAreaHeight);
+            this.canvasRenderingContext.rect(clipArea.getXPosition(), clipArea.getYPosition(), clipArea.getWidth(), clipArea.getHeight());
             this.canvasRenderingContext.clip();
             this.canvasRenderingContext.beginPath();
         }
@@ -2516,49 +2514,49 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             return (this.clipAreaOnViewArea !== undefined);
         }
         paintFilledRectangle(width, height) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), width, height);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintFilledRectangleAtPosition(xPosition, yPosition, width, height) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea() + xPosition, this.getYPositionOnViewArea() + yPosition, width, height);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintImage(image) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintImage(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), image);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintImageById(id) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintImageById(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), id);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintImageByIdWithSize(id, width, height) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintImageByIdWithSize(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), id, width, height);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintImageWidthSize(image, width, height) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintImageWithSize(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), image, width, height);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintText(text) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintText(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintTextWithTextFormat(text, textFormat) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintTextWithTextFormat(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         paintTextWithTextFormatAndMaxLength(text, textFormat, maxLength) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.globalPainter.paintTextWithTextFormatAndMaxLength(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat, maxLength);
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         registerImageAtId(id, image) {
             this.globalPainter.registerImageAtId(id, image);
@@ -2567,10 +2565,10 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             this.globalPainter.setColor(color);
         }
         translate(xTranslation, yTranslation) {
-            this.pushStateIfNeeded();
+            this.pushClipArea();
             this.xPosition += xTranslation;
             this.yPosition += yTranslation;
-            this.popStateIfNeeded();
+            this.popClipArea();
         }
         createPainterWithTranslationAndPaintAreaWhenDoesNotHaveClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight) {
             return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(this.getXPositionOnViewArea() + xTranslation, this.getYPositionOnViewArea() + yTranslation, clipAreaWidth, clipAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
@@ -2584,14 +2582,14 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             const clipAreaOnViewAreaHeight = CentralCalculator_1.CentralCalculator.getMax(0, clipAreaOnViewAreaBottomPosition - clipAreaOnViewAreaYPosition);
             return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(clipAreaOnViewAreaXPosition, clipAreaOnViewAreaYPosition, clipAreaOnViewAreaWidth, clipAreaOnViewAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
-        popStateIfNeeded() {
-            if (this.hasClipArea()) {
-                this.globalPainter.popState();
+        popClipArea() {
+            if (this.hasClipArea() && this.globalPainter.hasGivenClipArea(this.clipAreaOnViewArea)) {
+                this.globalPainter.popClipArea();
             }
         }
-        pushStateIfNeeded() {
-            if (this.hasClipArea()) {
-                this.globalPainter.pushStateWithClipArea(this.clipAreaOnViewArea.getXPosition(), this.clipAreaOnViewArea.getYPosition(), this.clipAreaOnViewArea.getWidth(), this.clipAreaOnViewArea.getHeight());
+        pushClipArea() {
+            if (this.hasClipArea() && !this.globalPainter.hasGivenClipArea(this.clipAreaOnViewArea)) {
+                this.globalPainter.pushClipArea(this.clipAreaOnViewArea);
             }
         }
     }
@@ -2732,6 +2730,15 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
                 case 'Z':
                 case 'z':
                     return Key_1.Key.Z;
+                case 'Ä':
+                case 'ä':
+                    return Key_1.Key.AE;
+                case 'Ö':
+                case 'ö':
+                    return Key_1.Key.OE;
+                case 'Ü':
+                case 'ü':
+                    return Key_1.Key.UE;
                 case '0':
                     return Key_1.Key.NUMBERPAD_0;
                 case '1':
@@ -2752,6 +2759,10 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
                     return Key_1.Key.NUMBERPAD_8;
                 case '9':
                     return Key_1.Key.NUMBERPAD_9;
+                case '$':
+                    return Key_1.Key.DOLLAR_SYMBOL;
+                case '-':
+                    return Key_1.Key.HYPHEN;
                 case 'F1':
                     return Key_1.Key.F1;
                 case 'F2':
@@ -2790,6 +2801,8 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
                     return Key_1.Key.BACKSPACE;
                 case 'CapsLock':
                     return Key_1.Key.CAPS_LOCK;
+                case 'Control':
+                    return Key_1.Key.CONTROL;
                 case 'Delete':
                     return Key_1.Key.DELETE;
                 case 'Escape':
@@ -2892,7 +2905,6 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             this.inputTaker.noteLeftMouseButtonRelease();
         }
         noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
-            console.log('The current CanvasGUI notes a mouse move.');
             this.setCursorPosition(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
             this.inputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
         }
@@ -2944,18 +2956,15 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             this.refresh();
         }
         setCursorIcon(cursorIcon) {
-            console.log('The current CanvasGUI sets the cursorIcon ' + cursorIcon + '.');
             this.canvas.style.cursor = cursorIcon.toHTMLCode();
         }
         setPaintCommands(paintCommands) {
             this.paintCommands.refill(paintCommands);
         }
         setTextualPaintCommands(textualPaintCommands) {
-            console.log('The current CanvasGUI sets the given textualPaintCommands \'' + textualPaintCommands + '\'');
             this.setPaintCommands(textualPaintCommands.to(tpc => this.createPaintCommand(tpc)));
         }
         setTitle(title) {
-            console.log('The current CanvasGUI sets the title: ' + title);
             if (title === null) {
                 throw new Error('The given title is null.');
             }
@@ -3466,8 +3475,8 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
-        constructor(window, eventTaker) {
-            this.mGUI = new CanvasGUI_1.CanvasGUI(window, eventTaker);
+        constructor(window, inputTaker) {
+            this.mGUI = new CanvasGUI_1.CanvasGUI(window, inputTaker);
         }
         canRunCommand(command) {
             return (command.hasHeader() && this.canRunCommandOfType(command.getHeader()));
@@ -3490,7 +3499,6 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
             return this.mGUI.getViewAreaSize();
         }
         runGUICommand(pGUICommand) {
-            console.log('The current GUIHandler runs the given pGUICommand: ' + pGUICommand);
             switch (pGUICommand.getHeader()) {
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:
                     this.mGUI.setTitle(pGUICommand.getOneAttributeAsString());
@@ -3508,11 +3516,77 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
             }
         }
         setPaintCommands(paintCommands) {
-            console.log('The current GUIHandler sets the given paintCommands: ' + paintCommands);
             this.mGUI.setTextualPaintCommands(paintCommands);
         }
     }
     exports.GUIHandler = GUIHandler;
+});
+define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class PerformanceFilterInputTaker {
+        constructor(targetInputTaker) {
+            if (targetInputTaker === null) {
+                throw new Error('The given targetInputTaker is null.');
+            }
+            if (targetInputTaker === undefined) {
+                throw new Error('The given targetInputTaker is undefined.');
+            }
+            this.targetInputTaker = targetInputTaker;
+            this.latestMouseMoveTime = Date.now();
+        }
+        noteKeyPress(key) {
+            this.targetInputTaker.noteKeyPress(key);
+        }
+        noteKeyRelease(key) {
+            this.targetInputTaker.noteKeyRelease(key);
+        }
+        noteKeyTyping(key) {
+            this.targetInputTaker.noteKeyTyping(key);
+        }
+        noteLeftMouseButtonClick() {
+            this.targetInputTaker.noteLeftMouseButtonClick();
+        }
+        noteLeftMouseButtonPress() {
+            this.targetInputTaker.noteLeftMouseButtonPress();
+        }
+        noteLeftMouseButtonRelease() {
+            this.targetInputTaker.noteLeftMouseButtonRelease();
+        }
+        noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
+            const time = Date.now();
+            if (time > this.latestMouseMoveTime + PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS) {
+                this.latestMouseMoveTime = time;
+                this.targetInputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+            }
+        }
+        noteMouseWheelClick() {
+            this.targetInputTaker.noteMouseWheelClick();
+        }
+        noteMouseWheelPress() {
+            this.targetInputTaker.noteMouseWheelPress();
+        }
+        noteMouseWheelRelease() {
+            this.targetInputTaker.noteMouseWheelRelease();
+        }
+        noteMouseWheelRotationStep(rotationDirection) {
+            this.targetInputTaker.noteMouseWheelRotationStep(rotationDirection);
+        }
+        noteResize(viewAreaWidth, viewAreaHeight) {
+            this.targetInputTaker.noteResize(viewAreaWidth, viewAreaHeight);
+        }
+        noteRightMouseButtonClick() {
+            this.targetInputTaker.noteRightMouseButtonClick();
+        }
+        noteRightMouseButtonPress() {
+            this.targetInputTaker.noteRightMouseButtonPress;
+        }
+        noteRightMouseButtonRelease() {
+            this.targetInputTaker.noteRightMouseButtonRelease();
+        }
+    }
+    PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS = 100;
+    exports.PerformanceFilterInputTaker = PerformanceFilterInputTaker;
 });
 define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -3543,13 +3617,13 @@ define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"],
     }
     exports.ReceiverController = ReceiverController;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Common/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Common/EndPoint5/NetEndPoint5", "Common/Node/Node", "System/FrontCanvasGUIClient/ReceiverController", "Common/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, ReceiverController_1, SingleContainer_2) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Common/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Common/EndPoint5/NetEndPoint5", "Common/Node/Node", "System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", "System/FrontCanvasGUIClient/ReceiverController", "Common/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, PerformanceFilterInputTaker_1, ReceiverController_1, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClient {
         constructor(ip, port, optionalTarget, window) {
             this.mGUIHandler =
-                new GUIHandler_1.GUIHandler(window, new FrontCanvasGUIClientInputTaker_1.FrontCanvasGUIClientInputTaker(i => this.noteInputOnCounterpart(i), () => this.getCursorXPositionOnViewArea(), () => this.getCursorYPositionOnViewArea()));
+                new GUIHandler_1.GUIHandler(window, new PerformanceFilterInputTaker_1.PerformanceFilterInputTaker(new FrontCanvasGUIClientInputTaker_1.FrontCanvasGUIClientInputTaker(i => this.noteInputOnCounterpart(i), () => this.getCursorXPositionOnViewArea(), () => this.getCursorYPositionOnViewArea())));
             this.endPoint = new NetEndPoint5_1.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
         }
@@ -3569,7 +3643,6 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.NOTE_INPUT, input.getSpecification()));
         }
         getData(request) {
-            console.log('FrontCanvasGUIClient has received the request: ' + request.toString());
             switch (request.getHeader()) {
                 case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
                     return this.getDataFromGUI(request.getNextNode());
@@ -3588,7 +3661,6 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             }
         }
         run(command) {
-            console.log('FrontCanvasGUIClient runs the command: ' + command.toString());
             switch (command.getHeader()) {
                 case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
                     this.mGUIHandler.runGUICommand(command.getNextNode());
