@@ -11,10 +11,15 @@ public final class Logger {
 	private static boolean active = true;
 	private static LogWorker logWorker;
 	
-	//static attribute
-	private static final List<LogHandler> logHandlers =
-	new List<>(new StandardConsoleLogHandler());
-
+	//static multi-attribute
+	private static final List<LogHandler> logHandlers = new List<>();
+	
+	//static initialization
+	static {
+		logHandlers.addAtBegin(new StandardConsoleLogHandler());
+		logHandlers.addAtBegin(new FileLogHandler());
+	}
+	
 	//static method
 	public static void addLogHandler(final LogHandler logHandler) {
 		logHandlers.addAtEnd(logHandler);
