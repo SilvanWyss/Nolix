@@ -1,6 +1,11 @@
 //package declaration
 package ch.nolix.common.nolixenvironment;
 
+//Java imports
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 //class
 public final class NolixEnvironment {
 	
@@ -14,7 +19,24 @@ public final class NolixEnvironment {
 	
 	//static method
 	public static String getLocalNolixFolderPath() {
-		return (getLocalAppDataFolderPath() + "/" + LOCAL_NOLIX_FOLDER_NAME);
+		
+		final var localNolixFolderPath = getLocalAppDataFolderPath() + "/" + LOCAL_NOLIX_FOLDER_NAME;
+		createFolderIfDoesNotExist(localNolixFolderPath);
+		
+		return localNolixFolderPath;
+	}
+	
+	//method
+	private static void createFolderIfDoesNotExist(final String path) {
+		
+		final var lPath = Path.of(path);
+		
+		if (!Files.exists(lPath)) {
+			try {
+				Files.createDirectory(lPath);
+			}
+			catch (final IOException pIOException) {}
+		}
 	}
 	
 	//static method
