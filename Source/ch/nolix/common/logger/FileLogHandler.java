@@ -29,7 +29,7 @@ public final class FileLogHandler extends LogHandler {
 	//static method
 	private static void createFileIfDoesNotExist(final String path) {
 		
-		final var lPath = Path.of(getLocalNolixLogFilePath());
+		final var lPath = Path.of(path);
 		
 		if (!Files.exists(lPath)) {
 			try {
@@ -45,7 +45,7 @@ public final class FileLogHandler extends LogHandler {
 		try {
 			Files.write(
 				Paths.get(getLocalNolixLogFilePath()),
-				logEntry.toString().getBytes(),
+				(logEntry.toString() + System.lineSeparator()).getBytes(),
 				StandardOpenOption.APPEND
 			);
 		}
