@@ -25,7 +25,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 380
+ * @lines 410
  * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
@@ -278,7 +278,13 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	private void noteInputAndLockWhenIsFreeForInput(final IInput<?> input) {
 		try {
 			
-			isNotingMouseInput = true;
+			//TODO: Fix that isNotingMouseInput can be set true.
+			/*
+			 * ATTENTION: Now, when isNotingMouseInput is set true, a process of a mouse input can remain.
+			 * And then, isNotingMouseInput will never be set false and all further inputs will not be processed.
+			 * Then the GUI client does not respond to any input anymore.
+			 */
+			//isNotingMouseInput = true
 			
 			noteInputWhenIsFreeForInput(input);
 		}
