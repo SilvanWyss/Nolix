@@ -303,6 +303,8 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		properties = new PropertyExtractor().getRefPropertiesOf(this);
 		
 		setParentEntityToProperties();
+		
+		validatePropertySchema();
 	}
 	
 	//method
@@ -465,5 +467,10 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		if (belongsToEntitySet()) {
 			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentEntitySet());
 		}
+	}
+	
+	//method
+	private void validatePropertySchema() {
+		getRefProperties().forEach(Property::internalValidateSchema);
 	}
 }
