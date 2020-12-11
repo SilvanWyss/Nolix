@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 610
+ * @lines 670
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -186,6 +186,65 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		final var node = new Node();
 		node.setHeader(header);
 		node.addAttribute(attribute);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final boolean... attributes) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		for (final var a : attributes) {
+			node.addAttribute(Node.withHeader(a));
+		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final long... attributes) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		for (final var a : attributes) {
+			node.addAttribute(Node.withHeader(a));
+		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
+	 * @throws InvalidArgumentException if one of the given attributes is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final String... attributes) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		for (final var a : attributes) {
+			node.addAttribute(a);
+		}
 		
 		return node;
 	}
