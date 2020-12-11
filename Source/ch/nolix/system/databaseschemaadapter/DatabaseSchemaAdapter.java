@@ -129,7 +129,7 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 		
 		reset();
 	}
-
+	
 	//method declaration
 	protected abstract LinkedList<IEntitySetAdapter> getEntitySetAdapters();
 	
@@ -138,6 +138,9 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//method declaration
 	protected abstract void lockDatabase();
+	
+	//method declaration
+	protected abstract void saveAddEntitySet(final EntitySet entitySet);
 	
 	//method declaration
 	protected abstract void saveChangesToDatabaseAndSetDatabaseReady(IContainer<EntitySet> changedEntitySetsInOrder);

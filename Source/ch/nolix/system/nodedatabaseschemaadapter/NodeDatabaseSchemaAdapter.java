@@ -2,7 +2,6 @@
 package ch.nolix.system.nodedatabaseschemaadapter;
 
 //own imports
-import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -118,7 +117,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		}
 		
 		//Handles the created entity sets.
-		createdEntitySets.forEach(this::addEntitySetToDatabase);
+		createdEntitySets.forEach(this::saveAddEntitySet);
 		
 		//Handles the changed entity sets.
 		changedEntitySets.forEach(this::changeEntitySetOnDatabase);
@@ -130,30 +129,30 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 	}
 	
 	//method
-	private void addEntitySetToDatabase(final EntitySet entitySet) {
-		
-		final var entitySetSpecification = Node.fromString("EntitySet");
-		
-		entitySetSpecification.addAttribute(
-			new Node(
-				PascalCaseNameCatalogue.NAME,
-				entitySet.getName()
-			)
-		);
-		
-		for (final var c : entitySet.getRefColumns()) {
-			entitySetSpecification.addAttribute(c.getSpecification());
-		}
-		
-		entitySetSpecification
-		.addAttribute(Node.fromString(MultiPascalCaseNameCatalogue.ENTITIES));
-		
-		fileNodeDatabase.addAttribute(entitySetSpecification);
+	@Override
+	protected void saveAddEntitySet(final EntitySet entitySet) {
+		fileNodeDatabase.addAttribute(createSpecificationFor(entitySet));
 	}
-
+	
 	//method
 	private void changeEntitySetOnDatabase(final EntitySet entitySet) {
 		//TODO: Implement.
+	}
+	
+	//method
+	private Node createSpecificationFor(final EntitySet entitySet) {
+		
+		final var node = new Node(ObjectProtocol.ENTITY_SET);
+		
+		node.addAttribute(new Node(PascalCaseNameCatalogue.NAME, entitySet.getName()));
+		
+		for (final var c : entitySet.getRefColumns()) {
+			node.addAttribute(c.getSpecification());
+		}
+		
+		node.addAttribute(new Node(ObjectProtocol.ENTITIES));
+		
+		return node;
 	}
 	
 	//method

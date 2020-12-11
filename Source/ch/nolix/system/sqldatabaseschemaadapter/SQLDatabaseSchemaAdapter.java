@@ -11,6 +11,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseschemaadapter.DatabaseState;
 import ch.nolix.system.databaseschemaadapter.EntitySet;
+import ch.nolix.system.databaseschemaadapter.EntitySetMSSQLHelper;
 import ch.nolix.system.databaseschemaadapter.IEntitySetAdapter;
 
 //class
@@ -84,6 +85,12 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	
 	//method
 	@Override
+	protected void saveAddEntitySet(final EntitySet entitySet) {
+		mSQLConnection.execute(createAddEntitySetSQLStatementFor(entitySet));
+	}
+	
+	//method
+	@Override
 	protected void saveChangesToDatabaseAndSetDatabaseReady(final IContainer<EntitySet> mutatedEntitySetsInOrder) {
 		
 		final var createdEntitySets = new LinkedList<EntitySet>();
@@ -125,6 +132,11 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 		lSQLExecutor.addStatement(getSetDatabaseReadySQLStatement());
 		
 		lSQLExecutor.execute();
+	}
+	
+	//method
+	private String createAddEntitySetSQLStatementFor(EntitySet entitySet) {
+		return new EntitySetMSSQLHelper(entitySet).getCreateSQLStatement();
 	}
 	
 	//method

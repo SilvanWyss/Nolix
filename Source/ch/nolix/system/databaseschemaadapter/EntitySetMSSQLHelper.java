@@ -8,7 +8,7 @@ import ch.nolix.common.sql.SQLDatabaseEngine;
 public final class EntitySetMSSQLHelper extends EntitySetSQLHelper {
 	
 	//constructor
-	EntitySetMSSQLHelper(final EntitySet entitySet) {
+	public EntitySetMSSQLHelper(final EntitySet entitySet) {
 		super(entitySet);
 	}
 	

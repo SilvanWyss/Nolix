@@ -18,7 +18,8 @@ extends SQLDatabaseSchemaAdapter<MSSQLDatabaseSchemaAdapter> {
 	) {
 		super(new MSSQLConnection(port, databaseName, userName, userPassword));
 	}
-
+	
+	//constructor
 	public MSSQLDatabaseSchemaAdapter(
 		final String ip,
 		final int port,
