@@ -57,13 +57,13 @@ public final class PropertyExtractor {
 		final Object object,
 		final Field field
 	) {
-		if (isProperty(field)) {
+		if (fieldIsProperty(field)) {
 			appendPropertyFromField(properties, object, field);
 		}
 	}
 	
 	//method
-	private boolean isProperty(final Field field) {
+	private boolean fieldIsProperty(final Field field) {
 		return Property.class.isAssignableFrom(field.getType());
 	}
 }
