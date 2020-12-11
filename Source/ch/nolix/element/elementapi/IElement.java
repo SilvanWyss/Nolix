@@ -47,7 +47,7 @@ public interface IElement extends TypeRequestable {
 	 * @return the specification of the current {@link IElement} without header.
 	 */
 	default Node getSpecificationWithoutHeader() {
-		return new Node(getAttributes());
+		return Node.withAttributes(getAttributes());
 	}
 	
 	//method

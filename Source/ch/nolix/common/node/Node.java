@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 670
+ * @lines 630
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -373,41 +373,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Creates a new {@link Node} without header and without attributes.
 	 */
 	public Node() {}
-		
-	//constructor
-	/**
-	 * Creates a new {@link Node} with a header that consists of the given character.
-	 * 
-	 * @param character
-	 */
-	public Node(final char character) {
-		setHeader(Character.toString(character));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with a header that consists of the {@link String} representation of the given pEnum.
-	 * 
-	 * @param pEnum
-	 * @throws ArgumentIsNullException if the given pEnum is null.
-	 */
-	public Node(final Enum<?> pEnum) {
-		
-		Validator.assertThat(pEnum).thatIsNamed(VariableNameCatalogue.ENUM).isNotNull();
-		
-		setHeader(pEnum.toString());
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with the given attributes.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attribute is not valid.
-	 */
-	public <S extends BaseNode> Node(final Iterable<S> attributes) {
-		addAttributes(attributes);
-	}
 	
 	//constructor
 	/**
