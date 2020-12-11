@@ -75,7 +75,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		final LinkedList<Node> attributes = super.getAttributes();
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
-			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.THICKNESS, thickness));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.THICKNESS, thickness));
 		}
 		
 		if (!getColor().equals(DEFAULT_COLOR)) {

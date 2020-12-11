@@ -75,7 +75,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		fileNodeDatabase.addAttribute(
 			new Node(
 				DATABASE_PROPERTIES_HEADER,
-				new Node(PascalCaseNameCatalogue.STATE, DatabaseState.READY.toString())
+				Node.withHeaderAndAttribute(PascalCaseNameCatalogue.STATE, DatabaseState.READY.toString())
 			)
 		);
 	}
@@ -144,7 +144,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		
 		final var node = Node.withHeader(ObjectProtocol.ENTITY_SET);
 		
-		node.addAttribute(new Node(PascalCaseNameCatalogue.NAME, entitySet.getName()));
+		node.addAttribute(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.NAME, entitySet.getName()));
 		
 		for (final var c : entitySet.getRefColumns()) {
 			node.addAttribute(c.getSpecification());

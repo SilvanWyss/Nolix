@@ -1389,24 +1389,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	private void fillUpBorderThicknessesSpecifications(final LinkedList<Node> list) {
 		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
-			list.addAtEnd(new Node(BORDER_THICKNESS_HEADER, leftBorderThickness));
+			list.addAtEnd(Node.withHeaderAndAttribute(BORDER_THICKNESS_HEADER, leftBorderThickness));
 		}
 		else {
 			
 			if (hasLeftBorderThickness()) {
-				list.addAtEnd(new Node(LEFT_BORDER_THICKNESS_HEADER, leftBorderThickness));
+				list.addAtEnd(Node.withHeaderAndAttribute(LEFT_BORDER_THICKNESS_HEADER, leftBorderThickness));
 			}
 			
 			if (hasRightBorderThickness()) {
-				list.addAtEnd(new Node(RIGHT_BORDER_THICKNESS_HEADER, rightBorderThickness));
+				list.addAtEnd(Node.withHeaderAndAttribute(RIGHT_BORDER_THICKNESS_HEADER, rightBorderThickness));
 			}
 			
 			if (hasTopBorderThickness()) {
-				list.addAtEnd(new Node(TOP_BORDER_THICKNESS_HEADER, topBorderThickness));
+				list.addAtEnd(Node.withHeaderAndAttribute(TOP_BORDER_THICKNESS_HEADER, topBorderThickness));
 			}
 			
 			if (hasBottomBorderThickness()) {
-				list.addAtEnd(new Node(BOTTOM_BORDER_THICKNESS_HEADER, bottomBorderThickness));
+				list.addAtEnd(Node.withHeaderAndAttribute(BOTTOM_BORDER_THICKNESS_HEADER, bottomBorderThickness));
 			}
 		}
 	}
@@ -1419,24 +1419,24 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	private void fillUpPaddingSpecifications(final LinkedList<Node> list) {
 		if (hasAPadding() && hasSamePaddingAtEachSide()) {
-			list.addAtEnd(new Node(PADDING_HEADER, leftPadding));
+			list.addAtEnd(Node.withHeaderAndAttribute(PADDING_HEADER, leftPadding));
 		}
 		else {
 			
 			if (hasLeftPadding()) {
-				list.addAtEnd(new Node(LEFT_PADDING_HEADER, leftPadding));
+				list.addAtEnd(Node.withHeaderAndAttribute(LEFT_PADDING_HEADER, leftPadding));
 			}
 			
 			if (hasRightPadding()) {
-				list.addAtEnd(new Node(RIGHT_PADDING_HEADER, rightPadding));
+				list.addAtEnd(Node.withHeaderAndAttribute(RIGHT_PADDING_HEADER, rightPadding));
 			}
 			
 			if (hasTopPadding()) {
-				list.addAtEnd(new Node(TOP_PADDING_HEADER, topPadding));
+				list.addAtEnd(Node.withHeaderAndAttribute(TOP_PADDING_HEADER, topPadding));
 			}
 			
 			if (hasBottomPadding()) {
-				list.addAtEnd(new Node(BOTTOM_PADDING_HEADER, bottomPadding));
+				list.addAtEnd(Node.withHeaderAndAttribute(BOTTOM_PADDING_HEADER, bottomPadding));
 			}
 		}
 	}

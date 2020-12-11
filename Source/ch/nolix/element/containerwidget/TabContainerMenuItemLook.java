@@ -79,33 +79,23 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 		final var attributes = new LinkedList<Node>();
 		
 		if (hasMinWidth()) {
-			attributes.addAtEnd(
-				new Node(MIN_WIDTH_HEADER, minWidth)
-			);
+			attributes.addAtEnd(Node.withHeaderAndAttribute(MIN_WIDTH_HEADER, minWidth));
 		}
 		
 		if (hasBackgroundColor()) {
-			attributes.addAtEnd(
-				backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR)
-			);
+			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
 		}
 		
 		if (hasPadding()) {
-			attributes.addAtEnd(
-				new Node(PascalCaseNameCatalogue.PADDING, padding)
-			);
+			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.PADDING, padding));
 		}
 		
 		if (hasTextSize()) {
-			attributes.addAtEnd(
-				new Node(PascalCaseNameCatalogue.TEXT_SIZE, textSize)
-			);
+			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TEXT_SIZE, textSize));
 		}
 		
 		if (hasTextColor()) {
-			attributes.addAtEnd(
-				textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR)
-			);
+			attributes.addAtEnd(textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR));
 		}
 		
 		return attributes;

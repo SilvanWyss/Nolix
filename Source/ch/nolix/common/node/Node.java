@@ -114,6 +114,19 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @param header
 	 * @return a new {@link Node} with the given header.
 	 */
+	public static Node withHeader(final double header) {
+		
+		final var node = new Node();
+		node.setHeader(String.valueOf(header));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @return a new {@link Node} with the given header.
+	 */
 	public static Node withHeader(final long header) {
 		
 		final var node = new Node();
@@ -199,6 +212,25 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public static Node withHeaderAndAttribute(final String header, final boolean... attributes) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		for (final var a : attributes) {
+			node.addAttribute(Node.withHeader(a));
+		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final double... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -399,48 +431,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		resetAttributes(attributes);
 	}
 	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with the given header and attribute.
-	 * 
-	 * @param header
-	 * @param attribute
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public Node(final String header, final double attribute) {
-		
-		//Calls other constructor.
-		this(header, String.valueOf(attribute));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with the given header and attributes.
-	 * 
-	 * @param header
-	 * @param attributes
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if one of the given attributes is null.
-	 */
-	public Node(final String header, final String... attributes) {
-		
-		setHeader(header);
-		
-		//Iterates the given attributes.
-		for (final String a : attributes) {
-			
-			if (a.isEmpty()) {
-				addAttribute(new Node());
-			}
-			
-			else {
-				addAttribute(Node.withHeader(a));
-			}
-		}
-	}
-
 	//method
 	/**
 	 * Adds the given attribute to the current {@link Node}.

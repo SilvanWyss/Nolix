@@ -236,7 +236,7 @@ implements IMutableElement<C> {
 				
 		//Handles the case that the current BaseConfiguration has a selector type.
 		if (hasSelectorType()) {
-			attributes.addAtEnd(new Node(SELECTOR_TYPE_HEADER, selectorType));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TYPE_HEADER, selectorType));
 		}
 		
 		//Handles the case that the current BaseConfiguration contains selector roles.		
@@ -250,12 +250,12 @@ implements IMutableElement<C> {
 		
 		//Handles the case that the current BaseConfiguration has a selector token.
 		if (hasSelectorToken()) {
-			attributes.addAtEnd(new Node(SELECTOR_TOKEN_HEADER, selectorToken));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TOKEN_HEADER, selectorToken));
 		}
 		
 		//Handles the case that the current BaseConfiguration has a selector id.
 		if (hasSelectorId()) {
-			attributes.addAtEnd(new Node(SELECTOR_ID_HEADER, selectorId));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_ID_HEADER, selectorId));
 		}
 		
 		attributes.addAtEnd(attachingAttributes);

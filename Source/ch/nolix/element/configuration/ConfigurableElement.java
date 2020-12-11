@@ -60,12 +60,12 @@ implements IConfigurableElement<CE> {
 		
 		//Handles the case that the current configurbale element has a id.
 		if (hasId()) {
-			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.ID, id));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.ID, id));
 		}
 		
 		//Handles the case that the current configurbale element has a token.
 		if (hasToken()) {
-			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.TOKEN, token));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TOKEN, token));
 		}
 		
 		return attributes;

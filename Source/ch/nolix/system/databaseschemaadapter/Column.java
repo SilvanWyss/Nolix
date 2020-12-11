@@ -36,7 +36,7 @@ public final class Column implements Headered, IElement {
 	public LinkedList<Node> getAttributes() {
 		return 
 		LinkedList.withElements(
-			new Node(PascalCaseNameCatalogue.HEADER, getHeader()),
+			Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEADER, getHeader()),
 			Node.withHeader(dataType.getPropertyKind().toString())
 		);
 	}

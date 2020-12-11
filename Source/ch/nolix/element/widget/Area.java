@@ -81,8 +81,8 @@ public final class Area extends Widget<Area, AreaLook> {
 		final LinkedList<Node> attributes = super.getAttributes();
 		
 		attributes
-		.addAtEnd(new Node(PascalCaseNameCatalogue.HEIGHT, height))
-		.addAtEnd(new Node(PascalCaseNameCatalogue.WIDTH, width));
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEIGHT, height))
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.WIDTH, width));
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {

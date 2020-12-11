@@ -150,10 +150,10 @@ public class Candlestick extends Element<Candlestick> {
 		return
 		LinkedList.withElements(
 			time.getSpecification(),
-			new Node(OPENING_PRICE_HEADER, getOpeningPrice()),
-			new Node(CLOSING_PRICE_HEADER, getClosingPrice()),
-			new Node(LOWEST_PRICE_HEADER, getLowestPrice()),
-			new Node(HIGHEST_PRICE_HEADER, getHighestPrice())
+			Node.withHeaderAndAttribute(OPENING_PRICE_HEADER, getOpeningPrice()),
+			Node.withHeaderAndAttribute(CLOSING_PRICE_HEADER, getClosingPrice()),
+			Node.withHeaderAndAttribute(LOWEST_PRICE_HEADER, getLowestPrice()),
+			Node.withHeaderAndAttribute(HIGHEST_PRICE_HEADER, getHighestPrice())
 		);
 	}
 	

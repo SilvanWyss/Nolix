@@ -91,7 +91,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 		
 		//Handles the case that the current DeepConfiguration has a max selector level.
 		if (hasMaxSelectorLevel()) {
-			attributes.addAtEnd(new Node(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
 		}
 		
 		return attributes;

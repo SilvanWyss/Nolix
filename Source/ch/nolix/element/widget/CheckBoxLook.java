@@ -57,7 +57,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 		
 		//Handles the case that the current check box look has a line thickness.
 		if (hasLineThickness()) {
-			attributes.addAtEnd(new Node(PascalCaseNameCatalogue.LINE_THICKNESS, lineThickness));
+			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.LINE_THICKNESS, lineThickness));
 		}
 		
 		return attributes;
