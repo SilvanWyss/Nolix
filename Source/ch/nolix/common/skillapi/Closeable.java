@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.common.skillapi;
 
-//own imports
+//own import
 import ch.nolix.common.requestapi.CloseStateRequestable;
 
 //interface
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  */
 public interface Closeable extends CloseStateRequestable {
