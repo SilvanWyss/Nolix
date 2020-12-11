@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 580
+ * @lines 590
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -105,6 +105,19 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var node = new Node();
 		node.setHeader(BooleanHelper.toString(header));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @return a new {@link Node} with the given header.
+	 */
+	public static Node withHeader(final long header) {
+		
+		final var node = new Node();
+		node.setHeader(String.valueOf(header));
 		
 		return node;
 	}
