@@ -2,11 +2,11 @@
 package ch.nolix.systemtest.entitytest;
 
 //own imports
+import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.entity.BackReference;
 import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.Reference;
 
 //class
@@ -17,6 +17,7 @@ public final class EntityWithBackReferenceTest extends Test {
 	private static final class Entity1A extends Entity {
 		
 		//attribute
+		@SuppressWarnings("unused")
 		private final Reference<Entity1B> reference = new Reference<>();
 	}
 	
@@ -28,16 +29,36 @@ public final class EntityWithBackReferenceTest extends Test {
 		private final BackReference<Entity1A> backReference = new BackReference<>("reference");
 	}
 	
+	//static class
+	private static final class Entity1C extends Entity {
+		
+		//attribute
+		@SuppressWarnings("unused")
+		private final BackReference<Entity1A> backReference = new BackReference<>("reference2");
+	}
+	
 	//method
-	//TODO: @TestCase
+	@TestCase
 	public void testCase_extractProperties_whenTheBackReferencedReferenceDoesNotExist() {
+		
+		//setup
+		final var testUnit = new Entity1C();
+		
+		//execution & verification
+		expect(testUnit::extractProperties)
+		.throwsException()
+		.ofType(ArgumentDoesNotHaveAttributeException.class)
+		.withMessage("The given Class '" + Entity1A.class + "' does not have a reference2.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_extractProperties_whenTheBackReferencedReferenceExists() {
 		
 		//setup
 		final var testUnit = new Entity1B();
 		
 		//execution & verification
-		expect(() -> EntityAccessor.extractProperties(testUnit))
-		.throwsException()
-		.ofType(ArgumentDoesNotHaveAttributeException.class);
+		expect(testUnit::extractProperties).doesNotThrowException();
 	}
 }
