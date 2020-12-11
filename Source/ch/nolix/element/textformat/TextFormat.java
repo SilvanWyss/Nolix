@@ -236,9 +236,9 @@ public final class TextFormat extends Element<TextFormat> {
 		return
 		LinkedList.withElements(
 			font.getSpecificationAs(TEXT_FONT_HEADER),
-			new Node(BOLD_FLAG_HEADER, bold),
-			new Node(ITALIC_FLAG_HEADER, italic),
-			new Node(TEXT_SIZE_HEADER, textSize),
+			Node.withHeaderAndAttribute(BOLD_FLAG_HEADER, bold),
+			Node.withHeaderAndAttribute(ITALIC_FLAG_HEADER, italic),
+			Node.withHeaderAndAttribute(TEXT_SIZE_HEADER, textSize),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
 	}

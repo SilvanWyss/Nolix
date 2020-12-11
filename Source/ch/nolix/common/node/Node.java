@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 650
+ * @lines 630
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -269,17 +269,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * Creates a new {@link Node} without header and without attributes.
 	 */
 	public Node() {}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with a header the given pBoolean represents.
-	 * 
-	 * @param pBoolean
-	 */
-	public Node(final boolean pBoolean) {
-		setHeader(String.valueOf(pBoolean));
-	}
-	
+		
 	//constructor
 	/**
 	 * Creates a new {@link Node} with a header that consists of the given character.
@@ -369,21 +359,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public Node(final String header, final boolean attribute) {
-		
-		//Calls other constructor.
-		this(header, new Node(attribute));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with the given header and attribute.
-	 * 
-	 * @param header
-	 * @param attribute
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
 	public Node(final String header, final double attribute) {
 		
 		//Calls other constructor.
@@ -440,6 +415,17 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public Node addAttribute(final BaseNode attribute) {
 		
 		addAttribute(attribute.getCopy());
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Adds the given attribute to the current {@link Node}.
+	 */
+	public Node addAttribute(final Node attribute) {
+		
+		attributes.addAtEnd(attribute);
 		
 		return this;
 	}

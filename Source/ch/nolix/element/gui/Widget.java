@@ -326,7 +326,7 @@ TopLeftPositionedRecangular {
 		final var attributes = super.getAttributes();
 		
 		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
-		attributes.addAtEnd(new Node(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()));
+		attributes.addAtEnd(Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()));
 		
 		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
 		

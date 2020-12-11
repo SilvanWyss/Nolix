@@ -78,7 +78,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
-		attributes.addAtEnd(new Node(CHECK_FLAG_HEADER, isChecked()));
+		attributes.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
 		
 		return attributes;
 	}
