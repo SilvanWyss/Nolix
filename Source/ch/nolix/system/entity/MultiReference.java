@@ -30,7 +30,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 		
 		final var cellSpecification = new Node();
 		for (final var rei : referencedEntityIds) {
-			cellSpecification.addAttribute(new Node(rei));
+			cellSpecification.addAttribute(Node.withHeader(rei));
 		}
 		
 		return cellSpecification;

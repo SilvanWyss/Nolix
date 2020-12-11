@@ -52,7 +52,7 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return LinkedList.withElements(new Node(x), new Node(y));
+		return LinkedList.withElements(Node.withHeader(x), Node.withHeader(y));
 	}
 	
 	//method

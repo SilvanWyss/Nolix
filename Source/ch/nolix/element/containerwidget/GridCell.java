@@ -80,8 +80,8 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 		
 		final var attributes =
 		LinkedList.withElements(
-			new Node(getRowIndex()),
-			new Node(getColumnIndex())
+			Node.withHeader(getRowIndex()),
+			Node.withHeader(getColumnIndex())
 		);
 		
 		if (containsAny()) {

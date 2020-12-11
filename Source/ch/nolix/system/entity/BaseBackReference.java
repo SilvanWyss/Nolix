@@ -64,7 +64,7 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	//method
 	@Override
 	public Node getCellSpecification() {
-		return new Node(getBackReferenceCount());
+		return Node.withHeader(getBackReferenceCount());
 	}
 	
 	//method

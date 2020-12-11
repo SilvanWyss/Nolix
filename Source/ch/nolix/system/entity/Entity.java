@@ -75,7 +75,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		
 		final var attributes = new LinkedList<Node>();
 		
-		attributes.addAtEnd(new Node(getId()));
+		attributes.addAtEnd(Node.withHeader(getId()));
 		
 		for (final var p : getRefProperties()) {
 			attributes.addAtEnd(p.getSpecification());
@@ -140,7 +140,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		
 		final var rowSpecification = new Node();
 		
-		rowSpecification.addAttribute(new Node(getId()));
+		rowSpecification.addAttribute(Node.withHeader(getId()));
 		
 		for (final var p : getRefProperties()) {
 			rowSpecification.addAttribute(p.getCellSpecification());

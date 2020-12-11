@@ -23,7 +23,7 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 			return new Node();
 		}
 		
-		return new Node(referencedEntityId);
+		return Node.withHeader(referencedEntityId);
 	}
 	
 	//method
