@@ -80,7 +80,7 @@ public final class EntitySession extends HeaderedSession {
 	//method
 	private TabContainer createBackReferenceDataWidget() {
 		
-		//TODO: Fill up TabCotainer..
+		//TODO: Fill up TabCotainer.
 		return new TabContainer();
 	}
 	
