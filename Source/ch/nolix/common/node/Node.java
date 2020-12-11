@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 590
+ * @lines 580
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -376,17 +376,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		addAttribute(attribute.getCopy());
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * Adds the given attribute to the current {@link Node}.
-	 * 
-	 * @param attribute
-	 * @throws ArgumentIsNullException if the given attribute is null.
-	 */
-	public void addAttribute(final Node attribute) {
-		attributes.addAtEnd(attribute);
 	}
 	
 	//method
