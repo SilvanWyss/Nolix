@@ -11,7 +11,6 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementapi.IElement;
-import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.PropertyKind;
 import ch.nolix.system.schemadatatype.SchemaDataType;
 
@@ -30,16 +29,6 @@ public final class Column implements Headered, IElement {
 		
 		this.header = header;
 		this.dataType = dataType;
-	}
-	
-	//method
-	public <E extends Entity> boolean canReferenceBackEntityOfType(final Class<E> type) {
-		return (isAnyBackReferenceColumn() && getRefContentClass() == type);
-	}
-	
-	//method
-	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
-		return (isAnyReferenceColumn() && getRefContentClass() == type);
 	}
 	
 	//method

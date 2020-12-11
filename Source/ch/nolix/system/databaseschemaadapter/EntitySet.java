@@ -12,7 +12,6 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.entity.Entity;
 import ch.nolix.system.schemadatatype.IEntitySet;
 import ch.nolix.system.schemadatatype.SchemaDataType;
 import ch.nolix.system.schemadatatype.SchemaMultiReferenceType;
@@ -110,16 +109,6 @@ public final class EntitySet implements IEntitySet, Named {
 		addColumn(header, new SchemaReferenceType(referencedEntitySet));
 		
 		return this;
-	}
-	
-	//method
-	public <E extends Entity> boolean canReferenceBackEntityOfType(final Class<E> type) {
-		return columns.contains(c -> c.canReferenceBackEntityOfType(type));
-	}
-	
-	//method
-	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
-		return columns.contains(c -> c.canReferenceEntityOfType(type));
 	}
 	
 	//method
