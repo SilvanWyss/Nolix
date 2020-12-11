@@ -143,6 +143,9 @@ public abstract class Property<V> implements Headered, IElement {
 		this.parentEntity = parentEntity;
 	}
 	
+	//method declaration
+	protected abstract void internalValidateSchema();
+	
 	//method
 	private void supposeBelongsToEntity() {
 		if (!belongsToEntity()) {

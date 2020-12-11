@@ -35,4 +35,8 @@ public abstract class BaseValueProperty<V> extends Property<V> {
 	protected final V createValueFromSpecification(final BaseNode specificaiton) {
 		return getParentDatabaseAdapter().createValueFromSpecification(getValueClass(), specificaiton);
 	}
+	
+	//method
+	@Override
+	protected final void internalValidateSchema() {}
 }

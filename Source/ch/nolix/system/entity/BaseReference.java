@@ -49,6 +49,10 @@ public abstract class BaseReference<E extends Entity> extends Property<E> {
 	//method declaration
 	public abstract boolean references(Entity entity);
 	
+	//method
+	@Override
+	protected final void internalValidateSchema() {}
+	
 	//method declaration
 	protected abstract boolean referencesEntity();
 	

@@ -7,6 +7,7 @@ import java.lang.reflect.ParameterizedType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
@@ -128,6 +129,15 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	}
 	
 	//method
+	@Override
+	protected final void internalValidateSchema() {
+		if (!typeHasBaseReferenceWithCurrentReferencingPropertyHeader(getReferencingEntityClass())) {
+			throw
+			new ArgumentDoesNotHaveAttributeException(getReferencingEntityClass(), getReferencingPropertyHeader());
+		}
+	}
+	
+	//method
 	final void supposeCanReferenceBack(final Entity entity) {
 		if (!canReferenceBack(entity)) {
 			throw new InvalidArgumentException(this, "cannot reference back the given entity");
@@ -149,4 +159,10 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	
 	//method declaration
 	abstract void supposeCanReferenceBackAdditionally(Entity entity, String referencingPropertyHeader);
+	
+	//method
+	private boolean typeHasBaseReferenceWithCurrentReferencingPropertyHeader(Class<?> type) {
+		return
+		new PropertyNameExtractor().getPropertyNamesOf(type, BaseReference.class).contains(getReferencingPropertyHeader());
+	}
 }
