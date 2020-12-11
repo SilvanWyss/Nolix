@@ -137,7 +137,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.addAttribute(new Node("a"), new Node("b"), new Node("c"));
+		testUnit.addAttribute(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
 		final var result1 = testUnit.getRefAttributeAt(1);
@@ -221,7 +221,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.addAttribute(new Node("a"));
+		testUnit.addAttribute(Node.withHeader("a"));
 		
 		//execution
 		final var result = testUnit.getRefOneAttribute();
@@ -426,7 +426,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.addAttribute(new Node("a"), new Node("b"), new Node("c"));
+		testUnit.addAttribute(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
 		final var result = testUnit.toString();

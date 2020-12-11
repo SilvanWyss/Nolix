@@ -216,9 +216,9 @@ public class ColorGradient implements IElement {
 	public LinkedList<Node> getAttributes() {
 		return 
 		LinkedList.withElements(
-			new Node(getDirection().toString()),
-			new Node(getColor1().getHexadecimalValue()),
-			new Node(getColor2().getHexadecimalValue())
+			Node.withHeader(getDirection().toString()),
+			Node.withHeader(getColor1().getHexadecimalValue()),
+			Node.withHeader(getColor2().getHexadecimalValue())
 		);
 	}
 	

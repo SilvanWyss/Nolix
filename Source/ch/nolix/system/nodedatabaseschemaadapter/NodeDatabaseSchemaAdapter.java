@@ -142,7 +142,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 	//method
 	private Node createSpecificationFor(final EntitySet entitySet) {
 		
-		final var node = new Node(ObjectProtocol.ENTITY_SET);
+		final var node = Node.withHeader(ObjectProtocol.ENTITY_SET);
 		
 		node.addAttribute(new Node(PascalCaseNameCatalogue.NAME, entitySet.getName()));
 		
@@ -150,7 +150,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 			node.addAttribute(c.getSpecification());
 		}
 		
-		node.addAttribute(new Node(ObjectProtocol.ENTITIES));
+		node.addAttribute(Node.withHeader(ObjectProtocol.ENTITIES));
 		
 		return node;
 	}

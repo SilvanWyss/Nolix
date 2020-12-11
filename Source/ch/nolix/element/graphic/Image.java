@@ -397,7 +397,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	private void generatePixelArraySpecificationWhenNeeded() {
-		pixelArraySpecification =	new Node(PIXEL_ARRAY_HEADER);
+		pixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
 		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue()));
 	}
 	

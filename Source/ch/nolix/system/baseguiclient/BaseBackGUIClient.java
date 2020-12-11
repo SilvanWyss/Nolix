@@ -63,7 +63,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 			
 		internalRunOnCounterpart(
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, new Node(errorMessage))
+			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, Node.withHeader(errorMessage))
 		);
 		
 		return asConcrete();
@@ -135,7 +135,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		internalRunOnCounterpart(
 			ChainedNode.withHeaderAndAttributesFromNodes(
 				CommandProtocol.SAVE_FILE,
-				new Node(new String(content, StandardCharsets.UTF_8))
+				Node.withHeader(new String(content, StandardCharsets.UTF_8))
 			)
 		);
 	}
@@ -378,7 +378,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		final var canvasGUIUpdateCommands = new LinkedList<ChainedNode>();
 		
 		canvasGUIUpdateCommands.addAtEnd(
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_TITLE, new Node(getRefGUI().getTitle()))
+			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_TITLE, Node.withHeader(getRefGUI().getTitle()))
 		);
 		
 		canvasGUIUpdateCommands.addAtEnd(

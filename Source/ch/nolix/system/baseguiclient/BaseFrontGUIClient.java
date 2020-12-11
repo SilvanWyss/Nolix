@@ -77,9 +77,9 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			case ObjectProtocol.GUI:
 				return getDataFromGUI(request.getNextNode());
 			case ObjectProtocol.GUI_TYPE:
-				return new Node(getGUIType());
+				return Node.withHeader(getGUIType().toString());
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
-				return new Node(getRefGUI().fromFrontEnd().getTextFromClipboard());
+				return Node.withHeader(getRefGUI().fromFrontEnd().getTextFromClipboard());
 			case CommandProtocol.GET_FILE:
 				
 				final var data = readFileToBytes();
@@ -88,7 +88,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 					return new Node();
 				}
 				
-				return Node.withAttribute(new Node(new String(data.getRefElement(), StandardCharsets.UTF_8)));
+				return Node.withAttribute(Node.withHeader(new String(data.getRefElement(), StandardCharsets.UTF_8)));
 			default:
 				
 				//Calls method of the base class.

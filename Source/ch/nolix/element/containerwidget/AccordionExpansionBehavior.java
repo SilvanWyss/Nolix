@@ -41,6 +41,6 @@ public enum AccordionExpansionBehavior implements IElementEnum {
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return new Node(StringHelper.toPascalCase(toString())).intoList();
+		return Node.withHeader(StringHelper.toPascalCase(toString())).intoList();
 	}
 }

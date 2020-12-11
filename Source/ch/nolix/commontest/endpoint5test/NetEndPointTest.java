@@ -54,7 +54,7 @@ public final class NetEndPointTest extends Test {
 				@Override
 				public Node getData(final ChainedNode request) {
 					EndPointTakerMock.this.setRequest(request);
-					return new Node("DATA");
+					return Node.withHeader("DATA");
 				}
 				
 				@Override
@@ -143,7 +143,7 @@ public final class NetEndPointTest extends Test {
 		
 		//verification
 		expect(endPointTakerMock.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));
-		expect(data).isEqualTo(new Node("DATA"));
+		expect(data).isEqualTo(Node.withHeader("DATA"));
 		
 		//cleanup
 		netEndPoint.close();

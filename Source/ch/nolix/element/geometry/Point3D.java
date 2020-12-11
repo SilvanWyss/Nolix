@@ -63,9 +63,9 @@ public class Point3D implements IElement {
 	public LinkedList<Node> getAttributes() {
 		return
 		LinkedList.withElements(
-			new Node(DoubleHelper.toString(getX())),
-			new Node(DoubleHelper.toString(getY())),
-			new Node(DoubleHelper.toString(getZ()))
+			Node.withHeader(DoubleHelper.toString(getX())),
+			Node.withHeader(DoubleHelper.toString(getY())),
+			Node.withHeader(DoubleHelper.toString(getZ()))
 		);
 	}
 	

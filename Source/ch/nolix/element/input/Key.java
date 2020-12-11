@@ -379,7 +379,7 @@ public enum Key implements IElementEnum {
 	//method
 	@Override
 	public LinkedList<Node> getAttributes() {
-		return new Node(StringHelper.toPascalCase(toString())).intoList();
+		return Node.withHeader(StringHelper.toPascalCase(toString())).intoList();
 	}
 	
 	//method

@@ -21,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 590
+ * @lines 580
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -118,7 +118,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public static Node withOneAttribute(final boolean attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(new Node(String.valueOf(attribute)));
+		node.addAttribute(Node.withHeader(String.valueOf(attribute)));
 		
 		return node;
 	}
@@ -173,7 +173,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public static Node withOneAttribute(final String attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(new Node(attribute));
+		node.addAttribute(Node.withHeader(attribute));
 		
 		return node;
 	}
@@ -247,18 +247,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Node} with the given header.
-	 * 
-	 * @param header
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public Node(final String header) {
-		setHeader(header);
-	}
-	
-	//constructor
-	/**
 	 * Creates a new {@link Node} with the given header and attributes.
 	 * 
 	 * @param header
@@ -269,8 +257,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public Node(final String header, final Node... attributes) {
 		
-		//Calls other constructor.
-		this(header);
+		setHeader(header);
 		
 		addAttribute(attributes);
 	}
@@ -288,7 +275,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public Node(final String header, final Iterable<Node> attributes) {
 		
 		//Calls other constructor.
-		this(header);
+		setHeader(header);
 		
 		resetAttributes(attributes);
 	}
@@ -350,8 +337,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public Node(final String header, final String... attributes) {
 		
-		//Calls other constructor.
-		this(header);
+		setHeader(header);
 		
 		//Iterates the given attributes.
 		for (final String a : attributes) {
@@ -361,7 +347,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 			}
 			
 			else {
-				addAttribute(new Node(a));
+				addAttribute(Node.withHeader(a));
 			}
 		}
 	}
