@@ -5,8 +5,8 @@ import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseadapter.Schema;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.Value;
-import ch.nolix.system.filenodedatabaseschemaadapter.FileNodeDatabaseSchemaAdapter;
 import ch.nolix.system.nodedatabaseadapter.NodeDatabaseAdapter;
+import ch.nolix.system.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
 
 public final class DatabaseAdapterTutorial {
 	
@@ -16,7 +16,7 @@ public final class DatabaseAdapterTutorial {
 		final var petDatabase = new Node();
 		
 		//Creates a DatabaseSchemaAdapter for the petDatabase.
-		final var petDatabaseSchemaAdapter = new FileNodeDatabaseSchemaAdapter(petDatabase);
+		final var petDatabaseSchemaAdapter = new NodeDatabaseSchemaAdapter(petDatabase);
 		
 		//Applies a PetDatabaseSchema to the petDatabase.
 		petDatabaseSchemaAdapter

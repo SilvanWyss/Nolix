@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.filenodedatabaseschemaadapter;
+package ch.nolix.system.nodedatabaseschemaadapter;
 
 //own imports
 import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
@@ -17,7 +17,7 @@ import ch.nolix.system.databaseschemaadapter.EntitySet;
 import ch.nolix.system.databaseschemaadapter.IEntitySetAdapter;
 
 //class
-public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<FileNodeDatabaseSchemaAdapter> {
+public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeDatabaseSchemaAdapter> {
 	
 	//attribute
 	private final BaseNode fileNodeDatabase;
@@ -26,7 +26,7 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 	private static final String DATABASE_PROPERTIES_HEADER = "DatabaseProperties";
 	
 	//constructor
-	public FileNodeDatabaseSchemaAdapter(final BaseNode fileNodeDatabase) {
+	public NodeDatabaseSchemaAdapter(final BaseNode fileNodeDatabase) {
 		
 		Validator
 		.assertThat(fileNodeDatabase)
@@ -39,7 +39,7 @@ public final class FileNodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<F
 	}
 	
 	//constructor
-	public FileNodeDatabaseSchemaAdapter(final String fileNodeFilePath) {
+	public NodeDatabaseSchemaAdapter(final String fileNodeFilePath) {
 		this(new FileNode(fileNodeFilePath));
 	}
 	

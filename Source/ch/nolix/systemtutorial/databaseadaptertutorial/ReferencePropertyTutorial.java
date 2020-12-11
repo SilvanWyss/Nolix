@@ -5,8 +5,8 @@ import ch.nolix.common.node.Node;
 import ch.nolix.system.databaseadapter.Schema;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.Value;
-import ch.nolix.system.filenodedatabaseschemaadapter.FileNodeDatabaseSchemaAdapter;
 import ch.nolix.system.nodedatabaseadapter.NodeDatabaseAdapter;
+import ch.nolix.system.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
 import ch.nolix.system.entity.Reference;
 
 public final class ReferencePropertyTutorial {
@@ -17,7 +17,7 @@ public final class ReferencePropertyTutorial {
 		final var catDatabase = new Node();
 		
 		//Creates a database schema adapter for the cat database.
-		final var catDatabaseSchemaAdapter = new FileNodeDatabaseSchemaAdapter(catDatabase);
+		final var catDatabaseSchemaAdapter = new NodeDatabaseSchemaAdapter(catDatabase);
 		
 		//Applies the schema to the cat database.
 		catDatabaseSchemaAdapter

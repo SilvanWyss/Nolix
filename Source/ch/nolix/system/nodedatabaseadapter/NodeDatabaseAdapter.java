@@ -13,7 +13,7 @@ import ch.nolix.system.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.databaseadapter.Schema;
 import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.IEntitySet;
-import ch.nolix.system.filenodedatabaseschemaadapter.FileNodeDatabaseSchemaAdapter;
+import ch.nolix.system.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
 
 //class
 public final class NodeDatabaseAdapter extends DatabaseAdapter {
@@ -64,8 +64,8 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//method
 	@Override
-	public FileNodeDatabaseSchemaAdapter createDatabaseSchemaAdapter() {
-		return new FileNodeDatabaseSchemaAdapter(database);
+	public NodeDatabaseSchemaAdapter createDatabaseSchemaAdapter() {
+		return new NodeDatabaseSchemaAdapter(database);
 	}
 	
 	//method
