@@ -1,16 +1,12 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//Java import
-import java.lang.reflect.Field;
-
 //own imports
 import ch.nolix.common.attributeapi.Identified;
 import ch.nolix.common.attributeapi.ShortDescripted;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -302,15 +298,11 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	}
 	
 	//method
-	final void extractPropertiesWhenNotExtracted() {
+	void extractPropertiesWhenNotExtracted() {
 		
-		properties = new LinkedList<>();
+		properties = new PropertyExtractor().getRefPropertiesOf(this);
 		
-		Class<?> cl = getClass();
-		while (cl != null) {
-			extractPropertiesFromClass(cl);		
-			cl = cl.getSuperclass();
-		}
+		setParentEntityToProperties();
 	}
 	
 	//method
@@ -429,33 +421,6 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	}
 	
 	//method
-	private void extractProbablePropertyFromField(final Field field) {
-		
-		field.setAccessible(true);
-		
-		if (Property.class.isAssignableFrom(field.getType())) {
-			try {
-				
-				@SuppressWarnings("unchecked")
-				final var property = (Property<Entity>)(field.get(this));
-				
-				property.internalSetParentEntity(this);
-				properties.addAtEnd(property);
-			}
-			catch (final IllegalArgumentException | IllegalAccessException exception) {
-				throw new WrapperException(exception);
-			}
-		}
-	}
-	
-	//method
-	private void extractPropertiesFromClass(final Class<?> pClass) {
-		for (final var f : pClass.getDeclaredFields()) {
-			extractProbablePropertyFromField(f);
-		}
-	}
-	
-	//method
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
 			extractPropertiesWhenNotExtracted();
@@ -481,6 +446,13 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		return (properties != null);
 	}
 	
+	//method
+	private void setParentEntityToProperties() {
+		for (final var p : properties) {
+			p.internalSetParentEntity(this);
+		}
+	}
+
 	//method
 	private void supposeBelongsToEntitySet() {
 		if (!belongsToEntitySet()) {
