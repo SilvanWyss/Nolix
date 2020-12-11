@@ -9,6 +9,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.validator.Validator;
@@ -20,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 580
+ * @lines 590
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -90,6 +91,21 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var node = new Node();
 		node.addAttribute(attributes);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @return a new {@link Node} with the given header.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeader(final String header) {
+		
+		final var node = new Node();
+		node.setHeader(header);
 		
 		return node;
 	}
