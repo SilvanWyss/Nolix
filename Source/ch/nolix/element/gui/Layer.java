@@ -9,6 +9,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.I2ElementTaker;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
@@ -35,13 +36,15 @@ import ch.nolix.element.widget.BorderWidget;
 
 //class
 /**
- * A {@link Layer} has:
- * -an optional background {@link Color} or background {@ColorGradient}
- * -an optional root {@link Widget}
+ * A {@link Layer} can have:
+ * -a background {@link Color} or background {@ColorGradient}
+ * -a root {@link Widget}
+ * 
+ * A {@link Layer} can belong to a {@link LayerGUI}.
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 1260
+ * @lines 1290
  */
 public class Layer extends ConfigurableElement<Layer>
 implements 
@@ -73,13 +76,6 @@ IResizableInputTaker {
 	public static Layer fromSpecification(final BaseNode specification) {
 		return new Layer().reset(specification);
 	}
-	
-	//TODO: Make parentGUI optional.
-	//attribute
-	/**
-	 * The {@link GUI} the current {@link Layer} belongs to.
-	 */
-	private LayerGUI<?> parentGUI;
 	
 	//attribute
 	private final OptionalValue<LayerRole> role =
@@ -150,6 +146,13 @@ IResizableInputTaker {
 	private boolean notedLeftMouseButtonPress;
 	//TODO: private boolean notedRightMouseButtonPress
 	//TODO: private boolean notedMouseWheelPress
+	
+	//optional attribute
+	/**
+	 * The {@link LayerGUI} the current {@link Layer} belongs to
+	 * if the current {@link Layer} belongs to a {@link LayerGUI}.
+	 */
+	private LayerGUI<?> parentGUI;
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
@@ -227,6 +230,14 @@ IResizableInputTaker {
 	 */
 	public final boolean allowesConfiguration() {
 		return configurationAllowed.getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Layer} belongs to a {@link LayerGUI}.
+	 */
+	public final boolean belongsToGUI() {
+		return (parentGUI != null);
 	}
 	
 	//method
@@ -335,6 +346,23 @@ IResizableInputTaker {
 	
 	//method
 	/**
+	 * @return the {@link LayerGUI} the current {@link Layer} belongs to.
+	 * @throws ArgumentDoesNotBelongToParentException
+	 * if the current {@link Layer} does not belong to a {@link LayerGUI}.
+	 */
+	public final LayerGUI<?> getParentGUI() {
+		
+		//Asserts that the current Layer belongs to a GUI.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (parentGUI == null) {
+			throw new ArgumentDoesNotBelongToParentException(this, "GUI");
+		}
+		
+		return parentGUI;
+	}
+	
+	//method
+	/**
 	 * @return the root {@link Widget} of the current {@link Layer}.
 	 */
 	public final Widget<?, ?> getRefRootWidget() {
@@ -380,7 +408,7 @@ IResizableInputTaker {
 	 * @return the role of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
 	 */
-	public LayerRole getRole() {
+	public final LayerRole getRole() {
 		
 		assertHasRole();
 		
@@ -451,7 +479,7 @@ IResizableInputTaker {
 	 */
 	@Override
 	public final boolean isUnderCursor() {
-		return parentGUI.viewAreaIsUnderCursor();
+		return getParentGUI().viewAreaIsUnderCursor();
 	}
 	
 	//method
@@ -732,7 +760,7 @@ IResizableInputTaker {
 					
 					getRefRootWidget().setPositionOnParent(
 						0,
-						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+						Calculator.getMax(0, (getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 					
 					break;
@@ -740,7 +768,7 @@ IResizableInputTaker {
 					
 					getRefRootWidget().setPositionOnParent(
 						0,
-						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+						Calculator.getMax(0, getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
@@ -825,12 +853,10 @@ IResizableInputTaker {
 	 * Removes the current {@link Layer} from its parent {@link GUI}.
 	 */
 	public final void removeSelfFromGUI() {
-		
-		parentGUI.removeLayer(this);
-		
-		parentGUI = null;
-		
-		//TODO: Prevent that parentGUI can be set again.
+		if (belongsToGUI()) {
+			parentGUI.removeLayer(this);
+			parentGUI = null;
+		}
 	}
 	
 	//method
@@ -1182,7 +1208,8 @@ IResizableInputTaker {
 	public final Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		Validator.assertThat(rootWidget).thatIsNamed("root widget").isNotNull();
-			
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		if (parentGUI != null) {
 			rootWidget.setParent(parentGUI);
 		}
@@ -1201,6 +1228,8 @@ IResizableInputTaker {
 	final void setParentGUI(final LayerGUI<?> parentGUI) {
 		
 		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		
 		if (this.parentGUI != null && this.parentGUI != parentGUI) {
 			throw new ArgumentBelongsToUnexchangeableParentException(this, this.parentGUI);
