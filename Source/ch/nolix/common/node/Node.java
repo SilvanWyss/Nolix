@@ -2,6 +2,7 @@
 package ch.nolix.common.node;
 
 //own imports
+import ch.nolix.common.commontypehelper.BooleanHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -21,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 580
+ * @lines 590
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -91,6 +92,19 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var node = new Node();
 		node.addAttribute(attributes);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @return a new {@link Node} with the given header.
+	 */
+	public static Node withHeader(final boolean header) {
+		
+		final var node = new Node();
+		node.setHeader(BooleanHelper.toString(header));
 		
 		return node;
 	}
