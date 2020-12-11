@@ -7,7 +7,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalskillapi.IFluentObject;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.license.CentralLicenseManager;
-import ch.nolix.common.skillapi.IChangesSaver;
 
 //class
 /**
@@ -19,8 +18,7 @@ import ch.nolix.common.skillapi.IChangesSaver;
  * @lines 180
  * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
  */
-public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
-implements IChangesSaver<DSA>, IFluentObject<DSA> {
+public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>> implements IFluentObject<DSA> {
 	
 	//multi-attributes
 	private final LinkedList<EntitySet> loadedAndCreatedEntitySets = new LinkedList<>();
@@ -96,13 +94,11 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	public abstract DatabaseState getDatabaseState();
 	
 	//method
-	@Override
 	public final boolean hasChanges() {
 		return mutatedEntitySetsInOrder.containsAny();
 	}
 	
 	//method
-	@Override
 	public final DSA reset() {
 		
 		loadedAndCreatedEntitySets.forEach(EntitySet::setRejected);
@@ -120,7 +116,6 @@ implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	}
 	
 	//method
-	@Override
 	public final void saveChanges() {
 		
 		supposeDatabaseIsReadyAndLockDatabase();
