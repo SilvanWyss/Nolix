@@ -50,7 +50,7 @@ implements IMutableElement<C> {
 	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
 		
 		attachingAttributes.addAtEnd(
-			new Node(attachingAttribute.getHeader(), attachingAttribute.getRefAttributes())
+			Node.withHeaderAndAttributes(attachingAttribute.getHeader(), attachingAttribute.getRefAttributes())
 		);
 		
 		return asConcrete();

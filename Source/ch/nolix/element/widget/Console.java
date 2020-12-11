@@ -169,10 +169,19 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		//Handles the case that the current Console contains one or several lines.
 		if (containsAny()) {
-			attributes.addAtEnd(new Node(LINES_HEADER, lines.to(l -> l.isEmpty() ? new Node() : Node.withHeader(l))));
+			
+			final var linesSpecification = new Node();
+			linesSpecification.setHeader(LINES_HEADER);
+			linesSpecification.addAttributes(lines.to(l -> l.isEmpty() ? new Node() : Node.withHeader(l)));
+			
+			attributes.addAtEnd(linesSpecification);
 		}
 		
-		attributes.addAtEnd(new Node(EDIT_LINE_HEADER, editLine.isEmpty() ? new Node() : Node.withHeader(editLine)));
+		attributes.addAtEnd(
+			new Node()
+			.setHeader(EDIT_LINE_HEADER)
+			.addAttribute(editLine.isEmpty() ? new Node() : Node.withHeader(editLine))
+		);
 		
 		return attributes;
 	}

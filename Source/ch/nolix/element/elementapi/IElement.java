@@ -28,7 +28,7 @@ public interface IElement extends TypeRequestable {
 	 * @return the specification of the current {@link IElement}.
 	 */
 	default Node getSpecification() {
-		return new Node(getType(), getAttributes());
+		return Node.withHeaderAndAttributes(getType(), getAttributes());
 	}
 	
 	//method
@@ -39,7 +39,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws InvalidArgumentException if the given type is blank.
 	 */
 	default Node getSpecificationAs(final String type) {
-		return new Node(type, getAttributes());
+		return Node.withHeaderAndAttributes(type, getAttributes());
 	}
 	
 	//method
