@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 590
+ * @lines 650
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -133,6 +133,59 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var node = new Node();
 		node.setHeader(header);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final boolean attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(BooleanHelper.toString(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final long attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(String.valueOf(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 * @throws InvalidArgumentException if the given attribute is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final String attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(attribute);
 		
 		return node;
 	}
