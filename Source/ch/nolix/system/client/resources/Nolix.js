@@ -3521,7 +3521,7 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
     }
     exports.GUIHandler = GUIHandler;
 });
-define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["require", "exports"], function (require, exports) {
+define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["require", "exports", "Element/Input/MouseInput", "Element/Input/MouseInputType"], function (require, exports, MouseInput_2, MouseInputType_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PerformanceFilterInputTaker {
@@ -3534,6 +3534,8 @@ define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["requi
             }
             this.targetInputTaker = targetInputTaker;
             this.latestMouseMoveTime = Date.now();
+            const lThis = this;
+            window.setInterval(function () { lThis.runLatestSkippedInput(); }, PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS);
         }
         noteKeyPress(key) {
             this.targetInputTaker.noteKeyPress(key);
@@ -3554,10 +3556,14 @@ define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["requi
             this.targetInputTaker.noteLeftMouseButtonRelease();
         }
         noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
-            const time = Date.now();
-            if (time > this.latestMouseMoveTime + PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS) {
-                this.latestMouseMoveTime = time;
-                this.targetInputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+            const currentTimeInMilliseconds = Date.now();
+            if (currentTimeInMilliseconds >
+                this.latestMouseMoveTime + PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS) {
+                this.noteMouseMoveWhenReady(cursorXPositionOnViewArea, cursorYPositionOnViewArea, currentTimeInMilliseconds);
+            }
+            else {
+                this.latestSkippedInput =
+                    new MouseInput_2.MouseInput(MouseInputType_4.MouseInputType.MouseMove, cursorXPositionOnViewArea, cursorYPositionOnViewArea);
             }
         }
         noteMouseWheelClick() {
@@ -3584,8 +3590,19 @@ define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["requi
         noteRightMouseButtonRelease() {
             this.targetInputTaker.noteRightMouseButtonRelease();
         }
+        noteMouseMoveWhenReady(cursorXPositionOnViewArea, cursorYPositionOnViewArea, currentTimeInMilliseconds) {
+            this.latestMouseMoveTime = currentTimeInMilliseconds;
+            this.latestSkippedInput = undefined;
+            this.targetInputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+        }
+        runLatestSkippedInput() {
+            if (this.latestSkippedInput instanceof MouseInput_2.MouseInput) {
+                const mouseInput = this.latestSkippedInput;
+                this.noteMouseMoveWhenReady(mouseInput.getCursorXPosition(), mouseInput.getCursorYPosition(), Date.now());
+            }
+        }
     }
-    PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS = 100;
+    PerformanceFilterInputTaker.MIN_DURATION_BETWEEN_MOUSE_MOVE_EVENTS_IN_MILLISECONDS = 200;
     exports.PerformanceFilterInputTaker = PerformanceFilterInputTaker;
 });
 define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"], function (require, exports) {
