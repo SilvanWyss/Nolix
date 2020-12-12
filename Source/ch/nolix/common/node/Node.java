@@ -22,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 620
+ * @lines 720
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -70,10 +70,51 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//static method
 	/**
+	 * @param attribute
+	 * @return a new {@link Node} with the given attribute.
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 */
+	public static <BN extends BaseNode> Node withAttribute(final BN attribute) {
+		
+		final var node = new Node();
+		node.addAttribute(attribute);
+		
+		return node;
+	}
+	
+	//static method
+	/**
 	 * @param attributes
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static Node withAttribute(final int... attributes) {
+	@SuppressWarnings("unchecked")
+	public static <BN extends BaseNode> Node withAttribute(final BN... attributes) {
+		
+		final var node = new Node();
+		node.addAttribute(attributes);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attribute
+	 * @return a new {@link Node} with the given attribute.
+	 */
+	public static Node withAttribute(final boolean attribute) {
+		
+		final var node = new Node();
+		node.addAttribute(Node.withHeader(String.valueOf(attribute)));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attributes
+	 * @return a new {@link Node} with the given attributes.
+	 */
+	public static Node withAttribute(final boolean... attributes) {
 		
 		final var node = new Node();
 		for (var a : attributes) {
@@ -85,13 +126,86 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//static method
 	/**
+	 * @param attribute
+	 * @return a new {@link Node} with the given attribute.
+	 */
+	public static Node withAttribute(final double attribute) {
+		
+		final var node = new Node();
+		node.addAttribute(String.valueOf(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
 	 * @param attributes
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static Node withAttribute(final BaseNode... attributes) {
+	public static Node withAttribute(final double... attributes) {
 		
 		final var node = new Node();
-		node.addAttribute(attributes);
+		for (var a : attributes) {
+			node.addAttribute(Node.withHeader(a));
+		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attribute
+	 * @return a new {@link Node} with the given attribute.
+	 */
+	public static Node withAttribute(final long attribute) {
+		
+		final var node = new Node();
+		node.addAttribute(String.valueOf(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attributes
+	 * @return a new {@link Node} with the given attributes.
+	 */
+	public static Node withAttribute(final long... attributes) {
+		
+		final var node = new Node();
+		for (var a : attributes) {
+			node.addAttribute(Node.withHeader(a));
+		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attribute
+	 * @return a new {@link Node} with the given attribute.
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 * @throws InvalidArgumentException with the given attribute.
+	 */
+	public static Node withAttribute(final String attribute) {
+		
+		final var node = new Node();
+		node.addAttribute(Node.withHeader(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param attributes
+	 * @return a new {@link Node} with the given attributes.
+	 */
+	public static Node withAttribute(final String... attributes) {
+		
+		final var node = new Node();
+		for (var a : attributes) {
+			node.addAttribute(Node.withHeader(a));
+		}
 		
 		return node;
 	}
@@ -170,48 +284,51 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 * @return a new {@link Node} with the given header and attribute.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 */
+	public static <BN extends BaseNode> Node withHeaderAndAttribute(final String header, final BN attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(attribute);
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attributes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if one of the given attributes is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public static <BN extends BaseNode> Node withHeaderAndAttribute(final String header, final BN... attributes) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		for (final var a : attributes) {
+			node.addAttribute(a);
+		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public static Node withHeaderAndAttribute(final String header, final boolean attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
 		node.addAttribute(BooleanHelper.toString(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attribute
-	 * @return a new {@link Node} with the given header and attribute.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public static Node withHeaderAndAttribute(final String header, final long attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addAttribute(String.valueOf(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attribute
-	 * @return a new {@link Node} with the given header and attribute.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if the given attribute is null.
-	 * @throws InvalidArgumentException if the given attribute is blank.
-	 */
-	public static Node withHeaderAndAttribute(final String header, final String attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addAttribute(attribute);
 		
 		return node;
 	}
@@ -239,6 +356,23 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param header
 	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final double attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(String.valueOf(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -258,6 +392,23 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param header
 	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final long attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(String.valueOf(attribute));
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -269,6 +420,25 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		for (final var a : attributes) {
 			node.addAttribute(Node.withHeader(a));
 		}
+		
+		return node;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link Node} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 * @throws InvalidArgumentException if the given attribute is blank.
+	 */
+	public static Node withHeaderAndAttribute(final String header, final String attribute) {
+		
+		final var node = new Node();
+		node.setHeader(header);
+		node.addAttribute(attribute);
 		
 		return node;
 	}
@@ -310,74 +480,6 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		final var node = new Node();
 		node.setHeader(header);
 		node.addAttributes(attributes);
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 */
-	public static Node withOneAttribute(final boolean attribute) {
-		
-		final var node = new Node();
-		node.addAttribute(Node.withHeader(String.valueOf(attribute)));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 * @throws ArgumentIsNullException if the given attribute is null.
-	 */
-	public static Node withOneAttribute(final BaseNode attribute) {
-		
-		final var node = new Node();
-		node.addAttribute(attribute);
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 */
-	public static Node withOneAttribute(final double attribute) {
-		
-		final var node = new Node();
-		node.addAttribute(String.valueOf(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 */
-	public static Node withOneAttribute(final int attribute) {
-		
-		final var node = new Node();
-		node.addAttribute(String.valueOf(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 * @throws ArgumentIsNullException if the given attribute is null.
-	 * @throws InvalidArgumentException with the given attribute.
-	 */
-	public static Node withOneAttribute(final String attribute) {
-		
-		final var node = new Node();
-		node.addAttribute(Node.withHeader(attribute));
 		
 		return node;
 	}

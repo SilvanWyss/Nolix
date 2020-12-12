@@ -54,7 +54,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		BOLD_TEXT_FLAG_HEADER,
 		Boolean.FALSE,
 		BaseNode::toBoolean,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -63,7 +63,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		DEFAULT_TEXT_SIZE,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

@@ -28,7 +28,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 		MENU_ITEM_MARGIN_HEADER,
 		DEFAULT_MENU_ITEM_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -37,7 +37,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 		MENU_MARGIN_HEADER,
 		DEFAULT_MENU_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

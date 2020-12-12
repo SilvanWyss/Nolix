@@ -70,7 +70,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 			}
 		},
 		BaseNode::getOneAttributeAsBoolean,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attributes

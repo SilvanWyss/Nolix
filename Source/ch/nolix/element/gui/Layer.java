@@ -99,7 +99,7 @@ IResizableInputTaker {
 			}
 		},
 		BaseNode::getOneAttributeAsBoolean,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

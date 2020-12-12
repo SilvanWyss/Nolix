@@ -191,7 +191,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		if (!knowsCounterpartGUIType()) {
 			counterpartGUIType =
 			BaseFrontGUIClientGUIType.fromSpecification(
-				Node.withOneAttribute(internalGetDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
+				Node.withAttribute(internalGetDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
 			);
 		}
 	}

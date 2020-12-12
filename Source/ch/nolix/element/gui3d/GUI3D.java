@@ -44,7 +44,7 @@ implements Clearable<G>, Closeable, Refreshable {
 		PascalCaseNameCatalogue.TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

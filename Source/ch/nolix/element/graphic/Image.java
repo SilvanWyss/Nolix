@@ -117,7 +117,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		PascalCaseNameCatalogue.WIDTH,
 		this::setWidth,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -126,7 +126,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		PascalCaseNameCatalogue.HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 		
 	//attribute
@@ -179,7 +179,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
 				//TODO: Refactor this implementation.
-				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(Node.withOneAttribute(a))));
+				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(Node.withAttribute(a))));
 				break;
 			default:
 				super.addOrChangeAttribute(attribute);

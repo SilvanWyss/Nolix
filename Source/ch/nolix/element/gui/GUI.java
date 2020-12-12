@@ -64,7 +64,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		PascalCaseNameCatalogue.TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

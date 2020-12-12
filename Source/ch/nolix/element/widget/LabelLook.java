@@ -21,7 +21,7 @@ public final class LabelLook extends TextLineWidgetLook<LabelLook> {
 		SHORTENS_TEXT_WHEN_LIMIITED_HEADER,
 		DEFAULT_SHORTENS_TEXT_WHEN_LIMITED_FLAG,
 		BaseNode::getOneAttributeAsBoolean,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//method

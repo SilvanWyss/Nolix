@@ -100,7 +100,7 @@ extends Widget<BW, BWL> {
 			}
 		},
 		BaseNode::getOneAttributeAsBoolean,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -118,7 +118,7 @@ extends Widget<BW, BWL> {
 		MIN_WIDTH_HEADER,
 		this::setMinWidth,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -127,7 +127,7 @@ extends Widget<BW, BWL> {
 		MIN_HEIGHT_HEADER,
 		this::setMinHeight,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -136,7 +136,7 @@ extends Widget<BW, BWL> {
 		MAX_WIDTH_HEADER,
 		this::setMaxWidth,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -145,7 +145,7 @@ extends Widget<BW, BWL> {
 		MAX_HEIGHT_HEADER,
 		this::setMaxHeight,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -154,7 +154,7 @@ extends Widget<BW, BWL> {
 		PROPOSAL_WIDTH_HEADER,
 		this::setProposalWidth,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -163,7 +163,7 @@ extends Widget<BW, BWL> {
 		PROPOSAL_HEIGHT_HEADER,
 		this::setProposalHeight,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -172,7 +172,7 @@ extends Widget<BW, BWL> {
 		SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
 		this::setShowAreaXPositionOnScrolledArea,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -181,7 +181,7 @@ extends Widget<BW, BWL> {
 		SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
 		this::setShowAreaYPositionOnScrolledArea,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 		
 	//attributes

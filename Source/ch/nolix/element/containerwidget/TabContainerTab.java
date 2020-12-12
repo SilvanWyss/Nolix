@@ -39,7 +39,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 		PascalCaseNameCatalogue.HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//method

@@ -28,7 +28,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.LINE_THICKNESS,
 		DEFAULT_LINE_THICKNESS,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -46,7 +46,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		PascalCaseNameCatalogue.ELEMENT_MARGIN,
 		DEFAULT_ELEMENT_MARGIN,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

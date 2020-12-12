@@ -32,7 +32,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		X_LENGTH_HEADER,
 		this::setXLength,
 		BaseNode::getOneAttributeAsDouble,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -41,7 +41,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		Y_LENGTH_HEADER,
 		this::setYLength,
 		BaseNode::getOneAttributeAsDouble,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -50,7 +50,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		Z_LENGTH_HEADER,
 		this::setZLength,
 		BaseNode::getOneAttributeAsDouble,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//constructor

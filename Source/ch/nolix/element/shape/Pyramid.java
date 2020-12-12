@@ -23,7 +23,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		PascalCaseNameCatalogue.SIDE_LENGTH,
 		this::setSideLength,
 		BaseNode::getOneAttributeAsDouble,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -32,7 +32,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		PascalCaseNameCatalogue.HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//constructor

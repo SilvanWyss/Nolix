@@ -39,7 +39,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		TAB_HEADER_TEXT_SIZE_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_SIZE,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

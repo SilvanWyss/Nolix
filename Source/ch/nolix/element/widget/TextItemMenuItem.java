@@ -34,7 +34,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
 		BaseNode::getOneAttributeHeader,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
@@ -43,7 +43,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		PascalCaseNameCatalogue.ID,
 		this::setId,
 		BaseNode::getOneAttributeHeader,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 			
 	//attribute
@@ -52,7 +52,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		SELECTION_FLAG_HEADER,
 		this::setSelectionFlag,
 		BaseNode::getOneAttributeAsBoolean,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute

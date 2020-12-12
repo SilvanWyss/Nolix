@@ -34,7 +34,7 @@ extends BorderWidget<TLW, TLWL> {
 		PascalCaseNameCatalogue.TEXT,
 		this::setText,
 		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
-		t -> t.isEmpty() ? new Node() : Node.withOneAttribute(t)
+		t -> t.isEmpty() ? new Node() : Node.withAttribute(t)
 	);
 	
 	//method

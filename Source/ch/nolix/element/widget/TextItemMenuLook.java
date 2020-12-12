@@ -26,7 +26,7 @@ public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 		ITEM_PADDING_HEADER,
 		DEFAULT_ITEM_PADDING,
 		BaseNode::getOneAttributeAsInt,
-		Node::withOneAttribute
+		Node::withAttribute
 	);
 	
 	//attribute
