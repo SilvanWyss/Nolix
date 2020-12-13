@@ -34,13 +34,13 @@ public final class YesNoDialog extends Layer {
 					new Button()
 					.setRole(ButtonRole.CANCEL_BUTTON)
 					.setText("No")
-					.setLeftMouseButtonPressAction(l -> l.getParentGUI().removeLayer(this)),
+					.setLeftMouseButtonPressAction(this::removeSelfFromGUI),
 					new Button()
 					.setRole(ButtonRole.CONFIRM_BUTTON)
 					.setText("Yes")
 					.setLeftMouseButtonPressAction(
 						l -> {
-							l.getParentGUI().removeLayer(this);
+							removeSelfFromGUI();
 							confirmAction.run();
 						}
 					)

@@ -32,7 +32,7 @@ public final class ErrorDialog extends Layer {
 				new Button()
 				.setText("Ok")
 				.setRole(ButtonRole.CONFIRM_BUTTON)
-				.setLeftMouseButtonPressAction(l -> l.getParentGUI().removeLayer(this))
+				.setLeftMouseButtonPressAction(this::removeSelfFromGUI)
 			)
 		);
 	}
