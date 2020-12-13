@@ -6,17 +6,42 @@ import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.mutableattributeapi.Titleble;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Refreshable;
+import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.IResizableInputTaker;
 
 //interface
 /**
  * @author Silvan Wyss
  * @month 2019-07
- * @lines 50
+ * @lines 80
  * @param <G> The type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
 extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
+	
+	//method declaration
+	/**
+	 * @return the {@link IFrontEndReader} of the current {@link IBaseGUI}.
+	 */
+	IFrontEndReader fromFrontEnd();
+	
+	//method declaration
+	/**
+	 * @return the cursor icon on the current {@link IBaseGUI}.
+	 */
+	CursorIcon getCursorIcon();
+	
+	//method declaration
+	/**
+	 * @return the x-position of the cursor on the view area of the current {@link IBaseGUI}.
+	 */
+	int getCursorXPositionOnViewArea();
+	
+	//method declaration
+	/**
+	 * @return the y-position of the cursor on the view area of the current {@link IBaseGUI}.
+	 */
+	int getCursorYPositionOnViewArea();
 	
 	//method declaration
 	/**
@@ -55,4 +80,10 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	default void noteResizeFrom(final IBaseGUI<?> pGUI) {
 		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
 	}
+	
+	//method declaration
+	/**
+	 * @return the {@link IFrontEndWriter} of the current {@link IBaseGUI}.
+	 */
+	IFrontEndWriter onFrontEnd();
 }
