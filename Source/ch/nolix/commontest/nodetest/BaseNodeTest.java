@@ -19,7 +19,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset("a");
+		testUnit.resetFromString("a");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -36,7 +36,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset("a(b)");
+		testUnit.resetFromString("a(b)");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -53,7 +53,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset("a(b,c,d)");
+		testUnit.resetFromString("a(b,c,d)");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -70,7 +70,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset("a(b(c))");
+		testUnit.resetFromString("a(b(c))");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -87,7 +87,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset("a(b(c),d(e))");
+		testUnit.resetFromString("a(b(c),d(e))");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -104,7 +104,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset("a(b(c,d),e(f,g))");
+		testUnit.resetFromString("a(b(c,d),e(f,g))");
 		
 		//execution
 		final var result = testUnit.getCopy();
@@ -285,7 +285,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("");
+		testUnit.resetFromString("");
 		
 		//verification
 		expectNot(testUnit.hasHeader());
@@ -301,7 +301,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("a");
+		testUnit.resetFromString("a");
 		
 		//verification
 		expect(testUnit.hasHeader());
@@ -317,7 +317,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("a(b)");
+		testUnit.resetFromString("a(b)");
 		
 		//verification
 		expect(testUnit.hasHeader());
@@ -333,7 +333,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("a(b,c,d)");
+		testUnit.resetFromString("a(b,c,d)");
 		
 		//verification
 		expect(testUnit.hasHeader());
@@ -349,7 +349,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("a(b(c))");
+		testUnit.resetFromString("a(b(c))");
 		
 		//verification
 		expect(testUnit.hasHeader());
@@ -365,7 +365,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("a(b(c),d(e))");
+		testUnit.resetFromString("a(b(c),d(e))");
 		
 		//verification
 		expect(testUnit.hasHeader());
@@ -381,7 +381,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		testUnit.reset("a(b(c,d),e(f,g))");
+		testUnit.resetFromString("a(b(c,d),e(f,g))");
 		
 		//verification
 		expect(testUnit.hasHeader());
@@ -397,7 +397,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution & verification
-		expect(() -> testUnit.reset("a(b).c"))
+		expect(() -> testUnit.resetFromString("a(b).c"))
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class);
 	}

@@ -529,7 +529,7 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	 * @param index
 	 * @return the element at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws UnexistringAttributeException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link IContainer} does not contain an element at the given index.
 	 */
 	@Override

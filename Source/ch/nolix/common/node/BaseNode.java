@@ -5,16 +5,19 @@ package ch.nolix.common.node;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.validator.Validator;
 import ch.nolix.common.xml.XMLNode;
 
 //class
@@ -24,8 +27,8 @@ import ch.nolix.common.xml.XMLNode;
  * -several attributes which are a {@link BaseNode}s
  *  
  * @author Silvan Wyss
- * @month 2017-07
- * @lines 730
+ * @date 2017-06-24
+ * @lines 810
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -95,6 +98,19 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
+	 * Adds the given attribute to the current {@link BaseNode}.
+	 * 
+	 * @param attribute
+	 * @throws UnrepresentingArgumentException if the given attribute does not represent a {@link Node}.
+	 */
+	public void addAttribute(final String attribute) {
+		
+		//Calls other method
+		addAttribute(Node.fromString(attribute));
+	}
+	
+	//method
+	/**
 	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
@@ -106,7 +122,57 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * Adds the given postfix to the header of the current {@link BaseNode}.
+	 * Sets the given postfix as header to the current {@link BaseNode} if it does not have a header.
+	 * 
+	 * @param postfix
+	 * @throws ArgumentIsNullException if the given postfix is null.
+	 * @throws InvalidArgumentArgumentException if the given postfix is blank.
+	 */
+	public void addPostfixToHeader(final String postfix) {
 		
+		//Asserts that the given postfix is not null or blank.
+		Validator.assertThat(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
+		
+		//Handles the case that the current Node does not have a header.
+		if (hasHeader()) {
+			setHeader(postfix);
+		}
+		
+		//Handles the case that the current Node has a header.
+		else {
+			setHeader(getHeader() + postfix);
+		}
+	}
+	
+	//method
+	/**
+	 * Adds the given prefix to the header of the current {@link BaseNode}.
+	 * Sets the given prefix as header to the current {@link BaseNode} if it does not have a header.
+	 * 
+	 * @param prefix
+	 * @throws ArgumentIsNullException if the given prefix is null.
+	 * @throws InvalidArgumentException if the given prefix is blank.
+	 */
+	public void addPrefixToHeader(final String prefix) {
+		
+		//Asserts that the given prefix is not null or blank.
+		Validator.assertThat(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
+		
+		//Handles the case that the current BaseNode does not have a header.
+		if (!hasHeader()) {
+			setHeader(prefix);
+		}
+		
+		//Handles the case that the current BaseNode has a header.
+		else {
+			setHeader(prefix + getHeader());
+		}
+	}
+	
 	//method
 	/**
 	 * @param selector
@@ -139,7 +205,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public boolean containsOneAttributeWithHeader() {
 		return (containsOneAttribute() && getRefOneAttribute().hasHeader());
 	}
-	
+		
 	//method
 	/**
 	 * @return a new copy of the current {@link BaseNode}.
@@ -201,13 +267,11 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		return true;
 	}
 	
-	//method
+	//method declaration
 	/**
 	 * @return the number of attributes of the current {@link BaseNode}.
 	 */
-	public int getAttributeCount() {
-		return getRefAttributes().getElementCount();
-	}
+	public abstract int getAttributeCount();
 	
 	//method
 	/**
@@ -247,6 +311,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent a boolean.
 	 */
+	@SuppressWarnings("all")
 	public boolean getOneAttributeAsBoolean() {
 		return getRefOneAttribute().toBoolean();
 	}
@@ -297,14 +362,6 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		return getRefOneAttribute().getHeader();
 	}
 	
-	//method
-	/**
-	 * @return a reproducing string representation of the header of the current {@link BaseNode}.
-	 */
-	public String getReproducingHeader() {
-		return getEscapeStringFor(getHeader());
-	}
-	
 	//method declaration
 	/**
 	 * @param index
@@ -312,16 +369,15 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
-	@SuppressWarnings("unchecked")
-	public <S extends BaseNode> S getRefAttributeAt(final int index) {
-		return (S)getRefAttributes().getRefAt(index);
+	public BaseNode getRefAttributeAt(final int index) {
+		return getRefAttributes().getRefAt(index);
 	}
 	
 	//method declaration
 	/**
 	 * @return the attributes of the current {@link BaseNode}.
 	 */
-	public abstract <S extends BaseNode> IContainer<S> getRefAttributes();
+	public abstract IContainer<BaseNode> getRefAttributes();
 	
 	//method declaration
 	/**
@@ -344,12 +400,54 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
+	 * @param header
+	 * @return the attributes of the first attribute with the given header
+	 * @throws Exception if the current {@link Node} does not contain an attribute with the given header
+	 */
+	public IContainer<BaseNode> getRefAttributesOfFirstAttribute(String header) {
+		return getRefAttributes().getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
+	}
+
+	//method
+	/**
+	 * @return the one attribute of the current {@link Node}
+	 * @throws EmptyArgumentException if the current {@link Node} is empty.
+	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
+	 */
+	public BaseNode getRefOneAttribute() {
+		return getRefAttributes().getRefOne();
+	}
+	
+	//method
+	/**
+	 * @param header
+	 * @return the one attribute of the first attribute with the given header
+	 * @throws Exception if:
+	 * -the current {@link Node} does not contain an attribute with the given header
+	 * -the first attribute of the current {@link Node} with the given header
+	 * does not contain an attribute or contains several attributes
+	 */
+	public BaseNode getRefOneAttributeOfFirstAttribute(String header) {
+		return getRefAttributes().getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
+	}
+	
+	//method
+	/**
+	 * @param header
+	 * @return a string representation
+	 * of the one attribute of the first attribute with the given header of the current {@link Node}.
+	 */
+	public String getRefOneAttributeOfFirstAttributeAsString(String header) {
+		return getRefOneAttributeOfFirstAttribute(header).toString();
+	}
+	
+	//method
+	/**
 	 * @return the first attribute of the current {@link BaseNode}.
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 */
-	@SuppressWarnings("unchecked")
-	public <S extends BaseNode> S getRefFirstAttribute() {
-		return (S)getRefAttributes().getRefFirst();
+	public BaseNode getRefFirstAttribute() {
+		return getRefAttributes().getRefFirst();
 	}
 	
 	//method
@@ -359,9 +457,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
-	@SuppressWarnings("unchecked")
-	public <S extends BaseNode> S getRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector) {
-		return (S)getRefAttributes().getRefFirst(selector);
+	public BaseNode getRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector) {
+		return getRefAttributes().getRefFirst(selector);
 	}
 	
 	//method
@@ -369,18 +466,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param header
 	 * @return the first attribute of the current {@link BaseNode} with the given header.
 	 */
-	public <S extends BaseNode> S getRefFirstAttribute(final String header) {
+	public BaseNode getRefFirstAttribute(final String header) {
 		return getRefFirstAttribute(a -> a.hasHeader(header));
-	}
-	
-	//method declaration
-	/**
-	 * @return the one attribute of the current {@link BaseNode}.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 */
-	public BaseNode getRefOneAttribute() {
-		return getRefAttributes().getRefOne();
 	}
 	
 	//method
@@ -388,24 +475,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public int hashCode() {
 		return toString().hashCode();
 	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return true if the current {@link BaseNode} has the given header.
-	 */
-	@Override
-	public boolean hasHeader(final String header) {
 		
-		//Handles the case that the current document node does not have a header.
-		if (!hasHeader()) {
-			return false;
-		}
-		
-		//Handles the case that the current document node has a header.
-		return getHeader().equals(header);
-	}
-	
 	//method declaration
 	/**
 	 * Removes the attributes of the current {@link BaseNode}.
@@ -441,27 +511,11 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * Resets the current {@link BaseNode} from the given string.
-	 * 
-	 * @param string
-	 * @throws InvalidArgumentException if the given string is not valid.
-	 */
-	public void reset(final String string) {
-		
-		reset();
-		
-		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
-			throw new UnrepresentingArgumentException(string, Node.class);
-		}
-	}
-	
-	//method
-	/**
 	 * Resets the attributes of the current {@link BaseNode} with the given attributes.
 	 * 
 	 * @param attributes
 	 */
-	public <S extends BaseNode> void resetAttributes(final Iterable<S> attributes) {
+	public <BN extends BaseNode> void resetAttributes(final Iterable<BN> attributes) {
 		removeAttributes();
 		addAttributes(attributes);
 	}
@@ -473,12 +527,28 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param filePath
 	 */
 	public void resetFromFile(final String filePath) {
-		reset(
+		resetFromString(
 			new FileAccessor(filePath)
 			.readFile()
 			.replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
 			.replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING)
 		);
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link BaseNode} from the given string.
+	 * 
+	 * @param string
+	 * @throws InvalidArgumentException if the given string is not valid.
+	 */
+	public void resetFromString(final String string) {
+		
+		reset();
+		
+		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
+			throw new UnrepresentingArgumentException(string, Node.class);
+		}
 	}
 	
 	//method
@@ -678,6 +748,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		throw new UnrepresentingArgumentException(substring, Node.class);
+	}
+	
+	//method
+	/**
+	 * @return a reproducing {@link String} representation of the header of the current {@link BaseNode}.
+	 */
+	private String getReproducingHeader() {
+		return getEscapeStringFor(getHeader());
 	}
 	
 	//method

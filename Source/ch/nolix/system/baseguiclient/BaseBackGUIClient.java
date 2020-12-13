@@ -197,7 +197,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	}
 	
 	//method
-	private Node getFileDataFromNonWebCounterpart() {
+	private BaseNode getFileDataFromNonWebCounterpart() {
 		return internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_FILE));
 	}
 	

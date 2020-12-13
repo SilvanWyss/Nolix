@@ -18,6 +18,7 @@ import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalLabelable;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -492,7 +493,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * requests from the counterpart of the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Node internalGetDataFromCounterpart(final ChainedNode request) {
+	protected BaseNode internalGetDataFromCounterpart(final ChainedNode request) {
 		return endPoint.getData(request);
 	}
 	

@@ -69,7 +69,16 @@ public final class FileNode extends BaseNode {
 	public boolean containsAttributes() {
 		return internalSpecification.containsAttributes();
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getAttributeCount() {
+		return internalSpecification.getAttributeCount();
+	}
+	
 	//method
 	/**
 	 * @return true if this {@link FileNode} has a header.
@@ -85,26 +94,24 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public IContainer<SubNode> getRefAttributes() {
+	public IContainer<BaseNode> getRefAttributes() {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubNode(this, a)
+				a -> new SubNode(this, (Node)a)
 			)
 		);
 	}
 	
 	//method
 	/**
-	 * @return the one attribute of this {@link FileNode}.
-	 * @throws RuntimeException if this {@link FileNode} does not contain any or several attributes.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public SubNode getRefOneAttribute() {
-		return new SubNode(this, internalSpecification.getRefOneAttribute());
+	public BaseNode getRefOneAttribute() {
+		return new SubNode(this, (Node)internalSpecification.getRefOneAttribute());
 	}
-
+	
 	//method
 	/**
 	 * @return true if this {@link FileNode} has a header.

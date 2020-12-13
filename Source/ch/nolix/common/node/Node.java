@@ -12,17 +12,17 @@ import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link Node} is a {@link BaseNode}
- * that is completely stored in the memory like a common object.
+ * A {@link Node} is a {@link BaseNode} that is completely stored in the memory like a common object.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 720
+ * @lines 610
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -58,12 +58,12 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param string
 	 * @return a new {@link Node} from the given string.
-	 * @throws InvalidArgumentException if the given string does not represent a {@link Node}.
+	 * @throws UnrepresentingArgumentException if the given string does not represent a {@link Node}.
 	 */
 	public static Node fromString(final String string) {
 		
 		final var node = new Node();
-		node.reset(string);
+		node.resetFromString(string);
 		
 		return node;
 	}
@@ -492,114 +492,42 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Node} without header and without attributes.
+	 * Creates a new {@link Node}.
 	 */
 	public Node() {}
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link Node}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Node addAttribute(final BaseNode attribute) {
 		
-		addAttribute(attribute.getCopy());
+		attributes.addAtEnd((attribute instanceof Node) ? (Node)attribute : attribute.getCopy());
 		
 		return this;
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link Node}.
+	 * {@inheritDoc}
 	 */
-	public Node addAttribute(final Node attribute) {
-		
-		attributes.addAtEnd(attribute);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Adds the given attribute to the current {@link Node}.
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	public void addAttribute(final String attribute) {
-		
-		//Calls other method
-		addAttribute(fromString(attribute));
-	}
-	
-	//method
-	/**
-	 * Adds the given prefix to the header of the current {@link Node}.
-	 * Sets the given prefix has header to the current {@link Node} if it does not have a header.
-	 * 
-	 * @param prefix
-	 * @throws ArgumentIsNullException if the given prefix is null.
-	 * @throws InvalidArgumentException if the given prefix is blank.
-	 */
-	public void addPrefixToHeader(final String prefix) {
-		
-		//Asserts that the given prefix is not null or blank.
-		Validator.assertThat(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
-		
-		//Handles the case that the current Node does not have a header.
-		if (!hasHeader()) {
-			setHeader(prefix);
-		}
-		
-		//Handles the case that the current Node has a header.
-		else {
-			setHeader(prefix + getHeader());
-		}
-	}
-	
-	//method
-	/**
-	 * Adds the given postfix to the header of the current {@link Node}.
-	 * Sets the given postfix as header to the current {@link Node} if it does not have a header.
-	 * 
-	 * @param postfix
-	 * @throws ArgumentIsNullException if the given postfix is null.
-	 * @throws InvalidArgumentArgumentException if the given postfix is blank.
-	 */
-	public void addPostfixToHeader(final String postfix) {
-		
-		//Asserts that the given postfix is not null or blank.
-		Validator.assertThat(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
-		
-		//Handles the case that the current Node does not have a header.
-		if (hasHeader()) {
-			setHeader(postfix);
-		}
-		
-		//Handles the case that the current Node has a header.
-		else {
-			setHeader(getHeader() + postfix);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the number of attributes of the current {@link Node}.
-	 */
-	public int getAttributesCount() {
+	@Override
+	public int getAttributeCount() {
 		return attributes.getElementCount();
 	}
-
+	
 	//method
 	/**
 	 * @return the header of this specification.
-	 * @throws ArgumentDoesNotHaveAttributeException if this specification does not have a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Node} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
 		
 		//Asserts that the current Node has a header.
-		if (!hasHeader()) {
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (header == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 		
@@ -608,57 +536,14 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Node}
+	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public IContainer<Node> getRefAttributes() {
-		return ReadContainer.forIterable(attributes);
+	public IContainer<BaseNode> getRefAttributes() {
+		return ReadContainer.forIterable(attributes).asContainerWithElementsOfEvaluatedType();
 	}
 	
-	//method
-	/**
-	 * @param header
-	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if the current {@link Node} does not contain an attribute with the given header
-	 */
-	public IContainer<Node> getRefAttributesOfFirstAttribute(String header) {
-		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
-	}
 
-	//method
-	/**
-	 * @return the one attribute of the current {@link Node}
-	 * @throws EmptyArgumentException if the current {@link Node} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
-	 */
-	@Override
-	public Node getRefOneAttribute() {
-		return attributes.getRefOne();
-	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return the one attribute of the first attribute with the given header
-	 * @throws Exception if:
-	 * -the current {@link Node} does not contain an attribute with the given header
-	 * -the first attribute of the current {@link Node} with the given header
-	 * does not contain an attribute or contains several attributes
-	 */
-	public Node getRefOneAttributeOfFirstAttribute(String header) {
-		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
-	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return a string representation
-	 * of the one attribute of the first attribute with the given header of the current {@link Node}.
-	 */
-	public String getRefOneAttributeOfFirstAttributeAsString(String header) {
-		return getRefOneAttributeOfFirstAttribute(header).toString();
-	}
 	
 	//method
 	/**

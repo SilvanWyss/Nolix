@@ -119,7 +119,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this {@link NetEndPoint} is aborted.
 	 */
 	@Override
-	public Node getData(final ChainedNode request) {
+	public BaseNode getData(final ChainedNode request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';

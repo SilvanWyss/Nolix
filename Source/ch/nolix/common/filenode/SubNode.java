@@ -22,7 +22,7 @@ public final class SubNode extends BaseNode {
 	private final FileNode parentFileNode;
 	private final Node internalSpecification;
 	
-	//visibility-reduces constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link SubNode} that:
 	 * -Belongs to the given parentFileNode.
@@ -76,6 +76,15 @@ public final class SubNode extends BaseNode {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getAttributeCount() {
+		return internalSpecification.getAttributeCount();
+	}
+	
+	//method
+	/**
 	 * @return the header of the current {@link SubNode}.
 	 * @throws ArgumentDoesNotHaveAttributeException if this {@link SubNode}
 	 * does not have a header.
@@ -90,12 +99,11 @@ public final class SubNode extends BaseNode {
 	 * @return the attributes of the current {@link SubNode}
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public ReadContainer<SubNode> getRefAttributes() {
+	public ReadContainer<BaseNode> getRefAttributes() {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubNode(parentFileNode, a)
+				a -> new SubNode(parentFileNode, (Node)a)
 			)
 		);
 	}
@@ -107,9 +115,9 @@ public final class SubNode extends BaseNode {
 	 * @throws InvalidArgumentException if this {@link SubNode} contains several attributes.
 	 */
 	@Override
-	public SubNode getRefOneAttribute() {
+	public BaseNode getRefOneAttribute() {
 		return new SubNode(
-			parentFileNode, internalSpecification.getRefOneAttribute()
+			parentFileNode, (Node)internalSpecification.getRefOneAttribute()
 		);
 	}
 

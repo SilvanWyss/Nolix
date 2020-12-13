@@ -3,7 +3,7 @@ package ch.nolix.common.controllerapi;
 
 //own imports
 import ch.nolix.common.chainednode.ChainedNode;
-import ch.nolix.common.node.Node;
+import ch.nolix.common.node.BaseNode;
 
 //interface
 /**
@@ -18,5 +18,5 @@ public interface IDataProvider {
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
-	Node getData(ChainedNode request);
+	BaseNode getData(ChainedNode request);
 }
