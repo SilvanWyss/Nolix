@@ -113,14 +113,12 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TextBox reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
 		textCursorPosition.setValue(0);
-		
-		return this;
 	}
 	
 	//method

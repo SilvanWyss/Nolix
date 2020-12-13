@@ -435,12 +435,10 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
-	 * Resets the current {@link BaseConfiguration}.
-	 * 
-	 * @return the current {@link BaseConfiguration}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public C reset() {
+	public void reset() {
 		
 		removeSelectorType();
 		removeSelectorRoles();
@@ -449,8 +447,6 @@ implements IMutableElement<C> {
 		
 		attachingAttributes.clear();
 		configurations.clear();
-		
-		return asConcrete();
 	}
 	
 	//method

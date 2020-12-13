@@ -37,6 +37,13 @@ extends BorderWidget<TLW, TLWL> {
 		t -> t.isEmpty() ? new Node() : Node.withAttribute(t)
 	);
 	
+	//constructor
+	public TextLineWidget() {
+		
+		//TODO: Fix initializing of values.
+		text.setValue(DEFAULT_TEXT);
+	}
+	
 	//method
 	/**
 	 * @return the shown text of the current {@link TextLineWidget}.
@@ -66,14 +73,12 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TLW reset() {
-				
-		setText(DEFAULT_TEXT);
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
-		return asConcrete();
+		setText(DEFAULT_TEXT);
 	}
 	
 	//method

@@ -37,14 +37,12 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	
 	//method
 	@Override
-	public P reset() {
+	public void reset() {
 		
 		//Calls method of base class.
 		super.reset();
 		
 		setHeight(DEFAULT_HEIGHT);
-		
-		return asConcrete();
 	}
 	
 	//method

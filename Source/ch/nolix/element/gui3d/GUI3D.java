@@ -273,12 +273,12 @@ implements Clearable<G>, Closeable, Refreshable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public G reset() {
-		
-		setTitle(DEFAULT_TITLE);
+	public void reset() {
 		
 		//Calls method of the base class.
-		return super.reset();
+		super.reset();
+		
+		setTitle(DEFAULT_TITLE);
 	}
 	
 	//method

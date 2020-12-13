@@ -20,20 +20,23 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	private final Label originLabel = new Label();
 	
 	//attribute
-	private final Button expandButton =
-	new Button().reset().setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
+	private final Button expandButton = new Button();
 	
 	//attribute
-	private final HorizontalStack originHorizontalStack =
-	new HorizontalStack()
-	.reset()
-	.addWidget(originLabel, expandButton);
-	
+	private final HorizontalStack originHorizontalStack = new HorizontalStack();
+		
 	//optional attribute
 	private SelectionMenu expandedDropdownMenu;
 	
 	//constructor
-	public DropdownMenu() {		
+	public DropdownMenu() {
+		
+		originHorizontalStack.reset();
+		originHorizontalStack.addWidget(originLabel, expandButton);
+		
+		expandButton.reset();
+		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
+		
 		resetAndApplyDefaultConfiguration();
 	}
 	

@@ -123,14 +123,12 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Button reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
 		setText(DEFAULT_TEXT);
-		
-		return this;
 	}
 	
 	//method

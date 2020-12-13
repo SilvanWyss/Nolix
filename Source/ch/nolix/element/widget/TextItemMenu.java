@@ -153,14 +153,12 @@ implements Clearable<TIM> {
 	
 	//method
 	@Override
-	public TIM reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		clear();
 		removeSelectAction();
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -312,24 +310,27 @@ implements Clearable<TIM> {
 		for (final var l : itemLables) {
 						
 			l.setMinWidth(labelWidth);
-
+			
+			l.getRefBaseLook().reset();
+			
 			l
 			.getRefBaseLook()
-			.reset()
 			.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setPaddings(look.getRecursiveOrDefaultItemPadding())
 			.setTextSize(look.getRecursiveOrDefaultTextSize())
 			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor());
 			
+			l.getRefHoverLook().reset();
+			
 			l
 			.getRefHoverLook()
-			.reset()
 			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
 			
+			l.getRefFocusLook().reset();
+			
 			l
 			.getRefFocusLook()
-			.reset()
 			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
 			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
 			

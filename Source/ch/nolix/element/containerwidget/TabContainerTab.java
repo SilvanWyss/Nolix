@@ -248,12 +248,11 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TabContainerTab reset() {
+	public void reset() {
 		
 		setHeader(DEFAULT_HEADER);
-		clear();
 		
-		return this;
+		clear();
 	}
 	
 	//method

@@ -48,13 +48,11 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Uploader reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		setText(DEFAULT_TEXT);
-		
-		return this;
 	}
 	
 	//method

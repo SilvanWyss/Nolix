@@ -6,17 +6,14 @@ package ch.nolix.common.skillapi;
  * A {@link Resettable} can be reset.
  * 
  * @author Silvan Wyss
- * @month 2016-01
- * @lines 20
- * @param <R> The type of a {@link Resettable}. 
+ * @date 2016-01-01
+ * @lines 10 
  */
-public interface Resettable<R extends Resettable<R>> {
-
+public interface Resettable {
+	
 	//method declaration
 	/**
 	 * Resets the current {@link Resettable}.
-	 * 
-	 * @return the current {@link Resettable}.
 	 */
-	R reset();
+	void reset();
 }

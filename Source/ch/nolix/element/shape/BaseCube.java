@@ -111,12 +111,10 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	
 	//method
 	/**
-	 * Resets the current {@link BaseCube}.
-	 * 
-	 * @return the current {@link BaseCube}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public BaseCube reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
@@ -124,8 +122,6 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		setXLength(DEFAULT_X_LENGTH);
 		setYLength(DEFAULT_Y_LENGTH);
 		setZLength(DEFAULT_Z_LENGTH);
-		
-		return this;
 	}
 	
 	//method

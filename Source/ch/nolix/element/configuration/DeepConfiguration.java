@@ -136,17 +136,15 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * Resets the current {@link DeepConfiguration}.
-	 * 
-	 * @return the current {@link DeepConfiguration}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public DeepConfiguration reset() {
-				
-		removeMaxSelectorLevel();
+	public void reset() {
 		
 		//Calls the method of the base class.
-		return super.reset();
+		super.reset();
+		
+		removeMaxSelectorLevel();
 	}
 		
 	//method

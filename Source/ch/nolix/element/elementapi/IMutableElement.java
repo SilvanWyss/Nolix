@@ -17,7 +17,7 @@ import ch.nolix.common.skillapi.Resettable;
  * @month 2017-02
  * @lines 140
  */
-public interface IMutableElement<S extends IMutableElement<S>> extends Resettable<S>, IElement {
+public interface IMutableElement<S extends IMutableElement<S>> extends Resettable, IElement {
 	
 	//method declaration
 	/**

@@ -1104,7 +1104,7 @@ TopLeftPositionedRecangular {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public W reset() {
+	public void reset() {
 			
 		setEnabled();
 		setExpanded();
@@ -1126,8 +1126,6 @@ TopLeftPositionedRecangular {
 		 * that requires the result of the current class' reset method.
 		 */
 		super.reset();
-				
-		return asConcrete();
 	}
 	
 	//method

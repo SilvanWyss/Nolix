@@ -89,11 +89,8 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 	 * Removes the values of the properties of the current {@link LayerElement}.
 	 */
 	@Override
-	public E reset() {
-		
+	public void reset() {	
 		getRefProperties().forEach(LayerProperty::removeValue);
-		
-		return asConcrete();
 	}
 		
 	//method

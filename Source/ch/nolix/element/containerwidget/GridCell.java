@@ -139,16 +139,11 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	
 	//method
 	/**
-	 * Resets this grid cell.
-	 * 
-	 * @return this grid cell.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public GridCell reset() {
-		
+	public void reset() {	
 		clear();
-		
-		return this;
 	}
 	
 	//method

@@ -72,17 +72,15 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * Resets the current {@link Sphere}.
-	 * 
-	 * @return the current {@link Sphere}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public Sphere reset() {
-	
-		setRadius(DEFAULT_RADIUS);
+	public void reset() {
 		
 		//Calls method of the base class.
-		return super.reset();
+		super.reset();
+	
+		setRadius(DEFAULT_RADIUS);
 	}
 	
 	//method

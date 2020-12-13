@@ -91,13 +91,11 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public FloatContainer reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		widgets.clear();
-		
-		return this;
 	}
 	
 	//method

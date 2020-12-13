@@ -9,7 +9,7 @@ import ch.nolix.common.skillapi.Resettable;
 import ch.nolix.common.validator.Validator;
 
 //class
-public final class SQLExecutor implements Resettable<SQLExecutor> {
+public final class SQLExecutor implements Resettable {
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
@@ -67,10 +67,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	
 	//method
 	@Override
-	public SQLExecutor reset() {
-		
+	public void reset() {
 		statements.clear();
-		
-		return this;
 	}
 }

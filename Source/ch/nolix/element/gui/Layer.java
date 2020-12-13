@@ -861,19 +861,14 @@ IResizableInputTaker {
 	
 	//method
 	/**
-	 * Resets the current {@link Layer}.
-	 * 
-	 * @return the current {@link Layer}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Layer reset() {
-		
+	public final void reset() {
 		setConfigurationAllowed();
 		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
 		clear();
 		resetConfiguration();
-		
-		return this;
 	}
 	
 	//method

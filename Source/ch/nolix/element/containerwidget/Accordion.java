@@ -49,13 +49,16 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	);
 	
 	//attribute
-	private final VerticalStack accordionVerticalStack = new VerticalStack().reset();
+	private final VerticalStack accordionVerticalStack = new VerticalStack();
 	
 	//constructor
 	/**
 	 * Creates a new {@link Accordion}.
 	 */
 	public Accordion() {
+				
+		accordionVerticalStack.reset();
+		
 		resetAndApplyDefaultConfiguration();
 	}
 	
@@ -233,15 +236,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Accordion reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
 		clear();
-		
-		return this;
 	}
 	
 	//method

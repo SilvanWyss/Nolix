@@ -209,13 +209,11 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final S reset() {
+	public final void reset() {
 		
 		super.reset();
 		
 		removeElementMargin();
-		
-		return asConcrete();
 	}
 	
 	//method

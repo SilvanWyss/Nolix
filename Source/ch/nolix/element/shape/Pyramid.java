@@ -62,15 +62,13 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	
 	//method
 	@Override
-	public Pyramid reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
 		setSideLength(DEFAULT_SIDE_LENGTH);
 		setHeight(DEFAULT_HEIGHT);
-		
-		return this;
 	}
 	
 	//method

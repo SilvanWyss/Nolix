@@ -571,13 +571,11 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final LG reset() {
+	public final void reset() {
 		
 		super.reset();
 		
 		clear();
-		
-		return asConcrete();
 	}
 	
 	//method

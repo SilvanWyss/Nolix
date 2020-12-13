@@ -719,14 +719,12 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BW reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		showAreaXPositionOnScrolledArea.setValue(0);
 		showAreaYPositionOnScrolledArea.setValue(0);
-		
-		return asConcrete();
 	}
 	
 	//method

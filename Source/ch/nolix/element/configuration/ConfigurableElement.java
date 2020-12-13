@@ -143,13 +143,10 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CE reset() {
-		
+	public void reset() {
 		removeId();
 		removeToken();
 		resetConfiguration();
-		
-		return asConcrete();
 	}
 	
 	//method

@@ -122,7 +122,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final DatabaseAdapter reset() {
+	public final void reset() {
 		
 		entitySets.clear();
 		mutatedEntitiesInOrder.clear();
@@ -130,8 +130,6 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		for (final var et : schema.getRefEntityTypes()) {
 			entitySets.addAtEnd(EntitySet.createEntitySet(this, et));
 		}
-		
-		return this;
 	}
 	
 	//method

@@ -220,7 +220,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	@Override
-	public Image reset() {
+	public void reset() {
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
@@ -228,8 +228,6 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		for (var i = 1; i <= pixelCount; i++) {
 			pixels.setAt(i, Color.WHITE);
 		}
-		
-		return this;
 	}
 	
 	//method

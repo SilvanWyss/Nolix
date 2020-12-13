@@ -224,13 +224,10 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	@Override
-	public AccordionTab reset() {
-		
+	public void reset() {
 		setHeader(DEFAULT_HEADER);
 		collapse();
 		clear();
-		
-		return this;
 	}
 	
 	//method

@@ -85,18 +85,16 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	
 	//method
 	/**
-	 * Resets the current {@link ConfigurationElement}.
-	 * 
-	 * @return the current {@link ConfigurationElement}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public CE reset() {
+	public void reset() {
+		
+		//Calls method of the base class.
+		super.reset();
 		
 		removeConfiguration();
 		resetConfiguration();
-		
-		//Calls method of the base class.
-		return super.reset();
 	}
 	
 	//method

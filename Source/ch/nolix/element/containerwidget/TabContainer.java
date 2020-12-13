@@ -486,10 +486,11 @@ implements Clearable<TabContainer> {
 			if (baseMenuItemLook.hasMinWidth()) {
 				label.setMinWidth(baseMenuItemLook.getOwnOrDefaultMinWidth());
 			}
-
+			
+			label.getRefBaseLook().reset();
+			
 			label
 			.getRefBaseLook()
-			.reset()
 			.setPaddings(baseMenuItemLook.getOwnOrDefaultPadding())
 			.setTextSize(baseMenuItemLook.getOwnOrDefaultTextSize())
 			.setTextColor(baseMenuItemLook.getOwnOrDefaultTextColor());
@@ -500,9 +501,10 @@ implements Clearable<TabContainer> {
 				.setBackgroundColor(baseMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 			
+			label.getRefHoverLook().reset();
+			
 			label
 			.getRefHoverLook()
-			.reset()
 			.setPaddings(hoverMenuItemLook.getOwnOrDefaultPadding())
 			.setTextSize(hoverMenuItemLook.getOwnOrDefaultTextSize())
 			.setTextColor(hoverMenuItemLook.getOwnOrDefaultTextColor());
@@ -513,9 +515,10 @@ implements Clearable<TabContainer> {
 				.setBackgroundColor(hoverMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 			
+			label.getRefFocusLook().reset();
+			
 			label
 			.getRefFocusLook()
-			.reset()
 			.setPaddings(selectedMenuItemLook.getOwnOrDefaultPadding())
 			.setTextSize(selectedMenuItemLook.getOwnOrDefaultTextSize())
 			.setTextColor(selectedMenuItemLook.getOwnOrDefaultTextColor());

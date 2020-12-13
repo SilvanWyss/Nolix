@@ -931,7 +931,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BWL reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
@@ -941,8 +941,6 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		removeAnyBackground();
 		removeScrollBarLooks();
 		removePaddings();
-				
-		return asConcrete();
 	}
 	
 	//method

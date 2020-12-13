@@ -10,7 +10,7 @@ package ch.nolix.common.skillapi;
  * @lines 20
  * @param <CS> The type of a {@link IChangeSaver}.
  */
-public interface IChangesSaver<CS extends IChangesSaver<CS>> extends Resettable<CS> {
+public interface IChangesSaver<CS extends IChangesSaver<CS>> extends Resettable {
 	
 	//method declaration
 	/**

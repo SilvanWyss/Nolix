@@ -105,13 +105,11 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CheckBox reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		uncheck();
-		
-		return this;
 	}
 	
 	//method

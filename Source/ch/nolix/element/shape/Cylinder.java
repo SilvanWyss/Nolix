@@ -46,14 +46,12 @@ public final class Cylinder extends Prisma<Cylinder> {
 	
 	//method
 	@Override
-	public Cylinder reset() {
+	public void reset() {
 		
 		//Calls method of base class.
 		super.reset();
 		
 		setRadius(DEFAULT_RADIUS);
-		
-		return this;
 	}
 	
 	//method

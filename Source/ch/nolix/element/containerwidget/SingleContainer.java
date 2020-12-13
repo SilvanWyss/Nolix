@@ -130,14 +130,12 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public SingleContainer reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
 		clear();
-		
-		return this;
 	}
 	
 	/**

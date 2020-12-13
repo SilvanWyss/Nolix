@@ -151,13 +151,11 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	public Grid reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		cells.clear();
-		
-		return this;
 	}
 	
 	//method

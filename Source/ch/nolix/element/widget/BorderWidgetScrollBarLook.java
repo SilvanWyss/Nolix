@@ -69,12 +69,9 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	
 	//method
 	@Override
-	public BorderWidgetScrollBarLook reset() {
-		
+	public void reset() {
 		setScrollBarColor(DEFAULT_SCROLL_BAR_COLOR);
 		setScrollCursorColor(DEFAULT_SCROLL_CURSOR_COLOR);
-		
-		return this;
 	}
 	
 	//method

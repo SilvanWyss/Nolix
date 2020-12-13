@@ -540,15 +540,13 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public G reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		setTitle(DEFAULT_TITLE);
 		setViewAreaSize(0, 0);
 		setCursorPositionOnViewArea(0, 0);
-		
-		return asConcrete();
 	}
 	
 	//method

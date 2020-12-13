@@ -99,11 +99,8 @@ public final class Background extends Element<Background> implements ISmartMutab
 		
 	//method
 	@Override
-	public Background reset() {
-		
+	public void reset() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-		
-		return this;
 	}
 	
 	//method

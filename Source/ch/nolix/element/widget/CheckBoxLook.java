@@ -108,19 +108,15 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Removes all attributes of the current {@link CheckBoxLook}.
-	 * 
-	 * @return the current {@link CheckBoxLook}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public CheckBoxLook reset() {
+	public void reset() {
 		
 		//Calls method of the base class.
 		super.reset();
 		
 		removeLineThickness();
-		
-		return this;
 	}
 	
 	//method

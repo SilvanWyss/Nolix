@@ -91,14 +91,12 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	public Downloader reset() {
+	public void reset() {
 		
 		super.reset();
 		
 		setText(DEFAULT_TEXT);
 		removeFileProvider();
-		
-		return this;
 	}
 	
 	//method
