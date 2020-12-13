@@ -10,8 +10,8 @@ import ch.nolix.element.textformat.TextFormat;
 //interface
 /**
  * @author Silvan Wyss
- * @month 2018-03
- * @lines 220
+ * @date 2018-03-13
+ * @lines 240
  */
 public interface IPainter {
 		
@@ -218,4 +218,24 @@ public interface IPainter {
 	 * @param yTranslation
 	 */
 	void translate(int xTranslation, int yTranslation);
+	
+	//method
+	/**
+	 * Translates the current {@link IPainter} horizontally.
+	 * 
+	 * @param xTranslation
+	 */
+	default void translateHorizontally(final int xTranslation) {
+		translate(xTranslation, 0);
+	}
+	
+	//method
+	/**
+	 * Translates the current {@link IPainter} vertically.
+	 * 
+	 * @param yTranslation
+	 */
+	default void translateVertically(final int yTranslation) {
+		translate(0, yTranslation);
+	}
 }
