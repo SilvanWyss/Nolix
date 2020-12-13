@@ -12,7 +12,7 @@ package ch.nolix.common.math;
 import ch.nolix.common.simplevalidator.SimpleValidator;
 
 //class
-public class Vector {
+public final class Vector {
 	
 	//constant
 	public static final int DEFAULT_LENTH = 3;
