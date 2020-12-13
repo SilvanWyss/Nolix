@@ -12,7 +12,6 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.processproperty.ChangeState;
-import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;
@@ -50,11 +49,11 @@ import ch.nolix.element.widget.VerticalStack;
  * A {@link WidgetGUI} is a {@link GUI} that can contain several {@link ILayer}s, that are stacked.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 810
- * @param <LG> The type of a {@link WidgetGUI}.
+ * @param <WG> The type of a {@link WidgetGUI}.
  */
-public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implements Clearable<LG>{
+public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
 	
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -256,7 +255,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public final LG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
+	public final WG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
 		return addLayerOnTop(new Layer(contentPosition, rootWidget));
 	}
 
@@ -268,7 +267,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given layer is null.
 	 */
-	public final LG addLayerOnTop(final Layer layer) {
+	public final WG addLayerOnTop(final Layer layer) {
 		
 		//Asserts that the given layer is not null.
 		Validator.assertThat(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
@@ -291,7 +290,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @return the current {@link IWidgetGUI}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public final LG addLayerOnTop(final Widget<?, ?> rootWidget) {		
+	public final WG addLayerOnTop(final Widget<?, ?> rootWidget) {		
 		return addLayerOnTop(new Layer(rootWidget));
 	}
 	
@@ -339,7 +338,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @return the current {@link GUI}.
 	 * @throws InvalidArgumentException if the given attributes are not valid.
 	 */
-	public final <S extends BaseNode> LG addOrChangeAttributesOfWidgets(
+	public final <S extends BaseNode> WG addOrChangeAttributesOfWidgets(
 		final IContainer<IContainer<S>> attributes
 	) {
 		
@@ -365,7 +364,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @return the current {@link GUI}.
 	 */
 	@Override
-	public final LG clear() {
+	public final WG clear() {
 		
 		layers.clear();
 		topLayer = null;
@@ -520,7 +519,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @param layer
 	 * @return the current {@link WidgetGUI}.
 	 */
-	public final LG removeLayer(final Layer layer) {
+	public final WG removeLayer(final Layer layer) {
 		
 		if (!isTopLayer(layer)) {
 			
@@ -538,7 +537,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
 	 */
-	public final LG removeTopLayer() {
+	public final WG removeTopLayer() {
 		
 		//Asserts that the current WidgetGUI is not empty.
 		if (isEmpty()) {
@@ -583,7 +582,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final LG resetConfiguration() {
+	public final WG resetConfiguration() {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
@@ -601,7 +600,7 @@ public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implem
 	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
-	public final LG setBackgroundColor(final Color backgroundColor) {
+	public final WG setBackgroundColor(final Color backgroundColor) {
 		
 		backGround.setBackgroundColor(backgroundColor);
 		
