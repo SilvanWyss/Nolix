@@ -14,13 +14,13 @@ public final class WidgetParent {
 	private static final String WIDGET_TYPE_HEADER = "Widget";
 	
 	//optional attribute
-	private final LayerGUI<?> mGui;
+	private final WidgetGUI<?> mGui;
 	
 	//optional attribute
 	private final Widget<?, ?> widget;
 	
 	//constructor
-	public WidgetParent(final LayerGUI<?> pGUI, final Widget<?, ?> childWidget) {
+	public WidgetParent(final WidgetGUI<?> pGUI, final Widget<?, ?> childWidget) {
 		
 		Validator.assertThat(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
 		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
@@ -51,7 +51,7 @@ public final class WidgetParent {
 	}
 	
 	//method
-	public LayerGUI<?> getRefGUI() {
+	public WidgetGUI<?> getRefGUI() {
 		
 		if (mGui != null) {
 			return mGui;
@@ -97,7 +97,7 @@ public final class WidgetParent {
 	}
 	
 	//method
-	public boolean is(final LayerGUI<?> pGUI) {
+	public boolean is(final WidgetGUI<?> pGUI) {
 		
 		Validator.assertThat(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
 		

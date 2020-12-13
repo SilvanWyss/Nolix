@@ -40,7 +40,7 @@ import ch.nolix.element.widget.BorderWidget;
  * -a background {@link Color} or background {@ColorGradient}
  * -a root {@link Widget}
  * 
- * A {@link Layer} can belong to a {@link LayerGUI}.
+ * A {@link Layer} can belong to a {@link WidgetGUI}.
  * 
  * @author Silvan Wyss
  * @month 2019-05
@@ -149,10 +149,10 @@ IResizableInputTaker {
 	
 	//optional attribute
 	/**
-	 * The {@link LayerGUI} the current {@link Layer} belongs to
-	 * if the current {@link Layer} belongs to a {@link LayerGUI}.
+	 * The {@link WidgetGUI} the current {@link Layer} belongs to
+	 * if the current {@link Layer} belongs to a {@link WidgetGUI}.
 	 */
-	private LayerGUI<?> parentGUI;
+	private WidgetGUI<?> parentGUI;
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
@@ -216,8 +216,8 @@ IResizableInputTaker {
 	//method
 	@Override
 	public final void addOrChangeAttribute(final BaseNode attribute) {
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			setRootWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			setRootWidget(WidgetGUI.createWidgetFrom(attribute));
 		}
 		else {
 			super.addOrChangeAttribute(attribute);
@@ -234,7 +234,7 @@ IResizableInputTaker {
 	
 	//method
 	/**
-	 * @return true if the current {@link Layer} belongs to a {@link LayerGUI}.
+	 * @return true if the current {@link Layer} belongs to a {@link WidgetGUI}.
 	 */
 	public final boolean belongsToGUI() {
 		return (parentGUI != null);
@@ -346,11 +346,11 @@ IResizableInputTaker {
 	
 	//method
 	/**
-	 * @return the {@link LayerGUI} the current {@link Layer} belongs to.
+	 * @return the {@link WidgetGUI} the current {@link Layer} belongs to.
 	 * @throws ArgumentDoesNotBelongToParentException
-	 * if the current {@link Layer} does not belong to a {@link LayerGUI}.
+	 * if the current {@link Layer} does not belong to a {@link WidgetGUI}.
 	 */
-	public final LayerGUI<?> getParentGUI() {
+	public final WidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Layer belongs to a GUI.
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -1220,7 +1220,7 @@ IResizableInputTaker {
 	 * @param parentGUI
 	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 */
-	final void setParentGUI(final LayerGUI<?> parentGUI) {
+	final void setParentGUI(final WidgetGUI<?> parentGUI) {
 		
 		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

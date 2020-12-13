@@ -10,7 +10,7 @@ import ch.nolix.common.container.MatrixRow;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -38,7 +38,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 				setWidget(
 					attributes.getRefAt(1).toInt(),
 					attributes.getRefAt(2).toInt(),
-					LayerGUI.createWidgetFrom(attributes.getRefAt(3))
+					WidgetGUI.createWidgetFrom(attributes.getRefAt(3))
 				);
 				
 				break;

@@ -32,7 +32,7 @@ import ch.nolix.element.painter.IPainter;
 
 //class
 /**
- * A {@link Widget} is an element on a {@link LayerGUI}.
+ * A {@link Widget} is an element on a {@link WidgetGUI}.
  * A {@link Widget} determines its width and height.
  * A {@link Widget} is a {@link ConfigurableElement}.
  * 
@@ -223,7 +223,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs directly to a {@link LayerGUI}.
+	 * @return true if the current {@link Widget} belongs directly to a {@link WidgetGUI}.
 	 */
 	public final boolean belongsDirectltyToGUI() {
 		return (parent != null && parent.isGUI());
@@ -231,7 +231,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs to a {@link LayerGUI}, directly or indirectly.
+	 * @return true if the current {@link Widget} belongs to a {@link WidgetGUI}, directly or indirectly.
 	 */
 	public final boolean belongsToGUI() {
 		
@@ -241,7 +241,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs directly to a {@link LayerGUI} or another {@link Widget}.
+	 * @return true if the current {@link Widget} belongs directly to a {@link WidgetGUI} or another {@link Widget}.
 	 */
 	public final boolean belongsToParent() {
 		return (parent != null);
@@ -262,8 +262,8 @@ TopLeftPositionedRecangular {
 	 * @param xPositionOnGUI
 	 * @param yPositionOnGUI
 	 * @return true if the current {@link Widget} contains the point, that has:
-	 * -the given x-position on the {@link LayerGUI} the current {@link Widget} belongs to
-	 * -the given y-position on the {@link LayerGUI} the current {@link Widget} belongs to
+	 * -the given x-position on the {@link WidgetGUI} the current {@link Widget} belongs to
+	 * -the given y-position on the {@link WidgetGUI} the current {@link Widget} belongs to
 	 */
 	public final boolean containsPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
 		
@@ -421,8 +421,8 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the index of the current {@link Widget} on the {@link LayerGUI} the current {@link Widget} belongs to.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link LayerGUI}.
+	 * @return the index of the current {@link Widget} on the {@link WidgetGUI} the current {@link Widget} belongs to.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link WidgetGUI}.
 	 */
 	public final int getIndexOnGUI() {
 		return getParentGUI().getRefWidgets().getIndexOf(this);
@@ -449,7 +449,7 @@ TopLeftPositionedRecangular {
 	 * @throws ArgumentDoesNotBelongToParentException
 	 * if the current {@link Widget} does not belong to a {@link GUI}.
 	 */
-	public final LayerGUI<?> getParentGUI() {
+	public final WidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Widget belongs to a GUI.
 		if (parent == null) {
@@ -582,7 +582,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link Widget} on the {@link LayerGUI}
+	 * @return the x-position of the current {@link Widget} on the {@link WidgetGUI}
 	 * the current {@link Widget} belongs to.
 	 */
 	public final int getXPositionOnGUI() {
@@ -607,7 +607,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the y-position of the current {@link Widget} on the {@link LayerGUI}
+	 * @return the y-position of the current {@link Widget} on the {@link WidgetGUI}
 	 * the current {@link Widget} belongs to.
 	 */
 	public final int getYPositionOnGUI() {
@@ -1413,13 +1413,13 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the {@link LayerGUI} the current {@link Widget} will belong.
+	 * Sets the {@link WidgetGUI} the current {@link Widget} will belong.
 	 * 
 	 * @param parentGUI
 	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
-	public final void setParent(final LayerGUI<?> parentGUI) {
+	public final void setParent(final WidgetGUI<?> parentGUI) {
 		setParent(new WidgetParent(parentGUI, this));
 	}
 	
@@ -1779,7 +1779,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a {@link LayerGUI} that is closed.
+	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a {@link WidgetGUI} that is closed.
 	 */
 	protected final void supposeGUIIsAlive() {
 		if (belongsToGUI() && parent.GUIIsClosed()) {

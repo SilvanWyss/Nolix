@@ -7,7 +7,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -59,8 +59,8 @@ implements Clearable<SingleContainer> {
 	public void addOrChangeAttribute(BaseNode attribute) {
 		
 		//Handles the case that the given attribute specicifies a widget.
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(WidgetGUI.createWidgetFrom(attribute));
 			return;
 		}
 		

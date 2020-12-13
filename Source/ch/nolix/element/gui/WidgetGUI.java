@@ -47,14 +47,14 @@ import ch.nolix.element.widget.VerticalStack;
 
 //class
 /**
- * A {@link LayerGUI} is a {@link GUI} that can contain several {@link ILayer}s, that are stacked.
+ * A {@link WidgetGUI} is a {@link GUI} that can contain several {@link ILayer}s, that are stacked.
  * 
  * @author Silvan Wyss
  * @month 2019-07
  * @lines 810
- * @param <LG> The type of a {@link LayerGUI}.
+ * @param <LG> The type of a {@link WidgetGUI}.
  */
-public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implements Clearable<LG>{
+public abstract class WidgetGUI<LG extends WidgetGUI<LG>> extends GUI<LG> implements Clearable<LG>{
 	
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -87,7 +87,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	//static method
 	/**
 	 * @param type
-	 * @return true if a {@link LayerGUI} can create a {@link Widget} of the given type.
+	 * @return true if a {@link WidgetGUI} can create a {@link Widget} of the given type.
 	 */
 	public static boolean canCreateWidget(final String type) {
 		return widgetProvider.canCreateWidgetOf(type);
@@ -96,7 +96,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	//static method
 	/**
 	 * @param specification
-	 * @return true if a {@link LayerGUI} can create a {@link Widget} from the given specification.
+	 * @return true if a {@link WidgetGUI} can create a {@link Widget} from the given specification.
 	 */
 	public static boolean canCreateWidgetFrom(final BaseNode specification) {
 		return widgetProvider.canCreateWidgetFrom(specification);
@@ -106,7 +106,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	/**
 	 * @param type
 	 * @return a new {@link Widget} of the given type with.
-	 * @throws InvalidArgumentException if a {@link LayerGUI} cannot create a {@link Widget} of the given type.
+	 * @throws InvalidArgumentException if a {@link WidgetGUI} cannot create a {@link Widget} of the given type.
 	 */
 	public static Widget<?, ?> createWidget(final String type) {
 		return widgetProvider.createWidget(type);
@@ -129,7 +129,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param widgetClass
 	 * @throws ArgumentIsNullException if the given widgetClass is null.
 	 * @throws InvalidArgumentException
-	 * if a {@link LayerGUI} contains already a {@link Widget} class wit the same type as the given widgetClass.
+	 * if a {@link WidgetGUI} contains already a {@link Widget} class wit the same type as the given widgetClass.
 	 */
 	public static void registerWidgetClass(final Class<Widget<?, ?>> widgetClass) {
 		widgetProvider.registerWidgetClass(widgetClass);
@@ -142,7 +142,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	 * @param widgetClasses
 	 * @throws ArgumentIsNullException if one of the given widgetClasses is null.
 	 * @throws InvalidArgumentException
-	 * if a {@link LayerGUI} contains already a {@link Widget} class with the same type as one of the given widgetClasses.
+	 * if a {@link WidgetGUI} contains already a {@link Widget} class with the same type as one of the given widgetClasses.
 	 */
 	public static void registerWidgetClass(final Class<?>... widgetClasses) {
 		widgetProvider.registerWidgetClass(widgetClasses);
@@ -165,15 +165,15 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//constructor
 	/**
-	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible.
-	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * Creates a new {@link WidgetGUI}.
+	 * The {@link WidgetGUI} will be visible.
+	 * The {@link WidgetGUI} will forward its received events to the given eventTaker.
 	 * 
 	 * @param visible
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(final IResizableInputTaker inputTaker) {
+	public WidgetGUI(final IResizableInputTaker inputTaker) {
 		
 		super(Visibility.VISIBLE, inputTaker);
 				
@@ -182,14 +182,14 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//constructor
 	/**
-	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible and have the given visualizer..
+	 * Creates a new {@link WidgetGUI}.
+	 * The {@link WidgetGUI} will be visible and have the given visualizer..
 	 * 
 	 * @param visible
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
-	public LayerGUI(IVisualizer visualizer) {
+	public WidgetGUI(IVisualizer visualizer) {
 		
 		super(visualizer);
 		
@@ -198,16 +198,16 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//constructor
 	/**
-	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible and have the given visualizer.
-	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * Creates a new {@link WidgetGUI}.
+	 * The {@link WidgetGUI} will be visible and have the given visualizer.
+	 * The {@link WidgetGUI} will forward its received events to the given eventTaker.
 	 * 
 	 * @param visible
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
+	public WidgetGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
 		
 		super(visualizer, inputTaker);
 		
@@ -216,12 +216,12 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//constructor
 	/**
-	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible according to the given visibility.
+	 * Creates a new {@link WidgetGUI}.
+	 * The {@link WidgetGUI} will be visible according to the given visibility.
 	 * 
 	 * @param visibility
 	 */
-	public LayerGUI(final Visibility visibility) {
+	public WidgetGUI(final Visibility visibility) {
 		
 		super(visibility);
 		
@@ -230,15 +230,15 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//constructor
 	/**
-	 * Creates a new {@link LayerGUI}.
-	 * The {@link LayerGUI} will be visible according to the given visibility
-	 * The {@link LayerGUI} will forward its received events to the given eventTaker.
+	 * Creates a new {@link WidgetGUI}.
+	 * The {@link WidgetGUI} will be visible according to the given visibility
+	 * The {@link WidgetGUI} will forward its received events to the given eventTaker.
 	 * 
 	 * @param visibility
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public LayerGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
+	public WidgetGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
 		super(visibility, inputTaker);
 				
@@ -247,12 +247,12 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 
 	//method
 	/**
-	 * Adds a new {@link Layer} on the top of the current {@link LayerGUI}.
+	 * Adds a new {@link Layer} on the top of the current {@link WidgetGUI}.
 	 * The {@link Layer} will have the given contentPosition and rootWidget.
 	 * 
 	 * @param contentPosition
 	 * @param rootWidget
-	 * @return the current {@link LayerGUI}.
+	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
@@ -262,10 +262,10 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 
 	//method
 	/**
-	 * Adds the given layer on the top of the current {@link LayerGUI}.
+	 * Adds the given layer on the top of the current {@link WidgetGUI}.
 	 * 
 	 * @param layer
-	 * @return the current {@link LayerGUI}.
+	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given layer is null.
 	 */
 	public final LG addLayerOnTop(final Layer layer) {
@@ -284,11 +284,11 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Adds a new {@link Layer} on the top of the current {@link LayerGUI}.
+	 * Adds a new {@link Layer} on the top of the current {@link WidgetGUI}.
 	 * The {@link Layer} will have the given rootWidget.
 	 * 
 	 * @param rootWidget
-	 * @return the current {@link ILayerGUI}.
+	 * @return the current {@link IWidgetGUI}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public final LG addLayerOnTop(final Widget<?, ?> rootWidget) {		
@@ -400,7 +400,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the background {@link Color} of the current {@link LayerGUI}.
+	 * @return the background {@link Color} of the current {@link WidgetGUI}.
 	 */
 	public final Color getBackgroundColor() {
 		return backGround.getBackgroundColor();
@@ -408,22 +408,22 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the {@link CursorIcon} of the current {@link LayerGUI}.
+	 * @return the {@link CursorIcon} of the current {@link WidgetGUI}.
 	 */
 	public final CursorIcon getCursorIcon() {		
 		
-		//Handles the case that the current LayerGUI does not contain a Layer.
+		//Handles the case that the current WidgetGUI does not contain a Layer.
 		if (isEmpty()) {
 			return CursorIcon.ARROW;
 		}
 		
-		//Handles the case that the current LayerGUI contains Layers.
+		//Handles the case that the current WidgetGUI contains Layers.
 		return topLayer.getCursorIcon();
  	}
 	
 	//method
 	/**
-	 * @return the painter commands of the current {@link LayerGUI}.
+	 * @return the painter commands of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<ChainedNode> getPaintCommands() {
 		
@@ -453,7 +453,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the {@link Layer}s of the current {@link LayerGUI}.
+	 * @return the {@link Layer}s of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<Layer> getRefLayers() {
 		return layers;
@@ -462,8 +462,8 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	//method
 	/**
 	 * @param id
-	 * @return the {@link Widget} with the given id from the current {@link LayerGUI}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LayerGUI}
+	 * @return the {@link Widget} with the given id from the current {@link WidgetGUI}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link WidgetGUI}
 	 * does not contain a {@link Widget} with the given id.
 	 */
 	@SuppressWarnings("unchecked")
@@ -473,7 +473,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the {@link Widget}s of the current {@link LayerGUI}.
+	 * @return the {@link Widget}s of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgets() {
 		return layers.toFromMany(Layer::getRefWidgets);
@@ -481,22 +481,22 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 
 	//method
 	/**
-	 * @return the {@link Widget}s, that are for painting, of the current {@link LayerGUI}.
+	 * @return the {@link Widget}s, that are for painting, of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
-		//Handles the case that the current LayerGUI does not contain a Layer.
+		//Handles the case that the current WidgetGUI does not contain a Layer.
 		if (isEmpty()) {
 			return new LinkedList<>();
 		}
 		
-		//Handles the case that the current LayerGUI contains Layers.
+		//Handles the case that the current WidgetGUI contains Layers.
 		return topLayer.getRefWidgetsForPainting();
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link LayerGUI} does not contain a {@link Layer}.
+	 * @return true if the current {@link WidgetGUI} does not contain a {@link Layer}.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -515,10 +515,10 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Removes the given layer from the current {@link LayerGUI}.
+	 * Removes the given layer from the current {@link WidgetGUI}.
 	 * 
 	 * @param layer
-	 * @return the current {@link LayerGUI}.
+	 * @return the current {@link WidgetGUI}.
 	 */
 	public final LG removeLayer(final Layer layer) {
 		
@@ -534,20 +534,20 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Removes the top {@link Layer} from the current {@link LayerGUI}.
+	 * Removes the top {@link Layer} from the current {@link WidgetGUI}.
 	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
 	 */
 	public final LG removeTopLayer() {
 		
-		//Asserts that the current LayerGUI is not empty.
+		//Asserts that the current WidgetGUI is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
 		
 		final var previousTopLayer = getRefTopOrBackgroundLayer();
 		
-		//Handles the case that the current LayerGUI contains 1 layer.
+		//Handles the case that the current WidgetGUI contains 1 layer.
 		if (layers.containsOne()) {
 			clear();
 		}
@@ -594,11 +594,11 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * Sets the background {@link Color} of the current {@link LayerGUI}.
-	 * Removes any former background of the current {@link LayerGUI}.
+	 * Sets the background {@link Color} of the current {@link WidgetGUI}.
+	 * Removes any former background of the current {@link WidgetGUI}.
 	 * 
 	 * @param backgroundColor
-	 * @return the current {@link LayerGUI}.
+	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
 	public final LG setBackgroundColor(final Color backgroundColor) {
@@ -623,18 +623,18 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	
 	//method
 	/**
-	 * @return the top {@link Layer} of the current {@link LayerGUI}
-	 * if the current {@link LayerGUI} contains {@link Layer}s,
-	 * otherwise the background of the current {@link LayerGUI}.
+	 * @return the top {@link Layer} of the current {@link WidgetGUI}
+	 * if the current {@link WidgetGUI} contains {@link Layer}s,
+	 * otherwise the background of the current {@link WidgetGUI}.
 	 */
 	protected final Layer getRefTopOrBackgroundLayer() {
 		
-		//Handles the case that the current LayerGUI does not contain a Layer.
+		//Handles the case that the current WidgetGUI does not contain a Layer.
 		if (isEmpty()) {
 			return backGround;
 		}
 		
-		//Handles the case that the current LayerGUI contains Layers.
+		//Handles the case that the current WidgetGUI contains Layers.
 		return topLayer;
 	}
 	
@@ -810,7 +810,7 @@ public abstract class LayerGUI<LG extends LayerGUI<LG>> extends GUI<LG> implemen
 	//method
 	/**
 	 * @param layer
-	 * @return true if the given layer is the top {@link Layer} of the current {@link LayerGUI}.
+	 * @return true if the given layer is the top {@link Layer} of the current {@link WidgetGUI}.
 	 */
 	private boolean isTopLayer(final Layer layer) {
 		return (topLayer == layer);

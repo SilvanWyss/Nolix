@@ -5,7 +5,7 @@ package ch.nolix.element.gui;
 import ch.nolix.common.state.Visibility;
 
 //class
-public class InvisibleGUI extends LayerGUI<InvisibleGUI> {
+public class InvisibleGUI extends WidgetGUI<InvisibleGUI> {
 	
 	//constructor
 	public InvisibleGUI() {

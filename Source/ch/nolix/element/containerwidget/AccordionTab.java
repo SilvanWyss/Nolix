@@ -19,7 +19,7 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.CursorIcon;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
@@ -114,8 +114,8 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(WidgetGUI.createWidgetFrom(attribute));
 		}
 		
 		else {

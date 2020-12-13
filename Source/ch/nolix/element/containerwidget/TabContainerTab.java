@@ -17,7 +17,7 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.CursorIcon;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Label;
 
@@ -120,8 +120,8 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(WidgetGUI.createWidgetFrom(attribute));
 		}
 		
 		//Handles the case that the given attribute does not specify a widget.
@@ -297,8 +297,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	 * @return the current {@link TabContainerTab}.
 	 * @throws ArgumentIsNullException if the given widget is null.
 	 * @throws InvalidArgumentException
-	 * if the given widget belongs to another {@link ILayerGUI}
-	 * than the current {@link TabContainerTab}.
+	 * if the given widget belongs to another {@link WidgetGUI} than the current {@link TabContainerTab}.
 	 */
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		

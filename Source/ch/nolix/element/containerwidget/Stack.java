@@ -9,7 +9,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableOptionalValue;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -47,8 +47,8 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			addWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			addWidget(WidgetGUI.createWidgetFrom(attribute));
 			return;
 		}
 		

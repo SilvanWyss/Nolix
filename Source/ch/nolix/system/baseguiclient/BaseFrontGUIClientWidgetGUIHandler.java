@@ -9,13 +9,13 @@ import ch.nolix.element.gui.Frame;
 import ch.nolix.element.gui.GUI;
 
 //class
-final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandler {
+final class BaseFrontGUIClientWidgetGUIHandler implements IFrontGUIClientGUIHandler {
 	
 	//attribute
 	private Frame mGUI;
 	
 	//constructor
-	public BaseFrontGUIClientLayerGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+	public BaseFrontGUIClientWidgetGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		
 		mGUI =
 		new Frame(
@@ -32,7 +32,7 @@ final class BaseFrontGUIClientLayerGUIHandler implements IFrontGUIClientGUIHandl
 	//method
 	@Override
 	public BaseFrontGUIClientGUIType getGUIType() {
-		return BaseFrontGUIClientGUIType.LAYER_GUI;
+		return BaseFrontGUIClientGUIType.WIDGET_GUI;
 	}
 	
 	//method

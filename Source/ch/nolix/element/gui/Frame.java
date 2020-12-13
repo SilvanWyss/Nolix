@@ -6,7 +6,7 @@ import ch.nolix.common.state.Visibility;
 import ch.nolix.element.input.IResizableInputTaker;
 
 //class
-public final class Frame extends LayerGUI<Frame> {
+public final class Frame extends WidgetGUI<Frame> {
 	
 	//constructor
 	public Frame() {

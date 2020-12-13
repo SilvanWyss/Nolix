@@ -151,8 +151,8 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 		
 		//Enumerates the front end type of the current back GUI client.
 		switch (getCounterpartGUIType()) {
-			case LAYER_GUI:
-				updateLayerGUIOnCounterpart();
+			case WIDGET_GUI:
+				updateWidgetGUIOnCounterpart();
 				break;
 			case CANVAS_GUI:
 				updateCanvasGUIOnCounterpart();
@@ -402,9 +402,9 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	//method
 	/**
 	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
-	 * for the case when it is a {@link LayerGUI}.
+	 * for the case when it is a {@link WidgetGUI}.
 	 */
-	private void updateLayerGUIOnCounterpart() {
+	private void updateWidgetGUIOnCounterpart() {
 		runGUICommandOnCounterpart(new ChainedNode(CommandProtocol.RESET, getRefGUI().getAttributes()));
 	}
 }

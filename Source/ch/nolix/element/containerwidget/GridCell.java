@@ -11,7 +11,7 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IMutableElement;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 
 //class
@@ -57,8 +57,8 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			setWidget(WidgetGUI.createWidgetFrom(attribute));
 			return;
 		}
 		

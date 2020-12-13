@@ -7,7 +7,7 @@ import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.gui.LayerGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -28,8 +28,8 @@ implements Clearable<FloatContainer> {
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
-		if (LayerGUI.canCreateWidgetFrom(attribute)) {
-			addWidget(LayerGUI.createWidgetFrom(attribute));
+		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
+			addWidget(WidgetGUI.createWidgetFrom(attribute));
 			return;
 		}
 		
