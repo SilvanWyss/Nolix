@@ -2,6 +2,7 @@
 package ch.nolix.system.baseguiclient;
 
 //own imports
+import ch.nolix.element.gui.IWidgetGUI;
 import ch.nolix.element.gui.InvisibleGUI;
 import ch.nolix.system.client.Session;
 
@@ -12,7 +13,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	private final InvisibleGUI mGUI = new InvisibleGUI();
 	
 	//method
-	protected final InvisibleGUI getRefGUI() {
+	protected final IWidgetGUI<?> getRefGUI() {
 		return mGUI;
 	}
 	

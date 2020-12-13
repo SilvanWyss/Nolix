@@ -15,6 +15,7 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.IWidgetGUI;
 import ch.nolix.element.gui.InvisibleGUI;
 import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.InputFactory;
@@ -24,11 +25,11 @@ import ch.nolix.system.client.Client;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-10-01
  * @lines 410
- * @param <BGUIC> The type of a {@link BaseBackGUIClient}.
+ * @param <BBGUIC> The type of a {@link BaseBackGUIClient}.
  */
-public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> extends Client<BGUIC> {
+public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends Client<BBGUIC> {
 	
 	//constant
 	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
@@ -60,7 +61,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	 * the current {@link BaseBackGUIClient}
 	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
-	public final BGUIC showErrorMessageOnCounterpart(final String errorMessage) {
+	public final BBGUIC showErrorMessageOnCounterpart(final String errorMessage) {
 			
 		internalRunOnCounterpart(
 			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, Node.withHeader(errorMessage))
@@ -223,7 +224,7 @@ public abstract class BaseBackGUIClient<BGUIC extends BaseBackGUIClient<BGUIC>> 
 	/**
 	 * @return the {@link GUI} of the current {@link Session} of the current {@link BaseBackGUIClient}.
 	 */
-	private InvisibleGUI getRefGUI() {
+	private IWidgetGUI<?> getRefGUI() {
 		
 		@SuppressWarnings("rawtypes")
 		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
