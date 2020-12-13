@@ -8,8 +8,10 @@ import ch.nolix.element.painter.IPainter;
 
 //class
 /**
+ * A {@link BorderWidgetContentArea} does not store or mutate data.
+ * 
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-08
  * @lines 150
  */
 public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
@@ -143,7 +145,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	//method
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
-		parentBorderWidget.paintContentArea(borderWidgetLook, painter);
+		parentBorderWidget.paintContentArea(borderWidgetLook, painter.createPainter());
 		
 		parentBorderWidget.getRefPaintableWidgets().forEach(cw -> cw.paintRecursively(painter));
 	}
