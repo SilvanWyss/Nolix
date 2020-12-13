@@ -46,8 +46,8 @@ import ch.nolix.element.painter.IPainter;
  * the server would deliver a {@link GUI} with its out-dated soft attributes.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 740
+ * @date 2016-01-01
+ * @lines 730
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -170,30 +170,27 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the {@link IFrontEndReader} of the current {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final IFrontEndReader fromFrontEnd() {
 		return frontEndReader;
 	}
 	
-	//method declaration
-	/**
-	 * @return the cursor icon of the current {@link GUI}.
-	 */
-	public abstract CursorIcon getCursorIcon();
-	
 	//method
 	/**
-	 * @return the x-position of the cursor on the view area of the current {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final int getCursorXPositionOnViewArea() {
 		return cursorPositionOnViewArea.getValue().getValue1();
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the view area of the current {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final int getCursorYPositionOnViewArea() {
 		return cursorPositionOnViewArea.getValue().getValue2();
 	}
@@ -498,8 +495,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the {@link IFrontEndWriter} of the current {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final IFrontEndWriter onFrontEnd() {
 		return frontEndWriter;
 	}
