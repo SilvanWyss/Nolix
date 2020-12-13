@@ -2,6 +2,7 @@
 package ch.nolix.common.endpoint3;
 
 //own imports
+import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.GeneralException;
@@ -16,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 320
+ * @lines 340
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -106,6 +107,17 @@ public class NetEndPoint extends EndPoint {
 		this.internalEndPoint = internalEndPoint;
 		createCloseDependencyTo(internalEndPoint);
 		internalEndPoint.setReceiver(this::receive);		
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void createCloseDependencyTo(final ICloseableElement element) {
+		
+		//This implementation just ensures that it cannot be overwritten.
+		super.createCloseDependencyTo(element);
 	}
 	
 	//method

@@ -3,6 +3,7 @@ package ch.nolix.common.endpoint5;
 
 //own imports
 import ch.nolix.common.chainednode.ChainedNode;
+import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -21,7 +22,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @ate 2016-01-01
- * @lines 280
+ * @lines 290
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -110,6 +111,17 @@ public class NetEndPoint extends EndPoint {
 		
 		//Creates a close dependency from the current NetEndPoint to its internalNetEndPoint.
 		createCloseDependencyTo(internalNetEndPoint);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void createCloseDependencyTo(final ICloseableElement element) {
+		
+		//This implementation just ensures that it cannot be overwritten.
+		super.createCloseDependencyTo(element);
 	}
 	
 	//method

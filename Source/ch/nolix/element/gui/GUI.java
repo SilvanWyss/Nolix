@@ -6,6 +6,7 @@ import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -46,7 +47,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 730
+ * @lines 740
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -568,6 +569,17 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		this.frontEndReader = frontEndReader;
 		this.frontEndWriter = frontEndWriter;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void setPreCloseAction(final IAction preCloseAction) {
+		
+		//This implementation just ensures that it cannot be overwritten.
+		IBaseGUI.super.setPreCloseAction(preCloseAction);
 	}
 	
 	//method
