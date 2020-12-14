@@ -11,7 +11,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 210
+ * @lines 260
  */
 public final class BorderWidgetShowArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
 implements TopLeftPositionedRecangular {
@@ -184,6 +184,48 @@ implements TopLeftPositionedRecangular {
 	 */
 	public int getYPosition() {
 		return parentBorderWidget.getBorderedArea().getYPosition();
+	}
+	
+	//method
+	/**
+	 * @return true if the the current {@link BorderWidgetShowArea} has a max height.
+	 */
+	public boolean hasMaxHeight() {
+		return parentBorderWidget.hasMaxHeight();
+	}
+	
+	//method
+	/**
+	 * @return true if the the current {@link BorderWidgetShowArea} has a max width.
+	 */
+	public boolean hasMaxWidth() {
+		return parentBorderWidget.hasMaxWidth();
+	}
+	
+	//method
+	/**
+	 * @return true if the the current {@link BorderWidgetShowArea} has a min height.
+	 */
+	public boolean hasMinHeight() {
+		return parentBorderWidget.hasMinHeight();
+	}
+	
+	//method
+	/**
+	 * @return true if the the current {@link BorderWidgetShowArea} has a min width.
+	 */
+	public boolean hasMinWidth() {
+		return parentBorderWidget.hasMinWidth();
+	}
+	
+	//method
+	public boolean hasProposalHeight() {
+		return parentBorderWidget.hasProposalHeight();
+	}
+	
+	//method
+	public boolean hasProposalWidth() {
+		return parentBorderWidget.hasProposalWidth();
 	}
 	
 	//method
