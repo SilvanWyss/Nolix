@@ -22,7 +22,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	 */
 	private final BorderWidget<BW, BWL> parentBorderWidget;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link BorderWidgetContentArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -79,7 +79,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 		
 		final var look = parentBorderWidget.getRefLook();
 		
-		//Enumerates the content position of the current border widget.
+		//Enumerates the content position of the BoderWidget of the current BorderWidgetContentArea.
 		switch (parentBorderWidget.getContentPosition()) {
 			case LEFT_TOP:
 			case LEFT:
@@ -88,7 +88,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 			case TOP:
 			case CENTER:
 			case BOTTOM:
-				return (parentBorderWidget.getScrolledArea().getWidth() - parentBorderWidget.getContentAreaWidth()) / 2;
+				return (parentBorderWidget.getScrolledArea().getWidth() - getWidth()) / 2;
 			case RIGHT_TOP:
 			case RIGHT:
 			case RIGHT_BOTTOM:				
@@ -110,7 +110,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 		
 		final var look = parentBorderWidget.getRefLook();
 		
-		//Enumerates the content orientation of the current border widget.
+		//Enumerates the content position of the BoderWidget of the current BorderWidgetContentArea.
 		switch (parentBorderWidget.getContentPosition()) {
 			case LEFT_TOP:
 			case TOP:
@@ -120,7 +120,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 			case CENTER:
 			case RIGHT:
 				return
-				(parentBorderWidget.getScrolledArea().getHeight() - parentBorderWidget.getContentAreaHeight()) / 2;
+				(parentBorderWidget.getScrolledArea().getHeight() - getHeight()) / 2;
 			case LEFT_BOTTOM:
 			case BOTTOM:
 			case RIGHT_BOTTOM:
@@ -134,15 +134,19 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	}
 	
 	//method
-	public boolean isUnderCursor() {		
+	public boolean isUnderCursor() {
+		
+		final var cursorXPosition = getCursorXPosition();
+		final var cursorYPosition = getCursorYPosition();
+		
 		return
-		getCursorXPosition() >= 1
-		&& getCursorYPosition() >= 1
-		&& getCursorXPosition() <= getWidth()
-		&& getCursorYPosition() <= getHeight();
+		cursorXPosition >= 0
+		&& cursorYPosition >= 0
+		&& cursorXPosition < getWidth()
+		&& cursorYPosition < getHeight();
 	}
 	
-	//method
+	//visibility-reduced method
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		parentBorderWidget.paintContentArea(borderWidgetLook, painter.createPainter());
