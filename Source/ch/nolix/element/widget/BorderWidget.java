@@ -62,7 +62,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1760
+ * @lines 1710
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
@@ -1572,63 +1572,7 @@ extends Widget<BW, BWL> {
 	 */
 	@Override
 	protected final void paint(final IPainter painter, final BWL borderWidgetLook) {
-		
-		//Paints the left border if the given widget structure has an active left border thickness.
-		if (borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness() > 0) {
-			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultLeftBorderColor());
-			
-			painter.paintFilledRectangle(
-				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
-				getHeightWhenNotCollapsed()
-			);
-		}
-		
-		//Paints the right border if the given widget structure has an active right border thickness.
-		if (borderWidgetLook.getRecursiveOrDefaultRightBorderThickness() > 0) {
-			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultRightBorderColor());
-			
-			painter.paintFilledRectangle(
-				getWidth() - borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
-				0,
-				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
-				getHeightWhenNotCollapsed()
-			);
-		}
-		
-		//Paints the top border if the given widget structure has an active top border thickness.
-		if (borderWidgetLook.getRecursiveOrDefaultTopBorderThickness() > 0) {
-			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultTopBorderColor());
-			
-			painter.paintFilledRectangle(
-				getWidth(),
-				borderWidgetLook.getRecursiveOrDefaultTopBorderThickness()
-			);
-		}
-		
-		//Paints the bottom border if the given widget structure has an active bottom border thickness.
-		if (borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness() > 0) {
-			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultBottomBorderColor());
-			
-			painter.paintFilledRectangle(
-				0,
-				getHeightWhenNotCollapsed() - borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness(),
-				getWidth(),
-				borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness()
-			);
-		}
-		
-		//Paints the bordered area of the current border widget.
-		borderedArea.paint(
-			painter.createPainter(
-				borderedArea.getXPosition(),
-				borderedArea.getYPosition()
-			),
-			borderWidgetLook
-		);
+		mainArea.paint(painter, borderWidgetLook);
 	}
 	
 	//method declaration
