@@ -5,6 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
+import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -12,24 +13,26 @@ import ch.nolix.element.baseguiapi.HoverableByCursor;
  * 
  * @author Silvan Wyss
  * @date 2019-06-26
- * @lines 90
+ * @lines 100
+ * @param <BWL>
+ * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of the current {@link BorderWidgetMainArea}.
  */
-public final class BorderWidgetMainArea implements HoverableByCursor {
+public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//attribute
 	/**
 	 * The {@link BorderWidget} the current {@link BorderWidgetMainArea} belongs to.
 	 */
-	private final BorderWidget<?, ?> parentBorderWidget;
+	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link BorderWidgetMainArea} that will belong to the given parentBorderWidget.
 	 * 
 	 * @param parentBorderWidget
 	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
-	public BorderWidgetMainArea(final BorderWidget<?, ?> parentBorderWidget) {
+	BorderWidgetMainArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
 		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
@@ -90,5 +93,16 @@ public final class BorderWidgetMainArea implements HoverableByCursor {
 	@Override
 	public int getYPosition() {
 		return 0;
+	}
+	
+	//visibility-reduced method
+	/**
+	 * Paints the current {@link BorderWidgetMainArea} using the given painter and borderWidgetLook.
+	 * 
+	 * @param painter
+	 * @param borderWidgetLook
+	 */
+	void paint(final IPainter painter, final BWL borderWidgetLook) {
+		parentBorderWidget.getBorderedArea().paint(painter, borderWidgetLook);
 	}
 }

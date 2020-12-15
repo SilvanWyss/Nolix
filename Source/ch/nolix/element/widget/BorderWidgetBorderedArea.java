@@ -14,15 +14,17 @@ import ch.nolix.element.painter.IPainter;
  * @author Silvan Wyss
  * @date 2019-05-05
  * @lines 180
+ * @param <BWL>
+ * The type of the {@link BorderWidgetLook} of the {@link BorderWidget}
+ * of the current {@link BorderWidgetBorderedArea}.
  */
-public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
-implements HoverableByCursor {
+public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//attribute
 	/**
 	 * The {@link BorderWidget} the current {@link BorderWidgetBorderedArea} belongs to.
 	 */
-	private final BorderWidget<BW, BWL> parentBorderWidget;
+	private final BorderWidget<?, BWL> parentBorderWidget;
 	
 	//visibility-reduced constructor
 	/**
@@ -31,7 +33,7 @@ implements HoverableByCursor {
 	 * @param parentBorderWidget
 	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
-	BorderWidgetBorderedArea(final BorderWidget<BW, BWL> parentBorderWidget) {
+	BorderWidgetBorderedArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
 		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();

@@ -183,10 +183,10 @@ extends Widget<BW, BWL> {
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute
 	);
-		
+	
 	//attributes
-	private final BorderWidgetMainArea mainArea = new BorderWidgetMainArea(this);
-	private final BorderWidgetBorderedArea<BW, BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
+	private final BorderWidgetMainArea<BWL> mainArea = new BorderWidgetMainArea<>(this);
+	private final BorderWidgetBorderedArea<BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
 	private final BorderWidgetShowArea<BW, BWL> showArea = new BorderWidgetShowArea<>(this);
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
@@ -249,7 +249,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the bordered area of the current {@link BorderWidget}.
 	 */
-	public final BorderWidgetBorderedArea<BW, BWL> getBorderedArea() {
+	public final BorderWidgetBorderedArea<BWL> getBorderedArea() {
 		return borderedArea;
 	}
 	
@@ -313,7 +313,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the main area of the current {@link BorderWidget}.
 	 */
-	public final BorderWidgetMainArea getMainArea() {
+	public final BorderWidgetMainArea<BWL> getMainArea() {
 		return mainArea;
 	}
 	
