@@ -8,6 +8,8 @@ import ch.nolix.element.baseguiapi.HoverableByCursor;
 
 //class
 /**
+ * A {@link BorderWidgetMainArea} does not store or mutate data.
+ * 
  * @author Silvan Wyss
  * @date 2019-06-26
  * @lines 90
