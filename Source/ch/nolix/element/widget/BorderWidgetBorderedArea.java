@@ -13,7 +13,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-05
- * @lines 180
+ * @lines 200
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget}
  * of the current {@link BorderWidgetBorderedArea}.
@@ -73,6 +73,26 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		parentBorderWidget.getMainArea().getHeight()
 		- look.getRecursiveOrDefaultTopBorderThickness()
 		- look.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the natural height of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getNaturalHeight() {
+		return
+		parentBorderWidget.getShowArea().getNaturalHeight()
+		+ parentBorderWidget.getHorizontalScrollBarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the natural width of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getNaturalWidth() {
+		return
+		parentBorderWidget.getShowArea().getNaturalWidth()
+		+ parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
