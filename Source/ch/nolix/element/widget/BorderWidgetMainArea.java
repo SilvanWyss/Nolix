@@ -13,7 +13,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-06-26
- * @lines 190
+ * @lines 240
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of the current {@link BorderWidgetMainArea}.
  */
@@ -70,6 +70,38 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	
 	//method
 	/**
+	 * @return the max height of the current {@link BorderWidgetMainArea}.
+	 */
+	public int getMaxHeight() {
+		return parentBorderWidget.getMaxHeight();
+	}
+	
+	//method
+	/**
+	 * @return the max width of the current {@link BorderWidgetMainArea}.
+	 */
+	public int getMaxWidth() {
+		return parentBorderWidget.getMaxWidth();
+	}
+	
+	//method
+	/**
+	 * @return the min height of the current {@link BorderWidgetMainArea}.
+	 */
+	public int getMinHeight() {
+		return parentBorderWidget.getMinHeight();
+	}
+	
+	//method
+	/**
+	 * @return the min width of the current {@link BorderWidgetMainArea}.
+	 */
+	public int getMinWidth() {
+		return parentBorderWidget.getMinWidth();
+	}
+	
+	//method
+	/**
 	 * @return the natural height of the current {@link BorderWidgetMainArea}.
 	 */
 	public int getNaturalHeight() {
@@ -96,6 +128,22 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 		+ look.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
+	//method
+	/**
+	 * @return the proposal height of the current {@link BorderWidgetMainArea}.
+	 */
+	public int getProposalHeight() {
+		return parentBorderWidget.getProposalHeight();
+	}
+	
+	//method
+	/**
+	 * @return the proposal width of the current {@link BorderWidgetMainArea}.
+	 */
+	public int getProposalWidth() {
+		return parentBorderWidget.getProposalWidth();
+	}
+		
 	//method
 	/**
 	 * {@inheritDoc}
