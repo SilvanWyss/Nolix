@@ -123,8 +123,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
-		//Paints the vertical scroll bar if the BorderWidget of the current BorderWidgetBorderedArea
-		//has a vertical scroll bar.
+		//Paints the vertical scroll bar of the BorderWidget of the current BorderWidgetBorderedArea if
+		//the BorderWidget of the current BorderWidgetBorderedArea has a vertical scroll bar.
 		if (parentBorderWidget.hasActivatedVerticalScrollBar()) {
 			
 			//Paints the vertical scroll bar of the BorderWidget of the current BorderWidgetBorderedArea.				
@@ -146,8 +146,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 			);
 		}
 		
-		//Paints the horizontal scroll bar if the BorderWidget of the current BorderWidgetBorderedArea
-		//has a horizontal scroll bar.
+		//Paints the horizontal scroll bar of the BorderWidget of the current BorderWidgetBorderedArea if
+		//the BorderWidget of the current BorderWidgetBorderedArea has a horizontal scroll bar.
 		if (parentBorderWidget.hasActivatedHorizontalScrollBar()) {
 			
 			//Paints the horizontal scroll bar of the BorderWidget of the current BorderWidgetBorderedArea.	
