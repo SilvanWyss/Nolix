@@ -62,7 +62,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1710
+ * @lines 1690
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
@@ -358,14 +358,7 @@ extends Widget<BW, BWL> {
 	 * @return the natural height of the current {@link BorderWidget}.
 	 */
 	public final int getNaturalHeight() {
-		
-		final var currentStructure = getRefLook();
-		
-		return
-		currentStructure.getRecursiveOrDefaultTopBorderThickness()
-		+ scrolledArea.getNaturalHeight()
-		+ getHorizontalScrollBarThickness()
-		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
+		return mainArea.getNaturalHeight();
 	}
 	
 	//method
@@ -373,14 +366,7 @@ extends Widget<BW, BWL> {
 	 * @return the natural width of the current {@link BorderWidget}.
 	 */
 	public final int getNaturalWidth() {
-		
-		final var currentStructure = getRefLook();
-		
-		return
-		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		+ scrolledArea.getNaturalWidth()
-		+ getVerticalScrollBarThickness()
-		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
+		return mainArea.getNaturalWidth();
 	}
 	
 	//method
