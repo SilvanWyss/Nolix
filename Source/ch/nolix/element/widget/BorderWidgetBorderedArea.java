@@ -13,7 +13,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-05
- * @lines 200
+ * @lines 280
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget}
  * of the current {@link BorderWidgetBorderedArea}.
@@ -77,6 +77,62 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	
 	//method
 	/**
+	 * @return the max height of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getMaxHeight() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getMaxHeight()
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the max width of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getMaxWidth() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getMaxWidth()
+		- look.getRecursiveOrDefaultLeftBorderThickness()
+		- look.getRecursiveOrDefaultRightBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the min height of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getMinHeight() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getMinHeight()
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the min width of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getMinWidth() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getMinWidth()
+		- look.getRecursiveOrDefaultLeftBorderThickness()
+		- look.getRecursiveOrDefaultRightBorderThickness();
+	}
+	
+	//method
+	/**
 	 * @return the natural height of the current {@link BorderWidgetBorderedArea}.
 	 */
 	public int getNaturalHeight() {
@@ -93,6 +149,34 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		return
 		parentBorderWidget.getShowArea().getNaturalWidth()
 		+ parentBorderWidget.getVerticalScrollBarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the proposal height of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getProposalHeight() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getProposalHeight()
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the proposal width of the current {@link BorderWidgetBorderedArea}.
+	 */
+	public int getProposalWidth() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getProposalWidth()
+		- look.getRecursiveOrDefaultLeftBorderThickness()
+		- look.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
