@@ -62,7 +62,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1750
+ * @lines 1760
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
@@ -975,12 +975,17 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final int getHeightWhenNotCollapsed() {
 		
-		final var look = getRefLook();
+		var height = hasProposalHeight() ? getProposalHeight() : getNaturalHeight();
 		
-		return
-		look.getRecursiveOrDefaultTopBorderThickness()		
-		+ borderedArea.getHeight()
-		+ look.getRecursiveOrDefaultBottomBorderThickness();
+		if (hasMinHeight()) {
+			height = Calculator.getMax(getMinHeight(), height);
+		}
+		
+		if (hasMaxHeight()) {
+			height = Calculator.getMin(getMaxHeight(), height);
+		}
+		
+		return height;
 	}
 	
 	//method
@@ -1183,12 +1188,17 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final int getWidthWhenExpanded() {
 		
-		final var look = getRefLook();
+		var width = hasProposalWidth() ? getProposalWidth() : getNaturalWidth();
+				
+		if (hasMinWidth()) {
+			width = Calculator.getMax(getMinWidth(), width);
+		}
 		
-		return
-		look.getRecursiveOrDefaultLeftBorderThickness()		
-		+ borderedArea.getWidth()
-		+ look.getRecursiveOrDefaultRightBorderThickness();
+		if (hasMaxWidth()) {
+			width = Calculator.getMin(getMaxWidth(), width);
+		}
+		
+		return width;
 	}
 	
 	//method
