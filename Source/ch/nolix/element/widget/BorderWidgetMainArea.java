@@ -2,15 +2,17 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-06
- * @lines 60
+ * @date 2019-06-26
+ * @lines 50
  */
-public final class BorderWidgetMainArea {
+public final class BorderWidgetMainArea implements Rectangular {
 	
 	//attribute
 	/**
@@ -27,36 +29,26 @@ public final class BorderWidgetMainArea {
 	 */
 	public BorderWidgetMainArea(final BorderWidget<?, ?> parentBorderWidget) {
 		
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		this.parentBorderWidget = parentBorderWidget;
 	}
 	
 	//method
 	/**
-	 * @return the height of the current {@link BorderWidgetMainArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getHeight() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		look.getRecursiveOrDefaultTopBorderThickness()		
-		+ parentBorderWidget.getBorderedArea().getHeight()
-		+ look.getRecursiveOrDefaultBottomBorderThickness();
+		return parentBorderWidget.getHeight();
 	}
 	
 	//method
 	/**
-	 * @return the width of the current {@link BorderWidgetMainArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getWidth() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		look.getRecursiveOrDefaultLeftBorderThickness()		
-		+ parentBorderWidget.getBorderedArea().getWidth()
-		+ look.getRecursiveOrDefaultRightBorderThickness();
+		return parentBorderWidget.getWidth();
 	}
 }
