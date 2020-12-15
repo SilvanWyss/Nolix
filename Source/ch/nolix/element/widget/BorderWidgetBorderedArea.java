@@ -2,16 +2,21 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.baseguiapi.HoverableByCursor;
 import ch.nolix.element.painter.IPainter;
 
 //class
 /**
+ * A {@link BorderWidgetBorderedArea} does not store or mutate data.
+ * 
  * @author Silvan Wyss
- * @month 2019-05
- * @lines 160
+ * @date 2019-05-05
+ * @lines 180
  */
-public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
+public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
+implements HoverableByCursor {
 	
 	//attribute
 	/**
@@ -19,7 +24,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	private final BorderWidget<BW, BWL> parentBorderWidget;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link BorderWidgetBorderedArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -29,7 +34,7 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	BorderWidgetBorderedArea(final BorderWidget<BW, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		//Sets the parentBorderWidget of the current BorderWidgetArea.
 		this.parentBorderWidget = parentBorderWidget;
@@ -37,34 +42,50 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the current {@link BorderWidgetBorderedArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getCursorXPosition() {
 		return (parentBorderWidget.getCursorXPosition() - getXPosition());
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the current {@link BorderWidgetBorderedArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getCursorYPosition() {
 		return (parentBorderWidget.getCursorYPosition() - getYPosition());
 	}
 	
 	//method
 	/**
-	 * @return the height of the current {@link BorderWidgetBorderedArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getHeight() {
-		return parentBorderWidget.getShowArea().getHeight() + parentBorderWidget.getHorizontalScrollBarThickness();
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getHeight()
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
 	//method
 	/**
-	 * @return the width of the current {@link BorderWidgetBorderedArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getWidth() {
-		return parentBorderWidget.getShowArea().getWidth() + parentBorderWidget.getVerticalScrollBarThickness();
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getWidth()
+		- look.getRecursiveOrDefaultLeftBorderThickness()
+		- look.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
@@ -91,64 +112,62 @@ public final class BorderWidgetBorderedArea<BW extends BorderWidget<BW, BWL>, BW
 		return look.getRecursiveOrDefaultTopBorderThickness();
 	}
 	
-	//method
+	//visibility-reduced method
 	/**
-	 * Paints the current {@link BorderWidgetBorderedArea} using the given borderWidgetLook and painter.
+	 * Paints the current {@link BorderWidgetBorderedArea} using the given painter and borderWidgetLook.
 	 * 
 	 * @param painter
 	 * @param borderWidgetLook
 	 */
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
-		//Paints the vertical scroll bar if the parent BorderWidget has a vertical scroll bar.
+		//Paints the vertical scroll bar if the BorderWidget of the current BorderWidgetBorderedArea
+		//has a vertical scroll bar.
 		if (parentBorderWidget.hasActivatedVerticalScrollBar()) {
 			
-			//Paints the vertical scroll bar.				
-				painter.setColor(parentBorderWidget.getVerticalScrollBarColor());
-				
-				painter.paintFilledRectangle(
-					parentBorderWidget.getVerticalScrollBarXPositionOnBorderedArea(),
-					0,
-					parentBorderWidget.getVerticalScrollBarThickness(),
-					parentBorderWidget.getShowArea().getHeight()
-				);
+			//Paints the vertical scroll bar of the BorderWidget of the current BorderWidgetBorderedArea.				
+			painter.setColor(parentBorderWidget.getVerticalScrollBarColor());	
+			painter.paintFilledRectangle(
+				parentBorderWidget.getVerticalScrollBarXPositionOnBorderedArea(),
+				0,
+				parentBorderWidget.getVerticalScrollBarThickness(),
+				parentBorderWidget.getShowArea().getHeight()
+			);
 			
-			//Paints the vertical scroll bar cursor.				
-				painter.setColor(parentBorderWidget.getVerticalScrollBarCursorColor());
-				
-				painter.paintFilledRectangle(
-					parentBorderWidget.getVerticalScrollBarXPositionOnBorderedArea(),
-					parentBorderWidget.getVerticalScrollBarCursorYPositionOnVerticalScrollBar(),
-					parentBorderWidget.getVerticalScrollBarThickness(),
-					parentBorderWidget.getVerticalScrollBarCursorHeight()
-				);
+			//Paints the vertical scroll bar cursor of the BorderWidget of the current BorderWidgetBorderedArea.				
+			painter.setColor(parentBorderWidget.getVerticalScrollBarCursorColor());
+			painter.paintFilledRectangle(
+				parentBorderWidget.getVerticalScrollBarXPositionOnBorderedArea(),
+				parentBorderWidget.getVerticalScrollBarCursorYPositionOnVerticalScrollBar(),
+				parentBorderWidget.getVerticalScrollBarThickness(),
+				parentBorderWidget.getVerticalScrollBarCursorHeight()
+			);
 		}
 		
-		//Paints the horizontal scroll bar if the parent BorderWidget has a horizontal scroll bar.
+		//Paints the horizontal scroll bar if the BorderWidget of the current BorderWidgetBorderedArea
+		//has a horizontal scroll bar.
 		if (parentBorderWidget.hasActivatedHorizontalScrollBar()) {
 			
-			//Paints the horizontal scroll bar.	
-				painter.setColor(parentBorderWidget.getHorizontalScrollBarColor());
-				
-				painter.paintFilledRectangle(
-					0,
-					parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
-					parentBorderWidget.getShowArea().getWidth(),
-					parentBorderWidget.getHorizontalScrollBarThickness()
-				);
+			//Paints the horizontal scroll bar of the BorderWidget of the current BorderWidgetBorderedArea.	
+			painter.setColor(parentBorderWidget.getHorizontalScrollBarColor());
+			painter.paintFilledRectangle(
+				0,
+				parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
+				parentBorderWidget.getShowArea().getWidth(),
+				parentBorderWidget.getHorizontalScrollBarThickness()
+			);
 			
-			//Paints the horizontal scroll bar cursor.			
-				painter.setColor(parentBorderWidget.getHorizontalScrollBarCursorColor());
-				
-				painter.paintFilledRectangle(
-					parentBorderWidget.getHorizontalScrollBarCursorXPositionOnHorizontalScrollBar(),
-					parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
-					parentBorderWidget.getHorizontalScrollBarCursorWidth(),
-					parentBorderWidget.getHorizontalScrollBarThickness()
-				);
+			//Paints the horizontal scroll bar cursor of the BorderWidget of the current BorderWidgetBorderedArea.			
+			painter.setColor(parentBorderWidget.getHorizontalScrollBarCursorColor());
+			painter.paintFilledRectangle(
+				parentBorderWidget.getHorizontalScrollBarCursorXPositionOnHorizontalScrollBar(),
+				parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
+				parentBorderWidget.getHorizontalScrollBarCursorWidth(),
+				parentBorderWidget.getHorizontalScrollBarThickness()
+			);
 		}
 		
-		//Paints the view area of the parent BorderWidget.
+		//Paints the show area of the BorderWidget of the current BorderWidgetBorderedArea.
 		parentBorderWidget.getShowArea().paint(
 			painter.createPainter(
 				0,
