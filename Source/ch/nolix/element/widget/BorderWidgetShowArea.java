@@ -2,20 +2,21 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.math.Calculator;
-import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.baseguiapi.HoverableByCursor;
 import ch.nolix.element.painter.IPainter;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-9
  * @lines 260
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
-public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> implements TopLeftPositionedRecangular {
+public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//attribute
 	/**
@@ -23,7 +24,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link BorderWidgetShowArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -33,32 +34,35 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	BorderWidgetShowArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
-		//Sets the parentBorderWidget of the current BorderWidgetArea.
+		//Sets the parentBorderWidget of the current BorderWidgetShowArea.
 		this.parentBorderWidget = parentBorderWidget;
 	}
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the current {@link BorderWidgetShowArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getCursorXPosition() {
 		return (parentBorderWidget.getCursorXPosition() - getXPosition());
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the current {@link BorderWidgetShowArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getCursorYPosition() {
 		return (parentBorderWidget.getCursorYPosition() - getYPosition());
 	}
 	
 	//method
 	/**
-	 * @return the height of the current {@link BorderWidgetShowArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getHeight() {
 		
 		var height = parentBorderWidget.hasProposalHeight() ? getProposalHeight() : getNaturalHeight();
@@ -156,8 +160,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	
 	//method
 	/**
-	 * @return the width of the current {@link BorderWidgetShowArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getWidth() {
 		
 		var viewAreaWidth = parentBorderWidget.hasProposalWidth() ? getProposalWidth() : getNaturalWidth();
@@ -177,6 +182,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	/**
 	 * @return the x-position of the current {@link BorderWidgetShowArea} on the {@link BorderWidget} it belongs to.
 	 */
+	@Override
 	public int getXPosition() {
 		return parentBorderWidget.getBorderedArea().getXPosition();
 	}
@@ -185,6 +191,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	/**
 	 * @return the y-position of the current {@link BorderWidgetShowArea} on the {@link BorderWidget} it belongs to.
 	 */
+	@Override
 	public int getYPosition() {
 		return parentBorderWidget.getBorderedArea().getYPosition();
 	}
@@ -231,17 +238,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 		return parentBorderWidget.hasProposalWidth();
 	}
 	
-	//method
+	//visibility-reduced method
 	/**
-	 * @return true if the current {@link BorderWidgetShowArea} is under the cursor.
-	 */
-	public boolean isUnderCursor() {
-		return containsPointRelatively(getCursorXPosition(), getCursorYPosition());
-	}
-	
-	//method
-	/**
-	 * Paints the current {@link BorderWidgetShowArea} using the given borderWidgetLook and painter.
+	 * Paints the current {@link BorderWidgetShowArea} using the given painter and borderWidgetLook.
 	 * 
 	 * @param painter
 	 * @param borderWidgetLook
