@@ -11,14 +11,16 @@ import ch.nolix.element.painter.IPainter;
  * @author Silvan Wyss
  * @date 2019-05-08
  * @lines 220
+ * @param <BWL>
+ * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */
-public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
+public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> {
 	
 	//attribute
 	/**
 	 * The {@link BorderWidget} the current {@link BorderWidgetScrolledArea} belongs to.
 	 */
-	private final BorderWidget<BW, BWL> parentBorderWidget;
+	private final BorderWidget<?, BWL> parentBorderWidget;
 	
 	//constructor
 	/**
@@ -27,7 +29,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @param parentBorderWidget
 	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
-	BorderWidgetScrolledArea(final BorderWidget<BW, BWL> parentBorderWidget) {
+	BorderWidgetScrolledArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
 		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
