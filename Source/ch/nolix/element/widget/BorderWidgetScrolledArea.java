@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painter.IPainter;
@@ -22,7 +23,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> {
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link BorderWidgetScrolledArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -32,7 +33,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> {
 	BorderWidgetScrolledArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		//Sets the parentBorderWidget of the current BorderWidgetScrolledArea.
 		this.parentBorderWidget = parentBorderWidget;
@@ -174,7 +175,13 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> {
 		return scrolledAreaWidth;
 	}
 	
-	//method
+	//visibility-reduced method
+	/**
+	 * Paints the current {@link BorderWidgetScrolledArea} using the given painter and borderWidgetLook.
+	 * 
+	 * @param painter
+	 * @param borderWidgetLook
+	 */
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		paintBackground(painter, borderWidgetLook);
@@ -192,14 +199,18 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> {
 	}
 	
 	//method
+	/**
+	 * Paints the background of the current {@link BorderWidgetScrolledArea} using the given painter and borderWidgetLook.
+	 * 
+	 * @param painter
+	 * @param borderWidgetLook
+	 */
 	private void paintBackground(final IPainter painter, final BWL borderWidgetLook) {
 		
 		//Handles the case that the given borderWidgetLook has a recursive background color.
 		if (borderWidgetLook.hasRecursiveBackgroundColor()) {
 			
-			painter.setColor(
-					borderWidgetLook.getRecursiveOrDefaultBackgroundColor()
-			);
+			painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColor());
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
@@ -207,20 +218,14 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> {
 		//Handles the case that the given borderWidgetLook has a recursive background color gradient.
 		else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
 			
-			painter.setColorGradient(
-				borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient()
-			);
+			painter.setColorGradient(borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient());
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
 		
 		//Handles the case that the given borderWidgetLook has a recursive background image.
 		else if (borderWidgetLook.hasRecursiveBackgroundImage()) {
-			painter.paintImage(
-				borderWidgetLook.getRecursiveOrDefaultBackgroundImage(),
-				getWidth(),
-				getHeight()
-			);
+			painter.paintImage(borderWidgetLook.getRecursiveOrDefaultBackgroundImage(),	getWidth(),	getHeight());
 		}
 	}
 }
