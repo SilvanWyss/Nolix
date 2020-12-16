@@ -108,7 +108,9 @@ implements TopLeftPositionedRecangular {
 	 * @return the min height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMinHeight() {
-		return parentBorderWidget.getScrolledArea().getMinHeight();
+		return
+		parentBorderWidget.getBorderedArea().getMinHeight()
+		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -116,7 +118,7 @@ implements TopLeftPositionedRecangular {
 	 * @return the min width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMinWidth() {
-		return parentBorderWidget.getScrolledArea().getMinWidth();
+		return parentBorderWidget.getBorderedArea().getMinWidth() - parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
