@@ -189,7 +189,7 @@ extends Widget<BW, BWL> {
 	private final BorderWidgetBorderedArea<BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
 	private final BorderWidgetShowArea<BWL> showArea = new BorderWidgetShowArea<>(this);
 	private final BorderWidgetScrolledArea<BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
-	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
+	private final BorderWidgetContentArea<BWL> contentArea = new BorderWidgetContentArea<>(this);
 	
 	//attributes
 	private boolean isMovingVerticalScrollBarCursor;
@@ -257,7 +257,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the content area of the current {@link BorderWidget}.
 	 */
-	public final BorderWidgetContentArea<BW, BWL> getContentArea() {
+	public final BorderWidgetContentArea<BWL> getContentArea() {
 		return contentArea;
 	}
 	
