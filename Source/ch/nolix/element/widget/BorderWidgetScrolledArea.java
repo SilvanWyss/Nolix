@@ -9,6 +9,8 @@ import ch.nolix.element.painter.IPainter;
 
 //class
 /**
+ * A {@link BorderWidgetScrolledArea} does not store or mutate data.
+ * 
  * @author Silvan Wyss
  * @date 2019-05-08
  * @lines 230
