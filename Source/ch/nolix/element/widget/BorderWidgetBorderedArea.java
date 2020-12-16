@@ -15,8 +15,7 @@ import ch.nolix.element.painter.IPainter;
  * @date 2019-05-05
  * @lines 280
  * @param <BWL>
- * The type of the {@link BorderWidgetLook} of the {@link BorderWidget}
- * of the current {@link BorderWidgetBorderedArea}.
+ * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetBorderedArea}.
  */
 public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
