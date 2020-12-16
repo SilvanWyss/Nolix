@@ -202,7 +202,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		final var look = parentBorderWidget.getRefLook();
 		
-		return look.getRecursiveOrDefaultLeftBorderThickness();
+		return parentBorderWidget.getMainArea().getXPosition() + look.getRecursiveOrDefaultLeftBorderThickness();
 	}
 	
 	//method
@@ -214,7 +214,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		final var look = parentBorderWidget.getRefLook();
 		
-		return look.getRecursiveOrDefaultTopBorderThickness();
+		return parentBorderWidget.getMainArea().getYPosition() +  look.getRecursiveOrDefaultTopBorderThickness();
 	}
 	
 	//visibility-reduced method
