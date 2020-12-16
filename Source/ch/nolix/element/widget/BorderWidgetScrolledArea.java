@@ -9,8 +9,8 @@ import ch.nolix.element.painter.IPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-05
- * @lines 230
+ * @date 2019-05-08
+ * @lines 220
  */
 public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
 	
@@ -80,14 +80,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the minimum height of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getMinHeight() {
-		
-		final var look= parentBorderWidget.getRefLook();
-		
-		return
-		parentBorderWidget.getMinHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness()
-		- parentBorderWidget.getHorizontalScrollBarThickness();
+		return parentBorderWidget.getShowArea().getMinHeight();
 	}
 	
 	//method
@@ -95,14 +88,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the minimum width of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getMinWidth() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		parentBorderWidget.getMinWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness()
-		- parentBorderWidget.getVerticalScrollBarThickness();
+		return parentBorderWidget.getShowArea().getMinWidth();
 	}
 	
 	//method
