@@ -12,7 +12,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-9
- * @lines 220
+ * @lines 210
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
@@ -83,13 +83,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * @return the max height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMaxHeight() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
 		return
-		parentBorderWidget.getMaxHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness()
+		parentBorderWidget.getBorderedArea().getMaxHeight()
 		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
@@ -98,13 +93,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * @return the max width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getMaxWidth() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
 		return
-		parentBorderWidget.getMaxWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness()
+		parentBorderWidget.getBorderedArea().getMaxWidth()
 		- parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
