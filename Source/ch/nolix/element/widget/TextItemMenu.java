@@ -16,7 +16,7 @@ import ch.nolix.element.input.Key;
 
 //class
 public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
-implements Clearable<TIM> {
+implements Clearable {
 	
 	//constant
 	private static final int MIN_ITEM_LABEL_WIDTH = 10;
@@ -86,13 +86,10 @@ implements Clearable<TIM> {
 	
 	//method
 	@Override
-	public final TIM clear() {
-		
+	public final void clear() {
 		unselectItems();
 		items.clear();
 		noteClear();
-		
-		return asConcrete();
 	}
 	
 	//method

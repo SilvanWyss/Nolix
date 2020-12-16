@@ -6,17 +6,12 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
 
 //class
-public final class OptionalReference<E extends Entity>
-extends SingleReference<E>
-implements Clearable<OptionalReference<E>> {
+public final class OptionalReference<E extends Entity> extends SingleReference<E> implements Clearable {
 
 	//method
 	@Override
-	public OptionalReference<E> clear() {
-		
+	public void clear() {
 		internalClear();
-		
-		return this;
 	}
 	
 	//method

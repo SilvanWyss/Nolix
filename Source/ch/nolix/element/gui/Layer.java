@@ -47,10 +47,7 @@ import ch.nolix.element.widget.BorderWidget;
  * @lines 1290
  */
 public class Layer extends ConfigurableElement<Layer>
-implements 
-Clearable<Layer>,
-IOccupiableCanvasInputActionManager<Layer>,
-IResizableInputTaker {
+implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker {
 	
 	//constants
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -243,15 +240,10 @@ IResizableInputTaker {
 	//method
 	/**
 	 * Removes the root {@link Widget} of the current {@link Layer}.
-	 * 
-	 * @return the current {@link Layer}.
 	 */
 	@Override
-	public final Layer clear() {
-		
+	public final void clear() {
 		rootWidget = null;
-		
-		return this;
 	}
 	
 	//method

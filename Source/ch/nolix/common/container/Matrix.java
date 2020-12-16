@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 720
  * @param <E> The type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
+public final class Matrix<E> implements IContainer<E>, Clearable {
 
 	//multi-attribute
 	private Object[][] elements = new Object[0][0];
@@ -215,15 +215,10 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * Removes all elements of the current {@link Matrix}.
 	 * The complexity of this method is O(1).
-	 * 
-	 * @return the current {@link Matrix}.
 	 */
 	@Override
-	public Matrix<E> clear() {
-		
+	public void clear() {
 		elements = new Object[0][0];
-		
-		return this;
 	}
 	
 	//method

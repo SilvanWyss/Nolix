@@ -23,7 +23,7 @@ import ch.nolix.element.painter.IPainter;
  * @lines 350
  * @param <S> The type of a {@link Stack}.
  */
-public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable<S> {
+public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable {
 	
 	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
@@ -121,11 +121,8 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final S clear() {
-		
+	public final void clear() {
 		widgets.clear();
-		
-		return asConcrete();
 	}
 	
 	//method

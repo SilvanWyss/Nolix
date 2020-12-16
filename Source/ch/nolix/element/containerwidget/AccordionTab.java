@@ -27,7 +27,7 @@ import ch.nolix.element.widget.VerticalStack;
 
 //class
 public final class AccordionTab extends Element<AccordionTab>
-implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
+implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//constant
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
@@ -130,14 +130,11 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	@Override
-	public AccordionTab clear() {
-		
+	public void clear() {
 		if (containsAny()) {
 			tabVerticalStack.removeWidget(widget);
 			widget = null;
 		}
-		
-		return this;
 	}
 	
 	//method

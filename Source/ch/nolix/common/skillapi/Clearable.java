@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.skillapi;
 
-//own imports
+//own import
 import ch.nolix.common.requestapi.EmptinessRequestable;
 
 //interface
@@ -9,17 +9,14 @@ import ch.nolix.common.requestapi.EmptinessRequestable;
  * A {@link Clearable} can contain elements that can be removed.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @date 2016-03-01
  * @lines 20
- * @param <C> The type of a {@link Clearable}.
  */
-public interface Clearable<C extends Clearable<C>> extends EmptinessRequestable {
+public interface Clearable extends EmptinessRequestable {
 	
 	//method declaration
 	/**
 	 * Removes the elements of the current {@link Clearable}.
-	 * 
-	 * @return the current {@link Clearable}.
 	 */
-	C clear();
+	void clear();
 }

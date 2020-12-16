@@ -17,7 +17,7 @@ import ch.nolix.common.skillapi.Clearable;
  * @date 2017-06-16
  * @lines 180
  */
-public class Server implements Clearable<Server>, ICloseableElement {
+public class Server implements Clearable, ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -74,16 +74,11 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	//method
 	/**
 	 * Removes all {@link IEndPointTaker}s from the current {@link Server}.
-	 * 
-	 * @return the current {@link Server}.
 	 */
 	@Override
-	public final Server clear() {
-		
+	public final void clear() {
 		endPointTakers.clear();
 		mainEndPointTaker = null;
-		
-		return this;
 	}
 	
 	//method

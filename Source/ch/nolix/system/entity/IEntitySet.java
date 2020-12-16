@@ -8,7 +8,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.skillapi.Clearable;
 
 //interface
-public interface IEntitySet<E extends Entity> extends Clearable<IEntitySet<E>>, Named {
+public interface IEntitySet<E extends Entity> extends Clearable, Named {
 	
 	//method
 	default IEntitySet<E> addEntities(final Iterable<E> entities) {

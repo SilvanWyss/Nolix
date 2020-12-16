@@ -360,16 +360,11 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//method
 	/**
 	 * Removes the root {@link Widget} of the current GUI.
-	 * 
-	 * @return the current {@link GUI}.
 	 */
 	@Override
-	public final WG clear() {
-		
+	public final void clear() {
 		layers.clear();
 		topLayer = null;
-		
-		return asConcrete();
 	}
 	
 	//method

@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2016-10
  * @lines 250
  */
-public class Server implements Clearable<Server>, ICloseableElement {
+public class Server implements Clearable, ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -145,17 +145,12 @@ public class Server implements Clearable<Server>, ICloseableElement {
 	
 	//method
 	/**
-	 * Removes all applications of the current {@link Server}.
-	 * 
-	 * @return the current {@link Server}.
+	 * Removes all {@link Application}s of the current {@link Server}.
 	 */
 	@Override
-	public final Server clear() {
-		
+	public final void clear() {
 		applications.clear();
 		defaultApplication = null;
-		
-		return this;
 	}
 	
 	//method

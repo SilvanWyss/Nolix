@@ -8,7 +8,7 @@ import ch.nolix.common.mutableattributeapi.Namable;
 import ch.nolix.common.skillapi.Clearable;
 
 //interface
-public interface IProject extends Clearable<IProject>, IFluentObject<IProject>, Namable<IProject> {
+public interface IProject extends Clearable, IFluentObject<IProject>, Namable<IProject> {
 	
 	//method declaration
 	IProject addTask(ITask task);

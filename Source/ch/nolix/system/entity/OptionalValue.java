@@ -5,15 +5,12 @@ package ch.nolix.system.entity;
 import ch.nolix.common.skillapi.Clearable;
 
 //class
-public class OptionalValue<V> extends SingleValue<V> implements Clearable<OptionalValue<V>> {
+public class OptionalValue<V> extends SingleValue<V> implements Clearable {
 
 	//method
 	@Override
-	public OptionalValue<V> clear() {
-		
+	public void clear() {
 		internalClear();
-		
-		return this;
 	}
 	
 	//method

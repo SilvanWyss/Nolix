@@ -24,8 +24,7 @@ import ch.nolix.element.widget.Label;
  * @date 2016-05-01
  * @lines 530
  */
-public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook>
-implements Clearable<TabContainer> {
+public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> implements Clearable {
 	
 	//constant
 	public static final String TYPE_NAME = "TabContainer";
@@ -133,11 +132,8 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TabContainer clear() {
-		
+	public void clear() {
 		tabs.clear();
-		
-		return this;
 	}
 	
 	//method

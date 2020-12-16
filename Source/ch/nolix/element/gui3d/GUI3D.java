@@ -32,7 +32,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * @param <G> The type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
-implements Clearable<G>, Closeable, Refreshable {
+implements Clearable, Closeable, Refreshable {
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
@@ -127,11 +127,8 @@ implements Clearable<G>, Closeable, Refreshable {
 	 * Removes the root shape of the current {@link GUI3D}.
 	 */
 	@Override
-	public final G clear() {
-		
+	public final void clear() {
 		removeRootShape();
-		
-		return asConcrete();
 	}
 	
 	//method

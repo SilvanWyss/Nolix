@@ -28,7 +28,7 @@ import ch.nolix.element.widget.Label;
  * @lines 370
  */
 public final class TabContainerTab extends Element<TabContainerTab>
-implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
+implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
 	
 	//constant
 	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
@@ -143,15 +143,10 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, IMutableElem
 	//method
 	/**
 	 * Removes the widget of the current {@link TabContainerTab}.
-	 * 
-	 * @return the current {@link TabContainerTab}.
 	 */
 	@Override
-	public TabContainerTab clear() {
-		
+	public void clear() {
 		widget = null;
-		
-		return this;
 	}
 	
 	//method

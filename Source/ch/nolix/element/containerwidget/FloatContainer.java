@@ -13,8 +13,7 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
-public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>
-implements Clearable<FloatContainer> {
+public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> implements Clearable {
 	
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
@@ -65,11 +64,8 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public FloatContainer clear() {
-		
+	public void clear() {
 		widgets.clear();
-		
-		return this;
 	}
 	
 	//method

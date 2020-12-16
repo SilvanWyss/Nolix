@@ -11,7 +11,7 @@ import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementapi.IConfigurableElement;
 
 //interface
-public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable<WG>,  IBaseGUI<WG>, IConfigurableElement<WG>{
+public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
 	WG addLayerOnTop(Layer layer);

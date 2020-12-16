@@ -11,7 +11,7 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
 
 //class
-public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable<ImageWidget> {
+public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {
 	
 	//attribute
 	private final MutableOptionalValue<Image> image =
@@ -29,11 +29,8 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	public ImageWidget clear() {
-		
+	public void clear() {
 		image.clear();
-		
-		return this;
 	}
 	
 	//method

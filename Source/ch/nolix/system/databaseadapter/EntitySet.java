@@ -99,11 +99,8 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	
 	//method
 	@Override
-	public IEntitySet<E> clear() {
-		
+	public void clear() {
 		getRefEntities().toList().forEach(this::deleteEntity);
-		
-		return this;
 	}
 	
 	//method

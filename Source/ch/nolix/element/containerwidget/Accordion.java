@@ -24,7 +24,7 @@ import ch.nolix.element.widget.VerticalStack;
  * @date 2018-08-13
  * @lines 420
  */
-public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
+public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable {
 	
 	//constants
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
@@ -142,12 +142,9 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Accordion clear() {
-		
+	public void clear() {
 		tabs.clear();
 		accordionVerticalStack.clear();
-		
-		return this;
 	}
 	
 	//method

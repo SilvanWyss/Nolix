@@ -48,14 +48,11 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		
 		return this;
 	}
-
+	
 	//method
 	@Override
-	public InnerGUI clear() {
-		
+	public void clear() {
 		internalGUI.clear();
-		
-		return this;
 	}
 	
 	//method

@@ -26,7 +26,7 @@ import ch.nolix.element.textformat.TextFormat;
  * @date 2017-03-06
  * @lines 830
  */
-public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable<Console> {
+public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
 	//constants
 	public static final String TYPE_NAME = "Console";
@@ -109,16 +109,11 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	//method
 	/**
 	 * Removes all lines of the current {@link Console} and clears the edit line of the current {@link Console}.
-	 * 
-	 * @return the current {@link Console}.
 	 */
 	@Override
-	public Console clear() {
-		
+	public void clear() {
 		lines.clear();
 		clearEditLine();
-		
-		return this;
 	}
 	
 	//method

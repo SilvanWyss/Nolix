@@ -15,7 +15,7 @@ import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 
 //class
-final class GridCell extends Element<GridCell> implements Clearable<GridCell>, IMutableElement<GridCell> {
+final class GridCell extends Element<GridCell> implements Clearable, IMutableElement<GridCell> {
 
 	//optional attribute
 	private Widget<?, ?> widget;
@@ -67,11 +67,8 @@ final class GridCell extends Element<GridCell> implements Clearable<GridCell>, I
 	
 	//method
 	@Override
-	public GridCell clear() {
-		
+	public void clear() {
 		widget = null;
-		
-		return this;
 	}
 	
 	//method

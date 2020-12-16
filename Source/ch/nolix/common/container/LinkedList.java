@@ -25,7 +25,7 @@ import ch.nolix.common.validator.Validator;
  * @lines 1150
  * @param <E> The type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer<E> {
+public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//static method
 	/**
@@ -381,11 +381,9 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 	/**
 	 * Removes all elements of the current {@link LinkedList}.
 	 * The complexity of this method is O(n) when the current {@link LinkedList} contains n elements.
-	 * 
-	 * @return the current {@link LinkedList}.
 	 */
 	@Override
-	public LinkedList<E> clear() {
+	public void clear() {
 		
 		//Handles the case that the current list contains any elements.
 		if (containsAny()) {
@@ -401,8 +399,6 @@ public final class LinkedList<E> implements Clearable<LinkedList<E>>, IContainer
 			lastNode = null;
 			elementCount = 0;
 		}
-		
-		return this;
 	}
 	
 	//method

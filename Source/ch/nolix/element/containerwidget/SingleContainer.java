@@ -20,8 +20,7 @@ import ch.nolix.element.painter.IPainter;
  * @month 2015-12
  * @lines 270
  */
-public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook>
-implements Clearable<SingleContainer> {
+public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> implements Clearable {
 	
 	//constant
 	public static final String TYPE_NAME = "SingleContainer";
@@ -73,11 +72,8 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public SingleContainer clear() {
-		
+	public void clear() {
 		widget = null;
-		
-		return this;
 	}
 	
 	//method
