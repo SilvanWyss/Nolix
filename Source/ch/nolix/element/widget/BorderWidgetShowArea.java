@@ -12,7 +12,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-9
- * @lines 260
+ * @lines 220
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
@@ -194,48 +194,6 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	@Override
 	public int getYPosition() {
 		return parentBorderWidget.getBorderedArea().getYPosition();
-	}
-	
-	//method
-	/**
-	 * @return true if the the current {@link BorderWidgetShowArea} has a max height.
-	 */
-	public boolean hasMaxHeight() {
-		return parentBorderWidget.hasMaxHeight();
-	}
-	
-	//method
-	/**
-	 * @return true if the the current {@link BorderWidgetShowArea} has a max width.
-	 */
-	public boolean hasMaxWidth() {
-		return parentBorderWidget.hasMaxWidth();
-	}
-	
-	//method
-	/**
-	 * @return true if the the current {@link BorderWidgetShowArea} has a min height.
-	 */
-	public boolean hasMinHeight() {
-		return parentBorderWidget.hasMinHeight();
-	}
-	
-	//method
-	/**
-	 * @return true if the the current {@link BorderWidgetShowArea} has a min width.
-	 */
-	public boolean hasMinWidth() {
-		return parentBorderWidget.hasMinWidth();
-	}
-	
-	//method
-	public boolean hasProposalHeight() {
-		return parentBorderWidget.hasProposalHeight();
-	}
-	
-	//method
-	public boolean hasProposalWidth() {
-		return parentBorderWidget.hasProposalWidth();
 	}
 	
 	//visibility-reduced method
