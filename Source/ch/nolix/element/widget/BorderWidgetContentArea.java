@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painter.IPainter;
@@ -12,7 +13,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 150
+ * @lines 160
  */
 public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>> {
 	
@@ -32,7 +33,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	BorderWidgetContentArea(final BorderWidget<BW, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();
+		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		//Sets the parentBorderWidget of the current BorderWidgetContentArea.
 		this.parentBorderWidget = parentBorderWidget;
@@ -134,8 +135,11 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	}
 	
 	//method
+	/**
+	 * @return true if the current {@link BorderWidgetContentArea} is under the cursor.
+	 */
 	public boolean isUnderCursor() {
-		
+				
 		final var cursorXPosition = getCursorXPosition();
 		final var cursorYPosition = getCursorYPosition();
 		
@@ -147,6 +151,12 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	}
 	
 	//visibility-reduced method
+	/**
+	 * Paints the current {@link BorderWidgetContentArea} using the given painter and borderWidgetLook.
+	 * 
+	 * @param painter
+	 * @param borderWidgetLook
+	 */
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		parentBorderWidget.paintContentArea(borderWidgetLook, painter.createPainter());
