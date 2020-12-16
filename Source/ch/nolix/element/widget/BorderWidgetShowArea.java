@@ -12,15 +12,16 @@ import ch.nolix.element.painter.IPainter;
  * @author Silvan Wyss
  * @month 2019-05
  * @lines 260
+ * @param <BWL>
+ * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
-public final class BorderWidgetShowArea<BW extends BorderWidget<BW, BWL>, BWL extends BorderWidgetLook<BWL>>
-implements TopLeftPositionedRecangular {
+public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> implements TopLeftPositionedRecangular {
 	
 	//attribute
 	/**
 	 * The {@link BorderWidget} the current {@link BorderWidgetShowArea} belongs to.
 	 */
-	private final BorderWidget<BW, BWL> parentBorderWidget;
+	private final BorderWidget<?, BWL> parentBorderWidget;
 	
 	//constructor
 	/**
@@ -29,7 +30,7 @@ implements TopLeftPositionedRecangular {
 	 * @param parentBorderWidget
 	 * @throws ArgumentIsNullException if the given parentBorderWidget is null.
 	 */
-	BorderWidgetShowArea(final BorderWidget<BW, BWL> parentBorderWidget) {
+	BorderWidgetShowArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
 		Validator.assertThat(parentBorderWidget).thatIsNamed("parent border widget").isNotNull();

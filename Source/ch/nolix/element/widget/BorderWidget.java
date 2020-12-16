@@ -187,7 +187,7 @@ extends Widget<BW, BWL> {
 	//attributes
 	private final BorderWidgetMainArea<BWL> mainArea = new BorderWidgetMainArea<>(this);
 	private final BorderWidgetBorderedArea<BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
-	private final BorderWidgetShowArea<BW, BWL> showArea = new BorderWidgetShowArea<>(this);
+	private final BorderWidgetShowArea<BWL> showArea = new BorderWidgetShowArea<>(this);
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
 	
@@ -495,7 +495,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the show area of the current {@link BorderWidget}.
 	 */
-	public final BorderWidgetShowArea<BW, BWL> getShowArea() {
+	public final BorderWidgetShowArea<BWL> getShowArea() {
 		return showArea;
 	}
 	
