@@ -28,7 +28,7 @@ public interface IProject extends Clearable, IFluentObject<IProject>, Namable<IP
 		
 		tasks.forEach(this::addTask);
 		
-		return asConcrete();
+		return this;
 	}
 	
 	//method declaration
