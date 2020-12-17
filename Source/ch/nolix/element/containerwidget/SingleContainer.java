@@ -18,7 +18,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 270
+ * @lines 290
  */
 public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> implements Clearable {
 	
@@ -27,28 +27,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	
 	//optional attribute
 	private Widget<?, ?> widget;
-	
-	//constructor
-	/**
-	 * Creates a new {@link SingleContainer}.
-	 */
-	public SingleContainer() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link SingleContainer} with the given widget.
-	 * 
-	 * @param widget
-	 * @throws ArgumentIsNullException if the given widget is null.
-	 */
-	public SingleContainer(final Widget<?, ?> widget) {
-		
-		resetAndApplyDefaultConfiguration();
-		
-		setWidget(widget);
-	}
 	
 	//method
 	/**
@@ -148,13 +126,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 		
 		return this;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	/**

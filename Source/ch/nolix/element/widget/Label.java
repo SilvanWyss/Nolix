@@ -25,14 +25,6 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	//optional attribute
 	private LabelRole role;
 	
-	//constructor
-	/**
-	 * Creates a new {@link Label}.
-	 */
-	public Label() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
 	//method
 	/**
 	 * Adds or change the given attribute to the current {@link Label}.
@@ -143,13 +135,6 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	public boolean shortensShownTextWhenHasLimitedWidth() {
 		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	/**

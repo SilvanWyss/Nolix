@@ -40,6 +40,14 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
 	
+	//constructor
+	/**
+	 * Creates a new {@link Stack}.
+	 */
+	public Stack() {
+		setElementMargin(10);
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -228,15 +236,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		this.elementMargin.setValue(elementMargin);
 		
 		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void applyDefaultConfigurationWhenHasBeenReset() {
-		setElementMargin(10);
 	}
 	
 	//method

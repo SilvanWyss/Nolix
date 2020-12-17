@@ -16,14 +16,6 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	//constant
 	public static final String TYPE_NAME = "VerticalStack";
 	
-	//constructor
-	/**
-	 * Creates a new {@link VerticalStack}.
-	 */
-	public VerticalStack() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}

@@ -24,7 +24,13 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//constructor
 	public Grid() {
-		resetAndApplyDefaultConfiguration();
+		
+		setMaxWidth(1000);
+		setMaxHeight(500);
+		
+		getRefBaseLook()
+		.setLineType(GridLineType.INNER_LINES)
+		.setElementMargin(10);
 	}
 	
 	//method
@@ -171,21 +177,6 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
 				
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		
-		setMaxWidth(1000);
-		setMaxHeight(500);
-		
-		getRefBaseLook()
-		.setLineType(GridLineType.INNER_LINES)
-		.setElementMargin(10);
 	}
 	
 	//method

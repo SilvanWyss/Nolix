@@ -18,14 +18,6 @@ public final class VerticalLine extends Line<VerticalLine> {
 	//attribute
 	private boolean isAskedForLength;
 	
-	//constructor
-	/**
-	 * Creates a new {@link VerticalLine}.
-	 */
-	public VerticalLine() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}

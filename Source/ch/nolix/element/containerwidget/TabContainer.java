@@ -44,7 +44,22 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * Creates a new {@link TabContainer}.
 	 */
 	public TabContainer() {
-		resetAndApplyDefaultConfiguration();
+		getRefBaseLook()
+		.setBaseMenuItemLook(
+			new TabContainerMenuItemLook()
+			.setMinWidth(100)
+			.setPadding(5)
+		)
+		.setHoverMenuItemLook(
+			new TabContainerMenuItemLook()
+			.setBackgroundColor(Color.LIGHT_GREY)
+			.setPadding(5)
+		)
+		.setSelectionMenuItemLook(
+			new TabContainerMenuItemLook()
+			.setBackgroundColor(Color.DARK_GREY)
+			.setPadding(5)
+		);
 	}
 	
 	//method
@@ -258,30 +273,6 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		}
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		getRefBaseLook()
-		.setBaseMenuItemLook(
-			new TabContainerMenuItemLook()
-			.setMinWidth(100)
-			.setPadding(5)
-		)
-		.setHoverMenuItemLook(
-			new TabContainerMenuItemLook()
-			.setBackgroundColor(Color.LIGHT_GREY)
-			.setPadding(5)
-		)
-		.setSelectionMenuItemLook(
-			new TabContainerMenuItemLook()
-			.setBackgroundColor(Color.DARK_GREY)
-			.setPadding(5)
-		);
 	}
 	
 	//method

@@ -15,25 +15,21 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	
 	//constructor
 	public SelectionMenu() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
-	//constructor
-	public SelectionMenu(final Iterable<String> items) {
-
-		this();
 		
-		addItems(items);
-	}
-	
-	//constructor
-	public SelectionMenu(final String... items) {
+		menu.setElementMargin(0);
 		
-		this();
-		
-		addItem(items);
+		getRefBaseLook()
+		.setBackgroundColor(Color.WHITE_SMOKE)
+		.setHoverItemLook(
+			new TextItemMenuItemLook()
+			.setBackgroundColor(Color.LIGHT_GREY)
+		)
+		.setSelectionItemLook(
+			new TextItemMenuItemLook()
+			.setBackgroundColor(Color.GREY)
+		);
 	}
-	
+		
 	//method
 	public String getSelectedItemId() {
 		return getRefSelectedItem().getId();
@@ -54,27 +50,6 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 		if (selectedItem != null) {
 			selectItem(selectedItem);
 		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		
-		menu.setElementMargin(0);
-		
-		getRefBaseLook()
-		.setBackgroundColor(Color.WHITE_SMOKE)
-		.setHoverItemLook(
-			new TextItemMenuItemLook()
-			.setBackgroundColor(Color.LIGHT_GREY)
-		)
-		.setSelectionItemLook(
-			new TextItemMenuItemLook()
-			.setBackgroundColor(Color.GREY)
-		);
 	}
 	
 	//method

@@ -31,7 +31,9 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//constructor
 	public Downloader() {
-		resetAndApplyDefaultConfiguration();
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);	
+		getRefBaseLook().setTextColor(Color.DARK_BLUE);	
+		getRefHoverLook().setTextColor(Color.BLUE);
 	}
 	
 	//method
@@ -145,14 +147,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		if (providesFile) {
 			getParentGUI().onFrontEnd().saveFile(readFileToBytes());
 		}
-	}
-
-	//method
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		setCustomCursorIcon(DEFAULT_CURSOR_ICON);	
-		getRefBaseLook().setTextColor(Color.DARK_BLUE);	
-		getRefHoverLook().setTextColor(Color.BLUE);
 	}
 	
 	//method

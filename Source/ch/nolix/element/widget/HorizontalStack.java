@@ -16,14 +16,6 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	//constant
 	public static final String TYPE_NAME = "HorizontalStack";
 	
-	//constructor
-	/**
-	 * Creates a new {@link HorizontalStack}.
-	 */
-	public HorizontalStack() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}

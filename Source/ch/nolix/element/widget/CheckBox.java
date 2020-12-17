@@ -6,7 +6,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painter.IPainter;
@@ -15,7 +14,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 350
+ * @lines 340
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
@@ -32,9 +31,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	/**
 	 * Creates a new {@link CheckBox}.
 	 */
-	public CheckBox() {
-		resetAndApplyDefaultConfiguration();
-	}
+	public CheckBox() {}
 	
 	//method
 	/**
@@ -143,18 +140,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		
 		return this;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		getRefBaseLook()
-		.setTextSize(20)
-		.setTextColor(Color.BLACK);
-	}
-	
+		
 	//method
 	/**
 	 * @return a new widget look for the current {@link CheckBox}.

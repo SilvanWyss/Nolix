@@ -26,7 +26,13 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	
 	//constructor
 	public Uploader() {
-		resetAndApplyDefaultConfiguration();
+		
+		setContentPosition(ContentPosition.CENTER);
+		setCustomCursorIcon(CursorIcon.HAND);
+		
+		getRefBaseLook()
+		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
+		.setPaddings(DEFAULT_PADDING);
 	}
 	
 	//method
@@ -73,22 +79,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	public boolean shortensShownTextWhenHasLimitedWidth() {
 		return false;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
-		setContentPosition(ContentPosition.CENTER);
-		setCustomCursorIcon(CursorIcon.HAND);
-		
-		getRefBaseLook()
-		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
-		.setPaddings(DEFAULT_PADDING);
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}

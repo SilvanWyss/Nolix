@@ -42,7 +42,8 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * Creates a new {@link TextBox}.
 	 */
 	public TextBox() {
-		resetAndApplyDefaultConfiguration();
+		setCustomCursorIcon(CursorIcon.EDIT);
+		getRefBaseLook().setBorderThicknesses(1);
 	}
 	
 	//method
@@ -131,17 +132,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	public boolean shortensShownTextWhenHasLimitedWidth() {
 		return false;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefBaseLook().setBorderThicknesses(1);
-	}
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}

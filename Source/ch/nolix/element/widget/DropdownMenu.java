@@ -37,7 +37,11 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		expandButton.reset();
 		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
 		
-		resetAndApplyDefaultConfiguration();
+		expandButton.getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
+		
+		getRefBaseLook()
+		.setHoverItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.LIGHT_GREY))
+		.setSelectionItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.GREY));
 	}
 	
 	//method
@@ -70,18 +74,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	public boolean hasRole(final String role) {
 		return false;
 	}
-	
-	//method
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
-		expandButton.getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
-		
-		getRefBaseLook()
-		.setHoverItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.LIGHT_GREY))
-		.setSelectionItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.GREY));
-	}
-	
 	//method
 	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}

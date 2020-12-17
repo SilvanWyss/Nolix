@@ -35,7 +35,16 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * Creates a new {@link Button}.
 	 */
 	public Button() {
-		resetAndApplyDefaultConfiguration();
+		
+		setMinWidth(100);
+		setContentPosition(ContentPosition.CENTER);
+		
+		getRefBaseLook()
+		.setBorderThicknesses(1)
+		.setLeftPadding(10)
+		.setRightPadding(10);
+		
+		getRefHoverLook().setBackgroundColor(Color.GREY);
 	}
 	
 	//method
@@ -157,25 +166,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	@Override
 	public boolean shortensShownTextWhenHasLimitedWidth() {
 		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		
-		setMinWidth(100);
-		setContentPosition(ContentPosition.CENTER);
-		
-		getRefBaseLook()
-		.setBorderThicknesses(1)
-		.setBackgroundColor(Color.WHITE_SMOKE)
-		.setLeftPadding(10)
-		.setRightPadding(10);
-		
-		getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
 	}
 	
 	//method

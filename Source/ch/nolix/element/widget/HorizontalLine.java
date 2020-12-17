@@ -18,14 +18,6 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	//attribute
 	private boolean isAskedForLength;
 	
-	//constructor
-	/**
-	 * Creates a new {@link HorizontalLine}.
-	 */
-	public HorizontalLine() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}

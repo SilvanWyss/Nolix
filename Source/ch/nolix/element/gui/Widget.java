@@ -166,21 +166,6 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Resets the configuration of the current {@link Widget}
-	 * and applies a default configuration to the current{@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 */
-	public final W applyDefaultConfiguration() {
-		
-		resetConfiguration();
-		applyDefaultConfigurationWhenHasBeenReset();
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * Applies the given base look mutator to the base look of the current {@link Widget}.
 	 * 
 	 * @param baseLookMutator
@@ -1127,20 +1112,6 @@ TopLeftPositionedRecangular {
 		 */
 		super.reset();
 	}
-	
-	//method
-	/**
-	 * Resets and applies the default configuration to the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 */
-	public final W resetAndApplyDefaultConfiguration() {
-		
-		reset();
-		applyDefaultConfigurationWhenHasBeenReset();
-		
-		return asConcrete();
-	}
 		
 	//method
 	/**
@@ -1540,13 +1511,6 @@ TopLeftPositionedRecangular {
 		
 		childWidget.setParent(this);
 	}
-	
-	//method declaration
-	/**
-	 * Applies the default configuration to the current {@link Widget}
-	 * for the case when the configuration of the current {@link Widget} has been reset.
-	 */
-	protected abstract void applyDefaultConfigurationWhenHasBeenReset();
 	
 	//method declaration
 	/**

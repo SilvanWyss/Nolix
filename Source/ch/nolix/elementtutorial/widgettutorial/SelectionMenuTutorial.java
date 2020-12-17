@@ -29,7 +29,8 @@ public final class SelectionMenuTutorial {
 		
 		//Creates a SelectionMenu.
 		final var selectionMenu =
-		new SelectionMenu(
+		new SelectionMenu()
+		.addItem(
 			"Gottfried Wilhelm Leibniz",
 			"Immanuel Kant",
 			"Johann Gottlieb Fichte",

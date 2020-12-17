@@ -23,7 +23,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 410
+ * @lines 420
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
@@ -42,7 +42,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * Creates a new {@link Area}.
 	 */
 	public Area() {
-		resetAndApplyDefaultConfiguration();
+		setBackgroundColor(Color.LIGHT_GREY);
 	}
 	
 	//method
@@ -226,16 +226,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	public boolean showAreaIsUnderCursor() {
 		return isUnderCursor();
 	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		setBackgroundColor(Color.LIGHT_GREY);
-	}
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}

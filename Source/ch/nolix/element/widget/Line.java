@@ -39,6 +39,14 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	private int thickness;
 	private Color color;
 	
+	//constructor
+	/**
+	 * Creates a new {@link Line}.
+	 */
+	public Line() {
+		setThickness(DEFAULT_THICKNESS);
+	}
+	
 	//method
 	/**
 	 * Adds or change the given attribute to this line.
@@ -169,15 +177,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	@Override
 	public final boolean showAreaIsUnderCursor() {
 		return isUnderCursor();
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void applyDefaultConfigurationWhenHasBeenReset() {
-		setThickness(DEFAULT_THICKNESS);
 	}
 	
 	//method

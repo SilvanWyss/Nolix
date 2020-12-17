@@ -28,7 +28,9 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//constructor
 	public InnerGUI() {
-		resetAndApplyDefaultConfiguration();
+		
+		//TODO: Remove this implementation.
+		internalGUI.noteResize(200, 200);
 	}
 	
 	//method
@@ -171,14 +173,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		titleLabel.setText(title);
 		
 		return this;
-	}
-	
-	//method
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		
-		//TODO: Remove this implementation.
-		internalGUI.noteResize(200, 200);
 	}
 	
 	//method

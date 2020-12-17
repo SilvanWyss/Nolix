@@ -18,11 +18,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
 	
-	//constructor
-	public FloatContainer() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
 	//own imports
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
@@ -93,10 +88,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 		
 		widgets.clear();
 	}
-	
-	//method
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	@Override

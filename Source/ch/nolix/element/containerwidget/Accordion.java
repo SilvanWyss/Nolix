@@ -22,7 +22,7 @@ import ch.nolix.element.widget.VerticalStack;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 420
+ * @lines 440
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable {
 	
@@ -57,10 +57,11 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * Creates a new {@link Accordion}.
 	 */
 	public Accordion() {
-				
+		
 		accordionVerticalStack.reset();
 		
-		resetAndApplyDefaultConfiguration();
+		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
+		getRefBaseLook().setTabHeaderBackgroundColor(DEFAULT_TAB_HEADER_BACKGROUND_COLOR);
 	}
 	
 	//method
@@ -257,17 +258,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		
 		return this;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
-		getRefBaseLook().setTabHeaderBackgroundColor(DEFAULT_TAB_HEADER_BACKGROUND_COLOR);
-	}
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}

@@ -21,12 +21,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 		Image::fromSpecification,
 		Image::getSpecification
 	);
-	
-	//constructor
-	public ImageWidget() {
-		resetAndApplyDefaultConfiguration();
-	}
-	
+		
 	//method
 	@Override
 	public void clear() {
@@ -57,10 +52,6 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 		
 		return this;
 	}
-	
-	//method
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	@Override

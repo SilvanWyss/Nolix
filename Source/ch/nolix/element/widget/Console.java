@@ -78,7 +78,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Creates a new console.
 	 */
 	public Console() {
-		resetAndApplyDefaultConfiguration();
+		setProposalSize(200, 100);
+		getRefBaseLook().setPaddings(10);
 	}
 	
 	//method
@@ -537,16 +538,6 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		}
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		setProposalSize(200, 100);
-		getRefBaseLook().setPaddings(10);
 	}
 	
 	//method
