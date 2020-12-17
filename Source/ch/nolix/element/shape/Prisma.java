@@ -20,6 +20,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	private final MutableValue<Double> height =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEIGHT,
+		DEFAULT_HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute
@@ -39,7 +40,6 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	@Override
 	public void reset() {
 		
-		//Calls method of base class.
 		super.reset();
 		
 		setHeight(DEFAULT_HEIGHT);

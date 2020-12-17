@@ -30,6 +30,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	private final MutableValue<Double> xLength =
 	new MutableValue<>(
 		X_LENGTH_HEADER,
+		DEFAULT_X_LENGTH,
 		this::setXLength,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute
@@ -39,6 +40,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	private final MutableValue<Double> yLength =
 	new MutableValue<>(
 		Y_LENGTH_HEADER,
+		DEFAULT_Y_LENGTH,
 		this::setYLength,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute
@@ -48,6 +50,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	private final MutableValue<Double> zLength =
 	new MutableValue<>(
 		Z_LENGTH_HEADER,
+		DEFAULT_Z_LENGTH,
 		this::setZLength,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute

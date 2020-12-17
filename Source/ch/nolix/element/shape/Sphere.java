@@ -25,6 +25,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	private final MutableValue<Double> radius =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.RADIUS,
+		DEFAULT_RADIUS,
 		this::setRadius,
 		BaseNode::getOneAttributeAsDouble,
 		 Node::withAttribute

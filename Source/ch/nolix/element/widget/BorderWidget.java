@@ -62,15 +62,19 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1690
+ * @lines 1700
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
 public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends BorderWidgetLook<BWL>>
 extends Widget<BW, BWL> {
 	
-	//constant
+	//constants
 	public static final int SCROLL_BAR_THICKNESS = 20;
+	public static final boolean DEFAULT_AUTOMATIC_SIZE_STATE = false;
+	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.LEFT_TOP;
+	public static final int DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA = 0;
+	public static final int DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA = 0;
 	
 	//constants
 	private static final int MIN_SCROLL_CURSOR_LENGTH = 10;
@@ -91,6 +95,7 @@ extends Widget<BW, BWL> {
 	private MutableValue<Boolean> automaticSize =
 	new MutableValue<>(
 		AUTOMATIC_SIZE_HEADER,
+		DEFAULT_AUTOMATIC_SIZE_STATE,
 		as -> {
 			if (as.booleanValue()) {
 				activateAutomaticSize();
@@ -107,6 +112,7 @@ extends Widget<BW, BWL> {
 	private MutableValue<ContentPosition> contentPosition =
 	new MutableValue<>(
 		ContentPosition.TYPE_NAME,
+		DEFAULT_CONTENT_POSITION,
 		this::setContentPosition,
 		ContentPosition::fromSpecification,
 		ContentPosition::getSpecification
@@ -170,6 +176,7 @@ extends Widget<BW, BWL> {
 	private final MutableValue<Integer> showAreaXPositionOnScrolledArea =
 	new MutableValue<>(
 		SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
+		DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA,
 		this::setShowAreaXPositionOnScrolledArea,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute
@@ -179,6 +186,7 @@ extends Widget<BW, BWL> {
 	private final MutableValue<Integer> showAreaYPositionOnScrolledArea =
 	new MutableValue<>(
 		SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
+		DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA,
 		this::setShowAreaYPositionOnScrolledArea,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute
@@ -709,8 +717,8 @@ extends Widget<BW, BWL> {
 		
 		super.reset();
 		
-		showAreaXPositionOnScrolledArea.setValue(0);
-		showAreaYPositionOnScrolledArea.setValue(0);
+		showAreaXPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA);
+		showAreaYPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA);
 	}
 	
 	//method

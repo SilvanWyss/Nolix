@@ -28,6 +28,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	private final MutableValue<Double> xLength =
 	new MutableValue<>(
 		X_LENGTH_HEADER,
+		DEFAULT_X_LENGTH,
 		this::setXLength,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute
@@ -37,6 +38,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	private final MutableValue<Double> yLength =
 	new MutableValue<>(
 		Y_LENGTH_HEADER,
+		DEFAULT_Y_LENGTH,
 		this::setYLength,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute

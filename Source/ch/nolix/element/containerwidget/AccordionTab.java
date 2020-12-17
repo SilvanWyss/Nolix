@@ -31,11 +31,12 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//constant
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
+	public static final boolean DEFAULT_EXPANSION_STATE = true;
 	
 	//constant
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
-	//method
+	//static method
 	/**
 	 * @param specification
 	 * @return a new {@link AccordionTab} from the given specification.
@@ -52,6 +53,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	private final MutableValue<String> header =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEADER,
+		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,
 		h -> Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEADER, getHeader())
@@ -61,6 +63,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	private final MutableValue<Boolean> expanded =
 	new MutableValue<>(
 		EXPANDED_FLAG_HEADER,
+		DEFAULT_EXPANSION_STATE,
 		e -> {
 			if (e.booleanValue()) {
 				expand();

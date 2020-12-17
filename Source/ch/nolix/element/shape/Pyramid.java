@@ -15,12 +15,13 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	
 	//constants
 	public static final double DEFAULT_SIDE_LENGTH = 1.0;
-	public static final double DEFAULT_HEIGHT = 2.0;
+	public static final double DEFAULT_HEIGHT = 1.0;
 
 	//attribute
 	private final MutableValue<Double> sideLength =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.SIDE_LENGTH,
+		DEFAULT_SIDE_LENGTH,
 		this::setSideLength,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute
@@ -30,6 +31,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	private final MutableValue<Double> height =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEIGHT,
+		DEFAULT_HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,
 		Node::withAttribute

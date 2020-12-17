@@ -37,6 +37,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	private final MutableValue<String> header =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.HEADER,
+		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute

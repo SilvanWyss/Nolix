@@ -32,6 +32,7 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	private final MutableValue<Color> scrollBarColor =
 	new MutableValue<>(
 		SCROLL_BAR_COLOR_HEADER,
+		DEFAULT_SCROLL_BAR_COLOR,
 		this::setScrollBarColor,
 		Color::fromSpecification,
 		Color::getSpecification
@@ -41,6 +42,7 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	private final MutableValue<Color> scrollBarCursorColor =
 	new MutableValue<>(
 		SCROLL_CURSOR_COLOR_HEADER,
+		DEFAULT_SCROLL_CURSOR_COLOR,
 		this::setScrollCursorColor,
 		Color::fromSpecification,
 		Color::getSpecification

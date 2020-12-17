@@ -30,6 +30,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	private MutableValue<Color> defaultColor =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.DEFAULT_COLOR,
+		DEFAULT_COLOR,
 		this::setDefaultColor,
 		Color::fromSpecification,
 		Color::getSpecification

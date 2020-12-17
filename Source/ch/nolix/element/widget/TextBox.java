@@ -22,6 +22,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	//constants
 	public static final String TYPE_NAME = "TextBox";
 	public static final int MIN_WIDTH = 10;
+	public static final int DEFAULT_CURSOR_POSITION = 0;
 	
 	//constant
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
@@ -30,6 +31,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	private MutableValue<Integer> textCursorPosition =
 	new MutableValue<>(
 		TEXT_CURSOR_POSITION_HEADER,
+		DEFAULT_CURSOR_POSITION,
 		this::setTextCursorPosition,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute

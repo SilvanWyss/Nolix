@@ -42,6 +42,7 @@ implements Clearable, Closeable, Refreshable {
 	private final MutableValue<String> title =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.TITLE,
+		DEFAULT_TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute
@@ -51,6 +52,7 @@ implements Clearable, Closeable, Refreshable {
 	private final MutableValue<Color> backgroundColor =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
+		DEFAULT_BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification,
 		Color::getSpecification

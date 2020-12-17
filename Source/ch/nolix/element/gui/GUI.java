@@ -47,22 +47,25 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 730
+ * @lines 750
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
 	
-	//constant
+	//constants
 	public static final String DEFAULT_TITLE = "GUI";
+	public static final IntPair DEFAULT_VIEW_AREA_SIZE = new IntPair(100, 100);
+	public static final IntPair DEFAULT_CURSOR_POSITION_ON_VIEW_AREA = new IntPair(-1, -1);
 	
 	//constants
-	public static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
-	public static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
+	private static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
+	private static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
 	
 	//attribute
 	private final MutableValue<String> title =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.TITLE,
+		DEFAULT_TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute
@@ -72,6 +75,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	private final MutableValue<IntPair> viewAreaSize =
 	new MutableValue<>(
 		VIEW_AREA_SIZE_HEADER,
+		DEFAULT_VIEW_AREA_SIZE,
 		vas -> setViewAreaSize(vas.getValue1(), vas.getValue2()),
 		BaseNode::toIntPair,
 		Node::fromIntPair
@@ -81,6 +85,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	private final MutableValue<IntPair> cursorPositionOnViewArea =
 	new MutableValue<>(
 		CURSOR_POSITION_ON_VIEW_AREA_HEADER,
+		DEFAULT_CURSOR_POSITION_ON_VIEW_AREA,
 		cpova -> setCursorPositionOnViewArea(cpova.getValue1(), cpova.getValue2()),
 		BaseNode::toIntPair,
 		Node::fromIntPair

@@ -32,6 +32,7 @@ extends BorderWidget<TLW, TLWL> {
 	private MutableValue<String> text =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.TEXT,
+		DEFAULT_TEXT,
 		this::setText,
 		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
 		t -> t.isEmpty() ? new Node() : Node.withAttribute(t)

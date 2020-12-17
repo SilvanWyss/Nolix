@@ -32,6 +32,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	private MutableValue<CursorIcon> cursorIcon =
 	new MutableValue<>(
 		CursorIcon.TYPE_NAME,
+		DEFAULT_CURSOR_ICON,
 		this::setCursorIcon,
 		CursorIcon::fromSpecification,
 		CursorIcon::getSpecification

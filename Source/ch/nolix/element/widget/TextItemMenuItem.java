@@ -18,6 +18,9 @@ import ch.nolix.element.base.Value;
 public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	
 	//constant
+	public static final boolean DEFAULT_SELECTION_FLAG = false;
+	
+	//constant
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
@@ -50,6 +53,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	private final MutableValue<Boolean> selectionFlag =
 	new MutableValue<>(
 		SELECTION_FLAG_HEADER,
+		DEFAULT_SELECTION_FLAG,
 		this::setSelectionFlag,
 		BaseNode::getOneAttributeAsBoolean,
 		Node::withAttribute
@@ -64,7 +68,6 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//constructor
 	public TextItemMenuItem(final String text) {
 		setText(text);
-		unselect();
 	}
 	
 	//constructor

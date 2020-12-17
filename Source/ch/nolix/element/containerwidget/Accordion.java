@@ -34,6 +34,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	private final MutableValue<AccordionExpansionBehavior> expansionBehavior =
 	new MutableValue<>(
 		AccordionExpansionBehavior.TYPE_NAME,
+		DEFAULT_EXPANSION_BEHAVIOR,
 		this::setExpansionBehavior,
 		AccordionExpansionBehavior::fromSpecification,
 		AccordionExpansionBehavior::getSpecification

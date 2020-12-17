@@ -53,6 +53,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.TOP;
 	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);
+	public static final boolean DEFAULT_CONFIGURATION_ALLOW_STATE = true;
 	
 	//constants
 	public static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
@@ -87,6 +88,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private final MutableValue<Boolean> configurationAllowed =
 	new MutableValue<>(
 		CONFIGURATION_ALLOWED_HEADER,
+		DEFAULT_CONFIGURATION_ALLOW_STATE,
 		ca -> {
 			if (ca.booleanValue()) {
 				setConfigurationAllowed();
@@ -121,6 +123,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private final MutableValue<ExtendedContentPosition> contentPosition =
 	new MutableValue<>(
 		ContentPosition.TYPE_NAME,
+		DEFAULT_CONTENT_POSITION,
 		this::setContentPosition,
 		ExtendedContentPosition::fromSpecification,
 		ExtendedContentPosition::getSpecification
@@ -130,6 +133,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private final MutableValue<Discrete2DPoint> freeContentPosition =
 	new MutableValue<>(
 		FREE_CONTENT_POSITION_HEADER,
+		DEFAULT_FREE_CONTENT_POSITION,
 		fcp -> setFreeContentPosition_(fcp.getX(), fcp.getY()),
 		Discrete2DPoint::fromSpecification,
 		Discrete2DPoint::getSpecification
