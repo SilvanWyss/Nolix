@@ -5,6 +5,7 @@ package ch.nolix.element.containerwidget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -14,19 +15,16 @@ import ch.nolix.element.widget.BorderWidgetLook;
 
 //class
 /**
- * A {@link ContainerWidget} is a {@link BorderWidget} that can contain other widgets.
+ * A {@link ContainerWidget} is a {@link BorderWidget} that can contain other {@link Widget}s.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 140
- * @param <C> The type of a {@link ContainerWidget}.
+ * @date 2016-01-01
+ * @lines 150
+ * @param <CW> The type of a {@link ContainerWidget}.
  * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
-public abstract class ContainerWidget<
-	C extends ContainerWidget<C, BWS>,
-	BWS extends BorderWidgetLook<BWS>
->
-extends BorderWidget<C, BWS> {
+public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>,	BWS extends BorderWidgetLook<BWS>>
+extends BorderWidget<CW, BWS> {
 	
 	//optional attribute
 	private ContainerRole role;
@@ -55,7 +53,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link ContainerWidget}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
@@ -65,9 +63,7 @@ extends BorderWidget<C, BWS> {
 		
 		//Handles the case that the current container has a role.
 		if (hasRole()) {
-			attributes.addAtEnd(
-				getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE)
-			);
+			attributes.addAtEnd(getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE));
 		}
 		
 		return attributes;
@@ -81,7 +77,7 @@ extends BorderWidget<C, BWS> {
 	public final ContainerRole getRole() {
 		
 		//Asserts that the current container has a role.
-		supposeHasRole();
+		assertHasRole();
 		
 		return role;
 	}
@@ -96,7 +92,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @return true if the current {@link ContainerWidget} has the given role.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean hasRole(final String role) {
@@ -112,21 +108,39 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
+	 * Removes the role of the current {@link ContainerWidget}.
+	 */
+	public void removeRole() {
+		role = null;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void reset() {
+		
+		//Calls method of the base class.
+		super.reset();
+		
+		removeRole();
+	}
+	
+	//method
+	/**
 	 * Sets the role of the current {@link ContainerWidget}.
 	 * 
 	 * @param role
 	 * @return the current {@link ContainerWidget}.
 	 * @throws ArgumentIsNullException if the given role is null.
 	 */
-	public final C setRole(final ContainerRole role) {
+	public final CW setRole(final ContainerRole role) {
 		
 		//Asserts that the given role is not null.
-		Validator
-		.assertThat(role)
-		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isNotNull();
+		Validator.assertThat(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull();
 		
-		//Sets the role of this container.
+		//Sets the role of the current ContainerWidget.
 		this.role = role;
 		
 		return asConcrete();
@@ -136,9 +150,7 @@ extends BorderWidget<C, BWS> {
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ContainerWidget} does not have a role.
 	 */
-	private void supposeHasRole() {
-		
-		//Asserts that the current container has a role.
+	private void assertHasRole() {
 		if (!hasRole()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}
