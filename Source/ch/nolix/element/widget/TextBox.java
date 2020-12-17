@@ -240,6 +240,16 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {
+		setProposalWidth(200);
+		setCustomCursorIcon(CursorIcon.EDIT);
+	}
+	
+	//method
+	/**
 	 * Deletes the character after the text cursor from the text of the current text box
 	 * if there is a character after the text cursor.
 	 */
@@ -312,19 +322,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
 		
 		setTextCursorPosition(getTextCursorPosition() + 1);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetConfigurationOnSelf() {
-		
-		super.resetConfigurationOnSelf();
-		
-		setProposalWidth(200);
-		setCustomCursorIcon(CursorIcon.EDIT);
 	}
 	
 	//method

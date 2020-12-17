@@ -410,7 +410,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelf() {					
+	protected void resetConfigurationOnSelfStage2() {
 		setWidth(500);
 		setHeight(200);
 		removeBackgroundColor();

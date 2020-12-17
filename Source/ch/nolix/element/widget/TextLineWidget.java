@@ -7,8 +7,6 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.gui.ValueCatalogue;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textformat.TextFormat;
@@ -252,18 +250,4 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final void recalculateSelfStage2() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetConfigurationOnSelf() {
-		
-		super.resetConfigurationOnSelf();
-		
-		getRefBaseLook()
-		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
-		.setTextColor(Color.BLACK);
-	}
 }

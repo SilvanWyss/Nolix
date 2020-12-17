@@ -339,6 +339,13 @@ implements Clearable {
 	protected abstract void recalculateSelfStage3();
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetConfigurationOnSelfStage3() {}
+	
+	//method
 	protected final void selectItem(final TextItemMenuItem item) {
 				
 		unselectItems();

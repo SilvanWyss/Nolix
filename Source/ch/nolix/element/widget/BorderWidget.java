@@ -1601,9 +1601,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelf() {
-		
-		super.resetConfigurationOnSelf();
+	protected final void resetConfigurationOnSelfStage2() {
 		
 		deactivateAutomaticSize();
 		removeMinWidth();
@@ -1616,7 +1614,15 @@ extends Widget<BW, BWL> {
 		setContentPosition(ContentPosition.LEFT_TOP);
 		setShowAreaXPositionOnScrolledArea(0);
 		setShowAreaYPositionOnScrolledArea(0);
+		
+		resetConfigurationOnSelfStage3();
 	}
+	
+	//method declaration
+	/**
+	 * Resets the configuration of the current {@link BorderWidget} on itself, and on itself only.
+	 */
+	protected abstract void resetConfigurationOnSelfStage3();
 	
 	//method
 	/**

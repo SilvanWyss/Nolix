@@ -272,4 +272,11 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 			x += widgetMargin + widgetWidth;
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
 }

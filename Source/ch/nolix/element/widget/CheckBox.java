@@ -348,4 +348,11 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	@Override
 	protected void recalculateSelfStage2() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
 }

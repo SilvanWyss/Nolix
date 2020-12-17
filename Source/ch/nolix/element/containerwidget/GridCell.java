@@ -142,14 +142,7 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	public void reset() {	
 		clear();
 	}
-	
-	//method
-	public void resetConfiguration() {
-		if (containsAny()) {
-			getRefWidget().resetConfiguration();
-		}
-	}
-	
+		
 	//method
 	public GridCell setWidget(final Widget<?, ?> widget) {
 		

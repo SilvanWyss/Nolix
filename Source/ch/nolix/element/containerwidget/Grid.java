@@ -392,6 +392,13 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 			y += getLineThickness();
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
 
 	//method
 	private void expandColumnsTo(final int columnIndex) {

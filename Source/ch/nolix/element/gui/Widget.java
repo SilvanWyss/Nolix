@@ -38,7 +38,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2110
+ * @lines 2100
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1141,21 +1141,26 @@ TopLeftPositionedRecangular {
 		
 		return asConcrete();
 	}
-	
+		
 	//method
 	/**
-	 * Resets the configuration of the current {@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final W resetConfiguration() {
+	public final void resetConfigurationOnSelf() {
 		
-		resetConfigurationOnSelf();
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
+		setGreyOutWhenDisabled();
 		
-		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
-				
-		return asConcrete();
+		getRefBaseLook()
+		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
+		.setTextColor(Color.BLACK);
+		
+		baseLook.reset();
+		hoverLook.reset();
+		focusLook.reset();
+		
+		resetConfigurationOnSelfStage2();
 	}
 	
 	//method
@@ -1763,19 +1768,11 @@ TopLeftPositionedRecangular {
 	 */
 	protected abstract boolean redirectsInputsToShownWidgets();
 	
-	//method
+	//method declaration
 	/**
-	 * Resets the configuration of the current {@link Widget} on itself.
+	 * Resets the configuration of the current {@link Widget} on itself, and on itself only.
 	 */
-	protected void resetConfigurationOnSelf() {
-		
-		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		setGreyOutWhenDisabled();
-		
-		baseLook.reset();
-		hoverLook.reset();
-		focusLook.reset();
-	}
+	protected abstract void resetConfigurationOnSelfStage2();
 	
 	//method
 	/**

@@ -183,6 +183,13 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Label} does not have a role.
 	 */
 	private void supposeHasRole() {

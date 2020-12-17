@@ -285,11 +285,8 @@ implements Clearable, Closeable, Refreshable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public G resetConfiguration() {
-		
+	public void resetConfigurationOnSelf() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-		
-		return asConcrete();
 	}
 	
 	//method

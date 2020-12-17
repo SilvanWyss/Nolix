@@ -869,19 +869,11 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
-	 * Resets the configuration of the current {@link Layer}.
-	 * 
-	 * @return the current {@link Layer}.
+	 * {@inheritDoc}
 	 */
-	public final Layer resetConfiguration() {
-				
+	@Override
+	public final void resetConfigurationOnSelf() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
-		
-		if (containsAny()) {
-			getRefRootWidget().resetConfiguration();
-		}
-		
-		return this;
 	}
 	
 	//method

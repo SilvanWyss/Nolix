@@ -169,6 +169,13 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
 	private IElementGetter<byte[]> getFileGetter() {
 		
 		supposeHasFileGetter();

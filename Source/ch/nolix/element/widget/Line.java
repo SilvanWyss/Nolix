@@ -19,7 +19,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 320
+ * @lines 340
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -338,7 +338,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurationOnSelf() {	
+	protected final void resetConfigurationOnSelfStage2() {
 		setThickness(DEFAULT_THICKNESS);
 		setColor(DEFAULT_COLOR);
 	}

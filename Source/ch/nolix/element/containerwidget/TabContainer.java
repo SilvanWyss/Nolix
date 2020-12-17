@@ -545,6 +545,13 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
 	void internalAddChildWidget(final Widget<?, ?> childWidget) {
 		
 		//Calls other method.

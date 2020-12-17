@@ -313,4 +313,11 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 */
 	@Override
 	protected void recalculateSelfStage2() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {}
 }

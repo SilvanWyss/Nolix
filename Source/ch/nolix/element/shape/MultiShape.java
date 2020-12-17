@@ -145,12 +145,8 @@ public final class MultiShape extends Shape<MultiShape> {
 	
 	//method
 	/**
-	 * Resets the configuration of this multi shape.
-	 * 
-	 * @return this multi shape.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public MultiShape resetConfiguration() {
-		return this;
-	}
+	public void resetConfigurationOnSelf() {}
 }

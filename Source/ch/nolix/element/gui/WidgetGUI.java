@@ -433,16 +433,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	@Override
 	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
-		
-		final var configurables = new LinkedList<IConfigurableElement<?>>();
-		
-		for (final var l : layers) {
-			if (l.allowesConfiguration()) {
-				configurables.addAtEnd(l);
-			}
-		}
-		
-		return configurables;
+		return layers.getRefSelected(Layer::allowesConfiguration).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
@@ -577,13 +568,8 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final WG resetConfiguration() {
-		
+	public final void resetConfigurationOnSelf() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-		
-		layers.getRefSelected(Layer::allowesConfiguration).forEach(Layer::resetConfiguration);
-		
-		return asConcrete();
 	}
 	
 	//method

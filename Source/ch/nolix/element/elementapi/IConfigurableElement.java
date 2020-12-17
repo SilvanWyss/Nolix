@@ -40,7 +40,7 @@ OptionalTokenable<C> {
 	
 	//method
 	/**
-	 * @return the {@link IConfigurableElement} of the current {@link IConfigurableElement} recursively.
+	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement} recursively.
 	 */
 	default IContainer<IConfigurableElement<?>> getSubConfigurablesRecursively() {
 		
@@ -58,11 +58,20 @@ OptionalTokenable<C> {
 	 */
 	boolean hasRole(String role);
 	
+	//method
+	/**
+	 * Resets the configuration of the current {@link IConfigurableElement} recursively.
+	 */
+	default void resetConfiguration() {
+		
+		resetConfigurationOnSelf();
+		
+		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
+	}
+	
 	//method declaration
 	/**
-	 * Resets the configuration of the current {@link IConfigurableElement}.
-	 * 
-	 * @return the current {@link IConfigurableElement}.
+	 * Resets the configuration of the current {@link IConfigurableElement} on itself, and on itself only.
 	 */
-	C resetConfiguration();
+	void resetConfigurationOnSelf();
 }

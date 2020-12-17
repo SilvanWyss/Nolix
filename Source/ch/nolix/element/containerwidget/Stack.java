@@ -20,7 +20,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 350
+ * @lines 360
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable {
@@ -363,10 +363,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurationOnSelf() {
-		
-		super.resetConfigurationOnSelf();
-		
+	protected final void resetConfigurationOnSelfStage3() {
 		removeElementMargin();
 	}
 }

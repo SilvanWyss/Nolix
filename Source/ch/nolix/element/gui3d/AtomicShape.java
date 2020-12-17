@@ -108,14 +108,11 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BS resetConfiguration() {
-		
+	public void resetConfigurationOnSelf() {
 		setDefaultColor(DEFAULT_COLOR);
 		removeDefaultTexture();
-		
-		return asConcrete();
 	}
-
+	
 	//method
 	/**
 	 * Sets the default color of the current {@link AtomicShape}.
