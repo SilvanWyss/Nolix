@@ -20,7 +20,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 360
+ * @lines 340
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable {
@@ -135,7 +135,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 	//method
 	/**
-	 * @return the active element margin of the current {@link Stack}.
+	 * @return the element margin of the current {@link Stack}.
 	 */
 	public final int getElementMargin() {
 		
@@ -158,7 +158,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		//Calls method of the base class.
 		final LinkedList<Node> attributes = super.getAttributes();
 		
-		getChildWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
+		getChildWidgets().forEach(cw -> attributes.addAtEnd(cw.getSpecification()));
 		
 		return attributes;
 	}
@@ -183,14 +183,9 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	//method
 	/**
 	 * Removes the element margin of the current {@link Stack}.
-	 * 
-	 * @return the current {@link Stack}.
 	 */
-	public final S removeElementMargin() {
-		
+	public final void removeElementMargin() {
 		elementMargin.clear();
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -198,36 +193,20 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * Removes the given widget from the current {@link Stack}.
 	 *
 	 * @param widget
-	 * @return the current {@link Stack}.
 	 * @throws InvalidArgumentException
 	 * if the current {@link Stack} does not contain the given widget.
 	 */
-	public final S removeWidget(final Widget<?, ?> widget) {
-		
+	public final void removeWidget(final Widget<?, ?> widget) {
 		widgets.removeFirst(widget);
-		
-		return asConcrete();
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void reset() {
 		
-		super.reset();
-		
-		removeElementMargin();
-	}
-	
 	//method
 	/**
 	 * Sets the element margin of the current {@link Stack}.
 	 * 
 	 * @param elementMargin
 	 * @return the current {@link Stack}.
-	 * @throws NonPositiveArgumentException if the given element margin is not positive.
+	 * @throws NonPositiveArgumentException if the given elementMargin is not positive.
 	 */
 	public final S setElementMargin(final int elementMargin) {
 		

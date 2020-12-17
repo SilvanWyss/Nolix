@@ -9,7 +9,7 @@ import ch.nolix.element.gui.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 100
+ * @lines 90
  */
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
@@ -68,10 +68,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case CENTER:
 			case RIGHT:
 				
-				final var contentAreaHeight2 = getContentAreaHeight();
+				final var contentAreaHeight = getContentAreaHeight();
 				var x2 = 0;
 				for (final var w: getChildWidgets()) {
-					w.setPositionOnParent(x2, (contentAreaHeight2 - w.getHeight()) / 2);
+					w.setPositionOnParent(x2, (contentAreaHeight - w.getHeight()) / 2);
 					x2 += w.getWidth() + getElementMargin();
 				}
 				
@@ -80,10 +80,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case BOTTOM:
 			case RIGHT_BOTTOM:
 				
-				final var contentAreaHeight3 = getContentAreaHeight();
+				final var contentAreaHeight2 = getContentAreaHeight();
 				var x3 = 0;
 				for (final var w : getChildWidgets()) {
-					w.setPositionOnParent(x3, contentAreaHeight3 - w.getHeight());
+					w.setPositionOnParent(x3, contentAreaHeight2 - w.getHeight());
 					x3 += w.getWidth() + getElementMargin();
 				}
 				
