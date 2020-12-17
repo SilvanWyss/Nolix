@@ -67,7 +67,7 @@ TopLeftPositionedRecangular {
 	
 	//attributes
 	private boolean enabled = true;
-	private boolean expanded;
+	private boolean expanded = true;
 	private boolean focused;
 	private boolean hovered;
 	
