@@ -21,8 +21,8 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 330
+ * @date 2016-01-01
+ * @lines 300
  * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Castable, Named {
@@ -84,35 +84,6 @@ public class Application<C extends Client<C>> implements Castable, Named {
 		
 		//Calls other constructor.
 		this(name, initialSessionClass, (Object)context);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Application} that:
-	 * -Has the given name, clientClass and initialSessionClass.
-	 * -Will create a {@link NetServer} for itself, and for itself only,
-	 * that will listen to {@link Clients} on the given port.
-	 * 
-	 * @param name
-	 * @param initialSessionClass
-	 * @param port
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given clientClass is null.
-	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
-	 */
-	public Application(
-		final String name,
-		final Class<?> initialSessionClass,
-		final int port
-	) {
-		
-		//Calls other constructor.
-		this(name, initialSessionClass);
-		
-		//Creates a NetServer for the current Application.
-		new NetServer(port).addDefaultApplication(this);
 	}
 	
 	//constructor
