@@ -3,7 +3,6 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.math.Calculator;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
 import ch.nolix.element.painterapi.IPainter;
@@ -12,7 +11,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-9
- * @lines 210
+ * @lines 190
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
@@ -64,18 +63,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	@Override
 	public int getHeight() {
-		
-		var height = parentBorderWidget.hasProposalHeight() ? getProposalHeight() : getNaturalHeight();
-		
-		if (parentBorderWidget.hasMinHeight()) {
-			height = Calculator.getMax(height, getMinHeight());
-		}
-		
-		if (parentBorderWidget.hasMaxHeight()) {
-			height = Calculator.getMin(height, getMaxHeight());
-		}
-		
-		return height;
+		return
+		parentBorderWidget.getBorderedArea().getHeight()
+		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -154,18 +144,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	@Override
 	public int getWidth() {
-		
-		var viewAreaWidth = parentBorderWidget.hasProposalWidth() ? getProposalWidth() : getNaturalWidth();
-		
-		if (parentBorderWidget.hasMinWidth()) {
-			viewAreaWidth = Calculator.getMax(viewAreaWidth, getMinWidth());
-		}
-		
-		if (parentBorderWidget.hasMaxWidth()) {
-			viewAreaWidth = Calculator.getMin(viewAreaWidth, getMaxWidth());
-		}
-		
-		return viewAreaWidth;
+		return
+		parentBorderWidget.getBorderedArea().getWidth()
+		- parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
