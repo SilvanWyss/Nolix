@@ -1639,12 +1639,10 @@ extends Widget<BW, BWL> {
 	 */
 	protected final void setShowAreaXPositionOnScrolledArea(int showAreaXPositionOnScrolledArea) {
 		
-		showAreaXPositionOnScrolledArea = Calculator.getMax(showAreaXPositionOnScrolledArea, 0);
+		showAreaXPositionOnScrolledArea =
+		Calculator.getMin(showAreaXPositionOnScrolledArea,	scrolledArea.getWidth() - showArea.getWidth());
 		
-		showAreaXPositionOnScrolledArea = Calculator.getMin(
-			showAreaXPositionOnScrolledArea,
-			scrolledArea.getWidth() - showArea.getWidth()
-		);
+		showAreaXPositionOnScrolledArea = Calculator.getMax(showAreaXPositionOnScrolledArea, 0);
 		
 		this.showAreaXPositionOnScrolledArea.setValue(showAreaXPositionOnScrolledArea);
 	}
@@ -1657,12 +1655,10 @@ extends Widget<BW, BWL> {
 	 */
 	protected final void setShowAreaYPositionOnScrolledArea(int showAreaYPositionOnScrolledArea) {
 		
-		showAreaYPositionOnScrolledArea = Calculator.getMax(showAreaYPositionOnScrolledArea, 0);
+		showAreaYPositionOnScrolledArea =
+		Calculator.getMin(showAreaYPositionOnScrolledArea,	scrolledArea.getHeight() - showArea.getHeight());
 		
-		showAreaYPositionOnScrolledArea = Calculator.getMin(
-			showAreaYPositionOnScrolledArea,
-			scrolledArea.getHeight() - showArea.getHeight()
-		);
+		showAreaYPositionOnScrolledArea = Calculator.getMax(showAreaYPositionOnScrolledArea, 0);
 		
 		this.showAreaYPositionOnScrolledArea.setValue(showAreaYPositionOnScrolledArea);
 	}
