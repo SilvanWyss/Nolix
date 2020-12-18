@@ -196,8 +196,8 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 			painter.createPainter(
 				contentArea.getXPositionOnScrolledArea(),
 				contentArea.getYPositionOnScrolledArea(),
-				getWidth(),
-				getHeight()
+				contentArea.getWidth(),
+				contentArea.getHeight()
 			),
 			borderWidgetLook
 		);
