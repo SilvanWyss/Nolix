@@ -13,7 +13,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.element.gui.IVisualizer;
-import ch.nolix.element.painter.SwingPainter;
+import ch.nolix.element.gui.SwingPainter;
 
 //class
 /**

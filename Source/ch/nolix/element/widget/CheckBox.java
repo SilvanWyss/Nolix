@@ -8,7 +8,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**

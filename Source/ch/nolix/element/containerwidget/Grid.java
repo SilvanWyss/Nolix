@@ -13,7 +13,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 import ch.nolix.element.widget.Label;
 
 //class

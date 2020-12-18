@@ -5,7 +5,7 @@ package ch.nolix.system.baseguiclient;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 public final class PaintRun {

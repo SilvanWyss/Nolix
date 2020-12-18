@@ -27,7 +27,7 @@ import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.CheckBox;

@@ -12,7 +12,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 import ch.nolix.element.textformat.TextFormat;
 
 //class

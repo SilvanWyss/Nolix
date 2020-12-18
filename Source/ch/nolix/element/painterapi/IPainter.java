@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.painter;
+package ch.nolix.element.painterapi;
 
 //own imports
 import ch.nolix.element.color.Color;
@@ -14,7 +14,7 @@ import ch.nolix.element.textformat.TextFormat;
  * @lines 240
  */
 public interface IPainter {
-		
+	
 	//method
 	/**
 	 * @return a new {@link IPainter} from the current {@link IPainter}.
@@ -22,7 +22,7 @@ public interface IPainter {
 	default IPainter createPainter() {
 		return createPainter(0, 0);
 	}
-
+	
 	//method declaration
 	/**
 	 * @param xTranslation

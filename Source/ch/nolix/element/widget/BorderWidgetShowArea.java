@@ -6,7 +6,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**

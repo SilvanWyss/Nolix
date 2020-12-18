@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.painter;
+package ch.nolix.element.gui;
 
 //Java imports
 import java.awt.Graphics;
@@ -12,6 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;
+import ch.nolix.element.painterapi.IPainter;
 import ch.nolix.element.textformat.TextFormat;
 
 //class

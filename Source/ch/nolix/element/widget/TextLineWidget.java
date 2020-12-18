@@ -8,7 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.Widget;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 import ch.nolix.element.textformat.TextFormat;
 
 //class

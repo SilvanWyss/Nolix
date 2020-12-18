@@ -28,7 +28,7 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.inputdeviceapi.IKeyBoard;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**

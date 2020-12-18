@@ -9,7 +9,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**

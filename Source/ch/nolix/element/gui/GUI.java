@@ -29,7 +29,7 @@ import ch.nolix.element.input.Key;
 import ch.nolix.element.inputdevice.KeyBoard;
 import ch.nolix.element.inputdeviceapi.IKeyBoard;
 import ch.nolix.element.inputdeviceapi.IMutableKeyBoard;
-import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**
