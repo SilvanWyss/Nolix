@@ -45,7 +45,11 @@ public final class LicenseManager {
 	public <L extends License> LicenseManager addLicense(final Class<L> licenseType) {
 		
 		final var key = readKeyFromLicenseFile(licenseType);
-		addLicense(new ClassWrapper<>(License.class).createInstance(key));
+		
+		final var license = new ClassWrapper<>(License.class).createInstance();
+		license.activate(key);
+		
+		addLicense(license);
 		
 		return this;
 	}
@@ -57,6 +61,7 @@ public final class LicenseManager {
 	 * @param license
 	 * @return the current {@link LicenseManager}.
 	 * @throws ArgumentIsNullException if the given license is null.
+	 * @throws InvalidArgumentException if the given license is not activated.
 	 * @throws InvalidArgumentException if the current {@link InternalLicenseManager}
 	 * contains already a {@link License} of the type the given license is.
 	 */
@@ -64,6 +69,9 @@ public final class LicenseManager {
 		
 		//Asserts that the given license is not null.
 		Validator.assertThat(license).thatIsNamed(VariableNameCatalogue.LICENSE).isNotNull();
+		
+		//Assets thath the given license is actiaved.
+		license.assetIsActivated();
 		
 		//Handles the case that the current LicenseManager
 		//does not contain already a License of the type the given license is.

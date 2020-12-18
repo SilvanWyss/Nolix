@@ -1,24 +1,22 @@
 //package declaration
 package ch.nolix.nolixlicense;
 
-//own import
+//own imports
 import ch.nolix.common.license.License;
 
 //class
 public final class Nolix2020Classic extends License {
 	
-	//constructor
-	public Nolix2020Classic(final String key) {
-		super(key);
-	}
-	
 	//method
 	//key = '45680060'
 	@Override
-	public boolean accepts(final String key) {
-		
-		final var keyAsInt = Integer.valueOf(key);
-		
-		return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
+	protected boolean accepts(final String key) {
+		try {
+			final var keyAsInt = Integer.valueOf(key);
+			return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
+		}
+		catch (final Exception exception) {
+			return false;
+		}
 	}
 }

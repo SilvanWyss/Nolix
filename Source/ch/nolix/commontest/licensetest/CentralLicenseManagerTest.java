@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.commontest.licensetest;
 
+import java.util.Objects;
+
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.IContainer;
@@ -26,7 +28,8 @@ public final class CentralLicenseManagerTest extends Test {
 	public void testCase_requireFeature_whenLicenseIsThere() {
 		
 		//setup
-		final var testLicense = new TestLicense("");
+		final var testLicense = new TestLicense();
+		testLicense.activate("0000-0000");
 		CentralLicenseManager.addLicense(testLicense);
 		
 		//execution & verification
@@ -39,14 +42,9 @@ public final class CentralLicenseManagerTest extends Test {
 	//static class
 	private static final class TestLicense extends License {
 		
-		//constructor
-		public TestLicense(final String key) {
-			super(key);
-		}
-		
 		@Override
-		public boolean accepts(String key) {
-			return true;
+		protected boolean accepts(String key) {
+			return Objects.equals(key, "0000-0000");
 		}
 	}
 	

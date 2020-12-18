@@ -3,40 +3,45 @@ package ch.nolix.common.license;
 
 //own imports
 import ch.nolix.common.attributeapi.Named;
-import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.UnacceptedKeyException;
 
 //class
 /**
- * A {@link License} contains {@link Feature}s.
- * 
  * @author Silvan Wyss
- * @month 2019-11
- * @lines 40
+ * @date 2017-05-16
+ * @lines 80
  */
 public abstract class License implements Named {
 	
-	//constructor
+	//attribute
+	private boolean activated;
+	
+	//method
 	/**
-	 * Creates a new {@link License} using the given key.
+	 * Activates the current {@link License} with the given key.
 	 * 
 	 * @param key
-	 * @throws InvalidArgumentException if the given key is not valid.
+	 * @throws InvalidArgumentException if the current {@link License} is already activated.
+	 * @throws UnacceptedKeyException if the current {@link License} does no accepts the given key.
 	 */
-	public License(final String key) {
+	public final void activate(final String key) {
 		
-		//Asserts that the current License accepts the given key.
-		if (!accepts(key)) {
-			throw new InvalidArgumentException(VariableNameCatalogue.KEY, key, "is not valid");
-		}
+		assertIsNotActivated();
+		assertAccepts(key);
+		
+		activated = true;
 	}
 	
-	//method declaration
+	//method
 	/**
-	 * @param key
-	 * @return true if the current {@link License} accepts the given key.
+	 * @throws InvalidArgumentException if the current {@link License} is not activated.
 	 */
-	public abstract boolean accepts(String key);
+	public final void assetIsActivated() {
+		if (!isActivated()) {
+			throw new InvalidArgumentException(this, "is not actiaved");
+		}
+	}
 	
 	//method
 	/**
@@ -44,5 +49,40 @@ public abstract class License implements Named {
 	 */
 	public final String getName() {
 		return getClass().getName();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link License} is activated.
+	 */
+	public final boolean isActivated() {
+		return activated;
+	}
+	
+	//method declaration
+	/**
+	 * @param key
+	 * @return true if the current {@link License} accepts the given key.
+	 */
+	protected abstract boolean accepts(String key);
+	
+	//method
+	/**
+	 * @throws UnacceptedKeyException if the current {@link License} does no accepts the given key.
+	 */
+	private void assertAccepts(final String key) {
+		if (!accepts(key)) {
+			throw new UnacceptedKeyException(key);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if the current {@link License} is activated.
+	 */
+	private void assertIsNotActivated() {
+		if (isActivated()) {
+			throw new InvalidArgumentException(this, "is actiaved");
+		}
 	}
 }

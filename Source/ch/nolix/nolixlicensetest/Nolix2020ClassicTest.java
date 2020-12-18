@@ -3,7 +3,7 @@ package ch.nolix.nolixlicensetest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.common.test.Test;
 import ch.nolix.nolixlicense.Nolix2020Classic;
 
@@ -12,11 +12,15 @@ public final class Nolix2020ClassicTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_whenTheKeyIsNotValid() {
+	public void testCase_activate_whenTheKeyIsNotValid() {
+		
+		//setup
+		final var testUnit = new Nolix2020Classic();
 		
 		//execution & verification
-		expect(() -> new Nolix2020Classic("000000"))
-		.throwsException().ofType(InvalidArgumentException.class)
-		.withMessage("The given key '000000' is not valid.");
+		expect(() -> testUnit.activate("0000-0000"))
+		.throwsException()
+		.ofType(UnacceptedKeyException.class)
+		.withMessage("The given key '0000-0000' is not accepted.");
 	}
 }

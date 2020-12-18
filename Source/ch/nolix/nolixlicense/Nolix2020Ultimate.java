@@ -7,15 +7,10 @@ import ch.nolix.common.license.License;
 //class
 public final class Nolix2020Ultimate extends License {
 	
-	//constructor
-	public Nolix2020Ultimate(final String key) {
-		super(key);
-	}
-	
 	//method
 	//key = '48956380'
 	@Override
-	public boolean accepts(final String key) {
+	protected boolean accepts(final String key) {
 		
 		final var keyAsInt = Integer.valueOf(key);
 		
