@@ -896,7 +896,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
-		Validator.assertThat(proposalWidth).thatIsNamed("proposal with").isPositive();
+		Validator.assertThat(proposalWidth).thatIsNamed("proposal width").isPositive();
 		
 		this.proposalWidth.setValue(proposalWidth);
 		
