@@ -94,13 +94,13 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 			case TOP:
 			case CENTER:
 			case BOTTOM:
-				return (parentBorderWidget.getScrolledArea().getWidth() - getWidth()) / 2;
+				return ((parentBorderWidget.getScrolledArea().getWidth() - getWidth()) / 2);
 			case RIGHT_TOP:
 			case RIGHT:
 			case RIGHT_BOTTOM:				
 				return
 				parentBorderWidget.getScrolledArea().getWidth()
-				- parentBorderWidget.getContentAreaWidth()
+				- getWidth()
 				- look.getRecursiveOrDefaultRightPadding();
 		}
 		
@@ -125,14 +125,13 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 			case LEFT:
 			case CENTER:
 			case RIGHT:
-				return
-				(parentBorderWidget.getScrolledArea().getHeight() - getHeight()) / 2;
+				return ((parentBorderWidget.getScrolledArea().getHeight() - getHeight()) / 2);
 			case LEFT_BOTTOM:
 			case BOTTOM:
 			case RIGHT_BOTTOM:
 				return
 				parentBorderWidget.getScrolledArea().getHeight()
-				- parentBorderWidget.getContentAreaHeight()
+				- getHeight()
 				- look.getRecursiveOrDefaultBottomPadding();
 		}
 		
