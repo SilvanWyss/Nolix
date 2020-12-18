@@ -8,26 +8,26 @@ import ch.nolix.element.widget.Label;
 
 //class
 /**
- * A {@link LabelTest} is a test for {@link Label}.
+ * A {@link LabelTest} is a test for {@link Label}s.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 60
  */
-public final class LabelTest extends WidgetTest<Label> {
+public final class LabelTest extends BorderWidgetTest<Label> {
 	
 	//method
 	@TestCase
 	public void testCase_getRefBaseLook_setTextColor() {
 		
 		//setup
-		final var label = new Label();
+		final var testUnit = new Label();
 		
 		//execution
-		label.getRefBaseLook().setTextColor(Color.BLUE);
+		testUnit.getRefBaseLook().setTextColor(Color.BLUE);
 		
 		//verification
-		expect(label.getRefBaseLook().getRecursiveOrDefaultTextColor()).isEqualTo(Color.BLUE);
+		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultTextColor()).isEqualTo(Color.BLUE);
 	}
 		
 	//method
@@ -35,13 +35,13 @@ public final class LabelTest extends WidgetTest<Label> {
 	public void testCase_getRefBaseLook_setTextSize() {
 		
 		//setup
-		final var label = new Label();
+		final var testUnit = new Label();
 		
 		//execution
-		label.getRefBaseLook().setTextSize(25);
+		testUnit.getRefBaseLook().setTextSize(25);
 		
 		//verification
-		expect(label.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(25);
+		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(25);
 	}
 	
 	//method
@@ -49,13 +49,13 @@ public final class LabelTest extends WidgetTest<Label> {
 	public void testCase_setText() {
 		
 		//setup
-		final var label = new Label();
+		final var testUnit = new Label();
 		
 		//execution
-		label.setText("Helix");
+		testUnit.setText("Helix");
 		
 		//verification
-		expect(label.getText()).isEqualTo("Helix");
+		expect(testUnit.getText()).isEqualTo("Helix");
 	}
 	
 	//method
