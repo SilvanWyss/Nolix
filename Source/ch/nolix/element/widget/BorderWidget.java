@@ -62,7 +62,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1700
+ * @lines 1710
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
@@ -716,6 +716,13 @@ extends Widget<BW, BWL> {
 	public void reset() {
 		
 		super.reset();
+		
+		removeProposalWidth();
+		removeProposalHeight();
+		removeMinWidth();
+		removeMinHeight();
+		removeMaxWidtht();
+		removeMaxHeight();
 		
 		showAreaXPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA);
 		showAreaYPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA);
