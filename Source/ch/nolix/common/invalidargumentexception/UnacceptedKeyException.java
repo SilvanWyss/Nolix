@@ -3,7 +3,7 @@ package ch.nolix.common.invalidargumentexception;
 
 //class
 /**
- * A {@link UnaccceptedKeyException} is a {@link InvalidArgumentException}
+ * A {@link UnacceptedKeyException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given key is not accepted.
  * 
  * @author Silvan Wyss
@@ -11,7 +11,7 @@ package ch.nolix.common.invalidargumentexception;
  * @lines 30
  */
 @SuppressWarnings("serial")
-public final class UnaccceptedKeyException extends InvalidArgumentException {
+public final class UnacceptedKeyException extends InvalidArgumentException {
 	
 	//constants
 	private static final String ARGUMENT_NAME = "key";
@@ -19,11 +19,11 @@ public final class UnaccceptedKeyException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new {@link UnaccceptedKeyException} for the given key.
+	 * Creates a new {@link UnacceptedKeyException} for the given key.
 	 * 
 	 * @param key
 	 */
-	public UnaccceptedKeyException(final String key) {
+	public UnacceptedKeyException(final String key) {
 		
 		//Calls constructor of the base class.
 		super(ARGUMENT_NAME, key, ERROR_PREDICATE);
