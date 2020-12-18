@@ -20,7 +20,8 @@ import ch.nolix.system.baseguiclient.PaintRun;
  * Of the {@link CanvasFrameTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2019-08
+ * @date 2019-08-15
+ * @lines 110
  */
 public final class CanvasFrameTutorial {
 	
@@ -41,14 +42,12 @@ public final class CanvasFrameTutorial {
 		final IContainer<IElementTaker<PaintRun>> paintCommands =
 		LinkedList.withElements(
 			pr -> {
-				var painter = pr.getRefPainterByIndex(1);
+				final var painter = pr.getRefPainterByIndex(1);
 				painter.setColorGradient(new ColorGradient(UniDirection.VERTICAL, Color.BLUE, Color.MIDNIGHT_BLUE));
-				painter.paintFilledRectangle(1000, 500);
+				painter.paintFilledRectangle(canvasFrame.getViewAreaWidth(), canvasFrame.getViewAreaHeight());
 				painter.translate(100, 100);
 				painter.paintText("Nolix", new TextFormat(Font.ARIAL, false, true, 100, Color.SILVER));
-				painter.translate(0, 150);
-				painter.paintText("future technology", new TextFormat(Font.PAPYRUS, false, false, 50, Color.WHITE));
-				painter.translate(-50, 100);
+				painter.translate(0, 200);
 				painter.setColor(Color.SILVER);
 				painter.paintFilledRectangle(900, 2);
 			}
