@@ -160,7 +160,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 			originLabel.setMinWidth(getMinWidth() - expandButton.getWidth());
 			originHorizontalStack.recalculate();
 		}
-				
+		
 		originLabel.setMinWidth(getRefItemLables().getMaxIntOrDefaultValue(Label::getWidth, MIN_LABEL_WIDTH));
 	}
 	
@@ -212,7 +212,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 			.setConfigurationNotAllowed()
 			.setFreeContentPosition(
 				getXPositionOnGUI() + getWidth() - expandedDropdownMenu.getWidth(),
-				getYPositionOnGUI()
+				getYPositionOnGUI() + getHeight()
 			)
 			.setRootWidget(expandedDropdownMenu.setFocused())
 			.setLeftMouseButtonPressActionOnFreeArea(this::collapse)
