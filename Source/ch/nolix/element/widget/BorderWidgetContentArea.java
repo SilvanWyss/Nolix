@@ -4,6 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painterapi.IPainter;
 
@@ -13,11 +14,11 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 160
+ * @lines 170
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
-public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> {
+public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> implements Rectangular {
 	
 	//attribute
 	/**
@@ -59,16 +60,18 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> {
 	
 	//method
 	/**
-	 * @return the height of the current {@link BorderWidgetContentArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getHeight() {
 		return parentBorderWidget.getContentAreaHeight();
 	}
 	
 	//method
 	/**
-	 * @return the width of the current {@link BorderWidgetContentArea}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getWidth() {
 		return parentBorderWidget.getContentAreaWidth();
 	}
