@@ -13,8 +13,8 @@ import ch.nolix.element.widget.Label;
  * Of the {@link LabelTutorial} an instance cannot be created.
  *
  * @author Silvan Wyss
- * @month 2017-09
- * @lines 70
+ * @date 2017-09-09
+ * @lines 80
  */
 public final class LabelTutorial {
 	
@@ -26,14 +26,12 @@ public final class LabelTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Label Tutorial");
+		final var frame = new Frame().setTitle("Label Tutorial");
 		
 		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label().setText("Time:");
 		
-		//Configures the look of clockCaptionLabel.
+		//Configures the look of the clockCaptionLabel.
 		clockCaptionLabel.applyOnBaseLook(bl -> bl.setTextSize(50));
 		
 		//Creates clockLabel.
@@ -43,36 +41,38 @@ public final class LabelTutorial {
 		clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
 	
 		//Adds the clockCaptionLabel and clockLabel to the Frame.
-		frame.addLayerOnTop(
-			new HorizontalStack()
-			.addWidget(clockCaptionLabel, clockLabel)
-		);
+		frame.addLayerOnTop(new HorizontalStack().addWidget(clockCaptionLabel, clockLabel));
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
 		Sequencer
 		.asLongAs(frame::isOpen)
 		.afterAllMilliseconds(100)
 		.runInBackground(
-			() -> {
-				
-				//Gets the current time.
-				final var currentTime = Time.fromCurrentTime();
-				
-				//Creates text.
-				final var text =
-				String.format(
-					"%02d:%02d:%02d",
-					currentTime.getHourOfDay(),
-					currentTime.getMinuteOfHour(),
-					currentTime.getSecondOfMinute()
-				);
+			() -> {		
 				
 				//Sets the text to the clockLabel.
-				clockLabel.setText(text);
+				clockLabel.setText(getCurrentTimeText());
 				
 				//Refreshes the Frame.
 				frame.refresh();
 			}
+		);
+	}
+	
+	//method
+	/**
+	 * @return the current time as text.
+	 */
+	private static String getCurrentTimeText() {
+		
+		final var currentTime = Time.fromCurrentTime();
+		
+		return
+		String.format(
+			"%02d:%02d:%02d",
+			currentTime.getHourOfDay(),
+			currentTime.getMinuteOfHour(),
+			currentTime.getSecondOfMinute()
 		);
 	}
 	
