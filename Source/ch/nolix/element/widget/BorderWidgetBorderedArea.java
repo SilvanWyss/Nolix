@@ -13,7 +13,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-05
- * @lines 280
+ * @lines 330
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetBorderedArea}.
  */
@@ -272,6 +272,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 			);
 		}
 		
+		paintRectangleBetweenScrollBars(painter, borderWidgetLook);
+		
 		//Paints the show area of the BorderWidget of the current BorderWidgetBorderedArea.
 		parentBorderWidget.getShowArea().paint(
 			painter.createPainter(
@@ -282,5 +284,48 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 			),
 			borderWidgetLook
 		);
+	}
+	
+	//visibility-reduced method
+	/**
+	 * Paints the rectangle between the scroll bars of the current {@link BorderWidgetBorderedArea}
+	 * using the given painter and borderWidgetLook.
+	 * 
+	 * @param painter
+	 * @param borderWidgetLook
+	 */
+	private void paintRectangleBetweenScrollBars(final IPainter painter, final BWL borderWidgetLook) {
+		if (
+			parentBorderWidget.hasActivatedVerticalScrollBar()
+			&& parentBorderWidget.hasActivatedHorizontalScrollBar()
+		) {
+			if (borderWidgetLook.hasRecursiveBackgroundColor()) {
+				
+				final var showArea = parentBorderWidget.getShowArea();
+				
+				painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColor());
+				
+				painter.paintFilledRectangle(
+					showArea.getWidth(),
+					showArea.getHeight(),
+					parentBorderWidget.getHorizontalScrollBarThickness(),
+					parentBorderWidget.getVerticalScrollBarThickness()
+				);
+			}
+			
+			else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
+				
+				final var showArea = parentBorderWidget.getShowArea();
+				
+				painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient().getColor2());
+				
+				painter.paintFilledRectangle(
+					showArea.getWidth(),
+					showArea.getHeight(),
+					parentBorderWidget.getHorizontalScrollBarThickness(),
+					parentBorderWidget.getVerticalScrollBarThickness()
+				);
+			}
+		}
 	}
 }
