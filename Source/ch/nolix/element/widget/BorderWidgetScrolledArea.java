@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 230
+ * @lines 220
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */
@@ -67,16 +67,14 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		var scrolledAreaHeight = getNaturalHeight();
 		
+		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a proposal height.
 		if (parentBorderWidget.hasProposalHeight()) {
-			scrolledAreaHeight = Calculator.getMax(scrolledAreaHeight, getProposalHeight());
+			scrolledAreaHeight = Calculator.getMax(getProposalHeight(), scrolledAreaHeight);
 		}
 		
-		//Handles the case that the current border widget has a min height.
+		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a mininum height.
 		if (parentBorderWidget.hasMinHeight()) {
-			scrolledAreaHeight = Calculator.getMax(
-				scrolledAreaHeight,
-				getMinHeight()
-			);
+			scrolledAreaHeight = Calculator.getMax(getMinHeight(), scrolledAreaHeight);
 		}
 		
 		return scrolledAreaHeight;
@@ -103,13 +101,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @return the natural height of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getNaturalHeight() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		look.getRecursiveOrDefaultTopPadding()
-		+ parentBorderWidget.getContentArea().getHeight()
-		+ look.getRecursiveOrDefaultBottomPadding();
+		return parentBorderWidget.getExtendedContentArea().getHeight();
 	}
 	
 	//method
@@ -117,13 +109,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @return the natural width of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getNaturalWidth() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		look.getRecursiveOrDefaultLeftPadding()
-		+ parentBorderWidget.getContentArea().getWidth()
-		+ look.getRecursiveOrDefaultRightPadding();
+		return parentBorderWidget.getExtendedContentArea().getWidth();
 	}
 	
 	//method
@@ -165,16 +151,14 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		var scrolledAreaWidth = getNaturalWidth();
 		
+		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a proposal width.
 		if (parentBorderWidget.hasProposalWidth()) {
-			scrolledAreaWidth = Calculator.getMax(scrolledAreaWidth, getProposalWidth());
+			scrolledAreaWidth = Calculator.getMax(getProposalWidth(), scrolledAreaWidth);
 		}
 		
-		//Handles the case that the current border widget has a min width.
+		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a mininum width.
 		if (parentBorderWidget.hasMinWidth()) {
-			scrolledAreaWidth = Calculator.getMax(
-				scrolledAreaWidth,
-				getMinWidth()
-			);
+			scrolledAreaWidth = Calculator.getMax(getMinWidth(), scrolledAreaWidth);
 		}
 		
 		return scrolledAreaWidth;
@@ -191,13 +175,13 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		paintBackground(painter, borderWidgetLook);
 		
-		final var contentArea = parentBorderWidget.getContentArea();	
-		contentArea.paint(
+		final var extendedContentArea = parentBorderWidget.getExtendedContentArea();	
+		extendedContentArea.paint(
 			painter.createPainter(
-				contentArea.getXPositionOnScrolledArea(),
-				contentArea.getYPositionOnScrolledArea(),
-				contentArea.getWidth(),
-				contentArea.getHeight()
+				extendedContentArea.getXPositionOnScrolledArea(),
+				extendedContentArea.getYPositionOnScrolledArea(),
+				extendedContentArea.getWidth(),
+				extendedContentArea.getHeight()
 			),
 			borderWidgetLook
 		);

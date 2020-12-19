@@ -3,7 +3,6 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painterapi.IPainter;
@@ -14,7 +13,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 170
+ * @lines 140
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
@@ -47,7 +46,9 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 * @return the x-position of the cursor on the current {@link BorderWidgetContentArea}.
 	 */
 	public int getCursorXPosition() {
-		return (parentBorderWidget.getScrolledArea().getCursorXPosition() - getXPositionOnScrolledArea());
+		return 
+		parentBorderWidget.getExtendedContentArea().getCursorXPosition()
+		- getXPositionOnExtendedContentArea();
 	}
 	
 	//method
@@ -55,7 +56,9 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 * @return the y-position of the cursor on the current {@link BorderWidgetContentArea}.
 	 */
 	public int getCursorYPosition() {
-		return (parentBorderWidget.getScrolledArea().getCursorYPosition() - getYPositionOnScrolledArea());
+		return
+		parentBorderWidget.getExtendedContentArea().getCursorYPosition()
+		- getYPositionOnExtendedContentArea();
 	}
 	
 	//method
@@ -78,64 +81,42 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link BorderWidgetContentArea} on the {@link BorderWidgetScrolledArea}
-	 * of the {@link BorderWidget} it belongs to.
+	 * @return the x-position of the current {@link BorderWidgetContentArea}
+	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
-	public int getXPositionOnScrolledArea() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		//Enumerates the content position of the BoderWidget of the current BorderWidgetContentArea.
-		switch (parentBorderWidget.getContentPosition()) {
-			case LEFT_TOP:
-			case LEFT:
-			case LEFT_BOTTOM:
-				return look.getRecursiveOrDefaultLeftPadding();
-			case TOP:
-			case CENTER:
-			case BOTTOM:
-				return ((parentBorderWidget.getScrolledArea().getWidth() - getWidth()) / 2);
-			case RIGHT_TOP:
-			case RIGHT:
-			case RIGHT_BOTTOM:				
-				return
-				parentBorderWidget.getScrolledArea().getWidth()
-				- getWidth()
-				- look.getRecursiveOrDefaultRightPadding();
-		}
-		
-		throw new InvalidArgumentException(this);
+	public int getXPositionOnExtendedContentArea() {
+		return parentBorderWidget.getRefLook().getRecursiveOrDefaultLeftPadding();
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the current {@link BorderWidgetContentArea} on the {@link BorderWidgetScrolledArea}
-	 * of the {@link BorderWidget} it belongs to.
+	 * @return the x-position of the current {@link BorderWidgetContentArea}
+	 * on the {@link BorderWidgetScrolledArea} of the {@link BorderWidget} it belongs to.
+	 */
+	public int getXPositionOnScrolledArea() {
+		return
+		parentBorderWidget.getExtendedContentArea().getXPositionOnScrolledArea()
+		+ parentBorderWidget.getRefLook().getRecursiveOrDefaultLeftPadding();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link BorderWidgetContentArea}
+	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
+	 */
+	public int getYPositionOnExtendedContentArea() {
+		return parentBorderWidget.getRefLook().getRecursiveOrDefaultTopPadding();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link BorderWidgetContentArea}
+	 * on the {@link BorderWidgetScrolledArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPositionOnScrolledArea() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		//Enumerates the content position of the BoderWidget of the current BorderWidgetContentArea.
-		switch (parentBorderWidget.getContentPosition()) {
-			case LEFT_TOP:
-			case TOP:
-			case RIGHT_TOP:
-				return look.getRecursiveOrDefaultTopPadding();
-			case LEFT:
-			case CENTER:
-			case RIGHT:
-				return ((parentBorderWidget.getScrolledArea().getHeight() - getHeight()) / 2);
-			case LEFT_BOTTOM:
-			case BOTTOM:
-			case RIGHT_BOTTOM:
-				return
-				parentBorderWidget.getScrolledArea().getHeight()
-				- getHeight()
-				- look.getRecursiveOrDefaultBottomPadding();
-		}
-		
-		throw new InvalidArgumentException(this);
+		return
+		parentBorderWidget.getExtendedContentArea().getYPositionOnScrolledArea()
+		+ parentBorderWidget.getRefLook().getRecursiveOrDefaultTopPadding();
 	}
 	
 	//method
