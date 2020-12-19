@@ -57,12 +57,13 @@ import ch.nolix.element.painterapi.IPainter;
  * 1. main area: Contains the probable borders and bordered area.
  * 2. bordered area: Contains the probable scroll bars and show area.
  * 3. show area: Is over the scrolled area and is like a hole to look on the scrolled area below.
- * 4. scrolled area: Contains the probable paddings and content area.
- * 5. content area: Contains the content.
+ * 4. scrolled area: Contains the extending paddings and extended content area.
+ * 5. extended content area: Contains the paddings and content area.
+ * 6. content area: Contains the content.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1710
+ * @lines 1720
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
  */
@@ -197,6 +198,7 @@ extends Widget<BW, BWL> {
 	private final BorderWidgetBorderedArea<BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
 	private final BorderWidgetShowArea<BWL> showArea = new BorderWidgetShowArea<>(this);
 	private final BorderWidgetScrolledArea<BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
+	private final BorderWidgetExtendedContentArea<BWL> extendedContentArea = new BorderWidgetExtendedContentArea<>(this);
 	private final BorderWidgetContentArea<BWL> contentArea = new BorderWidgetContentArea<>(this);
 	
 	//attributes
@@ -275,6 +277,14 @@ extends Widget<BW, BWL> {
 	 */
 	public final ContentPosition getContentPosition() {
 		return contentPosition.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the extended content area of the current {@link BorderWidget}.
+	 */
+	public final BorderWidgetExtendedContentArea<BWL> getExtendedContentArea() {
+		return extendedContentArea;
 	}
 	
 	//method
