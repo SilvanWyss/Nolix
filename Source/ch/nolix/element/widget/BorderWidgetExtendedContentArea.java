@@ -169,8 +169,8 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 		
 		contentArea.paint(
 			painter.createPainter(
-				borderWidgetLook.getRecursiveOrDefaultLeftPadding(),
-				borderWidgetLook.getRecursiveOrDefaultTopPadding(),
+				contentArea.getXPositionOnExtendedContentArea(),
+				contentArea.getYPositionOnExtendedContentArea(),
 				contentArea.getWidth(),
 				contentArea.getHeight()
 			),
