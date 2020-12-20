@@ -617,7 +617,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Handles the case that the current ChainedNode has a header.
 		if (header != null) {
-			stringBuilder.append(BaseNode.getEscapeStringFor(header));
+			stringBuilder.append(getEscapeStringFor(header));
 		}
 		
 		//Handles the case that the current ChainedNode contains attributes.
