@@ -12,7 +12,7 @@ import ch.nolix.element.layerelement.LayerProperty;
 public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 	
 	//constant
-	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
+	public static final int DEFAULT_ITEM_PADDING = 0;
 	
 	//constants
 	private static final String ITEM_PADDING_HEADER = "ItemPadding";
