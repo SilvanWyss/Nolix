@@ -32,6 +32,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	public DropdownMenu() {
 		
 		originHorizontalStack.reset();
+		addChildWidget(originHorizontalStack);
 		originHorizontalStack.addWidget(originLabel, expandButton);
 		
 		expandButton.reset();
@@ -112,23 +113,14 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
@@ -139,9 +131,6 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {
 		
@@ -182,8 +171,8 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		.applyOnBaseLook(bl -> bl.setBorderThicknesses(1))
 		
 		//TODO: Work without additional security constant.
-		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight() - 60); 
-		
+		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight() - 60);
+				
 		//TODO: Analyze recalculate method.
 		/*
 		 * Recalculates the SelectionMenu.
