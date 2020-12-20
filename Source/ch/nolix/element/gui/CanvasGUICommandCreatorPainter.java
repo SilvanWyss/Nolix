@@ -8,7 +8,6 @@ import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.independenthelper.ArrayHelper;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;
@@ -207,7 +206,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
-			+ BaseNode.getEscapeStringFor(text)
+			+ ChainedNode.getEscapeStringFor(text)
 			+ ','
 			+ textFormat.getSpecification()
 			+ ')'
@@ -220,7 +219,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
-			+ BaseNode.getEscapeStringFor(text)
+			+ ChainedNode.getEscapeStringFor(text)
 			+ ','
 			+ textFormat.getSpecification()
 			+ ','
