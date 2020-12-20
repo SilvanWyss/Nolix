@@ -24,12 +24,12 @@ import ch.nolix.element.gui.SwingPainter;
 public final class FrameVisualizer implements IVisualizer {
 	
 	//constants
-	public static final int INITIAL_FRAME_X_POSITION = 200;
-	public static final int INITIAL_FRAME_Y_POSITION = 100;
+	public static final int INITIAL_FRAME_X_POSITION = 100;
+	public static final int INITIAL_FRAME_Y_POSITION = 50;
 		
 	//constants
 	public static final int INITIAL_FRAME_WIDTH = 1200;
-	public static final int INITIAL_FRAME_HEIGHT = 800;
+	public static final int INITIAL_FRAME_HEIGHT = 600;
 		
 	//constants
 	public static final int MIN_WIDTH = 200;
