@@ -4,37 +4,29 @@ package ch.nolix.element.gui;
 //own imports
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.base.Element;
 
 //class
 public final class WidgetParent {
 	
-	//constants
-	private static final String GUI_TYPE_HEADER = "GUI";
-	private static final String WIDGET_TYPE_HEADER = "Widget";
-	
-	//optional attribute
+	//optional attributes
 	private final WidgetGUI<?> mGui;
-	
-	//optional attribute
 	private final Widget<?, ?> widget;
 	
-	//constructor
-	public WidgetParent(final WidgetGUI<?> pGUI, final Widget<?, ?> childWidget) {
+	//visiblity-reduced constructor
+	WidgetParent(final WidgetGUI<?> pGUI, final Widget<?, ?> childWidget) {
 		
-		Validator.assertThat(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
+		Validator.assertThat(pGUI).thatIsNamed(WidgetGUI.class).isNotNull();
 		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		mGui = pGUI;
 		widget = null;
 	}
 	
-	//constructor
-	public WidgetParent(final Widget<?, ?> widget, final Widget<?, ?> childWidget) {
+	//visibility-reduced constructor
+	WidgetParent(final Widget<?, ?> widget, final Widget<?, ?> childWidget) {
 		
-		Validator.assertThat(widget).thatIsNamed(WIDGET_TYPE_HEADER).isNotNull();
+		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
-		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNot(widget);
 		
 		mGui = null;
 		this.widget = widget;
@@ -42,16 +34,15 @@ public final class WidgetParent {
 	
 	//method
 	public boolean belongsToGUI() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (mGui != null || widget.belongsToGUI());
 	}
 	
 	//method
-	public Element<?> getRef() {
-		return (mGui != null ? mGui : widget);
-	}
-	
-	//method
 	public WidgetGUI<?> getRefGUI() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		
 		if (mGui != null) {
 			return mGui;
@@ -63,6 +54,7 @@ public final class WidgetParent {
 	//method
 	public Widget<?, ?> getRefWidget() {
 		
+		//Asserts that the current WidgetParent is a widget.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {
 			throw new InvalidArgumentException(this, "is not a Widget");
@@ -72,44 +64,43 @@ public final class WidgetParent {
 	}
 	
 	//method
-	public String getType() {
-		return mGui != null ? GUI_TYPE_HEADER : WIDGET_TYPE_HEADER;
+	public WidgetParentType getType() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (mGui != null ? WidgetParentType.GUI : WidgetParentType.WIDGET);
 	}
-	
-	//method
-	public String getTypeInQuotes() {
-		return ("'" + getType() + "'");
-	}
-	
+		
 	//method
 	public int getXPositionOnGUI() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (mGui != null ? 0 : widget.getXPositionOnGUI());
 	}
 	
 	//method
 	public int getYPositionOnGUI() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (mGui != null ? 0 : widget.getYPositionOnGUI());
 	}
 	
 	//method
 	public boolean GUIIsClosed() {
-		return (mGui != null && mGui.isClosed());
+		return (belongsToGUI() && getRefGUI().isClosed());
 	}
 	
 	//method
 	public boolean is(final WidgetGUI<?> pGUI) {
 		
-		Validator.assertThat(pGUI).thatIsNamed(GUI_TYPE_HEADER).isNotNull();
-		
-		return (mGui == pGUI);
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (mGui != null && mGui == pGUI);
 	}
 	
 	//method
 	public boolean is(final Widget<?, ?> widget) {
 		
-		Validator.assertThat(widget).thatIsNamed(WIDGET_TYPE_HEADER).isNotNull();
-		
-		return (this.widget == widget);
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (this.widget != null && this.widget == widget);
 	}
 	
 	//method
