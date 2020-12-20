@@ -38,7 +38,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2100
+ * @lines 2090
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -77,8 +77,8 @@ TopLeftPositionedRecangular {
 	private final WL focusLook = createLook();
 	
 	//attributes
-	private int xPositionOnParent;
-	private int yPositionOnParent;
+	private int xPositionOnContentAreaOfParent;
+	private int yPositionOnContentAreaOfParent;
 	
 	//attributes
 	private int width;
@@ -274,10 +274,10 @@ TopLeftPositionedRecangular {
 		
 		//For a better performance, this implementation does the cheap comparisons at first.
 		return
-		xPositionOnParent >= this.xPositionOnParent
-		&& yPositionOnParent >= this.yPositionOnParent
-		&& xPositionOnParent < this.xPositionOnParent + getWidth()
-		&& yPositionOnParent < this.yPositionOnParent + getHeight();
+		xPositionOnParent >= this.xPositionOnContentAreaOfParent
+		&& yPositionOnParent >= this.yPositionOnContentAreaOfParent
+		&& xPositionOnParent < this.xPositionOnContentAreaOfParent + getWidth()
+		&& yPositionOnParent < this.yPositionOnContentAreaOfParent + getHeight();
 	}
 	
 	//method
@@ -562,50 +562,68 @@ TopLeftPositionedRecangular {
 	 */
 	@Override
 	public final int getXPosition() {
-		return xPositionOnParent;
+		return xPositionOnContentAreaOfParent;
 	}
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link Widget} on the {@link WidgetGUI}
-	 * the current {@link Widget} belongs to.
+	 * @return the x-position of the current {@link Widget} on the parent of the current {@link Widget}.
 	 */
 	public final int getXPositionOnGUI() {
-				
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		
 		//Handles the case that the current Widget does not belong to a parent.
 		if (parent == null) {
-			return xPositionOnParent;
+			return xPositionOnContentAreaOfParent;
 		}
 		
-		//Handles the case that the current Widget belongs to a parent.
-		return (parent.getXPositionOnGUI() + xPositionOnParent);
+		//Handles the case that the parent of the current Widget is a GUI.
+		if (parent.isGUI()) {
+			return parent.getXPositionOnGUI() + xPositionOnContentAreaOfParent;
+		}
+		
+		//Handles the case that the parent of the current Widget is a Widget.
+		return
+		parent.getXPositionOnGUI()
+		+ parent.getRefWidget().getContentAreaXPosition()
+		+ xPositionOnContentAreaOfParent;
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getYPosition() {
-		return yPositionOnParent;
+		return yPositionOnContentAreaOfParent;
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the current {@link Widget} on the {@link WidgetGUI}
-	 * the current {@link Widget} belongs to.
+	 * @return the y-position of the current {@link Widget} on the parent of the current {@link Widget}.
 	 */
 	public final int getYPositionOnGUI() {
 		
+		//For a better performance, this implementation does not use all comfortable methods.
+		
 		//Handles the case that the current Widget does not belong to a parent.
 		if (parent == null) {
-			return yPositionOnParent;
+			return yPositionOnContentAreaOfParent;
 		}
 		
-		//Handles the case that the current Widget belongs to a parent.
-		return (parent.getYPositionOnGUI() + yPositionOnParent);
+		//Handles the case that the parent of the current Widget is a GUI.
+		if (parent.isGUI()) {
+			return parent.getYPositionOnGUI() + yPositionOnContentAreaOfParent;
+		}
+		
+		//Handles the case that the parent of the current Widget is a Widget.
+		return
+		parent.getYPositionOnGUI()
+		+ parent.getRefWidget().getContentAreaYPosition()
+		+ yPositionOnContentAreaOfParent;
 	}
-
+	
 	//method
 	/**
 	 * @return true if the current {@link Widget} grays out when it is disabled.
@@ -1407,8 +1425,8 @@ TopLeftPositionedRecangular {
 	 * @param yPositionOnParent
 	 */
 	public final void setPositionOnParent(final int xPositionOnParent,	final int yPositionOnParent) {				
-		this.xPositionOnParent = xPositionOnParent;
-		this.yPositionOnParent = yPositionOnParent;
+		this.xPositionOnContentAreaOfParent = xPositionOnParent;
+		this.yPositionOnContentAreaOfParent = yPositionOnParent;
 	}
 	
 	//method
