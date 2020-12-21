@@ -11,19 +11,19 @@ import ch.nolix.element.elementapi.IElementEnum;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-18
  * @lines 50
  */
 public enum ExtendedContentPosition implements IElementEnum {
-	LEFT_TOP,
-	LEFT,
-	LEFT_BOTTOM,
+	TOP_LEFT,
 	TOP,
+	TOP_RIGHT,
+	LEFT,
 	CENTER,
-	BOTTOM,
-	RIGHT_TOP,
 	RIGHT,
-	RIGHT_BOTTOM,
+	BOTTOM_LEFT,
+	BOTTOM,
+	BOTTOM_RIGHT,
 	FREE;
 	
 	//constant
@@ -33,7 +33,8 @@ public enum ExtendedContentPosition implements IElementEnum {
 	/**
 	 * @param specification
 	 * @return a new {@link ExtendedContentPosition} from the given specification.
-	 * @throws InvalidArgumentException if the given specification is not valid.
+	 * @throws InvalidArgumentException
+	 * if the given specification does not represent a {@link ExtendedContentPosition}.
 	 */
 	public static ExtendedContentPosition fromSpecification(final BaseNode specification) {
 		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));

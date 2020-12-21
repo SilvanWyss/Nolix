@@ -747,7 +747,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 									
 			//Enumerates the content position of the current GUILayer.
 			switch (contentPosition.getValue()) {
-				case LEFT_TOP:
+				case TOP_LEFT:
 					
 					getRefRootWidget().setPositionOnParent(0, 0);
 					
@@ -760,7 +760,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 					);
 					
 					break;
-				case LEFT_BOTTOM:
+				case BOTTOM_LEFT:
 					
 					getRefRootWidget().setPositionOnParent(
 						0,
@@ -792,7 +792,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 					);
 					
 					break;
-				case RIGHT_TOP:
+				case TOP_RIGHT:
 					
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
@@ -808,7 +808,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 					);
 				
 					break;
-				case RIGHT_BOTTOM:
+				case BOTTOM_RIGHT:
 					
 					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
