@@ -73,7 +73,7 @@ extends Widget<BW, BWL> {
 	//constants
 	public static final int SCROLL_BAR_THICKNESS = 20;
 	public static final boolean DEFAULT_AUTOMATIC_SIZE_STATE = false;
-	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.LEFT_TOP;
+	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.TOP_LEFT;
 	public static final int DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA = 0;
 	public static final int DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA = 0;
 	
@@ -1628,7 +1628,7 @@ extends Widget<BW, BWL> {
 		removeProposalWidth();
 		removeProposalHeight();
 		
-		setContentPosition(ContentPosition.LEFT_TOP);
+		setContentPosition(ContentPosition.TOP_LEFT);
 		setShowAreaXPositionOnScrolledArea(0);
 		setShowAreaYPositionOnScrolledArea(0);
 		

@@ -53,9 +53,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 		//Enumerates the content position of the current horizontal stack.
 		switch (getContentPosition()) {
-			case LEFT_TOP:
+			case TOP_LEFT:
 			case TOP:
-			case RIGHT_TOP:
+			case TOP_RIGHT:
 				
 				var x1 = 0;
 				for (final var w : getChildWidgets()) {
@@ -76,9 +76,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				}
 				
 				break;
-			case LEFT_BOTTOM:
+			case BOTTOM_LEFT:
 			case BOTTOM:
-			case RIGHT_BOTTOM:
+			case BOTTOM_RIGHT:
 				
 				final var contentAreaHeight2 = getContentAreaHeight();
 				var x3 = 0;

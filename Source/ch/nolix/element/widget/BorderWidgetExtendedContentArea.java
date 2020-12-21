@@ -97,17 +97,17 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 		
 		//Enumerates the content position of the BoderWidget of the current BorderWidgetExtendedArea.
 		switch (parentBorderWidget.getContentPosition()) {
-			case LEFT_TOP:
+			case TOP_LEFT:
 			case LEFT:
-			case LEFT_BOTTOM:
+			case BOTTOM_LEFT:
 				return 0;
 			case TOP:
 			case CENTER:
 			case BOTTOM:
 				return ((parentBorderWidget.getScrolledArea().getWidth() - getWidth()) / 2);
-			case RIGHT_TOP:
+			case TOP_RIGHT:
 			case RIGHT:
-			case RIGHT_BOTTOM:				
+			case BOTTOM_RIGHT:				
 				return (parentBorderWidget.getScrolledArea().getWidth() - getWidth());
 		}
 		
@@ -123,17 +123,17 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 		
 		//Enumerates the content position of the BoderWidget of the current BorderWidgetExtendedArea.
 		switch (parentBorderWidget.getContentPosition()) {
-			case LEFT_TOP:
+			case TOP_LEFT:
 			case TOP:
-			case RIGHT_TOP:
+			case TOP_RIGHT:
 				return 0;
 			case LEFT:
 			case CENTER:
 			case RIGHT:
 				return ((parentBorderWidget.getScrolledArea().getHeight() - getHeight()) / 2);
-			case LEFT_BOTTOM:
+			case BOTTOM_LEFT:
 			case BOTTOM:
-			case RIGHT_BOTTOM:
+			case BOTTOM_RIGHT:
 				return (parentBorderWidget.getScrolledArea().getHeight() - getHeight());
 		}
 		
