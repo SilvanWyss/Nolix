@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.GUI;
@@ -18,15 +19,15 @@ import ch.nolix.element.gui.SwingPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-08
- * @lines 180
+ * @date 2019-08-01
+ * @lines 200
  */
 public final class FrameVisualizer implements IVisualizer {
 	
 	//constants
 	public static final int INITIAL_FRAME_X_POSITION = 100;
 	public static final int INITIAL_FRAME_Y_POSITION = 50;
-		
+	
 	//constants
 	public static final int INITIAL_FRAME_WIDTH = 1200;
 	public static final int INITIAL_FRAME_HEIGHT = 600;
@@ -60,22 +61,24 @@ public final class FrameVisualizer implements IVisualizer {
 			FrameVisualizer.this.parentGUI.paint(new SwingPainter(parentGUI.getRefImageCache(), graphics));
 		}
 	};
-
+	
 	//constructor
+	/**
+	 * Initializes the current {@link FrameVisualizer} with the given parentGUI.
+	 * 
+	 * @throws ArgumentIsNullException if the given parentGUI is null.
+	 * @throws InvalidArgumentException if the current {@link FrameVisualizer} has already been initialized.
+	 */
 	public void initialize(GUI<?> parentGUI) {
 		
 		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
-		
-		if (this.parentGUI != null) {
-			throw new InvalidArgumentException(this);
-		}
-		
+		assertIsNotInitialized();
+				
 		this.parentGUI = parentGUI;
 		
 		frame.setLocationByPlatform(true);
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new FrameVisualizerCloseListener(parentGUI));
-		frame.addComponentListener(new FrameVisualizerResizeListener(parentGUI));
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
@@ -84,6 +87,7 @@ public final class FrameVisualizer implements IVisualizer {
 		frame.setLocation(INITIAL_FRAME_X_POSITION, INITIAL_FRAME_Y_POSITION);
 		
 		//Add listeners to the current Frame.
+		panel.addComponentListener(new FrameVisualizerResizeListener(parentGUI));
 		panel.addKeyListener(new FrameVisualizerKeyListener(parentGUI));
 		panel.addMouseListener(new FrameVisualizerMouseListener(parentGUI));
 		panel.addMouseMotionListener(new FrameVisualizerMouseMotionListener(parentGUI));
@@ -92,7 +96,7 @@ public final class FrameVisualizer implements IVisualizer {
 		//This is important that key events are handled.
 		panel.setFocusable(true);
 		panel.requestFocus();
-						
+				
 		parentGUI.refresh();
 	}
 	
@@ -136,7 +140,7 @@ public final class FrameVisualizer implements IVisualizer {
 		
 		return (int)mousePosition.getY();
 	}
-		
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -169,9 +173,8 @@ public final class FrameVisualizer implements IVisualizer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void repaint() {
-		frame.setCursor(parentGUI.getCursorIcon().toCursor());
-		frame.repaint();
+	public void noteClose() {
+		frame.dispose();
 	}
 	
 	//method
@@ -179,7 +182,26 @@ public final class FrameVisualizer implements IVisualizer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteClose() {
-		frame.dispose();
+	public void repaint() {
+		frame.setCursor(parentGUI.getCursorIcon().toCursor());
+		frame.repaint();
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if the current {@link FrameVisualizer} has already been initialized.
+	 */
+	private void assertIsNotInitialized() {
+		if (isInitialized()) {
+			throw new InvalidArgumentException(this);
+		}
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link FrameVisualizer} is initialized.
+	 */
+	private boolean isInitialized() {
+		return (parentGUI != null);
 	}
 }
