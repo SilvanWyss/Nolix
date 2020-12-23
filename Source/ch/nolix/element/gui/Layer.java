@@ -59,9 +59,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	public static final String ROOT_WIDGET_HEADER = "RootWidget";
 	public static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
-	
-	//constant
-	private static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
+	public static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
 	
 	//static method
 	/**
@@ -733,18 +731,20 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * Recalculates the current {@link Layer}.
 	 */
 	public final void recalculate() {
 		
 		//Handles the case that the current GUILayer has a root Widget.
-		//For a better performance, this implementation does not use all comfortable methods.
 		if (rootWidget != null) {
 			
-			//For updating the size of the root widget.
+			setAutomaticSizeToRootWidget();
+			
+			//Recalculates the root Widget to update its size.
 			rootWidget.recalculate();
-									
+			
 			//Enumerates the content position of the current GUILayer.
 			switch (contentPosition.getValue()) {
 				case TOP_LEFT:
@@ -1266,6 +1266,28 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 				parentGUI.getViewAreaWidth(),
 				parentGUI.getViewAreaHeight()
 			);
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void setAutomaticSizeToRootWidget() {
+		if (rootWidget instanceof BorderWidget) {
+			
+			final var lRootWidget = rootWidget.as(BorderWidget.class);
+			
+			if (parentGUI != null && lRootWidget.hasAutomaticSize()) {
+				
+				final var viewAreaWidth = parentGUI.getViewAreaWidth();
+				final var viewAreaHeight = parentGUI.getViewAreaHeight();
+				
+				if (viewAreaWidth > 0 && viewAreaHeight > 0) {
+					lRootWidget.setProposalSize(
+						parentGUI.getViewAreaWidth(),
+						parentGUI.getViewAreaHeight()
+					);
+				}
+			}
 		}
 	}
 	
