@@ -127,7 +127,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * @return the proposal height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getProposalHeight() {
-		return parentBorderWidget.getScrolledArea().getProposalHeight();
+		return parentBorderWidget.getBorderedArea().getProposalHeight() - parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -135,7 +135,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * @return the proposal width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getProposalWidth() {
-		return parentBorderWidget.getScrolledArea().getProposalWidth();
+		return parentBorderWidget.getBorderedArea().getProposalWidth() - parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
