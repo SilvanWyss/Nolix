@@ -39,7 +39,7 @@ public final class RedLineGUILook extends Configuration {
 		addConfiguration(
 			new DeepConfiguration()
 			.setSelectorType("Layer")
-			.addAttachingAttribute("ContentPosition(LeftTop)"),
+			.addAttachingAttribute("ContentPosition(TopLeft)"),
 			new DeepConfiguration()
 			.setSelectorType("Widget")
 			.addAttachingAttribute(
