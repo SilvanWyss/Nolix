@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 220
+ * @lines 200
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */
@@ -117,14 +117,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @return the proposal height of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getProposalHeight() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		parentBorderWidget.getProposalHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness()
-		- parentBorderWidget.getHorizontalScrollBarThickness();
+		return parentBorderWidget.getShowArea().getProposalHeight();
 	}
 	
 	//method
@@ -132,14 +125,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @return the proposal width of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getProposalWidth() {
-		
-		final var look = parentBorderWidget.getRefLook();
-		
-		return
-		parentBorderWidget.getProposalWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness()
-		- parentBorderWidget.getVerticalScrollBarThickness();
+		return parentBorderWidget.getShowArea().getProposalWidth();
 	}
 	
 	//method
