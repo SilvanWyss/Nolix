@@ -10,9 +10,11 @@ import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**
+ * A {@link BorderWidgetShowArea} does not store or mutate data.
+ * 
  * @author Silvan Wyss
  * @date 2019-05-9
- * @lines 220
+ * @lines 230
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
@@ -72,6 +74,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the max height of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a maximal height.
 	 */
 	public int getMaxHeight() {
 		return
@@ -82,6 +86,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the max width of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a maximal width.
 	 */
 	public int getMaxWidth() {
 		return
@@ -92,6 +98,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the min height of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a minimal height.
 	 */
 	public int getMinHeight() {
 		return
@@ -102,6 +110,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the min width of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a minimal width.
 	 */
 	public int getMinWidth() {
 		return parentBorderWidget.getBorderedArea().getMinWidth() - parentBorderWidget.getVerticalScrollBarThickness();
@@ -126,6 +136,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the proposal height of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a proposal height.
 	 */
 	public int getProposalHeight() {
 		return
@@ -136,6 +148,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the proposal width of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a proposal width.
 	 */
 	public int getProposalWidth() {
 		return
