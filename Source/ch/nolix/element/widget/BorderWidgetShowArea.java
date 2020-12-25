@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
@@ -11,7 +12,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-9
- * @lines 190
+ * @lines 220
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
@@ -127,7 +128,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * @return the proposal height of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getProposalHeight() {
-		return parentBorderWidget.getBorderedArea().getProposalHeight() - parentBorderWidget.getHorizontalScrollBarThickness();
+		return
+		parentBorderWidget.getBorderedArea().getProposalHeight()
+		- parentBorderWidget.getHorizontalScrollBarThickness();
 	}
 	
 	//method
@@ -135,7 +138,33 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * @return the proposal width of the current {@link BorderWidgetShowArea}.
 	 */
 	public int getProposalWidth() {
-		return parentBorderWidget.getBorderedArea().getProposalWidth() - parentBorderWidget.getVerticalScrollBarThickness();
+		return
+		parentBorderWidget.getBorderedArea().getProposalWidth()
+		- parentBorderWidget.getVerticalScrollBarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the target height of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a target height.
+	 */
+	public int getTargetHeight() {
+		return
+		parentBorderWidget.getBorderedArea().getTargetHeight()
+		- parentBorderWidget.getHorizontalScrollBarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the target width of the current {@link BorderWidgetShowArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetShowArea} does not have a target width.
+	 */
+	public int getTargetWidth() {
+		return
+		parentBorderWidget.getBorderedArea().getTargetWidth()
+		- parentBorderWidget.getVerticalScrollBarThickness();
 	}
 	
 	//method
