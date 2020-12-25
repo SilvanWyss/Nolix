@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
@@ -13,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-05
- * @lines 330
+ * @lines 360
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetBorderedArea}.
  */
@@ -174,6 +175,38 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getProposalWidth()
+		- look.getRecursiveOrDefaultLeftBorderThickness()
+		- look.getRecursiveOrDefaultRightBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the target height of the current {@link BorderWidgetBorderedArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetBorderedArea} does not have a target height.
+	 */
+	public int getTargetHeight() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getTargetHeight()
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the target width of the current {@link BorderWidgetBorderedArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetBorderedArea} does not have a target width.
+	 */
+	public int getTargetWidth() {
+		
+		final var look = parentBorderWidget.getRefLook();
+		
+		return
+		parentBorderWidget.getMainArea().getTargetWidth()
 		- look.getRecursiveOrDefaultLeftBorderThickness()
 		- look.getRecursiveOrDefaultRightBorderThickness();
 	}
