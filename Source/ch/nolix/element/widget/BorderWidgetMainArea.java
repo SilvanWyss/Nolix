@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
@@ -13,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-06-26
- * @lines 240
+ * @lines 260
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetMainArea}.
  */
@@ -143,7 +144,27 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	public int getProposalWidth() {
 		return parentBorderWidget.getProposalWidth();
 	}
-		
+	
+	//method
+	/**
+	 * @return the target height of the current {@link BorderWidgetMainArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetMainArea} does not have a target height.
+	 */
+	public int getTargetHeight() {
+		return parentBorderWidget.getTargetWidth();
+	}
+	
+	//method
+	/**
+	 * @return the target width of the current {@link BorderWidgetMainArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetMainArea} does not have a target width.
+	 */
+	public int getTargetWidth() {
+		return parentBorderWidget.getTargetWidth();
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
