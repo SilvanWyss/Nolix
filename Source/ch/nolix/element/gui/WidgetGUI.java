@@ -20,8 +20,10 @@ import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.containerwidget.Accordion;
 import ch.nolix.element.containerwidget.FloatContainer;
 import ch.nolix.element.containerwidget.Grid;
+import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.SingleContainer;
 import ch.nolix.element.containerwidget.TabContainer;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -35,14 +37,12 @@ import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.DropdownMenu;
 import ch.nolix.element.widget.HorizontalLine;
-import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.SelectionMenu;
 import ch.nolix.element.widget.TextBox;
 import ch.nolix.element.widget.Uploader;
 import ch.nolix.element.widget.VerticalLine;
-import ch.nolix.element.widget.VerticalStack;
 
 //class
 /**

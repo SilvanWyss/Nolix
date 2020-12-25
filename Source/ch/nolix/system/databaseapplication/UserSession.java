@@ -3,10 +3,10 @@ package ch.nolix.system.databaseapplication;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.element.containerwidget.HorizontalStack;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.HorizontalStack;
-import ch.nolix.element.widget.VerticalStack;
 
 //class
 public abstract class UserSession extends DatabaseApplicationSession {

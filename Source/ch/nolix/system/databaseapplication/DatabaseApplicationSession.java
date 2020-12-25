@@ -3,12 +3,12 @@ package ch.nolix.system.databaseapplication;
 
 //own imports
 import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.HorizontalStack;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Widget;
-import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
-import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.system.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.guiclient.BackGUIClientSession;
 

@@ -4,6 +4,7 @@ package ch.nolix.elementtutorial.dialogtutorial;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.dialog.UploadImageDialog;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.Frame;
@@ -11,7 +12,6 @@ import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Uploader;
-import ch.nolix.element.widget.VerticalStack;
 
 public final class UploadImageDialogTutorial {
 	

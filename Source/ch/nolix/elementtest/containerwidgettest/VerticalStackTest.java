@@ -3,10 +3,10 @@ package ch.nolix.elementtest.containerwidgettest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.TextBox;
-import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.elementtest.widgettest.BorderWidgetTest;
 
 //class

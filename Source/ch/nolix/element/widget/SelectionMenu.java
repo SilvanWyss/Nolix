@@ -4,6 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.painterapi.IPainter;
 

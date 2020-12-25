@@ -5,14 +5,14 @@ package ch.nolix.element.dialog;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.HorizontalStack;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.Layer;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Uploader;
-import ch.nolix.element.widget.VerticalStack;
 
 //class
 public final class UploadImageDialog extends Layer {

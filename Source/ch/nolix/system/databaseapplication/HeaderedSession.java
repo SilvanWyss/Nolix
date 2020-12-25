@@ -4,10 +4,10 @@ package ch.nolix.system.databaseapplication;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
-import ch.nolix.element.widget.VerticalStack;
 
 //class
 public abstract class HeaderedSession extends UserSession {

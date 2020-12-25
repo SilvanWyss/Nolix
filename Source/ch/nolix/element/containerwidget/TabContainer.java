@@ -15,7 +15,6 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
 
 //class

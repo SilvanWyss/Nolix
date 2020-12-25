@@ -5,12 +5,12 @@ package ch.nolix.element.dialog;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.containerwidget.ContainerRole;
+import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Layer;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
-import ch.nolix.element.widget.VerticalStack;
 
 //class
 public final class ErrorDialog extends Layer {
