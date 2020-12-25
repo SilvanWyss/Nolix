@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-06-26
- * @lines 260
+ * @lines 270
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetMainArea}.
  */
@@ -72,6 +72,8 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the max height of the current {@link BorderWidgetMainArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetMainArea} does not have a max height.
 	 */
 	public int getMaxHeight() {
 		return parentBorderWidget.getMaxHeight();
@@ -80,6 +82,8 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the max width of the current {@link BorderWidgetMainArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetMainArea} does not have a max width.
 	 */
 	public int getMaxWidth() {
 		return parentBorderWidget.getMaxWidth();
@@ -132,6 +136,8 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the proposal height of the current {@link BorderWidgetMainArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetMainArea} does not have a proposal height.
 	 */
 	public int getProposalHeight() {
 		return parentBorderWidget.getProposalHeight();
@@ -140,6 +146,8 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	//method
 	/**
 	 * @return the proposal width of the current {@link BorderWidgetMainArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetMainArea} does not have a proposal width.
 	 */
 	public int getProposalWidth() {
 		return parentBorderWidget.getProposalWidth();
