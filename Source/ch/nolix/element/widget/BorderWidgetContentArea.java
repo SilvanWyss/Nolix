@@ -4,6 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.math.Calculator;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painterapi.IPainter;
@@ -14,7 +15,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 180
+ * @lines 210
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
@@ -68,7 +69,14 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	@Override
 	public int getHeight() {
-		return parentBorderWidget.getNaturalContentAreaHeight();
+		
+		final var naturalHeight = getNaturalHeight();
+		
+		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetHeight()) {
+			return Calculator.getMax(getTargetHeight(), naturalHeight);
+		}
+		
+		return naturalHeight;
 	}
 	
 	//method
@@ -105,11 +113,34 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	
 	//method
 	/**
+	 * @return the natural height of the current {@link BorderWidgetContentArea}.
+	 */
+	public int getNaturalHeight() {
+		return parentBorderWidget.getNaturalContentAreaHeight();
+	}
+	
+	//method
+	/**
+	 * @return the natural width of the current {@link BorderWidgetContentArea}.
+	 */
+	public int getNaturalWidth() {
+		return parentBorderWidget.getNaturalContentAreaWidth();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public int getWidth() {
-		return parentBorderWidget.getNaturalContentAreaWidth();
+		
+		final var naturalWidth = getNaturalWidth();
+		
+		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetWidth()) {
+			return Calculator.getMax(getTargetWidth(), naturalWidth);
+		}
+		
+		return naturalWidth;
 	}
 	
 	//method
