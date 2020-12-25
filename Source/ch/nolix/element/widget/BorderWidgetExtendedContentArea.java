@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.rasterapi.Rectangular;
@@ -14,7 +15,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2020-12-19
- * @lines 180
+ * @lines 200
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
  */
@@ -71,6 +72,26 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 		parentBorderWidget.getContentArea().getHeight()
 		+ look.getRecursiveOrDefaultTopPadding()
 		+ look.getRecursiveOrDefaultBottomPadding();
+	}
+	
+	//method
+	/**
+	 * @return the target height of the current {@link BorderWidgetExtendedContentArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetExtendedContentArea} does not have a target height.
+	 */
+	public int getTargetHeight() {
+		return parentBorderWidget.getScrolledArea().getTargetHeight();
+	}
+	
+	//method
+	/**
+	 * @return the target width of the current {@link BorderWidgetExtendedContentArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetExtendedContentArea} does not have a target width.
+	 */
+	public int getTargetWidth() {
+		return parentBorderWidget.getScrolledArea().getTargetWidth();
 	}
 	
 	//method
