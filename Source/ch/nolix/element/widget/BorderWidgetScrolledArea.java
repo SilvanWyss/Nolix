@@ -15,7 +15,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 220
+ * @lines 230
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */
@@ -83,7 +83,9 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	
 	//method
 	/**
-	 * @return the minimum height of the current {@link BorderWidgetScrolledArea}.
+	 * @return the minimal height of the current {@link BorderWidgetScrolledArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetScrolledArea} does not have a minimal height.
 	 */
 	public int getMinHeight() {
 		return parentBorderWidget.getShowArea().getMinHeight();
@@ -91,7 +93,9 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	
 	//method
 	/**
-	 * @return the minimum width of the current {@link BorderWidgetScrolledArea}.
+	 * @return the minimal width of the current {@link BorderWidgetScrolledArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetScrolledArea} does not have a minimal width.
 	 */
 	public int getMinWidth() {
 		return parentBorderWidget.getShowArea().getMinWidth();
@@ -116,6 +120,8 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	//method
 	/**
 	 * @return the proposal height of the current {@link BorderWidgetScrolledArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetScrolledArea} does not have a proposal height.
 	 */
 	public int getProposalHeight() {
 		return parentBorderWidget.getShowArea().getProposalHeight();
@@ -124,6 +130,8 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	//method
 	/**
 	 * @return the proposal width of the current {@link BorderWidgetScrolledArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetScrolledArea} does not have a proposal width.
 	 */
 	public int getProposalWidth() {
 		return parentBorderWidget.getShowArea().getProposalWidth();
