@@ -207,6 +207,12 @@ implements Clearable {
 	
 	//method
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
+	//method
+	@Override
 	protected final TextItemMenuLook createLook() {
 		return new TextItemMenuLook();
 	}

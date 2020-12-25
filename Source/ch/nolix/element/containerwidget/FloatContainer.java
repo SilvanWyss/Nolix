@@ -91,6 +91,12 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return true;
+	}
+		
+	//method
+	@Override
 	protected FloatContainerLook createLook() {
 		return new FloatContainerLook();
 	}

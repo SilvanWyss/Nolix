@@ -132,6 +132,15 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected SingleContainerLook createLook() {
 		return new SingleContainerLook();
 	}

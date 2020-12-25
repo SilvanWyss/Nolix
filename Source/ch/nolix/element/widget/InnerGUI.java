@@ -177,6 +177,12 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
+	//method
+	@Override
 	protected InnerGUILook createLook() {
 		return new InnerGUILook();
 	}

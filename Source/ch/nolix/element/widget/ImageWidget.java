@@ -55,6 +55,12 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
+	//method
+	@Override
 	protected ImageWidgetLook createLook() {
 		return new ImageWidgetLook();
 	}

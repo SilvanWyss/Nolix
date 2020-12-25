@@ -107,6 +107,15 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method

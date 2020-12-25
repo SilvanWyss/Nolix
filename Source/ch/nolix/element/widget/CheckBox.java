@@ -140,6 +140,15 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
 		
 	//method
 	/**

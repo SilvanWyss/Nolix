@@ -22,7 +22,7 @@ import ch.nolix.element.widget.VerticalStack;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 440
+ * @lines 450
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable {
 	
@@ -259,7 +259,16 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		
 		return this;
 	}
-		
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}

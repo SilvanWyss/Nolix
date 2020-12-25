@@ -181,6 +181,12 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+		
+	//method
+	@Override
 	protected GridLook createLook() {
 		return new GridLook();
 	}

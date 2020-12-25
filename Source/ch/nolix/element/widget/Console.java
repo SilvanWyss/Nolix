@@ -542,6 +542,15 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean contentAreaMustBeExpandedToTargetSize() {
+		return false;
+	}
+	
+	//method
+	/**
 	 * @return a new widget look for the current {@link Console}.
 	 */
 	@Override
