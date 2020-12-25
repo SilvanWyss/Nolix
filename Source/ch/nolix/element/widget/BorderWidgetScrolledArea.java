@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.rasterapi.Rectangular;
@@ -14,7 +15,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 200
+ * @lines 220
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */
@@ -126,6 +127,26 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getProposalWidth() {
 		return parentBorderWidget.getShowArea().getProposalWidth();
+	}
+	
+	//method
+	/**
+	 * @return the target height of the current {@link BorderWidgetScrolledArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetScrolledArea} does not have a target height.
+	 */
+	public int getTargetHeight() {
+		return parentBorderWidget.getShowArea().getTargetHeight();
+	}
+	
+	//method
+	/**
+	 * @return the target width of the current {@link BorderWidgetScrolledArea}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link BorderWidgetScrolledArea} does not have a target width.
+	 */
+	public int getTargetWidth() {
+		return parentBorderWidget.getShowArea().getTargetWidth();
 	}
 	
 	//method
