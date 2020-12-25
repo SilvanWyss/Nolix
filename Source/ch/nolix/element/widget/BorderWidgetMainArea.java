@@ -152,7 +152,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * if the current {@link BorderWidgetMainArea} does not have a target height.
 	 */
 	public int getTargetHeight() {
-		return parentBorderWidget.getTargetWidth();
+		return parentBorderWidget.getTargetHeight();
 	}
 	
 	//method
