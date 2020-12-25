@@ -20,7 +20,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		
 		final var childWidgets = getChildWidgets();
 		
@@ -39,7 +39,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return getChildWidgets().getMaxIntOrZero(Widget::getWidth);
 	}
 	
@@ -67,7 +67,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case CENTER:
 			case BOTTOM:
 				
-				final var contentAreaWidth = getContentAreaWidth();
+				final var contentAreaWidth = getNaturalContentAreaWidth();
 				var y2 = 0;
 				for (final var w : getChildWidgets()) {
 					w.setPositionOnParent((contentAreaWidth - w.getWidth()) / 2, y2);
@@ -79,7 +79,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case RIGHT:
 			case BOTTOM_RIGHT:
 				
-				final var contentAreaWidth2 = getContentAreaWidth();
+				final var contentAreaWidth2 = getNaturalContentAreaWidth();
 				var y3 = 0;
 				for (final var w : getChildWidgets()) {
 					w.setPositionOnParent(contentAreaWidth2 - w.getWidth(), y3);

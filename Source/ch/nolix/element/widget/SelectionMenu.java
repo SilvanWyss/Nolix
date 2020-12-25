@@ -65,13 +65,13 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 		
 	//method
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return getRefItems().getSumByInt(TextItemMenuItem::getHeight);
 	}
 	
 	//method
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return getRefItems().getMaxIntOrZero(TextItemMenuItem::getWidth);
 	}
 	

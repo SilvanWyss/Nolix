@@ -308,7 +308,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return accordionVerticalStack.getHeight();
 	}
 	
@@ -317,7 +317,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return accordionVerticalStack.getWidth();
 	}
 	

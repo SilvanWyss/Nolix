@@ -147,7 +147,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @return the width of the content area of current {@link TextBox}.
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return getTextFormat().getSwingTextWidth(getShownText());
 	}
 	

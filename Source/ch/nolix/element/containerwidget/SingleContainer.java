@@ -178,7 +178,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {
@@ -193,7 +193,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {

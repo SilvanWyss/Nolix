@@ -115,7 +115,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		
 		if (isEmpty()) {
 			return 0;
@@ -129,7 +129,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		
 		final var look = getRefLook();
 		
@@ -248,7 +248,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	@Override
 	protected void recalculateSelfStage2() {
 		
-		final var contentAreaWidth = getContentAreaWidth();
+		final var contentAreaWidth = getNaturalContentAreaWidth();
 		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();
 		
 		var y = 0;

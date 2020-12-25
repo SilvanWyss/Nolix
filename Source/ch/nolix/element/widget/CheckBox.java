@@ -178,7 +178,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
 	
@@ -187,7 +187,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
 	

@@ -89,13 +89,13 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return originHorizontalStack.getHeight();
 	}
 	
 	//method
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return originHorizontalStack.getWidth();
 	}
 	

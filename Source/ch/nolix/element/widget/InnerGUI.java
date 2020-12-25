@@ -201,13 +201,13 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 
 	//method
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return internalGUI.getHeight();
 	}
 	
 	//method
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return internalGUI.getWidth();
 	}
 	

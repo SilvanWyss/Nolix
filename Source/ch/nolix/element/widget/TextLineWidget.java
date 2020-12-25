@@ -130,7 +130,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getContentAreaHeight() {
+	protected final int getNaturalContentAreaHeight() {
 		return new TextFormat(getRefLook().getRecursiveOrDefaultTextSize()).getTextHeight();
 	}
 	
@@ -139,7 +139,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		
 		//TODO: Handle the case that the current TextLineWidget shortens its text when it has a limited width.
 		/*

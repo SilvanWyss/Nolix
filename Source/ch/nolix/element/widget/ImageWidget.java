@@ -75,13 +75,13 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return (isEmpty() ? 0 : getRefImage().getHeight());
 	}
 
 	//method
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		return (isEmpty() ? 0 : getRefImage().getWidth());
 	}
 	

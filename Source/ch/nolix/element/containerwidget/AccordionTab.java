@@ -280,7 +280,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		headerHorizontalStack.resetConfiguration();
 		headerHorizontalStack.applyOnBaseLook(bl -> bl.setLeftPadding(10));
 		
-		final var contentAreaWidth = getParentAccordion().getContentAreaWidth();
+		final var contentAreaWidth = getParentAccordion().getNaturalContentAreaWidth();
 		if (contentAreaWidth > 0) {
 			headerHorizontalStack.setProposalWidth(contentAreaWidth);
 		}

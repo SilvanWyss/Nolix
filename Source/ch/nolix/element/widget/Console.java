@@ -577,7 +577,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the height of the content of the current {@link Console}.
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		
 		final var look = getRefLook();
 		
@@ -598,7 +598,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the width of the content of the current {@link Console}.
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		
 		final var font = getFont();
 		

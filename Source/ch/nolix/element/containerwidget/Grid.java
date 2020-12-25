@@ -75,7 +75,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	public int getContentAreaHeight() {
+	public int getNaturalContentAreaHeight() {
 		
 		var contentHeight = cells.getRows().getSumByInt(r -> r.getMaxInt(GridCell::getHeight));
 
@@ -97,7 +97,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	public int getContentAreaWidth() {
+	public int getNaturalContentAreaWidth() {
 		
 		var contentWidth = cells.getColumns().getSumByInt(c -> c.getMaxInt(GridCell::getWidth));
 		
@@ -302,8 +302,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 			final var outerLinesDefined =
 			gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.INNER_AND_OUTER_LINES;
 			
-			final var contentAreaWidth = getContentAreaWidth();
-			final var contentAreaHeight = getContentAreaHeight();
+			final var contentAreaWidth = getNaturalContentAreaWidth();
+			final var contentAreaHeight = getNaturalContentAreaHeight();
 			final var lineThickness = getLineThickness();
 			final var elementMargin = getElementMargin();
 			

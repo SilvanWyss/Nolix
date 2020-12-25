@@ -68,7 +68,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	@Override
 	public int getHeight() {
-		return parentBorderWidget.getContentAreaHeight();
+		return parentBorderWidget.getNaturalContentAreaHeight();
 	}
 	
 	//method
@@ -109,7 +109,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	@Override
 	public int getWidth() {
-		return parentBorderWidget.getContentAreaWidth();
+		return parentBorderWidget.getNaturalContentAreaWidth();
 	}
 	
 	//method

@@ -947,18 +947,6 @@ extends Widget<BW, BWL> {
 	 */
 	protected abstract boolean contentAreaMustBeExpandedToTargetSize();
 	
-	//method declaration
-	/**
-	 * @return the height of the content area of the current {@link BorderWidget}.
-	 */
-	protected abstract int getContentAreaHeight();
-	
-	//method declaration
-	/**
-	 * @return the width of the content area of the current {@link BorderWidget}.
-	 */
-	protected abstract int getContentAreaWidth();
-	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1067,6 +1055,18 @@ extends Widget<BW, BWL> {
 	protected final int getHorizontalScrollBarThickness() {
 		return (hasActivatedHorizontalScrollBar() ? SCROLL_BAR_THICKNESS : 0);
 	}
+	
+	//method declaration
+	/**
+	 * @return the natural height of the content area of the current {@link BorderWidget}.
+	 */
+	protected abstract int getNaturalContentAreaHeight();
+	
+	//method declaration
+	/**
+	 * @return the natural width of the content area of the current {@link BorderWidget}.
+	 */
+	protected abstract int getNaturalContentAreaWidth();
 	
 	//method
 	/**

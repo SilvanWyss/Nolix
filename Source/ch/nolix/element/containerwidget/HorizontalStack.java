@@ -20,7 +20,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		return getChildWidgets().getMaxIntOrZero(Widget::getHeight);
 	}
 	
@@ -29,7 +29,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		
 		final var childWidget = getChildWidgets();
 		
@@ -67,7 +67,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case CENTER:
 			case RIGHT:
 				
-				final var contentAreaHeight = getContentAreaHeight();
+				final var contentAreaHeight = getNaturalContentAreaHeight();
 				var x2 = 0;
 				for (final var w: getChildWidgets()) {
 					w.setPositionOnParent(x2, (contentAreaHeight - w.getHeight()) / 2);
@@ -79,7 +79,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case BOTTOM:
 			case BOTTOM_RIGHT:
 				
-				final var contentAreaHeight2 = getContentAreaHeight();
+				final var contentAreaHeight2 = getNaturalContentAreaHeight();
 				var x3 = 0;
 				for (final var w : getChildWidgets()) {
 					w.setPositionOnParent(x3, contentAreaHeight2 - w.getHeight());

@@ -329,7 +329,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaHeight() {
+	protected int getNaturalContentAreaHeight() {
 		
 		var height = menu.getHeight();
 		
@@ -348,7 +348,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getContentAreaWidth() {
+	protected int getNaturalContentAreaWidth() {
 		
 		//Handles the case that the current tab container does not contain a tabs.
 		if (isEmpty()) {
