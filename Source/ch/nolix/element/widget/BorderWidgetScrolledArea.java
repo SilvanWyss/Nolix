@@ -102,7 +102,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @return the natural height of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getNaturalHeight() {
-		return parentBorderWidget.getExtendedContentArea().getHeight();
+		return parentBorderWidget.getExtendedContentArea().getNaturalHeight();
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @return the natural width of the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getNaturalWidth() {
-		return parentBorderWidget.getExtendedContentArea().getWidth();
+		return parentBorderWidget.getExtendedContentArea().getNaturalWidth();
 	}
 	
 	//method
