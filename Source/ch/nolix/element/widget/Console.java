@@ -24,7 +24,7 @@ import ch.nolix.element.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 830
+ * @lines 850
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -771,6 +771,16 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	protected void recalculateSelfStage2() {}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetConfigurationOnSelfStage3() {
+		setCustomCursorIcon(CursorIcon.EDIT);
+		getRefBaseLook().setTextFont(Font.LUCIDA_CONSOLE);
+	}
+	
+	//method
 	private TextFormat getFont() {
 		
 		final var look = getRefLook();
@@ -781,16 +791,6 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 			look.getRecursiveOrDefaultTextSize(),
 			look.getRecursiveOrDefaultTextColor()
 		);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetConfigurationOnSelfStage3() {
-		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefBaseLook().setTextFont(Font.LUCIDA_CONSOLE);
 	}
 	
 	//method
