@@ -17,8 +17,8 @@ import ch.nolix.element.gui.WidgetLook;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 1720
+ * @date 2016-01-01
+ * @lines 1710
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
@@ -90,7 +90,6 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private Color bottomBorderColor;
 	
 	//optional attributes
-	//TODO: Implement Union.
 	private Color backgroundColor;
 	private ColorGradient backgroundColorGradient;
 	private Image backgroundImage;
