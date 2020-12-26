@@ -9,11 +9,6 @@ public final class GUILooksTestPool extends TestPool {
 	
 	//constructor
 	public GUILooksTestPool() {
-		super(
-			AnthrazitGUILookTest.class,
-			BlackBlueGUILookTest.class,
-			RedLineGUILookTest.class,
-			WhiteGreenGUILookTest.class
-		);
+		super(AnthrazitGUILookTest.class,	RedLineGUILookTest.class);
 	}
 }
