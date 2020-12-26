@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link StringCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 30
  */
 public final class StringCatalogue {
@@ -17,7 +17,10 @@ public final class StringCatalogue {
 	public static final String ELLIPSIS = "...";
 	public static final String FALSE_HEADER = "false";
 	public static final String HEXADECIMAL_PREFIX = "0x";
+	public static final String MINUS = "-";
 	public static final String NULL_HEADER = "null";
+	public static final String SPACE = " ";
+	public static final String TABULATOR = "\t";
 	public static final String TRUE_HEADER = "true";
 	
 	//visibility-reduced constructor
