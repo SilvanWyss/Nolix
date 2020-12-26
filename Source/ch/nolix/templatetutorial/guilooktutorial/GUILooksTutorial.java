@@ -1,6 +1,5 @@
 package ch.nolix.templatetutorial.guilooktutorial;
 
-//own imports
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.HorizontalStack;
@@ -17,7 +16,6 @@ import ch.nolix.element.widget.LabelRole;
 import ch.nolix.element.widget.SelectionMenu;
 import ch.nolix.element.widget.TextBox;
 import ch.nolix.template.guilook.AnthrazitGUILook;
-import ch.nolix.template.guilook.RedLineGUILook;
 
 public final class GUILooksTutorial {
 	
@@ -26,8 +24,7 @@ public final class GUILooksTutorial {
 		//Creates a SelectionMenu.
 		final var selectionMenu =
 		new SelectionMenu()
-		.addItem("Anthrazit", i -> i.getParentGUI().setConfiguration(new AnthrazitGUILook()))
-		.addItem("RedLine", i -> i.getParentGUI().setConfiguration(new RedLineGUILook()));
+		.addItem("Anthrazit", i -> i.getParentGUI().setConfiguration(new AnthrazitGUILook()));
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame()
