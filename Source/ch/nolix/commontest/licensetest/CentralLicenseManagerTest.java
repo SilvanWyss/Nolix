@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.licensetest;
 
+//Java import
 import java.util.Objects;
 
 //own imports
@@ -43,7 +44,7 @@ public final class CentralLicenseManagerTest extends Test {
 	private static final class TestLicense extends License {
 		
 		@Override
-		protected boolean accepts(String key) {
+		protected boolean acceptsFilteredKey(String key) {
 			return Objects.equals(key, "0000-0000");
 		}
 	}

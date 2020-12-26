@@ -3,14 +3,17 @@ package ch.nolix.common.license;
 
 //own imports
 import ch.nolix.common.attributeapi.Named;
+import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnacceptedKeyException;
+import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-05-16
- * @lines 80
+ * @lines 110
  */
 public abstract class License implements Named {
 	
@@ -61,10 +64,19 @@ public abstract class License implements Named {
 	
 	//method declaration
 	/**
+	 * @param filteredKey
+	 * @return true if the current {@link License} accepts the given filteredKey.
+	 */
+	protected abstract boolean acceptsFilteredKey(String filteredKey);
+	
+	//method
+	/**
 	 * @param key
 	 * @return true if the current {@link License} accepts the given key.
 	 */
-	protected abstract boolean accepts(String key);
+	private boolean accepts(final String key) {
+		return acceptsFilteredKey(getFilteredKey(key));
+	}
 	
 	//method
 	/**
@@ -84,5 +96,21 @@ public abstract class License implements Named {
 		if (isActivated()) {
 			throw new InvalidArgumentException(this, "is actiaved");
 		}
+	}
+	
+	/**
+	 * @param key
+	 * @return a filtered key for the given key.
+	 * @throws ArgumentIsNullException if the given key is null.
+	 */
+	private String getFilteredKey(final String key) {
+		
+		Validator.assertThat(key).thatIsNamed(VariableNameCatalogue.KEY).isNotNull();
+		
+		return
+		key
+		.replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING)
+		.replace(StringCatalogue.SPACE, StringCatalogue.EMPTY_STRING)
+		.replace(StringCatalogue.TABULATOR, StringCatalogue.EMPTY_STRING);
 	}
 }
