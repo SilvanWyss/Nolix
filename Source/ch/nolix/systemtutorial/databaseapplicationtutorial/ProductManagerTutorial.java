@@ -18,7 +18,7 @@ public final class ProductManagerTutorial {
 	public static void main(String[] args) {
 		
 		//Defines a database file.
-		final var databaseFileName = "database.spec";
+		final var databaseFileName = "product_manager_database.spec";
 		
 		//Creates a NodeDatabaseAdapterCreator
 		final var nodeDatabaseAdapterCreator = new NodeDatabaseAdapterCreator(databaseFileName);
@@ -29,7 +29,7 @@ public final class ProductManagerTutorial {
 		//Creates a NetServer.
 		final var netServer = new NetServer();
 		
-		//Adds the PRoductManager as default Application to the NetServer.
+		//Adds the ProductManager as default Application to the NetServer.
 		netServer.addDefaultApplication(productManager);
 		
 		//Starts a web browser that will connect to the default application of the NetServer.
