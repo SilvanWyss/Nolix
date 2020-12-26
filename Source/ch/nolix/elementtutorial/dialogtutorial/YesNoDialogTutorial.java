@@ -1,7 +1,5 @@
 package ch.nolix.elementtutorial.dialogtutorial;
 
-//own imports
-import ch.nolix.common.container.Stack;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.configuration.Configuration;
@@ -16,9 +14,7 @@ public final class YesNoDialogTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("YesNoDialog Tutorial");
+		final var frame = new Frame().setTitle("YesNoDialog Tutorial");
 		
 		//Adds a Button, that can open a YesNoDialog, to the Frame.
 		frame.addLayerOnTop(
@@ -29,7 +25,7 @@ public final class YesNoDialogTutorial {
 			)
 		);
 		
-		//Sets a Configuration to the Frame.
+		//Creates a Configuration and sets it to the Frame.
 		frame.setConfiguration(
 			new Configuration()
 			.addConfiguration(
@@ -45,14 +41,14 @@ public final class YesNoDialogTutorial {
 				),
 				new DeepConfiguration()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
-				.addAttachingAttribute("BaseBackgroundColor(Lavender)", "ContentPosition(Center)")
+				.addAttachingAttribute(
+					"ProposalHeight(200)",
+					"BaseBackgroundColor(Lavender)",
+					"ContentPosition(Center)"
+				)
 				.addConfiguration(
 					new DeepConfiguration()
-					.setSelectorType(Stack.class)
-					.addAttachingAttribute("ElementMargin(0)"),
-					new DeepConfiguration()
-					.addSelectorRole(LabelRole.MAIN_TEXT)
-					.addAttachingAttribute("BaseBottomPadding(100)"),
+					.addSelectorRole(LabelRole.MAIN_TEXT),
 					new DeepConfiguration()
 					.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 					.addAttachingAttribute("BaseBackgroundColor(LightGreen)", "HoverBackgroundColor(Green)"),
