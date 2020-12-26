@@ -45,7 +45,7 @@ public final class CentralLicenseManagerTest extends Test {
 		
 		@Override
 		protected boolean acceptsFilteredKey(String key) {
-			return Objects.equals(key, "0000-0000");
+			return Objects.equals(key, "00000000");
 		}
 	}
 	
