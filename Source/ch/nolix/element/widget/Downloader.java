@@ -12,6 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
@@ -130,8 +131,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
+	protected DownloaderLook createLook() {
+		return new DownloaderLook();
 	}
 	
 	//method
@@ -150,17 +151,18 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected DownloaderLook createLook() {
-		return new DownloaderLook();
-	}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void paintContentAreaStage2(final IPainter painter, final DownloaderLook downloaderLook) {}
 	
 	//method
 	/**

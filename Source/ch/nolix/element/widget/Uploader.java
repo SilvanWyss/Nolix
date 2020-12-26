@@ -8,6 +8,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
@@ -76,15 +77,6 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return false;
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected UploaderLook createLook() {
 		return new UploaderLook();
 	}
@@ -123,6 +115,13 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 */
 	@Override
 	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentAreaStage2(final IPainter painter, final UploaderLook uploaderLook) {}
 	
 	//method
 	/**

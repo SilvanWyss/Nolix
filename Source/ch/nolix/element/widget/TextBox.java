@@ -19,12 +19,11 @@ import ch.nolix.element.painterapi.IPainter;
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
-	//constants
-	public static final String TYPE_NAME = "TextBox";
-	public static final int MIN_WIDTH = 10;
-	public static final int DEFAULT_CURSOR_POSITION = 0;
-	
 	//constant
+	public static final String TYPE_NAME = "TextBox";
+	
+	//constants
+	private static final int DEFAULT_CURSOR_POSITION = 0;
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
 	
 	//attribute
@@ -56,7 +55,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return if the current {@link TextBox} has the given role.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasRole(final String role) {
@@ -65,50 +64,49 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Lets the current {@link TextBox} note a left mouse button press.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {		
-		//Updates the text cursor position.
-			final var text = getText();
+		
+		final var text = getText();
+		
+		if (text.isEmpty()) {
+			setTextCursorPosition(0);
+		}
+		else {
 			
-			if (text.isEmpty()) {
+			final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
+			final var textFormat = getTextFormat();
+			
+			if (cursorXPositionOnContentArea <= textFormat.getSwingTextWidth(text.charAt(0)) / 2) {
 				setTextCursorPosition(0);
 			}
+			
+			else if (
+				cursorXPositionOnContentArea >=
+				textFormat.getSwingTextWidth(text) - textFormat.getSwingTextWidth(text.charAt(text.length() - 1))
+			) {
+				setTextCursorPosition(text.length());
+			}
+			
 			else {
-				
-				final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
-				final var textFormat = getTextFormat();
-				
-				if (cursorXPositionOnContentArea <= textFormat.getSwingTextWidth(text.charAt(0)) / 2
-				) {
-					setTextCursorPosition(0);
-				}
-			
-				else if (
-					cursorXPositionOnContentArea >=
-					textFormat.getSwingTextWidth(text) - textFormat.getSwingTextWidth(text.charAt(text.length() - 1))
-				) {
-					setTextCursorPosition(text.length());
-				}
-				
-				else {
-			
-					for (int i = 1; i < text.length(); i++) {
-						
-						final var subTextWidth = textFormat.getSwingTextWidth(text.substring(0, i));
-						final var previousCharacterWidth = textFormat.getSwingTextWidth(text.charAt(i - 1));
-						final var nextCharacterWidth = textFormat.getSwingTextWidth(text.charAt(i));
-						
-						if (
-							subTextWidth - previousCharacterWidth / 2 <= cursorXPositionOnContentArea
-							&& subTextWidth + nextCharacterWidth / 2 >= cursorXPositionOnContentArea
-						) {
-							setTextCursorPosition(i);
-						}
+		
+				for (var i = 1; i < text.length(); i++) {
+					
+					final var subTextWidth = textFormat.getSwingTextWidth(text.substring(0, i));
+					final var previousCharacterWidth = textFormat.getSwingTextWidth(text.charAt(i - 1));
+					final var nextCharacterWidth = textFormat.getSwingTextWidth(text.charAt(i));
+					
+					if (
+						subTextWidth - previousCharacterWidth / 2 <= cursorXPositionOnContentArea
+						&& subTextWidth + nextCharacterWidth / 2 >= cursorXPositionOnContentArea
+					) {
+						setTextCursorPosition(i);
 					}
 				}
 			}
+		}
 	}
 	
 	//method
@@ -123,15 +121,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		
 		textCursorPosition.setValue(0);
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return false;
-	}
 		
 	//method
 	/**
@@ -144,11 +133,11 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the width of the content area of current {@link TextBox}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return getTextFormat().getSwingTextWidth(getShownText());
+		return getTextFormat().getSwingTextWidth(getText());
 	}
 	
 	//method
@@ -201,31 +190,12 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Paints the content area of the current {@link TextBox} using the given text line widget look and painter.
-	 * 
-	 * @param textBoxLook
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(
-		final TextBoxLook textBoxLook,
-		final IPainter painter
-	) {
-		
-		//Calls method of the base class.
-		super.paintContentArea(textBoxLook, painter);
-		
-		//Paints the text cursor if the current text box is focused.
+	protected void paintContentAreaStage2(final IPainter painter, final TextBoxLook textBoxLook) {
 		if (isFocused()) {
-			
-			painter.setColor(textBoxLook.getRecursiveOrDefaultTextColor());
-			
-			painter.paintFilledRectangle(
-				getTextCursorXPositionOnContentArea(),
-				0,
-				getTextCursorWidth(),
-				(int)(1.2 * textBoxLook.getRecursiveOrDefaultTextSize())
-			);
+			paintTextCursor(painter, textBoxLook);
 		}
 	}
 	
@@ -313,6 +283,23 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
 		
 		setTextCursorPosition(getTextCursorPosition() + 1);
+	}
+	
+	//method
+	/**
+	 * Paints the text cursor of the current {@link TextBox} using the given painter and textBoxLook.
+	 * @param painter
+	 * @param textBoxLook
+	 */
+	private void paintTextCursor(IPainter painter, final TextBoxLook textBoxLook) {
+		painter.setColor(textBoxLook.getRecursiveOrDefaultTextColor());
+		
+		painter.paintFilledRectangle(
+			getTextCursorXPositionOnContentArea(),
+			0,
+			getTextCursorWidth(),
+			(int)(1.2 * textBoxLook.getRecursiveOrDefaultTextSize())
+		);
 	}
 	
 	//method

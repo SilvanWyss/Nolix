@@ -10,6 +10,7 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**
@@ -74,8 +75,8 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	public LabelRole getRole() {
 		
-		//Asserts that the current label has a role.
-		supposeHasRole();
+		//Asserts that the current label has a Role.
+		assertHasRole();
 		
 		return role;
 	}
@@ -132,15 +133,6 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected LabelLook createLook() {
 		return new LabelLook();
 	}
@@ -171,13 +163,20 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void paintContentAreaStage2(final IPainter painter, final LabelLook textLineWidgetLook) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void resetConfigurationOnSelfStage3() {}
 	
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Label} does not have a role.
 	 */
-	private void supposeHasRole() {
+	private void assertHasRole() {
 		
 		//Asserts that the current {@link Label} has a role.
 		if (!hasRole()) {

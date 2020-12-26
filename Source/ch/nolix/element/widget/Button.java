@@ -12,6 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.input.Key;
+import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**
@@ -92,7 +93,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	public ButtonRole getRole() {
 		
 		//Asserts that the current Button has a role.
-		supposeHasRole();
+		assertHasRole();
 		
 		return role;
 	}
@@ -164,15 +165,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected ButtonLook createLook() {
 		return new ButtonLook();
 	}
@@ -203,15 +195,20 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void paintContentAreaStage2(final IPainter painter, final ButtonLook buttonLook) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void resetConfigurationOnSelfStage3() {}
 	
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
 	 */
-	private void supposeHasRole() {
-		
-		//Asserts that the current Button has a role.
+	private void assertHasRole() {
 		if (!hasRole()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}

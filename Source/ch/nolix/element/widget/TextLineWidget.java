@@ -17,7 +17,7 @@ import ch.nolix.element.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 240
+ * @lines 210
  * @param <TLW> The type of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
@@ -38,25 +38,7 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//constructor
 	public TextLineWidget() {
-		
-		//TODO: Fix initializing of values.
 		text.setValue(DEFAULT_TEXT);
-	}
-	
-	//method
-	/**
-	 * @return the shown text of the current {@link TextLineWidget}.
-	 */
-	public final String getShownText() {
-		
-		return getText();
-		
-		//TODO: Handle the case that the current TextLineWidget shortens its text when it has a limited width.
-		/*
-		if (shortensShownTextWhenHasLimitedWidth()) {
-			return getTextFormat().getFirstPart(getText(), getContentAreaWidth(), true);
-		}
-		*/
 	}
 	
 	//method
@@ -94,14 +76,7 @@ extends BorderWidget<TLW, TLWL> {
 		
 		return asConcrete();
 	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link TextLineWidget} shortens its shown text
-	 * when the current {@link TextLineWidget} has a limiting proposal width or max width.
-	 */
-	public abstract boolean shortensShownTextWhenHasLimitedWidth();
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}
@@ -140,35 +115,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		
-		//TODO: Handle the case that the current TextLineWidget shortens its text when it has a limited width.
-		/*
-		if (shortensShownTextWhenHasLimitedWidth()) {
-			
-			final var look = getRefLook();
-			
-			if (hasMaxWidth()) {
-				return
-				getMaxWidth()
-				- look.getRecursiveOrDefaultLeftBorderThickness()
-				- look.getRecursiveOrDefaultLeftPadding()
-				- look.getRecursiveOrDefaultRightPadding()
-				- look.getRecursiveOrDefaultRightBorderThickness();
-			}
-			
-			if (hasProposalWidth()) {
-				return
-				getProposalWidth()
-				- look.getRecursiveOrDefaultLeftBorderThickness()
-				- look.getRecursiveOrDefaultLeftPadding()
-				- look.getRecursiveOrDefaultRightPadding()
-				- look.getRecursiveOrDefaultRightBorderThickness();
-			}
-		}
-		*/
-		
-		//Handles the case that the current TextLineWidget does not shorten its text when it has a limited width.
-		return getTextFormat().getSwingTextWidth(getShownText());
+		return getTextFormat().getSwingTextWidth(getText());
 	}
 	
 	//method
@@ -214,14 +161,14 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelPressOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
@@ -249,9 +196,18 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final TLWL textLineWidgetLook, final IPainter painter) {
-		painter.paintText(getShownText(), getTextFormat());
+	protected final void paintContentArea(final TLWL textLineWidgetLook, final IPainter painter) {
+		
+		painter.paintText(getText(), getTextFormat());
+		
+		paintContentAreaStage2(painter, textLineWidgetLook);
 	}
+	
+	//method declaration
+	/**
+	 * {@inheritDoc}
+	 */
+	protected abstract void paintContentAreaStage2(final IPainter painter, final TLWL textLineWidgetLook);
 	
 	//method
 	/**
