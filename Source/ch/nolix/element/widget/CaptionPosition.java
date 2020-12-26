@@ -10,7 +10,7 @@ import ch.nolix.element.elementapi.IElementEnum;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2016-04
+ * @date 2016-05-01
  * @lines 30
  */
 public enum CaptionPosition implements IElementEnum {
@@ -26,8 +26,6 @@ public enum CaptionPosition implements IElementEnum {
 	BOTTOM_LEFT,
 	BOTTOM,
 	BOTTOM_RIGHT;
-	
-	
 	
 	//method
 	/**
