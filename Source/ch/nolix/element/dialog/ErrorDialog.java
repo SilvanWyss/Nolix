@@ -15,7 +15,25 @@ import ch.nolix.element.widget.LabelRole;
 //class
 public final class ErrorDialog extends Layer {
 	
-	//TODO: public ErrorDialog(final Exception exception) {...
+	//static method
+	private static String getErrorMessageOf(final Exception exception) {
+		
+		Validator.assertThat(exception).thatIsNamed(Exception.class).isNotNull();
+		
+		final var exceptionName = exception.getClass().getSimpleName();
+		
+		final var message = exception.getMessage();
+		if (message == null || message.isBlank()) {
+			return exceptionName;
+		}
+		
+		return (exceptionName + ": " + message);
+	}
+	
+	//constructor
+	public ErrorDialog(final Exception exception) {
+		this(getErrorMessageOf(exception));
+	}
 	
 	//constructor
 	public ErrorDialog(final String errorMessage) {
