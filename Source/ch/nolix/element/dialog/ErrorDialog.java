@@ -4,8 +4,8 @@ package ch.nolix.element.dialog;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.containerwidget.AligningContainer;
 import ch.nolix.element.containerwidget.ContainerRole;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Layer;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
@@ -23,12 +23,14 @@ public final class ErrorDialog extends Layer {
 		Validator.assertThat(errorMessage).thatIsNamed(VariableNameCatalogue.ERROR_MESSAGE).isNotBlank();
 		
 		setRootWidget(
-			new VerticalStack()
+			new AligningContainer()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
-			.addWidget(
+			.setOnTop(
 				new Label()
 				.setRole(LabelRole.ERROR_TEXT)
-				.setText(errorMessage),
+				.setText(errorMessage)
+			)
+			.setOnBottom(
 				new Button()
 				.setText("Ok")
 				.setRole(ButtonRole.CONFIRM_BUTTON)

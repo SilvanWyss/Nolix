@@ -1,24 +1,23 @@
 package ch.nolix.elementtutorial.dialogtutorial;
 
-//own imports
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.dialog.ErrorDialog;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.LabelRole;
 
 public final class ErrorDialogTutorial {
 	
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("ErrorDialog Tutorial");
+		final var frame = new Frame();
 		
-		//Adds a Button, that can open a ErrorDialog, to the Frame.
+		//Sets the title of the Frame.
+		frame.setTitle("ErrorDialog Tutorial");
+		
+		//Adds a Button, that can open an ErrorDialog, to the Frame.
 		frame.addLayerOnTop(
 			new Button()
 			.setText("Fix everything")
@@ -27,7 +26,7 @@ public final class ErrorDialogTutorial {
 			)
 		);
 		
-		//Sets a Configuration to the Frame.
+		//Creates a Configuration and sets it to the Frame.
 		frame.setConfiguration(
 			new Configuration()
 			.addConfiguration(
@@ -43,10 +42,7 @@ public final class ErrorDialogTutorial {
 				),
 				new DeepConfiguration()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
-				.addAttachingAttribute("BaseBackgroundColor(Salmon)", "ContentPosition(Center)"),
-				new DeepConfiguration()
-				.addSelectorRole(LabelRole.ERROR_TEXT)
-				.addAttachingAttribute("BaseBottomPadding(100)")
+				.addAttachingAttribute("ProposalHeight(200)", "BaseBackgroundColor(Salmon)", "ContentPosition(Center)")
 			)
 		);
 	}
