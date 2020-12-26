@@ -74,8 +74,9 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		
 		final var propertiesSpecification = new Node();
 		propertiesSpecification.setHeader(DATABASE_PROPERTIES_HEADER);
-		propertiesSpecification.addAttribute(PascalCaseNameCatalogue.STATE);
-		propertiesSpecification.addAttribute(DatabaseState.READY.toString());
+		propertiesSpecification.addAttribute(
+			Node.withHeaderAndAttribute(PascalCaseNameCatalogue.STATE, DatabaseState.READY.toString())
+		);
 		
 		fileNodeDatabase.addAttribute(propertiesSpecification);
 	}
