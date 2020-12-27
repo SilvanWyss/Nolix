@@ -94,5 +94,5 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage2() {}
+	protected void resetStage2() {}
 }
