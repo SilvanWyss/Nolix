@@ -13,15 +13,30 @@ import ch.nolix.common.xml.XMLNode;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 140
+ * @lines 160
  */
 public interface IElement extends TypeRequestable {
 	
-	//method declaration
+	//method
+	/**
+	 * Fills up the attributes into the given list.
+	 * 
+	 * @param list
+	 */
+	default void fillUpAttributesInto(final LinkedList<Node> list) {}
+	
+	//method
 	/**
 	 * @return the attributes of the current {@link IElement}.
 	 */
-	LinkedList<Node> getAttributes();
+	default LinkedList<Node> getAttributes() {
+		
+		final var attributes = new LinkedList<Node>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
+	}
 	
 	//method
 	/**
