@@ -277,4 +277,8 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 		
 		return this;
 	}
+	
+	//method
+	@Override
+	protected void resetStage2() {}
 }

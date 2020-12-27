@@ -46,16 +46,6 @@ public final class Cylinder extends Prisma<Cylinder> {
 	}
 	
 	//method
-	@Override
-	public void reset() {
-		
-		//Calls method of base class.
-		super.reset();
-		
-		setRadius(DEFAULT_RADIUS);
-	}
-	
-	//method
 	public Cylinder setDiameter(final double diameter) {
 		
 		//Asserts that the given diameter is positive.
@@ -75,5 +65,11 @@ public final class Cylinder extends Prisma<Cylinder> {
 		this.radius.setValue(radius);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	protected void resetStage4() {
+		setRadius(DEFAULT_RADIUS);
 	}
 }

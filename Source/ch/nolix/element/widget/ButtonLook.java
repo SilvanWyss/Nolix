@@ -44,4 +44,11 @@ public final class ButtonLook extends TextLineWidgetLook<ButtonLook> {
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {}
 }

@@ -163,4 +163,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 		
 		return this;
 	}
+	
+	//method
+	@Override
+	protected void resetStage3() {}
 }

@@ -88,4 +88,11 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage2() {}
 }

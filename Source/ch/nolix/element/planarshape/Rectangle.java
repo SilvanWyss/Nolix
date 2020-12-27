@@ -78,20 +78,6 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setXLength(DEFAULT_X_LENGTH);
-		setYLength(DEFAULT_Y_LENGTH);
-	}
-	
-	//method
-	/**
 	 * Sets the size of the current {@link Rectangle}.
 	 * 
 	 * @param xLength
@@ -143,5 +129,15 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 		this.yLength.setValue(yLength);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {
+		setXLength(DEFAULT_X_LENGTH);
+		setYLength(DEFAULT_Y_LENGTH);
 	}
 }

@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 130
+ * @lines 120
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE> {
 	
@@ -85,20 +85,6 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		removeConfiguration();
-		resetConfiguration();
-	}
-	
-	//method
-	/**
 	 * Sets the {@link Configuration} of the current {@link ConfigurationElement}.
 	 * 
 	 * @param configuration
@@ -128,4 +114,23 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 			configuration.configure(this);
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage2() {
+		
+		removeConfiguration();
+		resetConfiguration();
+		
+		resetStage3();
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link ConfigurationElement}.
+	 */
+	protected abstract void resetStage3();
 }

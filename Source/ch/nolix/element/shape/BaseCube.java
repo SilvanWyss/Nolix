@@ -12,7 +12,7 @@ import ch.nolix.element.gui3d.AtomicShape;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 200
+ * @lines 190
  */
 public final class BaseCube extends AtomicShape<BaseCube> {
 	
@@ -114,21 +114,6 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setXLength(DEFAULT_X_LENGTH);
-		setYLength(DEFAULT_Y_LENGTH);
-		setZLength(DEFAULT_Z_LENGTH);
-	}
-	
-	//method
-	/**
 	 * Sets the size of the current {@link BaseCube}.
 	 * 
 	 * @param xLength
@@ -197,5 +182,16 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		this.zLength.setValue((zLength));
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage3() {
+		setXLength(DEFAULT_X_LENGTH);
+		setYLength(DEFAULT_Y_LENGTH);
+		setZLength(DEFAULT_Z_LENGTH);
 	}
 }

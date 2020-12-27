@@ -409,6 +409,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {}
+	
+	//method
+	/**
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Area} does not have a background color.
 	 */

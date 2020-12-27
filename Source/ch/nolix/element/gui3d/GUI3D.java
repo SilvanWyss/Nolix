@@ -28,7 +28,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 410
+ * @lines 400
  * @param <G> The type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
@@ -272,19 +272,6 @@ implements Clearable, Closeable, Refreshable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setTitle(DEFAULT_TITLE);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void resetConfigurationOnSelf() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
@@ -354,6 +341,15 @@ implements Clearable, Closeable, Refreshable {
 		shapeClasses
 		.getRefFirst(sc -> sc.getRefElement1() == shape.getClass())
 		.getRefElement2();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage3() {
+		setTitle(DEFAULT_TITLE);
 	}
 	
 	//method

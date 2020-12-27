@@ -186,4 +186,11 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {}
 }

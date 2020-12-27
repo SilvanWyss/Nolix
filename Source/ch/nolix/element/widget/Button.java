@@ -3,6 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -22,11 +23,9 @@ import ch.nolix.element.painterapi.IPainter;
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
-	//constant
-	public static final String DEFAULT_TEXT = "-";
-	
-	//constant
+	//constants
 	public static final String TYPE_NAME = "Button";
+	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 			
 	//optional attribute
 	private ButtonRole role;
@@ -130,19 +129,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setText(DEFAULT_TEXT);
-	}
-	
-	//method
-	/**
 	 * Sets the role of the current {@link Button}.
 	 * 
 	 * @param role
@@ -203,6 +189,15 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {
+		setText(DEFAULT_TEXT);
+	}
 	
 	//method
 	/**

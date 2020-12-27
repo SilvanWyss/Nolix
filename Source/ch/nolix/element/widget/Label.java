@@ -3,6 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -20,8 +21,9 @@ import ch.nolix.element.painterapi.IPainter;
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	
-	//constant
+	//constants
 	public static final String TYPE_NAME = "Label";
+	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 	
 	//optional attribute
 	private LabelRole role;
@@ -171,6 +173,15 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {
+		setText(DEFAULT_TEXT);
+	}
 	
 	//method
 	/**

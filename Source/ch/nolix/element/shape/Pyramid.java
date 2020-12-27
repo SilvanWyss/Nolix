@@ -63,17 +63,6 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	}
 	
 	//method
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setSideLength(DEFAULT_SIDE_LENGTH);
-		setHeight(DEFAULT_HEIGHT);
-	}
-	
-	//method
 	public Pyramid setHeight(final double height) {
 		
 		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
@@ -91,5 +80,12 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		this.sideLength.setValue(sideLength);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	protected final void resetStage3() {
+		setSideLength(DEFAULT_SIDE_LENGTH);
+		setHeight(DEFAULT_HEIGHT);
 	}
 }

@@ -37,15 +37,6 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	}
 	
 	//method
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		setHeight(DEFAULT_HEIGHT);
-	}
-	
-	//method
 	public final P setHeight(final double height) {
 		
 		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
@@ -54,4 +45,16 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 		
 		return asConcrete();
 	}
+	
+	//method
+	@Override
+	protected final void resetStage3() {
+		
+		setHeight(DEFAULT_HEIGHT);
+		
+		resetStage4();
+	}
+	
+	//method declaration
+	protected abstract void resetStage4();
 }

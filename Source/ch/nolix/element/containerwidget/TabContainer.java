@@ -21,7 +21,7 @@ import ch.nolix.element.widget.Label;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 530
+ * @lines 560
  */
 public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> implements Clearable {
 	
@@ -549,6 +549,15 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage5() {
+		clear();
+	}
 	
 	//method
 	void internalAddChildWidget(final Widget<?, ?> childWidget) {

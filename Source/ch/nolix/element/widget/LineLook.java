@@ -1,13 +1,21 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
+//own import
 import ch.nolix.element.gui.WidgetLook;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-03
- * @lines 10
+ * @date 2017-03-06
+ * @lines 20
  */
-public final class LineLook extends WidgetLook<LineLook> {}
+public final class LineLook extends WidgetLook<LineLook> {
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage2() {}
+}

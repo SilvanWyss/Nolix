@@ -860,18 +860,6 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void reset() {
-		setConfigurationAllowed();
-		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
-		clear();
-		resetConfiguration();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final void resetConfigurationOnSelf() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
@@ -1199,6 +1187,17 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		this.rootWidget = rootWidget;
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage2() {
+		setConfigurationAllowed();
+		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
+		clear();
 	}
 	
 	//method

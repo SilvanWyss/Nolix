@@ -129,4 +129,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		
 		return this;
 	}
+	
+	//method
+	@Override
+	protected void resetStage3() {}
 }

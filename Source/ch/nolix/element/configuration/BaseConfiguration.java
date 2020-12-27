@@ -12,6 +12,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementapi.IMutableElement;
+import ch.nolix.element.gui.Widget;
 
 //class
 /**
@@ -438,7 +439,7 @@ implements IMutableElement<C> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void reset() {
+	public final void reset() {
 		
 		removeSelectorType();
 		removeSelectorRoles();
@@ -447,6 +448,8 @@ implements IMutableElement<C> {
 		
 		attachingAttributes.clear();
 		configurations.clear();
+		
+		resetStage2();
 	}
 	
 	//method
@@ -551,6 +554,12 @@ implements IMutableElement<C> {
 		return asConcrete();
 	}
 	
+	//method declaration
+	/**
+	 * Resets the current {@link Widget}.
+	 */
+	protected abstract void resetStage2();
+
 	//method
 	/**
 	 * Sets the attaching attributes of the current {@link BaseConfiguration} to the given element.

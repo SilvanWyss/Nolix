@@ -93,16 +93,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	}
 	
 	//method
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		setText(DEFAULT_TEXT);
-		removeFileProvider();
-	}
-	
-	//method
 	public Downloader setFile(final byte[] file) {
 		return setFileProvider(() -> file);
 	}
@@ -170,6 +160,13 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	@Override
+	protected void resetStage4() {
+		setText(DEFAULT_TEXT);
+		removeFileProvider();
+	}
 	
 	//method
 	private IElementGetter<byte[]> getFileGetter() {

@@ -139,11 +139,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void reset() {
-		
-		//Calls the method of the base class.
-		super.reset();
-		
+	protected void resetStage2() {
 		removeMaxSelectorLevel();
 	}
 		

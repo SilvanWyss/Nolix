@@ -1107,35 +1107,6 @@ TopLeftPositionedRecangular {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void reset() {
-			
-		setEnabled();
-		setExpanded();
-		setUnfocused();
-		setUnhovered();
-		
-		removeLeftMouseButtonClickAction();
-		removeLeftMouseButtonPressAction();
-		removeLeftMouseButtonReleaseAction();
-		removeRightMouseButtonClickAction();
-		removeRightMouseButtonPressAction();
-		removeRightMouseButtonReleaseAction();
-		
-		/*
-		 * Calls method of the base class.
-		 * 
-		 * The base class' reset method is called at the end of the current class' reset method,
-		 * because the base class' reset method calls the resetConfiguration method,
-		 * that requires the result of the current class' reset method.
-		 */
-		super.reset();
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final void resetConfigurationOnSelf() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
@@ -1755,6 +1726,34 @@ TopLeftPositionedRecangular {
 	 * Resets the configuration of the current {@link Widget} on itself, and on itself only.
 	 */
 	protected abstract void resetConfigurationOnSelfStage2();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage2() {
+		
+		setEnabled();
+		setExpanded();
+		setUnfocused();
+		setUnhovered();
+		
+		removeLeftMouseButtonClickAction();
+		removeLeftMouseButtonPressAction();
+		removeLeftMouseButtonReleaseAction();
+		removeRightMouseButtonClickAction();
+		removeRightMouseButtonPressAction();
+		removeRightMouseButtonReleaseAction();
+		
+		resetStage3();
+	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link Widget}.
+	 */
+	protected abstract void resetStage3();
 	
 	//method
 	/**

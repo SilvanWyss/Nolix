@@ -21,7 +21,7 @@ import ch.nolix.element.elementapi.IMutableElement;
 /**
  * @author Silvan Wyss
  * @date 2017-09-06
- * @lines 210
+ * @lines 220
  * @param <E> The type of a {@link LayerElement}.
  */
 public abstract class LayerElement<E extends LayerElement<E>> implements IMutableElement<E>, ISmartObject<E> {
@@ -89,8 +89,11 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 	 * Removes the values of the properties of the current {@link LayerElement}.
 	 */
 	@Override
-	public void reset() {	
+	public final void reset() {
+		
 		getRefProperties().forEach(LayerProperty::removeValue);
+		
+		resetStage2();
 	}
 		
 	//method
@@ -114,6 +117,12 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 	protected final boolean hasBaseElement() {
 		return (baseElement != null);
 	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link LayerElement}.
+	 */
+	protected abstract void resetStage2();
 
 	//method
 	/**

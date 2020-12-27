@@ -149,16 +149,6 @@ implements Clearable {
 	}
 	
 	//method
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		clear();
-		removeSelectAction();
-	}
-	
-	//method
 	public final TIM selectFirstItem() {
 		
 		selectItem(getRefFirstItem());
@@ -350,6 +340,13 @@ implements Clearable {
 	 */
 	@Override
 	protected final void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	@Override
+	protected final void resetStage4() {
+		clear();
+		removeSelectAction();
+	}
 	
 	//method
 	protected final void selectItem(final TextItemMenuItem item) {

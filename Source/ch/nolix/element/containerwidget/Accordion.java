@@ -232,20 +232,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 		
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
-		clear();
-	}
-	
-	//method
-	/**
 	 * Sets the expansion behavior of the current {@link Accordion}.
 	 * 
 	 * @param expansionBehavior
@@ -420,6 +406,16 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage5() {
+		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
+		clear();
+	}
 	
 	//method
 	/**

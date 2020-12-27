@@ -11,8 +11,8 @@ import ch.nolix.element.gui3d.Shape;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 150
+ * @date 2017-11-11
+ * @lines 160
  */
 public final class MultiShape extends Shape<MultiShape> {
 
@@ -112,7 +112,15 @@ public final class MultiShape extends Shape<MultiShape> {
 		
 		return this;
 	}
-
+	
+	//method
+	/**
+	 * Removes all {@link Shapes} of the current {@link MultiShape}.
+	 */
+	public void clear() {
+		shapes.clear();
+	}
+	
 	//method
 	/**
 	 * @return the shapes of this multi shape.
@@ -149,4 +157,13 @@ public final class MultiShape extends Shape<MultiShape> {
 	 */
 	@Override
 	public void resetConfigurationOnSelf() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {
+		clear();
+	}
 }

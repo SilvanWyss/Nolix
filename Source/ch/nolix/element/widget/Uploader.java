@@ -51,18 +51,6 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		setText(DEFAULT_TEXT);
-	}
-	
-	//method
 	public Uploader setFileTaker(final IElementTaker<byte[]> fileTaker) {
 		
 		Validator.assertThat(fileTaker).thatIsNamed("file taker").isNotNull();
@@ -129,4 +117,13 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {
+		setText(DEFAULT_TEXT);
+	}
 }

@@ -2,6 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -15,12 +16,13 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 340
+ * @lines 320
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "TextBox";
+	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
 	
 	//constants
 	private static final int DEFAULT_CURSOR_POSITION = 0;
@@ -114,19 +116,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		textCursorPosition.setValue(0);
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected TextBoxLook createLook() {
 		return new TextBoxLook();
 	}
@@ -207,6 +196,16 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	protected void resetConfigurationOnSelfStage3() {
 		setProposalWidth(200);
 		setCustomCursorIcon(CursorIcon.EDIT);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {
+		setText(DEFAULT_TEXT);
+		textCursorPosition.setValue(0);
 	}
 	
 	//method

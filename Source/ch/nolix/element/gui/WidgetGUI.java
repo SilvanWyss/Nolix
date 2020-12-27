@@ -556,18 +556,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void reset() {
-		
-		super.reset();
-		
-		clear();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final void resetConfigurationOnSelf() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
@@ -785,6 +773,15 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		else if (topLayer != null) {
 			topLayer.recalculate();
 		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage4() {
+		clear();
 	}
 	
 	//method

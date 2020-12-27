@@ -9,8 +9,8 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-01
- * @lines 60
+ * @date 2016-02-01
+ * @lines 70
  */
 public class Configuration extends BaseConfiguration<Configuration> {
 
@@ -62,4 +62,11 @@ public class Configuration extends BaseConfiguration<Configuration> {
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage2() {}
 }

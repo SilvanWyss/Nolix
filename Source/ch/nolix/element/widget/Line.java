@@ -18,8 +18,8 @@ import ch.nolix.element.painterapi.IPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 340
+ * @date 2016-01-01
+ * @lines 350
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -341,4 +341,11 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		setThickness(DEFAULT_THICKNESS);
 		setColor(DEFAULT_COLOR);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {}
 }

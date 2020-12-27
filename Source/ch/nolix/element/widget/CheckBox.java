@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 340
+ * @lines 350
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
@@ -95,18 +95,6 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	public boolean isChecked() {
 		return checked;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		uncheck();
 	}
 	
 	//method
@@ -350,4 +338,13 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {
+		uncheck();
+	}
 }

@@ -64,6 +64,11 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
+	public final void removePaintCommands() {
+		paintCommands.clear();
+	}
+	
+	//method
 	@Override
 	public void resetConfigurationOnSelf() {
 		setCursorIcon(DEFAULT_CURSOR_ICON);
@@ -210,6 +215,15 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	@Override
 	protected final void recalculate(final ChangeState viewAreaChangeState) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage4() {
+		removePaintCommands();
+	}
 	
 	//method
 	private IElementTaker<PaintRun> createCreatePainterCommand(

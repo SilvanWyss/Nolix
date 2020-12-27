@@ -175,4 +175,8 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 		
 		return this;
 	}
+	
+	//method
+	@Override
+	protected void resetStage3() {}
 }

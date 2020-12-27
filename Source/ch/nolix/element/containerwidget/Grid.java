@@ -54,6 +54,11 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	}
 	
 	//method
+	public void clear() {
+		cells.clear();
+	}
+	
+	//method
 	@Override
 	public LinkedList<Node> getAttributes() {
 		
@@ -153,15 +158,6 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public boolean hasLines() {
 		return getRefLook().hasRecursiveLineType();
-	}
-	
-	//method
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		cells.clear();
 	}
 	
 	//method
@@ -396,7 +392,13 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
-
+	
+	//method
+	@Override
+	protected void resetStage5() {
+		clear();
+	}
+	
 	//method
 	private void expandColumnsTo(final int columnIndex) {
 		

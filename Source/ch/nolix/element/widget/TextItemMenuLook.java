@@ -108,4 +108,8 @@ public final class TextItemMenuLook extends BorderWidgetLook<TextItemMenuLook> {
 		
 		return this;
 	}
+	
+	//method
+	@Override
+	protected final void resetStage3() {}
 }

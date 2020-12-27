@@ -17,29 +17,21 @@ import ch.nolix.element.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 190
  * @param <TLW> The type of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
 extends BorderWidget<TLW, TLWL> {
-	
-	//constant
-	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
-	
+		
 	//attribute
 	private MutableValue<String> text =
 	new MutableValue<>(
 		PascalCaseNameCatalogue.TEXT,
-		DEFAULT_TEXT,
+		StringCatalogue.EMPTY_STRING,
 		this::setText,
 		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
 		t -> t.isEmpty() ? new Node() : Node.withAttribute(t)
 	);
-	
-	//constructor
-	public TextLineWidget() {
-		text.setValue(DEFAULT_TEXT);
-	}
 	
 	//method
 	/**
@@ -48,20 +40,7 @@ extends BorderWidget<TLW, TLWL> {
 	public final String getText() {
 		return text.getValue();
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
 		
-		//Calls method of the base class.
-		super.reset();
-		
-		setText(DEFAULT_TEXT);
-	}
-	
 	//method
 	/**
 	 * Sets the text of the current {@link TextLineWidget}.

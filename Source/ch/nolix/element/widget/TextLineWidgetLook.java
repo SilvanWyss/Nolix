@@ -4,7 +4,15 @@ package ch.nolix.element.widget;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 10
  */
-public abstract class TextLineWidgetLook<TLWL extends TextLineWidgetLook<TLWL>> extends BorderWidgetLook<TLWL> {}
+public abstract class TextLineWidgetLook<TLWL extends TextLineWidgetLook<TLWL>> extends BorderWidgetLook<TLWL> {
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {}
+}

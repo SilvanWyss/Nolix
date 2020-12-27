@@ -167,19 +167,6 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		setPosition(DEFAULT_POSITION);
-	}
-	
-	//method
-	/**
 	 * Sets the GUI the current {@link Shape} will belong to.
 	 * 
 	 * @param pGUI
@@ -345,6 +332,24 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	protected final boolean hasShapeRenderManager() {
 		return (shapeRenderManager != null);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage2() {
+		
+		setPosition(DEFAULT_POSITION);
+		
+		resetStage3();
+	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link Shape}.
+	 */
+	protected abstract void resetStage3();
 	
 	//method
 	/**

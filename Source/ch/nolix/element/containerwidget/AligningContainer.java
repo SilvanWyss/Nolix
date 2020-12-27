@@ -278,4 +278,10 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	@Override
+	protected void resetStage5() {
+		//TODO: clear
+	}
 }

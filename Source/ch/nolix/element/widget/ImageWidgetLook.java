@@ -2,4 +2,9 @@
 package ch.nolix.element.widget;
 
 //class
-public final class ImageWidgetLook extends BorderWidgetLook<ImageWidgetLook> {}
+public final class ImageWidgetLook extends BorderWidgetLook<ImageWidgetLook> {
+	
+	//method
+	@Override
+	protected void resetStage3() {}
+}

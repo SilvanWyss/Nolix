@@ -14,7 +14,7 @@ import ch.nolix.element.gui3d.AtomicShape;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 120
+ * @lines 110
  */
 public final class Sphere extends AtomicShape<Sphere> {
 	
@@ -73,19 +73,6 @@ public final class Sphere extends AtomicShape<Sphere> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-	
-		setRadius(DEFAULT_RADIUS);
-	}
-	
-	//method
-	/**
 	 * Sets the diameter of the current {@link Sphere}.
 	 * 
 	 * @param diameter
@@ -115,5 +102,14 @@ public final class Sphere extends AtomicShape<Sphere> {
 		this.radius.setValue(radius);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {
+		setRadius(DEFAULT_RADIUS);
 	}
 }

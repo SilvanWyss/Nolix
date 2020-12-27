@@ -13,7 +13,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 140
+ * @lines 130
  */
 public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
@@ -108,19 +108,6 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		removeLineThickness();
-	}
-	
-	//method
-	/**
 	 * Sets the line thickness of the current {@link CheckBoxLook}.
 	 * 
 	 * @param lineThickness
@@ -136,5 +123,14 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 		this.lineThickness = lineThickness;
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage3() {
+		removeLineThickness();
 	}
 }

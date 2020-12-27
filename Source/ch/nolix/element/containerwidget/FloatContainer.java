@@ -82,15 +82,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		widgets.clear();
-	}
-	
-	//method
-	@Override
 	protected boolean contentAreaMustBeExpandedToTargetSize() {
 		return true;
 	}
@@ -276,4 +267,13 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage5() {
+		clear();
+	}
 }

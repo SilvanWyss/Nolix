@@ -19,7 +19,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 150
+ * @lines 160
  * @param <CW> The type of a {@link ContainerWidget}.
  * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
@@ -116,19 +116,6 @@ extends BorderWidget<CW, BWS> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		removeRole();
-	}
-	
-	//method
-	/**
 	 * Sets the role of the current {@link ContainerWidget}.
 	 * 
 	 * @param role
@@ -145,6 +132,24 @@ extends BorderWidget<CW, BWS> {
 		
 		return asConcrete();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage4() {
+		
+		removeRole();
+		
+		resetStage5();
+	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link ContainerWidget}.
+	 */
+	protected abstract void resetStage5();
 	
 	//method
 	/**

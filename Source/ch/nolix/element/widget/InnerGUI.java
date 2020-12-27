@@ -140,15 +140,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		internalGUI.reset();
-	}
-	
-	//method
-	@Override
 	public InnerGUI setBackgroundColor(final Color backgroundColor) {
 		
 		internalGUI.setBackgroundColor(backgroundColor);
@@ -297,4 +288,13 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {
+		internalGUI.reset();
+	}
 }

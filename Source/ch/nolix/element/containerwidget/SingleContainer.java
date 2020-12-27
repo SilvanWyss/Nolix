@@ -17,7 +17,7 @@ import ch.nolix.element.painterapi.IPainter;
  * A {@link SingleContainer} is a {@link ContainerWidget} that can have 1 {@link Widget}.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 290
  */
 public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> implements Clearable {
@@ -97,19 +97,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	@Override
 	public boolean isEmpty() {
 		return (widget == null);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		clear();
 	}
 	
 	/**
@@ -300,4 +287,13 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 */
 	@Override
 	protected void resetConfigurationOnSelfStage3() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage5() {
+		clear();
+	}
 }

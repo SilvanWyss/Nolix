@@ -720,26 +720,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		removeProposalWidth();
-		removeProposalHeight();
-		removeMinWidth();
-		removeMinHeight();
-		removeMaxWidtht();
-		removeMaxHeight();
-		
-		showAreaXPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA);
-		showAreaYPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA);
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link BorderWidget} scroll to bottom.
 	 * 
 	 * @return the current {@link BorderWidget}.
@@ -1650,6 +1630,32 @@ extends Widget<BW, BWL> {
 	 * Resets the configuration of the current {@link BorderWidget} on itself, and on itself only.
 	 */
 	protected abstract void resetConfigurationOnSelfStage3();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage3() {
+		
+		removeProposalWidth();
+		removeProposalHeight();
+		removeMinWidth();
+		removeMinHeight();
+		removeMaxWidtht();
+		removeMaxHeight();
+		
+		showAreaXPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA);
+		showAreaYPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA);
+		
+		resetStage4();
+	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link BorderWidget}.
+	 */
+	protected abstract void resetStage4();
 	
 	//method
 	/**

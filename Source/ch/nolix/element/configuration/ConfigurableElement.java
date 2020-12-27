@@ -17,8 +17,8 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * A {@link ConfigurableElement} is configurable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 230
+ * @month 2016-01-01
+ * @lines 220
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
 implements IConfigurableElement<CE> {
@@ -143,10 +143,13 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void reset() {
+	public final void reset() {
+		
 		removeId();
 		removeToken();
 		resetConfiguration();
+		
+		resetStage2();
 	}
 	
 	//method
@@ -188,6 +191,12 @@ implements IConfigurableElement<CE> {
 		
 		return asConcrete();
 	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link ConfigurableElement}.
+	 */
+	protected abstract void resetStage2();
 	
 	//method
 	/**

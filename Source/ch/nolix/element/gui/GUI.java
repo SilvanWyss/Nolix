@@ -541,20 +541,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void reset() {
-		
-		super.reset();
-		
-		setTitle(DEFAULT_TITLE);
-		setViewAreaSize(0, 0);
-		setCursorPositionOnViewArea(0, 0);
-	}
-	
-	//method
-	/**
 	 * Sets the front-end reader and the front-end writer of the current {@link GUI}.
 	 * 
 	 * @param frontEndReader
@@ -706,6 +692,26 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method declaration	
 	protected abstract void recalculate(ChangeState viewAreaChangeState);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage3() {
+		
+		setTitle(DEFAULT_TITLE);
+		setViewAreaSize(0, 0);
+		setCursorPositionOnViewArea(0, 0);
+		
+		resetStage4();
+	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link GUI}.
+	 */
+	protected abstract void resetStage4();
 	
 	//method
 	private void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {

@@ -24,7 +24,7 @@ import ch.nolix.element.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 850
+ * @lines 860
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -779,6 +779,13 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		setCustomCursorIcon(CursorIcon.EDIT);
 		getRefBaseLook().setTextFont(Font.LUCIDA_CONSOLE);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetStage4() {}
 	
 	//method
 	private TextFormat getFont() {
