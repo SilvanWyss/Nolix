@@ -10,7 +10,6 @@ import ch.nolix.common.functionapi.I2ElementTaker;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
@@ -38,7 +37,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2090
+ * @lines 2110
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -72,9 +71,9 @@ TopLeftPositionedRecangular {
 	private boolean hovered;
 	
 	//attributes
-	private final WL baseLook = createLook();
-	private final WL hoverLook = createLook();
-	private final WL focusLook = createLook();
+	private WL baseLook = createLook();
+	private WL hoverLook = createLook();
+	private WL focusLook = createLook();
 	
 	//attributes
 	private int xPositionOnContentAreaOfParent;
@@ -109,8 +108,7 @@ TopLeftPositionedRecangular {
 	 * Creates a new {@link Widget}.
 	 */
 	public Widget() {
-		hoverLook.setBaseLook(baseLook);
-		focusLook.setBaseLook(baseLook);
+		createAndConnectLooks();
 	}
 	
 	//method
@@ -1112,14 +1110,12 @@ TopLeftPositionedRecangular {
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		setGreyOutWhenDisabled();
 		
+		createAndConnectLooks();
+		
 		getRefBaseLook()
 		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
 		.setTextColor(Color.BLACK);
-		
-		baseLook.reset();
-		hoverLook.reset();
-		focusLook.reset();
-		
+				
 		resetConfigurationOnSelfStage2();
 	}
 	
@@ -1804,6 +1800,34 @@ TopLeftPositionedRecangular {
 		
 		//Handles the case that the current Widget is expanded.
 		return getWidthWhenExpanded();
+	}
+	
+	//method
+	/**
+	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
+	 */
+	private void connectLooks() {
+		hoverLook.setBaseLook(baseLook);
+		focusLook.setBaseLook(baseLook);
+	}
+	
+	//method
+	/**
+	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
+	 */
+	private void createLooks() {
+		baseLook = createLook();
+		hoverLook = createLook();
+		focusLook = createLook();
+	}
+	
+	//method
+	/**
+	 * Creates and connects the {@link WidgetLook}s of the current {@link Widget}.
+	 */
+	private final void createAndConnectLooks() {
+		createLooks();
+		connectLooks();
 	}
 	
 	//method
