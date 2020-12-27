@@ -1,47 +1,5 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
-import ch.nolix.element.layerelement.LayerProperty;
-
 //class
-public final class LabelLook extends TextLineWidgetLook<LabelLook> {
-	
-	//constant
-	public static final boolean DEFAULT_SHORTENS_TEXT_WHEN_LIMITED_FLAG = false;
-	
-	//constant
-	private static final String SHORTENS_TEXT_WHEN_LIMIITED_HEADER = "ShortensTextWhenLimited";
-	
-	//attribute
-	private final LayerProperty<Boolean> shortensTextWhenLimited =
-	new LayerProperty<>(
-		SHORTENS_TEXT_WHEN_LIMIITED_HEADER,
-		DEFAULT_SHORTENS_TEXT_WHEN_LIMITED_FLAG,
-		BaseNode::getOneAttributeAsBoolean,
-		Node::withAttribute
-	);
-	
-	//method
-	public boolean getRecursiveOrDefaultShortensTextWhenLimitedFlag() {
-		return shortensTextWhenLimited.getRecursiveOrDefaultValue();
-	}
-	
-	//method
-	public LabelLook remainTextWhenLimited() {
-		
-		shortensTextWhenLimited.setValue(false);
-		
-		return this;
-	}
-	
-	//method
-	public LabelLook shortenTextWhenLimited() {
-		
-		shortensTextWhenLimited.setValue(true);
-		
-		return this;
-	}
-}
+public final class LabelLook extends TextLineWidgetLook<LabelLook> {}

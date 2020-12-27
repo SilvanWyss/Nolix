@@ -40,7 +40,6 @@ public final class ScrollTutorial {
 			.setBorderThicknesses(5)
 			.setBackgroundColor(Color.LAVENDER)
 			.setTextSize(500)
-			.remainTextWhenLimited()
 		);
 		
 		//Adds the Label to the frame.
