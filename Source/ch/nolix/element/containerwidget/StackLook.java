@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.containerwidget;
 
-//own imports
+//own import
 import ch.nolix.element.widget.BorderWidgetLook;
 
 //class
@@ -10,12 +10,4 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * @date 2017-03-06
  * @lines 10
  */
-public final class StackLook extends BorderWidgetLook<StackLook> {
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetStage3() {}
-}
+public final class StackLook extends BorderWidgetLook<StackLook> {}

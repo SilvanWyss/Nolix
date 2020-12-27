@@ -7,12 +7,4 @@ package ch.nolix.element.widget;
  * @date 2016-01-01
  * @lines 10
  */
-public abstract class TextLineWidgetLook<TLWL extends TextLineWidgetLook<TLWL>> extends BorderWidgetLook<TLWL> {
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetStage3() {}
-}
+public abstract class TextLineWidgetLook<TLWL extends TextLineWidgetLook<TLWL>> extends BorderWidgetLook<TLWL> {}

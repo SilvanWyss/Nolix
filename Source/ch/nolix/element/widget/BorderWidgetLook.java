@@ -18,7 +18,7 @@ import ch.nolix.element.gui.WidgetLook;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1720
+ * @lines 1700
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
@@ -1330,25 +1330,6 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		return asConcrete();
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void resetStage2() {
-		removeBorderThicknesses();
-		removeBorderColors();
-		removeAnyBackground();
-		removeScrollBarLooks();
-		removePaddings();
-	}
-	
-	//method declaration
-	/**
-	 * Resets the current {@link BorderWidgetLook}.
-	 */
-	protected abstract void resetStage3();
 	
 	//method
 	/**

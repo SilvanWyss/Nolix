@@ -25,8 +25,8 @@ import ch.nolix.element.textformat.Font;
  * Step 3: The getRecursiveOrDefaultA method must return the default value for A.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 280
+ * @date 2016-01-01
+ * @lines 290
  * @param <WL> The type of a {@link WidgetLook}.
  */
 public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement<WL> {
@@ -258,6 +258,13 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	protected final boolean hasBaseLook() {
 		return hasBaseElement();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetStage2() {}
 	
 	//method
 	/**

@@ -10,12 +10,4 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * @date 2017-04-01
  * @lines 10
  */
-public final class SingleContainerLook extends BorderWidgetLook<SingleContainerLook> {
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetStage3() {}
-}
+public final class SingleContainerLook extends BorderWidgetLook<SingleContainerLook> {}

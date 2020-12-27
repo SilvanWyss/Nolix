@@ -124,13 +124,4 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 		
 		return this;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetStage3() {
-		removeLineThickness();
-	}
 }

@@ -72,8 +72,4 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		
 		return this;
 	}
-	
-	//method
-	@Override
-	protected void resetStage3() {}
 }

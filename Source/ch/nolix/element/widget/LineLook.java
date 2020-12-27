@@ -8,14 +8,6 @@ import ch.nolix.element.gui.WidgetLook;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 20
+ * @lines 10
  */
-public final class LineLook extends WidgetLook<LineLook> {
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetStage2() {}
-}
+public final class LineLook extends WidgetLook<LineLook> {}
