@@ -7,6 +7,7 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -18,15 +19,15 @@ import ch.nolix.element.painterapi.IPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 220
+ * @date 2016-01-01
+ * @lines 200
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//constants
 	public static final String TYPE_NAME = "Button";
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
-			
+	
 	//optional attribute
 	private ButtonRole role;
 	
@@ -44,7 +45,8 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		.setLeftPadding(10)
 		.setRightPadding(10);
 		
-		getRefHoverLook().setBackgroundColor(Color.GREY);
+		getRefHoverLook()
+		.setBackgroundColor(Color.GREY);
 	}
 	
 	//method
@@ -67,21 +69,17 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Handles the case that the current Button has a role.
-		if (hasRole()) {
-			attributes.addAtEnd(getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
 		}
-		
-		return attributes;
 	}
 	
 	//method
@@ -104,27 +102,23 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	public boolean hasRole() {
 		return (role != null);
 	}
-
+	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasRole(final String role) {	
-		return (hasRole() && getRole().toString().equals(role));
+		return (this.role != null && this.role.toString().equals(role));
 	}
 	
 	//method
 	/**
 	 * Removes the role of the current {@link Button}.
-	 * 
-	 * @return the current {@link Button}.
 	 */
-	public Button removeRole() {
-		
+	public void removeRole() {
 		role = null;
-		
-		return this;
 	}
 	
 	//method
@@ -143,6 +137,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		//Sets the role of the current Button.
 		this.role = role;
 		
+		//Returns the current Button.
 		return this;
 	}
 	
@@ -200,11 +195,12 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
 	 */
 	private void assertHasRole() {
-		if (!hasRole()) {
+		if (role == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
