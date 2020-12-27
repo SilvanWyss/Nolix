@@ -12,11 +12,11 @@ import ch.nolix.common.xml.XMLNode;
 //interface
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 140
  */
 public interface IElement extends TypeRequestable {
-		
+	
 	//method declaration
 	/**
 	 * @return the attributes of the current {@link IElement}.
