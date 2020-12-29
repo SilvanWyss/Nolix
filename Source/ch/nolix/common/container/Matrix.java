@@ -6,6 +6,9 @@ import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 
@@ -15,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-01
  * @lines 720
  * @param <E> The type of the elements of a {@link Matrix}.
  */
