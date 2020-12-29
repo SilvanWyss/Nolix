@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2020-07
+ * @date 2020-07-05
  * @lines 150
  */
 public final class CloseController {
@@ -60,7 +60,7 @@ public final class CloseController {
 	
 	//method
 	/**
-	 * @return the close dependencies of the current {@link ClosableController}.
+	 * @return the close dependencies of the current {@link CloseController}.
 	 */
 	IContainer<ICloseableElement> getRefCloseDependencies() {
 		return parentClosePool.getRefElements();
@@ -106,7 +106,7 @@ public final class CloseController {
 	
 	//method.
 	/**
-	 * Sets the {@link ClosePool} the current {@link ClosableController} will belong to.
+	 * Sets the {@link ClosePool} the current {@link CloseController} will belong to.
 	 * 
 	 * @param parentClosePool
 	 * @throws ArgumentIsNullException if the given parentClosePool is null.
