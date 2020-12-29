@@ -3,17 +3,17 @@ package ch.nolix.common.communicationapi;
 
 //interface
 /**
- * A {@link Sender} can send messages.
+ * A {@link ISender} can send messages.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-05-06
  * @lines 30
  */
 public interface ISender {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Sender} send the given message.
+	 * Lets the current {@link ISender} send the given message.
 	 * 
 	 * @param message
 	 */
@@ -21,7 +21,7 @@ public interface ISender {
 	
 	//method
 	/**
-	 * Lets the current {@link Sender} send the given messages.
+	 * Lets the current {@link ISender} send the given messages.
 	 * 
 	 * @param messages
 	 */
