@@ -4,7 +4,9 @@ package ch.nolix.common.commontypehelper;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
@@ -15,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * Of the {@link StringHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 340
  */
 public final class StringHelper {
@@ -210,7 +212,7 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return the non negative decimal int the given string represents.
+	 * @return the non negative decimal integer the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a non-negative decimal int.
 	 */
 	private static int toIntFromNonNegativeDecimal(final String string) {
@@ -268,7 +270,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the non-negative hexadecimal int the given string represents.
-	 * @throws Exception if the given string does not represent a non-negative hexadecimal int.
+	 * @throws InvalidArgumentException if the given string does not represent a non-negative hexadecimal int.
 	 */
 	private static int toIntFromNonNegativeHexaDecimal(final String string) {
 		
