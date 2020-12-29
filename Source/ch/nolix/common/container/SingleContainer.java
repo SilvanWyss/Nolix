@@ -3,6 +3,7 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.validator.Validator;
 
@@ -12,7 +13,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link SingleContainer} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2020-01
+ * @date 2020-01-11
  * @param <E> The type of the element of a {@link SingleContainer}.
  * @lines 100
  */
