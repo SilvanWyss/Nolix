@@ -3,6 +3,7 @@ package ch.nolix.common.commontypewrapper;
 
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -10,8 +11,8 @@ import ch.nolix.common.validator.Validator;
  * A {@link ByteWrapper} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2019-09
- * @lines 120
+ * @date 2019-09-06
+ * @lines 130
  */
 public final class ByteWrapper {
 	
