@@ -14,7 +14,9 @@ import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.generalskillapi.TypeRequestable;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalLabelable;
@@ -28,8 +30,8 @@ import ch.nolix.common.validator.Validator;
  * A {@link Client} is like an end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 720
+ * @date 2016-01-01
+ * @lines 730
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -127,6 +129,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	
 	//method
 	/**
+	 * @param type
 	 * @return the context of the parent {@link Application} of the current {@link Client} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws InvalidArgumentException if the current {@link Client} does not belongs to a {@link Application}.
@@ -314,6 +317,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Pushes the given session to the current {@link Client} with the given pop function.
 	 * 
 	 * @param session
+	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -350,7 +354,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Connects the current {@link Client} to the given application.
 	 * 
 	 * @param application
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internalConnectTo(final Application<?> application) {
@@ -370,7 +374,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * on the given port on the local machine.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internalConnectTo(final int port) {
@@ -386,7 +390,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * 
 	 * @param port
 	 * @param name
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
@@ -443,7 +447,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * 
 	 * @param ip
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internalConnectTo(final String ip, final int port) {
@@ -460,7 +464,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @param ip
 	 * @param port
 	 * @param name
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
@@ -473,6 +477,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	
 	//method
 	/**
+	 * @param request
 	 * @return the data the given request requests from the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
@@ -489,8 +494,8 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	
 	//method
 	/**
-	 * @return the data the given request
-	 * requests from the counterpart of the current {@link Client}.
+	 * @param request
+	 * @return the data the given request requests from the counterpart of the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	protected BaseNode internalGetDataFromCounterpart(final ChainedNode request) {
