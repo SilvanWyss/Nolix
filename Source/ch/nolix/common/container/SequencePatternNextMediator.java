@@ -3,6 +3,8 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
