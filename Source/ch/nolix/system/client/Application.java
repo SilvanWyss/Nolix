@@ -15,6 +15,8 @@ import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.generalskillapi.Castable;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 
@@ -297,7 +299,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	
 	//method
 	/**
-	 * Removes the closed {@link Clients} of the current {@link Application}.
+	 * Removes the closed {@link Client}s of the current {@link Application}.
 	 */
 	private void removeClosedClients() {
 		clients.removeAll(Client::isClosed);
