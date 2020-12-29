@@ -5,6 +5,7 @@ package ch.nolix.common.container;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -13,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link LinkedListNode} can have a next node.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 150
  * @param <E> The type of the element of a {@link LinkedListNode}.
  */
@@ -66,8 +67,7 @@ final class LinkedListNode<E> {
 	//method
 	/**
 	 * @return the next node of the current {@link LinkedListNode}.
-	 * @throws UnexistringAttributeException
-	 * if the current {@link LinkedListNode} does not have a next node.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LinkedListNode} does not have a next node.
 	 */
 	public LinkedListNode<E> getNextNode() {
 		
