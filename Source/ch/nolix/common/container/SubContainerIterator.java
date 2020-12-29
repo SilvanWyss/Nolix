@@ -5,15 +5,18 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 
 //own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.validator.Validator;
 
-//package visible class
+//visibility-reduced class
 /**
  * @author Silvan Wyss
- * @month 2017-07
- * @lines 90
- * @param <E> The type of the elements of a list iterator.
+ * @date 2017-08-27
+ * @lines 80
+ * @param <E> The type of the elements of a {@link SubContainerIterator}.
  */
 final class SubContainerIterator<E> implements Iterator<E> {
 	
@@ -24,40 +27,21 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//constructor
 	/**
-	 * Creates a new sub container
-	 * with the given container, start index and end index.
+	 * Creates a new {@link SubContainerIterator} with the given container, startIndex and endIndex.
 	 * 
 	 * @param container
 	 * @param startIndex
 	 * @param endIndex
 	 * @throws ArgumentIsNullException if the given container is null.
-	 * @throws NonPositiveArgumentexception if the given start index is not positive.
-	 * @throws NonPositiveArgumentexception if the given end index is not positive.
+	 * @throws NonPositiveArgumentException if the given startIndex is not positive.
+	 * @throws NonPositiveArgumentException if the given endIndex is not positive.
 	 */
-	public SubContainerIterator(
-		final Iterable<E> container,
-		final int startIndex,
-		final int endIndex) {
+	public SubContainerIterator(final Iterable<E> container, final int startIndex, final int endIndex) {
 		
-		Validator
-		.assertThat(container)
-		.thatIsNamed("container")
-		.isNotNull();
-		
-		Validator
-		.assertThat(startIndex)
-		.thatIsNamed("start index")
-		.isPositive();
-		
-		Validator
-		.assertThat(endIndex)
-		.thatIsNamed("end index")
-		.isPositive();
-		
-		Validator
-		.assertThat(endIndex)
-		.thatIsNamed("end index")
-		.isBiggerThanOrEquals(startIndex);
+		Validator.assertThat(container).thatIsNamed(VariableNameCatalogue.CONTAINER).isNotNull();
+		Validator.assertThat(startIndex).thatIsNamed(VariableNameCatalogue.START_INDEX).isPositive();
+		Validator.assertThat(endIndex).thatIsNamed(VariableNameCatalogue.END_INDEX).isPositive();
+		Validator.assertThat(endIndex).thatIsNamed(VariableNameCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 		
 		this.endIndex = endIndex;
 		
@@ -71,7 +55,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return true if this sub container iterator has a next element.
+	 * @return true if the current {@link SubContainerIterator} has a next element.
 	 */
 	@Override
 	public boolean hasNext() {
@@ -80,15 +64,16 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return the next element of this sub container iterator.
-	 * @throws ArgumentDoesNotHaveAttributeException if this sub container iterator does not have a next element.
+	 * @return the next element of this {@link SubContainerIterator}.
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link SubContainerIterator} does not have a next element.
 	 */
 	@Override
 	public E next() {
 		
-		//Asserts that this sub container iterator has a next element.
+		//Asserts that the current @link SubContainerIterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
 		}
 		
 		currentIndex++;
