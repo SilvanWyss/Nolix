@@ -10,8 +10,10 @@ import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.functionapi.IElementTakerComparableGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 
@@ -1133,7 +1135,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * 
 	 * @param node
 	 * @throws ArgumentIsNullException if the given node is null.
-	 * @throws UnexistingPropertyException if the given node does not have a next node.
+	 * @throws ArgumentDoesNotHaveAttributeException if the given node does not have a next node.
 	 */
 	private void removeNextNode(final LinkedListNode<E> node) {
 		
