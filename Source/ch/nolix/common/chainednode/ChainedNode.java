@@ -9,7 +9,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -62,7 +64,7 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * @param string
 	 * @return a new {@link ChainedNode} the given string represents.
-	 * @throws NonRepresentingArgumentException if the given string does not represent a {@link ChainedNode}.
+	 * @throws UnrepresentingArgumentException if the given string does not represent a {@link ChainedNode}.
 	 */
 	public static ChainedNode fromString(final String string) {
 		
@@ -273,6 +275,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param header
 	 * @param attributes
+	 * @param nextNode
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if the given nextNode is null.
@@ -335,7 +338,7 @@ public final class ChainedNode implements OptionalHeadered {
 	//method
 	/**
 	 * @return the {@link Node} representations of the attributes of the current {@link ChainedNode}.
-	 * @throws NonRepresentingArgumentException
+	 * @throws UnrepresentingArgumentException
 	 * if one of the attributes of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
 	public IContainer<Node> getAttributesAsNodes() {
@@ -434,7 +437,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return a {@link Integer} representation of the one attribute of the current {@link ChainedNode}.
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
-	 * @throws NonRepresentingArgumentException
+	 * @throws UnrepresentingArgumentException
 	 * if the one attribute of the current {@link ChainedNode} does not represent a {@link Integer}.
 	 */
 	public int getOneAttributeAsInt() {
@@ -446,7 +449,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return a {@link Node} representation of the one attribute of the current {@link ChainedNode}.
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
-	 * @throws NonRepresentingArgumentException
+	 * @throws UnrepresentingArgumentException
 	 * if the one attribute of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
 	public Node getOneAttributeAsNode() {
@@ -491,8 +494,7 @@ public final class ChainedNode implements OptionalHeadered {
 	//method
 	/**
 	 * @return a {@link Integer} representation of the current {@link ChainedNode}.
-	 * @throws NonRepresentingArgumentException
-	 * if the current {@link ChainedNode} does not represent a {@link Integer}.
+	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Integer}.
 	 */
 	public int toInt() {
 		
@@ -511,7 +513,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * -Each attribute of the {@link ChainedNode} represents a {@link Node}.
 	 * 
 	 * @return a {@link Node} representation of the current {@link ChainedNode}.
-	 * @throws NonRepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Node}.
+	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
 	public Node toNode() {
 		
