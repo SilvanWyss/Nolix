@@ -11,10 +11,10 @@ import ch.nolix.common.skillapi.Runnable;
 //class
 /**
  * A {@link TestPool} contains either {@link BaseTest}s or other test {@link Class}s.
- * A {@link SimpleTest}Pool can run its test {@link Class}s recursively.
+ * A {@link TestPool} can run its test {@link Class}s recursively.
  * 
  * @author Silvan Wyss
- * @month 2016-01
+ * @date 2016-02-01
  * @lines 220
  */
 public abstract class TestPool implements Runnable {
@@ -54,7 +54,7 @@ public abstract class TestPool implements Runnable {
 	/**
 	 * Creates a new {@link TestPool} with the given {@link TestPool}s.
 	 * 
-	 * @param testClasses
+	 * @param testPools
 	 * @throws ArgumentIsNullException if one of the the given testPools is null.
 	 */
 	public TestPool(final TestPool... testPools) {
@@ -152,7 +152,7 @@ public abstract class TestPool implements Runnable {
 	
 	//method
 	/**
-	 * @return the test {@link TestPools}s of the current {@link TestPool}.
+	 * @return the test {@link TestPool}s of the current {@link TestPool}.
 	 */
 	final List<TestPool> getRefTestPools() {
 		return testPools;
