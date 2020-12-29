@@ -4,16 +4,19 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;
+import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A client receiver controller is a receiver controller of the duplex controller of a client.
+ * A {@link ClientReceiverController} is a {@link IDataProviderController}for the {@link EndPoint }of a {@link Client}.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 50
+ * @date 2016-01-01
+ * @lines 60
  */
 final class ClientReceiverController implements IDataProviderController {
 
@@ -22,7 +25,7 @@ final class ClientReceiverController implements IDataProviderController {
 	
 	//constructor
 	/**
-	 * Creates a new receiver controller with the given client.
+	 * Creates a new {@link ClientReceiverController} with the given client.
 	 * 
 	 * @param client
 	 * @throws ArgumentIsNullException if the given client is null.
@@ -32,7 +35,7 @@ final class ClientReceiverController implements IDataProviderController {
 		//Asserts that the given client is not null.
 		Validator.assertThat(client).isOfType(Client.class);
 		
-		//Sets the client of this client receiver controller.
+		//Sets the client of the current ClientReceiverController.
 		this.client = client;
 	}
 	
@@ -49,7 +52,7 @@ final class ClientReceiverController implements IDataProviderController {
 	
 	//method
 	/**
-	 * Lets this client receiver controller run the given command.
+	 * Lets this client {@link ClientReceiverController} run the given command.
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
