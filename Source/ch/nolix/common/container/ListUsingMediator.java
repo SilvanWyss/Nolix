@@ -3,24 +3,25 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-06
- * @lines 110
- * @param <E> - The type of the elements of the list of a list using mediator.
+ * @date 2017-06-18
+ * @lines 120
+ * @param <E> The type of the elements of the elements of the {@link LinkedList} of the {@link ListUsingMediator}.
  */
 public final class ListUsingMediator<E> {
-
+	
 	//attributes
 	private final LinkedList<E> linkedList;
 	private final IElementTakerElementGetter<Object, E> extractor;
 	
 	//constructor
 	/**
-	 * Creates a new list using mediator with the given list and extractor.
+	 * Creates a new {@link ListUsingMediator} with the given list and extractor.
 	 * 
 	 * @param list
 	 * @param extractor
@@ -35,19 +36,19 @@ public final class ListUsingMediator<E> {
 		//Asserts that the given extractor is not null.
 		Validator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
 		
-		//Sets the list of this list using mediator.
+		//Sets the list of the current ListUsingMediator.
 		this.linkedList = list;
 		
-		//Sets the extractor of this list using mediator.
+		//Sets the extractor of the current ListUsingMediator.
 		this.extractor = extractor;
 	}
 	
 	//method
 	/**
-	 * Adds the given elements at the begin of the list of this list using mediator.
+	 * Adds the given elements at the begin of the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
-	 * @return the list of this list using mediator.
+	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2> LinkedList<E> addAtBegin(final E2... elements) {
@@ -60,7 +61,7 @@ public final class ListUsingMediator<E> {
 			list.addAtEnd(extractor.getOutput(e));
 		}
 		
-		//Adds the list at the begin of the list of this list using mediator.
+		//Adds the list at the begin of the list of the current ListUsingMediator.
 		this.linkedList.addAtBegin(list);
 		
 		return this.linkedList;
@@ -68,10 +69,10 @@ public final class ListUsingMediator<E> {
 	
 	//method
 	/**
-	 * Adds the given elements at the begin of the list of this list using mediator.
+	 * Adds the given elements at the begin of the list of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
-	 * @return the list of this list using mediator.
+	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	public <E2> LinkedList<E> addAtBegin(final Iterable<E2> elements) {
 		
@@ -79,7 +80,7 @@ public final class ListUsingMediator<E> {
 		final LinkedList<E> list = new LinkedList<>();
 		elements.forEach(e -> list.addAtBegin(extractor.getOutput(e)));
 		
-		//Adds the list at the begin of the list of this list using mediator.
+		//Adds the list at the begin of the list of the current ListUsingMediator.
 		this.linkedList.addAtBegin(list);
 		
 		return this.linkedList;
@@ -87,10 +88,10 @@ public final class ListUsingMediator<E> {
 	
 	//method
 	/**
-	 * Adds the given elements at the end of the list of this list using mediator.
+	 * Adds the given elements at the end of the list of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
-	 * @return the list of this list using mediator.
+	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2> LinkedList<E> addAtEnd(final E2... elements) {
@@ -105,10 +106,10 @@ public final class ListUsingMediator<E> {
 
 	//method
 	/**
-	 * Adds the given elements at the end of the list of this list using mediator.
+	 * Adds the given elements at the end of the list of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
-	 * @return the list of this list using mediator.
+	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	public <E2> LinkedList<E> addAtEnd(final Iterable<E2> elements) {
 		
