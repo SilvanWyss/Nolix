@@ -7,6 +7,8 @@ import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.communicationapi.IReceiver;
 import ch.nolix.common.communicationapi.ISender;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -14,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * An end point can send messages to an other end point of the same type.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @month 2017-01-01
  * @lines 110
  */
 public abstract class EndPoint implements ICloseableElement, ISender {
