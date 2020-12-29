@@ -11,7 +11,7 @@ import ch.nolix.common.skillapi.Closeable;
 //interface
 /**
  * @author Silvan Wyss
- * @month 2020-07
+ * @date 2020-07-05
  * @lines 90
  */
 public interface ICloseableElement extends Closeable {
@@ -47,7 +47,7 @@ public interface ICloseableElement extends Closeable {
 	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws ClosedArgumentException if the current {@link ICloseableElement} is closed.
 	 * @throws InvalidArgumentException
-	 * if the current {@link CloseableElement} has already a close dependency to the given element.
+	 * if the current {@link ICloseableElement} has already a close dependency to the given element.
 	 */
 	default void createCloseDependencyTo(final ICloseableElement element) {
 		getRefCloseController().createCloseDependencyTo(element);
