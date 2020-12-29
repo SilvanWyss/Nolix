@@ -7,21 +7,24 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A sub container can iterate over a part of another container.
+ * A {@link SubContainer} can iterate over a part of another container.
  * 
- * A sub container must not use the methods of the accessed container
- * except the iterator method.
+ * A {@link SubContainer} must not use the methods of the accessed container except the iterator method.
  * The reason is that the accessed container can be a specialized container
  * that does not use its iterator in any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
- * @month 2017-08
- * @lines 120
- * @param <E> The type of the elements of a sub container.
+ * @date 2017-08-27
+ * @lines 110
+ * @param <E> The type of the elements of a {@link SubContainer}.
  */
 public final class SubContainer<E> implements IContainer<E> {
 
@@ -32,45 +35,31 @@ public final class SubContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates a new sub container
-	 * with the given container, start index and end index.
+	 * Creates a new {@link SubContainer} with the given container, startIndex and endIndex.
 	 * 
 	 * @param container
 	 * @param startIndex
 	 * @param endIndex
 	 * @throws ArgumentIsNullException if the given container is null.
-	 * @throws NonPositiveArgumentexception if the given start index is not positive.
-	 * @throws NonPositiveArgumentexception if the given end index is not positive.
-	 * @throws SmallerArgumentException if the given end index is smaller than the given start index.
+	 * @throws NonPositiveArgumentException if the given startIndex is not positive.
+	 * @throws NonPositiveArgumentException if the given endIndex is not positive.
+	 * @throws SmallerArgumentException if the given endIndex is smaller than the given startIndex.
+	 * @throws BiggerArgumentException if
+	 * the given endIndex is bigger than the number of elements of the given container.
 	 */
 	public SubContainer(
 		final IContainer<E> container,
 		final int startIndex,
 		final int endIndex) {
 		
-		Validator
-		.assertThat(container)
-		.thatIsNamed("container")
-		.isNotNull();
-		
-		Validator
-		.assertThat(startIndex)
-		.thatIsNamed("start index")
-		.isPositive();
+		Validator.assertThat(container).thatIsNamed(VariableNameCatalogue.CONTAINER).isNotNull();
+		Validator.assertThat(startIndex).thatIsNamed(VariableNameCatalogue.START_INDEX).isPositive();
+		Validator.assertThat(endIndex).thatIsNamed(VariableNameCatalogue.END_INDEX).isPositive();
+		Validator.assertThat(endIndex).thatIsNamed(VariableNameCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 		
 		Validator
 		.assertThat(endIndex)
-		.thatIsNamed("end index")
-		.isPositive();
-		
-		Validator
-		.assertThat(endIndex)
-		.thatIsNamed("end index")
-		.isBiggerThanOrEquals(startIndex);
-		
-		Validator
-		.assertThat(endIndex)
-		.thatIsNamed("end index")
+		.thatIsNamed(VariableNameCatalogue.END_INDEX)
 		.isNotBiggerThan(container.getElementCount());
 		
 		this.container = container;
@@ -80,7 +69,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @return the number of elements of this sub container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getElementCount() {
@@ -102,7 +91,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @return a new iterator for this sub container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Iterator<E> iterator() {
@@ -116,9 +105,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if this sub container contains n elements.
-	 * 
-	 * @return a string representation of this sub container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() {
