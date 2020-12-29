@@ -19,8 +19,12 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerIntGetter;
 import ch.nolix.common.functionapi.IElementTakerLongGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
@@ -31,7 +35,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link IContainer} is iterable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 2060
  * @param <E> The type of the elements a {@link IContainer} can store.
  */
@@ -1290,8 +1294,9 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
-	 * @param selector
-	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer} that are of the given type.
+	 * @param type
+	 * @return a new {@link LinkedList}
+	 * with the elements from the current {@link IContainer} that are of the given type.
 	 */
 	@SuppressWarnings("unchecked")
 	default <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
@@ -1391,7 +1396,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
+	default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1402,7 +1407,7 @@ public interface IContainer<E> extends Iterable<E> {
 			var selected = true;
 			
 			//Iterates the given selectors.
-			for (IElementTakerBooleanGetter<E> s : selecors) {
+			for (IElementTakerBooleanGetter<E> s : selectors) {
 				
 				//Asserts that the current selector selects the current element.
 				if (!s.getOutput(e)) {
@@ -1443,7 +1448,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given selectors selects not (!) from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selecors) {
+	default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1454,7 +1459,7 @@ public interface IContainer<E> extends Iterable<E> {
 			var selected = false;
 			
 			//Iterates the given selectors.
-			for (IElementTakerBooleanGetter<E> s : selecors) {
+			for (IElementTakerBooleanGetter<E> s : selectors) {
 				
 				//Asserts that the current selector selects not the current element.
 				if (s.getOutput(e)) {
