@@ -7,6 +7,7 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -14,7 +15,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link ArrayReadContainerIterator} is an iterator for a {@link ArrayReadContainer}.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-26
  * @lines 80
  * @param <E> The type of the elements of the {@link ArrayReadContainer}
  * a {@link ArrayReadContainerIterator} belongs to.
