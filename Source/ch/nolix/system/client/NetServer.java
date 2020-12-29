@@ -4,6 +4,9 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.localcomputer.LocalComputer;
 
 //class
@@ -11,8 +14,8 @@ import ch.nolix.common.localcomputer.LocalComputer;
  * A {@link NetServer} is a {@link Server} that listens to net {@link Client}s on a specific port.
  * 
  * @author Silvan Wyss
- * @month 2017-09
- * @lines 120
+ * @date 2017-09-10
+ * @lines 130
  */
 public final class NetServer extends Server {
 	
@@ -26,8 +29,7 @@ public final class NetServer extends Server {
 	/**
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
 	 * 
-	 * @param port
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetServer() {
 		
@@ -64,7 +66,7 @@ public final class NetServer extends Server {
 	 * 
 	 * @param port
 	 * @param defaultApplication
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
 	 */
 	public NetServer(final int port, final Application<?> defaultApplication) {
@@ -85,7 +87,7 @@ public final class NetServer extends Server {
 	 * @param port
 	 * @param name
 	 * @param initialSessionClass
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
