@@ -17,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * A {@link ReadContainer} does not prevent that the elements of its accessed container can be mutated.
  * 
  * @author Silvan Wyss
- * @month 2017-06
+ * @date 2017-07-01
  * @lines 180
  * @param <E> The type of the elements of a {@link ReadContainer}.
  */
@@ -25,9 +25,8 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//static method
 	/**
-	 * Creates a new {@link ReadContainer} for the given array.
-	 * 
 	 * @param array
+	 * @return a new {@link ReadContainer} for the given array.
 	 * @throws ArgumentIsNullException if the given array is null.
 	 */
 	public static <E2> ReadContainer<E2> forArray(final E2[] array) {
@@ -36,9 +35,8 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//static method
 	/**
-	 * Creates a new {@link ReadContainer} for the given arrays.
-	 * 
 	 * @param arrays
+	 * @return a new {@link ReadContainer} for the given array.
 	 * @throws ArgumentIsNullException if the given arrays is null.
 	 * @throws ArgumentIsNullException if one of the given arrays is null.
 	 */
@@ -49,9 +47,8 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//static method
 	/**
-	 * Creates a new {@link ReadContainer} for the given iterable object.
-	 * 
 	 * @param object
+	 * @return a new {@link ReadContainer} for the given iterable object.
 	 * @throws ArgumentIsNullException if the given object is null.
 	 */
 	public static <E2> ReadContainer<E2> forIterable(final Iterable<E2> object) {
@@ -60,9 +57,8 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//static method
 	/**
-	 * Creates a new {@link ReadContainer} for the given iterable objects.
-	 * 
 	 * @param objects
+	 * @return a new {@link ReadContainer} for the given iterable objects.
 	 * @throws ArgumentIsNullException if the given objects is null.
 	 * @throws ArgumentIsNullException if one of the given objects is null.
 	 */
@@ -75,7 +71,8 @@ public final class ReadContainer<E> implements IContainer<E> {
 	/**
 	 * Creates a new {@link ReadContainer} with the given elements.
 	 * 
-	 * @param arrays
+	 * @param elements
+	 * @return a new {@link ReadContainer} for the given elements.
 	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
