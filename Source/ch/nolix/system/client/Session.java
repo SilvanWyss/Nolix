@@ -22,8 +22,8 @@ import ch.nolix.system.baseguiclient.BaseBackGUIClient;
  * A {@link Session} manages user run methods and user data methods.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 460
+ * @date 2016-01-01
+ * @lines 470
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {
@@ -128,6 +128,7 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
+	 * @param type
 	 * @return the context of the parent {@link Application}
 	 * of the parent {@link Client} of the current {@link Session} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
@@ -287,8 +288,7 @@ public abstract class Session<C extends Client<C>> {
 	 * Invokes the user run method of the current session of the current {@link Client}
 	 * the given session user run method request requests.
 	 * 
-	 * @param name
-	 * @param arguments
+	 * @param sessionUserRunMethodRequest
 	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final void internalInvokeSessionUserRunMethod(final BaseNode sessionUserRunMethodRequest) {
