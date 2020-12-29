@@ -7,12 +7,13 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-1
  * @lines 80
  * @param <E> The type of the elements of a {@link MatrixIterator}.
  */
