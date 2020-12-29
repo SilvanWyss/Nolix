@@ -6,6 +6,7 @@ import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
@@ -16,8 +17,8 @@ import ch.nolix.common.validator.Validator;
  * A {@link Server} is clearable and closable.
  * 
  * @author Silvan Wyss
- * @month 2016-10
- * @lines 250
+ * @date 2016-11-01
+ * @lines 240
  */
 public class Server implements Clearable, ICloseableElement {
 	
@@ -43,7 +44,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Adds the given {@link application} to the current {@link Server}.
+	 * Adds the given application to the current {@link Server}.
 	 * 
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
@@ -228,9 +229,8 @@ public class Server implements Clearable, ICloseableElement {
 	 * Lets the current {@link Server} take the given client.
 	 * 
 	 * @param client
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the given client does not have a target
-	 * and if the current {@link Server} does not contain a default {@link Applicaiton}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the given client does not have a target
+	 * and the current {@link Server} does not contain a default {@link Application}.
 	 */
 	public final void takeClient(final Client<?> client) {
 		
