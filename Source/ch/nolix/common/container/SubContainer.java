@@ -44,13 +44,10 @@ public final class SubContainer<E> implements IContainer<E> {
 	 * @throws NonPositiveArgumentException if the given startIndex is not positive.
 	 * @throws NonPositiveArgumentException if the given endIndex is not positive.
 	 * @throws SmallerArgumentException if the given endIndex is smaller than the given startIndex.
-	 * @throws BiggerArgumentException if
-	 * the given endIndex is bigger than the number of elements of the given container.
+	 * @throws BiggerArgumentException
+	 * if the given endIndex is bigger than the number of elements of the given container.
 	 */
-	public SubContainer(
-		final IContainer<E> container,
-		final int startIndex,
-		final int endIndex) {
+	public SubContainer(final IContainer<E> container, final int startIndex, final int endIndex) {
 		
 		Validator.assertThat(container).thatIsNamed(VariableNameCatalogue.CONTAINER).isNotNull();
 		Validator.assertThat(startIndex).thatIsNamed(VariableNameCatalogue.START_INDEX).isPositive();
