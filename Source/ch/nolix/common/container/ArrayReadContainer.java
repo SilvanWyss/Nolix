@@ -7,12 +7,13 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
-//class
+//visibility-reduced class
 /**
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-26
  * @lines 90
  * @param <E> The type of the elements of a {@link ArrayReadContainer}.
  */
