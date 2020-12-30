@@ -25,7 +25,6 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 			return new Node();
 		}
 		
-		//return new Node(value.toString());
 		return Node.fromString(value.toString());
 	}
 	
