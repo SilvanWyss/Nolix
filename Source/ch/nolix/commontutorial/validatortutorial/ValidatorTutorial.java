@@ -1,6 +1,8 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-//own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.validator.Validator;
 
 /**
@@ -26,7 +28,7 @@ public final class ValidatorTutorial {
 	 * @param amount
 	 * @throws ArgumentIsNullException if the given productName is null.
 	 * @throws EmptyArgumentException if the given productName is empty.
-	 * @throws NegativArgumentException if the given amount is negative.
+	 * @throws NegativeArgumentException if the given amount is negative.
 	 */
 	private static void printAmount(final String productName, final int amount) {
 		

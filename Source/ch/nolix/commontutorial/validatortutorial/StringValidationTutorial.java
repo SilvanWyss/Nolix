@@ -1,6 +1,5 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-//own imports
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -15,6 +14,8 @@ public final class StringValidationTutorial {
 	
 	/**
 	 * Lets the {@link Validator} validate the maximum length of a {@link String}.
+	 * 
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 		

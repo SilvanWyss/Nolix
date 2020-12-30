@@ -1,6 +1,5 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-//own imports
 import ch.nolix.common.validator.Validator;
 
 /**
@@ -15,6 +14,8 @@ public final class IntegerValidationTutorial2 {
 	/**
 	 * Lets the zeta validator suppose once that 5 is positive and once suppose that 5 is negative.
 	 * This is done that the error message of a probable thrown exception contains the variable name.
+	 * 
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 
