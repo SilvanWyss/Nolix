@@ -15,33 +15,33 @@ import ch.nolix.element.elementapi.IMutableElement;
 //class
 final class OneTypeElementFactory<E> {
 	
+	//static method
+	private static <ME extends IMutableElement<ME>> ME createElementOf(final Class<ME> elementClass) {
+		try {
+			return elementClass.getConstructor().newInstance();
+		}
+		catch (
+			final
+			InstantiationException
+			| IllegalAccessException
+			| InvocationTargetException
+			| NoSuchMethodException
+			exception
+		) {
+			throw new WrapperException(exception);
+		}
+	}
+	
 	//attributes
 	private final Class<E> elementClass;
 	private final IElementTakerElementGetter<BaseNode, E> creator;
 	
-	//method
+	//constructor
 	@SuppressWarnings("unchecked")
 	public <ME extends IMutableElement<ME>> OneTypeElementFactory(final Class<ME> elementClass) {
-		this(
-			(Class<E>)elementClass,
-			s -> {
-				try {
-					return (E)elementClass.getConstructor().newInstance().reset(s);
-				}
-				catch (
-					final
-					InstantiationException
-					| IllegalAccessException
-					|  InvocationTargetException
-					| NoSuchMethodException
-					exception
-				) {
-					throw new WrapperException(exception);
-				}
-			}
-		);
+		this((Class<E>)elementClass, s -> (E)(createElementOf(elementClass)).reset(s));
 	}
-	
+		
 	//constructor
 	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode, E> creator) {
 		
