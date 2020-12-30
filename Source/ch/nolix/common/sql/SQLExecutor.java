@@ -49,14 +49,7 @@ public final class SQLExecutor implements Resettable {
 			mSQLConnection.execute(statements.toString());
 		}
 		finally {
-			/*
-			 * For a better performance, this implementation does not use all comfortable methods.
-			 * 
-			 * A shorter implementation is:
-			 * 
-			 * reset();
-			 */
-			statements.clear();
+			reset();
 		}
 	}
 	
