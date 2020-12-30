@@ -134,41 +134,23 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	@Override
 	protected int getNaturalContentAreaHeight() {
-		
-		final var naturalContentAreaHeight =
-		Calculator.getMax(topLeftSlot.getHeight(), topSlot.getHeight(), topRightSlot.getHeight())
-		+ Calculator.getMax(leftSlot.getHeight(), centerSlot.getHeight(), rightSlot.getHeight())
-		+ Calculator.getMax(bottomLeftSlot.getHeight(), bottomSlot.getHeight(), bottomRightSlot.getHeight());
-		
-		if (hasTargetHeight()) {
-			//return Calculator.getMax(naturalContentAreaHeight, getTargetHeight());
-		}
-		
-		return naturalContentAreaHeight;
+		return
+		Calculator.getMax(
+			topLeftSlot.getHeight() + leftSlot.getHeight() + bottomLeftSlot.getHeight(),
+			topSlot.getHeight() + centerSlot.getHeight() + bottomSlot.getHeight(),
+			topRightSlot.getHeight() + rightSlot.getHeight() + bottomRightSlot.getHeight()
+		);
 	}
 	
 	//method
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		/*
 		return
-		Calculator.getMax(topLeftSlot.getWidth(), leftSlot.getWidth(), bottomLeftSlot.getWidth())
-		+ Calculator.getMax(topSlot.getWidth(), centerSlot.getWidth(), bottomSlot.getWidth())
-		+ Calculator.getMax(topRightSlot.getWidth(), rightSlot.getWidth(), bottomRightSlot.getWidth());
-		*/
-		
-		final var naturalWidth =
 		Calculator.getMax(
 			topLeftSlot.getWidth() + topSlot.getWidth() + topRightSlot.getWidth(),
 			leftSlot.getWidth() + centerSlot.getWidth() + rightSlot.getWidth(),
 			bottomLeftSlot.getWidth() + bottomSlot.getWidth() + bottomRightSlot.getWidth()
 		);
-		
-		if (hasTargetWidth()) {
-			//return Calculator.getMax(getContentArea().getTargetWidth(), naturalWidth);
-		}
-		
-		return naturalWidth;
 	}
 	
 	//method
