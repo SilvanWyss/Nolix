@@ -2,6 +2,7 @@
 package ch.nolix.common.endpoint3;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class

@@ -1,6 +1,11 @@
 //package declaration
 package ch.nolix.common.endpoint5;
 
+//own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+
 //class
 /**
  * A {@link NetServer} is a {@link Server}

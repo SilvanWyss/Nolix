@@ -9,6 +9,7 @@ import ch.nolix.common.communicationapi.ISender;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.processproperty.ConnectionOrigin;

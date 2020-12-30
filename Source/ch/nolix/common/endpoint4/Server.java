@@ -15,6 +15,8 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
  * @author Silvan Wyss
  * @month 2017-05
  * @lines 80
+ * @param <M> The type of the messages of the {@link EndPoint}s of a {@link Server}.
+ * @param <R> The type of the replies of the {@link EndPoint}s of a {@link Server}.
  */
 public class Server<M, R> implements ICloseableElement {
 	

@@ -10,6 +10,11 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.exception.GeneralException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.node.BaseNode;
@@ -35,7 +40,7 @@ public class NetEndPoint extends EndPoint {
 	 * that will connect to the default target on the given port on the local machine.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final int port) {
 		
@@ -50,7 +55,7 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param port
 	 * @param target
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final int port, final String target) {
 		
@@ -65,7 +70,7 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param ip
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		
@@ -80,8 +85,8 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param ip
 	 * @param port
-	 * @parma target
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @param target
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
@@ -270,7 +275,7 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @return the reply to the given message.
-	 * @throws UnexistringAttributeException if the current {@link NetEndPoint} does not have a receiver.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link NetEndPoint} does not have a receiver.
 	 */
 	private final String receiveAndGetReply(final ChainedNode message) {
 		

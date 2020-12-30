@@ -1,13 +1,18 @@
 //package declaration
 package ch.nolix.common.endpoint3;
 
+//own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+
 //class
 /**
  * A {@link NetServer} is a {@link Server} that listens to {@link NetEndPoint} on a specific port.
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 60
+ * @lines 70
  */
 public final class NetServer extends Server {
 	

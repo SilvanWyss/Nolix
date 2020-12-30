@@ -6,6 +6,7 @@ import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.GeneralException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -17,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 340
+ * @lines 330
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -150,7 +151,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if the current {@link NedEndPoint} is a local end point.
+	 * @return true if the current {@link NetEndPoint} is a local end point.
 	 */
 	public boolean isLocalEndPoint() {
 		return internalEndPoint.isLocalEndPoint();
@@ -158,7 +159,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if the current {@link NedEndPoint} is a net end point.
+	 * @return true if the current {@link NetEndPoint} is a net end point.
 	 */
 	public boolean isNetEndPoint() {
 		return internalEndPoint.isNetEndPoint();
@@ -274,7 +275,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link NedEndPoint} send the given package.
+	 * Lets the current {@link NetEndPoint} send the given package.
 	 * 
 	 * @param pPackage
 	 */
@@ -287,7 +288,6 @@ public class NetEndPoint extends EndPoint {
 	 * Sends the given message and waits to the reply.
 	 * 
 	 * @param message
-	 * @param timeoutCheck
 	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
 	private String sendAndWaitToReply(final String message) {
@@ -317,7 +317,6 @@ public class NetEndPoint extends EndPoint {
 	 * Lets the current {@link NetEndPoint} wait to and return and remove the received package with the given index.
 	 * 
 	 * @param index
-	 * @param timeoutCheck
 	 * @return the received package with the given index.
 	 * @throws RuntimeException if the current {@link NetEndPoint} reaches its timeout before it receives a package with the given index.
 	 */

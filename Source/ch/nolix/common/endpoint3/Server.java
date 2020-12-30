@@ -55,10 +55,10 @@ public class Server implements Clearable, ICloseableElement {
 	//method
 	/**
 	 * Adds the given mainEndPointTaker to the current {@link Server}.
-	 * A main {@link IEndPointTaker} takes all {@link EndPoints}s without target.
+	 * A main {@link IEndPointTaker} takes all {@link EndPoint}s without target.
 	 * 
 	 * @param mainEndPointTaker
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a main {@link EndPointTaker}.
+	 * @throws InvalidArgumentException if the current {@link Server} contains already a main {@link IEndPointTaker}.
 	 */
 	public final void addMainEndPointTaker(final IEndPointTaker mainEndPointTaker) {
 		
@@ -162,7 +162,7 @@ public class Server implements Clearable, ICloseableElement {
 	//method
 	/**
 	 * @return the main {@link IEndPointTaker} of the current {@link Server}.
-	 * @throws UnexistingAttribtueException
+	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Server} does not contain a main {@link IEndPointTaker}.
 	 */
 	private IEndPointTaker getRefMainEndPointTaker() {

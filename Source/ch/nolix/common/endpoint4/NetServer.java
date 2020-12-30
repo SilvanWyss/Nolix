@@ -3,16 +3,19 @@ package ch.nolix.common.endpoint4;
 
 //own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
 /**
-* A net server is a server that listens to net end points on a specific port.
-* 
-* @author Silvan Wyss
-* @month 2016-05
-* @lines 30
-*/
+ * A net server is a server that listens to net end points on a specific port.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 80
+ * @param <M> The type of the messages of the {@link EndPoint}s of a {@link NetServer}.
+ * @param <R> The type of the replies of the {@link EndPoint}s of a {@link NetServer}.
+ */
 public final class NetServer<M, R> extends Server<M, R> {
 	
 	//attribute
@@ -25,10 +28,14 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * Creates a new net server that will listen to net end points on the given port.
 	 * 
 	 * @param port
+	 * @param messageTransformer 
+	 * @param replyTransformer 
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetServer(final int port, IElementTakerElementGetter<String, M> messageTransformer,
-			IElementTakerElementGetter<String, R> replyTransformer) {
+	public NetServer(
+		final int port,
+		final IElementTakerElementGetter<String, M> messageTransformer,
+		final IElementTakerElementGetter<String, R> replyTransformer) {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.common.endpoint2.NetServer(port);

@@ -14,6 +14,7 @@ import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.processproperty.ConnectionOrigin;
 import ch.nolix.common.processproperty.TargetInfoState;
@@ -38,7 +39,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * the main target on the given port on the local machine.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final int port) {
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
@@ -50,7 +51,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * 
 	 * @param port
 	 * @param target
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
@@ -65,7 +66,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * 
 	 * @param ip
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		
@@ -99,7 +100,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * @param ip
 	 * @param port
 	 * @param target
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */

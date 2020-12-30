@@ -5,6 +5,8 @@ package ch.nolix.common.endpoint;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class

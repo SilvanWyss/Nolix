@@ -2,6 +2,9 @@
 package ch.nolix.common.endpoint4;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -10,7 +13,9 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 10
+ * @lines 200
+ * @param <M> The type of the messages a {@link LocalEndPoint} can send.
+ * @param <R> The type of the replies a {@link LocalEndPoint} can receive.
  */
 public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 

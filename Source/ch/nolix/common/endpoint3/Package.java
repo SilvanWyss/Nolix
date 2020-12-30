@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint3;
 
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 //own imports
 import ch.nolix.common.validator.Validator;
 
@@ -38,7 +39,7 @@ final class Package extends ch.nolix.common.messaging.IndexedPackage<String> {
 	 * @param messageRole
 	 * @param message
 	 * @throws ArgumentIsNullException if the given message role is null.
-	 * @throws NullArgumentExcetpion if the given message is null.
+	 * @throws ArgumentIsNullException if the given message is null.
 	 */
 	public Package(final int index, final MessageRole messageRole, final String message) {
 		

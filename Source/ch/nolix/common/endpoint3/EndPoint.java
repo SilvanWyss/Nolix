@@ -7,6 +7,7 @@ import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.communicationapi.IReplier;
 import ch.nolix.common.communicationapi.IReplyingSender;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class

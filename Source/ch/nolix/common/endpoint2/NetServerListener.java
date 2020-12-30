@@ -5,13 +5,14 @@ package ch.nolix.common.endpoint2;
 import java.io.IOException;
 import java.net.Socket;
 
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 //own imports
 import ch.nolix.common.validator.Validator;
 import ch.nolix.common.worker.Worker;
 
 //class
 /**
- * A {@link NetServerListener} listens to {@link NetEndPoints} for a {@link NetServer}.
+ * A {@link NetServerListener} listens to {@link NetEndPoint}s for a {@link NetServer}.
  *  
  * @author Silvan Wyss
  * @month 2017-04

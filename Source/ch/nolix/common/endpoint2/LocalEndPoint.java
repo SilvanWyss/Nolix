@@ -2,6 +2,9 @@
 package ch.nolix.common.endpoint2;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.processproperty.ConnectionOrigin;
 import ch.nolix.common.validator.Validator;
 

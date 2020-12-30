@@ -14,11 +14,13 @@ import ch.nolix.common.validator.Validator;
 
 //class
 /**
- * A {@link NedEndPoint} can send messages to another {@link NedEndPoint}.
+ * A {@link NetEndPoint} can send messages to another {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
  * @date 2017-06-10
  * @lines 350
+ * @param <M> The type of the messages a {@link NetEndPoint} can send.
+ * @param <R> The type of the replies a {@link NetEndPoint} can receive.
  */
 public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 		
@@ -64,7 +66,7 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * @param target
 	 * @param messageTransformer
 	 * @param replyTransformer
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsOutOfRangeException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 * @throws ArgumentIsNullException if the given messageTransformer is null.
@@ -89,7 +91,7 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * @param port
 	 * @param messageTransformer
 	 * @param replyTransformer
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given messageTransformer is null.
 	 * @throws ArgumentIsNullException if the given replyTransformer is null.
 	 */
@@ -115,7 +117,7 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * @param target
 	 * @param messageTransformer
 	 * @param replyTransformer
-	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsOutOfRangeException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 * @throws ArgumentIsNullException if the given messageTransformer is null.
@@ -345,7 +347,7 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * 
 	 * @param index
 	 * @return the received package with the given index.
-	 * @throws Exception
+	 * @throws InvalidArgumentException
 	 * if the current {@link NetEndPoint} reaches its timeout before it receives a package with the given index.
 	 */
 	private Package waitToAndGetAndRemoveReceivedPackage(final int index) {

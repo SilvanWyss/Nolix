@@ -2,6 +2,8 @@
 package ch.nolix.common.endpoint5;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -22,9 +24,8 @@ final class NetServerListener implements ch.nolix.common.endpoint3.IEndPointTake
 	/**
 	 * Creates a new net server sub end point taker with the given duplex contorller taker.
 	 * 
-	 * @param duplexControllerTaker
-	 * @throws ArgumentIsNullException
-	 * if the given net server is null.
+	 * @param netServer 
+	 * @throws ArgumentIsNullException if the given netServer is null.
 	 */
 	public NetServerListener(final NetServer netServer) {
 		

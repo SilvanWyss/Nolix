@@ -7,6 +7,7 @@ import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.communicationapi.IReplier;
 import ch.nolix.common.genericcommunicationapi.IReplyingSender;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -17,6 +18,8 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2017-05
  * @lines 100
+ * @param <M> The type of the messsages a {@link EndPoint} can send.
+ * @param <R> The type of the replies a {@link EndPoint} can receive.
  */
 public abstract class EndPoint<M, R> implements ICloseableElement, IReplyingSender<M, R> {
 	
