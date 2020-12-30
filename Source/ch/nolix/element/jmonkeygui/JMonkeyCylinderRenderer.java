@@ -34,7 +34,10 @@ implements IJMonkeyShapeRenderer<Cylinder, Geometry> {
 			cylinder.getZPositionAsFloat()
 		);
 		
-		geometry.scale(cylinder.getRadiusAsFloat(), cylinder.getRadiusAsFloat(), cylinder.getHeightAsFloat());
+		final var radius = cylinder.getRadiusAsFloat();
+		final var height = cylinder.getHeightAsFloat();
+		
+		geometry.scale(radius, radius, height);
 		
 		final var rotation = new Quaternion();
 		rotation.fromAngleAxis((float)NumberCatalogue.PI, new Vector3f(0.0F, 1.0F, 1.0F));

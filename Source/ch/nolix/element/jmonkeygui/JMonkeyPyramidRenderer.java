@@ -32,11 +32,10 @@ final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geo
 			pyramid.getZPositionAsFloat()
 		);
 		
-		geometry.scale(
-			pyramid.getSideLengthAsFloat(),
-			pyramid.getSideLengthAsFloat(),
-			pyramid.getHeightAsFloat()
-		);
+		final var sideLength = pyramid.getSideLengthAsFloat();
+		final var height = pyramid.getHeightAsFloat();
+		
+		geometry.scale(sideLength, sideLength, height);
 		
 		if (!pyramid.hasDefaultTexture()) {
 			
