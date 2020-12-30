@@ -37,7 +37,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case VariableNameCatalogue.CONFIGURATION:
-				setConfiguration(new Configuration(attribute.getRefAttributes()));
+				setConfiguration(Configuration.fromSpecification(attribute));
 				break;
 			default:
 				

@@ -144,7 +144,7 @@ implements IMutableElement<C> {
 				setSelectorId(attribute.getOneAttributeHeader());
 				break;
 			case Configuration.TYPE_NAME:
-				addConfiguration(new Configuration(attribute.getRefAttributes()));
+				addConfiguration(Configuration.fromSpecification(attribute));
 				break;
 			case DeepConfiguration.TYPE_NAME:
 				addConfiguration(new DeepConfiguration().reset(attribute.getRefAttributes()));

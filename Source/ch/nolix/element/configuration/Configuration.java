@@ -25,8 +25,22 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	 * @throws InvalidArgumentException
 	 * if the file with the given file path does not represent a standard configuration.
 	 */
-	public static Configuration createConfigurationFromFile(final String filePath) {
+	public static Configuration fromFile(final String filePath) {
 		return new Configuration().resetFrom(filePath);
+	}
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link Configuration} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static Configuration fromSpecification(final BaseNode specification) {
+		
+		final var configuration = new Configuration();
+		configuration.reset(specification);
+		
+		return configuration;
 	}
 	
 	//constructor
@@ -34,17 +48,6 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	 * Creates a new configuration with default attributes.
 	 */
 	public Configuration() {}
-	
-	//constructor
-	/**
-	 * Creates a new configuration with the given attributes.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
-	 */
-	public Configuration(final Iterable<? extends BaseNode> attributes) {
-		addOrChangeAttributes(attributes);
-	}
 	
 	//method
 	/**
