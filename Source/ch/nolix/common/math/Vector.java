@@ -171,7 +171,8 @@ public final class Vector {
 	/**
 	 * @param index
 	 * @return the value at the given index
-	 * @throws ArgumentIsOutOfRangeException if the given index is not positive or the given index is bigger than the size of this vector
+	 * @throws ArgumentIsOutOfRangeException
+	 * if the given index is not positive or the given index is bigger than the size of this vector.
 	 */
 	public double getValueAt(int index) {
 		
