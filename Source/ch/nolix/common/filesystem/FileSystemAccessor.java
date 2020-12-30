@@ -12,6 +12,8 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.processproperty.WriteMode;
 import ch.nolix.common.validator.Validator;
@@ -22,7 +24,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2017-07-14
- * @lines 390
+ * @lines 400
  */
 public final class FileSystemAccessor {
 	
@@ -91,7 +93,7 @@ public final class FileSystemAccessor {
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException
-	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * if the given writeMode flag = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
 	public static FileAccessor createFile(final String path, final WriteMode writeMode) {
@@ -132,7 +134,7 @@ public final class FileSystemAccessor {
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException
-	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * if the given writeMode = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 * @throws ArgumentIsNullException if the given content is null.
 	 */
@@ -156,7 +158,7 @@ public final class FileSystemAccessor {
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException
-	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * if the given writeMode = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 * @throws ArgumentIsNullException if the given content is null.
 	 */
@@ -175,6 +177,7 @@ public final class FileSystemAccessor {
 	 * The file will have the given content.
 	 * 
 	 * @param path
+	 * @param content
 	 * @return a new {@link FileAccessor} to the created file.
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws EmptyArgumentException if the given path is empty.
@@ -194,6 +197,7 @@ public final class FileSystemAccessor {
 	 * Creates a new file with the given path. The file will have the given content.
 	 * 
 	 * @param path
+	 * @param content
 	 * @return a new {@link FileAccessor} to the created file.
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
@@ -309,7 +313,7 @@ public final class FileSystemAccessor {
 	
 	//static method
 	/**
-	 * @param relativePath
+	 * @param path
 	 * @return true if there exists a file with the given path.
 	 */
 	public static boolean isFile(final String path) {
@@ -383,6 +387,7 @@ public final class FileSystemAccessor {
 	/**
 	 * Reads the content of the file with the given path to lines.
 	 * 
+	 * @param path
 	 * @return the lines of the file with the given path.
 	 * @throws InvalidArgumentException if there does not exist a file with the given path.
 	 */

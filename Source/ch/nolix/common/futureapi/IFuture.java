@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.futureapi;
 
-//own imports
+//own import
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //interface
@@ -24,7 +24,6 @@ public interface IFuture {
 	//method declaration
 	/**
 	 * @return the error of the current {@link IFuture}.
-	 * @throws Exception if the current {@link IFuture} has not caught an error.
 	 */
 	Throwable getError();
 	
@@ -61,7 +60,6 @@ public interface IFuture {
 	 * Lets the current {@link IFuture} wait until it is finished within the given timeoutInMilliseconds.
 	 * 
 	 * @param timeoutInMilliseconds
-	 * @throws Exception if the current {@link IFuture} reaches the given timeoutInMilliseconds before it finishes.
 	 */
 	void waitUntilIsFinished(final int timeoutInMilliseconds);
 	
@@ -95,7 +93,7 @@ public interface IFuture {
 	 * 
 	 * @param timeoutInMilliseconds
 	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
-	 * @throws Exception if the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
+	 * @throws InvalidArgumentException if the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
 	 */
 	default void waitUntilIsFinishedSuccessfully(final int timeoutInMilliseconds) {
 		

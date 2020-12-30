@@ -14,7 +14,6 @@ public interface OptionalTokened {
 	//method declaration
 	/**
 	 * @return the token of the current {@link OptionalTokened}.
-	 * @throws Exception if the current {@link OptionalTokened} does not have a token.
 	 */
 	String getToken();
 	

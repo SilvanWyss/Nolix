@@ -52,6 +52,8 @@ public final class MultiDoubleMediator extends Mediator {
 	/**
 	 * Generates an error for all of the values of the current {@link MultiDoubleMediator}
 	 * that are not bigger than the given value.
+	 * 
+	 * @param value
 	 */
 	public void areBiggerThan(final double value) {
 		
@@ -146,6 +148,8 @@ public final class MultiDoubleMediator extends Mediator {
 	/**
 	 * Generates an error for all of the values of the current {@link MultiDoubleMediator}
 	 * that are not smaller than the given value.
+	 * 
+	 * @param value
 	 */
 	public void areSmallerThan(final double value) {
 		

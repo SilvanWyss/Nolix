@@ -5,6 +5,7 @@ package ch.nolix.common.license;
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.common.validator.Validator;

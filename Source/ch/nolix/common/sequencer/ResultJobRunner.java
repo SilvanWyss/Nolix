@@ -5,6 +5,7 @@ package ch.nolix.common.sequencer;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
@@ -73,7 +74,7 @@ final class ResultJobRunner<R> extends Thread {
 	//method
 	/**
 	 * @return the result of the current {@link ResultJobRunner}
-	 * @throws Exception if the current {@link ResultJobRunner} is not finished or has caught an error.
+	 * @throws InvalidArgumentException if the current {@link ResultJobRunner} is not finished or has caught an error.
 	 */
 	public R getResult() {
 		

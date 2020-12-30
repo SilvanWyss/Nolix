@@ -91,7 +91,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * @param condition
 	 * @throws ArgumentIsNullException
 	 * if the given condition is null.
-	 * @throws NullArgmentException
+	 * @throws ArgumentIsNullException
 	 * if the argument of this container mediator is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of this container mediator

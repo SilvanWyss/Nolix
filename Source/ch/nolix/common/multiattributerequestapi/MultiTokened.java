@@ -22,6 +22,7 @@ public interface MultiTokened {
 	
 	//method
 	/**
+	 * @param token
 	 * @return true if the current {@link MultiTokened} has the given token.
 	 */
 	default boolean hasToken(final String token) {

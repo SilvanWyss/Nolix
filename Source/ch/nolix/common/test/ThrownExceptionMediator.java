@@ -47,7 +47,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 	 * @param test
 	 * @param exception
 	 * @throws ArgumentIsNullException if the given test is null.
-	 * @throws NullArgumentExcepiton if the given exception is null.
+	 * @throws ArgumentIsNullException if the given exception is null.
 	 */
 	ThrownExceptionMediator(final Test test, final Throwable exception) {
 		
@@ -85,6 +85,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 	 * Generates an error if the exception of the current {@link ThrownExceptionMediator}
 	 * does not have the given message.
 	 * 
+	 * @param message
 	 * @throws ArgumentIsNullException if the given message is null.
 	 */
 	public final void withMessage(final String message) {

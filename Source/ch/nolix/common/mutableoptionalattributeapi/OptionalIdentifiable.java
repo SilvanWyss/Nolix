@@ -11,6 +11,7 @@ import ch.nolix.common.optionalattributeapi.OptionalIdentified;
  * @author Silvan Wyss
  * @month 2020-03
  * @lines 30
+ * @param <OI> The type of a {@link OptionalIdentified}.
  */
 public interface OptionalIdentifiable<OI extends OptionalIdentifiable<OI>> extends OptionalIdentified {
 	

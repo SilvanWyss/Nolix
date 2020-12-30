@@ -9,6 +9,9 @@
 package ch.nolix.common.math;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.simplevalidator.SimpleValidator;
 
 //class
@@ -39,7 +42,7 @@ public final class Vector {
 	 * Creates a new zero vector with the given length.
 	 * 
 	 * @param length
-	 * @throws Exception if the given length is not positive.
+	 * @throws NonPositiveArgumentException if the given length is not positive.
 	 */
 	public Vector(int length) {
 		
@@ -54,7 +57,7 @@ public final class Vector {
 	 * 
 	 * @param length
 	 * @param value
-	 * @throws Exception if the given length is not positive
+	 * @throws NonPositiveArgumentException if the given length is not positive
 	 */
 	public Vector(int length, double value) {
 		
@@ -70,7 +73,7 @@ public final class Vector {
 	 * 
 	 * @param vector
 	 * @return this vector
-	 * @throws Exception if the given vector has not the same size as this vector
+	 * @throws UnequalArgumentException if the given vector does not have the same size as this vector
 	 */
 	public Vector add(Vector vector) {
 		
@@ -168,7 +171,7 @@ public final class Vector {
 	/**
 	 * @param index
 	 * @return the value at the given index
-	 * @throws Exception if the given index is not positive or the given index is bigger than the size of this vector
+	 * @throws ArgumentIsOutOfRangeException if the given index is not positive or the given index is bigger than the size of this vector
 	 */
 	public double getValueAt(int index) {
 		
@@ -205,7 +208,7 @@ public final class Vector {
 	 * 
 	 * @param values
 	 * @return this vector
-	 * @throws Exception if not as many values are given as the size of this vector
+	 * @throws UnequalArgumentException if not as many values are given as the size of this vector
 	 */
 	public Vector setValues(double... values) {
 		

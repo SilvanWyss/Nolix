@@ -6,6 +6,8 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.logger.Logger;
 import ch.nolix.common.validator.Validator;
 
@@ -185,7 +187,7 @@ final class JobRunner extends Thread {
 	 * @throws ArgumentIsNullException if the given job is null.
 	 * @throws NegativeArgumentException if the given maxRunCount is negative.
 	 * @throws ArgumentIsNullException if the given condition is null.
-	 * @throws NegativeArgumenteException if the given timeIntervalInMilliseconds is negative.
+	 * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is negative.
 	 */
 	public JobRunner(
 		final IAction job,
@@ -220,10 +222,10 @@ final class JobRunner extends Thread {
 	 * 
 	 * @param job
 	 * @param maxRunCount
-	 * @param timeIntervalInMilliseonds
+	 * @param timeIntervalInMilliseconds
 	 * @throws ArgumentIsNullException if the given job is null.
 	 * @throws NegativeArgumentException if the given maxRunCount is negative.
-	 * @throws NegativeArgumenteException if the given timeIntervalInMilliseconds is negative.
+	 * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is negative.
 	 */
 	public JobRunner(
 		final IAction job,

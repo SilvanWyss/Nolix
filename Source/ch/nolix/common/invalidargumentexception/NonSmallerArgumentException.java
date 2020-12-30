@@ -17,7 +17,7 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 	 * Creates a new non smaller argument exception for the given argument and limit
 	 * 
 	 * @param argument
-	 * @param limi
+	 * @param limit
 	 */
 	public NonSmallerArgumentException(final double argument, final double limit) {
 		

@@ -18,7 +18,9 @@ public final class FalseArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new false argument exception.
+	 * Creates a new false argument exception for the given argument
+	 * 
+	 * @param argument
 	 */
 	public FalseArgumentException(final Object argument) {
 		
@@ -28,10 +30,10 @@ public final class FalseArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new false argument exception
-	 * for an argument with the given argument name.
+	 * Creates a new false argument exception for an argument with the given argumentName.
 	 * 
 	 * @param argumentName
+	 * @param argument
 	 * @throws IllegalArgumentException if the given argument name is null.
 	 * @throws IllegalArgumentException if the given argument name is empty.
 	 */

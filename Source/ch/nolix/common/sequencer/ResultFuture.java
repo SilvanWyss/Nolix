@@ -3,6 +3,7 @@ package ch.nolix.common.sequencer;
 
 //own imports
 import ch.nolix.common.futureapi.IResultFuture;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 

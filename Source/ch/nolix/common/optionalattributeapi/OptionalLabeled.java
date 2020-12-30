@@ -14,14 +14,12 @@ public interface OptionalLabeled {
 	//method declaration
 	/**
 	 * @return the info string of the current {@link OptionalLabeled}.
-	 * @throws Exception if the current {@link OptionalLabeled} does not have an info string.
 	 */
 	String getInfoString();
 	
 	//method
 	/**
 	 * @return the info string of the current {@link OptionalLabeled} in quotes.
-	 * @throws Exception if the current {@link OptionalLabeled} does not have an info string.
 	 */
 	default String getInfoStringInQuotes() {
 		return ("'" + getInfoString() + "'");

@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.common.mutableoptionalattributeapi;
 
-//own imports
+//own import
 import ch.nolix.common.optionalattributeapi.OptionalLabeled;
 
 //interface
 /**
- * A {@link OptionalLabelable} is a {@link } whose info string can be set and removed programmatically.
+ * A {@link OptionalLabelable} is a {@link OptionalLabeled} whose info string can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12

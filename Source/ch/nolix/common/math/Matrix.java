@@ -8,7 +8,10 @@ import java.util.Random;
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.requestapi.ApproximativeEqualing;
@@ -242,7 +245,7 @@ public final class Matrix implements ApproximativeEqualing {
 	/**
 	 * Appends a new row with the given row values on the bottom of the current {@link Matrix}.
 	 * 
-	 * @param values
+	 * @param rowValues
 	 * @return the current {@link Matrix}.
 	 * @throws InvalidArgumentException
 	 * if not as many row values are given than the number of columns of the current {@link Matrix}.
@@ -338,7 +341,7 @@ public final class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return the inverse matrix of the current {@link Matrix}.
-	 * @throws InvalidArgumentExceptionException if the current {@link Matrix} is not regular.
+	 * @throws InvalidArgumentException if the current {@link Matrix} is not regular.
 	 */
 	public Matrix getInverse() {
 		
@@ -360,7 +363,7 @@ public final class Matrix implements ApproximativeEqualing {
 	/**
 	 * @param columnCount
 	 * @return a matrix with the first columns of the current {@link Matrix}.
-	 * @throws OutOfRangeException if the given column count is not valid.
+	 * @throws ArgumentIsOutOfRangeException if the given column count is not valid.
 	 */
 	public Matrix getMatrixWithFirstColumns(int columnCount) {
 		
@@ -385,7 +388,7 @@ public final class Matrix implements ApproximativeEqualing {
 	/**
 	 * @param columnCount
 	 * @return a matrix with the last columns of the current {@link Matrix}.
-	 * @throws OutOfRangeException if the given column count is not valid.
+	 * @throws ArgumentIsOutOfRangeException if the given column count is not valid.
 	 */
 	public Matrix getMatrixWithLastColumns(final int columnCount) {
 		
@@ -568,7 +571,7 @@ public final class Matrix implements ApproximativeEqualing {
 	/**
 	 * @param matrix
 	 * @return the matrix that is the sum of the current {@link Matrix} and the given matrix
-	 * @throws Exception if the given matrix has not the same size as the current {@link Matrix}
+	 * @throws UnequalArgumentException if the given matrix has not the same size as the current {@link Matrix}
 	 */
 	public Matrix getSum(final Matrix matrix) {
 		return getClone().add(matrix);
@@ -834,7 +837,7 @@ public final class Matrix implements ApproximativeEqualing {
 	 * 
 	 * @param value
 	 * @return the current {@link Matrix}
-	 * @throws Exception if the current {@link Matrix} is not quadratic
+	 * @throws InvalidArgumentException if the current {@link Matrix} is not quadratic
 	 */
 	public Matrix setDiagonalValuesTo(double value) {
 		
@@ -875,7 +878,7 @@ public final class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return a polynom representation of the current {@link Matrix}
-	 * @throws Exception if the current {@link Matrix} does not represent a polynom
+	 * @throws UnrepresentingArgumentException if the current {@link Matrix} does not represent a {@link Polynom}.
 	 */
 	public Polynom toPolynom() {
 		
@@ -908,7 +911,7 @@ public final class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return a vector representation of the current {@link Matrix}
-	 * @throws Exception if the current {@link Matrix} does not represent a vector
+	 * @throws UnrepresentingArgumentException if the current {@link Matrix} does not represent a {@link Vector}.
 	 */
 	public Vector toVector() {
 				

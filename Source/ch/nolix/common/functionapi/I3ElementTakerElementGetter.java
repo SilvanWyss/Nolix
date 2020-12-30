@@ -8,7 +8,7 @@ package ch.nolix.common.functionapi;
 * @author Silvan Wyss
 * @month 2019-03
 * @lines 20
-* @param <E> The type of the first element a {@link IElementTakerLongGetter} takes.
+* @param <E1> The type of the first element a {@link IElementTakerLongGetter} takes.
 * @param <E2> The type of the second element a {@link IElementTakerLongGetter} takes.
 * @param <E3> The type of the third element a {@link IElementTakerLongGetter} takes.
 * @param <E4> The type of the element a {@link IElementTakerLongGetter} returns.

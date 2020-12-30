@@ -2,6 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.requestapi.ApproximativeEqualing;
@@ -12,7 +13,7 @@ import ch.nolix.common.requestapi.ApproximativeEqualing;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 100
+ * @lines 110
  */
 public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	

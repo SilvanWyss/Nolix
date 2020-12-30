@@ -11,8 +11,11 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
@@ -77,6 +80,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * Adds the given attribute to the current {@link BaseNode}.
 	 * 
 	 * @param attribute
+	 * @return the current {@link BaseNode}
 	 */
 	public abstract BaseNode addAttribute(BaseNode attribute);
 	
@@ -85,6 +89,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
+	 * @return the current {@link BaseNode}
 	 */
 	public BaseNode addAttribute(final BaseNode... attributes) {
 
@@ -114,6 +119,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
+	 * @return the current {@link BaseNode}
 	 */
 	public <BN extends BaseNode> BaseNode addAttributes(final Iterable<BN> attributes) {
 		
@@ -130,7 +136,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * 
 	 * @param postfix
 	 * @throws ArgumentIsNullException if the given postfix is null.
-	 * @throws InvalidArgumentArgumentException if the given postfix is blank.
+	 * @throws InvalidArgumentException if the given postfix is blank.
 	 */
 	public void addPostfixToHeader(final String postfix) {
 		
@@ -402,7 +408,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @param header
 	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if the current {@link Node} does not contain an attribute with the given header
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Node} does not contain an attribute with the given header
 	 */
 	public IContainer<BaseNode> getRefAttributesOfFirstAttribute(String header) {
 		return getRefAttributes().getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
@@ -422,10 +428,12 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @param header
 	 * @return the one attribute of the first attribute with the given header
-	 * @throws Exception if:
-	 * -the current {@link Node} does not contain an attribute with the given header
-	 * -the first attribute of the current {@link Node} with the given header
-	 * does not contain an attribute or contains several attributes
+	 * @throws ArgumentDoesNotHaveAttributeException
+	 * if the current {@link Node} does not contain an attribute with the given header.
+	 * @throws EmptyArgumentException
+	 * if the first attribute of the current {@link Node} with the given header does not contain an attribute.
+	 * @throws InvalidArgumentException
+	 * if the first attribute of the current {@link Node} with the given header contains several attributes.
 	 */
 	public BaseNode getRefOneAttributeOfFirstAttribute(String header) {
 		return getRefAttributes().getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
@@ -575,7 +583,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException
-	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
 	public void saveToFile(final String path, final WriteMode writeMode) {
@@ -585,7 +593,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	//method
 	/**
 	 * @return the boolean the current {@link BaseNode} represents.
-	 * @throws InvalidArgumenException if the current {@link BaseNode} does not represent a boolean.
+	 * @throws UnrepresentingArgumentException if the current {@link BaseNode} does not represent a boolean.
 	 */
 	public boolean toBoolean() {
 		return StringHelper.toBoolean(toString());

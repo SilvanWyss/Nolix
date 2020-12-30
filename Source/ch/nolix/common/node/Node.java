@@ -298,7 +298,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
+	 * @param attributes
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -336,7 +336,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
+	 * @param attributes
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -372,7 +372,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
+	 * @param attributes
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -408,7 +408,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
+	 * @param attributes
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -446,7 +446,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
+	 * @param attributes
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.

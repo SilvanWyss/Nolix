@@ -2,6 +2,7 @@
 package ch.nolix.common.simpletest;
 
 //own imports
+import ch.nolix.common.basetest.BaseTest;
 import ch.nolix.common.requestapi.ApproximativeEqualing;
 
 //class
@@ -10,9 +11,9 @@ import ch.nolix.common.requestapi.ApproximativeEqualing;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 440
+ * @lines 450
  */
-public abstract class SimpleTest extends ch.nolix.common.basetest.BaseTest {
+public abstract class SimpleTest extends BaseTest {
 	
 	//constant
 	private static final double EPSILON = 0.000000001;
@@ -62,6 +63,7 @@ public abstract class SimpleTest extends ch.nolix.common.basetest.BaseTest {
 	/**
 	 * @param expectedValue
 	 * @param actualValue
+	 * @param epsilon
 	 * Generates an error
 	 * if the given values are not approximatively equal to each other with a smaller tolerance than the given epsilon.
 	 */
@@ -185,7 +187,7 @@ public abstract class SimpleTest extends ch.nolix.common.basetest.BaseTest {
 	
 	//method
 	/**
-	 * @param boolean0
+	 * @param pBoolean
 	 * Generates an error if the given boolean is true.
 	 */
 	protected final void expectFalse(final boolean pBoolean) {
@@ -293,7 +295,7 @@ public abstract class SimpleTest extends ch.nolix.common.basetest.BaseTest {
 	
 	//method
 	/**
-	 * @param reference
+	 * @param object
 	 * Generates an error if the given object is not null.
 	 */
 	protected final void expectNull(Object object) {

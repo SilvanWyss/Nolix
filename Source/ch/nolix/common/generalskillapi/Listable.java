@@ -28,7 +28,6 @@ public interface Listable<L extends Listable<L>> {
 	/**
 	 * @param type
 	 * @return a new {@link LinkedList} with the current {@link Listable} as instance of the given type.
-	 * @param type
 	 * @throws ClassCastException if the current {@link ISmartObject} is not of the given type.
 	 */
 	@SuppressWarnings("unchecked")

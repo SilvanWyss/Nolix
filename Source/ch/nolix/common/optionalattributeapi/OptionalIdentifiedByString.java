@@ -14,14 +14,12 @@ public interface OptionalIdentifiedByString {
 	//method declaration
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByString}.
-	 * @throws Exception if the current {@link OptionalIdentifiedByString} does not have an id.
 	 */
 	String getId();
 	
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByString} in quotes.
-	 * @throws Exception if the current {@link OptionalIdentifiedByString} does not have an id.
 	 */
 	default String getIdInQuotes() {
 		return ("'" + getId() + "'");

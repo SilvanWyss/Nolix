@@ -15,7 +15,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link ExtendedThrownExceptionMediator}
 	 * that will belong to the given test.
@@ -29,7 +29,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		super(test);
 	}
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link ExtendedThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.
@@ -37,7 +37,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * @param test
 	 * @param exception
 	 * @throws ArgumentIsNullException if the given test is null.
-	 * @throws NullArgumentExcepiton if the given exception is null.
+	 * @throws ArgumentIsNullException if the given exception is null.
 	 */
 	ExtendedThrownExceptionMediator(final Test test, final Throwable exception) {
 		
@@ -50,6 +50,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * Generates an error if the exception of the current {@link ThrownExceptionMediator}
 	 * is not of the given type.
 	 * 
+	 * @param type
 	 * @return a new {@link ExtendedThrownExceptionMediator}
 	 * that belongs to the test of the current {@link ThrownExceptionMediator}
 	 * and is for the exception of the current {@link ThrownExceptionMediator}.

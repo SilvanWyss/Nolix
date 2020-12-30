@@ -15,7 +15,6 @@ public interface OptionalValued<V> {
 	//method declaration
 	/**
 	 * @return the value of the current {@link OptionalValued}.
-	 * @throws Exception if the current {@link OptionalValued} does not have a value.
 	 */
 	V getValue();
 	

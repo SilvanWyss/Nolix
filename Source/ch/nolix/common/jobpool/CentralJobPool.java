@@ -4,6 +4,7 @@ package ch.nolix.common.jobpool;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
 /**

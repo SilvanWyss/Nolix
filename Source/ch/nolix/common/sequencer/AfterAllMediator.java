@@ -6,6 +6,8 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class

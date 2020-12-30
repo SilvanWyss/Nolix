@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.common.pair;
 
-//own import
+//own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
 //class

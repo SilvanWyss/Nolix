@@ -6,11 +6,12 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
 /**
  * A {@link JobPool} runs jobs in the background.
- * A {@link JobPool} uses an optimal number of {@link Workers}s to run several jobs efficiently.
+ * A {@link JobPool} uses an optimal number of {@link Worker}s to run several jobs efficiently.
  * 
  * @author Silvan Wyss
  * @date 2019-04-14

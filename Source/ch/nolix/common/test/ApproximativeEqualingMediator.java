@@ -2,6 +2,8 @@
 package ch.nolix.common.test;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.requestapi.ApproximativeEqualing;
 
@@ -50,6 +52,7 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	
 	//method
 	/**
+	 * @param maxDeviation
 	 * @return a new approximate equaling deviation mediator
 	 * that belongs to the test of this approxiamative equaling mediator,
 	 * and is for the given value

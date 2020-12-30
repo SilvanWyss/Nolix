@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.optionalattributeapi;
 
-//own imports
+//own import
 import ch.nolix.common.constant.StringCatalogue;
 
 //interface
@@ -17,14 +17,12 @@ public interface OptionalHeadered {
 	//method declaration
 	/**
 	 * @return the header of the current {@link OptionalHeadered}.
-	 * @throws Exception if the current {@link OptionalHeadered} does not have a header.
 	 */
 	String getHeader();
 	
 	//method
 	/**
 	 * @return the header of the current {@link OptionalHeadered}.
-	 * @throws Exception if the current {@link OptionalHeadered} does not have a header.
 	 */
 	default String getHeaderInQuotes() {
 		return ("'" + getHeader() + "'");

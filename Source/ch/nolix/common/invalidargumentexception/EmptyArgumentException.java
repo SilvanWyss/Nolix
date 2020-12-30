@@ -30,10 +30,11 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new empty argument exception for an argument that has given argument name.
+	 * Creates a new empty argument exception for an argument that has given argumentName.
 	 * 
 	 * @param argumentName
-	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @param argument
+	 * @throws IllegalArgumentException if the given argumentName is null.
 	 */
 	public EmptyArgumentException(final String argumentName, final Object argument) {
 		

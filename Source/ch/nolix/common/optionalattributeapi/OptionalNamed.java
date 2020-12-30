@@ -14,14 +14,12 @@ public interface OptionalNamed {
 	//method declaration
 	/**
 	 * @return the name of the current {@link OptionalNamed}.
-	 * @throws Exception if the current {@link OptionalNamed} does not have a name.
 	 */
 	String getName();
 	
 	//method
 	/**
 	 * @return the name of the current {@link OptionalNamed} in quotes.
-	 * @throws Exception if the current {@link OptionalNamed} does not have a name.
 	 */
 	default String getNameInQuotes() {
 		return ("'" + getName() + "'");

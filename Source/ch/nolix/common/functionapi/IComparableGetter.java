@@ -16,7 +16,6 @@ public interface IComparableGetter<E> {
 	
 	//method declaration
 	/**
-	 * @param element
 	 * @return a {@link Comparable}.
 	 */
 	Comparable<E> getOutput();

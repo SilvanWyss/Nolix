@@ -7,6 +7,8 @@ import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsZeroException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -39,7 +41,7 @@ public final class Polynom {
 	 * Creates a new {@link Polynom} with the given coefficients.
 	 * 
 	 * @param coefficients
-	 * @throws ArgumentIsNulException if the given coefficients is null.
+	 * @throws ArgumentIsNullException if the given coefficients is null.
 	 * @throws ArgumentIsZeroException if the highest of the given coefficients is 0.0.
 	 */
 	private Polynom(final double[] coefficients) {

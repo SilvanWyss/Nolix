@@ -18,7 +18,9 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new true argument exception.
+	 * Creates a new true argument exception for the given argument.
+	 * 
+	 * @param argument
 	 */
 	public TrueArgumentException(final Object argument) {
 		
@@ -26,11 +28,13 @@ public final class TrueArgumentException extends InvalidArgumentException {
 		super(argument, ERROR_PREDICATE);
 	}
 	
+	//TODO: Turn around arguments.
 	//constructor
 	/**
 	 * Creates a new true argument exception
 	 * for an argument that has the given argument name.
 	 * 
+	 * @param argument
 	 * @param argumentName
 	 * @throws IllegalArgumentException if the given argument name is null.
 	 * @throws IllegalArgumentException if the given argument name is empty.

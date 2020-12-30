@@ -48,7 +48,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	/**
 	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object.
 	 * 
-	 * @param object
+	 * @param argument
 	 */
 	public ArgumentDoesNotBelongToParentException(Object argument) {
 		
@@ -58,10 +58,10 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object and parent type.
+	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object and parentType.
 	 * 
 	 * @param object
-	 * @param parent type
+	 * @param parentType
 	 * @throws IllegalArgumentException if the given parent type is null.
 	 */
 	public ArgumentDoesNotBelongToParentException(final Object object, final Class<?> parentType) {
@@ -72,10 +72,10 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object and parent type.
+	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given object and parentType.
 	 * 
 	 * @param object
-	 * @param parent type
+	 * @param parentType
 	 * @throws IllegalArgumentException if the given parent type is null.
 	 * @throws IllegalArgumentException if the given parent type is blank.
 	 */

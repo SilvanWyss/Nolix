@@ -5,6 +5,8 @@ package ch.nolix.common.filenode;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;

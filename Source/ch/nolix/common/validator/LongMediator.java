@@ -210,8 +210,7 @@ public class LongMediator extends Mediator {
 	/**
 	 * @param value
 	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
-	 * @throws EqualArgumentExcetpion
-	 * if the argument of this long mediator equals the given value.
+	 * @throws EqualArgumentException if the argument of this long mediator equals the given value.
 	 */
 	public TerminalLongMediator isNotEqualTo(final long value) {
 		

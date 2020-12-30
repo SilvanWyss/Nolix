@@ -50,7 +50,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * @param value
 	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
-	 * @throws NonNBiggerArgumentExceotion
+	 * @throws NonBiggerArgumentException
 	 * if one of the arguments of this multi double mediator is not bigger than the given value.
 	 */
 	public void areBiggerThan(final double value) {
@@ -76,7 +76,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	/**
 	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
-	 * @throws NonNegativeArgumentExceotion
+	 * @throws NonNegativeArgumentException
 	 * if one of the arguments of this multi double mediator is not positive.
 	 */
 	public void areNegative() {
@@ -102,7 +102,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	/**
 	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
-	 * @throws NonPositiveArgumentExceotion
+	 * @throws NonPositiveArgumentException
 	 * if one of the arguments of this multi double mediator is not positive.
 	 */
 	public void arePositive() {

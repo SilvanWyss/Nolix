@@ -7,6 +7,7 @@ import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.jobpool.JobPool;
 import ch.nolix.common.validator.Validator;
@@ -138,6 +139,7 @@ public final class Sequencer {
 	 * Waits as long as the given condition is fulfilled.
 	 * 
 	 * @param condition
+	 * @return a {@link ActionMediator}.
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static ActionMediator waitAsLongAs(final IBooleanGetter condition) {
@@ -163,6 +165,8 @@ public final class Sequencer {
 	//static method
 	/**
 	 * Waits for a second.
+	 * 
+	 * @return a {@link ActionMediator}.
 	 */
 	public static ActionMediator waitForASecond() {
 		
@@ -176,6 +180,7 @@ public final class Sequencer {
 	 * Waits for the given durationInMilliseconds.
 	 * 
 	 * @param durationInMilliseconds
+	 * @return a {@link ActionMediator}.
 	 * @throws NegativeArgumentException if the given durationInMilliseconds is negative.
 	 */
 	public static ActionMediator waitForMilliseconds(final int durationInMilliseconds) {
@@ -190,6 +195,7 @@ public final class Sequencer {
 	 * Waits for the given durationInSeconds.
 	 * 
 	 * @param durationInSeconds
+	 * @return a {@link ActionMediator}.
 	 * @throws NegativeArgumentException if the given durationInSeconds is negative.
 	 */
 	public static ActionMediator waitForSeconds(final int durationInSeconds) {
@@ -204,6 +210,7 @@ public final class Sequencer {
 	 * Waits until the given condition is fulfilled.
 	 * 
 	 * @param condition
+	 * @return a {@link ActionMediator}.
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static ActionMediator waitUntil(final IBooleanGetter condition) {

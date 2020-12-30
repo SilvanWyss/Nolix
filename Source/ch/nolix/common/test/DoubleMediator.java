@@ -5,6 +5,7 @@ package ch.nolix.common.test;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
 
 //class
@@ -13,7 +14,7 @@ import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 230
+ * @lines 260
  */
 public final class DoubleMediator extends Mediator {
 
@@ -24,6 +25,7 @@ public final class DoubleMediator extends Mediator {
 	/**
 	 * Creates a new double mediator that belongs to the given test and is for the given value.
 	 * 
+	 * @param test
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
@@ -208,6 +210,8 @@ public final class DoubleMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error if the value of this double mediator is not smaller than the given value.
+	 * 
+	 * @param value
 	 */
 	public void isSmallerThan(final double value) {
 		if (this.value >= value) {

@@ -11,6 +11,7 @@ import ch.nolix.common.exception.GeneralException;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.filesystem.FolderAccessor;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.reflectionwrapper.ClassWrapper;
 import ch.nolix.common.validator.Validator;
@@ -62,7 +63,7 @@ public final class LicenseManager {
 	 * @return the current {@link LicenseManager}.
 	 * @throws ArgumentIsNullException if the given license is null.
 	 * @throws InvalidArgumentException if the given license is not activated.
-	 * @throws InvalidArgumentException if the current {@link InternalLicenseManager}
+	 * @throws InvalidArgumentException if the current {@link LicenseManager}
 	 * contains already a {@link License} of the type the given license is.
 	 */
 	public LicenseManager addLicense(final License license) {
@@ -85,7 +86,7 @@ public final class LicenseManager {
 	//method
 	/**
 	 * @param featureType
-	 * @return true if the current {@link InternalLicenseManager} contains a {@link Feature} of the given featureType.
+	 * @return true if the current {@link LicenseManager} contains a {@link Feature} of the given featureType.
 	 */
 	public <F extends Feature> boolean containsFeature(final Class<F> featureType) {
 		try {
@@ -130,16 +131,13 @@ public final class LicenseManager {
 	 * @param license
 	 * @throws InvalidArgumentException if the current {@link LicenseManager} does not contain the given license.
 	 */
-	public LicenseManager removeLicense(final License license) {
-		
+	public void removeLicense(final License license) {
 		licenses.removeFirst(license);
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * Requires the current {@link lLicenseManager} to contain a {@link Feature} of the given featureType.
+	 * Requires the current {@link LicenseManager} to contain a {@link Feature} of the given featureType.
 	 * 
 	 * @param featureType
 	 * @return the current {@link LicenseManager}.

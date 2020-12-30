@@ -25,6 +25,7 @@ public final class LongMediator extends Mediator {
 	/**
 	 * Creates a new long mediator that belongs to the given test and is for the given value.
 	 * 
+	 * @param test
 	 * @param value
 	 */
 	LongMediator(final Test test, final long value) {
@@ -261,6 +262,8 @@ public final class LongMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error if the value of this long mediator is not smaller than the given value.
+	 * 
+	 * @param value
 	 */
 	public void isSmallerThan(final long value) {
 		if (this.value >= value) {

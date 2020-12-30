@@ -4,6 +4,7 @@ package ch.nolix.common.sequencer;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IIntTaker;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.validator.Validator;
 
 //class

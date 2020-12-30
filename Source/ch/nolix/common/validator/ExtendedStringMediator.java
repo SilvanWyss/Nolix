@@ -19,7 +19,7 @@ public class ExtendedStringMediator extends StringMediator {
 	/**
 	 * Creates a new extended string mediator for the given argument.
 	 * 
-	 * @param argument
+	 * @param value
 	 */
 	ExtendedStringMediator(final String value) {
 		

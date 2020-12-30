@@ -5,6 +5,10 @@ package ch.nolix.common.math;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.pair.FPNPair;
 import ch.nolix.common.validator.Validator;
 
@@ -29,8 +33,7 @@ public final class Calculator {
 	 * @param xValues
 	 * @param yValues
 	 * @return a new {@link LinkedList} with {@link FPNPair}s created from the given xValues and yValues.
-	 * @throws InvalidArgumentException
-	 * if the count of the given yValues does not equal the count of the given xValues.
+	 * @throws InvalidArgumentException if the count of the given yValues does not equal the count of the given xValues.
 	 */
 	public static LinkedList<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		
@@ -79,7 +82,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentsException if the given values is empty.
+	 * @throws EmptyArgumentException if the given values is empty.
 	 */
 	public static double getAverage(final double... values) {
 		
@@ -93,7 +96,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentsException if the given values is empty.
+	 * @throws EmptyArgumentException if the given values is empty.
 	 */
 	public static double getAverage(final Iterable<Double> values) {
 		
@@ -114,7 +117,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentsException if the given values is empty.
+	 * @throws EmptyArgumentException if the given values is empty.
 	 */
 	public static int getAverage(final int... values) {
 		
@@ -128,7 +131,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentsException if the given values is empty.
+	 * @throws EmptyArgumentException if the given values is empty.
 	 */
 	public static long getAverage(final long... values) {
 		
@@ -395,7 +398,7 @@ public final class Calculator {
 	 * @param maxDeviation
 	 * @return true if the given value is approximately 1.0
 	 * with a deviation that is not bigger than the given maxDeviation.
-	 * @throws Exception if the given maxDeviation is negative.
+	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
 		

@@ -2,6 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 
@@ -41,12 +42,13 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * Creates a new double deviation mediator
 	 * that belongs to the given test
 	 * and is for the given value
-	 * and has the given default max deviation.
+	 * and has the given default maxDeviation.
 	 * 
 	 * @param test
 	 * @param value
+	 * @param maxDeviation
 	 * @throws ArgumentIsNullException if the given test is null.
-	 * @throws NegativeArgumentException if the given max deviation is negative.
+	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	DoubleDeviationMediator(
 		final Test test,

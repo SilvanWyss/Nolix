@@ -40,8 +40,8 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 	
 	//method
 	/**
-	 * @param xPosition
-	 * @param yPosition
+	 * @param relativeXPosition
+	 * @param relativeYPosition
 	 * @return true if the current {@link TopLeftPositionedRecangular}
 	 * contains the point with the given relativeXPosition and relativeYPosition.
 	 */

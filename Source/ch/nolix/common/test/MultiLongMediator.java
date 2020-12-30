@@ -4,6 +4,7 @@ package ch.nolix.common.test;
 //own imports
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 
@@ -13,7 +14,7 @@ import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 370
+ * @lines 420
  */
 public final class MultiLongMediator extends Mediator {
 
@@ -200,6 +201,8 @@ public final class MultiLongMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error for all values of this multi long mediator that do not equal the given value.
+	 * 
+	 * @param value
 	 */
 	public void areEqualTo(final long value) {
 		
@@ -380,6 +383,8 @@ public final class MultiLongMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error for all values of this multi long mediator that equal the given value.
+	 * 
+	 * @param value
 	 */
 	public void areNotEqualTo(final long value) {
 		

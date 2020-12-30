@@ -162,6 +162,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	/**
 	 * Reads the content of the file with the given relative path.
 	 * 
+	 * @param relativePath
 	 * @return the content of the file with the given relative path.
 	 * @throws InvalidArgumentException if there does not exist a file
 	 * with the given relative path in the folder of the current {@link FolderAccessor}.

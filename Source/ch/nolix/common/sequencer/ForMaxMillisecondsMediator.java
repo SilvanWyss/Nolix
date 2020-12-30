@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-11
- * @lines 100
+ * @lines 120
  */
 public final class ForMaxMillisecondsMediator {
 	
@@ -23,9 +23,8 @@ public final class ForMaxMillisecondsMediator {
 	
 	//static method
 	/**
-	 * Creates a new {@link ForMaxMillisecondsMediator} for the given maxDurationInMilliseconds.
-	 * 
 	 * @param maxDurationInMilliseconds
+	 * @return a new {@link ForMaxMillisecondsMediator} for the given maxDurationInMilliseconds.
 	 * @throws NegativeArgumentException if the given maxDurationInMilliseconds is negative. 
 	 */
 	static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
@@ -36,9 +35,8 @@ public final class ForMaxMillisecondsMediator {
 	
 	//static method
 	/**
-	 * Creates a new {@link ForMaxMillisecondsMediator} for the given maxDurationInSeconds.
-	 * 
 	 * @param maxDurationInSeconds
+	 * @return a new {@link ForMaxMillisecondsMediator} for the given maxDurationInSeconds.
 	 * @throws NegativeArgumentException if the given maxDurationInSeconds is negative. 
 	 */
 	static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
@@ -68,10 +66,11 @@ public final class ForMaxMillisecondsMediator {
 	
 	//method
 	/**
-	 * Creates a new {@link AsLongAsMediator}
-	 * for the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} and for the given condition.
+	 * Creates 
 	 * 
 	 * @param condition
+	 * @return a new {@link AsLongAsMediator}
+	 * for the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} and for the given condition.
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public AsLongAsMediator asLongAs(final IBooleanGetter condition) {
@@ -87,10 +86,9 @@ public final class ForMaxMillisecondsMediator {
 	
 	//method
 	/**
-	 * Creates a new {@link AsLongAsMediator}
-	 * for the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} and for the given condition.
-	 * 
 	 * @param condition
+	 * @return a new {@link AsLongAsMediator}
+	 * for the maxDurationInMilliseconds of the current {@link ForMaxMillisecondsMediator} and for the given condition.
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public AsLongAsMediator until(final IBooleanGetter condition) {
