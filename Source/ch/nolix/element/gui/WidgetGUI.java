@@ -52,7 +52,7 @@ import ch.nolix.element.widget.VerticalLine;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 780
+ * @lines 790
  * @param <WG> The type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
@@ -150,7 +150,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	}
 	
 	//attribute
-	private final Layer backGround = new Layer();
+	private final Layer background = new Layer();
 	
 	//attribute
 	private final MultiValue<Layer> layers =
@@ -175,9 +175,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public WidgetGUI(final IResizableInputTaker inputTaker) {
 		
+		//Calls constructor of the base class.
 		super(Visibility.VISIBLE, inputTaker);
 				
-		backGround.setParentGUI(this);
+		initializeBackground();
 	}
 	
 	//constructor
@@ -190,9 +191,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public WidgetGUI(IVisualizer visualizer) {
 		
+		//Calls constructor of the base class.
 		super(visualizer);
 		
-		backGround.setParentGUI(this);
+		initializeBackground();
 	}
 	
 	//constructor
@@ -208,9 +210,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public WidgetGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
 		
+		//Calls constructor of the base class.
 		super(visualizer, inputTaker);
 		
-		backGround.setParentGUI(this);
+		initializeBackground();
 	}
 	
 	//constructor
@@ -222,9 +225,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public WidgetGUI(final Visibility visibility) {
 		
+		//Calls constructor of the base class.
 		super(visibility);
 		
-		backGround.setParentGUI(this);
+		initializeBackground();
 	}
 	
 	//constructor
@@ -239,9 +243,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public WidgetGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
+		//Calls constructor of the base class.
 		super(visibility, inputTaker);
 				
-		backGround.setParentGUI(this);
+		initializeBackground();
 	}
 
 	//method
@@ -317,10 +322,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {				
 				case PascalCaseNameCatalogue.BACKGROUND_COLOR:
-					backGround.setBackgroundColor(Color.fromSpecification(attribute));
+					background.setBackgroundColor(Color.fromSpecification(attribute));
 					break;		
 				case Layer.BACKGROUND_COLOR_GRADIENT_HEADER:
-					backGround.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
+					background.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
 					break;
 				default:
 					
@@ -377,14 +382,14 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		final var attributes = super.getAttributes();
 		
 		//Handles the case that the current GUI has a background Color.
-		if (backGround.hasBackgroundColor()) {
-			attributes.addAtEnd(backGround.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+		if (background.hasBackgroundColor()) {
+			attributes.addAtEnd(background.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
 		}
 		
 		//Handles the case that the current GUI has a background ColorGradient.
-		if (backGround.hasBackgroundColorGradient()) {
+		if (background.hasBackgroundColorGradient()) {
 			attributes.addAtEnd(
-				backGround.getBackgroundColorGradient().getSpecificationAs(Layer.BACKGROUND_COLOR_GRADIENT_HEADER)
+				background.getBackgroundColorGradient().getSpecificationAs(Layer.BACKGROUND_COLOR_GRADIENT_HEADER)
 			);
 		}
 		
@@ -396,7 +401,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the background {@link Color} of the current {@link WidgetGUI}.
 	 */
 	public final Color getBackgroundColor() {
-		return backGround.getBackgroundColor();
+		return background.getBackgroundColor();
 	}
 	
 	//method
@@ -494,7 +499,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	@Override
 	public final void paint(final IPainter painter) {
-		backGround.paint(painter);
+		background.paint(painter);
 		layers.forEach(l -> l.paint(painter));
 	}
 	
@@ -562,7 +567,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public final WG setBackgroundColor(final Color backgroundColor) {
 		
-		backGround.setBackgroundColor(backgroundColor);
+		background.setBackgroundColor(backgroundColor);
 		
 		return asConcrete();
 	}
@@ -590,7 +595,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		
 		//Handles the case that the current WidgetGUI does not contain a Layer.
 		if (isEmpty()) {
-			return backGround;
+			return background;
 		}
 		
 		//Handles the case that the current WidgetGUI contains Layers.
@@ -782,5 +787,13 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	private boolean isTopLayer(final Layer layer) {
 		return (topLayer == layer);
+	}
+	
+	//method
+	/**
+	 * Initializes the background of the current {@link WidgetGUI}.
+	 */
+	private void initializeBackground() {
+		background.setParentGUI(this);
 	}
 }
