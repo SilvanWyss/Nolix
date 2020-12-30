@@ -75,6 +75,7 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
+	 * @param object
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link ArgumentMediator} does not equal the given object.
 	 */
@@ -88,6 +89,7 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
+	 * @param object
 	 * @throws InvalidArgumentException if the argument of the current {@link ArgumentMediator} is the given object.
 	 */
 	public final void isNot(final Object object) {
