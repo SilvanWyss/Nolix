@@ -34,6 +34,7 @@ public final class NeuronalNet<IO> extends BaseNeuron<NeuronalNet<IO>, Iterable<
 	 * 
 	 * @param inputLayerNeurons
 	 * @param outputLayerNeurons
+	 * @param <N> is the type of the inputLayerNeurons and outputLayerNeurons.
 	 * @throws ArgumentIsNullException if the given inputLayerNeurons is null.
 	 * @throws ArgumentIsNullException if the given outputLayerNeurons is null.
 	 */
@@ -113,6 +114,7 @@ public final class NeuronalNet<IO> extends BaseNeuron<NeuronalNet<IO>, Iterable<
 
 	//method
 	/**
+	 * @param <N> is the type of the returned {@link BaseNeuron}s.
 	 * @return the neurons of the current {@link NeuronalNet}
 	 * as neurons whose inputs and output are of the same type as the inputs and output of the current {@link NeuronalNet}.
 	 */

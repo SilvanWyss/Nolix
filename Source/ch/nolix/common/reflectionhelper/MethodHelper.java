@@ -38,6 +38,7 @@ public final class MethodHelper {
 	/**
 	 * @param method
 	 * @param annotationType
+	 * @param <A> is the given annotationType.
 	 * @return true if the given method has an annotation of the given annotationType.
 	 */
 	public static <A extends Annotation> boolean methodHasAnnotation(

@@ -25,6 +25,7 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
+	 * @param <A> is the type of the given argument.
 	 * @return a new argument mediator for given argument.
 	 */
 	public static <A> ExtendedArgumentMediator<A> assertThat(final A argument) {
@@ -34,6 +35,7 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
+	 * @param <A> is the type of the elements of the given argument.
 	 * @return a new extended container mediator for the given argument.
 	 */
 	public static <A> ExtendedContainerMediator<A> assertThat(final A[] argument) {
@@ -60,7 +62,8 @@ public final class Validator {
 	
 	//static method
 	/**
-	 * @param argument
+	 * @param argument 
+	 * @param <T> is the type of the given argument
 	 * @return a new {@link ExtendedTypeMediator} for the given argument.
 	 */
 	public static <T> ExtendedTypeMediator<T> assertThat(final Class<T> argument) {
@@ -122,6 +125,7 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
+	 * @param <A> is the type of the elements of the given argument.
 	 * @return a new extended container mediator for the given argument.
 	 */
 	public static <A> ExtendedContainerMediator<A> assertThat(final Iterable<A> argument) {
@@ -204,6 +208,7 @@ public final class Validator {
 	//static method
 	/**
 	 * @param arguments
+	 * @param <E> is the type of the given arguments.
 	 * @return a new multi argument mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
@@ -214,6 +219,7 @@ public final class Validator {
 	//static method
 	/**
 	 * @param arguments
+	 * @param <E> is the type of the given arguments.
 	 * @return a new multi argument mediator for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */

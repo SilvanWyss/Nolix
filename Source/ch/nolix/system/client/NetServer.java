@@ -77,6 +77,7 @@ public final class NetServer extends Server {
 		addDefaultApplication(defaultApplication);
 	}
 	
+	//TODO: Delete this constructor.
 	//constructor
 	/**
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
@@ -87,19 +88,16 @@ public final class NetServer extends Server {
 	 * @param port
 	 * @param name
 	 * @param initialSessionClass
+	 * @param <C>
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public <C extends Client<C>> NetServer(
-		final int port,
-		final String name,
-		final Class<?> initialSessionClass
-	) {
+	public <C extends Client<C>> NetServer(final int port, final String name, final Class<?> initialSessionClass) {
 		
 		//Calls other constructor.
-		this(port ,new Application<C>(name, initialSessionClass));
+		this(port, new Application<C>(name, initialSessionClass));
 	}
 	
 	//method

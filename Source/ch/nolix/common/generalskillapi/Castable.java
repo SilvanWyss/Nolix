@@ -15,6 +15,7 @@ public interface Castable {
 	/**
 	 * @return the current {@link Castable} as instance of the given type.
 	 * @param type
+	 * @param <T> is the given type.
 	 * @throws ClassCastException if the current {@link Castable} is not of the given type.
 	 */
 	@SuppressWarnings("unchecked")

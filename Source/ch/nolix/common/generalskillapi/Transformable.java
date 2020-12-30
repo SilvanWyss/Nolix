@@ -24,8 +24,9 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 	
 	//method
 	/**
-	 * @param <O>
 	 * @param transformatorClass
+	 * @param <O> is the type of the elements the instances of the given transformatorClass take.
+	 * @param <TC> is the type of the elements the instances of the given transformatorClass return.
 	 * @return a new {@link Object} from the current {@link Transformable}
 	 * with the help of an instance of the given transformatorClass.
 	 * @throws ArgumentIsNullException if the given transformatorClass is null.

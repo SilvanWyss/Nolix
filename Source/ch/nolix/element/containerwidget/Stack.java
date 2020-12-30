@@ -115,6 +115,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * Adds the given widgets to the current {@link Stack}.
 	 * 
 	 * @param widgets
+	 * @param <W> is the type of the given {@link Widget}s.
 	 * @return the current {@link Stack}.
 	 * @throws ArgumentIsNullException if one of the given widgets is null.
 	 * @throws InvalidArgumentException

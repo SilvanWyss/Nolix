@@ -944,6 +944,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * Sets the continuous key press action of the current {@link Layer}. 
 	 * 
+	 * @param continuousKeyPressAction
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given continuousKeyPressAction is null.
 	 */

@@ -71,6 +71,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param attribute
+	 * @param <BN> is the type of the given attribute.
 	 * @return a new {@link Node} with the given attribute.
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
@@ -85,6 +86,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
@@ -213,6 +215,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	//static method
 	/**
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given attributes.
 	 */
 	public static <BN extends BaseNode> Node withAttributes(final Iterable<BN> attributes) {
@@ -281,6 +284,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param header
 	 * @param attribute
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given header and attribute.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -299,6 +303,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param header
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -468,6 +473,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	/**
 	 * @param header
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.

@@ -543,9 +543,10 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	 * -This matrix contains n elements.
 	 * -The given transformer has a complexity of O(1).
 	 * 
+	 * @param transformer
+	 * @param <O> is the type of the elements the given transformer returns.
 	 * @return a new matrix with the elements
 	 * the given transformer transforms of the elements of the current {@link Matrix}.
-	 * @param transformer
 	 */
 	@SuppressWarnings("unchecked")
 	public <O> Matrix<O> toMatrix(final IElementTakerElementGetter<E, O> transformer) {
@@ -669,6 +670,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
+	 * @param index
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.

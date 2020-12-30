@@ -332,9 +332,10 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 * Resets the {@link GUI} of the current {@link BaseBackGUIClient} with the given attributes.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private <S extends BaseNode> void resetGUI(final IContainer<S> attributes) {
+	private <BN extends BaseNode> void resetGUI(final IContainer<BN> attributes) {
 		getRefGUI().reset(attributes);
 	}
 	

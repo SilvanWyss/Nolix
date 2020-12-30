@@ -18,6 +18,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	
 	//static method
 	/**
+	 * @param argumentType
 	 * @return a safe argument name for the given argument type.
 	 * @throws IllegalArgumentException if the given argument type is null.
 	 */

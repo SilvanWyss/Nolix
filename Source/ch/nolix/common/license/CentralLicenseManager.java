@@ -37,6 +37,7 @@ public final class CentralLicenseManager {
 	 * Creates and adds a new {@link License} of the given licenseType to the {@link CentralLicenseManager}.
 	 * 
 	 * @param licenseType
+	 * @param <L> is the given licenseType.
 	 * @throws ArgumentIsNullException if the given licenseType is null.
 	 * @throws RuntimeException if if there was not found a file with the key for a License of the given licenseType.
 	 * @throws InvalidArgumentException
@@ -54,6 +55,7 @@ public final class CentralLicenseManager {
 	 * Requires the {@link CentralLicenseManager} to contain a {@link Feature} of the given featureType.
 	 * 
 	 * @param featureType
+	 * @param <F> is the given featureType.
 	 * @throws ArgumentDoesNotHaveAttributeException if the {@link CentralLicenseManager}
 	 * does not contain a {@link Feature} of the given featureType.
 	 */

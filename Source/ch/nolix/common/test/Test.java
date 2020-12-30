@@ -138,6 +138,7 @@ public abstract class Test extends ch.nolix.common.basetest.BaseTest {
 	//method
 	/**
 	 * @param value
+	 * @param <V> is the type of the given value.
 	 * @return a new object mediator that belongs to this test and has the given value.
 	 */
 	protected final <V> ValueMediator<V> expect(final V value) {

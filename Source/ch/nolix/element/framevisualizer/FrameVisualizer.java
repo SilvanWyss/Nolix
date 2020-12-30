@@ -66,6 +66,7 @@ public final class FrameVisualizer implements IVisualizer {
 	/**
 	 * Initializes the current {@link FrameVisualizer} with the given parentGUI.
 	 * 
+	 * @param parentGUI
 	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 * @throws InvalidArgumentException if the current {@link FrameVisualizer} has already been initialized.
 	 */

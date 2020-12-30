@@ -1155,6 +1155,7 @@ public final class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @param matrix
+	 * @param epsilon
 	 * @return true if the current {@link Matrix} equals the given matrix with a deviation,
 	 * that is smaller than the given epsilon.
 	 */

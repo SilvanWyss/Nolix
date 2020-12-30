@@ -113,6 +113,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element container is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
@@ -271,6 +272,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
@@ -288,13 +290,11 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @param extractor
 	 * @return the current {@link LinkedList}.
 	 */
-	public <E2> LinkedList<E> addAtEnd(
-		final Iterable<E2> elements,
-		IElementTakerElementGetter<E2, E> extractor
-	) {
+	public <E2> LinkedList<E> addAtEnd(final Iterable<E2> elements,	IElementTakerElementGetter<E2, E> extractor) {
 		elements.forEach(e -> addAtEnd(extractor.getOutput(e)));
 		
 		return this;
@@ -472,6 +472,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * The complexity of this method is O(n^2) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param norm
+	 * @param <E2> is the type of the elements the given norm returns.
 	 * @return a new list of groups of the elements of the current {@link LinkedList}
 	 * whereas the value of the given norm is equal for all elements of a group.
 	 */
@@ -838,6 +839,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * -This list contains n elements.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the current {@link LinkedList}.
 	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain one of the given elements.
 	 */
@@ -1053,6 +1055,8 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	/**
 	 * @param startIndex
 	 * @param endIndex
+	 * @param norm
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return a new {@link LinkedList}
 	 * with the elements from the given start index to the given end index ordered according to the given norm.
 	 */

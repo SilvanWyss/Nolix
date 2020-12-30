@@ -98,6 +98,7 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	//method declaration
 	/**
 	 * @param type
+	 * @param <V> is the type of the returned value.
 	 * @param specification
 	 * @return a new value if the given type from the given specification.
 	 */
@@ -106,12 +107,14 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	//method declaration
 	/**
 	 * @param type
+	 * @param <E> is the given {@link Entity} type.
 	 * @return the {@link IEntitySet} of the given type from the current {@link IDatabaseAdapter}.
 	 */
 	<E extends Entity> IEntitySet<E> getRefEntitySet(Class<E> type);
 	
 	//method declaration
 	/**
+	 * @param <ES> is the type of the returned {@link IEntitySet}s.
 	 * @return the {@link IEntitySet}s of the current {@link IDatabaseAdapter}.
 	 */
 	<ES extends IEntitySet<Entity>> IContainer<ES> getRefEntitySets();

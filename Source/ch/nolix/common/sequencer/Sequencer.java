@@ -117,6 +117,7 @@ public final class Sequencer {
 	 * A result job is a job that returns a result.
 	 * 
 	 * @param resultJob
+	 * @param <R> is the type of the result the given resultJob returns.
 	 * @return a new {@link ResultFuture}.
 	 * @throws ArgumentIsNullException if the given result job is null.
 	 */

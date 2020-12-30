@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.independenthelper;
 
-//own imports
+//own import
 import ch.nolix.common.independentcontainer.List;
 
 //class
@@ -70,6 +70,7 @@ public final class ArrayHelper {
 	 * Creates a new iterable object with the given elements.
 	 * 
 	 * @param elements
+	 * @param <E> is the type of the given elements.
 	 * @return a new iterable object with the given elements.
 	 * @throws IllegalArgumentException if the given elements is null.
 	 */
@@ -96,6 +97,7 @@ public final class ArrayHelper {
 	 * 
 	 * @param elements
 	 * @param additionalElement
+	 * @param <E> is the type of the given elements and additionalElement.
 	 * @return a new iterable object with the given elements and additional element.
 	 * @throws IllegalArgumentException if the given elements is null.
 	 */

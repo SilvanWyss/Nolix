@@ -62,6 +62,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//static method
 	/**
+	 * @param argument
 	 * @return a valid argument name for the given argument.
 	 */
 	private static String createValidArgumentName(final Object argument) {
@@ -77,6 +78,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//static method
 	/**
+	 * @param argumentName
 	 * @return the given argumentName if it is valid.
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.

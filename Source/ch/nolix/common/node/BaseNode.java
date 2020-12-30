@@ -119,6 +119,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return the current {@link BaseNode}
 	 */
 	public <BN extends BaseNode> BaseNode addAttributes(final Iterable<BN> attributes) {
@@ -522,6 +523,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * Resets the attributes of the current {@link BaseNode} with the given attributes.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 */
 	public <BN extends BaseNode> void resetAttributes(final Iterable<BN> attributes) {
 		removeAttributes();

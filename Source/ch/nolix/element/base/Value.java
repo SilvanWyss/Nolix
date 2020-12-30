@@ -19,6 +19,7 @@ import ch.nolix.element.elementapi.IElement;
  */
 public final class Value<V> extends SingleValue<V> {
 	
+	//TODO: Delete this constructor.
 	//constructor
 	/**
 	 * Creates a new {@link Value} with the given name, setterMethod and valueCreator.
@@ -26,6 +27,7 @@ public final class Value<V> extends SingleValue<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
+	 * @param <E>
 	 * @throws ArgumentIsNullException if the given name is blank.
 	 * @throws InvalidArgumentException if the given setterMethod is null.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.

@@ -66,6 +66,7 @@ public final class FunctionCatalogue {
 	//static method
 	/**
 	 * @param object
+	 * @param <O> is the type of the given object.
 	 * @return the given object.
 	 */
 	public static <O> O getSelf(final O object) {

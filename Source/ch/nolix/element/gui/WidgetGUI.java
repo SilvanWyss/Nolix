@@ -335,12 +335,11 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * Adds or changes the given attributes to the {@link Widget}s of the current {@link GUI}.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return the current {@link GUI}.
 	 * @throws InvalidArgumentException if the given attributes are not valid.
 	 */
-	public final <S extends BaseNode> WG addOrChangeAttributesOfWidgets(
-		final IContainer<IContainer<S>> attributes
-	) {
+	public final <BN extends BaseNode> WG addOrChangeAttributesOfWidgets(final IContainer<IContainer<BN>> attributes) {
 		
 		final var iterator = attributes.iterator();
 		
@@ -447,6 +446,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//method
 	/**
 	 * @param id
+	 * @param <W> is the type of the returned {@link Widget}.
 	 * @return the {@link Widget} with the given id from the current {@link WidgetGUI}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link WidgetGUI}
 	 * does not contain a {@link Widget} with the given id.

@@ -42,7 +42,7 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public <S extends BaseNode> Configuration(final Iterable<? extends BaseNode> attributes) {
+	public Configuration(final Iterable<? extends BaseNode> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

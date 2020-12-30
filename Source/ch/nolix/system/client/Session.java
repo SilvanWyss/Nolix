@@ -114,8 +114,9 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
+	 * @param <CO> is the type of the given application context.
 	 * @return the context of the parent {@link Application}
-	 * of the parent {@link Client} of the current {@link Session}..
+	 * of the parent {@link Client} of the current {@link Session}.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
 	 * @throws InvalidArgumentException if the parent {@link Client} of the current {@link Session}
 	 * does not belong to a {@link Application}.
@@ -129,6 +130,7 @@ public abstract class Session<C extends Client<C>> {
 	//method
 	/**
 	 * @param type
+	 * @param <CO> is the type of the application context of the parent {@link Application} of the current {@link Session}.
 	 * @return the context of the parent {@link Application}
 	 * of the parent {@link Client} of the current {@link Session} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
@@ -177,6 +179,7 @@ public abstract class Session<C extends Client<C>> {
 	 * Pushes the given session to the parent {@link Client} of the current {@link Session}.
 	 * 
 	 * @param session
+	 * @param <R> is the type of the returned result.
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */

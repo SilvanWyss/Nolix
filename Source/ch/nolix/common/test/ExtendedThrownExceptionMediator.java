@@ -51,6 +51,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * is not of the given type.
 	 * 
 	 * @param type
+	 * @param <E> is the given {@link Exception} type.
 	 * @return a new {@link ExtendedThrownExceptionMediator}
 	 * that belongs to the test of the current {@link ThrownExceptionMediator}
 	 * and is for the exception of the current {@link ThrownExceptionMediator}.

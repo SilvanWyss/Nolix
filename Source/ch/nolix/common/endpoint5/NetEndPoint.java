@@ -252,6 +252,7 @@ public class NetEndPoint extends EndPoint {
 	 * because the protocol determines that error messages must be sent back.
 	 * The reply must not collide with representations of a {@link Node}.
 	 * 
+	 * @param message
 	 * @return the reply to the given message from the current {@link NetEndPoint}.
 	 */
 	private final String receiveAndGetReply(final String message) {

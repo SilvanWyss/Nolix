@@ -10,6 +10,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	
 	//static method
 	/**
+	 * @param parentType
 	 * @return the parent type name of the given parent type.
 	 * @throws IllegalArgumentException if the given parent type is null.
 	 */
@@ -25,6 +26,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	
 	//static method
 	/**
+	 * @param parentType
 	 * @return the parent type name of the given parent type.
 	 * @throws IllegalArgumentException if the given parent type is null.
 	 * @throws IllegalArgumentException if the given parent type is blank.

@@ -15,6 +15,7 @@ public class ArgumentBelongsToUnexchangeableParentException extends InvalidArgum
 	
 	//static method
 	/**
+	 * @param parent
 	 * @return a safe type name for the given parent.
 	 * @throws IllegalArgumentException if the given parent is null.
 	 */

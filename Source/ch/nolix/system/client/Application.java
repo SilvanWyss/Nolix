@@ -152,7 +152,8 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	
 	//method
 	/**
-	 * @return the context of the current {@link Application}
+	 * @param <CO> is the type of the context of the current {@link Application}.
+	 * @return the context of the current {@link Application}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a context.
 	 */
 	@SuppressWarnings("unchecked")
@@ -169,6 +170,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	//method
 	/**
 	 * @param type
+	 * @param <CO> is the type of the context of the current {@link Application}.
 	 * @return the context of the current {@link Application} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a context.

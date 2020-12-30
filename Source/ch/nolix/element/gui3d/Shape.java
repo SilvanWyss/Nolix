@@ -78,6 +78,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
+	 * @param <RO> is the type of the returned render object.
 	 * @return the render object of the current {@link Shape}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Shape} does not have a render object.
 	 */

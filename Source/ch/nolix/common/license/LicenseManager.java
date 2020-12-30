@@ -32,8 +32,9 @@ public final class LicenseManager {
 	//method
 	/**
 	 * Creates and adds a new {@link License} of the given licenseType to the current {@link LicenseManager}
-	 * 	 * 
+	 * 
 	 * @param licenseType
+	 * @param <L> is the given licenseType.
 	 * @return the current {@link LicenseManager}.
 	 * @throws ArgumentIsNullException if the given licenseType is null.
 	 * @throws RuntimeException if if there was not found a file with the key for a License of the given licenseType.
@@ -86,6 +87,7 @@ public final class LicenseManager {
 	//method
 	/**
 	 * @param featureType
+	 * @param <F> is the given featureType.
 	 * @return true if the current {@link LicenseManager} contains a {@link Feature} of the given featureType.
 	 */
 	public <F extends Feature> boolean containsFeature(final Class<F> featureType) {
@@ -110,6 +112,7 @@ public final class LicenseManager {
 	//method
 	/**
 	 * @param licenseType
+	 * @param <L> is the given licenseType.
 	 * @return true if the current {@link LicenseManager} contains a {@link License} of the given licenseType.
 	 */
 	public <L extends License> boolean containsLicense(final Class<L> licenseType) {
@@ -140,6 +143,7 @@ public final class LicenseManager {
 	 * Requires the current {@link LicenseManager} to contain a {@link Feature} of the given featureType.
 	 * 
 	 * @param featureType
+	 * @param <F> is the given featureType.
 	 * @return the current {@link LicenseManager}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LicenseManager}
 	 * does not contain a {@link Feature} of the given featureType.
@@ -165,6 +169,7 @@ public final class LicenseManager {
 	//method
 	/**
 	 * @param licenseType
+	 * @param <L> is the given licenseType.
 	 * @return the key of the license of the given licenseType from the license file.
 	 * The license file is on the local computer.
 	 * @throws ArgumentIsNullException if the given licenseType is null.

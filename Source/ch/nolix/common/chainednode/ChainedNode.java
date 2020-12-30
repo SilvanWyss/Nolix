@@ -28,7 +28,7 @@ import ch.nolix.common.optionalattributeapi.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 860
+ * @lines 870
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -113,6 +113,7 @@ public final class ChainedNode implements OptionalHeadered {
 	//static method
 	/**
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link ChainedNode} with the given attributes.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
@@ -130,6 +131,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * Creates a new {@link ChainedNode} with the given attributes.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link ChainedNode} with the given attributes.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
@@ -180,6 +182,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param header
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link ChainedNode} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -204,6 +207,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param header
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link ChainedNode} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
@@ -261,6 +265,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * 
 	 * @param header
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
@@ -276,6 +281,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param header
 	 * @param attributes
 	 * @param nextNode
+	 * @param <BN> is the type of the given attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if the given nextNode is null.
@@ -551,7 +557,7 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
-	 * Adds the given attribtue to the current {@link ChainedNode}.
+	 * Adds the given attribute to the current {@link ChainedNode}.
 	 * 
 	 * @param attribute
 	 * @throws ArgumentIsNullException if the given attribute is null.
@@ -565,6 +571,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * Adds the given attributes to the current {@link ChainedNode}.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
 	private <BN extends BaseNode> void addAttributes(final BN... attributes) {
@@ -589,6 +596,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * Adds the given attributes to the current {@link ChainedNode}.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
 	private <BN extends BaseNode> void addAttributesFromNodes(final BN... attributes) {
@@ -602,6 +610,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * Adds the given attributes to the current {@link ChainedNode}.
 	 * 
 	 * @param attributes
+	 * @param <BN> is the type of the given attributes.
 	 */
 	private <BN extends BaseNode> void addAttributesFromNodes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
@@ -812,6 +821,7 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * Sets the header of the current {@link ChainedNode}.
 	 * 
+	 * @param header
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */

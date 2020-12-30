@@ -48,6 +48,7 @@ public final class ListUsingMediator<E> {
 	 * Adds the given elements at the begin of the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	@SuppressWarnings("unchecked")
@@ -72,6 +73,7 @@ public final class ListUsingMediator<E> {
 	 * Adds the given elements at the begin of the list of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	public <E2> LinkedList<E> addAtBegin(final Iterable<E2> elements) {
@@ -91,6 +93,7 @@ public final class ListUsingMediator<E> {
 	 * Adds the given elements at the end of the list of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	@SuppressWarnings("unchecked")
@@ -109,6 +112,7 @@ public final class ListUsingMediator<E> {
 	 * Adds the given elements at the end of the list of the current {@link ListUsingMediator}.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return the {@link LinkedList} of the current {@link ListUsingMediator}.
 	 */
 	public <E2> LinkedList<E> addAtEnd(final Iterable<E2> elements) {

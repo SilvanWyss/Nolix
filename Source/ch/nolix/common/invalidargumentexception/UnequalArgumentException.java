@@ -19,6 +19,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argument
 	 * @param expectedValue
+	 * @param <A> is the type of the given argument.
 	 */
 	public <A> UnequalArgumentException(final A argument, final A expectedValue) {
 		

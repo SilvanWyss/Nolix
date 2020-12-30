@@ -81,6 +81,7 @@ public abstract class License implements Named {
 	
 	//method
 	/**
+	 * @param key
 	 * @throws UnacceptedKeyException if the current {@link License} does no accepts the given key.
 	 */
 	private void assertAccepts(final String key) {

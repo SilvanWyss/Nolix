@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2017-07-01
- * @lines 180
+ * @lines 190
  * @param <E> The type of the elements of a {@link ReadContainer}.
  */
 public final class ReadContainer<E> implements IContainer<E> {
@@ -26,6 +26,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	//static method
 	/**
 	 * @param array
+	 * @param <E2> is the type of the elements of the given array.
 	 * @return a new {@link ReadContainer} for the given array.
 	 * @throws ArgumentIsNullException if the given array is null.
 	 */
@@ -36,6 +37,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	//static method
 	/**
 	 * @param arrays
+	 * @param <E2> is the type of the elements of the given arrays.
 	 * @return a new {@link ReadContainer} for the given array.
 	 * @throws ArgumentIsNullException if the given arrays is null.
 	 * @throws ArgumentIsNullException if one of the given arrays is null.
@@ -48,6 +50,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	//static method
 	/**
 	 * @param object
+	 * @param <E2> is the type of the elements of the given iterable object.
 	 * @return a new {@link ReadContainer} for the given iterable object.
 	 * @throws ArgumentIsNullException if the given object is null.
 	 */
@@ -58,6 +61,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	//static method
 	/**
 	 * @param objects
+	 * @param <E2> is the type of the elements of the given iterable objects.
 	 * @return a new {@link ReadContainer} for the given iterable objects.
 	 * @throws ArgumentIsNullException if the given objects is null.
 	 * @throws ArgumentIsNullException if one of the given objects is null.
@@ -72,6 +76,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new {@link ReadContainer} with the given elements.
 	 * 
 	 * @param elements
+	 * @param <E2> is the type of the elements of the given elements.
 	 * @return a new {@link ReadContainer} for the given elements.
 	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
@@ -99,6 +104,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new {@link ReadContainer} for the given container.
 	 * 
 	 * @param container
+	 * @param <E2> is the type of the elements of the given container.
 	 * @throws ArgumentIsNullException if the given container is null.
 	 */
 	@SuppressWarnings("unchecked")

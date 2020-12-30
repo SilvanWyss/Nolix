@@ -118,6 +118,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	
 	//method
 	/**
+	 * @param <CO> is the type of the context of the {@link Application} of the current {@link Client}.
 	 * @return the context of the parent {@link Application} of the current {@link Client} as the given type.
 	 * @throws InvalidArgumentException if the current {@link Client} does not belongs to a {@link Application}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the parent {@link Application} of the current {@link Client}
@@ -130,6 +131,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	//method
 	/**
 	 * @param type
+	 * @param <CO> is the given type.
 	 * @return the context of the parent {@link Application} of the current {@link Client} as the given type.
 	 * @throws ArgumentIsNullException if the given type is null.
 	 * @throws InvalidArgumentException if the current {@link Client} does not belongs to a {@link Application}.
@@ -317,6 +319,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Pushes the given session to the current {@link Client} with the given pop function.
 	 * 
 	 * @param session
+	 * @param <R> is the type of the returned result.
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */

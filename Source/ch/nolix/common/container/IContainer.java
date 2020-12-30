@@ -36,7 +36,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2060
+ * @lines 2070
  * @param <E> The type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -45,6 +45,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
+	 * @param <E2> is the type of the elements of the returned {@link IContainer}.
 	 * @return the current {@link IContainer} as a {@link IContainer} with elements of the evaluated type.
 	 */
 	@SuppressWarnings("unchecked")
@@ -610,6 +611,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
@@ -694,8 +696,8 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
-	 * @return the smallest value
-	 * the given norm returns from the elements of the current {@link IContainer}.
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
+	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings("unchecked")
@@ -917,6 +919,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the element with the biggest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -1030,6 +1033,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the element with the smallest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -1295,6 +1299,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param type
+	 * @param <E2> is the type of the elements of the returned {@link LinkedList}.
 	 * @return a new {@link LinkedList}
 	 * with the elements from the current {@link IContainer} that are of the given type.
 	 */
@@ -1657,6 +1662,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return true if the current {@link IContainer} is ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -1686,6 +1692,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
+	 * @param <E2> is the type of the elements the given extractor returns.
 	 * @return a new {@link LinkedList} with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
@@ -1721,6 +1728,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
+	 * @param <E2> is the type of the elements the given extractor returns.
 	 * @return a new array with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
@@ -1814,11 +1822,12 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
+	 * @param <E2> is the type of the elements the given extractor returns.
 	 * @return a new {@link LinkedList} with the elements of the {@link IContainer}
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	default <O> LinkedList<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
-		final var list = new LinkedList<O>();
+	default <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
+		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
 	}
@@ -1885,6 +1894,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return a new {@link LinkedList} with the elements of the current {@link IContainer}
 	 * ordered from the smallest to the biggest element according to the given norm.
 	 */
