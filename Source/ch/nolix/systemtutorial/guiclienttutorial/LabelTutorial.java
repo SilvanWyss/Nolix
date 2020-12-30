@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.guiclienttutorial;
 
-//own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
@@ -61,24 +60,27 @@ public final class LabelTutorial {
 			.runInBackground(
 				() -> {
 					
-					//Gets the current time.
-					final var currentTime = Time.fromCurrentTime();
-					
-					//Creates text.
-					final var text =
-					String.format(
-						"%02d:%02d:%02d",
-						currentTime.getHourOfDay(),
-						currentTime.getMinuteOfHour(),
-						currentTime.getSecondOfMinute()
-					);
-					
 					//Sets the text to the clockLabel.
-					clockLabel.setText(text);
+					clockLabel.setText(getCurrentTimeAsText());
 					
 					//Updates the counterpart of the BackGUIClient of the current current MainSession.
 					updateCounterpart();
 				}
+			);
+		}
+		
+		private String getCurrentTimeAsText() {
+			
+			//Gets the current time.
+			final var currentTime = Time.fromCurrentTime();
+			
+			//Returns the current time as text.
+			return
+			String.format(
+				"%02d:%02d:%02d",
+				currentTime.getHourOfDay(),
+				currentTime.getMinuteOfHour(),
+				currentTime.getSecondOfMinute()
 			);
 		}
 	}
