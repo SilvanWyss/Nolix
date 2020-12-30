@@ -5,6 +5,8 @@ package ch.nolix.element.containerwidget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.mutableattributeapi.Headerable;
@@ -356,8 +358,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	
 	//method
 	/**
-	 * @throws InvalidStateExpceiton
-	 * if the current {@link TabContainerTab} is empty.
+	 * @throws EmptyArgumentException if the current {@link TabContainerTab} is empty.
 	 */
 	private void supposeIsNotEmpty() {
 		

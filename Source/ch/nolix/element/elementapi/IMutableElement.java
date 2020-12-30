@@ -16,6 +16,7 @@ import ch.nolix.common.skillapi.Resettable;
  * @author Silvan Wyss
  * @month 2017-02
  * @lines 140
+ * @param <S> is the type of a {@link IMutableElement}.
  */
 public interface IMutableElement<S extends IMutableElement<S>> extends Resettable, IElement {
 	

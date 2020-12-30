@@ -49,7 +49,7 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 	 * Lets this JMonkey sphere renderer render the given sphere on the given geometry.
 	 * 
 	 * @param sphere
-	 * @param renderObject
+	 * @param geometry
 	 */
 	@Override
 	public void render(

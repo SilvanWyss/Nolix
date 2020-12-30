@@ -11,6 +11,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -172,8 +173,6 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//constructor
 	/**
 	 * Creates a new {@link Layer}.
-	 * 
-	 * @param parentGUI
 	 */
 	public Layer() {
 		reset();

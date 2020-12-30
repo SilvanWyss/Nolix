@@ -5,6 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -304,7 +305,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	/**
 	 * Paints this line using the given widget structure and graphics.
 	 * 
-	 * @param widgetStructure
+	 * @param lineLook
 	 * @param painter
 	 */
 	@Override

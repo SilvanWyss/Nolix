@@ -18,6 +18,7 @@ import ch.nolix.element.smartelementapi.ISmartElement;
  * @author Silvan Wyss
  * @month 2017-10
  * @lines 170
+ * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
 	

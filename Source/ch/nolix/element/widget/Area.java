@@ -6,6 +6,8 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -23,7 +25,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 420
+ * @lines 430
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
@@ -146,8 +148,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * 
 	 * @param backgroundColor
 	 * @return the current {@link Area}.
-	 * @throws ArgumentIsNullException
-	 * if the given background color is null.
+	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public Area setBackgroundColor(final Color backgroundColor) {
 		

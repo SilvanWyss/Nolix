@@ -4,6 +4,8 @@ package ch.nolix.element.base;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElement;
@@ -13,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * @author Silvan Wyss
  * @month 2018-02
  * @lines 80
- * @param <V> The type of the value of a {@link Value}.
+ * @param <V> is the type of the value of a {@link Value}.
  */
 public final class Value<V> extends SingleValue<V> {
 	

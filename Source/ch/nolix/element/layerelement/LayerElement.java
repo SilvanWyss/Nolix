@@ -11,6 +11,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;

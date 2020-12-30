@@ -4,6 +4,8 @@ package ch.nolix.element.base;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 
@@ -12,7 +14,7 @@ import ch.nolix.common.node.Node;
  * @author Silvan Wyss
  * @date 2018-03-01
  * @lines 60
- * @param <V> The type of the value of a {@link MutableValue}.
+ * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends SingleValue<V> {
 	

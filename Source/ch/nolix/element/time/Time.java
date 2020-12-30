@@ -9,6 +9,7 @@ import java.util.GregorianCalendar;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -73,9 +74,8 @@ public final class Time implements IElement {
 	
 	//static method
 	/**
-	 * Creates a new {@link Time} from the given string.
-	 * 
 	 * @param string
+	 * @return a new {@link Time} from the given string.
 	 * @throws ArgumentIsNullException if the given string is null.
 	 */
 	public static Time fromString(final String string) {
@@ -153,7 +153,6 @@ public final class Time implements IElement {
 	 * 
 	 * @param year
 	 * @param monthOfYear
-	 * @param dayOfMonth
 	 */
 	public Time(final int year,	final int monthOfYear) {
 		
@@ -615,8 +614,8 @@ public final class Time implements IElement {
 	 * 
 	 * @param milliseconds
 	 */
-	private void addMilliseconds(final int millisceconds) {
-		gregorianCalendar.setTimeInMillis(getMilliseconds() + millisceconds);
+	private void addMilliseconds(final int milliseconds) {
+		gregorianCalendar.setTimeInMillis(getMilliseconds() + milliseconds);
 	}
 
 	//method

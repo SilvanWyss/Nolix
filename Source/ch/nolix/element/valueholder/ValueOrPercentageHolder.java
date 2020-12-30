@@ -5,6 +5,7 @@ package ch.nolix.element.valueholder;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 
@@ -33,8 +34,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	 * @param specification
 	 * @return a new {@link ValueOrPercentageHolder}
 	 * from the given specification.
-	 * @throws InvalidArgumentException
-	 * if the given specification is not valid.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ValueOrPercentageHolder fromSpecification(
 		final BaseNode specification
@@ -72,10 +72,9 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	
 	//constructor
 	/**
-	 * Creates a new {@link ValueOrPercentageHolder}
-	 * with the given percentage.
+	 * Creates a new {@link ValueOrPercentageHolder} with the given percentage.
 	 * 
-	 * @param value
+	 * @param percentage
 	 */
 	public ValueOrPercentageHolder(final double percentage) {
 		hasValue = false;
@@ -86,8 +85,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	//method
 	/**
 	 * @return the value of this percentage holder.
-	 * @throws UnexistingAttribtueException
-	 * if the current {@link ValueOrPercentageHolder} does not have a value.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ValueOrPercentageHolder} does not have a value.
 	 */
 	public int getValue() {
 		
@@ -105,8 +103,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	//method
 	/**
 	 * @return the percentage of this percentage holder.
-	 * @throws UnexistingAttribtueException
-	 * if the current {@link ValueOrPercentageHolder} does not have a percentage.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ValueOrPercentageHolder} does not have a percentage.
 	 */
 	public double getPercentage() {
 		

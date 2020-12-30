@@ -5,6 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.Widget;
@@ -17,8 +18,9 @@ import ch.nolix.element.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 190
- * @param <TLW> The type of a {@link TextLineWidget}.
+ * @lines 200
+ * @param <TLW> is the type of a {@link TextLineWidget}.
+ * @param <TLWL> is the type of the {@link TextLineWidgetLook} of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
 extends BorderWidget<TLW, TLWL> {
@@ -184,7 +186,10 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//method declaration
 	/**
-	 * {@inheritDoc}
+	 * Paints the content area of the current {@link TextLineWidget} using the given painter and textLineWidgetLook.
+	 * 
+	 * @param painter
+	 * @param textLineWidgetLook
 	 */
 	protected abstract void paintContentAreaStage2(final IPainter painter, final TLWL textLineWidgetLook);
 	

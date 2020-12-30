@@ -83,7 +83,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	/**
 	 * @return the target height of the current {@link BorderWidgetContentArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetArea} does not have a target height.
+	 * if the current {@link BorderWidgetContentArea} does not have a target height.
 	 */
 	public int getTargetHeight() {
 		
@@ -99,7 +99,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	/**
 	 * @return the target width of the current {@link BorderWidgetContentArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetArea} does not have a target width.
+	 * if the current {@link BorderWidgetContentArea} does not have a target width.
 	 */
 	public int getTargetWidth() {
 		

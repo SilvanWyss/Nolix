@@ -8,6 +8,8 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
@@ -805,7 +807,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * A console has a secret edit line when it is reading a secret line.
 	 * 
 	 * @return the secret edit line of the current {@link Console}.
-	 * @throws UnexistingAttribute exception if the current {@link Console} does not have a secret edit line.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Console} does not have a secret edit line.
 	 */
 	private String getSecretEditLine() {
 		
@@ -820,7 +822,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	//method
 	/**
 	 * @return the text of the secret edit line of the current {@link Console} after the text cursor.
-	 * @throws UnexistingAttribute exception if the current {@link Console} does not have a secret edit line.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Console} does not have a secret edit line.
 	 */
 	private String getSecretEditLineAfterTextCursor() {
 		return getSecretEditLine().substring(textCursorPosition);
@@ -829,7 +831,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	//method
 	/**
 	 * @return the text of the secret edit line of the current {@link Console} before the text cursor.
-	 * @throws UnexistingAttribute exception if the current {@link Console} does not have a secret edit line.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Console} does not have a secret edit line.
 	 */
 	private String getSecretEditLineBeforeTextCursor() {
 		return getSecretEditLine().substring(0, textCursorPosition);

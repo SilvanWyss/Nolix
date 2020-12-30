@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.element.dialog} package defines dialog {@link Layer}s.
+ * The {@link ch.nolix.element.dialog} package defines dialog {@link ch.nolix.element.gui.Layer}s.
  * 
  * @author Silvan Wyss
  * @month 2020-07

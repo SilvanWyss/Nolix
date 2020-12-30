@@ -15,6 +15,7 @@ import ch.nolix.common.requestapi.ContainsElementByStringIdRequestable;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 60
+ * @param <C> is the type of a {@link IConfigurableElement}.
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
 extends
@@ -54,7 +55,7 @@ OptionalTokenable<C> {
 	//method declaration
 	/**
 	 * @param role
-	 * @return true if the current {@link IConfigurable} has the given role.
+	 * @return true if the current {@link IConfigurableElement} has the given role.
 	 */
 	boolean hasRole(String role);
 	

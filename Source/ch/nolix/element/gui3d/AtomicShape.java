@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
@@ -56,7 +58,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	//method
 	/**
 	 * @return the default texture of the current {@link AtomicShape} as {@link BufferedImage}.
-	 * @throws UnexistingAttribute if the current {@link AtomicShape} does not have a default texture.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AtomicShape} does not have a default texture.
 	 */
 	public final BufferedImage getDefaultTextureAsBufferedImage() {
 		
@@ -67,7 +69,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	//method
 	/**
 	 * @return the default texture of the current {@link AtomicShape}.
-	 * @throws UnexistingAttribute if the current {@link AtomicShape} does not have a default texture.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AtomicShape} does not have a default texture.
 	 */
 	public final Image getRefDefaultTexture() {
 		return defaultTexture.getValue();

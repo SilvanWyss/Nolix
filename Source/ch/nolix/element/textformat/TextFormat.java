@@ -9,6 +9,10 @@ import java.awt.Graphics;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -28,7 +32,7 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @date 2017-08-26
- * @lines 450
+ * @lines 460
  */
 public final class TextFormat extends Element<TextFormat> {
 	
@@ -259,7 +263,7 @@ public final class TextFormat extends Element<TextFormat> {
 	/**
 	 * @param text
 	 * @param maxWidth
-	 * @param ellipsis
+	 * @param attachEllipsis
 	 * @return the first part of the given text the current {@link TextFormat} can paint,
 	 * that is not longer than the given max width,
 	 * optionally with an ellipsis if the given text is longer than the given max width.
@@ -343,6 +347,7 @@ public final class TextFormat extends Element<TextFormat> {
 	
 	//method
 	/**
+	 * @param character
 	 * @return the width of the given character when the current {@link TextFormat} would be applied to it.
 	 */
 	public int getSwingTextWidth(final char character) {
@@ -351,6 +356,7 @@ public final class TextFormat extends Element<TextFormat> {
 	
 	//method
 	/**
+	 * @param text
 	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
 	 */
 	public int getSwingTextWidth(final String text) {

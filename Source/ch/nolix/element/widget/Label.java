@@ -7,6 +7,8 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -73,7 +75,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	//method
 	/**
 	 * @return the role of the current {@link Label}.
-	 * @throws UnexistingAttributeExcetpion if the current {@link Label} does not have a role.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Label} does not have a role.
 	 */
 	public LabelRole getRole() {
 		

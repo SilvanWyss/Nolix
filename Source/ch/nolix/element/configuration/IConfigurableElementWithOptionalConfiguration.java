@@ -26,7 +26,6 @@ extends IConfigurableElement<CEWOC> {
 	//method declaration
 	/**
 	 * @return the configuration of the current {@link IConfigurableElementWithOptionalConfiguration}.
-	 * @throws Exception if the current {@link IConfigurableElementWithOptionalConfiguration} does not have a configuration.
 	 */
 	Configuration getConfiguration();
 	

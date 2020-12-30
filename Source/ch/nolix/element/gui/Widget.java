@@ -9,7 +9,9 @@ import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.functionapi.I2ElementTaker;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
@@ -283,7 +285,7 @@ TopLeftPositionedRecangular {
 	 * The free view area of a {@link Widget} is the part of the view area of the {@link Widget}
 	 * where does not lie a child {@link Widget}, that is for painting, of the {@link Widget}.
 	 * 
-	 * @return
+	 * @return true if the free view area of the curent {@link Widget} is under the cursor.
 	 */
 	public final boolean freeViewAreaIsUnderCursor() {
 		return (isUnderCursor() && getRefPaintableWidgets().contains(Widget::isUnderCursor));
@@ -1687,7 +1689,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} paints its paintable {@link Widgets} a priori.
+	 * @return true if the current {@link Widget} paints its paintable {@link Widget}s a priori.
 	 */
 	protected boolean paintsPaintableWidgetAPriori() {
 		return true;
@@ -1713,7 +1715,7 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link Widget} redirects intputs to its shown {@link Widgets}.
+	 * @return true if the current {@link Widget} redirects intputs to its shown {@link Widget}s.
 	 */
 	protected abstract boolean redirectsInputsToShownWidgets();
 	

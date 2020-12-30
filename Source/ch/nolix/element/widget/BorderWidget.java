@@ -3,6 +3,8 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -63,9 +65,9 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1730
- * @param <BW> The type of a {@link BackgroundWidget}.
- * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget}.
+ * @lines 1740
+ * @param <BW> The type of a {@link BorderWidget}.
+ * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
 public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends BorderWidgetLook<BWL>>
 extends Widget<BW, BWL> {
@@ -921,8 +923,8 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return true if the width resp. height of the content area of the current {@link BorderWidget} should be expanded
 	 * to its target width resp. target height in the case when:
-	 * -The current {@link BoderWidget} has a target width resp. target height.
-	 * -The target width resp. target height of the content area of the current {@link BoderWidget}
+	 * -The current {@link BorderWidget} has a target width resp. target height.
+	 * -The target width resp. target height of the content area of the current {@link BorderWidget}
 	 *  is bigger than its natural width resp. natural height.
 	 */
 	protected abstract boolean contentAreaMustBeExpandedToTargetSize();

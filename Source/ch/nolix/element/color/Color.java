@@ -5,6 +5,7 @@ package ch.nolix.element.color;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -1162,7 +1163,7 @@ public class Color extends Element<Color> {
 	 * Sets the blue value of the current {@link Color}.
 	 * 
 	 * @param blueValue
-	 * @throws OutOfRangeException if the given blue value is not a true color component (in [0, 255]).
+	 * @throws ArgumentIsOutOfRangeException if the given blue value is not a true color component (in [0, 255]).
 	 */
 	private void setBlueValue(final int blueValue) {
 		
@@ -1180,7 +1181,7 @@ public class Color extends Element<Color> {
 	 * Sets the green value of the current {@link Color}.
 	 * 
 	 * @param greenValue
-	 * @throws OutOfRangeException if the given green value is not a true color component (in [0, 255]5).
+	 * @throws ArgumentIsOutOfRangeException if the given green value is not a true color component (in [0, 255]5).
 	 */
 	private void setGreenValue(final int greenValue) {
 		
@@ -1198,7 +1199,7 @@ public class Color extends Element<Color> {
 	 * Sets the red value of the current {@link Color}.
 	 * 
 	 * @param redValue
-	 * @throws OutOfRangeException if the given red value is not a true color component (in [0, 255]).
+	 * @throws ArgumentIsOutOfRangeException if the given red value is not a true color component (in [0, 255]).
 	 */
 	private void setRedValue(final int redValue) {
 		
@@ -1216,7 +1217,7 @@ public class Color extends Element<Color> {
 	 * Sets the value of the current {@link Color}.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeException if the given value is not a true color value.
+	 * @throws ArgumentIsOutOfRangeException if the given value is not a true color value.
 	 */
 	private void setValue(long value) {
 		

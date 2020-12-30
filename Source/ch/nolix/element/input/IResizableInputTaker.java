@@ -40,8 +40,7 @@ public interface IResizableInputTaker extends IInputTaker {
 	 * Lets the current {@link IResizableInputTaker} note a resize.
 	 * The viewAreaWidth and viewAreaHeight of the given resizeInput are the new size of the view area.
 	 * 
-	 * @param viewAreaWidth
-	 * @param viewAreaHeight
+	 * @param resizeInput
 	 */
 	default void noteResizeInput(final ResizeInput resizeInput) {
 		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeigh());

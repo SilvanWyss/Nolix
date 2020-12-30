@@ -9,7 +9,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -19,7 +21,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 200
- * @param <V> The type of the values of a {@link MultiValue}.
+ * @param <V> is the type of the values of a {@link MultiValue}.
  */
 public final class MultiValue<V> extends Property<V> implements IContainer<V> {
 	

@@ -7,6 +7,8 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -46,11 +48,11 @@ import ch.nolix.element.widget.VerticalLine;
 
 //class
 /**
- * A {@link WidgetGUI} is a {@link GUI} that can contain several {@link ILayer}s, that are stacked.
+ * A {@link WidgetGUI} is a {@link GUI} that can contain several {@link Layer}s, that are stacked.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 810
+ * @lines 780
  * @param <WG> The type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
@@ -168,7 +170,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * The {@link WidgetGUI} will be visible.
 	 * The {@link WidgetGUI} will forward its received events to the given eventTaker.
 	 * 
-	 * @param visible
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
@@ -184,8 +185,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * Creates a new {@link WidgetGUI}.
 	 * The {@link WidgetGUI} will be visible and have the given visualizer..
 	 * 
-	 * @param visible
-	 * @param inputTaker
+	 * @param visualizer
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
 	public WidgetGUI(IVisualizer visualizer) {
@@ -201,7 +201,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * The {@link WidgetGUI} will be visible and have the given visualizer.
 	 * The {@link WidgetGUI} will forward its received events to the given eventTaker.
 	 * 
-	 * @param visible
+	 * @param visualizer
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
@@ -503,18 +503,11 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * Removes the given layer from the current {@link WidgetGUI}.
 	 * 
 	 * @param layer
-	 * @return the current {@link WidgetGUI}.
 	 */
-	public final WG removeLayer(final Layer layer) {
-		
+	public final void removeLayer(final Layer layer) {
 		if (!isTopLayer(layer)) {
-			
 			layers.remove(layer);
-			
-			return asConcrete();
 		}
-		
-		return removeTopLayer();
 	}
 	
 	//method
@@ -523,7 +516,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
 	 */
-	public final WG removeTopLayer() {
+	public final void removeTopLayer() {
 		
 		//Asserts that the current WidgetGUI is not empty.
 		if (isEmpty()) {
@@ -547,8 +540,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 			previousTopLayer.getCursorXPosition(),
 			previousTopLayer.getCursorYPosition()
 		);
-		
-		return asConcrete();
 	}
 	
 	//method

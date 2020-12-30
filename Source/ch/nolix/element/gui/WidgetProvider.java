@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
@@ -16,7 +17,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 160
+ * @lines 170
  */
 final class WidgetProvider {
 

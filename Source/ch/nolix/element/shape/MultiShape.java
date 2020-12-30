@@ -4,6 +4,7 @@ package ch.nolix.element.shape;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui3d.Shape;
@@ -115,7 +116,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	
 	//method
 	/**
-	 * Removes all {@link Shapes} of the current {@link MultiShape}.
+	 * Removes all {@link Shape}s of the current {@link MultiShape}.
 	 */
 	public void clear() {
 		shapes.clear();

@@ -6,6 +6,7 @@ import java.awt.GradientPaint;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -86,17 +87,13 @@ public class ColorGradient implements IElement {
 	/**
 	 * Creates a new {@link ColorGradient} with the given color 1 and color 2.
 	 * 
-	 * @param direction
 	 * @param color1
 	 * @param color2
 	 * @throws ArgumentIsNullException if the given direction is null.
 	 * @throws ArgumentIsNullException if the given color 1 is null.
 	 * @throws ArgumentIsNullException if the given color 2 is null.
 	 */
-	public ColorGradient(
-		final Color color1,
-		final Color color2
-	) {
+	public ColorGradient(final Color color1, final Color color2) {
 		//Calls other constructor.
 		this(DEFAULT_DIRECTION, color1, color2);
 	}

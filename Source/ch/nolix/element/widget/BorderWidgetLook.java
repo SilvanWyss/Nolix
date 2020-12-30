@@ -5,7 +5,9 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -1149,9 +1151,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	/**
 	 * Sets the left border thickness of the current {@link BorderWidgetLook}.
 	 * 
-	 * @param leftBordersize
+	 * @param leftBorderThickness
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NegativeArgumentException if the given left border thickness is negative.
+	 * @throws NegativeArgumentException if the given leftBorderThicknesss is negative.
 	 */
 	public final BWL setLeftBorderThickness(final int leftBorderThickness) {
 		
@@ -1318,9 +1320,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	/**
 	 * Sets the top padding of the current {@link BorderWidgetLook}.
 	 * 
-	 * @param leftPadding
+	 * @param topPadding
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NegativeArgumentException if the given top padding is negative.
+	 * @throws NegativeArgumentException if the given topPadding is negative.
 	 */
 	public final BWL setTopPadding(final int topPadding) {
 		

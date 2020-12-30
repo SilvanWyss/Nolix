@@ -5,6 +5,8 @@ package ch.nolix.element.gui;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -180,6 +182,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	/**
 	 * Sets the bold text to the current {@link WidgetLook}.
 	 * 
+	 * @param boldTextFlag 
 	 * @return the current {@link WidgetLook}.
 	 */
 	public final WL setBoldTextFlag(final boolean boldTextFlag) {

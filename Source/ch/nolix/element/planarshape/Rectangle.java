@@ -2,6 +2,8 @@
 package ch.nolix.element.planarshape;
 
 //own imports
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;

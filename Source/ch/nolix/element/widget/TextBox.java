@@ -3,6 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;

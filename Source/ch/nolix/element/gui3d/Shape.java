@@ -5,6 +5,7 @@ package ch.nolix.element.gui3d;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -230,7 +231,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * Sets the position of the current {@link Shape} with z-position=0.0.
 	 * 
 	 * @param xPosition
-	 * @param xPosition
+	 * @param yPosition
 	 * @return the current {@link Shape}.
 	 */
 	public final S setPosition(

@@ -8,6 +8,7 @@ import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -38,7 +39,7 @@ import ch.nolix.element.painterapi.IPainter;
  * A hard attribute is an attribute that is not changed implicitly by a user interaction. E.g. title, background color.
  * A soft attribute is an attribute that can be changed implicitly by a user interaction. E.g. cursor position.
  * 
- * The {@link GUI.getAttributes} method of a {@link GUI} must deliver all attributes; the hard and the soft ones.
+ * The {@link GUI#getAttributes} method of a {@link GUI} must deliver all attributes; the hard and the soft ones.
  * The reason is because when a {@link GUI} is used in a server-client application,
  * the soft attributes need to be transferred as well.
  * When the soft attributes would be refreshed on client-side only, e.g. by a mouse-move,
@@ -147,7 +148,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * Creates a new {@link GUI}.
 	 * The {@link GUI} will be visible and have the given visualizer.
 	 * 
-	 * @param visible
+	 * @param visualizer
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
 	public GUI(final IVisualizer visualizer) {

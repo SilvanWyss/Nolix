@@ -5,6 +5,8 @@ package ch.nolix.element.configuration;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -18,7 +20,7 @@ import ch.nolix.element.gui.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 610
+ * @lines 620
  * @param <C> The type of a {@link BaseConfiguration}.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>

@@ -4,6 +4,8 @@ package ch.nolix.element.elementapi;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalskillapi.TypeRequestable;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.processproperty.WriteMode;
@@ -95,7 +97,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException
-	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * if the given writeMode = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
 	default void saveAsTo(final String type, final String path, final WriteMode writeMode) {
@@ -125,7 +127,7 @@ public interface IElement extends TypeRequestable {
 	 * @throws ArgumentIsNullException if the given path is null.
 	 * @throws InvalidArgumentException if the given path is blank.
 	 * @throws InvalidArgumentException
-	 * if the given writeMode flag={@link WriteMode#THROW_EXCEPTION_WHEN_EXISTS_ALREADY}
+	 * if the given writeMode = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
 	 * and there exists already a file system item with the given path.
 	 */
 	default void saveTo(final String path, final WriteMode writeMode) {

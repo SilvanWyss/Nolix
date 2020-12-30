@@ -71,7 +71,7 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Painter} paint a polygon with the vertices with the given x- and y-positions.
+	 * Lets the current {@link IPainter} paint a polygon with the vertices with the given x- and y-positions.
 	 * 
 	 * @param x
 	 * @param y
@@ -103,7 +103,7 @@ public interface IPainter {
 	
 	//method
 	/**
-	 * Lets the current {@link Painter} paint the given image.
+	 * Lets the current {@link IPainter} paint the given image.
 	 * 
 	 * @param image
 	 */
@@ -111,7 +111,7 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Painter} paint the given image with the given width and height.
+	 * Lets the current {@link IPainter} paint the given image with the given width and height.
 	 * 
 	 * @param image
 	 * @param width
@@ -121,7 +121,7 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Painter} paint the image that has the given id.
+	 * Lets the current {@link IPainter} paint the image that has the given id.
 	 * 
 	 * @param id
 	 */
@@ -129,9 +129,9 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link Painter} paint the given image, that has the given id, with the given width and height.
+	 * Lets the current {@link IPainter} paint the given image, that has the given id, with the given width and height.
 	 * 
-	 * @param image
+	 * @param id
 	 * @param width
 	 * @param height
 	 */

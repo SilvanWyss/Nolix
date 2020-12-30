@@ -8,6 +8,7 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;
@@ -98,7 +99,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * @param tabs
 	 * @return the current {@link Accordion}.
 	 * @throws ArgumentIsNullException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
+	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public Accordion addTab(final AccordionTab... tabs) {
 		
@@ -127,7 +128,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * @param tabs
 	 * @return the current {@link Accordion}.
 	 * @throws ArgumentIsNullException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
+	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
