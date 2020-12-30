@@ -84,7 +84,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	
 	//method
 	@Override
-	protected final void resetStage3() {
+	protected void resetStage3() {
 		setSideLength(DEFAULT_SIDE_LENGTH);
 		setHeight(DEFAULT_HEIGHT);
 	}
