@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.commontest.cachingcontainertest;
+package ch.nolix.commontest.cachingtest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new CachingContainerTestPool().run();
+		new CachingTestPool().run();
 	}
 	
 	//visibility-reduced constructor

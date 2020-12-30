@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.cachingcontainertest;
+package ch.nolix.commontest.cachingtest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
