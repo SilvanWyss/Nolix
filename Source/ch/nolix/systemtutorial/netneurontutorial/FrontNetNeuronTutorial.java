@@ -17,7 +17,7 @@ import ch.nolix.system.netneuron.FrontNetNeuron;
 public final class FrontNetNeuronTutorial {
 	
 	/**
-	 * 1. Creates a {@link BackNetNeuron} and adds an {@link InputNeuron} to it.
+	 * 1. Creates a {@link BackNetNeuron} and adds a {@link SourceNeuron} to it.
 	 * 3. Creates some {@link FrontNetNeuron} that will connect to the back net neuron.
 	 * 4. Fires the {@link BackNetNeuron}.
 	 * 5. Prints out the outputs of the {@link FrontNetNeuron}s to the console.

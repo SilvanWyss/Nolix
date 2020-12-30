@@ -5,6 +5,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.system.baseneuron.SourceNeuron;
 import ch.nolix.system.neuronalnet.ForwardMultiLayerNetCreator;
+import ch.nolix.system.neuronalnet.NeuronalNet;
 
 /**
  * The {@link ForwardMultiLayerNetCreatorTutorial} is a tutorial for a {@link ForwardMultiLayerNetCreator}s.

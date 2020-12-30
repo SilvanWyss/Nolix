@@ -38,8 +38,6 @@ extends BaseNeuron<BundleNeuron<O>, O, Iterable<O>> {
 	//method
 	/**
 	 * Lets this bundle neuron fire.
-	 * 
-	 * @param processor
 	 */
 	@Override
 	public void internalUpdate() {

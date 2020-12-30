@@ -3,6 +3,7 @@ package ch.nolix.system.consoleclient;
 
 //own imports
 import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.baseguiclient.BaseBackGUIClient;
 
 //class

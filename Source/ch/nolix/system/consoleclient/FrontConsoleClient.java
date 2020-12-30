@@ -3,6 +3,9 @@ package ch.nolix.system.consoleclient;
 
 //own imports
 import ch.nolix.common.endpoint2.NetServer;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClient;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClientGUIType;
 import ch.nolix.system.client.Application;
@@ -62,7 +65,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @param server
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
-	 * @throws BlankArgumentException if the given application is blank.
+	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontConsoleClient(final Server server, final String application) {
 		
@@ -80,7 +83,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @param port
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
-	 * @throws BlankArgumentException if the given application is blank.
+	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontConsoleClient(final String ip, final int port, final String application) {
 		

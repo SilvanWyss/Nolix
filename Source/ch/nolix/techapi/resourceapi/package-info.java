@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.resourceAPI} package is an API for resources, that can be used in simulations or games.
+ * The {@link ch.nolix.techapi.resourceapi} package is an API for resources, that can be used in simulations or games.
  * 
  * @author Silvan Wyss
  * @month 2019-07

@@ -3,6 +3,8 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 
 //class
 /**
@@ -80,8 +82,8 @@ public final class StandardClient extends Client<StandardClient> {
 	/**
 	 * Creates a new standard client with the given duplex controller.
 	 * 
-	 * @param controller
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @param endPoint
+	 * @throws ArgumentIsNullException if the given endPoint is null.
 	 */
 	public StandardClient(final EndPoint endPoint) {
 		

@@ -3,6 +3,7 @@ package ch.nolix.system.neuronalnet;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseneuron.BaseNeuron;
 import ch.nolix.system.baseneuron.BundleNeuron;
@@ -10,12 +11,12 @@ import ch.nolix.system.baseneuron.FanoutNeuron;
 
 //class
 /**
- * A {@link NeuronalNet} is a {@link BaseNeuron} that contains {@link BaseNeurons} that are connected to a network.
+ * A {@link NeuronalNet} is a {@link BaseNeuron} that contains {@link BaseNeuron}s that are connected to a network.
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
  * @lines 130
- * @param <IO> The type of the input and output of the {@link BaseNeurons} of a {@link NeuronalNet}.
+ * @param <IO> The type of the input and output of the {@link BaseNeuron}s of a {@link NeuronalNet}.
  */
 public final class NeuronalNet<IO> extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
@@ -32,9 +33,9 @@ public final class NeuronalNet<IO> extends BaseNeuron<NeuronalNet<IO>, Iterable<
 	 * Creates a new {@link NeuronalNet} with the given input layer neurons and output layer neurons.
 	 * 
 	 * @param inputLayerNeurons
-	 * @param internalOutputNeurons
-	 * @throws ArgumentIsNullException if the given input layer neurons is null.
-	 * @throws ArgumentIsNullException if the given output layer neurons is null.
+	 * @param outputLayerNeurons
+	 * @throws ArgumentIsNullException if the given inputLayerNeurons is null.
+	 * @throws ArgumentIsNullException if the given outputLayerNeurons is null.
 	 */
 	public <N extends BaseNeuron<N, IO, IO>> NeuronalNet(
 		final Iterable<N> inputLayerNeurons,

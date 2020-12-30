@@ -25,14 +25,14 @@ import ch.nolix.common.skillapi.IChangesSaver;
  * -{@link BaseValueProperty}: Can store 1 or several values of a certain type.
  * -{@link BaseReference}: Can reference 1 or several other {@link Entity}s of a certain type.
  * -{@link BaseBackReference}: References back the {@link BaseReference} that references the current {@link Entity}.
- *  A {@link BaseBackReference} is not changeable directly. A {@link BackRefence} is edited by {@link BaseReference}s.
+ *  A {@link BaseBackReference} is not changeable directly. A {@link BackReference} is edited by {@link BaseReference}s.
  * 
- * What resources does a {@link IDatbaaseAdapter} need?
+ * What resources does a {@link IDatabaseAdapter} need?
  * A {@link IDatabaseAdapter} needs to be connected to a database at first.
  * The place where to find the database is preferably given into the constructor of a {@link IDatabaseAdapter}.
  * 
  * How does a {@link IDatabaseAdapter} principally read and write data?
- * A {@link IDatbaaseAdapter} stores the {@link Entity}s it should read, create, edit or delete in the memory.
+ * A {@link IDatabaseAdapter} stores the {@link Entity}s it should read, create, edit or delete in the memory.
  * A {@link IDatabaseAdapter} does not store the whole database in the memory.
  * A {@link IDatabaseAdapter} loads the needed {@link Entity}s in background and lazily.
  * A {@link IDatabaseAdapter} does not store changes to a database immediately.
@@ -97,7 +97,6 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	
 	//method declaration
 	/**
-	 * @param <V> The type of the created value.
 	 * @param type
 	 * @param specification
 	 * @return a new value if the given type from the given specification.
@@ -106,17 +105,14 @@ public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
 	
 	//method declaration
 	/**
-	 * @param <E>
 	 * @param type
-	 * @return the {@link EntitySet} of the given type from the current {@link IDatabaseAdapter}.
+	 * @return the {@link IEntitySet} of the given type from the current {@link IDatabaseAdapter}.
 	 */
 	<E extends Entity> IEntitySet<E> getRefEntitySet(Class<E> type);
 	
 	//method declaration
 	/**
-	 * @param <E>
-	 * @param type
-	 * @return the {@link EntitySet}s of the current {@link IDatabaseAdapter}.
+	 * @return the {@link IEntitySet}s of the current {@link IDatabaseAdapter}.
 	 */
 	<ES extends IEntitySet<Entity>> IContainer<ES> getRefEntitySets();
 }

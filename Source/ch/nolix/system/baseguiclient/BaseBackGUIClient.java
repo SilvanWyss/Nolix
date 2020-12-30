@@ -9,14 +9,17 @@ import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.gui.CanvasGUI;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.element.gui.IWidgetGUI;
 import ch.nolix.element.gui.InvisibleGUI;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.InputFactory;
 import ch.nolix.element.input.MouseInput;
@@ -58,16 +61,12 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 * Shows the given errorMessage on the counterpart of the current {@link BaseBackGUIClient}.
 	 * 
 	 * @param errorMessage
-	 * the current {@link BaseBackGUIClient}
 	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
-	public final BBGUIC showErrorMessageOnCounterpart(final String errorMessage) {
-			
+	public final void showErrorMessageOnCounterpart(final String errorMessage) {
 		internalRunOnCounterpart(
 			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, Node.withHeader(errorMessage))
 		);
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -222,7 +221,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//method
 	/**
-	 * @return the {@link GUI} of the current {@link Session} of the current {@link BaseBackGUIClient}.
+	 * @return the {@link GUI} of the current {@link BaseBackGUIClientSession} of the current {@link BaseBackGUIClient}.
 	 */
 	private IWidgetGUI<?> getRefGUI() {
 		
@@ -251,7 +250,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//method
 	/**
-	 * @return true if the current {@link BackGUIClientoidoid}
+	 * @return true if the current {@link BaseBackGUIClient}
 	 * knows the {@link GUI} type of the current {@link BaseBackGUIClient}.
 	 */
 	private boolean knowsCounterpartGUIType() {

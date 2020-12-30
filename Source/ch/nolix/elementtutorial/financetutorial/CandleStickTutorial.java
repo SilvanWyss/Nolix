@@ -1,14 +1,14 @@
 package ch.nolix.elementtutorial.financetutorial;
 
-//own imports
 import ch.nolix.common.container.SequencePattern;
+import ch.nolix.element.finance.Candlestick;
 import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;
 import ch.nolix.element.time.Time;
 
 /**
- * The {@link CandleStickTutorial} is a tutorial for {@link CandleStick}s.
+ * The {@link CandleStickTutorial} is a tutorial for {@link Candlestick}s.
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
@@ -24,6 +24,8 @@ public final class CandleStickTutorial {
 	 * A bullish is a candle whose closing price is higher than its opening price.
 	 * Lets check this thesis
 	 * by calculating the percentage of the hammers followed by a bullish in relation to all hammers.
+	 * 
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 		

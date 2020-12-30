@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
-//own imports
 import ch.nolix.element.color.Color;
+import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.Frame;
@@ -19,7 +19,7 @@ import ch.nolix.element.widget.Label;
 public final class HorizontalLineTutorial {
 	
 	/**
-	 * Creates a {@link HorizontalStack} with 3 {@link Label}s and 2 {@link HorizontalLines}.
+	 * Creates a {@link HorizontalStack} with 3 {@link Label}s and 2 {@link HorizontalLine}s.
 	 * 
 	 * @param args
 	 */

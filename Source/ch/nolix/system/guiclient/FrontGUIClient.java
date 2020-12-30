@@ -3,6 +3,9 @@ package ch.nolix.system.guiclient;
 
 //own imports
 import ch.nolix.common.endpoint2.NetServer;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClient;
 import ch.nolix.system.baseguiclient.BaseFrontGUIClientGUIType;
@@ -50,7 +53,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * on the given port on the local machine.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public FrontGUIClient(final int port) {
 		
@@ -67,7 +70,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * 
 	 * @param port
 	 * @param name
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
@@ -83,7 +86,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	/**
 	 * Creates a new {@link FrontGUIClient} that will connect to the main application on the given server.
 	 * 
-	 * @param application
+	 * @param server
 	 */
 	public FrontGUIClient(final Server server) {
 		
@@ -99,8 +102,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * 
 	 * @param ip
 	 * @param port
-	 * @param name
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
@@ -120,7 +122,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @param ip
 	 * @param port
 	 * @param name
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
