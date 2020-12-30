@@ -1,7 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.commontest.cachingtest} package
- * defines tests for the {@link ch.nolix.common.caching} package.
+ * The {@link ch.nolix.commontest.cachingtest} package defines tests for the {@link ch.nolix.common.caching} package.
  * 
  * @author Silvan Wyss
  * @month 2020-08
