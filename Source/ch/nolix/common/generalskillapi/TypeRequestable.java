@@ -7,11 +7,11 @@ import ch.nolix.common.language.EnglishNounHelper;
 
 //interface
 /**
- * A {@link TypeRequestable} has a type.
+ * A {@link TypeRequestable} is of a certain type.
  * 
  * @author Silvan Wyss
- * @month 2018-11
- * @lines 110
+ * @month 2018-11-25
+ * @lines 100
  */
 public interface TypeRequestable {
 	
@@ -88,14 +88,6 @@ public interface TypeRequestable {
 	 * @return true if the current {@link TypeRequestable} is of the given type.
 	 */
 	default boolean isOfType(final String type) {
-		
-		/*
-		 * For a better performance, this implementation does not use all comfortable methods.
-		 * 
-		 * shorter implementation:
-		 * 
-		 * return getTypes().contains(typeOrSuperType);
-		 */
 		
 		//Iterates the classes of this type requestable object.
 		Class<?> c = getClass();
