@@ -7,6 +7,9 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -17,7 +20,7 @@ import ch.nolix.common.node.Node;
  * 
  * @author Silvan Wyss
  * @date 2017-07-14
- * @lines 180
+ * @lines 190
  */
 public final class FileNode extends BaseNode {
 
@@ -81,8 +84,8 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * @return true if this {@link FileNode} has a header.
-	 * @throws ArgumentDoesNotHaveAttributeException if this {@link FileNode} does not have a header.
+	 * @return true if the current {@link FileNode} has a header.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link FileNode} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -114,7 +117,7 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * @return true if this {@link FileNode} has a header.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasHeader() {
@@ -123,11 +126,11 @@ public final class FileNode extends BaseNode {
 
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from this {@link FileNode}.
+	 * Removes the first attribute the given selector selects from the current {@link FileNode}.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if this {@link FileNode} does not contain an attribute the given selector selects.
+	 * if the current {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
@@ -137,7 +140,7 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * Removes the attributes of this {@link FileNode}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void removeAttributes() {
