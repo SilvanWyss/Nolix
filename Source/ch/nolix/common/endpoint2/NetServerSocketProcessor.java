@@ -65,7 +65,7 @@ final class NetServerSocketProcessor extends Worker {
 			
 			closeSocket();
 			
-			throw exception;
+			throw new WrapperException(exception);
 		}
 	}
 	
