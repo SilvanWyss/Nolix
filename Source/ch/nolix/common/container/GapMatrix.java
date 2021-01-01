@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.common.container;
 
-//Java import
+//Java imports
+import java.util.Arrays;
 import java.util.Iterator;
 
 //own imports
@@ -38,15 +39,8 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 		
 		final var rowCount = getRowCount();
 		
-		for (var i = 0; i < rowCount; i++) {
-			
-			final var newRow = new Object[columnCount + 1];
-			
-			for (var j = 0; j < columnCount; j++) {
-				newRow[j] = rows[i][j];
-			}
-			
-			rows[i] = newRow;
+		for (var i = 0; i < rowCount; i++) {			
+			rows[i] = Arrays.copyOf(rows[i], columnCount + 1);
 		}
 		
 		columnCount++;
@@ -55,14 +49,10 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//method
 	public void addRow() {
 				
-		final var rowCount = getRowCount();	
-		final var newRows = new Object[rowCount + 1][];	
-		for (var i = 0; i < rowCount; i++) {
-			newRows[i] = rows[i];
-		}
-		newRows[rowCount] = new Object[getColumnCount()];
+		final var newRowCount = getRowCount();	
 		
-		rows = newRows;
+		rows = Arrays.copyOf(rows, newRowCount);
+		rows[newRowCount - 1] = new Object[getColumnCount()];
 	}
 	
 	//method
