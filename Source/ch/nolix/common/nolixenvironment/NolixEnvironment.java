@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+//own import
+import ch.nolix.common.exception.WrapperException;
+
 //class
 public final class NolixEnvironment {
 	
@@ -14,13 +17,14 @@ public final class NolixEnvironment {
 	public static final int DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
 	
-	//constant
+	//constants
 	private static final String APPDATA_HEADER = "APPDATA";
+	private static final char FOLDER_DELIMITER = '/';
 	
 	//static method
 	public static String getLocalNolixFolderPath() {
 		
-		final var localNolixFolderPath = getLocalAppDataFolderPath() + "/" + LOCAL_NOLIX_FOLDER_NAME;
+		final var localNolixFolderPath = getLocalAppDataFolderPath() + FOLDER_DELIMITER + LOCAL_NOLIX_FOLDER_NAME;
 		createFolderIfDoesNotExist(localNolixFolderPath);
 		
 		return localNolixFolderPath;
@@ -34,8 +38,9 @@ public final class NolixEnvironment {
 		if (!Files.exists(lPath)) {
 			try {
 				Files.createDirectory(lPath);
+			} catch (final IOException pIOException) {
+				throw new WrapperException(pIOException);
 			}
-			catch (final IOException pIOException) {}
 		}
 	}
 	
