@@ -43,8 +43,7 @@ public final class Fractal implements IFractal {
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
 		final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction,
-		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-		sequencesNextValueFunction,
+		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> sequencesNextValueFunction,
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
 		final IIntTakerElementGetter<Color> colorFunction,
