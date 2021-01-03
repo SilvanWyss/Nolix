@@ -10,12 +10,12 @@ import ch.nolix.common.skillapi.Resettable;
 //interface
 /**
  * A {@link IMutableElement} is a {@link IElement}:
- * -Whose attributes can be mutated uniquely.
+ * -Whose attributes can be mutated separately.
  * -Whose attributes can be reset together.
  * 
  * @author Silvan Wyss
- * @month 2017-02
- * @lines 140
+ * @date 2017-01-01
+ * @lines 130
  * @param <S> is the type of a {@link IMutableElement}.
  */
 public interface IMutableElement<S extends IMutableElement<S>> extends Resettable, IElement {
@@ -89,60 +89,50 @@ public interface IMutableElement<S extends IMutableElement<S>> extends Resettabl
 		}
 	}
 	
-	//TODO: Rename reset methods to resetFrom.
 	//method
 	/**
-	 * Resets this {@link IMutableElement} with the given specification.
+	 * Resets the current {@link IMutableElement} from the given specification.
 	 * 
 	 * @param specification
-	 * @return the current {@link IMutableElement}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	default S reset(final BaseNode specification) {
-		return reset(specification.getRefAttributes());
+	default void resetFrom(final BaseNode specification) {
+		resetFrom(specification.getRefAttributes());
 	}
 	
 	//method
 	/**
-	 * Resets this {@link IMutableElement} with the given attributes.
+	 * Resets the current {@link IMutableElement} from the given attributes.
 	 * 
 	 * @param attributes
-	 * @return the current {@link IMutableElement}.
+	 * @param <BN> is the type of the given attributes.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	@SuppressWarnings("unchecked")
-	default S reset(final Iterable<? extends BaseNode> attributes) {
-		
+	default <BN extends BaseNode> void resetFrom(final Iterable<BN> attributes) {
 		reset();
 		addOrChangeAttributes(attributes);
-		
-		return (S)this;
 	}
 	
 	//method
 	/**
-	 * Resets this {@link IMutableElement} with the given specification.
+	 * Resets the current {@link IMutableElement} from the given specification.
 	 * 
 	 * @param specification
-	 * @return the current {@link IMutableElement}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	default S reset(final String specification) {
-		return reset(Node.fromString(specification));
+	default void resetFrom(final String specification) {
+		resetFrom(Node.fromString(specification));
 	}
 	
 	//method
 	/**
-	 * Resets the current {@link IMutableElement} with the specification
-	 * from the file with the given file path.
+	 * Resets the current {@link IMutableElement} from the file with the given filePath.
 	 * 
 	 * @param filePath
-	 * @return the current {@link IMutableElement}.
-	 * @throws InvalidArgumentException if the given file path is not valid.
-	 * @throws InvalidArgumentException
-	 * if the file with the given file path does not represent a {@link Node}.
+	 * @throws InvalidArgumentException if the given filePath is not valid.
+	 * @throws InvalidArgumentException if the file with the given filePath does not represent a {@link Node}.
 	 */
-	default S resetFrom(final String filePath) {
-		return reset(Node.fromFile(filePath));
+	default void resetFromFile(final String filePath) {
+		resetFrom(Node.fromFile(filePath));
 	}
 }

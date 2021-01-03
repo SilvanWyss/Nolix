@@ -53,7 +53,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	public static TabContainerTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new TabContainerTab();
-		tab.reset(specification);
+		tab.resetFrom(specification);
 		
 		return tab;
 	}

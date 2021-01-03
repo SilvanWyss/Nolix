@@ -25,7 +25,11 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	
 	//static method
 	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode specification) {
-		return new BorderWidgetScrollBarLook().reset(specification);
+		
+		final var borderWidgetScrollBarLook = new BorderWidgetScrollBarLook();
+		borderWidgetScrollBarLook.resetFrom(specification);
+		
+		return borderWidgetScrollBarLook;
 	}
 	
 	//attribute

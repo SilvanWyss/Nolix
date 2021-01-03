@@ -42,7 +42,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	public static AccordionTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new AccordionTab();
-		tab.reset(specification);
+		tab.resetFrom(specification);
 		
 		return tab;
 	}

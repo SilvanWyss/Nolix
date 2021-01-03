@@ -44,8 +44,8 @@ import ch.nolix.element.widget.BorderWidget;
  * A {@link Layer} can belong to a {@link WidgetGUI}.
  * 
  * @author Silvan Wyss
- * @month 2019-05
- * @lines 1290
+ * @date 2019-05-18
+ * @lines 1300
  */
 public class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker {
@@ -71,7 +71,11 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Layer fromSpecification(final BaseNode specification) {
-		return new Layer().reset(specification);
+		
+		final var layer = new Layer();
+		layer.resetFrom(specification);
+		
+		return layer;
 	}
 	
 	//attribute

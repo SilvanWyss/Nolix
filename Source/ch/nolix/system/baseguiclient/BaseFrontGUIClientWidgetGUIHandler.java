@@ -65,7 +65,7 @@ final class BaseFrontGUIClientWidgetGUIHandler implements IFrontGUIClientGUIHand
 	
 	//method
 	private void resetGUI(final Iterable<? extends BaseNode> attributes) {
-		mGUI.reset(attributes);
+		mGUI.resetFrom(attributes);
 		mGUI.updateFromConfiguration();
 	}
 }

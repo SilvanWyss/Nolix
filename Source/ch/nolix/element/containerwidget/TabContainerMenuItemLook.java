@@ -35,7 +35,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	) {
 		
 		final var tabContainerMenuItemLook = new TabContainerMenuItemLook();
-		tabContainerMenuItemLook.reset(specification);
+		tabContainerMenuItemLook.resetFrom(specification);
 		
 		return tabContainerMenuItemLook;
 	}

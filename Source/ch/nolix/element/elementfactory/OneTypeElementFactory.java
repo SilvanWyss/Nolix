@@ -39,9 +39,18 @@ final class OneTypeElementFactory<E> {
 	//constructor
 	@SuppressWarnings("unchecked")
 	public <ME extends IMutableElement<ME>> OneTypeElementFactory(final Class<ME> elementClass) {
-		this((Class<E>)elementClass, s -> (E)(createElementOf(elementClass)).reset(s));
+		this(
+			(Class<E>)elementClass,
+			s -> {
+				
+				final var element = createElementOf(elementClass);
+				element.resetFrom(s);
+				
+				return (E)element;
+			}
+		);
 	}
-		
+	
 	//constructor
 	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode, E> creator) {
 		

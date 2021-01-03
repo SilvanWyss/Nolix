@@ -336,7 +336,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
 	private <BN extends BaseNode> void resetGUI(final IContainer<BN> attributes) {
-		getRefGUI().reset(attributes);
+		getRefGUI().resetFrom(attributes);
 	}
 	
 	//method

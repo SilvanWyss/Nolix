@@ -26,7 +26,11 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	 * if the file with the given file path does not represent a standard configuration.
 	 */
 	public static Configuration fromFile(final String filePath) {
-		return new Configuration().resetFrom(filePath);
+		
+		final var configuration = new Configuration();
+		configuration.resetFromFile(filePath);
+		
+		return configuration;
 	}
 	
 	//static method
@@ -38,7 +42,7 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	public static Configuration fromSpecification(final BaseNode specification) {
 		
 		final var configuration = new Configuration();
-		configuration.reset(specification);
+		configuration.resetFrom(specification);
 		
 		return configuration;
 	}

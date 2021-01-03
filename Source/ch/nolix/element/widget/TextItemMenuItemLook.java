@@ -24,7 +24,7 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	) {
 		
 		final var selectionMenuItemLook = new TextItemMenuItemLook();
-		selectionMenuItemLook.reset(specification);
+		selectionMenuItemLook.resetFrom(specification);
 		
 		return selectionMenuItemLook;
 	}
