@@ -8,41 +8,16 @@ import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 90
+ * @lines 70
  * @param <V> is the type of the value of an optional property.
  */
 public final class MutableOptionalValue<V> extends SingleValue<V> {
-	
-	//TODO: Delete this constructor.
-	//constructor
-	/**
-	 * Creates a new {@link MutableOptionalValue} with the given name, setterMethod and valueCreator.
-	 * 
-	 * @param name
-	 * @param setterMethod
-	 * @param valueCreator
-	 * @param <E>
-	 * @throws ArgumentIsNullException if the given name is blank.
-	 * @throws InvalidArgumentException if the given setterMethod is null.
-	 * @throws ArgumentIsNullException if the given valueCreator is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public <E extends IElement> MutableOptionalValue(
-		final String name,
-		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator
-	) {
 		
-		//Calls constructor of the base class.
-		super(name, setterMethod, valueCreator, v -> ((E)v).getSpecification());
-	}
-	
 	//constructor
 	/**
 	 * Creates a new {@link MutableOptionalValue}

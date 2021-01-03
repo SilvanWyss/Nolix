@@ -27,7 +27,8 @@ public final class Background extends Element<Background> implements ISmartMutab
 	new MutableOptionalValue<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		this::setBackgroundColor,
-		Color::fromSpecification
+		Color::fromSpecification,
+		Color::getSpecification
 	);
 	
 	//attribute
@@ -35,7 +36,8 @@ public final class Background extends Element<Background> implements ISmartMutab
 	new MutableOptionalValue<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		this::setBackgroundColorGradient,
-		ColorGradient::fromSpecification
+		ColorGradient::fromSpecification,
+		ColorGradient::getSpecification
 	);
 	
 	//attribute
