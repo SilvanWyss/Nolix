@@ -770,7 +770,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {}
+	protected void recalculateBorderWidget() {}
 	
 	//method
 	/**

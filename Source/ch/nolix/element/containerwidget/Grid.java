@@ -349,7 +349,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 						
 		var y = 0;
 		

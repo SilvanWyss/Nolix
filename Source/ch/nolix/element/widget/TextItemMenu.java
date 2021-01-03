@@ -289,7 +289,7 @@ implements Clearable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {
+	protected final void recalculateBorderWidget() {
 		
 		recalculateSelfStage3();
 		

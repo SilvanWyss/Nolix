@@ -397,7 +397,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
 	}
 	

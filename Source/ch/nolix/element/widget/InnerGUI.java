@@ -277,7 +277,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 		//TODO: internalGUI.noteResize(getTargetContentAreaWidth(), getTargetContentAreaHeight())
 		internalGUI.recalculate();
 	}

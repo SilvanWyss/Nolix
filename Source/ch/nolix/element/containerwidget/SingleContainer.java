@@ -280,7 +280,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {}
+	protected void recalculateBorderWidget() {}
 	
 	//method
 	/**

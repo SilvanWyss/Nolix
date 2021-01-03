@@ -1595,7 +1595,25 @@ extends Widget<BW, BWL> {
 	protected boolean paintsPaintableWidgetAPriori() {
 		return false;
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void recalculateSelfStage2() {
+		
+		recalculateBorderWidget();
+		
+		contentArea.recalculate();
+	}
+	
+	//method declaration
+	/**
+	 * Recalculates the current {@link BorderWidget}.
+	 */
+	protected abstract void recalculateBorderWidget();
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1604,7 +1622,7 @@ extends Widget<BW, BWL> {
 	protected final boolean redirectsInputsToShownWidgets() {
 		return (isEnabled() && (!hasActivatedAnyScrollBar() || showAreaIsUnderCursor()));
 	}
-	
+
 	//method
 	/**
 	 * {@inheritDoc}

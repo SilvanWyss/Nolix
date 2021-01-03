@@ -48,7 +48,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 				
 		//Enumerates the content position of the current horizontal stack.
 		switch (getContentPosition()) {

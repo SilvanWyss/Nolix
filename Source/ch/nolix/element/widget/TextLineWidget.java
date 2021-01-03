@@ -198,5 +198,5 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected final void recalculateBorderWidget() {}
 }

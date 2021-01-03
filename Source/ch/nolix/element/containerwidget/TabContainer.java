@@ -534,7 +534,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 				
 		//Handles the case that the current tab container contains a selected widget.
 		if (containsSelectedTabWithWidget()) {

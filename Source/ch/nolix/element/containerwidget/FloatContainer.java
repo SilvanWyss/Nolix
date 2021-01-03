@@ -237,7 +237,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 		
 		final var contentAreaWidth = getNaturalContentAreaWidth();
 		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();

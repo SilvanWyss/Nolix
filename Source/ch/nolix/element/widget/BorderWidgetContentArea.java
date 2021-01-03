@@ -6,26 +6,29 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.rasterapi.Rectangular;
+import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**
- * A {@link BorderWidgetContentArea} does not store or mutate data.
- * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 210
+ * @lines 230
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
-public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> implements Rectangular {
+public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> implements Recalculable, Rectangular {
 	
 	//attribute
 	/**
 	 * The {@link BorderWidget} the current {@link BorderWidgetContentArea} belongs to.
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
+	
+	//attributes
+	private int width;
+	private int height;
 	
 	//visibility-reduced constructor
 	/**
@@ -69,14 +72,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	@Override
 	public int getHeight() {
-		
-		final var naturalHeight = getNaturalHeight();
-		
-		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetHeight()) {
-			return Calculator.getMax(getTargetHeight(), naturalHeight);
-		}
-		
-		return naturalHeight;
+		return height;
 	}
 	
 	//method
@@ -133,14 +129,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	@Override
 	public int getWidth() {
-		
-		final var naturalWidth = getNaturalWidth();
-		
-		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetWidth()) {
-			return Calculator.getMax(getTargetWidth(), naturalWidth);
-		}
-		
-		return naturalWidth;
+		return width;
 	}
 	
 	//method
@@ -199,6 +188,16 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		&& cursorYPosition < getHeight();
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void recalculate() {
+		width = calculateWidth();
+		height = calculateHeight();
+	}
+	
 	//visibility-reduced method
 	/**
 	 * Paints the current {@link BorderWidgetContentArea} using the given painter and borderWidgetLook.
@@ -211,5 +210,29 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		parentBorderWidget.paintContentArea(borderWidgetLook, painter.createPainter());
 		
 		parentBorderWidget.getRefPaintableWidgets().forEach(cw -> cw.paintRecursively(painter));
+	}
+	
+	//method
+	private int calculateHeight() {
+		
+		final var naturalHeight = getNaturalHeight();
+		
+		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetHeight()) {
+			return Calculator.getMax(getTargetHeight(), naturalHeight);
+		}
+		
+		return naturalHeight;
+	}
+	
+	//method
+	private int calculateWidth() {
+		
+		final var naturalWidth = getNaturalWidth();
+		
+		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetWidth()) {
+			return Calculator.getMax(getTargetWidth(), naturalWidth);
+		}
+		
+		return naturalWidth;
 	}
 }

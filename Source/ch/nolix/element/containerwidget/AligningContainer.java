@@ -203,7 +203,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 		
 		final var contentAreaWidth = getContentArea().getWidth();
 		final var contentAreaHeight = getContentArea().getHeight();

@@ -48,7 +48,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {
+	protected void recalculateBorderWidget() {
 		
 		//Enumerates the content position of the current VerticalStack.
 		switch (getContentPosition()) {
