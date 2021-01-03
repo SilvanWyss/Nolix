@@ -147,10 +147,7 @@ implements IMutableElement<C> {
 				addConfiguration(Configuration.fromSpecification(attribute));
 				break;
 			case DeepConfiguration.TYPE_NAME:
-				//TODO: Create DeepConfiguration.fromSpecification static method.
-				final var deepConfiguration = new DeepConfiguration();
-				deepConfiguration.resetFrom(attribute);
-				addConfiguration(deepConfiguration);
+				addConfiguration(DeepConfiguration.fromSpecification(attribute));
 				break;
 			default:
 				addAttachingAttribute(attribute);

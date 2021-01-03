@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 180
+ * @lines 190
  */
 public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
@@ -24,6 +24,20 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//constant
 	private static final String MAX_SELECTOR_LEVEL_HEADER = "MaxSelectorLevel";
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link DeepConfiguration} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static DeepConfiguration fromSpecification(final BaseNode specification) {
+		
+		final var deepConfiguration = new DeepConfiguration();
+		deepConfiguration.resetFrom(specification);
+		
+		return deepConfiguration;
+	}
 	
 	//optional attribute
 	private int maxSelectorLevel = -1;
