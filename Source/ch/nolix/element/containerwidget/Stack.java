@@ -9,7 +9,6 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.gui.WidgetGUI;
@@ -26,7 +25,7 @@ import ch.nolix.element.painterapi.IPainter;
  * @lines 360
  * @param <S> The type of a {@link Stack}.
  */
-public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> implements Clearable {
+public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
 	
 	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";

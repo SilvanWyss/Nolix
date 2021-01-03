@@ -12,7 +12,6 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Widget;
@@ -26,7 +25,7 @@ import ch.nolix.element.widget.Label;
  * @date 2016-05-01
  * @lines 570
  */
-public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> implements Clearable {
+public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "TabContainer";

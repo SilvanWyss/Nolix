@@ -54,6 +54,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public void clear() {
 		cells.clear();
 	}
@@ -158,6 +159,12 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public boolean hasLines() {
 		return getRefLook().hasRecursiveLineType();
+	}
+	
+	//method
+	@Override
+	public boolean isEmpty() {
+		return cells.isEmpty();
 	}
 	
 	//method

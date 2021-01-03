@@ -9,7 +9,6 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
@@ -24,7 +23,7 @@ import ch.nolix.element.painterapi.IPainter;
  * @date 2018-08-13
  * @lines 450
  */
-public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable {
+public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//constants
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;

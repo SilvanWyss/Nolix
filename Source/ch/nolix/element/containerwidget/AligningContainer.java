@@ -28,6 +28,35 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	}
 	
 	//method
+	@Override
+	public void clear() {
+		topLeftSlot.clear();
+		topSlot.clear();
+		topRightSlot.clear();
+		leftSlot.clear();
+		centerSlot.clear();
+		rightSlot.clear();
+		bottomLeftSlot.clear();
+		bottomSlot.clear();
+		bottomRightSlot.clear();
+	}
+	
+	//method
+	@Override
+	public boolean isEmpty() {
+		return
+		topLeftSlot.isEmpty()
+		&& topSlot.isEmpty()
+		&& topRightSlot.isEmpty()
+		&& leftSlot.isEmpty()
+		&& centerSlot.isEmpty()
+		&& rightSlot.isEmpty()
+		&& bottomLeftSlot.isEmpty()
+		&& bottomSlot.isEmpty()
+		&& bottomRightSlot.isEmpty();
+	}
+	
+	//method
 	public AligningContainer setOnBottom(final Widget<?, ?> widget) {
 		
 		bottomSlot.setWidget(widget);
@@ -263,7 +292,5 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void resetStage5() {
-		//TODO: clear
-	}
+	protected void resetStage5() {}
 }

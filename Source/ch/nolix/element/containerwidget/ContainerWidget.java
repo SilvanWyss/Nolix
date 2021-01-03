@@ -10,6 +10,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.BorderWidget;
@@ -26,7 +27,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
 public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>,	BWS extends BorderWidgetLook<BWS>>
-extends BorderWidget<CW, BWS> {
+extends BorderWidget<CW, BWS> implements Clearable {
 	
 	//optional attribute
 	private ContainerRole role;
@@ -143,6 +144,7 @@ extends BorderWidget<CW, BWS> {
 	protected final void resetStage4() {
 		
 		removeRole();
+		clear();
 		
 		resetStage5();
 	}

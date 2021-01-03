@@ -7,7 +7,6 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
@@ -21,7 +20,7 @@ import ch.nolix.element.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 290
  */
-public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> implements Clearable {
+public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "SingleContainer";
