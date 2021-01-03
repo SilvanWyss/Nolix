@@ -13,11 +13,26 @@ import ch.nolix.common.node.Node;
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 70
+ * @lines 80
  * @param <V> is the type of the value of an optional property.
  */
 public final class MutableOptionalValue<V> extends SingleValue<V> {
-		
+	
+	//TODO: Add such static creator methods for Strings and Integers to all concrete Property classes.
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return
+	 * a new {@link MutableOptionalValue} that will store a {@link String} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static MutableOptionalValue<String> forString(final String name,	final IElementTaker<String> setterMethod) {
+		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getHeader, Node::withHeader);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link MutableOptionalValue}
