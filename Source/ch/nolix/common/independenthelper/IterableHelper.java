@@ -1,22 +1,17 @@
 //package declaration
 package ch.nolix.common.independenthelper;
 
-//Java import
-import java.util.Iterator;
-
 //class
 /**
- * This class provides functions to handle iterable objects.
- * Methods are called on objects, functions are not.
- * 
- * Of this class an instance cannot be created.
+ * The {@link IterableHelper} provides methods to handle {@link Iterable}s.
+ * Of the {@link IterableHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-12
+ * @date 2017-12-16
  * @lines 40
  */
 public final class IterableHelper {
-
+	
 	//static method
 	/**
 	 * @param container
@@ -24,8 +19,8 @@ public final class IterableHelper {
 	 */
 	public static int getElementCount(final Iterable<?> container) {
 		
-		int elementCount = 0;
-		final Iterator<?> iterator = container.iterator();
+		var elementCount = 0;
+		final var iterator = container.iterator();
 		while (iterator.hasNext()) {
 			elementCount++;
 			iterator.next();
@@ -33,7 +28,16 @@ public final class IterableHelper {
 		
 		return elementCount;
 	}
-
+	
+	//static method
+	/**
+	 * @param container
+	 * @return true if the given container is not empty.
+	 */
+	public static boolean isEmpty(final Iterable<?> container) {
+		return !container.iterator().hasNext();
+	}
+	
 	//visibility-reduced constructor
 	/**
 	 * Avoids that an instance of this class can be created.
