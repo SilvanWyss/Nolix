@@ -24,7 +24,7 @@ public final class NetServerTest extends Test {
 		expect(netServer.isOpen());
 		
 		//execution & verification
-		expect(netServer::close).doesNotThrowException();
+		expectRunning(netServer::close).doesNotThrowException();
 		
 		//verification
 		expect(netServer.isClosed());

@@ -249,7 +249,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		final var testUnit = createTestUnit();
 		
 		//execution & verification
-		expect(() -> testUnit.getRefBaseLook().setBorderColors(null))
+		expectRunning(() -> testUnit.getRefBaseLook().setBorderColors(null))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given border color is null.");
@@ -277,7 +277,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		final var testUnit = createTestUnit();
 		
 		//execution & verification
-		expect(() -> testUnit.setMaxWidth(-100))
+		expectRunning(() -> testUnit.setMaxWidth(-100))
 		.throwsException()
 		.ofType(NonPositiveArgumentException.class)
 		.withMessage("The given max width '-100' is not positive.");
@@ -333,7 +333,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		final var testUnit = createTestUnit();
 		
 		//execution & verification
-		expect(() -> testUnit.setProposalWidth(-100))
+		expectRunning(() -> testUnit.setProposalWidth(-100))
 		.throwsException()
 		.ofType(NonPositiveArgumentException.class)
 		.withMessage("The given proposal width '-100' is not positive.");

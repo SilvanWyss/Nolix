@@ -29,7 +29,7 @@ public final class LinkedListTest extends Test {
 		final Object nullElement = null;
 		
 		//execution & verification
-		expect(() -> testUnit.addAtBegin(nullElement))
+		expectRunning(() -> testUnit.addAtBegin(nullElement))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given element is null.");
@@ -44,7 +44,7 @@ public final class LinkedListTest extends Test {
 		final Object nullElement = null;
 		
 		//execution & verification
-		expect(() -> testUnit.addAtEnd(nullElement))
+		expectRunning(() -> testUnit.addAtEnd(nullElement))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given element is null.");

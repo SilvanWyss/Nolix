@@ -18,7 +18,7 @@ public final class Nolix2020ClassicTest extends Test {
 		final var testUnit = new Nolix2020Classic();
 		
 		//execution & verification
-		expect(() -> testUnit.activate("0000-0000"))
+		expectRunning(() -> testUnit.activate("0000-0000"))
 		.throwsException()
 		.ofType(UnacceptedKeyException.class)
 		.withMessage("The given key '0000-0000' is not accepted.");

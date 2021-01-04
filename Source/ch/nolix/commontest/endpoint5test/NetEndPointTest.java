@@ -88,7 +88,7 @@ public final class NetEndPointTest extends Test {
 		netServer.addMainEndPointTaker(new EndPointTakerMock());
 		
 		//execution & verification
-		expect(
+		expectRunning(
 			() -> {
 				final var netEndPoint = new NetEndPoint(port);
 				Sequencer.waitForMilliseconds(500);

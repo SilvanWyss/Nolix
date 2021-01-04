@@ -16,7 +16,7 @@ public final class ClosedIntervalTest extends Test {
 	//method
 	@TestCase
 	public void testCase_creation_whenTheGivenMinIsNull() {
-		expect(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
+		expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given minimum is null.");
@@ -25,7 +25,7 @@ public final class ClosedIntervalTest extends Test {
 	//method
 	@TestCase
 	public void testCase_creation_whenTheGivenMaxIsNull() {
-		expect(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
+		expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given maximum is null.");

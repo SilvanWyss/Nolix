@@ -55,7 +55,7 @@ public final class NetEndPointTest extends Test {
 		netServer.addMainEndPointTaker(new TestEndPointTaker());
 		
 		//execution & verification
-		expect(
+		expectRunning(
 			() -> {
 				final var netEndPoint = new NetEndPoint(port);
 				Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);

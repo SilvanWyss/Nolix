@@ -22,7 +22,7 @@ public final class QuadraticFunctionTest extends Test {
 	public void testCase_creation() {
 		
 		//execution & verification
-		expect(() -> new QuadraticFunction(0.0, 0.0, 0.0))
+		expectRunning(() -> new QuadraticFunction(0.0, 0.0, 0.0))
 		.throwsException()
 		.ofType(InvalidArgumentException.class);
 	}

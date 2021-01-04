@@ -37,7 +37,7 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 		);
 		
 		//execution & verification
-		expect(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
+		expectRunning(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
 	}
 	
 	//method
@@ -48,7 +48,7 @@ public abstract class GUILookTest<GL extends Configuration> extends ObjectTest<G
 		final var lGUI = new InvisibleGUI();
 		
 		//execution & verification
-		expect(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
+		expectRunning(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
 	}
 	
 	//method

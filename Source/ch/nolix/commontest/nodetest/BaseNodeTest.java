@@ -150,9 +150,9 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result3.toString()).isEqualTo("c");
 		
 		//verification part 2
-		expect(() -> testUnit.getRefAttributeAt(-1)).throwsException().ofType(NonPositiveArgumentException.class);
-		expect(() -> testUnit.getRefAttributeAt(0)).throwsException().ofType(NonPositiveArgumentException.class);
-		expect(() -> testUnit.getRefAttributeAt(4)).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(() -> testUnit.getRefAttributeAt(-1)).throwsException().ofType(NonPositiveArgumentException.class);
+		expectRunning(() -> testUnit.getRefAttributeAt(0)).throwsException().ofType(NonPositiveArgumentException.class);
+		expectRunning(() -> testUnit.getRefAttributeAt(4)).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method
@@ -240,7 +240,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		testUnit.reset();
 		
 		//execution
-		expect(testUnit::getRefOneAttribute).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(testUnit::getRefOneAttribute).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method
@@ -397,7 +397,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		final var testUnit = createTestUnit();
 		
 		//execution & verification
-		expect(() -> testUnit.resetFromString("a(b).c"))
+		expectRunning(() -> testUnit.resetFromString("a(b).c"))
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class);
 	}

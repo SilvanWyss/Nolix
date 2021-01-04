@@ -277,7 +277,7 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = new ChainedNode();
 		
 		//execution & verification
-		expect(testUnit::toInt)
+		expectRunning(testUnit::toInt)
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class)
 		.withMessage("The given ChainedNode does not represent an Integer.");
@@ -291,7 +291,7 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = ChainedNode.fromString("100(x)");
 				
 		//execution & verification
-		expect(testUnit::toInt)
+		expectRunning(testUnit::toInt)
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class)
 		.withMessage("The given ChainedNode '100(x)' does not represent an Integer.");

@@ -46,7 +46,7 @@ public final class CachingContainerTest extends Test {
 		final var testUnit = new CachingContainer<Cat>();
 		
 		//execution
-		expect(() -> testUnit.getRefById("G")).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(() -> testUnit.getRefById("G")).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method
@@ -76,7 +76,7 @@ public final class CachingContainerTest extends Test {
 		testUnit.registerAndGetId(garfield);
 		
 		//execution & verification
-		expect(() -> testUnit.registerAndGetId(garfield)).throwsException();
+		expectRunning(() -> testUnit.registerAndGetId(garfield)).throwsException();
 	}
 	
 	//method
@@ -108,7 +108,7 @@ public final class CachingContainerTest extends Test {
 		testUnit.registerAtId(garfieldId, garfield);
 		
 		//execution & verification
-		expect(() -> testUnit.registerAtId(garfieldId, garfield)).throwsException();
+		expectRunning(() -> testUnit.registerAtId(garfieldId, garfield)).throwsException();
 	}
 	
 	//method

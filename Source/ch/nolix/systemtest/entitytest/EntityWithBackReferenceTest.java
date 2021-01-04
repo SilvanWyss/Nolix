@@ -45,7 +45,7 @@ public final class EntityWithBackReferenceTest extends Test {
 		final var testUnit = new Entity1C();
 		
 		//execution & verification
-		expect(testUnit::extractProperties)
+		expectRunning(testUnit::extractProperties)
 		.throwsException()
 		.ofType(ArgumentDoesNotHaveAttributeException.class)
 		.withMessage("The given Class '" + Entity1A.class + "' does not have a reference2.");
@@ -59,6 +59,6 @@ public final class EntityWithBackReferenceTest extends Test {
 		final var testUnit = new Entity1B();
 		
 		//execution & verification
-		expect(testUnit::extractProperties).doesNotThrowException();
+		expectRunning(testUnit::extractProperties).doesNotThrowException();
 	}
 }

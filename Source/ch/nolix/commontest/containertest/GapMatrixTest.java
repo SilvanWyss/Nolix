@@ -117,7 +117,7 @@ public final class GapMatrixTest extends Test {
 		expect(iterator.hasNext());
 		expect(iterator.next()).isEqualTo("VI");
 		expectNot(iterator.hasNext());
-		expect(iterator::next).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+		expectRunning(iterator::next).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
 	}
 	
 	//method
@@ -132,6 +132,6 @@ public final class GapMatrixTest extends Test {
 		
 		//verification
 		expectNot(iterator.hasNext());
-		expect(iterator::next).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+		expectRunning(iterator::next).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
 	}
 }

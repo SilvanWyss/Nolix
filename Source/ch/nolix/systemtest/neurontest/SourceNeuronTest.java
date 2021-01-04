@@ -29,7 +29,7 @@ public final class SourceNeuronTest extends Test {
 	public void testCase_creation_whenTheGivenOutputIsNull() {
 		
 		//execution & verification
-		expect(() -> new SourceNeuron<String>(null))
+		expectRunning(() -> new SourceNeuron<String>(null))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given output is null.");

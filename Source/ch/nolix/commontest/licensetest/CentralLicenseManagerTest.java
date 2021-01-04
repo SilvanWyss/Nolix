@@ -21,7 +21,7 @@ public final class CentralLicenseManagerTest extends Test {
 	public void testCase_requireFeature_whenLicenseIsNotThere() {
 		
 		//execution & verification
-		expect(() -> CentralLicenseManager.requireFeature(TestFeature.class)).throwsException();
+		expectRunning(() -> CentralLicenseManager.requireFeature(TestFeature.class)).throwsException();
 	}
 	
 	//method
@@ -34,7 +34,7 @@ public final class CentralLicenseManagerTest extends Test {
 		CentralLicenseManager.addLicense(testLicense);
 		
 		//execution & verification
-		expect(() -> CentralLicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
+		expectRunning(() -> CentralLicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
 		
 		//cleanup
 		CentralLicenseManager.removeLicense(testLicense);
