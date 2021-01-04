@@ -4,10 +4,10 @@ package ch.nolix.elementtest.containerwidgettest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.containerwidget.VerticalStack;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.TextBox;
-import ch.nolix.elementtest.widgettest.BorderWidgetTest;
 
 //class
 /**
@@ -17,7 +17,7 @@ import ch.nolix.elementtest.widgettest.BorderWidgetTest;
  * @month 2016-06
  * @lines 60
  */
-public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
+public final class VerticalStackTest extends ContainerWidgetTest<VerticalStack> {
 	
 	//method
 	@TestCase
@@ -52,6 +52,12 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 		
 		//verification
 		expect(verticalStack.isEmpty());
+	}
+	
+	//method
+	@Override
+	protected void addWidgetToContainerWidget(final VerticalStack verticalStack, final Widget<?, ?> widget) {
+		verticalStack.addWidget(widget);
 	}
 	
 	//method

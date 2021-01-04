@@ -6,7 +6,7 @@ import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.containerwidget.Accordion;
 import ch.nolix.element.containerwidget.AccordionExpansionBehavior;
 import ch.nolix.element.containerwidget.AccordionTab;
-import ch.nolix.elementtest.widgettest.BorderWidgetTest;
+import ch.nolix.element.gui.Widget;
 
 //class
 /**
@@ -16,7 +16,7 @@ import ch.nolix.elementtest.widgettest.BorderWidgetTest;
  * @month 2018-08
  * @lines 90
  */
-public final class AccordionTest extends BorderWidgetTest<Accordion> {
+public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 	
 	//method
 	@TestCase
@@ -91,6 +91,12 @@ public final class AccordionTest extends BorderWidgetTest<Accordion> {
 		
 		//execution & verification
 		expect(accordion.getType()).isEqualTo("Accordion");
+	}
+	
+	//method
+	@Override
+	protected void addWidgetToContainerWidget(final Accordion accordion, final Widget<?, ?> widget) {
+		accordion.addTab("Tab", widget);
 	}
 	
 	//method

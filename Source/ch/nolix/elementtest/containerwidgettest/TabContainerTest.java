@@ -5,11 +5,11 @@ package ch.nolix.elementtest.containerwidgettest;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.containerwidget.TabContainer;
 import ch.nolix.element.containerwidget.TabContainerTab;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Area;
-import ch.nolix.elementtest.widgettest.BorderWidgetTest;
 
 //class
-public final class TabContainerTest extends BorderWidgetTest<TabContainer> {
+public final class TabContainerTest extends ContainerWidgetTest<TabContainer> {
 	
 	//method
 	@TestCase
@@ -56,6 +56,12 @@ public final class TabContainerTest extends BorderWidgetTest<TabContainer> {
 		//verification
 		expect(tab2.isSelected());
 		expectNot(tab1.isSelected());
+	}
+	
+	//method
+	@Override
+	protected void addWidgetToContainerWidget(final TabContainer tabContainer, final Widget<?, ?> widget) {
+		tabContainer.addTab(new TabContainerTab("Tab", widget));
 	}
 	
 	//method

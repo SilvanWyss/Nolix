@@ -4,8 +4,8 @@ package ch.nolix.elementtest.containerwidgettest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.containerwidget.SingleContainer;
+import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Label;
-import ch.nolix.elementtest.widgettest.BorderWidgetTest;
 
 //class
 /**
@@ -13,9 +13,9 @@ import ch.nolix.elementtest.widgettest.BorderWidgetTest;
  * 
  * @author Silvan Wyss
  * @month 2018-12
- * @lines 50
+ * @lines 60
  */
-public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
+public class SingleContainerTest extends ContainerWidgetTest<SingleContainer> {
 	
 	//method
 	@TestCase
@@ -49,6 +49,13 @@ public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 		expect(singleContainer.getRefWidget()).isSameAs(label);
 	}
 	
+	//method
+	@Override
+	protected void addWidgetToContainerWidget(final SingleContainer singleContainer, final Widget<?, ?> widget) {
+		singleContainer.setWidget(widget);
+	}
+	
+	//method
 	@Override
 	protected SingleContainer createTestUnit() {
 		return new SingleContainer();
