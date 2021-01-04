@@ -6,7 +6,7 @@ package ch.nolix.common.invalidargumentexception;
 public final class ArgumentHasAttributeException extends InvalidArgumentException {
 	
 	//static method
-	private static String createSafeAttribtueName(final String attributeName) {
+	private static String createSafeAttributeName(final String attributeName) {
 		
 		//Asserts that the given attributeName is not null.
 		if (attributeName == null) {
@@ -43,6 +43,6 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 	public ArgumentHasAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
-		super(argument, "has a " + createSafeAttribtueName(attributeName));
+		super(argument, "has a " + createSafeAttributeName(attributeName));
 	}
 }

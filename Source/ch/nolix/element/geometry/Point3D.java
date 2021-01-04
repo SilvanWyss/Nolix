@@ -16,8 +16,8 @@ import ch.nolix.element.elementapi.IElement;
  * A 3D point is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-05
- * @lines 150
+ * @date 2016-06-01
+ * @lines 140
  */
 public class Point3D implements IElement {
 	
@@ -57,7 +57,7 @@ public class Point3D implements IElement {
 	
 	//method
 	/**
-	 * @return the attribtues of this 3D point.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public LinkedList<Node> getAttributes() {

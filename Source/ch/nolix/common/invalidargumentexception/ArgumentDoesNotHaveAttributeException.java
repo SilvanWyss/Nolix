@@ -39,21 +39,21 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * @throws IllegalArgumentException if the given attribute name is empty.
 	 * @throws IllegalArgumentException if the given attribute name is blank.
 	 */
-	private static String createSafeAttribtueName(final String attributeName) {
+	private static String createSafeAttributeName(final String attributeName) {
 		
 		//Asserts that the given attribute name is not null.
 		if (attributeName == null) {
-			throw new IllegalArgumentException("The given attribtue name is null.");
+			throw new IllegalArgumentException("The given attribute name is null.");
 		}
 		
 		//Asserts that the given attribute name is not empty.
 		if (attributeName.isEmpty()) {
-			throw new IllegalArgumentException("The given attribtue name is empty.");
+			throw new IllegalArgumentException("The given attribute name is empty.");
 		}
 		
 		//Asserts that the given attribute name is not blank.
 		if (attributeName.isBlank()) {
-			throw new IllegalArgumentException("The given attribtue name is blank.");
+			throw new IllegalArgumentException("The given attribute name is blank.");
 		}
 		
 		return attributeName;
@@ -88,6 +88,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	public ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
-		super(argument, "does not have a " + createSafeAttribtueName(attributeName));
+		super(argument, "does not have a " + createSafeAttributeName(attributeName));
 	}
 }
