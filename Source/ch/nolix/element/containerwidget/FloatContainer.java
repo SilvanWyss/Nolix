@@ -75,12 +75,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	public boolean isEmpty() {
-		return widgets.isEmpty();
-	}
-	
-	//method
-	@Override
 	protected boolean contentAreaMustBeExpandedToTargetSize() {
 		return true;
 	}

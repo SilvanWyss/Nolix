@@ -21,7 +21,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 450
+ * @lines 440
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
@@ -221,15 +221,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		return tabs.getElementCount();
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isEmpty() {
-		return getRefTabs().isEmpty();
-	}
-		
 	//method
 	/**
 	 * Sets the expansion behavior of the current {@link Accordion}.

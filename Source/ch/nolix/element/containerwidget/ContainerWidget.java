@@ -22,7 +22,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 160
+ * @lines 170
  * @param <CW> The type of a {@link ContainerWidget}.
  * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
@@ -83,6 +83,15 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		assertHasRole();
 		
 		return role;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean isEmpty() {
+		return this.getChildWidgets().isEmpty();
 	}
 	
 	//method

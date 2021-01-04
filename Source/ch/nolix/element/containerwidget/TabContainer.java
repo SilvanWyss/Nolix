@@ -23,7 +23,7 @@ import ch.nolix.element.widget.Label;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 570
+ * @lines 560
  */
 public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	
@@ -225,15 +225,6 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	public ReadContainer<TabContainerTab> getRefTabs() {
 		return ReadContainer.forIterable(tabs);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isEmpty() {
-		return getRefTabs().isEmpty();
 	}
 	
 	//method

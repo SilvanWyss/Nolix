@@ -90,15 +90,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 			return widget;
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isEmpty() {
-		return (widget == null);
-	}
-	
 	/**
 	 * Sets the widget of the current {@link SingleContainer}.
 	 * 

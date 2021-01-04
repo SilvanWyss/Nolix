@@ -22,7 +22,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 360
+ * @lines 350
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
@@ -172,15 +172,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final boolean hasElementMargin() {
 		return elementMargin.hasValue();
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Stack} does not contain a widget.
-	 */
-	@Override
-	public final boolean isEmpty() {
-		return widgets.isEmpty();
 	}
 	
 	//method
