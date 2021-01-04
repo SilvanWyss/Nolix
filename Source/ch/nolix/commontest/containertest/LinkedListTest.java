@@ -436,7 +436,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = new LinkedList<>();
 		
 		//execution & verification
-		expect(testUnit::getRefFirst)
+		expectRunning(testUnit::getRefFirst)
 		.throwsException()
 		.ofType(EmptyArgumentException.class)
 		.withMessage("The given LinkedList is empty.");

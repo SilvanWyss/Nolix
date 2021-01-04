@@ -110,15 +110,6 @@ public abstract class Test extends ch.nolix.common.basetest.BaseTest {
 	
 	//method
 	/**
-	 * @param closure
-	 * @return a new closure mediator that belongs to this test and is for the given closure.
-	 */
-	protected final ClosureMediator expect(final IAction closure) {
-		return new ClosureMediator(this, closure);
-	}
-	
-	//method
-	/**
 	 * @param container
 	 * @param <E> is the type of the elements of the given container.
 	 * @return a new container mediator that belongs to this test and is for the given container.
@@ -206,6 +197,15 @@ public abstract class Test extends ch.nolix.common.basetest.BaseTest {
 				//Increments index.
 				index++;
 			}
+	}
+	
+	//method
+	/**
+	 * @param closure
+	 * @return a new closure mediator that belongs to this test and is for the given closure.
+	 */
+	protected final ClosureMediator expectRunning(final IAction closure) {
+		return new ClosureMediator(this, closure);
 	}
 	
 	//method
