@@ -14,8 +14,8 @@ import ch.nolix.common.requestapi.ApproximativeEqualing;
  * A test is a test that provides the fluent pattern for writing expectations.
  * 
  * @author Silvan Wyss
- * @month 2016-08
- * @lines 260
+ * @date 2016-09-01
+ * @lines 280
  */
 public abstract class Test extends ch.nolix.common.basetest.BaseTest {
 	
@@ -115,6 +115,16 @@ public abstract class Test extends ch.nolix.common.basetest.BaseTest {
 	 */
 	protected final ClosureMediator expect(final IAction closure) {
 		return new ClosureMediator(this, closure);
+	}
+	
+	//method
+	/**
+	 * @param container
+	 * @param <E> is the type of the elements of the given container.
+	 * @return a new container mediator that belongs to this test and is for the given container.
+	 */
+	protected final <E> ContainerMediator<E> expect(final Iterable<E> container) {
+		return new ContainerMediator<>(this, container);
 	}
 	
 	//method
