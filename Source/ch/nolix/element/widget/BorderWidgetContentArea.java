@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 230
+ * @lines 250
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
@@ -29,6 +29,8 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	//attributes
 	private int width;
 	private int height;
+	private int naturalWidth;
+	private int naturalHeight;
 	
 	//visibility-reduced constructor
 	/**
@@ -112,7 +114,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 * @return the natural height of the current {@link BorderWidgetContentArea}.
 	 */
 	public int getNaturalHeight() {
-		return parentBorderWidget.getNaturalContentAreaHeight();
+		return naturalHeight;
 	}
 	
 	//method
@@ -120,7 +122,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 * @return the natural width of the current {@link BorderWidgetContentArea}.
 	 */
 	public int getNaturalWidth() {
-		return parentBorderWidget.getNaturalContentAreaWidth();
+		return naturalWidth;
 	}
 	
 	//method
@@ -196,6 +198,8 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	public void recalculate() {
 		width = calculateWidth();
 		height = calculateHeight();
+		naturalWidth = calculateNaturalWidth();
+		naturalHeight = calculateNaturalHeight();
 	}
 	
 	//visibility-reduced method
@@ -222,6 +226,16 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		}
 		
 		return naturalHeight;
+	}
+	
+	//method
+	private int calculateNaturalHeight() {
+		return parentBorderWidget.getNaturalContentAreaHeight();
+	}
+	
+	//method
+	private int calculateNaturalWidth() {
+		return parentBorderWidget.getNaturalContentAreaWidth();
 	}
 	
 	//method
