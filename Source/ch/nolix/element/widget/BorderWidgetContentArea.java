@@ -219,13 +219,13 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	//method
 	private int calculateHeight() {
 		
-		final var naturalHeight = getNaturalHeight();
+		var lHeight = getNaturalHeight();
 		
 		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetHeight()) {
-			return Calculator.getMax(getTargetHeight(), naturalHeight);
+			lHeight = Calculator.getMax(getTargetHeight(), lHeight);
 		}
 		
-		return naturalHeight;
+		return lHeight;
 	}
 	
 	//method
@@ -241,12 +241,12 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	//method
 	private int calculateWidth() {
 		
-		final var naturalWidth = getNaturalWidth();
+		var lWidth = getNaturalWidth();
 		
 		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetWidth()) {
-			return Calculator.getMax(getTargetWidth(), naturalWidth);
+			lWidth = Calculator.getMax(getTargetWidth(), lWidth);
 		}
 		
-		return naturalWidth;
+		return lWidth;
 	}
 }
