@@ -38,8 +38,12 @@ final class WebSocketFrameFirstNibble {
 		this.maskBit = maskBit;		
 		payloadLengthSpecification = WebSocketFramePayloadLengthType.fromPayloadLength(payloadLength);
 		
-		this.m7BitPayloadLength =
-		payloadLengthSpecification == WebSocketFramePayloadLengthType.BITS_7 ? payloadLength : 0;
+		if (payloadLengthSpecification == WebSocketFramePayloadLengthType.BITS_7) {
+			m7BitPayloadLength = payloadLength;
+		}
+		else {
+			m7BitPayloadLength = 0;
+		}
 	}
 	
 	//constructor
@@ -52,13 +56,13 @@ final class WebSocketFrameFirstNibble {
 		
 		//TODO: Validator.assertThatTheBit(b).thatIsNamed("B").isFalse()
 		/*
-		final var RSV1BIt = wrapperByte1.getBitAt(2);
-		final var RSV2BIt = wrapperByte1.getBitAt(3);
-		final var RSV3BIt = wrapperByte1.getBitAt(4);
+		final var RSV1BIt = wrapperByte1.getBitAt(2)
+		final var RSV2BIt = wrapperByte1.getBitAt(3)
+		final var RSV3BIt = wrapperByte1.getBitAt(4)
 		
-		Validator.assertThatTheBit(RSV1BIt).thatIsNamed("RSV1BIt").isFalse();
-		Validator.assertThatTheBit(RSV2BIt).thatIsNamed("RSV2BIt").isFalse();
-		Validator.assertThatTheBit(RSV3BIt).thatIsNamed("RSV3BIt").isFalse();
+		Validator.assertThatTheBit(RSV1BIt).thatIsNamed("RSV1BIt").isFalse()
+		Validator.assertThatTheBit(RSV2BIt).thatIsNamed("RSV2BIt").isFalse()
+		Validator.assertThatTheBit(RSV3BIt).thatIsNamed("RSV3BIt").isFalse()
 		 */
 		
 		opcode = byte1 & 0b1111;
