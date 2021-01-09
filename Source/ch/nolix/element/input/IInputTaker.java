@@ -24,13 +24,9 @@ public interface IInputTaker {
 		
 		if (input instanceof MouseInput) {
 			noteMouseInput(input.as(MouseInput.class));
-		}
-		
-		else if (input instanceof KeyInput) {
+		} else if (input instanceof KeyInput) {
 			noteKeyInput(input.as(KeyInput.class));
-		}
-		
-		else {
+		} else {
 			throw new InvalidArgumentException(input);
 		}
 	}

@@ -268,12 +268,9 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 		stringBuilder.append('>');
 		
 		if (hasValue()) {
-			 
 			if (!hasMixedContent()) {
 				stringBuilder.append(getValue());
-			}
-			
-			else {
+			} else {
 				stringBuilder
 				.append(CharacterCatalogue.NEW_LINE)
 				.append(StringHelper.createTabulators(leadingTabulatorCount + 1))

@@ -641,8 +641,7 @@ public final class ChainedNode implements OptionalHeadered {
 				
 				if (atBegin) {
 					atBegin = false;
-				}
-				else {
+				} else {
 					stringBuilder.append(",");
 				}
 				
@@ -688,8 +687,7 @@ public final class ChainedNode implements OptionalHeadered {
 			if (chainedNode.hasNextNode()) {
 				return false;
 			}
-		}
-		else {
+		} else {
 			if (!chainedNode.hasNextNode()) {
 				return false;
 			}
@@ -789,9 +787,7 @@ public final class ChainedNode implements OptionalHeadered {
 						final var node2 = new ChainedNode();
 						nextIndex = node2.setAndGetNextIndex(string, nextIndex + 1);
 						this.attributes.addAtEnd(node2);
-					}
-					
-					else if (character == ')') {
+					} else if (character == ')') {
 						nextIndex++;
 						break;
 					}

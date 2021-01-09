@@ -285,8 +285,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteKeyPress(final Key key) {
 		if (inputTaker != null) {
 			inputTaker.noteKeyPress(key);
-		}		
-		else {
+		} else {
 			noteKeyPressWhenDoesNotHaveInputTaker(key);
 		}
 	}
@@ -301,8 +300,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteKeyRelease(final Key key) {		
 		if (inputTaker != null) {
 			inputTaker.noteKeyRelease(key);
-		}		
-		else {
+		} else {
 			noteKeyReleaseWhenDoesNotHaveInputTaker(key);
 		}
 	}
@@ -315,8 +313,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteKeyTyping(final Key key) {		
 		if (inputTaker != null) {
 			inputTaker.noteKeyTyping(key);
-		}		
-		else {
+		} else {
 			noteKeyTypingWhenDoesNotHaveInputTaker(key);
 		}
 	}
@@ -330,8 +327,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteLeftMouseButtonClick() {		
 		if (inputTaker != null) {
 			inputTaker.noteLeftMouseButtonClick();
-		}		
-		else {
+		} else {
 			noteLeftMouseButtonClickWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -346,8 +342,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteLeftMouseButtonPress() {
 		if (inputTaker != null) {
 			inputTaker.noteLeftMouseButtonPress();
-		}
-		else {
+		} else {
 			noteLeftMouseButtonPressWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -361,8 +356,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteLeftMouseButtonRelease() {
 		if (inputTaker != null) {
 			inputTaker.noteLeftMouseButtonRelease();
-		}
-		else {
+		} else {
 			noteLeftMouseButtonReleaseWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -378,8 +372,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		if (inputTaker != null) {
 			inputTaker.noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
-		}
-		else {
+		} else {
 			noteMouseMoveWhenDoesNotHaveInputTaker(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		}
 	}
@@ -392,8 +385,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteMouseWheelClick() {
 		if (inputTaker != null) {
 			inputTaker.noteMouseWheelClick();
-		}
-		else {
+		} else {
 			noteMouseWheelClickWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -406,8 +398,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteMouseWheelPress() {
 		if (inputTaker != null) {
 			inputTaker.noteMouseWheelPress();
-		}
-		else {
+		} else {
 			noteMouseWheelPressWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -420,8 +411,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteMouseWheelRelease() {
 		if (inputTaker != null) {
 			inputTaker.noteMouseWheelRelease();
-		}
-		else {
+		} else {
 			noteMouseWheelReleaseWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -434,8 +424,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		if (inputTaker != null) {
 			inputTaker.noteMouseWheelRotationStep(rotationDirection);
-		}
-		else {
+		} else {
 			noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(rotationDirection);
 		}
 	}
@@ -451,8 +440,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		if (inputTaker != null) {
 			inputTaker.noteResize(viewAreaWidth, viewAreaHeight);
-		}
-		else {
+		} else {
 			noteResizeWhenDoesNotHaveInputTaker(viewAreaWidth, viewAreaHeight);
 		}
 	}
@@ -465,8 +453,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteRightMouseButtonClick() {
 		if (inputTaker != null) {
 			inputTaker.noteRightMouseButtonClick();
-		}
-		else {
+		} else {
 			noteRightMouseButtonClickWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -479,8 +466,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteRightMouseButtonPress() {
 		if (inputTaker != null) {
 			inputTaker.noteRightMouseButtonPress();
-		}
-		else {
+		} else {
 			noteRightMouseButtonPressWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -493,8 +479,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void noteRightMouseButtonRelease() {
 		if (inputTaker != null) {
 			inputTaker.noteRightMouseButtonRelease();
-		}
-		else {
+		} else {
 			noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker();
 		}
 	}
@@ -523,8 +508,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void recalculate() {
 		if (!viewAreaSizeHasChangedSinceLastRecalculation) {
 			recalculate(ChangeState.UNCHANGED);
-		}
-		else {
+		} else {
 			recalculate(ChangeState.CHANGED);
 			viewAreaSizeHasChangedSinceLastRecalculation = false;
 		}

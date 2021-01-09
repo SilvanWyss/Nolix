@@ -187,8 +187,7 @@ public final class StringHelper {
 			}
 			
 			return -toIntFromNonNegativeHexaDecimal(string.substring(startIndex));
-		}
-		else {
+		} else {
 			if (decimal) {
 				return toIntFromNonNegativeDecimal(string.substring(startIndex));
 			}

@@ -95,8 +95,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		ca -> {
 			if (ca.booleanValue()) {
 				setConfigurationAllowed();
-			}
-			else {
+			} else {
 				setConfigurationNotAllowed();
 			}
 		},
@@ -220,8 +219,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public final void addOrChangeAttribute(final BaseNode attribute) {
 		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
 			setRootWidget(WidgetGUI.createWidgetFrom(attribute));
-		}
-		else {
+		} else {
 			super.addOrChangeAttribute(attribute);
 		}
 	}

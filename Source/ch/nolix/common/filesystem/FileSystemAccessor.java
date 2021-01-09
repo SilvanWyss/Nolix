@@ -287,8 +287,7 @@ public final class FileSystemAccessor {
 		for (final var f : new File(path).listFiles()) {
 			if (f.isFile()) {
 				fileAccessors.addAtEnd(new FileAccessor(f.getPath()));
-			}
-			else if (f.isDirectory()) {
+			} else if (f.isDirectory()) {
 				fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
 			}
 		}

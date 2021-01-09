@@ -111,8 +111,7 @@ public final class SwingPainter implements IPainter {
 	) {
 		if (!hasColorGradient()) {
 			graphics.fillRect(xPosition, yPosition, width, height);
-		}
-		else {
+		} else {
 			
 			final var graphics2D = (Graphics2D)this.graphics;
 			

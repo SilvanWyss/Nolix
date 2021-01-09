@@ -512,8 +512,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public final void removeLayer(final Layer layer) {
 		if (!isTopLayer(layer)) {
 			layers.remove(layer);
-		}
-		else {
+		} else {
 			removeTopLayer();
 		}
 	}
@@ -768,8 +767,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	protected final void recalculate(ChangeState viewAreaChangeState) {
 		if (viewAreaChangeState == ChangeState.CHANGED) {
 			layers.forEach(Layer::recalculate);
-		}
-		else if (topLayer != null) {
+		} else if (topLayer != null) {
 			topLayer.recalculate();
 		}
 	}

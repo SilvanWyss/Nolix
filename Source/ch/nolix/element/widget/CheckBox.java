@@ -108,8 +108,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		
 		if (!checked) {
 			uncheck();
-		}
-		else {
+		} else {
 			check();
 		}
 		

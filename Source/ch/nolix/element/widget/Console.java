@@ -686,8 +686,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 					if (key.isCharacter()) {
 						if (getRefKeyBoard().keyIsPressed(Key.SHIFT) ^ getRefKeyBoard().shiftIsLocked()) {
 							insertCharacterAfterCursor(key.toUpperCaseChar());	
-						}
-						else {
+						} else {
 							insertCharacterAfterCursor(key.toLowerCaseChar());
 						}
 					}

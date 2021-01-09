@@ -31,8 +31,7 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 				) {
 					FileSystemAccessor.createFile(path, WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, bytes);
 				}
-			}
-			else {
+			} else {
 				FileSystemAccessor.createFile(path, bytes);
 			}
 		}

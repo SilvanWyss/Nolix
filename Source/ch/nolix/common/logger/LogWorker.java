@@ -29,8 +29,7 @@ final class LogWorker extends Thread {
 			if (containsLogEntries()) {
 				idle = false;
 				Logger.takeLogEntry(getAndRemoveNextLogEntry());
-			}
-			else {
+			} else {
 				
 				if (!idle) {
 					idle = true;

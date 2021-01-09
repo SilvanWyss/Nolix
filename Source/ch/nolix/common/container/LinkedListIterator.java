@@ -64,8 +64,7 @@ final class LinkedListIterator<E> implements Iterator<E> {
 		
 		if (nextNode.hasNextNode()) {
 			nextNode = nextNode.getNextNode();
-		}
-		else {
+		} else {
 			nextNode = null;
 		}
 		

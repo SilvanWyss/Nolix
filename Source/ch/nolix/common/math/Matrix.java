@@ -1028,8 +1028,7 @@ public final class Matrix implements ApproximativeEqualing {
 						values[j][k] += factor * values[i][k];
 					}
 				}
-			}
-			else {
+			} else {
 				break;
 			}
 			
@@ -1120,8 +1119,7 @@ public final class Matrix implements ApproximativeEqualing {
 				if (!Calculator.isApproximatelyZero(values[lineIndex - 1][j])) {
 					return false;
 				}
-			}
-			else if (!Calculator.isApproximatelyOne(values[lineIndex - 1][j])) {
+			} else if (!Calculator.isApproximatelyOne(values[lineIndex - 1][j])) {
 				return false;
 			}
 		}

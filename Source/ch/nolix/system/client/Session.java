@@ -49,7 +49,6 @@ public abstract class Session<C extends Client<C>> {
 		Class<?> lClass = getClass();
 		while (lClass != null) {
 			for (final var m : lClass.getMethods()) {
-				
 				if (SessionHelper.isRunMethod(m)) {
 					
 					SessionHelper.validateRunMethod(m);
@@ -58,9 +57,7 @@ public abstract class Session<C extends Client<C>> {
 					m.setAccessible(true);
 					
 					runMethods.addAtEnd(m);
-				}
-				
-				else if (SessionHelper.isDataMethod(m)) {
+				} else if (SessionHelper.isDataMethod(m)) {
 					
 					SessionHelper.validateDataMethod(m);
 					

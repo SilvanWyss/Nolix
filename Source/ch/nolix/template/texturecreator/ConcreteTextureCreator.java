@@ -22,13 +22,9 @@ public final class ConcreteTextureCreator extends TextureCreator {
 				
 				if ((y + 1) * (x * y - y % 3) % 7 == (x * y - x % 5 + y % 2) % 11) {
 					texture.setPixel(x, y, color1);
-				}
-				
-				else if ((x * x + y * y) % 11 == (x * y) % 13) {
+				} else if ((x * x + y * y) % 11 == (x * y) % 13) {
 					texture.setPixel(x, y, color2);
-				}
-				
-				else {
+				} else {
 					texture.setPixel(x, y, color3);
 				}
 			}

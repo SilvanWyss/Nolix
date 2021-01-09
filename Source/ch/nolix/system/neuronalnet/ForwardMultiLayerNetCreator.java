@@ -52,8 +52,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 				final var neuron = new Neuron<IO>();
 				if (i == 1) {
 					inputNeurons.addAtEnd(neuron);
-				}
-				else {
+				} else {
 					previousLayer.forEach(neuron::addInputNeuron);
 				}
 				neuron.setOutputFunction3(outputFunction);

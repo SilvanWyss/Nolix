@@ -74,8 +74,7 @@ public final class ClosureMediator extends Mediator {
 					+ exception.getClass().getName()
 					+ " was thrown."
 				);
-			}
-			else {
+			} else {
 				addCurrentTestCaseError(
 					"An exception was not expected, but a "
 					+ exception.getClass().getName()

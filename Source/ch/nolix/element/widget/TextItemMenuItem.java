@@ -203,8 +203,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	private void setSelectionFlag(final boolean selected) {
 		if (selected) {
 			select();
-		}
-		else {
+		} else {
 			unselect();
 		}
 	}

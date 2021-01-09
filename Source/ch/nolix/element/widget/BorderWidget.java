@@ -102,8 +102,7 @@ extends Widget<BW, BWL> {
 		as -> {
 			if (as.booleanValue()) {
 				activateAutomaticSize();
-			}
-			else {
+			} else {
 				deactivateAutomaticSize();
 			}
 		},
@@ -1416,9 +1415,7 @@ extends Widget<BW, BWL> {
 			/ (showAreaHeight - getVerticalScrollBarCursorHeight());
 			
 			setShowAreaYPositionOnScrolledArea(showAreaYDelta);
-		}
-		
-		else if (isMovingHorizontalScrollBarCursor) {
+		} else if (isMovingHorizontalScrollBarCursor) {
 			
 			final var horizontalScrollBarCursorXDelta =
 			getCursorXPosition() - horizontalScrollingCursorStartXPosition;

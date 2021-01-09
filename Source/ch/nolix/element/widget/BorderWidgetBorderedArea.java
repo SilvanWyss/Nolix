@@ -356,9 +356,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 					parentBorderWidget.getHorizontalScrollBarThickness(),
 					parentBorderWidget.getVerticalScrollBarThickness()
 				);
-			}
-			
-			else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
+			} else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
 				
 				final var showArea = parentBorderWidget.getShowArea();
 				

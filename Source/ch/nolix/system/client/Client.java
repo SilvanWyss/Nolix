@@ -262,8 +262,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		
 		if (!this.containsCurrentSession()) {
 			close();
-		}
-		else {
+		} else {
 			internalGetRefCurrentSession().initialize();
 			internalGetRefCurrentSession().updateCounterpart();
 		}

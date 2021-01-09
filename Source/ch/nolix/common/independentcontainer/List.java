@@ -41,8 +41,7 @@ public final class List<E> implements Iterable<E> {
 		if (isEmpty()) {
 			beginNode = node;
 			endNode = node;
-		}
-		else {
+		} else {
 			node.setNextNode(beginNode);
 			beginNode = node;
 		}
@@ -58,8 +57,7 @@ public final class List<E> implements Iterable<E> {
 		if (isEmpty()) {
 			beginNode = node;
 			endNode = node;
-		}
-		else {
+		} else {
 			endNode.setNextNode(node);
 			endNode = node;
 		}
@@ -118,8 +116,7 @@ public final class List<E> implements Iterable<E> {
 		if (!beginNode.hasNextNode()) {
 			beginNode = null;
 			endNode = null;
-		}
-		else {
+		} else {
 			beginNode = beginNode.getRefNextNodeOrNull();
 		}
 		
@@ -146,8 +143,7 @@ public final class List<E> implements Iterable<E> {
 				if (!iteratorNode.getRefNextNodeOrNull().hasNextNode()) {
 					iteratorNode.removeNextNode();
 					endNode = iteratorNode;
-				}
-				else {
+				} else {
 					iteratorNode.setNextNode(iteratorNode.getRefNextNodeOrNull().getRefNextNodeOrNull());
 				}
 				

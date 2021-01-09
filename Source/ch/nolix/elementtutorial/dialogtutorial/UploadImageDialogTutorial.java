@@ -38,8 +38,7 @@ public final class UploadImageDialogTutorial {
 					() -> {
 						if (imageWidget.isEmpty()) {
 							frame.addLayerOnTop(new UploadImageDialog(imageWidget::setImage));
-						}
-						else {
+						} else {
 							frame.addLayerOnTop(
 								new UploadImageDialog(imageWidget.getRefImage(), imageWidget::setImage)
 							);

@@ -62,8 +62,7 @@ public final class Logger {
 						
 			if (error.getMessage() == null || error.getMessage().isBlank()) {
 				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured."));
-			}
-			else {
+			} else {
 				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, error.getMessage()));
 			}
 		}

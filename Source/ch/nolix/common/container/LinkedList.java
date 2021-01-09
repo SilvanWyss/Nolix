@@ -73,8 +73,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		if (isEmpty()) {
 			firstNode = node;
 			lastNode = node;
-		}
-		else {
+		} else {
 			node.setNextNode(firstNode);
 			firstNode = node;
 		}
@@ -232,8 +231,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		if (isEmpty()) {
 			firstNode = node;
 			lastNode = node;
-		}
-		else {
+		} else {
 			lastNode.setNextNode(node);
 			lastNode = node;
 		}
@@ -492,8 +490,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 			
 			if (group == null) {
 				groups.addAtEnd(new LinkedList<E>().addAtEnd(e));
-			}
-			else {
+			} else {
 				group.addAtEnd(e);
 			}
 		}
@@ -1091,8 +1088,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 			if (element1Value.compareTo(element2Value) > 0) {
 				list.addAtEnd(startNode.getNextNode().getElement());
 				list.addAtEnd(startNode.getElement());
-			}
-			else {
+			} else {
 				list.addAtEnd(startNode.getElement());
 				list.addAtEnd(startNode.getNextNode().getElement());
 			}
@@ -1110,20 +1106,17 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 				if (subList1.isEmpty()) {
 					list.addAtEnd(subList2.getRefFirst());
 					subList2.removeFirst();
-				}
-				else if (subList2.isEmpty()) {
+				} else if (subList2.isEmpty()) {
 					list.addAtEnd(subList1.getRefFirst());
 					subList1.removeFirst();
 					
-				}
-				else {
+				} else {
 					final Comparable value1 = norm.getValue(subList1.getRefFirst());
 				 	final Comparable value2 = norm.getValue(subList2.getRefFirst());
 					if (value1.compareTo(value2) > 0) {
 						list.addAtEnd(subList2.getRefFirst());
 						subList2.removeFirst();
-					}
-					else {
+					} else {
 						list.addAtEnd(subList1.getRefFirst());
 						subList1.removeFirst();
 					}
@@ -1150,8 +1143,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		
 		if (nextNode.hasNextNode()) {
 			node.setNextNode(nextNode.getNextNode());
-		}
-		else {
+		} else {
 			node.removeNextNode();
 			lastNode = node;
 		}

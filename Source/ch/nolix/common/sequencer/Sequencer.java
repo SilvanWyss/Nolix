@@ -154,8 +154,7 @@ public final class Sequencer {
 			if (i < 100) {
 				waitForMilliseconds(10);
 				i++;
-			}
-			else {
+			} else {
 				waitForMilliseconds(100);
 			}
 		}

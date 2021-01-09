@@ -50,8 +50,7 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 			);
 			
 			geometry.setMaterial(material);
-		}
-		else {
+		} else {
 			
 			final var material
 			= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");

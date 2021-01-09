@@ -58,8 +58,7 @@ final class NetEndPointSubListener extends Thread {
 				
 				if (line == null) {
 					netEndPoint.close();
-				}
-				else {
+				} else {
 					Sequencer.runInBackground(() -> netEndPoint.receive(line));
 				}
 			}

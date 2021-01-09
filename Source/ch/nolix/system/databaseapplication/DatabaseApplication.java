@@ -114,8 +114,7 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	private void createInitialDataInBackgroundIfNeeded(final DatabaseAdapter databaseAdapter) {
 		if (!createInitialDataIsNeeded(databaseAdapter)) {
 			isReady = true;
-		}
-		else {			
+		} else {			
 			createInitialDataAndSetStateInBackground(databaseAdapter);
 		}
 	}

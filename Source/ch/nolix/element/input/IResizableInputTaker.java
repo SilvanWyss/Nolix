@@ -15,12 +15,9 @@ public interface IResizableInputTaker extends IInputTaker {
 	 */
 	@Override
 	default void noteInput(final IInput<?> input) {
-		
 		if (input instanceof ResizeInput) {
 			noteResizeInput(input.as(ResizeInput.class));
-		}
-		
-		else {
+		} else {
 			IInputTaker.super.noteInput(input);
 		}
 	}

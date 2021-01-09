@@ -189,8 +189,7 @@ public final class ArrayHelper {
 		for (int i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
-			}
-			else {
+			} else {
 				stringBuilder.append(values[i]);
 			}
 		}
@@ -217,8 +216,7 @@ public final class ArrayHelper {
 		for (var i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
-			}
-			else {
+			} else {
 				stringBuilder.append(values[i]);
 			}
 		}
@@ -245,8 +243,7 @@ public final class ArrayHelper {
 		for (int i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
-			}
-			else {
+			} else {
 				stringBuilder.append(values[i]);
 			}
 		}

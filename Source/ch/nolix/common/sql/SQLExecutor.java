@@ -35,8 +35,7 @@ public final class SQLExecutor implements Resettable {
 		
 		if (!statement.endsWith(";")) {
 			statements.addAtEnd(statement + ';');
-		}
-		else {
+		} else {
 			statements.addAtEnd(statement);
 		}
 		

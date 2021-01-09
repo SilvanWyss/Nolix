@@ -328,8 +328,7 @@ public final class EntitySession extends HeaderedSession {
 						
 						if (optionalDataTextBox.getText().isBlank()) {
 							optionalProperty.clear();
-						}
-						else {
+						} else {
 							optionalProperty.setValueFromSpecification(Node.fromString(optionalDataTextBox.getText()));
 						}
 						
@@ -344,8 +343,7 @@ public final class EntitySession extends HeaderedSession {
 		} catch (final Exception exception) {
 			if (exception.getMessage() == null) {
 				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
-			}
-			else {
+			} else {
 				getRefGUI().addLayerOnTop(new ErrorDialog(exception.getMessage()));
 			}
 		}

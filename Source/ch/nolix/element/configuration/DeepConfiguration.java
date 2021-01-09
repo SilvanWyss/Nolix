@@ -89,8 +89,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 			}
 				
 			elements.forEach(this::configure);
-		}
-		else {
+		} else {
 			configure(element, getMaxSelectorLevel());
 		}
 	}

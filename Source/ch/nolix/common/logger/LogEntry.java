@@ -16,15 +16,13 @@ public final class LogEntry {
 		
 		if (harmLevel == null) {
 			this.harmLevel = HarmLevel.ERROR;
-		}
-		else {
+		} else {
 			this.harmLevel = harmLevel;
 		}
 		
 		if (message == null) {
 			this.message = "Error.";
-		}
-		else {
+		} else {
 			this.message = message;
 		}
 	}

@@ -716,9 +716,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 			
 			if (character == '(') {
 				break;
-			}
-			
-			else if (character == ',' || character == ')') {
+			} else if (character == ',' || character == ')') {
 				endIndex = index - 1;
 				break;
 			}

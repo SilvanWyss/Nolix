@@ -390,8 +390,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		if (nextMenuItemLabel != null) {
 			if (!nextMenuItemLabel.isUnderCursor()) {
 				nextMenuItemLabel = null;
-			}
-			else {
+			} else {
 				selectTab(
 					getRefTabs().getRefFirst(
 						t -> t.getRefMenuItem() == nextMenuItemLabel

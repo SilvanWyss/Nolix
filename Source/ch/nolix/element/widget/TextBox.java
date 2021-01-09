@@ -76,24 +76,19 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		
 		if (text.isEmpty()) {
 			setTextCursorPosition(0);
-		}
-		else {
+		} else {
 			
 			final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
 			final var textFormat = getTextFormat();
 			
 			if (cursorXPositionOnContentArea <= textFormat.getSwingTextWidth(text.charAt(0)) / 2) {
 				setTextCursorPosition(0);
-			}
-			
-			else if (
+			} else if (
 				cursorXPositionOnContentArea >=
 				textFormat.getSwingTextWidth(text) - textFormat.getSwingTextWidth(text.charAt(text.length() - 1))
 			) {
 				setTextCursorPosition(text.length());
-			}
-			
-			else {
+			} else {
 		
 				for (var i = 1; i < text.length(); i++) {
 					
@@ -163,8 +158,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				if (key.isCharacter()) {
 					if (getRefKeyBoard().keyIsPressed(Key.SHIFT) ^ getRefKeyBoard().shiftIsLocked()) {
 						insertCharacterAfterCursor(key.toUpperCaseChar());	
-					}
-					else {
+					} else {
 						insertCharacterAfterCursor(key.toLowerCaseChar());
 					}
 				}

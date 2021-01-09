@@ -18,17 +18,12 @@ public final class JuteTextureCreator extends TextureCreator {
 		final var color3 = new Color(0xA0A080);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
-			for (var y = 1; y <= texture.getHeight(); y++) {
-												
+			for (var y = 1; y <= texture.getHeight(); y++) {							
 				if ((x * y) % 3 == (x + y) % 2) {
 					texture.setPixel(x, y, color1);
-				}
-				
-				else if ((x * x + y * y) % 5 == (x * y) % 7) {
+				} else if ((x * x + y * y) % 5 == (x * y) % 7) {
 					texture.setPixel(x, y, color2);
-				}
-				
-				else {
+				} else {
 					texture.setPixel(x, y, color3);
 				}
 			}

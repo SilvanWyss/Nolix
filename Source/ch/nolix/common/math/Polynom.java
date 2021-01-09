@@ -113,8 +113,7 @@ public final class Polynom {
 		for (var i = 0; i < derivedDegree; i++) {
 			if (coefficients[i] == 0.0) {
 				derivedCoefficients[i] = 0.0;
-			}
-			else {
+			} else {
 				
 				var derivedCoefficient = coefficients[i];
 				
@@ -163,8 +162,7 @@ public final class Polynom {
 		for (var i = 0; i < integratedDegree; i++) {
 			if (coefficients[i] == 0.0) {
 				integratedCoefficients[i] = 0.0;
-			}
-			else {
+			} else {
 				
 				var integratedCoefficient = coefficients[i];
 				
@@ -332,8 +330,7 @@ public final class Polynom {
 					stringBuilder.append(
 						DoubleHelper.toString(coefficients[i]) + parameterSymbol +"^" + coefficientDegree
 					);
-				}
-				else {
+				} else {
 					stringBuilder.append(parameterSymbol + "^" + coefficientDegree);
 				}
 			}

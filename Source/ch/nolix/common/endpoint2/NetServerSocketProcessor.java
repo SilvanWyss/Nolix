@@ -55,8 +55,7 @@ final class NetServerSocketProcessor extends Worker {
 			
 			if (netEndPoint == null) {
 				closeSocket();
-			}
-			else {
+			} else {
 				parentNetServer.takeEndPoint(netEndPoint);
 			}
 		} catch (final Exception exception) {

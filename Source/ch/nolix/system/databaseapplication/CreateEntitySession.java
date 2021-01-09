@@ -213,8 +213,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		} catch (final Exception exception) {
 			if (exception.getMessage() == null) {
 				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
-			}
-			else {
+			} else {
 				getRefGUI().addLayerOnTop(new ErrorDialog(exception.getMessage()));
 			}
 		}

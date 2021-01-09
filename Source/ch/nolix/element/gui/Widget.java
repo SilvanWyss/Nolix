@@ -134,8 +134,7 @@ TopLeftPositionedRecangular {
 				
 				if (!attribute.getOneAttributeAsBoolean()) {
 					removeGreyOutWhenDisabled();
-				}
-				else {
+				} else {
 					setGreyOutWhenDisabled();
 				}
 				
@@ -145,18 +144,15 @@ TopLeftPositionedRecangular {
 					final var copy = attribute.getCopy();
 					copy.setHeader(attribute.getHeader().substring(BASE_PREFIX.length()));
 					baseLook.addOrChangeAttribute(copy);
-				}
-				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
+				} else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
 					final var copy = attribute.getCopy();
 					copy.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
 					hoverLook.addOrChangeAttribute(copy);
-				}
-				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
+				} else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
 					final var copy = attribute.getCopy();
 					copy.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
 					focusLook.addOrChangeAttribute(copy);
-				}
-				else {
+				} else {
 				
 					//Calls method of the base class.
 					super.addOrChangeAttribute(attribute);
@@ -1892,8 +1888,7 @@ TopLeftPositionedRecangular {
 	private void noteLeftMouseButtonPressOnSelfWhenEnabled_() {		
 		if (!isUnderCursor()) {
 			noteLeftMouseButtonPressOnSelfWhenEnabledAndNotUnderCursor();
-		}
-		else {
+		} else {
 			noteLeftMouseButtonPressOnSelfWhenEnabledAndUnderCursor();
 		}
 	}
@@ -1924,8 +1919,7 @@ TopLeftPositionedRecangular {
 	private void noteLeftMouseButtonReleaseOnSelfWhenEnabled_() {
 		if (!isUnderCursor()) {
 			noteLeftMouseButtonReleaseOnSelfWhenEnabledAndNotUnderCursor();
-		}
-		else {
+		} else {
 			noteLeftMouseButtonReleaseOnSelfWhenEnabledAndUnderCursor();
 		}
 	}
@@ -1967,8 +1961,7 @@ TopLeftPositionedRecangular {
 	private void noteMouseMoveOnSelfWhenEnabled_() {
 		if (!isUnderCursor()) {
 			noteMouseMoveOnSelfWhenEnabledAndNotUnderCursor();
-		}
-		else {
+		} else {
 			noteMouseMoveOnSelfWhenEnabledAndUnderCursor();
 		}
 	}

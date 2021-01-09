@@ -139,8 +139,7 @@ public final class TestRun {
 	private void printSummary() {
 		if (isPassed()) {
 			printSummaryWhenPassed();
-		}
-		else {
+		} else {
 			printSummaryWhenFailed();
 		}
 	}
@@ -183,8 +182,7 @@ public final class TestRun {
 	private void printTestCaseResult(final TestCaseResult testCaseResult) {
 		if (testCaseResult.isPassed()) {
 			linePrinter.printInfoLines(testCaseResult.getOutputLines());
-		}
-		else {
+		} else {
 			linePrinter.printErrorLines(testCaseResult.getOutputLines());
 		}
 	}

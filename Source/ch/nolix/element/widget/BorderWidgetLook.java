@@ -204,11 +204,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		if (hasBackgroundColor()) {
 			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
-		}
-		else if (hasBackgroundColorGradient()) {
+		} else if (hasBackgroundColorGradient()) {
 			attributes.addAtEnd(backgroundColorGradient.getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER));
-		}
-		else if (hasBackgroundImage()) {
+		} else if (hasBackgroundImage()) {
 			attributes.addAtEnd(backgroundImage.getSpecificationAs(BACKGROUND_IMAGE_HEADER));
 		}
 		
@@ -1342,8 +1340,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private void fillUpBorderColorsSpecifications(final LinkedList<Node> list) {
 		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
 			list.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
-		}
-		else {
+		} else {
 			
 			if (hasLeftBorderColor()) {
 				list.addAtEnd(leftBorderColor.getSpecificationAs(LEFT_BORDER_COLOR_HEADER));
@@ -1372,8 +1369,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private void fillUpBorderThicknessesSpecifications(final LinkedList<Node> list) {
 		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
 			list.addAtEnd(Node.withHeaderAndAttribute(BORDER_THICKNESS_HEADER, leftBorderThickness));
-		}
-		else {
+		} else {
 			
 			if (hasLeftBorderThickness()) {
 				list.addAtEnd(Node.withHeaderAndAttribute(LEFT_BORDER_THICKNESS_HEADER, leftBorderThickness));
@@ -1402,8 +1398,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private void fillUpPaddingSpecifications(final LinkedList<Node> list) {
 		if (hasAPadding() && hasSamePaddingAtEachSide()) {
 			list.addAtEnd(Node.withHeaderAndAttribute(PADDING_HEADER, leftPadding));
-		}
-		else {
+		} else {
 			
 			if (hasLeftPadding()) {
 				list.addAtEnd(Node.withHeaderAndAttribute(LEFT_PADDING_HEADER, leftPadding));

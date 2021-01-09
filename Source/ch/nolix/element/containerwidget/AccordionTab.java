@@ -65,8 +65,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		e -> {
 			if (e.booleanValue()) {
 				expand();
-			}
-			else {
+			} else {
 				collapse();
 			}
 		},
@@ -114,12 +113,9 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		
 		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
 			setWidget(WidgetGUI.createWidgetFrom(attribute));
-		}
-		
-		else {
+		} else {
 			super.addOrChangeAttribute(attribute);
 		}
 	}
@@ -321,8 +317,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		if (containsAny()) {
 			if (isCollapsed()) {
 				getRefWidget().setCollapsed();
-			}
-			else {
+			} else {
 				getRefWidget().setExpanded();
 			}
 		}
