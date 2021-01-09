@@ -127,8 +127,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 				Validator.assertThat(property).isOfType(MutableValue.class);
 				
 				properties.addAtEnd(property);
-			}
-			catch (final IllegalAccessException illegalAccessException) {
+			} catch (final IllegalAccessException illegalAccessException) {
 				
 				final var message = illegalAccessException.getMessage();
 				

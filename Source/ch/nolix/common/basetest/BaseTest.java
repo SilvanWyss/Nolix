@@ -184,8 +184,7 @@ public abstract class BaseTest {
 	private BaseTest getCopy() {
 		try {
 			return ReflectionHelper.getDefaultConstructor(getClass()).newInstance();
-		}
-		catch (
+		} catch (
 			final
 			IllegalAccessException
 			| InstantiationException

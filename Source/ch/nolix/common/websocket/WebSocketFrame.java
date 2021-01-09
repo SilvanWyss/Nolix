@@ -85,8 +85,7 @@ public final class WebSocketFrame {
 					payload[i] = ((byte)(payload[i] ^ maskingKey[i & 0x3]));
 				}
 			}
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

@@ -53,8 +53,7 @@ public final class FileSystemAccessor {
 	public static void openInFileExplorer(final String path) {
 		try {
 			Runtime.getRuntime().exec("explorer.exe /select," + path);
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -117,8 +116,7 @@ public final class FileSystemAccessor {
 			}
 			
 			return new FileAccessor(path);
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -240,8 +238,7 @@ public final class FileSystemAccessor {
 	public static void deleteFileSystemItem(final String path) {
 		try {
 			Files.delete(Path.of(path));
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

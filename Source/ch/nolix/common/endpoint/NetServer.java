@@ -57,8 +57,7 @@ public final class NetServer extends Server {
 			//This is important that the address can be reused
 			//immediately after this net server sub listener is aborted.
 			serverSocket.setReuseAddress(true);
-		}
-		catch (final IOException exception) {
+		} catch (final IOException exception) {
 			throw new WrapperException(exception);
 		}
 		
@@ -89,8 +88,7 @@ public final class NetServer extends Server {
 	private void runPreClose() {
 		try {
 			serverSocket.close();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

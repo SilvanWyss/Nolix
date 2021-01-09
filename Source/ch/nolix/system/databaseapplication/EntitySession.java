@@ -341,8 +341,7 @@ public final class EntitySession extends HeaderedSession {
 			
 			getRefDatabaseAdapter().saveChanges();
 			pop();
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			if (exception.getMessage() == null) {
 				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
 			}

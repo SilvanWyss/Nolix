@@ -74,8 +74,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	private Grid createDataEntryGrid() {
 		try {
 			return createDataEntryGrid_();
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			getParentClient().showErrorMessageOnCounterpart(exception.getMessage());
 			return new Grid();
 		}
@@ -211,8 +210,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		
 			getRefDatabaseAdapter().saveChanges();
 			pop();
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			if (exception.getMessage() == null) {
 				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
 			}

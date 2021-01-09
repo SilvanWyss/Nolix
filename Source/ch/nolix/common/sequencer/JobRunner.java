@@ -348,8 +348,7 @@ final class JobRunner extends Thread {
 				if (hasTimeInterval()) {
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}
-			}
-			catch (final Throwable lError) {
+			} catch (final Throwable lError) {
 				error = lError;
 				Logger.logError(lError);
 				break;

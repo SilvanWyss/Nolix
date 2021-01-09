@@ -441,8 +441,7 @@ public final class Matrix implements ApproximativeEqualing {
 		
 		try {
 			inverseMatrix = matrix.getInverse();
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			inverseMatrix = matrix.getPseudoInverse();
 		}
 				

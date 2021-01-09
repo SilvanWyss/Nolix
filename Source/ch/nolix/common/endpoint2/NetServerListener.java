@@ -59,8 +59,7 @@ final class NetServerListener extends Worker {
 				final Socket socket = parentNetServer.getRefServerSocket().accept();
 				takeSocket(socket);
 			}
-		}
-		catch (final IOException exception) {
+		} catch (final IOException exception) {
 			parentNetServer.close();
 		}
 	}

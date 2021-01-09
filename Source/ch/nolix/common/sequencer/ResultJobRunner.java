@@ -123,12 +123,10 @@ final class ResultJobRunner<R> extends Thread {
 	public void run() {
 		try {
 			result = resultJob.getOutput();
-		}
-		catch (final Throwable lError) {
+		} catch (final Throwable lError) {
 			error = lError;
 			Logger.logError(lError);
-		}
-		finally {
+		} finally {
 			running = false;
 		}
 	}

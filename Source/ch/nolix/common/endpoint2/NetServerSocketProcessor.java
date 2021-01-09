@@ -41,8 +41,7 @@ final class NetServerSocketProcessor extends Worker {
 		try {
 			socketInputStream = socket.getInputStream();
 			socketOutputStream = socket.getOutputStream();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -60,8 +59,7 @@ final class NetServerSocketProcessor extends Worker {
 			else {
 				parentNetServer.takeEndPoint(netEndPoint);
 			}
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			
 			closeSocket();
 			
@@ -73,8 +71,7 @@ final class NetServerSocketProcessor extends Worker {
 	private void closeSocket() {
 		try {
 			socket.close();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -141,8 +138,7 @@ final class NetServerSocketProcessor extends Worker {
 		try {
 			socketOutputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
 			socketOutputStream.flush();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

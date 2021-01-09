@@ -348,8 +348,7 @@ public abstract class Session<C extends Client<C>> {
 			return
 			(Node)
 			getUserDataMethod(name).invoke(this, (Object[])arguments);
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			throw new WrapperException(exception);
 		}
 	}
@@ -367,8 +366,7 @@ public abstract class Session<C extends Client<C>> {
 	final void invokeUserRunMethod(final String name, final String... arguments) {
 		try {
 			getUserRunMethod(name).invoke(this, (Object[])arguments);
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			throw new WrapperException(exception);
 		}
 	}

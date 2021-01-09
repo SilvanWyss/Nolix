@@ -68,11 +68,9 @@ final class JobWrapper implements Runnable {
 		
 		try {
 			job.run();
-		}
-		catch (final Throwable lError) {
+		} catch (final Throwable lError) {
 			error = lError;
-		}
-		finally {
+		} finally {
 			running = false;
 			finished = true;
 		}		

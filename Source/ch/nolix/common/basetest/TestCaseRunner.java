@@ -123,8 +123,7 @@ public final class TestCaseRunner extends Thread {
 		for (final var ce : testInstance.getRefClosableElements()) {
 			try {
 				ce.close();
-			}
-			catch (final Exception exception) {
+			} catch (final Exception exception) {
 				
 				//TODO: Evaluate lineNumber.
 				final var lineNumber = 1;
@@ -168,8 +167,7 @@ public final class TestCaseRunner extends Thread {
 		try {
 			testCaseWrapper.getRefCleanup().invoke(testInstance);
 			return true;
-		}
-		catch (final
+		} catch (final
 			IllegalAccessException
 			| IllegalArgumentException
 			| InvocationTargetException
@@ -210,8 +208,7 @@ public final class TestCaseRunner extends Thread {
 		try {
 			testCaseWrapper.getRefSetup().invoke(testInstance);
 			return Result.SUCCESS;
-		}
-		catch (
+		} catch (
 			final
 			IllegalAccessException
 			| IllegalArgumentException
@@ -233,8 +230,7 @@ public final class TestCaseRunner extends Thread {
 		try {
 			testCaseWrapper.getRefTestCase().invoke(testInstance, (Object[])new Class[0]);
 			return true;
-		}
-		catch (final InvocationTargetException invocationTargetException) {
+		} catch (final InvocationTargetException invocationTargetException) {
 			
 			String className = null;
 			int lineNumber = 0;
@@ -252,8 +248,7 @@ public final class TestCaseRunner extends Thread {
 			exceptionError = new Error(errorMessage, className, lineNumber);
 			
 			return false;
-		}
-		catch (final IllegalAccessException | IllegalArgumentException exception) {
+		} catch (final IllegalAccessException | IllegalArgumentException exception) {
 			exceptionError = new Error("An error occured.", testInstance.getClass().getName(), 0);
 			return false;
 		}

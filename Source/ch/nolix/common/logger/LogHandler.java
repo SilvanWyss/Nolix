@@ -49,7 +49,6 @@ public abstract class LogHandler {
 	private void logSafely(final LogEntry logEntry) {
 		try {
 			log(logEntry);
-		}
-		catch (final Exception exception) {}
+		} catch (final Exception exception) {}
 	}
 }

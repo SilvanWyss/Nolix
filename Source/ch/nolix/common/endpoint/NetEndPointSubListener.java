@@ -63,8 +63,7 @@ final class NetEndPointSubListener extends Thread {
 					Sequencer.runInBackground(() -> netEndPoint.receive(line));
 				}
 			}
-		}
-		catch (final IOException exception) {
+		} catch (final IOException exception) {
 			if (netEndPoint.isOpen()) {
 				netEndPoint.close();
 			}

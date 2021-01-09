@@ -87,8 +87,7 @@ public final class TestPoolRun {
 	private <BT extends BaseTest> BT createTestOrNull(final Class<BT> testClass) {
 		try {
 			return ReflectionHelper.getDefaultConstructor(testClass).newInstance();
-		}
-		catch (
+		} catch (
 			final
 			IllegalAccessException
 			| InstantiationException

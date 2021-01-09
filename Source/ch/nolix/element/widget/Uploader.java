@@ -91,8 +91,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 			if (optionalFile.containsAny() && hasFileTaker()) {
 				fileTaker.run(optionalFile.getRefElement());
 			}
-		}
-		finally {
+		} finally {
 			isHandlingLeftMouseButtonPress = false;
 		}
 	}

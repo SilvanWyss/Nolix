@@ -432,8 +432,7 @@ public interface IContainer<E> extends Iterable<E> {
 		for (final var e : this) {
 			try {
 				action.run(e);
-			}
-			catch (final Exception exception) {
+			} catch (final Exception exception) {
 				Logger.logError(exception);
 			}
 		}

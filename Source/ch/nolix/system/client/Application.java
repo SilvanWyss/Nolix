@@ -228,8 +228,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	public final void takeEndPoint(final EndPoint endPoint) {
 		try {
 			takeClient(getClientConstructor().newInstance(endPoint));
-		} 
-		catch (
+		} catch (
 			final
 			InstantiationException
 			| IllegalAccessException
@@ -249,8 +248,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	protected final Session<C> createInitialSession() {
 		try {
 			return (Session<C>)getInitialSessionConstructor().newInstance();
-		}
-		catch (
+		} catch (
 			final
 			InstantiationException
 			| IllegalAccessException
@@ -283,8 +281,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 			clientConstructor.setAccessible(true);
 			
 			return clientConstructor;
-		}
-		catch (final NoSuchMethodException | SecurityException exception) {
+		} catch (final NoSuchMethodException | SecurityException exception) {
 			throw new WrapperException(exception);
 		}
 	}

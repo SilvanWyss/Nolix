@@ -94,8 +94,7 @@ public final class LicenseManager {
 		try {
 			final var feature = featureType.getConstructor().newInstance();
 			return feature.getAuthorizedLicenseTypes().containsAnyFrom(getLicenseTypes());
-		}
-		catch (
+		} catch (
 			final 
 			InstantiationException
 			| IllegalAccessException
@@ -195,8 +194,7 @@ public final class LicenseManager {
 			return
 			new FolderAccessor(LicenseEnvironment.LOCAL_LICENSE_FOLDER_NAME)
 			.readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			throw
 			new GeneralException(
 				"There does not exist a license file with the key for the License '" + licenseName + "'"

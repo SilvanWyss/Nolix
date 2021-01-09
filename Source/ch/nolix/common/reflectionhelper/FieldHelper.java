@@ -25,8 +25,7 @@ public final class FieldHelper {
 		try {
 			staticField.setAccessible(true);
 			return (V)staticField.get(null);
-		}
-		catch (final IllegalAccessException illegalAccessException) {
+		} catch (final IllegalAccessException illegalAccessException) {
 			throw new WrapperException(illegalAccessException);
 		}
 	}

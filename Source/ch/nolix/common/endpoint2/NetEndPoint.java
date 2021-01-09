@@ -83,8 +83,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 			socket = new Socket(ip, port);
 			socketInputStream = socket.getInputStream();
 			socketOutputStream = socket.getOutputStream();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 		
@@ -119,8 +118,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 			socket = new Socket(ip, port);
 			socketInputStream = socket.getInputStream();
 			socketOutputStream = socket.getOutputStream();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 		
@@ -231,8 +229,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		try {
 			socketOutputStream.write((rawMessage + "\r\n").getBytes(StandardCharsets.UTF_8));
 			socketOutputStream.flush();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -253,8 +250,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 			try {
 				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
 				socket.close();
-			}
-			catch (final IOException pIOException) {
+			} catch (final IOException pIOException) {
 				throw new WrapperException(pIOException);
 			}
 		}

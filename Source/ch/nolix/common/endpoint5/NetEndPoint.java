@@ -258,8 +258,7 @@ public class NetEndPoint extends EndPoint {
 	private final String receiveAndGetReply(final String message) {
 		try {
 			return receiveAndGetReply(ChainedNode.fromString(message));
-		}
-		catch (final Exception exception) {
+		} catch (final Exception exception) {
 			
 			Logger.logError(exception);
 			

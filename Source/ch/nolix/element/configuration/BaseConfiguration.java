@@ -574,8 +574,7 @@ implements IMutableElement<C> {
 		for (final var aa : attachingAttributes) {
 			try {
 				element.addOrChangeAttribute(aa);
-			}
-			catch (final Exception exception) {
+			} catch (final Exception exception) {
 				throw
 				new InvalidArgumentException(
 					"attaching attribute",

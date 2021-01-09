@@ -199,8 +199,7 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 						Validator.assertThat(property).isOfType(LayerProperty.class);
 						
 						layerProperties.addAtEnd(property);
-					}
-					catch (
+					} catch (
 						IllegalArgumentException
 						| IllegalAccessException exception
 					) {

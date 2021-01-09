@@ -45,8 +45,7 @@ public final class PropertyExtractor {
 		try {		
 			field.setAccessible(true);
 			properties.addAtEnd((Property<?>)(field.get(object)));
-		}
-		catch (final IllegalArgumentException | IllegalAccessException exception) {
+		} catch (final IllegalArgumentException | IllegalAccessException exception) {
 			throw new WrapperException(exception);
 		}
 	}

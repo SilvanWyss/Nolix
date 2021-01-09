@@ -61,8 +61,7 @@ final class NetServerSubListener extends Thread {
 				final Socket socket = netServer.getRefServerSocket().accept();
 				Sequencer.runInBackground(() -> takeSocket(socket));
 			}
-		}
-		catch (final IOException exception) {
+		} catch (final IOException exception) {
 			if (netServer.isOpen()) {
 				netServer.close();
 			}

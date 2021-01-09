@@ -29,8 +29,7 @@ public final class ReflectionHelper {
 					if (f.get(object) == attribute) {
 						return f;
 					}
-				}
-				catch (final IllegalArgumentException | IllegalAccessException exception) {
+				} catch (final IllegalArgumentException | IllegalAccessException exception) {
 					throw new WrapperException(exception);
 				}
 			}

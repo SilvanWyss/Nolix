@@ -33,8 +33,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 	public String getTextFromClipboard() {
 		try {
 			return Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor).toString();
-		}
-		catch (final IOException | UnsupportedFlavorException exception) {
+		} catch (final IOException | UnsupportedFlavorException exception) {
 			throw new WrapperException(exception);
 		}
 	}
@@ -63,8 +62,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 			(List<File>)(Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.javaFileListFlavor));
 			
 			return ReadContainer.forIterable(files).to(File::getPath);
-		}
-		catch (final IOException | UnsupportedFlavorException exception) {
+		} catch (final IOException | UnsupportedFlavorException exception) {
 			throw new WrapperException(exception);
 		}
 	}

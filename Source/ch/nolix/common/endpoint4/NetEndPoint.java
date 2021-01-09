@@ -285,8 +285,7 @@ public final class NetEndPoint<M, R> extends EndPoint<M, R> {
 				try {
 					final R reply = getRefReplier().getReply(messageTransformer.getOutput(pPackage.getRefContent()));
 					send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
-				}
-				catch (final Exception exception) {
+				} catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
 					send(new Package(pPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
 				}

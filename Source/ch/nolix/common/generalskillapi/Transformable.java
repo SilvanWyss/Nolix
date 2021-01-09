@@ -37,8 +37,7 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 		
 		try {
 			return transformatorClass.getConstructor().newInstance().getOutput(asConcrete());
-		}
-		catch (
+		} catch (
 			final
 			InstantiationException
 			| IllegalAccessException

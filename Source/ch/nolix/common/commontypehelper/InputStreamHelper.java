@@ -33,8 +33,7 @@ public final class InputStreamHelper {
 				
 				bytes.addAtEnd((byte)lByte);
 			}
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

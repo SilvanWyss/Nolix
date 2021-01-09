@@ -28,8 +28,7 @@ public final class ClassWrapper<T> {
 	public T createInstance(final Object... arguments) {
 		try {
 			return getRefConstructor(getParameterTypes(arguments)).newInstance(arguments);
-		}
-		catch (
+		} catch (
 			final
 			InstantiationException
 			| IllegalAccessException
@@ -45,8 +44,7 @@ public final class ClassWrapper<T> {
 	public Constructor<T> getRefConstructor(final Class<?>... parameterTypes) {
 		try {
 			return mClass.getConstructor(parameterTypes);
-		}
-		catch (final NoSuchMethodException | SecurityException exception) {
+		} catch (final NoSuchMethodException | SecurityException exception) {
 			throw new WrapperException(exception);
 		}
 	}

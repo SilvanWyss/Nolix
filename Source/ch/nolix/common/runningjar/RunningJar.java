@@ -23,8 +23,7 @@ public final class RunningJar {
 				line = bufferedReader.readLine();
 			}
 			return stringBuilder.toString();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -34,8 +33,7 @@ public final class RunningJar {
 		final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
 		try {
 			return inputStream.readAllBytes();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

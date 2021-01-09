@@ -48,8 +48,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			return fromBufferedImage(bufferedImage);
 			
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -80,8 +79,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 			
 			return fromBufferedImage(bufferedImage);
 			
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -234,8 +232,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public void saveAsPNG() {
 		try {
 			ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalogue.EMPTY_STRING));
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -423,8 +420,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		try {
 			ImageIO.write(toBufferedImage(), fileFormat, byteArrayOutputStream);
 			return byteArrayOutputStream.toByteArray();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}

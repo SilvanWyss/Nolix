@@ -71,8 +71,7 @@ public final class NetEndPoint extends EndPoint {
 			
 			//Creates the printwriter of this net end point.
 			printWriter = new PrintWriter(socket.getOutputStream());
-		}
-		catch (final IOException exception) {
+		} catch (final IOException exception) {
 			throw new WrapperException(exception);
 		}
 		
@@ -103,8 +102,7 @@ public final class NetEndPoint extends EndPoint {
 		//Sets the print writer of this net end point.
 		try {
 			printWriter = new PrintWriter(socket.getOutputStream());
-		}
-		catch (final IOException exception) {
+		} catch (final IOException exception) {
 			throw new WrapperException(exception);
 		}
 		
@@ -148,8 +146,7 @@ public final class NetEndPoint extends EndPoint {
 	private void runPreClose() {
 		try {
 			socket.close();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			Logger.logError(pIOException);
 		}
 	}

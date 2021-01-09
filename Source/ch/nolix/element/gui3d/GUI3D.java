@@ -367,8 +367,7 @@ implements Clearable, Closeable, Refreshable {
 			shapeClasses
 			.getRefFirst(sc -> sc.getRefElement1().getSimpleName().equals(type))
 			.getRefElement1().getDeclaredConstructor().newInstance();
-		}
-		catch (
+		} catch (
 			final 
 			InstantiationException
 			| IllegalAccessException

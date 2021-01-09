@@ -14,8 +14,7 @@ public interface IAugmentable<A extends IAugmentable<A>>  {
 	 default <AN extends Augmentation<A>> AN get(final Class<AN> augmentationType) {
 		try {
 			return augmentationType.getConstructor(getClass()).newInstance(this);
-		}
-		catch (
+		} catch (
 			final
 			InstantiationException
 			| IllegalAccessException

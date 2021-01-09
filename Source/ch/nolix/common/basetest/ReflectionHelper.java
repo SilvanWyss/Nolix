@@ -26,8 +26,7 @@ final class ReflectionHelper {
 			defaultConstructor.setAccessible(true);
 			
 			return defaultConstructor;
-		}
-		catch (final NoSuchMethodException noSuchMethodException) {
+		} catch (final NoSuchMethodException noSuchMethodException) {
 			throw new InvalidArgumentException(pClass, "does not have a default constructor");
 		}
 	}

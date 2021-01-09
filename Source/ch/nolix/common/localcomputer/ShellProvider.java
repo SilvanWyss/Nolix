@@ -29,8 +29,7 @@ public final class ShellProvider {
 		
 		try {
 			Runtime.getRuntime().exec("cmd.exe /c " + command);
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
@@ -39,8 +38,7 @@ public final class ShellProvider {
 	public static void startDefaultWebBrowserOpeningLoopBackAddress() {
 		try {
 			Desktop.getDesktop().browse(new URI("http://" + IPv4Catalogue.LOOP_BACK_ADDRESS));
-		} 
-		catch (final IOException | URISyntaxException exception) {
+		} catch (final IOException | URISyntaxException exception) {
 			throw new WrapperException(exception);
 		}
 	}

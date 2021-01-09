@@ -287,8 +287,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 			//isNotingMouseInput = true
 			
 			noteInputWhenIsFreeForInput(input);
-		}
-		finally {
+		} finally {
 			isNotingMouseInput = false;
 		}
 	}

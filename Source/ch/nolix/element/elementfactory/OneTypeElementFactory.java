@@ -19,8 +19,7 @@ final class OneTypeElementFactory<E> {
 	private static <ME extends IMutableElement<ME>> ME createElementOf(final Class<ME> elementClass) {
 		try {
 			return elementClass.getConstructor().newInstance();
-		}
-		catch (
+		} catch (
 			final
 			InstantiationException
 			| IllegalAccessException

@@ -158,8 +158,7 @@ final class WidgetProvider {
 			try {
 				final var defaultContructor = widgetClass.getDeclaredConstructor();
 				return (Widget<?, ?>)defaultContructor.newInstance();
-			}
-			catch (
+			} catch (
 				InstantiationException
 				| IllegalAccessException
 				| IllegalArgumentException

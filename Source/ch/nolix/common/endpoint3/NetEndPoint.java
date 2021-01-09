@@ -240,8 +240,7 @@ public class NetEndPoint extends EndPoint {
 					if (isOpen()) {
 						send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 					}
-				}
-				catch (final Exception exception) {
+				} catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
 					send(new Package(pPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
 				}

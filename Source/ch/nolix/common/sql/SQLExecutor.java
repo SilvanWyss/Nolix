@@ -47,8 +47,7 @@ public final class SQLExecutor implements Resettable {
 	public void execute() {
 		try {
 			mSQLConnection.execute(statements.toString());
-		}
-		finally {
+		} finally {
 			reset();
 		}
 	}

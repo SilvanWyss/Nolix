@@ -217,8 +217,7 @@ public class StringMediator extends ArgumentMediator<String> {
 				Files.delete(path);
 				Files.createDirectory(path);
 				Files.delete(path);
-			}
-			catch (final IOException pIOExceptione) {
+			} catch (final IOException pIOExceptione) {
 				specifiesProbableDirectoryOnLocalMachine = false;
 			}
 		}

@@ -110,8 +110,7 @@ public final class NetServer extends Server {
 			//This is important that the address of the current NetServer
 			//can be reused immediately when the current NetSever is closed.
 			serverSocket.setReuseAddress(true);
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 		
@@ -169,8 +168,7 @@ public final class NetServer extends Server {
 	private void runPreClose() {
 		try {
 			serverSocket.close();
-		}
-		catch (final IOException pIOException) {
+		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 	}
