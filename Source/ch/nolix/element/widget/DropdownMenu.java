@@ -144,7 +144,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void recalculateSelfStage3() {
+	protected void recalculateTextItemMenuSelf() {
 		
 		if (hasMinWidth()) {
 			originLabel.setMinWidth(getMinWidth() - expandButton.getWidth());

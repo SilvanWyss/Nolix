@@ -107,5 +107,5 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void recalculateSelfStage3() {}
+	protected void recalculateTextItemMenuSelf() {}
 }

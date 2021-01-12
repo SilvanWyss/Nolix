@@ -291,7 +291,7 @@ implements Clearable {
 	@Override
 	protected final void recalculateBorderWidget() {
 		
-		recalculateSelfStage3();
+		recalculateTextItemMenuSelf();
 		
 		final var look = getRefLook();
 		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
@@ -332,7 +332,7 @@ implements Clearable {
 	}
 	
 	//method declaration
-	protected abstract void recalculateSelfStage3();
+	protected abstract void recalculateTextItemMenuSelf();
 	
 	//method
 	/**
