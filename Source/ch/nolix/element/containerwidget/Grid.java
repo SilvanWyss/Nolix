@@ -396,7 +396,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void resetStage5() {
+	protected void resetContainerWidget() {
 		clear();
 	}
 	

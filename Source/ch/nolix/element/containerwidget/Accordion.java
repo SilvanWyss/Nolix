@@ -403,7 +403,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage5() {
+	protected void resetContainerWidget() {
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
 		clear();
 	}

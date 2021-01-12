@@ -284,7 +284,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage5() {
+	protected void resetContainerWidget() {
 		clear();
 	}
 }

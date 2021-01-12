@@ -353,7 +353,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage5() {
+	protected final void resetContainerWidget() {
 		clear();
 	}
 }

@@ -277,5 +277,5 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void resetStage5() {}
+	protected void resetContainerWidget() {}
 }

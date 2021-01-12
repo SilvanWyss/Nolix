@@ -266,7 +266,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage5() {
+	protected void resetContainerWidget() {
 		clear();
 	}
 }

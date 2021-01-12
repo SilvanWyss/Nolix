@@ -155,14 +155,14 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		removeRole();
 		clear();
 		
-		resetStage5();
+		resetContainerWidget();
 	}
 	
 	//method declaration
 	/**
 	 * Resets the current {@link ContainerWidget}.
 	 */
-	protected abstract void resetStage5();
+	protected abstract void resetContainerWidget();
 	
 	//method
 	/**
