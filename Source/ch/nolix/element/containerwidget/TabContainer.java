@@ -540,7 +540,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelfStage3() {}
+	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
 	/**

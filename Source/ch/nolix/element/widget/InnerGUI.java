@@ -287,7 +287,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelfStage3() {}
+	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
 	/**

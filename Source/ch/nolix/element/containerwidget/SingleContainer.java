@@ -277,7 +277,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelfStage3() {}
+	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
 	/**

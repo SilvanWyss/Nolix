@@ -339,7 +339,7 @@ implements Clearable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurationOnSelfStage3() {}
+	protected final void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
 	@Override

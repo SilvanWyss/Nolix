@@ -159,7 +159,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelfStage3() {}
+	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
 	@Override

@@ -188,7 +188,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelfStage3() {
+	protected void resetBorderWidgetConfigurationOnSelf() {
 		setProposalWidth(200);
 		setCustomCursorIcon(CursorIcon.EDIT);
 	}

@@ -259,7 +259,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurationOnSelfStage3() {}
+	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
 	/**

@@ -1639,14 +1639,14 @@ extends Widget<BW, BWL> {
 		setShowAreaXPositionOnScrolledArea(0);
 		setShowAreaYPositionOnScrolledArea(0);
 		
-		resetConfigurationOnSelfStage3();
+		resetBorderWidgetConfigurationOnSelf();
 	}
 	
 	//method declaration
 	/**
 	 * Resets the configuration of the current {@link BorderWidget} on itself, and on itself only.
 	 */
-	protected abstract void resetConfigurationOnSelfStage3();
+	protected abstract void resetBorderWidgetConfigurationOnSelf();
 	
 	//method
 	/**
