@@ -19,11 +19,37 @@ import ch.nolix.common.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-03
- * @lines 200
+ * @date 2018-03-04
+ * @lines 230
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
 public final class MultiValue<V> extends Property<V> implements IContainer<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param adderMethod
+	 * @return a new {@link MultiValue} that will store {@link Integer}s and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given adderMethod is null.
+	 */
+	public static MultiValue<Integer> forInts(final String name, final IElementTaker<Integer> adderMethod) {
+		return new MultiValue<>(name, adderMethod, BaseNode::toInt, Node::withHeader);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param adderMethod
+	 * @return a new {@link MultiValue} that will store {@link String}s and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given adderMethod is null.
+	 */
+	public static MultiValue<String> forStrings(final String name, final IElementTaker<String> adderMethod) {
+		return new MultiValue<>(name, adderMethod, BaseNode::getHeader, Node::withHeader);
+	}
 	
 	//attribute
 	private final IElementTaker<V> adderMethod;
