@@ -786,7 +786,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage4() {}
+	protected void resetBorderWidget() {}
 	
 	//method
 	private TextFormat getFont() {

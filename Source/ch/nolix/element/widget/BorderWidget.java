@@ -1665,14 +1665,14 @@ extends Widget<BW, BWL> {
 		showAreaXPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA);
 		showAreaYPositionOnScrolledArea.setValue(DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA);
 		
-		resetStage4();
+		resetBorderWidget();
 	}
 	
 	//method declaration
 	/**
 	 * Resets the current {@link BorderWidget}.
 	 */
-	protected abstract void resetStage4();
+	protected abstract void resetBorderWidget();
 	
 	//method
 	/**

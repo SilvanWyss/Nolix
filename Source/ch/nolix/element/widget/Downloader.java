@@ -163,7 +163,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected void resetStage4() {
+	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
 		removeFileProvider();
 	}

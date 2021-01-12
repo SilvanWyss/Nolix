@@ -181,7 +181,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage4() {
+	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
 	}
 	

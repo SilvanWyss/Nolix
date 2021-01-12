@@ -122,7 +122,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage4() {
+	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
 	}
 }

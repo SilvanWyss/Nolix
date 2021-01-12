@@ -343,7 +343,7 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final void resetStage4() {
+	protected final void resetBorderWidget() {
 		clear();
 		removeSelectAction();
 	}

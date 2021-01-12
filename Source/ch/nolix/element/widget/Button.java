@@ -190,7 +190,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage4() {
+	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
 	}
 	

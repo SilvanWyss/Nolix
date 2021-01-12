@@ -343,7 +343,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage4() {
+	protected void resetBorderWidget() {
 		uncheck();
 	}
 }

@@ -198,7 +198,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage4() {
+	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
 		textCursorPosition.setValue(0);
 	}

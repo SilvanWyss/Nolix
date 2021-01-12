@@ -150,7 +150,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage4() {
+	protected final void resetBorderWidget() {
 		
 		removeRole();
 		clear();
