@@ -167,7 +167,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentAreaStage2(final IPainter painter, final LabelLook textLineWidgetLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final LabelLook textLineWidgetLook) {}
 	
 	//method
 	/**

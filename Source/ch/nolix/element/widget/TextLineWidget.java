@@ -181,7 +181,7 @@ extends BorderWidget<TLW, TLWL> {
 		
 		painter.paintText(getText(), getTextFormat());
 		
-		paintContentAreaStage2(painter, textLineWidgetLook);
+		paintTextLineWidgetContentArea(painter, textLineWidgetLook);
 	}
 	
 	//method declaration
@@ -191,7 +191,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * @param painter
 	 * @param textLineWidgetLook
 	 */
-	protected abstract void paintContentAreaStage2(final IPainter painter, final TLWL textLineWidgetLook);
+	protected abstract void paintTextLineWidgetContentArea(final IPainter painter, final TLWL textLineWidgetLook);
 	
 	//method
 	/**

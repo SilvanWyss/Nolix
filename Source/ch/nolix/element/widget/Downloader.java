@@ -152,7 +152,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentAreaStage2(final IPainter painter, final DownloaderLook downloaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final DownloaderLook downloaderLook) {}
 	
 	//method
 	/**

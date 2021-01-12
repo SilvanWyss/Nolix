@@ -177,7 +177,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentAreaStage2(final IPainter painter, final TextBoxLook textBoxLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final TextBoxLook textBoxLook) {
 		if (isFocused()) {
 			paintTextCursor(painter, textBoxLook);
 		}

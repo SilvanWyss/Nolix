@@ -176,7 +176,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentAreaStage2(final IPainter painter, final ButtonLook buttonLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final ButtonLook buttonLook) {}
 	
 	//method
 	/**

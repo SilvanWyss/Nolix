@@ -108,7 +108,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentAreaStage2(final IPainter painter, final UploaderLook uploaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {}
 	
 	//method
 	/**
