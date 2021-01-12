@@ -1653,7 +1653,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage3() {
+	protected final void resetWidget() {
 		
 		removeProposalWidth();
 		removeProposalHeight();

@@ -1740,14 +1740,14 @@ TopLeftPositionedRecangular {
 		removeRightMouseButtonPressAction();
 		removeRightMouseButtonReleaseAction();
 		
-		resetStage3();
+		resetWidget();
 	}
 	
 	//method declaration
 	/**
 	 * Resets the current {@link Widget}.
 	 */
-	protected abstract void resetStage3();
+	protected abstract void resetWidget();
 	
 	//method
 	/**

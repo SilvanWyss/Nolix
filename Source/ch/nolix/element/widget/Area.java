@@ -413,7 +413,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage3() {}
+	protected void resetWidget() {}
 	
 	//method
 	/**

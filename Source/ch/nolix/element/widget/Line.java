@@ -348,5 +348,5 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage3() {}
+	protected void resetWidget() {}
 }
