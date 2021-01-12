@@ -75,5 +75,5 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage2() {}
+	protected void resetBaseConfiguration() {}
 }

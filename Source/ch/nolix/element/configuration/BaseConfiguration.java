@@ -451,7 +451,7 @@ implements IMutableElement<C> {
 		attachingAttributes.clear();
 		configurations.clear();
 		
-		resetStage2();
+		resetBaseConfiguration();
 	}
 	
 	//method
@@ -560,7 +560,7 @@ implements IMutableElement<C> {
 	/**
 	 * Resets the current {@link Widget}.
 	 */
-	protected abstract void resetStage2();
+	protected abstract void resetBaseConfiguration();
 
 	//method
 	/**

@@ -154,7 +154,7 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage2() {
+	protected void resetBaseConfiguration() {
 		removeMaxSelectorLevel();
 	}
 		
