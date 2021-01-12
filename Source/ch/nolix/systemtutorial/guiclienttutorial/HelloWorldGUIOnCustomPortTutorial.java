@@ -31,7 +31,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 			
 			//Creates Label.
 			final var label = new Label().setText("Hello World");

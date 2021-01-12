@@ -15,7 +15,7 @@ public final class StartSession extends BackGUIClientSession {
 	
 	//method
 	@Override
-	protected void initializeStage2() {
+	protected void initializeBaseBackGUIClientSession() {
 		
 		getRefGUI().addLayerOnTop(new Label().setText(MESSAGE).setRole(LabelRole.MAIN_TEXT));
 		

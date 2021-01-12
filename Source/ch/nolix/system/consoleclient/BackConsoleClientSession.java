@@ -177,7 +177,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void initializeStage2() {
+	protected final void initializeBaseBackGUIClientSession() {
 		
 		getRefGUI()
 		.addLayerOnTop(

@@ -35,7 +35,7 @@ public final class ButtonTutorial {
 		private int counter = 1;
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 						
 			//Creates a Button.
 			final var button =

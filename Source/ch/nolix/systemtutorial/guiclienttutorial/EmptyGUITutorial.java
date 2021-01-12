@@ -31,7 +31,7 @@ public final class EmptyGUITutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 			
 			//Sets the background color of the GUI of the current MainSession.
 			getRefGUI().setBackgroundColor(Color.LAVENDER);

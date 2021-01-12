@@ -41,7 +41,7 @@ public final class FractalVisualizerTutorial {
 		private final TextBox widthTextBox = new TextBox();
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 			
 			widthTextBox.setText(String.valueOf(100));
 			
@@ -82,7 +82,7 @@ public final class FractalVisualizerTutorial {
 		}
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 			
 			getRefGUI().addLayerOnTop(new Label().setText("Please wait"));
 			

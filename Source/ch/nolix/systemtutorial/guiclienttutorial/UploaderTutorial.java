@@ -31,7 +31,7 @@ public class UploaderTutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 			getRefGUI().addLayerOnTop(new Uploader());
 		}
 	}

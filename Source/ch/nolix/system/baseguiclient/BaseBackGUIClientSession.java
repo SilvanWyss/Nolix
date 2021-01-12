@@ -36,7 +36,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 			new BaseBackGIUIClientFrontEndWriter(getParentClient())
 		);
 		
-		initializeStage2();
+		initializeBaseBackGUIClientSession();
 		
 		mGUI.recalculate();
 	}
@@ -47,7 +47,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	}
 	
 	//method declaration
-	protected abstract void initializeStage2();
+	protected abstract void initializeBaseBackGUIClientSession();
 	
 	//TODO: Rename updateCounterpart method to internalUpdateCounterpart.
 	//method

@@ -33,7 +33,7 @@ public final class LabelTutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		protected void initializeStage2() {
+		protected void initializeBaseBackGUIClientSession() {
 						
 			//Creates clockCaptionLabel.
 			final var clockCaptionLabel = new Label().setText("Time:");
