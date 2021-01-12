@@ -1196,7 +1196,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage2() {
+	protected final void resetConfigurableElement() {
 		setConfigurationAllowed();
 		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
 		clear();

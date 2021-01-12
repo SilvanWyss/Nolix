@@ -123,7 +123,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage2() {
+	protected final void resetConfigurableElement() {
 		
 		removeConfiguration();
 		resetConfiguration();

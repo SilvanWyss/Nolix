@@ -1726,7 +1726,7 @@ TopLeftPositionedRecangular {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage2() {
+	protected final void resetConfigurableElement() {
 		
 		setEnabled();
 		setExpanded();

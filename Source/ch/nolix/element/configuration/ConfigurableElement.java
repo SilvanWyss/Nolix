@@ -153,7 +153,7 @@ implements IConfigurableElement<CE> {
 		removeToken();
 		resetConfiguration();
 		
-		resetStage2();
+		resetConfigurableElement();
 	}
 	
 	//method
@@ -200,7 +200,7 @@ implements IConfigurableElement<CE> {
 	/**
 	 * Resets the current {@link ConfigurableElement}.
 	 */
-	protected abstract void resetStage2();
+	protected abstract void resetConfigurableElement();
 	
 	//method
 	/**
