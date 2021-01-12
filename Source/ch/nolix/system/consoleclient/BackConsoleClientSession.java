@@ -187,14 +187,14 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 		)
 		.setConfiguration(new GreyBlueConsoleClientLook());
 		
-		initializeStage3();
+		initializeBackConsoleClientSession();
 	}
 	
 	//method declaration
 	/**
 	 * Initializes the current {@link BackConsoleClientSession}.
 	 */
-	protected abstract void initializeStage3();
+	protected abstract void initializeBackConsoleClientSession();
 	
 	//method
 	/**
