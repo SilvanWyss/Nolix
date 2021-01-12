@@ -221,7 +221,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage4() {
+	protected final void resetGUI() {
 		removePaintCommands();
 	}
 	

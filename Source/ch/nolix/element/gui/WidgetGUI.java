@@ -777,7 +777,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage4() {
+	protected final void resetGUI() {
 		clear();
 	}
 	

@@ -689,14 +689,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		setViewAreaSize(0, 0);
 		setCursorPositionOnViewArea(0, 0);
 		
-		resetStage4();
+		resetGUI();
 	}
 	
 	//method declaration
 	/**
 	 * Resets the current {@link GUI}.
 	 */
-	protected abstract void resetStage4();
+	protected abstract void resetGUI();
 	
 	//method
 	private void setCursorPositionOnViewArea(final int viewAreaCursorXPosition, final int viewAreaCursorYPosition) {
