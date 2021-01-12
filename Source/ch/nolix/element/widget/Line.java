@@ -338,7 +338,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurationOnSelfStage2() {
+	protected final void resetWidgetConfigurationOnSelf() {
 		setThickness(DEFAULT_THICKNESS);
 		setColor(DEFAULT_COLOR);
 	}

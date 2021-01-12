@@ -1114,7 +1114,7 @@ TopLeftPositionedRecangular {
 		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
 		.setTextColor(Color.BLACK);
 				
-		resetConfigurationOnSelfStage2();
+		resetWidgetConfigurationOnSelf();
 	}
 	
 	//method
@@ -1717,9 +1717,9 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * Resets the configuration of the current {@link Widget} on itself, and on itself only.
+	 * Resets the configuration of the current {@link Widget} on itself.
 	 */
-	protected abstract void resetConfigurationOnSelfStage2();
+	protected abstract void resetWidgetConfigurationOnSelf();
 	
 	//method
 	/**
