@@ -1700,14 +1700,14 @@ TopLeftPositionedRecangular {
 		width = calculatedWidth();
 		height = calculatedHeight();
 		
-		recalculateSelfStage2();
+		recalculateWidgetSelf();
 	}
 	
 	//method
 	/**
-	 * Recalculates the current {@link Widget} itself stage 2.
+	 * Recalculates the current {@link Widget} itself.
 	 */
-	protected abstract void recalculateSelfStage2();
+	protected abstract void recalculateWidgetSelf();
 	
 	//method declaration
 	/**

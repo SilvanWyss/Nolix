@@ -386,7 +386,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateSelfStage2() {}
+	protected void recalculateWidgetSelf() {}
 	
 	//method
 	/**

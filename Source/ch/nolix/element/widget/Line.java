@@ -322,7 +322,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void recalculateSelfStage2() {}
+	protected final void recalculateWidgetSelf() {}
 	
 	//method
 	/**
