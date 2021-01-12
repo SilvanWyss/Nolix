@@ -128,12 +128,12 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 		removeConfiguration();
 		resetConfiguration();
 		
-		resetStage3();
+		resetConfigurationElement();
 	}
 	
 	//method
 	/**
 	 * Resets the current {@link ConfigurationElement}.
 	 */
-	protected abstract void resetStage3();
+	protected abstract void resetConfigurationElement();
 }

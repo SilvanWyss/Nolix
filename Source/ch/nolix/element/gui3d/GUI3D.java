@@ -350,7 +350,7 @@ implements Clearable, Closeable, Refreshable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage3() {
+	protected final void resetConfigurationElement() {
 		setTitle(DEFAULT_TITLE);
 	}
 	

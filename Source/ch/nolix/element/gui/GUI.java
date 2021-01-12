@@ -683,7 +683,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage3() {
+	protected final void resetConfigurationElement() {
 		
 		setTitle(DEFAULT_TITLE);
 		setViewAreaSize(0, 0);
