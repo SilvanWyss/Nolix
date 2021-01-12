@@ -46,15 +46,15 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 		return asConcrete();
 	}
 	
+	//method declaration
+	protected abstract void resetPrisma();
+	
 	//method
 	@Override
 	protected final void resetShape() {
 		
 		setHeight(DEFAULT_HEIGHT);
 		
-		resetStage4();
+		resetPrisma();
 	}
-	
-	//method declaration
-	protected abstract void resetStage4();
 }

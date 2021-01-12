@@ -69,7 +69,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	
 	//method
 	@Override
-	protected void resetStage4() {
+	protected void resetPrisma() {
 		setRadius(DEFAULT_RADIUS);
 	}
 }
