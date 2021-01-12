@@ -110,7 +110,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage3() {
+	protected void resetShape() {
 		setRadius(DEFAULT_RADIUS);
 	}
 }

@@ -190,7 +190,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage3() {
+	protected void resetShape() {
 		setXLength(DEFAULT_X_LENGTH);
 		setYLength(DEFAULT_Y_LENGTH);
 		setZLength(DEFAULT_Z_LENGTH);

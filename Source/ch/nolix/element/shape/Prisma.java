@@ -48,7 +48,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	
 	//method
 	@Override
-	protected final void resetStage3() {
+	protected final void resetShape() {
 		
 		setHeight(DEFAULT_HEIGHT);
 		

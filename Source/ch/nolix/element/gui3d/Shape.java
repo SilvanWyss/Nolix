@@ -344,14 +344,14 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		
 		setPosition(DEFAULT_POSITION);
 		
-		resetStage3();
+		resetShape();
 	}
 	
 	//method declaration
 	/**
 	 * Resets the current {@link Shape}.
 	 */
-	protected abstract void resetStage3();
+	protected abstract void resetShape();
 	
 	//method
 	/**

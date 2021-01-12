@@ -138,7 +138,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage3() {
+	protected void resetShape() {
 		setXLength(DEFAULT_X_LENGTH);
 		setYLength(DEFAULT_Y_LENGTH);
 	}

@@ -164,7 +164,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetStage3() {
+	protected void resetShape() {
 		clear();
 	}
 }
