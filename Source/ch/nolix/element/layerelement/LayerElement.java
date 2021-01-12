@@ -94,7 +94,7 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 		
 		getRefProperties().forEach(LayerProperty::removeValue);
 		
-		resetStage2();
+		resetLayerElement();
 	}
 		
 	//method
@@ -123,8 +123,8 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 	/**
 	 * Resets the current {@link LayerElement}.
 	 */
-	protected abstract void resetStage2();
-
+	protected abstract void resetLayerElement();
+	
 	//method
 	/**
 	 * Sets the base {@link LayerElement} of the current {@link LayerElement}.

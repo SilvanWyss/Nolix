@@ -267,7 +267,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetStage2() {}
+	protected final void resetLayerElement() {}
 	
 	//method
 	/**
