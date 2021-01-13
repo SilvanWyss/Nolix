@@ -174,11 +174,16 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	
 	//attribute
 	private final Value<Key> key =
-	new Value<>(PascalCaseNameCatalogue.KEY, this::setKey, Key::fromSpecification);
+	new Value<>(PascalCaseNameCatalogue.KEY, this::setKey, Key::fromSpecification, Key::getSpecification);
 	
 	//attribute
 	private final Value<KeyInputType> inputType =
-	new Value<>(INPUT_TYPE_HEADER, this::setInputType, KeyInputType::fromSpecification);
+	new Value<>(
+		INPUT_TYPE_HEADER,
+		this::setInputType,
+		KeyInputType::fromSpecification,
+		KeyInputType::getSpecification
+	);
 	
 	//constructor
 	public KeyInput(final Key key, final KeyInputType inputType) {

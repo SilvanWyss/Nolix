@@ -27,16 +27,22 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 	
 	//attribute
 	private final Value<MouseInputType> inputType =
-	new Value<>(INPUT_TYPE_HEADER, this::setInputType, MouseInputType::fromSpecification);
+	new Value<>(
+		INPUT_TYPE_HEADER,
+		this::setInputType,
+		MouseInputType::fromSpecification,
+		MouseInputType::getSpecification
+	);
 	
 	//attribute
 	private final Value<Discrete2DPoint> cursorPosition =
 	new Value<>(
 		PascalCaseNameCatalogue.CURSOR_POSITION,
 		this::setCursorPosition,
-		Discrete2DPoint::fromSpecification
+		Discrete2DPoint::fromSpecification,
+		Discrete2DPoint::getSpecification
 	);
-		
+	
 	//constructor
 	public MouseInput(final MouseInputType inputType, final int cursorXPosition, final int cursorYPosition) {
 		setInputType(inputType);

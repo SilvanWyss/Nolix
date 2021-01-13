@@ -32,7 +32,6 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getOneAttributeAsInt, Node::withAttribute);
 	}
 	
-	//TODO: Add such static creator methods for Strings and Integers to all concrete Property classes.
 	//static method
 	/**
 	 * @param name
