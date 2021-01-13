@@ -13,10 +13,50 @@ import ch.nolix.common.node.Node;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 60
+ * @lines 100
  * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends SingleValue<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param defaultValue
+	 * @param setterMethod
+	 * @return a new {@link MutableValue}
+	 * that will store a {@link Integer} and have the given name, defaultValue and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static MutableValue<Integer> forInt(
+		final String name,
+		final int defaultValue,
+		final IElementTaker<Integer> setterMethod
+	) {
+		return
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeAsInt, Node::withAttribute);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param defaultValue
+	 * @param setterMethod
+	 * @return a new {@link MutableValue}
+	 * that will store a {@link String} and have the given name, defaultValue and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static MutableValue<String> forString(
+		final String name,
+		final String defaultValue,
+		final IElementTaker<String> setterMethod
+	) {
+		return
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeHeader, Node::withAttribute);
+	}
 	
 	//constructor
 	/**
