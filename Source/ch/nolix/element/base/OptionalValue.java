@@ -12,11 +12,37 @@ import ch.nolix.common.node.Node;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-02
- * @lines 60
+ * @date 2018-03-01
+ * @lines 80
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends SingleValue<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link OptionalValue} that will store a {@link Integer} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static OptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
+		return new OptionalValue<>(name, setterMethod, BaseNode::getOneAttributeAsInt, Node::withAttribute);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link OptionalValue} that will store a {@link String} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static OptionalValue<String> forString(final String name, final IElementTaker<String> setterMethod) {
+		return new OptionalValue<>(name, setterMethod, BaseNode::getOneAttributeHeader, Node::withAttribute);
+	}
 	
 	//constructor
 	/**
