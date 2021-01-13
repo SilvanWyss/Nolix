@@ -13,11 +13,37 @@ import ch.nolix.element.elementapi.IElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-02
- * @lines 80
+ * @date 2018-03-01
+ * @lines 110
  * @param <V> is the type of the value of a {@link Value}.
  */
 public final class Value<V> extends SingleValue<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link Value} that will store a {@link Integer} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static Value<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
+		return new Value<>(name, setterMethod, BaseNode::getOneAttributeAsInt, Node::withAttribute);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link Value} that will store a {@link String} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static Value<String> forString(final String name, final IElementTaker<String> setterMethod) {
+		return new Value<>(name, setterMethod, BaseNode::getOneAttributeHeader, Node::withAttribute);
+	}
 	
 	//TODO: Delete this constructor.
 	//constructor
