@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.common.math;
 
+//Java import
+import java.util.Arrays;
+
 //own imports
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
@@ -21,7 +24,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 360
+ * @lines 370
  */
 public final class Polynom {
 	
@@ -30,7 +33,7 @@ public final class Polynom {
 	
 	//static method
 	public static Polynom withCoefficients(final double... coefficients) {
-		return new Polynom(coefficients.clone());
+		return new Polynom(coefficients);
 	}
 	
 	//multi-attribute
@@ -57,7 +60,7 @@ public final class Polynom {
 		}
 		
 		//Sets the coefficients of the current Polynom.
-		this.coefficients = coefficients;
+		this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
 	}
 	
 	//method
