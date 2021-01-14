@@ -33,7 +33,7 @@ public final class Polynom {
 	
 	//static method
 	public static Polynom withCoefficients(final double... coefficients) {
-		return new Polynom(coefficients);
+		return new Polynom(Arrays.copyOf(coefficients, coefficients.length));
 	}
 	
 	//multi-attribute
@@ -60,7 +60,7 @@ public final class Polynom {
 		}
 		
 		//Sets the coefficients of the current Polynom.
-		this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
+		this.coefficients = coefficients;
 	}
 	
 	//method
