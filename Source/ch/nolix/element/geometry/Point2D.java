@@ -90,7 +90,7 @@ public final class Point2D extends Element<Point2D> {
 	 * @return the position vector of this 2D point.
 	 */
 	public Vector getPositionVector() {
-		return new Vector(2).setValues(getX(), getY());
+		return Vector.withValues(getX(), getY());
 	}
 	
 	//method

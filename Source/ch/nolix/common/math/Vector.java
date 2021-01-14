@@ -1,144 +1,73 @@
-/*
- * file:	Vector.java
- * author:	Silvan Wyss
- * month:	2016-01
- * lines:	220
- */
-
 //package declaration
 package ch.nolix.common.math;
 
+//Java import
+import java.util.Arrays;
+
 //own imports
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.common.simplevalidator.SimpleValidator;
+import ch.nolix.common.validator.Validator;
 
 //class
+/**
+ * A {@link Vector} is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2016-02-01
+ * @lines 180
+ */
 public final class Vector {
 	
-	//constant
-	public static final int DEFAULT_LENTH = 3;
-	
-	public static Vector createVector(final double[] values) {
-		return new Vector(values.length).setValues(values);
+	//static method
+	/**
+	 * @param values
+	 * @return a new {@link Vector} with the given values.
+	 */
+	public static Vector fromArray(final double[] values) {
+		return new Vector(Arrays.copyOf(values, values.length));
 	}
-
+	
+	//static method
+	/**
+	 * @param values
+	 * @return a new {@link Vector} with the given values.
+	 */
+	public static Vector withValues(final double... values) {
+		return new Vector(Arrays.copyOf(values, values.length));
+	}
+	
 	//attribute
-	private double[] values;
+	private final double[] values;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
-	 * Creates a new zero vector with the default length.
-	 */
-	public Vector() {
-		
-		//Calls other constructor.
-		this(DEFAULT_LENTH);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new zero vector with the given length.
+	 * Creates a new {@link Vector} with the given values.
 	 * 
-	 * @param length
-	 * @throws NonPositiveArgumentException if the given length is not positive.
+	 * @param values
 	 */
-	public Vector(int length) {
-		
-		SimpleValidator.throwExceptionIfValueIsNotPositive("length", length);
-		
-		values = new double[length];
-	}
-	
-	//constructor
-	/**
-	 * Creates a new vector with the given length and whose values are set to the given value.
-	 * 
-	 * @param length
-	 * @param value
-	 * @throws NonPositiveArgumentException if the given length is not positive
-	 */
-	public Vector(int length, double value) {
-		
-		//Calls other constructor.
-		this(length);
-		
-		setValuesTo(value);
-	}
-		
-	//method
-	/**
-	 * Adds the given vector to this vector.
-	 * 
-	 * @param vector
-	 * @return this vector
-	 * @throws UnequalArgumentException if the given vector does not have the same size as this vector
-	 */
-	public Vector add(Vector vector) {
-		
-		SimpleValidator.throwExceptionIfValueIsNotEqual("vector size", getSize(), vector.getSize());
-		
-		for (int i = 0; i < values.length; i++) {
-			values[i] += vector.values[i];
-		}
-		
-		return this;
+	Vector(final double[] values) {
+		this.values = values;
 	}
 	
 	//method
 	/**
-	 * @param object
-	 * @return true if this vector equals the given object
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(Object object) {
-		
-		if (object == null) {
-			return false;
-		}
-		
-		if (!(object instanceof Vector)) {
-			return false;
-		}
-		
-		Vector vector = (Vector)object;
-		
-		if (vector.getSize() != getSize()) {
-			return false;
-		}
-		
-		for (int i = 0; i < values.length; i++) {
-			if (vector.values[i] != values[i]) {
-				return false;
-			}
-		}
-		
-		return true;
+		return (object instanceof Vector && equals((Vector)object));
 	}
-	
+			
 	//method
 	/**
-	 * @return a clone of this vector
-	 */
-	public Vector getClone() {
-		
-		Vector vector = new Vector();
-		vector.values = this.values.clone();
-		
-		return vector;
-	}
-	
-	//method
-	/**
-	 * @return the euclid norm of this vector
+	 * @return the euclid norm of the current {@link Vector}.
 	 */
 	public double getEuclidNorm() {
 		
-		double sum = 0;
-		
-		for (int i = 0; i < values.length; i++) {
-			sum += Math.pow(values[i], 2);
+		var sum = 0.0;
+		for (final var v: values) {
+			sum += Math.pow(v, 2);
 		}
 		
 		return Math.sqrt(sum);
@@ -146,13 +75,13 @@ public final class Vector {
 	
 	//method
 	/**
-	 * @return the manhattan norm of this vector
+	 * @return the Manhattan norm of the current {@link Vector}.
 	 */
 	public double getManhattanNorm() {
 		
-		double manhattanNorm = 0;
+		var manhattanNorm = 0.0;
 		
-		for (double v: values) {
+		for (final var v: values) {
 			manhattanNorm += Math.abs(v);
 		}
 		
@@ -161,7 +90,24 @@ public final class Vector {
 	
 	//method
 	/**
-	 * @return the size of this vector
+	 * @param factor
+	 * @return a new {@link Vector} that is the product of the current {@link Vector} with the given factor.
+	 */
+	public Vector getProduct(final double factor) {
+		
+		final var size = getSize();
+		final var productValues = new double[size];
+		
+		for (var i = 0; i < size; i++) {
+			productValues[i] = factor * values[i];
+		}
+		
+		return new Vector(productValues);
+	}
+	
+	//method
+	/**
+	 * @return the size of the current {@link Vector}.
 	 */
 	public int getSize() {
 		return values.length;
@@ -169,15 +115,32 @@ public final class Vector {
 	
 	//method
 	/**
+	 * @param vector
+	 * @return a new {@link Vector} that is the sum of the current {@link Vector} and the given vector.
+	 */
+	public Vector getSum(final Vector vector) {
+		
+		final var size = getSize();
+		final var sumValues = new double[size];
+		
+		for (var i = 0; i < size; i++) {
+			sumValues[i] = values[i] + vector.values[i];
+		}
+		
+		return new Vector(sumValues);
+	}
+	
+	//method
+	/**
 	 * @param index
 	 * @return the value at the given index
 	 * @throws ArgumentIsOutOfRangeException
-	 * if the given index is not positive or the given index is bigger than the size of this vector.
+	 * if the given index is not positive or the given index is bigger than the size of the current {@link Vector}.
 	 */
 	public double getValueAt(int index) {
 		
-		SimpleValidator.throwExceptionIfValueIsNotInRange("index", 1, getSize(), index);
-		
+		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, getSize());
+				
 		return values[index - 1];
 	}
 	
@@ -189,56 +152,34 @@ public final class Vector {
 	
 	//method
 	/**
-	 * Multiplies this vector with the given factor.
-	 * 
-	 * @param factor
-	 * @return this vector
-	 */
-	public Vector multiplyWith(double factor) {
-		
-		for (int i = 0; i < values.length; i++) {
-			values[i] *= factor;
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the values of this vector.
-	 * 
-	 * @param values
-	 * @return this vector
-	 * @throws UnequalArgumentException if not as many values are given as the size of this vector
-	 */
-	public Vector setValues(double... values) {
-		
-		SimpleValidator.throwExceptionIfValueIsNotEqual("number of values", getSize(), values.length);
-		
-		for (int i = 0; i < this.values.length; i++) {
-			this.values[i] = values[i];
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the values of this vector to the given value.
-	 * 
-	 * @param value
-	 */
-	public void setValuesTo(double value) {
-		for (int i = 0; i < values.length; i++) {
-			values[i] = value;
-		}
-	}
-	
-	//method
-	/**
-	 * @return an array with the values of this vector
+	 * @return an array with the values of the current {@link Vector}
 	 */
 	public double[] toArray() {
-		return values.clone();
+		return Arrays.copyOf(values, values.length);
+	}
+	
+	//method
+	/**
+	 * @param vector
+	 * @return true if the current {@link Vector} equals the given vector.
+	 */
+	private boolean equals(final Vector vector) {
+		
+		if (vector == null) {
+			return false;
+		}
+		
+		if (getSize() != vector.getSize()) {
+			return false;
+		}
+		
+		final var size = getSize();
+		for (var i = 0; i < size; i++) {
+			if (values[i] != vector.values[i]) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

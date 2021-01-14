@@ -264,7 +264,7 @@ public final class Polynom {
 	 * @return a new {@link Vector} with the coefficients of the current {@link Polynom}.
 	 */
 	public Vector toVector() {
-		return Vector.createVector(coefficients);
+		return new Vector(coefficients);
 	}
 	
 	//method

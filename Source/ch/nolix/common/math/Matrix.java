@@ -323,7 +323,7 @@ public final class Matrix implements ApproximativeEqualing {
 				columnValues[i] = values[i][j];
 			}
 			
-			columns[j] = new Vector(columnValues.length).setValues(columnValues);
+			columns[j] = new Vector(columnValues);
 		}
 		
 		return columns;
@@ -524,7 +524,7 @@ public final class Matrix implements ApproximativeEqualing {
 		final var rows = new Vector[getRowCount()];
 		
 		for (var i = 0; i < getRowCount(); i++) {
-			rows[i] = new Vector(values[i].length).setValues(values[i]);
+			rows[i] = new Vector(values[i]);
 		}
 		
 		return rows;
@@ -916,7 +916,7 @@ public final class Matrix implements ApproximativeEqualing {
 				
 		//Handles the case that the current Matrix contains 1 row.
 		if (getRowCount() == 1) {
-			return new Vector(getColumnCount()).setValues(values[0]);
+			return new Vector(values[0]);
 		}
 		
 		//Handles the case that the current Matrix contains 1 column.
@@ -928,7 +928,7 @@ public final class Matrix implements ApproximativeEqualing {
 				lValues[i] = this.values[i][0];
 			}
 			
-			return new Vector(getRowCount()).setValues(lValues);
+			return new Vector(lValues);
 		}
 		
 		//Handles the case that the current Matrix does not either contain 1 row nor 1 column.

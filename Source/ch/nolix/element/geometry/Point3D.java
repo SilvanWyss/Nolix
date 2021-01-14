@@ -95,7 +95,7 @@ public class Point3D implements IElement {
 	 * @return the position vector of this 3D point.
 	 */
 	public Vector getPositionVector() {
-		return new Vector(3).setValues(getX(), getY(), getZ());
+		return Vector.withValues(getX(), getY(), getZ());
 	}
 	
 	//method
