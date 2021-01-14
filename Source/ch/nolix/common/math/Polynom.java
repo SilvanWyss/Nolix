@@ -24,7 +24,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 370
+ * @lines 380
  */
 public final class Polynom {
 	
@@ -35,6 +35,9 @@ public final class Polynom {
 	public static Polynom withCoefficients(final double... coefficients) {
 		return new Polynom(Arrays.copyOf(coefficients, coefficients.length));
 	}
+	
+	//optional attribute
+	private Polynom derivedPolynom;
 	
 	//multi-attribute
 	private final double[] coefficients;
@@ -92,8 +95,6 @@ public final class Polynom {
 	 * @return a new {@link Polynom} that is derived from the current {@link Polynom}.
 	 */
 	public Polynom getDerived() {
-		
-		//TODO: Cache derived Polynom.
 		return getDerived(1);
 	}
 	
@@ -106,29 +107,16 @@ public final class Polynom {
 	 */
 	public Polynom getDerived(final int deriveCount) {
 		
-		//Asserts that the given derviceCount is not negative.
-		Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
-		
-		final var degree = getDegree();
-		final var derivedDegree = Calculator.getMax(0, degree - deriveCount);
-		
-		final var derivedCoefficients = new double[derivedDegree];
-		for (var i = 0; i < derivedDegree; i++) {
-			if (coefficients[i] == 0.0) {
-				derivedCoefficients[i] = 0.0;
-			} else {
-				
-				var derivedCoefficient = coefficients[i];
-				
-				for (var j = degree - i; j > derivedDegree - i; j--) {
-					derivedCoefficient *= j;
-				}
-				
-				derivedCoefficients[i] = derivedCoefficient;
+		if (deriveCount == 1) {
+			
+			if (derivedPolynom == null) {
+				derivedPolynom = calculateDerived(1);
 			}
+			
+			return derivedPolynom;
 		}
 		
-		return new Polynom(derivedCoefficients);
+		return calculateDerived(deriveCount);
 	}
 	
 	//method
@@ -265,6 +253,34 @@ public final class Polynom {
 	 */
 	public Vector toVector() {
 		return new Vector(coefficients);
+	}
+	
+	//method
+	private Polynom calculateDerived(final int deriveCount) {
+		
+		//Asserts that the given derviceCount is not negative.
+		Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
+		
+		final var degree = getDegree();
+		final var derivedDegree = Calculator.getMax(0, degree - deriveCount);
+		
+		final var derivedCoefficients = new double[derivedDegree];
+		for (var i = 0; i < derivedDegree; i++) {
+			if (coefficients[i] == 0.0) {
+				derivedCoefficients[i] = 0.0;
+			} else {
+				
+				var derivedCoefficient = coefficients[i];
+				
+				for (var j = degree - i; j > derivedDegree - i; j--) {
+					derivedCoefficient *= j;
+				}
+				
+				derivedCoefficients[i] = derivedCoefficient;
+			}
+		}
+		
+		return new Polynom(derivedCoefficients);
 	}
 	
 	//method
