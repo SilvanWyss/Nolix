@@ -11,10 +11,10 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
-public enum Key implements IElementEnum {
+public enum Key implements IElement {
 	A,
 	B,
 	C,

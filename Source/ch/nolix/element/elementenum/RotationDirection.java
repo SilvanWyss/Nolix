@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @month 2019-07
  * @lines 60
  */
-public enum RotationDirection implements IElementEnum {
+public enum RotationDirection implements IElement {
 	FORWARD,
 	BACKWARD;
 	

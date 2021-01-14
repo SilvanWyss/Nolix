@@ -6,7 +6,7 @@ import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -14,7 +14,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @month 2016-08
  * @lines 40
  */
-public enum LabelRole implements IElementEnum {
+public enum LabelRole implements IElement {
 	TITLE,
 	SUB_TITLE,
 	LEVEL1_HEADER,

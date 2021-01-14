@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @date 2019-05-18
  * @lines 50
  */
-public enum ExtendedContentPosition implements IElementEnum {
+public enum ExtendedContentPosition implements IElement {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,

@@ -8,7 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -18,7 +18,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @month 2017-08
  * @lines 80
  */
-public enum Font implements IElementEnum {
+public enum Font implements IElement {
 	ARIAL,
 	ARIAL_BLACK,
 	COMIC_SANS_MS,

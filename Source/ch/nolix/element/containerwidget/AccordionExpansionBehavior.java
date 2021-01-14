@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -17,7 +17,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @date 2018-08-13
  * @lines 40
  */
-public enum AccordionExpansionBehavior implements IElementEnum {
+public enum AccordionExpansionBehavior implements IElement {
 	SINGLE_OR_NONE,
 	SINGLE,
 	MULTI_OR_NONE,

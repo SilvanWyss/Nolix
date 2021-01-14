@@ -4,13 +4,12 @@ package ch.nolix.element.gui;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
-//own imports
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
-public enum LayerRole implements IElementEnum {
+public enum LayerRole implements IElement {
 	BACKGROUND_LAYER,
 	MAIN_LAYER,
 	SUP_LAYER,

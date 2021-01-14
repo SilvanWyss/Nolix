@@ -6,10 +6,10 @@ import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.smartelementapi.ISmartElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
-public enum MouseInputType implements ISmartElementEnum<MouseInputType> {
+public enum MouseInputType implements IElement {
 	MOUSE_MOVE,
 	LEFT_MOUSE_BUTTON_PRESS,
 	LEFT_MOUSE_BUTTON_RELEASE,

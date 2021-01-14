@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @month 2018-05
  * @lines 40
  */
-public enum ButtonRole implements IElementEnum {
+public enum ButtonRole implements IElement {
 	ACTION_BUTTON,
 	LINK_BUTTON,
 	CREATE_BUTTON,

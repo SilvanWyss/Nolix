@@ -11,7 +11,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -19,7 +19,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @date 2016-06-01
  * @lines 70
  */
-public enum CursorIcon implements IElementEnum {
+public enum CursorIcon implements IElement {
 	ARROW,
 	CROSS,
 	EDIT,

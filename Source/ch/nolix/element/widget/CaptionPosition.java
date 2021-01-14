@@ -5,7 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -13,7 +13,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @date 2016-05-01
  * @lines 30
  */
-public enum CaptionPosition implements IElementEnum {
+public enum CaptionPosition implements IElement {
 	LEFT_TOP,
 	LEFT,
 	LEFT_BOTTOM,

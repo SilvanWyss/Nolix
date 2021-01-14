@@ -5,7 +5,7 @@ package ch.nolix.element.elementenum;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.Node;
-import ch.nolix.element.elementapi.IElementEnum;
+import ch.nolix.element.elementapi.IElement;
 
 //enum
 /**
@@ -18,7 +18,7 @@ import ch.nolix.element.elementapi.IElementEnum;
  * @month 2017-09
  * @lines 30
  */
-public enum Direction implements IElementEnum {
+public enum Direction implements IElement {
 	LEFT_TO_RIGHT,
 	RIGHT_TO_LEFT,
 	TOP_TO_BOTTOM,
