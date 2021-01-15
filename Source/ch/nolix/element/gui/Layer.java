@@ -17,6 +17,7 @@ import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
@@ -30,6 +31,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
@@ -45,29 +47,27 @@ import ch.nolix.element.widget.BorderWidget;
  * 
  * @author Silvan Wyss
  * @date 2019-05-18
- * @lines 1300
+ * @lines 1370
  */
 public class Layer extends ConfigurableElement<Layer>
-implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker {
+implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
 	
 	//constants
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.TOP;
 	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);
 	public static final boolean DEFAULT_CONFIGURATION_ALLOW_STATE = true;
 	
 	//constants
-	public static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
-	public static final String ROOT_WIDGET_HEADER = "RootWidget";
-	public static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
-	public static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
+	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	private static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
+	private static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
 	
 	//static method
 	/**
-	 * Creates a new {@link Layer} from the given specification.
-	 * 
 	 * @param specification
-	 * @return a new {@link Layer} from the given specification that will belong to the given parentGUI.
+	 * @return a new {@link Layer} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Layer fromSpecification(final BaseNode specification) {
@@ -145,10 +145,11 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private int cursorXPosition;
 	private int cursorYPosition;
 	
-	//attribute
+	//attributes
 	private boolean notedLeftMouseButtonPress;
-	//TODO: private boolean notedRightMouseButtonPress
-	//TODO: private boolean notedMouseWheelPress
+	private boolean notedRightMouseButtonPress;
+	private boolean notedMouseWheelPress;
+	private boolean notedKeyPress;
 	
 	//optional attribute
 	/**
@@ -173,60 +174,21 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private IElementTaker<Layer> mouseWheelPressAction;
 	private IElementTaker<Layer> mouseWheelReleaseAction;
 	
-	//constructor
-	/**
-	 * Creates a new {@link Layer}.
-	 */
-	public Layer() {
-		reset();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Layer} with the given contentPosition and rootWidget.
-	 * 
-	 * @param contentPosition
-	 * @param rootWidget
-	 * @throws ArgumentIsNullException if the given contentPosition is null.
-	 * @throws ArgumentIsNullException if the given rootWidget is null.
-	 */
-	public Layer(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
-		
-		//Calls other constructor.
-		this(rootWidget);
-		
-		setContentPosition(contentPosition);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Layer} with the given rootWidget.
-	 * 
-	 * @param rootWidget
-	 * @throws ArgumentIsNullException if the given parentGUI is null.
-	 * @throws ArgumentIsNullException if the given rootWidget is null.
-	 */
-	public Layer(final Widget<?, ?> rootWidget) {
-		
-		//Calls other constructor.
-		this();
-		
-		setRootWidget(rootWidget);
-	}
-	
 	//method
 	@Override
 	public final void addOrChangeAttribute(final BaseNode attribute) {
 		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
 			setRootWidget(WidgetGUI.createWidgetFrom(attribute));
 		} else {
+			
+			//Calls method of the base class.
 			super.addOrChangeAttribute(attribute);
 		}
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Layer} allowes to be configurated.
+	 * @return true if the current {@link Layer} allows to be configured.
 	 */
 	public final boolean allowesConfiguration() {
 		return configurationAllowed.getValue();
@@ -250,11 +212,16 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public LinkedList<Node> getAttributes() {
 		
+		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			attributes.addAtEnd(rootWidget.getSpecification());
 		}
@@ -263,13 +230,12 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean freeAreaIsUnderCursor() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (isUnderCursor() && (rootWidget == null || !rootWidget.isUnderCursor()));
 	}
 	
@@ -290,6 +256,9 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	/**
+	 * @return the content position of the current {@link Layer}.
+	 */
 	public final ExtendedContentPosition getContentPosition() {
 		return contentPosition.getValue();
 	}
@@ -311,6 +280,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the {@link CursorIcon} of the current {@link Layer}.
 	 */
@@ -320,7 +290,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 			return rootWidget.getCursorIcon();
 		}
 				
-		return CursorIcon.ARROW;
+		return DEFAULT_CURSOR_ICON;
 	}
 	
 	//method
@@ -340,6 +310,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the {@link WidgetGUI} the current {@link Layer} belongs to.
 	 * @throws ArgumentDoesNotBelongToParentException
@@ -348,46 +319,51 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public final WidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Layer belongs to a GUI.
-		//For a better performance, this implementation does not use all comfortable methods.
 		if (parentGUI == null) {
-			throw new ArgumentDoesNotBelongToParentException(this, "GUI");
+			throw new ArgumentDoesNotBelongToParentException(this, VariableNameCatalogue.GUI);
 		}
 		
 		return parentGUI;
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the root {@link Widget} of the current {@link Layer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a root {@link Widget}.
 	 */
 	public final Widget<?, ?> getRefRootWidget() {
+		
+		//Asserts that the current Layer has a root Widget.
+		if (rootWidget == null) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "root Widget");
+		}
+		
 		return rootWidget;
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the {@link Widget}s of the current {@link Layer} that are supposed to be painted.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-		
-		//Handles the case that the current GUILayer does not have a root Widget.
+		//Handles the case that the current Layer does not have a root Widget.
 		if (rootWidget == null) {
 			return new LinkedList<>();
 		}
 		
-		//Handles the case that the current GUILayer has a root Widget.			
+		//Handles the case that the current Layer has a root Widget.			
 		return rootWidget.getRefPaintableWidgets().addAtEnd(rootWidget);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the triggerable {@link Widget}s of the current {@link Layer} recursively.
+	 * @return the {@link Widget}s of the current {@link Layer}.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgets() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		
 		//Handles the case that the current Layer does not have a root Widget.
 		if (rootWidget == null) {
@@ -399,18 +375,23 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the role of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
 	 */
 	public final LayerRole getRole() {
 		
-		assertHasRole();
+		//Asserts that the current Layer has a role.
+		if (role.isEmpty()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
+		}
 		
 		return role.getValue();
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
@@ -419,7 +400,8 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
-		if (containsAny()) {
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
 			configurables.addAtEnd(rootWidget);
 		}
 		
@@ -428,7 +410,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
-	 * @return the background {@link Color} of the current {@link Layer}.
+	 * @return true if the current {@link Layer} has a background {@link Color}.
 	 */
 	public final boolean hasBackgroundColor() {
 		return backgroundColor.containsAny();
@@ -436,7 +418,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
-	 * @return the background {@link ColorGradient} of the current {@link Layer}.
+	 * @return true if the current {@link Layer} has a background {@link ColorGradient}.
 	 */
 	public final boolean hasBackgroundColorGradient() {
 		return backgroundColorGradient.containsAny();
@@ -478,68 +460,82 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
-	/**
-	 * @return true if the current {@link Layer} noted a left mouse button press.
-	 */
-	public final boolean notedLeftMouseButtonPress() {
-		return notedLeftMouseButtonPress;
-	}
-	
-	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteKeyPress(final Key key) {
 		
+		notedKeyPress = true;
+		
+		//Handles the case that the current Layer has a continuous key press action.
 		if (continuousKeyPressAction != null) {
 			continuousKeyPressAction.getOutput(this, key);
 		}
 		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			rootWidget.noteKeyPress(key);
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * {@inheritDoc}
+	 * Lets the current {@link IInputTaker} note a key release if
+	 * the current {@link Layer} noted already a key press.
+	 * 
+	 * @param key
 	 */
 	@Override
-	public final void noteKeyRelease(Key key) {
-		if (rootWidget != null) {
-			rootWidget.noteKeyRelease(key);
-		}
+	public final void noteKeyRelease(final Key key) {
+		
+		//Handles the case that the current Layer noted already a key press.
+		if (notedKeyPress) {
+			noteKeyReleaseWhenNotedKeyPress(key);
+		}	
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteKeyTyping(final Key key) {
+		
+		notedKeyPress = true;
+		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			rootWidget.noteKeyTyping(key);
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteLeftMouseButtonClick() {
+				
+		notedLeftMouseButtonPress = true;
 		
-		if (rootWidget != null) {
-			rootWidget.noteLeftMouseButtonClick();
-		}
-		
+		//Handles the case that the current Layer has a left mouse button click action.
 		if (leftMouseButtonClickAction != null) {
 			leftMouseButtonClickAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteLeftMouseButtonClick();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
@@ -548,172 +544,202 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		notedLeftMouseButtonPress = true;
 		
-		if (rootWidget != null) {
-			rootWidget.noteLeftMouseButtonPress();
-		}
-		
+		//Handles the case that the current Layer has a left mouse button press action.
 		if (leftMouseButtonPressAction != null) {
 			leftMouseButtonPressAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteLeftMouseButtonPress();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * {@inheritDoc}
+	 * Lets the current {@link IInputTaker} note a left mouse button release if
+	 * the current {@link Layer} noted already a left mouse button press.
 	 */
 	@Override
 	public final void noteLeftMouseButtonRelease() {
-		if (notedLeftMouseButtonPress()) {
+		
+		//Handles the case that the current Layer noted already a left mouse button press.
+		if (notedLeftMouseButtonPress) {
 			noteLeftMouseButtonReleaseWhenNotedLeftMouseButtonPress();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		
+		//Sets the cursor position of the current Layer.
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
-				
+		
+		//Handles the case that the current Layer has a mouse move action.
+		if (mouseMoveAction != null) {
+			mouseMoveAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			rootWidget.noteMouseMove(
 				cursorXPosition - rootWidget.getXPosition(),
 				cursorYPosition - rootWidget.getYPosition()
 			);
 		}
-		
-		if (mouseMoveAction != null) {
-			mouseMoveAction.run(this);
-		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseWheelClick() {
 		
-		if (rootWidget != null) {
-			rootWidget.noteMouseWheelClick();
-		}
+		notedMouseWheelPress = true;
 		
+		//Handles the case that the current Layer has a mouse wheel click action.
 		if (mouseWheelClickAction != null) {
 			mouseWheelClickAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteMouseWheelClick();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseWheelPress() {
 		
-		if (rootWidget != null) {
-			rootWidget.noteMouseWheelPress();
-		}
+		notedMouseWheelPress = true;
 		
+		//Handles the case that the current Layer has a mouse wheel press action.
 		if (mouseWheelPressAction != null) {
 			mouseMoveAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteMouseWheelPress();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * {@inheritDoc}
+	 * Lets the current {@link IInputTaker} note a mouse wheel release if
+	 * the current {@link Layer} noted already a mouse wheel press.
 	 */
 	@Override
 	public final void noteMouseWheelRelease() {
 		
-		if (rootWidget != null) {
-			rootWidget.noteMouseWheelRelease();
-		}
-		
-		if (mouseWheelReleaseAction != null) {
-			mouseWheelReleaseAction.run(this);
+		//Handles the case that the current Layer noted already a mouse wheel press.
+		if (notedMouseWheelPress) {
+			noteMouseWheelReleaseWhenNotedMouseWheelPress();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
+		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			rootWidget.noteMouseWheelRotationStep(rotationDirection);
 		}		
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		if (containsAny() && getRefRootWidget() instanceof BorderWidget) {
-			
-			final var borderWidget = getRefRootWidget().as(BorderWidget.class);
-			
-			if (borderWidget.hasAutomaticSize()) {					
-				borderWidget.setProposalSize(viewAreaWidth, viewAreaHeight);
-			}
+		
+		//Handles the case that the current Layer has a root Widget that is a BorderWidget.
+		if (rootWidget instanceof BorderWidget) {
+			noteResizeWhenHasBorderWidget(viewAreaWidth, viewAreaHeight);
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteRightMouseButtonClick() {
 		
-		if (rootWidget != null) {
-			rootWidget.noteRightMouseButtonClick();
-		}
+		notedRightMouseButtonPress = true;
 		
+		//Handles the case that the current Layer has a right mouse button click action.
 		if (rightMouseButtonClickAction != null) {
 			rightMouseButtonClickAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteRightMouseButtonClick();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void noteRightMouseButtonPress() {
 		
-		if (rootWidget != null) {
-			rootWidget.noteRightMouseButtonPress();
-		}
+		notedRightMouseButtonPress = true;
 		
+		//Handles the case that the current Layer has a right mouse button press action.
 		if (rightMouseButtonPressAction != null) {
 			rightMouseButtonPressAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteRightMouseButtonPress();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * {@inheritDoc}
+	 * Lets the current {@link IInputTaker} note a right mouse button release if
+	 * the current {@link Layer} noted already a right mouse button press.
 	 */
 	@Override
 	public final void noteRightMouseButtonRelease() {
 		
-		if (rootWidget != null) {
-			rootWidget.noteRightMouseButtonRelease();
-		}
-		
-		if (rightMouseButtonReleaseAction != null) {
-			rightMouseButtonReleaseAction.run(this);
+		//Handles the case that the current Layer noted already a right mouse button press.
+		if (notedRightMouseButtonPress) {
+			noteRightMouseButtonReleaseWhenHasNotedRightMouseButtonPress();
 		}
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * Paints the current {@link Layer} using the given painter.
 	 * 
@@ -721,11 +747,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public final void paint(final IPainter painter) {
 		
-		//Paints the background of the current GUILayer.
+		//Paints the background of the current Layer.
 		paintBackground(painter);
 		
-		//Handles the case that the current GUILayer has a root Widget.
-		//For a better performance, this implementation does not use all comfortable methods.
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			rootWidget.paintRecursively(painter);
 		}
@@ -734,123 +759,33 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Recalculates the current {@link Layer}.
+	 * {@inheritDoc}}
 	 */
+	@Override
 	public final void recalculate() {
 		
-		//Handles the case that the current GUILayer has a root Widget.
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			
-			setAutomaticSizeToRootWidget();
-			
-			//Recalculates the root Widget to update its size.
-			rootWidget.recalculate();
-			
-			//Enumerates the content position of the current GUILayer.
-			switch (contentPosition.getValue()) {
-				case TOP_LEFT:
-					
-					getRefRootWidget().setPositionOnParent(0, 0);
-					
-					break;
-				case LEFT:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, (getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case BOTTOM_LEFT:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case TOP:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-						0
-					);
-					
-					break;
-				case CENTER:
-								
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case BOTTOM:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case TOP_RIGHT:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-						0
-					);
-					
-					break;
-				case RIGHT:
-				
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-				
-					break;
-				case BOTTOM_RIGHT:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case FREE:
-					
-					final var freeContentPositionValue = this.freeContentPosition.getValue();	
-					
-					getRefRootWidget().setPositionOnParent(
-						freeContentPositionValue.getX(),
-						freeContentPositionValue.getY()
-					);
-					
-					break;
-			}
+			recalculateWhenHasRootWidget();
 		}
 	}
 	
 	//method
 	/**
 	 * Removes any background of the current {@link Layer}.
-	 * 
-	 * @return the current {@link Layer}.
 	 */
-	public final Layer removeBackground() {
-		
+	public final void removeBackground() {
 		backgroundColor.clear();
 		backgroundColorGradient.clear();
-		
-		return this;
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * Removes the current {@link Layer} from its parent {@link GUI}.
 	 */
 	public final void removeSelfFromGUI() {
-		if (belongsToGUI()) {
+		if (parentGUI != null) {
 			parentGUI.removeLayer(this);
 			parentGUI = null;
 		}
@@ -963,14 +898,14 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * Sets the free content position of the current {@link Layer}.
 	 * 
-	 * @param x
-	 * @param y
+	 * @param xFreeContentPosition
+	 * @param yFreeContentPosition
 	 * @return the current {@link Layer}.
 	 */
-	public final Layer setFreeContentPosition(final int x, final int y) {
+	public final Layer setFreeContentPosition(final int xFreeContentPosition, final int yFreeContentPosition) {
 		
 		setContentPosition(ExtendedContentPosition.FREE);
-		setFreeContentPosition_(x, y);
+		setFreeContentPosition_(xFreeContentPosition, yFreeContentPosition);
 		
 		return this;
 	}
@@ -1171,6 +1106,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * Sets the root {@link Widget} of the current {@link Layer}.
 	 * 
@@ -1180,12 +1116,13 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public final Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		Validator.assertThat(rootWidget).thatIsNamed("root widget").isNotNull();
+		Validator.assertThat(rootWidget).thatIsNamed("root Widget").isNotNull();
 		
-		//For a better performance, this implementation does not use all comfortable methods.
+		//Handles the case that the current Layer belongs to a GUI.
 		if (parentGUI != null) {
 			rootWidget.setParent(parentGUI);
 		}
+		
 		this.rootWidget = rootWidget;
 		
 		return this;
@@ -1198,11 +1135,11 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	protected final void resetConfigurableElement() {
 		setConfigurationAllowed();
-		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION.getX(), DEFAULT_FREE_CONTENT_POSITION.getY());
 		clear();
 	}
 	
-	//method
+	//visibility-reduced method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * Sets the {@link GUI} the current {@link Layer} will belong to.
 	 * 
@@ -1213,66 +1150,119 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-		
+		//Asserts that the current Layer does not belong to another GUI.
 		if (this.parentGUI != null && this.parentGUI != parentGUI) {
 			throw new ArgumentBelongsToUnexchangeableParentException(this, this.parentGUI);
 		}
 		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
 			rootWidget.setParent(parentGUI);
 		}
 		
+		//Sets the parentGUI of the current Layer.
 		this.parentGUI = parentGUI;
 	}
 	
 	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
-	 */
-	private void assertHasRole() {
-		if (!hasRole()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
-		}
-	}
-	
-	//method
-	private void noteLeftMouseButtonReleaseWhenNotedLeftMouseButtonPress() {
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void noteKeyReleaseWhenNotedKeyPress(final Key key) {
 		
+		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			rootWidget.noteLeftMouseButtonRelease();
-		}
-		
-		if (leftMouseButtonReleaseAction != null) {
-			leftMouseButtonReleaseAction.run(this);
-		}
-	}
-	
-	//method
-	private void paintBackground(final IPainter painter) {
-		
-		//Handles the case that the current GUILayer has a background color.
-		if (hasBackgroundColor()) {
-			painter.setColor(getBackgroundColor());
-			painter.paintFilledRectangle(
-				parentGUI.getViewAreaWidth(),
-				parentGUI.getViewAreaHeight()
-			);
-		}
-		
-		//Handles the case that the current GUILayer has a background color gradient.
-		else if (hasBackgroundColorGradient()) {
-			painter.setColorGradient(getBackgroundColorGradient());
-			painter.paintFilledRectangle(
-				parentGUI.getViewAreaWidth(),
-				parentGUI.getViewAreaHeight()
-			);
+			rootWidget.noteKeyRelease(key);
 		}
 	}
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	private void setAutomaticSizeToRootWidget() {
+	private void noteLeftMouseButtonReleaseWhenNotedLeftMouseButtonPress() {
+		
+		//Handles the case that the current Layer has a left mouse button release action.
+		if (leftMouseButtonReleaseAction != null) {
+			leftMouseButtonReleaseAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteLeftMouseButtonRelease();
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void noteMouseWheelReleaseWhenNotedMouseWheelPress() {
+		
+		//Handles the case that the current Layer has a mouse wheel release action.
+		if (mouseWheelReleaseAction != null) {
+			mouseWheelReleaseAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteMouseWheelRelease();
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void noteResizeWhenHasBorderWidget(int viewAreaWidth, int viewAreaHeight) {
+		
+		//Gets the root Widget of the current Layer as BorderWidget.
+		final var borderWidget = rootWidget.as(BorderWidget.class);
+		
+		//Handles the case that the borderWidget has activated automatic size.
+		if (borderWidget.hasAutomaticSize()) {					
+			borderWidget.setProposalSize(viewAreaWidth, viewAreaHeight);
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void noteRightMouseButtonReleaseWhenHasNotedRightMouseButtonPress() {
+		
+		//Handles the case that the current Layer has a right mouse button release action.
+		if (rightMouseButtonReleaseAction != null) {
+			rightMouseButtonReleaseAction.run(this);
+		}
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (rootWidget != null) {
+			rootWidget.noteRightMouseButtonRelease();
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void paintBackground(final IPainter painter) {
+		
+		//Handles the case that the current Layer has a background color.
+		if (hasBackgroundColor()) {
+			painter.setColor(getBackgroundColor());
+			painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
+		}
+		
+		//Handles the case that the current Layer has a background color gradient.
+		else if (hasBackgroundColorGradient()) {
+			painter.setColorGradient(getBackgroundColorGradient());
+			painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void recalculateWhenHasRootWidget() {
+			
+		setAutomaticSizeToRootWidgetIfSuitable();
+		
+		rootWidget.recalculate();
+		
+		setPositionOfRootWidgetWhenHasRootWidget();
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void setAutomaticSizeToRootWidgetIfSuitable() {
 		if (rootWidget instanceof BorderWidget) {
 			
 			final var lRootWidget = rootWidget.as(BorderWidget.class);
@@ -1293,7 +1283,95 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
-	private void setFreeContentPosition_(final int x, final int y) {
-		freeContentPosition.setValue(new Discrete2DPoint(x, y));
+	private void setFreeContentPosition_(final int xFreeContentPosition, final int yFreeContentPosition) {
+		freeContentPosition.setValue(new Discrete2DPoint(xFreeContentPosition, yFreeContentPosition));
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void setPositionOfRootWidgetWhenHasRootWidget() {
+			
+		//Enumerates the content position of the current Layer.
+		switch (contentPosition.getValue()) {
+			case TOP_LEFT:
+				
+				getRefRootWidget().setPositionOnParent(0, 0);
+				
+				break;
+			case LEFT:
+				
+				getRefRootWidget().setPositionOnParent(
+					0,
+					Calculator.getMax(0, (getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+				);
+				
+				break;
+			case BOTTOM_LEFT:
+				
+				getRefRootWidget().setPositionOnParent(
+					0,
+					Calculator.getMax(0, getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
+				);
+				
+				break;
+			case TOP:
+				
+				getRefRootWidget().setPositionOnParent(
+					Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+					0
+				);
+				
+				break;
+			case CENTER:
+							
+				getRefRootWidget().setPositionOnParent(
+					Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+					Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+				);
+				
+				break;
+			case BOTTOM:
+				
+				getRefRootWidget().setPositionOnParent(
+					Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+					Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+				);
+				
+				break;
+			case TOP_RIGHT:
+				
+				getRefRootWidget().setPositionOnParent(
+					Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+					0
+				);
+				
+				break;
+			case RIGHT:
+			
+				getRefRootWidget().setPositionOnParent(
+					Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+					Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+				);
+			
+				break;
+			case BOTTOM_RIGHT:
+				
+				getRefRootWidget().setPositionOnParent(
+					Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+					Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+				);
+				
+				break;
+			case FREE:
+				
+				final var freeContentPositionValue = this.freeContentPosition.getValue();	
+				
+				getRefRootWidget().setPositionOnParent(
+					freeContentPositionValue.getX(),
+					freeContentPositionValue.getY()
+				);
+				
+				break;
+		}
 	}
 }

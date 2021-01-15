@@ -33,8 +33,10 @@ public final class GUILayerTutorial {
 		.setBackgroundColor(Color.LAVENDER);
 		
 		//Creates dialogLayer.
-		final var dialogLayer = new Layer(
-			ExtendedContentPosition.CENTER,
+		final var dialogLayer =
+		new Layer()
+		.setContentPosition(ExtendedContentPosition.CENTER)
+		.setRootWidget(
 			new VerticalStack()
 			.addWidget(
 				new Button()

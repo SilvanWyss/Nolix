@@ -60,6 +60,9 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
+	//constant
+	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	
 	//static attribute
 	private static final WidgetProvider widgetProvider =
 	new WidgetProvider(
@@ -248,7 +251,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 				
 		initializeBackground();
 	}
-
+	
 	//method
 	/**
 	 * Adds a new {@link Layer} on the top of the current {@link WidgetGUI}.
@@ -261,9 +264,9 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public final WG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
-		return addLayerOnTop(new Layer(contentPosition, rootWidget));
+		return addLayerOnTop(new Layer().setContentPosition(contentPosition).setRootWidget(rootWidget));
 	}
-
+	
 	//method
 	/**
 	 * Adds the given layer on the top of the current {@link WidgetGUI}.
@@ -296,7 +299,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
 	public final WG addLayerOnTop(final Widget<?, ?> rootWidget) {		
-		return addLayerOnTop(new Layer(rootWidget));
+		return addLayerOnTop(new Layer().setRootWidget(rootWidget));
 	}
 	
 	//method
@@ -324,7 +327,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 				case PascalCaseNameCatalogue.BACKGROUND_COLOR:
 					background.setBackgroundColor(Color.fromSpecification(attribute));
 					break;		
-				case Layer.BACKGROUND_COLOR_GRADIENT_HEADER:
+				case BACKGROUND_COLOR_GRADIENT_HEADER:
 					background.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
 					break;
 				default:
@@ -383,13 +386,15 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		
 		//Handles the case that the current GUI has a background Color.
 		if (background.hasBackgroundColor()) {
-			attributes.addAtEnd(background.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			attributes.addAtEnd(
+				background.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR)
+			);
 		}
 		
 		//Handles the case that the current GUI has a background ColorGradient.
 		if (background.hasBackgroundColorGradient()) {
 			attributes.addAtEnd(
-				background.getBackgroundColorGradient().getSpecificationAs(Layer.BACKGROUND_COLOR_GRADIENT_HEADER)
+				background.getBackgroundColorGradient().getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER)
 			);
 		}
 		

@@ -41,7 +41,9 @@ public final class CursorPositionTutorial {
 			cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));
 			
 			//Creates Layer.
-			final var layer = new Layer(ExtendedContentPosition.TOP_LEFT, cursorPositionLabel);
+			final var layer = new Layer()
+			.setContentPosition(ExtendedContentPosition.TOP_LEFT)
+			.setRootWidget(cursorPositionLabel);
 			
 			//Sets mouse move action to Layer.
 			layer.setMouseMoveAction(this::updateCursorPosition);
