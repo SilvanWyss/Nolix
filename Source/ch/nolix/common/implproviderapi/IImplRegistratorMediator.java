@@ -5,5 +5,8 @@ package ch.nolix.common.implproviderapi;
 public interface IImplRegistratorMediator {
 	
 	//method declaration
+	boolean containsImplementation();
+	
+	//method declaration
 	<I> void registerImplementation(Class<I> implementation);
 }

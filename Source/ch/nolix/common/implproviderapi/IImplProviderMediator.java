@@ -5,9 +5,6 @@ package ch.nolix.common.implproviderapi;
 public interface IImplProviderMediator {
 	
 	//method declaration
-	boolean containsImpl();
-	
-	//method declaration
 	<O> O createInstance();
 	
 	//method declaration
