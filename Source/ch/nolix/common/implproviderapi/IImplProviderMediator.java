@@ -2,11 +2,11 @@
 package ch.nolix.common.implproviderapi;
 
 //interface
-public interface IImplProviderMediator {
+public interface IImplProviderMediator<O> {
 	
 	//method declaration
-	<O> O createInstance();
+	O createInstance();
 	
 	//method declaration
-	<O> O createInstance(final Object... arguments);
+	O createInstance(final Object... arguments);
 }
