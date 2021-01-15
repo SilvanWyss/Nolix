@@ -1,4 +1,4 @@
-package ch.nolix.techapitutorial.dynamicmathapitutorial;
+package ch.nolix.techtutorial.dynamicmathtutorial;
 
 //own imports
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
@@ -10,7 +10,7 @@ import ch.nolix.tech.genericmath.Registrator;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 
-public final class CustomFractalTutorial {
+public final class BlackWhiteMandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -22,22 +22,19 @@ public final class CustomFractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Custom Fractal Tutorial")
+		.setTitle("Black White Mandelrbrot Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
-				.setRealComponentInterval(-2.0, 1.5)
+				.setRealComponentInterval(-2.5, 1.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
 				.setStartValues(CentralInstanceProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
+				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
-				.setColorFunction(
-					i ->
-					i < maxIterationCount ?	new Color(i % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
-				)
+				.setColorFunction(i -> i < maxIterationCount ? Color.WHITE : Color.BLACK)
 				.setBigDecimalScale(20)
 				.build()
 				.startImageBuild()
@@ -49,5 +46,5 @@ public final class CustomFractalTutorial {
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
-	private CustomFractalTutorial() {}
+	private BlackWhiteMandelbrotFractalTutorial() {}
 }

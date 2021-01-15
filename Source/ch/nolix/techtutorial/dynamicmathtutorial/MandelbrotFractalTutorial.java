@@ -1,4 +1,4 @@
-package ch.nolix.techapitutorial.dynamicmathapitutorial;
+package ch.nolix.techtutorial.dynamicmathtutorial;
 
 //own imports
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
@@ -7,11 +7,10 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.tech.genericmath.Registrator;
-import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 
-public final class JuliaFractalTutorial {
+public final class MandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -19,21 +18,20 @@ public final class JuliaFractalTutorial {
 		Registrator.register();
 		
 		final var maxIterationCount = 100;
-		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.8, 0.15);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Julia Fractal Tutorial")
+		.setTitle("Mandelrbrot Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
-				.setRealComponentInterval(-2.0, 2.0)
+				.setRealComponentInterval(-2.5, 1.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setStartValuesFunction(c -> new IComplexNumber[]{c})
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
+				.setStartValues(CentralInstanceProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
+				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
@@ -51,5 +49,5 @@ public final class JuliaFractalTutorial {
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
-	private JuliaFractalTutorial() {}
+	private MandelbrotFractalTutorial() {}
 }

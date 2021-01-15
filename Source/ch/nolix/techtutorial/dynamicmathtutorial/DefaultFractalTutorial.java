@@ -1,4 +1,4 @@
-package ch.nolix.techapitutorial.dynamicmathapitutorial;
+package ch.nolix.techtutorial.dynamicmathtutorial;
 
 //own imports
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;

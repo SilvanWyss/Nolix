@@ -1,4 +1,4 @@
-package ch.nolix.techapitutorial.dynamicmathapitutorial;
+package ch.nolix.techtutorial.dynamicmathtutorial;
 
 //own imports
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
@@ -7,11 +7,10 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.tech.genericmath.Registrator;
-import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 
-public final class CustomFractalTutorial3 {
+public final class CustomFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -19,25 +18,25 @@ public final class CustomFractalTutorial3 {
 		Registrator.register();
 		
 		final var maxIterationCount = 100;
-		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.745, 0.25);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Custom Fractal Tutorial 3")
+		.setTitle("Custom Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
 				CentralInstanceProvider.create(IFractalBuilder.class)
-				.setRealComponentInterval(-1.5, 1.5)
-				.setImaginaryComponentInterval(-1.0, 1.0)
+				.setRealComponentInterval(-2.0, 1.5)
+				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setStartValuesFunction(c -> new IComplexNumber[]{c})
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
+				.setStartValues(CentralInstanceProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
+				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
-					i -> i < maxIterationCount ?	new Color((10 * i) % 256, i % 256, (20 * i) % 256) : Color.BLACK
+					i ->
+					i < maxIterationCount ?	new Color(i % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
 				)
 				.setBigDecimalScale(20)
 				.build()
@@ -50,5 +49,5 @@ public final class CustomFractalTutorial3 {
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
-	private CustomFractalTutorial3() {}
+	private CustomFractalTutorial() {}
 }
