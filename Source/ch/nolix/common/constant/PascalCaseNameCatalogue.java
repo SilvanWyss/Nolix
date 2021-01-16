@@ -85,6 +85,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String HEADER = "Header";
 	public static final String HEIGHT = "Height";
 	public static final String ID = "Id";
+	public static final String IMPLEMENTATION = "Implementation";
 	public static final String INDEX = "Index";
 	public static final String INFO_STRING = "InfoString";
 	public static final String INPUT = "Input";
