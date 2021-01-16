@@ -5,8 +5,8 @@ package ch.nolix.common.implproviderapi;
 public interface IImplProvider {
 	
 	//method declaration
-	<O> IExtendedImplRegistratorMediator<O> forInterface(Class<O> pInterface);
+	<IN> IExtendedImplRegistratorMediator<IN> forInterface(Class<IN> pInterface);
 	
 	//method declaration
-	<O> IImplProviderMediator<O> ofInterface(Class<O> pInterface);
+	<IN> IImplProviderMediator<IN> ofInterface(Class<IN> pInterface);
 }

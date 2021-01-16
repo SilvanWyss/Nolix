@@ -5,8 +5,8 @@ package ch.nolix.common.implproviderapi;
 import ch.nolix.common.processproperty.WriteMode;
 
 //interface
-public interface IExtendedImplRegistratorMediator<O> extends IImplRegistratorMediator<O> {
+public interface IExtendedImplRegistratorMediator<IN> extends IImplRegistratorMediator<IN> {
 	
 	//method declaration
-	IImplRegistratorMediator<O> withWriteMode(WriteMode writeMode);
+	IImplRegistratorMediator<IN> withWriteMode(WriteMode writeMode);
 }
