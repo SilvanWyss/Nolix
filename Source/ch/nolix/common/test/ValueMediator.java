@@ -11,8 +11,8 @@ import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
  * A value mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-01
- * @lines 190
+ * @date 2017-01-01
+ * @lines 220
  * @param <V> The type of the value of a value mediator.
  */
 public class ValueMediator<V> extends Mediator {
@@ -143,6 +143,27 @@ public class ValueMediator<V> extends Mediator {
 				+ actualStringRepresentation
 				+ "' was received."
 			);
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of the current {@link ValueMediator} is not of the given type.
+	 * 
+	 * @param <T> is the given type.
+	 * @param type
+	 * @throws ArgumentIsNullException if the given type is null.
+	 */
+	public final <T extends V> void isOfType(final Class<T> type) {
+		
+		if (type == null) {
+			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
+		}
+		
+		isNotNull();
+		
+		if (!getRefValue().getClass().isAssignableFrom(type)) {
+			addCurrentTestCaseError("");
 		}
 	}
 	
