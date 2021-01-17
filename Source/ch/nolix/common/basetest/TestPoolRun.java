@@ -79,8 +79,6 @@ public final class TestPoolRun {
 		//result phase
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
 		printSummary();
-		
-		//TODO: Create TestPoolResult.
 	}
 	
 	//method
