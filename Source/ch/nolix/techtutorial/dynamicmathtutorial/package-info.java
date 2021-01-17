@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.techtutorial.dynamicmathtutorial} package
- * defines tutorials for the {@link ch.nolix.tech.genericmath} package.
+ * defines tutorials for the {@link ch.nolix.tech.dynamicmath} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
-import ch.nolix.tech.genericmath.ComplexNumber;
+import ch.nolix.tech.dynamicmath.ComplexNumber;
 
 //class
 public final class ComplexNumberTest extends Test {

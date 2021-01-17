@@ -3,7 +3,7 @@ package ch.nolix.techtutorial.dynamicmathtutorial;
 //own imports
 import ch.nolix.common.functionapi.IIntTaker;
 import ch.nolix.common.instanceprovider.CentralInstanceProvider;
-import ch.nolix.tech.genericmath.Registrator;
+import ch.nolix.tech.dynamicmath.Registrator;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.dynamicmathapi.IImplicitComplexSequenceBuilder;

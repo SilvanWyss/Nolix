@@ -6,7 +6,7 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.tech.genericmath.Registrator;
+import ch.nolix.tech.dynamicmath.Registrator;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 

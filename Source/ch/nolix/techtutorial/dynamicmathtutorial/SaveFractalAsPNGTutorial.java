@@ -7,7 +7,7 @@ import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
-import ch.nolix.tech.genericmath.Registrator;
+import ch.nolix.tech.dynamicmath.Registrator;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 
 public final class SaveFractalAsPNGTutorial {

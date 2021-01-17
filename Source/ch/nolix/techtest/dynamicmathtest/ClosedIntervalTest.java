@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
-import ch.nolix.tech.genericmath.ClosedInterval;
+import ch.nolix.tech.dynamicmath.ClosedInterval;
 
 //class
 public final class ClosedIntervalTest extends Test {

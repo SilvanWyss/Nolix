@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tech.genericmath;
+package ch.nolix.tech.dynamicmath;
 
 //Java import
 import java.math.BigDecimal;
