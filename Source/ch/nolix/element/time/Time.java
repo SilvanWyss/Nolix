@@ -16,7 +16,6 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementapi.IElement;
 
-//TODO: Add timeZone attribute to Time.
 //class
 /**
  * {@link Time} stores a point in time with a precision of 1 millisecond.
@@ -30,7 +29,7 @@ import ch.nolix.element.elementapi.IElement;
  * Technically, a {@link Time} is a wrapper around JDK's {@link GregorianCalendar}.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 730
  */
 public final class Time implements IElement {
