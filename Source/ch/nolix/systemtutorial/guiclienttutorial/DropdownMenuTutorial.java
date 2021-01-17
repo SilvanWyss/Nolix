@@ -19,7 +19,6 @@ public final class DropdownMenuTutorial {
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("DropdownMenu Tutorial", MainSession.class);
 		
-		//TODO: Add expansion state of DropdownMenu to its specification.
 		//Creates a FrontCanvasGUIClient that will connect to the NetServer.
 		new FrontCanvasGUIClient();
 		
