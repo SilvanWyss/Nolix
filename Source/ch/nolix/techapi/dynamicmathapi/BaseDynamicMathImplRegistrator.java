@@ -6,7 +6,7 @@ import ch.nolix.common.implproviderapi.IImplRegistrator;
 import ch.nolix.common.implproviderapi.IImplProvider;
 
 //class
-public abstract class BaseDynamicMathRegistrator implements IImplRegistrator {
+public abstract class BaseDynamicMathImplRegistrator implements IImplRegistrator {
 	
 	//method
 	@Override
