@@ -102,7 +102,6 @@ public final class TestPoolRun {
 	//method
 	private void printSummary() {
 		
-		//TODO: Print count of passed tests.
 		linePrinter.printInfoLine(
 			"   Summary " + parentTestPool.getName() + " " + getRuntimeAndUnitAsStringInBrackets()
 		);
