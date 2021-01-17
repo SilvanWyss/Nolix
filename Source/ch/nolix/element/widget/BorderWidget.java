@@ -65,7 +65,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1740
+ * @lines 1750
  * @param <BW> The type of a {@link BorderWidget}.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -244,8 +244,6 @@ extends Widget<BW, BWL> {
 	public final CursorIcon getCursorIcon() {
 		
 		if (anyScrollBarCursorIsUnderCursor()) {
-			
-			//TODO: Add cursorIcon attribute to BorderWidgetScrollBarLook.
 			return CursorIcon.HAND;
 		}
 		
