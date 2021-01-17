@@ -14,8 +14,6 @@ import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
 
-//TODO: Unify method names.
-
 //class
 public final class ShellProvider {
 	
@@ -49,11 +47,6 @@ public final class ShellProvider {
 	}
 	
 	//static method
-	public static void startFirefox(final int port) {
-		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
-	}
-	
-	//static method
 	public static void startFirefox(final String url) {
 		startFirefox(url, PortCatalogue.HTTP_PORT);
 	}
@@ -77,6 +70,11 @@ public final class ShellProvider {
 	//static method
 	public static void startFirefoxOpeningLoopBackAddress() {
 		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP_PORT);
+	}
+	
+	//static method
+	public static void startFirefoxOpeningLoopBackAddress(final int port) {
+		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
 	//visibility-reduced constructor

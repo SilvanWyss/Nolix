@@ -22,7 +22,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		new FrontGUIClient(port);
 		
 		//Starts a web browser that will connect to the NetServer.
-		ShellProvider.startFirefox(port);
+		ShellProvider.startFirefoxOpeningLoopBackAddress(port);
 		
 		//Closes the NetServer as soon as it does not have a client connected any more.
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
