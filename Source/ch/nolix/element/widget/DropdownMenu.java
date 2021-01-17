@@ -168,7 +168,6 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		new SelectionMenu()
 		.addItems(getRefItems().to(TextItemMenuItem::getText))
 		
-		//TODO: Add ExpandedDropdownMenuBorderThickness and ExpandedDropdownMenuBorderColor to DropdownMenuLook.
 		.applyOnBaseLook(bl -> bl.setBorderThicknesses(1))
 		
 		//TODO: Work without additional security constant.
