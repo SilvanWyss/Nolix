@@ -56,6 +56,7 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	}
 	
 	//method
+	@Override
 	public void clear() {
 		rows = new Object[0][];
 		columnCount = 0;
