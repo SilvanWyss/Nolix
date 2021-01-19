@@ -31,13 +31,13 @@ public final class QuandlDataProvider {
 	 * from the given startDate to the given endDate.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public LinkedList<VolumeCandlestick> getCandleSticksPerDay(
+	public LinkedList<VolumeCandleStick> getCandleSticksPerDay(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
 	) {
 		
-		final var dailyCandleSticks = new LinkedList<VolumeCandlestick>();
+		final var dailyCandleSticks = new LinkedList<VolumeCandleStick>();
 		final var URLString = "https://www.quandl.com/api/v3/datasets/WIKI/" + productSymbol + "/data.csv";
 		
 		try (final var bufferedReader = new BufferedReader(new InputStreamReader(new URL(URLString).openStream()))) {
@@ -51,7 +51,7 @@ public final class QuandlDataProvider {
 				
 				if (!time.isBefore(startDate) && !time.isAfter(endDate)) {
 					dailyCandleSticks.addAtBegin(
-						new VolumeCandlestick(
+						new VolumeCandleStick(
 							time,
 							Integer.valueOf(stringArray[5].substring(0, stringArray[5].length() - 3)),
 							Double.valueOf(stringArray[1]),

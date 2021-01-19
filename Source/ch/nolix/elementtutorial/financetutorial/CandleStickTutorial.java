@@ -1,14 +1,14 @@
 package ch.nolix.elementtutorial.financetutorial;
 
 import ch.nolix.common.container.SequencePattern;
-import ch.nolix.element.finance.Candlestick;
+import ch.nolix.element.finance.CandleStick;
 import ch.nolix.element.finance.NYSEProductSymbolCatalogue;
 import ch.nolix.element.finance.QuandlDataProvider;
-import ch.nolix.element.finance.VolumeCandlestick;
+import ch.nolix.element.finance.VolumeCandleStick;
 import ch.nolix.element.time.Time;
 
 /**
- * The {@link CandleStickTutorial} is a tutorial for {@link Candlestick}s.
+ * The {@link CandleStickTutorial} is a tutorial for {@link CandleStick}s.
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
@@ -41,8 +41,8 @@ public final class CandleStickTutorial {
 		//Calculates the percentage.
 		final double percentage =
 		candleSticks.getSequences(
-			new SequencePattern<VolumeCandlestick>()
-			.addConditionForNext(VolumeCandlestick::isHammer)
+			new SequencePattern<VolumeCandleStick>()
+			.addConditionForNext(VolumeCandleStick::isHammer)
 			.addBlankForNext()
 		)
 		.getPercentage(s -> s.getRefAt(2).isBullish());

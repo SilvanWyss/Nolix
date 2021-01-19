@@ -4,7 +4,7 @@ package ch.nolix.elementtest.financetest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
-import ch.nolix.element.finance.Candlestick;
+import ch.nolix.element.finance.CandleStick;
 import ch.nolix.element.time.Time;
 
 //class
@@ -22,8 +22,8 @@ public final class CandleStickTest extends Test {
 	public void testCase_isBearish_1() {
 		
 		//setup
-		final Candlestick candleStick
-		= new Candlestick(
+		final CandleStick candleStick
+		= new CandleStick(
 		 new Time(2020, 1, 1),
 			100.0,
 			200.0,
@@ -40,8 +40,8 @@ public final class CandleStickTest extends Test {
 	public void testCase_isBearish_2() {
 		
 		//setup
-		final Candlestick candleStick
-		= new Candlestick(
+		final CandleStick candleStick
+		= new CandleStick(
 		 new Time(2020, 1, 1),
 			200.0,
 			100.0,
@@ -58,8 +58,8 @@ public final class CandleStickTest extends Test {
 	public void testCase_isBullish_1() {
 		
 		//setup
-		final Candlestick candleStick
-		= new Candlestick(
+		final CandleStick candleStick
+		= new CandleStick(
 		 new Time(2020, 1, 1),
 			100.0,
 			200.0,
@@ -76,8 +76,8 @@ public final class CandleStickTest extends Test {
 	public void testCase_isBullish_2() {
 		
 		//setup
-		final Candlestick candleStick
-		= new Candlestick(
+		final CandleStick candleStick
+		= new CandleStick(
 		 new Time(2020, 1, 1),
 			200.0,
 			100.0,
@@ -94,8 +94,8 @@ public final class CandleStickTest extends Test {
 	public void testCase_isHammer() {
 		
 		//setup
-		final Candlestick candleStick
-		= new Candlestick(
+		final CandleStick candleStick
+		= new CandleStick(
 		 new Time(2020, 1, 1),
 			200.0,
 			210.0,

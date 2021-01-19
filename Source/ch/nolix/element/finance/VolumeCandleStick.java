@@ -14,7 +14,7 @@ import ch.nolix.element.time.Time;
  * @month 2016-09
  * @lines 120
  */
-public class VolumeCandlestick extends Candlestick {
+public class VolumeCandleStick extends CandleStick {
 	
 	//attribute
 	private final int volume;
@@ -31,7 +31,7 @@ public class VolumeCandlestick extends Candlestick {
 	 * @param lowestPrice	The lowest price of this candle stick.
 	 * @param highestPrice	The highest price of this candle stick.
 	 */
-	public VolumeCandlestick(
+	public VolumeCandleStick(
 		final Time time,
 		final int volume,
 		final double openingPrice,
@@ -55,9 +55,9 @@ public class VolumeCandlestick extends Candlestick {
 	 * @return a copy of this volume candlestick.
 	 */
 	@Override
-	public VolumeCandlestick getCopy() {
+	public VolumeCandleStick getCopy() {
 		return (
-			new VolumeCandlestick(getRefTime(),
+			new VolumeCandleStick(getRefTime(),
 				getVolume(),
 				getOpeningPrice(),
 				getClosingPrice(), getLowestPrice(),
@@ -78,7 +78,7 @@ public class VolumeCandlestick extends Candlestick {
 	 * @param volumeCandleStick		The volume candlestick that is compared to this candle stick.
 	 * @return true if this volume candlestick has a bigger volume than the given candle stick
 	 */
-	public final boolean hasBiggerVolumeThan(final VolumeCandlestick volumeCandleStick) {
+	public final boolean hasBiggerVolumeThan(final VolumeCandleStick volumeCandleStick) {
 		return (getVolume() > volumeCandleStick.getVolume());
 	}
 }
