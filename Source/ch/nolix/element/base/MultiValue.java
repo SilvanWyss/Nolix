@@ -14,16 +14,17 @@ import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
+import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2018-03-04
- * @lines 230
+ * @lines 240
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
-public final class MultiValue<V> extends Property<V> implements IContainer<V> {
+public final class MultiValue<V> extends Property<V> implements Clearable, IContainer<V> {
 	
 	//static method
 	/**
@@ -103,10 +104,19 @@ public final class MultiValue<V> extends Property<V> implements IContainer<V> {
 		values.addAtEndRegardingSingularity(value);
 	}
 	
+	/**
+	 * @return true if the current {@link MultiValue} contains a value.
+	 */
+	@Override
+	public boolean containsAny() {
+		return Clearable.super.containsAny();
+	}
+	
 	//method
 	/**
 	 * Removes all values of the current {@link MultiValue}.
 	 */
+	@Override
 	public void clear() {	
 		values.clear();
 	}
