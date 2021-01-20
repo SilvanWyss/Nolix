@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.commontest.endpoint5test;
+package ch.nolix.commontest.endpoint3test;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;
-import ch.nolix.common.endpoint5.EndPoint;
-import ch.nolix.common.endpoint5.IEndPointTaker;
-import ch.nolix.common.endpoint5.NetEndPoint;
-import ch.nolix.common.endpoint5.NetServer;
+import ch.nolix.common.endpoint3.EndPoint;
+import ch.nolix.common.endpoint3.IEndPointTaker;
+import ch.nolix.common.endpoint3.NetEndPoint;
+import ch.nolix.common.endpoint3.NetServer;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;

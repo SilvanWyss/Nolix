@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.endpoint5test;
+package ch.nolix.commontest.endpoint3test;
 
 //class
 public final class Launcher {

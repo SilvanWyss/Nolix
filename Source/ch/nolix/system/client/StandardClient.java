@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.common.endpoint5.EndPoint;
+import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 

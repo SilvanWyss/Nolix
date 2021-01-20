@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.endpoint5test;
+package ch.nolix.commontest.endpoint3test;
 
 //own imports
 import ch.nolix.common.basetest.TestPool;
