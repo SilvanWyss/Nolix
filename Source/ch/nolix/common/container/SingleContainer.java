@@ -15,7 +15,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2020-01-11
  * @param <E> is the type of the element of a {@link SingleContainer}.
- * @lines 100
+ * @lines 110
  */
 public final class SingleContainer<E> implements IContainer<E> {
 	
@@ -77,6 +77,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the element of the current {@link SingleContainer}.
 	 * @throws EmptyArgumentException if the current {@link SingleContainer} is empty.
@@ -84,7 +85,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	public E getRefElement() {
 		
 		//Asserts that the current SingleContainer is not empty.
-		if (isEmpty()) {
+		if (element == null) {
 			throw new EmptyArgumentException(this);
 		}
 		
@@ -93,11 +94,19 @@ public final class SingleContainer<E> implements IContainer<E> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public int getElementCount() {
-		return (isEmpty() ? 0 : 1);
+		
+		//Handles the case that the current SingleContainer is empty.
+		if (element == null) {
+			return 0;
+		}
+		
+		//Handles the case that the current SingleContainer contains an element.
+		return 1;
 	}
 }
