@@ -21,7 +21,7 @@ import ch.nolix.element.graphic.Image;
  * @author Silvan Wyss
  * @month 2017-11
  * @lines 140
- * @param <BS> The type of a {@link AtomicShape}.
+ * @param <BS> is the type of a {@link AtomicShape}.
  */
 public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> {
 	

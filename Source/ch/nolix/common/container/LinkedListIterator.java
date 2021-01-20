@@ -12,7 +12,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeExce
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 70
- * @param <E> The type of the elements of a {@link LinkedListIterator}.
+ * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */
 final class LinkedListIterator<E> implements Iterator<E> {
 	

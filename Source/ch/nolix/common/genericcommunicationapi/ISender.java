@@ -8,7 +8,7 @@ package ch.nolix.common.genericcommunicationapi;
  * @author Silvan Wyss
  * @month 2017-06
  * @lines 30
- * @param <M> The type of the messages a {@link ISender} can send.
+ * @param <M> is the type of the messages a {@link ISender} can send.
  */
 public interface ISender<M> {
 	

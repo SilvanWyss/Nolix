@@ -12,7 +12,7 @@ import ch.nolix.system.client.StandardClientSession;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 70
- * @param <O> The type of the output of the net front neuron of a net front neuron session.
+ * @param <O> is the type of the output of the net front neuron of a net front neuron session.
  */
 final class FrontNetNeuronSession<O> extends StandardClientSession {
 	

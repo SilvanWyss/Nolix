@@ -11,7 +11,7 @@ import ch.nolix.common.optionalattributeapi.OptionalHeadered;
  * @author Silvan Wyss
  * @month 2019-02
  * @lines 30
- * @param <OH> The type of a {@link OptionalHeaderable}.
+ * @param <OH> is the type of a {@link OptionalHeaderable}.
  */
 public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends OptionalHeadered {
 	

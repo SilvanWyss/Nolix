@@ -21,7 +21,7 @@ import ch.nolix.element.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 350
- * @param <L> The type of a line.
+ * @param <L> is the type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	

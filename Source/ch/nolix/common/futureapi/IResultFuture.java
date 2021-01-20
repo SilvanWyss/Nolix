@@ -8,7 +8,7 @@ package ch.nolix.common.futureapi;
  * @author Silvan Wyss
  * @month 2019-04
  * @lines 30
- * @param <R> The type of the result of a {@link IResultFuture}.
+ * @param <R> is the type of the result of a {@link IResultFuture}.
  */
 public interface IResultFuture<R> extends IFuture {
 	

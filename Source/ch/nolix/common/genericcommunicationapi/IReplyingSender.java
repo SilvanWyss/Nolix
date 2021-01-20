@@ -9,8 +9,8 @@ package ch.nolix.common.genericcommunicationapi;
  * @author Silvan Wyss
  * @month 2017-06
  * @lines 20
- * @param <M> The type of the messages a {@link IReplyingSender} can send.
- * @param <R> The type of the replies a {@link IReplyingSender} returns.
+ * @param <M> is the type of the messages a {@link IReplyingSender} can send.
+ * @param <R> is the type of the replies a {@link IReplyingSender} returns.
  */
 public interface IReplyingSender<M, R> {
 

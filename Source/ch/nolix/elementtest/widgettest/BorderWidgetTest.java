@@ -15,7 +15,7 @@ import ch.nolix.element.widget.BorderWidget;
  * @author Silvan Wyss
  * @date 2018-12-11
  * @lines 340
- * @param <BW> The type of the {@link BorderWidget}s of a {@link BorderWidgetTest}.
+ * @param <BW> is the type of the {@link BorderWidget}s of a {@link BorderWidgetTest}.
  */
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {
 	

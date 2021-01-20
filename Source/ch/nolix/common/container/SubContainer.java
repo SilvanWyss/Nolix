@@ -24,7 +24,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2017-08-27
  * @lines 110
- * @param <E> The type of the elements of a {@link SubContainer}.
+ * @param <E> is the type of the elements of a {@link SubContainer}.
  */
 public final class SubContainer<E> implements IContainer<E> {
 

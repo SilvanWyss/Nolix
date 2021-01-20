@@ -16,7 +16,7 @@ import ch.nolix.common.license.CentralLicenseManager;
  * @author Silvan Wyss
  * @date 2018-04-21
  * @lines 180
- * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
+ * @param <DSA> is the type of a {@link DatabaseSchemaAdapter}.
  */
 public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>> implements IFluentObject<DSA> {
 	

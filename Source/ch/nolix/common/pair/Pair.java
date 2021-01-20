@@ -13,8 +13,8 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 90
- * @param <E1> The type of the element 1 of a {@link Pair}.
- * @param <E2> The type of the element 2 of a {@link Pair}.
+ * @param <E1> is the type of the element 1 of a {@link Pair}.
+ * @param <E2> is the type of the element 2 of a {@link Pair}.
  */
 public final class Pair<E1, E2> {
 	

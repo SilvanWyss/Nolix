@@ -37,7 +37,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 2070
- * @param <E> The type of the elements a {@link IContainer} can store.
+ * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
 	

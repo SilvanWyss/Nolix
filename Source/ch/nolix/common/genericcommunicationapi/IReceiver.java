@@ -8,7 +8,7 @@ package ch.nolix.common.genericcommunicationapi;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
- * @param <M> The type of the messages a {@link IReceiver} can receive.
+ * @param <M> is the type of the messages a {@link IReceiver} can receive.
  */
 public interface IReceiver<M> {
 	

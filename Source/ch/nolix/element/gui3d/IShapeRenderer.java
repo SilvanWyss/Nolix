@@ -9,7 +9,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotSupportMethodExce
  * @author Silvan Wyss
  * @month 2017-11
  * @lines 60
- * @param <S> The type of the shape a shape renderer can render.
+ * @param <S> is the type of the shape a shape renderer can render.
  * @param <RO> is the type of the render objects a {@link IShapeRenderer} provides.
  * @param <SRO> is the type of the sub render objects of a {@link IShapeRenderer}.
  */

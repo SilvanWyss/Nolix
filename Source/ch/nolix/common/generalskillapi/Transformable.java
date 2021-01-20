@@ -18,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2020-09
  * @lines 60
- * @param <T> The type of the {@link Object}s a {@link Transformable} can be transformed to.
+ * @param <T> is the type of the {@link Object}s a {@link Transformable} can be transformed to.
  */
 public interface Transformable<T extends Transformable<T>> extends IFluentObject<T> {
 	

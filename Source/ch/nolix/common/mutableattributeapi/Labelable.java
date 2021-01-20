@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.Labeled;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
- * @param <S> The type of a {@link Labelable}.
+ * @param <S> is the type of a {@link Labelable}.
  */
 public interface Labelable<S extends Labelable<S>> extends Labeled {
 	

@@ -18,7 +18,7 @@ import ch.nolix.system.baseneuron.InputConnection;
  * @author Silvan Wyss
  * @month 2016-11
  * @lines 210
- * @param <IO> The type of the input and output of a neuron.
+ * @param <IO> is the type of the input and output of a neuron.
  */
 public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	

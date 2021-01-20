@@ -11,7 +11,7 @@ import ch.nolix.common.optionalattributeapi.OptionalLabeled;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 30
- * @param <OL> The type of a {@link OptionalLabelable}.
+ * @param <OL> is the type of a {@link OptionalLabelable}.
  */
 public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends OptionalLabeled {
 	

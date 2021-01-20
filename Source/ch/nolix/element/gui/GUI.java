@@ -49,7 +49,7 @@ import ch.nolix.element.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 750
- * @param <G> The type of a {@link GUI}.
+ * @param <G> is the type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
 	

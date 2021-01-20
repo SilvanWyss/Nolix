@@ -8,7 +8,7 @@ package ch.nolix.common.skillapi;
  * @author Silvan Wyss
  * @month 2018-04
  * @lines 20
- * @param <CS> The type of a {@link IChangesSaver}.
+ * @param <CS> is the type of a {@link IChangesSaver}.
  */
 public interface IChangesSaver<CS extends IChangesSaver<CS>> extends Resettable {
 	

@@ -15,7 +15,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 110
- * @param <A> The type of the arguments of a multi argument mediator.
+ * @param <A> is the type of the arguments of a multi argument mediator.
  */
 public class MultiArgumentMediator<A> {
 

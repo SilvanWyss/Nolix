@@ -23,7 +23,7 @@ import ch.nolix.system.client.StandardClient;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 140
- * @param <O> The type of the output of a net front neuron.
+ * @param <O> is the type of the output of a net front neuron.
  */
 public final class FrontNetNeuron<O>
 extends BaseNeuron<FrontNetNeuron<O>, Object, O>

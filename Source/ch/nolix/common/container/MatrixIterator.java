@@ -15,7 +15,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-08-1
  * @lines 80
- * @param <E> The type of the elements of a {@link MatrixIterator}.
+ * @param <E> is the type of the elements of a {@link MatrixIterator}.
  */
 final class MatrixIterator<E> implements Iterator<E> {
 

@@ -22,7 +22,7 @@ import ch.nolix.system.neuron.Neuron;
  * @author Silvan Wyss
  * @date 2017-01-15
  * @lines 170
- * @param <IO> The type of the inputs and output of the {@link NeuronalNet}s
+ * @param <IO> is the type of the inputs and output of the {@link NeuronalNet}s
  * a {@link ForwardMultiLayerNetCreator} creates.
  */
 public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreator<IO> {

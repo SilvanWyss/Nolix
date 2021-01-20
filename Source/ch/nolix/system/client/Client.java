@@ -32,7 +32,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 730
- * @param <C> The type of a {@link Client}.
+ * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
 implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {

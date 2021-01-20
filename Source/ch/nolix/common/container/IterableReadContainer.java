@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2017-11-26
  * @lines 120
- * @param <E> The type of the elements of a {@link IterableReadContainer}.
+ * @param <E> is the type of the elements of a {@link IterableReadContainer}.
  */
 final class IterableReadContainer<E> implements IContainer<E> {
 	

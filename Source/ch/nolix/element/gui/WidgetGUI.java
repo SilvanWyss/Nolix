@@ -53,7 +53,7 @@ import ch.nolix.element.widget.VerticalLine;
  * @author Silvan Wyss
  * @date 2019-08-01
  * @lines 800
- * @param <WG> The type of a {@link WidgetGUI}.
+ * @param <WG> is the type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
 	

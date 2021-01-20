@@ -20,7 +20,7 @@ import ch.nolix.system.guiclient.FrontGUIClient;
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 150
- * @param <FGC> The type of a {@link BaseFrontGUIClient}.
+ * @param <FGC> is the type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
 	

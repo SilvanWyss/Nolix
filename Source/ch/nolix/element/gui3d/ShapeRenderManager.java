@@ -9,9 +9,9 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2017-11
  * @lines 50
- * @param <S> The type of the shape of a shape renderer.
- * @param <RO> The type of the render object of a shape renderer.
- * @param <SRO> The type of the sub render objects of a shape renderer.
+ * @param <S> is the type of the shape of a shape renderer.
+ * @param <RO> is the type of the render object of a shape renderer.
+ * @param <SRO> is the type of the sub render objects of a shape renderer.
  */
 public final class ShapeRenderManager<S extends Shape<S>, RO, SRO> {
 

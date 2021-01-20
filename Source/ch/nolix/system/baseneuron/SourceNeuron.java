@@ -8,7 +8,7 @@ package ch.nolix.system.baseneuron;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 60
- * @param <O> The type of the output of a source neuron.
+ * @param <O> is the type of the output of a source neuron.
  */
 public final class SourceNeuron<O>
 extends BaseNeuron<SourceNeuron<O>, Object, O> {

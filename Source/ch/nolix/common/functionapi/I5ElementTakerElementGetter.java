@@ -8,12 +8,12 @@ package ch.nolix.common.functionapi;
 * @author Silvan Wyss
 * @month 2019-03
 * @lines 30
-* @param <E1> The type of the first element a {@link IElementTakerLongGetter} takes.
-* @param <E2> The type of the second element a {@link IElementTakerLongGetter} takes.
-* @param <E3> The type of the third element a {@link IElementTakerLongGetter} takes.
-* @param <E4> The type of the fourth element a {@link IElementTakerLongGetter} takes.
-* @param <E5> The type of the fith element a {@link IElementTakerLongGetter} takes.
-* @param <E6> The type of the element a {@link IElementTakerLongGetter} returns.
+* @param <E1> is the type of the first element a {@link IElementTakerLongGetter} takes.
+* @param <E2> is the type of the second element a {@link IElementTakerLongGetter} takes.
+* @param <E3> is the type of the third element a {@link IElementTakerLongGetter} takes.
+* @param <E4> is the type of the fourth element a {@link IElementTakerLongGetter} takes.
+* @param <E5> is the type of the fith element a {@link IElementTakerLongGetter} takes.
+* @param <E6> is the type of the element a {@link IElementTakerLongGetter} returns.
 */
 @FunctionalInterface
 public interface I5ElementTakerElementGetter<E1, E2, E3, E4, E5, E6> {

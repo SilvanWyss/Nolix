@@ -29,7 +29,7 @@ import ch.nolix.element.textformat.Font;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 290
- * @param <WL> The type of a {@link WidgetLook}.
+ * @param <WL> is the type of a {@link WidgetLook}.
  */
 public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement<WL> {
 	

@@ -16,7 +16,7 @@ import ch.nolix.system.baseneuron.FanoutNeuron;
  * @author Silvan Wyss
  * @date 2017-01-01
  * @lines 130
- * @param <IO> The type of the input and output of the {@link BaseNeuron}s of a {@link NeuronalNet}.
+ * @param <IO> is the type of the input and output of the {@link BaseNeuron}s of a {@link NeuronalNet}.
  */
 public final class NeuronalNet<IO> extends BaseNeuron<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	

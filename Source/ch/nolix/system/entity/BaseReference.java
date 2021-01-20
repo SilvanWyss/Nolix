@@ -16,7 +16,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
  * @author Silvan Wyss
  * @month 2018-04
  * @lines 50
- * @param <E> The type of the {@link Entity}s a {@link BaseReference} can reference.
+ * @param <E> is the type of the {@link Entity}s a {@link BaseReference} can reference.
  */
 public abstract class BaseReference<E extends Entity> extends Property<E> {
 	

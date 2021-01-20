@@ -8,7 +8,7 @@ package ch.nolix.system.baseneuron;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 40
- * @param <O> The type of the inputs of a bundle neuron.
+ * @param <O> is the type of the inputs of a bundle neuron.
  */
 public final class BundleNeuron<O>
 extends BaseNeuron<BundleNeuron<O>, O, Iterable<O>> {

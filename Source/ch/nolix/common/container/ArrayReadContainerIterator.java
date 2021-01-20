@@ -17,7 +17,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2017-11-26
  * @lines 80
- * @param <E> The type of the elements of the {@link ArrayReadContainer}
+ * @param <E> is the type of the elements of the {@link ArrayReadContainer}
  * a {@link ArrayReadContainerIterator} belongs to.
  */
 final class ArrayReadContainerIterator<E> implements Iterator<E> {

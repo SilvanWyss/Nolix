@@ -21,7 +21,7 @@ import ch.nolix.element.gui.Widget;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 620
- * @param <C> The type of a {@link BaseConfiguration}.
+ * @param <C> is the type of a {@link BaseConfiguration}.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>
 implements IMutableElement<C> {

@@ -8,8 +8,8 @@ package ch.nolix.common.genericcommunicationapi;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
- * @param <M> The type of the messages a {@link IReplier} can reply to.
- * @param <R> The type of the replies a {@link IReplier} can return.
+ * @param <M> is the type of the messages a {@link IReplier} can reply to.
+ * @param <R> is the type of the replies a {@link IReplier} can return.
  */
 public interface IReplier<M, R> {
 	

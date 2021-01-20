@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.Named;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
- * @param <N> The type of a {@link Namable}.
+ * @param <N> is the type of a {@link Namable}.
  */
 public interface Namable<N extends Namable<N>> extends Named {
 	

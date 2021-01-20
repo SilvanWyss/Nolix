@@ -8,7 +8,7 @@ package ch.nolix.common.skillapi;
  * @author Silvan Wyss
  * @month 2019-03
  * @lines 20
- * @param <O> The type of the objects a {@link IBuilder} builds.
+ * @param <O> is the type of the objects a {@link IBuilder} builds.
  */
 public interface IBuilder<O> {
 	

@@ -15,7 +15,7 @@ import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 140
- * @param <A> The type of the argument of an {@link ArgumentMediator}.
+ * @param <A> is the type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {
 		

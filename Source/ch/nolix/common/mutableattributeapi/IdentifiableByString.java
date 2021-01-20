@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.IdentifiedByString;
  * @author Silvan Wyss
  * @month 2020-03
  * @lines 20
- * @param <IBS> The type of a {@link IdentifiableByString}.
+ * @param <IBS> is the type of a {@link IdentifiableByString}.
  */
 public interface IdentifiableByString<IBS> extends IdentifiedByString {
 	

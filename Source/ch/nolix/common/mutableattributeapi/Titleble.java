@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.Titled;
 * @author Silvan Wyss
 * @month 2019-07
 * @lines 20
-* @param <T> The type of a {@link Titleble}.
+* @param <T> is the type of a {@link Titleble}.
 */
 public interface Titleble<T extends Titleble<T>> extends Titled {
 	

@@ -20,7 +20,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-08-01
  * @lines 720
- * @param <E> The type of the elements of a {@link Matrix}.
+ * @param <E> is the type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable {
 

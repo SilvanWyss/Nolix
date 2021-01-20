@@ -21,7 +21,7 @@ import ch.nolix.common.sequencer.Sequencer;
  * @author Silvan Wyss
  * @date 2016-10-01
  * @lines 160
- * @param <E> The type of the elements of the sequences of a {@link SequencePattern}.
+ * @param <E> is the type of the elements of the sequences of a {@link SequencePattern}.
  */
 public final class SequencePattern<E> {
 	

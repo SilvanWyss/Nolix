@@ -12,7 +12,7 @@ import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 * @author Silvan Wyss
 * @month 2017-11
 * @lines 50
-* @param <A> The type of the argument of an extended generic argument mediator.
+* @param <A> is the type of the argument of an extended generic argument mediator.
 */
 public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 

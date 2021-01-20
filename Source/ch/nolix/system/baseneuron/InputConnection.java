@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 100
- * @param <O> The type of the output of the input neuron of an input connection.
+ * @param <O> is the type of the output of the input neuron of an input connection.
  */
 public final class InputConnection<O> {
 

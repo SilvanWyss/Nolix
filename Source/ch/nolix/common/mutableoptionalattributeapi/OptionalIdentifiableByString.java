@@ -12,7 +12,7 @@ import ch.nolix.common.optionalattributeapi.OptionalIdentifiedByString;
  * @author Silvan Wyss
  * @month 2020-01
  * @lines 30
- * @param <OIBS> The type of a {@link OptionalIdentifiableByString}.
+ * @param <OIBS> is the type of a {@link OptionalIdentifiableByString}.
  */
 public interface OptionalIdentifiableByString<OIBS extends OptionalIdentifiableByString<OIBS>>
 extends OptionalIdentifiedByString {

@@ -11,8 +11,8 @@ import ch.nolix.common.attributeapi.Valued;
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 20
- * @param <VA> The type of a {@link Valueable}.
- * @param <V> The type of the value of a {@link Valueable}.
+ * @param <VA> is the type of a {@link Valueable}.
+ * @param <V> is the type of the value of a {@link Valueable}.
  */
 public interface Valueable<VA extends Valueable<VA, V>, V> extends Valued<VA, V> {
 	

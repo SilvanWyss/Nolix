@@ -23,7 +23,7 @@ import ch.nolix.element.elementapi.IMutableElement;
  * @author Silvan Wyss
  * @date 2017-09-06
  * @lines 220
- * @param <E> The type of a {@link LayerElement}.
+ * @param <E> is the type of a {@link LayerElement}.
  */
 public abstract class LayerElement<E extends LayerElement<E>> implements IMutableElement<E>, ISmartObject<E> {
 	

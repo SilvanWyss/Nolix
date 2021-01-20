@@ -27,9 +27,9 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-12-01
  * @lines 320
- * @param <N> The type of a {@link BaseNeuron}.
- * @param <I> The type of the inputs of a {@link BaseNeuron}.
- * @param <O> The type of the output of a {@link BaseNeuron}.
+ * @param <N> is the type of a {@link BaseNeuron}.
+ * @param <I> is the type of the inputs of a {@link BaseNeuron}.
+ * @param <O> is the type of the output of a {@link BaseNeuron}.
  */
 public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements ISmartObject<N> {
 	

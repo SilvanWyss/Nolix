@@ -27,7 +27,7 @@ import ch.nolix.system.client.StandardClient;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 140
- * @param <I> The type of the input of a net back neuron.
+ * @param <I> is the type of the input of a net back neuron.
  */
 public final class BackNetNeuron<I>
 extends BaseNeuron<BackNetNeuron<I>, I, I>

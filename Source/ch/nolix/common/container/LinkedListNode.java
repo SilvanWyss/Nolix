@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 150
- * @param <E> The type of the element of a {@link LinkedListNode}.
+ * @param <E> is the type of the element of a {@link LinkedListNode}.
  */
 final class LinkedListNode<E> {
 

@@ -8,7 +8,7 @@ package ch.nolix.common.generalskillapi;
 * @author Silvan Wyss
 * @date 2020-11-07
 * @lines 10
-* @param <C> The type of a {@link Copyable}.
+* @param <C> is the type of a {@link Copyable}.
 */
 public interface Copyable<C extends Copyable<C>> {
 	

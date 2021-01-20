@@ -15,7 +15,7 @@ import ch.nolix.element.gui.Widget;
  * @author Silvan Wyss
  * @date 2018-09-11
  * @lines 110
- * @param <W> The type of the {@link Widget}s of a {@link WidgetTest}.
+ * @param <W> is the type of the {@link Widget}s of a {@link WidgetTest}.
  */
 public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 	

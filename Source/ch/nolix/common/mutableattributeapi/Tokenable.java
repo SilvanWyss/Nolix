@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.Tokened;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
- * @param <T> The type of a {@link Tokenable}.
+ * @param <T> is the type of a {@link Tokenable}.
  */
 public interface Tokenable<T extends Tokenable<T>> extends Tokened {
 	

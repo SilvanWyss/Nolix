@@ -11,8 +11,8 @@ import ch.nolix.common.optionalattributeapi.OptionalValued;
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 30
- * @param <OV> The type of a {@link OptionalValueable}.
- * @param <V> The type of the value of a {@link OptionalValueable}.
+ * @param <OV> is the type of a {@link OptionalValueable}.
+ * @param <V> is the type of the value of a {@link OptionalValueable}.
  */
 public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> extends OptionalValued<V> {
 	

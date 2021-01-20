@@ -25,7 +25,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 1150
- * @param <E> The type of the elements of a {@link LinkedList}.
+ * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable, IContainer<E> {
 	

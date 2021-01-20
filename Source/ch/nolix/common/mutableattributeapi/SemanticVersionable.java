@@ -15,7 +15,7 @@ import ch.nolix.common.validator.Validator;
 * @author Silvan Wyss
 * @month 2020-03
 * @lines 50
-* @param <SV> The type of a {@link SemanticVersionable}.
+* @param <SV> is the type of a {@link SemanticVersionable}.
 */
 public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends SemanticVersioned {
 	

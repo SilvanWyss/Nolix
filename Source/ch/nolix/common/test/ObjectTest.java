@@ -8,7 +8,7 @@ package ch.nolix.common.test;
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 20
- * @param <OT> The type of the test units of a {@link ObjectTest}.
+ * @param <OT> is the type of the test units of a {@link ObjectTest}.
  */
 public abstract class ObjectTest<OT> extends Test {
 	

@@ -8,8 +8,8 @@ package ch.nolix.common.attributeapi;
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 50
- * @param <VA> The type of a {@link Valued}.
- * @param <V> The type of the value of a {@link Valued}.
+ * @param <VA> is the type of a {@link Valued}.
+ * @param <V> is the type of the value of a {@link Valued}.
  */
 public interface Valued<VA extends Valued<VA, V>, V> {
 	

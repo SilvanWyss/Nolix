@@ -14,8 +14,8 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 70
- * @param <I> The type of the input of a transform neuron.
- * @param <O> The type of the output of a transform neuron.
+ * @param <I> is the type of the input of a transform neuron.
+ * @param <O> is the type of the output of a transform neuron.
  */
 public final class TransformNeuron<I, O>
 extends BaseNeuron<TransformNeuron<I, O>, I, O> {

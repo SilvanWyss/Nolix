@@ -11,7 +11,7 @@ import ch.nolix.common.optionalattributeapi.OptionalNamed;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 30
- * @param <ON> The type of a {@link OptionalNamable}.
+ * @param <ON> is the type of a {@link OptionalNamable}.
  */
 public interface OptionalNamable<ON extends OptionalNamable<ON>> extends OptionalNamed {
 	

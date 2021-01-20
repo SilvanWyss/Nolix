@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.Identified;
  * @author Silvan Wyss
  * @month 2020-03
  * @lines 20
- * @param <I> The type of a {@link Identifiable}.
+ * @param <I> is the type of a {@link Identifiable}.
  */
 public interface Identifiable<I> extends Identified {
 	

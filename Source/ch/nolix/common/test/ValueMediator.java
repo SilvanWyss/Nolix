@@ -13,7 +13,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
  * @author Silvan Wyss
  * @date 2017-01-01
  * @lines 220
- * @param <V> The type of the value of a value mediator.
+ * @param <V> is the type of the value of a value mediator.
  */
 public class ValueMediator<V> extends Mediator {
 

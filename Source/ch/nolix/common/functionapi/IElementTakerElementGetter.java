@@ -8,8 +8,8 @@ package ch.nolix.common.functionapi;
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> The type of the elements a {@link IElementTakerElementGetter} takes.
- * @param <E2> The type of the elements a {@link IElementTakerElementGetter} returns.
+ * @param <E> is the type of the elements a {@link IElementTakerElementGetter} takes.
+ * @param <E2> is the type of the elements a {@link IElementTakerElementGetter} returns.
  */
 @FunctionalInterface
 public interface IElementTakerElementGetter<E, E2> {

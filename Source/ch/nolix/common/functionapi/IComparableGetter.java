@@ -8,7 +8,7 @@ package ch.nolix.common.functionapi;
  * @author Silvan Wyss
  * @month 2016-09
  * @lines 20
- * @param <E> The type of the elements
+ * @param <E> is the type of the elements
  * the {@link Comparable}, a {@link IComparableGetter} returns, compares.
  */
 @FunctionalInterface

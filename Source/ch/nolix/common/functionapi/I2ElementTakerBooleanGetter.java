@@ -9,7 +9,7 @@ package ch.nolix.common.functionapi;
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 20
- * @param <E> The type of the elements a {@link I2ElementTakerBooleanGetter} getter takes.
+ * @param <E> is the type of the elements a {@link I2ElementTakerBooleanGetter} getter takes.
  */
 @FunctionalInterface
 public interface I2ElementTakerBooleanGetter<E> {

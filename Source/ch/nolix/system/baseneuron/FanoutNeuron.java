@@ -14,7 +14,7 @@ import ch.nolix.common.container.ReadContainer;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 90
- * @param <O> The type of the elements of the input and of the elements of the output of a fanout neuron.
+ * @param <O> is the type of the elements of the input and of the elements of the output of a fanout neuron.
  */
 public final class FanoutNeuron<O>
 extends BaseNeuron<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {

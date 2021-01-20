@@ -11,7 +11,7 @@ import ch.nolix.common.attributeapi.Indexed;
  * @author Silvan Wyss
  * @month 2020-03
  * @lines 20
- * @param <I> The type of a {@link Indexable}.
+ * @param <I> is the type of a {@link Indexable}.
  */
 public interface Indexable<I> extends Indexed {
 	

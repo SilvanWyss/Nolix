@@ -12,7 +12,7 @@ import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 * @author Silvan Wyss
 * @month 2017-11
 * @lines 50
-* @param <E> The type of the elements of the argument of an extended container mediator.
+* @param <E> is the type of the elements of the argument of an extended container mediator.
 */
 public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 

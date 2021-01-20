@@ -23,8 +23,8 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 170
- * @param <CW> The type of a {@link ContainerWidget}.
- * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
+ * @param <CW> is the type of a {@link ContainerWidget}.
+ * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
 public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>,	BWS extends BorderWidgetLook<BWS>>
 extends BorderWidget<CW, BWS> implements Clearable {

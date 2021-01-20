@@ -19,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 250
- * @param <V> The type of the value of a property.
+ * @param <V> is the type of the value of a property.
  */
 public final class LayerProperty<V> implements Named {
 	

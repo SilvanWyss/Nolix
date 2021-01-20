@@ -30,7 +30,7 @@ import ch.nolix.system.client.Client;
  * @author Silvan Wyss
  * @date 2017-10-01
  * @lines 410
- * @param <BBGUIC> The type of a {@link BaseBackGUIClient}.
+ * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends Client<BBGUIC> {
 	

@@ -8,8 +8,8 @@ package ch.nolix.common.functionapi;
  * @author Silvan Wyss
  * @month 2020-07
  * @lines 20
- * @param <E1> The type of the first element a {@link I2ElementTaker} takes.
- * @param <E2> The type of the second element a {@link I2ElementTaker} takes.
+ * @param <E1> is the type of the first element a {@link I2ElementTaker} takes.
+ * @param <E2> is the type of the second element a {@link I2ElementTaker} takes.
  */
 @FunctionalInterface
 public interface I2ElementTaker<E1, E2> {
