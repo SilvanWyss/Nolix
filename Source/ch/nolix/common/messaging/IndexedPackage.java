@@ -12,9 +12,9 @@ import ch.nolix.common.validator.Validator;
  * A {@link IndexedPackage} bundles an index and a content.
  * 
  * @author Silvan Wyss
- * @month 2016-05
- * @lines 50
- * @param <C> - The type of the content of a {@link IndexedPackage}.
+ * @date 2016-06-01
+ * @lines 60
+ * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> implements Indexed {
 	
