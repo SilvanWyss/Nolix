@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.endpoint2;
+package ch.nolix.common.endpoint;
 
 //Java imports
 import java.io.IOException;

@@ -11,7 +11,7 @@ import ch.nolix.common.validator.Validator;
 * @month 2016-05
 * @lines 50
 */
-final class NetServerEndPointTaker implements ch.nolix.common.endpoint2.IEndPointTaker {
+final class NetServerEndPointTaker implements ch.nolix.common.endpoint.IEndPointTaker {
 	
 	//constant
 	private static final String NAME = "NetServerEndPointTaker";
@@ -49,7 +49,7 @@ final class NetServerEndPointTaker implements ch.nolix.common.endpoint2.IEndPoin
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void takeEndPoint(final ch.nolix.common.endpoint2.EndPoint endPoint) {
+	public void takeEndPoint(final ch.nolix.common.endpoint.EndPoint endPoint) {
 		parentNetServer.takeEndPoint(new NetEndPoint(endPoint));
 	}
 }

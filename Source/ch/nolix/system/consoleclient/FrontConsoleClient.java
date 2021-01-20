@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.consoleclient;
 
-//own imports
-import ch.nolix.common.endpoint2.NetServer;
+import ch.nolix.common.endpoint.NetServer;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;

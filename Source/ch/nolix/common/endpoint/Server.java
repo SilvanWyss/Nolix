@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.endpoint2;
+package ch.nolix.common.endpoint;
 
 //own imports
 import ch.nolix.common.closeableelement.CloseController;

@@ -26,7 +26,7 @@ public class NetEndPoint extends EndPoint {
 	private int nextSentPackageIndex = 1;
 	
 	//attributes
-	private final ch.nolix.common.endpoint2.EndPoint internalEndPoint;
+	private final ch.nolix.common.endpoint.EndPoint internalEndPoint;
 	
 	//multi-attribute
 	private final LinkedList<Package> receivedPackages = new LinkedList<>();
@@ -42,7 +42,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final int port) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.common.endpoint2.NetEndPoint(port));
+		this(new ch.nolix.common.endpoint.NetEndPoint(port));
 	}
 	
 	//constructor
@@ -58,7 +58,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final int port, final String target) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.common.endpoint2.NetEndPoint(port, target));
+		this(new ch.nolix.common.endpoint.NetEndPoint(port, target));
 	}
 	
 	//constructor
@@ -73,7 +73,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip,	final int port) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.common.endpoint2.NetEndPoint(ip, port));
+		this(new ch.nolix.common.endpoint.NetEndPoint(ip, port));
 	}
 	
 	//constructor
@@ -91,7 +91,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip,	final int port,	final String target) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.common.endpoint2.NetEndPoint(ip, port, target));
+		this(new ch.nolix.common.endpoint.NetEndPoint(ip, port, target));
 	}
 	
 	//constructor
@@ -101,7 +101,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param internalEndPoint
 	 * @throws ArgumentIsNullException if the given internalEndPoint is null.
 	 */
-	NetEndPoint(final ch.nolix.common.endpoint2.EndPoint internalEndPoint) {
+	NetEndPoint(final ch.nolix.common.endpoint.EndPoint internalEndPoint) {
 		
 		Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 		
@@ -190,7 +190,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return the internal end point of the current {@link NetEndPoint}.
 	 */
-	ch.nolix.common.endpoint2.EndPoint getRefInternalEndPoint() {
+	ch.nolix.common.endpoint.EndPoint getRefInternalEndPoint() {
 		return internalEndPoint;
 	}
 	

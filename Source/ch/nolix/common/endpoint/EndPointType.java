@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.endpoint2;
+package ch.nolix.common.endpoint;
 
 //enum
 public enum EndPointType {

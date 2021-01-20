@@ -44,7 +44,7 @@ public final class CommonTestPool extends TestPool {
 			new ChainedNodeTestPool(),
 			new ValidatorTestPool(),
 			new WebSocketTestPool(),
-			new ch.nolix.commontest.endpoint2test.EndPointTestPool(),
+			new ch.nolix.commontest.endpointtest.EndPointTestPool(),
 			new ch.nolix.commontest.endpoint3test.EndPointTestPool(),
 			new ch.nolix.commontest.endpoint5test.EndPointTestPool()
 		);

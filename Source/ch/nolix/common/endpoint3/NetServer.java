@@ -17,7 +17,7 @@ import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 public final class NetServer extends Server {
 	
 	//attribute
-	private final ch.nolix.common.endpoint2.NetServer internalNetServer;
+	private final ch.nolix.common.endpoint.NetServer internalNetServer;
 	
 	//constructor
 	/**
@@ -29,7 +29,7 @@ public final class NetServer extends Server {
 	public NetServer(final int port) {
 		
 		//Creates the internal net server of the current net server.
-		internalNetServer =	new ch.nolix.common.endpoint2.NetServer(port);
+		internalNetServer =	new ch.nolix.common.endpoint.NetServer(port);
 		
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependencyTo(internalNetServer);
@@ -53,7 +53,7 @@ public final class NetServer extends Server {
 	public NetServer(final int port, final String HTTPMessage) {
 		
 		//Creates the internal net server of the current net server.
-		internalNetServer =	new ch.nolix.common.endpoint2.NetServer(port, HTTPMessage);
+		internalNetServer =	new ch.nolix.common.endpoint.NetServer(port, HTTPMessage);
 		
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependencyTo(internalNetServer);
