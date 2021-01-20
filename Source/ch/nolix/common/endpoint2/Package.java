@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.endpoint3;
+package ch.nolix.common.endpoint2;
 
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 //own imports

@@ -32,7 +32,7 @@ import ch.nolix.common.validator.Validator;
 public class NetEndPoint extends EndPoint {
 	
 	//attribute
-	private final ch.nolix.common.endpoint3.NetEndPoint internalNetEndPoint;
+	private final ch.nolix.common.endpoint2.NetEndPoint internalNetEndPoint;
 		
 	//constructor
 	/**
@@ -75,7 +75,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip, final int port) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.common.endpoint3.NetEndPoint(ip, port));
+		this(new ch.nolix.common.endpoint2.NetEndPoint(ip, port));
 	}
 	
 	//constructor
@@ -93,7 +93,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip, final int port, final String target) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.common.endpoint3.NetEndPoint(ip, port, target));
+		this(new ch.nolix.common.endpoint2.NetEndPoint(ip, port, target));
 	}
 	
 	//visibility-reduced constructor
@@ -103,10 +103,10 @@ public class NetEndPoint extends EndPoint {
 	 * @param internalNetEndPoint
 	 * @throws ArgumentIsNullException if the given netEndPoint is null.
 	 */
-	NetEndPoint(final ch.nolix.common.endpoint3.NetEndPoint internalNetEndPoint) {
+	NetEndPoint(final ch.nolix.common.endpoint2.NetEndPoint internalNetEndPoint) {
 		
 		//Asserts that the given netEndPoint is not null.
-		Validator.assertThat(internalNetEndPoint).isOfType(ch.nolix.common.endpoint3.NetEndPoint.class);
+		Validator.assertThat(internalNetEndPoint).isOfType(ch.nolix.common.endpoint2.NetEndPoint.class);
 		
 		//Sets the internalNetEndPoint of the current NetEndPoint.
 		this.internalNetEndPoint = internalNetEndPoint;

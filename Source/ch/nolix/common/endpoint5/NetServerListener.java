@@ -12,7 +12,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2016-10
  * @lines 60
  */
-final class NetServerListener implements ch.nolix.common.endpoint3.IEndPointTaker {
+final class NetServerListener implements ch.nolix.common.endpoint2.IEndPointTaker {
 
 	//name
 	private static final String NAME = "IntenralEndPointTaker";
@@ -54,9 +54,9 @@ final class NetServerListener implements ch.nolix.common.endpoint3.IEndPointTake
 	 * @throws InvalidArgumentException if the given end point is not a NetEndPoint.
 	 */
 	@Override
-	public void takeEndPoint(final ch.nolix.common.endpoint3.EndPoint endPoint) {
+	public void takeEndPoint(final ch.nolix.common.endpoint2.EndPoint endPoint) {
 		netServer.takeEndPoint(
-			new NetEndPoint((ch.nolix.common.endpoint3.NetEndPoint)endPoint)
+			new NetEndPoint((ch.nolix.common.endpoint2.NetEndPoint)endPoint)
 		);
 	}
 }
