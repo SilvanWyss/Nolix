@@ -3,13 +3,13 @@ package ch.nolix.common.processproperty;
 
 //enum
 /**
- * A {@link AccessMode} defines the behavior when a target, that should be accessed, does not exist already.
+ * A {@link CreationMode} defines the behavior when a target, that should be created, exist already.
  * 
  * @author Silvan Wyss
- * @month 2020-08
+ * @date 2020-08-17
  * @lines 10
  */
-public enum AccessMode {
+public enum CreationMode {
 	THROW_EXCEPTION_WHEN_TARGET_DOES_NOT_EXIST_ALREADY,
 	CREATE_WHEN_TARGET_DOES_NOT_EXIST_ALREADY,
 }
