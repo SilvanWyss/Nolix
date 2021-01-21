@@ -12,7 +12,7 @@ public final class WidgetParent {
 	private final WidgetGUI<?> mGui;
 	private final Widget<?, ?> widget;
 	
-	//visiblity-reduced constructor
+	//visibility-reduced constructor
 	WidgetParent(final WidgetGUI<?> pGUI, final Widget<?, ?> childWidget) {
 		
 		Validator.assertThat(pGUI).thatIsNamed(WidgetGUI.class).isNotNull();
@@ -33,16 +33,14 @@ public final class WidgetParent {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public boolean belongsToGUI() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (mGui != null || widget.belongsToGUI());
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public WidgetGUI<?> getRefGUI() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		
 		if (mGui != null) {
 			return mGui;
@@ -52,10 +50,10 @@ public final class WidgetParent {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public Widget<?, ?> getRefWidget() {
 		
 		//Asserts that the current WidgetParent is a widget.
-		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {
 			throw new InvalidArgumentException(this, "is not a Widget");
 		}
@@ -64,24 +62,36 @@ public final class WidgetParent {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public WidgetParentType getType() {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (mGui != null ? WidgetParentType.GUI : WidgetParentType.WIDGET);
+		if (mGui != null) {
+			return WidgetParentType.GUI;
+		}
+		
+		return WidgetParentType.WIDGET;
 	}
 		
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public int getXPositionOnGUI() {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (mGui != null ? 0 : widget.getXPositionOnGUI());
+		if (mGui != null) {
+			return 0; 
+		}
+		
+		return widget.getXPositionOnGUI();
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public int getYPositionOnGUI() {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return (mGui != null ? 0 : widget.getYPositionOnGUI());
+		if (mGui != null) {
+			return 0; 
+		}
+		
+		return widget.getYPositionOnGUI();
 	}
 	
 	//method
@@ -89,17 +99,15 @@ public final class WidgetParent {
 		return (belongsToGUI() && getRefGUI().isClosed());
 	}
 	
+	//For a better performance, this implementation does not use all comfortable methods.
 	//method
 	public boolean is(final WidgetGUI<?> pGUI) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (mGui != null && mGui == pGUI);
 	}
 	
+	//For a better performance, this implementation does not use all comfortable methods.
 	//method
 	public boolean is(final Widget<?, ?> widget) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (this.widget != null && this.widget == widget);
 	}
 	
