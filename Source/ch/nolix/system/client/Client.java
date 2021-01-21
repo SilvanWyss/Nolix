@@ -704,8 +704,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		
 		if (sessions.isEmpty()) {
 			currentSession = null;
-		}
-		else {
+		} else {
 			currentSession = sessions.getRefLast();
 		}
 	}
