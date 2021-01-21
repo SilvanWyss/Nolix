@@ -509,7 +509,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	@Override
 	public Node addAttribute(final BaseNode attribute) {
 		
-		attributes.addAtEnd((attribute instanceof Node) ? (Node)attribute : attribute.getCopy());
+		attributes.addAtEnd(attribute.getCopy());
 		
 		return this;
 	}
