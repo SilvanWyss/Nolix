@@ -31,7 +31,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 730
+ * @lines 740
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -702,7 +702,12 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		final var topSession = sessions.removeAndGetRefLast();
 		topSession.removeParentClient();
 		
-		currentSession = sessions.containsAny() ? sessions.getRefLast() : null;
+		if (sessions.isEmpty()) {
+			currentSession = null;
+		}
+		else {
+			currentSession = sessions.getRefLast();
+		}
 	}
 	
 	//method
