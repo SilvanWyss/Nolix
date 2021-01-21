@@ -1,6 +1,5 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
-//own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.gui.Frame;
@@ -11,7 +10,8 @@ import ch.nolix.element.widget.Button;
  * Of the {@link ButtonTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 50
+ * @date 2018-05-19
+ * @lines 60
  */
 public final class ButtonTutorial {
 	
@@ -31,8 +31,14 @@ public final class ButtonTutorial {
 		final var button = new Button().setText("Change background color");
 		
 		//Defines a left mouse button release action for the Button.
-		button.setLeftMouseButtonReleaseAction(() -> 
-			frame.setBackgroundColor(frame.getBackgroundColor().equals(Color.WHITE) ? Color.YELLOW : Color.WHITE)
+		button.setLeftMouseButtonReleaseAction(
+			() -> {
+				if (frame.getBackgroundColor().equals(Color.WHITE)) {
+					frame.setBackgroundColor(Color.YELLOW);
+				} else {
+					frame.setBackgroundColor(Color.WHITE);
+				}
+			}
 		);
 		
 		//Configures the look of the Button.
