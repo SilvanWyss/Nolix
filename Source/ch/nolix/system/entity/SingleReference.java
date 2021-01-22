@@ -71,7 +71,12 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 	//method
 	@Override
 	public final String toString() {
-		return (referencesEntity() ? getRefEntity().getShortDescription() : StringCatalogue.EMPTY_STRING);
+		
+		if (!referencesEntity()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		return getRefEntity().getShortDescription();
 	}
 	
 	//method
