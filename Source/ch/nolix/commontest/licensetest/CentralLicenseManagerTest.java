@@ -8,7 +8,7 @@ import java.util.Objects;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.license.CentralLicenseManager;
+import ch.nolix.common.license.GlobalLicenseManager;
 import ch.nolix.common.license.Feature;
 import ch.nolix.common.license.License;
 import ch.nolix.common.test.Test;
@@ -21,7 +21,7 @@ public final class CentralLicenseManagerTest extends Test {
 	public void testCase_requireFeature_whenLicenseIsNotThere() {
 		
 		//execution & verification
-		expectRunning(() -> CentralLicenseManager.requireFeature(TestFeature.class)).throwsException();
+		expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).throwsException();
 	}
 	
 	//method
@@ -31,13 +31,13 @@ public final class CentralLicenseManagerTest extends Test {
 		//setup
 		final var testLicense = new TestLicense();
 		testLicense.activate("0000-0000");
-		CentralLicenseManager.addLicense(testLicense);
+		GlobalLicenseManager.addLicense(testLicense);
 		
 		//execution & verification
-		expectRunning(() -> CentralLicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
+		expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
 		
 		//cleanup
-		CentralLicenseManager.removeLicense(testLicense);
+		GlobalLicenseManager.removeLicense(testLicense);
 	}
 	
 	//static class

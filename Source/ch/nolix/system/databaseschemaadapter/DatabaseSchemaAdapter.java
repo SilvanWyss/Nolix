@@ -6,7 +6,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.generalskillapi.IFluentObject;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.license.CentralLicenseManager;
+import ch.nolix.common.license.GlobalLicenseManager;
 
 //class
 /**
@@ -27,7 +27,7 @@ public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DS
 	//method
 	public final  DSA addEntitySet(final EntitySet entitySet) {
 		
-		CentralLicenseManager
+		GlobalLicenseManager
 		.when(loadedAndCreatedEntitySets.getElementCount())
 		.isBiggerThan(10)
 		.thenRequireFeature(DatabaseClassic.class)
