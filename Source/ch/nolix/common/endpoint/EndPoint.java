@@ -4,9 +4,9 @@ package ch.nolix.common.endpoint;
 //own imports
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
-import ch.nolix.common.communicationapi.IReceiver;
 import ch.nolix.common.communicationapi.ISender;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
@@ -33,7 +33,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 	
 	//optional attributes
 	private String target;
-	private IReceiver receiver;
+	private IElementTaker<String> receiver;
 	
 	//constructor
 	/**
@@ -151,10 +151,10 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 	 * @throws ArgumentIsNullException if the given receiver is null.
 	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
-	public final void setReceiver(final IReceiver receiver) {
+	public final void setReceiver(final IElementTaker<String> receiver) {
 		
 		//Asserts that the given receiver is not null.
-		Validator.assertThat(receiver).isOfType(IReceiver.class);
+		Validator.assertThat(receiver).thatIsNamed(VariableNameCatalogue.RECEIVER).isNotNull();
 		
 		//Asserts that the current EndPoint is open.
 		assertIsOpen();
@@ -168,7 +168,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 	 * @return the receiver of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver.
 	 */
-	protected final IReceiver getRefReceiver() {
+	protected final IElementTaker<String> getRefReceiver() {
 		
 		if (hasReceiver()) {
 			return receiver;
@@ -179,7 +179,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 		.waitUntil(this::hasReceiver);
 		
 		if (!hasReceiver()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.RECEIVER);
 		}
 		
 		return receiver;

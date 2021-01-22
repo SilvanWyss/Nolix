@@ -177,7 +177,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 		//Asserts that the current NetEndPoint is open.
 		assertIsOpen();
 		
-		getRefReceiver().receive(message);
+		getRefReceiver().run(message);
 	}
 	
 	//method

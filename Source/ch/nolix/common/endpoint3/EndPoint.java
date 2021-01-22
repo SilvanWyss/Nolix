@@ -5,7 +5,7 @@ package ch.nolix.common.endpoint3;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
-import ch.nolix.common.communicationapi.IReceiver;
+import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -194,7 +194,7 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 		.waitUntil(this::hasReceiverController);
 		
 		if (!hasReceiverController()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, IReceiver.class);
+			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.RECEIVER);
 		}
 		
 		return receiverController;
