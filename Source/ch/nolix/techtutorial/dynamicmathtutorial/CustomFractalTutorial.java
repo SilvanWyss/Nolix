@@ -36,8 +36,14 @@ public final class CustomFractalTutorial {
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
-					i ->
-					i < maxIterationCount ?	new Color(i % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
+					i -> {
+						
+						if (i < maxIterationCount) {
+							return new Color(i % 256, (10 * i) % 256, (2 * i) % 256);
+						}
+						
+						return Color.BLACK;
+					}
 				)
 				.setBigDecimalScale(20)
 				.build()
