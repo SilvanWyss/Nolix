@@ -11,8 +11,8 @@ import ch.nolix.element.time.Time;
  * A {@link TimeTest} is a test for {@link Time}s.
  * 
  * @author Silvan Wyss
- * @month 2017-02
- * @lines 90
+ * @date 2017-02-04
+ * @lines 100
  */
 public final class TimeTest extends Test {
 	
@@ -22,7 +22,14 @@ public final class TimeTest extends Test {
 		//main loop
 		for (int y = 1600; y <= 1600; y++) {
 			for (int m = 1; m <= 12; m++) {
-				final int dayCount = m != 2 ? 30 : 28;
+				
+				final int dayCount;
+				if (m == 2) {
+					dayCount = 28;
+				} else {
+					dayCount = 30;
+				}
+				
 				for (int d = 1; d <= dayCount; d++) {
 					
 					//execution
