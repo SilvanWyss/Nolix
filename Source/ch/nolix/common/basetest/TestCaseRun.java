@@ -45,7 +45,12 @@ public final class TestCaseRun {
 	
 	//method
 	public TestCaseResult runAndGetResult() {
-		return (hasTimeout() ? runAndGetResultWithTimeout() : runAndGetResultWithoutTimeout());
+		
+		if (!hasTimeout()) {
+			return runAndGetResultWithoutTimeout();
+		}
+		
+		return runAndGetResultWithTimeout();
 	}
 	
 	//method
