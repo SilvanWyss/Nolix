@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.common.serviceprovider;
 
-//own imports
+//own import
 import ch.nolix.common.processproperty.WriteMode;
 
 //class
-public final class CentralServiceProvider {
+public final class GlobalServiceProvider {
 	
 	//static attribute
 	private static final ServiceProvider coreServiceProdiver = new ServiceProvider();
@@ -30,5 +30,5 @@ public final class CentralServiceProvider {
 	}
 	
 	//visibility-reduced constructor
-	private CentralServiceProvider() {}
+	private GlobalServiceProvider() {}
 }
