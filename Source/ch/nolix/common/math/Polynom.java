@@ -24,7 +24,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 380
+ * @lines 390
  */
 public final class Polynom {
 	
@@ -185,7 +185,12 @@ public final class Polynom {
 	 * @return the value of the current {@link Polynom} at the given x.
 	 */
 	public double getValueAt(final double x) {
-		return (isZeroPolynom() ? 0.0 : getValueAtWhenIsNotZeroPolynom(x));
+		
+		if (isZeroPolynom()) {
+			return 0.0;
+		}
+		
+		return getValueAtWhenIsNotZeroPolynom(x);
 	}
 	
 	//method
