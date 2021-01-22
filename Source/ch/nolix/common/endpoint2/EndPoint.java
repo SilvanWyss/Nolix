@@ -5,7 +5,6 @@ package ch.nolix.common.endpoint2;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.communicationapi.IReplier;
-import ch.nolix.common.communicationapi.IReplyingSender;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
@@ -19,7 +18,7 @@ import ch.nolix.common.validator.Validator;
  * @month 2017-05
  * @lines 110
  */
-public abstract class EndPoint implements ICloseableElement, IReplyingSender {
+public abstract class EndPoint implements ICloseableElement, IReplier {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
