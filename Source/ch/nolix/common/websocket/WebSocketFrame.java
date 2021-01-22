@@ -75,7 +75,12 @@ public final class WebSocketFrame {
 			
 			firstNibble = WebSocketFrameFirstNibble.fromNibble(inputStream.readNBytes(2));
 			payloadLength = calculatePayloadLength(inputStream);
-			maskingKey = getMaskBit() ? inputStream.readNBytes(MASK_LENGTH_IN_BYTES) : null;
+			
+			if (getMaskBit()) {
+				maskingKey = inputStream.readNBytes(MASK_LENGTH_IN_BYTES);
+			} else {
+				maskingKey = null;
+			}
 			
 			//TODO: Handle payloadLength > MAX_INT.
 			payload = inputStream.readNBytes((int)getPayloadLength());
@@ -150,7 +155,12 @@ public final class WebSocketFrame {
 	
 	//method
 	public int getMaskLength() {
-		return (masksPayload() ? MASK_LENGTH_IN_BYTES : 0);
+		
+		if (masksPayload()) {
+			return MASK_LENGTH_IN_BYTES;
+		}
+		
+		return 0;
 	}
 	
 	//method
