@@ -29,7 +29,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @date 2017-10-01
- * @lines 410
+ * @lines 420
  * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends Client<BBGUIC> {
@@ -115,7 +115,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	//method
 	final SingleContainer<byte[]> getFileFromCounterpart() {
 		
-		final var fileData = isWebClient() ? getFileDataFromWebCounterpart() : getFileDataFromNonWebCounterpart();
+		final var fileData = getFileFromCounterpartInNode();
 		
 		if (!fileData.containsOneAttribute()) {
 			return new SingleContainer<>();
@@ -194,6 +194,16 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 				Node.withAttribute(internalGetDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
 			);
 		}
+	}
+	
+	//method
+	private BaseNode getFileFromCounterpartInNode() {
+		
+		if (isWebClient()) {
+			return getFileDataFromWebCounterpart();
+		}
+		
+		return getFileDataFromNonWebCounterpart();
 	}
 	
 	//method
