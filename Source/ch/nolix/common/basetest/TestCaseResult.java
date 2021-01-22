@@ -86,7 +86,12 @@ public final class TestCaseResult {
 	
 	//method
 	public List<String> getOutputLines() {
-		return (isPassed() ? getOutputLinesWhenPassed() : getOutputLinesWhenFailed());
+		
+		if (isPassed()) {
+			return getOutputLinesWhenPassed();
+		}
+		
+		return getOutputLinesWhenFailed();
 	}
 	
 	//method
