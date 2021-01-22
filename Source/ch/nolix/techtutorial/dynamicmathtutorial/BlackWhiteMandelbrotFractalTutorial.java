@@ -14,7 +14,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
 		
-		//Registers an implementation for the GenericMathAPI at the ClassProvider.
+		//Registers an implementation of the dynamicmathapi at the GlobalImplProvider.
 		Registrator.register();
 		
 		final var maxIterationCount = 100;
@@ -34,7 +34,16 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
-				.setColorFunction(i -> i < maxIterationCount ? Color.WHITE : Color.BLACK)
+				.setColorFunction(
+					i -> {
+						
+						if (i < maxIterationCount) {
+							return Color.WHITE;
+						}
+						
+						return Color.BLACK;
+					}
+				)
 				.setBigDecimalScale(20)
 				.build()
 				.startImageBuild()
@@ -42,7 +51,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 			)
 		);
 		
-		//Refreshes the frame as long as it is alive.
+		//Refreshes the Frame as long as it is alive.
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
