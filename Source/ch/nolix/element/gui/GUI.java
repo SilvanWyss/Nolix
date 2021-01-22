@@ -48,7 +48,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 750
+ * @lines 740
  * @param <G> is the type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -138,7 +138,12 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		Validator.assertThat(visibility).thatIsNamed(Visibility.class).isNotNull();
 		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
-		visualizer = visibility == Visibility.VISIBLE ? new FrameVisualizer() : null;
+		if (visibility == Visibility.INVISIBLE) {
+			visualizer = null;
+		} else {
+			visualizer = new FrameVisualizer();
+		}
+		
 		this.inputTaker = inputTaker;
 		setPreCloseAction(this::preClose);
 	}
@@ -170,7 +175,13 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public GUI(final Visibility visibility) {
 		
 		this.inputTaker = null;
-		visualizer = visibility == Visibility.VISIBLE ? new FrameVisualizer() : null;
+		
+		if (visibility == Visibility.INVISIBLE) {
+			visualizer = null;
+		} else {
+			visualizer = new FrameVisualizer();
+		}
+		
 		setPreCloseAction(this::preClose);
 	}
 	
