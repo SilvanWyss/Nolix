@@ -15,7 +15,6 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.CursorIcon;
-import ch.nolix.element.gui.ValueCatalogue;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
@@ -65,7 +64,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1750
+ * @lines 1720
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -961,9 +960,15 @@ extends Widget<BW, BWL> {
 	 * @return the height of the current {@link BorderWidget} when it is not collapsed.
 	 */
 	@Override
-	protected final int getHeightWhenNotCollapsed() {
+	protected final int getHeightWhenExpanded() {
 		
-		var height = hasProposalHeight() ? getProposalHeight() : getNaturalHeight();
+		int height;
+		
+		if (!hasProposalHeight()) {
+			height = getNaturalHeight();
+		} else {
+			height = getProposalHeight();
+		}
 		
 		if (hasMinHeight()) {
 			height = Calculator.getMax(getMinHeight(), height);
@@ -1032,7 +1037,12 @@ extends Widget<BW, BWL> {
 	 * @return the thickness of the horizontal scroll bar of the current {@link BorderWidget}.
 	 */
 	protected final int getHorizontalScrollBarThickness() {
-		return (hasActivatedHorizontalScrollBar() ? SCROLL_BAR_THICKNESS : 0);
+		
+		if (!hasActivatedHorizontalScrollBar()) {
+			return 0;
+		}
+		
+		return SCROLL_BAR_THICKNESS;
 	}
 	
 	//method declaration
@@ -1046,60 +1056,6 @@ extends Widget<BW, BWL> {
 	 * @return the natural width of the content area of the current {@link BorderWidget}.
 	 */
 	protected abstract int getNaturalContentAreaWidth();
-	
-	//method
-	/**
-	 * This method returns just a propose for the height for the content area of the current {@link BorderWidget}.
-	 * This is supposed for a {@link Widget}, that cannot determine a meaningful content area height.
-	 * 
-	 * @return a proposed height for the content area of the current {@link BorderWidget}.
-	 */
-	protected final int getProposedContentAreaHeight() {
-		
-		var proposedContentAreaHeight =
-		hasProposalHeight() ? getProposalHeight() : ValueCatalogue.MEDIUM_WIDGET_HEIGHT;
-		
-		//Handles the case that the current border widget has a min height.
-		if (hasMinHeight()) {
-			proposedContentAreaHeight =	Calculator.getMax(getMinHeight(), proposedContentAreaHeight);
-		}
-		
-		final var look = getRefLook();
-		
-		return
-		proposedContentAreaHeight
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultTopPadding()
-		- look.getRecursiveOrDefaultBottomPadding()
-		- look.getRecursiveOrDefaultBottomBorderThickness();
-	}
-	
-	//method
-	/**
-	 * This method returns just a propose for the width for the content area of the current {@link BorderWidget}.
-	 * This is supposed for a {@link Widget}, that cannot determine a meaningful content area width.
-	 * 
-	 * @return a proposed width for the content area of the current {@link BorderWidget}.
-	 */
-	protected final int getProposedContentAreaWidth() {
-		
-		var proposedContentAreaWidth =
-		hasProposalWidth() ? getProposalWidth() : ValueCatalogue.MEDIUM_WIDGET_WIDTH;
-		
-		//Handles the case that the current border widget has a min width.
-		if (hasMinWidth()) {
-			proposedContentAreaWidth = Calculator.getMax(getMinWidth(), proposedContentAreaWidth);
-		}
-		
-		final var look = getRefLook();
-		
-		return
-		proposedContentAreaWidth
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultLeftPadding()
-		- look.getRecursiveOrDefaultRightPadding()
-		- look.getRecursiveOrDefaultRightBorderThickness();
-	}
 	
 	//method
 	/**
@@ -1178,7 +1134,12 @@ extends Widget<BW, BWL> {
 	 * @return the thickness of the vertical scroll bar of the current {@link BorderWidget}.
 	 */
 	protected final int getVerticalScrollBarThickness() {
-		return (hasActivatedVerticalScrollBar() ? SCROLL_BAR_THICKNESS : 0);
+		
+		if (!hasActivatedVerticalScrollBar()) {
+			return 0;
+		}
+		
+		return SCROLL_BAR_THICKNESS;
 	}
 	
 	//method
@@ -1188,8 +1149,14 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final int getWidthWhenExpanded() {
 		
-		var width = hasProposalWidth() ? getProposalWidth() : getNaturalWidth();
-				
+		int width;
+		
+		if (!hasProposalWidth()) {
+			width = getNaturalWidth();
+		} else {
+			width = getProposalWidth();
+		}
+		
 		if (hasMinWidth()) {
 			width = Calculator.getMax(getMinWidth(), width);
 		}

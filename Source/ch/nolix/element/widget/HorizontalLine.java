@@ -1,14 +1,14 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
+//own import
 import ch.nolix.element.gui.Widget;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 60
+ * @date 2016-01-01
+ * @lines 50
  */
 public final class HorizontalLine extends Line<HorizontalLine> {
 	
@@ -17,15 +17,6 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	
 	//attribute
 	private boolean isAskedForLength;
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getHeightWhenNotCollapsed() {
-		return getThickness();
-	}
 	
 	//method
 	/**
@@ -46,6 +37,15 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 		isAskedForLength = false;
 		
 		return length;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected int getHeightWhenExpanded() {
+		return getThickness();
 	}
 	
 	//method

@@ -1557,9 +1557,9 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * @return the height of the current {@link Widget} when it is s not collapsed.
+	 * @return the height of the current {@link Widget} when it is expanded.
 	 */
-	protected abstract int getHeightWhenNotCollapsed();
+	protected abstract int getHeightWhenExpanded();
 	
 	//method declaration
 	/**
@@ -1782,7 +1782,7 @@ TopLeftPositionedRecangular {
 		}
 		
 		//Handles the case that the current Widget is expanded.
-		return getHeightWhenNotCollapsed();
+		return getHeightWhenExpanded();
 	}
 	
 	//method

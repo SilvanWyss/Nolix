@@ -217,7 +217,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 			
 			painter.paintFilledRectangle(
 				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
-				parentBorderWidget.getHeightWhenNotCollapsed()
+				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
 		
@@ -231,7 +231,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 				getWidth() - borderWidgetLook.getRecursiveOrDefaultRightBorderThickness(),
 				0,
 				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
-				parentBorderWidget.getHeightWhenNotCollapsed()
+				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
 		
@@ -255,7 +255,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 			
 			painter.paintFilledRectangle(
 				0,
-				parentBorderWidget.getHeightWhenNotCollapsed() - borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness(),
+				parentBorderWidget.getHeightWhenExpanded() - borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness(),
 				getWidth(),
 				borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness()
 			);

@@ -3,7 +3,6 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.gui.WidgetGUI;
@@ -115,30 +114,12 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	@Override
 	protected int getNaturalContentAreaWidth() {
 		
-		final var look = getRefLook();
-		
-		if (look.hasRecursiveProposeContentWidth()) {
-			
-			if (isEmpty()) {
-				return look.getRecursiveOrDefaultProposeContentWidth();
-			}
-			
-			return
-			Calculator.getMax(
-				look.getRecursiveOrDefaultProposeContentWidth(),
-				widgets.getMaxInt(Widget::getWidth)
-			);
-		}
-		
 		if (isEmpty()) {
-			return getProposedContentAreaWidth();
+			return 0;
 		}
-			
-		return
-		Calculator.getMax(
-			getProposedContentAreaWidth(),
-			widgets.getMaxInt(Widget::getWidth)
-		);
+		
+		//TODO: Refactor FloatContainer.
+		return 500;
 	}
 	
 	//method
