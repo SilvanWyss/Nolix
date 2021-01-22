@@ -25,10 +25,12 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	//static method
 	private static long createNextId() {
 		
-		final var preId = System.currentTimeMillis();
+		var lId = System.currentTimeMillis();
 		
-		final var lId = (preId == latestCreatedId) ? (preId + 1) : preId;
-		
+		if (lId == latestCreatedId) {
+			lId++;
+		}
+				
 		latestCreatedId = lId;
 		
 		return lId;
