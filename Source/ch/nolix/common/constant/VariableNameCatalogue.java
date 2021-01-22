@@ -6,8 +6,8 @@ package ch.nolix.common.constant;
  * Of the {@link VariableNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 180
+ * @date 2017-11-13
+ * @lines 190
  */
 public final class VariableNameCatalogue {
 	
@@ -125,6 +125,7 @@ public final class VariableNameCatalogue {
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
+	public static final String RECEIVER = "receiver";
 	public static final String REPLY = "reply";
 	public static final String REQUEST = "reqest";
 	public static final String RESOURCE = "resource";
@@ -137,6 +138,7 @@ public final class VariableNameCatalogue {
 	public static final String ROW_COUNT = "row count";
 	public static final String ROW_INDEX = "row index";
 	public static final String RUNTIME = "runtime";
+	public static final String SENDER = "sender";
 	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
 	public static final String SERVICE = "service";

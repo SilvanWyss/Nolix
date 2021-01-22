@@ -6,8 +6,8 @@ package ch.nolix.common.constant;
  * Of the {@link PascalCaseNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-04
- * @lines 180
+ * @date 2018-04-07
+ * @lines 190
  */
 public final class PascalCaseNameCatalogue {
 	
@@ -125,6 +125,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String PRICE = "Price";
 	public static final String RADIUS = "Radius";
 	public static final String REASON = "Reason";
+	public static final String REPLIER = "Replier";
 	public static final String REPLY = "Reply";
 	public static final String REQUEST = "Request";
 	public static final String RESOURCE = "Resource";
@@ -137,6 +138,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ROW_COUNT = "RowCount";
 	public static final String ROW_INDEX = "RowIndex";
 	public static final String RUNTIME = "Runtime";
+	public static final String SENDER = "Sender";
 	public static final String SEPARATOR = "Separator";
 	public static final String SEQUENCE = "Sequence";
 	public static final String SERVICE = "Service";
