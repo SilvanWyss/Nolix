@@ -146,8 +146,13 @@ public final class EntitySession extends HeaderedSession {
 						break;
 					}
 					
-					final var value =
-					optionalProperty.isEmpty() ? StringCatalogue.EMPTY_STRING : optionalProperty.getValue().toString();
+					String value;
+					if (optionalProperty.isEmpty()) {
+						value = StringCatalogue.EMPTY_STRING;
+					} else {
+						value = optionalProperty.getValue().toString();
+					}
+					
 					dataGrid.setWidget(
 						rowIndex,
 						2,
