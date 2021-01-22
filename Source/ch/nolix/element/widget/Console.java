@@ -26,7 +26,7 @@ import ch.nolix.element.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 860
+ * @lines 870
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -170,16 +170,26 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 			
 			final var linesSpecification = new Node();
 			linesSpecification.setHeader(LINES_HEADER);
-			linesSpecification.addAttributes(lines.to(l -> l.isEmpty() ? new Node() : Node.withHeader(l)));
+			
+			for (final var l : lines) {
+				
+				final var lineAttribute = new Node();
+				if (!l.isEmpty()) {
+					lineAttribute.setHeader(l);
+				}
+				
+				linesSpecification.addAttribute(lineAttribute);
+			}
 			
 			attributes.addAtEnd(linesSpecification);
 		}
 		
-		attributes.addAtEnd(
-			new Node()
-			.setHeader(EDIT_LINE_HEADER)
-			.addAttribute(editLine.isEmpty() ? new Node() : Node.withHeader(editLine))
-		);
+		final var editLineSpecification = new Node().setHeader(EDIT_LINE_HEADER);
+		if (!editLine.isEmpty()) {
+			editLineSpecification.addAttribute(Node.withHeader(editLine));
+		}
+		
+		attributes.addAtEnd(editLineSpecification);
 		
 		return attributes;
 	}
@@ -263,7 +273,12 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		final int originalTextCursorPosition = textCursorPosition;
 		
-		final char displayedCharacter = !isReadingSecretLine() ? character : MASK_CHARACTER;
+		final char displayedCharacter;
+		if (!isReadingSecretLine()) {
+			displayedCharacter = character;
+		} else {
+			displayedCharacter = MASK_CHARACTER;
+		}
 		
 		setEditLine(
 			getEditLineBeforeTextCursor()
