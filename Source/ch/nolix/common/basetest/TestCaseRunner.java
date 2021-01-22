@@ -243,7 +243,13 @@ public final class TestCaseRunner extends Thread {
 			}
 			
 			final var cause = invocationTargetException.getCause();
-			final var errorMessage = cause.getMessage() == null ? "An error occured." : cause.getMessage();
+			
+			final String errorMessage;
+			if (cause.getMessage() == null) {
+				errorMessage = "An error occured.";
+			} else {
+				errorMessage = cause.getMessage();
+			}
 			
 			exceptionError = new Error(errorMessage, className, lineNumber);
 			
