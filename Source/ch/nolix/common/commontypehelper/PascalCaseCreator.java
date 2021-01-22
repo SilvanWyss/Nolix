@@ -9,7 +9,12 @@ final class PascalCaseCreator {
 	
 	//method
 	public String toPascalCase(final String string) {
-		return (string.isEmpty() ? StringCatalogue.EMPTY_STRING : toPascalCaseWhenStringNotEmpty(string));
+		
+		if (string.isEmpty()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		return toPascalCaseWhenStringNotEmpty(string);
 	}
 	
 	//method
