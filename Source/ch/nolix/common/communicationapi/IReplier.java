@@ -3,10 +3,10 @@ package ch.nolix.common.communicationapi;
 
 //interface
 /**
- * A {@link IReplier} can reply to messages.
+ * A {@link IReplier} sends messages and returns a reply to a message.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  */
 public interface IReplier {
