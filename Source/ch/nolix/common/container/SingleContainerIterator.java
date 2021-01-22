@@ -15,7 +15,11 @@ final class SingleContainerIterator<E> implements Iterator<E> {
 	
 	//constructor
 	public SingleContainerIterator(final SingleContainer<E> parentSingleContainer) {
-		element = parentSingleContainer.isEmpty() ? null : parentSingleContainer.getRefElement();
+		if (parentSingleContainer.isEmpty()) {
+			element = null;
+		} else {
+			element = parentSingleContainer.getRefElement();
+		}
 	}
 	
 	//method
