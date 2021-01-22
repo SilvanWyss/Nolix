@@ -10,7 +10,7 @@ import java.util.Objects;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 110
+ * @lines 120
  */
 public final class FunctionCatalogue {
 		
@@ -44,7 +44,12 @@ public final class FunctionCatalogue {
 	 * @return the hash code of the given object.
 	 */
 	public static int getHashCode(final Object object) {
-		return (object == null ? 0 : object.hashCode());
+		
+		if (object == null) {
+			return 0;
+		}
+		
+		return object.hashCode();
 	}
 	
 	//static method
@@ -79,7 +84,12 @@ public final class FunctionCatalogue {
 	 * @return the {@link String} of the given object.
 	 */
 	public static String getString(final Object object) {
-		return (object == null ? StringCatalogue.NULL_HEADER : object.toString());
+		
+		if (object == null) {
+			return StringCatalogue.NULL_HEADER;
+		}
+		
+		return object.toString();
 	}
 	
 	//static method
