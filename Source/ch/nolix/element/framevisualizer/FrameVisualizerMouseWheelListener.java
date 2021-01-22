@@ -12,25 +12,31 @@ import ch.nolix.element.gui.GUI;
 
 //class
 final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
-
+	
 	//attribute
-	private final GUI<?> frameVisualizer;
+	private final GUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerMouseWheelListener(final GUI<?> frameVisualizer) {
+	public FrameVisualizerMouseWheelListener(final GUI<?> parentGUI) {
 		
-		Validator.assertThat(frameVisualizer).isOfType(FrameVisualizer.class);
+		Validator.assertThat(parentGUI).thatIsNamed(GUI.class).isNotNull();
 		
-		this.frameVisualizer = frameVisualizer;
+		this.parentGUI = parentGUI;
 	}
 	
 	//method
 	@Override
-	public void mouseWheelMoved(
-		final MouseWheelEvent mouseWheelEvent
-	) {
-		frameVisualizer.noteMouseWheelRotationStep(
-			mouseWheelEvent.getPreciseWheelRotation() > 0 ? RotationDirection.FORWARD : RotationDirection.BACKWARD
-		);
+	public void mouseWheelMoved(final MouseWheelEvent mouseWheelEvent) {
+		parentGUI.noteMouseWheelRotationStep(getRotationDirection(mouseWheelEvent));
+	}
+	
+	//method
+	private RotationDirection getRotationDirection(final MouseWheelEvent mouseWheelEvent) {
+		
+		if (mouseWheelEvent.getPreciseWheelRotation() > 0) {
+			return RotationDirection.FORWARD;
+		}
+		
+		return RotationDirection.BACKWARD;
 	}
 }
