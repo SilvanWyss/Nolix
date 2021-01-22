@@ -119,10 +119,9 @@ public final class NetServer extends Server {
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
 			getRefDefaultApplication().takeEndPoint(endPoint);
-		}
-		
+			
 		//Handles the case that the given endPoint has a target.
-		else {
+		} else {
 			getRefApplication(endPoint.getTarget()).takeEndPoint(endPoint);
 		}
 	}

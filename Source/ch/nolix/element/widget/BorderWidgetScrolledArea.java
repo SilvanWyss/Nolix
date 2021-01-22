@@ -217,18 +217,16 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 			painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColor());
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
-		}
-		
+			
 		//Handles the case that the given borderWidgetLook has a recursive background color gradient.
-		else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
+		} else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
 			
 			painter.setColorGradient(borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient());
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
-		}
-		
+			
 		//Handles the case that the given borderWidgetLook has a recursive background image.
-		else if (borderWidgetLook.hasRecursiveBackgroundImage()) {
+		} else if (borderWidgetLook.hasRecursiveBackgroundImage()) {
 			painter.paintImage(borderWidgetLook.getRecursiveOrDefaultBackgroundImage(),	getWidth(),	getHeight());
 		}
 	}

@@ -41,10 +41,9 @@ public final class FileNode extends BaseNode {
 		//Handles the case that there does not exist a file with the given file path.
 		if (!FileSystemAccessor.isFile(filePath)) {
 			fileAccessor = FileSystemAccessor.createFile(filePath);
-		}
-		
+			
 		//Handles the case that there exists a file with the given file path.
-		else {
+		} else {
 			fileAccessor = new FileAccessor(filePath);
 		}
 		

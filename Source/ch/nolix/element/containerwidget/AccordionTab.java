@@ -351,10 +351,9 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		//Handles the case that the current accordion tab is collapsed.
 		if (isCollapsed()) {
 			getParentAccordion().expand(this);
-		}
-		
+			
 		//Handles the case that the curent accordion tab is expanded.
-		else {
+		} else {
 			getParentAccordion().collapse(this);
 		}
 	}

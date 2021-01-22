@@ -1240,10 +1240,9 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		if (hasBackgroundColor()) {
 			painter.setColor(getBackgroundColor());
 			painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
-		}
-		
+			
 		//Handles the case that the current Layer has a background color gradient.
-		else if (hasBackgroundColorGradient()) {
+		} else if (hasBackgroundColorGradient()) {
 			painter.setColorGradient(getBackgroundColorGradient());
 			painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
 		}

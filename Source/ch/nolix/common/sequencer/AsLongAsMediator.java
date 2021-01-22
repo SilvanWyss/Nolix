@@ -70,10 +70,9 @@ public final class AsLongAsMediator {
 			while (condition.getOutput()) {
 				job.run();
 			}
-		}
-		
+			
 		//Handles the case that this as long as mediator has a max run count.
-		else {
+		} else {
 			for (int i = 1; i <= maxRunCount; i++) {
 				
 				if (!condition.getOutput()) {

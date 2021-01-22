@@ -237,10 +237,9 @@ public class Server implements Clearable, ICloseableElement {
 		//Handles the case that the given client does not have a target.
 		if (!client.hasTarget()) {
 			getRefDefaultApplication().takeClient(client);
-		}
-		
+			
 		//Handles the case that the given client has a target.
-		else {
+		} else {
 			getRefApplication(client.getTarget()).takeClient(client);
 		}
 	}

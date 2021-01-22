@@ -1272,10 +1272,9 @@ public class Color extends Element<Color> {
 				//For a better performance, this implementation does not use all comfortable methods.
 				alphaValue = (short)getValue(value.substring(8, 10));
 			}
-		}
-		
+			
 		//Handles the case that the given value is a color name.
-		else {
+		} else {
 			setValue(pair.getRefElement2().toLong());
 		}
 	}

@@ -60,10 +60,9 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values is not null.
-		else {
+		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
@@ -91,10 +90,9 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values is not null.
-		else {
+		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
@@ -122,10 +120,9 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values is not null.
-		else {
+		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;
@@ -156,10 +153,9 @@ public final class MultiDoubleMediator extends Mediator {
 		//Handles the case that the given values is null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values is not null.
-		else {
+		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
 			int i = 1;

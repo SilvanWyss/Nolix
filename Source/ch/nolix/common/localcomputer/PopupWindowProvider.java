@@ -53,10 +53,9 @@ public final class PopupWindowProvider {
 		if (error == null) {
 			title = "Exception";
 			textStringBuilder.append("An exception, that is null, occured.");
-		}
-		
+			
 		//Handles the case that the given exception is not null.
-		else {
+		} else {
 			
 			//Sets the title.
 			title = error.getClass().getSimpleName();

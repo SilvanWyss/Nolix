@@ -37,10 +37,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values is null.
 		if (values == null) {
 			this.values = null;
-		}
-		
+			
 		//Handles the case that the given values is not null.
-		else {
+		} else {
 			this.values = ArrayHelper.createIterable(values);
 		}
 	}
@@ -78,10 +77,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values is null.
 		if (values == null) {
 			this.values = null;
-		}
-		
+			
 		//Handles the case that the given values is not null.
-		else {
+		} else {
 			this.values = ArrayHelper.createIterable(values);
 		}
 	}
@@ -104,10 +102,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -137,10 +134,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -176,10 +172,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -209,10 +204,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -240,10 +234,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -269,10 +262,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -298,10 +290,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -327,10 +318,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -358,10 +348,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;
@@ -391,10 +380,9 @@ public final class MultiLongMediator extends Mediator {
 		//Handles the case that the given values are null.
 		if (values == null) {
 			addNullValuesError();
-		}
-		
+			
 		//Handles the case that the given values are not null.
-		else {
+		} else {
 			
 			//Iterates the values of this multi long mediator.
 			int i = 1;

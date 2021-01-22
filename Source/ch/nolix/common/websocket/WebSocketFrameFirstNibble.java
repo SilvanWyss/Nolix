@@ -40,8 +40,7 @@ final class WebSocketFrameFirstNibble {
 		
 		if (payloadLengthSpecification == WebSocketFramePayloadLengthType.BITS_7) {
 			m7BitPayloadLength = payloadLength;
-		}
-		else {
+		} else {
 			m7BitPayloadLength = 0;
 		}
 	}

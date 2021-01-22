@@ -1355,19 +1355,18 @@ extends Widget<BW, BWL> {
 			verticalScrollingCursorStartYPosition =
 			getCursorYPosition()
 			- getVerticalScrollBarCursorYPositionOnVerticalScrollBar();
-		}
-		
+			
 		//Handles the case that the horizontal scroll bar cursor is under the cursor.
-		else if (horizontalScrollBarCursorIsUnderCursor()) {
+		} else if (horizontalScrollBarCursorIsUnderCursor()) {
 			
 			isMovingHorizontalScrollBarCursor = true;
 			
 			horizontalScrollingCursorStartXPosition =
 			getCursorXPosition()
 			- getHorizontalScrollBarCursorXPositionOnHorizontalScrollBar();
-		}
-		
-		else if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
+			
+		//Handles the case that the show area and content area is under the cursor.
+		} else if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteLeftMouseButtonPressOnContentAreaWhenEnabled();
 		}
 	}

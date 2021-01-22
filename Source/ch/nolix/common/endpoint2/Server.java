@@ -151,10 +151,9 @@ public class Server implements Clearable, ICloseableElement {
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
 			getRefMainEndPointTaker().takeEndPoint(endPoint);
-		}
-		
+			
 		//Handles the case that the given endPoint has a target.
-		else {
+		} else {
 			endPointTakers.getRefFirst(ept -> ept.hasName(endPoint.getTarget())).takeEndPoint(endPoint);
 		}
 	}

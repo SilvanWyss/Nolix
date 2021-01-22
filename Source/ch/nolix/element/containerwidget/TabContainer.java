@@ -346,10 +346,9 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		//Handles the case that the current tab container does not contain a tabs.
 		if (isEmpty()) {
 			return menu.getWidth();
-		}
-		
+			
 		//Handles the case that the current tab container contains tabs.
-		else {
+		} else {
 			return
 			Calculator.getMax(
 				menu.getWidth(),

@@ -83,10 +83,9 @@ public final class AfterAllMediator {
 		//Handles the case that the current AfterAllMediator does not have a max run count.
 		if (!hasMaxRunCount()) {
 			runWhenDoesNotHaveMaxRunCount(job);
-		}
-		
+			
 		//Handles the case that the current AfterAllMediator has a max run count.
-		else {
+		} else {
 			runWhenHasMaxRunCount(job);
 		}
 	}
@@ -209,10 +208,9 @@ public final class AfterAllMediator {
 				job.run();
 				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 			}
-		}
-		
+			
 		//Handles the case that the current AfterAllMediator has a condition.
-		else {
+		} else {
 			for (int i = 1; i <= maxRunCount; i++) {
 				
 				if (!condition.getOutput()) {

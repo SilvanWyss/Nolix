@@ -147,10 +147,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		//Handles the case that the current Node does not have a header.
 		if (hasHeader()) {
 			setHeader(postfix);
-		}
-		
+			
 		//Handles the case that the current Node has a header.
-		else {
+		} else {
 			setHeader(getHeader() + postfix);
 		}
 	}
@@ -172,10 +171,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		//Handles the case that the current BaseNode does not have a header.
 		if (!hasHeader()) {
 			setHeader(prefix);
-		}
-		
+			
 		//Handles the case that the current BaseNode has a header.
-		else {
+		} else {
 			setHeader(prefix + getHeader());
 		}
 	}
@@ -250,10 +248,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 			if (baseNode.hasHeader()) {
 				return false;
 			}
-		}
-		
+			
 		//Handles the case that the current BaseNode has a header.
-		else {
+		} else {
 			if (!baseNode.hasHeader(getHeader())) {
 				return false;
 			}
@@ -693,10 +690,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 			//Handles the case that the current attribute does not contain attributes.
 			if (!a.containsAttributes()) {
 				lXMLNode.setValue(a.toString());
-			}
-			
+				
 			//Handles the case that the current attribute contains attributes.
-			else {
+			} else {
 				lXMLNode.addChildNode(a.toXML());
 			}
 		}
@@ -792,10 +788,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 				.append(CharacterCatalogue.OPEN_BRACKET)
 				.append(getRefAttributes().toString())
 				.append(CharacterCatalogue.CLOSED_BRACKET);
-			}
-			
+				
 			//Handles the case that the current specification contains attributes with attributes.
-			else {
+			} else {
 				stringBuilder
 				.append(CharacterCatalogue.OPEN_BRACKET)
 				.append(CharacterCatalogue.NEW_LINE);

@@ -86,10 +86,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 					i++;
 				}
 			}
-		}
-		
+			
 		//Handles the case that the current matrix is not empty.
-		else {
+		} else {
 			
 			//Asserts that as many elements are given as the number of rows of the current matrix.
 			Validator
@@ -179,10 +178,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 					i++;
 				}
 			}
-		}
-		
+			
 		//Handles the case that the current matrix is not empty.
-		else {
+		} else {
 			
 			//Asserts that as many elements are given as the number of columns of the current matrix.
 			Validator

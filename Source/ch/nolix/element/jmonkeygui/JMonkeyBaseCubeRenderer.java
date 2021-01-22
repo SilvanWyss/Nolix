@@ -75,10 +75,9 @@ public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<Base
 				);
 				
 				geometry.setMaterial(material);
-		}
-		
+				
 		//Handles the case that the given cuboid has a default texture.
-		else {
+		} else {
 									
 			//Sets the texture to the given geometry.
 				final var material

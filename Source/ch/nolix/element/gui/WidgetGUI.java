@@ -318,10 +318,9 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 			}
 			
 			layers.getRefFirst().setRootWidget(createWidgetFrom(attribute));
-		}
-		
+			
 		//Handles the case that the given attribute does not specify a widget.
-		else {
+		} else {
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {				
 				case PascalCaseNameCatalogue.BACKGROUND_COLOR:
@@ -540,10 +539,9 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		//Handles the case that the current WidgetGUI contains 1 layer.
 		if (layers.containsOne()) {
 			clear();
-		}
-		
+			
 		//Handles the case that the current GUI contains several layers.
-		else {
+		} else {
 			layers.removeLast();
 			topLayer = layers.getRefLast();
 		}

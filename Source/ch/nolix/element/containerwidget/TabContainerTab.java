@@ -125,10 +125,9 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		//Handles the case that the given attribute specifies a widget.
 		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
 			setWidget(WidgetGUI.createWidgetFrom(attribute));
-		}
-		
+			
 		//Handles the case that the given attribute does not specify a widget.
-		else {
+		} else {
 			
 			//Calls method of the base class.
 			super.addOrChangeAttribute(attribute);

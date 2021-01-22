@@ -772,10 +772,9 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		//Handles the case that the current list contains 1 element.
 		if (containsOne()) {
 			clear();
-		}
-		
+			
 		//Handles the case that the current list contains several elements.
-		else {
+		} else {
 			firstNode = firstNode.getNextNode();
 			elementCount--;
 		}
@@ -909,10 +908,9 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		//Handles the case that the current list contains 1 element.
 		if (containsOne()) {
 			clear();
-		}
-		
+			
 		//Handles the case that the current list contains several elements.
-		else {
+		} else {
 			
 			var iterator = firstNode;
 			
