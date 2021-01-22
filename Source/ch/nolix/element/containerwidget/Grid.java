@@ -137,7 +137,12 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	public int getLineThickness() {
-		return (hasLines() ? getLineThicknessWhenHasLines() : 0);
+		
+		if (!hasLines()) {
+			return 0;
+		}
+		
+		return getLineThicknessWhenHasLines();
 	}
 	
 	//method
