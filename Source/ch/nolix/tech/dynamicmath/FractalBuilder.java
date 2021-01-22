@@ -32,9 +32,15 @@ public final class FractalBuilder implements IFractalBuilder {
 	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 100;
 	
 	//constant
-	public static final IIntTakerElementGetter<Color>
-	DEFAULT_COLOR_FUNCTION =
-	i -> i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT ? new Color(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT) : Color.BLACK;
+	public static final IIntTakerElementGetter<Color> DEFAULT_COLOR_FUNCTION =
+	i -> {
+		
+		if (i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT) {
+			return new Color(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
+		}
+		
+		return Color.BLACK;
+	};
 	
 	//constant
 	public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
