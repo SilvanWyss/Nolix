@@ -31,7 +31,14 @@ extends BorderWidget<TLW, TLWL> {
 		PascalCaseNameCatalogue.TEXT,
 		StringCatalogue.EMPTY_STRING,
 		this::setText,
-		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
+		s -> {
+			
+			if (!s.containsAttributes()) {
+				return  StringCatalogue.EMPTY_STRING;
+			}
+			
+			return s.getOneAttributeHeader();
+		},
 		t -> {
 			
 			final var specification = new Node();
