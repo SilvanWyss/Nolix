@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.tech.dynamicmath;
 
-//Java imports
+//Java import
 import java.math.BigDecimal;
 
 //own imports
