@@ -19,7 +19,7 @@ import ch.nolix.element.input.ResizeInput;
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-08
+ * @date 2019-08-02
  * @lines 260
  */
 final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
@@ -200,8 +200,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		inputTaker.run(
 			new MouseInput(
-				rotationDirection == RotationDirection.BACKWARD ?
-				MouseInputType.BACKWARD_MOUSE_WHEEL_ROTATION_STEP : MouseInputType.FORWARD_MOUSE_WHEEL_ROTATION_STEP,
+				MouseInputType.createMouseWheelRotationStepFrom(rotationDirection),
 				cursorXPositionOnViewAreaGetter.getOutput(),
 				cursorYPositionOnViewAreaGetter.getOutput()
 			)
