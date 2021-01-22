@@ -1,19 +1,18 @@
 package ch.nolix.techtutorial.dynamicmathtutorial;
 
-//own imports
-import ch.nolix.common.instanceprovider.CentralInstanceProvider;
+import ch.nolix.common.implprovider.GlobalImplProvider;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
-import ch.nolix.tech.dynamicmath.Registrator;
+import ch.nolix.tech.dynamicmath.DynamicMathImplRegistrator;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
 
 public final class DefaultFractalTutorial {
 	
 	public static void main(String[] args) {
 		
-		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		Registrator.register();
+		//Registers an implementation of the dynamicmathapi at the GlobalImplProvider.
+		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
 		//Creates a Frame.
 		final var frame =
@@ -21,9 +20,10 @@ public final class DefaultFractalTutorial {
 		.setTitle("Default Fractal Tutorial")
 		.addLayerOnTop(new Label().setText("Please wait...").applyOnBaseLook(bl -> bl.setTopPadding(100)));
 		
-		//Sets the image of a Fractal to the frame. The creation of the image may last a few seconds.
+		//Sets the Image of a Fractal to the Frame. The creation of the Image may last a few seconds.
 		frame.addLayerOnTop(
-			new ImageWidget().setImage(CentralInstanceProvider.create(IFractalBuilder.class).build().toImage())
+			new ImageWidget()
+			.setImage(GlobalImplProvider.ofInterface(IFractalBuilder.class).createInstance().build().toImage())
 		);
 	}
 	
