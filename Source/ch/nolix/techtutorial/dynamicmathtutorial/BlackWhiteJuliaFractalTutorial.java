@@ -1,12 +1,11 @@
 package ch.nolix.techtutorial.dynamicmathtutorial;
 
-//own imports
-import ch.nolix.common.instanceprovider.CentralInstanceProvider;
+import ch.nolix.common.implprovider.GlobalImplProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.tech.dynamicmath.Registrator;
+import ch.nolix.tech.dynamicmath.DynamicMathImplRegistrator;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.techapi.dynamicmathapi.IFractalBuilder;
@@ -16,10 +15,11 @@ public final class BlackWhiteJuliaFractalTutorial {
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		Registrator.register();
+		//Registrator.register();
+		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
 		final var maxIterationCount = 100;
-		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.8, 0.15);
+		final var j = GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().create(-0.8, 0.15);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
@@ -28,7 +28,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
-				CentralInstanceProvider.create(IFractalBuilder.class)
+				GlobalImplProvider.ofInterface(IFractalBuilder.class).createInstance()
 				.setRealComponentInterval(-2.0, 2.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
