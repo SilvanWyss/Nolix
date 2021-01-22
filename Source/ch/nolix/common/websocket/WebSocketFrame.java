@@ -227,7 +227,6 @@ public final class WebSocketFrame {
 	}
 	
 	//method
-	@SuppressWarnings("incomplete-switch")
 	public byte[] toBytes() {
 		
 		final var bytes = new byte[getLengthInBytes().intValue()];
