@@ -142,7 +142,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final var reply = Node.fromString(internalNetEndPoint.getReply(message));
+		final var reply = Node.fromString(internalNetEndPoint.getReplyTo(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -228,7 +228,7 @@ public class NetEndPoint extends EndPoint {
 		final var message = Protocol.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
 		
 		//Sends the message and gets reply.
-		final var replyMessage = internalNetEndPoint.getReply(message);
+		final var replyMessage = internalNetEndPoint.getReplyTo(message);
 		if (replyMessage == null) {
 			return;
 		}

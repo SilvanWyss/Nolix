@@ -182,7 +182,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
 	@Override
-	public String getReply(final String message) {
+	public String getReplyTo(final String message) {
 		return sendAndWaitToReply(message);
 	}
 	
@@ -236,7 +236,7 @@ public class NetEndPoint extends EndPoint {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getRefReplier().getReply(pPackage.getRefContent());
+					final String reply = getRefReplier().getReplyTo(pPackage.getRefContent());
 					if (isOpen()) {
 						send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 					}
