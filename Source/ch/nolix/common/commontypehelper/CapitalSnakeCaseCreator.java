@@ -10,7 +10,12 @@ final class CapitalSnakeCaseCreator {
 	
 	//method
 	public String toCapitalSnakeCase(final String string) {
-		return (string.isEmpty() ? StringCatalogue.EMPTY_STRING : toCapitalSnakeCaseWhenStringNotEmpty(string));
+		
+		if (string.isEmpty()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		return toCapitalSnakeCaseWhenStringNotEmpty(string);
 	}
 	
 	//method
