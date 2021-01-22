@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.guiclienttutorial;
 
-//own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
@@ -63,8 +62,12 @@ public final class ButtonTutorial {
 		
 		private void changeBackgroundColor() {
 			
-			getRefGUI().setBackgroundColor(counter % 2 == 0 ? Color.WHITE : Color.BLUE);
-			
+			if (counter % 2 == 0) {
+				getRefGUI().setBackgroundColor(Color.WHITE);
+			} else {
+				getRefGUI().setBackgroundColor(Color.BLUE);
+			}
+						
 			counter++;
 		}
 	}
