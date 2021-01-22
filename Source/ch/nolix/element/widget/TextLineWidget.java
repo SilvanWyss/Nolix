@@ -17,8 +17,8 @@ import ch.nolix.element.textformat.TextFormat;
  * A {@link TextLineWidget} is a {@link Widget} that contains 1 text line.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 200
+ * @month 2016-01-01
+ * @lines 210
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link TextLineWidgetLook} of a {@link TextLineWidget}.
  */
@@ -32,7 +32,15 @@ extends BorderWidget<TLW, TLWL> {
 		StringCatalogue.EMPTY_STRING,
 		this::setText,
 		s -> s.containsOneAttribute() ? s.getOneAttributeHeader() : StringCatalogue.EMPTY_STRING,
-		t -> t.isEmpty() ? new Node() : Node.withAttribute(t)
+		t -> {
+			
+			final var specification = new Node();
+			if (!t.isEmpty()) {
+				specification.addAttribute(t);
+			}
+			
+			return specification;
+		}
 	);
 	
 	//method
