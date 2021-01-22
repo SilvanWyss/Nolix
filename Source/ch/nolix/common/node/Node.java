@@ -549,7 +549,14 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		return ReadContainer.forIterable(attributes).asContainerWithElementsOfEvaluatedType();
 	}
 	
-
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Node getRefOneAttribute() {
+		return attributes.getRefOne();
+	}
 	
 	//method
 	/**

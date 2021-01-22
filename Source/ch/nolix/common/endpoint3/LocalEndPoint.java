@@ -8,7 +8,7 @@ import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeExce
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -126,7 +126,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public BaseNode getData(final ChainedNode request) {
+	public Node getData(final ChainedNode request) {
 		return counterpart.getRefReceiverController().getData(request);
 	}
 	
