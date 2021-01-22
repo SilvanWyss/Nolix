@@ -14,7 +14,7 @@ import ch.nolix.common.license.License;
 import ch.nolix.common.test.Test;
 
 //class
-public final class CentralLicenseManagerTest extends Test {
+public final class GlobalLicenseManagerTest extends Test {
 	
 	//method
 	@TestCase
