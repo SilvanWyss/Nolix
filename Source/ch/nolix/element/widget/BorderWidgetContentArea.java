@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 250
+ * @lines 260
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
@@ -132,6 +132,22 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	@Override
 	public int getWidth() {
 		return width;
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the current {@link BorderWidgetContentArea} on the {@link BorderWidget} it belongs to.
+	 */
+	public int getXPosition() {
+		return parentBorderWidget.getExtendedContentArea().getXPosition() + getXPositionOnExtendedContentArea();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link BorderWidgetContentArea} on the {@link BorderWidget} it belongs to.
+	 */
+	public int getYPosition() {
+		return parentBorderWidget.getExtendedContentArea().getYPosition() + getYPositionOnExtendedContentArea();
 	}
 	
 	//method
