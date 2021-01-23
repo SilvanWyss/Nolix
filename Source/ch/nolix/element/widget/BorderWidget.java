@@ -413,6 +413,22 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * @return x-position of the show area of the current {@link BorderWidget} on the scroll area.
+	 */
+	public final int getShowAreaXPositionOnScrolledArea() {
+		return showAreaXPositionOnScrolledArea.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the show area of the current {@link BorderWidget} on the scroll area.
+	 */
+	public final int getShowAreaYPositionOnScrolledArea() {
+		return showAreaYPositionOnScrolledArea.getValue();
+	}
+	
+	//method
+	/**
 	 * @return the target height of the current {@link BorderWidget}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a target height.
 	 */
@@ -900,6 +916,44 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * Sets the x-position of the show area on the scroll area of the current {@link BorderWidget}.
+	 * 
+	 * @param showAreaXPositionOnScrolledArea
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW setShowAreaXPositionOnScrolledArea(int showAreaXPositionOnScrolledArea) {
+		
+		showAreaXPositionOnScrolledArea =
+		Calculator.getMin(showAreaXPositionOnScrolledArea,	scrolledArea.getWidth() - showArea.getWidth());
+		
+		showAreaXPositionOnScrolledArea = Calculator.getMax(showAreaXPositionOnScrolledArea, 0);
+		
+		this.showAreaXPositionOnScrolledArea.setValue(showAreaXPositionOnScrolledArea);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the y-position of the show area on the scroll area of the current {@link BorderWidget}.
+	 * 
+	 * @param showAreaYPositionOnScrolledArea
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW setShowAreaYPositionOnScrolledArea(int showAreaYPositionOnScrolledArea) {
+		
+		showAreaYPositionOnScrolledArea =
+		Calculator.getMin(showAreaYPositionOnScrolledArea,	scrolledArea.getHeight() - showArea.getHeight());
+		
+		showAreaYPositionOnScrolledArea = Calculator.getMax(showAreaYPositionOnScrolledArea, 0);
+		
+		this.showAreaYPositionOnScrolledArea.setValue(showAreaYPositionOnScrolledArea);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -1056,22 +1110,6 @@ extends Widget<BW, BWL> {
 	 * @return the natural width of the content area of the current {@link BorderWidget}.
 	 */
 	protected abstract int getNaturalContentAreaWidth();
-	
-	//method
-	/**
-	 * @return x-position of the show area of the current {@link BorderWidget} on the scroll area.
-	 */
-	protected final int getShowAreaXPositionOnScrolledArea() {
-		return showAreaXPositionOnScrolledArea.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the show area of the current {@link BorderWidget} on the scroll area.
-	 */
-	protected final int getShowAreaYPositionOnScrolledArea() {
-		return showAreaYPositionOnScrolledArea.getValue();
-	}
 	
 	//method
 	/**
@@ -1637,38 +1675,6 @@ extends Widget<BW, BWL> {
 	 * Resets the current {@link BorderWidget}.
 	 */
 	protected abstract void resetBorderWidget();
-	
-	//method
-	/**
-	 * Sets the x-position of the show area on the scroll area of the current {@link BorderWidget}.
-	 * 
-	 * @param showAreaXPositionOnScrolledArea
-	 */
-	protected final void setShowAreaXPositionOnScrolledArea(int showAreaXPositionOnScrolledArea) {
-		
-		showAreaXPositionOnScrolledArea =
-		Calculator.getMin(showAreaXPositionOnScrolledArea,	scrolledArea.getWidth() - showArea.getWidth());
-		
-		showAreaXPositionOnScrolledArea = Calculator.getMax(showAreaXPositionOnScrolledArea, 0);
-		
-		this.showAreaXPositionOnScrolledArea.setValue(showAreaXPositionOnScrolledArea);
-	}
-	
-	//method
-	/**
-	 * Sets the y-position of the show area on the scroll area of the current {@link BorderWidget}.
-	 * 
-	 * @param showAreaYPositionOnScrolledArea
-	 */
-	protected final void setShowAreaYPositionOnScrolledArea(int showAreaYPositionOnScrolledArea) {
-		
-		showAreaYPositionOnScrolledArea =
-		Calculator.getMin(showAreaYPositionOnScrolledArea,	scrolledArea.getHeight() - showArea.getHeight());
-		
-		showAreaYPositionOnScrolledArea = Calculator.getMax(showAreaYPositionOnScrolledArea, 0);
-		
-		this.showAreaYPositionOnScrolledArea.setValue(showAreaYPositionOnScrolledArea);
-	}
 	
 	//method
 	/**
