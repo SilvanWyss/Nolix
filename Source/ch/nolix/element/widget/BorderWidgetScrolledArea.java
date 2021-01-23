@@ -187,7 +187,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	public int getXPosition() {
 		return
 		parentBorderWidget.getShowArea().getXPosition()
-		+ parentBorderWidget.getShowAreaXPositionOnScrolledArea();
+		- parentBorderWidget.getShowAreaXPositionOnScrolledArea();
 	}
 	
 	//method
@@ -198,7 +198,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	public int getYPosition() {
 		return
 		parentBorderWidget.getShowArea().getYPosition()
-		+ parentBorderWidget.getShowAreaYPositionOnScrolledArea();
+		- parentBorderWidget.getShowAreaYPositionOnScrolledArea();
 	}
 	
 	//visibility-reduced method
