@@ -15,7 +15,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2020-12-19
- * @lines 220
+ * @lines 240
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
  */
@@ -135,6 +135,24 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 		parentBorderWidget.getContentArea().getWidth()
 		+ look.getRecursiveOrDefaultLeftPadding()
 		+ look.getRecursiveOrDefaultRightPadding();
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the current {@link BorderWidgetExtendedContentArea}
+	 * on the {@link BorderWidget} it belongs to.
+	 */
+	public int getXPosition() {
+		return parentBorderWidget.getScrolledArea().getXPosition() + getXPositionOnScrolledArea();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link BorderWidgetExtendedContentArea}
+	 * on the {@link BorderWidget} it belongs to.
+	 */
+	public int getYPosition() {
+		return parentBorderWidget.getScrolledArea().getYPosition() + getYPositionOnScrolledArea();
 	}
 	
 	//method
