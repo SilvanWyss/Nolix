@@ -114,7 +114,7 @@ implements HoverableByCursor {
 	 */
 	@Override
 	public int getYPosition() {
-		return parentBorderWidget.getVerticalScrollBar().getYPosition();
+		return (parentBorderWidget.getVerticalScrollBar().getYPosition() + getYPositionOnVerticalScrollBar());
 	}
 	
 	//method
