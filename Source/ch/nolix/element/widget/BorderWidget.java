@@ -64,7 +64,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1710
+ * @lines 1560
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -200,6 +200,10 @@ extends Widget<BW, BWL> {
 	private final BorderWidgetScrolledArea<BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetExtendedContentArea<BWL> extendedContentArea = new BorderWidgetExtendedContentArea<>(this);
 	private final BorderWidgetContentArea<BWL> contentArea = new BorderWidgetContentArea<>(this);
+	
+	//attributes
+	private final BorderWidgetVerticalScrollBar<BWL> verticalScrollBar = new BorderWidgetVerticalScrollBar<>(this);
+	private final BorderWidgetVerticalScrollBarCursor<BWL> verticalScrollBarCursor = new BorderWidgetVerticalScrollBarCursor<>(this);
 	
 	//attributes
 	private boolean isMovingVerticalScrollBarCursor;
@@ -483,44 +487,12 @@ extends Widget<BW, BWL> {
 		return targetWidth;
 	}
 	
-	//method
-	/**
-	 * @return color of the vertical scroll bar of the current {@link BorderWidget}.
-	 */
-	public final Color getVerticalScrollBarColor() {
-		
-		final var look = getRefLook();
-		
-		if (!isMovingVerticalScrollBarCursor()) {
-			
-			if (!verticalScrollBarCursorIsUnderCursor()) {
-				return look.getRecursiveOrDefaultBaseScrollBarLook().getScrollBarColor();
-			}
-			
-			return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollBarColor();
-		}
-		
-		return look.getRecursiveOrDefaultSelectionScrollBarLook().getScrollBarColor();
+	public BorderWidgetVerticalScrollBar<BWL> getVerticalScrollBar() {
+		return verticalScrollBar;
 	}
 	
-	//method
-	/**
-	 * @return color of the vertical scroll bar cursor of the current {@link BorderWidget}.
-	 */
-	public final Color getVerticalScrollBarCursorColor() {
-		
-		final var look = getRefLook();
-		
-		if (!isMovingVerticalScrollBarCursor()) {
-			
-			if (!verticalScrollBarCursorIsUnderCursor()) {
-				return look.getRecursiveOrDefaultBaseScrollBarLook().getScrollCursorColor();
-			}
-			
-			return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollCursorColor();
-		}
-			
-		return look.getRecursiveOrDefaultSelectionScrollBarLook().getScrollCursorColor();
+	public BorderWidgetVerticalScrollBarCursor<BWL> getVerticalScrollBarCursor() {
+		return verticalScrollBarCursor;
 	}
 	
 	//method
@@ -966,7 +938,7 @@ extends Widget<BW, BWL> {
 	 * @return true if a scroll bar cursor of the current {@link BorderWidget} is under the cursor.
 	 */
 	protected final boolean anyScrollBarCursorIsUnderCursor() {
-		return (horizontalScrollBarCursorIsUnderCursor() || verticalScrollBarCursorIsUnderCursor());
+		return (horizontalScrollBarCursorIsUnderCursor() || verticalScrollBarCursor.isUnderCursor());
 	}
 	
 	//method declaration
@@ -1101,75 +1073,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return the height of the vertical scroll bar cursor of the current {@link BorderWidget}.
-	 */
-	protected final int getVerticalScrollBarCursorHeight() {
-		return
-		Calculator.getMax(
-			(int)(Math.pow(showArea.getHeight(), 2) / scrolledArea.getHeight()),
-			MIN_SCROLL_CURSOR_LENGTH
-		);
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the vertical scroll bar cursor of the current {@link BorderWidget}.
-	 */
-	protected final int getVerticalScrollBarCursorXPosition() {
-		return
-		borderedArea.getXPosition()
-		+ getVerticalScrollBarXPositionOnBorderedArea();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the vertical scroll bar cursor of the current {@link BorderWidget}.
-	 */
-	protected final int getVerticalScrollBarCursorYPosition() {
-		return
-		borderedArea.getYPosition()
-		+ getVerticalScrollBarCursorYPositionOnVerticalScrollBar();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the vertical scroll bar cursor
-	 * on the vertical scroll bar of the current {@link BorderWidget}.
-	 */
-	protected final int getVerticalScrollBarCursorYPositionOnVerticalScrollBar() {
-		
-		final var showAreaHeight = showArea.getHeight();
-		
-		return
-		(showAreaHeight - getVerticalScrollBarCursorHeight())
-		* getShowAreaYPositionOnScrolledArea()
-		/ (scrolledArea.getHeight() - showAreaHeight);
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the vertical scroll bar
-	 * on the bordered area of the current {@link BorderWidget}.
-	 */
-	protected final int getVerticalScrollBarXPositionOnBorderedArea() {
-		return (borderedArea.getWidth() - getVerticalScrollBarThickness());
-	}
-	
-	//method
-	/**
-	 * @return the thickness of the vertical scroll bar of the current {@link BorderWidget}.
-	 */
-	protected final int getVerticalScrollBarThickness() {
-		
-		if (!hasActivatedVerticalScrollBar()) {
-			return 0;
-		}
-		
-		return SCROLL_BAR_THICKNESS;
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -1247,7 +1150,7 @@ extends Widget<BW, BWL> {
 	 * @return true if the user is moving any scroll bar cursor of the current {@link BorderWidget}.
 	 */
 	protected final boolean isMovingAnyScrollBarCursor() {
-		return (isMovingHorizontalScrollBarCursor() || isMovingVerticalScrollBarCursor);
+		return (isMovingHorizontalScrollBarCursor() || isMovingVerticalScrollBarCursor());
 	}
 
 	//method
@@ -1341,13 +1244,12 @@ extends Widget<BW, BWL> {
 	protected final void noteLeftMouseButtonPressOnSelfWhenEnabled() {
 		
 		//Handles the case that the vertical scroll bar cursor is under the cursor.
-		if (verticalScrollBarCursorIsUnderCursor()) {
+		if (verticalScrollBarCursor.isUnderCursor()) {
 			
 			isMovingVerticalScrollBarCursor = true;
 			
 			verticalScrollingCursorStartYPosition =
-			getCursorYPosition()
-			- getVerticalScrollBarCursorYPositionOnVerticalScrollBar();
+			getCursorYPosition() - verticalScrollBarCursor.getYPositionOnVerticalScrollBar();
 			
 		//Handles the case that the horizontal scroll bar cursor is under the cursor.
 		} else if (horizontalScrollBarCursorIsUnderCursor()) {
@@ -1402,7 +1304,7 @@ extends Widget<BW, BWL> {
 			
 			final var showAreaYDelta =
 			(verticalScrollBarCursorYDelta * (scrolledArea.getHeight() - showAreaHeight))
-			/ (showAreaHeight - getVerticalScrollBarCursorHeight());
+			/ (showAreaHeight - verticalScrollBarCursor.getHeight());
 			
 			setShowAreaYPositionOnScrolledArea(showAreaYDelta);
 		} else if (isMovingHorizontalScrollBarCursor) {
@@ -1663,52 +1565,4 @@ extends Widget<BW, BWL> {
 	 * Resets the current {@link BorderWidget}.
 	 */
 	protected abstract void resetBorderWidget();
-	
-	//method
-	/**
-	 * @return true if the cursor is over the vertical scroll bar cursor of the current {@link BorderWidget}.
-	 */
-	protected final boolean verticalScrollBarCursorIsUnderCursor() {
-		
-		//Handles the case that the current border widget does not have a vertical scroll bar.
-		if (!hasActivatedVerticalScrollBar()) {
-			return false;
-		}
-		
-		//Handles the case that the current border widget has a vertical scroll bar.
-			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();
-			final var verticalScrollBarCursorXPosition = getVerticalScrollBarCursorXPosition();
-			final var verticalScrollBarCursorYPosition = getVerticalScrollBarCursorYPosition();
-			
-			return
-			cursorXPosition >= verticalScrollBarCursorXPosition
-			&& cursorXPosition < verticalScrollBarCursorXPosition + getVerticalScrollBarThickness()
-			&& cursorYPosition >= verticalScrollBarCursorYPosition
-			&& cursorYPosition < verticalScrollBarCursorYPosition + getVerticalScrollBarCursorHeight();
-	}
-	
-	//method
-	/**
-	 * @return true if the cursor is over the vertical scroll bar of the current {@link BorderWidget}.
-	 */
-	protected boolean verticalScrollBarIsUnderCursor() {
-		
-		//Handles the case that the current border widget does not have a vertical scroll bar.
-		if (!hasActivatedVerticalScrollBar()) {
-			return false;
-		}
-		
-		//Handles the case that the current border widget has a vertical scroll bar.
-			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();
-			final var verticalScrollBarCursorXPosition = getVerticalScrollBarCursorXPosition();
-			final var verticalScrollBarCursorYPosition = getVerticalScrollBarCursorYPosition();
-						
-			return
-			cursorXPosition >= verticalScrollBarCursorXPosition
-			&& cursorXPosition < verticalScrollBarCursorXPosition + getVerticalScrollBarThickness()
-			&& cursorYPosition >= verticalScrollBarCursorYPosition
-			&& cursorYPosition < verticalScrollBarCursorYPosition + showArea.getHeight();
-	}
 }

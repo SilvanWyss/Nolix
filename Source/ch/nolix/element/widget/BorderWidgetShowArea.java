@@ -92,7 +92,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	public int getMaxWidth() {
 		return
 		parentBorderWidget.getBorderedArea().getMaxWidth()
-		- parentBorderWidget.getVerticalScrollBarThickness();
+		- parentBorderWidget.getVerticalScrollBar().getWidth();
 	}
 	
 	//method
@@ -114,7 +114,8 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 * if the current {@link BorderWidgetShowArea} does not have a minimal width.
 	 */
 	public int getMinWidth() {
-		return parentBorderWidget.getBorderedArea().getMinWidth() - parentBorderWidget.getVerticalScrollBarThickness();
+		return
+		parentBorderWidget.getBorderedArea().getMinWidth() - parentBorderWidget.getVerticalScrollBar().getWidth();
 	}
 	
 	//method
@@ -153,8 +154,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	public int getProposalWidth() {
 		return
-		parentBorderWidget.getBorderedArea().getProposalWidth()
-		- parentBorderWidget.getVerticalScrollBarThickness();
+		parentBorderWidget.getBorderedArea().getProposalWidth() - parentBorderWidget.getVerticalScrollBar().getWidth();
 	}
 	
 	//method
@@ -177,8 +177,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	public int getTargetWidth() {
 		return
-		parentBorderWidget.getBorderedArea().getTargetWidth()
-		- parentBorderWidget.getVerticalScrollBarThickness();
+		parentBorderWidget.getBorderedArea().getTargetWidth() - parentBorderWidget.getVerticalScrollBar().getWidth();
 	}
 	
 	//method
@@ -188,8 +187,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	@Override
 	public int getWidth() {
 		return
-		parentBorderWidget.getBorderedArea().getWidth()
-		- parentBorderWidget.getVerticalScrollBarThickness();
+		parentBorderWidget.getBorderedArea().getWidth() - parentBorderWidget.getVerticalScrollBar().getWidth();
 	}
 	
 	//method
