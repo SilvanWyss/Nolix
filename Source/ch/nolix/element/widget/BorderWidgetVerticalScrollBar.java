@@ -109,10 +109,7 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	 */
 	@Override
 	public int getXPosition() {
-		
-		final var showArea = parentBorderWidget.getShowArea();
-		
-		return showArea.getXPosition() + showArea.getWidth();
+		return (parentBorderWidget.getBorderedArea().getXPosition() + parentBorderWidget.getShowArea().getWidth());
 	}
 	
 	//method
@@ -122,7 +119,7 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	 */
 	@Override
 	public int getYPosition() {
-		return parentBorderWidget.getShowArea().getYPosition();
+		return parentBorderWidget.getBorderedArea().getYPosition();
 	}
 	
 	//method
@@ -149,7 +146,7 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	 * 
 	 * There can be the following issues.
 	 * -The current {@link BorderWidgetVerticalScrollBar} is not visible, but is expected to be visible.
-	 * -The current {@link BorderWidgetVerticalScrollBar}, but is expected not to be visible.
+	 * -The current {@link BorderWidgetVerticalScrollBar} is visible, but is expected not to be visible.
 	 * 
 	 * No matter which result this method returns, the program works.
 	 * This method makes a good, but not absolute guess,

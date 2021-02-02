@@ -15,7 +15,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2020-02-02
- * @lines 180
+ * @lines 190
  * @param <BWL> is the type of the {@link BorderWidgetLook}
  * of the {@link BorderWidget} a {@link BorderWidgetVerticalScrollBarCursor} belongs to.
  */
@@ -60,7 +60,7 @@ implements HoverableByCursor {
 			return getColorWhenIsNotMoved();
 		}
 		
-		return getColorWhenIsMoved();	
+		return getColorWhenIsMoved();
 	}
 	
 	//method
@@ -141,13 +141,17 @@ implements HoverableByCursor {
 		/ (parentBorderWidget.getScrolledArea().getHeight() - showAreaHeight);
 	}
 	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetVerticalScrollBarCursor} is visible.
+	 */
 	public boolean isVisible() {
 		return parentBorderWidget.getVerticalScrollBar().isVisible();
 	}
 	
 	@Override
 	public boolean isUnderCursor() {
-		return parentBorderWidget.getVerticalScrollBar().isVisible() && HoverableByCursor.super.isUnderCursor();
+		return isVisible() && HoverableByCursor.super.isUnderCursor();
 	}
 	
 	//visibility-reduced method

@@ -201,10 +201,13 @@ extends Widget<BW, BWL> {
 	private final BorderWidgetExtendedContentArea<BWL> extendedContentArea = new BorderWidgetExtendedContentArea<>(this);
 	private final BorderWidgetContentArea<BWL> contentArea = new BorderWidgetContentArea<>(this);
 	
-	//attributes
+	//attribute
 	private final BorderWidgetVerticalScrollBar<BWL> verticalScrollBar = new BorderWidgetVerticalScrollBar<>(this);
-	private final BorderWidgetVerticalScrollBarCursor<BWL> verticalScrollBarCursor = new BorderWidgetVerticalScrollBarCursor<>(this);
 	
+	//attribute
+	private final BorderWidgetVerticalScrollBarCursor<BWL> verticalScrollBarCursor =
+	new BorderWidgetVerticalScrollBarCursor<>(this);
+		
 	//attributes
 	private boolean isMovingVerticalScrollBarCursor;
 	private boolean isMovingHorizontalScrollBarCursor;
