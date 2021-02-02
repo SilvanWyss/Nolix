@@ -101,20 +101,12 @@ implements HoverableByCursor {
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the x-position of the current {@link BorderWidgetVerticalScrollBarCursor}
+	 * on the {@link BorderWidget} it belongs to.
 	 */
 	@Override
 	public int getXPosition() {
 		return (parentBorderWidget.getVerticalScrollBar().getXPosition() + getXPositionOnVerticalScrollBar());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getYPosition() {
-		return (parentBorderWidget.getVerticalScrollBar().getYPosition() + getYPositionOnVerticalScrollBar());
 	}
 	
 	//method
@@ -124,6 +116,16 @@ implements HoverableByCursor {
 	 */
 	public int getXPositionOnVerticalScrollBar() {
 		return X_POSITION_ON_VERTICAL_SCROLL_BAR;
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link BorderWidgetVerticalScrollBarCursor}
+	 * on the {@link BorderWidget} it belongs to.
+	 */
+	@Override
+	public int getYPosition() {
+		return (parentBorderWidget.getVerticalScrollBar().getYPosition() + getYPositionOnVerticalScrollBar());
 	}
 	
 	//method

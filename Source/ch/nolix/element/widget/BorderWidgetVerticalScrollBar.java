@@ -109,7 +109,7 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	 */
 	@Override
 	public int getXPosition() {
-		return (parentBorderWidget.getBorderedArea().getXPosition() + parentBorderWidget.getShowArea().getWidth());
+		return (parentBorderWidget.getBorderedArea().getXPosition() + getXPositionOnBorderedArea());
 	}
 	
 	//method
@@ -119,7 +119,7 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	 */
 	@Override
 	public int getYPosition() {
-		return parentBorderWidget.getBorderedArea().getYPosition();
+		return (parentBorderWidget.getBorderedArea().getYPosition() + getYPositionOnBorderedArea());
 	}
 	
 	//method
