@@ -185,11 +185,13 @@ implements HoverableByCursor {
 		
 		return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollCursorColor();
 	}
-
+	
 	//method
 	private int getNaturalHeight() {
 		return
-		(int)(Math.pow(parentBorderWidget.getShowArea().getHeight(), 2)
-		/ parentBorderWidget.getScrolledArea().getHeight());
+		(int)(
+			Math.pow(parentBorderWidget.getShowArea().getHeight(), 2)
+			/ parentBorderWidget.getScrolledArea().getHeight()
+		);
 	}
 }
