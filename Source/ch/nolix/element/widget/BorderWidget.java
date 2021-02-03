@@ -63,7 +63,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1440
+ * @lines 1380
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -494,58 +494,6 @@ extends Widget<BW, BWL> {
 	 */
 	public final BorderWidgetShowArea<BWL> getShowArea() {
 		return showArea;
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link BorderWidget} has activated any scroll bar.
-	 */
-	public final boolean hasActivatedAnyScrollBar() {
-		return (hasActivatedVerticalScrollBar() || hasActivatedHorizontalScrollBar());
-	}
-	
-	//method
-	/**
-	 * This method determines if the current {@link BorderWidget} has activated the horizontal scroll bar.
-	 * 
-	 * There can be the following issues.
-	 * -The horizontal scroll bar is not activated, but the user needs it.
-	 * -The horizontal scroll bar is activated, but the user does not need it.
-	 * 
-	 * No matter which result this method returns, the program works.
-	 * This method makes a good but not absolute guess if the user needs a horizontal scroll bar.
-	 * 
-	 * @return true if the current {@link BorderWidget} has activated the horizontal scroll bar.
-	 */
-	public final boolean hasActivatedHorizontalScrollBar() {
-		
-		final var naturalScrolledAreaWidth = scrolledArea.getNaturalWidth();
-		
-		return
-		(hasMaxWidth() && getMaxWidth() < naturalScrolledAreaWidth)
-		|| (hasProposalWidth() && getProposalWidth() < naturalScrolledAreaWidth);
-	}
-	
-	//method
-	/**
-	 * This method determines if the current {@link BorderWidget} has activated the vertical scroll bar.
-	 * 
-	 * There can be the following issues.
-	 * -The vertical scroll bar is not activated, but the user needs it.
-	 * -The vertical scroll bar is activated, but the user does not need it.
-	 * 
-	 * No matter which result this method returns, the program works.
-	 * This method makes a good but not absolute guess if the user needs a vertical scroll bar.
-	 * 
-	 * @return true if the current {@link BorderWidget} has activated the vertical scroll bar.
-	 */
-	public final boolean hasActivatedVerticalScrollBar() {
-		
-		final var naturalScrolledAreaHeight = scrolledArea.getNaturalHeight();
-		
-		return
-		(hasMaxHeight() && getMaxHeight() < naturalScrolledAreaHeight)
-		|| (hasProposalHeight() && getProposalHeight() < naturalScrolledAreaHeight);
 	}
 	
 	//method
@@ -1383,36 +1331,11 @@ extends Widget<BW, BWL> {
 	 */
 	protected abstract void recalculateBorderWidget();
 	
-	//method
+	//method declaration
 	/**
-	 * {@inheritDoc}
+	 * Resets the current {@link BorderWidget}.
 	 */
-	@Override
-	protected final boolean redirectsInputsToShownWidgets() {
-		return (isEnabled() && (!hasActivatedAnyScrollBar() || showAreaIsUnderCursor()));
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void resetWidgetConfigurationOnSelf() {
-		
-		deactivateAutomaticSize();
-		removeMinWidth();
-		removeMinHeight();
-		removeMaxWidtht();
-		removeMaxHeight();
-		removeProposalWidth();
-		removeProposalHeight();
-		
-		setContentPosition(ContentPosition.TOP_LEFT);
-		setShowAreaXPositionOnScrolledArea(0);
-		setShowAreaYPositionOnScrolledArea(0);
-		
-		resetBorderWidgetConfigurationOnSelf();
-	}
+	protected abstract void resetBorderWidget();
 	
 	//method declaration
 	/**
@@ -1440,9 +1363,25 @@ extends Widget<BW, BWL> {
 		resetBorderWidget();
 	}
 	
-	//method declaration
+	//method
 	/**
-	 * Resets the current {@link BorderWidget}.
+	 * {@inheritDoc}
 	 */
-	protected abstract void resetBorderWidget();
+	@Override
+	protected final void resetWidgetConfigurationOnSelf() {
+		
+		deactivateAutomaticSize();
+		removeMinWidth();
+		removeMinHeight();
+		removeMaxWidtht();
+		removeMaxHeight();
+		removeProposalWidth();
+		removeProposalHeight();
+		
+		setContentPosition(ContentPosition.TOP_LEFT);
+		setShowAreaXPositionOnScrolledArea(0);
+		setShowAreaYPositionOnScrolledArea(0);
+		
+		resetBorderWidgetConfigurationOnSelf();
+	}
 }

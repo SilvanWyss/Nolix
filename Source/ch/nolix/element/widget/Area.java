@@ -393,15 +393,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean redirectsInputsToShownWidgets() {
-		return true;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void resetWidgetConfigurationOnSelf() {
 		setWidth(500);
 		setHeight(200);

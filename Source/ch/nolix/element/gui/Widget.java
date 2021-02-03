@@ -1709,11 +1709,13 @@ TopLeftPositionedRecangular {
 	 */
 	protected abstract void recalculateWidgetSelf();
 	
-	//method declaration
+	//method
 	/**
-	 * @return true if the current {@link Widget} redirects intputs to its shown {@link Widget}s.
+	 * @return true if the current {@link Widget} redirects inputs to its shown {@link Widget}s.
 	 */
-	protected abstract boolean redirectsInputsToShownWidgets();
+	protected final boolean redirectsInputsToShownWidgets() {
+		return (isEnabled() && showAreaIsUnderCursor());
+	}
 	
 	//method declaration
 	/**

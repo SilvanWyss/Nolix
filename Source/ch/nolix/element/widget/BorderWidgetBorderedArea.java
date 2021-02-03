@@ -294,8 +294,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	//method
 	private void paintRectangleBetweenScrollBars(final IPainter painter, final BWL borderWidgetLook) {
 		if (
-			parentBorderWidget.hasActivatedVerticalScrollBar()
-			&& parentBorderWidget.hasActivatedHorizontalScrollBar()
+			parentBorderWidget.getVerticalScrollBar().isVisible()
+			&& parentBorderWidget.getHorizontalScrollBar().isVisible()
 		) {
 			if (borderWidgetLook.hasRecursiveBackgroundColor()) {
 				
