@@ -163,7 +163,7 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 		|| (parentBorderWidget.hasProposalHeight() && parentBorderWidget.getProposalHeight() < naturalHeight);
 	}
 	
-	//method
+	//visibility-reduced method
 	/**
 	 * Paints the current {@link BorderWidgetVerticalScrollBar} using the given painter.
 	 * 
@@ -193,18 +193,24 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	}
 	
 	//method
-	private void paintWhenVisible(IPainter painter) {
-		
-		painter.setColor(getColor());
-		painter.paintFilledRectangle(getWidth(), getHeight());
+	private void paintVerticalScrollBarCursor(final IPainter painter) {
 		
 		final var verticalScrollBarCursor = parentBorderWidget.getVerticalScrollBarCursor();
 		
-		parentBorderWidget.getVerticalScrollBarCursor().paint(
+		verticalScrollBarCursor.paint(
 			painter.createPainter(
 				verticalScrollBarCursor.getXPositionOnVerticalScrollBar(),
 				verticalScrollBarCursor.getYPositionOnVerticalScrollBar()
 			)
 		);
+	}
+	
+	//method
+	private void paintWhenVisible(IPainter painter) {
+		
+		painter.setColor(getColor());
+		painter.paintFilledRectangle(getWidth(), getHeight());
+		
+		paintVerticalScrollBarCursor(painter);
 	}
 }
