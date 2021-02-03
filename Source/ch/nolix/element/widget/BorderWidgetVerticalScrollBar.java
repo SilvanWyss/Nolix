@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2020-02-02
- * @lines 210
+ * @lines 220
  * @param <BWL> is the type of the {@link BorderWidgetLook}
  * of the {@link BorderWidget} a {@link BorderWidgetVerticalScrollBar} belongs to.
  */
@@ -138,6 +138,15 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	 */
 	public int getYPositionOnBorderedArea() {
 		return Y_POSITION_ON_BORDERED_AREA;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isUnderCursor() {
+		return isVisible() && HoverableByCursor.super.isUnderCursor();
 	}
 	
 	//method
