@@ -197,6 +197,16 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//method
+	public Color getBottomLeftPixel() {
+		return getPixel(1, getHeight());
+	}
+	
+	//method
+	public Color getBottomRightPixel() {
+		return getPixel(getWidth(), getHeight());
+	}
+	
+	//method
 	public int getHeight() {
 		return height.getValue();
 	}
@@ -209,6 +219,16 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public int getPixelCount() {
 		return pixels.getElementCount();
+	}
+	
+	//method
+	public Color getTopLeftPixel() {
+		return getPixel(1, 1);
+	}
+	
+	//method
+	public Color getTopRightPixel() {
+		return getPixel(getWidth(), 1);
 	}
 	
 	//method
