@@ -63,7 +63,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1380
+ * @lines 1390
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -213,6 +213,10 @@ extends Widget<BW, BWL> {
 	//attribute
 	private final BorderWidgetHorizontalScrollBarCursor<BWL> horizontalScrollBarCursor =
 	new BorderWidgetHorizontalScrollBarCursor<>(this);
+	
+	//attribute
+	private final BorderWidgetInterScrollBarArea<BWL> interScrollBarArea =
+	new BorderWidgetInterScrollBarArea<>(this);
 		
 	//attributes
 	private boolean isMovingVerticalScrollBarCursor;
@@ -308,10 +312,18 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * @return the horzintal scroll bar cursor of the current {@link BorderWidget}.
+	 * @return the horizontal scroll bar cursor of the current {@link BorderWidget}.
 	 */
 	public BorderWidgetHorizontalScrollBarCursor<BWL> getHorizontalScrollBarCursor() {
 		return horizontalScrollBarCursor;
+	}
+	
+	//method
+	/**
+	 * @return the inter scroll bar area of the current {@link BorderWidget}.
+	 */
+	public BorderWidgetInterScrollBarArea<BWL> getInterScrollBarArea() {
+		return interScrollBarArea;
 	}
 	
 	//method

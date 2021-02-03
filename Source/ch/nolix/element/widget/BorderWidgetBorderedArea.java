@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-05
- * @lines 370
+ * @lines 330
  * @param <BWL>
  * The type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetBorderedArea}.
  */
@@ -270,14 +270,24 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 * @param borderWidgetLook
 	 */
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
-		
-		paintVerticalScrollBar(painter);
-		paintHorizontalScrollBar(painter);
-		paintRectangleBetweenScrollBars(painter, borderWidgetLook);
-		
+		paintScrollBars(painter, borderWidgetLook);			
 		paintShowArea(painter, borderWidgetLook);
 	}
 	
+	//method
+	private void paintInterScrollArea(IPainter painter, BWL borderWidgetLook) {
+		
+		final var interScrollBarArea = parentBorderWidget.getInterScrollBarArea();
+		
+		interScrollBarArea.paint(
+			painter.createPainter(
+				interScrollBarArea.getXPositionOnBorderedArea(),
+				interScrollBarArea.getYPositionOnBorderedArea()
+			),
+			borderWidgetLook
+		);
+	}
+
 	//method
 	private void paintHorizontalScrollBar(final IPainter painter) {
 		
@@ -292,39 +302,12 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	}
 	
 	//method
-	private void paintRectangleBetweenScrollBars(final IPainter painter, final BWL borderWidgetLook) {
-		if (
-			parentBorderWidget.getVerticalScrollBar().isVisible()
-			&& parentBorderWidget.getHorizontalScrollBar().isVisible()
-		) {
-			if (borderWidgetLook.hasRecursiveBackgroundColor()) {
-				
-				final var showArea = parentBorderWidget.getShowArea();
-				
-				painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColor());
-				
-				painter.paintFilledRectangle(
-					showArea.getWidth(),
-					showArea.getHeight(),
-					parentBorderWidget.getHorizontalScrollBar().getHeight(),
-					parentBorderWidget.getVerticalScrollBar().getWidth()
-				);
-			} else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
-				
-				final var showArea = parentBorderWidget.getShowArea();
-				
-				painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient().getColor2());
-				
-				painter.paintFilledRectangle(
-					showArea.getWidth(),
-					showArea.getHeight(),
-					parentBorderWidget.getHorizontalScrollBar().getHeight(),
-					parentBorderWidget.getVerticalScrollBar().getWidth()
-				);
-			}
-		}
+	private void paintScrollBars(final IPainter painter, final BWL borderWidgetLook) {
+		paintVerticalScrollBar(painter);
+		paintHorizontalScrollBar(painter);
+		paintInterScrollArea(painter, borderWidgetLook);
 	}
-	
+		
 	//method
 	private void paintShowArea(final IPainter painter, final BWL borderWidgetLook) {
 		parentBorderWidget.getShowArea().paint(
