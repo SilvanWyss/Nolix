@@ -146,7 +146,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	public int getNaturalHeight() {
 		return
 		parentBorderWidget.getShowArea().getNaturalHeight()
-		+ parentBorderWidget.getHorizontalScrollBarThickness();
+		+ parentBorderWidget.getHorizontalScrollBar().getHeight();
 	}
 	
 	//method
@@ -272,41 +272,22 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		
 		paintVerticalScrollBar(painter);
-				
-		//Paints the horizontal scroll bar of the BorderWidget of the current BorderWidgetBorderedArea if
-		//the BorderWidget of the current BorderWidgetBorderedArea has a horizontal scroll bar.
-		if (parentBorderWidget.hasActivatedHorizontalScrollBar()) {
-			
-			//Paints the horizontal scroll bar of the BorderWidget of the current BorderWidgetBorderedArea.	
-			painter.setColor(parentBorderWidget.getHorizontalScrollBarColor());
-			painter.paintFilledRectangle(
-				0,
-				parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
-				parentBorderWidget.getShowArea().getWidth(),
-				parentBorderWidget.getHorizontalScrollBarThickness()
-			);
-			
-			//Paints the horizontal scroll bar cursor of the BorderWidget of the current BorderWidgetBorderedArea.			
-			painter.setColor(parentBorderWidget.getHorizontalScrollBarCursorColor());
-			painter.paintFilledRectangle(
-				parentBorderWidget.getHorizontalScrollBarCursorXPositionOnHorizontalScrollBar(),
-				parentBorderWidget.getHorizontalScrollBarYPositionOnBorderedArea(),
-				parentBorderWidget.getHorizontalScrollBarCursorWidth(),
-				parentBorderWidget.getHorizontalScrollBarThickness()
-			);
-		}
-		
+		paintHorizontalScrollBar(painter);
 		paintRectangleBetweenScrollBars(painter, borderWidgetLook);
 		
-		//Paints the show area of the BorderWidget of the current BorderWidgetBorderedArea.
-		parentBorderWidget.getShowArea().paint(
+		paintShowArea(painter, borderWidgetLook);
+	}
+	
+	//method
+	private void paintHorizontalScrollBar(final IPainter painter) {
+		
+		final var horizontalScrollBar = parentBorderWidget.getHorizontalScrollBar();
+		
+		horizontalScrollBar.paint(
 			painter.createPainter(
-				0,
-				0,
-				parentBorderWidget.getShowArea().getWidth(),	
-				parentBorderWidget.getShowArea().getHeight()
-			),
-			borderWidgetLook
+				horizontalScrollBar.getXPositionOnBorderedArea(),
+				horizontalScrollBar.getYPositionOnBorderedArea()
+			)
 		);
 	}
 	
@@ -325,7 +306,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 				painter.paintFilledRectangle(
 					showArea.getWidth(),
 					showArea.getHeight(),
-					parentBorderWidget.getHorizontalScrollBarThickness(),
+					parentBorderWidget.getHorizontalScrollBar().getHeight(),
 					parentBorderWidget.getVerticalScrollBar().getWidth()
 				);
 			} else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
@@ -337,11 +318,24 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 				painter.paintFilledRectangle(
 					showArea.getWidth(),
 					showArea.getHeight(),
-					parentBorderWidget.getHorizontalScrollBarThickness(),
+					parentBorderWidget.getHorizontalScrollBar().getHeight(),
 					parentBorderWidget.getVerticalScrollBar().getWidth()
 				);
 			}
 		}
+	}
+	
+	//method
+	private void paintShowArea(final IPainter painter, final BWL borderWidgetLook) {
+		parentBorderWidget.getShowArea().paint(
+			painter.createPainter(
+				0,
+				0,
+				parentBorderWidget.getShowArea().getWidth(),	
+				parentBorderWidget.getShowArea().getHeight()
+			),
+			borderWidgetLook
+		);
 	}
 	
 	//method
@@ -355,6 +349,5 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 				verticalScrollBar.getYPositionOnBorderedArea()
 			)
 		);
-		
 	}
 }
