@@ -45,7 +45,7 @@ implements Closeable {
 	 * 
 	 * @param port
 	 * @param transformator
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65'535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65'535].
 	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
 	public FrontNetNeuron(
@@ -66,7 +66,7 @@ implements Closeable {
 	 * @param ip
 	 * @param port
 	 * @param transformator
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65'535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65'535].
 	 * @throws ArgumentIsNullException if the given transformator is null.
 	 */
 	public FrontNetNeuron(

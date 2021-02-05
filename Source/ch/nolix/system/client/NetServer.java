@@ -42,7 +42,7 @@ public final class NetServer extends Server {
 	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
 	 * 
 	 * @param port
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public NetServer(final int port) {
 		

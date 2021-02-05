@@ -48,7 +48,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * Creates a new {@link FrontConsoleClient} that will connect to the default application on the given port.
 	 * 
 	 * @param port
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0,65535].
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public FrontConsoleClient(final int port) {
 		
