@@ -49,7 +49,8 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * @param inputNeuron
 	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input neuron is null.
-	 * @throws NonSmallerArgumentException if the current {@link BaseNeuron} has reached its maximal number of input neurons.
+	 * @throws NonSmallerArgumentException
+	 * if the current {@link BaseNeuron} has reached its maximum number of input neurons.
 	 * @throws RuntimeException if the current {@link BaseNeuron} contains already the given input neuron.
 	 */
 	public final N addInputNeuron(final double weight, final BaseNeuron<?, ?, I> inputNeuron) {
@@ -67,7 +68,8 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * @param inputNeuron
 	 * @return the current {@link BaseNeuron}.
 	 * @throws ArgumentIsNullException if the given input neuron is null.
-	 * @throws NonSmallerArgumentException if the current {@link BaseNeuron} has reached its maximal number of input neurons.
+	 * @throws NonSmallerArgumentException
+	 * if the current {@link BaseNeuron} has reached its maximum number of input neurons.
 	 * @throws RuntimeException if the current {@link BaseNeuron} contains already the given input neuron.
 	 */
 	public final N addInputNeuron(final BaseNeuron<?, ?, I> inputNeuron) {
@@ -82,12 +84,12 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * Removes all input neurons of the current {@link BaseNeuron} from the current {@link BaseNeuron}.
 	 * 
 	 * @return the current {@link BaseNeuron}.
-	 * @throws UnequalArgumentException if the minimal number of input neurons of the current {@link BaseNeuron} is not 0.
+	 * @throws UnequalArgumentException if the minimum number of input neurons of the current {@link BaseNeuron} is not 0.
 	 */
 	public final N clearInputNeurons() {
 		
-		//Asserts that the minimal number of input neurons of the current BaseNeuron is 0.
-		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isEqualTo(0);
+		//Asserts that the minimum number of input neurons of the current BaseNeuron is 0.
+		Validator.assertThat(getMinInputNeuronCount()).thatIsNamed("minimum number of input neurons").isEqualTo(0);
 		
 		while (getInputNeuronCount() > 0) {
 			removeInputNeuron(getRefInputNeurons().getRefFirst());
@@ -143,13 +145,13 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	
 	//method declaration
 	/**
-	 * @return the maximal number of input neurons of the current {@link BaseNeuron}.
+	 * @return the maximum number of input neurons of the current {@link BaseNeuron}.
 	 */
 	public abstract int getMaxInputNeuronCount();
 	
 	//method declaration
 	/**
-	 * @return the minimal number of input neurons of the current {@link BaseNeuron}.
+	 * @return the minimum number of input neurons of the current {@link BaseNeuron}.
 	 */
 	public abstract int getMinInputNeuronCount();
 	
@@ -240,12 +242,12 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * @param inputNeuron
 	 * @return the current {@link BaseNeuron}.
 	 * @throws NonBiggerArgumentException
-	 * if the current {@link BaseNeuron} has not more input neurons than its minimal input neuron count says.
+	 * if the current {@link BaseNeuron} has not more input neurons than its minimum input neuron count says.
 	 * @throws InvalidArgumentException if the current {@link BaseNeuron} does not contain the given input neuron.
 	 */
 	public final N removeInputNeuron(final BaseNeuron<?, ?, ?> inputNeuron) {
 		
-		//Asserts that the current BaseNeuron has not more input neurons than its minimal input neuron count says.
+		//Asserts that the current BaseNeuron has not more input neurons than its minimum input neuron count says.
 		Validator.assertThat(getInputNeuronCount()).isBiggerThan(getMinInputNeuronCount());
 		
 		inputConnections.removeFirst(ic -> ic.hasInputNeuron(inputNeuron));
@@ -280,7 +282,7 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 * @param inputConnection
 	 * @throws ArgumentIsNullException if the given input connection is null.
 	 * @throws NonSmallerArgumentException
-	 * if the current {@link BaseNeuron} has not less input neurons than its maximal input neurons count says.
+	 * if the current {@link BaseNeuron} has not less input neurons than its maximum input neurons count says.
 	 * @throws InvalidArgumentException if the current {@link BaseNeuron} contains already the input neuron of the given input connection.
 	 */
 	private final void addInputConnection(final InputConnection<I> inputConnection) {
@@ -288,7 +290,7 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 		//Asserts that the given input neuron is not null.
 		Validator.assertThat(inputConnection).thatIsNamed("input neuron").isNotNull();
 		
-		//Asserts that the current BaseNeuron} has less input neurons than its maximal input neurons count says.
+		//Asserts that the current BaseNeuron} has less input neurons than its maximum input neurons count says.
 		Validator.assertThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
 		
 		//Asserts that the current BaseNeuron does not contain the input neuron of the given input connection.

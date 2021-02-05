@@ -74,7 +74,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	/**
 	 * @return the max height of the current {@link BorderWidgetShowArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetShowArea} does not have a maximal height.
+	 * if the current {@link BorderWidgetShowArea} does not have a maximum height.
 	 */
 	public int getMaxHeight() {
 		return
@@ -85,7 +85,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	/**
 	 * @return the max width of the current {@link BorderWidgetShowArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetShowArea} does not have a maximal width.
+	 * if the current {@link BorderWidgetShowArea} does not have a maximum width.
 	 */
 	public int getMaxWidth() {
 		return
@@ -95,9 +95,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	
 	//method
 	/**
-	 * @return the min height of the current {@link BorderWidgetShowArea}.
+	 * @return the minimum height of the current {@link BorderWidgetShowArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetShowArea} does not have a minimal height.
+	 * if the current {@link BorderWidgetShowArea} does not have a minimum height.
 	 */
 	public int getMinHeight() {
 		return
@@ -106,9 +106,9 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	
 	//method
 	/**
-	 * @return the min width of the current {@link BorderWidgetShowArea}.
+	 * @return the minimum width of the current {@link BorderWidgetShowArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetShowArea} does not have a minimal width.
+	 * if the current {@link BorderWidgetShowArea} does not have a minimum width.
 	 */
 	public int getMinWidth() {
 		return

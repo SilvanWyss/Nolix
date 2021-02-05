@@ -29,7 +29,7 @@ extends BaseNeuron<SourceNeuron<O>, Object, O> {
 	
 	//method
 	/**
-	 * @return the maximal number of input neurons of this source neuron.
+	 * @return the maximum number of input neurons of this source neuron.
 	 */
 	@Override
 	public int getMaxInputNeuronCount() {
@@ -38,7 +38,7 @@ extends BaseNeuron<SourceNeuron<O>, Object, O> {
 
 	//method
 	/**
-	 * @return the minimal number of input neurons of this source neuron.
+	 * @return the minimum number of input neurons of this source neuron.
 	 */
 	@Override
 	public int getMinInputNeuronCount() {

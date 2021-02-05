@@ -79,7 +79,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	/**
 	 * @return the max height of the current {@link BorderWidgetBorderedArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetBorderedArea} does not have a maximal height.
+	 * if the current {@link BorderWidgetBorderedArea} does not have a maximum height.
 	 */
 	public int getMaxHeight() {
 		
@@ -95,7 +95,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	/**
 	 * @return the max width of the current {@link BorderWidgetBorderedArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetBorderedArea} does not have a maximal width.
+	 * if the current {@link BorderWidgetBorderedArea} does not have a maximum width.
 	 */
 	public int getMaxWidth() {
 		
@@ -111,7 +111,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	/**
 	 * @return the mininum height of the current {@link BorderWidgetBorderedArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetBorderedArea} does not have a minimal height.
+	 * if the current {@link BorderWidgetBorderedArea} does not have a minimum height.
 	 */
 	public int getMinHeight() {
 		
@@ -127,7 +127,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	/**
 	 * @return the mininum width of the current {@link BorderWidgetBorderedArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetBorderedArea} does not have a minimal width.
+	 * if the current {@link BorderWidgetBorderedArea} does not have a minimum width.
 	 */
 	public int getMinWidth() {
 		

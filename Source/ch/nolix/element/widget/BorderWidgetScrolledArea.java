@@ -83,9 +83,9 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	
 	//method
 	/**
-	 * @return the minimal height of the current {@link BorderWidgetScrolledArea}.
+	 * @return the minimum height of the current {@link BorderWidgetScrolledArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetScrolledArea} does not have a minimal height.
+	 * if the current {@link BorderWidgetScrolledArea} does not have a minimum height.
 	 */
 	public int getMinHeight() {
 		return parentBorderWidget.getShowArea().getMinHeight();
@@ -93,9 +93,9 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	
 	//method
 	/**
-	 * @return the minimal width of the current {@link BorderWidgetScrolledArea}.
+	 * @return the minimum width of the current {@link BorderWidgetScrolledArea}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BorderWidgetScrolledArea} does not have a minimal width.
+	 * if the current {@link BorderWidgetScrolledArea} does not have a minimum width.
 	 */
 	public int getMinWidth() {
 		return parentBorderWidget.getShowArea().getMinWidth();

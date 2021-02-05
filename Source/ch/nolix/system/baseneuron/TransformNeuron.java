@@ -63,7 +63,7 @@ extends BaseNeuron<TransformNeuron<I, O>, I, O> {
 
 	//method
 	/**
-	 * @return the minimal number of input neurons of this transform neuron.
+	 * @return the minimum number of input neurons of this transform neuron.
 	 */
 	@Override
 	public int getMinInputNeuronCount() {

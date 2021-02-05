@@ -31,7 +31,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	
 	//method
 	/**
-	 * @return the maximal number of input neurons of this neuron.
+	 * @return the maximum number of input neurons of this neuron.
 	 */
 	@Override
 	public int getMaxInputNeuronCount() {
@@ -40,7 +40,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 
 	//method
 	/**
-	 * @return the minimal number of input neurons of this neuron.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getMinInputNeuronCount() {
