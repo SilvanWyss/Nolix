@@ -31,8 +31,8 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//static method
 	/**
-	 * @param <E2>
 	 * @param elements
+	 * @param <E2> is the type of the given elements.
 	 * @return a new {@link LinkedList} with the given elements.
 	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.

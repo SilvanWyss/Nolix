@@ -13,8 +13,8 @@ import ch.nolix.common.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-10-01
  * @lines 70
- * @param <E>
- * The type the elements of the sequences of the {@link SequencePattern} of a {@link SequencePatternNextMediator}.
+ * @param <E> is the type
+ * of the elements of the sequences of the {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */
 public final class SequencePatternNextMediator<E> {
 	

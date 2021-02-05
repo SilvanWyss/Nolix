@@ -8,9 +8,8 @@ package ch.nolix.system.neuronalnet;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 10
- * @param <IO> 
- * The type of the elements of the inputs and outputs of the {@link NeuronalNet}s
- * a {@link INeuronalNetCreator} creates.
+ * @param <IO> is the type
+ * of the elements of the inputs and outputs of the {@link NeuronalNet}s a {@link INeuronalNetCreator} creates.
  */
 public interface INeuronalNetCreator<IO> {
 

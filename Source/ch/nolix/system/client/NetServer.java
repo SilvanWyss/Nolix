@@ -88,7 +88,7 @@ public final class NetServer extends Server {
 	 * @param port
 	 * @param name
 	 * @param initialSessionClass
-	 * @param <C>
+	 * @param <C> is the type of the {@link Client}s the created {@link NetServer} will listen to.
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
