@@ -53,27 +53,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 				super.addOrChangeAttribute(attribute);
 		}
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final LinkedList<Node> getAttributes() {
 		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		//Handles the case that the current container has a role.
-		if (hasRole()) {
-			attributes.addAtEnd(getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE));
-		}
-		
-		fillUpContainerWidgetAttributesInto(attributes);
-		
-		return attributes;
-	}
-	
 	//method
 	/**
 	 * @return the role of the current {@link ContainerWidget}.
@@ -154,6 +134,22 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * @param list
 	 */
 	protected abstract void fillUpContainerWidgetAttributesInto(LinkedList<Node> list);
+	
+	//method
+	//For a better performance, this method does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current container has a role.
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		}
+		
+		fillUpContainerWidgetAttributesInto(list);
+	}
 	
 	//method
 	/**

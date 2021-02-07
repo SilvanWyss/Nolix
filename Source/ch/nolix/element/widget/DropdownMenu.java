@@ -86,7 +86,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(originHorizontalStack);
 	}
-	
+		
 	//method
 	@Override
 	protected int getNaturalContentAreaHeight() {

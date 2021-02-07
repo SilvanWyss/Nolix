@@ -20,7 +20,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 350
+ * @lines 330
  * @param <L> is the type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -71,27 +71,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
 		}
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this line.
-	 */
-	@Override
-	public final LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		if (getThickness() != DEFAULT_THICKNESS) {
-			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.THICKNESS, thickness));
-		}
-		
-		if (!getColor().equals(DEFAULT_COLOR)) {
-			attributes.addAtEnd(color.getSpecification());
-		}
-		
-		return attributes;
 	}
 	
 	//method
@@ -202,6 +181,17 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		list
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.THICKNESS, thickness))
+		.addAtEnd(color.getSpecification());
+	}
 	
 	//method
 	/**

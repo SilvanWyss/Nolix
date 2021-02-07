@@ -39,7 +39,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2110
+ * @lines 2120
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -301,7 +301,7 @@ TopLeftPositionedRecangular {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -325,6 +325,8 @@ TopLeftPositionedRecangular {
 		final var focusStateAttributes = getRefFocusLook().getAttributes();
 		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
 		attributes.addAtEnd(focusStateAttributes);
+		
+		fillUpWidgetAttributesInto(attributes);
 		
 		return attributes;
 	}
@@ -1522,6 +1524,14 @@ TopLeftPositionedRecangular {
 	 * @param list
 	 */
 	protected abstract void fillUpShownWidgets(LinkedList<Widget<?, ?>> list);
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link Widget} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpWidgetAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

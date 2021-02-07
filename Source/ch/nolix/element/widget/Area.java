@@ -24,8 +24,8 @@ import ch.nolix.element.painterapi.IPainter;
  * -Can have a background color.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 430
+ * @date 2016-01-01
+ * @lines 410
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
@@ -70,32 +70,6 @@ public final class Area extends Widget<Area, AreaLook> {
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
 		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		attributes
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEIGHT, height))
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.WIDTH, width));
-		
-		//Handles the case that the current Area has a background color.
-		if (hasBackgroundColor()) {
-			attributes.addAtEnd(
-				getBackgroundColor().getSpecificationAs(
-					PascalCaseNameCatalogue.BACKGROUND_COLOR
-				)
-			);
-		}
-		
-		return attributes;
 	}
 	
 	//method
@@ -250,6 +224,23 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		
+		list
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEIGHT, height))
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.WIDTH, width));
+		
+		//Handles the case that the current Area has a background color.
+		if (hasBackgroundColor()) {
+			list.addAtEnd(getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+		}
+	}
 	
 	//method
 	/**

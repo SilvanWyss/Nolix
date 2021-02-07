@@ -6,6 +6,7 @@ import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.GUI;
@@ -189,7 +190,13 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(titleLabel);
 	}
-
+	
+	//method
+	@Override
+	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(internalGUI.getSpecification());
+	}
+	
 	//method
 	@Override
 	protected int getNaturalContentAreaHeight() {
@@ -283,16 +290,10 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetBorderWidget() {
 		internalGUI.reset();

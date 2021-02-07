@@ -18,7 +18,7 @@ import ch.nolix.element.painterapi.IPainter;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 190
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
@@ -51,27 +51,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 				super.addOrChangeAttribute(attribute);
 		}
 	}
-	
-	//method
-	/**
-	 * @return the attributes of the current {@link Label}.
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
 		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		//Handles the case that the current label has a role.
-		if (hasRole()) {
-			attributes.addAtEnd(
-				role.getSpecificationAs(PascalCaseNameCatalogue.ROLE)
-			);
-		}
-		
-		return attributes;
-	}
-	
 	//method
 	/**
 	 * @return the role of the current {@link Label}.
@@ -139,6 +119,20 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	@Override
 	protected LabelLook createLook() {
 		return new LabelLook();
+	}
+	
+	//method
+	//For a better performance, this method does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current Label has a role.
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		}
 	}
 	
 	//method

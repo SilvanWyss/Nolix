@@ -67,21 +67,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 				super.addOrChangeAttribute(attribute);
 		}
 	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
-		//Handles the case that the current Button has a role.
-		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
-		}
-	}
-	
 	//method
 	/**
 	 * @return the role of the current {@link Button}.
@@ -148,6 +134,20 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	@Override
 	protected ButtonLook createLook() {
 		return new ButtonLook();
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpTextLineWidgetAttributesInto(LinkedList<Node> list) {
+		
+		//Handles the case that the current Button has a role.
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		}
 	}
 	
 	//method

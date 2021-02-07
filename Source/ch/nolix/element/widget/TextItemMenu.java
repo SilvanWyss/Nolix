@@ -5,10 +5,12 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;
@@ -206,6 +208,10 @@ implements Clearable {
 	protected final TextItemMenuLook createLook() {
 		return new TextItemMenuLook();
 	}
+	
+	//method
+	@Override
+	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	protected final IContainer<Label> getRefItemLables() {

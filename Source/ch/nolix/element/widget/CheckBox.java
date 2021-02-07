@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 350
+ * @lines 340
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
@@ -63,21 +63,6 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		checked = true;
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		attributes.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
-		
-		return attributes;
 	}
 	
 	//method
@@ -159,6 +144,15 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	@Override
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
+	}
 	
 	//method
 	/**

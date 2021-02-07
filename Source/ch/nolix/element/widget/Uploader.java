@@ -2,7 +2,9 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
@@ -42,9 +44,6 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean hasRole(final String role) {
 		return false;
@@ -61,25 +60,20 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected UploaderLook createLook() {
 		return new UploaderLook();
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
+	@Override
+	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {}
+	
+	//method
 	@Override
 	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
 		
@@ -97,30 +91,18 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);

@@ -51,19 +51,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		final var attributes = super.getAttributes();
-		
-		if (providesFile()) {
-			attributes.addAtEnd(Node.withHeader(FILE_GETTER_HEADER));
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -117,18 +104,20 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected DownloaderLook createLook() {
 		return new DownloaderLook();
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
+	@Override
+	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {
+		if (providesFile()) {
+			list.addAtEnd(Node.withHeader(FILE_GETTER_HEADER));
+		}
+	}
+	
+	//method
 	@Override
 	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
@@ -141,23 +130,14 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void paintTextLineWidgetContentArea(final IPainter painter, final DownloaderLook downloaderLook) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetBorderWidgetConfigurationOnSelf() {}
 	

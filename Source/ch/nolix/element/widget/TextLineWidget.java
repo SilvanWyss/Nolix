@@ -17,8 +17,8 @@ import ch.nolix.element.textformat.TextFormat;
  * A {@link TextLineWidget} is a {@link Widget} that contains 1 text line.
  * 
  * @author Silvan Wyss
- * @month 2016-01-01
- * @lines 210
+ * @date 2016-01-01
+ * @lines 230
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link TextLineWidgetLook} of a {@link TextLineWidget}.
  */
@@ -95,7 +95,24 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
-
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link TextLineWidget} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpTextLineWidgetAttributesInto(LinkedList<Node> list);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		fillUpTextLineWidgetAttributesInto(list);
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
