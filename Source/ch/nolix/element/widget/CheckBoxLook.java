@@ -15,7 +15,7 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 130
+ * @lines 120
  */
 public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
@@ -49,20 +49,18 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link CheckBoxLook}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
+	public void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {
 		
 		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
+		super.fillUpLayerElementAttributesInto(list);
 		
-		//Handles the case that the current check box look has a line thickness.
+		//Handles the case that the current CheckBoxLook has a line thickness.
 		if (hasLineThickness()) {
-			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.LINE_THICKNESS, lineThickness));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.LINE_THICKNESS, lineThickness));
 		}
-		
-		return attributes;
 	}
 	
 	//method

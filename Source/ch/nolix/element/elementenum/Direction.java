@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * A direction depends on the order of the start point and the end point.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-16
  * @lines 30
  */
 public enum Direction implements IElement {
@@ -33,7 +33,7 @@ public enum Direction implements IElement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
-		return Node.withHeader(StringHelper.toPascalCase(toString())).intoList();
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(Node.withHeader(StringHelper.toPascalCase(toString())));
 	}
 }

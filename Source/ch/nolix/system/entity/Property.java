@@ -43,10 +43,10 @@ public abstract class Property<V> implements Headered, IElement {
 	
 	//method
 	@Override
-	public final LinkedList<Node> getAttributes() {
-		return
-		internalGetValues()
-		.to(v -> Node.fromString(v.toString()));
+	public final void fillUpAttributesInto(final LinkedList<Node> list) {
+		for (final var v : internalGetValues()) {
+			list.addAtEnd(Node.fromString(v.toString()));
+		}
 	}
 	
 	//method

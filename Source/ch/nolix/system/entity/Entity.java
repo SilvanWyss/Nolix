@@ -73,17 +73,11 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	
 	//method
 	@Override
-	public final LinkedList<Node> getAttributes() {
+	public final void fillUpAttributesInto(final LinkedList<Node> list) {
 		
-		final var attributes = new LinkedList<Node>();
+		list.addAtEnd(Node.withHeader(getId()));
 		
-		attributes.addAtEnd(Node.withHeader(getId()));
-		
-		for (final var p : getRefProperties()) {
-			attributes.addAtEnd(p.getSpecification());
-		}
-		
-		return attributes;
+		fillUpPropertiesInto(list);
 	}
 	
 	//method
@@ -428,6 +422,13 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
 			extractPropertiesWhenNotExtracted();
+		}
+	}
+	
+	//method
+	private void fillUpPropertiesInto(final LinkedList<Node> list) {
+		for (final var p : getRefProperties()) {
+			list.addAtEnd(p.getSpecification());
 		}
 	}
 	

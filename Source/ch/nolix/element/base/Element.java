@@ -16,8 +16,8 @@ import ch.nolix.element.smartelementapi.ISmartElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-10
- * @lines 170
+ * @date 2017-10-29
+ * @lines 190
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
@@ -49,18 +49,15 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final LinkedList<Node> getAttributes() {
-		
-		final var attributes = ISmartElement.super.getAttributes();
-		
-		getRefProperties().forEach(p -> p.fillUpSpecificationsOfValues(attributes));
-		
-		fillUpElementAttributesInto(attributes);
-		
-		return attributes;
+	public final void fillUpAttributesInto(final LinkedList<Node> list) {
+		fillUpPropertiesInto(list);
+		fillUpElementAttributesInto(list);
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public final int hashCode() {
 		return toString().hashCode();
@@ -102,6 +99,18 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 * @param list
 	 */
 	protected abstract void fillUpElementAttributesInto(LinkedList<Node> list);
+	
+	//method
+	/**
+	 * Fills up the properties of the current {@link Element} into the given list.
+	 * 
+	 * @param list
+	 */
+	private void fillUpPropertiesInto(final LinkedList<Node> list) {
+		for (final var p : getRefProperties()) {
+			p.fillUpSpecificationsOfValues(list);
+		}
+	}
 	
 	//method
 	/**

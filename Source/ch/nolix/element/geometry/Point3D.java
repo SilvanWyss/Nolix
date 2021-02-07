@@ -60,9 +60,8 @@ public class Point3D implements IElement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
-		return
-		LinkedList.withElements(
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(
 			Node.withHeader(DoubleHelper.toString(getX())),
 			Node.withHeader(DoubleHelper.toString(getY())),
 			Node.withHeader(DoubleHelper.toString(getZ()))

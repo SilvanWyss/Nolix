@@ -3,7 +3,9 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerelement.LayerElement;
 import ch.nolix.element.layerelement.LayerProperty;
@@ -46,6 +48,10 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 		Color::fromSpecification,
 		Color::getSpecification
 	);
+	
+	//method
+	@Override
+	protected void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	public Color getRecursiveOrDefaultBackgroundColor() {

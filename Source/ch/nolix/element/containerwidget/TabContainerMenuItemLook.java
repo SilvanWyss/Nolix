@@ -74,31 +74,27 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	
 	//method
 	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		final var attributes = new LinkedList<Node>();
+	public void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {
 		
 		if (hasMinWidth()) {
-			attributes.addAtEnd(Node.withHeaderAndAttribute(MIN_WIDTH_HEADER, minWidth));
+			list.addAtEnd(Node.withHeaderAndAttribute(MIN_WIDTH_HEADER, minWidth));
 		}
 		
 		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			list.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
 		}
 		
 		if (hasPadding()) {
-			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.PADDING, padding));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.PADDING, padding));
 		}
 		
 		if (hasTextSize()) {
-			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TEXT_SIZE, textSize));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TEXT_SIZE, textSize));
 		}
 		
 		if (hasTextColor()) {
-			attributes.addAtEnd(textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR));
+			list.addAtEnd(textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR));
 		}
-		
-		return attributes;
 	}
 	
 	//method

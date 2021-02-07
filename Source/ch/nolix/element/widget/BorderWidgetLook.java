@@ -191,30 +191,25 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link BorderWidgetLook}
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
+	public void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {
 		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		fillUpBorderThicknessesSpecifications(attributes);
-		fillUpBorderColorsSpecifications(attributes);
+		fillUpBorderThicknessesSpecifications(list);
+		fillUpBorderColorsSpecifications(list);
 		
 		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			list.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
 		} else if (hasBackgroundColorGradient()) {
-			attributes.addAtEnd(backgroundColorGradient.getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER));
+			list.addAtEnd(backgroundColorGradient.getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER));
 		} else if (hasBackgroundImage()) {
-			attributes.addAtEnd(backgroundImage.getSpecificationAs(BACKGROUND_IMAGE_HEADER));
+			list.addAtEnd(backgroundImage.getSpecificationAs(BACKGROUND_IMAGE_HEADER));
 		}
 		
-		fillUpScrollBarLooksSpecifications(attributes);
+		fillUpScrollBarLooksSpecifications(list);
 		
-		fillUpPaddingSpecifications(attributes);	
-				
-		return attributes;
+		fillUpPaddingSpecifications(list);	
 	}
 	
 	 //method

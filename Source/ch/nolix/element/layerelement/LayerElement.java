@@ -22,7 +22,7 @@ import ch.nolix.element.elementapi.IMutableElement;
 /**
  * @author Silvan Wyss
  * @date 2017-09-06
- * @lines 220
+ * @lines 230
  * @param <E> is the type of a {@link LayerElement}.
  */
 public abstract class LayerElement<E extends LayerElement<E>> implements IMutableElement<E>, ISmartObject<E> {
@@ -60,15 +60,12 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link LayerElement}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		final var attributes = new LinkedList<Node>();
-		getRefProperties().forEach(p -> p.fillUpAttribute(attributes));
-		
-		return attributes;
+	public final void fillUpAttributesInto(final LinkedList<Node> list) {
+		fillUpPropertiesInto(list);
+		fillUpLayerElementAttributesInto(list);
 	}
 	
 	//method
@@ -96,6 +93,14 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 		
 		resetLayerElement();
 	}
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link LayerElement} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpLayerElementAttributesInto(LinkedList<Node> list);
 		
 	//method
 	/**
@@ -209,6 +214,18 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 			}
 			
 			cl = cl.getSuperclass();
+		}
+	}
+	
+	//method
+	/**
+	 * Fills up the properites of the current {@link LayerElement} into the given list.
+	 * 
+	 * @param list
+	 */
+	private void fillUpPropertiesInto(final LinkedList<Node> list) {
+		for (final var p : getRefProperties()) {
+			p.fillUpAttribute(list);
 		}
 	}
 	

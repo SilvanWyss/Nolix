@@ -207,12 +207,11 @@ public class ColorGradient implements IElement {
 			
 	//method
 	/**
-	 * @return the attributes of the current {@link ColorGradient}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
-		return 
-		LinkedList.withElements(
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(
 			Node.withHeader(getDirection().toString()),
 			Node.withHeader(getColor1().getHexadecimalValue()),
 			Node.withHeader(getColor2().getHexadecimalValue())

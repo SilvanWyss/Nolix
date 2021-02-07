@@ -276,12 +276,11 @@ public final class Time implements IElement {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Time}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
-		return
-		LinkedList.withElements(
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(
 			Node.fromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),
