@@ -148,12 +148,6 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	@Override
-	public String getType() {
-		return TYPE_NAME;
-	}
-	
-	//method
 	public boolean hasBackgroundColor() {
 		return (backgroundColor != null);
 	}

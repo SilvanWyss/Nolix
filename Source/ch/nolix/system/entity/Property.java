@@ -83,12 +83,6 @@ public abstract class Property<V> implements Headered, IElement {
 	public abstract PropertyKind getPropertyKind();
 	
 	//method
-	@Override
-	public final String getType() {
-		return ReflectionHelper.getFieldName(getParentEntity(), this);
-	}
-	
-	//method
 	@SuppressWarnings("unchecked")
 	public final Class<V> getValueClass() {
 		

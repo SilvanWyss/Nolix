@@ -157,12 +157,6 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	}
 	
 	//method
-	@Override
-	public final String getType() {
-		return getClass().getSimpleName();
-	}
-	
-	//method
 	public final <E extends Entity> boolean isAllowedToReferenceBack(final BaseReference<E> reference) {
 		
 		if (reference == null) {

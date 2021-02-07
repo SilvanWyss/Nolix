@@ -111,15 +111,6 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the type of the current {@link WidgetLook}.
-	 */
-	@Override
-	public final String getType() {
-		return getClass().getSimpleName();
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link WidgetLook} has a bold text flag.
 	 */
 	public final boolean hasRecursiveBoldTextFlag() {

@@ -3,7 +3,6 @@ package ch.nolix.element.elementapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.generalskillapi.TypeRequestable;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -17,7 +16,7 @@ import ch.nolix.common.xml.XMLNode;
  * @date 2016-01-01
  * @lines 160
  */
-public interface IElement extends TypeRequestable {
+public interface IElement {
 	
 	//method declaration
 	/**
@@ -159,5 +158,10 @@ public interface IElement extends TypeRequestable {
 	 */
 	default XMLNode toXMLAs(final String type) {
 		return getSpecificationAs(type).toXML();
+	}
+	
+	//method
+	private String getType() {
+		return getClass().getSimpleName();
 	}
 }

@@ -74,12 +74,6 @@ public final class Column implements Headered, IElement {
 	}
 	
 	//method
-	@Override
-	public String getType() {
-		return PascalCaseNameCatalogue.COLUMN;
-	}
-	
-	//method
 	public boolean isAnyBackReferenceColumn() {
 		return dataType.isAnyBackReferenceType();
 	}

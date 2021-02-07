@@ -10,10 +10,10 @@ import ch.nolix.element.elementenum.UniDirection;
 
 //class
 /**
- * This class is a test class for the direction test.
+ * A {@link UniDirectionTest} is a test for {@link UniDirection}s.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-16
  * @lines 50
  */
 public final class UniDirectionTest extends Test {
@@ -40,14 +40,6 @@ public final class UniDirectionTest extends Test {
 		//execution & verification
 		expect(UniDirection.HORIZONTAL.getSpecification())
 		.isEqualTo(Node.fromString("UniDirection(Horizontal)"));
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getType() {
-		
-		//execution & verification
-		expect(UniDirection.HORIZONTAL.getType()).isEqualTo("UniDirection");
 	}
 	
 	//method

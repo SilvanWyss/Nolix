@@ -4,6 +4,7 @@ package ch.nolix.element.elementapi;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.generalskillapi.TypeRequestable;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalIdentifiableByString;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalTokenable;
 import ch.nolix.common.requestapi.ContainsElementByStringIdRequestable;
@@ -13,8 +14,8 @@ import ch.nolix.common.requestapi.ContainsElementByStringIdRequestable;
  * A {@link IConfigurableElement} is configurable and can contain other {@link IConfigurableElement}s.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 60
+ * @date 2016-01-01
+ * @lines 80
  * @param <C> is the type of a {@link IConfigurableElement}.
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
@@ -22,7 +23,8 @@ extends
 ContainsElementByStringIdRequestable,
 IMutableElement<C>,
 OptionalIdentifiableByString<C>,
-OptionalTokenable<C> {
+OptionalTokenable<C>,
+TypeRequestable {
 	
 	//method
 	/**

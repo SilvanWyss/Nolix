@@ -11,8 +11,8 @@ import ch.nolix.element.color.Color;
  * A {@link ColorTest} is a test for {@link Color}s.
  * 
  * @author Silvan Wyss
- * @month 2015-12
- * @lines 230
+ * @date 2016-01-01
+ * @lines 220
  */
 public final class ColorTest extends Test {
 	
@@ -193,20 +193,6 @@ public final class ColorTest extends Test {
 		
 		//verification
 		expect(specification.toString()).isEqualTo("BackgroundColor(0x102030)");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getType() {
-		
-		//setup
-		final var color = new Color();
-		
-		//execution
-		final var type = color.getType();
-		
-		//verification
-		expect(type).isEqualTo("Color");
 	}
 	
 	//method

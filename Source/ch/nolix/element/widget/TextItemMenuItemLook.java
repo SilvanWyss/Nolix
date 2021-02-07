@@ -64,12 +64,6 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	}
 	
 	//method
-	@Override
-	public String getType() {
-		return TYPE_NAME;
-	}
-	
-	//method
 	public boolean hasRecursiveBackgroundColor() {
 		return backgroundColor.hasRecursiveValue();
 	}

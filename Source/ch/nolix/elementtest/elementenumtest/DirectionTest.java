@@ -10,10 +10,10 @@ import ch.nolix.element.elementenum.Direction;
 
 //class
 /**
- * This class is a test class for the direction test.
+ * A {@link DirectionTest} is a test for {@link Direction}s.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-16
  * @lines 50
  */
 public final class DirectionTest extends Test {
@@ -40,14 +40,6 @@ public final class DirectionTest extends Test {
 		//execution & verification
 		expect(Direction.LEFT_TO_RIGHT.getSpecification())
 		.isEqualTo(Node.fromString("Direction(LeftToRight)"));
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getType() {
-		
-		//execution & verification
-		expect(Direction.LEFT_TO_RIGHT.getType()).isEqualTo("Direction");
 	}
 	
 	//method
