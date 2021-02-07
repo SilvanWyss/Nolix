@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.generalskillapi;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
+//own import
 import ch.nolix.common.language.EnglishNounHelper;
 
 //interface
@@ -11,7 +10,7 @@ import ch.nolix.common.language.EnglishNounHelper;
  * 
  * @author Silvan Wyss
  * @month 2018-11-25
- * @lines 100
+ * @lines 80
  */
 public interface TypeRequestable {
 	
@@ -29,28 +28,6 @@ public interface TypeRequestable {
 	 */
 	default String getTypeInPlural() {
 		return EnglishNounHelper.getPlural(getType());
-	}
-	
-	//method
-	/**
-	 * @return the types of the current {@link TypeRequestable}
-	 * ordered from the most concrete to the most general.
-	 */
-	default LinkedList<String> getTypes() {
-		
-		final var types = new LinkedList<String>();
-		
-		/*
-		 * Iterates the classes of the current type requestable
-		 * ordered from the most concrete to the most general.
-		 */
-		Class<?> c = getClass();
-		while (c.getSuperclass() != null) {
-				types.addAtEnd(c.getSimpleName());
-				c = c.getSuperclass();
-		}
-		
-		return types;
 	}
 	
 	//method
