@@ -7,7 +7,7 @@ import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.dialog.YesNoDialog;
+import ch.nolix.element.dialog.YesNoDialogCreator;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
@@ -190,7 +190,8 @@ public final class EntitySetSession extends HeaderedSession {
 	private void openDeleteEntityDialogFor(final Entity entity) {
 		getRefGUI()
 		.addLayerOnTop(
-			new YesNoDialog(
+			new YesNoDialogCreator()
+			.createWithYesNoQuestionAndConfirmAction(
 				"Do you want to delete the entity " + entity.getShortDescriptionInQuotes() + "?",
 				() -> delete(entity)
 			)

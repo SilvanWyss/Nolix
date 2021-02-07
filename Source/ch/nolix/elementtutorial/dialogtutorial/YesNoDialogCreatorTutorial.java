@@ -3,13 +3,13 @@ package ch.nolix.elementtutorial.dialogtutorial;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.dialog.YesNoDialog;
+import ch.nolix.element.dialog.YesNoDialogCreator;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.LabelRole;
 
-public final class YesNoDialogTutorial {
+public final class YesNoDialogCreatorTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -21,7 +21,10 @@ public final class YesNoDialogTutorial {
 			new Button()
 			.setText("Quit")
 			.setLeftMouseButtonPressAction(
-				() -> frame.addLayerOnTop(new YesNoDialog("Do you want to quit the program?", frame::close))
+				() -> frame.addLayerOnTop(
+					new YesNoDialogCreator()
+					.createWithYesNoQuestionAndConfirmAction("Do you want to quit the program?", frame::close)
+				)
 			)
 		);
 		
@@ -64,5 +67,5 @@ public final class YesNoDialogTutorial {
 		);
 	}
 	
-	private YesNoDialogTutorial() {}
+	private YesNoDialogCreatorTutorial() {}
 }
