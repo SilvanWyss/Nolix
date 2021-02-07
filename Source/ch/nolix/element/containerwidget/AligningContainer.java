@@ -4,6 +4,7 @@ package ch.nolix.element.containerwidget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
@@ -137,6 +138,12 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		bottomLeftSlot.fillUpWidgetInto(list);
 		bottomSlot.fillUpWidgetInto(list);
 		bottomRightSlot.fillUpWidgetInto(list);
+	}
+	
+	//method
+	@Override
+	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
+		//TODO: Implement.
 	}
 	
 	//method

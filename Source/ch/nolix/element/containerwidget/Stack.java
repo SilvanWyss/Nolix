@@ -153,21 +153,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		getChildWidgets().forEach(cw -> attributes.addAtEnd(cw.getSpecification()));
-		
-		return attributes;
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link Stack} container has an element margin.
 	 */
 	public final boolean hasElementMargin() {
@@ -239,6 +224,17 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 			if (w.isEnabled()) {
 				list.addAtEnd(w);
 			}
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
+		for (final var cw : getChildWidgets()) {
+			list.addAtEnd(cw.getSpecification());
 		}
 	}
 	

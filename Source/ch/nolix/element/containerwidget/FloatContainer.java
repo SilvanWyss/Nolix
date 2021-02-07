@@ -63,17 +63,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		final var attributes = super.getAttributes();
-		
-		attributes.addAtEnd(widgets, Widget::getSpecification);
-		
-		return attributes;
-	}
-	
-	//method
-	@Override
 	protected boolean contentAreaMustBeExpandedToTargetSize() {
 		return true;
 	}
@@ -83,11 +72,19 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	protected FloatContainerLook createLook() {
 		return new FloatContainerLook();
 	}
-
+	
 	//method
 	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
+	}
+	
+	//method
+	@Override
+	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
+		for (final var w : widgets) {
+			list.addAtEnd(w.getSpecification());
+		}
 	}
 	
 	//method

@@ -18,7 +18,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 290
+ * @lines 280
  */
 public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
 	
@@ -52,25 +52,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	@Override
 	public void clear() {
 		widget = null;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current single container has a widget.
-			if (widget != null) {
-				attributes.addAtEnd(widget.getSpecification());
-			}
-				
-		return attributes;
 	}
 	
 	//method
@@ -134,6 +115,20 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 		//Handles the case that the current single container has a widget.	
 		if (widget != null) {
 			list.addAtEnd(widget);
+		}
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current single container has a widget.
+		if (widget != null) {
+			list.addAtEnd(widget.getSpecification());
 		}
 	}
 	

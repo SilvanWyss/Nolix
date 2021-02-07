@@ -23,7 +23,7 @@ import ch.nolix.element.widget.Label;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 560
+ * @lines 550
  */
 public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	
@@ -169,24 +169,6 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	public boolean containsSelectedTabWithWidget() {
 		return (containsSelectedTab() && getRefSelectedTab().containsAny());
 	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		//Iterates the tabs of the current tab container.
-		for (final var t : getRefTabs()) {
-			attributes.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
-		}
-				
-		return attributes;
-	}
 	
 	//method
 	/**
@@ -300,6 +282,19 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 			if (t.containsAny()) {
 				list.addAtEnd(t.getRefWidget());
 			}
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
+		
+		//Iterates the tabs of the current TabContainer.
+		for (final var t : getRefTabs()) {
+			list.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
 		}
 	}
 	

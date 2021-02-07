@@ -22,7 +22,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 170
+ * @lines 180
  * @param <CW> is the type of a {@link ContainerWidget}.
  * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
@@ -59,7 +59,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
@@ -68,6 +68,8 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		if (hasRole()) {
 			attributes.addAtEnd(getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE));
 		}
+		
+		fillUpContainerWidgetAttributesInto(attributes);
 		
 		return attributes;
 	}
@@ -144,6 +146,14 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		
 		return asConcrete();
 	}
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link ContainerWidget} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpContainerWidgetAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

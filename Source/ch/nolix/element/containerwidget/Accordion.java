@@ -9,6 +9,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
@@ -21,7 +22,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 440
+ * @lines 450
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
@@ -270,6 +271,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 			}
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	/**
