@@ -87,6 +87,15 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
+		fillUpTextLineWidgetAttributesInto(list);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
@@ -103,15 +112,6 @@ extends BorderWidget<TLW, TLWL> {
 	 * @param list
 	 */
 	protected abstract void fillUpTextLineWidgetAttributesInto(LinkedList<Node> list);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
-		fillUpTextLineWidgetAttributesInto(list);
-	}
 	
 	//method
 	/**

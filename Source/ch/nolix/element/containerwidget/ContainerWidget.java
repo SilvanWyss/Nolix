@@ -127,21 +127,13 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		return asConcrete();
 	}
 	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link ContainerWidget} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpContainerWidgetAttributesInto(LinkedList<Node> list);
-	
 	//method
 	//For a better performance, this method does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+	protected final void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
 		
 		//Handles the case that the current container has a role.
 		if (role != null) {
@@ -150,6 +142,14 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		
 		fillUpContainerWidgetAttributesInto(list);
 	}
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link ContainerWidget} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpContainerWidgetAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

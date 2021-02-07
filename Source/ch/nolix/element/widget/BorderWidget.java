@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
+import ch.nolix.common.container.LinkedList;
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -63,7 +64,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1390
+ * @lines 1410
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -903,6 +904,23 @@ extends Widget<BW, BWL> {
 	 *  is bigger than its natural width resp. natural height.
 	 */
 	protected abstract boolean contentAreaMustBeExpandedToTargetSize();
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link BorderWidget} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpBorderWidgetAttributesInto(LinkedList<Node> list);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+		fillUpBorderWidgetAttributesInto(list);
+	}
 	
 	//method
 	/**

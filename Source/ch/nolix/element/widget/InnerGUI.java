@@ -181,6 +181,12 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
+	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(internalGUI.getSpecification());
+	}
+	
+	//method
+	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(titleLabel);
 	}
@@ -189,12 +195,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	@Override
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(titleLabel);
-	}
-	
-	//method
-	@Override
-	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(internalGUI.getSpecification());
 	}
 	
 	//method

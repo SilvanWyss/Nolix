@@ -211,7 +211,7 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {}
+	protected final void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	protected final IContainer<Label> getRefItemLables() {

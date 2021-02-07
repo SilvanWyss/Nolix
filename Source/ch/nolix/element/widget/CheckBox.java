@@ -150,7 +150,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
 		list.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
 	}
 	

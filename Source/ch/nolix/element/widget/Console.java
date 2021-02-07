@@ -541,21 +541,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
+	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
 		
 		//Handles the case that the current Console contains one or several lines.
 		if (containsAny()) {
@@ -583,6 +569,20 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		list.addAtEnd(editLineSpecification);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**
