@@ -6,6 +6,7 @@ import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -600,6 +601,23 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		&& cursorXPositionOnViewArea < getViewAreaWidth()
 		&& cursorYPositionOnViewArea < getViewAreaHeight();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpConfigurationElementAttributesInto(final LinkedList<Node> list) {
+		fillUpGUIAttributesInto(list);
+	}
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link GUI} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpGUIAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

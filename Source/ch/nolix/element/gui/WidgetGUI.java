@@ -375,33 +375,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		//Handles the case that the current GUI has a background Color.
-		if (background.hasBackgroundColor()) {
-			attributes.addAtEnd(
-				background.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR)
-			);
-		}
-		
-		//Handles the case that the current GUI has a background ColorGradient.
-		if (background.hasBackgroundColorGradient()) {
-			attributes.addAtEnd(
-				background.getBackgroundColorGradient().getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER)
-			);
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
 	 * @return the background {@link Color} of the current {@link WidgetGUI}.
 	 */
 	public final Color getBackgroundColor() {
@@ -588,6 +561,28 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		super.updateFromConfiguration();
 		
 		refresh();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpGUIAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current WidgetGUI has a background Color.
+		if (background.hasBackgroundColor()) {
+			list.addAtEnd(
+				background.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR)
+			);
+		}
+		
+		//Handles the case that the current WidgetGUI has a background ColorGradient.
+		if (background.hasBackgroundColorGradient()) {
+			list.addAtEnd(
+				background.getBackgroundColorGradient().getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER)
+			);
+		}
 	}
 	
 	//method

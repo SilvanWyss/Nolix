@@ -39,7 +39,7 @@ import ch.nolix.element.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2120
+ * @lines 2110
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -294,41 +294,6 @@ TopLeftPositionedRecangular {
 	 */
 	public IFrontEndReader fromFrontEnd() {
 		return getParentGUI().fromFrontEnd();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		attributes.addAtEnd(getCustomCursorIcon().getSpecification());
-		attributes.addAtEnd(Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()));
-		
-		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
-		
-		//Extracts the base state attributes of the current Widget.
-		final var baseStateAttributes = getRefBaseLook().getAttributes();
-		baseStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
-		attributes.addAtEnd(baseStateAttributes);
-		
-		//Extracts the hover state attributes of the current Widget.
-		final var hoverStateAttributes = getRefHoverLook().getAttributes();
-		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
-		attributes.addAtEnd(hoverStateAttributes);
-		
-		//Extracts focus state attributes of the current Widget.
-		final var focusStateAttributes = getRefFocusLook().getAttributes();
-		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
-		attributes.addAtEnd(focusStateAttributes);
-		
-		fillUpWidgetAttributesInto(attributes);
-		
-		return attributes;
 	}
 	
 	//method
@@ -1513,6 +1478,36 @@ TopLeftPositionedRecangular {
 	 * @param list
 	 */
 	protected abstract void fillUpChildWidgets(LinkedList<Widget<?, ?>> list);
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpConfigurableElementAttributesInto(final LinkedList<Node> list) {
+		
+		list.addAtEnd(getCustomCursorIcon().getSpecification());
+		list.addAtEnd(Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()));
+		
+		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
+		
+		//Extracts the base state attributes of the current Widget.
+		final var baseStateAttributes = getRefBaseLook().getAttributes();
+		baseStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
+		list.addAtEnd(baseStateAttributes);
+		
+		//Extracts the hover state attributes of the current Widget.
+		final var hoverStateAttributes = getRefHoverLook().getAttributes();
+		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
+		list.addAtEnd(hoverStateAttributes);
+		
+		//Extracts focus state attributes of the current Widget.
+		final var focusStateAttributes = getRefFocusLook().getAttributes();
+		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
+		list.addAtEnd(focusStateAttributes);
+		
+		fillUpWidgetAttributesInto(list);
+	}
 	
 	//method declaration
 	/**

@@ -6,9 +6,11 @@ import java.awt.image.BufferedImage;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
@@ -19,8 +21,8 @@ import ch.nolix.element.graphic.Image;
  * A {@link AtomicShape} is a {@link Shape} that does not contain other shapes.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 140
+ * @date 2017-11-11
+ * @lines 150
  * @param <BS> is the type of a {@link AtomicShape}.
  */
 public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> {
@@ -144,4 +146,11 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 		
 		return asConcrete();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpShapeAttributesInto(final LinkedList<Node> list) {}
 }

@@ -21,7 +21,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * 
  * @author Silvan Wyss
  * @month 2016-01-01
- * @lines 230
+ * @lines 240
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
@@ -58,7 +58,7 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedList<Node> getAttributes() {
+	public final LinkedList<Node> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
@@ -71,6 +71,8 @@ implements IConfigurableElement<CE> {
 		if (hasToken()) {
 			attributes.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TOKEN, token));
 		}
+		
+		fillUpConfigurableElementAttributesInto(attributes);
 		
 		return attributes;
 	}
@@ -195,6 +197,14 @@ implements IConfigurableElement<CE> {
 		
 		return asConcrete();
 	}
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link ConfigurableElement} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpConfigurableElementAttributesInto(LinkedList<Node> list);
 	
 	//method declaration
 	/**

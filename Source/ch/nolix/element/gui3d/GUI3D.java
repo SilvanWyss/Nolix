@@ -29,8 +29,8 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 400
+ * @date 2017-11-11
+ * @lines 390
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
@@ -135,25 +135,6 @@ implements Clearable, Closeable, Refreshable {
 		removeRootShape();
 	}
 	
-	//method
-	/**
-	 * @return the attributes of the current {@link GUI3D}.
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		//Handles the case that the current {@link _3D_GUI} has a root shape.
-		if (hasRootShape()) {
-			attributes.addAtEnd(getRefRootShape().getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
 	/**
 	 * @return the background color of the current {@link GUI3D}.
 	 */
@@ -330,6 +311,19 @@ implements Clearable, Closeable, Refreshable {
 		this.title.setValue(title);
 		
 		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpConfigurationElementAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current GUI3D has a root Shape.
+		if (hasRootShape()) {
+			list.addAtEnd(getRefRootShape().getSpecification());
+		}
 	}
 	
 	/**

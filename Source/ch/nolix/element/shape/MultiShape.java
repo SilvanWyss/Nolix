@@ -6,6 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui3d.Shape;
 
@@ -13,7 +14,7 @@ import ch.nolix.element.gui3d.Shape;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 160
+ * @lines 170
  */
 public final class MultiShape extends Shape<MultiShape> {
 
@@ -158,6 +159,13 @@ public final class MultiShape extends Shape<MultiShape> {
 	 */
 	@Override
 	public void resetConfigurationOnSelf() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpShapeAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	/**

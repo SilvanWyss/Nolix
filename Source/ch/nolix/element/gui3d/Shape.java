@@ -20,8 +20,8 @@ import ch.nolix.element.geometry.Point3D;
  * The position of a {@link Shape} is the position that is nearest to the origin.
  * 
  * @author Silvan Wyss
- * @month 2017-11-11
- * @lines 360
+ * @date 2017-11-11
+ * @lines 370
  * @param <S> is the type of a {@link Shape}.
  */
 public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
@@ -43,22 +43,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	public final boolean belongsToAGUI() {
 		return (mGUI != null);
 	}
-	
-	//method
-	/**
-	 * @return the attributes of the current {@link Shape}.
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
 		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		attributes.addAtEnd(position.getSpecification());
-		
-		return attributes;
-	}
-	
 	//method
 	/**
 	 * @return the position of the current {@link Shape}.
@@ -301,6 +286,26 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 			throw new InvalidArgumentException(this, "belongs not to a GUI");
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpConfigurableElementAttributesInto(final LinkedList<Node> list) {
+		
+		list.addAtEnd(position.getSpecification());
+		
+		fillUpShapeAttributesInto(list);
+	}
+	
+	//method declaration
+	/**
+	 * Fills up the attributes of the current {@link Shape} into the given list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpShapeAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

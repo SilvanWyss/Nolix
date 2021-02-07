@@ -7,6 +7,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
@@ -103,51 +104,34 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
+	@Override
+	protected final void fillUpGUIAttributesInto(final LinkedList<Node> list) {}
+	
+	//method
 	@Override
 	protected final void noteKeyPressWhenDoesNotHaveInputTaker(Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteKeyReleaseWhenDoesNotHaveInputTaker(Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteKeyTypingWhenDoesNotHaveInputTaker(Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteLeftMouseButtonClickWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteLeftMouseButtonPressWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteLeftMouseButtonReleaseWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteMouseMoveWhenDoesNotHaveInputTaker(
 		final int cursorXPositionOnViewArea,
@@ -155,60 +139,36 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteMouseWheelClickWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteMouseWheelPressWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteMouseWheelReleaseWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteMouseWheelRotationStepWhenDoesNotHaveInputTaker(
 		final RotationDirection rotationDirection
 	) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteResizeWhenDoesNotHaveInputTaker(final int viewAreaWidth, final int viewAreaHeight) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteRightMouseButtonClickWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteRightMouseButtonPressWhenDoesNotHaveInputTaker() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteRightMouseButtonReleaseWhenDoesNotHaveInputTaker() {}
 	
@@ -217,9 +177,6 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	protected final void recalculate(final ChangeState viewAreaChangeState) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void resetGUI() {
 		removePaintCommands();
