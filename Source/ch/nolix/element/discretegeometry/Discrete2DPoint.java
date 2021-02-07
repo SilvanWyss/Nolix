@@ -13,7 +13,7 @@ import ch.nolix.element.base.Element;
  * A {@link Discrete2DPoint} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-19
  * @lines 70
  */
 public final class Discrete2DPoint extends Element<Discrete2DPoint> {
@@ -45,16 +45,7 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 		this.x = x;
 		this.y = y;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		return LinkedList.withElements(Node.withHeader(x), Node.withHeader(y));
-	}
-	
+		
 	//method
 	/**
 	 * @return the x-coordinate of the current {@link Discrete2DPoint}.
@@ -69,5 +60,14 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	//method
 	public int getY() {
 		return y;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(Node.withHeader(x), Node.withHeader(y));
 	}
 }

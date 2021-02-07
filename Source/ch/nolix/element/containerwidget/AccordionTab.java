@@ -157,19 +157,6 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//method
 	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		final var attributes = super.getAttributes();
-		
-		if (containsAny()) {
-			attributes.addAtEnd(getRefWidget().getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	@Override
 	public String getHeader() {
 		return header.getValue();
 	}
@@ -244,6 +231,17 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		tabVerticalStack.addWidget(widget);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		if (containsAny()) {
+			list.addAtEnd(getRefWidget().getSpecification());
+		}
 	}
 	
 	//method

@@ -4,6 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
@@ -138,6 +139,20 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	}
 	
 	//method
+	public void setParentMenu(final TextItemMenu<?> parentItemMenu) {
+		
+		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull();
+		
+		this.parentItemMenu = parentItemMenu;
+	}
+	
+	//method
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		//TODO: Implement.
+	}
+	
+	//method
 	void select() {
 				
 		selectionFlag.setValue(true);
@@ -173,14 +188,6 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		return label.getWidth();
 	}
 	
-	//method
-	public void setParentMenu(final TextItemMenu<?> parentItemMenu) {
-		
-		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull();
-		
-		this.parentItemMenu = parentItemMenu;
-	}
-
 	//method
 	private TextItemMenu<?> getParentItemMenu() {
 		

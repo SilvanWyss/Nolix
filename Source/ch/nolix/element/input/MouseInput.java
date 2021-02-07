@@ -3,7 +3,9 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.discretegeometry.Discrete2DPoint;
@@ -69,6 +71,10 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 	public MouseInputType getInputType() {
 		return inputType.getValue();
 	}
+	
+	//method
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	private void setCursorPosition(final Discrete2DPoint cursorPosition) {

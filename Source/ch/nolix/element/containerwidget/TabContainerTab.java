@@ -27,7 +27,7 @@ import ch.nolix.element.widget.Label;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 370
+ * @lines 360
  */
 public final class TabContainerTab extends Element<TabContainerTab>
 implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
@@ -149,24 +149,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	@Override
 	public void clear() {
 		widget = null;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		//Handles the case that the current tab container tab contains a widget.
-		if (containsAny()) {
-			attributes.addAtEnd(getRefWidget().getSpecification());
-		}
-		
-		return attributes;
 	}
 	
 	//method
@@ -326,6 +308,19 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		.setUnhovered();
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current TabContainerTab contains a Widget.
+		if (containsAny()) {
+			list.addAtEnd(getRefWidget().getSpecification());
+		}
 	}
 	
 	//method

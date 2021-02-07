@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+import ch.nolix.common.container.LinkedList;
 //own imports
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IConfigurableElement;
 
 //class
@@ -69,6 +71,13 @@ public class Configuration extends BaseConfiguration<Configuration> {
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpBaseConfigurationAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	/**

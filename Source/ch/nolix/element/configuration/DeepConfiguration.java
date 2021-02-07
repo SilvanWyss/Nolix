@@ -96,24 +96,6 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link DeepConfiguration}.
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		//Calls method of the base class.
-		final LinkedList<Node> attributes = super.getAttributes();
-		
-		//Handles the case that the current DeepConfiguration has a max selector level.
-		if (hasMaxSelectorLevel()) {
-			attributes.addAtEnd(Node.withHeaderAndAttribute(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
 	 * @return the max selector level of the current {@link DeepConfiguration}.
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link DeepConfiguration} does not have a max selector level.
@@ -151,15 +133,6 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetBaseConfiguration() {
-		removeMaxSelectorLevel();
-	}
-		
-	//method
-	/**
 	 * Sets the max selector level of the current {@link DeepConfiguration}.
 	 * 
 	 * @param maxSelectorLevel
@@ -173,6 +146,28 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 		this.maxSelectorLevel = maxSelectorLevel;
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpBaseConfigurationAttributesInto(final LinkedList<Node> list) {
+		
+		//Handles the case that the current DeepConfiguration has a max selector level.
+		if (hasMaxSelectorLevel()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void resetBaseConfiguration() {
+		removeMaxSelectorLevel();
+	}
+		
 	//method
 	/**
 	 * Lets the current {@link DeepConfiguration} configure the given element recursively to the given level.

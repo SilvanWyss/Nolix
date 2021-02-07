@@ -142,23 +142,7 @@ public class CandleStick extends Element<CandleStick> {
 			< Calculator.getMin(candleStick.getOpeningPrice(), candleStick.getClosingPrice())
 		);
 	}
-	
-	//method
-	/**
-	 * @return the attributes of the current {@link CandleStick}.
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		return
-		LinkedList.withElements(
-			time.getSpecification(),
-			Node.withHeaderAndAttribute(OPENING_PRICE_HEADER, getOpeningPrice()),
-			Node.withHeaderAndAttribute(CLOSING_PRICE_HEADER, getClosingPrice()),
-			Node.withHeaderAndAttribute(LOWEST_PRICE_HEADER, getLowestPrice()),
-			Node.withHeaderAndAttribute(HIGHEST_PRICE_HEADER, getHighestPrice())
-		);
-	}
-	
+		
 	//method
 	/**
 	 * The body of a candlestick is the area between its opening price and its closing price.
@@ -429,5 +413,20 @@ public class CandleStick extends Element<CandleStick> {
 	 */
 	public final boolean isMarubozu() {
 		return Calculator.equalsApproximatively(getBodyLength(), getLength());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(
+			time.getSpecification(),
+			Node.withHeaderAndAttribute(OPENING_PRICE_HEADER, getOpeningPrice()),
+			Node.withHeaderAndAttribute(CLOSING_PRICE_HEADER, getClosingPrice()),
+			Node.withHeaderAndAttribute(LOWEST_PRICE_HEADER, getLowestPrice()),
+			Node.withHeaderAndAttribute(HIGHEST_PRICE_HEADER, getHighestPrice())
+		);
 	}
 }

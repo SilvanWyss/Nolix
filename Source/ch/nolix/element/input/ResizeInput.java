@@ -3,6 +3,7 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.IntPair;
@@ -48,6 +49,10 @@ public final class ResizeInput extends Element<ResizeInput> implements IInput<Re
 	public int getViewAreaWidth() {
 		return size.getValue().getValue1();
 	}
+	
+	//method
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {}
 	
 	private void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
 		setViewAreaSize(new IntPair(viewAreaWidth, viewAreaHeight));

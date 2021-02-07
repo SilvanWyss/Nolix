@@ -4,9 +4,11 @@ package ch.nolix.element.valueholder;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
 
 //class
@@ -19,7 +21,7 @@ import ch.nolix.element.base.Element;
  * and not through the available methods.
  * 
  * @author Silvan Wyss
- * @month 2018-03
+ * @date 2018-03-25
  * @lines 140
  */
 public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHolder> {
@@ -120,8 +122,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	
 	//method
 	/**
-	 * @return true
-	 * if the current {@link ValueOrPercentageHolder} has a percentage.
+	 * @return true if the current {@link ValueOrPercentageHolder} has a percentage.
 	 */
 	public boolean hasPercentage() {
 		return !hasValue;
@@ -129,11 +130,18 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	
 	//method
 	/**
-	 * 
-	 * @return true
-	 * if the current {@link ValueOrPercentageHolder} has a value.
+	 * @return true if the current {@link ValueOrPercentageHolder} has a value.
 	 */
 	public boolean hasValue() {
 		return hasValue;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		//TODO: Implement.
 	}
 }

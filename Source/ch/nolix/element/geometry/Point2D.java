@@ -16,8 +16,8 @@ import ch.nolix.element.base.Element;
  * A 2D point is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-05
- * @lines 140
+ * @date 2016-06-01
+ * @lines 130
  */
 public final class Point2D extends Element<Point2D> {
 	
@@ -49,19 +49,6 @@ public final class Point2D extends Element<Point2D> {
 	public Point2D(final double x,	final double y) {
 		this.x = x;
 		this.y = y;
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this 2D point.
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		return
-		LinkedList.withElements(
-			Node.withHeader(DoubleHelper.toString(getX())),
-			Node.withHeader(DoubleHelper.toString(getY()))
-		);
 	}
 	
 	//method
@@ -134,5 +121,17 @@ public final class Point2D extends Element<Point2D> {
 	public Point3D to3DPoint() {
 		return
 		new Point3D(getX(), getY(), 0.0);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(
+			Node.withHeader(DoubleHelper.toString(getX())),
+			Node.withHeader(DoubleHelper.toString(getY()))
+		);
 	}
 }

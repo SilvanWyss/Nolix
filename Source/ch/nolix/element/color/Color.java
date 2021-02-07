@@ -21,7 +21,7 @@ import ch.nolix.element.base.Element;
  * A {@link Color} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 1350
  */
 public class Color extends Element<Color> {
@@ -860,15 +860,6 @@ public class Color extends Element<Color> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public LinkedList<Node> getAttributes() {
-		return LinkedList.withElements(Node.fromString(getHexadecimalValue()));
-	}
-	
-	//method
-	/**
 	 * @return the blue value of the current {@link Color}.
 	 */
 	public int getBlueValue() {
@@ -1139,6 +1130,15 @@ public class Color extends Element<Color> {
 		65536L * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method

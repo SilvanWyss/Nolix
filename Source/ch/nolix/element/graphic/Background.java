@@ -3,6 +3,7 @@ package ch.nolix.element.graphic;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
@@ -125,6 +126,10 @@ public final class Background extends Element<Background> implements ISmartMutab
 	public void setBackgroundImage(final Image image, final ImageApplication imageApplication) {
 		setBackgroundImage(new Pair<>(image, imageApplication));
 	}
+	
+	//method
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	private void clear() {

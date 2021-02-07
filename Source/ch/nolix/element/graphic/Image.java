@@ -185,18 +185,6 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//method
-	@Override
-	public LinkedList<Node> getAttributes() {
-		
-		final var attributes = super.getAttributes();
-		
-		generatePixelArraySpecificationIfNeeded();		
-		attributes.addAtEnd(pixelArraySpecification);
-		
-		return attributes;
-	}
-	
-	//method
 	public Color getBottomLeftPixel() {
 		return getPixel(1, getHeight());
 	}
@@ -369,6 +357,18 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		}
 		
 		return image;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
+		
+		generatePixelArraySpecificationIfNeeded();
+		
+		list.addAtEnd(pixelArraySpecification);
 	}
 	
 	//method
