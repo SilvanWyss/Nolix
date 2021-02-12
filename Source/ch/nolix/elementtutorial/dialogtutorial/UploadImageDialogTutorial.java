@@ -5,7 +5,7 @@ import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.dialog.UploadImageDialog;
+import ch.nolix.element.dialog.UploadImageDialogCreator;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
@@ -37,10 +37,17 @@ public final class UploadImageDialogTutorial {
 				.setLeftMouseButtonPressAction(
 					() -> {
 						if (imageWidget.isEmpty()) {
-							frame.addLayerOnTop(new UploadImageDialog(imageWidget::setImage));
+							frame.addLayerOnTop(
+								new UploadImageDialogCreator()
+								.createUploadImageDialogWithImageTaker(imageWidget::setImage)
+							);
 						} else {
 							frame.addLayerOnTop(
-								new UploadImageDialog(imageWidget.getRefImage(), imageWidget::setImage)
+								new UploadImageDialogCreator()
+								.createUploadImageDialogWithCurrentImageAndImageTaker(
+									imageWidget.getRefImage(),
+									imageWidget::setImage
+								)
 							);
 						}
 					}
