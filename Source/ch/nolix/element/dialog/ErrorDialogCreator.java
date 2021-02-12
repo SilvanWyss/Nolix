@@ -13,7 +13,7 @@ import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
 
 //class
-public final class ErrorDialog extends Layer {
+public final class ErrorDialogCreator {
 	
 	//static method
 	private static String getErrorMessageOf(final Exception exception) {
@@ -30,17 +30,14 @@ public final class ErrorDialog extends Layer {
 		return (exceptionName + ": " + message);
 	}
 	
-	//constructor
-	public ErrorDialog(final Exception exception) {
-		this(getErrorMessageOf(exception));
-	}
-	
-	//constructor
-	public ErrorDialog(final String errorMessage) {
+	//method
+	public Layer createWithErrorMessage(final String errorMessage) {
 		
 		Validator.assertThat(errorMessage).thatIsNamed(VariableNameCatalogue.ERROR_MESSAGE).isNotBlank();
 		
-		setRootWidget(
+		return
+		new Layer()
+		.setRootWidget(
 			new AligningContainer()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.setOnTop(
@@ -52,8 +49,13 @@ public final class ErrorDialog extends Layer {
 				new Button()
 				.setText("Ok")
 				.setRole(ButtonRole.CONFIRM_BUTTON)
-				.setLeftMouseButtonPressAction(this::removeSelfFromGUI)
+				.setLeftMouseButtonPressAction(b -> b.getParentLayer().removeSelfFromGUI())
 			)
 		);
+	}
+	
+	//constructor
+	public Layer createWithException(final Exception exception) {
+		return createWithErrorMessage(getErrorMessageOf(exception));
 	}
 }

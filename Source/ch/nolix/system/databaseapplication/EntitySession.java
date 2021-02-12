@@ -11,7 +11,7 @@ import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.TabContainer;
 import ch.nolix.element.containerwidget.TabContainerTab;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.dialog.ErrorDialog;
+import ch.nolix.element.dialog.ErrorDialogCreator;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
@@ -347,9 +347,9 @@ public final class EntitySession extends HeaderedSession {
 			pop();
 		} catch (final Exception exception) {
 			if (exception.getMessage() == null) {
-				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
+				getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithErrorMessage("An error occured."));
 			} else {
-				getRefGUI().addLayerOnTop(new ErrorDialog(exception.getMessage()));
+				getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithException(exception));
 			}
 		}
 	}

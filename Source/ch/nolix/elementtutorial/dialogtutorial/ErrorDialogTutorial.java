@@ -3,7 +3,7 @@ package ch.nolix.elementtutorial.dialogtutorial;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
-import ch.nolix.element.dialog.ErrorDialog;
+import ch.nolix.element.dialog.ErrorDialogCreator;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
 
@@ -22,7 +22,10 @@ public final class ErrorDialogTutorial {
 			new Button()
 			.setText("Fix everything")
 			.setLeftMouseButtonPressAction(
-				() -> frame.addLayerOnTop(new ErrorDialog("There is not enough time to fix everything."))
+				() -> 
+				frame.addLayerOnTop(
+					new ErrorDialogCreator().createWithErrorMessage("There is not enough time to fix everything.")
+				)
 			)
 		);
 		

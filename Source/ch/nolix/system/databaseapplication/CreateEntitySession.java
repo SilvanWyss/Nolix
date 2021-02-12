@@ -7,7 +7,7 @@ import ch.nolix.common.exception.GeneralException;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.dialog.ErrorDialog;
+import ch.nolix.element.dialog.ErrorDialogCreator;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.DropdownMenu;
@@ -212,9 +212,9 @@ public final class CreateEntitySession extends HeaderedSession {
 			pop();
 		} catch (final Exception exception) {
 			if (exception.getMessage() == null) {
-				getRefGUI().addLayerOnTop(new ErrorDialog("An error occured."));
+				getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithErrorMessage("An error occured."));
 			} else {
-				getRefGUI().addLayerOnTop(new ErrorDialog(exception.getMessage()));
+				getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithException(exception));
 			}
 		}
 	}
