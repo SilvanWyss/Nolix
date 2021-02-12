@@ -7,6 +7,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.containerwidget.AligningContainer;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.gui.Layer;
+import ch.nolix.element.gui.LayerRole;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.Label;
@@ -37,6 +38,7 @@ public final class ErrorDialogCreator {
 		
 		return
 		new Layer()
+		.setRole(LayerRole.DIALOG_LAYER)
 		.setRootWidget(
 			new AligningContainer()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
