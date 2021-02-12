@@ -49,7 +49,7 @@ import ch.nolix.element.widget.BorderWidget;
  * @date 2019-05-18
  * @lines 1370
  */
-public class Layer extends ConfigurableElement<Layer>
+public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
 	
 	//constants
@@ -176,7 +176,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
 			setRootWidget(WidgetGUI.createWidgetFrom(attribute));
 		} else {
@@ -190,7 +190,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return true if the current {@link Layer} allows to be configured.
 	 */
-	public final boolean allowesConfiguration() {
+	public boolean allowesConfiguration() {
 		return configurationAllowed.getValue();
 	}
 	
@@ -198,7 +198,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return true if the current {@link Layer} belongs to a {@link WidgetGUI}.
 	 */
-	public final boolean belongsToGUI() {
+	public boolean belongsToGUI() {
 		return (parentGUI != null);
 	}
 	
@@ -207,7 +207,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * Removes the root {@link Widget} of the current {@link Layer}.
 	 */
 	@Override
-	public final void clear() {
+	public void clear() {
 		rootWidget = null;
 	}
 	
@@ -217,7 +217,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean freeAreaIsUnderCursor() {
+	public boolean freeAreaIsUnderCursor() {
 		return (isUnderCursor() && (rootWidget == null || !rootWidget.isUnderCursor()));
 	}
 	
@@ -225,7 +225,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
 	 */
-	public final Color getBackgroundColor() {
+	public Color getBackgroundColor() {
 		return backgroundColor.getValue();
 	}
 	
@@ -233,7 +233,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the background {@link ColorGradient} of the current {@link Layer}.
 	 */
-	public final ColorGradient getBackgroundColorGradient() {
+	public ColorGradient getBackgroundColorGradient() {
 		return backgroundColorGradient.getValue();
 	}
 	
@@ -241,7 +241,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the content position of the current {@link Layer}.
 	 */
-	public final ExtendedContentPosition getContentPosition() {
+	public ExtendedContentPosition getContentPosition() {
 		return contentPosition.getValue();
 	}
 	
@@ -249,7 +249,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the x-free-position of the current {@link Layer}.
 	 */
-	public final int getContentXFreePosition() {
+	public int getContentXFreePosition() {
 		return freeContentPosition.getValue().getX();
 	}
 	
@@ -257,7 +257,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the y-free-position of the current {@link Layer}.
 	 */
-	public final int getContentYFreePosition() {
+	public int getContentYFreePosition() {
 		return freeContentPosition.getValue().getY();
 	}
 	
@@ -266,7 +266,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the {@link CursorIcon} of the current {@link Layer}.
 	 */
-	public final CursorIcon getCursorIcon() {
+	public CursorIcon getCursorIcon() {
 		
 		if (rootWidget != null && rootWidget.isUnderCursor()) {
 			return rootWidget.getCursorIcon();
@@ -279,7 +279,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the x-position of the cursor on the current {@link Layer}.
 	 */
-	public final int getCursorXPosition() {
+	public int getCursorXPosition() {
 		return cursorXPosition;
 	}
 	
@@ -287,7 +287,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the y-position of the cursor on the current {@link Layer}.
 	 */
-	public final int getCursorYPosition() {
+	public int getCursorYPosition() {
 		return cursorYPosition;
 	}
 	
@@ -298,7 +298,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentDoesNotBelongToParentException
 	 * if the current {@link Layer} does not belong to a {@link WidgetGUI}.
 	 */
-	public final WidgetGUI<?> getParentGUI() {
+	public WidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Layer belongs to a GUI.
 		if (parentGUI == null) {
@@ -314,7 +314,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the root {@link Widget} of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a root {@link Widget}.
 	 */
-	public final Widget<?, ?> getRefRootWidget() {
+	public Widget<?, ?> getRefRootWidget() {
 		
 		//Asserts that the current Layer has a root Widget.
 		if (rootWidget == null) {
@@ -329,7 +329,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the {@link Widget}s of the current {@link Layer} that are supposed to be painted.
 	 */
-	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
+	public IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		//Handles the case that the current Layer does not have a root Widget.
 		if (rootWidget == null) {
@@ -345,7 +345,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the {@link Widget}s of the current {@link Layer}.
 	 */
-	public final IContainer<Widget<?, ?>> getRefWidgets() {
+	public IContainer<Widget<?, ?>> getRefWidgets() {
 		
 		//Handles the case that the current Layer does not have a root Widget.
 		if (rootWidget == null) {
@@ -362,7 +362,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the role of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
 	 */
-	public final LayerRole getRole() {
+	public LayerRole getRole() {
 		
 		//Asserts that the current Layer has a role.
 		if (role.isEmpty()) {
@@ -378,7 +378,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
+	public IContainer<IConfigurableElement<?>> getSubConfigurables() {
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
@@ -394,7 +394,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return true if the current {@link Layer} has a background {@link Color}.
 	 */
-	public final boolean hasBackgroundColor() {
+	public boolean hasBackgroundColor() {
 		return backgroundColor.containsAny();
 	}
 	
@@ -402,7 +402,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return true if the current {@link Layer} has a background {@link ColorGradient}.
 	 */
-	public final boolean hasBackgroundColorGradient() {
+	public boolean hasBackgroundColorGradient() {
 		return backgroundColorGradient.containsAny();
 	}
 	
@@ -410,7 +410,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return true if the current {@link Layer} has a role.
 	 */
-	public final boolean hasRole() {
+	public boolean hasRole() {
 		return role.containsAny();
 	}
 	
@@ -419,7 +419,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean hasRole(final String role) {
+	public boolean hasRole(final String role) {
 		return (hasRole() && getRole().toString().equals(role));
 	}
 	
@@ -428,7 +428,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return true if the current {@link Layer} has a root {@link Widget}.
 	 */
 	@Override
-	public final boolean isEmpty() {
+	public boolean isEmpty() {
 		return (rootWidget == null);
 	}
 	
@@ -437,7 +437,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean isUnderCursor() {
+	public boolean isUnderCursor() {
 		return getParentGUI().viewAreaIsUnderCursor();
 	}
 	
@@ -447,7 +447,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyPress(final Key key) {
+	public void noteKeyPress(final Key key) {
 		
 		notedKeyPress = true;
 		
@@ -471,7 +471,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @param key
 	 */
 	@Override
-	public final void noteKeyRelease(final Key key) {
+	public void noteKeyRelease(final Key key) {
 		
 		//Handles the case that the current Layer noted already a key press.
 		if (notedKeyPress) {
@@ -485,7 +485,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyTyping(final Key key) {
+	public void noteKeyTyping(final Key key) {
 		
 		notedKeyPress = true;
 		
@@ -501,7 +501,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteLeftMouseButtonClick() {
+	public void noteLeftMouseButtonClick() {
 				
 		notedLeftMouseButtonPress = true;
 		
@@ -522,7 +522,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteLeftMouseButtonPress() {
+	public void noteLeftMouseButtonPress() {
 		
 		notedLeftMouseButtonPress = true;
 		
@@ -544,7 +544,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * the current {@link Layer} noted already a left mouse button press.
 	 */
 	@Override
-	public final void noteLeftMouseButtonRelease() {
+	public void noteLeftMouseButtonRelease() {
 		
 		//Handles the case that the current Layer noted already a left mouse button press.
 		if (notedLeftMouseButtonPress) {
@@ -558,7 +558,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
+	public void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
 		
 		//Sets the cursor position of the current Layer.
 		this.cursorXPosition = cursorXPosition;
@@ -584,7 +584,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseWheelClick() {
+	public void noteMouseWheelClick() {
 		
 		notedMouseWheelPress = true;
 		
@@ -605,7 +605,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseWheelPress() {
+	public void noteMouseWheelPress() {
 		
 		notedMouseWheelPress = true;
 		
@@ -627,7 +627,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * the current {@link Layer} noted already a mouse wheel press.
 	 */
 	@Override
-	public final void noteMouseWheelRelease() {
+	public void noteMouseWheelRelease() {
 		
 		//Handles the case that the current Layer noted already a mouse wheel press.
 		if (notedMouseWheelPress) {
@@ -641,7 +641,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
@@ -655,7 +655,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
 		
 		//Handles the case that the current Layer has a root Widget that is a BorderWidget.
 		if (rootWidget instanceof BorderWidget) {
@@ -669,7 +669,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteRightMouseButtonClick() {
+	public void noteRightMouseButtonClick() {
 		
 		notedRightMouseButtonPress = true;
 		
@@ -690,7 +690,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteRightMouseButtonPress() {
+	public void noteRightMouseButtonPress() {
 		
 		notedRightMouseButtonPress = true;
 		
@@ -712,7 +712,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * the current {@link Layer} noted already a right mouse button press.
 	 */
 	@Override
-	public final void noteRightMouseButtonRelease() {
+	public void noteRightMouseButtonRelease() {
 		
 		//Handles the case that the current Layer noted already a right mouse button press.
 		if (notedRightMouseButtonPress) {
@@ -727,7 +727,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * 
 	 * @param painter
 	 */
-	public final void paint(final IPainter painter) {
+	public void paint(final IPainter painter) {
 		
 		//Paints the background of the current Layer.
 		paintBackground(painter);
@@ -744,7 +744,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}}
 	 */
 	@Override
-	public final void recalculate() {
+	public void recalculate() {
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
@@ -756,7 +756,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * Removes any background of the current {@link Layer}.
 	 */
-	public final void removeBackground() {
+	public void removeBackground() {
 		backgroundColor.clear();
 		backgroundColorGradient.clear();
 	}
@@ -766,7 +766,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * Removes the current {@link Layer} from its parent {@link GUI}.
 	 */
-	public final void removeSelfFromGUI() {
+	public void removeSelfFromGUI() {
 		if (parentGUI != null) {
 			parentGUI.removeLayer(this);
 			parentGUI = null;
@@ -778,7 +778,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetConfigurationOnSelf() {
+	public void resetConfigurationOnSelf() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
 	
@@ -791,7 +791,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
-	public final Layer setBackgroundColor(final Color backgroundColor) {
+	public Layer setBackgroundColor(final Color backgroundColor) {
 		
 		removeBackground();
 		
@@ -809,7 +809,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given backgroundColorGradient is null.
 	 */
-	public final Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+	public Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
 		removeBackground();
 		
@@ -824,7 +824,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * 
 	 * @return the current {@link Layer}.
 	 */
-	public final Layer setConfigurationAllowed() {
+	public Layer setConfigurationAllowed() {
 		
 		configurationAllowed.setValue(true);
 		
@@ -837,7 +837,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * 
 	 * @return the current {@link Layer}.
 	 */
-	public final Layer setConfigurationNotAllowed() {
+	public Layer setConfigurationNotAllowed() {
 		
 		configurationAllowed.setValue(false);
 		
@@ -852,7 +852,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 */
-	public final Layer setContentPosition(final ExtendedContentPosition contentPosition) {
+	public Layer setContentPosition(final ExtendedContentPosition contentPosition) {
 		
 		this.contentPosition.setValue(contentPosition);
 		
@@ -867,7 +867,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given continuousKeyPressAction is null.
 	 */
-	public final Layer setContinuousKeyPressAction(final I2ElementTaker<Layer, Key> continuousKeyPressAction) {
+	public Layer setContinuousKeyPressAction(final I2ElementTaker<Layer, Key> continuousKeyPressAction) {
 		
 		//Asserts that the given customCursorIcon is not null.
 		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
@@ -884,7 +884,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @param yFreeContentPosition
 	 * @return the current {@link Layer}.
 	 */
-	public final Layer setFreeContentPosition(final int xFreeContentPosition, final int yFreeContentPosition) {
+	public Layer setFreeContentPosition(final int xFreeContentPosition, final int yFreeContentPosition) {
 		
 		setContentPosition(ExtendedContentPosition.FREE);
 		setFreeContentPosition_(xFreeContentPosition, yFreeContentPosition);
@@ -901,7 +901,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given leftMouseButtonClickAction is null.
 	 */
 	@Override
-	public final Layer setLeftMouseButtonClickAction(final IElementTaker<Layer> leftMouseButtonClickAction) {
+	public Layer setLeftMouseButtonClickAction(final IElementTaker<Layer> leftMouseButtonClickAction) {
 		
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
 		
@@ -918,7 +918,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
-	public final Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
+	public Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
 		
 		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
@@ -936,7 +936,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given leftMouseButtonReleaseAction is null.
 	 */
 	@Override
-	public final Layer setLeftMouseButtonReleaseAction(IElementTaker<Layer> leftMouseButtonReleaseAction) {
+	public Layer setLeftMouseButtonReleaseAction(IElementTaker<Layer> leftMouseButtonReleaseAction) {
 		
 		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
@@ -954,7 +954,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given leftMouseButtonPressAction is null.
 	 */
 	@Override
-	public final Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
+	public Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
 		
 		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
@@ -972,7 +972,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given mouseWheelClickAction is null.
 	 */
 	@Override
-	public final Layer setMouseWheelClickAction(IElementTaker<Layer> mouseWheelClickAction) {
+	public Layer setMouseWheelClickAction(IElementTaker<Layer> mouseWheelClickAction) {
 		
 		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
 		
@@ -990,7 +990,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given mouseWheelPressAction is null.
 	 */
 	@Override
-	public final Layer setMouseWheelPressAction(IElementTaker<Layer> mouseWheelPressAction) {
+	public Layer setMouseWheelPressAction(IElementTaker<Layer> mouseWheelPressAction) {
 		
 		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
 		
@@ -1008,7 +1008,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given mouseWheelReleaseAction is null.
 	 */
 	@Override
-	public final Layer setMouseWheelReleaseAction(IElementTaker<Layer> mouseWheelReleaseAction) {
+	public Layer setMouseWheelReleaseAction(IElementTaker<Layer> mouseWheelReleaseAction) {
 		
 		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
 		
@@ -1026,7 +1026,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given rightMouseButtonClickAction is null.
 	 */
 	@Override
-	public final Layer setRightMouseButtonClickAction(IElementTaker<Layer> rightMouseButtonClickAction) {
+	public Layer setRightMouseButtonClickAction(IElementTaker<Layer> rightMouseButtonClickAction) {
 		
 		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
 		
@@ -1044,7 +1044,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given rightMouseButtonPressAction is null.
 	 */
 	@Override
-	public final Layer setRightMouseButtonPressAction(IElementTaker<Layer> rightMouseButtonPressAction) {
+	public Layer setRightMouseButtonPressAction(IElementTaker<Layer> rightMouseButtonPressAction) {
 		
 		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
 		
@@ -1062,7 +1062,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given rightMouseButtonReleaseAction is null.
 	 */
 	@Override
-	public final Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
+	public Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
 		
 		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
 		
@@ -1080,7 +1080,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given role is null.
 	 * @throws InvalidArgumentException if the current {@link Layer} has already a role.
 	 */
-	public final Layer setRole(final LayerRole role) {
+	public Layer setRole(final LayerRole role) {
 		
 		this.role.setValue(role);
 		
@@ -1096,7 +1096,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public final Layer setRootWidget(final Widget<?, ?> rootWidget) {
+	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		Validator.assertThat(rootWidget).thatIsNamed("root Widget").isNotNull();
 		
@@ -1128,7 +1128,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurableElement() {
+	protected void resetConfigurableElement() {
 		setConfigurationAllowed();
 		clear();
 	}
@@ -1141,7 +1141,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @param parentGUI
 	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 */
-	final void setParentGUI(final WidgetGUI<?> parentGUI) {
+	void setParentGUI(final WidgetGUI<?> parentGUI) {
 		
 		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
