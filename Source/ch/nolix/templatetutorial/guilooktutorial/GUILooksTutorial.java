@@ -4,7 +4,7 @@ import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.dialog.InfoDialog;
+import ch.nolix.element.dialog.InfoDialogCreator;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.CheckBox;
@@ -50,7 +50,10 @@ public final class GUILooksTutorial {
 						new Button()
 						.setText("Action")
 						.setLeftMouseButtonPressAction(
-							b -> b.getParentGUI().addLayerOnTop(new InfoDialog("Button pressed!"))
+							b -> 
+							b.getParentGUI().addLayerOnTop(
+								new InfoDialogCreator().createInfoDialogWithInfo("Button pressed!")
+							)
 						)
 					)
 					.setWidget(3, 1, "TextBox")
