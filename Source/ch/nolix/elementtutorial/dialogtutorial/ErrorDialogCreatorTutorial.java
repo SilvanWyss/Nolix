@@ -7,7 +7,7 @@ import ch.nolix.element.dialog.ErrorDialogCreator;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.widget.Button;
 
-public final class ErrorDialogTutorial {
+public final class ErrorDialogCreatorTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -50,5 +50,5 @@ public final class ErrorDialogTutorial {
 		);
 	}
 	
-	private ErrorDialogTutorial() {}
+	private ErrorDialogCreatorTutorial() {}
 }

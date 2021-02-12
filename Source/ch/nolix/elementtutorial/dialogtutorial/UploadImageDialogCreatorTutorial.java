@@ -13,7 +13,7 @@ import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Uploader;
 
-public final class UploadImageDialogTutorial {
+public final class UploadImageDialogCreatorTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -105,5 +105,5 @@ public final class UploadImageDialogTutorial {
 		);
 	}
 	
-	private UploadImageDialogTutorial() {}
+	private UploadImageDialogCreatorTutorial() {}
 }
