@@ -4,7 +4,7 @@ package ch.nolix.common.xml;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -115,7 +115,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	public String getName() {
 		
 		if (name == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NAME);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NAME);
 		}
 		
 		return name;
@@ -181,7 +181,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	@Override
 	public XMLNode setName(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 		
@@ -245,7 +245,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	//method
 	private void supposeHasValue() {
 		if (!hasValue()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VALUE);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
 		}
 	}
 	

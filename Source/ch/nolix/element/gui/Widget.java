@@ -2,7 +2,7 @@
 package ch.nolix.element.gui;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
@@ -2115,7 +2115,7 @@ TopLeftPositionedRecangular {
 	private void setParent(final WidgetParent parent) {
 		
 		//Asserts that the given parent is not null.
-		Validator.assertThat(parent).thatIsNamed(VariableNameCatalogue.PARENT).isNotNull();
+		Validator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
 				
 		//Sets the parent of the current Widget.
 		this.parent = parent;

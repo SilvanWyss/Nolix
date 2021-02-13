@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionapi.IElementTaker;
@@ -61,7 +61,7 @@ implements Clearable {
 	//method
 	public final TIM addItem(final TextItemMenuItem item) {
 		
-		Validator.assertThat(item).thatIsNamed(VariableNameCatalogue.ITEM).isNotNull();
+		Validator.assertThat(item).thatIsNamed(LowerCaseCatalogue.ITEM).isNotNull();
 		
 		assertDoesNotContainItem(item.getText());
 		

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
@@ -24,12 +24,12 @@ public final class ClosedInterval implements IClosedInterval {
 		
 		Validator
 		.assertThat(min)
-		.thatIsNamed(VariableNameCatalogue.MINIMUM)
+		.thatIsNamed(LowerCaseCatalogue.MINIMUM)
 		.isNotNull();
 		
 		Validator
 		.assertThat(max)
-		.thatIsNamed(VariableNameCatalogue.MAXIMUM)
+		.thatIsNamed(LowerCaseCatalogue.MAXIMUM)
 		.isNotSmallerThan(min);
 		
 		final var bigDecimalScale = Calculator.getMax(min.scale(), max.scale());
@@ -43,12 +43,12 @@ public final class ClosedInterval implements IClosedInterval {
 		
 		Validator
 		.assertThat(min)
-		.thatIsNamed(VariableNameCatalogue.MINIMUM)
+		.thatIsNamed(LowerCaseCatalogue.MINIMUM)
 		.isNotNull();
 		
 		Validator
 		.assertThat(max)
-		.thatIsNamed(VariableNameCatalogue.MAXIMUM)
+		.thatIsNamed(LowerCaseCatalogue.MAXIMUM)
 		.isNotSmallerThan(min);
 		
 		Validator

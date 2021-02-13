@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
@@ -27,8 +27,8 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//constructor
 	public GapMatrix(final int rowCount, final int columnCount) {
 		
-		Validator.assertThat(rowCount).thatIsNamed(VariableNameCatalogue.ROW_COUNT).isNotNegative();
-		Validator.assertThat(columnCount).thatIsNamed(VariableNameCatalogue.COLUMN_COUNT).isNotNegative();
+		Validator.assertThat(rowCount).thatIsNamed(LowerCaseCatalogue.ROW_COUNT).isNotNegative();
+		Validator.assertThat(columnCount).thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT).isNotNegative();
 		
 		rows = new Object[rowCount][columnCount];
 		this.columnCount = columnCount;
@@ -135,7 +135,7 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//method
 	public void insert(final int rowIndex, final int columnIndex, final E element) {
 		
-		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		assertCanContainElementAt(rowIndex, columnIndex);
 		
@@ -162,22 +162,22 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isNotBiggerThan(getRowCount());
 		
 		Validator
 		.assertThat(columnIndex)
-		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
 		Validator
 		.assertThat(columnIndex)
-		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());
 	}
 	

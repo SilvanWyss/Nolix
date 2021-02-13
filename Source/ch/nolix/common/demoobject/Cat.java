@@ -2,7 +2,7 @@
 package ch.nolix.common.demoobject;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -14,7 +14,7 @@ public final class Cat {
 	//constructor
 	public Cat(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 	}

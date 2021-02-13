@@ -3,7 +3,7 @@ package ch.nolix.common.math;
 
 //own imports
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
@@ -166,10 +166,10 @@ public final class Calculator {
 	public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
 		
 		//Asserts that the given degree is not negative.
-		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotNegative();
+		Validator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotNegative();
 		
 		//Asserts that the given degree is not bigger than the count of the given xValues.
-		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotBiggerThan(xValues.length);
+		Validator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotBiggerThan(xValues.length);
 		
 		//Asserts that the count of the given yValues equals the count of the given xValues.
 		Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);

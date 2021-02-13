@@ -4,7 +4,7 @@ package ch.nolix.common.chainednode;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -376,7 +376,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode has a header.
 		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.HEADER);
 		}
 		
 		return getEscapeStringFor(header);
@@ -392,7 +392,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode has a header.
 		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.HEADER);
 		}
 		
 		return header;
@@ -825,12 +825,12 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the given header is not null.
 		if (header == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.HEADER);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);
 		}
 		
 		//Asserts that the given header is not blank.
 		if (header.isBlank()) {
-			throw new InvalidArgumentException(VariableNameCatalogue.HEADER, header, "is blank");
+			throw new InvalidArgumentException(LowerCaseCatalogue.HEADER, header, "is blank");
 		}
 		
 		this.header = header;

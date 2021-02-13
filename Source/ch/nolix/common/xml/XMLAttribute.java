@@ -5,7 +5,7 @@ package ch.nolix.common.xml;
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.attributeapi.Valued;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -23,8 +23,8 @@ public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {
 	//constructor
 	public XMLAttribute(final String name, final String value) {
 		
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
-		Validator.assertThat(value).thatIsNamed(VariableNameCatalogue.VALUE).isNotNull();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
 		this.name = name;
 		this.value = value;

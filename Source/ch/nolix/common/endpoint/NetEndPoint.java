@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 //own imports
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -74,7 +74,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		
 		Validator
 		.assertThat(port)
-		.thatIsNamed(VariableNameCatalogue.PORT)
+		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		setPreCloseAction(this::preClose);
@@ -109,7 +109,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		
 		Validator
 		.assertThat(port)
-		.thatIsNamed(VariableNameCatalogue.PORT)
+		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		setPreCloseAction(this::preClose);

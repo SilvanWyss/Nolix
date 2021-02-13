@@ -2,7 +2,7 @@
 package ch.nolix.common.basetest;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.independentcontainer.List;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -173,14 +173,14 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given testClass is not null.
 		if (testClass == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.TEST_CLASS);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST_CLASS);
 		}
 		
 		//Asserts that the given testClass is a sub class of BaseTest.
 		if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
 			throw
 			new InvalidArgumentException(
-				VariableNameCatalogue.TEST_CLASS,
+				LowerCaseCatalogue.TEST_CLASS,
 				testClass,
 				"is not a sub class of " + BaseTest.class.getName()
 			);
@@ -188,14 +188,14 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given testClass is not abstract.
 		if (ReflectionHelper.isAbstract(testClass)) {
-			throw new InvalidArgumentException(VariableNameCatalogue.TEST_CLASS, testClass, "is abstract");
+			throw new InvalidArgumentException(LowerCaseCatalogue.TEST_CLASS, testClass, "is abstract");
 		}
 		
 		//Asserts that the given testClass has a default constructor.
 		if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
 			throw
 			new InvalidArgumentException(
-				VariableNameCatalogue.TEST_CLASS,
+				LowerCaseCatalogue.TEST_CLASS,
 				testClass,
 				"does not have a default constructor"
 			);

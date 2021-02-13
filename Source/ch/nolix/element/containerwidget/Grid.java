@@ -3,7 +3,7 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.Matrix;
 import ch.nolix.common.container.MatrixRow;
@@ -408,7 +408,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		Validator
 		.assertThat(columnIndex)
-		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
 		if (cells.isEmpty()) {
@@ -432,7 +432,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		if (cells.isEmpty()) {

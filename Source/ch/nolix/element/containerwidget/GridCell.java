@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -27,12 +27,12 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		Validator
 		.assertThat(columnIndex)
-		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
 		this.rowIndex = rowIndex;

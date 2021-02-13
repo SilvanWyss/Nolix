@@ -5,7 +5,7 @@ package ch.nolix.common.caching;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
@@ -73,7 +73,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	//method
 	public String registerAndGetId(final E element) {
 		
-		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		assertDoesNotContain(element);
 		
@@ -86,8 +86,8 @@ public final class CachingContainer<E> implements IContainer<E> {
 	//method
 	public void registerAtId(final String id, final E element) {
 		
-		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
-		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		assertDoesNotContainId(id);
 		assertDoesNotContain(element);
@@ -102,7 +102,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 		
 		if (pair == null) {
 			
-			Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+			Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 			
 			final var id = createNextAutoId();
 			elements.addAtEnd(new Pair<>(id, element));
@@ -123,7 +123,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	//method
 	private void assertDoesNotContainId(final String id) {
 		if (containsWithId(id)) {
-			throw new InvalidArgumentException(VariableNameCatalogue.ID, id, "is already used");
+			throw new InvalidArgumentException(LowerCaseCatalogue.ID, id, "is already used");
 		}
 	}
 	

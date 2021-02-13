@@ -3,7 +3,7 @@ package ch.nolix.system.nodedatabaseadapter;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.filenode.FileNode;
@@ -31,7 +31,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 		super(schema);
 		
 		//Asserts that the given database is not null.
-		Validator.assertThat(database).thatIsNamed(VariableNameCatalogue.DATABASE).isNotNull();
+		Validator.assertThat(database).thatIsNamed(LowerCaseCatalogue.DATABASE).isNotNull();
 		
 		//Sets the database of the current NodeDatabaseAdapter.
 		this.database = database;

@@ -2,7 +2,7 @@
 package ch.nolix.common.implprovider;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.implproviderapi.IImplRegistratorMediator;
 import ch.nolix.common.processproperty.WriteMode;
 import ch.nolix.common.validator.Validator;
@@ -19,7 +19,7 @@ public final class ImplRegistratorMediator<IN> implements IImplRegistratorMediat
 	ImplRegistratorMediator(final ImplProvider implProvider, final Class<IN> pInterface, WriteMode writeMode) {
 		
 		Validator.assertThat(implProvider).thatIsNamed(ImplProvider.class).isNotNull();
-		Validator.assertThat(pInterface).thatIsNamed(VariableNameCatalogue.INTERFACE).isInterface();
+		Validator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isInterface();
 		Validator.assertThat(writeMode).thatIsNamed(WriteMode.class).isNotNull();
 		
 		this.implProvider = implProvider;

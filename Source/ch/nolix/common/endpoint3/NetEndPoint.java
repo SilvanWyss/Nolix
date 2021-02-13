@@ -5,7 +5,7 @@ package ch.nolix.common.endpoint3;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.IPv6Catalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.controllerapi.IDataProviderController;
@@ -151,7 +151,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.ERROR_HEADER:
 				throw new GeneralException(reply.getOneAttributeHeader());
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, reply, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.REPLY, reply, "is not valid");
 		}
 	}
 	
@@ -241,7 +241,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.ERROR_HEADER:
 				throw new GeneralException(reply.getOneAttributeHeader());
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.REPLY, reply, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.REPLY, reply, "is not valid");
 		}
 	}
 	
@@ -294,7 +294,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DATA_REQUEST_HEADER:
 				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.MESSAGE, message, "is not valid");
 		}
 	}
 }

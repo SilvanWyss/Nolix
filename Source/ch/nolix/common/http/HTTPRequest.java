@@ -2,7 +2,7 @@
 package ch.nolix.common.http;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 
@@ -29,7 +29,7 @@ public final class HTTPRequest {
 	//constructor
 	public HTTPRequest(final String content) {
 		
-		Validator.assertThat(content).thatIsNamed(VariableNameCatalogue.CONTENT).isNotBlank();
+		Validator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
 		
 		this.content = content;
 	}

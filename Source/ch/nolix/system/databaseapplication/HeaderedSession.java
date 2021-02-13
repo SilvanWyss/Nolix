@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseapplication;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.Widget;
@@ -20,7 +20,7 @@ public abstract class HeaderedSession extends UserSession {
 		
 		Validator
 		.assertThat(header)
-		.thatIsNamed(VariableNameCatalogue.HEADER)
+		.thatIsNamed(LowerCaseCatalogue.HEADER)
 		.isNotEmpty();
 		
 		this.header = header;

@@ -10,7 +10,7 @@ import java.net.URISyntaxException;
 //own imports
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
 
@@ -22,7 +22,7 @@ public final class ShellProvider {
 		
 		Validator
 		.assertThat(command)
-		.thatIsNamed(VariableNameCatalogue.COMMAND)
+		.thatIsNamed(LowerCaseCatalogue.COMMAND)
 		.isNotNull();
 		
 		try {
@@ -56,12 +56,12 @@ public final class ShellProvider {
 		
 		Validator
 		.assertThat(url)
-		.thatIsNamed(VariableNameCatalogue.URL)
+		.thatIsNamed(LowerCaseCatalogue.URL)
 		.isNotBlank();
 		
 		Validator
 		.assertThat(port)
-		.thatIsNamed(VariableNameCatalogue.PORT)
+		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		run("start firefox --url " + url + ":" + port);

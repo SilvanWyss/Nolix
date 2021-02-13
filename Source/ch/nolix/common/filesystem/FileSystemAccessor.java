@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.exception.WrapperException;
@@ -98,7 +98,7 @@ public final class FileSystemAccessor {
 	public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 		
 		//Asserts that the if given path is not null or empty.
-		Validator.assertThat(path).thatIsNamed(VariableNameCatalogue.PATH).isNotBlank();
+		Validator.assertThat(path).thatIsNamed(LowerCaseCatalogue.PATH).isNotBlank();
 		
 		//Creates file.
 		try {

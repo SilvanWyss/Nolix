@@ -3,7 +3,7 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
@@ -487,7 +487,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		//Asserts that the given element is not null.
 		Validator
 		.assertThat(element)
-		.thatIsNamed(VariableNameCatalogue.ELEMENT)
+		.thatIsNamed(LowerCaseCatalogue.ELEMENT)
 		.isNotNull();
 		
 		//Sets the given element at the given index to the current matrix.
@@ -527,7 +527,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		//Asserts that the given element is not null.
 		Validator
 		.assertThat(element)
-		.thatIsNamed(VariableNameCatalogue.ELEMENT)
+		.thatIsNamed(LowerCaseCatalogue.ELEMENT)
 		.isNotNull();
 		
 		elements[rowIndex - 1][columnIndex - 1] = element;
@@ -677,12 +677,12 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		
 		Validator
 		.assertThat(index)
-		.thatIsNamed(VariableNameCatalogue.INDEX)
+		.thatIsNamed(LowerCaseCatalogue.INDEX)
 		.isPositive();
 		
 		Validator
 		.assertThat(index)
-		.thatIsNamed(VariableNameCatalogue.INDEX)
+		.thatIsNamed(LowerCaseCatalogue.INDEX)
 		.isNotBiggerThan(getElementCount());
 	}
 	
@@ -701,22 +701,22 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isNotBiggerThan(getRowCount());
 		
 		Validator
 		.assertThat(columnIndex)
-		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
 		Validator
 		.assertThat(columnIndex)
-		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());
 	}
 }

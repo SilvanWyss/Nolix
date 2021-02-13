@@ -2,7 +2,7 @@
 package ch.nolix.common.basetest;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
@@ -26,7 +26,7 @@ public final class OccurancePlace {
 		}
 		
 		if (lineNumber < 1) {
-			throw new NonPositiveArgumentException(VariableNameCatalogue.LINE_NUMBER, lineNumber);
+			throw new NonPositiveArgumentException(LowerCaseCatalogue.LINE_NUMBER, lineNumber);
 		}
 		
 		this.className = className;

@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -64,7 +64,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Asserts that the given length is not negative.
 		if (length < 0) {
-			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
+			throw new NegativeArgumentException(LowerCaseCatalogue.LENGTH, length);
 		}
 		
 		//Asserts that the argument of the current StringMediator is not null.

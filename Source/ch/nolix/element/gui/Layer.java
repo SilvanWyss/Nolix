@@ -3,7 +3,7 @@ package ch.nolix.element.gui;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.I2ElementTaker;
@@ -318,7 +318,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		//Asserts that the current Layer belongs to a GUI.
 		if (parentGUI == null) {
-			throw new ArgumentDoesNotBelongToParentException(this, VariableNameCatalogue.GUI);
+			throw new ArgumentDoesNotBelongToParentException(this, LowerCaseCatalogue.GUI);
 		}
 		
 		return parentGUI;
@@ -382,7 +382,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		//Asserts that the current Layer has a role.
 		if (role.isEmpty()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ROLE);
 		}
 		
 		return role.getValue();

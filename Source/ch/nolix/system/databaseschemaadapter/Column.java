@@ -4,7 +4,7 @@ package ch.nolix.system.databaseschemaadapter;
 //own imports
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.node.Node;
@@ -24,8 +24,8 @@ public final class Column implements Headered, IElement {
 	//constructor
 	public Column(final String header, final SchemaDataType<?> dataType) {
 		
-		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
-		Validator.assertThat(dataType).thatIsNamed(VariableNameCatalogue.DATA_TYPE).isNotNull();
+		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(dataType).thatIsNamed(LowerCaseCatalogue.DATA_TYPE).isNotNull();
 		
 		this.header = header;
 		this.dataType = dataType;

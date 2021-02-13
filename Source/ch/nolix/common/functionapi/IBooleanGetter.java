@@ -2,7 +2,7 @@
 package ch.nolix.common.functionapi;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
@@ -27,7 +27,7 @@ public interface IBooleanGetter {
 	static IBooleanGetter createNegator(final IBooleanGetter condition) {
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
 		return (() -> !condition.getOutput());
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.system.neuron;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -83,7 +83,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
-		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
+		.thatIsNamed(LowerCaseCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
 		//Sets the output function of this neuron.
@@ -110,7 +110,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
-		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
+		.thatIsNamed(LowerCaseCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
 		//Sets the output function of this neuron.
@@ -137,7 +137,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
-		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
+		.thatIsNamed(LowerCaseCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
 		//Sets the output function of this neuron.
@@ -164,7 +164,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 		//Asserts that the given output function is not null.
 		Validator
 		.assertThat(outputFunction)
-		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
+		.thatIsNamed(LowerCaseCatalogue.OUTPUT_FUNCTION)
 		.isNotNull();
 		
 		//Sets the output function of this neuron.
@@ -211,7 +211,7 @@ public final class Neuron<IO> extends BaseNeuron<Neuron<IO>, IO, IO> {
 	 */
 	private void supposeHasOutputFunction() {
 		if (!hasOutputFunction()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.OUTPUT_FUNCTION);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.OUTPUT_FUNCTION);
 		}
 	}
 }

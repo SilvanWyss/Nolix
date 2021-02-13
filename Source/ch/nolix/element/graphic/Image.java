@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.Matrix;
 import ch.nolix.common.container.ReadContainer;
@@ -336,7 +336,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	public Image toScaledImage(final double factor) {
 		
-		Validator.assertThat(factor).thatIsNamed(VariableNameCatalogue.FACTOR).isPositive();
+		Validator.assertThat(factor).thatIsNamed(LowerCaseCatalogue.FACTOR).isPositive();
 		
 		return toScaledImage(factor, factor);
 	}
@@ -419,7 +419,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	private void setHeight(final int height) {
 		
-		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 	}
@@ -427,7 +427,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	private void setWidth(final int width) {
 		
-		Validator.assertThat(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
+		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		
 		this.width.setValue(width);
 	}

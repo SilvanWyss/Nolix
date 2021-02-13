@@ -7,7 +7,7 @@ import java.util.Arrays;
 //own imports
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsZeroException;
@@ -85,7 +85,7 @@ public final class Polynom {
 	public double getCoefficientForDegree(final int degree) {
 		
 		//Asserts that the given degree is between 0 and the degree of the current Polynom.
-		Validator.assertThat(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isBetween(0, getDegree());
+		Validator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isBetween(0, getDegree());
 		
 		return coefficients[coefficients.length - degree - 1];
 	}

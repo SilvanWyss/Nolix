@@ -2,7 +2,7 @@
 package ch.nolix.common.container;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -40,7 +40,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	public SingleContainer(final E element) {
 		
 		//Asserts that the given element is not null.
-		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		//Sets the element of the current SingleContainer.
 		this.element = element;
@@ -71,7 +71,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isEqualTo(1);
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isEqualTo(1);
 		
 		return getRefElement();
 	}

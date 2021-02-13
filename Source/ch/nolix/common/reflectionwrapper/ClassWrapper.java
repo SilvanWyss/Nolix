@@ -6,7 +6,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.validator.Validator;
 
@@ -19,7 +19,7 @@ public final class ClassWrapper<T> {
 	//constructor
 	public ClassWrapper(final Class<T> pClass) {
 		
-		Validator.assertThat(pClass).thatIsNamed(VariableNameCatalogue.CLASS).isNotNull();
+		Validator.assertThat(pClass).thatIsNamed(LowerCaseCatalogue.CLASS).isNotNull();
 		
 		mClass = pClass;
 	}

@@ -3,7 +3,7 @@ package ch.nolix.system.databaseadapter;
 
 //own imports
 import ch.nolix.common.attributeapi.Headered;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.datatype.DataType;
@@ -21,7 +21,7 @@ public final class Column<C> implements Headered {
 	//constructor
 	public Column(final String header, final DataType<C> dataType) {
 		
-		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		Validator.assertThat(dataType).isOfType(DataType.class);
 		
 		this.header = header;

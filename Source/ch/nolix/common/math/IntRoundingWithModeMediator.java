@@ -2,7 +2,7 @@
 package ch.nolix.common.math;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -27,7 +27,7 @@ public final class IntRoundingWithModeMediator {
 	//method
 	public int toNext(final int step) {
 		
-		Validator.assertThat(step).thatIsNamed(VariableNameCatalogue.STEP).isPositive();
+		Validator.assertThat(step).thatIsNamed(LowerCaseCatalogue.STEP).isPositive();
 		
 		final var rest = value % step;
 		

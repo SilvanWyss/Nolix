@@ -5,7 +5,7 @@ package ch.nolix.common.basetest;
 import java.lang.reflect.Method;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.independentcontainer.List;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -32,7 +32,7 @@ public final class TestCaseResult {
 	) {
 		
 		if (testCase == null) {
-			throw new ArgumentIsNotNullException(VariableNameCatalogue.TEST_CASE);
+			throw new ArgumentIsNotNullException(LowerCaseCatalogue.TEST_CASE);
 		}
 		
 		if (runtimeInMilliseconds < 0) {

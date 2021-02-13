@@ -5,7 +5,7 @@ package ch.nolix.common.generalskillapi;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -58,7 +58,7 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 	 */
 	default <O> O to(final IElementTakerElementGetter<T, O> transformator) {
 		
-		Validator.assertThat(transformator).thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).isNotNull();
+		Validator.assertThat(transformator).thatIsNamed(LowerCaseCatalogue.TRANSFORMATOR).isNotNull();
 		
 		return transformator.getOutput(asConcrete());
 	}

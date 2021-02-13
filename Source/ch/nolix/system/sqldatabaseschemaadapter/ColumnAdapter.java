@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaseschemaadapter;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseschemaadapter.Column;
 import ch.nolix.system.databaseschemaadapter.IColumnAdapter;
@@ -25,7 +25,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 		
 		Validator
 		.assertThat(header)
-		.thatIsNamed(VariableNameCatalogue.HEADER)
+		.thatIsNamed(LowerCaseCatalogue.HEADER)
 		.isNotBlank();
 		
 		this.header = header;

@@ -4,7 +4,7 @@ package ch.nolix.common.license;
 //own imports
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.UnacceptedKeyException;
@@ -107,7 +107,7 @@ public abstract class License implements Named {
 	 */
 	private String getFilteredKey(final String key) {
 		
-		Validator.assertThat(key).thatIsNamed(VariableNameCatalogue.KEY).isNotNull();
+		Validator.assertThat(key).thatIsNamed(LowerCaseCatalogue.KEY).isNotNull();
 		
 		return
 		key

@@ -2,7 +2,7 @@
 package ch.nolix.common.basetest;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
@@ -31,7 +31,7 @@ public final class TestAccessor {
 		
 		//Asserts that the given test is not null.
 		if (test == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.TEST);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST);
 		}
 		
 		//Sets the test of the current TestAccessor.

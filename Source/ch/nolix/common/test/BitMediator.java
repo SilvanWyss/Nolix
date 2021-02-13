@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
@@ -32,7 +32,7 @@ public final class BitMediator extends Mediator {
 				this.bit = true;
 				break;
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.BIT, bit, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.BIT, bit, "is not valid");
 		}
 	}
 	

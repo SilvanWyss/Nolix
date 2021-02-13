@@ -3,7 +3,7 @@ package ch.nolix.element.gui;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
@@ -224,7 +224,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	public final WL setTextSize(final int textSize) {
 		
 		//Asserts that the given textSize is positive.
-		Validator.assertThat(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
+		Validator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		
 		this.textSize.setValue(textSize);
 		

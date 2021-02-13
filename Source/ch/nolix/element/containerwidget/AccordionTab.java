@@ -4,7 +4,7 @@ package ch.nolix.element.containerwidget;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -222,7 +222,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	@Override
 	public AccordionTab setHeader(final String header) {
 		
-		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		this.header.setValue(header);
 		

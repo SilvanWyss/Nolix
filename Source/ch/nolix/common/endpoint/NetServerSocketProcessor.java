@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.common.commontypehelper.InputStreamHelper;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.http.HTTPRequest;
@@ -121,7 +121,7 @@ final class NetServerSocketProcessor extends Worker {
 			final var line = InputStreamHelper.readLineFrom(inputStream);
 			
 			if (line == null) {
-				throw new ArgumentIsNullException(VariableNameCatalogue.LINE);
+				throw new ArgumentIsNullException(LowerCaseCatalogue.LINE);
 			}
 			
 			if (line.isEmpty()) {

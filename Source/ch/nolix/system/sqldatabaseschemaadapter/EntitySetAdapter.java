@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaseschemaadapter;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseschemaadapter.Column;
@@ -20,7 +20,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		
 		Validator
 		.assertThat(name)
-		.thatIsNamed(VariableNameCatalogue.NAME)
+		.thatIsNamed(LowerCaseCatalogue.NAME)
 		.isNotBlank();
 		
 		this.name = name;

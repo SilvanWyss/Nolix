@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -321,7 +321,7 @@ implements Clearable, Closeable, Refreshable {
 	public final G setTitle(final String title) {
 		
 		//Asserts that the given title is not blank.
-		Validator.assertThat(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		Validator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
 		
 		//Sets the title of the current 3D_GUI.
 		this.title.setValue(title);
@@ -375,7 +375,7 @@ implements Clearable, Closeable, Refreshable {
 			exception
 		) {
 			throw new InvalidArgumentException(
-				VariableNameCatalogue.TYPE,
+				LowerCaseCatalogue.TYPE,
 				type,
 				"is not valid because the current " + getType() + " cannot create a '" + type + "' shape"
 			);

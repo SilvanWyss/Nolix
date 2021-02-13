@@ -10,7 +10,7 @@ import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
@@ -221,7 +221,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	private void enqueue(final IAction method) {
 		
-		Validator.assertThat(method).thatIsNamed(VariableNameCatalogue.METHOD).isNotNull();
+		Validator.assertThat(method).thatIsNamed(LowerCaseCatalogue.METHOD).isNotNull();
 		
 		simpleApplication.enqueue(method::run);
 	}

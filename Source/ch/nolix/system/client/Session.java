@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.common.chainednode.ChainedNode;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -316,14 +316,14 @@ public abstract class Session<C extends Client<C>> {
 			case Protocol.DATA_METHOD_HEADER:
 				return internalInvokeSessionUserDataMethod(request.getOneAttributeAsNode());
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request,"is not valid");
 		}
 	}
 	
 	final Object getRefResult() {
 		
 		if (result == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.RESULT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RESULT);
 		}
 		
 		return result;
@@ -385,7 +385,7 @@ public abstract class Session<C extends Client<C>> {
 				internalInvokeSessionUserRunMethod(command.getOneAttributeAsNode());
 				break;
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
 		}
 	}
 	
@@ -415,7 +415,7 @@ public abstract class Session<C extends Client<C>> {
 	//method
 	final void setResult(final Object result) {
 		
-		Validator.assertThat(result).thatIsNamed(VariableNameCatalogue.RESULT).isNotNull();
+		Validator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
 		
 		this.result = result;
 	}

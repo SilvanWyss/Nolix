@@ -2,7 +2,7 @@
 package ch.nolix.common.math;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -66,7 +66,7 @@ public final class ARModel extends StatisticalModel {
 	//method
 	public double getPCoefficient(final int index) {
 	
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, getPOrder());
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getPOrder());
 		
 		return pCoefficients[index - 1];
 	}

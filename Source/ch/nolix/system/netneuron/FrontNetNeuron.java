@@ -3,7 +3,7 @@ package ch.nolix.system.netneuron;
 
 //own imports
 import ch.nolix.common.constant.IPv6Catalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -78,7 +78,7 @@ implements Closeable {
 		//Asserts that the given transformer is not null.
 		Validator
 		.assertThat(transformator)
-		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)
+		.thatIsNamed(LowerCaseCatalogue.TRANSFORMATOR)
 		.isNotNull();
 				
 		//Sets the transformator of this net neuron.

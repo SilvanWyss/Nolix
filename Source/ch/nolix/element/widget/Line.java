@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -153,7 +153,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		//Checks the given thickness.
 		if (MIN_LENGTH_TO_THICKNESS_RATIO * thickness > getLength()) {
 			throw new InvalidArgumentException(
-				VariableNameCatalogue.THICKNESS,
+				LowerCaseCatalogue.THICKNESS,
 				thickness,
 				"is bigger than length/"
 				+ MIN_LENGTH_TO_THICKNESS_RATIO

@@ -4,7 +4,7 @@ package ch.nolix.element.containerwidget;
 //own imports
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -77,7 +77,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		//Asserts that the given tab is not null.
 		Validator
 		.assertThat(tab)
-		.thatIsNamed(VariableNameCatalogue.TAB)
+		.thatIsNamed(LowerCaseCatalogue.TAB)
 		.isNotNull();
 		
 		tab.setParentAccordion(this);

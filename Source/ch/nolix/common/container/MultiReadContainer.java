@@ -5,7 +5,7 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
@@ -47,7 +47,7 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		var i = 1;
 		for (final var e : this) {

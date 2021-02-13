@@ -2,7 +2,7 @@
 package ch.nolix.system.entity;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -70,7 +70,7 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 		
 		Validator
 		.assertThat(value)
-		.thatIsNamed(VariableNameCatalogue.VALUE)
+		.thatIsNamed(LowerCaseCatalogue.VALUE)
 		.isNotNull();
 		
 		this.value = value;
@@ -131,7 +131,7 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 		if (!hasValue()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,
-				VariableNameCatalogue.VALUE
+				LowerCaseCatalogue.VALUE
 			);
 		}
 	}

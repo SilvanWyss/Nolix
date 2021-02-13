@@ -3,7 +3,7 @@ package ch.nolix.element.valueholder;
 
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -107,7 +107,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		if (!hasValue) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,
-				VariableNameCatalogue.VALUE
+				LowerCaseCatalogue.VALUE
 			);
 		}
 		
@@ -125,7 +125,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		if (hasValue) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,
-				VariableNameCatalogue.PERCENTAGE
+				LowerCaseCatalogue.PERCENTAGE
 			);
 		}
 		

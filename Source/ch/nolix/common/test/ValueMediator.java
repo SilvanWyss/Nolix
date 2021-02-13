@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
@@ -86,7 +86,7 @@ public class ValueMediator<V> extends Mediator {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(getRefValue())) {
@@ -107,7 +107,7 @@ public class ValueMediator<V> extends Mediator {
 	
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
 		}
 		
 		if (condition.getOutput(getRefValue())) {
@@ -157,7 +157,7 @@ public class ValueMediator<V> extends Mediator {
 	public final <T extends V> void isOfType(final Class<T> type) {
 		
 		if (type == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TYPE);
 		}
 		
 		isNotNull();

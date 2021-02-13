@@ -3,7 +3,7 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -276,7 +276,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	public TabContainerTab setHeader(final String header) {
 		
 		//Asserts that the given header is not null or empty.
-		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current TabContainerTab.
 		this.header.setValue(header);

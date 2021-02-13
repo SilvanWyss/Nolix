@@ -2,7 +2,7 @@
 package ch.nolix.common.websocket;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
@@ -15,7 +15,7 @@ public enum WebSocketFramePayloadLengthType {
 	//static method
 	public static WebSocketFramePayloadLengthType fromCode(final int code) {
 		
-		Validator.assertThat(code).thatIsNamed(VariableNameCatalogue.CODE).isNotNegative();
+		Validator.assertThat(code).thatIsNamed(LowerCaseCatalogue.CODE).isNotNegative();
 		
 		if (code < 126) {
 			return BITS_7;
@@ -29,7 +29,7 @@ public enum WebSocketFramePayloadLengthType {
 			return BITS_64;
 		}
 		
-		throw new InvalidArgumentException(VariableNameCatalogue.CODE, code, "is not valid");
+		throw new InvalidArgumentException(LowerCaseCatalogue.CODE, code, "is not valid");
 	}
 	
 	//static method

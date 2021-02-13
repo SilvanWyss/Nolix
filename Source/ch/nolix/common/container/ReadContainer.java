@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
@@ -111,7 +111,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	private <E2 extends E> ReadContainer(final IContainer<E2> container) {
 		
 		//Asserts that the given container is not null.
-		Validator.assertThat(container).thatIsNamed(VariableNameCatalogue.CONTAINER).isNotNull();
+		Validator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 		
 		//Sets the container of the current ReadContainer.
 		this.container = (IContainer<E>)container;

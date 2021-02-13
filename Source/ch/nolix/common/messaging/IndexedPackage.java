@@ -3,7 +3,7 @@ package ch.nolix.common.messaging;
 
 //own imports
 import ch.nolix.common.attributeapi.Indexed;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
@@ -33,7 +33,7 @@ public class IndexedPackage<C> implements Indexed {
 	public IndexedPackage(final int index, final C content) {
 		
 		//Asserts that the given content is not null.
-		Validator.assertThat(content).thatIsNamed(VariableNameCatalogue.CONTENT).isNotNull();
+		Validator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotNull();
 		
 		//Sets the index of the current IndexedPackage.
 		this.index = index;

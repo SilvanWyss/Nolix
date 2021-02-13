@@ -5,7 +5,7 @@ package ch.nolix.common.validator;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.independentcontainer.ArrayReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -101,7 +101,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
 		}
 		
 		//Iterates the elements of the argument of this container mediator.
@@ -136,7 +136,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		//Asserts that the given element count is not negative.
 		if (elementCount < 0) {
 			throw new NegativeArgumentException(
-				VariableNameCatalogue.ELEMENT_COUNT,
+				LowerCaseCatalogue.ELEMENT_COUNT,
 				elementCount
 			);
 		}
@@ -189,7 +189,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Asserts that the given array is not null.
 		if (array == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.ARRAY);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.ARRAY);
 		}
 		
 		//Calls other method.

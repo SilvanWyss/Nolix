@@ -3,7 +3,7 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
@@ -149,7 +149,7 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 			case ' ':
 				return new KeyInput[] {new KeyInput(Key.SPACE, KeyInputType.TYPING)};
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.CHARACTER, character, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.CHARACTER, character, "is not valid");
 		}
 	}
 	

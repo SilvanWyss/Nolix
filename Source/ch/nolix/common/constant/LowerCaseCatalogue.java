@@ -3,13 +3,13 @@ package ch.nolix.common.constant;
 
 //class
 /**
- * Of the {@link VariableNameCatalogue} an instance cannot be created.
+ * Of the {@link LowerCaseCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-11-13
  * @lines 190
  */
-public final class VariableNameCatalogue {
+public final class LowerCaseCatalogue {
 	
 	//constants
 	public static final String AGE = "age";
@@ -184,7 +184,7 @@ public final class VariableNameCatalogue {
 	
 	//visibility-reduced constructor
 	/**
-	 * Avoids that an instance of the {@link VariableNameCatalogue} can be created.
+	 * Avoids that an instance of the {@link LowerCaseCatalogue} can be created.
 	 */
-	private VariableNameCatalogue() {}
+	private LowerCaseCatalogue() {}
 }

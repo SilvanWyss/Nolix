@@ -2,7 +2,7 @@
 package ch.nolix.element.base;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
@@ -78,7 +78,7 @@ abstract class SingleValue<V> extends Property<V> {
 		
 		//Asserts that the current SingleProperty has a value.
 		if (value == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VALUE);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
 		}
 		
 		return value;
@@ -120,7 +120,7 @@ abstract class SingleValue<V> extends Property<V> {
 		//Asserts that the given value is not null.
 		Validator
 		.assertThat(value)
-		.thatIsNamed(VariableNameCatalogue.VALUE)
+		.thatIsNamed(LowerCaseCatalogue.VALUE)
 		.isNotNull();
 		
 		//Asserts that the current SingleProperty is mutable or does not have already a value.

@@ -5,7 +5,7 @@ package ch.nolix.common.validator;
 import java.lang.reflect.Modifier;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
@@ -13,7 +13,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	
 	//constructor
 	TypeMediator(final Class<T> argument) {
-		super(VariableNameCatalogue.TYPE, argument);
+		super(LowerCaseCatalogue.TYPE, argument);
 	}
 	
 	//constructor

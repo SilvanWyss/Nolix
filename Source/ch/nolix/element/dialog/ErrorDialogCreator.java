@@ -2,7 +2,7 @@
 package ch.nolix.element.dialog;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.containerwidget.AligningContainer;
 import ch.nolix.element.containerwidget.ContainerRole;
@@ -34,7 +34,7 @@ public final class ErrorDialogCreator {
 	//method
 	public Layer createWithErrorMessage(final String errorMessage) {
 		
-		Validator.assertThat(errorMessage).thatIsNamed(VariableNameCatalogue.ERROR_MESSAGE).isNotBlank();
+		Validator.assertThat(errorMessage).thatIsNamed(LowerCaseCatalogue.ERROR_MESSAGE).isNotBlank();
 		
 		return
 		new Layer()

@@ -5,7 +5,7 @@ package ch.nolix.common.implprovider;
 import java.util.HashMap;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.implproviderapi.IImplProvider;
 import ch.nolix.common.implproviderapi.IImplProviderMediator;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -49,7 +49,7 @@ public final class ImplProvider implements IImplProvider {
 		final WriteMode writeMode
 	) {
 		
-		Validator.assertThat(pInterface).thatIsNamed(VariableNameCatalogue.INTERFACE).isInterface();
+		Validator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isInterface();
 		Validator.assertThat(implementation).thatIsNamed("implementation").isImplementing(pInterface);
 		
 		switch (writeMode) {

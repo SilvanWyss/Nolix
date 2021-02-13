@@ -3,7 +3,7 @@ package ch.nolix.element.shape;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -65,7 +65,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	//method
 	public Pyramid setHeight(final double height) {
 		
-		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 		
@@ -75,7 +75,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	//method
 	public Pyramid setSideLength(final double sideLength) {
 		
-		Validator.assertThat(sideLength).thatIsNamed(VariableNameCatalogue.SIDE_LENGTH).isPositive();
+		Validator.assertThat(sideLength).thatIsNamed(LowerCaseCatalogue.SIDE_LENGTH).isPositive();
 		
 		this.sideLength.setValue(sideLength);
 		

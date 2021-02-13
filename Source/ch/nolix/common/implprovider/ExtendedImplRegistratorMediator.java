@@ -2,7 +2,7 @@
 package ch.nolix.common.implprovider;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.implproviderapi.IExtendedImplRegistratorMediator;
 import ch.nolix.common.processproperty.WriteMode;
 import ch.nolix.common.validator.Validator;
@@ -18,7 +18,7 @@ public final class ExtendedImplRegistratorMediator<IN> implements IExtendedImplR
 	ExtendedImplRegistratorMediator(final ImplProvider implProvider, final Class<IN> pInterface) {
 		
 		Validator.assertThat(implProvider).thatIsNamed(ImplProvider.class).isNotNull();
-		Validator.assertThat(pInterface).thatIsNamed(VariableNameCatalogue.INTERFACE).isInterface();
+		Validator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isInterface();
 		
 		this.implProvider = implProvider;
 		mInterface = pInterface;

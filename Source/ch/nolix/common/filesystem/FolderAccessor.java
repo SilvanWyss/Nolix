@@ -2,7 +2,7 @@
 package ch.nolix.common.filesystem;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
@@ -41,7 +41,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 		
 		//Asserts that the file system item with the given path is actually a folder.
 		if (!FileSystemAccessor.isFolder(path)) {
-			throw new InvalidArgumentException(VariableNameCatalogue.PATH, path, "is not a folder");
+			throw new InvalidArgumentException(LowerCaseCatalogue.PATH, path, "is not a folder");
 		}
 	}
 	

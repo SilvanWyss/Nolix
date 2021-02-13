@@ -4,7 +4,7 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -135,7 +135,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	public Button setRole(final ButtonRole role) {
 		
 		//Asserts that the given role is not null.
-		Validator.assertThat(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull();
+		Validator.assertThat(role).thatIsNamed(LowerCaseCatalogue.ROLE).isNotNull();
 		
 		//Sets the role of the current Button.
 		this.role = role;
@@ -204,7 +204,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	private void assertHasRole() {
 		if (role == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ROLE);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ROLE);
 		}
 	}
 }

@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 
@@ -55,7 +55,7 @@ public class StringMediator extends ValueMediator<String> {
 		
 		//Asserts that the given length is not negative.
 		if (length < 0) {
-			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
+			throw new NegativeArgumentException(LowerCaseCatalogue.LENGTH, length);
 		}
 		
 		if (getRefValue() == null || getRefValue().length() != length) {
@@ -106,7 +106,7 @@ public class StringMediator extends ValueMediator<String> {
 		
 		//Asserts that the given sequence is not null.
 		if (sequence == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.SEQUENCE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.SEQUENCE);
 		}
 		
 		if (getRefValue() == null || !getRefValue().startsWith(sequence)) {

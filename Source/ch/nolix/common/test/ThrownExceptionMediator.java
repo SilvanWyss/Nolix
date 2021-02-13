@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
@@ -92,7 +92,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 		
 		//Asserts that the given message is not null.
 		if (message == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.MESSAGE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.MESSAGE);
 		}
 		
 		//Handles the case that the current ThrownExceptionMediator has an exception.
@@ -149,7 +149,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 		//Asserts that the current ThrownExceptionMediator has an exception.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (exception == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.EXCEPTION);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.EXCEPTION);
 		}
 		
 		return exception;

@@ -2,7 +2,7 @@
 package ch.nolix.common.closeableelement;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -46,7 +46,7 @@ final class ClosePool {
 	public void add(final ICloseableElement element) {
 		
 		//Asserts that the given element is not null.
-		Validator.assertThat(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
+		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		//Asserts that the current ClosePool is open.
 		assertIsOpen();

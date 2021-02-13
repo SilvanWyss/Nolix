@@ -5,7 +5,7 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
@@ -46,7 +46,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		//Asserts that the given array is not null.
 		Validator
 		.assertThat(array)
-		.thatIsNamed(VariableNameCatalogue.ARRAY)
+		.thatIsNamed(LowerCaseCatalogue.ARRAY)
 		.isNotNull();
 		
 		//Sets the array of the current {@link ArrayReadContainerIterator}.
@@ -74,7 +74,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		//Asserts that the current ArrayReadContainerIterator has a next element.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (nextElementIndex >= array.length) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 		
 		final var element = array[nextElementIndex];

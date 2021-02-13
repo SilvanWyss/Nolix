@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.validator.Validator;
@@ -41,7 +41,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 		
 		Validator
 		.assertThat(startIndex)
-		.thatIsNamed(VariableNameCatalogue.START_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.START_INDEX)
 		.isNotNegative();
 		
 		Validator

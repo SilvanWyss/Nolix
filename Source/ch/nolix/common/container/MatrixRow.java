@@ -3,7 +3,7 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -23,7 +23,7 @@ public final class MatrixRow<E> implements IContainer<E> {
 		
 		Validator
 		.assertThat(rowIndex)
-		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
 		this.parentMatrix = parentMatrix;

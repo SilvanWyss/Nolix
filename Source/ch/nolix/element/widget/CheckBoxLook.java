@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
@@ -117,7 +117,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	public CheckBoxLook setLineThickness(final int lineThickness) {
 		
 		//Asserts that the given lineThickness is positive.
-		Validator.assertThat(lineThickness).thatIsNamed(VariableNameCatalogue.LINE_THICKNESS).isPositive();
+		Validator.assertThat(lineThickness).thatIsNamed(LowerCaseCatalogue.LINE_THICKNESS).isPositive();
 		
 		//Sets the line thickness of the current CheckBoxLook.
 		this.lineThickness = lineThickness;

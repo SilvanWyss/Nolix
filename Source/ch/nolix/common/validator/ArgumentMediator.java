@@ -2,7 +2,7 @@
 package ch.nolix.common.validator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -63,7 +63,7 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
 		}
 				
 		//Asserts that the argument of the current ArgumentMediator fulfills the given condition.

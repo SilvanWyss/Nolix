@@ -2,7 +2,7 @@
 package ch.nolix.common.sql;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Resettable;
@@ -30,7 +30,7 @@ public final class SQLExecutor implements Resettable {
 		
 		Validator
 		.assertThat(statement)
-		.thatIsNamed(VariableNameCatalogue.STATEMENT)
+		.thatIsNamed(LowerCaseCatalogue.STATEMENT)
 		.isNotBlank();
 		
 		if (!statement.endsWith(";")) {

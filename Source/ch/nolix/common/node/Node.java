@@ -3,7 +3,7 @@ package ch.nolix.common.node;
 
 //own imports
 import ch.nolix.common.commontypehelper.BooleanHelper;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -534,7 +534,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		//Asserts that the current Node has a header.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.HEADER);
 		}
 		
 		return header;
@@ -614,7 +614,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public Node setHeader(final String header) {
 		
 		//Asserts that the given header is not null or blank.
-		Validator.assertThat(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current Node.
 		this.header = header;

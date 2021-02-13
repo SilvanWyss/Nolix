@@ -3,7 +3,7 @@ package ch.nolix.element.shape;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
@@ -51,7 +51,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 		//Asserts that the given diameter is positive.
 		Validator
 		.assertThat(diameter)
-		.thatIsNamed(VariableNameCatalogue.DIAMETER)
+		.thatIsNamed(LowerCaseCatalogue.DIAMETER)
 		.isPositive();
 		
 		return setRadius(0.5 * diameter);
@@ -60,7 +60,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	//method
 	public Cylinder setRadius(final double radius) {
 		
-		Validator.assertThat(radius).thatIsNamed(VariableNameCatalogue.RADIUS).isPositive();
+		Validator.assertThat(radius).thatIsNamed(LowerCaseCatalogue.RADIUS).isPositive();
 		
 		this.radius.setValue(radius);
 		

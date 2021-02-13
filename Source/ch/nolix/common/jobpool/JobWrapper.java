@@ -2,7 +2,7 @@
 package ch.nolix.common.jobpool;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -24,7 +24,7 @@ final class JobWrapper implements Runnable {
 	//constructor
 	public JobWrapper(final IAction job) {
 		
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		this.job = job;
 	}
@@ -38,7 +38,7 @@ final class JobWrapper implements Runnable {
 	public Throwable getError() {
 		
 		if (!caughtError()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return error;

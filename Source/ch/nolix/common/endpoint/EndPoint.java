@@ -5,7 +5,7 @@ package ch.nolix.common.endpoint;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.communicationapi.ISender;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -93,7 +93,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 		//Asserts that the current EndPoint has a target.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (this.target == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TARGET);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.TARGET);
 		}
 		
 		return target;
@@ -154,7 +154,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 	public final void setReceiver(final IElementTaker<String> receiver) {
 		
 		//Asserts that the given receiver is not null.
-		Validator.assertThat(receiver).thatIsNamed(VariableNameCatalogue.RECEIVER).isNotNull();
+		Validator.assertThat(receiver).thatIsNamed(LowerCaseCatalogue.RECEIVER).isNotNull();
 		
 		//Asserts that the current EndPoint is open.
 		assertIsOpen();
@@ -179,7 +179,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 		.waitUntil(this::hasReceiver);
 		
 		if (!hasReceiver()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.RECEIVER);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RECEIVER);
 		}
 		
 		return receiver;
@@ -197,7 +197,7 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 	protected final void setTarget(final String target) {
 		
 		//Asserts that the given target is not null or blank.
-		Validator.assertThat(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
+		Validator.assertThat(target).thatIsNamed(LowerCaseCatalogue.TARGET).isNotBlank();
 		
 		//Asserts that the current net EndPoint is open.
 		assertIsOpen();

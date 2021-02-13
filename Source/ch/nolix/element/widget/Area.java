@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -149,7 +149,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		//Asserts that the given background color is not null.
 		Validator
 		.assertThat(backgroundColor)
-		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
+		.thatIsNamed(LowerCaseCatalogue.BACKGROUND_COLOR)
 		.isNotNull();
 		
 		//Sets the background color of the current {@link Area}.
@@ -168,7 +168,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setHeight(final int height) {
 		
-		Validator.assertThat(height).thatIsNamed(VariableNameCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
 		this.height = height;
 		
@@ -206,7 +206,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setWidth(final int width) {
 		
-		Validator.assertThat(width).thatIsNamed(VariableNameCatalogue.WIDTH).isPositive();
+		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		
 		this.width = width;
 		
@@ -411,7 +411,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		if (!hasBackgroundColor()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,
-				VariableNameCatalogue.BACKGROUND_COLOR
+				LowerCaseCatalogue.BACKGROUND_COLOR
 			);
 		}
 	}

@@ -5,7 +5,7 @@ package ch.nolix.common.license;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.GeneralException;
 import ch.nolix.common.exception.WrapperException;
@@ -70,7 +70,7 @@ public final class LicenseManager {
 	public LicenseManager addLicense(final License license) {
 		
 		//Asserts that the given license is not null.
-		Validator.assertThat(license).thatIsNamed(VariableNameCatalogue.LICENSE).isNotNull();
+		Validator.assertThat(license).thatIsNamed(LowerCaseCatalogue.LICENSE).isNotNull();
 		
 		//Assets thath the given license is actiaved.
 		license.assetIsActivated();
@@ -176,7 +176,7 @@ public final class LicenseManager {
 	private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 		
 		//Asserts that the given licenseType is not null.
-		Validator.assertThat(licenseType).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
+		Validator.assertThat(licenseType).thatIsNamed(LowerCaseCatalogue.TYPE).isNotNull();
 		
 		return readKeyFromLicenseFile(licenseType.getName());
 	}

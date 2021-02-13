@@ -5,7 +5,7 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.validator.Validator;
 
@@ -53,7 +53,7 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNextElement() {
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 	}
 	

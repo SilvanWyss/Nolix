@@ -6,7 +6,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
@@ -16,7 +16,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	
 	//constructor
 	MethodMediator(final Method argument) {
-		super(VariableNameCatalogue.METHOD, argument);
+		super(LowerCaseCatalogue.METHOD, argument);
 	}
 	
 	//constructor

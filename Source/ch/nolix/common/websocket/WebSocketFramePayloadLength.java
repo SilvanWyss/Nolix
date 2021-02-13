@@ -5,7 +5,7 @@ package ch.nolix.common.websocket;
 import java.math.BigInteger;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
 
@@ -18,7 +18,7 @@ public final class WebSocketFramePayloadLength {
 	//constructor
 	public WebSocketFramePayloadLength(final long value) {
 		
-		Validator.assertThat(value).thatIsNamed(VariableNameCatalogue.VALUE).isNotNegative();
+		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNegative();
 		
 		this.value = value;
 	}

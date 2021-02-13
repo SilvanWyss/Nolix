@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.attributeapi.Named;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endpoint3.EndPoint;
@@ -54,7 +54,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	public Application(final String name, final Class<?> initialSessionClass) {
 		
 		//Asserts that the given name is not null or blank.
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 				
 		//Asserts that the given initialSessionClass is not null.
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
@@ -108,13 +108,13 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	) {
 		
 		//Asserts that the given name is not null or blank.
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		//Asserts that the given initialSessionClass is not null.
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
 		//Asserts that the given context is not null.
-		Validator.assertThat(context).thatIsNamed(VariableNameCatalogue.CONTEXT).isNotNull();
+		Validator.assertThat(context).thatIsNamed(LowerCaseCatalogue.CONTEXT).isNotNull();
 		
 		this.name = name;
 		this.initialSessionClass = initialSessionClass;
@@ -161,7 +161,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 		
 		//Asserts that the current Application has a context.
 		if (!hasContext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONTEXT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.CONTEXT);
 		}
 		
 		return (CO)context;
@@ -179,11 +179,11 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	public final <CO> CO getRefContextAs(final Class<CO> type) {
 		
 		//Asserts that the given type is not null.
-		Validator.assertThat(type).thatIsNamed(VariableNameCatalogue.TYPE).isNotNull();
+		Validator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotNull();
 		
 		//Asserts that the current Application has a context.
 		if (!hasContext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONTEXT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.CONTEXT);
 		}
 		
 		return (CO)context;

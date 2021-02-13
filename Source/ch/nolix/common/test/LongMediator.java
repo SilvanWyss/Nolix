@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
@@ -48,7 +48,7 @@ public final class LongMediator extends Mediator {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.CONDITION);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(value)) {
@@ -121,7 +121,7 @@ public final class LongMediator extends Mediator {
 		
 		//Asserts that the given value is positive.
 		if (value < 1) {
-			throw new NonPositiveArgumentException(VariableNameCatalogue.VALUE, value);
+			throw new NonPositiveArgumentException(LowerCaseCatalogue.VALUE, value);
 		}
 		
 		if (this.value % value != 0) {

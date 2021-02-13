@@ -2,7 +2,7 @@
 package ch.nolix.common.commontypehelper;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
@@ -34,7 +34,7 @@ public final class CharacterHelper {
 			|| (letter > 90 && letter < 97)
 			|| letter > 122
 		) {
-			throw new InvalidArgumentException(VariableNameCatalogue.LETTER, letter, "is not valid");
+			throw new InvalidArgumentException(LowerCaseCatalogue.LETTER, letter, "is not valid");
 		}
 		
 		//Enumerates the given letter.

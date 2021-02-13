@@ -11,7 +11,7 @@ import java.nio.file.Files;
 
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -42,7 +42,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		//Asserts that the file system item with the given file path is acutally a file.
 		if (!FileSystemAccessor.isFile(filePath)) {
 			throw new InvalidArgumentException(
-				VariableNameCatalogue.FILE_PATH,
+				LowerCaseCatalogue.FILE_PATH,
 				filePath,
 				"is not a file"
 			);

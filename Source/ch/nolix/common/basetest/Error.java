@@ -2,7 +2,7 @@
 package ch.nolix.common.basetest;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
@@ -26,11 +26,11 @@ public final class Error {
 	public Error(final String errorMessage, final OccurancePlace occurancePlace) {
 		
 		if (errorMessage == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.ERROR_MESSAGE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.ERROR_MESSAGE);
 		}
 		
 		if (errorMessage.isBlank()) {
-			throw new InvalidArgumentException(VariableNameCatalogue.ERROR_MESSAGE, errorMessage, "is blank");
+			throw new InvalidArgumentException(LowerCaseCatalogue.ERROR_MESSAGE, errorMessage, "is blank");
 		}
 		
 		if (occurancePlace == null) {

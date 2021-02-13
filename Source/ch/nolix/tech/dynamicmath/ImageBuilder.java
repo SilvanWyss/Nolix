@@ -5,7 +5,7 @@ package ch.nolix.tech.dynamicmath;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.futureapi.IFuture;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -56,7 +56,7 @@ public final class ImageBuilder implements IImageBuilder {
 		final var futureWithError = futures.getRefFirstOptionally(IFuture::caughtError);
 		
 		if (futureWithError.isEmpty()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return futureWithError.getRefElement().getError();

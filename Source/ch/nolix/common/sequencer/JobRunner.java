@@ -2,7 +2,7 @@
 package ch.nolix.common.sequencer;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -41,7 +41,7 @@ final class JobRunner extends Thread {
 	public JobRunner(final IAction job) {
 		
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 			
 		this.job = job;
 		maxRunCount = null;
@@ -64,7 +64,7 @@ final class JobRunner extends Thread {
 	public JobRunner(final IAction job, final IBooleanGetter condition) {
 		
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		//Asserts that the given condition is not null.
 		Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
@@ -95,10 +95,10 @@ final class JobRunner extends Thread {
 		final int timeIntervalInMilliseconds
 	) {
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
 		//Asserts that the given timeIntervalInMilliseconds is not negative.
 		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds").isNotNegative();
@@ -127,7 +127,7 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		//Asserts that the given maxRunCount is not negative.
 		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -159,13 +159,13 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		//Asserts that the given maxRunCount is not negative.
 		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
 		this.job = job;
 		this.maxRunCount = maxRunCount;
@@ -196,13 +196,13 @@ final class JobRunner extends Thread {
 		final int timeIntervalInMilliseconds
 	) {
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		//Asserts that the given max run count is not negative.
 		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
 		//Asserts that the given timeIntervalInMilliseconds is not negative.
 		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
@@ -234,7 +234,7 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Asserts that the given job is not null.
-		Validator.assertThat(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
+		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		//Asserts that the given maxRunCount is not negative.
 		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -268,7 +268,7 @@ final class JobRunner extends Thread {
 		//Asserts that the current JobRunner has an error.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (error == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return error;

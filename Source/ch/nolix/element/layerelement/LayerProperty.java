@@ -3,7 +3,7 @@ package ch.nolix.element.layerelement;
 
 //own imports
 import ch.nolix.common.attributeapi.Named;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -54,14 +54,14 @@ public final class LayerProperty<V> implements Named {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 		
 		//Asserts that the given default is not null.
 		Validator
 		.assertThat(defaultValue)
-		.thatIsNamed(VariableNameCatalogue.DEFAULT_VALUE)
+		.thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE)
 		.isNotNull();
 				
 		//Asserts that the given value creator is not null.
@@ -181,7 +181,7 @@ public final class LayerProperty<V> implements Named {
 		//Asserts that the given value is not null.
 		Validator
 		.assertThat(value)
-		.thatIsNamed(VariableNameCatalogue.VALUE)
+		.thatIsNamed(LowerCaseCatalogue.VALUE)
 		.isNotNull();
 		
 		//Sets the value of this property.
@@ -261,7 +261,7 @@ public final class LayerProperty<V> implements Named {
 		if (!hasValue()) {
 			throw new ArgumentDoesNotHaveAttributeException(
 				this,
-				VariableNameCatalogue.VALUE
+				LowerCaseCatalogue.VALUE
 			);
 		}
 	}

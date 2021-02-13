@@ -4,7 +4,7 @@ package ch.nolix.system.entity;
 //own imports
 import ch.nolix.common.attributeapi.Identified;
 import ch.nolix.common.attributeapi.ShortDescripted;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
@@ -324,7 +324,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	//method
 	final void setId(final long id) {
 		
-		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isPositive();
 		
 		this.id = id;
 	}

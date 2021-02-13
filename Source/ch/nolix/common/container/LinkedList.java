@@ -4,7 +4,7 @@ package ch.nolix.common.container;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.MultiVariableNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.functionapi.IElementTakerComparableGetter;
@@ -532,7 +532,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public E getRefAt(final int index) {
 		
 		//Asserts that the given index is positive.
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		//Iterates the current LinkedList.
 		var i = 1;
@@ -1135,7 +1135,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	private void removeNextNode(final LinkedListNode<E> node) {
 		
 		//Asserts that the given node is not null.
-		Validator.assertThat(node).thatIsNamed(VariableNameCatalogue.NODE).isNotNull();
+		Validator.assertThat(node).thatIsNamed(LowerCaseCatalogue.NODE).isNotNull();
 		
 		final var nextNode = node.getNextNode();
 		

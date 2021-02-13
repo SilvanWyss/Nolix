@@ -7,7 +7,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.techapi.dynamicmathapi.IComplexNumber;
@@ -150,7 +150,7 @@ public final class ComplexNumber implements IComplexNumber {
 	@Override
 	public ComplexNumber getPower(final int exponent) {
 		
-		Validator.assertThat(exponent).thatIsNamed(VariableNameCatalogue.EXPONENT).isPositive();
+		Validator.assertThat(exponent).thatIsNamed(LowerCaseCatalogue.EXPONENT).isPositive();
 		
 		var complexNumber = this;		
 		for (var i = 2; i <= exponent; i++) {

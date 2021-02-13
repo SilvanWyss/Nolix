@@ -3,7 +3,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -165,7 +165,7 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final CE setId(final String id) {
 		
-		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id = id;
 		
@@ -186,7 +186,7 @@ implements IConfigurableElement<CE> {
 		//Asserts that the given token is not null and not empty.
 		Validator
 		.assertThat(token)
-		.thatIsNamed(VariableNameCatalogue.TOKEN)
+		.thatIsNamed(LowerCaseCatalogue.TOKEN)
 		.isNotEmpty();
 		
 		//Sets the token of the current configurable element.
@@ -210,7 +210,7 @@ implements IConfigurableElement<CE> {
 		
 		//Asserts that the current configurable element has a token.
 		if (!hasId()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ID);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ID);
 		}
 	}
 	
@@ -223,7 +223,7 @@ implements IConfigurableElement<CE> {
 		
 		//Asserts that the current configurable element has a token.
 		if (!hasToken()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.TOKEN);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.TOKEN);
 		}
 	}
 }

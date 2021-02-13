@@ -4,7 +4,7 @@ package ch.nolix.element.gui;
 //own imports
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -278,7 +278,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public final WG addLayerOnTop(final Layer layer) {
 		
 		//Asserts that the given layer is not null.
-		Validator.assertThat(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
+		Validator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
 		
 		layer.setParentGUI(this);
 		layers.add(layer);

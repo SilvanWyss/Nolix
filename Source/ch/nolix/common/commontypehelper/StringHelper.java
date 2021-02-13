@@ -3,7 +3,7 @@ package ch.nolix.common.commontypehelper;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
@@ -42,7 +42,7 @@ public final class StringHelper {
 		//Asserts that the given string is not longer than the given length.
 		if (string.length() > length) {
 			throw new InvalidArgumentException(
-				VariableNameCatalogue.STRING,
+				LowerCaseCatalogue.STRING,
 				string,
 				"is longer than " + length + " with a length of " + string.length()
 			);

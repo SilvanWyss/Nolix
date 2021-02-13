@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
@@ -47,7 +47,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 		//Asserts that the given container is not null.
 		Validator
 		.assertThat(container)
-		.thatIsNamed(VariableNameCatalogue.CONTAINER)
+		.thatIsNamed(LowerCaseCatalogue.CONTAINER)
 		.isNotNull();
 		
 		//Sets the container of the current IterableReadContainer.
@@ -90,7 +90,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	public E getRefAt(final int index) {
 		
 		//Asserts that the given index is positive.
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		//Iterates the current IterableReadContainer.
 		var i = 1;

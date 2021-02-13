@@ -3,7 +3,7 @@ package ch.nolix.common.mutableattributeapi;
 
 //own imports
 import ch.nolix.common.attributeapi.SemanticVersioned;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.validator.Validator;
@@ -41,7 +41,7 @@ public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends
 	 */
 	default SV setVersion(final String version) {
 		
-		Validator.assertThat(version).thatIsNamed(VariableNameCatalogue.VERSION).isNotBlank();
+		Validator.assertThat(version).thatIsNamed(LowerCaseCatalogue.VERSION).isNotBlank();
 		
 		final var array = version.split(".");
 		

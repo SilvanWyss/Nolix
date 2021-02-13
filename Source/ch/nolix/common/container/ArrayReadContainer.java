@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
 
@@ -45,7 +45,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 		//Asserts that the given array is not null.
 		Validator
 		.assertThat(array)
-		.thatIsNamed(VariableNameCatalogue.ARRAY)
+		.thatIsNamed(LowerCaseCatalogue.ARRAY)
 		.isNotNull();
 		
 		//Sets the array of the current ArrayReadContainer.
@@ -68,8 +68,8 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isNotBiggerThan(getElementCount());
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
 		
 		return array[index - 1];
 	}

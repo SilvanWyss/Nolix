@@ -3,7 +3,7 @@ package ch.nolix.commontest.implprovidertest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.implprovider.ImplProvider;
 import ch.nolix.common.test.Test;
 import ch.nolix.common.validator.Validator;
@@ -34,7 +34,7 @@ public final class ImplProviderTest extends Test {
 		@SuppressWarnings("unused")
 		public Cat(String name) {
 			
-			Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+			Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 			
 			this.name = name;
 		}

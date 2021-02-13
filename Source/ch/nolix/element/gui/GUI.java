@@ -5,7 +5,7 @@ package ch.nolix.element.gui;
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -116,7 +116,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final IVisualizer visualizer, final IResizableInputTaker inputTaker) {
 				
-		Validator.assertThat(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
+		Validator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
 		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
 		this.visualizer = visualizer;
@@ -158,7 +158,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final IVisualizer visualizer) {
 		
-		Validator.assertThat(visualizer).thatIsNamed(VariableNameCatalogue.VISUALIZER).isNotNull();
+		Validator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
 		
 		this.inputTaker = null;
 		this.visualizer = visualizer;
@@ -578,7 +578,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public final G setTitle(final String title) {
 		
-		Validator.assertThat(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		Validator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
 		
 		this.title.setValue(title);
 		
@@ -617,7 +617,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	protected final IVisualizer getRefVisualizer() {
 		
 		if (visualizer == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.VISUALIZER);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VISUALIZER);
 		}
 		
 		return visualizer;

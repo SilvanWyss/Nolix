@@ -2,7 +2,7 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -36,7 +36,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case VariableNameCatalogue.CONFIGURATION:
+			case LowerCaseCatalogue.CONFIGURATION:
 				setConfiguration(Configuration.fromSpecification(attribute));
 				break;
 			default:
@@ -58,7 +58,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 		
 		//Handles the case that the current ConfigurationElement has a configuration.
 		if (hasConfiguration()) {
-			list.addAtEnd(configuration.getSpecificationAs(VariableNameCatalogue.CONFIGURATION));
+			list.addAtEnd(configuration.getSpecificationAs(LowerCaseCatalogue.CONFIGURATION));
 		}
 	}
 	
@@ -95,7 +95,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	public CE setConfiguration(Configuration configuration) {
 		
 		//Asserts that the given configuration is not null.
-		Validator.assertThat(configuration).thatIsNamed(VariableNameCatalogue.CONFIGURATION).isNotNull();
+		Validator.assertThat(configuration).thatIsNamed(LowerCaseCatalogue.CONFIGURATION).isNotNull();
 		
 		this.configuration = configuration;
 		updateFromConfiguration();

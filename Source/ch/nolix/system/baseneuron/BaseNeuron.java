@@ -2,7 +2,7 @@
 package ch.nolix.system.baseneuron;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -221,7 +221,7 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 		}
 		
 		if (output == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.OUTPUT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.OUTPUT);
 		}
 		
 		return output;
@@ -264,7 +264,7 @@ public abstract class BaseNeuron<N extends BaseNeuron<N, I, O>, I, O> implements
 	 */
 	protected final void internalSetOutput(final O output) {
 		
-		Validator.assertThat(output).thatIsNamed(VariableNameCatalogue.OUTPUT).isNotNull();
+		Validator.assertThat(output).thatIsNamed(LowerCaseCatalogue.OUTPUT).isNotNull();
 		
 		this.output = output;
 	}

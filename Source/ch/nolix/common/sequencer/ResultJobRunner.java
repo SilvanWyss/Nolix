@@ -2,7 +2,7 @@
 package ch.nolix.common.sequencer;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -65,7 +65,7 @@ final class ResultJobRunner<R> extends Thread {
 		//Asserts that the current ResultJobRunner has an error.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (error == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.ERROR);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return error;

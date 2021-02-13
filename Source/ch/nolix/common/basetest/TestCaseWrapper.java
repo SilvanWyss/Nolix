@@ -5,7 +5,7 @@ package ch.nolix.common.basetest;
 import java.lang.reflect.Method;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -29,7 +29,7 @@ public final class TestCaseWrapper {
 		}
 		
 		if (testCase == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.TEST_CASE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST_CASE);
 		}
 		
 		this.parentTest = parentTest;
@@ -125,14 +125,14 @@ public final class TestCaseWrapper {
 	//method
 	private void supposeHasCleanup() {
 		if (!hasCleanup()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CLEANUP);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.CLEANUP);
 		}
 	}
 	
 	//method
 	private void supposeHasSetup() {
 		if (!hasSetup()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.SETUP);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.SETUP);
 		}
 	}
 }

@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschemaadapter;
 
 //own imports
 import ch.nolix.common.attributeapi.Named;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
@@ -37,7 +37,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//constructor
 	public EntitySet(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.common.independentcontainer;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
@@ -41,7 +41,7 @@ public final class SingleContainer<E> {
 		
 		//Asserts that the given element is not null.
 		if (element == null) {
-			throw new ArgumentIsNotNullException(VariableNameCatalogue.ELEMENT);
+			throw new ArgumentIsNotNullException(LowerCaseCatalogue.ELEMENT);
 		}
 		
 		//Sets the element of the current SingleContainer.

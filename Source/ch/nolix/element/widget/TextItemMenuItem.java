@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -204,7 +204,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//method
 	private void setId(final String id) {
 		
-		Validator.assertThat(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id.setValue(id);
 	}
@@ -221,7 +221,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//method
 	private void setText(final String text) {
 		
-		Validator.assertThat(text).thatIsNamed(VariableNameCatalogue.TEXT).isNotBlank();
+		Validator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
 		
 		this.text.setValue(text);
 		

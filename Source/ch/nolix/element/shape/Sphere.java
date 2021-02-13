@@ -3,7 +3,7 @@ package ch.nolix.element.shape;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -98,7 +98,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	 */
 	public Sphere setRadius(final double radius) {
 		
-		Validator.assertThat(radius).thatIsNamed(VariableNameCatalogue.RADIUS).isPositive();
+		Validator.assertThat(radius).thatIsNamed(LowerCaseCatalogue.RADIUS).isPositive();
 		
 		this.radius.setValue(radius);
 		

@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -934,7 +934,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 */
 	public final BWL setBackgroundColor(final Color backgroundColor) {
 		
-		Validator.assertThat(backgroundColor).thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR).isNotNull();
+		Validator.assertThat(backgroundColor).thatIsNamed(LowerCaseCatalogue.BACKGROUND_COLOR).isNotNull();
 		
 		removeAnyBackground();
 		this.backgroundColor = backgroundColor;

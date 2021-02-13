@@ -3,7 +3,7 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -240,7 +240,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	//method
 	public TabContainerMenuItemLook setPadding(final int padding) {
 		
-		Validator.assertThat(padding).thatIsNamed(VariableNameCatalogue.PADDING).isPositive();
+		Validator.assertThat(padding).thatIsNamed(LowerCaseCatalogue.PADDING).isPositive();
 		
 		this.padding = padding;
 		
@@ -263,7 +263,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	//method
 	public TabContainerMenuItemLook setTextSize(final int textSize) {
 		
-		Validator.assertThat(textSize).thatIsNamed(VariableNameCatalogue.TEXT_SIZE).isPositive();
+		Validator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		
 		this.textSize = textSize;
 		

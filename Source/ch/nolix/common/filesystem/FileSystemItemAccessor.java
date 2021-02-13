@@ -5,7 +5,7 @@ package ch.nolix.common.filesystem;
 import java.io.File;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //class
@@ -38,7 +38,7 @@ public class FileSystemItemAccessor {
 		//Asserts that the given file path does not point to a directory.
 		if (!internalAccessor.exists()) {
 			throw new InvalidArgumentException(
-				VariableNameCatalogue.PATH,
+				LowerCaseCatalogue.PATH,
 				path,
 				"is not a file system item"
 			);

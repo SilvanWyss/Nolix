@@ -2,7 +2,7 @@
 package ch.nolix.common.container;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -107,7 +107,7 @@ final class LinkedListNode<E> {
 		//Asserts that the given element is not null.
 		Validator
 		.assertThat(element)
-		.thatIsNamed(VariableNameCatalogue.ELEMENT)
+		.thatIsNamed(LowerCaseCatalogue.ELEMENT)
 		.isNotNull();
 		
 		//Sets the element of the current list node.

@@ -5,7 +5,7 @@ package ch.nolix.system.client;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.endpoint3.LocalEndPoint;
@@ -110,7 +110,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	public final String getInfoString() {
 		
 		if (infoString == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.INFO_STRING);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.INFO_STRING);
 		}
 		
 		return infoString;
@@ -240,7 +240,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	@Override
 	public final C setInfoString(final String infoString) {
 		
-		Validator.assertThat(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank();
+		Validator.assertThat(infoString).thatIsNamed(LowerCaseCatalogue.INFO_STRING).isNotBlank();
 		
 		this.infoString = infoString;
 		
@@ -490,7 +490,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 			case Protocol.SESSION_HEADER:
 				return internalGetRefCurrentSession().internalInvokeSessionUserDataMethod(request.getOneAttributeAsNode());
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request,"is not valid");
 		}
 	}
 	
@@ -560,7 +560,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 				internalGetRefCurrentSession().run(command.getNextNode());
 				break;
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
 		}
 	}
 	

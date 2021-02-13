@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.independenthelper.ArrayHelper;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
@@ -166,7 +166,7 @@ public final class MultiLongMediator extends Mediator {
 		
 		//Asserts that the given value is positive.
 		if (value < 1) {
-			throw new NonPositiveArgumentException(VariableNameCatalogue.VALUE, value);
+			throw new NonPositiveArgumentException(LowerCaseCatalogue.VALUE, value);
 		}
 		
 		//Handles the case that the given values are null.

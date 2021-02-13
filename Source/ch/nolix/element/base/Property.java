@@ -3,7 +3,7 @@ package ch.nolix.element.base;
 
 //own imports
 import ch.nolix.common.attributeapi.Named;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -45,7 +45,7 @@ public abstract class Property<V> implements Named {
 	) {
 		
 		//Asserts that the given name is not null or blank.
-		Validator.assertThat(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 				
 		//Asserts that the given value creator is not null.
 		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();

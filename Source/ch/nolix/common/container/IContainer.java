@@ -7,7 +7,7 @@ import java.util.Random;
 //own imports
 import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
@@ -1925,7 +1925,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Asserts that the given separator is not null.
 		Validator
 		.assertThat(separator)
-		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
+		.thatIsNamed(LowerCaseCatalogue.SEPARATOR)
 		.isNotNull();
 		
 		//Enumerates the element count of the current IContainer.

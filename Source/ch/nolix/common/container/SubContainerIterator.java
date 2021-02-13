@@ -5,7 +5,7 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
@@ -38,10 +38,10 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	 */
 	public SubContainerIterator(final Iterable<E> container, final int startIndex, final int endIndex) {
 		
-		Validator.assertThat(container).thatIsNamed(VariableNameCatalogue.CONTAINER).isNotNull();
-		Validator.assertThat(startIndex).thatIsNamed(VariableNameCatalogue.START_INDEX).isPositive();
-		Validator.assertThat(endIndex).thatIsNamed(VariableNameCatalogue.END_INDEX).isPositive();
-		Validator.assertThat(endIndex).thatIsNamed(VariableNameCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
+		Validator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
+		Validator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
+		Validator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isPositive();
+		Validator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 		
 		this.endIndex = endIndex;
 		
@@ -73,7 +73,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 		
 		//Asserts that the current @link SubContainerIterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 		
 		currentIndex++;

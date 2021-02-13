@@ -2,7 +2,7 @@
 package ch.nolix.common.independentcontainer;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
@@ -18,7 +18,7 @@ final class ListNode<E> {
 	public ListNode(final E element) {
 		
 		if (element == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.ELEMENT);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.ELEMENT);
 		}
 		
 		this.element = element;

@@ -2,7 +2,7 @@
 package ch.nolix.common.commontypewrapper;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.validator.Validator;
 
@@ -25,7 +25,7 @@ public final class ByteWrapper {
 	public static ByteWrapper fromNumber(final int number) {
 		
 		//Asserts that the given number is in [0, 255].
-		Validator.assertThat(number).thatIsNamed(VariableNameCatalogue.NUMBER).isBetween(0, 255);
+		Validator.assertThat(number).thatIsNamed(LowerCaseCatalogue.NUMBER).isBetween(0, 255);
 		
 		return new ByteWrapper((byte)(number - 128));
 	}
@@ -89,7 +89,7 @@ public final class ByteWrapper {
 	 */
 	public int getBitAtAsInt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, 8);
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, 8);
 		
 		return (mByte >> ( 8 - index)) & 1;
 	}

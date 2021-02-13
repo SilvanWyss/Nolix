@@ -5,7 +5,7 @@ package ch.nolix.element.gui;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -144,7 +144,7 @@ final class WidgetProvider {
 			if (widgetClass == null) {
 				throw
 				new InvalidArgumentException(
-					VariableNameCatalogue.TYPE,
+					LowerCaseCatalogue.TYPE,
 					type,
 					"is invalid because the current "
 					+ getClass().getSimpleName()

@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -44,7 +44,7 @@ public final class FieldHelper {
 	public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 		
 		if (type == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TYPE);
 		}
 		
 		if (!isStatic(field)) {

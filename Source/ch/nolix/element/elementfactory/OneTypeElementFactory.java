@@ -5,7 +5,7 @@ package ch.nolix.element.elementfactory;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.exception.WrapperException;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
@@ -54,7 +54,7 @@ final class OneTypeElementFactory<E> {
 	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode, E> creator) {
 		
 		Validator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
-		Validator.assertThat(creator).thatIsNamed(VariableNameCatalogue.CREATOR).isNotNull();
+		Validator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
 		
 		this.elementClass = elementClass;
 		this.creator = creator;

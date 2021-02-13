@@ -2,7 +2,7 @@
 package ch.nolix.common.math;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.validator.Validator;
 
@@ -64,11 +64,11 @@ public abstract class StatisticalModel {
 	//method
 	protected final double getValueFromBack(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		Validator
 		.assertThat(index)
-		.thatIsNamed(VariableNameCatalogue.INDEX)
+		.thatIsNamed(LowerCaseCatalogue.INDEX)
 		.isNotBiggerThan(inputValues.length + forecasts.getElementCount());
 		
 		if (index > forecasts.getElementCount()) {

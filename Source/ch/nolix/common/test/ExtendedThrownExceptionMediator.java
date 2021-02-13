@@ -2,7 +2,7 @@
 package ch.nolix.common.test;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 
 //class
@@ -61,7 +61,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		
 		//Asserts that the given type is not null.
 		if (type == null) {
-			throw new ArgumentIsNullException(VariableNameCatalogue.TYPE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TYPE);
 		}
 		
 		//Handles the case that the current extended thrown exception mediator

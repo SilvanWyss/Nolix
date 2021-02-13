@@ -5,7 +5,7 @@ package ch.nolix.common.math;
 import java.util.Arrays;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.validator.Validator;
 
@@ -139,7 +139,7 @@ public final class Vector {
 	 */
 	public double getValueAt(int index) {
 		
-		Validator.assertThat(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, getSize());
+		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getSize());
 				
 		return values[index - 1];
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.common.valuecreator;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.validator.Validator;
 
@@ -18,7 +18,7 @@ public final class SpecificValueCreator<S, V> {
 	public SpecificValueCreator(final Class<V> valueClass, final IElementTakerElementGetter<S, V> creator) {
 		
 		Validator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
-		Validator.assertThat(creator).thatIsNamed(VariableNameCatalogue.CREATOR).isNotNull();
+		Validator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
 		
 		this.valueClass = valueClass;
 		this.creator = creator;

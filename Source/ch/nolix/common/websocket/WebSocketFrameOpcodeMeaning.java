@@ -2,7 +2,7 @@
 package ch.nolix.common.websocket;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
 //enum
@@ -43,7 +43,7 @@ public enum WebSocketFrameOpcodeMeaning {
 			case 0xF:
 				return RESERVED;
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.NUMBER, number, "is not valid");
+				throw new InvalidArgumentException(LowerCaseCatalogue.NUMBER, number, "is not valid");
 		}
 	}
 	

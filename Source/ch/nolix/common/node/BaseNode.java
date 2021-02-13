@@ -5,7 +5,7 @@ package ch.nolix.common.node;
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.filesystem.FileAccessor;
@@ -142,7 +142,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void addPostfixToHeader(final String postfix) {
 		
 		//Asserts that the given postfix is not null or blank.
-		Validator.assertThat(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
+		Validator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
 		
 		//Handles the case that the current Node does not have a header.
 		if (hasHeader()) {
@@ -166,7 +166,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void addPrefixToHeader(final String prefix) {
 		
 		//Asserts that the given prefix is not null or blank.
-		Validator.assertThat(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
+		Validator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
 		
 		//Handles the case that the current BaseNode does not have a header.
 		if (!hasHeader()) {

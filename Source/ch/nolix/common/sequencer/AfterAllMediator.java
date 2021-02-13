@@ -2,7 +2,7 @@
 package ch.nolix.common.sequencer;
 
 //own imports
-import ch.nolix.common.constant.VariableNameCatalogue;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -38,7 +38,7 @@ public final class AfterAllMediator {
 	 */
 	AfterAllMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
 		
-		Validator.assertThat(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
+		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 		
 		maxRunCount = null;
@@ -115,7 +115,7 @@ public final class AfterAllMediator {
 	 */
 	private void assertHasCondition() {
 		if (!hasCondition()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, VariableNameCatalogue.CONDITION);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.CONDITION);
 		}
 	}
 	
