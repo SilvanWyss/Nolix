@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -44,7 +44,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.ROLE:
+			case PascalCaseCatalogue.ROLE:
 				setRole(ContainerRole.fromSpecification(attribute));
 				break;
 			default:
@@ -67,7 +67,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		
 		//Handles the case that the current container has a role.
 		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+			list.addAtEnd(role.getSpecificationAs(PascalCaseCatalogue.ROLE));
 		}
 	}
 	

@@ -2,7 +2,7 @@
 package ch.nolix.element.gui;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -81,7 +81,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//attribute
 	private final OptionalValue<LayerRole> role =
 	new OptionalValue<>(
-		PascalCaseNameCatalogue.ROLE,
+		PascalCaseCatalogue.ROLE,
 		this::setRole,
 		LayerRole::fromSpecification,
 		LayerRole::getSpecification
@@ -106,7 +106,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//attribute
 	private final MutableOptionalValue<Color> backgroundColor =
 	new MutableOptionalValue<>(
-		PascalCaseNameCatalogue.BACKGROUND_COLOR,
+		PascalCaseCatalogue.BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification,
 		Color::getSpecification

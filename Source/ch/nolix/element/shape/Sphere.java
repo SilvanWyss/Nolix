@@ -2,7 +2,7 @@
 package ch.nolix.element.shape;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -25,7 +25,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	//attribute	
 	private final MutableValue<Double> radius =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.RADIUS,
+		PascalCaseCatalogue.RADIUS,
 		DEFAULT_RADIUS,
 		this::setRadius,
 		BaseNode::getOneAttributeAsDouble,

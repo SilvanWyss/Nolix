@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.Matrix;
@@ -37,7 +37,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.CELL:
+			case PascalCaseCatalogue.CELL:
 				
 				final var attributes = attribute.getRefAttributes();
 				
@@ -67,7 +67,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		for (final GridCell c : cells) {
 			if (c.containsAny()) {
-				list.addAtEnd(c.getSpecificationAs(PascalCaseNameCatalogue.CELL));
+				list.addAtEnd(c.getSpecificationAs(PascalCaseCatalogue.CELL));
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
@@ -54,16 +54,16 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 			case MIN_WIDTH_HEADER:
 				setMinWidth(attribute.getOneAttributeAsInt());
 				break;
-			case PascalCaseNameCatalogue.PADDING:
+			case PascalCaseCatalogue.PADDING:
 				setPadding(attribute.getOneAttributeAsInt());
 				break;
-			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+			case PascalCaseCatalogue.BACKGROUND_COLOR:
 				setBackgroundColor(Color.fromSpecification(attribute));
 				break;
-			case PascalCaseNameCatalogue.TEXT_SIZE:
+			case PascalCaseCatalogue.TEXT_SIZE:
 				setTextSize(attribute.getOneAttributeAsInt());
 				break;
-			case PascalCaseNameCatalogue.TEXT_COLOR:
+			case PascalCaseCatalogue.TEXT_COLOR:
 				setTextColor(new Color(attribute.getOneAttributeHeader()));
 				break;
 			default:
@@ -83,19 +83,19 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 		}
 		
 		if (hasBackgroundColor()) {
-			list.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			list.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseCatalogue.BACKGROUND_COLOR));
 		}
 		
 		if (hasPadding()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.PADDING, padding));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.PADDING, padding));
 		}
 		
 		if (hasTextSize()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TEXT_SIZE, textSize));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.TEXT_SIZE, textSize));
 		}
 		
 		if (hasTextColor()) {
-			list.addAtEnd(textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR));
+			list.addAtEnd(textColor.getSpecificationAs(PascalCaseCatalogue.TEXT_COLOR));
 		}
 	}
 	
@@ -219,7 +219,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 		
 		Validator
 		.assertThat(backgroundColor)
-		.thatIsNamed(PascalCaseNameCatalogue.BACKGROUND_COLOR)
+		.thatIsNamed(PascalCaseCatalogue.BACKGROUND_COLOR)
 		.isNotNull();
 		
 		this.backgroundColor = backgroundColor;
@@ -252,7 +252,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 		
 		Validator
 		.assertThat(textColor)
-		.thatIsNamed(PascalCaseNameCatalogue.TEXT_COLOR)
+		.thatIsNamed(PascalCaseCatalogue.TEXT_COLOR)
 		.isNotNull();
 		
 		this.textColor = textColor;

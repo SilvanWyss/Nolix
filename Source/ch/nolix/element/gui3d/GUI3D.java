@@ -5,7 +5,7 @@ package ch.nolix.element.gui3d;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -43,7 +43,7 @@ implements Clearable, Closeable, Refreshable {
 	//attribute
 	private final MutableValue<String> title =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.TITLE,
+		PascalCaseCatalogue.TITLE,
 		DEFAULT_TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
@@ -53,7 +53,7 @@ implements Clearable, Closeable, Refreshable {
 	//attribute
 	private final MutableValue<Color> backgroundColor =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.BACKGROUND_COLOR,
+		PascalCaseCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification,

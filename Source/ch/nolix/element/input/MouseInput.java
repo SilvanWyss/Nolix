@@ -2,7 +2,7 @@
 package ch.nolix.element.input;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Value;
@@ -20,7 +20,7 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 		new MouseInput(
 			MouseInputType.fromSpecification(specification.getRefFirstAttribute(INPUT_TYPE_HEADER)),
 			Discrete2DPoint.fromSpecification(
-				specification.getRefFirstAttribute(PascalCaseNameCatalogue.CURSOR_POSITION)
+				specification.getRefFirstAttribute(PascalCaseCatalogue.CURSOR_POSITION)
 			)
 		);
 	}
@@ -37,7 +37,7 @@ public final class MouseInput extends Element<MouseInput> implements IInput<Mous
 	//attribute
 	private final Value<Discrete2DPoint> cursorPosition =
 	new Value<>(
-		PascalCaseNameCatalogue.CURSOR_POSITION,
+		PascalCaseCatalogue.CURSOR_POSITION,
 		this::setCursorPosition,
 		Discrete2DPoint::fromSpecification,
 		Discrete2DPoint::getSpecification

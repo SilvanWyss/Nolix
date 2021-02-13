@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.color.Color;
@@ -25,7 +25,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	//attribute
 	private final LayerProperty<Integer> lineThickness =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.LINE_THICKNESS,
+		PascalCaseCatalogue.LINE_THICKNESS,
 		DEFAULT_LINE_THICKNESS,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute
@@ -34,7 +34,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	//attribute
 	private final LayerProperty<Color> lineColor =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.COLOR,
+		PascalCaseCatalogue.COLOR,
 		DEFAULT_LINE_COLOR,
 		Color::fromSpecification,
 		Color::getSpecification
@@ -43,7 +43,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	//attribute
 	private final LayerProperty<Integer> elementMargin =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.ELEMENT_MARGIN,
+		PascalCaseCatalogue.ELEMENT_MARGIN,
 		DEFAULT_ELEMENT_MARGIN,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute

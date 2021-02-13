@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -37,7 +37,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.LINE_THICKNESS:
+			case PascalCaseCatalogue.LINE_THICKNESS:
 				setLineThickness(attribute.getOneAttributeAsInt());
 				break;
 			default:
@@ -59,7 +59,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 		
 		//Handles the case that the current CheckBoxLook has a line thickness.
 		if (hasLineThickness()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.LINE_THICKNESS, lineThickness));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.LINE_THICKNESS, lineThickness));
 		}
 	}
 	

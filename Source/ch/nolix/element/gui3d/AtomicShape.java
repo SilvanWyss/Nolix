@@ -5,7 +5,7 @@ package ch.nolix.element.gui3d;
 import java.awt.image.BufferedImage;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -31,7 +31,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	//attribute
 	private MutableValue<Color> defaultColor =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.DEFAULT_COLOR,
+		PascalCaseCatalogue.DEFAULT_COLOR,
 		DEFAULT_COLOR,
 		this::setDefaultColor,
 		Color::fromSpecification,
@@ -41,7 +41,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	//attribute
 	private final MutableOptionalValue<Image> defaultTexture =
 	new MutableOptionalValue<>(
-		PascalCaseNameCatalogue.DEFAULT_TEXTURE,
+		PascalCaseCatalogue.DEFAULT_TEXTURE,
 		this::setDefaultTexture,
 		Image::fromSpecification,
 		Image::getSpecification

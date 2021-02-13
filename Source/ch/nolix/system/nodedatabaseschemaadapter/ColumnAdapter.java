@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaseschemaadapter;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.databaseschemaadapter.Column;
@@ -40,14 +40,14 @@ public final class ColumnAdapter implements IColumnAdapter {
 	public String getHeader() {
 		return
 		columnNode
-		.getRefFirstAttribute(PascalCaseNameCatalogue.HEADER)
+		.getRefFirstAttribute(PascalCaseCatalogue.HEADER)
 		.getOneAttributeHeader();
 	}
 	
 	//method
 	public void setHeader(final String header) {
 		columnNode
-		.getRefFirstAttribute(PascalCaseNameCatalogue.HEADER)
+		.getRefFirstAttribute(PascalCaseCatalogue.HEADER)
 		.getRefOneAttribute()
 		.setHeader(header);
 	}

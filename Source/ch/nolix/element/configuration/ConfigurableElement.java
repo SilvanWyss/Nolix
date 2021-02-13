@@ -2,7 +2,7 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -40,10 +40,10 @@ implements IConfigurableElement<CE> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.ID:
+			case PascalCaseCatalogue.ID:
 				setId(attribute.getOneAttributeHeader());
 				break;
-			case PascalCaseNameCatalogue.TOKEN:
+			case PascalCaseCatalogue.TOKEN:
 				setToken(attribute.getOneAttributeHeader());
 				break;
 			default:
@@ -65,12 +65,12 @@ implements IConfigurableElement<CE> {
 		
 		//Handles the case that the current ConfigurableElement has a id.
 		if (hasId()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.ID, id));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.ID, id));
 		}
 		
 		//Handles the case that the current ConfigurableElement has a token.
 		if (hasToken()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TOKEN, token));
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.TOKEN, token));
 		}
 	}
 	

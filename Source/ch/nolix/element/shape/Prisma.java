@@ -2,7 +2,7 @@
 package ch.nolix.element.shape;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -19,7 +19,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	//attribute
 	private final MutableValue<Double> height =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.HEIGHT,
+		PascalCaseCatalogue.HEIGHT,
 		DEFAULT_HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,

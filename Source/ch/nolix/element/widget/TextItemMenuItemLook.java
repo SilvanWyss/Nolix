@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerelement.LayerElement;
@@ -32,7 +32,7 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	//attribute
 	private final LayerProperty<Color> backgroundColor =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.BACKGROUND_COLOR,
+		PascalCaseCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		Color::fromSpecification,
 		Color::getSpecification
@@ -41,7 +41,7 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	//attribute
 	private final LayerProperty<Color> textColor =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.TEXT_COLOR,
+		PascalCaseCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		Color::fromSpecification,
 		Color::getSpecification

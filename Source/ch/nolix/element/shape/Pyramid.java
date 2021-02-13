@@ -2,7 +2,7 @@
 package ch.nolix.element.shape;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
@@ -20,7 +20,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	//attribute
 	private final MutableValue<Double> sideLength =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.SIDE_LENGTH,
+		PascalCaseCatalogue.SIDE_LENGTH,
 		DEFAULT_SIDE_LENGTH,
 		this::setSideLength,
 		BaseNode::getOneAttributeAsDouble,
@@ -30,7 +30,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 	//attribute
 	private final MutableValue<Double> height =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.HEIGHT,
+		PascalCaseCatalogue.HEIGHT,
 		DEFAULT_HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsDouble,

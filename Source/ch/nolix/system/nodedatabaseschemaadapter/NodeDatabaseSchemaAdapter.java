@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaseschemaadapter;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.filenode.FileNode;
@@ -52,7 +52,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		return
 		DatabaseState.valueOf(		
 			getDatabasePropertiesNode()
-			.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
+			.getRefFirstAttribute(PascalCaseCatalogue.STATE)
 			.getOneAttributeHeader()
 		);
 	}
@@ -70,12 +70,12 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 	@Override
 	protected void initializeDatabaseWhenNotInitialized() {
 		
-		fileNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
+		fileNodeDatabase.setHeader(PascalCaseCatalogue.DATABASE);
 		
 		final var propertiesSpecification = new Node();
 		propertiesSpecification.setHeader(DATABASE_PROPERTIES_HEADER);
 		propertiesSpecification.addAttribute(
-			Node.withHeaderAndAttribute(PascalCaseNameCatalogue.STATE, DatabaseState.READY.toString())
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.STATE, DatabaseState.READY.toString())
 		);
 		
 		fileNodeDatabase.addAttribute(propertiesSpecification);
@@ -85,7 +85,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 	@Override
 	protected void lockDatabase() {
 		getDatabasePropertiesNode()
-		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
+		.getRefFirstAttribute(PascalCaseCatalogue.STATE)
 		.getRefOneAttribute()
 		.setHeader(DatabaseState.LOCKED.toString());
 	}
@@ -145,7 +145,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		
 		final var node = Node.withHeader(ObjectProtocol.ENTITY_SET);
 		
-		node.addAttribute(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.NAME, entitySet.getName()));
+		node.addAttribute(Node.withHeaderAndAttribute(PascalCaseCatalogue.NAME, entitySet.getName()));
 		
 		for (final var c : entitySet.getRefColumns()) {
 			node.addAttribute(c.getSpecification());
@@ -173,7 +173,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 	//method
 	private void setDatabaseReady() {
 		getDatabasePropertiesNode()
-		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
+		.getRefFirstAttribute(PascalCaseCatalogue.STATE)
 		.getRefOneAttribute()
 		.setHeader(DatabaseState.READY.toString());	
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.element.input;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.IntPair;
@@ -28,7 +28,7 @@ public final class ResizeInput extends Element<ResizeInput> implements IInput<Re
 	//attribute
 	private final Value<IntPair> size =
 	new Value<>(
-		PascalCaseNameCatalogue.SIZE,
+		PascalCaseCatalogue.SIZE,
 		this::setViewAreaSize,
 		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),
 		ip -> Node.withAttribute(ip.getValue1(), ip.getValue2())

@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
@@ -24,7 +24,7 @@ implements Clearable {
 	//attribute
 	private final MultiValue<TextItemMenuItem> items =
 	new MultiValue<>(
-		PascalCaseNameCatalogue.ITEM,
+		PascalCaseCatalogue.ITEM,
 		this::addItem,
 		TextItemMenuItem::fromSpecification,
 		TextItemMenuItem::getSpecification

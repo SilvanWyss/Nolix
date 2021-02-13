@@ -3,7 +3,7 @@ package ch.nolix.element.gui;
 
 //own imports
 import ch.nolix.common.chainednode.ChainedNode;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -158,7 +158,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//attribute
 	private final MultiValue<Layer> layers =
 	new MultiValue<>(
-		PascalCaseNameCatalogue.LAYER,
+		PascalCaseCatalogue.LAYER,
 		this::addLayerOnTop,
 		Layer::fromSpecification,
 		Layer::getSpecification
@@ -323,7 +323,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		} else {
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {				
-				case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+				case PascalCaseCatalogue.BACKGROUND_COLOR:
 					background.setBackgroundColor(Color.fromSpecification(attribute));
 					break;		
 				case BACKGROUND_COLOR_GRADIENT_HEADER:
@@ -386,7 +386,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		//Handles the case that the current WidgetGUI has a background Color.
 		if (background.hasBackgroundColor()) {
 			list.addAtEnd(
-				background.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR)
+				background.getBackgroundColor().getSpecificationAs(PascalCaseCatalogue.BACKGROUND_COLOR)
 			);
 		}
 		

@@ -3,13 +3,13 @@ package ch.nolix.common.constant;
 
 //class
 /**
- * Of the {@link PascalCaseNameCatalogue} an instance cannot be created.
+ * Of the {@link PascalCaseCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
  * @lines 190
  */
-public final class PascalCaseNameCatalogue {
+public final class PascalCaseCatalogue {
 	
 	//constants
 	public static final String AGE = "Age";
@@ -184,7 +184,7 @@ public final class PascalCaseNameCatalogue {
 	
 	//visibility-reduced constructor
 	/**
-	 * Avoids that an instance of the {@link PascalCaseNameCatalogue} can be created.
+	 * Avoids that an instance of the {@link PascalCaseCatalogue} can be created.
 	 */
-	private PascalCaseNameCatalogue() {}
+	private PascalCaseCatalogue() {}
 }

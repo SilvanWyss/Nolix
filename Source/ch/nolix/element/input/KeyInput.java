@@ -2,7 +2,7 @@
 package ch.nolix.element.input;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -174,7 +174,7 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	
 	//attribute
 	private final Value<Key> key =
-	new Value<>(PascalCaseNameCatalogue.KEY, this::setKey, Key::fromSpecification, Key::getSpecification);
+	new Value<>(PascalCaseCatalogue.KEY, this::setKey, Key::fromSpecification, Key::getSpecification);
 	
 	//attribute
 	private final Value<KeyInputType> inputType =

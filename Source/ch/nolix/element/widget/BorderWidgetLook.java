@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -149,7 +149,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 			case TOP_BORDER_COLOR_HEADER:
 				setTopBorderColor(Color.fromSpecification(attribute));
 				break;
-			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+			case PascalCaseCatalogue.BACKGROUND_COLOR:
 				setBackgroundColor(Color.fromSpecification(attribute));
 				break;
 			case BACKGROUND_COLOR_GRADIENT_HEADER:
@@ -203,7 +203,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		fillUpBorderColorsSpecifications(list);
 		
 		if (hasBackgroundColor()) {
-			list.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			list.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseCatalogue.BACKGROUND_COLOR));
 		} else if (hasBackgroundColorGradient()) {
 			list.addAtEnd(backgroundColorGradient.getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER));
 		} else if (hasBackgroundImage()) {

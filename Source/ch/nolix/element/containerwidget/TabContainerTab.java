@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -33,12 +33,12 @@ public final class TabContainerTab extends Element<TabContainerTab>
 implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
 	
 	//constant
-	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
+	public static final String DEFAULT_HEADER = PascalCaseCatalogue.DEFAULT;
 	
 	//attribute
 	private final MutableValue<String> header =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.HEADER,
+		PascalCaseCatalogue.HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,

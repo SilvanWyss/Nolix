@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -58,7 +58,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.ROLE:
+			case PascalCaseCatalogue.ROLE:
 				setRole(ButtonRole.fromSpecification(attribute));
 				break;
 			default:
@@ -81,7 +81,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		
 		//Handles the case that the current Button has a role.
 		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+			list.addAtEnd(role.getSpecificationAs(PascalCaseCatalogue.ROLE));
 		}
 	}
 	

@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
@@ -35,7 +35,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//attribute
 	private final Value<String> text =
 	new Value<>(
-		PascalCaseNameCatalogue.TEXT,
+		PascalCaseCatalogue.TEXT,
 		this::setText,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute
@@ -44,7 +44,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//attribute
 	private final OptionalValue<String> id =
 	new OptionalValue<>(
-		PascalCaseNameCatalogue.ID,
+		PascalCaseCatalogue.ID,
 		this::setId,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute

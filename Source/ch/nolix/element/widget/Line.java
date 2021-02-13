@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -60,7 +60,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.THICKNESS:
+			case PascalCaseCatalogue.THICKNESS:
 				setThickness(attribute.getOneAttributeAsInt());
 				break;
 			case Color.TYPE_NAME:
@@ -84,7 +84,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		super.fillUpAttributesInto(list);
 		
 		list
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.THICKNESS, thickness))
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.THICKNESS, thickness))
 		.addAtEnd(color.getSpecification());
 	}
 	

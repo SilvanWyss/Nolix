@@ -3,7 +3,7 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -72,7 +72,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.TAB:
+			case PascalCaseCatalogue.TAB:
 				addTab(TabContainerTab.fromSpecification(attribute));
 				break;
 			default:		
@@ -114,7 +114,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	public TabContainer addTab(final TabContainerTab tab) {
 		
 		//Asserts that the given tab is not null.
-		Validator.assertThat(tab).thatIsNamed(PascalCaseNameCatalogue.TAB).isNotNull();
+		Validator.assertThat(tab).thatIsNamed(PascalCaseCatalogue.TAB).isNotNull();
 		
 		//Adds the given tab to the current tab container.
 		tab.setParentTabContainer(this);
@@ -182,7 +182,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		
 		//Iterates the tabs of the current TabContainer.
 		for (final var t : getRefTabs()) {
-			list.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
+			list.addAtEnd(t.getSpecificationAs(PascalCaseCatalogue.TAB));
 		}
 	}
 	

@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -56,13 +56,13 @@ public final class Area extends Widget<Area, AreaLook> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.WIDTH:
+			case PascalCaseCatalogue.WIDTH:
 				setWidth(attribute.getOneAttributeAsInt());
 				break;
-			case PascalCaseNameCatalogue.HEIGHT:
+			case PascalCaseCatalogue.HEIGHT:
 				setHeight(attribute.getOneAttributeAsInt());
 				break;
-			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+			case PascalCaseCatalogue.BACKGROUND_COLOR:
 				setBackgroundColor(Color.fromSpecification(attribute));
 				break;
 			default:
@@ -83,12 +83,12 @@ public final class Area extends Widget<Area, AreaLook> {
 		super.fillUpAttributesInto(list);
 		
 		list
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEIGHT, height))
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.WIDTH, width));
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.HEIGHT, height))
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.WIDTH, width));
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {
-			list.addAtEnd(getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			list.addAtEnd(getBackgroundColor().getSpecificationAs(PascalCaseCatalogue.BACKGROUND_COLOR));
 		}
 	}
 	

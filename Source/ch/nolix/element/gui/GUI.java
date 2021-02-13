@@ -4,7 +4,7 @@ package ch.nolix.element.gui;
 //own imports
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.closeableelement.CloseController;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -65,7 +65,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//attribute
 	private final MutableValue<String> title =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.TITLE,
+		PascalCaseCatalogue.TITLE,
 		DEFAULT_TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,

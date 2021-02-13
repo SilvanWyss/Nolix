@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaseschemaadapter;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
@@ -50,7 +50,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		return
 		entitySetSpecification.containsAttribute(
 			a ->
-				a.hasHeader(PascalCaseNameCatalogue.COLUMN)
+				a.hasHeader(PascalCaseCatalogue.COLUMN)
 				&& new ColumnAdapter(a).hasHeader(header)
 		);
 	}
@@ -60,7 +60,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		entitySetSpecification
 		.removeFirstAttribute(
 			a ->
-			a.hasHeader(PascalCaseNameCatalogue.COLUMN)
+			a.hasHeader(PascalCaseCatalogue.COLUMN)
 			&& new ColumnAdapter(a).hasSameHeaderAs(column)
 		);
 	}
@@ -76,7 +76,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	public LinkedList<IColumnAdapter> getColumnAdapters() {
 		return
 		entitySetSpecification
-		.getRefAttributes(a -> a.hasHeader(PascalCaseNameCatalogue.COLUMN))
+		.getRefAttributes(a -> a.hasHeader(PascalCaseCatalogue.COLUMN))
 		.to(ColumnAdapter::new);
 	}
 	
@@ -85,7 +85,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	public String getName() {
 		return
 		entitySetSpecification
-		.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
+		.getRefFirstAttribute(PascalCaseCatalogue.NAME)
 		.getOneAttributeHeader();
 	}
 }

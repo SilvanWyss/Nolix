@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschemaadapter;
 
 //own imports
 import ch.nolix.common.attributeapi.Headered;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
@@ -35,7 +35,7 @@ public final class Column implements Headered, IElement {
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		list.addAtEnd(
-			Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEADER, getHeader()),
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, getHeader()),
 			Node.withHeader(dataType.getPropertyKind().toString())
 		);
 	}

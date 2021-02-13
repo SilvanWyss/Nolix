@@ -3,7 +3,7 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -42,7 +42,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	//attribute
 	private final MultiValue<AccordionTab> tabs =
 	new MultiValue<>(
-		PascalCaseNameCatalogue.TAB,
+		PascalCaseCatalogue.TAB,
 		this::addTab,
 		AccordionTab::fromSpecification,
 		AccordionTab::getSpecification

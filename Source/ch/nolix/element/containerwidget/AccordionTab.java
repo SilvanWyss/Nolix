@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -46,11 +46,11 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//attribute
 	private final MutableValue<String> header =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.HEADER,
+		PascalCaseCatalogue.HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,
-		h -> Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEADER, getHeader())
+		h -> Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, getHeader())
 	);
 	
 	//attribute

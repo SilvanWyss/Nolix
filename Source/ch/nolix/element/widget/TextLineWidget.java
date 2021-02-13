@@ -2,7 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -28,7 +28,7 @@ extends BorderWidget<TLW, TLWL> {
 	//attribute
 	private MutableValue<String> text =
 	new MutableValue<>(
-		PascalCaseNameCatalogue.TEXT,
+		PascalCaseCatalogue.TEXT,
 		StringCatalogue.EMPTY_STRING,
 		this::setText,
 		s -> {

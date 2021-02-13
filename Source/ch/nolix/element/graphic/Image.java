@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -95,8 +95,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		//TODO: Refactor this implementation.
 		final var image =
 		new Image(
-			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.WIDTH)).getOneAttributeAsInt(),
-			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseNameCatalogue.HEIGHT)).getOneAttributeAsInt()
+			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.WIDTH)).getOneAttributeAsInt(),
+			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.HEIGHT)).getOneAttributeAsInt()
 		);
 		
 		image.addOrChangeAttribute(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
@@ -112,7 +112,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//attribute
 	private final Value<Integer> width =
 	new Value<>(
-		PascalCaseNameCatalogue.WIDTH,
+		PascalCaseCatalogue.WIDTH,
 		this::setWidth,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute
@@ -121,7 +121,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//attribute
 	private final Value<Integer> height =
 	new Value<>(
-		PascalCaseNameCatalogue.HEIGHT,
+		PascalCaseCatalogue.HEIGHT,
 		this::setHeight,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute

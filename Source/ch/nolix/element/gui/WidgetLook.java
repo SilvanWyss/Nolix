@@ -2,7 +2,7 @@
 package ch.nolix.element.gui;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
@@ -62,7 +62,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	//attribute
 	private final LayerProperty<Integer> textSize =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.TEXT_SIZE,
+		PascalCaseCatalogue.TEXT_SIZE,
 		DEFAULT_TEXT_SIZE,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute
@@ -71,7 +71,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	//attribute
 	private final LayerProperty<Color> textColor =
 	new LayerProperty<>(
-		PascalCaseNameCatalogue.TEXT_COLOR,
+		PascalCaseCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		Color::fromSpecification,
 		Color::getSpecification

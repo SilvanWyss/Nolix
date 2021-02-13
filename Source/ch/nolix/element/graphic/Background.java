@@ -2,7 +2,7 @@
 package ch.nolix.element.graphic;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
@@ -25,7 +25,7 @@ public final class Background extends Element<Background> implements ISmartMutab
 	//attribute
 	private final MutableOptionalValue<Color> backgroundColor =
 	new MutableOptionalValue<>(
-		PascalCaseNameCatalogue.BACKGROUND_COLOR,
+		PascalCaseCatalogue.BACKGROUND_COLOR,
 		this::setBackgroundColor,
 		Color::fromSpecification,
 		Color::getSpecification

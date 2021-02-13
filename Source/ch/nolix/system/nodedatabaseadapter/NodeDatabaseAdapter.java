@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaseadapter;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -71,7 +71,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	//method
 	@Override
 	public String getDatabaseName() {
-		return database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME).getOneAttributeHeader();
+		return database.getRefFirstAttribute(PascalCaseCatalogue.NAME).getOneAttributeHeader();
 	}
 	
 	//method

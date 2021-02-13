@@ -5,7 +5,7 @@ package ch.nolix.element.gui;
 import ch.nolix.common.attributeapi.Indexed;
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.chainednode.ChainedNode;
-import ch.nolix.common.constant.PascalCaseNameCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.independenthelper.ArrayHelper;
 import ch.nolix.element.color.Color;
@@ -241,7 +241,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.REGISTER_IMAGE
 			+ "("
-			+ PascalCaseNameCatalogue.ID
+			+ PascalCaseCatalogue.ID
 			+ "("
 			+ id
 			+ "),"
