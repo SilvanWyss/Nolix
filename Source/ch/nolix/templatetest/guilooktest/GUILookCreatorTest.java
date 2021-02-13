@@ -22,7 +22,7 @@ import ch.nolix.element.widget.Uploader;
 import ch.nolix.element.widget.VerticalLine;
 
 //class
-public abstract class GUILookTest extends ObjectTest<Configuration> {
+public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {
 	
 	//method
 	@TestCase
