@@ -6,7 +6,7 @@ import ch.nolix.element.configuration.Configuration;
 import ch.nolix.template.guilook.AnthrazitGUILookCreator;
 
 //class
-public final class AnthrazitGUILookCreatorTest extends GUILookTest<Configuration> {
+public final class AnthrazitGUILookCreatorTest extends GUILookTest {
 	
 	//method
 	@Override
