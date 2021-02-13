@@ -2,14 +2,15 @@
 package ch.nolix.templatetest.consoleclientlooktest;
 
 //own imports
-import ch.nolix.template.consoleclientlook.BlackGreenConsoleClientLook;
+import ch.nolix.element.configuration.Configuration;
+import ch.nolix.template.consoleclientlook.BlackGreenConsoleClientLookCreator;
 
 //class
-public final class BlackGreenConsoleClientLookTest extends ConsoleClientLookTest<BlackGreenConsoleClientLook> {
+public final class BlackGreenConsoleClientLookTest extends ConsoleClientLookTest<Configuration> {
 	
 	//method
 	@Override
-	protected BlackGreenConsoleClientLook createTestUnit() {
-		return new BlackGreenConsoleClientLook();
+	protected Configuration createTestUnit() {
+		return new BlackGreenConsoleClientLookCreator().createClientLook();
 	}
 }
