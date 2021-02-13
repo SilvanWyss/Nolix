@@ -10,20 +10,20 @@ import ch.nolix.element.configuration.Configuration;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-09-01
  * @lines 50
  */
-public final class GreyBlueConsoleClientLook extends Configuration {
+public final class GreyBlueConsoleClientLookCreator {
 
 	//constructor
 	/**
-	 * Creates a new console client.
+	 * @return a new {@link Configuration}.
 	 */
-	public GreyBlueConsoleClientLook() {
-		
-		addAttachingAttribute("BackgroundColor(LightSteelBlue)");
-		
-		addConfiguration(
+	public Configuration createConsoleClientLook() {
+		return
+		new Configuration()
+		.addAttachingAttribute("BackgroundColor(LightSteelBlue)")
+		.addConfiguration(
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(

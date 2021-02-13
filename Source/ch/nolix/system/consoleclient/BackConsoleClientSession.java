@@ -9,7 +9,7 @@ import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.WidgetIdCatalogue;
 import ch.nolix.element.widget.Console;
 import ch.nolix.system.baseguiclient.BaseBackGUIClientSession;
-import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLook;
+import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 
 //class
 /**
@@ -185,7 +185,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 			.addWidget(infoPanel, console)
 			.setRole(ContainerRole.MAINT_CONTAINER)
 		)
-		.setConfiguration(new GreyBlueConsoleClientLook());
+		.setConfiguration(new GreyBlueConsoleClientLookCreator().createConsoleClientLook());
 		
 		initializeBackConsoleClientSession();
 	}
