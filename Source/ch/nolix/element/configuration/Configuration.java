@@ -12,7 +12,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * @date 2016-02-01
  * @lines 70
  */
-public class Configuration extends BaseConfiguration<Configuration> {
+public final class Configuration extends BaseConfiguration<Configuration> {
 
 	//constant
 	public static final String TYPE_NAME = "StandardConfiguration";
@@ -60,7 +60,7 @@ public class Configuration extends BaseConfiguration<Configuration> {
 	 * @param element
 	 */
 	@Override
-	public final void configure(final IConfigurableElement<?> element) {
+	public void configure(final IConfigurableElement<?> element) {
 		if (selects(element)) {
 			
 			setAttachingAttributesTo(element);

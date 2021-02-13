@@ -17,7 +17,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * @date 2016-01-01
  * @lines 190
  */
-public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
+public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//constant
 	public static final String TYPE_NAME = "DeepConfiguration";
