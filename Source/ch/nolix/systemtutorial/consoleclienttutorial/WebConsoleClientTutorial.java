@@ -6,7 +6,7 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.consoleclient.BackConsoleClientSession;
 import ch.nolix.system.consoleclient.FrontConsoleClient;
-import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLook;
+import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 public final class WebConsoleClientTutorial {
 
@@ -33,7 +33,7 @@ public final class WebConsoleClientTutorial {
 		@Override
 		protected void initializeBackConsoleClientSession() {
 			
-			this.setLook(new BlackRedConsoleClientLook());
+			this.setLook(new BlackRedConsoleClientLookCreator().createClientLook());
 			
 			writeLineToConsole("Hello.", "Press q to quit the program.");
 			while (readCharacterFromConsole() != 'q');			

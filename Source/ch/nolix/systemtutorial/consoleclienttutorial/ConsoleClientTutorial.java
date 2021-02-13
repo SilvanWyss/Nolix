@@ -5,7 +5,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.consoleclient.BackConsoleClient;
 import ch.nolix.system.consoleclient.BackConsoleClientSession;
 import ch.nolix.system.consoleclient.FrontConsoleClient;
-import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLook;
+import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 /**
  * The {@link ConsoleClientTutorial} is a tutorial for {@link BackConsoleClient}s.
@@ -37,7 +37,7 @@ public final class ConsoleClientTutorial {
 		@Override
 		protected void initializeBackConsoleClientSession() {
 			
-			setLook(new BlackRedConsoleClientLook());
+			setLook(new BlackRedConsoleClientLookCreator().createClientLook());
 						
 			writeLineToInfoPanel(
 				"This is the info panel of the console.",
