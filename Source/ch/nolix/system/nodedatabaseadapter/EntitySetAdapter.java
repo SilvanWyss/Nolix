@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaseadapter;
 
 //own imports
-import ch.nolix.common.constant.MultiPascalCaseNameCatalogue;
+import ch.nolix.common.constant.PluralPascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.validator.Validator;
@@ -53,7 +53,7 @@ public final class EntitySetAdapter<E extends Entity> extends BaseEntitySetAdapt
 	public EntitiesAdapter<E> getEntitiesAdapter() {
 		return
 		new EntitiesAdapter<>(
-			entitySetSpecification.getRefFirstAttribute(MultiPascalCaseNameCatalogue.ENTITIES),
+			entitySetSpecification.getRefFirstAttribute(PluralPascalCaseCatalogue.ENTITIES),
 			getValueCreator()
 		);
 	}

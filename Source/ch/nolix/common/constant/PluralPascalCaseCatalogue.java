@@ -3,13 +3,13 @@ package ch.nolix.common.constant;
 
 //class
 /**
- * Of the {@link MultiPascalCaseNameCatalogue} an instance cannot be created.
+ * Of the {@link PluralPascalCaseCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-04
  * @lines 20
  */
-public final class MultiPascalCaseNameCatalogue {
+public final class PluralPascalCaseCatalogue {
 	
 	//constants
 	public static final String COMMANDS = "Commands";
@@ -23,7 +23,7 @@ public final class MultiPascalCaseNameCatalogue {
 	
 	//visibility-reduced constructor
 	/**
-	 * Avoids that an instance of the {@link MultiPascalCaseNameCatalogue} can be created.
+	 * Avoids that an instance of the {@link PluralPascalCaseCatalogue} can be created.
 	 */
-	private MultiPascalCaseNameCatalogue() {}
+	private PluralPascalCaseCatalogue() {}
 }
