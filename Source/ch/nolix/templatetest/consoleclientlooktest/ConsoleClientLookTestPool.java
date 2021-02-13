@@ -10,9 +10,9 @@ public final class ConsoleClientLookTestPool extends TestPool {
 	//constructor
 	public ConsoleClientLookTestPool() {
 		super(
-			BlackGreenConsoleClientLookTest.class,
-			BlackRedConsoleClientLookTest.class,
-			GreyBlueConsoleClientLookTest.class
+			BlackGreenConsoleClientLookCreatorTest.class,
+			BlackRedConsoleClientLookCreatorTest.class,
+			GreyBlueConsoleClientLookCreatorTest.class
 		);
 	}
 }

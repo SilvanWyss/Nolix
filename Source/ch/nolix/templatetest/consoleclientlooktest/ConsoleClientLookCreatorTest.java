@@ -12,7 +12,7 @@ import ch.nolix.element.gui.InvisibleGUI;
 import ch.nolix.element.widget.Console;
 
 //class
-public abstract class ConsoleClientLookTest extends ObjectTest<Configuration> {
+public abstract class ConsoleClientLookCreatorTest extends ObjectTest<Configuration> {
 	
 	//method
 	@TestCase
