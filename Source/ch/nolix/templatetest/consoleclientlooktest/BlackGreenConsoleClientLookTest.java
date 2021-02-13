@@ -6,7 +6,7 @@ import ch.nolix.element.configuration.Configuration;
 import ch.nolix.template.consoleclientlook.BlackGreenConsoleClientLookCreator;
 
 //class
-public final class BlackGreenConsoleClientLookTest extends ConsoleClientLookTest<Configuration> {
+public final class BlackGreenConsoleClientLookTest extends ConsoleClientLookTest {
 	
 	//method
 	@Override
