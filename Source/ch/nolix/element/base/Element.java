@@ -49,9 +49,8 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		fillUpPropertiesInto(list);
-		fillUpElementAttributesInto(list);
 	}
 	
 	//method
@@ -91,14 +90,6 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 		
 		property.addOrChangeValueFromSpecification(attribute);
 	}
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link Element} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpElementAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

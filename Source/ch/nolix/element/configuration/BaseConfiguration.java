@@ -229,6 +229,44 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current BaseConfiguration has a selector type.
+		if (hasSelectorType()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TYPE_HEADER, selectorType));
+		}
+		
+		//Handles the case that the current BaseConfiguration contains selector roles.		
+		if (containsSelectorRoles()) {
+			
+			final var specification = Node.fromString(SELECTOR_ROLE_HEADER);
+			getSelectorRoles().forEach(specification::addAttribute);
+			
+			list.addAtEnd(specification);
+		}
+		
+		//Handles the case that the current BaseConfiguration has a selector token.
+		if (hasSelectorToken()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TOKEN_HEADER, selectorToken));
+		}
+		
+		//Handles the case that the current BaseConfiguration has a selector id.
+		if (hasSelectorId()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_ID_HEADER, selectorId));
+		}
+		
+		list.addAtEnd(attachingAttributes);
+		list.addAtEnd(configurations, BaseConfiguration::getSpecification);
+	}
+	
+	//method
+	/**
 	 * @return the selector id of the current {@link BaseConfiguration}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector id.
 	 */
@@ -267,14 +305,6 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} has attaching attributes.
-	 */
-	public final boolean hasAttachingAttributes() {
-		return attachingAttributes.containsAny();
-	}
-	
-	//method
-	/**
 	 * @return the selector type of the current {@link BaseConfiguration}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector type.
 	 */
@@ -286,6 +316,14 @@ implements IMutableElement<C> {
 		}
 		
 		return selectorType;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BaseConfiguration} has attaching attributes.
+	 */
+	public final boolean hasAttachingAttributes() {
+		return attachingAttributes.containsAny();
 	}
 	
 	//method
@@ -514,51 +552,6 @@ implements IMutableElement<C> {
 		this.selectorType = selectorType;
 		
 		return asConcrete();
-	}
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link BaseConfiguration} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpBaseConfigurationAttributesInto(LinkedList<Node> list);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current BaseConfiguration has a selector type.
-		if (hasSelectorType()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TYPE_HEADER, selectorType));
-		}
-		
-		//Handles the case that the current BaseConfiguration contains selector roles.		
-		if (containsSelectorRoles()) {
-			
-			final var specification = Node.fromString(SELECTOR_ROLE_HEADER);
-			getSelectorRoles().forEach(specification::addAttribute);
-			
-			list.addAtEnd(specification);
-		}
-		
-		//Handles the case that the current BaseConfiguration has a selector token.
-		if (hasSelectorToken()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TOKEN_HEADER, selectorToken));
-		}
-		
-		//Handles the case that the current BaseConfiguration has a selector id.
-		if (hasSelectorId()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_ID_HEADER, selectorId));
-		}
-		
-		list.addAtEnd(attachingAttributes);
-		list.addAtEnd(configurations, BaseConfiguration::getSpecification);
-		
-		fillUpBaseConfigurationAttributesInto(list);
 	}
 	
 	//method declaration

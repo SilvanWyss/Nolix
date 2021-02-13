@@ -4,10 +4,8 @@ package ch.nolix.element.input;
 //own imports
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Value;
 
@@ -202,10 +200,6 @@ public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput
 	public Key getKey() {
 		return key.getValue();
 	}
-	
-	//method
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	private void setInputType(final KeyInputType inputType) {

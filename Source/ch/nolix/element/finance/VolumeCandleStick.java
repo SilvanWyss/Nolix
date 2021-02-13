@@ -2,6 +2,8 @@
 package ch.nolix.element.finance;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.time.Time;
 
@@ -11,8 +13,8 @@ import ch.nolix.element.time.Time;
  * A volume candlestick is immutable.
  * 
  * @author Silvan Wyss
- * @month 2016-09
- * @lines 120
+ * @date 2016-10-01
+ * @lines 90
  */
 public class VolumeCandleStick extends CandleStick {
 	
@@ -48,6 +50,19 @@ public class VolumeCandleStick extends CandleStick {
 		
 		//Sets the volume of this candle stick.
 		this.volume = volume;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//TODO: Implement.
 	}
 	
 	//method

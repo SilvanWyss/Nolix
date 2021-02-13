@@ -60,6 +60,19 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		for (final GridCell c : cells) {
+			if (c.containsAny()) {
+				list.addAtEnd(c.getSpecificationAs(PascalCaseNameCatalogue.CELL));
+			}
+		}
+	}
+	
+	//method
 	public int getColumnCount() {
 		return cells.getColumnCount();
 	}
@@ -184,16 +197,6 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());
-			}
-		}
-	}
-	
-	//method
-	@Override
-	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
-		for (final GridCell c : cells) {
-			if (c.containsAny()) {
-				list.addAtEnd(c.getSpecificationAs(PascalCaseNameCatalogue.CELL));
 			}
 		}
 	}

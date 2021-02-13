@@ -155,6 +155,25 @@ public class CandleStick extends Element<CandleStick> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(
+			time.getSpecification(),
+			Node.withHeaderAndAttribute(OPENING_PRICE_HEADER, getOpeningPrice()),
+			Node.withHeaderAndAttribute(CLOSING_PRICE_HEADER, getClosingPrice()),
+			Node.withHeaderAndAttribute(LOWEST_PRICE_HEADER, getLowestPrice()),
+			Node.withHeaderAndAttribute(HIGHEST_PRICE_HEADER, getHighestPrice())
+		);
+	}
+	
+	//method
+	/**
 	 * @return the difference of the closing price and the opening price of the current {@link CandleStick}.
 	 */
 	public final double getChange() {
@@ -413,20 +432,5 @@ public class CandleStick extends Element<CandleStick> {
 	 */
 	public final boolean isMarubozu() {
 		return Calculator.equalsApproximatively(getBodyLength(), getLength());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(
-			time.getSpecification(),
-			Node.withHeaderAndAttribute(OPENING_PRICE_HEADER, getOpeningPrice()),
-			Node.withHeaderAndAttribute(CLOSING_PRICE_HEADER, getClosingPrice()),
-			Node.withHeaderAndAttribute(LOWEST_PRICE_HEADER, getLowestPrice()),
-			Node.withHeaderAndAttribute(HIGHEST_PRICE_HEADER, getHighestPrice())
-		);
 	}
 }

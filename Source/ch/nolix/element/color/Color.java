@@ -852,6 +852,19 @@ public class Color extends Element<Color> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(Node.fromString(getHexadecimalValue()));
+	}
+	
+	//method
+	/**
 	 * @return the alpha value of the current {@link Color}.
 	 */
 	public int getAlphaValue() {
@@ -1130,15 +1143,6 @@ public class Color extends Element<Color> {
 		65536L * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method

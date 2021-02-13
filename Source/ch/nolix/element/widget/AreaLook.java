@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.node.Node;
+//own import
 import ch.nolix.element.gui.WidgetLook;
 
 //class
@@ -12,13 +10,4 @@ import ch.nolix.element.gui.WidgetLook;
  * @date 2017-04-01
  * @lines 20
  */
-public final class AreaLook extends WidgetLook<AreaLook> {
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {}
-}
-
+public final class AreaLook extends WidgetLook<AreaLook> {}

@@ -30,7 +30,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 390
+ * @lines 400
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
@@ -133,6 +133,22 @@ implements Clearable, Closeable, Refreshable {
 	@Override
 	public final void clear() {
 		removeRootShape();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current GUI3D has a root Shape.
+		if (hasRootShape()) {
+			list.addAtEnd(getRefRootShape().getSpecification());
+		}
 	}
 	
 	/**
@@ -311,19 +327,6 @@ implements Clearable, Closeable, Refreshable {
 		this.title.setValue(title);
 		
 		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpConfigurationElementAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current GUI3D has a root Shape.
-		if (hasRootShape()) {
-			list.addAtEnd(getRefRootShape().getSpecification());
-		}
 	}
 	
 	/**

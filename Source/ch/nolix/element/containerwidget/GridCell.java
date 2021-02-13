@@ -72,6 +72,19 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	}
 	
 	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(Node.withHeader(getRowIndex()), Node.withHeader(getColumnIndex()));
+		
+		if (containsAny()) {
+			list.addAtEnd(getRefWidget().getSpecification());
+		}
+	}
+	
+	//method
 	public int getColumnIndex() {
 		return columnIndex;
 	}
@@ -118,9 +131,6 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void reset() {	
 		clear();
@@ -134,19 +144,5 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 		this.widget = widget;
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		
-		list.addAtEnd(Node.withHeader(getRowIndex()), Node.withHeader(getColumnIndex()));
-		
-		if (containsAny()) {
-			list.addAtEnd(getRefWidget().getSpecification());
-		}
 	}
 }

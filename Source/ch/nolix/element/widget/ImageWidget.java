@@ -3,7 +3,6 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.graphic.Image;
@@ -65,10 +64,6 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	protected ImageWidgetLook createLook() {
 		return new ImageWidgetLook();
 	}
-	
-	//method
-	@Override
-	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	@Override

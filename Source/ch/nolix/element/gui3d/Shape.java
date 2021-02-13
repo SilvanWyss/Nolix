@@ -21,7 +21,7 @@ import ch.nolix.element.geometry.Point3D;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 370
+ * @lines 360
  * @param <S> is the type of a {@link Shape}.
  */
 public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
@@ -44,6 +44,19 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		return (mGUI != null);
 	}
 		
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(position.getSpecification());
+	}
+	
 	//method
 	/**
 	 * @return the position of the current {@link Shape}.
@@ -286,26 +299,6 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 			throw new InvalidArgumentException(this, "belongs not to a GUI");
 		}
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpConfigurableElementAttributesInto(final LinkedList<Node> list) {
-		
-		list.addAtEnd(position.getSpecification());
-		
-		fillUpShapeAttributesInto(list);
-	}
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link Shape} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpShapeAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

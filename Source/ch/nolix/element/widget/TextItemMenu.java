@@ -5,12 +5,10 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.VariableNameCatalogue;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MultiValue;
@@ -210,10 +208,6 @@ implements Clearable {
 	}
 	
 	//method
-	@Override
-	protected final void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {}
-	
-	//method
 	protected final IContainer<Label> getRefItemLables() {
 		return getRefItems().to(TextItemMenuItem::getRefLabel);
 	}
@@ -225,65 +219,38 @@ implements Clearable {
 	protected abstract void noteClear();
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
@@ -291,9 +258,6 @@ implements Clearable {
 	protected abstract void noteSelectItem(TextItemMenuItem item);
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void recalculateBorderWidget() {
 		
@@ -341,9 +305,6 @@ implements Clearable {
 	protected abstract void recalculateTextItemMenuSelf();
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void resetBorderWidgetConfigurationOnSelf() {}
 	

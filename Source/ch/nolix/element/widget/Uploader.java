@@ -2,9 +2,7 @@
 package ch.nolix.element.widget;
 
 //own imports
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
@@ -64,10 +62,6 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	protected UploaderLook createLook() {
 		return new UploaderLook();
 	}
-	
-	//method
-	@Override
-	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	@Override

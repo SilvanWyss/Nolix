@@ -51,6 +51,17 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		if (providesFile()) {
+			list.addAtEnd(Node.withHeader(FILE_GETTER_HEADER));
+		}
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -107,14 +118,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	@Override
 	protected DownloaderLook createLook() {
 		return new DownloaderLook();
-	}
-	
-	//method
-	@Override
-	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {
-		if (providesFile()) {
-			list.addAtEnd(Node.withHeader(FILE_GETTER_HEADER));
-		}
 	}
 	
 	//method

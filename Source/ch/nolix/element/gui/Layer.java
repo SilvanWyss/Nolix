@@ -212,6 +212,22 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current Layer has a root Widget.
+		if (containsAny()) {
+			list.addAtEnd(rootWidget.getSpecification());
+		}
+	}
+	
+	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
@@ -1108,19 +1124,6 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		this.rootWidget = rootWidget;
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpConfigurableElementAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current Layer has a root Widget.
-		if (containsAny()) {
-			list.addAtEnd(rootWidget.getSpecification());
-		}
 	}
 	
 	//method

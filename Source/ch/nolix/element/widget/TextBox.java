@@ -3,7 +3,6 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.BaseNode;
@@ -18,7 +17,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 320
+ * @lines 310
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
@@ -125,13 +124,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	protected int getNaturalContentAreaWidth() {
 		return getTextFormat().getSwingTextWidth(getText());
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	/**

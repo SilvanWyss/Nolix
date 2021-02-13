@@ -17,7 +17,7 @@ import ch.nolix.element.base.Element;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 130
+ * @lines 140
  */
 public final class Point2D extends Element<Point2D> {
 	
@@ -49,6 +49,22 @@ public final class Point2D extends Element<Point2D> {
 	public Point2D(final double x,	final double y) {
 		this.x = x;
 		this.y = y;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(
+			Node.withHeader(DoubleHelper.toString(getX())),
+			Node.withHeader(DoubleHelper.toString(getY()))
+		);
 	}
 	
 	//method
@@ -121,17 +137,5 @@ public final class Point2D extends Element<Point2D> {
 	public Point3D to3DPoint() {
 		return
 		new Point3D(getX(), getY(), 0.0);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(
-			Node.withHeader(DoubleHelper.toString(getX())),
-			Node.withHeader(DoubleHelper.toString(getY()))
-		);
 	}
 }

@@ -153,6 +153,22 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current TabContainerTab contains a Widget.
+		if (containsAny()) {
+			list.addAtEnd(getRefWidget().getSpecification());
+		}
+	}
+	
+	//method
+	/**
 	 * @return the header of the current {@link TabContainerTab}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link TabContainerTab} does not have a header.
 	 */
@@ -308,19 +324,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		.setUnhovered();
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current TabContainerTab contains a Widget.
-		if (containsAny()) {
-			list.addAtEnd(getRefWidget().getSpecification());
-		}
 	}
 	
 	//method

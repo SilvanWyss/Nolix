@@ -233,6 +233,25 @@ public final class TextFormat extends Element<TextFormat> {
 		
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(
+			font.getSpecificationAs(TEXT_FONT_HEADER),
+			Node.withHeaderAndAttribute(BOLD_FLAG_HEADER, bold),
+			Node.withHeaderAndAttribute(ITALIC_FLAG_HEADER, italic),
+			Node.withHeaderAndAttribute(TEXT_SIZE_HEADER, textSize),
+			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
+		);
+	}
+	
+	//method
+	/**
 	 * @param text
 	 * @param maxWidth
 	 * @return the first part of the given text the current {@link TextFormat} can paint
@@ -443,20 +462,5 @@ public final class TextFormat extends Element<TextFormat> {
 		
 		//Calls other method.
 		paintSwingText(graphics, xPosition, yPosition, getFirstPart(text, maxWidth));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(
-			font.getSpecificationAs(TEXT_FONT_HEADER),
-			Node.withHeaderAndAttribute(BOLD_FLAG_HEADER, bold),
-			Node.withHeaderAndAttribute(ITALIC_FLAG_HEADER, italic),
-			Node.withHeaderAndAttribute(TEXT_SIZE_HEADER, textSize),
-			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
-		);
 	}
 }

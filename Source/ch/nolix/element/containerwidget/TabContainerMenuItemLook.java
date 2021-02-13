@@ -74,7 +74,9 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	
 	//method
 	@Override
-	public void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
 		
 		if (hasMinWidth()) {
 			list.addAtEnd(Node.withHeaderAndAttribute(MIN_WIDTH_HEADER, minWidth));

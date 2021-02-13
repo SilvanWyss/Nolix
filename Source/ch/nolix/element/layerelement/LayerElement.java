@@ -63,9 +63,8 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		fillUpPropertiesInto(list);
-		fillUpLayerElementAttributesInto(list);
 	}
 	
 	//method
@@ -94,14 +93,6 @@ public abstract class LayerElement<E extends LayerElement<E>> implements IMutabl
 		resetLayerElement();
 	}
 	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link LayerElement} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpLayerElementAttributesInto(LinkedList<Node> list);
-		
 	//method
 	/**
 	 * @return the base {@link LayerElement} of the current {@link LayerElement}.

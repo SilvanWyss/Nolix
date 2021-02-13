@@ -75,6 +75,21 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of base class.
+		super.fillUpAttributesInto(list);
+		
+		list
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.THICKNESS, thickness))
+		.addAtEnd(color.getSpecification());
+	}
+	
+	//method
+	/**
 	 * @return the color of this line.
 	 */
 	public final Color getColor() {
@@ -181,17 +196,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
-		list
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.THICKNESS, thickness))
-		.addAtEnd(color.getSpecification());
-	}
 	
 	//method
 	/**

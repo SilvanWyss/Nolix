@@ -48,6 +48,19 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 		
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(Node.withHeader(x), Node.withHeader(y));
+	}
+	
+	//method
+	/**
 	 * @return the x-coordinate of the current {@link Discrete2DPoint}.
 	 */
 	public int getX() {
@@ -60,14 +73,5 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	//method
 	public int getY() {
 		return y;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.withHeader(x), Node.withHeader(y));
 	}
 }

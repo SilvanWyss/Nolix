@@ -74,6 +74,26 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of base class.
+		super.fillUpAttributesInto(list);
+		
+		list
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEIGHT, height))
+		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.WIDTH, width));
+		
+		//Handles the case that the current Area has a background color.
+		if (hasBackgroundColor()) {
+			list.addAtEnd(getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+		}
+	}
+	
+	//method
+	/**
 	 * @return the background color of the current {@link Area}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Area} does not have a background color.
 	 */
@@ -224,23 +244,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpWidgetAttributesInto(final LinkedList<Node> list) {
-		
-		list
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.HEIGHT, height))
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.WIDTH, width));
-		
-		//Handles the case that the current Area has a background color.
-		if (hasBackgroundColor()) {
-			list.addAtEnd(getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
-		}
-	}
 	
 	//method
 	/**

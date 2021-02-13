@@ -21,7 +21,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * 
  * @author Silvan Wyss
  * @month 2016-01-01
- * @lines 230
+ * @lines 220
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
@@ -50,6 +50,27 @@ implements IConfigurableElement<CE> {
 				
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current ConfigurableElement has a id.
+		if (hasId()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.ID, id));
+		}
+		
+		//Handles the case that the current ConfigurableElement has a token.
+		if (hasToken()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TOKEN, token));
 		}
 	}
 	
@@ -172,34 +193,6 @@ implements IConfigurableElement<CE> {
 		this.token = token;
 		
 		return asConcrete();
-	}
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link ConfigurableElement} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpConfigurableElementAttributesInto(LinkedList<Node> list);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current ConfigurableElement has a id.
-		if (hasId()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.ID, id));
-		}
-		
-		//Handles the case that the current ConfigurableElement has a token.
-		if (hasToken()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseNameCatalogue.TOKEN, token));
-		}
-		
-		fillUpConfigurableElementAttributesInto(list);
 	}
 	
 	//method declaration

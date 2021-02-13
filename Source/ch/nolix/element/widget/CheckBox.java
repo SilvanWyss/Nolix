@@ -70,6 +70,19 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of base class.
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -144,15 +157,6 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	@Override
 	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
-	}
 	
 	//method
 	/**

@@ -96,6 +96,22 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current DeepConfiguration has a max selector level.
+		if (hasMaxSelectorLevel()) {
+			list.addAtEnd(Node.withHeaderAndAttribute(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
+		}
+	}
+	
+	//method
+	/**
 	 * @return the max selector level of the current {@link DeepConfiguration}.
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link DeepConfiguration} does not have a max selector level.
@@ -144,19 +160,6 @@ public class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 		Validator.assertThat(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
 				
 		this.maxSelectorLevel = maxSelectorLevel;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpBaseConfigurationAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current DeepConfiguration has a max selector level.
-		if (hasMaxSelectorLevel()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(MAX_SELECTOR_LEVEL_HEADER, maxSelectorLevel));
-		}
 	}
 	
 	//method

@@ -138,6 +138,20 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		for (final var cw : getChildWidgets()) {
+			list.addAtEnd(cw.getSpecification());
+		}
+	}
+	
+	//method
+	/**
 	 * @return the element margin of the current {@link Stack}.
 	 */
 	public final int getElementMargin() {
@@ -224,17 +238,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 			if (w.isEnabled()) {
 				list.addAtEnd(w);
 			}
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
-		for (final var cw : getChildWidgets()) {
-			list.addAtEnd(cw.getSpecification());
 		}
 	}
 	

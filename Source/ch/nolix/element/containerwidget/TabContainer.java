@@ -172,6 +172,22 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Iterates the tabs of the current TabContainer.
+		for (final var t : getRefTabs()) {
+			list.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
+		}
+	}
+	
+	//method
+	/**
 	 * @return the selected tab of the current {@link TabContainer}.
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link TabContainer} does not contain a selected tab.
@@ -282,19 +298,6 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 			if (t.containsAny()) {
 				list.addAtEnd(t.getRefWidget());
 			}
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
-		
-		//Iterates the tabs of the current TabContainer.
-		for (final var t : getRefTabs()) {
-			list.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
 		}
 	}
 	

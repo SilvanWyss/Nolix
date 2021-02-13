@@ -22,7 +22,7 @@ import ch.nolix.element.base.Element;
  * 
  * @author Silvan Wyss
  * @date 2018-03-25
- * @lines 140
+ * @lines 150
  */
 public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHolder> {
 
@@ -86,6 +86,18 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		//TODO: Implement.
+	}
+	
+	//method
+	/**
 	 * @return the value of this percentage holder.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ValueOrPercentageHolder} does not have a value.
 	 */
@@ -134,14 +146,5 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	 */
 	public boolean hasValue() {
 		return hasValue;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		//TODO: Implement.
 	}
 }

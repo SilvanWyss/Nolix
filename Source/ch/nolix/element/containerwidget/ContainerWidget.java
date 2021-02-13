@@ -22,7 +22,7 @@ import ch.nolix.element.widget.BorderWidgetLook;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 180
+ * @lines 170
  * @param <CW> is the type of a {@link ContainerWidget}.
  * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
@@ -53,7 +53,24 @@ extends BorderWidget<CW, BWS> implements Clearable {
 				super.addOrChangeAttribute(attribute);
 		}
 	}
+	
+	//method
+	//For a better performance, this method does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current container has a role.
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		}
+	}
+	
 	//method
 	/**
 	 * @return the role of the current {@link ContainerWidget}.
@@ -126,30 +143,6 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		
 		return asConcrete();
 	}
-	
-	//method
-	//For a better performance, this method does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current container has a role.
-		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
-		}
-		
-		fillUpContainerWidgetAttributesInto(list);
-	}
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link ContainerWidget} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpContainerWidgetAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

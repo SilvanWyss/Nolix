@@ -20,7 +20,7 @@ import ch.nolix.element.gui.WidgetLook;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1700
+ * @lines 1690
  * @param <BWL> is the type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
@@ -194,7 +194,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
 		
 		fillUpBorderThicknessesSpecifications(list);
 		fillUpBorderColorsSpecifications(list);

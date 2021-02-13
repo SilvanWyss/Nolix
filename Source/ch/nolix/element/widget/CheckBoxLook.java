@@ -52,10 +52,10 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpLayerElementAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Calls method of the base class.
-		super.fillUpLayerElementAttributesInto(list);
+		super.fillUpAttributesInto(list);
 		
 		//Handles the case that the current CheckBoxLook has a line thickness.
 		if (hasLineThickness()) {

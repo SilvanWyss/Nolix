@@ -20,7 +20,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 200
+ * @lines 210
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -68,6 +68,23 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		}
 	}
 		
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current Button has a role.
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		}
+	}
+	
 	//method
 	/**
 	 * @return the role of the current {@link Button}.
@@ -134,20 +151,6 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	@Override
 	protected ButtonLook createLook() {
 		return new ButtonLook();
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpTextLineWidgetAttributesInto(LinkedList<Node> list) {
-		
-		//Handles the case that the current Button has a role.
-		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
-		}
 	}
 	
 	//method

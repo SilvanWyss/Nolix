@@ -43,6 +43,16 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	}
 	
 	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//TODO: Implement.
+	}
+	
+	//method
 	public AligningContainer setOnBottom(final Widget<?, ?> widget) {
 		
 		bottomSlot.setWidget(widget);
@@ -147,12 +157,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		bottomLeftSlot.fillUpWidgetInto(list);
 		bottomSlot.fillUpWidgetInto(list);
 		bottomRightSlot.fillUpWidgetInto(list);
-	}
-	
-	//method
-	@Override
-	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
-		//TODO: Implement.
 	}
 	
 	//method

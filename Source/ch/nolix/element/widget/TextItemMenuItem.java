@@ -104,6 +104,15 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	}
 	
 	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		//TODO: Implement.
+	}
+	
+	//method
 	public String getId() {
 		return id.getValue();
 	}
@@ -144,12 +153,6 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull();
 		
 		this.parentItemMenu = parentItemMenu;
-	}
-	
-	//method
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		//TODO: Implement.
 	}
 	
 	//method

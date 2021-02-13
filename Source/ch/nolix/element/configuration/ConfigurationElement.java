@@ -16,7 +16,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 140
+ * @lines 130
  * @param <CE> is the type of a {@link ConfigurationElement}.
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE> {
@@ -43,6 +43,22 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 				
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current ConfigurationElement has a configuration.
+		if (hasConfiguration()) {
+			list.addAtEnd(configuration.getSpecificationAs(VariableNameCatalogue.CONFIGURATION));
 		}
 	}
 	
@@ -99,29 +115,6 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 			configuration.configure(this);
 		}
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void fillUpConfigurableElementAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current ConfigurationElement has a configuration.
-		if (hasConfiguration()) {
-			list.addAtEnd(configuration.getSpecificationAs(VariableNameCatalogue.CONFIGURATION));
-		}
-		
-		fillUpConfigurationElementAttributesInto(list);
-	}
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link ConfigurationElement} into the given list.
-	 * 
-	 * @param list
-	 */
-	protected abstract void fillUpConfigurationElementAttributesInto(LinkedList<Node> list);
 	
 	//method
 	/**

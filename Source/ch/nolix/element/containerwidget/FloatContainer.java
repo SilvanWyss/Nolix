@@ -63,6 +63,17 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		for (final var w : widgets) {
+			list.addAtEnd(w.getSpecification());
+		}
+	}
+	
+	//method
+	@Override
 	protected boolean contentAreaMustBeExpandedToTargetSize() {
 		return true;
 	}
@@ -77,14 +88,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
-	}
-	
-	//method
-	@Override
-	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
-		for (final var w : widgets) {
-			list.addAtEnd(w.getSpecification());
-		}
 	}
 	
 	//method
@@ -120,93 +123,54 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void paintContentArea(final FloatContainerLook floatContainerLook, final IPainter painter) {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void recalculateBorderWidget() {
 		
@@ -233,16 +197,10 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetBorderWidgetConfigurationOnSelf() {}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void resetContainerWidget() {
 		clear();

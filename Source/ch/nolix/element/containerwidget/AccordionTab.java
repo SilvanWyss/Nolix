@@ -35,10 +35,6 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
 	//static method
-	/**
-	 * @param specification
-	 * @return a new {@link AccordionTab} from the given specification.
-	 */
 	public static AccordionTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new AccordionTab();
@@ -151,6 +147,17 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	}
 	
 	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		if (containsAny()) {
+			list.addAtEnd(getRefWidget().getSpecification());
+		}
+	}
+	
+	//method
 	public CursorIcon getActiveCursorIcon() {
 		return tabVerticalStack.getCursorIcon();
 	}
@@ -231,17 +238,6 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		tabVerticalStack.addWidget(widget);
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpElementAttributesInto(final LinkedList<Node> list) {
-		if (containsAny()) {
-			list.addAtEnd(getRefWidget().getSpecification());
-		}
 	}
 	
 	//method

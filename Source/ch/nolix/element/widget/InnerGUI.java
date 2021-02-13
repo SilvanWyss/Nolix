@@ -60,6 +60,15 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		super.fillUpAttributesInto(list);
+		
+		list.addAtEnd(internalGUI.getSpecification());
+	}
+	
+	//method
+	@Override
 	public int getCursorXPositionOnViewArea() {
 		return internalGUI.getCursorXPositionOnViewArea();
 	}
@@ -177,12 +186,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	@Override
 	protected InnerGUILook createLook() {
 		return new InnerGUILook();
-	}
-	
-	//method
-	@Override
-	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(internalGUI.getSpecification());
 	}
 	
 	//method

@@ -7,7 +7,6 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
@@ -102,10 +101,6 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	public final void setPaintCommandsFromChainedNodes(final IContainer<ChainedNode> paintCommands) {
 		setPaintCommands(paintCommands.to(this::createPaintCommand));
 	}
-	
-	//method
-	@Override
-	protected final void fillUpGUIAttributesInto(final LinkedList<Node> list) {}
 	
 	//method
 	@Override

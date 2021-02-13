@@ -157,6 +157,43 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current Console contains one or several lines.
+		if (containsAny()) {
+			
+			final var linesSpecification = new Node();
+			linesSpecification.setHeader(LINES_HEADER);
+			
+			for (final var l : lines) {
+				
+				final var lineAttribute = new Node();
+				if (!l.isEmpty()) {
+					lineAttribute.setHeader(l);
+				}
+				
+				linesSpecification.addAttribute(lineAttribute);
+			}
+			
+			list.addAtEnd(linesSpecification);
+		}
+		
+		final var editLineSpecification = new Node().setHeader(EDIT_LINE_HEADER);
+		if (!editLine.isEmpty()) {
+			editLineSpecification.addAttribute(Node.withHeader(editLine));
+		}
+		
+		list.addAtEnd(editLineSpecification);
+	}
+	
+	//method
+	/**
 	 * The edit line of a console is its next line that can be edited.
 	 * 
 	 * @return the edit line of the current {@link Console}.
@@ -534,40 +571,6 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected ConsoleLook createLook() {
 		return new ConsoleLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpBorderWidgetAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current Console contains one or several lines.
-		if (containsAny()) {
-			
-			final var linesSpecification = new Node();
-			linesSpecification.setHeader(LINES_HEADER);
-			
-			for (final var l : lines) {
-				
-				final var lineAttribute = new Node();
-				if (!l.isEmpty()) {
-					lineAttribute.setHeader(l);
-				}
-				
-				linesSpecification.addAttribute(lineAttribute);
-			}
-			
-			list.addAtEnd(linesSpecification);
-		}
-		
-		final var editLineSpecification = new Node().setHeader(EDIT_LINE_HEADER);
-		if (!editLine.isEmpty()) {
-			editLineSpecification.addAttribute(Node.withHeader(editLine));
-		}
-		
-		list.addAtEnd(editLineSpecification);
 	}
 	
 	//method

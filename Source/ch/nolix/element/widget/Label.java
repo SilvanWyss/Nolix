@@ -53,6 +53,23 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	}
 		
 	//method
+	//For a better performance, this method does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current Label has a role.
+		if (role != null) {
+			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
+		}
+	}
+	
+	//method
 	/**
 	 * @return the role of the current {@link Label}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Label} does not have a role.
@@ -119,20 +136,6 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	@Override
 	protected LabelLook createLook() {
 		return new LabelLook();
-	}
-	
-	//method
-	//For a better performance, this method does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpTextLineWidgetAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current Label has a role.
-		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseNameCatalogue.ROLE));
-		}
 	}
 	
 	//method

@@ -55,6 +55,23 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		//Calls method of the base class.
+		super.fillUpAttributesInto(list);
+		
+		//Handles the case that the current single container has a widget.
+		if (widget != null) {
+			list.addAtEnd(widget.getSpecification());
+		}
+	}
+	
+	//method
 	/**
 	 * @return the {@link Widget} of the current {@link SingleContainer}.
 	 * @throws ArgumentDoesNotHaveAttributeException
@@ -115,20 +132,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 		//Handles the case that the current single container has a widget.	
 		if (widget != null) {
 			list.addAtEnd(widget);
-		}
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void fillUpContainerWidgetAttributesInto(final LinkedList<Node> list) {
-		
-		//Handles the case that the current single container has a widget.
-		if (widget != null) {
-			list.addAtEnd(widget.getSpecification());
 		}
 	}
 	
