@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 //own imports
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.pair.Pair;
@@ -46,7 +46,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 		
 		Validator
 		.assertThat(startValues)
-		.thatIsNamed(MultiVariableNameCatalogue.START_VALUES)
+		.thatIsNamed(PluralLowerCaseCatalogue.START_VALUES)
 		.isNotEmpty();
 		
 		Validator

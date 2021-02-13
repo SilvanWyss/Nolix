@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -94,7 +94,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
 		
 		//Asserts that the given tabs is not null.
-		Validator.assertThat(tabs).thatIsNamed(MultiVariableNameCatalogue.TABS).isNotNull();
+		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		//Iterates the given tabs.
 		tabs.forEach(this::addTab);

@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseadapter;
 
 //own imports
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.node.BaseNode;
@@ -56,7 +56,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	//method
 	public final DatabaseAdapter addEntity(final Entity... entities) {
 		
-		Validator.assertThat(entities).thatIsNamed(MultiVariableNameCatalogue.ENTITIES).isNotNull();
+		Validator.assertThat(entities).thatIsNamed(PluralLowerCaseCatalogue.ENTITIES).isNotNull();
 		
 		for (final var e : entities) {
 			addEntity(e);

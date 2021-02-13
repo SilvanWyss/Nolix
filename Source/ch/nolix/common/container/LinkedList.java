@@ -3,7 +3,7 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
@@ -96,7 +96,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public LinkedList<E> addAtBegin(final E... elements) {
 		
 		//Asserts that the given elements is not null.
-		Validator.assertThat(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isNotNull();
+		Validator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
 		
 		//Iterates the given elements.
 		for (final var e : elements) {

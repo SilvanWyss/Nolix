@@ -2,7 +2,7 @@
 package ch.nolix.common.math;
 
 //own imports
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
@@ -87,7 +87,7 @@ public final class Calculator {
 	public static double getAverage(final double... values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -101,7 +101,7 @@ public final class Calculator {
 	public static double getAverage(final Iterable<Double> values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		var count = 0;
 		var sum = 0.0;
@@ -122,7 +122,7 @@ public final class Calculator {
 	public static int getAverage(final int... values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -136,7 +136,7 @@ public final class Calculator {
 	public static long getAverage(final long... values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}

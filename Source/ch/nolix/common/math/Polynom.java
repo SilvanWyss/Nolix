@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 //own imports
 import ch.nolix.common.commontypehelper.DoubleHelper;
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -53,7 +53,7 @@ public final class Polynom {
 	private Polynom(final double[] coefficients) {
 		
 		//Asserts that the given coefficients is not null.
-		Validator.assertThat(coefficients).thatIsNamed(MultiVariableNameCatalogue.COEFFICIENTS).isNotNull();
+		Validator.assertThat(coefficients).thatIsNamed(PluralLowerCaseCatalogue.COEFFICIENTS).isNotNull();
 		
 		//Handles the case that the given coefficients is not empty.
 		if (coefficients.length > 0) {

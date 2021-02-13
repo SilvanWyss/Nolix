@@ -3,13 +3,13 @@ package ch.nolix.common.constant;
 
 //class
 /**
- * Of the {@link MultiVariableNameCatalogue} an instance cannot be created.
+ * Of the {@link PluralLowerCaseCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-03
  * @lines 30
  */
-public final class MultiVariableNameCatalogue {
+public final class PluralLowerCaseCatalogue {
 	
 	//constants
 	public static final String COEFFICIENTS = "coefficients";
@@ -24,7 +24,7 @@ public final class MultiVariableNameCatalogue {
 	
 	//visibility-reduced constructor
 	/**
-	 * Avoids that an instance of the {@link MultiVariableNameCatalogue} can be created.
+	 * Avoids that an instance of the {@link PluralLowerCaseCatalogue} can be created.
 	 */
-	private MultiVariableNameCatalogue() {}
+	private PluralLowerCaseCatalogue() {}
 }

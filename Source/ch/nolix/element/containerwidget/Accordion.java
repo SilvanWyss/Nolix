@@ -2,7 +2,7 @@
 package ch.nolix.element.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.MultiVariableNameCatalogue;
+import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseNameCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -103,7 +103,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	public Accordion addTab(final AccordionTab... tabs) {
 		
 		//Asserts that the given tabs is not null.
-		Validator.assertThat(tabs).thatIsNamed(MultiVariableNameCatalogue.TABS).isNotNull();
+		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		return addTabs(ReadContainer.forArray(tabs));
 	}
@@ -132,7 +132,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
 		//Asserts that the given tabs is not null.
-		Validator.assertThat(tabs).thatIsNamed(MultiVariableNameCatalogue.TABS).isNotNull();
+		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		tabs.forEach(this::addTab);
 		
