@@ -22,6 +22,7 @@ public final class StringCatalogue {
 	public static final String SPACE = " ";
 	public static final String TABULATOR = "\t";
 	public static final String TRUE_HEADER = "true";
+	public static final String UNDERSCORE = "_";
 	
 	//visibility-reduced constructor
 	/**
