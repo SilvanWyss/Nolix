@@ -9,21 +9,24 @@ import ch.nolix.element.time.Time;
 
 //class
 /**
- * A volume candlestick is a candle stick that also stores the traded volume.
- * A volume candlestick is immutable.
+ * A {@link VolumeCandleStick} is a {@link CandleStick} that stores the traded volume.
+ * A {@link VolumeCandleStick} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 90
+ * @lines 100
  */
-public class VolumeCandleStick extends CandleStick {
+public final class VolumeCandleStick extends CandleStick {
+	
+	//constant
+	private static final String VOLUME_HEADER = "Volume";
 	
 	//attribute
 	private final int volume;
-
+	
 	//constructor
 	/**
-	 * Creates a new volume candlestick
+	 * Creates a new {@link VolumeCandleStick}
 	 * with the given time, volume, opening price, closing price, lowest price and highest price.
 	 * 
 	 * @param time			The time of this candle stick.
@@ -45,10 +48,10 @@ public class VolumeCandleStick extends CandleStick {
 		//Calls constructor of the base class.
 		super(time, openingPrice, closingPrice, lowestPrice, highestPrice);
 		
-		//Checks the given volume.
+		//Checks if the given volume is not negative.
 		Validator.assertThat(volume).thatIsNamed("volume").isNotNegative();
 		
-		//Sets the volume of this candle stick.
+		//Sets the volume of the current VolumeCandleStick.
 		this.volume = volume;
 	}
 	
@@ -62,12 +65,12 @@ public class VolumeCandleStick extends CandleStick {
 		//Calls method of the base class.
 		super.fillUpAttributesInto(list);
 		
-		//TODO: Implement.
+		list.addAtEnd(Node.withHeaderAndAttribute(VOLUME_HEADER, getVolume()));
 	}
 	
 	//method
 	/**
-	 * @return a copy of this volume candlestick.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public VolumeCandleStick getCopy() {
@@ -76,24 +79,25 @@ public class VolumeCandleStick extends CandleStick {
 				getVolume(),
 				getOpeningPrice(),
 				getClosingPrice(), getLowestPrice(),
-				getHighestPrice())
+				getHighestPrice()
+			)
 		);
 	}
 	
 	//method
 	/**
-	 * @return the volume of this volume candlestick
+	 * @return the volume of the current {@link VolumeCandleStick}
 	 */
-	public final int getVolume() {
+	public int getVolume() {
 		return volume;
 	}
 	
 	//method
 	/**
-	 * @param volumeCandleStick		The volume candlestick that is compared to this candle stick.
-	 * @return true if this volume candlestick has a bigger volume than the given candle stick
+	 * @param volumeCandleStick
+	 * @return true if the current {@link VolumeCandleStick} has a bigger volume than the given volumeCandleStick.
 	 */
-	public final boolean hasBiggerVolumeThan(final VolumeCandleStick volumeCandleStick) {
+	public boolean hasBiggerVolumeThan(final VolumeCandleStick volumeCandleStick) {
 		return (getVolume() > volumeCandleStick.getVolume());
 	}
 }
