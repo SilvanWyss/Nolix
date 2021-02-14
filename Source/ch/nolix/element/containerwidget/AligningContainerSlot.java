@@ -4,6 +4,7 @@ package ch.nolix.element.containerwidget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.Widget;
@@ -37,6 +38,17 @@ final class AligningContainerSlot implements Clearable {
 		}
 		
 		return widget.getHeight();
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	public Widget<?, ?> getRefWidget() {
+		
+		if (widget == null) {
+			throw new EmptyArgumentException(this);
+		}
+		
+		return widget;
 	}
 	
 	//method
