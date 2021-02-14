@@ -28,6 +28,7 @@ public final class PascalCaseCatalogue {
 	public static final String CLASS = "Class";
 	public static final String CLEANUP = "Cleanup";
 	public static final String CODE = "Code";
+	public static final String COEFFICIENT = "Coefficient";
 	public static final String COLOR = "Color";
 	public static final String COLUMN = "Column";
 	public static final String COLUMN_COUNT = "ColumnCount";
@@ -89,6 +90,7 @@ public final class PascalCaseCatalogue {
 	public static final String INDEX = "Index";
 	public static final String INFO_STRING = "InfoString";
 	public static final String INPUT = "Input";
+	public static final String INPUT_VALUE = "InputValue";
 	public static final String INTERFACE = "Interface";
 	public static final String ITEM = "Item";
 	public static final String JOB = "Job";
@@ -113,6 +115,7 @@ public final class PascalCaseCatalogue {
 	public static final String OPCODE = "Opcode";
 	public static final String OUTPUT = "Output";
 	public static final String OUTPUT_FUNCTION = "OutputFunction";
+	public static final String OUTPUT_VALUE = "OutputValue";
 	public static final String PADDING = "Padding";
 	public static final String PARENT = "Parent";
 	public static final String PATH = "Path";
@@ -148,6 +151,7 @@ public final class PascalCaseCatalogue {
 	public static final String SPECIFICATION = "Specification";
 	public static final String START_DATE = "StartDate";
 	public static final String START_INDEX = "StartIndex";
+	public static final String START_VALUE = "StartValue";
 	public static final String STATE = "State";
 	public static final String STATEMENT = "Statement";
 	public static final String STEP = "Step";

@@ -28,6 +28,7 @@ public final class LowerCaseCatalogue {
 	public static final String CLASS = "class";
 	public static final String CLEANUP = "cleanup";
 	public static final String CODE = "code";
+	public static final String COEFFICIENT = "coefficient";
 	public static final String COLOR = "color";
 	public static final String COLUMN = "column";
 	public static final String COLUMN_COUNT = "column count";
@@ -48,7 +49,7 @@ public final class LowerCaseCatalogue {
 	public static final String DATE_OF_BIRTH = "date of birth";
 	public static final String DEFAULT = "default";
 	public static final String DEFAULT_CAPACITY = "default capacity";
-	public static final String DEFAULT_COLOR = "default colour";
+	public static final String DEFAULT_COLOR = "default color";
 	public static final String DEFAULT_NAME = "default name";
 	public static final String DEFAULT_SIZE = "default size";
 	public static final String DEFAULT_TEXTURE = "default texture";
@@ -89,6 +90,7 @@ public final class LowerCaseCatalogue {
 	public static final String INDEX = "index";
 	public static final String INFO_STRING = "info string";
 	public static final String INPUT = "input";
+	public static final String INPUT_VALUE = "input value";
 	public static final String INTERFACE = "interface";
 	public static final String ITEM = "item";
 	public static final String JOB = "job";
@@ -113,6 +115,7 @@ public final class LowerCaseCatalogue {
 	public static final String OPCODE = "opcode";
 	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
+	public static final String OUTPUT_VALUE = "output value";
 	public static final String PADDING = "padding";
 	public static final String PARENT = "parent";
 	public static final String PATH = "path";
@@ -148,6 +151,7 @@ public final class LowerCaseCatalogue {
 	public static final String SPECIFICATION = "specification";
 	public static final String START_DATE = "start date";
 	public static final String START_INDEX = "start index";
+	public static final String START_VALUE = "start value";
 	public static final String STATE = "state";
 	public static final String STATEMENT = "statement";
 	public static final String STEP = "step";
