@@ -7,6 +7,7 @@ import ch.nolix.commontest.cachingtest.CachingTestPool;
 import ch.nolix.commontest.chainednodetest.ChainedNodeTestPool;
 import ch.nolix.commontest.commontypehelpertest.CommonTypeHelpersTestPool;
 import ch.nolix.commontest.commontypewrappertest.CommonTypeWrapperTestPool;
+import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathematicsTestPool;
@@ -20,7 +21,7 @@ import ch.nolix.systemtest.entitytest.EntityTestPool;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-10
  * @lines 50
  */
 public final class CommonTestPool extends TestPool {
@@ -34,6 +35,7 @@ public final class CommonTestPool extends TestPool {
 			new CachingTestPool(),
 			new CommonTypeHelpersTestPool(),
 			new CommonTypeWrapperTestPool(),
+			new ConstantTestPool(),
 			new ContainerTestPool(),
 			new EntityTestPool(),
 			new NodeTestPool(),
