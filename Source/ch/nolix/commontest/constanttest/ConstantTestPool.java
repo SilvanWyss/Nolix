@@ -10,6 +10,7 @@ public final class ConstantTestPool extends TestPool {
 	//constructor
 	public ConstantTestPool() {
 		super(
+			FileExtensionCatalogueTest.class,
 			LowerCaseCatalogueTest.class,
 			PascalCaseCatalogueTest.class,
 			PluralLowerCaseCatalogueTest.class,
