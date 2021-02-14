@@ -4,6 +4,7 @@ package ch.nolix.common.commontypehelper;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
@@ -18,7 +19,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 340
+ * @lines 390
  */
 public final class StringHelper {
 		
@@ -85,6 +86,38 @@ public final class StringHelper {
 		}
 		
 		return stringBuilder.toString();
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return true if the given string is in lower case.
+	 */
+	public static boolean isLowerCase(final String string) {
+		
+		//Handles the case that the given string is null.
+		if (string == null) {
+			return false;
+		}
+		
+		//Handles the case that the given string is not null.
+		return isLowerCaseWhenNotNull(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return true if the given string is in pascal case.
+	 */
+	public static boolean isPascalCase(final String string) {
+		
+		//Handles the case that the given string is null.
+		if (string == null) {
+			return false;
+		}
+		
+		//Handles the case that the given string is not null.
+		return isPascalCaseWhenNotNull(string);
 	}
 	
 	//static method
@@ -206,6 +239,24 @@ public final class StringHelper {
 		
 		//TODO: Implement this method like the toInt method.
 		return Long.valueOf(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return true if the given string is in lower case for the case that the given string is not null.
+	 */
+	private static boolean isLowerCaseWhenNotNull(final String string) {
+		return !string.contains(StringCatalogue.UNDERSCORE) &&	string.equals(string.toLowerCase());
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return true if the given string is in pascal case for the case that the given string is not null.
+	 */
+	private static boolean isPascalCaseWhenNotNull(final String string) {
+		return string.equals(toPascalCase(string));
 	}
 	
 	//static method
