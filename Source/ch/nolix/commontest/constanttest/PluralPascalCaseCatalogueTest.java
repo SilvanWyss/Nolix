@@ -19,12 +19,11 @@ public final class PluralPascalCaseCatalogueTest extends Test {
 		//setup
 		final var exceptions = LinkedList.withElements(PluralPascalCaseCatalogue.GUIS, PluralPascalCaseCatalogue.URLS);
 		
+		//verification
 		for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(PluralPascalCaseCatalogue.class)) {
 			
-			//verification part 1
 			expect(c).isOfType(String.class);
 			
-			//verification part 2
 			final var stringValue = c.toString();
 			if (!exceptions.containsEqualing(stringValue)) {
 				expect(stringValue).fulfils(StringHelper::isPascalCase);

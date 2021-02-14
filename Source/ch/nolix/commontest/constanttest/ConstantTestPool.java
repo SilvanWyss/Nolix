@@ -13,7 +13,8 @@ public final class ConstantTestPool extends TestPool {
 			LowerCaseCatalogueTest.class,
 			PascalCaseCatalogueTest.class,
 			PluralLowerCaseCatalogueTest.class,
-			PluralPascalCaseCatalogueTest.class
+			PluralPascalCaseCatalogueTest.class,
+			StringCatalogueTest.class
 		);
 	}
 }

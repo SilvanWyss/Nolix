@@ -19,12 +19,11 @@ public final class PluralLowerCaseCatalogueTest extends Test {
 		//setup
 		final var exceptions = LinkedList.withElements(PluralLowerCaseCatalogue.GUIS, PluralLowerCaseCatalogue.URLS);
 		
+		//verification
 		for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(PluralLowerCaseCatalogue.class)) {
 			
-			//verification part 1
 			expect(c).isOfType(String.class);
 			
-			//verification part 2
 			final var stringValue = c.toString();
 			if (!exceptions.containsEqualing(stringValue)) {
 				expect(stringValue).fulfils(StringHelper::isLowerCase);
