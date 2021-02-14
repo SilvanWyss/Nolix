@@ -9,6 +9,11 @@ public final class ConstantTestPool extends TestPool {
 	
 	//constructor
 	public ConstantTestPool() {
-		super(LowerCaseCatalogueTest.class, PascalCaseCatalogueTest.class);
+		super(
+			LowerCaseCatalogueTest.class,
+			PascalCaseCatalogueTest.class,
+			PluralLowerCaseCatalogueTest.class,
+			PluralPascalCaseCatalogueTest.class
+		);
 	}
 }
