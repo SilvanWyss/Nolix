@@ -4,13 +4,26 @@ package ch.nolix.element.containerwidget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
+import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
 
 //class
 public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {
+	
+	//constants
+	private static final String TOP_LEFT_HEADER = "TopLeft";
+	private static final String TOP = "Top";
+	private static final String TOP_RIGHT = "TopRight";
+	private static final String LEFT = "Left";
+	private static final String CENTER = "Center";
+	private static final String RIGHT = "Right";
+	private static final String BOTTOM_LEFT = "BottomLeft";
+	private static final String BOTTOM = "Bottom";
+	private static final String BOTTOM_RIGHT = "BottomRight";
 	
 	//attributes
 	private final AligningContainerSlot topLeftSlot = new AligningContainerSlot();
@@ -26,6 +39,42 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//constructor
 	public AligningContainer() {
 		getRefBaseLook().setPaddings(10);
+	}
+	
+	//method
+	@Override
+	public void addOrChangeAttribute(final BaseNode attribute) {
+		switch (attribute.getHeader()) {
+			case TOP:
+				setOnTop(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case TOP_LEFT_HEADER:
+				setOnTopLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case TOP_RIGHT:
+				setOnTopRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case LEFT:
+				setOnLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case CENTER:
+				setOnCenter(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case RIGHT:
+				setOnRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case BOTTOM_LEFT:
+				setOnBottomLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case BOTTOM:
+				setOnBottom(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			case BOTTOM_RIGHT:
+				setOnBottomRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
+				break;
+			default:
+				super.addOrChangeAttribute(attribute);
+		}
 	}
 	
 	//method
@@ -46,17 +95,50 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
-		//Calls method of the base class.
 		super.fillUpAttributesInto(list);
 		
-		//TODO: Implement.
+		if (topLeftSlot.containsAny()) {
+			list.addAtEnd(topLeftSlot.getRefWidget().getSpecification());
+		}
+		
+		if (topSlot.containsAny()) {
+			list.addAtEnd(topSlot.getRefWidget().getSpecification());
+		}
+		
+		if (topRightSlot.containsAny()) {
+			list.addAtEnd(topRightSlot.getRefWidget().getSpecification());
+		}
+		
+		if (leftSlot.containsAny()) {
+			list.addAtEnd(leftSlot.getRefWidget().getSpecification());
+		}
+		
+		if (centerSlot.containsAny()) {
+			list.addAtEnd(centerSlot.getRefWidget().getSpecification());
+		}
+		
+		if (rightSlot.containsAny()) {
+			list.addAtEnd(rightSlot.getRefWidget().getSpecification());
+		}
+		
+		if (bottomLeftSlot.containsAny()) {
+			list.addAtEnd(bottomLeftSlot.getRefWidget().getSpecification());
+		}
+		
+		if (bottomSlot.containsAny()) {
+			list.addAtEnd(bottomSlot.getRefWidget().getSpecification());
+		}
+		
+		if (bottomRightSlot.containsAny()) {
+			list.addAtEnd(bottomRightSlot.getRefWidget().getSpecification());
+		}
 	}
 	
 	//method
 	public AligningContainer setOnBottom(final Widget<?, ?> widget) {
 		
-		bottomSlot.setWidget(widget);
 		addChildWidget(widget);
+		bottomSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -64,8 +146,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnBottomLeft(final Widget<?, ?> widget) {
 		
-		bottomLeftSlot.setWidget(widget);
 		addChildWidget(widget);
+		bottomLeftSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -73,8 +155,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnBottomRight(final Widget<?, ?> widget) {
 		
-		bottomRightSlot.setWidget(widget);
 		addChildWidget(widget);
+		bottomRightSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -82,8 +164,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnCenter(final Widget<?, ?> widget) {
 		
-		centerSlot.setWidget(widget);
 		addChildWidget(widget);
+		centerSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -91,8 +173,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnLeft(final Widget<?, ?> widget) {
 		
-		leftSlot.setWidget(widget);
 		addChildWidget(widget);
+		leftSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -100,8 +182,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnRight(final Widget<?, ?> widget) {
 		
-		rightSlot.setWidget(widget);
 		addChildWidget(widget);
+		rightSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -109,8 +191,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnTop(final Widget<?, ?> widget) {
 		
-		topSlot.setWidget(widget);
 		addChildWidget(widget);
+		topSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -118,8 +200,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnTopLeft(final Widget<?, ?> widget) {
 		
-		topLeftSlot.setWidget(widget);
 		addChildWidget(widget);
+		topLeftSlot.setWidget(widget);
 		
 		return this;
 	}
@@ -127,8 +209,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnTopRight(final Widget<?, ?> widget) {
 		
-		topRightSlot.setWidget(widget);
 		addChildWidget(widget);
+		topRightSlot.setWidget(widget);
 		
 		return this;
 	}
