@@ -38,7 +38,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String CONFIGURATIONS = "configurations";
 	public static final String CONTAINERS = "containers";
 	public static final String CONTENTS = "contents";
-	public static final String CONTEXTES = "contextes";
+	public static final String CONTEXTS = "contexts";
 	public static final String CONTROLLERS = "controllers";
 	public static final String CREATION_DATES = "creation dates";
 	public static final String CREATORS = "creators";
