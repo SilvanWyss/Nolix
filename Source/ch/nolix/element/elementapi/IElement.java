@@ -14,7 +14,7 @@ import ch.nolix.common.xml.XMLNode;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 160
+ * @lines 170
  */
 public interface IElement {
 	
@@ -44,7 +44,15 @@ public interface IElement {
 	 * @return the specification of the current {@link IElement}.
 	 */
 	default Node getSpecification() {
-		return Node.withHeaderAndAttributes(getType(), getAttributes());
+		return getSpecificationAs(getSpecificationHeader());
+	}
+	
+	//method
+	/**
+	 * @return the header of the specifications of the current {@link IElement}.
+	 */
+	default String getSpecificationHeader() {
+		return getClass().getSimpleName();
 	}
 	
 	//method
@@ -158,10 +166,5 @@ public interface IElement {
 	 */
 	default XMLNode toXMLAs(final String type) {
 		return getSpecificationAs(type).toXML();
-	}
-	
-	//method
-	private String getType() {
-		return getClass().getSimpleName();
 	}
 }
