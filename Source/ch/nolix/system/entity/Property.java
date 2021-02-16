@@ -69,7 +69,7 @@ public abstract class Property<V> implements Headered, IElement {
 	//method
 	public final Entity getParentEntity() {
 		
-		supposeBelongsToEntity();
+		assertBelongsToEntity();
 		
 		return parentEntity;
 	}
@@ -132,7 +132,7 @@ public abstract class Property<V> implements Headered, IElement {
 		.thatIsNamed("parent entity")
 		.isNotNull();
 		
-		supposeBelongsToNoEntity();
+		assertDoesNotBelongToNoEntity();
 		
 		this.parentEntity = parentEntity;
 	}
@@ -141,7 +141,7 @@ public abstract class Property<V> implements Headered, IElement {
 	protected abstract void internalValidateSchema();
 	
 	//method
-	private void supposeBelongsToEntity() {
+	private void assertBelongsToEntity() {
 		if (!belongsToEntity()) {
 			throw new InvalidArgumentException(
 				this,
@@ -151,7 +151,7 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method
-	private void supposeBelongsToNoEntity() {
+	private void assertDoesNotBelongToNoEntity() {
 		if (belongsToEntity()) {
 			throw new InvalidArgumentException(
 				this,
