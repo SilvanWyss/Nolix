@@ -8,7 +8,7 @@ import ch.nolix.system.entity.Entity;
 import ch.nolix.system.entity.MultiValue;
 
 //class
-public final class MultiValuePropertyTest extends Test {
+public final class MultiValueTest extends Test {
 	
 	//method
 	@TestCase
