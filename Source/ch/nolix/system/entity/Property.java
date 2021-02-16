@@ -83,6 +83,11 @@ public abstract class Property<V> implements Headered, IElement {
 	public abstract PropertyKind getPropertyKind();
 	
 	//method
+	public final Node getSpecificationAsAttribute() {
+		return getSpecificationAs(getHeader());
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public final Class<V> getValueClass() {
 		
