@@ -9,7 +9,7 @@ import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.Value;
 
 //class
-public final class ValuePropertyTest extends Test {
+public final class ValueTest extends Test {
 		
 	//method
 	@TestCase

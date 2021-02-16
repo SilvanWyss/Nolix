@@ -13,7 +13,7 @@ public final class EntityTestPool extends TestPool {
 			EntityWithBackReferenceTest.class,
 			MultiValueTest.class,
 			OptionalValuePropertyTest.class,
-			ValuePropertyTest.class
+			ValueTest.class
 		);
 	}
 }
