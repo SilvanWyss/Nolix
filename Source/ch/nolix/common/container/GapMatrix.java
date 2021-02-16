@@ -49,7 +49,7 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//method
 	public void addRow() {
 				
-		final var newRowCount = getRowCount();	
+		final var newRowCount = getRowCount() + 1;	
 		
 		rows = Arrays.copyOf(rows, newRowCount);
 		rows[newRowCount - 1] = new Object[getColumnCount()];
