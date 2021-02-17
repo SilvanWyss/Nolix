@@ -17,7 +17,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 310
+ * @lines 300
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
@@ -114,15 +114,6 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	@Override
 	protected TextBoxLook createLook() {
 		return new TextBoxLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected int getNaturalContentAreaWidth() {
-		return getTextFormat().getSwingTextWidth(getText());
 	}
 	
 	//method

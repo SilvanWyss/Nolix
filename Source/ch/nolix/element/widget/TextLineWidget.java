@@ -110,7 +110,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getNaturalContentAreaWidth() {
+	protected final int getNaturalContentAreaWidth() {
 		return getTextFormat().getSwingTextWidth(getText());
 	}
 	
