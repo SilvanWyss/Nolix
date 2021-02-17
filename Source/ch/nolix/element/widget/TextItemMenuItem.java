@@ -4,7 +4,6 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
@@ -101,15 +100,6 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	private TextItemMenuItem(final BaseNode specification) {
 		unselect();
 		specification.getRefAttributes().forEach(this::addOrChangeAttribute);
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		//TODO: Implement.
 	}
 	
 	//method
