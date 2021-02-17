@@ -50,12 +50,6 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method
-	/**
-	 * @return the cell specification of the current {@link Property}.
-	 */
-	public abstract Node getCellSpecification();
-	
-	//method
 	@Override
 	public final String getHeader() {
 		return ReflectionHelper.getFieldName(getParentEntity(), this);

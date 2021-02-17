@@ -5,7 +5,6 @@ package ch.nolix.system.entity;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Clearable;
 
 //class
@@ -48,18 +47,6 @@ public final class MultiValue<V> extends BaseValueProperty<V> implements Clearab
 	@Override
 	public void clear() {
 		internalClear();
-	}
-	
-	//method
-	@Override
-	public Node getCellSpecification() {
-		
-		final var cellSpecification = new Node();
-		for (final var v : getValues()) {
-			cellSpecification.addAttribute(Node.fromString(v.toString()));
-		}
-		
-		return cellSpecification;
 	}
 	
 	//method

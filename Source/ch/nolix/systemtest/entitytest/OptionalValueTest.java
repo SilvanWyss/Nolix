@@ -13,7 +13,27 @@ public final class OptionalValueTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getSpecification_whenOptionalPropertyIsEmpty() {
+	public void testCase_getSpecificationAsAttribute_whenHasAValue() {
+		
+		//setup
+		final var entity = new Entity() {
+			
+			//attribute
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
+		};
+		EntityAccessor.extractProperties(entity);
+		entity.testUnit.setValue("x");
+		
+		//execution
+		final var result = entity.testUnit.getSpecificationAsAttribute();
+		
+		//verification
+		expect(result.toString()).isEqualTo("testUnit(x)");
+	}
+
+	//method
+	@TestCase
+	public void testCase_getSpecificationAsAttribute_whenIsEmpty() {
 		
 		//setup
 		final var entity = new Entity() {
@@ -25,17 +45,15 @@ public final class OptionalValueTest extends Test {
 		entity.testUnit.clear();
 		
 		//execution
-		final var result = entity.testUnit.getSpecification();
+		final var result = entity.testUnit.getSpecificationAsAttribute();
 		
 		//verification
-		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
 		expect(result.toString()).isEqualTo("testUnit");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getSpecification_whenOptionalPropertyHasAValue() {
+	public void testCase_getSpecificationWithoutHeader_whenHasAValue() {
 		
 		//setup
 		final var entity = new Entity() {
@@ -43,21 +61,18 @@ public final class OptionalValueTest extends Test {
 			//attribute
 			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
-		EntityAccessor.extractProperties(entity);
 		entity.testUnit.setValue("x");
 		
 		//execution
-		final var result = entity.testUnit.getSpecification();
+		final var result = entity.testUnit.getSpecificationWithoutHeader();
 		
 		//verification
-		expect(result.hasHeader());
-		expect(result.containsAttributes());
-		expect(result.toString()).isEqualTo("testUnit(x)");
+		expect(result.toString()).isEqualTo("(x)");
 	}
-	
+
 	//method
 	@TestCase
-	public void testCase_getCellSpecification_whenOptionalPropertyIsEmpty() {
+	public void testCase_getSpecificationWithoutHeader_whenIsEmpty() {
 		
 		//setup
 		final var entity = new Entity() {
@@ -68,32 +83,9 @@ public final class OptionalValueTest extends Test {
 		entity.testUnit.clear();
 		
 		//execution
-		final var result = entity.testUnit.getCellSpecification();
+		final var result = entity.testUnit.getSpecificationWithoutHeader();
 		
 		//verification
-		expectNot(result.hasHeader());
-		expectNot(result.containsAttributes());
 		expect(result.toString()).isEqualTo("");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getCellSpecification_whenOptioanlPropertyHasAValue() {
-		
-		//setup
-		final var entity = new Entity() {
-			
-			//attribute
-			public final OptionalValue<String> testUnit = new OptionalValue<>();
-		};
-		entity.testUnit.setValue("x");
-		
-		//execution
-		final var result = entity.testUnit.getCellSpecification();
-		
-		//verification
-		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
-		expect(result.toString()).isEqualTo("x");
 	}
 }

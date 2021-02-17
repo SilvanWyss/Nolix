@@ -5,7 +5,6 @@ package ch.nolix.system.entity;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 
 //class
@@ -22,18 +21,6 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 		internalNoteUpdate();
 		
 		return this;
-	}
-	
-	//method
-	@Override
-	public Node getCellSpecification() {
-		
-		final var cellSpecification = new Node();
-		for (final var rei : referencedEntityIds) {
-			cellSpecification.addAttribute(Node.withHeader(rei));
-		}
-		
-		return cellSpecification;
 	}
 	
 	//method

@@ -18,17 +18,6 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	private V value;
 	
 	//method
-	@Override
-	public final Node getCellSpecification() {
-		
-		if (value == null) {
-			return new Node();
-		}
-		
-		return Node.fromString(value.toString());
-	}
-	
-	//method
 	@SuppressWarnings("unchecked")
 	public Class<V> getDataType() {
 		return (Class<V>)getClass().getDeclaredFields()[0].getType();

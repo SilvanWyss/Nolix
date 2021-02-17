@@ -9,7 +9,6 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
 
@@ -59,12 +58,6 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	//method
 	public int getBackReferenceCount() {
 		return backReferenceCount;
-	}
-	
-	//method
-	@Override
-	public Node getCellSpecification() {
-		return Node.withHeader(getBackReferenceCount());
 	}
 	
 	//method

@@ -13,7 +13,7 @@ public final class ValueTest extends Test {
 		
 	//method
 	@TestCase
-	public void testCase_getSpecification() {
+	public void testCase_getSpecificationAsAttribute() {
 		
 		//setup
 		final var entity = new Entity() {
@@ -25,17 +25,15 @@ public final class ValueTest extends Test {
 		entity.testUnit.setValue("x");
 		
 		//execution
-		final var result = entity.testUnit.getSpecification();
+		final var result = entity.testUnit.getSpecificationAsAttribute();
 		
 		//verification
-		expect(result.hasHeader());
-		expect(result.containsAttributes());
 		expect(result.toString()).isEqualTo("testUnit(x)");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getCellSpecification() {
+	public void testCase_getSpecificationWithoutHeader() {
 		
 		//setup
 		final var entity = new Entity() {
@@ -46,11 +44,9 @@ public final class ValueTest extends Test {
 		entity.testUnit.setValue("x");
 		
 		//execution
-		final var result = entity.testUnit.getCellSpecification();
+		final var result = entity.testUnit.getSpecificationWithoutHeader();
 		
 		//verification
-		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
-		expect(result.toString()).isEqualTo("x");
+		expect(result.toString()).isEqualTo("(x)");
 	}
 }

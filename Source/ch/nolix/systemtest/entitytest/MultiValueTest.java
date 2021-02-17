@@ -12,44 +12,6 @@ public final class MultiValueTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getCellSpecification_whenContainsValues() {
-		
-		//setup
-		final var entity = new Entity() {
-			
-			//attribute
-			public final MultiValue<String> testUnit = new MultiValue<>();
-		};
-		entity.testUnit.addValue("a", "b", "c");
-		
-		//execution
-		final var result = entity.testUnit.getCellSpecification();
-		
-		//verification
-		expect(result.toString()).isEqualTo("(a,b,c)");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getCellSpecification_whenIsEmpty() {
-		
-		//setup
-		final var entity = new Entity() {
-			
-			//attribute
-			public final MultiValue<String> testUnit = new MultiValue<>();
-		};
-		entity.testUnit.clear();
-		
-		//execution
-		final var result = entity.testUnit.getCellSpecification();
-		
-		//verification
-		expect(result.toString()).isEqualTo("");
-	}
-	
-	//method
-	@TestCase
 	public void testCase_getSpecificationAsAttribute_whenContainsValues() {
 		
 		//setup
@@ -86,5 +48,43 @@ public final class MultiValueTest extends Test {
 		
 		//verification
 		expect(result.toString()).isEqualTo("testUnit");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getSpecificationWithoutHeadern_whenContainsValues() {
+		
+		//setup
+		final var entity = new Entity() {
+			
+			//attribute
+			public final MultiValue<String> testUnit = new MultiValue<>();
+		};
+		entity.testUnit.addValue("a", "b", "c");
+		
+		//execution
+		final var result = entity.testUnit.getSpecificationWithoutHeader();
+		
+		//verification
+		expect(result.toString()).isEqualTo("(a,b,c)");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getSpecificationWithoutHeader_whenIsEmpty() {
+		
+		//setup
+		final var entity = new Entity() {
+			
+			//attribute
+			public final MultiValue<String> testUnit = new MultiValue<>();
+		};
+		entity.testUnit.clear();
+		
+		//execution
+		final var result = entity.testUnit.getSpecificationWithoutHeader();
+		
+		//verification
+		expect(result.toString()).isEqualTo("");
 	}
 }
