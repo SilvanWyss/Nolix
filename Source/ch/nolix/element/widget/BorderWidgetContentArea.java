@@ -14,7 +14,7 @@ import ch.nolix.element.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 260
+ * @lines 270
  * @param <BWL>
  * is the type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
@@ -212,10 +212,12 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	@Override
 	public void recalculate() {
-		width = calculateWidth();
-		height = calculateHeight();
+		
 		naturalWidth = calculateNaturalWidth();
 		naturalHeight = calculateNaturalHeight();
+		
+		width = calculateWidth();
+		height = calculateHeight();
 	}
 	
 	//visibility-reduced method
