@@ -9,7 +9,7 @@ import ch.nolix.system.entity.EntityAccessor;
 import ch.nolix.system.entity.OptionalValue;
 
 //class
-public final class OptionalValuePropertyTest extends Test {
+public final class OptionalValueTest extends Test {
 	
 	//method
 	@TestCase

@@ -12,7 +12,7 @@ public final class EntityTestPool extends TestPool {
 		super(
 			EntityWithBackReferenceTest.class,
 			MultiValueTest.class,
-			OptionalValuePropertyTest.class,
+			OptionalValueTest.class,
 			ValueTest.class
 		);
 	}
