@@ -29,6 +29,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		//setup
 		final var testUnit = createTestUnit();
 		testUnit.getRefBaseLook().setTopBorderThickness(topBorderThickness);
+		testUnit.getRefBaseLook().removeBottomBorderThickness();
 		testUnit.recalculate();
 		
 		//execution
@@ -88,6 +89,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		//setup
 		final var testUnit = createTestUnit();
 		testUnit.getRefBaseLook().setLeftBorderThickness(leftBorderThickenss);
+		testUnit.getRefBaseLook().removeRightBorderThickness();
 		testUnit.recalculate();
 		
 		//execution
