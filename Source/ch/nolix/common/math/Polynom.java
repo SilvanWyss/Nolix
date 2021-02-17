@@ -24,7 +24,7 @@ import ch.nolix.common.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 390
+ * @lines 400
  */
 public final class Polynom {
 	
@@ -334,58 +334,69 @@ public final class Polynom {
 		final var stringBuilder = new StringBuilder();
 		
 		stringBuilder.append(parameterSymbol + "->");
-		
-		var begin = true;
-		
-		//Extracts the coefficients of all x^n of this {@link Polynom} for n>1.
-		for (int i = 0; i < getDegree() - 1; i++) {
+		appendHigherCoefficientsTo(stringBuilder, parameterSymbol);
+		appendLinearCoefficientTo(stringBuilder, parameterSymbol);
+		appendConstantTo(stringBuilder);
+						
+		return stringBuilder.toString();
+	}
+	
+	//method
+	private void appendConstantTo(final StringBuilder stringBuilder) {
+		if (coefficients.length > 0) {
 			
-			int coefficientDegree = getDegree() - i;
-
-			if (coefficients[i] != 0) {
+			final var constant = coefficients[coefficients.length - 1];
+			
+			if (constant != 0.0) {
 				
-				if (!begin && coefficients[i] > 0) {
+				if (coefficients.length > 1 && constant > 0.0) {
+					stringBuilder.append("+");
+				}
+			
+				stringBuilder.append(DoubleHelper.toString(constant));
+			}
+		}
+	}
+	
+	//method
+	private void appendHigherCoefficientsTo(final StringBuilder stringBuilder, final String parameterSymbol) {
+		
+		final var degree = getDegree();
+		
+		for (var i = 0; i < degree - 1; i++) {
+						
+			final var coefficient = coefficients[i];
+			
+			if (coefficient != 0.0) {
+				
+				if (i > 0 && coefficient > 0.0) {
 					stringBuilder.append('+');
 				}
 				
-				begin = false;
-				
-				if (coefficients[i] != 1) {
-					stringBuilder.append(
-						DoubleHelper.toString(coefficients[i]) + parameterSymbol +"^" + coefficientDegree
-					);
-				} else {
-					stringBuilder.append(parameterSymbol + "^" + coefficientDegree);
+				if (coefficient != 1.0) {
+					stringBuilder.append(DoubleHelper.toString(coefficient));
 				}
+				
+				final var coefficientDegree = degree - i;
+				stringBuilder.append(parameterSymbol + "^" + coefficientDegree);
 			}
 		}
-		
-		//Handles the linear coefficient of the current Polynom.
-		if (coefficients.length > 1 && coefficients[coefficients.length - 2] != 0) {
+	}
+	
+	//method
+	private void appendLinearCoefficientTo(final StringBuilder stringBuilder, final String parameterSymbol) {
+		if (coefficients.length > 1) {
 			
-			if (!begin && coefficients[coefficients.length - 2] > 0) {
-				stringBuilder.append('+');
+			final var linearCoefficient = coefficients[coefficients.length - 2];
+			
+			if (linearCoefficient != 0.0) {
+				
+				if (coefficients.length > 2 && linearCoefficient > 0.0) {
+					stringBuilder.append("+");
+				}
+				
+				stringBuilder.append(DoubleHelper.toString(linearCoefficient) + parameterSymbol);
 			}
-			
-			begin = false;
-			stringBuilder.append(DoubleHelper.toString(coefficients[coefficients.length - 2]) + parameterSymbol);
 		}
-		
-		//Handles the the constant of the current Polynom.
-		if (coefficients.length > 0 && coefficients[coefficients.length - 1] != 0) {
-			
-			if (!begin && coefficients[coefficients.length - 1] > 0) {
-				stringBuilder.append('+');
-			}
-			
-			begin = false;
-			stringBuilder.append(DoubleHelper.toString(coefficients[coefficients.length - 1]));
-		}
-		
-		if (begin) {
-			stringBuilder.append('0');
-		}
-		
-		return stringBuilder.toString();
 	}
 }
