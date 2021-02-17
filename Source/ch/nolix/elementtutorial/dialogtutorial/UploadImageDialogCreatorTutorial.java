@@ -8,6 +8,7 @@ import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.dialog.UploadImageDialogCreator;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.Frame;
+import ch.nolix.element.gui.Layer;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.ImageWidget;
@@ -35,27 +36,11 @@ public final class UploadImageDialogCreatorTutorial {
 				new Button()
 				.setText("Change image")
 				.setLeftMouseButtonPressAction(
-					() -> {
-						if (imageWidget.isEmpty()) {
-							frame.addLayerOnTop(
-								new UploadImageDialogCreator()
-								.createUploadImageDialogWithImageTaker(imageWidget::setImage)
-							);
-						} else {
-							frame.addLayerOnTop(
-								new UploadImageDialogCreator()
-								.createUploadImageDialogWithCurrentImageAndImageTaker(
-									imageWidget.getRefImage(),
-									imageWidget::setImage
-								)
-							);
-						}
-					}
+					() -> frame.addLayerOnTop(createImageDialogForImageWidget(imageWidget))
 				)
 			)
 		);
 		
-		//Sets a Configuration to the Frame.
 		frame.setConfiguration(
 			new Configuration()
 			.addConfiguration(
@@ -103,6 +88,17 @@ public final class UploadImageDialogCreatorTutorial {
 				
 			)
 		);
+	}
+	
+	private static Layer createImageDialogForImageWidget(final ImageWidget imageWidget) {
+		
+		if (imageWidget.isEmpty()) {
+			return new UploadImageDialogCreator().createUploadImageDialogWithImageTaker(imageWidget::setImage);
+		}
+		
+		return
+		new UploadImageDialogCreator()
+		.createUploadImageDialogWithCurrentImageAndImageTaker(imageWidget.getRefImage(), imageWidget::setImage);
 	}
 	
 	private UploadImageDialogCreatorTutorial() {}
