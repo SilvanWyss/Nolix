@@ -96,7 +96,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * @return the current {@link TextLineWidget}.
 	 * @throws ArgumentIsNullException if the given noteTextChangeAction is null.
 	 */
-	public final TLW setNoteTextChangeCommand(final IElementTaker<String> noteTextChangeAction) {
+	public final TLW setNoteTextChangeAction(final IElementTaker<String> noteTextChangeAction) {
 		
 		Validator.assertThat(noteTextChangeAction).thatIsNamed("note text change action").isNotNull();
 		
