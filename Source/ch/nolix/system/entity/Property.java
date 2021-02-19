@@ -8,7 +8,8 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.common.validator.Validator;
@@ -20,19 +21,12 @@ public abstract class Property<V> implements Headered, IElement {
 	//optional attribute
 	private Entity parentEntity;
 	
-	//method
-	public final boolean belongsToDatabaseAdapter() {
-		return (belongsToEntity() && getParentEntity().belongsToDatabaseAdapter());
-	}
+	//method declaration
+	public abstract void assertCanBeSaved();
 	
 	//method
 	public final boolean belongsToEntity() {
 		return (parentEntity != null);
-	}
-	
-	//method
-	public final boolean belongsToEntitySet() {
-		return (belongsToEntity() && getParentEntity().belongsToEntitySet());
 	}
 	
 	//method declaration
@@ -85,12 +79,9 @@ public abstract class Property<V> implements Headered, IElement {
 	@SuppressWarnings("unchecked")
 	public final Class<V> getValueClass() {
 		
-		final var actualClass =
-		ReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
+		final var valueClass = ReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
 		
-		return
-		(Class<V>)
-		((ParameterizedType)actualClass).getActualTypeArguments()[0];
+		return (Class<V>)((ParameterizedType)valueClass).getActualTypeArguments()[0];
 	}
 	
 	//method
@@ -99,10 +90,7 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method declaration
-	public abstract boolean references(final Entity entity);
-	
-	//method declaration
-	public abstract void supposeCanBeSaved();
+	public abstract boolean references(Entity entity);
 	
 	//method declaration
 	protected abstract void internalClear();
@@ -124,12 +112,9 @@ public abstract class Property<V> implements Headered, IElement {
 	protected abstract void internalSetValues(IContainer<Object> values);
 	
 	//method
-	protected void internalSetParentEntity(final Entity parentEntity) {
+	protected final void internalSetParentEntity(final Entity parentEntity) {
 		
-		Validator
-		.assertThat(parentEntity)
-		.thatIsNamed("parent entity")
-		.isNotNull();
+		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		
 		assertDoesNotBelongToNoEntity();
 		
@@ -141,21 +126,15 @@ public abstract class Property<V> implements Headered, IElement {
 	
 	//method
 	private void assertBelongsToEntity() {
-		if (!belongsToEntity()) {
-			throw new InvalidArgumentException(
-				this,
-				"does not belong to a entity"
-			);
+		if (!belongsToEntity()) {			
+			throw new ArgumentDoesNotBelongToParentException(this, Entity.class);
 		}
 	}
 	
 	//method
 	private void assertDoesNotBelongToNoEntity() {
 		if (belongsToEntity()) {
-			throw new InvalidArgumentException(
-				this,
-				"belongs to an entity"
-			);
+			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentEntity());
 		}
 	}
 }

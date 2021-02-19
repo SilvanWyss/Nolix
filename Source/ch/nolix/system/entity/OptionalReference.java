@@ -28,7 +28,7 @@ public final class OptionalReference<E extends Entity> extends SingleReference<E
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {}
+	public void assertCanBeSaved() {}
 	
 	//method
 	@Override

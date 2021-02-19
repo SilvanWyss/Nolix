@@ -277,7 +277,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	
 	//method
 	public final void supposeCanBeSaved() {
-		getRefProperties().forEach(Property::supposeCanBeSaved);
+		getRefProperties().forEach(Property::assertCanBeSaved);
 	}
 	
 	//method

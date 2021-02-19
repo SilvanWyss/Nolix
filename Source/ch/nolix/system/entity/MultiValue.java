@@ -68,7 +68,7 @@ public final class MultiValue<V> extends BaseValueProperty<V> implements Clearab
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {}
+	public void assertCanBeSaved() {}
 	
 	//method
 	@Override

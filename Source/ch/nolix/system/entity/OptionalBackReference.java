@@ -25,5 +25,5 @@ public final class OptionalBackReference<E extends Entity> extends SingleBackRef
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {}
+	public void assertCanBeSaved() {}
 }

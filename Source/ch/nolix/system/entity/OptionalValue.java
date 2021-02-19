@@ -27,5 +27,5 @@ public class OptionalValue<V> extends SingleValue<V> implements Clearable {
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {}
+	public void assertCanBeSaved() {}
 }

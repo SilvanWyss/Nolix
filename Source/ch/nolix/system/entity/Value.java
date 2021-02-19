@@ -29,7 +29,7 @@ public final class Value<V> extends SingleValue<V> {
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {
+	public void assertCanBeSaved() {
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}

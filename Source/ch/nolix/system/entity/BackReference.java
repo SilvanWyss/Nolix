@@ -28,7 +28,7 @@ public final class BackReference<E extends Entity> extends SingleBackReference<E
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {
+	public void assertCanBeSaved() {
 		if (!referencesBackEntity()) {
 			throw new InvalidArgumentException(this, "does not reference back a " + getValueClass().getSimpleName());
 		}

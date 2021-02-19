@@ -22,7 +22,7 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	
 	//method
 	@Override
-	public void supposeCanBeSaved() {
+	public void assertCanBeSaved() {
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
