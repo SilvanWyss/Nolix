@@ -9,6 +9,9 @@ import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 public final class Value<V> extends SingleValue<V> {
 	
 	//constructor
+	public Value() {}
+	
+	//constructor
 	public Value(final IElementTaker<V> valueValidator) {
 		super(valueValidator);
 	}

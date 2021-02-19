@@ -3,7 +3,6 @@ package ch.nolix.systemtest.datatypetest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.datatype.BackReferenceType;
 import ch.nolix.system.datatype.DataTypeHelper;
