@@ -14,7 +14,7 @@ import ch.nolix.common.validator.Validator;
 
 //class
 public abstract class SingleValue<V> extends BaseValueProperty<V> {
-		
+	
 	//optional attributes
 	private V value;
 	private final IElementTaker<V> preSetValueFunction;
@@ -35,13 +35,13 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	//method
 	@SuppressWarnings("unchecked")
 	public Class<V> getDataType() {
-		return (Class<V>)getClass().getDeclaredFields()[1].getType();
+		return (Class<V>)getClass().getDeclaredFields()[0].getType();
 	}
 	
 	//method
 	public final V getValue() {
 		
-		supposeHasValue();
+		assertHasValue();
 		
 		return value;
 	}
@@ -96,10 +96,9 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	@Override
 	protected final void internalClear() {
 		
-		supposeIsOptional();
+		assertIsOptional();
 		
 		value = null;
-		
 		internalNoteUpdate();
 	}
 	
@@ -107,13 +106,11 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	@Override
 	protected final LinkedList<Object> internalGetValues() {
 		
-		final var values = new LinkedList<Object>();
-		
-		if (hasValue()) {
-			values.addAtEnd(getValue());
+		if (isEmpty()) {
+			return new LinkedList<>();
 		}
 		
-		return values;
+		return LinkedList.withElements(getValue());
 	}
 	
 	//method
@@ -131,17 +128,14 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	}
 	
 	//method
-	private void supposeHasValue() {
+	private void assertHasValue() {
 		if (!hasValue()) {
-			throw new ArgumentDoesNotHaveAttributeException(
-				this,
-				LowerCaseCatalogue.VALUE
-			);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
 		}
 	}
 	
 	//method
-	private void supposeIsOptional() {
+	private void assertIsOptional() {
 		if (!isOptional()) {
 			throw new InvalidArgumentException(this, "is not optional");
 		}
