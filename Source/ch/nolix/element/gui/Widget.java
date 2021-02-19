@@ -37,6 +37,11 @@ import ch.nolix.element.painterapi.IPainter;
  * A {@link Widget} determines its width and height.
  * A {@link Widget} is a {@link ConfigurableElement}.
  * 
+ * A class always defines (not just declares!) the required methods for its defined attributes.
+ * A {@link Widget} makes the following exceptions for this rule.
+ * -A {@link Widget} ensures that its shown child {@link Widget} are painted.
+ * -A {@link Widget} ensures that all input events are leaded to its shown child {@link Widget}.
+ * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 2120
