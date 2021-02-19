@@ -82,9 +82,9 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//method
 	/**
-	 * Removes the note text change command of the current {@link TextLineWidget}.
+	 * Removes the note text change action of the current {@link TextLineWidget}.
 	 */
-	public final void removeNoteTextChangeCommand() {
+	public final void removeNoteTextChangeAction() {
 		noteTextChangeAction = null;
 	}
 	
