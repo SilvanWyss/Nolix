@@ -1,11 +1,17 @@
 //package declaration
 package ch.nolix.system.entity;
 
-//own import
+//own imports
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 
 //class
 public final class Value<V> extends SingleValue<V> {
+	
+	//constructor
+	public Value(final IElementTaker<V> valueValidator) {
+		super(valueValidator);
+	}
 	
 	//method
 	@Override

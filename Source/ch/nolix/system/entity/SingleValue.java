@@ -6,6 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
@@ -13,14 +14,28 @@ import ch.nolix.common.validator.Validator;
 
 //class
 public abstract class SingleValue<V> extends BaseValueProperty<V> {
-
-	//optional attribute
+		
+	//optional attributes
 	private V value;
+	private final IElementTaker<V> preSetValueFunction;
+	
+	//constructor
+	public SingleValue() {
+		preSetValueFunction = null;
+	}
+	
+	//constructor
+	public SingleValue(final IElementTaker<V> preSetValueFunction) {
+		
+		Validator.assertThat(preSetValueFunction).thatIsNamed("pre-set value function").isNotNull();
+		
+		this.preSetValueFunction = preSetValueFunction;
+	}
 	
 	//method
 	@SuppressWarnings("unchecked")
 	public Class<V> getDataType() {
-		return (Class<V>)getClass().getDeclaredFields()[0].getType();
+		return (Class<V>)getClass().getDeclaredFields()[1].getType();
 	}
 	
 	//method
@@ -57,13 +72,13 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	//method
 	public final void setValue(final V value) {
 		
-		Validator
-		.assertThat(value)
-		.thatIsNamed(LowerCaseCatalogue.VALUE)
-		.isNotNull();
+		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		
+		if (preSetValueFunction != null) {
+			preSetValueFunction.run(value);
+		}
 		
 		this.value = value;
-		
 		internalNoteUpdate();
 	}
 	
