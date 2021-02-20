@@ -6,6 +6,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -170,6 +171,11 @@ implements Clearable {
 		selectItem(getRefItems().getRefFirst(i -> i.hasId(id)));
 		
 		return asConcrete();
+	}
+	
+	//method
+	public final TIM setSelectAction(final IAction selectAction) {
+		return setSelectAction(i -> selectAction.run());
 	}
 	
 	//method
