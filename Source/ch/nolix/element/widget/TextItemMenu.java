@@ -175,6 +175,9 @@ implements Clearable {
 	
 	//method
 	public final TIM setSelectAction(final IAction selectAction) {
+		
+		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+		
 		return setSelectAction(i -> selectAction.run());
 	}
 	
