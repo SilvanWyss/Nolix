@@ -286,12 +286,11 @@ extends BorderWidget<TLW, TLWL> {
 	protected final void recalculateBorderWidget() {}
 	
 	//method
-	//For a better performance, this method does not use all comfortable methods.
 	private void setTextWhenHasOtherText(final String text) {
 		
 		this.text.setValue(text);
 		
-		if (noteTextUpdateAction == null) {
+		if (hasNoteTextUpdateAction()) {
 			noteTextUpdateAction.run(text);
 		}
 	}
