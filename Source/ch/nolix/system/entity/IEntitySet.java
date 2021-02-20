@@ -45,6 +45,11 @@ public interface IEntitySet<E extends Entity> extends Clearable, Named {
 	//method declaration
 	E getRefEntityById(long id);
 	
+	//method
+	default E getRefEntityById(final String id) {
+		return getRefEntityById(Long.valueOf(id));
+	}
+	
 	//method declaration
 	boolean hasChanges();
 	
