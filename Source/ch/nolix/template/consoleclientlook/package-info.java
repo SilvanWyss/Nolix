@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.template.consoleclientlook} package
- * defines {@link ch.nolix.system.consoleclient.FrontConsoleClient} looks.
+ * defines {@link ch.nolix.system.client.consoleclient.FrontConsoleClient} looks.
  * 
  * @author Silvan Wyss
  * @month 2019-07

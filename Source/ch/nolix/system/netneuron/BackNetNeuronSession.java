@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.netneuron;
 
-//own import
-import ch.nolix.system.client.StandardClientSession;
+import ch.nolix.system.client.base.StandardClientSession;
 
 //class
 /**

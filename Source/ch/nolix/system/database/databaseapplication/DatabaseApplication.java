@@ -7,11 +7,11 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.graphic.Image;
-import ch.nolix.system.client.Application;
+import ch.nolix.system.client.base.Application;
+import ch.nolix.system.client.guiclient.BackGUIClient;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.IDatabaseAdapterCreator;
 import ch.nolix.system.database.databaseadapter.Schema;
-import ch.nolix.system.guiclient.BackGUIClient;
 
 //class
 public abstract class DatabaseApplication extends Application<BackGUIClient> {

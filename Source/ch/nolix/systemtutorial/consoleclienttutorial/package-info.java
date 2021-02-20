@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtutorial.consoleclienttutorial} package
- * defines tutorials for the {@link ch.nolix.system.consoleclient} package.
+ * defines tutorials for the {@link ch.nolix.system.client.consoleclient} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

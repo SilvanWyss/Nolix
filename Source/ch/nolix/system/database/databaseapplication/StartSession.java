@@ -5,7 +5,7 @@ package ch.nolix.system.database.databaseapplication;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
-import ch.nolix.system.guiclient.BackGUIClientSession;
+import ch.nolix.system.client.guiclient.BackGUIClientSession;
 
 //class
 public final class StartSession extends BackGUIClientSession {

@@ -10,11 +10,11 @@ import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.TextBox;
-import ch.nolix.system.client.Application;
-import ch.nolix.system.client.NetServer;
+import ch.nolix.system.client.base.Application;
+import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.guiclient.BackGUIClient;
+import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.dynamicmath.FractalBuilder;
-import ch.nolix.system.guiclient.BackGUIClient;
-import ch.nolix.system.guiclient.BackGUIClientSession;
 
 public final class FractalVisualizerTutorial {
 	

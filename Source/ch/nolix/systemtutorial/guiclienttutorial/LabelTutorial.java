@@ -6,9 +6,9 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.widget.Label;
-import ch.nolix.system.client.NetServer;
-import ch.nolix.system.guiclient.BackGUIClientSession;
-import ch.nolix.system.guiclient.FrontGUIClient;
+import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.guiclient.BackGUIClientSession;
+import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class LabelTutorial {
 	

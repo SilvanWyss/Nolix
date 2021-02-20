@@ -1,10 +1,9 @@
 package ch.nolix.systemtutorial.consoleclienttutorial;
 
-//own imports
-import ch.nolix.system.client.Application;
-import ch.nolix.system.consoleclient.BackConsoleClient;
-import ch.nolix.system.consoleclient.BackConsoleClientSession;
-import ch.nolix.system.consoleclient.FrontConsoleClient;
+import ch.nolix.system.client.base.Application;
+import ch.nolix.system.client.consoleclient.BackConsoleClient;
+import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
+import ch.nolix.system.client.consoleclient.FrontConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 /**

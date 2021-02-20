@@ -10,9 +10,9 @@ import ch.nolix.common.node.Node;
 import ch.nolix.common.skillapi.Closeable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.baseneuron.BaseNeuron;
-import ch.nolix.system.client.Application;
-import ch.nolix.system.client.NetServer;
-import ch.nolix.system.client.StandardClient;
+import ch.nolix.system.client.base.Application;
+import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.StandardClient;
 
 //class
 /**

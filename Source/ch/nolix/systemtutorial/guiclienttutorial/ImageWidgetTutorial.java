@@ -6,9 +6,9 @@ import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.system.client.NetServer;
-import ch.nolix.system.guiclient.BackGUIClientSession;
-import ch.nolix.system.guiclient.FrontCanvasGUIClient;
+import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.guiclient.BackGUIClientSession;
+import ch.nolix.system.client.guiclient.FrontCanvasGUIClient;
 
 public final class ImageWidgetTutorial {
 	

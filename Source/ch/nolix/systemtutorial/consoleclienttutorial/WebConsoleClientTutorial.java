@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.consoleclienttutorial;
 //own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.system.client.NetServer;
-import ch.nolix.system.consoleclient.BackConsoleClientSession;
-import ch.nolix.system.consoleclient.FrontConsoleClient;
+import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
+import ch.nolix.system.client.consoleclient.FrontConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 public final class WebConsoleClientTutorial {

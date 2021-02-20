@@ -9,8 +9,8 @@ import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
+import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
-import ch.nolix.system.guiclient.BackGUIClientSession;
 
 //class
 public abstract class DatabaseApplicationSession extends BackGUIClientSession {
