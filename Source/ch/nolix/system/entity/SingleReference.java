@@ -28,6 +28,11 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 	}
 	
 	//method
+	public final String getReferencedEntityIdAsString() {
+		return String.valueOf(getReferencedEntityId());
+	}
+	
+	//method
 	public abstract boolean isOptional();
 	
 	//method
