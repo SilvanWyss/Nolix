@@ -3,6 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
@@ -35,7 +36,12 @@ implements Clearable {
 	private IElementTaker<TextItemMenuItem> selectAction;
 	
 	//method
-	public TIM addItem(final String item) {
+	public final TIM addEmtyItem() {
+		return addItem(StringCatalogue.EMPTY_STRING);
+	}
+	
+	//method
+	public final TIM addItem(final String item) {
 		return addItem(new TextItemMenuItem(item));
 	}
 	
@@ -45,17 +51,17 @@ implements Clearable {
 	}
 	
 	//method
-	public TIM addItem(final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
+	public final TIM addItem(final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
 		return addItem(new TextItemMenuItem(item, selectAction));
 	}
 	
 	//method
-	public TIM addItem(final String id, final String item) {
+	public final TIM addItem(final String id, final String item) {
 		return addItem(new TextItemMenuItem(id, item));
 	}
 	
 	//method
-	public TIM addItem(final String id, final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
+	public final TIM addItem(final String id, final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
 		return addItem(new TextItemMenuItem(id, item, selectAction));
 	}
 	
@@ -78,7 +84,7 @@ implements Clearable {
 	}
 	
 	//method
-	public TIM addItems(final Iterable<String> items) {
+	public final TIM addItems(final Iterable<String> items) {
 		
 		items.forEach(this::addItem);
 		
@@ -106,6 +112,11 @@ implements Clearable {
 	//method
 	public final boolean containsSelectedItem() {
 		return getRefItems().contains(TextItemMenuItem::isSelected);
+	}
+	
+	//method
+	public final boolean emptyItemIsSelected() {
+		return (containsSelectedItem() && getRefSelectedItem().getText().isEmpty());
 	}
 	
 	//method
@@ -147,6 +158,11 @@ implements Clearable {
 		selectAction = null;
 		
 		return asConcrete();
+	}
+	
+	//method
+	public final void selectEmptyItem() {
+		selectItem(StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method

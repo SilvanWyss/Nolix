@@ -211,8 +211,6 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	//method
 	private void setText(final String text) {
 		
-		Validator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
-		
 		this.text.setValue(text);
 		
 		label.setText(text);
