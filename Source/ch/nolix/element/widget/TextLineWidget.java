@@ -58,6 +58,14 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//method
 	/**
+	 * Empties the text of the current {@link TextLineWidget}.
+	 */
+	public final void emptyText() {
+		setText(StringCatalogue.EMPTY_STRING);
+	}
+	
+	//method
+	/**
 	 * @return the text of the current {@link TextLineWidget}.
 	 */
 	public final String getText() {
