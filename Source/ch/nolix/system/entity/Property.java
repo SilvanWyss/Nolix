@@ -99,9 +99,14 @@ public abstract class Property<V> implements Headered, IElement {
 	protected abstract LinkedList<Object> internalGetValues();
 	
 	//method
-	protected void internalNoteUpdate() {
-		if (belongsToEntity() && !parentEntity.isNew()) {
-			parentEntity.setEdited();
+	protected final void internalNoteUpdate() {
+		if (belongsToEntity()) {
+			
+			if (!parentEntity.isNew()) {
+				parentEntity.setEdited();
+			}
+			
+			parentEntity.noteUpdate();
 		}
 	}
 	

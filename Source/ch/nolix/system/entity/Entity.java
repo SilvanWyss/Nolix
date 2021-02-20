@@ -7,6 +7,7 @@ import ch.nolix.common.attributeapi.ShortDescripted;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
@@ -43,8 +44,14 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	//optional attribute
 	private IEntitySet<Entity> parentEntitySet;
 	
-	//multi-attribute
+	//multi-attributes
 	private LinkedList<Property<?>> properties;
+	private LinkedList<IAction> noteUpdateActions = new LinkedList<>();
+	
+	//method
+	public final void addNoteUpdateAction(final IAction noteUpdateAction) {
+		noteUpdateActions.addAtEnd(noteUpdateAction);
+	}
 	
 	//method
 	public final boolean belongsToDatabaseAdapter() {
@@ -287,7 +294,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		}
 	}
 	
-	//method
+	//visibility-reduced method
 	void extractPropertiesWhenNotExtracted() {
 		
 		properties = new PropertyExtractor().getRefPropertiesOf(this);
@@ -297,7 +304,12 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		validatePropertySchema();
 	}
 	
-	//method
+	//visibility-reduced method
+	final void noteUpdate() {
+		noteUpdateActions.forEach(IAction::run);
+	}
+	
+	//visibility-reduced method
 	final void setEdited() {
 		switch (getState()) {
 			case NEW:
@@ -321,7 +333,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		}
 	}
 	
-	//method
+	//visibility-reduced method
 	final void setId(final long id) {
 		
 		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isPositive();
@@ -329,7 +341,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		this.id = id;
 	}
 	
-	//method
+	//visibility-reduced method
 	final void setPersisted() {
 		switch (getState()) {
 			case NEW:
@@ -348,7 +360,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		}
 	}
 	
-	//method
+	//visibility-reduced method
 	final void setRejected() {
 		state = EntityState.REJECTED;
 	}
@@ -405,7 +417,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	}
 	
 	//TODO: Refactor this method.
-	//method
+	//visibility-reduced method
 	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
