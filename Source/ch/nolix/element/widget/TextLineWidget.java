@@ -5,6 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.node.Node;
@@ -20,7 +21,7 @@ import ch.nolix.element.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 270
+ * @lines 290
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link TextLineWidgetLook} of a {@link TextLineWidget}.
  */
@@ -53,7 +54,7 @@ extends BorderWidget<TLW, TLWL> {
 	);
 	
 	//optional attribute
-	private IElementTaker<String> noteTextChangeAction;
+	private IElementTaker<String> noteTextUpdateAction;
 	
 	//method
 	/**
@@ -65,10 +66,10 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link TextLineWidget} has a note text change action.
+	 * @return true if the current {@link TextLineWidget} has a note text update action.
 	 */
-	public final boolean hasNoteTextChangeAction() {
-		return (noteTextChangeAction != null);
+	public final boolean hasNoteTextUpdateAction() {
+		return (noteTextUpdateAction != null);
 	}
 	
 	//method
@@ -82,25 +83,37 @@ extends BorderWidget<TLW, TLWL> {
 	
 	//method
 	/**
-	 * Removes the note text change action of the current {@link TextLineWidget}.
+	 * Removes the note text update action of the current {@link TextLineWidget}.
 	 */
-	public final void removeNoteTextChangeAction() {
-		noteTextChangeAction = null;
+	public final void removeNoteTextUpdateAction() {
+		noteTextUpdateAction = null;
 	}
 	
 	//method
 	/**
-	 * Sets the given noteTextChangeAction to the current {@link TextLineWidget}.
+	 * Sets the given noteTextUpdateAction to the current {@link TextLineWidget}.
 	 * 
-	 * @param noteTextChangeAction
+	 * @param noteTextUpdateAction
 	 * @return the current {@link TextLineWidget}.
-	 * @throws ArgumentIsNullException if the given noteTextChangeAction is null.
+	 * @throws ArgumentIsNullException if the given noteTextUpdateAction is null.
 	 */
-	public final TLW setNoteTextChangeAction(final IElementTaker<String> noteTextChangeAction) {
+	public final TLW setNoteTextUpdateAction(final IAction noteTextUpdateAction) {
+		return setNoteTextUpdateAction(t -> noteTextUpdateAction.run());
+	}
+	
+	//method
+	/**
+	 * Sets the given noteTextUpdateAction to the current {@link TextLineWidget}.
+	 * 
+	 * @param noteTextUpdateAction
+	 * @return the current {@link TextLineWidget}.
+	 * @throws ArgumentIsNullException if the given noteTextUpdateAction is null.
+	 */
+	public final TLW setNoteTextUpdateAction(final IElementTaker<String> noteTextUpdateAction) {
 		
-		Validator.assertThat(noteTextChangeAction).thatIsNamed("note text change action").isNotNull();
+		Validator.assertThat(noteTextUpdateAction).thatIsNamed("note text update action").isNotNull();
 		
-		this.noteTextChangeAction = noteTextChangeAction;
+		this.noteTextUpdateAction = noteTextUpdateAction;
 		
 		return asConcrete();
 	}
@@ -265,12 +278,13 @@ extends BorderWidget<TLW, TLWL> {
 	protected final void recalculateBorderWidget() {}
 	
 	//method
+	//For a better performance, this method does not use all comfortable methods.
 	private void setTextWhenHasOtherText(final String text) {
 		
 		this.text.setValue(text);
 		
-		if (noteTextChangeAction == null) {
-			noteTextChangeAction.run(text);
+		if (noteTextUpdateAction == null) {
+			noteTextUpdateAction.run(text);
 		}
 	}
 }
