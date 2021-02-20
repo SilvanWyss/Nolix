@@ -4,7 +4,7 @@ package ch.nolix.system.database.propertybinder;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.element.widget.TextBox;
-import ch.nolix.system.entity.Value;
+import ch.nolix.system.database.entity.Value;
 
 //class
 public final class ValueBinder extends PropertyBinder<Value<?>, TextBox> {

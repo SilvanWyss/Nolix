@@ -4,7 +4,7 @@ package ch.nolix.system.database.propertybinder;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.element.widget.TextBox;
-import ch.nolix.system.entity.OptionalValue;
+import ch.nolix.system.database.entity.OptionalValue;
 
 //class
 public class OptionalValueBinder extends PropertyBinder<OptionalValue<?>, TextBox> {

@@ -4,9 +4,9 @@ package ch.nolix.systemtest.entitytest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
-import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.EntityAccessor;
-import ch.nolix.system.entity.OptionalValue;
+import ch.nolix.system.database.entity.Entity;
+import ch.nolix.system.database.entity.EntityAccessor;
+import ch.nolix.system.database.entity.OptionalValue;
 
 //class
 public final class OptionalValueTest extends Test {

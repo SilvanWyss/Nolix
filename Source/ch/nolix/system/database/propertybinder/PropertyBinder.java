@@ -4,7 +4,7 @@ package ch.nolix.system.database.propertybinder;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.element.gui.Widget;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.database.entity.Property;
 
 //class
 public abstract class PropertyBinder<P extends Property<?>, W extends Widget<W, ?>> {

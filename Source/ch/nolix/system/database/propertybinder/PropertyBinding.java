@@ -7,7 +7,7 @@ import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
-import ch.nolix.system.entity.Property;
+import ch.nolix.system.database.entity.Property;
 
 //class
 public final class PropertyBinding {

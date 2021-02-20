@@ -1,9 +1,8 @@
 package ch.nolix.systemtutorial.mssqldatabaseschemaadaptertutorial;
 
-//own imports
-import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Value;
-import ch.nolix.system.mssqldatabaseschemaadapter.MSSQLDatabaseSchemaAdapter;
+import ch.nolix.system.database.entity.Entity;
+import ch.nolix.system.database.entity.Value;
+import ch.nolix.system.database.mssqldatabaseschemaadapter.MSSQLDatabaseSchemaAdapter;
 
 public final class MSSQLDatabaseSchemaAdapterTutorial {
 	

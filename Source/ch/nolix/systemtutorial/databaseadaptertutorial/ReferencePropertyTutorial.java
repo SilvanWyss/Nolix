@@ -2,12 +2,12 @@ package ch.nolix.systemtutorial.databaseadaptertutorial;
 
 //own imports
 import ch.nolix.common.node.Node;
-import ch.nolix.system.databaseadapter.Schema;
-import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Value;
-import ch.nolix.system.nodedatabaseadapter.NodeDatabaseAdapter;
-import ch.nolix.system.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
-import ch.nolix.system.entity.Reference;
+import ch.nolix.system.database.databaseadapter.Schema;
+import ch.nolix.system.database.entity.Entity;
+import ch.nolix.system.database.entity.Reference;
+import ch.nolix.system.database.entity.Value;
+import ch.nolix.system.database.nodedatabaseadapter.NodeDatabaseAdapter;
+import ch.nolix.system.database.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
 
 public final class ReferencePropertyTutorial {
 	

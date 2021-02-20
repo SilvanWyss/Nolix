@@ -4,8 +4,8 @@ package ch.nolix.systemtest.entitytest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
-import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.MultiValue;
+import ch.nolix.system.database.entity.Entity;
+import ch.nolix.system.database.entity.MultiValue;
 
 //class
 public final class MultiValueTest extends Test {

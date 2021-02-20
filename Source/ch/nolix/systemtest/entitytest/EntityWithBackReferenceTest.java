@@ -5,9 +5,9 @@ package ch.nolix.systemtest.entitytest;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.test.Test;
-import ch.nolix.system.entity.BackReference;
-import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.Reference;
+import ch.nolix.system.database.entity.BackReference;
+import ch.nolix.system.database.entity.Entity;
+import ch.nolix.system.database.entity.Reference;
 
 //class
 public final class EntityWithBackReferenceTest extends Test {

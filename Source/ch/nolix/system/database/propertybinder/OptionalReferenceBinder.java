@@ -4,8 +4,8 @@ package ch.nolix.system.database.propertybinder;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.element.widget.DropdownMenu;
-import ch.nolix.system.entity.Entity;
-import ch.nolix.system.entity.OptionalReference;
+import ch.nolix.system.database.entity.Entity;
+import ch.nolix.system.database.entity.OptionalReference;
 
 //class
 public final class OptionalReferenceBinder extends PropertyBinder<OptionalReference<Entity>, DropdownMenu>{
