@@ -1,35 +1,36 @@
 //package declaration
-package ch.nolix.systemtest.entitytest;
+package ch.nolix.systemtest.databasetest.entitytest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.MultiValue;
+import ch.nolix.system.database.entity.EntityAccessor;
+import ch.nolix.system.database.entity.OptionalValue;
 
 //class
-public final class MultiValueTest extends Test {
+public final class OptionalValueTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getSpecificationAsAttribute_whenContainsValues() {
+	public void testCase_getSpecificationAsAttribute_whenHasAValue() {
 		
 		//setup
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValue<String> testUnit = new MultiValue<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
-		entity.extractProperties();
-		entity.testUnit.addValue("a", "b", "c");
+		EntityAccessor.extractProperties(entity);
+		entity.testUnit.setValue("x");
 		
 		//execution
 		final var result = entity.testUnit.getSpecificationAsAttribute();
 		
 		//verification
-		expect(result.toString()).isEqualTo("testUnit(a,b,c)");
+		expect(result.toString()).isEqualTo("testUnit(x)");
 	}
-	
+
 	//method
 	@TestCase
 	public void testCase_getSpecificationAsAttribute_whenIsEmpty() {
@@ -38,9 +39,9 @@ public final class MultiValueTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValue<String> testUnit = new MultiValue<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
-		entity.extractProperties();
+		EntityAccessor.extractProperties(entity);
 		entity.testUnit.clear();
 		
 		//execution
@@ -52,23 +53,23 @@ public final class MultiValueTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getSpecificationWithoutHeadern_whenContainsValues() {
+	public void testCase_getSpecificationWithoutHeader_whenHasAValue() {
 		
 		//setup
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValue<String> testUnit = new MultiValue<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
-		entity.testUnit.addValue("a", "b", "c");
+		entity.testUnit.setValue("x");
 		
 		//execution
 		final var result = entity.testUnit.getSpecificationWithoutHeader();
 		
 		//verification
-		expect(result.toString()).isEqualTo("(a,b,c)");
+		expect(result.toString()).isEqualTo("(x)");
 	}
-	
+
 	//method
 	@TestCase
 	public void testCase_getSpecificationWithoutHeader_whenIsEmpty() {
@@ -77,7 +78,7 @@ public final class MultiValueTest extends Test {
 		final var entity = new Entity() {
 			
 			//attribute
-			public final MultiValue<String> testUnit = new MultiValue<>();
+			public final OptionalValue<String> testUnit = new OptionalValue<>();
 		};
 		entity.testUnit.clear();
 		

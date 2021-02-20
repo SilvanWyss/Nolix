@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.entitytest;
+package ch.nolix.systemtest.databasetest.entitytest;
 
 //class
 public final class Launcher {
