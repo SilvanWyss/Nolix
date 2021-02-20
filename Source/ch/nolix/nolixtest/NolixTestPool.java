@@ -7,7 +7,6 @@ import ch.nolix.commontest.CommonTestPool;
 import ch.nolix.elementtest.ElementTestPool;
 import ch.nolix.nolixlicensetest.NolixLicensesTestPool;
 import ch.nolix.systemtest.SystemTestPool;
-import ch.nolix.techtest.TechTestPool;
 import ch.nolix.templatetest.TemplatesTestPool;
 
 //class
@@ -29,7 +28,6 @@ public final class NolixTestPool extends TestPool {
 			new CommonTestPool(),
 			new ElementTestPool(),
 			new SystemTestPool(),
-			new TechTestPool(),
 			new TemplatesTestPool(),
 			new NolixLicensesTestPool()
 		);
