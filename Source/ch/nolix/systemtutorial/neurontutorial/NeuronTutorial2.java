@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.neurontutorial;
 
-//own imports
-import ch.nolix.system.neuron.Neuron;
+import ch.nolix.system.neuron.base.Neuron;
 
 /**
  * The {@link NeuronTutorial2} is a tutorial for a {@link Neuron}.

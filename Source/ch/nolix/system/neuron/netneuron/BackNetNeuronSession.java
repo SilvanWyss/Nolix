@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.netneuron;
+package ch.nolix.system.neuron.netneuron;
 
 import ch.nolix.system.client.base.StandardClientSession;
 

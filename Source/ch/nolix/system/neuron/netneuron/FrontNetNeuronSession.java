@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.netneuron;
+package ch.nolix.system.neuron.netneuron;
 
 //own imports
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;

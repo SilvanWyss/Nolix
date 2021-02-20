@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtutorial.neuronalnettutorial} package
- * defines tutorials for the {@link ch.nolix.system.neuronalnet} package.
+ * defines tutorials for the {@link ch.nolix.system.neuron.neuronalnet} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

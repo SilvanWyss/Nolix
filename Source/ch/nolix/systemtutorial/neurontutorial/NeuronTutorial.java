@@ -2,8 +2,8 @@ package ch.nolix.systemtutorial.neurontutorial;
 
 //own imports
 import ch.nolix.common.math.Calculator;
-import ch.nolix.system.baseneuron.SourceNeuron;
-import ch.nolix.system.neuron.Neuron;
+import ch.nolix.system.neuron.base.Neuron;
+import ch.nolix.system.neuron.base.SourceNeuron;
 
 /**
  * The {@link NeuronTutorial} is a tutorial for a {@link Neuron}.

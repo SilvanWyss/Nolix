@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtutorial.netneurontutorial} package
- * defines tutorials for the {@link ch.nolix.system.netneuron} package.
+ * defines tutorials for the {@link ch.nolix.system.neuron.netneuron} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

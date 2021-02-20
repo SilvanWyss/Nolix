@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronalnet;
+package ch.nolix.system.neuron.neuronalnet;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
@@ -7,8 +7,8 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.baseneuron.InputConnection;
-import ch.nolix.system.neuron.Neuron;
+import ch.nolix.system.neuron.base.InputConnection;
+import ch.nolix.system.neuron.base.Neuron;
 
 //class
 /**

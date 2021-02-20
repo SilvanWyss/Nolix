@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.baseneuron;
+package ch.nolix.system.neuron.base;
 
 //class
 /**

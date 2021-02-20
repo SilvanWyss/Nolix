@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.system.neuronalnet;
+package ch.nolix.system.neuron.neuronalnet;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.baseneuron.BaseNeuron;
-import ch.nolix.system.baseneuron.BundleNeuron;
-import ch.nolix.system.baseneuron.FanoutNeuron;
+import ch.nolix.system.neuron.base.BaseNeuron;
+import ch.nolix.system.neuron.base.BundleNeuron;
+import ch.nolix.system.neuron.base.FanoutNeuron;
 
 //class
 /**

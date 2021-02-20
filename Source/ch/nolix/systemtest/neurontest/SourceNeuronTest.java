@@ -5,7 +5,7 @@ package ch.nolix.systemtest.neurontest;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
-import ch.nolix.system.baseneuron.SourceNeuron;
+import ch.nolix.system.neuron.base.SourceNeuron;
 
 //class
 public final class SourceNeuronTest extends Test {

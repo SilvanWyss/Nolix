@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronalnet;
+package ch.nolix.system.neuron.neuronalnet;
 
 //interface
 /**
