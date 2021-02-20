@@ -3,7 +3,7 @@ package ch.nolix.systemtest;
 
 //own imports
 import ch.nolix.common.basetest.TestPool;
-import ch.nolix.systemtest.datatypetest.DataTypesTestPool;
+import ch.nolix.systemtest.databasetest.DatabaseTestPool;
 import ch.nolix.systemtest.neurontest.NeuronTestPool;
 import ch.nolix.systemtest.texturetest.TextureTestPool;
 
@@ -13,7 +13,7 @@ public final class SystemTestPool extends TestPool {
 	//constructor
 	public SystemTestPool() {
 		super(
-			new DataTypesTestPool(),
+			new DatabaseTestPool(),
 			new NeuronTestPool(),
 			new TextureTestPool()
 		);
