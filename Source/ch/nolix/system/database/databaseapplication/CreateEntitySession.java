@@ -3,26 +3,21 @@ package ch.nolix.system.database.databaseapplication;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.GeneralException;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.dialog.ErrorDialogCreator;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.DropdownMenu;
 import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.TextBox;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.OptionalReference;
-import ch.nolix.system.database.entity.Reference;
-import ch.nolix.system.database.entity.Value;
+import ch.nolix.system.database.propertybinder.CentralPropertyBinder;
 
 //class
 public final class CreateEntitySession extends HeaderedSession {
-
-	//attribute
+	
+	//attributes
 	private final String entitySetName;
 	private Entity newEntity;
 	
@@ -79,109 +74,21 @@ public final class CreateEntitySession extends HeaderedSession {
 			return new Grid();
 		}
 	}
-
+	
 	//method
 	private Grid createDataEntryGrid_() {
 		
 		final var dataGrid = new Grid();
 		
-		int rowIndex = 1;
+		var rowIndex = 1;
 		for (final var p : newEntity.getRefProperties()) {
-			
-			switch (p.getPropertyKind()) {
-				case VALUE:
-					
-					final var property = (Value<?>)p;
-					
-					dataGrid
-					.setWidget(
-						rowIndex,
-						1,
-						new Label().setText(p.getHeader())
-					)
-					.setWidget(
-						rowIndex,
-						2,
-						new TextBox()
-						.setId(property.getHeader())
-					);
-					
-					rowIndex++;
-					
-					break;
-				case REFERENCE:
-					
-					@SuppressWarnings("unchecked")
-					final var referenceProperty = (Reference<Entity>)p;
-					
-					if (referenceProperty.getRefEntitySetOfReferencedEntities().isEmpty()) {
-						throw
-						new GeneralException(
-							"A '" + entitySetName
-							+ "' cannot be created, because it must have a "
-							+ referenceProperty.getRefEntitySetOfReferencedEntities().getNameInQuotes()
-							+ " and such one does not exist yet"
-						);
-					}
-					
-					dataGrid
-					.setWidget(
-						rowIndex,
-						1,
-						new Label().setText(p.getHeader())
-					);
-					
-					final var dropdownMenu = new DropdownMenu();
-					dropdownMenu.setSelectAction(
-						i ->
-						referenceProperty.set(
-							referenceProperty
-							.getRefEntitySetOfReferencedEntities()
-							.getRefEntityById(Long.valueOf(i.getId()))
-						)
-					);
-					for (final var e : referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-						dropdownMenu.addItem(e.getIdAsString(), e.getShortDescription());
-					}
-					
-					dataGrid.setWidget(rowIndex, 2, dropdownMenu);
-					
-					rowIndex++;
-					
-					break;
-				case OPTIONAL_REFERENCE:
-					
-					@SuppressWarnings("unchecked")
-					final var optionalRreferenceProperty = (OptionalReference<Entity>)p;
-					
-					dataGrid
-					.setWidget(
-						rowIndex,
-						1,
-						new Label().setText(optionalRreferenceProperty.getHeader())
-					);
-					
-					if (optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().containsAny()) {
-						final var dropdownMenu2 = new DropdownMenu();
-						dropdownMenu2.setSelectAction(
-							i ->
-							optionalRreferenceProperty.set(
-								optionalRreferenceProperty
-								.getRefEntitySetOfReferencedEntities()
-								.getRefEntityById(Long.valueOf(i.getText()))
-							)
-						);
-						for (final var e : optionalRreferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-							dropdownMenu2.addItem(e.getIdAsString(), e.getShortDescription());
-						}
-						
-						dataGrid.setWidget(rowIndex, 2, dropdownMenu2);
-					}
-					
-					rowIndex++;
-					
-					break;
-				default:
+			if (p.isAtMostOne()) {
+				
+				dataGrid
+				.setWidget(rowIndex, 1, new Label().setText(p.getHeader()))
+				.setWidget(rowIndex, 2, CentralPropertyBinder.createWidgetAndBindItWith(p).getRefWidget());
+				
+				rowIndex++;
 			}
 		}
 		
@@ -191,23 +98,6 @@ public final class CreateEntitySession extends HeaderedSession {
 	//method
 	private void createEntity() {
 		try {
-			for (final var p : newEntity.getRefProperties()) {
-				
-				switch (p.getPropertyKind()) {
-					case VALUE:
-						
-						final var property = (Value<?>)p;
-				
-						final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
-						
-						property.setValueFromString(dataTextBox.getText());
-						
-						break;
-					default:
-						break;
-				}
-			}
-		
 			getRefDatabaseAdapter().saveChanges();
 			pop();
 		} catch (final Exception exception) {
