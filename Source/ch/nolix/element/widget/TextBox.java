@@ -44,6 +44,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * Creates a new {@link TextBox}.
 	 */
 	public TextBox() {
+		setProposalWidth(200);
 		setCustomCursorIcon(CursorIcon.EDIT);
 		getRefBaseLook().setBorderThicknesses(1);
 	}
