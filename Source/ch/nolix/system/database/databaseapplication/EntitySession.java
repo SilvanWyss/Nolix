@@ -2,9 +2,7 @@
 package ch.nolix.system.database.databaseapplication;
 
 //own imports
-import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.HorizontalStack;
@@ -12,21 +10,13 @@ import ch.nolix.element.containerwidget.TabContainer;
 import ch.nolix.element.containerwidget.TabContainerTab;
 import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.dialog.ErrorDialogCreator;
-import ch.nolix.element.graphic.Image;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.DropdownMenu;
-import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.TextBox;
-import ch.nolix.element.widget.Uploader;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.MultiReference;
-import ch.nolix.system.database.entity.OptionalReference;
-import ch.nolix.system.database.entity.OptionalValue;
-import ch.nolix.system.database.entity.Reference;
-import ch.nolix.system.database.entity.Value;
+import ch.nolix.system.database.propertybinder.CentralPropertyBinder;
 
 //class
 public final class EntitySession extends HeaderedSession {
@@ -84,158 +74,20 @@ public final class EntitySession extends HeaderedSession {
 		return new TabContainer();
 	}
 	
-	//TODO: Refactor this method.
 	//method
-	@SuppressWarnings("unchecked")
 	private Grid createDataGrid() {
 		
 		final var dataGrid = new Grid();
 		
-		int rowIndex = 1;
+		var rowIndex = 1;
 		for (final var p : getRefEntity().getRefProperties()) {
-			
-			switch (p.getPropertyKind()) {
-				case VALUE:
-					
-					final var property = (Value<?>)p;
-					
-					dataGrid
-					.setWidget(
-						rowIndex,
-						1,
-						new Label().setText(p.getHeader())
-					)
-					.setWidget(
-						rowIndex,
-						2,
-						new TextBox()
-						.setText(property.getValue().toString())
-						.setId(property.getHeader())
-					);
-					
-					rowIndex++;
-					
-					break;
-				case OPTIONAL_VALUE:
-					
-					final var optionalProperty = (OptionalValue<?>)p;
-					
-					dataGrid.setWidget(rowIndex, 1,	new Label().setText(p.getHeader()));
-					
-					if (optionalProperty.getValueClass() == Image.class) {				
-						
-						if (optionalProperty.hasValue()) {
-							dataGrid.setWidget(rowIndex, 2, new ImageWidget().setImage((Image)optionalProperty.getValue()));
-						}
-						
-						dataGrid.setWidget(
-							rowIndex,
-							3,
-							new Uploader().setLeftMouseButtonPressAction(
-								() -> {
-									
-									final var image =
-									Image.fromBytes(getRefGUI().fromFrontEnd().readFileToBytes().getRefElement());
-									
-									((OptionalValue<Image>)optionalProperty).setValue(image);
-								}
-							)
-						);
-						
-						rowIndex++;
-						break;
-					}
-					
-					String value;
-					if (optionalProperty.isEmpty()) {
-						value = StringCatalogue.EMPTY_STRING;
-					} else {
-						value = optionalProperty.getValue().toString();
-					}
-					
-					dataGrid.setWidget(
-						rowIndex,
-						2,
-						new TextBox()
-						.setText(value)
-						.setId(optionalProperty.getHeader())
-					);
-					
-					rowIndex++;
-					
-					break;
-					
-				case REFERENCE:
-					
-					final var referenceProperty = (Reference<Entity>)p;
-					
-					dataGrid
-					.setWidget(
-						rowIndex,
-						1,
-						new Label().setText(p.getHeader())
-					);
-					
-					final var dropdownMenu = new DropdownMenu();
-					
-					dropdownMenu.setSelectAction(
-						i ->
-						referenceProperty.set(
-							referenceProperty
-							.getRefEntitySetOfReferencedEntities()
-							.getRefEntityById(Long.valueOf(i.getId()))
-						)
-					);
-					
-					for (final var e : referenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-						dropdownMenu.addItem(e.getIdAsString(), e.getShortDescription());
-					}
-					dropdownMenu.selectItemById(String.valueOf(referenceProperty.getReferencedEntityId()));
-					
-					dataGrid.setWidget(rowIndex, 2, dropdownMenu);
-					
-					rowIndex++;
-					
-					break;
-				case OPTIONAL_REFERENCE:
-					
-					final var optionalReferenceProperty = (OptionalReference<Entity>)p;
-					
-					dataGrid
-					.setWidget(
-						rowIndex,
-						1,
-						new Label().setText(p.getHeader())
-					);
-					
-					if (optionalReferenceProperty.getRefEntitySetOfReferencedEntities().containsAny()) {
-					
-						final var dropdownMenu2 = new DropdownMenu();
-						
-						dropdownMenu2.setSelectAction(
-							i ->
-							optionalReferenceProperty.set(
-								optionalReferenceProperty
-								.getRefEntitySetOfReferencedEntities()
-								.getRefEntityById(Long.valueOf(i.getText()))
-							)
-						);
-						
-						for (final var e : optionalReferenceProperty.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-							dropdownMenu2.addItem(e.getIdAsString(), e.getShortDescription());
-						}
-						if (optionalReferenceProperty.containsAny()) {
-							dropdownMenu2.selectItemById(String.valueOf(optionalReferenceProperty.getReferencedEntityId()));
-						}
-						
-						dataGrid.setWidget(rowIndex, 2, dropdownMenu2);
-					}
-					
-					rowIndex++;
-					
-					break;
-				default:
-					break;
+			if (p.isAtMostOne()) {
+				
+				dataGrid
+				.setWidget(rowIndex, 1, new Label().setText(p.getHeader()))
+				.setWidget(rowIndex, 2, CentralPropertyBinder.createWidgetAndBindItWith(p).getRefWidget());
+				
+				rowIndex++;
 			}
 		}
 		
@@ -303,54 +155,13 @@ public final class EntitySession extends HeaderedSession {
 		push(new EntitySetSession(entitySetName));
 	}
 	
-	//TODO: Refactor this method.
 	//method
 	private void save() {
 		try {
-			
-			final var entity = getRefEntity();
-			
-			for (final var p : entity.getRefProperties()) {
-				switch (p.getPropertyKind()) {
-					case VALUE:
-						
-						final var property = (Value<?>)p;
-						
-						final TextBox dataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
-						
-						property.setValueFromString(dataTextBox.getText());
-						
-						break;
-					case OPTIONAL_VALUE:
-						
-						final var optionalProperty = (OptionalValue<?>)p;
-						
-						if (optionalProperty.getValueClass() == Image.class) {
-							break;
-						}
-						
-						final TextBox optionalDataTextBox =	getRefGUI().getRefWidgetById(p.getHeader());
-						
-						if (optionalDataTextBox.getText().isBlank()) {
-							optionalProperty.clear();
-						} else {
-							optionalProperty.setValueFromSpecification(Node.fromString(optionalDataTextBox.getText()));
-						}
-						
-						break;
-					default:
-						break;
-				}
-			}
-			
 			getRefDatabaseAdapter().saveChanges();
 			pop();
 		} catch (final Exception exception) {
-			if (exception.getMessage() == null) {
-				getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithErrorMessage("An error occured."));
-			} else {
-				getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithException(exception));
-			}
+			getRefGUI().addLayerOnTop(new ErrorDialogCreator().createWithException(exception));
 		}
 	}
 }
