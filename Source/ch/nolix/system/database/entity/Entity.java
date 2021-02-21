@@ -146,7 +146,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		rowSpecification.addAttribute(Node.withHeader(getId()));
 		
 		for (final var p : getRefProperties()) {
-			rowSpecification.addAttribute(p.getSpecificationWithoutHeader());
+			rowSpecification.addAttribute(p.getCellSpecification());
 		}
 		
 		return rowSpecification;

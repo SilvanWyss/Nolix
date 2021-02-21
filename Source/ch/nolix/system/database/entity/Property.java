@@ -47,6 +47,18 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method
+	public final Node getCellSpecification() {
+		
+		final var attributes = getAttributes();
+		
+		if (attributes.getElementCount() < 2) {
+			return Node.withHeader(attributes.toString());
+		}
+		
+		return Node.withAttributes(attributes);
+	}
+	
+	//method
 	@Override
 	public final String getHeader() {
 		return ReflectionHelper.getFieldName(getParentEntity(), this);
