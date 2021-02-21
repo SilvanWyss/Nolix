@@ -4,17 +4,14 @@ package ch.nolix.system.client.base;
 //own imports
 import ch.nolix.common.runningjar.RunningJar;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.client.base.resources.ResourcePathCatalogue;
 
 //class
 final class NetServerHTTPMessage {
 	
-	//constant
-	private static final String REQUIRE_JS_SCRIPT =
-	RunningJar.getResource("ch/nolix/system/client/resources/require_js.js");
-	
-	//constant
-	private static final String NOLIX_SCRIPT =
-	RunningJar.getResource("ch/nolix/system/client/resources/Nolix.js");
+	//constants
+	private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
+	private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 	
 	//attributes
 	private final String serverIP;
