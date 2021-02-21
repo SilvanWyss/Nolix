@@ -15,6 +15,12 @@ public abstract class SingleReference<E extends Entity> extends BaseReference<E>
 	private long referencedEntityId = -1;
 	
 	//method
+	@Override
+	public final boolean canBeSeveral() {
+		return false;
+	}
+	
+	//method
 	public final E getRefEntity() {
 		return getRefEntitySetOfReferencedEntities().getRefEntityById(getReferencedEntityId());
 	}

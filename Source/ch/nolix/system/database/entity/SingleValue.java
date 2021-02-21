@@ -33,6 +33,12 @@ public abstract class SingleValue<V> extends BaseValueProperty<V> {
 	}
 	
 	//method
+	@Override
+	public final boolean canBeSeveral() {
+		return false;
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public Class<V> getDataType() {
 		return (Class<V>)getClass().getDeclaredFields()[0].getType();

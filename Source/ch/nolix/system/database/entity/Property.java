@@ -30,6 +30,9 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method declaration
+	public abstract boolean canBeSeveral();
+	
+	//method declaration
 	public abstract boolean canReference(Entity entity);
 	
 	//method
@@ -87,6 +90,11 @@ public abstract class Property<V> implements Headered, IElement {
 	//method
 	public final String getValueType() {
 		return getValueClass().getSimpleName();
+	}
+	
+	//method
+	public final boolean isAtMostOne() {
+		return !canBeSeveral();
 	}
 	
 	//method declaration

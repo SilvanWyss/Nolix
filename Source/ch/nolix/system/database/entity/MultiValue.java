@@ -45,6 +45,12 @@ public final class MultiValue<V> extends BaseValueProperty<V> implements Clearab
 	
 	//method
 	@Override
+	public boolean canBeSeveral() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public void clear() {
 		internalClear();
 	}

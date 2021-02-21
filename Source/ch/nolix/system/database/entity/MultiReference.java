@@ -25,6 +25,12 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	
 	//method
 	@Override
+	public boolean canBeSeveral() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public PropertyKind getPropertyKind() {
 		return PropertyKind.MULTI_REFERENCE;
 	}

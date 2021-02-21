@@ -16,6 +16,12 @@ public abstract class SingleBackReference<E extends Entity> extends BaseBackRefe
 	
 	//method
 	@Override
+	public final boolean canBeSeveral() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public final boolean canReferenceBackSeveralEntities() {
 		return false;
 	}

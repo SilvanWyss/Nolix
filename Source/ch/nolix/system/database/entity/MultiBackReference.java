@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//own imports
+//own import
 import ch.nolix.common.container.LinkedList;
 
 //class
@@ -12,6 +12,16 @@ public final class MultiBackReference<E extends Entity> extends BaseBackReferenc
 		
 		//Calls constructor of the base class.
 		super(referencingFieldName);
+	}
+	
+	//method
+	@Override
+	public void assertCanBeSaved() {}
+	
+	//method
+	@Override
+	public boolean canBeSeveral() {
+		return true;
 	}
 	
 	//method
@@ -33,10 +43,6 @@ public final class MultiBackReference<E extends Entity> extends BaseBackReferenc
 		.getRefEntities()
 		.getRefSelected(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
 	}
-	
-	//method
-	@Override
-	public void assertCanBeSaved() {}
 	
 	//method
 	@Override
