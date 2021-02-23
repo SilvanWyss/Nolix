@@ -1,15 +1,16 @@
-package ch.nolix.systemtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 //own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.DropdownMenu;
+import ch.nolix.element.graphic.Image;
+import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontCanvasGUIClient;
 
-public final class DropdownMenuTutorial {
+public final class ImageWidgetTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -17,9 +18,9 @@ public final class DropdownMenuTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("DropdownMenu Tutorial", MainSession.class);
+		netServer.addDefaultApplication("ImageWidget Tutorial", MainSession.class);
 		
-		//Creates a FrontCanvasGUIClient that will connect to the NetServer.
+		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontCanvasGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
@@ -34,35 +35,25 @@ public final class DropdownMenuTutorial {
 		@Override
 		protected void initializeBaseBackGUIClientSession() {
 			
-			//Creates a DropdownMenu.
-			final var dropdownMenu =
-			new DropdownMenu()
-			.addItem(
-				"Gottfried Wilhelm Leibniz",
-				"Immanuel Kant",
-				"Johann Gottlieb Fichte",
-				"Georg Wilehlm Friedrich Hegel",
-				"Arthur Schopenhauer",
-				"Johann Gottfried Herder",
-				"Karl Marx",
-				"Friedrich Nietzsche",
-				"Ludwig Wittgenstein",
-				"Theodor W. Adorno"
-			);
+			//Creates an Image.
+			final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
 			
-			//Configures the look of the DropdownMenu.
-			dropdownMenu.applyOnBaseLook(
+			//Creates an ImageWidget with the Image.
+			final var imageWidget = new ImageWidget().setImage(image);
+			
+			//Configures the look of the ImageWidget.
+			imageWidget.applyOnBaseLook(
 				bl ->
 				bl
 				.setBorderThicknesses(5)
 				.setBackgroundColor(Color.LAVENDER)
-				.setItemPadding(5)
+				.setPaddings(5)
 			);
 			
-			//Adds the DropdownMenu to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(dropdownMenu);
+			//Adds the ImageWidget to the GUI of the current MainSession.
+			getRefGUI().addLayerOnTop(imageWidget);
 		}
 	}
 	
-	private DropdownMenuTutorial() {}
+	private ImageWidgetTutorial() {}
 }

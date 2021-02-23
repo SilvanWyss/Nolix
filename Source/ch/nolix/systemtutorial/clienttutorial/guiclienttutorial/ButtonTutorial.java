@@ -1,15 +1,15 @@
-package ch.nolix.systemtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
-//own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.widget.Button;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
-public final class TextBoxTutorial {
+public final class ButtonTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -17,7 +17,7 @@ public final class TextBoxTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("TextBox Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Button Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
@@ -31,27 +31,49 @@ public final class TextBoxTutorial {
 	
 	private static final class MainSession extends BackGUIClientSession {
 		
+		private int counter = 1;
+		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {
+						
+			//Creates a Button.
+			final var button =
+			new Button()
+			.setText("Change background color")
+			.setLeftMouseButtonPressAction(this::changeBackgroundColor);
 			
-			//Creates a TextBox.
-			final var textBox = new TextBox();
-			
-			//Configures the look of the TextBox.
-			textBox
-			.setProposalWidth(200)
+			//Configures the look of the Button.
+			button
+			.setCustomCursorIcon(CursorIcon.HAND)
 			.applyOnBaseLook(
 				bl ->
 				bl
 				.setBorderThicknesses(5)
 				.setBackgroundColor(Color.LAVENDER)
 				.setPaddings(5)
-			);
+				.setTextSize(50)
+			)
+			.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LAVENDER))
+			.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LAVENDER));
 			
-			//Adds the TextBox to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(textBox);
+			//Adds the Button to the GUI of the current MainSession.
+			getRefGUI().addLayerOnTop(button);
+		}
+		
+		private void changeBackgroundColor() {
+			
+			if (counter % 2 == 0) {
+				getRefGUI().setBackgroundColor(Color.WHITE);
+			} else {
+				getRefGUI().setBackgroundColor(Color.BLUE);
+			}
+						
+			counter++;
 		}
 	}
 	
-	private TextBoxTutorial() {}
+	/**
+	 * Avoids that an instance of the {@link ButtonTutorial} can be created.
+	 */
+	private ButtonTutorial() {}
 }

@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;

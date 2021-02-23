@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.consoleclienttutorial;
+package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
 //own imports
 import ch.nolix.common.localcomputer.ShellProvider;

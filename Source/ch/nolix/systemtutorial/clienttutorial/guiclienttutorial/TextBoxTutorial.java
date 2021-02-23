@@ -1,22 +1,23 @@
-package ch.nolix.systemtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 //own imports
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.widget.TextBox;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
-public final class EmptyGUITutorial {
+public final class TextBoxTutorial {
 	
 	public static void main(String[] args) {
-				
+		
 		//Creates a NetServer.
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Empty GUI Tutorial", MainSession.class);
+		netServer.addDefaultApplication("TextBox Tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
@@ -33,10 +34,24 @@ public final class EmptyGUITutorial {
 		@Override
 		protected void initializeBaseBackGUIClientSession() {
 			
-			//Sets the background color of the GUI of the current MainSession.
-			getRefGUI().setBackgroundColor(Color.LAVENDER);
+			//Creates a TextBox.
+			final var textBox = new TextBox();
+			
+			//Configures the look of the TextBox.
+			textBox
+			.setProposalWidth(200)
+			.applyOnBaseLook(
+				bl ->
+				bl
+				.setBorderThicknesses(5)
+				.setBackgroundColor(Color.LAVENDER)
+				.setPaddings(5)
+			);
+			
+			//Adds the TextBox to the GUI of the current MainSession.
+			getRefGUI().addLayerOnTop(textBox);
 		}
 	}
 	
-	private EmptyGUITutorial() {}
+	private TextBoxTutorial() {}
 }

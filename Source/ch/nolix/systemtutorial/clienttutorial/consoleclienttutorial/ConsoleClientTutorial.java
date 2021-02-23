@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.consoleclienttutorial;
+package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.consoleclient.BackConsoleClient;
