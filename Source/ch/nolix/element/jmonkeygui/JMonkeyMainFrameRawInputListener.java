@@ -19,9 +19,12 @@ import ch.nolix.common.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-11-17
- * @lines 110
+ * @lines 120
  */
 final class JMonkeyMainFrameRawInputListener implements RawInputListener {
+	
+	//static attribute
+	private static final KeyMapper keyMapper = new KeyMapper();
 	
 	//attribute
 	private final JMonkeyMainFrame mJMonkeyMainFrame;
@@ -62,7 +65,14 @@ final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 	//method
 	@Override
 	public void onKeyEvent(KeyInputEvent keyInputEvent) {
-		mJMonkeyMainFrame.noteKeyPress(keyInputEvent);
+		
+		final var key = keyMapper.getKeyFrom(keyInputEvent);
+		
+		if (keyInputEvent.isPressed()) {
+			mJMonkeyMainFrame.noteKeyPress(key);
+		} else if (keyInputEvent.isReleased()) {
+			mJMonkeyMainFrame.noteKeyRelease(key);
+		}
 	}
 	
 	//method

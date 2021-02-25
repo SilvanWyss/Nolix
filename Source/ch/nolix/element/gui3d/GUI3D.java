@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -18,10 +19,9 @@ import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.common.skillapi.Closeable;
-import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableValue;
+import ch.nolix.element.baseguiapi.IBaseGUI;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
@@ -30,11 +30,10 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 400
+ * @lines 380
  * @param <G> is the type of a {@link GUI3D}.
  */
-public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G>
-implements Clearable, Closeable, Refreshable {
+public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IBaseGUI<G> {
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
@@ -60,10 +59,13 @@ implements Clearable, Closeable, Refreshable {
 		Color::getSpecification
 	);
 	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
 	//optional element
 	private Shape<?> rootShape;
 	
-	//multiple element
+	//multi-attribute
 	private LinkedList<Pair<Class<?>, IShapeRenderer<?, ?, ?>>> shapeClasses = new LinkedList<>();
 	
 	//method
@@ -163,6 +165,15 @@ implements Clearable, Closeable, Refreshable {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
 		return ReadContainer.forIterable(getRefShapes().asContainerWithElementsOfEvaluatedType());
 	}
@@ -215,30 +226,6 @@ implements Clearable, Closeable, Refreshable {
 	public final boolean isEmpty() {
 		return hasRootShape();
 	}
-	
-	//method declaration
-	/**
-	 * Lets the current {@link GUI3D} note a left mouse button press.
-	 */
-	public abstract void noteLeftMouseButtonPress();
-	
-	//method declaration
-	/**
-	 * Lets the current {@link GUI3D} note a left mouse button release.
-	 */
-	public abstract void noteLeftMouseButtonRelease();
-	
-	//method declaration
-	/**
-	 * Lets the current {@link GUI3D} note a right mouse button press.
-	 */
-	public abstract void noteRightMouseButtonPress();
-	
-	//method declaration
-	/**
-	 * Lets the current {@link GUI3D} note a right mouse button release.
-	 */
-	public abstract void noteRightMouseButtonRelease();
 	
 	//method
 	/**

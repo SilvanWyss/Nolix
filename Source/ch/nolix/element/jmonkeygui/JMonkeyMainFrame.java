@@ -3,7 +3,6 @@ package ch.nolix.element.jmonkeygui;
 
 //JMonkey import
 import com.jme3.app.SimpleApplication;
-import com.jme3.input.event.KeyInputEvent;
 import com.jme3.light.DirectionalLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
@@ -15,8 +14,13 @@ import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.element.baseguiapi.IFrontEndReader;
+import ch.nolix.element.baseguiapi.IFrontEndWriter;
+import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.gui3d.MainFrame;
 import ch.nolix.element.gui3d.Shape;
+import ch.nolix.element.input.Key;
 import ch.nolix.element.planarshape.Rectangle;
 import ch.nolix.element.shape.BaseCube;
 import ch.nolix.element.shape.Cylinder;
@@ -28,7 +32,7 @@ import ch.nolix.element.shape.Sphere;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 260
+ * @lines 450
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
@@ -53,10 +57,10 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		}
 	};
 	
- //constructor
- /**
- * Creates a new JMonkey main frame.
- */
+	//constructor
+	/**
+	 * Creates a new JMonkey main frame.
+	 */
 	public JMonkeyMainFrame() {
 		
 		//Adds shape classes to this JMonkey main frame.
@@ -132,7 +136,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
 	//method
 	/**
-	 * @return true if this JMonkey main frame is closed.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isClosed() {
@@ -141,7 +145,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
 	//method
 	/**
-	 * Closes this JMonkey main frame.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void close() {
@@ -151,39 +155,228 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
 	//method
 	/**
-	 * Lets this JMonkey main frame note a key press.
-	 * 
-	 * @param keyInputEvent
+	 * {@inheritDoc}
 	 */
-	public void noteKeyPress(final KeyInputEvent keyInputEvent) {}
+	@Override
+	public IFrontEndReader fromFrontEnd() {
+		
+		//TODO: Implement.
+		return null;
+	}
 	
 	//method
 	/**
-	 * Lets this JMonkey main frame note a left mouse button press.
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CursorIcon getCursorIcon() {
+		
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getCursorXPositionOnViewArea() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getCursorYPositionOnViewArea() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getHeight() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getViewAreaHeight() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getViewAreaWidth() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getWidth() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isRootGUI() {
+		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isVisible() {
+		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteKeyPress(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteKeyRelease(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteKeyTyping(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	//method
+	@Override
+	public void noteLeftMouseButtonClick() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void noteLeftMouseButtonPress() {}
 	
 	//method
 	/**
-	 * Lets this JMonkey main frame note 
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void noteLeftMouseButtonRelease() {}
 	
 	//method
 	/**
-	 * Lets this JMonkey main frame note a right mouse button press.
+	 * {@inheritDoc}
+	 */
+	//method
+	@Override
+	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	//method
+	@Override
+	public void noteMouseWheelClick() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelPress() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelRelease() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteRightMouseButtonClick() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void noteRightMouseButtonPress() {}
 	
 	//method
 	/**
-	 * Lets this JMonkey main frame note a right mouse button release.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IFrontEndWriter onFrontEnd() {
+		
+		//TODO: Implement.
+		return null;
+	}
 	
 	//method
 	/**
