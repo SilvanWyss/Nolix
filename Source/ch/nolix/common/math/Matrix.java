@@ -991,6 +991,7 @@ public final class Matrix implements ApproximativeEqualing {
 	 * 
 	 * @return the current {@link Matrix}
 	 */
+	@SuppressWarnings("all")
 	public Matrix transformToEquivalentUpperLeftMatrix() {
 		
 		var minColumnIndex = 0;
