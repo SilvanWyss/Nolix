@@ -28,7 +28,7 @@ import ch.nolix.common.optionalattributeapi.OptionalHeadered;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 870
+ * @lines 880
  */
 public final class ChainedNode implements OptionalHeadered {
 	
@@ -701,6 +701,41 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * @param string
+	 * @param startIndex
+	 * @return the length of the probable header of the {@link ChainedNode}
+	 * the given string represents starting from the given startIndex.
+	 */
+	private HeaderLengthAndTaskAfterHeaderParameter getHeaderLengthAndTaskAfterHeader(
+		final String string,
+		final int startIndex
+	) {
+		
+		var nextIndex = startIndex;
+		while (nextIndex < string.length()) {
+			switch (string.charAt(nextIndex)) {
+				case CharacterCatalogue.OPEN_BRACKET:
+					return
+					new HeaderLengthAndTaskAfterHeaderParameter(
+						nextIndex - startIndex,
+						TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
+					);
+				case CharacterCatalogue.COMMA:
+					return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
+				case CharacterCatalogue.CLOSED_BRACKET:
+					return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
+				case CharacterCatalogue.DOT:
+					return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.READ_NEXT_NODE);
+				default:
+					nextIndex++;
+			}
+		}
+		
+		return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
+	}
+	
+	//method
+	/**
 	 * Resets the current {@link ChainedNode}.
 	 */
 	private void reset() {
@@ -727,7 +762,7 @@ public final class ChainedNode implements OptionalHeadered {
 
 	//method
 	/**
-	 * Sets the current {@link ChainedNode} from the given string from the given startIndex.
+	 * Sets the current {@link ChainedNode} from the given string starting from the given startIndex.
 	 * The given startIndex and the returned next index are zero-based.
 	 * 
 	 * @param string
@@ -736,43 +771,21 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private int setAndGetNextIndex(final String string, final int startIndex) {
 		
-		var nextIndex = startIndex;
+		final var headerLengthAndTaskAfterHeader = getHeaderLengthAndTaskAfterHeader(string, startIndex);
 		
-		var taskAfterSetProbableHeader = Task.DO_NOTHING;
-		var headerLength = 0;
-		while (nextIndex < string.length()) {
-			
-			var character = string.charAt(nextIndex);
-			
-			if (character == '(') {
-				taskAfterSetProbableHeader = Task.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE;
-				nextIndex++;
-				break;
-			}
-			
-			if (character == ',') {
-				break;
-			}
-			
-			if (character == ')') {
-				break;
-			}
-			
-			if (character == '.') {
-				taskAfterSetProbableHeader = Task.READ_NEXT_NODE;
-				nextIndex++;
-				break;
-			}
-			
+		setProbableHeader(string, startIndex, headerLengthAndTaskAfterHeader.getHeaderLength());
+		
+		var nextIndex = startIndex + headerLengthAndTaskAfterHeader.getHeaderLength();
+		final var taskAfterHeader = headerLengthAndTaskAfterHeader.getTaskAfterHeader();
+		if (
+			taskAfterHeader == TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
+			|| taskAfterHeader == TaskAfterHeader.READ_NEXT_NODE
+		) {
 			nextIndex++;
-			headerLength++;
 		}
 		
-		//Sets probable header.
-		setProbableHeader(string, startIndex, headerLength);
-		
 		var readNextNode = false;
-		switch (taskAfterSetProbableHeader) {
+		switch (taskAfterHeader) {
 			case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
 				
 				final var node = new ChainedNode();
@@ -856,7 +869,7 @@ public final class ChainedNode implements OptionalHeadered {
 	//method
 	/**
 	 * Sets the probable header of the current {@link ChainedNode}.
-	 * The header is in the given string from the given startIndex and has the given headerLength.
+	 * The header is in the given string starting from the given startIndex and has the given headerLength.
 	 * 
 	 * @param string
 	 * @param startIndex
