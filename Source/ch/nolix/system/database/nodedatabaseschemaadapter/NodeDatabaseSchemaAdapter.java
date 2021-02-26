@@ -10,6 +10,7 @@ import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
+import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseState;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;
@@ -148,12 +149,21 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 		node.addAttribute(Node.withHeaderAndAttribute(PascalCaseCatalogue.NAME, entitySet.getName()));
 		
 		for (final var c : entitySet.getRefColumns()) {
-			node.addAttribute(c.getSpecification());
+			node.addAttribute(createSpecificationFor(c));
 		}
 		
 		node.addAttribute(Node.withHeader(ObjectProtocol.ENTITIES));
 		
 		return node;
+	}
+	
+	//method
+	private Node createSpecificationFor(final Column column) {
+		return
+		Node.withAttribute(
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, column.getHeader()),
+			Node.withHeader(column.getPropertyKind().toString())
+		);
 	}
 	
 	//method

@@ -6,6 +6,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.node.Node;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.IColumnAdapter;
@@ -42,7 +43,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 			);
 		}
 		
-		entitySetSpecification.addAttribute(column.getSpecification());
+		entitySetSpecification.addAttribute(createSpecificationFor(column));
 	}
 	
 	//method
@@ -87,5 +88,14 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		entitySetSpecification
 		.getRefFirstAttribute(PascalCaseCatalogue.NAME)
 		.getOneAttributeHeader();
+	}
+	
+	//method
+	private Node createSpecificationFor(final Column column) {
+		return
+		Node.withAttribute(
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, column.getHeader()),
+			Node.withHeader(column.getPropertyKind().toString())
+		);
 	}
 }

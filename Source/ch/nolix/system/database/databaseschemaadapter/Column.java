@@ -1,21 +1,17 @@
 //package declaration
 package ch.nolix.system.database.databaseschemaadapter;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.attributeapi.Headered;
-import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.element.elementapi.IElement;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 
 //class
-public final class Column implements Headered, IElement {
+public final class Column implements Headered {
 	
 	//attributes
 	private final String header;
@@ -29,15 +25,6 @@ public final class Column implements Headered, IElement {
 		
 		this.header = header;
 		this.dataType = dataType;
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(
-			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, getHeader()),
-			Node.withHeader(dataType.getPropertyKind().toString())
-		);
 	}
 	
 	//method
