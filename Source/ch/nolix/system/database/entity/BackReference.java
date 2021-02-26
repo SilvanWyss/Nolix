@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 
@@ -16,8 +17,8 @@ public final class BackReference<E extends Entity> extends SingleBackReference<E
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.BACK_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.BACK_REFERENCE;
 	}
 	
 	//method

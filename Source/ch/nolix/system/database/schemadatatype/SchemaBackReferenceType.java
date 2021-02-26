@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.schemadatatype;
 
-import ch.nolix.system.database.entity.PropertyKind;
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class SchemaBackReferenceType extends BaseSchemaBackReferenceType {
@@ -13,7 +13,7 @@ public final class SchemaBackReferenceType extends BaseSchemaBackReferenceType {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.BACK_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.BACK_REFERENCE;
 	}
 }

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseapplication;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.containerwidget.ContainerRole;
@@ -15,7 +16,6 @@ import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.entity.Reference;
 
 //class
@@ -69,7 +69,7 @@ public final class EntitySetSession extends HeaderedSession {
 		//Sets the header of the entities grid.
 		int columnIndex = 2;
 		for (final var c : getRefEntitySet().getColumns()) {
-			if (c.getDataType().getPropertyKind() == PropertyKind.VALUE) {
+			if (c.getDataType().getPropertyKind() == DataType.VALUE) {
 				
 				entitiesGrid.setWidget(
 					1,
@@ -82,7 +82,7 @@ public final class EntitySetSession extends HeaderedSession {
 				columnIndex++;
 			}
 			
-			if (c.getDataType().getPropertyKind() == PropertyKind.REFERENCE) {
+			if (c.getDataType().getPropertyKind() == DataType.REFERENCE) {
 				
 				entitiesGrid.setWidget(
 					1,

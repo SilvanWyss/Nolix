@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
@@ -18,8 +19,8 @@ public final class Value<V> extends SingleValue<V> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.VALUE;
+	public DataType getPropertyKind() {
+		return DataType.VALUE;
 	}
 	
 	//method

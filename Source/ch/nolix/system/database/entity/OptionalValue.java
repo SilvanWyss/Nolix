@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.skillapi.Clearable;
@@ -24,8 +25,8 @@ public class OptionalValue<V> extends SingleValue<V> implements Clearable {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.OPTIONAL_VALUE;
+	public DataType getPropertyKind() {
+		return DataType.OPTIONAL_VALUE;
 	}
 	
 	//method

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
@@ -16,8 +17,8 @@ public final class OptionalReference<E extends Entity> extends SingleReference<E
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.OPTIONAL_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.OPTIONAL_REFERENCE;
 	}
 	
 	//method

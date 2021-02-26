@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+
 //class
 public final class OptionalBackReference<E extends Entity> extends SingleBackReference<E> {
 	
@@ -13,8 +15,8 @@ public final class OptionalBackReference<E extends Entity> extends SingleBackRef
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.OPTIONAL_BACK_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.OPTIONAL_BACK_REFERENCE;
 	}
 	
 	//method

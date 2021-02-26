@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.schemadatatype;
 
-import ch.nolix.system.database.entity.PropertyKind;
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class SchemaMultiReferenceType extends BaseSchemaReferenceType {
@@ -13,7 +13,7 @@ public final class SchemaMultiReferenceType extends BaseSchemaReferenceType {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.MULTI_REFERENCE;
 	}
 }

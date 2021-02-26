@@ -1,9 +1,9 @@
 //class
 package ch.nolix.system.database.datatype;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaIdType;
 
 //class
@@ -16,8 +16,8 @@ public final class IdType extends BaseTechnicalType<Long> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.ID;
+	public DataType getPropertyKind() {
+		return DataType.ID;
 	}
 	
 	//method

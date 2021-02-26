@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.database.schemadatatype;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.database.entity.PropertyKind;
 
 //class
 public abstract class SchemaDataType<C> {
@@ -20,7 +20,7 @@ public abstract class SchemaDataType<C> {
 	}
 	
 	//method declaration
-	public abstract PropertyKind getPropertyKind();
+	public abstract DataType getPropertyKind();
 	
 	//method
 	public final Class<C> getRefContentClass() {

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.database.datatype;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaValueType;
 
 //class
@@ -16,8 +16,8 @@ public final class ValueType<C> extends BaseValueType<C> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.VALUE;
+	public DataType getPropertyKind() {
+		return DataType.VALUE;
 	}
 	
 	//method

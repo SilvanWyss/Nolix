@@ -4,6 +4,7 @@ package ch.nolix.system.database.entity;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.container.IContainer;
@@ -83,7 +84,7 @@ public abstract class Property<V> implements Headered, IElement {
 	}
 	
 	//method
-	public abstract PropertyKind getPropertyKind();
+	public abstract DataType getPropertyKind();
 	
 	//method
 	public final Node getSpecificationAsAttribute() {

@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.database.datatype;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 
 //class
@@ -26,7 +26,7 @@ public abstract class ParametrizedDataType<C> {
 	public abstract boolean canReference(Entity entity);
 	
 	//method declaration
-	public abstract PropertyKind getPropertyKind();
+	public abstract DataType getPropertyKind();
 	
 	//method
 	public final Class<C> getRefContentClass() {

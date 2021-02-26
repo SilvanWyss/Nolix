@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.database.datatype;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaMultiValueType;
 
 //class
@@ -16,8 +16,8 @@ public final class MultiValueType<C> extends BaseValueType<C> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_VALUE;
+	public DataType getPropertyKind() {
+		return DataType.MULTI_VALUE;
 	}
 	
 	//method

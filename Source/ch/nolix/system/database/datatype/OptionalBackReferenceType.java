@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.database.datatype;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaOptionalBackReferenceType;
 
 //class
@@ -17,8 +17,8 @@ public final class OptionalBackReferenceType<E extends Entity> extends BaseBackR
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.OPTIONAL_BACK_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.OPTIONAL_BACK_REFERENCE;
 	}
 	
 	//method

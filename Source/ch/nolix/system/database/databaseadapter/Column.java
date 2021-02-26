@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -8,7 +9,6 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
 import ch.nolix.system.database.datatype.ParametrizedDataType;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 
 //class
@@ -55,7 +55,7 @@ public final class Column<C> implements Headered {
 	}
 	
 	//method
-	public PropertyKind getPropertyKind() {
+	public DataType getPropertyKind() {
 		return parametrizedDataType.getPropertyKind();
 	}
 	

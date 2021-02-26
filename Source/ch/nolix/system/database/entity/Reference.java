@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
@@ -10,8 +11,8 @@ public final class Reference<E extends Entity> extends SingleReference<E> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.REFERENCE;
 	}
 	
 	//method

@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.system.database.entity;
+package ch.nolix.businessapi.databaseapi.datatypeapi;
 
 //enum
-public enum PropertyKind {
+public enum DataType {
 	ID,
 	VALUE,
 	OPTIONAL_VALUE,

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.schemadatatype;
 
-import ch.nolix.system.database.entity.PropertyKind;
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class SchemaMultiValueType<V> extends BaseSchemaValueType<V> {
@@ -13,7 +13,7 @@ public final class SchemaMultiValueType<V> extends BaseSchemaValueType<V> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_VALUE;
+	public DataType getPropertyKind() {
+		return DataType.MULTI_VALUE;
 	}
 }

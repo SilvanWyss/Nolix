@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -31,8 +32,8 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	
 	//method
 	@Override
-	public PropertyKind getPropertyKind() {
-		return PropertyKind.MULTI_REFERENCE;
+	public DataType getPropertyKind() {
+		return DataType.MULTI_REFERENCE;
 	}
 	
 	//method
