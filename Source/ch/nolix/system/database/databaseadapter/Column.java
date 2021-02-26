@@ -6,7 +6,7 @@ import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.validator.Validator;
-import ch.nolix.system.database.datatype.DataType;
+import ch.nolix.system.database.datatype.ParametrizedDataType;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
@@ -16,36 +16,36 @@ public final class Column<C> implements Headered {
 	
 	//attributes
 	private final String header;
-	private final DataType<C> dataType;
+	private final ParametrizedDataType<C> parametrizedDataType;
 	
 	//constructor
-	public Column(final String header, final DataType<C> dataType) {
+	public Column(final String header, final ParametrizedDataType<C> dataType) {
 		
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
-		Validator.assertThat(dataType).isOfType(DataType.class);
+		Validator.assertThat(dataType).isOfType(ParametrizedDataType.class);
 		
 		this.header = header;
-		this.dataType = dataType;
+		this.parametrizedDataType = dataType;
 	}
 	
 	//method
 	public boolean canReference(final Entity entity) {
-		return dataType.canReference(entity);
+		return parametrizedDataType.canReference(entity);
 	}
 	
 	//method
 	public <E extends Entity> boolean canReferenceBackEntityOfType(final Class<E> type) {
-		return (dataType.isAnyBackReferenceType() && dataType.getRefContentClass() == type);
+		return (parametrizedDataType.isAnyBackReferenceType() && parametrizedDataType.getRefContentClass() == type);
 	}
 	
 	//method
 	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
-		return (isAnyReferenceColumn() && dataType.getRefContentClass() == type);
+		return (isAnyReferenceColumn() && parametrizedDataType.getRefContentClass() == type);
 	}
 	
 	//method
-	public DataType<C> getDataType() {
-		return dataType;
+	public ParametrizedDataType<C> getDataType() {
+		return parametrizedDataType;
 	}
 	
 	//method
@@ -56,32 +56,32 @@ public final class Column<C> implements Headered {
 	
 	//method
 	public PropertyKind getPropertyKind() {
-		return dataType.getPropertyKind();
+		return parametrizedDataType.getPropertyKind();
 	}
 	
 	//method
 	public Class<C> getRefContentClass() {
-		return dataType.getRefContentClass();
+		return parametrizedDataType.getRefContentClass();
 	}
 	
 	//method
 	public boolean isAnyBackReferenceColumn() {
-		return dataType.isAnyBackReferenceType();
+		return parametrizedDataType.isAnyBackReferenceType();
 	}
 	
 	//method
 	public boolean isAnyDataColumn() {
-		return dataType.isAnyValueType();
+		return parametrizedDataType.isAnyValueType();
 	}
 	
 	//method
 	public boolean isAnyReferenceColumn() {
-		return dataType.isAnyReferenceType();
+		return parametrizedDataType.isAnyReferenceType();
 	}
 	
 	//method
 	public boolean isAnyTechnicalColumn() {
-		return dataType.isAnyTechnicalType();
+		return parametrizedDataType.isAnyTechnicalType();
 	}
 	
 	//method
@@ -95,6 +95,6 @@ public final class Column<C> implements Headered {
 	private SchemaDataType<?> getSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		return dataType.toSchemaDataType(schemaEntitySets);
+		return parametrizedDataType.toSchemaDataType(schemaEntitySets);
 	}
 }

@@ -4,7 +4,7 @@ package ch.nolix.system.database.datatype;
 import ch.nolix.system.database.entity.Entity;
 
 //class
-public abstract class BaseReferenceType<E extends Entity> extends DataType<E> {
+public abstract class BaseReferenceType<E extends Entity> extends ParametrizedDataType<E> {
 	
 	//constructor
 	public BaseReferenceType(final Class<E> contentClass) {

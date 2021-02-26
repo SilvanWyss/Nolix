@@ -9,13 +9,13 @@ import ch.nolix.system.database.entity.PropertyKind;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 
 //class
-public abstract class DataType<C> {
+public abstract class ParametrizedDataType<C> {
 	
 	//attribute
 	private final Class<C> contentClass;
 	
 	//constructor
-	public DataType(final Class<C> contentClass) {
+	public ParametrizedDataType(final Class<C> contentClass) {
 		
 		Validator.assertThat(contentClass).thatIsNamed("content class").isNotNull();
 		

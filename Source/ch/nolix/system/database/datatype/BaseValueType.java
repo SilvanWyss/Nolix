@@ -4,7 +4,7 @@ package ch.nolix.system.database.datatype;
 import ch.nolix.system.database.entity.Entity;
 
 //class
-public abstract class BaseValueType<C> extends DataType<C> {
+public abstract class BaseValueType<C> extends ParametrizedDataType<C> {
 	
 	//constructor
 	public BaseValueType(final Class<C> contentClass) {
