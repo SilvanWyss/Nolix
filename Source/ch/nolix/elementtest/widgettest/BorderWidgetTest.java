@@ -14,10 +14,70 @@ import ch.nolix.element.widget.BorderWidget;
  * 
  * @author Silvan Wyss
  * @date 2018-12-11
- * @lines 340
+ * @lines 400
  * @param <BW> is the type of the {@link BorderWidget}s of a {@link BorderWidgetTest}.
  */
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {
+	
+	//method
+	@TestCase
+	public void test_containsPointRelatively_whenBottomLeftPixelIsGiven() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMinWidth(200);
+		testUnit.setMinHeight(100);
+		testUnit.recalculate();
+		
+		final var result = testUnit.containsPointRelatively(0, testUnit.getHeight() - 1);
+		
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void test_containsPointRelatively_whenBottomRightPixelIsGiven() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMinWidth(200);
+		testUnit.setMinHeight(100);
+		testUnit.recalculate();
+		
+		final var result = testUnit.containsPointRelatively(testUnit.getWidth() - 1, testUnit.getHeight() - 1);
+		
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void test_containsPointRelatively_whenTopLeftPixelIsGiven() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMinWidth(200);
+		testUnit.setMinHeight(100);
+		testUnit.recalculate();
+		
+		final var result = testUnit.containsPointRelatively(0, 0);
+		
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void test_containsPointRelatively_whenTopRightPixelIsGiven() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMinWidth(200);
+		testUnit.setMinHeight(100);
+		testUnit.recalculate();
+		
+		final var result = testUnit.containsPointRelatively(testUnit.getWidth() - 1, 1);
+		
+		expect(result);
+	}
 	
 	//method
 	@TestCase
