@@ -2,6 +2,7 @@ package ch.nolix.systemtutorial.mssqldatabaseschemaadaptertutorial;
 
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Value;
+import ch.nolix.system.database.entitysetmapper.EntitySetMapper;
 import ch.nolix.system.database.mssqldatabaseschemaadapter.MSSQLDatabaseSchemaAdapter;
 
 public final class MSSQLDatabaseSchemaAdapterTutorial {
@@ -12,7 +13,7 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		
 		if (!sqlDatabaseSchemaAdapter.databaseIsInitialized()) {
 			sqlDatabaseSchemaAdapter
-			//.addEntitySet(Person.class) //TODO: Implement DatabaseSchemaAdapter.addEntitySet().
+			.addEntitySet(new EntitySetMapper(sqlDatabaseSchemaAdapter).createEntitySetFrom(Person.class))
 			.saveChanges();
 		}
 	}
