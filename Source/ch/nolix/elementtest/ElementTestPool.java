@@ -5,6 +5,7 @@ package ch.nolix.elementtest;
 import ch.nolix.common.basetest.TestPool;
 import ch.nolix.elementtest.colortest.ColorTestPool;
 import ch.nolix.elementtest.containerwidgettest.ContainerWidgetTestPool;
+import ch.nolix.elementtest.elementenumtest.ElementEnumTestPool;
 import ch.nolix.elementtest.financetest.FinanceTestPool;
 import ch.nolix.elementtest.graphictest.GraphicTestPool;
 import ch.nolix.elementtest.guitest.GUITestPool;
@@ -27,9 +28,10 @@ public final class ElementTestPool extends TestPool {
 		super(
 			new ColorTestPool(),
 			new ContainerWidgetTestPool(),
+			new ElementEnumTestPool(),
 			new FinanceTestPool(),
-			new GUITestPool(),
 			new GraphicTestPool(),
+			new GUITestPool(),
 			new TimeTestPool(),
 			new WidgetTestPool()
 		);
