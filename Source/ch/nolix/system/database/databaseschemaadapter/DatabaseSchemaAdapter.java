@@ -94,6 +94,11 @@ public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DS
 	public abstract DatabaseState getDatabaseState();
 	
 	//method
+	public final IContainer<EntitySet> getRefEntitySets() {
+		return loadedAndCreatedEntitySets;
+	}
+	
+	//method
 	public final boolean hasChanges() {
 		return mutatedEntitySetsInOrder.containsAny();
 	}
