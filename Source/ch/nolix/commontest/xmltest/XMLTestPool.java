@@ -1,14 +1,14 @@
 //package declaration
 package ch.nolix.commontest.xmltest;
 
-//own imports
+//own import
 import ch.nolix.common.basetest.TestPool;
 
 //class
 public final class XMLTestPool extends TestPool {
-
+	
 	//constructor
 	public XMLTestPool() {
-		super(XMLAttributeTest.class);
+		super(XMLAttributeTest.class, XMLNodeTest.class);
 	}
 }
