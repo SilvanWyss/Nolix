@@ -235,7 +235,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 		}
 		
 		stringBuilder
-		.append('<')
+		.append("</")
 		.append(getName())
 		.append('>');
 		
