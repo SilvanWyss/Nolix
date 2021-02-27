@@ -1,22 +1,22 @@
 //package declaration
 package ch.nolix.elementtest.financetest;
 
-//own imports
+//own import
 import ch.nolix.common.basetest.TestPool;
 
 //class
 /**
  * @author Silvan
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 20
  */
 public final class FinanceTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new finance test pool.
+	 * Creates a new {@link FinanceTestPool}.
 	 */
 	public FinanceTestPool() {
-		super(CandleStickTest.class);
+		super(CandleStickTest.class, VolumeCandleStickTest.class);
 	}
 }
