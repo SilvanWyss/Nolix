@@ -11,7 +11,7 @@ import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
 import ch.nolix.commontest.implprovidertest.ImplProviderTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
-import ch.nolix.commontest.mathtest.MathematicsTestPool;
+import ch.nolix.commontest.mathtest.MathTestPool;
 import ch.nolix.commontest.nodetest.NodeTestPool;
 import ch.nolix.commontest.sequencertest.SequencerTestPool;
 import ch.nolix.commontest.validatortest.ValidatorTestPool;
@@ -40,7 +40,7 @@ public final class CommonTestPool extends TestPool {
 			new ContainerTestPool(),
 			new ImplProviderTestPool(),
 			new LicenseTestPool(),
-			new MathematicsTestPool(),
+			new MathTestPool(),
 			new NodeTestPool(),
 			new SequencerTestPool(),
 			new ValidatorTestPool(),

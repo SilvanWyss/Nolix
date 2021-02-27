@@ -1,22 +1,22 @@
 //package declaration
 package ch.nolix.commontest.mathtest;
 
-//own imports
+//own import
 import ch.nolix.common.basetest.TestPool;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 20
  */
-public final class MathematicsTestPool extends TestPool {
+public final class MathTestPool extends TestPool {
 	
 	//constructor
 	/**
-	 * Creates a new {@link MathematicsTestPool}.
+	 * Creates a new {@link MathTestPool}.
 	 */
-	public MathematicsTestPool() {
+	public MathTestPool() {
 		super(
 			ARModelTest.class,
 			CalculatorTest.class,
