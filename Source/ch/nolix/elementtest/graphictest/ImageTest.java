@@ -12,10 +12,123 @@ public final class ImageTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toRepeatedImage() {
+	public void testCase_creation() {
+		
+		//parameter definition
+		final var width = 100;
+		final var height = 50;
+		final var color = Color.BLUE;
+		
+		//execution
+		final var testUnit = new Image(width, height, color);
+		
+		//verification part 1
+		expect(testUnit.getWidth()).isEqualTo(width);
+		expect(testUnit.getHeight()).isEqualTo(height);
+		
+		//verification part 2
+		for (var i = 1; i <= width; i++) {
+			for (var j = 1; j <= height; j++) {
+				expect(testUnit.getPixel(i, j)).isEqualTo(color);
+			}
+		}
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getBottomLeftPixel() {
 		
 		//setup
-		final var image =
+		final var testUnit = new Image(100, 50, Color.WHITE);
+		testUnit.setPixel(1, 50, Color.RED);
+		
+		//execution
+		final var result = testUnit.getBottomLeftPixel();
+		
+		//verification
+		expect(result).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getBottomRightPixel() {
+		
+		//setup
+		final var testUnit = new Image(100, 50, Color.WHITE);
+		testUnit.setPixel(100, 50, Color.RED);
+		
+		//execution
+		final var result = testUnit.getBottomRightPixel();
+		
+		//verification
+		expect(result).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getTopLeftPixel() {
+		
+		//setup
+		final var testUnit = new Image(100, 50, Color.WHITE);
+		testUnit.setPixel(1, 1, Color.RED);
+		
+		//execution
+		final var result = testUnit.getTopLeftPixel();
+		
+		//verification
+		expect(result).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getTopRightPixel() {
+		
+		//setup
+		final var testUnit = new Image(100, 50, Color.WHITE);
+		testUnit.setPixel(100, 1, Color.RED);
+		
+		//execution
+		final var result = testUnit.getTopRightPixel();
+		
+		//verification
+		expect(result).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_reset() {
+		
+		//parameter definition
+		final var width = 100;
+		final var height = 50;
+		
+		//setup
+		final var testUnit = new Image(width, height);
+		for (var i = 1; i <= width; i++) {
+			testUnit.setPixel(i, 1, Color.RED);
+		}
+		
+		//execution
+		testUnit.reset();
+		
+		//verification part 1
+		expect(testUnit.getWidth()).isEqualTo(width);
+		expect(testUnit.getHeight()).isEqualTo(height);
+		
+		//verification part 2
+		for (var i = 1; i <= width; i++) {
+			for (var j = 1; j <= height; j++) {
+				expect(testUnit.getPixel(i, j)).isEqualTo(Color.WHITE);
+			}
+		}
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toLeftRotatedImage() {
+		
+		//setup
+		final var testUnit =
 		new Image(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
@@ -23,7 +136,31 @@ public final class ImageTest extends Test {
 		.setPixel(2, 2, Color.BLUE);
 		
 		//execution
-		final var result = image.toRepeatedImage(4, 4);
+		final var result = testUnit.toLeftRotatedImage();
+		
+		//verification
+		expect(result.getWidth()).isEqualTo(2);
+		expect(result.getHeight()).isEqualTo(2);
+		expect(result.getPixel(1, 1)).isEqualTo(Color.GREEN);
+		expect(result.getPixel(1, 2)).isEqualTo(Color.YELLOW);
+		expect(result.getPixel(2, 1)).isEqualTo(Color.BLUE);
+		expect(result.getPixel(2, 2)).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toRepeatedImage() {
+		
+		//setup
+		final var testUnit =
+		new Image(2, 2)
+		.setPixel(1, 1, Color.YELLOW)
+		.setPixel(1, 2, Color.RED)
+		.setPixel(2, 1, Color.GREEN)
+		.setPixel(2, 2, Color.BLUE);
+		
+		//execution
+		final var result = testUnit.toRepeatedImage(4, 4);
 		
 		//verification
 		expect(result.getWidth()).isEqualTo(4);
@@ -48,10 +185,10 @@ public final class ImageTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toScaledImage() {
+	public void testCase_toRightRotatedImage() {
 		
 		//setup
-		final var image =
+		final var testUnit =
 		new Image(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
@@ -59,7 +196,31 @@ public final class ImageTest extends Test {
 		.setPixel(2, 2, Color.BLUE);
 		
 		//execution
-		final var result = image.toScaledImage(2.0);
+		final var result = testUnit.toRightRotatedImage();
+		
+		//verification
+		expect(result.getWidth()).isEqualTo(2);
+		expect(result.getHeight()).isEqualTo(2);
+		expect(result.getPixel(1, 1)).isEqualTo(Color.RED);
+		expect(result.getPixel(1, 2)).isEqualTo(Color.BLUE);
+		expect(result.getPixel(2, 1)).isEqualTo(Color.YELLOW);
+		expect(result.getPixel(2, 2)).isEqualTo(Color.GREEN);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toScaledImage() {
+		
+		//setup
+		final var testUnit =
+		new Image(2, 2)
+		.setPixel(1, 1, Color.YELLOW)
+		.setPixel(1, 2, Color.RED)
+		.setPixel(2, 1, Color.GREEN)
+		.setPixel(2, 2, Color.BLUE);
+		
+		//execution
+		final var result = testUnit.toScaledImage(2.0);
 		
 		//verification
 		expect(result.getWidth()).isEqualTo(4);
