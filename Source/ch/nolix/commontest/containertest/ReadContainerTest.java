@@ -49,7 +49,6 @@ public final class ReadContainerTest extends Test {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
-		expect(readContainer.getElementCount()).isEqualTo(9);
 		expect(readContainer.getRefAt(1)).isEqualTo("apple");
 		expect(readContainer.getRefAt(2)).isEqualTo("banana");
 		expect(readContainer.getRefAt(3)).isEqualTo("cerish");
