@@ -9,6 +9,6 @@ public class ValidatorTestPool extends TestPool {
 	
 	//constructor
 	public ValidatorTestPool() {
-		super(ArgumentMediatorTest.class);
+		super(ArgumentMediatorTest.class, StringMediatorTest.class);
 	}
 }
