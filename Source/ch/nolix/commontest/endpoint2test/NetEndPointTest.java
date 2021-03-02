@@ -3,10 +3,10 @@ package ch.nolix.commontest.endpoint2test;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.endpoint2.EndPoint;
-import ch.nolix.common.endpoint2.IEndPointTaker;
-import ch.nolix.common.endpoint2.NetEndPoint;
-import ch.nolix.common.endpoint2.NetServer;
+import ch.nolix.common.net.endpoint2.EndPoint;
+import ch.nolix.common.net.endpoint2.IEndPointTaker;
+import ch.nolix.common.net.endpoint2.NetEndPoint;
+import ch.nolix.common.net.endpoint2.NetServer;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 

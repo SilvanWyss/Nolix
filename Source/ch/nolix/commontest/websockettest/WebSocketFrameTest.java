@@ -8,9 +8,9 @@ import java.io.InputStream;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypewrapper.ByteWrapper;
+import ch.nolix.common.net.websocket.WebSocketFrame;
+import ch.nolix.common.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.common.test.Test;
-import ch.nolix.common.websocket.WebSocketFrame;
-import ch.nolix.common.websocket.WebSocketFrameOpcodeMeaning;
 
 //class
 public final class WebSocketFrameTest extends Test {

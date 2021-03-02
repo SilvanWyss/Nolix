@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-import ch.nolix.common.endpoint3.EndPoint;
-import ch.nolix.common.endpoint3.IEndPointTaker;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.net.endpoint3.EndPoint;
+import ch.nolix.common.net.endpoint3.IEndPointTaker;
 
 //class
 /**

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontutorial.endpointtutorial} package
- * defines tutorials for the {@link ch.nolix.common.endpoint} package.
+ * defines tutorials for the {@link ch.nolix.common.net.endpoint} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

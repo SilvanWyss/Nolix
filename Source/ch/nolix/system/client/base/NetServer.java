@@ -3,11 +3,11 @@ package ch.nolix.system.client.base;
 
 //own imports
 import ch.nolix.common.constant.PortCatalogue;
-import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.localcomputer.LocalComputer;
+import ch.nolix.common.net.endpoint3.EndPoint;
 
 //class
 /**
@@ -23,7 +23,7 @@ public final class NetServer extends Server {
 	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;
 	
 	//attribute
-	private ch.nolix.common.endpoint3.NetServer internalNetServer;
+	private ch.nolix.common.net.endpoint3.NetServer internalNetServer;
 	
 	//constructor
 	/**
@@ -48,7 +48,7 @@ public final class NetServer extends Server {
 		
 		//Creates the internalNetServer of the current NetServer.
 		internalNetServer =
-		new ch.nolix.common.endpoint3.NetServer(
+		new ch.nolix.common.net.endpoint3.NetServer(
 			port, 
 			new NetServerHTTPMessage(LocalComputer.getLANIP(), port).toString()
 		);

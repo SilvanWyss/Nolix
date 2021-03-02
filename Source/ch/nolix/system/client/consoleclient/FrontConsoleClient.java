@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.client.consoleclient;
 
-import ch.nolix.common.endpoint.NetServer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.net.endpoint.NetServer;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;

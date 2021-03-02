@@ -4,8 +4,8 @@ package ch.nolix.commontest.websockettest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.common.test.Test;
-import ch.nolix.common.websocket.WebSocketHandShakeRequest;
 
 //class
 public final class WebSocketHandShakeRequestTest extends Test {

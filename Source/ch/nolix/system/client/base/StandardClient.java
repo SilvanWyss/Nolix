@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.net.endpoint3.EndPoint;
 
 //class
 /**

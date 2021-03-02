@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.client.consoleclient;
 
-import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.system.client.baseguiclient.BaseBackGUIClient;
 
 //class

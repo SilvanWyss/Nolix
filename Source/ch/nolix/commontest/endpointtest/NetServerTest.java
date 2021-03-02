@@ -3,7 +3,7 @@ package ch.nolix.commontest.endpointtest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.endpoint.NetServer;
+import ch.nolix.common.net.endpoint.NetServer;
 import ch.nolix.common.test.Test;
 
 //class
