@@ -8,9 +8,7 @@ import ch.nolix.commontest.commontypehelpertest.CommonTypeHelpersTestPool;
 import ch.nolix.commontest.commontypewrappertest.CommonTypeWrapperTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
-import ch.nolix.commontest.documenttest.chainednodetest.ChainedNodeTestPool;
-import ch.nolix.commontest.documenttest.nodetest.NodeTestPool;
-import ch.nolix.commontest.documenttest.xmltest.XMLTestPool;
+import ch.nolix.commontest.documenttest.DocumentNodeTestPool;
 import ch.nolix.commontest.implprovidertest.ImplProviderTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
@@ -33,19 +31,17 @@ public final class CommonTestPool extends TestPool {
 	public CommonTestPool() {
 		super(
 			new CachingTestPool(),
-			new ChainedNodeTestPool(),
 			new CommonTypeHelpersTestPool(),
 			new CommonTypeWrapperTestPool(),
 			new ConstantTestPool(),
 			new ContainerTestPool(),
+			new DocumentNodeTestPool(),
 			new ImplProviderTestPool(),
 			new LicenseTestPool(),
 			new MathTestPool(),
-			new NodeTestPool(),
 			new SequencerTestPool(),
 			new ValidatorTestPool(),
 			new WebSocketTestPool(),
-			new XMLTestPool(),
 			new ch.nolix.commontest.endpointtest.EndPointTestPool(),
 			new ch.nolix.commontest.endpoint2test.EndPointTestPool(),
 			new ch.nolix.commontest.endpoint3test.EndPointTestPool()
