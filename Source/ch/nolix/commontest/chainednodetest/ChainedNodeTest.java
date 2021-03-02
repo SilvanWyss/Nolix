@@ -3,7 +3,7 @@ package ch.nolix.commontest.chainednodetest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.chainednode.ChainedNode;
+import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.test.Test;
 

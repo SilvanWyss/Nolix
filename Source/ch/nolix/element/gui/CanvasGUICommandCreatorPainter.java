@@ -4,9 +4,9 @@ package ch.nolix.element.gui;
 //own imports
 import ch.nolix.common.attributeapi.Indexed;
 import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.independenthelper.ArrayHelper;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;

@@ -3,9 +3,9 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Calculator;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.gui.WidgetGUI;
 import ch.nolix.element.input.Key;

@@ -4,9 +4,9 @@ package ch.nolix.element.input;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.elementenum.RotationDirection;
 

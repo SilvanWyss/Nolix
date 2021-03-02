@@ -4,9 +4,8 @@ package ch.nolix.system.client.base;
 //Java import
 import java.lang.reflect.Method;
 
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
-import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionhelper.MethodHelper;
 
 //class

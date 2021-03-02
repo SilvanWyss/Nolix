@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.node;
+package ch.nolix.common.document.node;
 
 //own imports
 import ch.nolix.common.commontypehelper.BooleanHelper;

@@ -3,12 +3,12 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.OptionalValue;

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.widget;
 
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//own import
-import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.document.node.BaseNode;
 
 //class
 public abstract class BaseValueProperty<V> extends Property<V> {

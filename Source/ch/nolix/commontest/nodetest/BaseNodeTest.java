@@ -3,11 +3,11 @@ package ch.nolix.commontest.nodetest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.test.ObjectTest;
 
 //class

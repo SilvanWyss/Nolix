@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.elementfactory;
 
+import ch.nolix.common.document.node.BaseNode;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class

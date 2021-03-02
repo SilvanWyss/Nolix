@@ -4,12 +4,11 @@ package ch.nolix.system.client.baseguiclient;
 //Java import
 import java.nio.charset.StandardCharsets;
 
-//own imports
-import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.SingleContainer;
+import ch.nolix.common.document.chainednode.ChainedNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.localcomputer.PopupWindowProvider;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.element.input.IInput;
 import ch.nolix.system.client.base.Client;

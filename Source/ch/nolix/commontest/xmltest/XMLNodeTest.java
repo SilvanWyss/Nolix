@@ -3,8 +3,8 @@ package ch.nolix.commontest.xmltest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
+import ch.nolix.common.document.xml.XMLNode;
 import ch.nolix.common.test.Test;
-import ch.nolix.common.xml.XMLNode;
 
 //class
 public final class XMLNodeTest extends Test {

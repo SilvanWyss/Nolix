@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.gui;
 
-//own imports
-import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.baseguiapi.IBaseGUI;
 import ch.nolix.element.color.Color;

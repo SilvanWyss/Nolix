@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.common.net.endpoint3;
 
-//own imports
-import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;
+import ch.nolix.common.document.chainednode.ChainedNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.node.Node;
 
 //class
 /**

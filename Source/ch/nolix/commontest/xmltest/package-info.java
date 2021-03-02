@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontest.xmltest} package
- * defines tests for the {@link ch.nolix.common.xml} package.
+ * defines tests for the {@link ch.nolix.common.document.xml} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.database.nodedatabaseadapter;
 
+import ch.nolix.common.document.node.BaseNode;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.IDatabaseAdapterCreator;
 import ch.nolix.system.database.databaseadapter.Schema;

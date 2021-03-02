@@ -3,7 +3,7 @@ package ch.nolix.system.database.entity;
 
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.node.BaseNode;
+import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.skillapi.IChangesSaver;
 
 //interface

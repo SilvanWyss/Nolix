@@ -7,9 +7,9 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.Node;
 
 //class
 public class MethodMediator extends ArgumentMediator<Method> {

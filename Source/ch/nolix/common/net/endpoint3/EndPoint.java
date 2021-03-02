@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.common.net.endpoint3;
 
-//own imports
-import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.controllerapi.IDataProviderController;
+import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;

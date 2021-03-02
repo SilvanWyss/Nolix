@@ -9,10 +9,10 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
 

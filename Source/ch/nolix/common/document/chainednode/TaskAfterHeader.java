@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.chainednode;
+package ch.nolix.common.document.chainednode;
 
 //enum
 enum TaskAfterHeader {

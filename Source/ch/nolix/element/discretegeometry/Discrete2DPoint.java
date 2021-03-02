@@ -3,8 +3,8 @@ package ch.nolix.element.discretegeometry;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.element.base.Element;
 
 //class

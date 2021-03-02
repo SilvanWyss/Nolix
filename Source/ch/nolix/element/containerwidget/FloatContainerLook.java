@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.containerwidget;
 
-//own imports
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.element.gui.ValueCatalogue;
 import ch.nolix.element.layerelement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;

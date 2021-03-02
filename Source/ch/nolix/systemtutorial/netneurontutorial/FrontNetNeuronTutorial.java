@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.netneurontutorial;
 
-//own imports
-import ch.nolix.common.node.Node;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.system.neuron.base.SourceNeuron;
 import ch.nolix.system.neuron.netneuron.BackNetNeuron;
 import ch.nolix.system.neuron.netneuron.FrontNetNeuron;

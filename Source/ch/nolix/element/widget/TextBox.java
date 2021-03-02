@@ -3,11 +3,11 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;

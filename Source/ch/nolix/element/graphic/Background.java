@@ -3,8 +3,8 @@ package ch.nolix.element.graphic;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.pair.Pair;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalValue;

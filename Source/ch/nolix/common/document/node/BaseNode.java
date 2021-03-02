@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.node;
+package ch.nolix.common.document.node;
 
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
@@ -8,6 +8,7 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.xml.XMLNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -21,7 +22,6 @@ import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.processproperty.WriteMode;
-import ch.nolix.common.xml.XMLNode;
 
 //class
 /**

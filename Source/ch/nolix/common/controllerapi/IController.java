@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.controllerapi;
 
-//own import
-import ch.nolix.common.chainednode.ChainedNode;
+import ch.nolix.common.document.chainednode.ChainedNode;
 
 //interface
 /**

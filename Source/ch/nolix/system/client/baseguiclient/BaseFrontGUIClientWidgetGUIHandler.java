@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
-//own imports
-import ch.nolix.common.chainednode.ChainedNode;
+import ch.nolix.common.document.chainednode.ChainedNode;
+import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.gui.Frame;
 import ch.nolix.element.gui.GUI;
 

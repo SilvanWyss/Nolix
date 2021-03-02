@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-//own imports
-import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.chainednode.ChainedNode;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -21,8 +22,6 @@ import ch.nolix.common.mutableoptionalattributeapi.OptionalLabelable;
 import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.LocalEndPoint;
 import ch.nolix.common.net.endpoint3.NetEndPoint;
-import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
 
 //class

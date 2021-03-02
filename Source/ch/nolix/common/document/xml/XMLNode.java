@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.xml;
+package ch.nolix.common.document.xml;
 
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
