@@ -43,7 +43,7 @@ public final class CommonTestPool extends TestPool {
 			new NetTestPool(),
 			new SequencerTestPool(),
 			new ValidatorTestPool(),
-			new WebSocketTestPool(),
+			new WebSocketTestPool()
 		);
 	}
 }
