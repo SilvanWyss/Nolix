@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.filenodetest;
+package ch.nolix.commontest.documenttest.filenodetest;
 
 //class
 public final class Launcher {

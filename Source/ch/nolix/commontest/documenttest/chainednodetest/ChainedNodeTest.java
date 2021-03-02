@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.chainednodetest;
+package ch.nolix.commontest.documenttest.chainednodetest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;

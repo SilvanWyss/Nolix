@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.nodetest;
+package ch.nolix.commontest.documenttest.nodetest;
 
 import ch.nolix.common.document.node.Node;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.xmltest;
+package ch.nolix.commontest.documenttest.xmltest;
 
 //launcher class
 public final class Launcher {

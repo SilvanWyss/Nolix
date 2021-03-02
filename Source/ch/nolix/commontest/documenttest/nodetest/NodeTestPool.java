@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.nodetest;
+package ch.nolix.commontest.documenttest.nodetest;
 
 //own imports
 import ch.nolix.common.basetest.TestPool;

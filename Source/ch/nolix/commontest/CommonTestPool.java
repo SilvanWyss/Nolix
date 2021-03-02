@@ -4,19 +4,19 @@ package ch.nolix.commontest;
 //own imports
 import ch.nolix.common.basetest.TestPool;
 import ch.nolix.commontest.cachingtest.CachingTestPool;
-import ch.nolix.commontest.chainednodetest.ChainedNodeTestPool;
 import ch.nolix.commontest.commontypehelpertest.CommonTypeHelpersTestPool;
 import ch.nolix.commontest.commontypewrappertest.CommonTypeWrapperTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
+import ch.nolix.commontest.documenttest.chainednodetest.ChainedNodeTestPool;
+import ch.nolix.commontest.documenttest.nodetest.NodeTestPool;
+import ch.nolix.commontest.documenttest.xmltest.XMLTestPool;
 import ch.nolix.commontest.implprovidertest.ImplProviderTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
-import ch.nolix.commontest.nodetest.NodeTestPool;
 import ch.nolix.commontest.sequencertest.SequencerTestPool;
 import ch.nolix.commontest.validatortest.ValidatorTestPool;
 import ch.nolix.commontest.websockettest.WebSocketTestPool;
-import ch.nolix.commontest.xmltest.XMLTestPool;
 
 //class
 /**
