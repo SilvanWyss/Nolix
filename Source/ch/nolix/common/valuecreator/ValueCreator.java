@@ -3,7 +3,7 @@ package ch.nolix.common.valuecreator;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
 public final class ValueCreator<S> {

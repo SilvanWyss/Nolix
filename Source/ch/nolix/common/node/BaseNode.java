@@ -8,19 +8,19 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.processproperty.WriteMode;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.common.xml.XMLNode;
 
 //class

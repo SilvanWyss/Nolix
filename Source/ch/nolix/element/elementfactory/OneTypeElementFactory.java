@@ -6,10 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class

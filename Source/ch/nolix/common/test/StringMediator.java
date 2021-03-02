@@ -3,8 +3,8 @@ package ch.nolix.common.test;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 
 //class
 /**

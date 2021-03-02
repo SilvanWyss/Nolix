@@ -3,12 +3,12 @@ package ch.nolix.common.jobpool;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillapi.Runnable;
-import ch.nolix.common.validator.Validator;
 
 //class
 final class JobWrapper implements Runnable {

@@ -3,9 +3,9 @@ package ch.nolix.common.independentcontainer;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNotNullException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 
 //class
 /**

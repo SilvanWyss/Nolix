@@ -4,11 +4,11 @@ package ch.nolix.element.gui3d;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.geometry.Point2D;

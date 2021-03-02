@@ -3,7 +3,7 @@ package ch.nolix.element.dialog;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.containerwidget.AligningContainer;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.gui.Layer;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client.consoleclient;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.VerticalStack;

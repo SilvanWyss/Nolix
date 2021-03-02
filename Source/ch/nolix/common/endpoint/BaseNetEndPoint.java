@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.common.endpoint;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.processproperty.ConnectionOrigin;
 import ch.nolix.common.processproperty.TargetInfoState;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

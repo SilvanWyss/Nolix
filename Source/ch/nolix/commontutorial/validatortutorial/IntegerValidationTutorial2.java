@@ -1,6 +1,6 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 /**
  * This class provides a tutorial how the zeta validator validates an integer.

@@ -4,7 +4,7 @@ package ch.nolix.common.http;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public final class HTTPRequest {

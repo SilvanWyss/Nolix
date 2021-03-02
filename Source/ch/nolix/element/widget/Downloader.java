@@ -3,12 +3,12 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.CursorIcon;
 import ch.nolix.element.input.Key;

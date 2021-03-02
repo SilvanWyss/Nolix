@@ -4,8 +4,7 @@ package ch.nolix.common.augmentation;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-//own import
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 
 //Interface
 public interface IAugmentable<A extends IAugmentable<A>>  {

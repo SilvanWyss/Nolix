@@ -3,7 +3,7 @@ package ch.nolix.system.database.sqldatabaseschemaadapter;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.IColumnAdapter;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;

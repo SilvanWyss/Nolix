@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.jobpool;
 
-//own import
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 final class Worker extends Thread {

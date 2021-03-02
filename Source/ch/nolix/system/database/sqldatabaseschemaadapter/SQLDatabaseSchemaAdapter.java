@@ -4,10 +4,10 @@ package ch.nolix.system.database.sqldatabaseschemaadapter;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseState;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;

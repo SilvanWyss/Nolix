@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.common.caching;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.skillapi.Refreshable;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class CachingProperty<V> implements Refreshable {

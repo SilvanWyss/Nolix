@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.common.sequencer;
 
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IIntTaker;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

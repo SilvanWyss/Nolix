@@ -3,7 +3,7 @@ package ch.nolix.system.database.propertybinder;
 
 //own imports
 import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.Widget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;

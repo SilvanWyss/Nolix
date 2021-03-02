@@ -4,9 +4,9 @@ package ch.nolix.system.client.base;
 //own imports
 import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.endpoint3.EndPoint;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.localcomputer.LocalComputer;
 
 //class

@@ -3,9 +3,9 @@ package ch.nolix.commontest.validatortest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.test.Test;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class ArgumentMediatorTest extends Test {

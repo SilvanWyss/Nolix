@@ -8,8 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-//own imports
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 
 //class

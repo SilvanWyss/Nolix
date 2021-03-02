@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
 /**

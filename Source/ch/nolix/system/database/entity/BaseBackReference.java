@@ -7,10 +7,10 @@ import java.lang.reflect.ParameterizedType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
-import ch.nolix.common.validator.Validator;
 
 //class
 public abstract class BaseBackReference<E extends Entity> extends Property<E> {

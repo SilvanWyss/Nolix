@@ -13,8 +13,8 @@ import java.nio.file.Files;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.WrapperException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
 /**

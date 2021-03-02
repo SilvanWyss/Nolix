@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.containerwidget;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.layerelement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 

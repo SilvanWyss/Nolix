@@ -8,10 +8,10 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalNamable;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalValueable;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {

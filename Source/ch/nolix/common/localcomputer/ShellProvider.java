@@ -10,9 +10,9 @@ import java.net.URISyntaxException;
 //own imports
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.constant.PortCatalogue;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.exception.WrapperException;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class ShellProvider {

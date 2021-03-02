@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.schemadatatype;
 
-//own import
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public abstract class BaseSchemaBackReferenceType extends SchemaDataType<IEntitySet> {

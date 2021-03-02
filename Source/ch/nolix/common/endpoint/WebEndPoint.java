@@ -7,14 +7,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-//own imports
-import ch.nolix.common.exception.WrapperException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.processproperty.ConnectionOrigin;
 import ch.nolix.common.processproperty.TargetInfoState;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.common.websocket.WebSocketFrame;
 import ch.nolix.common.websocket.WebSocketFrameOpcodeMeaning;
 

@@ -8,9 +8,9 @@ import java.math.RoundingMode;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.pair.Pair;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class ClosedInterval implements IClosedInterval {

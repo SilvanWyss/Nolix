@@ -6,8 +6,8 @@ import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SequencePattern;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.test.Test;
 
 //class

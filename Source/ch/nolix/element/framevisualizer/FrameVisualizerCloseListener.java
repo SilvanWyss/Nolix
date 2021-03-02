@@ -5,9 +5,8 @@ package ch.nolix.element.framevisualizer;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.GUI;
 
 //class

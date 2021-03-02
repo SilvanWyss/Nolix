@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.widget;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.CursorIcon;

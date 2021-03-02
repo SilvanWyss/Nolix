@@ -3,8 +3,8 @@ package ch.nolix.element.elementfactory;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.element.elementapi.IMutableElement;
 

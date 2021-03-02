@@ -5,10 +5,10 @@ package ch.nolix.common.basetest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 //own imports
 import ch.nolix.common.independentcontainer.List;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.skillapi.Closeable;
 
 //class

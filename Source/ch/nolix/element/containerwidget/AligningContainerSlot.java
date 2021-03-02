@@ -3,10 +3,10 @@ package ch.nolix.element.containerwidget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.gui.Widget;
 
 //visibility-reduced class

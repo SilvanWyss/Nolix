@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 
 //class
 public final class PropertyExtractor {

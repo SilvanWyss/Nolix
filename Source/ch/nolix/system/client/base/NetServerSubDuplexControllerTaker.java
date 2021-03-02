@@ -3,8 +3,8 @@ package ch.nolix.system.client.base;
 
 import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.endpoint3.IEndPointTaker;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

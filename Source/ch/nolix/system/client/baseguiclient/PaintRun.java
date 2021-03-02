@@ -4,8 +4,8 @@ package ch.nolix.system.client.baseguiclient;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.painterapi.IPainter;
 
 //class

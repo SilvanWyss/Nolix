@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.database.databaseschemaadapter;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.common.validator.Validator;
 
 //class
 public abstract class EntitySetSQLHelper {

@@ -8,10 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.element.gui.IVisualizer;
 import ch.nolix.element.gui.SwingPainter;

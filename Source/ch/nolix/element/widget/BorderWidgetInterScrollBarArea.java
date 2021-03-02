@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//own imports
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.baseguiapi.HoverableByCursor;
 import ch.nolix.element.painterapi.IPainter;
 

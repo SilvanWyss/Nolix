@@ -1,6 +1,6 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

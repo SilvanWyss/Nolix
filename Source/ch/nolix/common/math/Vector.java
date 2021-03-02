@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

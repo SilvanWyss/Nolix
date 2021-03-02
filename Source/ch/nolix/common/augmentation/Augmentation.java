@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.augmentation;
 
-//own import
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
 public abstract class Augmentation<AP> {

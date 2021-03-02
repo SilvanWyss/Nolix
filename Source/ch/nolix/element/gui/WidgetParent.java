@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.gui;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public final class WidgetParent {

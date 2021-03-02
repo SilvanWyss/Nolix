@@ -4,8 +4,8 @@ package ch.nolix.common.messaging;
 //own imports
 import ch.nolix.common.attributeapi.Indexed;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

@@ -12,12 +12,12 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.commontypehelper.InputStreamHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.http.HTTPRequest;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.common.websocket.WebSocketHandShakeRequest;
 import ch.nolix.common.worker.Worker;
 

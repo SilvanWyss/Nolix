@@ -2,8 +2,7 @@
 package ch.nolix.system.database.schemadatatype;
 
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
-//own imports
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public abstract class SchemaDataType<C> {

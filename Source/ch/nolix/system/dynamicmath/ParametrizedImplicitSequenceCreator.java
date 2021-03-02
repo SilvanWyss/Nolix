@@ -5,9 +5,9 @@ package ch.nolix.system.dynamicmath;
 import java.math.BigDecimal;
 
 import ch.nolix.businessapi.dynamicmathapi.IParametrizedImplicitSequenceCreator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class ParametrizedImplicitSequenceCreator<N> implements IParametrizedImplicitSequenceCreator<N> {

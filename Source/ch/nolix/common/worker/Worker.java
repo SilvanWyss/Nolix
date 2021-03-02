@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.worker;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.skillapi.Startable;
 

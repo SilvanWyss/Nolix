@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.runningjar.RunningJar;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.system.client.base.resources.ResourcePathCatalogue;
 
 //class

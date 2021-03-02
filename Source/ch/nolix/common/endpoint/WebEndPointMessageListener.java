@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.endpoint;
 
-//own imports
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.websocket.WebSocketCompleteMessage;
 import ch.nolix.common.worker.Worker;
 

@@ -2,8 +2,7 @@
 package ch.nolix.system.database.entity;
 
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
-//own imports
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
 public final class BackReference<E extends Entity> extends SingleBackReference<E> {

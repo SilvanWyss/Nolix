@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.endpoint2;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

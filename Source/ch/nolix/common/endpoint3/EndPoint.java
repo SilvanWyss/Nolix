@@ -8,12 +8,12 @@ import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.controllerapi.IDataProviderController;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

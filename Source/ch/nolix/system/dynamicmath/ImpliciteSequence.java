@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitSequence;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.pair.Pair;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class ImpliciteSequence<N> implements IImplicitSequence<N> {

@@ -3,7 +3,7 @@ package ch.nolix.common.websocket;
 
 //own imports
 import ch.nolix.common.commontypewrapper.ByteWrapper;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 final class WebSocketFrameFirstNibble {

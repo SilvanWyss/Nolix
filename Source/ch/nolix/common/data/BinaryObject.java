@@ -4,8 +4,7 @@ package ch.nolix.common.data;
 //Java import
 import java.nio.charset.StandardCharsets;
 
-//own imports
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public final class BinaryObject {

@@ -5,9 +5,9 @@ package ch.nolix.common.endpoint2;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.communicationapi.IReplier;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

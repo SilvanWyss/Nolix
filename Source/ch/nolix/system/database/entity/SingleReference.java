@@ -5,8 +5,8 @@ package ch.nolix.system.database.entity;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public abstract class SingleReference<E extends Entity> extends BaseReference<E> {

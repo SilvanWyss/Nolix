@@ -3,10 +3,10 @@ package ch.nolix.common.test;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.NonBiggerArgumentException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 
 //class
 /**

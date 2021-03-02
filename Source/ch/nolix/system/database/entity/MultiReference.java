@@ -5,8 +5,8 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public final class MultiReference<E extends Entity> extends BaseReference<E> {

@@ -5,9 +5,9 @@ package ch.nolix.system.database.databaseschemaadapter;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.UnsupportedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 
 //class

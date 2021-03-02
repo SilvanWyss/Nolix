@@ -5,8 +5,8 @@ package ch.nolix.common.xml;
 import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.attributeapi.Valued;
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {

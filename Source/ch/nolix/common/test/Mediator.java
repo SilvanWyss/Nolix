@@ -3,8 +3,8 @@ package ch.nolix.common.test;
 
 //own imports
 import ch.nolix.common.basetest.TestAccessor;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
 /**

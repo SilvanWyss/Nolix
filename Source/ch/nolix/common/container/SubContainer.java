@@ -7,11 +7,11 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.invalidargumentexception.SmallerArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.SmallerArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

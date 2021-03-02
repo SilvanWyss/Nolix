@@ -4,7 +4,7 @@ package ch.nolix.system.client.baseguiclient;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.baseguiapi.IFrontEndReader;
 
 //class

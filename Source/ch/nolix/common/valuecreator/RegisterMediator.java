@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.common.valuecreator;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class RegisterMediator<S, V> {

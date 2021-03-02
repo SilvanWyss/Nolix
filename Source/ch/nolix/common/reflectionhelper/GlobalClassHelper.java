@@ -4,7 +4,7 @@ package ch.nolix.common.reflectionhelper;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 
 //class
 public final class GlobalClassHelper {

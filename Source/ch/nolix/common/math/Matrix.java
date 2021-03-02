@@ -8,14 +8,14 @@ import java.util.Random;
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.requestapi.ApproximativeEqualing;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

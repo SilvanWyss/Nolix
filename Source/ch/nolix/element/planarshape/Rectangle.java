@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.element.planarshape;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui3d.AtomicShape;
 

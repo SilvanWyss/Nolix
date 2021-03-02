@@ -5,10 +5,10 @@ package ch.nolix.system.client.base;
 import ch.nolix.common.chainednode.ChainedNode;
 import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.endpoint3.EndPoint;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

@@ -5,12 +5,12 @@ package ch.nolix.common.commontypehelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

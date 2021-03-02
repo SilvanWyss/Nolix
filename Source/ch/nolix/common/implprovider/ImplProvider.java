@@ -6,11 +6,11 @@ import java.util.HashMap;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.implproviderapi.IImplProvider;
 import ch.nolix.common.implproviderapi.IImplProviderMediator;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.processproperty.WriteMode;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class ImplProvider implements IImplProvider {

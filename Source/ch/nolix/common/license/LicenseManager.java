@@ -7,14 +7,14 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.GeneralException;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.GeneralException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.filesystem.FolderAccessor;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.reflectionwrapper.ClassWrapper;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

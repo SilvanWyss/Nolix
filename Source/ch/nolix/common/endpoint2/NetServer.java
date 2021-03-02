@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.common.endpoint2;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 
 //class
 /**

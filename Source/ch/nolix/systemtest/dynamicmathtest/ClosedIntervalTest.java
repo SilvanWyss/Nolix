@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.test.Test;
 import ch.nolix.system.dynamicmath.ClosedInterval;
 

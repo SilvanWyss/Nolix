@@ -4,8 +4,8 @@ package ch.nolix.system.database.databaseschemaadapter;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.generalskillapi.IFluentObject;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.license.GlobalLicenseManager;
 
 //class

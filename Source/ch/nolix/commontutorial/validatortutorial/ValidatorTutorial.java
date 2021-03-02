@@ -1,9 +1,9 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 /**
  * The {@link ValidatorTutorial} is a tutorial for the {@link Validator}.

@@ -6,7 +6,7 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.attributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.datatype.ParametrizedDataType;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;

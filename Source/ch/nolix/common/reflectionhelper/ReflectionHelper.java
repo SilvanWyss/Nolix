@@ -4,9 +4,8 @@ package ch.nolix.common.reflectionhelper;
 //Java import
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.exception.WrapperException;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 //class
 public final class ReflectionHelper {

@@ -4,18 +4,18 @@ package ch.nolix.common.container;
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.functionapi.IElementTakerComparableGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

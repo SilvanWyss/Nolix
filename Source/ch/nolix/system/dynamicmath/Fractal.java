@@ -8,13 +8,13 @@ import java.math.RoundingMode;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IIntTakerElementGetter;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.processproperty.ProcessingMode;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 

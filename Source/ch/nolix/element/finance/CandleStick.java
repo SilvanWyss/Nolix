@@ -3,12 +3,12 @@ package ch.nolix.element.finance;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.time.Time;
 

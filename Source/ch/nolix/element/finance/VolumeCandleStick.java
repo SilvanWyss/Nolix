@@ -3,8 +3,8 @@ package ch.nolix.element.finance;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.node.Node;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.time.Time;
 
 //class

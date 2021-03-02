@@ -7,12 +7,12 @@ import java.util.Arrays;
 //own imports
 import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsZeroException;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

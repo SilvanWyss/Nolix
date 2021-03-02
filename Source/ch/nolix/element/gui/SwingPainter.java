@@ -8,7 +8,7 @@ import java.awt.RenderingHints;
 
 //own imports
 import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.graphic.Image;

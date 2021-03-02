@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.dialog;
 
+import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;

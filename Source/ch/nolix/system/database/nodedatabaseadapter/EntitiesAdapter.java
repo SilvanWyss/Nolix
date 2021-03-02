@@ -3,8 +3,8 @@ package ch.nolix.system.database.nodedatabaseadapter;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.common.valuecreator.ValueCreator;
 import ch.nolix.system.database.databaseadapter.EntityType;
 import ch.nolix.system.database.entity.Entity;

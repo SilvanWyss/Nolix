@@ -4,9 +4,8 @@ package ch.nolix.common.independentcontainer;
 //Java import
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
 public final class List<E> implements Iterable<E> {

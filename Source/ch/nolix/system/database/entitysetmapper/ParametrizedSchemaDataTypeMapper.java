@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.database.entitysetmapper;
 
-//own imports
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;

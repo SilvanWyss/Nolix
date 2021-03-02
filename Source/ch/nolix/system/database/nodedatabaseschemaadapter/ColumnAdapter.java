@@ -3,8 +3,8 @@ package ch.nolix.system.database.nodedatabaseschemaadapter;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.node.BaseNode;
-import ch.nolix.common.validator.Validator;
 import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.IColumnAdapter;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;

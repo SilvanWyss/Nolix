@@ -7,9 +7,9 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class GapMatrix<E> implements Clearable, IContainer<E> {

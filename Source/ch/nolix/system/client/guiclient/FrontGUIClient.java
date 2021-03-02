@@ -2,9 +2,9 @@
 package ch.nolix.system.client.guiclient;
 
 import ch.nolix.common.endpoint.NetServer;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.element.gui.GUI;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.Server;

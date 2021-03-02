@@ -10,20 +10,20 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.endpoint3.EndPoint;
 import ch.nolix.common.endpoint3.LocalEndPoint;
 import ch.nolix.common.endpoint3.NetEndPoint;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.generalskillapi.TypeRequestable;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.common.mutableoptionalattributeapi.OptionalLabelable;
 import ch.nolix.common.node.BaseNode;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.validator.Validator;
 
 //class
 /**

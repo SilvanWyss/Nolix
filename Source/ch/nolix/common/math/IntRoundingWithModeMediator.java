@@ -3,7 +3,7 @@ package ch.nolix.common.math;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public final class IntRoundingWithModeMediator {

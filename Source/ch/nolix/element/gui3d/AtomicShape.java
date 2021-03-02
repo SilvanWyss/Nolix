@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;

@@ -1,8 +1,7 @@
 //class
 package ch.nolix.element.gui3d;
 
-//own import
-import ch.nolix.common.validator.Validator;
+import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**

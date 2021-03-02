@@ -3,9 +3,9 @@ package ch.nolix.element.elementapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.node.Node;
 import ch.nolix.common.processproperty.WriteMode;
 import ch.nolix.common.xml.XMLNode;

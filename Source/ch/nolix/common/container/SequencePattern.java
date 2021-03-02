@@ -4,10 +4,10 @@ package ch.nolix.common.container;
 //Java import
 import java.util.Iterator;
 
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.sequencer.Sequencer;
 
 //class

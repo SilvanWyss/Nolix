@@ -8,7 +8,7 @@ import java.net.URL;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.element.time.Time;
 
 //class

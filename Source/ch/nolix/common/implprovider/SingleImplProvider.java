@@ -5,10 +5,9 @@ package ch.nolix.common.implprovider;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.implproviderapi.IImplProviderMediator;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {

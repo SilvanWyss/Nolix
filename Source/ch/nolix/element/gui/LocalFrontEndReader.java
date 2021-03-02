@@ -14,7 +14,7 @@ import javax.swing.JFileChooser;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.exception.WrapperException;
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.element.baseguiapi.IFrontEndReader;

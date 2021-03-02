@@ -3,9 +3,9 @@ package ch.nolix.common.sequencer;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
-import ch.nolix.common.validator.Validator;
 
 //class
 public final class AsSoonAsMediator {
