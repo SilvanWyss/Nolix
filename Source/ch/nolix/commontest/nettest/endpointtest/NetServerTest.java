@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.endpointtest;
+package ch.nolix.commontest.nettest.endpointtest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;

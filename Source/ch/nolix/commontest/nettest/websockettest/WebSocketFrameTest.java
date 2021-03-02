@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.websockettest;
+package ch.nolix.commontest.nettest.websockettest;
 
 //Java imports
 import java.io.IOException;

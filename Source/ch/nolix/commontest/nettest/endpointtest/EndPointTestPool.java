@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.endpoint3test;
+package ch.nolix.commontest.nettest.endpointtest;
 
 //own imports
 import ch.nolix.common.basetest.TestPool;
@@ -9,6 +9,6 @@ public final class EndPointTestPool extends TestPool {
 	
 	//constructor
 	public EndPointTestPool() {
-		super(NetEndPointTest.class);
+		super(NetEndPointTest.class, NetServerTest.class);
 	}
 }

@@ -1,21 +1,27 @@
 //package declaration
-package ch.nolix.commontest.endpointtest;
+package ch.nolix.commontest.nettest.endpoint2test;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.net.endpoint.EndPoint;
-import ch.nolix.common.net.endpoint.IEndPointTaker;
-import ch.nolix.common.net.endpoint.NetEndPoint;
-import ch.nolix.common.net.endpoint.NetServer;
-import ch.nolix.common.nolixenvironment.NolixEnvironment;
+import ch.nolix.common.net.endpoint2.EndPoint;
+import ch.nolix.common.net.endpoint2.IEndPointTaker;
+import ch.nolix.common.net.endpoint2.NetEndPoint;
+import ch.nolix.common.net.endpoint2.NetServer;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
 //class
+/**
+ * A {@link NetEndPointTest} is a test for {@link NetEndPoint}.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-05-21
+ * @lines 100
+ */
 public final class NetEndPointTest extends Test {
 	
 	//static class
-	private static final class TestEndPointTaker implements IEndPointTaker {
+	private static final class EndPointTaker implements IEndPointTaker {
 		
 		//optional attribute
 		private String receivedMessage;
@@ -27,19 +33,20 @@ public final class NetEndPointTest extends Test {
 		}
 		
 		//method
-		public String getReceivedMessage() {
+		public String getReceivedMessageOrNull() {
 			return receivedMessage;
 		}
 		
 		//method
 		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
-			endPoint.setReceiver(this::setMessage);
+			endPoint.setReplier(this::getReply);
 		}
 		
 		//method
-		private void setMessage(final String receivedMessage) {			
-			this.receivedMessage = receivedMessage;
+		private String getReply(final String message) {
+			receivedMessage = message;
+			return "REPLY";
 		}
 	}
 	
@@ -52,13 +59,13 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		netServer.addMainEndPointTaker(new TestEndPointTaker());
+		netServer.addMainEndPointTaker(new EndPointTaker());
 		
 		//execution & verification
 		expectRunning(
 			() -> {
 				final var netEndPoint = new NetEndPoint(port);
-				Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
+				Sequencer.waitForMilliseconds(500);
 				netEndPoint.close();
 			}
 		)
@@ -70,23 +77,23 @@ public final class NetEndPointTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_send() {
+	public void testCase_sendAndGetReply() {
 		
 		//parameter definition
 		final var port = 50000;
 		
 		//setup
 		final var netServer = new NetServer(port);
-		final var endPointTakerMock = new TestEndPointTaker();
+		final var endPointTakerMock = new EndPointTaker();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
-		netEndPoint.send("MESSAGE");
-		Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
+		final var reply = netEndPoint.getReplyTo("MESSAGE");
 		
 		//verification
-		expect(endPointTakerMock.getReceivedMessage()).isEqualTo("MESSAGE");
+		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
+		expect(reply).isEqualTo("REPLY");
 		
 		//cleanup
 		netEndPoint.close();

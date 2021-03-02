@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.commontest.endpoint3test;
+package ch.nolix.commontest.nettest.websockettest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new EndPointTestPool().run();
+		new WebSocketTestPool().run();
 	}
 }

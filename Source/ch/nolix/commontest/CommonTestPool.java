@@ -12,9 +12,9 @@ import ch.nolix.commontest.documenttest.DocumentNodeTestPool;
 import ch.nolix.commontest.implprovidertest.ImplProviderTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
+import ch.nolix.commontest.nettest.websockettest.WebSocketTestPool;
 import ch.nolix.commontest.sequencertest.SequencerTestPool;
 import ch.nolix.commontest.validatortest.ValidatorTestPool;
-import ch.nolix.commontest.websockettest.WebSocketTestPool;
 
 //class
 /**
@@ -42,9 +42,9 @@ public final class CommonTestPool extends TestPool {
 			new SequencerTestPool(),
 			new ValidatorTestPool(),
 			new WebSocketTestPool(),
-			new ch.nolix.commontest.endpointtest.EndPointTestPool(),
-			new ch.nolix.commontest.endpoint2test.EndPointTestPool(),
-			new ch.nolix.commontest.endpoint3test.EndPointTestPool()
+			new ch.nolix.commontest.nettest.endpointtest.EndPointTestPool(),
+			new ch.nolix.commontest.nettest.endpoint2test.EndPointTestPool(),
+			new ch.nolix.commontest.nettest.endpoint3test.EndPointTestPool()
 		);
 	}
 }
