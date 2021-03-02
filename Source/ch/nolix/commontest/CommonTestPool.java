@@ -12,6 +12,7 @@ import ch.nolix.commontest.documenttest.DocumentNodeTestPool;
 import ch.nolix.commontest.implprovidertest.ImplProviderTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
+import ch.nolix.commontest.nettest.NetTestPool;
 import ch.nolix.commontest.nettest.websockettest.WebSocketTestPool;
 import ch.nolix.commontest.sequencertest.SequencerTestPool;
 import ch.nolix.commontest.validatortest.ValidatorTestPool;
@@ -20,7 +21,7 @@ import ch.nolix.commontest.validatortest.ValidatorTestPool;
 /**
  * @author Silvan Wyss
  * @date 2016-09-10
- * @lines 50
+ * @lines 40
  */
 public final class CommonTestPool extends TestPool {
 	
@@ -39,12 +40,10 @@ public final class CommonTestPool extends TestPool {
 			new ImplProviderTestPool(),
 			new LicenseTestPool(),
 			new MathTestPool(),
+			new NetTestPool(),
 			new SequencerTestPool(),
 			new ValidatorTestPool(),
 			new WebSocketTestPool(),
-			new ch.nolix.commontest.nettest.endpointtest.EndPointTestPool(),
-			new ch.nolix.commontest.nettest.endpoint2test.EndPointTestPool(),
-			new ch.nolix.commontest.nettest.endpoint3test.EndPointTestPool()
 		);
 	}
 }
