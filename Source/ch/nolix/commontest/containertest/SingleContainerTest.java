@@ -4,7 +4,7 @@ package ch.nolix.commontest.containertest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.demoobject.Cat;
+import ch.nolix.common.demo.Cat;
 import ch.nolix.common.test.Test;
 
 //class

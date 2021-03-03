@@ -4,7 +4,7 @@ package ch.nolix.commontest.cachingtest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.demoobject.Cat;
+import ch.nolix.common.demo.Cat;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.test.Test;
 
