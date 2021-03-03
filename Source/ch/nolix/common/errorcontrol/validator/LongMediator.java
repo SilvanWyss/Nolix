@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.errorcontrol.validator;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsInRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -17,7 +18,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.PositiveArgumentExc
 import ch.nolix.common.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-//own imports
 import ch.nolix.common.independenthelper.ArrayHelper;
 
 //class
@@ -26,8 +26,8 @@ import ch.nolix.common.independenthelper.ArrayHelper;
  * A long mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
- * @lines 340
+ * @date 2017-01-01
+ * @lines 350
  */
 public class LongMediator extends Mediator {
 	
@@ -313,6 +313,18 @@ public class LongMediator extends Mediator {
 		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws BiggerArgumentException
+	 * if the argument of the current {@link LongMediator} is not smaller than or does not equal the given value.
+	 */
+	public void isSmallerThanOrEquals(final long value) {
+		if (argument > value) {
+			throw new BiggerArgumentException(getArgumentName(), argument, value);
+		}
 	}
 	
 	//method
