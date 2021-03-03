@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.validatortest;
+package ch.nolix.commontest.errorcontroltest.validatortest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
