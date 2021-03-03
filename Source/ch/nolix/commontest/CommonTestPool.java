@@ -9,7 +9,7 @@ import ch.nolix.commontest.commontypewrappertest.CommonTypeWrapperTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
 import ch.nolix.commontest.documenttest.DocumentNodeTestPool;
-import ch.nolix.commontest.errorcontroltest.validatortest.ValidatorTestPool;
+import ch.nolix.commontest.errorcontroltest.ErrorControlTestPool;
 import ch.nolix.commontest.implprovidertest.ImplProviderTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
@@ -37,12 +37,12 @@ public final class CommonTestPool extends TestPool {
 			new ConstantTestPool(),
 			new ContainerTestPool(),
 			new DocumentNodeTestPool(),
+			new ErrorControlTestPool(),
 			new ImplProviderTestPool(),
 			new LicenseTestPool(),
 			new MathTestPool(),
 			new NetTestPool(),
 			new SequencerTestPool(),
-			new ValidatorTestPool(),
 			new WebSocketTestPool()
 		);
 	}
