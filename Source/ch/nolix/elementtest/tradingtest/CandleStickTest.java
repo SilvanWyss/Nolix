@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.elementtest.financetest;
+package ch.nolix.elementtest.tradingtest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
-import ch.nolix.element.finance.CandleStick;
 import ch.nolix.element.time.Time;
+import ch.nolix.element.trading.CandleStick;
 
 //class
 /**

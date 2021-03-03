@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementtest.financetest;
+package ch.nolix.elementtest.tradingtest;
 
 //class
 /**
@@ -16,7 +16,7 @@ public final class Launcher {
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		new FinanceTestPool().run();
+		new TradingTestPool().run();
 	}
 	
 	//visibility-reduced constructor

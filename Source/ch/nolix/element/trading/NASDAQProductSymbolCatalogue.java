@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.finance;
+package ch.nolix.element.trading;
 
 //own imports
 import ch.nolix.common.container.IContainer;

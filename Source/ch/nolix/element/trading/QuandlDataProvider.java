@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.finance;
+package ch.nolix.element.trading;
 
 //Java imports
 import java.io.BufferedReader;

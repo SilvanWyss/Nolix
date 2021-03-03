@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.elementtutorial.financetutorial} package
- * defines tutorials for the {@link ch.nolix.element.finance} package.
+ * defines tutorials for the {@link ch.nolix.element.trading} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

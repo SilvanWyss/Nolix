@@ -6,10 +6,10 @@ import ch.nolix.common.basetest.TestPool;
 import ch.nolix.elementtest.colortest.ColorTestPool;
 import ch.nolix.elementtest.containerwidgettest.ContainerWidgetTestPool;
 import ch.nolix.elementtest.elementenumtest.ElementEnumTestPool;
-import ch.nolix.elementtest.financetest.FinanceTestPool;
 import ch.nolix.elementtest.graphictest.GraphicTestPool;
 import ch.nolix.elementtest.guitest.GUITestPool;
 import ch.nolix.elementtest.timetest.TimeTestPool;
+import ch.nolix.elementtest.tradingtest.TradingTestPool;
 import ch.nolix.elementtest.widgettest.WidgetTestPool;
 
 //class
@@ -29,7 +29,7 @@ public final class ElementTestPool extends TestPool {
 			new ColorTestPool(),
 			new ContainerWidgetTestPool(),
 			new ElementEnumTestPool(),
-			new FinanceTestPool(),
+			new TradingTestPool(),
 			new GraphicTestPool(),
 			new GUITestPool(),
 			new TimeTestPool(),
