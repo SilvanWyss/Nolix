@@ -30,10 +30,70 @@ public final class ClosedIntervalTest extends Test {
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given maximum is null.");
 	}
-		
+	
 	//method
 	@TestCase
-	public void testCase_getLength_1() {
+	public void testCase_getHalfs_1A() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
+		
+		//execution
+		final var result = testUnit.getHalfs();
+		
+		//verification
+		expect(result.getRefElement1().getMin()).isEqualTo(BigDecimal.valueOf(-1.0).setScale(scale));
+		expect(result.getRefElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getRefElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getRefElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getHalfs_1B() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0, scale);
+		
+		//execution
+		final var result = testUnit.getHalfs();
+		
+		//verification
+		expect(result.getRefElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getRefElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
+		expect(result.getRefElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
+		expect(result.getRefElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getHalfs_whenHasLength0() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 0.0, scale);
+		
+		//execution
+		final var result = testUnit.getHalfs();
+		
+		//verification
+		expect(result.getRefElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getRefElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getRefElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getRefElement2().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getLength_1A() {
 		
 		//parameter definition
 		final var scale = 20;
@@ -50,7 +110,7 @@ public final class ClosedIntervalTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getLength_2() {
+	public void testCase_getLength_1B() {
 
 		//parameter definition
 		final var scale = 20;
@@ -67,7 +127,7 @@ public final class ClosedIntervalTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getLength_3() {
+	public void testCase_getLength_1C() {
 
 		//parameter definition
 		final var scale = 20;
@@ -80,6 +140,74 @@ public final class ClosedIntervalTest extends Test {
 		
 		//verification
 		expect(result).isEqualTo(BigDecimal.valueOf(2.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getLength_whenHasLength0() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 0.0, scale);
+		
+		//execution
+		final var result = testUnit.getLength();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getMidpoint_1A() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
+		
+		//execution
+		final var result = testUnit.getMidPoint();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getMidpoint_1B() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0, scale);
+		
+		//execution
+		final var result = testUnit.getMidPoint();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getMidpoint_whenHasLength0() {
+		
+		//parameter definition
+		final var scale = 20;
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 0.0, scale);
+		
+		//execution
+		final var result = testUnit.getMidPoint();
+		
+		//verification
+		expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
 	}
 	
 	//method
