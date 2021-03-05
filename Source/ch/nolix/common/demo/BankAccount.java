@@ -6,7 +6,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public final class Account {
+public final class BankAccount {
 	
 	//attribute
 	private int amount;
