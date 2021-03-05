@@ -99,12 +99,13 @@ public final class ClosedInterval implements IClosedInterval {
 	@Override
 	public Pair<IClosedInterval, IClosedInterval> getHalfs() {
 		
+		final var bigDecimalScale = getBigDecimalScale();
 		final var midPoint = getMidPoint();
 		
 		return
 		new Pair<>(
-			new ClosedInterval(min, midPoint, min.scale()),
-			new ClosedInterval(midPoint, max, min.scale())
+			new ClosedInterval(min, midPoint, bigDecimalScale),
+			new ClosedInterval(midPoint, max, bigDecimalScale)
 		);
 	}
 	
