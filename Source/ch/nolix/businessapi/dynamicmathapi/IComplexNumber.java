@@ -5,7 +5,7 @@ package ch.nolix.businessapi.dynamicmathapi;
 import java.math.BigDecimal;
 
 //interface
-public interface IComplexNumber {
+public interface IComplexNumber extends Comparable<IComplexNumber> {
 	
 	//method declaration
 	int getBigDecimalScale();

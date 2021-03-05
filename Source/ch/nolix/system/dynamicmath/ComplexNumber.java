@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 //own imports
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
@@ -93,6 +93,15 @@ public final class ComplexNumber implements IComplexNumber {
 		
 		this.imaginaryComponent =
 		BigDecimal.valueOf(imaginaryComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
+	}
+	
+	//method
+	@Override
+	public int compareTo(final IComplexNumber complexNumber) {
+		
+		Validator.assertThat(complexNumber).thatIsNamed("complex number").isNotNull();
+		
+		return getMagnitude().compareTo(complexNumber.getMagnitude());
 	}
 	
 	//method
