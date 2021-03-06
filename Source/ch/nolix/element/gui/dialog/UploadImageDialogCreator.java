@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.dialog;
+package ch.nolix.element.gui.dialog;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports

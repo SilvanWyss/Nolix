@@ -3,13 +3,13 @@ package ch.nolix.system.database.databaseapplication;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.dialog.ErrorDialogCreator;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.Grid;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.TabContainerTab;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
+import ch.nolix.element.gui.dialog.ErrorDialogCreator;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ButtonRole;
 import ch.nolix.element.gui.widget.Label;

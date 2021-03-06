@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.elementtutorial.dialogtutorial} package
- * defines tutorials for the {@link ch.nolix.element.dialog} package.
+ * defines tutorials for the {@link ch.nolix.element.gui.dialog} package.
  * 
  * @author Silvan Wyss
  * @month 2020-07
