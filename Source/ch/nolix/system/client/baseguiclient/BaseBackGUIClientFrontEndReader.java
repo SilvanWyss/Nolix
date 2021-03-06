@@ -5,7 +5,7 @@ package ch.nolix.system.client.baseguiclient;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.baseguiapi.IFrontEndReader;
+import ch.nolix.element.gui.baseapi.IFrontEndReader;
 
 //class
 final class BaseBackGUIClientFrontEndReader implements IFrontEndReader {

@@ -2,7 +2,7 @@
 package ch.nolix.system.client.baseguiclient;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.baseguiapi.IFrontEndWriter;
+import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 
 //class
 final class BaseBackGIUIClientFrontEndWriter implements IFrontEndWriter {

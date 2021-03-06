@@ -14,10 +14,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.element.baseguiapi.IFrontEndReader;
-import ch.nolix.element.baseguiapi.IFrontEndWriter;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.gui.baseapi.IFrontEndReader;
+import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui3d.MainFrame;
 import ch.nolix.element.gui3d.Shape;
 import ch.nolix.element.input.Key;

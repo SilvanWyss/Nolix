@@ -3,8 +3,8 @@ package ch.nolix.element.widget;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.baseguiapi.HoverableByCursor;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.baseapi.HoverableByCursor;
 import ch.nolix.element.painterapi.IPainter;
 
 //class

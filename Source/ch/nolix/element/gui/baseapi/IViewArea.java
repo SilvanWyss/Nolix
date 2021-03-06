@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.baseguiapi;
+package ch.nolix.element.gui.baseapi;
 
 //own imports
 import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.baseguiapi;
+package ch.nolix.element.gui.baseapi;
 
 //interface
 public interface IFrontEndWriter {
