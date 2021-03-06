@@ -2,11 +2,11 @@ package ch.nolix.elementtutorial.gui3dtutorial;
 
 //own imports
 import ch.nolix.element.color.Color;
+import ch.nolix.element.gui3d.jmonkeygui.JMonkeyMainFrame;
 import ch.nolix.element.gui3d.shape.BaseCube;
 import ch.nolix.element.gui3d.shape.Cylinder;
 import ch.nolix.element.gui3d.shape.MultiShape;
 import ch.nolix.element.gui3d.shape.Sphere;
-import ch.nolix.element.jmonkeygui.JMonkeyMainFrame;
 
 /**
  * The {@link GUI3DTutorial2} is a tutorial for a {@link JMonkeyMainFrame}.

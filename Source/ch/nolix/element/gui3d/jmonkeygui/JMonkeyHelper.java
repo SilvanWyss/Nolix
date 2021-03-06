@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.jmonkeygui;
+package ch.nolix.element.gui3d.jmonkeygui;
 
 //own imports
 import com.jme3.asset.AssetManager;

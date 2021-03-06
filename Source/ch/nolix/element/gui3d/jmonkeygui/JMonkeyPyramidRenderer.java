@@ -1,42 +1,42 @@
 //package declaration
-package ch.nolix.element.jmonkeygui;
+package ch.nolix.element.gui3d.jmonkeygui;
 
 //JMonkey imports
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
-import com.jme3.scene.shape.Quad;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
-import ch.nolix.element.gui3d.planarshape.Rectangle;
+import ch.nolix.element.gui3d.shape.Pyramid;
 
 //class
-final class JMonkeyRectangleRenderer
-implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
-
+final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geometry> {
+	
 	//method
 	@Override
 	public Geometry createRenderObject() {
-		return new Geometry("Quad", new Quad(1.0F, 1.0F));
+		return new Geometry(
+			"Dome",
+			new com.jme3.scene.shape.Dome(2, 4, 1.0F)
+		);
 	}
-
+	
 	//method
 	@Override
-	public void render(final Rectangle rectangle, final Geometry geometry) {
+	public void render(final Pyramid pyramid, final Geometry geometry) {
 		
 		geometry.setLocalTranslation(
-			rectangle.getXPositionAsFloat(),
-			rectangle.getYPositionAsFloat(),
-			rectangle.getZPositionAsFloat()
+			pyramid.getXPositionAsFloat(),
+			pyramid.getYPositionAsFloat(),
+			pyramid.getZPositionAsFloat()
 		);
 		
-		geometry.scale(
-			rectangle.getXLengthAsFloat(),
-			rectangle.getYLengthAsFloat(),
-			1.0F
-		);
+		final var sideLength = pyramid.getSideLengthAsFloat();
+		final var height = pyramid.getHeightAsFloat();
 		
-		if (!rectangle.hasDefaultTexture()) {
+		geometry.scale(sideLength, sideLength, height);
+		
+		if (!pyramid.hasDefaultTexture()) {
 			
 			final var material =
 			new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Light/Lighting.j3md");
@@ -45,7 +45,7 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 							
 			material.setColor(
 				"Diffuse",
-				JMonkeyColorHelper.createColorRGBA(rectangle.getDefaultColor())
+				JMonkeyColorHelper.createColorRGBA(pyramid.getDefaultColor())
 			);
 			
 			geometry.setMaterial(material);
@@ -54,8 +54,8 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 			final var material
 			= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
 			
-			final var texture
-			= new Texture2D(new AWTLoader().load(rectangle.getDefaultTextureAsBufferedImage(), true));
+			final var texture =
+			new Texture2D(new AWTLoader().load(pyramid.getDefaultTextureAsBufferedImage(), true));
 			
 			material.setTexture("ColorMap", texture);
 			
