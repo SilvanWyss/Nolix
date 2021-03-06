@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerwidget.HorizontalStack;
+import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.widget.Label;
 import ch.nolix.system.client.base.NetServer;

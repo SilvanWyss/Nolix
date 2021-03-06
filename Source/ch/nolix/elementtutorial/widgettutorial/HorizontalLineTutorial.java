@@ -1,10 +1,10 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerwidget.HorizontalStack;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.containerwidget.HorizontalStack;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.HorizontalLine;
 import ch.nolix.element.widget.Label;
 

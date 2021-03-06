@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.containerwidget;
+package ch.nolix.element.gui.containerwidget;
 
 import ch.nolix.element.gui.base.Widget;
 

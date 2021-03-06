@@ -2,8 +2,8 @@ package ch.nolix.systemtutorial.dynamicmathtutorial;
 
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.common.implprovider.GlobalImplProvider;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;

@@ -4,10 +4,10 @@ package ch.nolix.element.dialog;
 import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.element.containerwidget.AligningContainer;
-import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.LayerRole;
+import ch.nolix.element.gui.containerwidget.AligningContainer;
+import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.Label;

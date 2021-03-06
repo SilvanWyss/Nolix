@@ -4,8 +4,8 @@ package ch.nolix.system.database.databaseapplication;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
 

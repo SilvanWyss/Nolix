@@ -2,10 +2,10 @@ package ch.nolix.elementtutorial.guitutorial;
 
 //own imports
 import ch.nolix.element.color.Color;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Button;
 
 /**

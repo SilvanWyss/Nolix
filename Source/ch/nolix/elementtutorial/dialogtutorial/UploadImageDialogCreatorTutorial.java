@@ -3,12 +3,12 @@ package ch.nolix.elementtutorial.dialogtutorial;
 //own imports
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.containerwidget.ContainerRole;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.dialog.UploadImageDialogCreator;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.containerwidget.ContainerRole;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.ImageWidget;

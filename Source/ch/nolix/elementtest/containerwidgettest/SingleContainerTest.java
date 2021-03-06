@@ -3,8 +3,8 @@ package ch.nolix.elementtest.containerwidgettest;
 
 //own imports
 import ch.nolix.common.basetest.TestCase;
-import ch.nolix.element.containerwidget.SingleContainer;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.containerwidget.SingleContainer;
 import ch.nolix.element.widget.Label;
 
 //class

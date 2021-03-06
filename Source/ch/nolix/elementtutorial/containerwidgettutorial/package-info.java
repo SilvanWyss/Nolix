@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.elementtutorial.containerwidgettutorial} package
- * defines tutorials for the {@link ch.nolix.element.containerwidget} package.
+ * defines tutorials for the {@link ch.nolix.element.gui.containerwidget} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

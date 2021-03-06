@@ -3,9 +3,9 @@ package ch.nolix.system.client.consoleclient;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.containerwidget.ContainerRole;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.gui.base.WidgetIdCatalogue;
+import ch.nolix.element.gui.containerwidget.ContainerRole;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Console;
 import ch.nolix.system.client.baseguiclient.BaseBackGUIClientSession;
 import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;

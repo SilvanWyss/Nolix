@@ -3,7 +3,7 @@ package ch.nolix.system.database.databaseapplication;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.containerwidget.Grid;
+import ch.nolix.element.gui.containerwidget.Grid;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 

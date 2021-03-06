@@ -4,12 +4,12 @@ package ch.nolix.element.dialog;
 import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.element.containerwidget.ContainerRole;
-import ch.nolix.element.containerwidget.HorizontalStack;
-import ch.nolix.element.containerwidget.VerticalStack;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.LayerRole;
+import ch.nolix.element.gui.containerwidget.ContainerRole;
+import ch.nolix.element.gui.containerwidget.HorizontalStack;
+import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.ImageWidget;
