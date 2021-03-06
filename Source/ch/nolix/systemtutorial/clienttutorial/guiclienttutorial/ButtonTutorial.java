@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.widget.Button;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;

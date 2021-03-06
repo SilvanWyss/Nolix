@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.gui.WidgetIdCatalogue;
+import ch.nolix.element.gui.base.WidgetIdCatalogue;
 import ch.nolix.element.widget.Console;
 import ch.nolix.system.client.baseguiclient.BaseBackGUIClientSession;
 import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;

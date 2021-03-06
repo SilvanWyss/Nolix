@@ -2,8 +2,8 @@ package ch.nolix.elementtutorial.guitutorial;
 
 //own imports
 import ch.nolix.element.elementenum.ExtendedContentPosition;
-import ch.nolix.element.gui.Frame;
-import ch.nolix.element.gui.Layer;
+import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.widget.Label;
 
 /**

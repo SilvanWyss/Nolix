@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui;
+package ch.nolix.element.gui.base;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;

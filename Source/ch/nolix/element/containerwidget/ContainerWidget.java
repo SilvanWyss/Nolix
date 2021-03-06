@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.widget.BorderWidget;
 import ch.nolix.element.widget.BorderWidgetLook;
 

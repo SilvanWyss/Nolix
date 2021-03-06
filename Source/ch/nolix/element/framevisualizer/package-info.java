@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.element.framevisualizer} package defines a {@link ch.nolix.element.gui.IVisualizer}.
+ * The {@link ch.nolix.element.framevisualizer} package defines a {@link ch.nolix.element.gui.base.IVisualizer}.
  * 
  * @author Silvan Wyss
  * @month 2019-10

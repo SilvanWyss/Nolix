@@ -4,7 +4,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
-import ch.nolix.element.gui.Layer;
+import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.widget.Label;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;

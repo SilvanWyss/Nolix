@@ -15,7 +15,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui3d.MainFrame;

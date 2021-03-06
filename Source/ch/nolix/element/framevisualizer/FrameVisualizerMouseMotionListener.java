@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener;
 import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.base.GUI;
 
 //class
 public final class FrameVisualizerMouseMotionListener implements MouseMotionListener {

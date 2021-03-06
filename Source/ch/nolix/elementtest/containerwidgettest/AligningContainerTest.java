@@ -3,7 +3,7 @@ package ch.nolix.elementtest.containerwidgettest;
 
 //own imports
 import ch.nolix.element.containerwidget.AligningContainer;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
 
 //class
 public final class AligningContainerTest extends ContainerWidgetTest<AligningContainer> {

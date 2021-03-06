@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.base.GUI;
 
 //class
 /**

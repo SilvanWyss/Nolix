@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.template.guilook} package defines looks for {@link ch.nolix.element.gui.WidgetGUI}s.
+ * The {@link ch.nolix.template.guilook} package defines looks for {@link ch.nolix.element.gui.base.WidgetGUI}s.
  * 
  * @author Silvan Wyss
  * @month 2019-07

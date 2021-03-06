@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.element.widget} package defines {@link ch.nolix.element.gui.Widget}s.
+ * The {@link ch.nolix.element.widget} package defines {@link ch.nolix.element.gui.base.Widget}s.
  * 
  * @author Silvan Wyss
  * @month 2019-07

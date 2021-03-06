@@ -6,8 +6,8 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.Layer;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
 

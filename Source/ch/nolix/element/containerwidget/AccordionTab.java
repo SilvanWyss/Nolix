@@ -18,9 +18,9 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementapi.IMutableElement;
-import ch.nolix.element.gui.CursorIcon;
-import ch.nolix.element.gui.WidgetGUI;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.widget.Label;
 
 //class

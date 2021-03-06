@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui;
+package ch.nolix.element.gui.base;
 
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.chainednode.ChainedNode;

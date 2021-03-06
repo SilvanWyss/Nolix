@@ -5,8 +5,8 @@ package ch.nolix.element.containerwidget;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.element.gui.WidgetGUI;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
 

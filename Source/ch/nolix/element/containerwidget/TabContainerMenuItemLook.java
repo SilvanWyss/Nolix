@@ -9,7 +9,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.gui.ValueCatalogue;
+import ch.nolix.element.gui.base.ValueCatalogue;
 import ch.nolix.element.layerelement.LayerElement;
 import ch.nolix.element.widget.TextItemMenuItemLook;
 

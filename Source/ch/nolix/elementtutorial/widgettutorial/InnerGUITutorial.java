@@ -2,7 +2,7 @@ package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.Frame;
+import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.widget.InnerGUI;
 import ch.nolix.element.widget.Label;
 

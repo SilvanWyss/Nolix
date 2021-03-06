@@ -4,7 +4,7 @@ import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.dialog.YesNoDialogCreator;
-import ch.nolix.element.gui.Frame;
+import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ButtonRole;
 import ch.nolix.element.widget.LabelRole;

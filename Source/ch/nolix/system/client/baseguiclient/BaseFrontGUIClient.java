@@ -9,7 +9,7 @@ import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.localcomputer.PopupWindowProvider;
-import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.input.IInput;
 import ch.nolix.system.client.base.Client;
 import ch.nolix.system.client.guiclient.FrontGUIClient;

@@ -7,8 +7,8 @@ import ch.nolix.common.test.ObjectTest;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.containerwidget.ContainerRole;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.gui.GUI;
-import ch.nolix.element.gui.InvisibleGUI;
+import ch.nolix.element.gui.base.GUI;
+import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.widget.Console;
 
 //class

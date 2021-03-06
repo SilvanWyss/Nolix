@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
 

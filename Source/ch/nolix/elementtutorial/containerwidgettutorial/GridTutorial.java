@@ -4,7 +4,7 @@ package ch.nolix.elementtutorial.containerwidgettutorial;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerwidget.Grid;
 import ch.nolix.element.containerwidget.GridLineType;
-import ch.nolix.element.gui.Frame;
+import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.Label;
 

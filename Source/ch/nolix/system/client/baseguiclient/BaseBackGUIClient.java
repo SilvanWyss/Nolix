@@ -14,11 +14,11 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.gui.CanvasGUI;
-import ch.nolix.element.gui.GUI;
-import ch.nolix.element.gui.IWidgetGUI;
-import ch.nolix.element.gui.InvisibleGUI;
-import ch.nolix.element.gui.WidgetGUI;
+import ch.nolix.element.gui.base.CanvasGUI;
+import ch.nolix.element.gui.base.GUI;
+import ch.nolix.element.gui.base.IWidgetGUI;
+import ch.nolix.element.gui.base.InvisibleGUI;
+import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.input.IInput;
 import ch.nolix.element.input.InputFactory;
 import ch.nolix.element.input.MouseInput;

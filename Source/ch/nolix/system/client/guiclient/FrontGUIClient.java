@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.net.endpoint.NetServer;
-import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.base.GUI;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;

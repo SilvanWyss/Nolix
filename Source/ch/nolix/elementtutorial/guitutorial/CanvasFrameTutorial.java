@@ -8,7 +8,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.elementenum.UniDirection;
-import ch.nolix.element.gui.CanvasFrame;
+import ch.nolix.element.gui.base.CanvasFrame;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.textformat.Font;

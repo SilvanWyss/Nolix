@@ -4,8 +4,8 @@ package ch.nolix.system.client.baseguiclient;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.gui.Frame;
-import ch.nolix.element.gui.GUI;
+import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.GUI;
 
 //class
 final class BaseFrontGUIClientWidgetGUIHandler implements IFrontGUIClientGUIHandler {

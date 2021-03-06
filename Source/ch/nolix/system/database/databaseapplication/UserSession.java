@@ -5,7 +5,7 @@ package ch.nolix.system.database.databaseapplication;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.containerwidget.HorizontalStack;
 import ch.nolix.element.containerwidget.VerticalStack;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.widget.Button;
 
 //class

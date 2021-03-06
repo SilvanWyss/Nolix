@@ -4,7 +4,7 @@ package ch.nolix.element.containerwidget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.gui.ValueCatalogue;
+import ch.nolix.element.gui.base.ValueCatalogue;
 import ch.nolix.element.layerelement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 

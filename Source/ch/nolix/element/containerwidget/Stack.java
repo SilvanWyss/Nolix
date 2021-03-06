@@ -11,8 +11,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableOptionalValue;
-import ch.nolix.element.gui.WidgetGUI;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
 

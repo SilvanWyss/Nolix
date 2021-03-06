@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.gui.CursorIcon;
+import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
 

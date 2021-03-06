@@ -14,7 +14,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementapi.IMutableElement;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
 
 //class
 /**

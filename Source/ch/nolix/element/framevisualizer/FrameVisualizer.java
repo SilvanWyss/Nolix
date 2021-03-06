@@ -11,9 +11,9 @@ import javax.swing.WindowConstants;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.gui.GUI;
-import ch.nolix.element.gui.IVisualizer;
-import ch.nolix.element.gui.SwingPainter;
+import ch.nolix.element.gui.base.GUI;
+import ch.nolix.element.gui.base.IVisualizer;
+import ch.nolix.element.gui.base.SwingPainter;
 
 //class
 /**

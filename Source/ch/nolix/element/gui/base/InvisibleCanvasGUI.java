@@ -1,31 +1,28 @@
 //package declaration
-package ch.nolix.element.gui;
+package ch.nolix.element.gui.base;
 
 //own imports
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.input.IResizableInputTaker;
 
 //class
-public final class CanvasFrame extends CanvasGUI<CanvasFrame> {
-	
+public final class InvisibleCanvasGUI extends CanvasGUI<InvisibleCanvasGUI> {
+		
 	//constructor
-	public CanvasFrame(final IResizableInputTaker inputTaker) {
-		
-		super(inputTaker, Visibility.VISIBLE);
-		
-		initialize();
+	public InvisibleCanvasGUI(final IResizableInputTaker inputTaker) {
+		super(inputTaker, Visibility.INVISIBLE);
 	}
 	
 	//method
 	@Override
 	public int getHeight() {
-		return getRefVisualizer().getHeight();
+		return getViewAreaHeight();
 	}
 	
 	//method
 	@Override
 	public int getWidth() {
-		return getRefVisualizer().getWidth();
+		return getViewAreaWidth();
 	}
 	
 	//method

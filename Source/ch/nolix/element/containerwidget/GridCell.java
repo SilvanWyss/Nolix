@@ -11,8 +11,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IMutableElement;
-import ch.nolix.element.gui.WidgetGUI;
-import ch.nolix.element.gui.Widget;
+import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetGUI;
 
 //class
 final class GridCell extends Element<GridCell> implements Clearable, IMutableElement<GridCell> {
