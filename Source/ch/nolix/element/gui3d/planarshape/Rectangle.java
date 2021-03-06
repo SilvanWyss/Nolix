@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.planarshape;
+package ch.nolix.element.gui3d.planarshape;
 
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
