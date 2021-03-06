@@ -4,7 +4,7 @@ package ch.nolix.elementtest.widgettest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.gui.widget.TextBox;
 
 //class
 /**

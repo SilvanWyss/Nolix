@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.gui.widget.Label;
 
 /**
  * The {@link LabelShorteningTextTutorial} is a tutorial for {@link Label}s.

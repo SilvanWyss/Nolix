@@ -6,7 +6,7 @@ import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.BorderWidget;
+import ch.nolix.element.gui.widget.BorderWidget;
 
 //class
 /**

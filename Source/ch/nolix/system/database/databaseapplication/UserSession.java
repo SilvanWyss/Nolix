@@ -6,7 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.widget.Button;
+import ch.nolix.element.gui.widget.Button;
 
 //class
 public abstract class UserSession extends DatabaseApplicationSession {

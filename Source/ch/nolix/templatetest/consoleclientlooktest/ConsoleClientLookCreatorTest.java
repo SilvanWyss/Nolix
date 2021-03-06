@@ -9,7 +9,7 @@ import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.widget.Console;
+import ch.nolix.element.gui.widget.Console;
 
 //class
 public abstract class ConsoleClientLookCreatorTest extends ObjectTest<Configuration> {

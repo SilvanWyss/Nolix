@@ -21,7 +21,7 @@ import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.gui.widget.Label;
 
 //class
 public final class AccordionTab extends Element<AccordionTab>

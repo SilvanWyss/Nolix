@@ -2,8 +2,8 @@ package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.widget.BorderWidget;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.gui.widget.BorderWidget;
+import ch.nolix.element.gui.widget.Label;
 
 /**
  * The {@link ScrollTutorial} is a tutorial for the scroll feature of {@link BorderWidget}s.

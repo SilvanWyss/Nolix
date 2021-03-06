@@ -6,7 +6,7 @@ import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.widget.Button;
+import ch.nolix.element.gui.widget.Button;
 
 /**
  * The {@link GUILayerTutorial} is a tutorial for {@link Layer}s.

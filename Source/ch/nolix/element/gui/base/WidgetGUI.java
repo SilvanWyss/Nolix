@@ -28,22 +28,22 @@ import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.SingleContainer;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
+import ch.nolix.element.gui.widget.Area;
+import ch.nolix.element.gui.widget.Button;
+import ch.nolix.element.gui.widget.CheckBox;
+import ch.nolix.element.gui.widget.Console;
+import ch.nolix.element.gui.widget.Downloader;
+import ch.nolix.element.gui.widget.DropdownMenu;
+import ch.nolix.element.gui.widget.HorizontalLine;
+import ch.nolix.element.gui.widget.ImageWidget;
+import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.SelectionMenu;
+import ch.nolix.element.gui.widget.TextBox;
+import ch.nolix.element.gui.widget.Uploader;
+import ch.nolix.element.gui.widget.VerticalLine;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.widget.Area;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.CheckBox;
-import ch.nolix.element.widget.Console;
-import ch.nolix.element.widget.Downloader;
-import ch.nolix.element.widget.DropdownMenu;
-import ch.nolix.element.widget.HorizontalLine;
-import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.SelectionMenu;
-import ch.nolix.element.widget.TextBox;
-import ch.nolix.element.widget.Uploader;
-import ch.nolix.element.widget.VerticalLine;
 
 //class
 /**

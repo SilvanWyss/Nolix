@@ -7,15 +7,15 @@ import ch.nolix.element.gui.base.LayerRole;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.Grid;
+import ch.nolix.element.gui.widget.BorderWidget;
+import ch.nolix.element.gui.widget.Button;
+import ch.nolix.element.gui.widget.CheckBox;
+import ch.nolix.element.gui.widget.Console;
+import ch.nolix.element.gui.widget.Downloader;
+import ch.nolix.element.gui.widget.LabelRole;
+import ch.nolix.element.gui.widget.TextItemMenu;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.widget.BorderWidget;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.CheckBox;
-import ch.nolix.element.widget.Console;
-import ch.nolix.element.widget.Downloader;
-import ch.nolix.element.widget.LabelRole;
-import ch.nolix.element.widget.TextItemMenu;
 
 //class
 public final class AnthrazitGUILookCreator {

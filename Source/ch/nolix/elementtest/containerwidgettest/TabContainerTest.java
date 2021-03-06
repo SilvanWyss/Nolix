@@ -6,7 +6,7 @@ import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.TabContainerTab;
-import ch.nolix.element.widget.Area;
+import ch.nolix.element.gui.widget.Area;
 
 //class
 public final class TabContainerTest extends ContainerWidgetTest<TabContainer> {

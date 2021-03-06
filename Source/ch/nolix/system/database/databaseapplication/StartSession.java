@@ -3,8 +3,8 @@ package ch.nolix.system.database.databaseapplication;
 
 //own imports
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.LabelRole;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 
 //class

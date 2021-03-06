@@ -4,7 +4,7 @@ package ch.nolix.elementtest.widgettest;
 //own imports
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.test.Test;
-import ch.nolix.element.widget.CaptionPosition;
+import ch.nolix.element.gui.widget.CaptionPosition;
 
 //class
 /**

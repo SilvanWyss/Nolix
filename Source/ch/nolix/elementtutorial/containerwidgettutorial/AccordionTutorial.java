@@ -5,7 +5,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.containerwidget.Accordion;
 import ch.nolix.element.gui.containerwidget.AccordionTab;
-import ch.nolix.element.widget.Area;
+import ch.nolix.element.gui.widget.Area;
 
 /**
  * The {@link AccordionTutorial} is a tutorial for {@link Accordion}s.

@@ -8,10 +8,10 @@ import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.LayerRole;
 import ch.nolix.element.gui.containerwidget.AligningContainer;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.gui.widget.Button;
+import ch.nolix.element.gui.widget.ButtonRole;
+import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.LabelRole;
 
 //class
 public final class ErrorDialogCreator {

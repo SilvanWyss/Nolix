@@ -5,7 +5,7 @@ import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.widget.Downloader;
+import ch.nolix.element.gui.widget.Downloader;
 
 /**
  * The {@link DownloaderTutorial} is a tutorial for {@link Downloader}s.

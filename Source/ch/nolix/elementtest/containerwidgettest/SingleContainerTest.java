@@ -5,7 +5,7 @@ package ch.nolix.elementtest.containerwidgettest;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.SingleContainer;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.gui.widget.Label;
 
 //class
 /**

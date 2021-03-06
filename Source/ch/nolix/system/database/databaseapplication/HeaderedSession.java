@@ -6,8 +6,8 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.LabelRole;
 
 //class
 public abstract class HeaderedSession extends UserSession {

@@ -5,9 +5,9 @@ package ch.nolix.elementtest.containerwidgettest;
 import ch.nolix.common.basetest.TestCase;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.gui.widget.Button;
+import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.TextBox;
 
 //class
 /**

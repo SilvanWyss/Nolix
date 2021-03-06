@@ -3,7 +3,7 @@ package ch.nolix.elementtutorial.widgettutorial;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.gui.widget.TextBox;
 
 /**
  * The {@link TextBoxTutorial} is a tutorial for {@link TextBox}s.

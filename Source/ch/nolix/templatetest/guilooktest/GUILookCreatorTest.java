@@ -9,17 +9,17 @@ import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.widget.Area;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Console;
-import ch.nolix.element.widget.Downloader;
-import ch.nolix.element.widget.HorizontalLine;
-import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.SelectionMenu;
-import ch.nolix.element.widget.TextBox;
-import ch.nolix.element.widget.Uploader;
-import ch.nolix.element.widget.VerticalLine;
+import ch.nolix.element.gui.widget.Area;
+import ch.nolix.element.gui.widget.Button;
+import ch.nolix.element.gui.widget.Console;
+import ch.nolix.element.gui.widget.Downloader;
+import ch.nolix.element.gui.widget.HorizontalLine;
+import ch.nolix.element.gui.widget.ImageWidget;
+import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.SelectionMenu;
+import ch.nolix.element.gui.widget.TextBox;
+import ch.nolix.element.gui.widget.Uploader;
+import ch.nolix.element.gui.widget.VerticalLine;
 
 //class
 public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {

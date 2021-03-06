@@ -4,8 +4,8 @@ import ch.nolix.common.math.Calculator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.containerwidget.AligningContainer;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.gui.widget.Button;
+import ch.nolix.element.gui.widget.Label;
 
 public final class AligningContainerWithAutomaticSizeTutorial {
 	

@@ -4,7 +4,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.localcomputer.ShellProvider;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.DropdownMenu;
+import ch.nolix.element.gui.widget.DropdownMenu;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontCanvasGUIClient;

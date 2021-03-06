@@ -4,7 +4,7 @@ package ch.nolix.elementtutorial.guitutorial;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.gui.widget.Label;
 
 /**
  * The {@link CursorPositionTutorial} is a tutorial for {@link Frame}s.

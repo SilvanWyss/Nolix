@@ -3,7 +3,7 @@ package ch.nolix.elementtutorial.widgettutorial;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.widget.Button;
+import ch.nolix.element.gui.widget.Button;
 
 /**
  * The {@link ButtonTutorial} is a tutorial for {@link Button}s.

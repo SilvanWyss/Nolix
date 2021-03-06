@@ -31,11 +31,11 @@ import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.baseapi.IOccupiableCanvasInputActionManager;
+import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.input.IInputTaker;
 import ch.nolix.element.input.IResizableInputTaker;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.widget.BorderWidget;
 
 //class
 /**

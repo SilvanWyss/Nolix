@@ -4,8 +4,8 @@ package ch.nolix.element.gui.containerwidget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.gui.base.ValueCatalogue;
+import ch.nolix.element.gui.widget.BorderWidgetLook;
 import ch.nolix.element.layerelement.LayerProperty;
-import ch.nolix.element.widget.BorderWidgetLook;
 
 //class
 public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {
