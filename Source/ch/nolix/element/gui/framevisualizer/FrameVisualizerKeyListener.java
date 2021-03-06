@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.framevisualizer;
+package ch.nolix.element.gui.framevisualizer;
 
 //Java imports
 import java.awt.event.KeyEvent;
