@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.mutableattributeapi;
 
-//own imports
-import ch.nolix.common.attributeapi.SemanticVersioned;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.SemanticVersioned;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;

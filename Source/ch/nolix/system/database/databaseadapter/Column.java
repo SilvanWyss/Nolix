@@ -2,8 +2,7 @@
 package ch.nolix.system.database.databaseadapter;
 
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
-//own imports
-import ch.nolix.common.attributeapi.Headered;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;

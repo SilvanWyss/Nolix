@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.resourceapi;
 
-//own imports
-import ch.nolix.common.attributeapi.Named;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 
 //interface

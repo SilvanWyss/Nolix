@@ -3,7 +3,7 @@ package ch.nolix.system.database.databaseschemaadapter;
 
 //own imports
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
-import ch.nolix.common.attributeapi.Headered;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;

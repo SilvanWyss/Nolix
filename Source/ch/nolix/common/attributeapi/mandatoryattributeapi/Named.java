@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.attributeapi;
+package ch.nolix.common.attributeapi.mandatoryattributeapi;
 
 //own import
 import ch.nolix.common.language.EnglishNounHelper;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.attributeapi.Headered;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 
 //interface

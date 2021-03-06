@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.mutableattributeapi;
 
-//own imports
-import ch.nolix.common.attributeapi.Tokened;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Tokened;
 
 //interface
 /**

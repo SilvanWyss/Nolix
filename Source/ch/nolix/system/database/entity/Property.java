@@ -5,8 +5,7 @@ package ch.nolix.system.database.entity;
 import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
-//own imports
-import ch.nolix.common.attributeapi.Headered;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;

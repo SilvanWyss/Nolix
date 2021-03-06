@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.common.document.xml;
 
-//own imports
-import ch.nolix.common.attributeapi.Named;
-import ch.nolix.common.attributeapi.Valued;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Valued;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;

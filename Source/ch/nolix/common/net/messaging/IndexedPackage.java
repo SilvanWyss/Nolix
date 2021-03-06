@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.net.messaging;
 
-//own imports
-import ch.nolix.common.attributeapi.Indexed;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Indexed;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;

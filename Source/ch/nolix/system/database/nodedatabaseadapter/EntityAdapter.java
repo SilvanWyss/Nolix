@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.nodedatabaseadapter;
 
-//own imports
-import ch.nolix.common.attributeapi.Identified;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Identified;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.valuecreator.ValueCreator;

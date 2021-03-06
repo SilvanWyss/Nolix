@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.license;
 
-//own imports
-import ch.nolix.common.attributeapi.Named;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 
 //class

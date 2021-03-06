@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//own imports
-import ch.nolix.common.attributeapi.Identified;
-import ch.nolix.common.attributeapi.ShortDescripted;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Identified;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.ShortDescripted;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;

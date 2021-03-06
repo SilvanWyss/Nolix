@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
-//own imports
-import ch.nolix.common.attributeapi.Indexed;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Indexed;
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;

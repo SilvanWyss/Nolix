@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.common.license;
 
-//own imports
-import ch.nolix.common.attributeapi.Named;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 
 //class
