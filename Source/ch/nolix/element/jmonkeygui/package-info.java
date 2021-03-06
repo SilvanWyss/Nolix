@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.element.jmonkeygui} package
- * provides an implementation of the base {@link ch.nolix.element.gui3d.GUI3D}.
+ * provides an implementation of the base {@link ch.nolix.element.gui3d.base.GUI3D}.
  * 
  * @author Silvan Wyss
  * @month 2019-07

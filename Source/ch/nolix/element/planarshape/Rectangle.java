@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentExc
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.gui3d.AtomicShape;
+import ch.nolix.element.gui3d.base.AtomicShape;
 
 //class
 /**

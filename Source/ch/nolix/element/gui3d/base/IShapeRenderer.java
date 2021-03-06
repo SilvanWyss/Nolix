@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui3d;
+package ch.nolix.element.gui3d.base;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 
