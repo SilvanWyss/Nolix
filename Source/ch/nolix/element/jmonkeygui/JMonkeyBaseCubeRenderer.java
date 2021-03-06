@@ -8,8 +8,7 @@ import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
-//own imports
-import ch.nolix.element.shape.BaseCube;
+import ch.nolix.element.gui3d.shape.BaseCube;
 
 //class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.shape;
+package ch.nolix.element.gui3d.shape;
 
 //own imports
 import ch.nolix.common.container.LinkedList;

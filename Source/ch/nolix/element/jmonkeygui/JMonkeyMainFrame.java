@@ -20,13 +20,13 @@ import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui3d.MainFrame;
 import ch.nolix.element.gui3d.Shape;
+import ch.nolix.element.gui3d.shape.BaseCube;
+import ch.nolix.element.gui3d.shape.Cylinder;
+import ch.nolix.element.gui3d.shape.MultiShape;
+import ch.nolix.element.gui3d.shape.Pyramid;
+import ch.nolix.element.gui3d.shape.Sphere;
 import ch.nolix.element.input.Key;
 import ch.nolix.element.planarshape.Rectangle;
-import ch.nolix.element.shape.BaseCube;
-import ch.nolix.element.shape.Cylinder;
-import ch.nolix.element.shape.MultiShape;
-import ch.nolix.element.shape.Pyramid;
-import ch.nolix.element.shape.Sphere;
 
 //class
 /**

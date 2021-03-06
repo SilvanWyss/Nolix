@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.shape;
+package ch.nolix.element.gui3d.shape;
 
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
