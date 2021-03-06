@@ -3,6 +3,7 @@ package ch.nolix.element.gui.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -12,7 +13,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.mutableattributeapi.Headerable;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;

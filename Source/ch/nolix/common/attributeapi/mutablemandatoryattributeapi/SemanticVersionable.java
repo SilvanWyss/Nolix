@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.mutableattributeapi;
+package ch.nolix.common.attributeapi.mutablemandatoryattributeapi;
 
 import ch.nolix.common.attributeapi.mandatoryattributeapi.SemanticVersioned;
 import ch.nolix.common.constant.LowerCaseCatalogue;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.document.chainednode;
 
+import ch.nolix.common.attributeapi.optionalattributeapi.OptionalHeadered;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
@@ -15,7 +16,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.common.optionalattributeapi.OptionalHeadered;
 
 //class
 /**

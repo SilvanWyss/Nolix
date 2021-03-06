@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalLabelable;
 import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -18,7 +19,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnconnectedArgument
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.generalskillapi.TypeRequestable;
-import ch.nolix.common.mutableoptionalattributeapi.OptionalLabelable;
 import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.LocalEndPoint;
 import ch.nolix.common.net.endpoint3.NetEndPoint;

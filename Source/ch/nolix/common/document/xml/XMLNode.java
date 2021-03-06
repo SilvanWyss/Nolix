@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.common.document.xml;
 
+import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalNamable;
+import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalValueable;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
@@ -10,8 +12,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.mutableoptionalattributeapi.OptionalNamable;
-import ch.nolix.common.mutableoptionalattributeapi.OptionalValueable;
 
 //class
 public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {

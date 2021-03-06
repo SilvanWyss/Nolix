@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.document.node;
 
+import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalHeaderable;
 //own imports
 import ch.nolix.common.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
@@ -19,7 +20,6 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.processproperty.WriteMode;
 

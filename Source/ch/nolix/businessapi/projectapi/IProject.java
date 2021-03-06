@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.businessapi.projectapi;
 
+import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.generalskillapi.IFluentObject;
-import ch.nolix.common.mutableattributeapi.Namable;
 import ch.nolix.common.skillapi.Clearable;
 
 //interface
