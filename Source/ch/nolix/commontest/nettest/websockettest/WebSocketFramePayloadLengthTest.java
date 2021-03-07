@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.commontest.nettest.websockettest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypewrapper.ByteWrapper;
 import ch.nolix.common.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.common.net.websocket.WebSocketFramePayloadLengthType;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class WebSocketFramePayloadLengthTest extends Test {

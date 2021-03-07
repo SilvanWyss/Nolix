@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.commontest.nettest.endpoint2test;
 
-//own imports
-import ch.nolix.common.basetest.TestPool;
+import ch.nolix.common.testing.basetest.TestPool;
 
 //class
 /**

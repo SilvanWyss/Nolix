@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.commontest.commontypewrappertest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypewrapper.ByteWrapper;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class WrapperByteTest extends Test {

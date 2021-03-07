@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.elementtest.elementenumtest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 import ch.nolix.element.elementenum.Direction;
 
 //class

@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.commontest.containertest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.demo.Cat;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class SingleContainerTest extends Test {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.elementenumtest;
 
-//own imports
-import ch.nolix.common.basetest.TestPool;
+import ch.nolix.common.testing.basetest.TestPool;
 
 //class
 /**

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.databasetest;
 
-//own imports
-import ch.nolix.common.basetest.TestPool;
+import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.systemtest.databasetest.datatypetest.DataTypeTestPool;
 import ch.nolix.systemtest.databasetest.entitytest.EntityTestPool;
 

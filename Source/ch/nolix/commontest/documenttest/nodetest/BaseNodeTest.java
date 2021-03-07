@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.commontest.documenttest.nodetest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.common.test.ObjectTest;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.ObjectTest;
 
 //class
 public abstract class BaseNodeTest extends ObjectTest<BaseNode> {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.commontest.documenttest;
 
-//own import
-import ch.nolix.common.basetest.TestPool;
+import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.commontest.documenttest.chainednodetest.ChainedNodeTestPool;
 import ch.nolix.commontest.documenttest.filenodetest.FileNodeTestPool;
 import ch.nolix.commontest.documenttest.nodetest.NodeTestPool;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.elementtest.tradingtest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 import ch.nolix.element.time.Time;
 import ch.nolix.element.trading.VolumeCandleStick;
 

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.dynamicmathtest;
 
-//own import
-import ch.nolix.common.basetest.TestPool;
+import ch.nolix.common.testing.basetest.TestPool;
 
 //class
 public final class DynamicMathTestPool extends TestPool {

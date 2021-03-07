@@ -5,12 +5,11 @@ package ch.nolix.commontest.nettest.websockettest;
 import java.io.IOException;
 import java.io.InputStream;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.commontypewrapper.ByteWrapper;
 import ch.nolix.common.net.websocket.WebSocketFrame;
 import ch.nolix.common.net.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class WebSocketFrameTest extends Test {

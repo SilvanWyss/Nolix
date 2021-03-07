@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.commontest.nettest.endpointtest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.net.endpoint.NetServer;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class NetServerTest extends Test {

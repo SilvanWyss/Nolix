@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.commontest.constanttest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.reflectionhelper.GlobalClassHelper;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class StringCatalogueTest extends Test {

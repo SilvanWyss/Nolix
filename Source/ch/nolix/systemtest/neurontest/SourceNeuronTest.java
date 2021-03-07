@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.systemtest.neurontest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 import ch.nolix.system.neuron.base.SourceNeuron;
 
 //class

@@ -4,10 +4,9 @@ package ch.nolix.systemtest.dynamicmathtest;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 import ch.nolix.system.dynamicmath.ClosedInterval;
 
 //class

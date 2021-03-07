@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.commontest.mathtest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.math.QuadraticFunction;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 /**

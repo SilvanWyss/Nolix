@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.commontest.implprovidertest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.implprovider.ImplProvider;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 
 //class
 public final class ImplProviderTest extends Test {

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.databasetest.datatypetest;
 
-//own imports
-import ch.nolix.common.basetest.TestCase;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.common.testing.test.Test;
 import ch.nolix.system.database.datatype.BackReferenceType;
 import ch.nolix.system.database.datatype.DataTypeHelper;
 import ch.nolix.system.database.datatype.MultiBackReferenceType;
