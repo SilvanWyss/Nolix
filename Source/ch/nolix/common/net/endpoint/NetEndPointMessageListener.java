@@ -4,7 +4,7 @@ package ch.nolix.common.net.endpoint;
 //own imports
 import ch.nolix.common.commontypehelper.InputStreamHelper;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.worker.Worker;
+import ch.nolix.common.programcontrol.worker.Worker;
 
 //class
 final class NetEndPointMessageListener extends Worker {

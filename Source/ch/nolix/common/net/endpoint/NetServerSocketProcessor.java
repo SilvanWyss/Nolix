@@ -19,7 +19,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.net.http.HTTPRequest;
 import ch.nolix.common.net.websocket.WebSocketHandShakeRequest;
-import ch.nolix.common.worker.Worker;
+import ch.nolix.common.programcontrol.worker.Worker;
 
 //class
 final class NetServerSocketProcessor extends Worker {

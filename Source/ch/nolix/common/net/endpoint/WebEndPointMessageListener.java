@@ -3,7 +3,7 @@ package ch.nolix.common.net.endpoint;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.net.websocket.WebSocketCompleteMessage;
-import ch.nolix.common.worker.Worker;
+import ch.nolix.common.programcontrol.worker.Worker;
 
 //class
 final class WebEndPointMessageListener extends Worker {

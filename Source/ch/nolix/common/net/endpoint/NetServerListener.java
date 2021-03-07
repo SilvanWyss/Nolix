@@ -7,7 +7,7 @@ import java.net.Socket;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.worker.Worker;
+import ch.nolix.common.programcontrol.worker.Worker;
 
 //class
 /**
