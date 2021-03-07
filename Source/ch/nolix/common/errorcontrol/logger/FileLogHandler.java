@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.logger;
+package ch.nolix.common.errorcontrol.logger;
 
 //Java imports
 import java.io.IOException;

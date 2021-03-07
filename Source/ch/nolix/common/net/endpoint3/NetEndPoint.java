@@ -16,8 +16,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRang
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.logger.Logger;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.logger.Logger;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
 //class

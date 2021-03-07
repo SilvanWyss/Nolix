@@ -14,6 +14,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.SmallerArgumentException;
+import ch.nolix.common.errorcontrol.logger.Logger;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.I2ElementTakerBooleanGetter;
@@ -26,7 +27,6 @@ import ch.nolix.common.functionapi.IElementTakerDoubleGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerIntGetter;
 import ch.nolix.common.functionapi.IElementTakerLongGetter;
-import ch.nolix.common.logger.Logger;
 import ch.nolix.common.pair.Pair;
 
 //interface

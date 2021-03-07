@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.logger;
+package ch.nolix.common.errorcontrol.logger;
 
 //class
 public final class LogEntry {
