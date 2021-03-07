@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.base.GUI;

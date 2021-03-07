@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.common.net.endpoint3;
 
-import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -19,6 +18,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.logger.Logger;
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
 //class
 /**

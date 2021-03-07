@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.closeableelement;
+package ch.nolix.common.programcontrol.closeableelement;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

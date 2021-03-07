@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.closeableelement;
+package ch.nolix.common.programcontrol.closeableelement;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;

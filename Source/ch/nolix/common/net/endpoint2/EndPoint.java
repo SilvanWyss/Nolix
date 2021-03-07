@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
-//own imports
-import ch.nolix.common.closeableelement.CloseController;
-import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.net.communicationapi.IReplier;
+import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
 //class
 /**

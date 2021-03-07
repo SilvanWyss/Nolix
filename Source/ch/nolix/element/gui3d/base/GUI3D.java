@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.closeableelement.CloseController;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -19,6 +18,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.pair.Pair;
+import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;

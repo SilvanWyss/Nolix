@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.common.net.endpoint;
 
-//own imports
-import ch.nolix.common.closeableelement.CloseController;
-import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -13,6 +10,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.net.communicationapi.ISender;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
+import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 

@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
-//own imports
-import ch.nolix.common.closeableelement.ICloseableElement;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.exception.GeneralException;
@@ -11,6 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
 //class
 /**

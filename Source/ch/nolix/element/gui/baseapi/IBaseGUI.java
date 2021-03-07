@@ -2,8 +2,7 @@
 package ch.nolix.element.gui.baseapi;
 
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Titleble;
-//own imports
-import ch.nolix.common.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.element.gui.base.CursorIcon;
