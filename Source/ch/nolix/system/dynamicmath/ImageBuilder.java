@@ -12,9 +12,9 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.futureapi.IFuture;
 import ch.nolix.common.jobpool.JobPool;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.futureapi.IFuture;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 

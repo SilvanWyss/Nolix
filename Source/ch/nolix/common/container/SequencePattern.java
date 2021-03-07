@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

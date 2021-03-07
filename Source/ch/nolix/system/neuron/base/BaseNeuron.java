@@ -15,8 +15,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NonSmallerArgumentE
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.generalskillapi.ISmartObject;
-import ch.nolix.common.sequencer.Future;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Future;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

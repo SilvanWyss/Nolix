@@ -6,7 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.processproperty.ChangeState;
+import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.color.Color;

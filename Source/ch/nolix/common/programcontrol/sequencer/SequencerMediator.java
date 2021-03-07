@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.sequencer;
+package ch.nolix.common.programcontrol.sequencer;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentExc
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.programcontrol.futureapi.IFuture;
 
 //class
 /**

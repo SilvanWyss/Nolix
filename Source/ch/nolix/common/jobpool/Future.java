@@ -4,7 +4,7 @@ package ch.nolix.common.jobpool;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.programcontrol.futureapi.IFuture;
 
 //class
 final class Future implements IFuture {

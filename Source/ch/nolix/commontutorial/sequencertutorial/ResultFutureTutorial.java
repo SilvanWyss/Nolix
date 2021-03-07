@@ -2,8 +2,8 @@ package ch.nolix.commontutorial.sequencertutorial;
 
 //own imports
 import ch.nolix.common.math.Matrix;
-import ch.nolix.common.sequencer.ResultFuture;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.ResultFuture;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 /**
  * The {@link ResultFutureTutorial} is a tutorial for {@link ResultFuture}s.

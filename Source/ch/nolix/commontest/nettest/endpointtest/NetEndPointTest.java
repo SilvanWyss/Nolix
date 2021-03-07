@@ -8,7 +8,7 @@ import ch.nolix.common.net.endpoint.IEndPointTaker;
 import ch.nolix.common.net.endpoint.NetEndPoint;
 import ch.nolix.common.net.endpoint.NetServer;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
 //class

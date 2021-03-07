@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.databaseapplicationtutorial;
 
 //own imports
 import ch.nolix.common.localcomputer.ShellProvider;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.IDatabaseAdapterCreator;

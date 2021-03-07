@@ -21,7 +21,7 @@ import ch.nolix.common.filesystem.FileAccessor;
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.pair.IntPair;
-import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.programcontrol.processproperty.WriteMode;
 
 //class
 /**

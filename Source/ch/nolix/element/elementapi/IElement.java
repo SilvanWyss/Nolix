@@ -8,7 +8,7 @@ import ch.nolix.common.document.xml.XMLNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.programcontrol.processproperty.WriteMode;
 
 //interface
 /**

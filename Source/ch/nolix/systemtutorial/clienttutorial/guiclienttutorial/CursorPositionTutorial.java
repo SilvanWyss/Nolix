@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 //own imports
 import ch.nolix.common.localcomputer.ShellProvider;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.widget.Label;

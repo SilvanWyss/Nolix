@@ -10,7 +10,7 @@ import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.IEndPointTaker;
 import ch.nolix.common.net.endpoint3.NetEndPoint;
 import ch.nolix.common.net.endpoint3.NetServer;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.test.Test;
 
 //class

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.sequencer;
+package ch.nolix.common.programcontrol.sequencer;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;

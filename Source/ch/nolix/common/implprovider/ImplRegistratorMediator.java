@@ -5,7 +5,7 @@ package ch.nolix.common.implprovider;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.implproviderapi.IImplRegistratorMediator;
-import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.programcontrol.processproperty.WriteMode;
 
 //class
 public final class ImplRegistratorMediator<IN> implements IImplRegistratorMediator<IN> {

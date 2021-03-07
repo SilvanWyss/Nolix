@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

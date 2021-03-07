@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.sequencer;
+package ch.nolix.common.programcontrol.sequencer;
 
 //class
 /**

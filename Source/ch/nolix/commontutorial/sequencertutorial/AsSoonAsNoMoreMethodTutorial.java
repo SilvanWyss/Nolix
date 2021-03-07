@@ -2,7 +2,7 @@ package ch.nolix.commontutorial.sequencertutorial;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 public final class AsSoonAsNoMoreMethodTutorial {
 	

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontutorial.sequencertutorial} package
- * defines tutorials for the {@link ch.nolix.common.sequencer} package.
+ * defines tutorials for the {@link ch.nolix.common.programcontrol.sequencer} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

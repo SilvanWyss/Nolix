@@ -13,8 +13,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.net.communicationapi.ISender;
 import ch.nolix.common.nolixenvironment.NolixEnvironment;
-import ch.nolix.common.processproperty.ConnectionOrigin;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.processproperty.ConnectionOrigin;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

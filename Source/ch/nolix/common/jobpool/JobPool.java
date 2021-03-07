@@ -6,7 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.programcontrol.futureapi.IFuture;
 
 //class
 /**

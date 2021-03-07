@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.sequencer;
+package ch.nolix.common.programcontrol.sequencer;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -9,8 +9,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.futureapi.IFuture;
 import ch.nolix.common.jobpool.JobPool;
+import ch.nolix.common.programcontrol.futureapi.IFuture;
 
 //class
 /**

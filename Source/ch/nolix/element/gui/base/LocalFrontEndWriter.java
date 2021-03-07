@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 //own imports
 import ch.nolix.common.filesystem.FileSystemAccessor;
 import ch.nolix.common.localcomputer.PopupWindowProvider;
-import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.programcontrol.processproperty.WriteMode;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 
 //class

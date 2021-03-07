@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.futureapi;
+package ch.nolix.common.programcontrol.futureapi;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 

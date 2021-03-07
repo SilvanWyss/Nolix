@@ -13,7 +13,7 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.CanvasGUI;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;

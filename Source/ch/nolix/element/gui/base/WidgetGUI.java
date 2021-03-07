@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.processproperty.ChangeState;
+import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.color.Color;

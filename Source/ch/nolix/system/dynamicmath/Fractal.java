@@ -14,7 +14,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IIntTakerElementGetter;
-import ch.nolix.common.processproperty.ProcessingMode;
+import ch.nolix.common.programcontrol.processproperty.ProcessingMode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.graphic.Image;
 

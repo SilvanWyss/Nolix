@@ -22,7 +22,7 @@ import ch.nolix.common.generalskillapi.TypeRequestable;
 import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.LocalEndPoint;
 import ch.nolix.common.net.endpoint3.NetEndPoint;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

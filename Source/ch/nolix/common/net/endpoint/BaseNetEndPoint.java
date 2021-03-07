@@ -5,9 +5,9 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.processproperty.ConnectionOrigin;
-import ch.nolix.common.processproperty.TargetInfoState;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.processproperty.ConnectionOrigin;
+import ch.nolix.common.programcontrol.processproperty.TargetInfoState;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

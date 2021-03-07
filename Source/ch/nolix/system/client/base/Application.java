@@ -17,7 +17,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.generalskillapi.Castable;
 import ch.nolix.common.net.endpoint3.EndPoint;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

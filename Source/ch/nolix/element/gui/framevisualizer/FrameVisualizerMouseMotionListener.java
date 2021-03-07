@@ -6,8 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.GUI;
 
 //class

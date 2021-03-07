@@ -1,38 +1,36 @@
 //package declaration
-package ch.nolix.common.sequencer;
+package ch.nolix.common.programcontrol.sequencer;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
-import ch.nolix.common.futureapi.IResultFuture;
+import ch.nolix.common.programcontrol.futureapi.IFuture;
 
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-09-29
- * @lines 100
- * @param <R> is the type of the result of a {@link ResultFuture}.
+ * @date 2017-05-23
+ * @lines 90
  */
-public final class ResultFuture<R> implements IResultFuture<R> {
+public final class Future implements IFuture {
 	
 	//attribute
-	private final ResultJobRunner<R> resultJobRunner;
+	private final JobRunner jobRunner;
 	
 	//constructor
 	/**
-	 * Creates a new {@link ResultFuture} with the given resultJobRunner.
+	 * Creates a new {@link Future} with the given jobRunner.
 	 * 
-	 * @param resultJobRunner
-	 * @throws ArgumentIsNullException if the given resultJobRunner is null.
+	 * @param jobRunner
+	 * @throws ArgumentIsNullException if the given jobRunner is null.
 	 */
-	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
+	Future(final JobRunner jobRunner) {
 		
-		//Asserts that the given resultJobRunner is not null.
-		Validator.assertThat(resultJobRunner).isOfType(ResultJobRunner.class);
+		//Asserts that the given jobRunner is not null.
+		Validator.assertThat(jobRunner).isOfType(JobRunner.class);
 		
-		//Sets the resultJobRunner of the current ResultFuture.
-		this.resultJobRunner = resultJobRunner;
+		//Sets the jobRunner of the current Future.
+		this.jobRunner = jobRunner;
 	}
 	
 	//method
@@ -41,7 +39,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 */
 	@Override
 	public boolean caughtError() {
-		return resultJobRunner.caughtError();
+		return jobRunner.caughtError();
 	}
 	
 	//method
@@ -50,16 +48,15 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 */
 	@Override
 	public Throwable getError() {
-		return resultJobRunner.getError();
+		return jobRunner.getError();
 	}
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the number of finished jobs of the current {@IFuture}.
 	 */
-	@Override
-	public R getResult() {
-		return resultJobRunner.getResult();
+	public int getFinishedJobCount() {
+		return jobRunner.getFinishedJobCount();
 	}
 	
 	//method
@@ -68,7 +65,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 */
 	@Override
 	public boolean isFinished() {
-		return resultJobRunner.isFinished();
+		return jobRunner.isFinished();
 	}
 	
 	//method
@@ -89,7 +86,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
-		Sequencer.waitAsLongAs(
+		Sequencer.asLongAs(
 			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
 			&& isRunning()
 		);

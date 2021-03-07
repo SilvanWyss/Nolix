@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseapplication;
 
-//own imports
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;

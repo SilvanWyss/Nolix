@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentExc
 import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**

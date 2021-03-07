@@ -3,7 +3,7 @@ package ch.nolix.system.database.databaseapplication;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.graphic.Image;
 import ch.nolix.system.client.base.Application;

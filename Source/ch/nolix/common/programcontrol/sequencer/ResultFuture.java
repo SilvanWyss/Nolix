@@ -1,37 +1,37 @@
 //package declaration
-package ch.nolix.common.sequencer;
+package ch.nolix.common.programcontrol.sequencer;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
-import ch.nolix.common.futureapi.IFuture;
+import ch.nolix.common.programcontrol.futureapi.IResultFuture;
 
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-05-23
- * @lines 90
+ * @date 2017-09-29
+ * @lines 100
+ * @param <R> is the type of the result of a {@link ResultFuture}.
  */
-public final class Future implements IFuture {
+public final class ResultFuture<R> implements IResultFuture<R> {
 	
 	//attribute
-	private final JobRunner jobRunner;
+	private final ResultJobRunner<R> resultJobRunner;
 	
 	//constructor
 	/**
-	 * Creates a new {@link Future} with the given jobRunner.
+	 * Creates a new {@link ResultFuture} with the given resultJobRunner.
 	 * 
-	 * @param jobRunner
-	 * @throws ArgumentIsNullException if the given jobRunner is null.
+	 * @param resultJobRunner
+	 * @throws ArgumentIsNullException if the given resultJobRunner is null.
 	 */
-	Future(final JobRunner jobRunner) {
+	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
 		
-		//Asserts that the given jobRunner is not null.
-		Validator.assertThat(jobRunner).isOfType(JobRunner.class);
+		//Asserts that the given resultJobRunner is not null.
+		Validator.assertThat(resultJobRunner).isOfType(ResultJobRunner.class);
 		
-		//Sets the jobRunner of the current Future.
-		this.jobRunner = jobRunner;
+		//Sets the resultJobRunner of the current ResultFuture.
+		this.resultJobRunner = resultJobRunner;
 	}
 	
 	//method
@@ -40,7 +40,7 @@ public final class Future implements IFuture {
 	 */
 	@Override
 	public boolean caughtError() {
-		return jobRunner.caughtError();
+		return resultJobRunner.caughtError();
 	}
 	
 	//method
@@ -49,15 +49,16 @@ public final class Future implements IFuture {
 	 */
 	@Override
 	public Throwable getError() {
-		return jobRunner.getError();
+		return resultJobRunner.getError();
 	}
 	
 	//method
 	/**
-	 * @return the number of finished jobs of the current {@IFuture}.
+	 * {@inheritDoc}
 	 */
-	public int getFinishedJobCount() {
-		return jobRunner.getFinishedJobCount();
+	@Override
+	public R getResult() {
+		return resultJobRunner.getResult();
 	}
 	
 	//method
@@ -66,7 +67,7 @@ public final class Future implements IFuture {
 	 */
 	@Override
 	public boolean isFinished() {
-		return jobRunner.isFinished();
+		return resultJobRunner.isFinished();
 	}
 	
 	//method
@@ -87,7 +88,7 @@ public final class Future implements IFuture {
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
-		Sequencer.asLongAs(
+		Sequencer.waitAsLongAs(
 			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
 			&& isRunning()
 		);

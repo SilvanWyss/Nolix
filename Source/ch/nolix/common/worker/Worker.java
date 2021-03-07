@@ -2,7 +2,7 @@
 package ch.nolix.common.worker;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.skillapi.Startable;
 
 //class

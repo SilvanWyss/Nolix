@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.implproviderapi.IImplProvider;
 import ch.nolix.common.implproviderapi.IImplProviderMediator;
-import ch.nolix.common.processproperty.WriteMode;
+import ch.nolix.common.programcontrol.processproperty.WriteMode;
 
 //class
 public final class ImplProvider implements IImplProvider {

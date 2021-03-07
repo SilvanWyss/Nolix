@@ -14,7 +14,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.pair.IntPair;
-import ch.nolix.common.processproperty.ChangeState;
+import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
