@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.implprovider;
+package ch.nolix.common.provider.implprovider;
 
 //Java import
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import java.util.HashMap;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.implproviderapi.IImplProvider;
-import ch.nolix.common.implproviderapi.IImplProviderMediator;
 import ch.nolix.common.programcontrol.processproperty.WriteMode;
+import ch.nolix.common.provider.implproviderapi.IImplProvider;
+import ch.nolix.common.provider.implproviderapi.IImplProviderMediator;
 
 //class
 public final class ImplProvider implements IImplProvider {

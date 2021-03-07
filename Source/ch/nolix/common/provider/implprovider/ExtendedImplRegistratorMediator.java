@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.common.implprovider;
+package ch.nolix.common.provider.implprovider;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.implproviderapi.IExtendedImplRegistratorMediator;
 import ch.nolix.common.programcontrol.processproperty.WriteMode;
+import ch.nolix.common.provider.implproviderapi.IExtendedImplRegistratorMediator;
 
 //class
 public final class ExtendedImplRegistratorMediator<IN> implements IExtendedImplRegistratorMediator<IN> {

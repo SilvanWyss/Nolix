@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.implproviderapi;
+package ch.nolix.common.provider.implproviderapi;
 
 import ch.nolix.common.programcontrol.processproperty.WriteMode;
 

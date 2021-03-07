@@ -1,9 +1,8 @@
 //package declaration
-package ch.nolix.common.implprovider;
+package ch.nolix.common.provider.implprovider;
 
-//own imports
-import ch.nolix.common.implproviderapi.IImplProvider;
-import ch.nolix.common.implproviderapi.IImplProviderMediator;
+import ch.nolix.common.provider.implproviderapi.IImplProvider;
+import ch.nolix.common.provider.implproviderapi.IImplProviderMediator;
 
 //class
 public final class GlobalImplProvider {

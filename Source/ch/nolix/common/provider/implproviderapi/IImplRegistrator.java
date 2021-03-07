@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.implproviderapi;
+package ch.nolix.common.provider.implproviderapi;
 
 //interface
 public interface IImplRegistrator {

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.serviceprovider;
+package ch.nolix.common.provider.serviceprovider;
 
 import ch.nolix.common.programcontrol.processproperty.WriteMode;
 

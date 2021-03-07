@@ -1,10 +1,10 @@
 //package info
 /**
- * The {@link ch.nolix.common.implproviderapi} package
+ * The {@link ch.nolix.common.provider.implproviderapi} package
  * declares a registrator where implementations for interfaces can be registered at.
  * 
  * @author Silvan Wyss
  * @date 2021-01-15
  * @lines 10
  */
-package ch.nolix.common.implproviderapi;
+package ch.nolix.common.provider.implproviderapi;

@@ -1,6 +1,6 @@
 package ch.nolix.commontutorial.implprovidertutorial;
 
-import ch.nolix.common.implprovider.GlobalImplProvider;
+import ch.nolix.common.provider.implprovider.GlobalImplProvider;
 
 public final class GlobalImplProviderTutorial {
 	

@@ -3,7 +3,7 @@ package ch.nolix.commontest.implprovidertest;
 
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.implprovider.ImplProvider;
+import ch.nolix.common.provider.implprovider.ImplProvider;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 
