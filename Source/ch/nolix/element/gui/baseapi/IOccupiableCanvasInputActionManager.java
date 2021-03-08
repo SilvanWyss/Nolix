@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.gui.baseapi;
 
-//own imports
-import ch.nolix.common.canvasapi.IOccupiableHoverableCanvas;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.hoverapi.IOccupiableHoverableCanvas;
 
 //interface
 public interface IOccupiableCanvasInputActionManager<OCIAM extends IOccupiableCanvasInputActionManager<OCIAM>>

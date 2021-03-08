@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.canvasapi;
+package ch.nolix.common.hoverapi;
 
 //interface
 public interface IOccupiableHoverableCanvas extends IHoverableCanvas {
