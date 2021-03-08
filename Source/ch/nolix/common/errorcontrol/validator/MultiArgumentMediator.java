@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**

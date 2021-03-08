@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.independentcontainer.ArrayReadContainer;
+import ch.nolix.common.independent.independentcontainer.ArrayReadContainer;
 
 //class
 /**

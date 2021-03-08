@@ -7,8 +7,7 @@ import java.lang.reflect.Method;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
-//own imports
-import ch.nolix.common.independentcontainer.List;
+import ch.nolix.common.independent.independentcontainer.List;
 
 //class
 public final class TestRun {

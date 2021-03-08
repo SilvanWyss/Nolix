@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.independentcontainer;
+package ch.nolix.common.independent.independentcontainer;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

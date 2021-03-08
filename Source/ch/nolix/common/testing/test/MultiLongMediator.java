@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**

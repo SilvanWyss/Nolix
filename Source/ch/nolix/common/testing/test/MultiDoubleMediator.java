@@ -2,8 +2,7 @@
 package ch.nolix.common.testing.test;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-//own imports
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**

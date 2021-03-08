@@ -18,7 +18,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.PositiveArgumentExc
 import ch.nolix.common.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**

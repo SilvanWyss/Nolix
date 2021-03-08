@@ -5,7 +5,7 @@ package ch.nolix.common.testing.basetest;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.independentcontainer.List;
+import ch.nolix.common.independent.independentcontainer.List;
 import ch.nolix.common.skillapi.Runnable;
 
 //class

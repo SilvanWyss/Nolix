@@ -3,8 +3,7 @@ package ch.nolix.common.errorcontrol.validator;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-//own imports
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**

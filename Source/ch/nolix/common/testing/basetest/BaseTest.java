@@ -7,8 +7,7 @@ import java.lang.reflect.Method;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-//own imports
-import ch.nolix.common.independentcontainer.List;
+import ch.nolix.common.independent.independentcontainer.List;
 import ch.nolix.common.skillapi.Closeable;
 
 //class

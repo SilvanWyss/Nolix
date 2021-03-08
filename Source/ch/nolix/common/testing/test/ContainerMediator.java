@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.testing.test;
 
-//own import
-import ch.nolix.common.independenthelper.IterableHelper;
+import ch.nolix.common.independent.independenthelper.IterableHelper;
 
 //class
 public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {

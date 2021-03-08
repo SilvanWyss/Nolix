@@ -9,7 +9,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.independentcontainer.List;
+import ch.nolix.common.independent.independentcontainer.List;
 
 //class
 public final class TestCaseResult {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.errorcontrol.logger;
 
-//own imports
-import ch.nolix.common.independentcontainer.List;
+import ch.nolix.common.independent.independentcontainer.List;
 
 //class
 final class LogWorker extends Thread {

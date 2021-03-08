@@ -6,9 +6,8 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-//own imports
-import ch.nolix.common.independentcontainer.List;
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independentcontainer.List;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**

@@ -6,8 +6,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NonBiggerArgumentEx
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonSmallerArgumentException;
-//own imports
-import ch.nolix.common.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.ArrayHelper;
 
 //class
 /**
