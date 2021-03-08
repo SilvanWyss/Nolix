@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.containertest;
 
-import ch.nolix.common.container.GapMatrix;
+import ch.nolix.common.container.matrix.GapMatrix;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;

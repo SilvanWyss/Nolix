@@ -1,9 +1,10 @@
 //package declaration
-package ch.nolix.common.container;
+package ch.nolix.common.container.matrix;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.container;
+package ch.nolix.common.container.matrix;
 
 //Java import
 import java.util.Iterator;
@@ -10,27 +10,27 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-final class MatrixColumnIterator<E> implements Iterator<E> {
+final class MatrixRowIterator<E> implements Iterator<E> {
 
 	//attributes
-	private final MatrixColumn<E> parentMatrixColumn;
-	private int nextElementRowIndex = 1;
+	private final MatrixRow<E> parentMatrixRow;
+	private int nextElementColumnIndex = 1;
 	
 	//constructor
-	public MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
+	public MatrixRowIterator(final MatrixRow<E> parentMatrixRow) {
 		
 		Validator
-		.assertThat(parentMatrixColumn)
-		.thatIsNamed("parent matrix column")
+		.assertThat(parentMatrixRow)
+		.thatIsNamed("parent matrix row")
 		.isNotNull();
 		
-		this.parentMatrixColumn = parentMatrixColumn;
+		this.parentMatrixRow = parentMatrixRow;
 	}
 
 	//method
 	@Override
 	public boolean hasNext() {
-		return (nextElementRowIndex <= parentMatrixColumn.getElementCount());
+		return (nextElementColumnIndex <= parentMatrixRow.getElementCount());
 	}
 
 	//method
@@ -39,8 +39,8 @@ final class MatrixColumnIterator<E> implements Iterator<E> {
 		
 		supposeHasNextElement();
 		
-		final var element = parentMatrixColumn.getRefAt(nextElementRowIndex);
-		nextElementRowIndex++;
+		final var element = parentMatrixRow.getRefAt(nextElementColumnIndex);
+		nextElementColumnIndex++;
 		return element;
 	}
 

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.containertest;
 
-import ch.nolix.common.container.Matrix;
+import ch.nolix.common.container.matrix.Matrix;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 
