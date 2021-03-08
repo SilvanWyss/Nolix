@@ -8,8 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
+import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
-import ch.nolix.common.nolixenvironment.NolixEnvironment;
 
 //class
 public final class FileLogHandler extends LogHandler {

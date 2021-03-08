@@ -1,6 +1,6 @@
 package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
-import ch.nolix.common.localcomputer.ShellProvider;
+import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.CursorIcon;

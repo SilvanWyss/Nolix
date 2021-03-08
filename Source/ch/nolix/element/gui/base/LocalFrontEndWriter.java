@@ -4,9 +4,8 @@ package ch.nolix.element.gui.base;
 //Java import
 import javax.swing.JFileChooser;
 
-//own imports
-import ch.nolix.common.filesystem.FileSystemAccessor;
-import ch.nolix.common.localcomputer.PopupWindowProvider;
+import ch.nolix.common.environment.filesystem.FileSystemAccessor;
+import ch.nolix.common.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.common.programcontrol.processproperty.WriteMode;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 

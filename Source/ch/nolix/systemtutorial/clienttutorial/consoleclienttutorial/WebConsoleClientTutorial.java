@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
-//own imports
-import ch.nolix.common.localcomputer.ShellProvider;
+import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.consoleclient.BackConsoleClientSession;

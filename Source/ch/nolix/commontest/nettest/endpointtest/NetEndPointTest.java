@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.commontest.nettest.endpointtest;
 
+import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.net.endpoint.EndPoint;
 import ch.nolix.common.net.endpoint.IEndPointTaker;
 import ch.nolix.common.net.endpoint.NetEndPoint;
 import ch.nolix.common.net.endpoint.NetServer;
-import ch.nolix.common.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;

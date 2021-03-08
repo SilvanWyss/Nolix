@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.runningjar;
+package ch.nolix.common.environment.runningjar;
 
 //Java imports
 import java.io.BufferedReader;

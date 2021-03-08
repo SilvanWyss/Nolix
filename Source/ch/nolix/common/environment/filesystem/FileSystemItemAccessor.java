@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.filesystem;
+package ch.nolix.common.environment.filesystem;
 
 //Java import
 import java.io.File;

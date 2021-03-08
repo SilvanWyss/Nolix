@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.common.testing.test;
 
+import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.common.nolixenvironment.NolixEnvironment;
 
 //class
 /**

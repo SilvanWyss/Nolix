@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.filesystem;
+package ch.nolix.common.environment.filesystem;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

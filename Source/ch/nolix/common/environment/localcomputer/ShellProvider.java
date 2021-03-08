@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.localcomputer;
+package ch.nolix.common.environment.localcomputer;
 
 //Java imports
 import java.awt.Desktop;

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontutorial.runningjartutorial} package
- * defines tutorials for the {@link ch.nolix.common.runningjar} package.
+ * defines tutorials for the {@link ch.nolix.common.environment.runningjar} package.
  * 
  * @author Silvan Wyss
  * @month 2020-01

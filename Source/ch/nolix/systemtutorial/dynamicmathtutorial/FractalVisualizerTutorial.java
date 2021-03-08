@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.dynamicmathtutorial;
 
-//own imports
-import ch.nolix.common.localcomputer.ShellProvider;
+import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.processproperty.ProcessingMode;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;

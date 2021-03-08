@@ -1,7 +1,6 @@
 package ch.nolix.commontutorial.runningjartutorial;
 
-//own imports
-import ch.nolix.common.runningjar.RunningJar;
+import ch.nolix.common.environment.runningjar.RunningJar;
 
 public final class RunningJarTutorial {
 	

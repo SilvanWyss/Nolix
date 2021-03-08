@@ -2,7 +2,7 @@
 package ch.nolix.commontest.documenttest.filenodetest;
 
 import ch.nolix.common.document.filenode.FileNode;
-import ch.nolix.common.filesystem.FileSystemAccessor;
+import ch.nolix.common.environment.filesystem.FileSystemAccessor;
 import ch.nolix.common.testing.basetest.Cleanup;
 import ch.nolix.commontest.documenttest.nodetest.BaseNodeTest;
 
