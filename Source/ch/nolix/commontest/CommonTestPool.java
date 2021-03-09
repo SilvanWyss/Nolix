@@ -13,7 +13,7 @@ import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
 import ch.nolix.commontest.nettest.NetTestPool;
 import ch.nolix.commontest.nettest.websockettest.WebSocketTestPool;
-import ch.nolix.commontest.providertest.implprovidertest.ImplProviderTestPool;
+import ch.nolix.commontest.providertest.ProviderTestPool;
 import ch.nolix.commontest.sequencertest.SequencerTestPool;
 
 //class
@@ -37,10 +37,10 @@ public final class CommonTestPool extends TestPool {
 			new DemoTestPool(),
 			new DocumentNodeTestPool(),
 			new ErrorControlTestPool(),
-			new ImplProviderTestPool(),
 			new LicenseTestPool(),
 			new MathTestPool(),
 			new NetTestPool(),
+			new ProviderTestPool(),
 			new SequencerTestPool(),
 			new WebSocketTestPool()
 		);
