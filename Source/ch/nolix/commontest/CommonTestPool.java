@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.commontest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.commontest.cachingtest.CachingTestPool;
-import ch.nolix.commontest.commontypetest.commontypehelpertest.CommonTypeHelpersTestPool;
-import ch.nolix.commontest.commontypetest.commontypewrappertest.CommonTypeWrapperTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
 import ch.nolix.commontest.demotest.DemoTestPool;
@@ -32,8 +31,7 @@ public final class CommonTestPool extends TestPool {
 	public CommonTestPool() {
 		super(
 			new CachingTestPool(),
-			new CommonTypeHelpersTestPool(),
-			new CommonTypeWrapperTestPool(),
+			new CommonTestPool(),
 			new ConstantTestPool(),
 			new ContainerTestPool(),
 			new DemoTestPool(),
