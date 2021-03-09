@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitComplexSequenceBuilder;
-//own imports
-import ch.nolix.common.commontypehelper.ArrayHelper;
+import ch.nolix.common.commontype.commontypehelper.ArrayHelper;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class

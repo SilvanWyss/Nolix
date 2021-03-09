@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.common.document.node;
 
-//own imports
-import ch.nolix.common.commontypehelper.BooleanHelper;
+import ch.nolix.common.commontype.commontypehelper.BooleanHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.nettest.websockettest;
 
-import ch.nolix.common.commontypewrapper.ByteWrapper;
+import ch.nolix.common.commontype.commontypewrapper.ByteWrapper;
 import ch.nolix.common.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.common.net.websocket.WebSocketFramePayloadLengthType;
 import ch.nolix.common.testing.basetest.TestCase;

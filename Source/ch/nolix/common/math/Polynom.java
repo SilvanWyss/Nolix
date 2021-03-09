@@ -4,14 +4,13 @@ package ch.nolix.common.math;
 //Java import
 import java.util.Arrays;
 
-//own imports
-import ch.nolix.common.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.commontype.commontypehelper.DoubleHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 
 //class

@@ -3,8 +3,7 @@ package ch.nolix.common.document.xml;
 
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalNamable;
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalValueable;
-//own imports
-import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;

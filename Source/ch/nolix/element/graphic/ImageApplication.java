@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.graphic;
 
-//own imports
-import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.StringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;

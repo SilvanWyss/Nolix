@@ -5,8 +5,7 @@ package ch.nolix.element.time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-//own imports
-import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.StringHelper;
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;

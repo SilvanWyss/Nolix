@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontest.commontypehelpertest} package
- * defines tests for the {@link ch.nolix.common.commontypehelper} package.
+ * defines tests for the {@link ch.nolix.common.commontype.commontypehelper} package.
  * 
  * @author Silvan Wyss
  * @month 2019-07

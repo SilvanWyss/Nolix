@@ -5,7 +5,7 @@ package ch.nolix.commontest.nettest.websockettest;
 import java.io.IOException;
 import java.io.InputStream;
 
-import ch.nolix.common.commontypewrapper.ByteWrapper;
+import ch.nolix.common.commontype.commontypewrapper.ByteWrapper;
 import ch.nolix.common.net.websocket.WebSocketFrame;
 import ch.nolix.common.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.common.testing.basetest.TestCase;

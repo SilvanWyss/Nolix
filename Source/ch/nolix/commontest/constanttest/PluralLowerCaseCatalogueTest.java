@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.constanttest;
 
-import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.StringHelper;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.reflectionhelper.GlobalClassHelper;

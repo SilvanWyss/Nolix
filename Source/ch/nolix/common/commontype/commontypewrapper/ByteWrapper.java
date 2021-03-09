@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.commontypewrapper;
+package ch.nolix.common.commontype.commontypewrapper;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

@@ -1,25 +1,24 @@
 //package declaration
-package ch.nolix.common.commontypehelper;
+package ch.nolix.common.commontype.commontypehelper;
 
-//own imports
-import ch.nolix.common.constant.CharacterCatalogue;
+//own import
 import ch.nolix.common.constant.StringCatalogue;
 
 //class
-final class CapitalSnakeCaseCreator {
+final class PascalCaseCreator {
 	
 	//method
-	public String toCapitalSnakeCase(final String string) {
+	public String toPascalCase(final String string) {
 		
 		if (string.isEmpty()) {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		return toCapitalSnakeCaseWhenStringNotEmpty(string);
+		return toPascalCaseWhenStringNotEmpty(string);
 	}
 	
 	//method
-	private String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
+	private String toPascalCaseWhenStringNotEmpty(final String string) {
 		
 		final var stringBuilder = new StringBuilder();
 		
@@ -29,12 +28,7 @@ final class CapitalSnakeCaseCreator {
 			case LOWER_CASE_LETTER:
 				stringBuilder.append(Character.toUpperCase(firstCharacter));
 				break;
-			case UPPER_CASE_LETTER:
-				stringBuilder.append(firstCharacter);
-				break;
-			case UNDERSCORE:
-				break;
-			case OTHER:
+			default:
 				stringBuilder.append(firstCharacter);
 		}
 		
@@ -46,21 +40,27 @@ final class CapitalSnakeCaseCreator {
 			
 			switch (characterType) {
 				case LOWER_CASE_LETTER:
-					stringBuilder.append(Character.toUpperCase(character));
+					if (previousCharacterType == CharacterType.UNDERSCORE) {
+						stringBuilder.append(Character.toUpperCase(character));
+					} else {
+						stringBuilder.append(character);
+					}
 					break;
 				case UPPER_CASE_LETTER:
-					
-					if (previousCharacterType == CharacterType.LOWER_CASE_LETTER) {
-						stringBuilder.append(CharacterCatalogue.UNDERSCORE);
+					if (
+						previousCharacterType == CharacterType.LOWER_CASE_LETTER
+						|| previousCharacterType == CharacterType.UNDERSCORE
+					) {
+						stringBuilder.append(character);
+					} else {
+						stringBuilder.append(Character.toLowerCase(character));
 					}
-					
-					stringBuilder.append(character);
-					
 					break;
-				
 				case UNDERSCORE:
+					break;
 				case OTHER:
-					stringBuilder.append(Character.toUpperCase(character));
+					stringBuilder.append(character);
+					break;
 			}
 			
 			previousCharacterType = characterType;

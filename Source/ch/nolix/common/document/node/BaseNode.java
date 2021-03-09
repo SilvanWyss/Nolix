@@ -2,8 +2,7 @@
 package ch.nolix.common.document.node;
 
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalHeaderable;
-//own imports
-import ch.nolix.common.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.StringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;

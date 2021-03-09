@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.commontypewrappertest;
 
-import ch.nolix.common.commontypewrapper.ByteWrapper;
+import ch.nolix.common.commontype.commontypewrapper.ByteWrapper;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 
