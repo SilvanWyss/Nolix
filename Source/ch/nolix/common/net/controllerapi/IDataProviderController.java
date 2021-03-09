@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.controllerapi;
+package ch.nolix.common.net.controllerapi;
 
 //interface
 /**

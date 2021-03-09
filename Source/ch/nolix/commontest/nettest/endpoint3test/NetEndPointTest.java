@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.commontest.nettest.endpoint3test;
 
-import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.net.controllerapi.IDataProviderController;
 import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.IEndPointTaker;
 import ch.nolix.common.net.endpoint3.NetEndPoint;

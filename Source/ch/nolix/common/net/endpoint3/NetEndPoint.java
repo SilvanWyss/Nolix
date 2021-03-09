@@ -5,7 +5,6 @@ import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.controllerapi.IDataProviderController;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
@@ -18,6 +17,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.logger.Logger;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.net.controllerapi.IDataProviderController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
 //class
