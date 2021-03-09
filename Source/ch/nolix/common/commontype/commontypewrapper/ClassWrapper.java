@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.reflectionwrapper;
+package ch.nolix.common.commontype.commontypewrapper;
 
 //Java import
 import java.lang.reflect.Constructor;

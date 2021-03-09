@@ -4,6 +4,7 @@ package ch.nolix.common.license;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+import ch.nolix.common.commontype.commontypewrapper.ClassWrapper;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -14,7 +15,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionwrapper.ClassWrapper;
 
 //class
 /**
