@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.jobpool;
+package ch.nolix.common.programcontrol.jobpool;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
 

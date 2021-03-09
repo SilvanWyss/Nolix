@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.jobpool;
+package ch.nolix.common.programcontrol.jobpool;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

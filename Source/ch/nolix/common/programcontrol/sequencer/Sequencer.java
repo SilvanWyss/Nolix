@@ -9,8 +9,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.jobpool.JobPool;
 import ch.nolix.common.programcontrol.futureapi.IFuture;
+import ch.nolix.common.programcontrol.jobpool.JobPool;
 
 //class
 /**
