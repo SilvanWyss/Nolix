@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.implprovidertest;
+package ch.nolix.commontest.providertest.implprovidertest;
 
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;

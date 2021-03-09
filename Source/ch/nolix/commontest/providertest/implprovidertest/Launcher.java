@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.implprovidertest;
+package ch.nolix.commontest.providertest.implprovidertest;
 
 //class
 public final class Launcher {
