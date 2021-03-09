@@ -3,8 +3,8 @@ package ch.nolix.commontest;
 
 import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.commontest.cachingtest.CachingTestPool;
-import ch.nolix.commontest.commontypehelpertest.CommonTypeHelpersTestPool;
-import ch.nolix.commontest.commontypewrappertest.CommonTypeWrapperTestPool;
+import ch.nolix.commontest.commontypetest.commontypehelpertest.CommonTypeHelpersTestPool;
+import ch.nolix.commontest.commontypetest.commontypewrappertest.CommonTypeWrapperTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
 import ch.nolix.commontest.demotest.DemoTestPool;

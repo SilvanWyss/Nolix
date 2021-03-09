@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.commontypewrappertest;
+package ch.nolix.commontest.commontypetest.commontypewrappertest;
 
 import ch.nolix.common.testing.basetest.TestPool;
 
