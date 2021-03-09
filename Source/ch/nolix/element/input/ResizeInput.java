@@ -3,10 +3,10 @@ package ch.nolix.element.input;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.container.pair.IntPair;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.pair.IntPair;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.Value;
 

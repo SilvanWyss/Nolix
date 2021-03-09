@@ -9,9 +9,9 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
+import ch.nolix.common.container.pair.Pair;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.pair.Pair;
 
 //class
 public final class CachingContainer<E> implements IContainer<E> {

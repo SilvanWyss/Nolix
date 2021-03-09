@@ -5,12 +5,12 @@ package ch.nolix.common.math;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.pair.FPNPair;
 import ch.nolix.common.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.pair.FPNPair;
 
 //class
 /**

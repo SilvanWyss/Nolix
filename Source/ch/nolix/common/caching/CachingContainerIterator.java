@@ -4,8 +4,7 @@ package ch.nolix.common.caching;
 //Java import
 import java.util.Iterator;
 
-//own import
-import ch.nolix.common.pair.Pair;
+import ch.nolix.common.container.pair.Pair;
 
 //class
 final class CachingContainerIterator<E> implements Iterator<E> {

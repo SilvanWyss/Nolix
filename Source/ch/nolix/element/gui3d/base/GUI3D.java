@@ -10,6 +10,7 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.container.pair.Pair;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -17,7 +18,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.pair.Pair;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableValue;

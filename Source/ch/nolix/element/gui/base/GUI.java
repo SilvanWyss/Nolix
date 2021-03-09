@@ -4,6 +4,7 @@ package ch.nolix.element.gui.base;
 //own imports
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.container.pair.IntPair;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -12,7 +13,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.common.pair.IntPair;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.skillapi.Recalculable;

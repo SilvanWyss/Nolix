@@ -6,6 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
+import ch.nolix.common.container.pair.IntPair;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,7 +14,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgum
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.common.generalskillapi.ISmartObject;
-import ch.nolix.common.pair.IntPair;
 
 //class
 /**

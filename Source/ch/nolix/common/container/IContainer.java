@@ -7,6 +7,7 @@ import java.util.Random;
 //own imports
 import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.container.pair.Pair;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -27,7 +28,6 @@ import ch.nolix.common.functionapi.IElementTakerDoubleGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerIntGetter;
 import ch.nolix.common.functionapi.IElementTakerLongGetter;
-import ch.nolix.common.pair.Pair;
 
 //interface
 /**

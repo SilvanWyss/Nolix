@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.pair;
+package ch.nolix.common.container.pair;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;

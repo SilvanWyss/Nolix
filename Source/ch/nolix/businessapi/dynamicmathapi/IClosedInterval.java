@@ -4,8 +4,7 @@ package ch.nolix.businessapi.dynamicmathapi;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.common.pair.Pair;
+import ch.nolix.common.container.pair.Pair;
 
 //interface
 public interface IClosedInterval {

@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.pair.Pair;
+import ch.nolix.common.container.pair.Pair;
 import ch.nolix.common.reflectionhelper.FieldHelper;
 
 //class
