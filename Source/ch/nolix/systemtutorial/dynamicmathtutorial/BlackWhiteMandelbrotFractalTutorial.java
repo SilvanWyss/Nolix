@@ -4,8 +4,8 @@ import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.provider.implprovider.GlobalImplProvider;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.system.dynamicmath.DynamicMathImplRegistrator;
 

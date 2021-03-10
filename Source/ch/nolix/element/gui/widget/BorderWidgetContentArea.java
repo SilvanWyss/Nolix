@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Recalculable;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 /**

@@ -9,15 +9,15 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.graphic.Image;
-import ch.nolix.element.input.IResizableInputTaker;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.textformat.TextFormat;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.color.ColorGradient;
+import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.input.IResizableInputTaker;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.element.gui.textformat.TextFormat;
 import ch.nolix.system.client.baseguiclient.PaintRun;
 
 //class

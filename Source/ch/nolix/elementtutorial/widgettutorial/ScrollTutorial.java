@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
-import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Label;
 

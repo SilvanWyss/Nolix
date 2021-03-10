@@ -3,7 +3,7 @@ package ch.nolix.element.gui.base;
 
 //own imports
 import ch.nolix.common.state.Visibility;
-import ch.nolix.element.input.IResizableInputTaker;
+import ch.nolix.element.gui.input.IResizableInputTaker;
 
 //class
 public final class CanvasFrame extends CanvasGUI<CanvasFrame> {

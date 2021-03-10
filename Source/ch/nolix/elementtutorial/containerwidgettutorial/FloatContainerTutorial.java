@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.containerwidgettutorial;
 
-//own imports
-import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.FloatContainer;
 import ch.nolix.element.gui.widget.Label;
 

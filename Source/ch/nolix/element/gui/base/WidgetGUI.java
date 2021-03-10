@@ -16,11 +16,11 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MultiValue;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.containerwidget.Accordion;
 import ch.nolix.element.gui.containerwidget.FloatContainer;
 import ch.nolix.element.gui.containerwidget.Grid;
@@ -28,6 +28,9 @@ import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.SingleContainer;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
+import ch.nolix.element.gui.input.IResizableInputTaker;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.Area;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.CheckBox;
@@ -41,9 +44,6 @@ import ch.nolix.element.gui.widget.SelectionMenu;
 import ch.nolix.element.gui.widget.TextBox;
 import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.element.gui.widget.VerticalLine;
-import ch.nolix.element.input.IResizableInputTaker;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.painterapi.IPainter;
 
 //class
 /**

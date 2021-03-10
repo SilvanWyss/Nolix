@@ -20,17 +20,17 @@ import ch.nolix.common.state.Visibility;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.framevisualizer.FrameVisualizer;
-import ch.nolix.element.input.IResizableInputTaker;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.inputdevice.KeyBoard;
-import ch.nolix.element.inputdeviceapi.IKeyBoard;
-import ch.nolix.element.inputdeviceapi.IMutableKeyBoard;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.input.IResizableInputTaker;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.inputdevice.KeyBoard;
+import ch.nolix.element.gui.inputdeviceapi.IKeyBoard;
+import ch.nolix.element.gui.inputdeviceapi.IMutableKeyBoard;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 /**

@@ -4,11 +4,11 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {

@@ -14,7 +14,7 @@ import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MultiValue;
-import ch.nolix.element.input.Key;
+import ch.nolix.element.gui.input.Key;
 
 //class
 public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>

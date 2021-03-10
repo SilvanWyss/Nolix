@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.Image;
 
 //interface
 public interface IFractal {

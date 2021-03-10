@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.elementtest.graphictest} package defines tests for the {@link ch.nolix.element.graphic} package.
+ * The {@link ch.nolix.elementtest.graphictest} package defines tests for the {@link ch.nolix.element.gui.image} package.
  * 
  * @author Silvan Wyss
  * @month 2020-04

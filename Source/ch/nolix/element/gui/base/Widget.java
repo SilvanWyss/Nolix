@@ -19,17 +19,17 @@ import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.common.requestapi.EnablingRequestable;
 import ch.nolix.common.requestapi.ExpansionRequestable;
 import ch.nolix.common.skillapi.Recalculable;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.baseapi.IInputActionManager;
-import ch.nolix.element.input.IInputTaker;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.inputdeviceapi.IKeyBoard;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.input.IInputTaker;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.inputdeviceapi.IKeyBoard;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 /**

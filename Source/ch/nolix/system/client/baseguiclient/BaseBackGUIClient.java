@@ -19,9 +19,9 @@ import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.base.WidgetGUI;
-import ch.nolix.element.input.IInput;
-import ch.nolix.element.input.InputFactory;
-import ch.nolix.element.input.MouseInput;
+import ch.nolix.element.gui.input.IInput;
+import ch.nolix.element.gui.input.InputFactory;
+import ch.nolix.element.gui.input.MouseInput;
 import ch.nolix.system.client.base.Client;
 
 //class

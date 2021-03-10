@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.image.Image;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.guiclient.BackGUIClient;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;

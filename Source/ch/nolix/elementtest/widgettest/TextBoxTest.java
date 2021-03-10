@@ -2,7 +2,7 @@
 package ch.nolix.elementtest.widgettest;
 
 import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.TextBox;
 
 //class

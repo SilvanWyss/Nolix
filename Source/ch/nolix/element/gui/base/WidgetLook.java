@@ -10,10 +10,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.textformat.Font;
 import ch.nolix.element.layerelement.LayerElement;
 import ch.nolix.element.layerelement.LayerProperty;
-import ch.nolix.element.textformat.Font;
 
 //class
 /**

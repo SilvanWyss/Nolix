@@ -5,8 +5,8 @@ package ch.nolix.element.gui.containerwidget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.ValueCatalogue;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.BorderWidgetLook;
 import ch.nolix.element.layerelement.LayerProperty;
 

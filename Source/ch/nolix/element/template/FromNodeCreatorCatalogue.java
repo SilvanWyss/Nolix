@@ -3,7 +3,7 @@ package ch.nolix.element.template;
 
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.valuecreator.SpecificValueCreator;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.image.Image;
 
 //class
 public final class FromNodeCreatorCatalogue {

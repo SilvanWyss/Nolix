@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.HoverableByCursor;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 /**

@@ -9,10 +9,10 @@ import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {

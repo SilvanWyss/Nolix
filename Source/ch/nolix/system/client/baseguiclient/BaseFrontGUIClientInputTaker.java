@@ -7,14 +7,14 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IIntGetter;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.input.IInput;
-import ch.nolix.element.input.IResizableInputTaker;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.input.KeyInput;
-import ch.nolix.element.input.KeyInputType;
-import ch.nolix.element.input.MouseInput;
-import ch.nolix.element.input.MouseInputType;
-import ch.nolix.element.input.ResizeInput;
+import ch.nolix.element.gui.input.IInput;
+import ch.nolix.element.gui.input.IResizableInputTaker;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.input.KeyInput;
+import ch.nolix.element.gui.input.KeyInputType;
+import ch.nolix.element.gui.input.MouseInput;
+import ch.nolix.element.gui.input.MouseInputType;
+import ch.nolix.element.gui.input.ResizeInput;
 
 //class
 /**

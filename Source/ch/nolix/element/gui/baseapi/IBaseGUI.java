@@ -6,7 +6,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.input.IResizableInputTaker;
+import ch.nolix.element.gui.input.IResizableInputTaker;
 
 //interface
 /**

@@ -15,8 +15,8 @@ import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IIntTakerElementGetter;
 import ch.nolix.common.programcontrol.processproperty.ProcessingMode;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.Image;
 
 //class
 public final class Fractal implements IFractal {

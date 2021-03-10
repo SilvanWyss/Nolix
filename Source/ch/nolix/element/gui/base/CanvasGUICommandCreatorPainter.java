@@ -7,11 +7,11 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.independent.independenthelper.ArrayHelper;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.graphic.Image;
-import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.textformat.TextFormat;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.color.ColorGradient;
+import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.element.gui.textformat.TextFormat;
 
 //class
 final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {

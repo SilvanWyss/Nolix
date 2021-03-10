@@ -21,10 +21,10 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.gui.baseapi.IBaseGUI;
+import ch.nolix.element.gui.color.Color;
 
 //class
 /**

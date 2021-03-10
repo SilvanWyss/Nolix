@@ -9,11 +9,11 @@ import java.awt.RenderingHints;
 //own imports
 import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.graphic.Image;
-import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.textformat.TextFormat;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.color.ColorGradient;
+import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.element.gui.textformat.TextFormat;
 
 //class
 public final class SwingPainter implements IPainter {

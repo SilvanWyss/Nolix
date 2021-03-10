@@ -11,10 +11,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.graphic.Image;
 import ch.nolix.element.gui.base.WidgetLook;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.color.ColorGradient;
+import ch.nolix.element.gui.image.Image;
 
 //class
 /**

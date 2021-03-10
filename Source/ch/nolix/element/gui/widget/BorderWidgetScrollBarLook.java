@@ -4,8 +4,8 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.elementapi.IMutableElement;
+import ch.nolix.element.gui.color.Color;
 
 //class
 public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook>

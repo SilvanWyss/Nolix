@@ -6,7 +6,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 public final class PaintRun {

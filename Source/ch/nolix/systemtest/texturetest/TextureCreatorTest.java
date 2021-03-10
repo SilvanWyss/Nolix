@@ -3,8 +3,8 @@ package ch.nolix.systemtest.texturetest;
 
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.Image;
 import ch.nolix.system.texture.TextureCreator;
 
 //class

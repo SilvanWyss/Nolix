@@ -11,8 +11,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.Image;
 
 //class
 /**

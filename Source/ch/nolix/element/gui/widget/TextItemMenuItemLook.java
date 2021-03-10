@@ -4,7 +4,7 @@ package ch.nolix.element.gui.widget;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.layerelement.LayerElement;
 import ch.nolix.element.layerelement.LayerProperty;
 

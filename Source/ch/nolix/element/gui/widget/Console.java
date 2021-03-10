@@ -14,13 +14,13 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.painterapi.IPainter;
-import ch.nolix.element.textformat.Font;
-import ch.nolix.element.textformat.TextFormat;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.element.gui.textformat.Font;
+import ch.nolix.element.gui.textformat.TextFormat;
 
 //class
 /**

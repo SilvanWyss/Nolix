@@ -11,7 +11,7 @@ import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IIntTakerElementGetter;
-import ch.nolix.element.color.Color;
+import ch.nolix.element.gui.color.Color;
 
 //class
 public final class FractalBuilder implements IFractalBuilder {

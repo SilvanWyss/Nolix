@@ -15,8 +15,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.futureapi.IFuture;
 import ch.nolix.common.programcontrol.jobpool.JobPool;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.graphic.Image;
+import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.Image;
 
 //class
 public final class ImageBuilder implements IImageBuilder {

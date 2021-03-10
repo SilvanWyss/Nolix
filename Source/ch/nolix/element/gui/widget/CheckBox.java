@@ -7,8 +7,8 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.input.Key;
-import ch.nolix.element.painterapi.IPainter;
+import ch.nolix.element.gui.input.Key;
+import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 /**
