@@ -13,8 +13,8 @@ import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
 import ch.nolix.commontest.nettest.NetTestPool;
 import ch.nolix.commontest.nettest.websockettest.WebSocketTestPool;
+import ch.nolix.commontest.programcontroltest.sequencertest.SequencerTestPool;
 import ch.nolix.commontest.providertest.ProviderTestPool;
-import ch.nolix.commontest.sequencertest.SequencerTestPool;
 
 //class
 /**

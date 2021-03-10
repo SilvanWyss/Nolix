@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commontest.sequencertest;
+package ch.nolix.commontest.programcontroltest.sequencertest;
 
 //class
 /**
