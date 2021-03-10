@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseapplication;
+package ch.nolix.system.databaseapplication.main;
 
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Button;

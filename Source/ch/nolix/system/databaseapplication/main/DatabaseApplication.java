@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseapplication;
+package ch.nolix.system.databaseapplication.main;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;

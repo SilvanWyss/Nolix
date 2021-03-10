@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseapplication;
+package ch.nolix.system.databaseapplication.main;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
@@ -16,7 +16,7 @@ import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.MultiReference;
-import ch.nolix.system.database.propertybinder.CentralPropertyBinder;
+import ch.nolix.system.databaseapplication.propertybinder.CentralPropertyBinder;
 
 //class
 public final class EntitySession extends HeaderedSession {

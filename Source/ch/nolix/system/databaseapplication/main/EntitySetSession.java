@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseapplication;
+package ch.nolix.system.databaseapplication.main;
 
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports

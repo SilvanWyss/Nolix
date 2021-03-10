@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.propertybinder;
+package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.common.functionapi.IAction;

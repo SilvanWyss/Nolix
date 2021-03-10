@@ -6,11 +6,11 @@ import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.IDatabaseAdapterCreator;
 import ch.nolix.system.database.databaseadapter.Schema;
-import ch.nolix.system.database.databaseapplication.DatabaseApplication;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Reference;
 import ch.nolix.system.database.entity.Value;
 import ch.nolix.system.database.nodedatabaseadapter.NodeDatabaseAdapterCreator;
+import ch.nolix.system.databaseapplication.main.DatabaseApplication;
 
 public final class ProductManagerTutorial {
 	

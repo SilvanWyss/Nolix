@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseapplication;
+package ch.nolix.system.databaseapplication.main;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

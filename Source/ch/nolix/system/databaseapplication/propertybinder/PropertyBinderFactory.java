@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.propertybinder;
+package ch.nolix.system.databaseapplication.propertybinder;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.entity.Property;

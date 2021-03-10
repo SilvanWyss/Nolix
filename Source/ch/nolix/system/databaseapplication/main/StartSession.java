@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseapplication;
+package ch.nolix.system.databaseapplication.main;
 
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Label;
