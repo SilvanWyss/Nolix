@@ -9,10 +9,9 @@ import ch.nolix.system.database.entity.Property;
 //class
 public abstract class PropertyBinder<P extends Property<?>, W extends Widget<W, ?>> {
 	
-	//method declaration
-	public final PropertyBinding createWidgetAndBindItWith(final P property) {
+	//method
+	public final PropertyBinding bindWidgetWithProperty(final W widget, final P property) {
 		
-		final var widget = createWidget();
 		final var propertyBinding = new PropertyBinding(property, widget);
 		
 		bindWidgetToProperty(widget, property, propertyBinding);
@@ -21,13 +20,18 @@ public abstract class PropertyBinder<P extends Property<?>, W extends Widget<W, 
 		return propertyBinding;
 	}
 	
+	//method
+	public final PropertyBinding createWidgetAndBindItWith(final P property) {
+		return bindWidgetWithProperty(createWidget(), property);
+	}
+	
 	//method declaration
 	protected abstract void addSelectionOptionsToWidgetForProperty(W widget, P property);
 	
 	//method declaration
 	protected abstract W createWidget();
 	
-	//method
+	//method declaration
 	protected abstract void setNoteUpdateActionToWidget(W widget, IAction noteUpdateAction);
 	
 	//method declaration
