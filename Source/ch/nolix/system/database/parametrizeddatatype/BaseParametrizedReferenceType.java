@@ -4,33 +4,33 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.system.database.entity.Entity;
 
 //class
-public abstract class BaseBackReferenceType<E extends Entity> extends ParametrizedDataType<E> {
+public abstract class BaseParametrizedReferenceType<E extends Entity> extends ParametrizedDataType<E> {
 	
 	//constructor
-	public BaseBackReferenceType(final Class<E> contentClass) {
+	public BaseParametrizedReferenceType(final Class<E> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	public final boolean canReference(final Entity entity) {
-		return false;
+		return (getRefContentClass() == entity.getClass());
 	}
 	
 	//method
-	public final String getBackReferencedEntitiesName() {
+	public final String getReferencedEntitiesName() {
 		return getRefContentClass().getSimpleName();
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return true;
+		return false;
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyReferenceType() {
-		return false;
+		return true;
 	}
 	
 	//method

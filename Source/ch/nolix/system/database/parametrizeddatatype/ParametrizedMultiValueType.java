@@ -7,10 +7,10 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.schemadatatype.SchemaMultiValueType;
 
 //class
-public final class MultiValueType<C> extends BaseValueType<C> {
+public final class ParametrizedMultiValueType<C> extends BaseParametrizedValueType<C> {
 	
 	//constructor
-	public MultiValueType(final Class<C> contentClass) {
+	public ParametrizedMultiValueType(final Class<C> contentClass) {
 		super(contentClass);
 	}
 	

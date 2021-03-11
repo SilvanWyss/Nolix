@@ -6,8 +6,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;
-import ch.nolix.system.database.parametrizeddatatype.BaseBackReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.BaseReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
 import ch.nolix.system.database.schemadatatype.SchemaBackReferenceType;
 import ch.nolix.system.database.schemadatatype.SchemaDataType;
 import ch.nolix.system.database.schemadatatype.SchemaIdType;
@@ -44,25 +44,25 @@ public final class ParametrizedSchemaDataTypeMapper {
 			case MULTI_VALUE:
 				return new SchemaMultiValueType<>(column.getRefContentClass());
 			case REFERENCE:
-				return new SchemaReferenceType(getReferencedEntitySetFor((BaseReferenceType<?>)column.getDataType()));
+				return new SchemaReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getDataType()));
 			case OPTIONAL_REFERENCE:
 				return
-				new SchemaOptionalReferenceType(getReferencedEntitySetFor((BaseReferenceType<?>)column.getDataType()));
+				new SchemaOptionalReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getDataType()));
 			case MULTI_REFERENCE:
 				return
-				new SchemaMultiReferenceType(getReferencedEntitySetFor((BaseReferenceType<?>)column.getDataType()));
+				new SchemaMultiReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getDataType()));
 			case BACK_REFERENCE:
 				return
-				new SchemaBackReferenceType(getBackReferencingEntitySetFor((BaseBackReferenceType<?>)column.getDataType()));
+				new SchemaBackReferenceType(getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getDataType()));
 			case OPTIONAL_BACK_REFERENCE:
 				return
 				new SchemaOptionalBackReferenceType(
-					getBackReferencingEntitySetFor((BaseBackReferenceType<?>)column.getDataType())
+					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getDataType())
 				);
 			case MULTI_BACK_REFERENCE:
 				return
 					new SchemaMultiBackReferenceType(
-						getBackReferencingEntitySetFor((BaseBackReferenceType<?>)column.getDataType())
+						getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getDataType())
 					);
 			case ID:
 				return new SchemaIdType();
@@ -72,7 +72,7 @@ public final class ParametrizedSchemaDataTypeMapper {
 	}
 	
 	//method
-	private EntitySet getBackReferencingEntitySetFor(BaseBackReferenceType<?> baseBackReferenceType) {
+	private EntitySet getBackReferencingEntitySetFor(BaseParametrizedBackReferenceType<?> baseBackReferenceType) {
 		return
 		parentDatabaseSchemaAdapter
 		.getRefEntitySets()
@@ -80,7 +80,7 @@ public final class ParametrizedSchemaDataTypeMapper {
 	}
 	
 	//method
-	private EntitySet getReferencedEntitySetFor(final BaseReferenceType<?> baseReferenceType) {
+	private EntitySet getReferencedEntitySetFor(final BaseParametrizedReferenceType<?> baseReferenceType) {
 		return
 		parentDatabaseSchemaAdapter
 		.getRefEntitySets()

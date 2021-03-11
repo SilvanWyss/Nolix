@@ -4,27 +4,27 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalValueType;
+import ch.nolix.system.database.schemadatatype.SchemaValueType;
 
 //class
-public final class OptionalValueType<C> extends BaseValueType<C> {
+public final class ParametrizedValueType<C> extends BaseParametrizedValueType<C> {
 	
 	//constructor
-	public OptionalValueType(final Class<C> contentClass) {
+	public ParametrizedValueType(final Class<C> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	@Override
 	public DataType getPropertyKind() {
-		return DataType.OPTIONAL_VALUE;
+		return DataType.VALUE;
 	}
 	
 	//method
 	@Override
-	public SchemaOptionalValueType<C> toSchemaDataType(
+	public SchemaValueType<C> toSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		return new SchemaOptionalValueType<>(getRefContentClass());
+		return new SchemaValueType<>(getRefContentClass());
 	}
 }

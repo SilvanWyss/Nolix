@@ -14,16 +14,16 @@ import ch.nolix.system.database.entity.OptionalReference;
 import ch.nolix.system.database.entity.OptionalValue;
 import ch.nolix.system.database.entity.Reference;
 import ch.nolix.system.database.entity.Value;
-import ch.nolix.system.database.parametrizeddatatype.BackReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.DataTypeHelper;
-import ch.nolix.system.database.parametrizeddatatype.MultiBackReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.MultiReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.MultiValueType;
-import ch.nolix.system.database.parametrizeddatatype.OptionalBackReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.OptionalReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.OptionalValueType;
-import ch.nolix.system.database.parametrizeddatatype.ReferenceType;
-import ch.nolix.system.database.parametrizeddatatype.ValueType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedBackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataTypeFactory;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedMultiBackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedMultiReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedMultiValueType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedOptionalBackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedOptionalReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedOptionalValueType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedValueType;
 
 //class
 public final class DataTypeHelperTest extends Test {
@@ -128,10 +128,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.valueProperty);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.valueProperty);
 		
 		//verification
-		expect(result.getClass()).isSameAs(ValueType.class);
+		expect(result.getClass()).isSameAs(ParametrizedValueType.class);
 		expect(result.getRefContentClass()).isSameAs(String.class);
 	}
 	
@@ -144,10 +144,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.optionalValueProperty);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.optionalValueProperty);
 		
 		//verification
-		expect(result.getClass()).isSameAs(OptionalValueType.class);
+		expect(result.getClass()).isSameAs(ParametrizedOptionalValueType.class);
 		expect(result.getRefContentClass()).isSameAs(String.class);
 	}
 	
@@ -160,10 +160,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.multiValueProperty);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.multiValueProperty);
 		
 		//verification
-		expect(result.getClass()).isSameAs(MultiValueType.class);
+		expect(result.getClass()).isSameAs(ParametrizedMultiValueType.class);
 		expect(result.getRefContentClass()).isSameAs(String.class);
 	}
 	
@@ -176,10 +176,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.reference);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.reference);
 		
 		//verification
-		expect(result.getClass()).isSameAs(ReferenceType.class);
+		expect(result.getClass()).isSameAs(ParametrizedReferenceType.class);
 		expect(result.getRefContentClass()).isSameAs(Entity2D.class);
 	}
 	
@@ -192,10 +192,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.optionalReference);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.optionalReference);
 		
 		//verification
-		expect(result.getClass()).isSameAs(OptionalReferenceType.class);
+		expect(result.getClass()).isSameAs(ParametrizedOptionalReferenceType.class);
 		expect(result.getRefContentClass()).isSameAs(Entity2D.class);
 	}
 	
@@ -208,10 +208,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.multiReference);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.multiReference);
 		
 		//verification
-		expect(result.getClass()).isSameAs(MultiReferenceType.class);
+		expect(result.getClass()).isSameAs(ParametrizedMultiReferenceType.class);
 		expect(result.getRefContentClass()).isSameAs(Entity2D.class);
 	}
 	
@@ -224,10 +224,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.backReference);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.backReference);
 		
 		//verification
-		expect(result.getClass()).isSameAs(BackReferenceType.class);
+		expect(result.getClass()).isSameAs(ParametrizedBackReferenceType.class);
 		expect(result.getRefContentClass()).isSameAs(Entity3D.class);
 	}
 	
@@ -240,10 +240,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.optionalBackReference);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.optionalBackReference);
 		
 		//verification
-		expect(result.getClass()).isSameAs(OptionalBackReferenceType.class);
+		expect(result.getClass()).isSameAs(ParametrizedOptionalBackReferenceType.class);
 		expect(result.getRefContentClass()).isSameAs(Entity3E.class);
 	}
 	
@@ -256,10 +256,10 @@ public final class DataTypeHelperTest extends Test {
 		EntityAccessor.extractProperties(entity);
 		
 		//execution
-		final var result = DataTypeHelper.createDatatypeFor(entity.multiBackReference);
+		final var result = ParametrizedDataTypeFactory.createDatatypeFor(entity.multiBackReference);
 		
 		//verification
-		expect(result.getClass()).isSameAs(MultiBackReferenceType.class);
+		expect(result.getClass()).isSameAs(ParametrizedMultiBackReferenceType.class);
 		expect(result.getRefContentClass()).isSameAs(Entity3F.class);
 	}
 }

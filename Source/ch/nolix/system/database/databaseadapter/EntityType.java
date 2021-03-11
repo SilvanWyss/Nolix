@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.valuecreator.ValueCreator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.EntityAccessor;
-import ch.nolix.system.database.parametrizeddatatype.DataTypeHelper;
+import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataTypeFactory;
 
 //class
 public final class EntityType<E extends Entity> implements Named {
@@ -112,7 +112,7 @@ public final class EntityType<E extends Entity> implements Named {
 		columns.clear();
 		
 		for (final var p : createEmptyEntity().getRefProperties()) {
-			columns.addAtBegin(new Column<>(p.getHeader(), DataTypeHelper.createDatatypeFor(p)));
+			columns.addAtBegin(new Column<>(p.getHeader(), ParametrizedDataTypeFactory.createDatatypeFor(p)));
 		}
 	}
 	

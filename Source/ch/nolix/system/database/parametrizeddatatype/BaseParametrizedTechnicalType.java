@@ -4,10 +4,10 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.system.database.entity.Entity;
 
 //class
-public abstract class BaseTechnicalType<C> extends ParametrizedDataType<C> {
+public abstract class BaseParametrizedTechnicalType<C> extends ParametrizedDataType<C> {
 	
 	//constructor
-	public BaseTechnicalType(final Class<C> contentClass) {
+	public BaseParametrizedTechnicalType(final Class<C> contentClass) {
 		super(contentClass);
 	}
 	

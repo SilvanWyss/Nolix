@@ -5,31 +5,31 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalBackReferenceType;
+import ch.nolix.system.database.schemadatatype.SchemaBackReferenceType;
 
 //class
-public final class OptionalBackReferenceType<E extends Entity> extends BaseBackReferenceType<E> {
+public final class ParametrizedBackReferenceType<E extends Entity> extends BaseParametrizedBackReferenceType<E> {
 	
 	//constructor
-	public OptionalBackReferenceType(final Class<E> contentClass) {
+	public ParametrizedBackReferenceType(final Class<E> contentClass) {
 		super(contentClass);
 	}
 	
 	//method
 	@Override
 	public DataType getPropertyKind() {
-		return DataType.OPTIONAL_BACK_REFERENCE;
+		return DataType.BACK_REFERENCE;
 	}
 	
 	//method
 	@Override
-	public SchemaOptionalBackReferenceType toSchemaDataType(
+	public SchemaBackReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
-		new SchemaOptionalBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
+		new SchemaBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
 	}
 }

@@ -4,10 +4,10 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.system.database.entity.Entity;
 
 //class
-public abstract class BaseValueType<C> extends ParametrizedDataType<C> {
+public abstract class BaseParametrizedBackReferenceType<E extends Entity> extends ParametrizedDataType<E> {
 	
 	//constructor
-	public BaseValueType(final Class<C> contentClass) {
+	public BaseParametrizedBackReferenceType(final Class<E> contentClass) {
 		super(contentClass);
 	}
 	
@@ -17,9 +17,14 @@ public abstract class BaseValueType<C> extends ParametrizedDataType<C> {
 	}
 	
 	//method
+	public final String getBackReferencedEntitiesName() {
+		return getRefContentClass().getSimpleName();
+	}
+	
+	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -37,6 +42,6 @@ public abstract class BaseValueType<C> extends ParametrizedDataType<C> {
 	//method
 	@Override
 	public final boolean isAnyValueType() {
-		return true;
+		return false;
 	}
 }
