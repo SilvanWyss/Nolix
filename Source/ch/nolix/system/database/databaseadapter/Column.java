@@ -79,8 +79,8 @@ public final class Column<C> implements Headered {
 	}
 	
 	//method
-	public boolean isAnyTechnicalColumn() {
-		return parametrizedDataType.isAnyTechnicalType();
+	public boolean isAnyControlColumn() {
+		return parametrizedDataType.isAnyControlType();
 	}
 	
 	//method

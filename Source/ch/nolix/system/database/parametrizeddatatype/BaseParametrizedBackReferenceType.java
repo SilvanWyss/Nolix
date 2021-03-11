@@ -35,7 +35,7 @@ public abstract class BaseParametrizedBackReferenceType<E extends Entity> extend
 	
 	//method
 	@Override
-	public final boolean isAnyTechnicalType() {
+	public final boolean isAnyControlType() {
 		return false;
 	}
 	

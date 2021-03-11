@@ -40,7 +40,7 @@ public abstract class ParametrizedDataType<C> {
 	public abstract boolean isAnyReferenceType();
 	
 	//method declaration
-	public abstract boolean isAnyTechnicalType();
+	public abstract boolean isAnyControlType();
 	
 	//method declaration
 	public abstract boolean isAnyValueType();

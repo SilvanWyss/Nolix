@@ -7,7 +7,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.parametrizedschemadatatype.SchemaIdType;
 
 //class
-public final class ParametrizedIdType extends BaseParametrizedTechnicalType<Long> {
+public final class ParametrizedIdType extends BaseParametrizedControlType<Long> {
 	
 	//constructor
 	public ParametrizedIdType() {

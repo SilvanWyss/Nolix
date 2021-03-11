@@ -21,7 +21,7 @@ public enum DataType {
 	public final BaseDataType getBaseDataType() {
 		switch (this) {
 			case ID:
-				return BaseDataType.BASE_TECNICAL_TYPE;
+				return BaseDataType.BASE_CONTROL_TYPE;
 			case VALUE:
 			case OPTIONAL_VALUE:
 			case MULTI_VALUE:

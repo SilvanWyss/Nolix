@@ -4,10 +4,10 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.system.database.entity.Entity;
 
 //class
-public abstract class BaseParametrizedTechnicalType<C> extends ParametrizedDataType<C> {
+public abstract class BaseParametrizedControlType<C> extends ParametrizedDataType<C> {
 	
 	//constructor
-	public BaseParametrizedTechnicalType(final Class<C> contentClass) {
+	public BaseParametrizedControlType(final Class<C> contentClass) {
 		super(contentClass);
 	}
 	
@@ -30,7 +30,7 @@ public abstract class BaseParametrizedTechnicalType<C> extends ParametrizedDataT
 	
 	//method
 	@Override
-	public boolean isAnyTechnicalType() {
+	public boolean isAnyControlType() {
 		return true;
 	}
 	

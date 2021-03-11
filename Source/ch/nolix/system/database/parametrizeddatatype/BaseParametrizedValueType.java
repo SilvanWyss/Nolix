@@ -30,7 +30,7 @@ public abstract class BaseParametrizedValueType<C> extends ParametrizedDataType<
 	
 	//method
 	@Override
-	public final boolean isAnyTechnicalType() {
+	public final boolean isAnyControlType() {
 		return false;
 	}
 	
