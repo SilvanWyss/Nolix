@@ -37,14 +37,18 @@ public final class FileNode extends BaseNode {
 	 * @param filePath
 	 */
 	public FileNode(final String filePath) {
-		
-		//Handles the case that there does not exist a file with the given file path.
-		if (!FileSystemAccessor.isFile(filePath)) {
+			
+		//Handles the case that there does not exist a file system item with the given filePath.
+		if (!FileSystemAccessor.exists(filePath)) {
 			fileAccessor = FileSystemAccessor.createFile(filePath);
 			
-		//Handles the case that there exists a file with the given file path.
-		} else {
+		//Handles the case that there exists a file with the given filePath.
+		} else if (FileSystemAccessor.isFile(filePath)) {
 			fileAccessor = new FileAccessor(filePath);
+			
+		//Handles the case that there exists file system item with the given filePath that is not a file.
+		} else {
+			throw new InvalidArgumentException(filePath, "is not a file");
 		}
 		
 		internalSpecification = Node.fromFile(filePath);
