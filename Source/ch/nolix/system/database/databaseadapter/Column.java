@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
+//own imports
+import ch.nolix.businessapi.databaseapi.datatypeapi.BaseDataType;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -39,12 +41,14 @@ public final class Column<C> implements Headered {
 	
 	//method
 	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
-		return (isAnyReferenceColumn() && parametrizedDataType.getRefContentClass() == type);
+		return
+		getDataType().getBaseDataType() == BaseDataType.BASE_REFERENCE
+		&& parametrizedDataType.getRefContentClass() == type;
 	}
 	
 	//method
-	public ParametrizedDataType<C> getDataType() {
-		return parametrizedDataType;
+	public DataType getDataType() {
+		return parametrizedDataType.getPropertyKind();
 	}
 	
 	//method
@@ -54,33 +58,13 @@ public final class Column<C> implements Headered {
 	}
 	
 	//method
-	public DataType getPropertyKind() {
-		return parametrizedDataType.getPropertyKind();
+	public ParametrizedDataType<C> getParametrizedDataType() {
+		return parametrizedDataType;
 	}
 	
 	//method
 	public Class<C> getRefContentClass() {
 		return parametrizedDataType.getRefContentClass();
-	}
-	
-	//method
-	public boolean isAnyBackReferenceColumn() {
-		return parametrizedDataType.isAnyBackReferenceType();
-	}
-	
-	//method
-	public boolean isAnyDataColumn() {
-		return parametrizedDataType.isAnyValueType();
-	}
-	
-	//method
-	public boolean isAnyReferenceColumn() {
-		return parametrizedDataType.isAnyReferenceType();
-	}
-	
-	//method
-	public boolean isAnyControlColumn() {
-		return parametrizedDataType.isAnyControlType();
 	}
 	
 	//method

@@ -69,7 +69,7 @@ public final class EntitySetSession extends HeaderedSession {
 		//Sets the header of the entities grid.
 		int columnIndex = 2;
 		for (final var c : getRefEntitySet().getColumns()) {
-			if (c.getDataType().getPropertyKind() == DataType.VALUE) {
+			if (c.getParametrizedDataType().getPropertyKind() == DataType.VALUE) {
 				
 				entitiesGrid.setWidget(
 					1,
@@ -82,7 +82,7 @@ public final class EntitySetSession extends HeaderedSession {
 				columnIndex++;
 			}
 			
-			if (c.getDataType().getPropertyKind() == DataType.REFERENCE) {
+			if (c.getParametrizedDataType().getPropertyKind() == DataType.REFERENCE) {
 				
 				entitiesGrid.setWidget(
 					1,

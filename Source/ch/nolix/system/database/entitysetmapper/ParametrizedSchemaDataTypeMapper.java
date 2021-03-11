@@ -36,7 +36,7 @@ public final class ParametrizedSchemaDataTypeMapper {
 	
 	//method
 	public ParametrizedSchemaDataType<?> createParametrizedSchemaDataTypeFor(final Column<?> column) {
-		switch (column.getPropertyKind()) {
+		switch (column.getDataType()) {
 			case VALUE:
 				return new ParametrizedSchemaValueType<>(column.getRefContentClass());
 			case OPTIONAL_VALUE:
@@ -44,25 +44,25 @@ public final class ParametrizedSchemaDataTypeMapper {
 			case MULTI_VALUE:
 				return new ParametrizedSchemaMultiValueType<>(column.getRefContentClass());
 			case REFERENCE:
-				return new ParametrizedSchemaReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getDataType()));
+				return new ParametrizedSchemaReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType()));
 			case OPTIONAL_REFERENCE:
 				return
-				new ParametrizedSchemaOptionalReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getDataType()));
+				new ParametrizedSchemaOptionalReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType()));
 			case MULTI_REFERENCE:
 				return
-				new ParametrizedSchemaMultiReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getDataType()));
+				new ParametrizedSchemaMultiReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType()));
 			case BACK_REFERENCE:
 				return
-				new ParametrizedSchemaBackReferenceType(getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getDataType()));
+				new ParametrizedSchemaBackReferenceType(getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType()));
 			case OPTIONAL_BACK_REFERENCE:
 				return
 				new ParametrizedSchemaOptionalBackReferenceType(
-					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getDataType())
+					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 				);
 			case MULTI_BACK_REFERENCE:
 				return
 					new ParametrizedSchemaMultiBackReferenceType(
-						getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getDataType())
+						getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 					);
 			case ID:
 				return new SchemaIdType();
