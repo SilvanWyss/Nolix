@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.schemadatatype;
+package ch.nolix.system.database.parametrizedschemadatatype;
 
 //class
 public abstract class BaseSchemaValueType<V> extends SchemaDataType<V> {

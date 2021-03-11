@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaOptionalValueType;
 
 //class
 public final class ParametrizedOptionalValueType<C> extends BaseParametrizedValueType<C> {

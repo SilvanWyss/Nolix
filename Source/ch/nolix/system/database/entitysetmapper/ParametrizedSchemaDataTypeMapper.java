@@ -8,17 +8,17 @@ import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferenceType;
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaBackReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaDataType;
-import ch.nolix.system.database.schemadatatype.SchemaIdType;
-import ch.nolix.system.database.schemadatatype.SchemaMultiBackReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaMultiReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaMultiValueType;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalBackReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalValueType;
-import ch.nolix.system.database.schemadatatype.SchemaReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaBackReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaIdType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiBackReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaOptionalBackReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaOptionalReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaOptionalValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaValueType;
 
 //class
 public final class ParametrizedSchemaDataTypeMapper {

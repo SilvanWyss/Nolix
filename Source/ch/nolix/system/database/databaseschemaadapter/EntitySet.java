@@ -11,14 +11,14 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.system.database.schemadatatype.IEntitySet;
-import ch.nolix.system.database.schemadatatype.SchemaDataType;
-import ch.nolix.system.database.schemadatatype.SchemaMultiReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaMultiValueType;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaOptionalValueType;
-import ch.nolix.system.database.schemadatatype.SchemaReferenceType;
-import ch.nolix.system.database.schemadatatype.SchemaValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.IEntitySet;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaOptionalReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaOptionalValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaValueType;
 
 //class
 public final class EntitySet implements IEntitySet, Named {

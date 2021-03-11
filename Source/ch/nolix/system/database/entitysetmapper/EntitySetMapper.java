@@ -7,7 +7,7 @@ import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.schemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
 
 //class
 public final class EntitySetMapper {

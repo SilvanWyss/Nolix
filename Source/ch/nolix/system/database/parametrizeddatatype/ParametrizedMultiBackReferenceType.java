@@ -5,7 +5,7 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.schemadatatype.SchemaMultiBackReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiBackReferenceType;
 
 //class
 public final class ParametrizedMultiBackReferenceType<E extends Entity> extends BaseParametrizedBackReferenceType<E> {

@@ -2,7 +2,7 @@
 package ch.nolix.system.database.databaseschemaadapter;
 
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
-import ch.nolix.system.database.schemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
 
 //interface
 public interface IColumnAdapter extends Headered {
