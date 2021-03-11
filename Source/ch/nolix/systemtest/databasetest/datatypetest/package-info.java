@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.databasetest.datatypetest} package defines tests for the {@link ch.nolix.system.database.datatype} package.
+ * The {@link ch.nolix.systemtest.databasetest.datatypetest} package defines tests for the {@link ch.nolix.system.database.parametrizeddatatype} package.
  * 
  * @author Silvan Wyss
  * @month 2019-12

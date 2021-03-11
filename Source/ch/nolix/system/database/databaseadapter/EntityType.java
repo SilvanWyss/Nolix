@@ -11,9 +11,9 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.valuecreator.ValueCreator;
-import ch.nolix.system.database.datatype.DataTypeHelper;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.EntityAccessor;
+import ch.nolix.system.database.parametrizeddatatype.DataTypeHelper;
 
 //class
 public final class EntityType<E extends Entity> implements Named {

@@ -3,16 +3,6 @@ package ch.nolix.systemtest.databasetest.datatypetest;
 
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
-import ch.nolix.system.database.datatype.BackReferenceType;
-import ch.nolix.system.database.datatype.DataTypeHelper;
-import ch.nolix.system.database.datatype.MultiBackReferenceType;
-import ch.nolix.system.database.datatype.MultiReferenceType;
-import ch.nolix.system.database.datatype.MultiValueType;
-import ch.nolix.system.database.datatype.OptionalBackReferenceType;
-import ch.nolix.system.database.datatype.OptionalReferenceType;
-import ch.nolix.system.database.datatype.OptionalValueType;
-import ch.nolix.system.database.datatype.ReferenceType;
-import ch.nolix.system.database.datatype.ValueType;
 import ch.nolix.system.database.entity.BackReference;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.EntityAccessor;
@@ -24,6 +14,16 @@ import ch.nolix.system.database.entity.OptionalReference;
 import ch.nolix.system.database.entity.OptionalValue;
 import ch.nolix.system.database.entity.Reference;
 import ch.nolix.system.database.entity.Value;
+import ch.nolix.system.database.parametrizeddatatype.BackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.DataTypeHelper;
+import ch.nolix.system.database.parametrizeddatatype.MultiBackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.MultiReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.MultiValueType;
+import ch.nolix.system.database.parametrizeddatatype.OptionalBackReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.OptionalReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.OptionalValueType;
+import ch.nolix.system.database.parametrizeddatatype.ReferenceType;
+import ch.nolix.system.database.parametrizeddatatype.ValueType;
 
 //class
 public final class DataTypeHelperTest extends Test {

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.datatype;
+package ch.nolix.system.database.parametrizeddatatype;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.entity.Entity;

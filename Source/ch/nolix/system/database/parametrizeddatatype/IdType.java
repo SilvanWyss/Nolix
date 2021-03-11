@@ -1,5 +1,5 @@
 //class
-package ch.nolix.system.database.datatype;
+package ch.nolix.system.database.parametrizeddatatype;
 
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
