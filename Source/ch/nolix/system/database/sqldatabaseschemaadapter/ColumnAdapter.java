@@ -6,8 +6,8 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.IColumnAdapter;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaValueType;
 
 //class
 public final class ColumnAdapter implements IColumnAdapter {
@@ -33,10 +33,10 @@ public final class ColumnAdapter implements IColumnAdapter {
 	
 	//method
 	@Override
-	public SchemaDataType<?> getDataType() {
+	public ParametrizedSchemaDataType<?> getDataType() {
 		
 		//TODO: return SchemaDataTypeFactory.fromSpecification(...)
-		return new SchemaValueType<>(Object.class);
+		return new ParametrizedSchemaValueType<>(Object.class);
 	}
 	
 	//method

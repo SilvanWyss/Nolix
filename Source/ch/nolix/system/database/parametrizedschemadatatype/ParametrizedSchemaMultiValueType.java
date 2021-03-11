@@ -4,16 +4,16 @@ package ch.nolix.system.database.parametrizedschemadatatype;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 
 //class
-public final class SchemaOptionalValueType<V> extends BaseSchemaValueType<V> {
+public final class ParametrizedSchemaMultiValueType<V> extends BaseParametrizedSchemaValueType<V> {
 	
 	//constructor
-	public SchemaOptionalValueType(final Class<V> valueClass) {
+	public ParametrizedSchemaMultiValueType(final Class<V> valueClass) {
 		super(valueClass);
 	}
 	
 	//method
 	@Override
 	public DataType getPropertyKind() {
-		return DataType.OPTIONAL_VALUE;
+		return DataType.MULTI_VALUE;
 	}
 }

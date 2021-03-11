@@ -7,7 +7,7 @@ import ch.nolix.system.database.databaseschemaadapter.Column;
 import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.database.databaseschemaadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaDataType;
 
 //class
 public final class EntitySetMapper {
@@ -40,7 +40,7 @@ public final class EntitySetMapper {
 	}
 	
 	//method
-	private SchemaDataType<?> createParametrizedSchemaDataTypeFor(
+	private ParametrizedSchemaDataType<?> createParametrizedSchemaDataTypeFor(
 		ch.nolix.system.database.databaseadapter.Column<?> column
 	) {
 		return parametrizedSchemaDataTypeMapper.createParametrizedSchemaDataTypeFor(column);

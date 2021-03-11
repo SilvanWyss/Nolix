@@ -8,17 +8,17 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaDataType;
 
 //class
 public final class Column implements Headered {
 	
 	//attributes
 	private final String header;
-	private final SchemaDataType<?> dataType;
+	private final ParametrizedSchemaDataType<?> dataType;
 	
 	//constructor
-	public Column(final String header, final SchemaDataType<?> dataType) {
+	public Column(final String header, final ParametrizedSchemaDataType<?> dataType) {
 		
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		Validator.assertThat(dataType).thatIsNamed(LowerCaseCatalogue.DATA_TYPE).isNotNull();
@@ -28,7 +28,7 @@ public final class Column implements Headered {
 	}
 	
 	//method
-	public SchemaDataType<?> getDataType() {
+	public ParametrizedSchemaDataType<?> getDataType() {
 		return dataType;
 	}
 	

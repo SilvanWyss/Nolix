@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaValueType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaValueType;
 
 //class
 public final class ParametrizedValueType<C> extends BaseParametrizedValueType<C> {
@@ -22,9 +22,9 @@ public final class ParametrizedValueType<C> extends BaseParametrizedValueType<C>
 	
 	//method
 	@Override
-	public SchemaValueType<C> toSchemaDataType(
+	public ParametrizedSchemaValueType<C> toSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		return new SchemaValueType<>(getRefContentClass());
+		return new ParametrizedSchemaValueType<>(getRefContentClass());
 	}
 }

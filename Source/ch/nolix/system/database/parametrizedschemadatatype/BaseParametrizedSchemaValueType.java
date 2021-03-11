@@ -2,10 +2,10 @@
 package ch.nolix.system.database.parametrizedschemadatatype;
 
 //class
-public abstract class BaseSchemaValueType<V> extends SchemaDataType<V> {
+public abstract class BaseParametrizedSchemaValueType<V> extends ParametrizedSchemaDataType<V> {
 	
 	//constructor
-	public BaseSchemaValueType(final Class<V> valueClass) {
+	public BaseParametrizedSchemaValueType(final Class<V> valueClass) {
 		super(valueClass);
 	}
 	

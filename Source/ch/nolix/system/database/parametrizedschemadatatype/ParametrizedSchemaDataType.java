@@ -5,13 +5,13 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public abstract class SchemaDataType<C> {
+public abstract class ParametrizedSchemaDataType<C> {
 	
 	//attribute
 	private final Class<C> contentClass;
 	
 	//constructor
-	public SchemaDataType(final Class<C> contentClass) {
+	public ParametrizedSchemaDataType(final Class<C> contentClass) {
 		
 		Validator.assertThat(contentClass).thatIsNamed("content class").isNotNull();
 		

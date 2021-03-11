@@ -1,34 +1,24 @@
 //package declaration
 package ch.nolix.system.database.parametrizedschemadatatype;
 
-import ch.nolix.common.errorcontrol.validator.Validator;
-
 //class
-public abstract class BaseSchemaBackReferenceType extends SchemaDataType<IEntitySet> {
-	
-	//attribute
-	private final IEntitySet backReferencedEntitySet;
+public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedSchemaDataType<C>{
 	
 	//constructor
-	public BaseSchemaBackReferenceType(final IEntitySet backReferencedEntitySet) {
-		
-		super(IEntitySet.class);
-		
-		Validator.assertThat(backReferencedEntitySet).thatIsNamed("back-referenced EntitySet").isNotNull();
-		
-		this.backReferencedEntitySet = backReferencedEntitySet;
+	public BaseParametrizedSchemaControlType(final Class<C> contentClass) {
+		super(contentClass);
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return true;
+		return false;
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyControlType() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -52,6 +42,6 @@ public abstract class BaseSchemaBackReferenceType extends SchemaDataType<IEntity
 	//method
 	@Override
 	public final boolean referencesBack(final IEntitySet entitySet) {
-		return (backReferencedEntitySet == entitySet);
+		return false;
 	}
 }

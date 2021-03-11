@@ -5,7 +5,7 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaMultiReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
 
 //class
 public final class ParametrizedMultiReferenceType<E extends Entity> extends BaseParametrizedReferenceType<E> {
@@ -23,12 +23,12 @@ public final class ParametrizedMultiReferenceType<E extends Entity> extends Base
 	
 	//method
 	@Override
-	public SchemaMultiReferenceType toSchemaDataType(
+	public ParametrizedSchemaMultiReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		
 		final var referencedEntitiesName = getReferencedEntitiesName();
 		
-		return new SchemaMultiReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName)));
+		return new ParametrizedSchemaMultiReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName)));
 	}
 }

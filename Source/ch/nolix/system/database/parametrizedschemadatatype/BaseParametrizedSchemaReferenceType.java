@@ -4,13 +4,13 @@ package ch.nolix.system.database.parametrizedschemadatatype;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public abstract class BaseSchemaReferenceType extends SchemaDataType<IEntitySet> {
+public abstract class BaseParametrizedSchemaReferenceType extends ParametrizedSchemaDataType<IEntitySet> {
 	
 	//attribute
 	private final IEntitySet referencedEntitySet;
 	
 	//constructor
-	public BaseSchemaReferenceType(final IEntitySet referencedEntitySet) {
+	public BaseParametrizedSchemaReferenceType(final IEntitySet referencedEntitySet) {
 		
 		super(IEntitySet.class);
 		

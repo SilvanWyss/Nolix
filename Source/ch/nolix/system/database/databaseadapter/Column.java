@@ -8,7 +8,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataType;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaDataType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaDataType;
 
 //class
 public final class Column<C> implements Headered {
@@ -91,7 +91,7 @@ public final class Column<C> implements Headered {
 	}
 	
 	//method
-	private SchemaDataType<?> getSchemaDataType(
+	private ParametrizedSchemaDataType<?> getSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		return parametrizedDataType.toSchemaDataType(schemaEntitySets);

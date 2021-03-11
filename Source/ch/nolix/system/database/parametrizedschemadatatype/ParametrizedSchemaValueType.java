@@ -4,16 +4,16 @@ package ch.nolix.system.database.parametrizedschemadatatype;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 
 //class
-public final class SchemaMultiBackReferenceType extends BaseSchemaBackReferenceType {
+public final class ParametrizedSchemaValueType<V> extends BaseParametrizedSchemaValueType<V> {
 	
 	//constructor
-	public SchemaMultiBackReferenceType(final IEntitySet referencedEntitySet) {
-		super(referencedEntitySet);
+	public ParametrizedSchemaValueType(final Class<V> valueClass) {
+		super(valueClass);
 	}
 	
 	//method
 	@Override
 	public DataType getPropertyKind() {
-		return DataType.MULTI_BACK_REFERENCE;
+		return DataType.VALUE;
 	}
 }

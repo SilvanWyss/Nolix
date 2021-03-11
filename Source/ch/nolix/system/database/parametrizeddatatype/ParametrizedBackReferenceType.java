@@ -5,7 +5,7 @@ import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaBackReferenceType;
+import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaBackReferenceType;
 
 //class
 public final class ParametrizedBackReferenceType<E extends Entity> extends BaseParametrizedBackReferenceType<E> {
@@ -23,13 +23,13 @@ public final class ParametrizedBackReferenceType<E extends Entity> extends BaseP
 	
 	//method
 	@Override
-	public SchemaBackReferenceType toSchemaDataType(
+	public ParametrizedSchemaBackReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
-		new SchemaBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
+		new ParametrizedSchemaBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
 	}
 }

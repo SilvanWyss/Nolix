@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizedschemadatatype;
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 
 //class
-public final class SchemaIdType extends BaseSchemaControlType<Long> {
+public final class SchemaIdType extends BaseParametrizedSchemaControlType<Long> {
 	
 	//constructor
 	public SchemaIdType() {
