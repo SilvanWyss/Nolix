@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+//own imports
 import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.client.base.resources.ResourcePathCatalogue;
@@ -41,7 +42,6 @@ final class NetServerHTTPMessage {
 		return serverPort;
 	}
 	
-	//TODO: Provide a favorite icon for browsers.
 	//method
 	@Override
 	public String toString() {
