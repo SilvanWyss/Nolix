@@ -8,10 +8,10 @@ import ch.nolix.commontest.documenttest.nodetest.NodeTestPool;
 import ch.nolix.commontest.documenttest.xmltest.XMLTestPool;
 
 //class
-public final class DocumentNodeTestPool extends TestPool {
+public final class DocumentTestPool extends TestPool {
 	
 	//constructor
-	public DocumentNodeTestPool() {
+	public DocumentTestPool() {
 		super(new ChainedNodeTestPool(), new FileNodeTestPool(), new NodeTestPool(), new XMLTestPool());
 	}
 }

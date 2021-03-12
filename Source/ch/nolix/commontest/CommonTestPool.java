@@ -8,7 +8,7 @@ import ch.nolix.commontest.commontypetest.CommonTypeTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
 import ch.nolix.commontest.containertest.ContainerTestPool;
 import ch.nolix.commontest.demotest.DemoTestPool;
-import ch.nolix.commontest.documenttest.DocumentNodeTestPool;
+import ch.nolix.commontest.documenttest.DocumentTestPool;
 import ch.nolix.commontest.errorcontroltest.ErrorControlTestPool;
 import ch.nolix.commontest.licensetest.LicenseTestPool;
 import ch.nolix.commontest.mathtest.MathTestPool;
@@ -36,7 +36,7 @@ public final class CommonTestPool extends TestPool {
 			new ConstantTestPool(),
 			new ContainerTestPool(),
 			new DemoTestPool(),
-			new DocumentNodeTestPool(),
+			new DocumentTestPool(),
 			new ErrorControlTestPool(),
 			new LicenseTestPool(),
 			new MathTestPool(),
