@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entitysetmapper;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseadapter.Column;
@@ -44,16 +45,25 @@ public final class ParametrizedSchemaDataTypeMapper {
 			case MULTI_VALUE:
 				return new ParametrizedSchemaMultiValueType<>(column.getRefContentClass());
 			case REFERENCE:
-				return new ParametrizedSchemaReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType()));
+				return
+				new ParametrizedSchemaReferenceType(
+					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
+				);
 			case OPTIONAL_REFERENCE:
 				return
-				new ParametrizedSchemaOptionalReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType()));
+				new ParametrizedSchemaOptionalReferenceType(
+					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
+				);
 			case MULTI_REFERENCE:
 				return
-				new ParametrizedSchemaMultiReferenceType(getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType()));
+				new ParametrizedSchemaMultiReferenceType(
+					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
+				);
 			case BACK_REFERENCE:
 				return
-				new ParametrizedSchemaBackReferenceType(getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType()));
+				new ParametrizedSchemaBackReferenceType(
+					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
+				);
 			case OPTIONAL_BACK_REFERENCE:
 				return
 				new ParametrizedSchemaOptionalBackReferenceType(

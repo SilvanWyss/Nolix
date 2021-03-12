@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
@@ -29,6 +29,9 @@ public final class ParametrizedMultiReferenceType<E extends Entity> extends Base
 		
 		final var referencedEntitiesName = getReferencedEntitiesName();
 		
-		return new ParametrizedSchemaMultiReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName)));
+		return
+		new ParametrizedSchemaMultiReferenceType(
+			schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName))
+		);
 	}
 }

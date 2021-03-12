@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiBackReferenceType;
@@ -30,6 +30,8 @@ public final class ParametrizedMultiBackReferenceType<E extends Entity> extends 
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
-		new ParametrizedSchemaMultiBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
+		new ParametrizedSchemaMultiBackReferenceType(
+			schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName))
+		);
 	}
 }

@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaOptionalBackReferenceType;
 
 //class
-public final class ParametrizedOptionalBackReferenceType<E extends Entity> extends BaseParametrizedBackReferenceType<E> {
+public final class ParametrizedOptionalBackReferenceType<E extends Entity>
+extends BaseParametrizedBackReferenceType<E> {
 	
 	//constructor
 	public ParametrizedOptionalBackReferenceType(final Class<E> contentClass) {
@@ -30,6 +31,8 @@ public final class ParametrizedOptionalBackReferenceType<E extends Entity> exten
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
-		new ParametrizedSchemaOptionalBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
+		new ParametrizedSchemaOptionalBackReferenceType(
+			schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName))
+		);
 	}
 }

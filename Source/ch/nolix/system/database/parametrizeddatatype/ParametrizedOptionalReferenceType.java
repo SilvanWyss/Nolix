@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 //own imports
+import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaOptionalReferenceType;
@@ -29,6 +29,9 @@ public final class ParametrizedOptionalReferenceType<E extends Entity> extends B
 		
 		final var referencedEntitiesName = getReferencedEntitiesName();
 		
-		return new ParametrizedSchemaOptionalReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName)));
+		return
+		new ParametrizedSchemaOptionalReferenceType(
+			schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName))
+		);
 	}
 }
