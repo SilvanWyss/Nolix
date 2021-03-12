@@ -30,7 +30,7 @@ import ch.nolix.common.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 810
+ * @lines 820
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -218,12 +218,15 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		
 		final var copy = new Node();
 		
-		//Handles the case that the current document node has a header.
+		//Handles the case that the current Node has a header.
 		if (hasHeader()) {
 			copy.setHeader(getHeader());
 		}
 		
-		getRefAttributes().forEach(a -> copy.addAttribute(a.getCopy()));
+		//Iterates the attributes of the current Node.
+		for (final var a : getRefAttributes()) {
+			copy.addAttribute(a.getCopy());
+		}
 		
 		return copy;
 	}
