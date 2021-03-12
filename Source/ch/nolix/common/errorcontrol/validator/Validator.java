@@ -5,6 +5,7 @@ package ch.nolix.common.errorcontrol.validator;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.independent.independentcontainer.List;
 import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
@@ -17,7 +18,7 @@ import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 260
+ * @lines 280
  */
 public final class Validator {
 	
@@ -182,6 +183,15 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<String> assertThat(final String[] argument) {
 		return new ExtendedContainerMediator<>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ExtendedBitMediator} for the given argument.
+	 */
+	public static ExtendedBitMediator assertThatTheBit(final boolean argument) {
+		return new ExtendedBitMediator(argument);
 	}
 	
 	//static method
