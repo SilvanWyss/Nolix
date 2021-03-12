@@ -126,7 +126,7 @@ public final class FileNode extends BaseNode {
 	public boolean hasHeader() {
 		return internalSpecification.hasHeader();
 	}
-
+	
 	//method
 	/**
 	 * Removes the first attribute the given selector selects from the current {@link FileNode}.
