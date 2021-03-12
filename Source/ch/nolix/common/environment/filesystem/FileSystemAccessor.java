@@ -4,6 +4,7 @@ package ch.nolix.common.environment.filesystem;
 //Java imports
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -41,7 +42,11 @@ public final class FileSystemAccessor {
 	 * @return the path of the folder of the running jar file.
 	 */
 	public static String getFolderPathOfRunningJarFile() {
-		return new File(ClassLoader.getSystemClassLoader().getResource(".").getPath()).getAbsolutePath();
+		try {
+			return FileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+		} catch (final URISyntaxException pURISyntaxException) {
+			throw new WrapperException(pURISyntaxException);
+		}
 	}
 	
 	//static method
