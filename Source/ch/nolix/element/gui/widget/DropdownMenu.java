@@ -166,13 +166,10 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		//Creates expandedDropdownMenu.
 		expandedDropdownMenu =
 		new SelectionMenu()
-		.addItems(getRefItems().to(TextItemMenuItem::getText))
-		
+		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight())
 		.applyOnBaseLook(bl -> bl.setBorderThicknesses(1))
-		
-		//TODO: Work without additional security constant.
-		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight() - 60);
-				
+		.addItems(getRefItems().to(TextItemMenuItem::getText));
+						
 		//TODO: Analyze recalculate method.
 		/*
 		 * Recalculates the SelectionMenu.
@@ -194,7 +191,6 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		//Sets the select-action to the expandedDropdownMenu after selecting the current item.
 		expandedDropdownMenu.setSelectAction(this::selectAndCollapse);
 		
-		//TODO: Show the expandedDropdownMenu above the current DropdownMenu if there is more place.
 		//Adds the expandedDropdownMenu on the top of the GUI of the current DropdownMenu.
 		getParentGUI().addLayerOnTop(
 			new Layer()
