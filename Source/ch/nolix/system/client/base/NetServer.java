@@ -6,7 +6,6 @@ import ch.nolix.common.constant.PortCatalogue;
 import ch.nolix.common.environment.localcomputer.LocalComputer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.net.endpoint3.EndPoint;
 
 //class
@@ -15,7 +14,7 @@ import ch.nolix.common.net.endpoint3.EndPoint;
  * 
  * @author Silvan Wyss
  * @date 2017-09-10
- * @lines 130
+ * @lines 100
  */
 public final class NetServer extends Server {
 	
@@ -75,29 +74,6 @@ public final class NetServer extends Server {
 		this(port);
 		
 		addDefaultApplication(defaultApplication);
-	}
-	
-	//TODO: Delete this constructor.
-	//constructor
-	/**
-	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
-	 * 
-	 * The {@link NetServer} will have a default {@link Application}
-	 * with the given name, clientClass and initialSessionClass.
-	 * 
-	 * @param port
-	 * @param name
-	 * @param initialSessionClass
-	 * @param <C> is the type of the {@link Client}s the created {@link NetServer} will listen to.
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 */
-	public <C extends Client<C>> NetServer(final int port, final String name, final Class<?> initialSessionClass) {
-		
-		//Calls other constructor.
-		this(port, new Application<C>(name, initialSessionClass));
 	}
 	
 	//method
