@@ -116,7 +116,7 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 	
 	//method
 	@TestCase
-	public void testCase_getCopy_whenBaseNodeIsEmpty() {
+	public void testCase_getCopy_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = createTestUnit();
