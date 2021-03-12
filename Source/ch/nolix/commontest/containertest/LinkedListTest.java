@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.commontest.containertest;
 
+//own imports
 import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SequencePattern;
@@ -15,7 +16,7 @@ import ch.nolix.common.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 730
+ * @lines 760
  */
 public final class LinkedListTest extends Test {
 	
@@ -442,6 +443,7 @@ public final class LinkedListTest extends Test {
 	}
 	
 	//method
+	@TestCase
 	public void testCase_getRefFirst_withI2ElementTakerBooleanGetter() {
 		
 		//setup
@@ -454,7 +456,38 @@ public final class LinkedListTest extends Test {
 		expect(result.getRefElement1()).isEqualTo("x");
 		expect(result.getRefElement2()).isEqualTo("xxx");
 	}
+	
+	//method
+	@TestCase
+	public void testCase_getRefSelected_1A() {
 		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getRefSelected(e -> e.length() < 4);
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(3);
+		expect(result.getRefAt(1)).isEqualTo("x");
+		expect(result.getRefAt(2)).isEqualTo("xx");
+		expect(result.getRefAt(3)).isEqualTo("xxx");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getRefSelected_1B() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getRefSelected(e -> e.length() > 6);
+		
+		//verification
+		expect(result.isEmpty());
+	}
+	
 	//method
 	@TestCase
 	public void testCase_getSequences_1A() {
