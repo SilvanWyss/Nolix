@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.websocket;
 
+//own imports
 import ch.nolix.common.commontype.commontypewrapper.ByteWrapper;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
@@ -50,19 +51,15 @@ final class WebSocketFrameFirstNibble {
 		final var wrapperByte1 = new ByteWrapper(byte1);
 		final var wrapperByte2 = new ByteWrapper(byte2);
 		
+		final var RSV1BIt = wrapperByte1.getBitAt(2);
+		final var RSV2BIt = wrapperByte1.getBitAt(3);
+		final var RSV3BIt = wrapperByte1.getBitAt(4);
+		
+		Validator.assertThatTheBit(RSV1BIt).thatIsNamed("RSV1BIt").isCleared();
+		Validator.assertThatTheBit(RSV2BIt).thatIsNamed("RSV2BIt").isCleared();
+		Validator.assertThatTheBit(RSV3BIt).thatIsNamed("RSV3BIt").isCleared();
+		
 		mFINBit = wrapperByte1.getBitAt(1);
-		
-		//TODO: Validator.assertThatTheBit(b).thatIsNamed("B").isFalse()
-		/*
-		final var RSV1BIt = wrapperByte1.getBitAt(2)
-		final var RSV2BIt = wrapperByte1.getBitAt(3)
-		final var RSV3BIt = wrapperByte1.getBitAt(4)
-		
-		Validator.assertThatTheBit(RSV1BIt).thatIsNamed("RSV1BIt").isFalse()
-		Validator.assertThatTheBit(RSV2BIt).thatIsNamed("RSV2BIt").isFalse()
-		Validator.assertThatTheBit(RSV3BIt).thatIsNamed("RSV3BIt").isFalse()
-		 */
-		
 		opcode = byte1 & 0b1111;
 		maskBit = wrapperByte2.getBitAt(1);
 		payloadLengthSpecification = WebSocketFramePayloadLengthType.fromCode(byte2 & 0b01111111);
