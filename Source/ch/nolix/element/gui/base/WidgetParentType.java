@@ -10,6 +10,6 @@ package ch.nolix.element.gui.base;
  * @lines 10
  */
 public enum WidgetParentType {
-	GUI,
+	LAYER,
 	WIDGET
 }

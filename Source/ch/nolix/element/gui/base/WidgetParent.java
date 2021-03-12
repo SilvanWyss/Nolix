@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
@@ -8,16 +9,16 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 public final class WidgetParent {
 	
 	//optional attributes
-	private final WidgetGUI<?> mGui;
+	private final Layer layer;
 	private final Widget<?, ?> widget;
 	
 	//visibility-reduced constructor
-	WidgetParent(final WidgetGUI<?> pGUI, final Widget<?, ?> childWidget) {
+	WidgetParent(final Layer layer, final Widget<?, ?> childWidget) {
 		
-		Validator.assertThat(pGUI).thatIsNamed(WidgetGUI.class).isNotNull();
+		Validator.assertThat(layer).thatIsNamed(Layer.class).isNotNull();
 		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
-		mGui = pGUI;
+		this.layer = layer;
 		widget = null;
 	}
 	
@@ -27,25 +28,41 @@ public final class WidgetParent {
 		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
-		mGui = null;
+		layer = null;
 		this.widget = widget;
 	}
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	public boolean belongsToGUI() {
-		return (mGui != null || widget.belongsToGUI());
+		
+		if (layer != null) {
+			return layer.belongsToGUI();
+		}
+		
+		return widget.belongsToGUI();
 	}
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	public WidgetGUI<?> getRefGUI() {
 		
-		if (mGui != null) {
-			return mGui;
+		if (layer != null) {
+			return layer.getParentGUI();
 		}
 		
 		return widget.getParentGUI();
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	public Layer getRefLayer() {
+		
+		if (layer != null) {
+			return layer;
+		}
+		
+		return widget.getParentLayer();
 	}
 	
 	//method
@@ -64,8 +81,8 @@ public final class WidgetParent {
 	//For a better performance, this implementation does not use all comfortable methods.
 	public WidgetParentType getType() {
 		
-		if (mGui != null) {
-			return WidgetParentType.GUI;
+		if (layer != null) {
+			return WidgetParentType.LAYER;
 		}
 		
 		return WidgetParentType.WIDGET;
@@ -75,7 +92,7 @@ public final class WidgetParent {
 	//For a better performance, this implementation does not use all comfortable methods.
 	public int getXPositionOnGUI() {
 		
-		if (mGui != null) {
+		if (layer != null) {
 			return 0; 
 		}
 		
@@ -86,7 +103,7 @@ public final class WidgetParent {
 	//For a better performance, this implementation does not use all comfortable methods.
 	public int getYPositionOnGUI() {
 		
-		if (mGui != null) {
+		if (layer != null) {
 			return 0; 
 		}
 		
@@ -98,21 +115,9 @@ public final class WidgetParent {
 		return (belongsToGUI() && getRefGUI().isClosed());
 	}
 	
-	//For a better performance, this implementation does not use all comfortable methods.
 	//method
-	public boolean is(final WidgetGUI<?> pGUI) {
-		return (mGui != null && mGui == pGUI);
-	}
-	
-	//For a better performance, this implementation does not use all comfortable methods.
-	//method
-	public boolean is(final Widget<?, ?> widget) {
-		return (this.widget != null && this.widget == widget);
-	}
-	
-	//method
-	public boolean isGUI() {
-		return (mGui != null);
+	public boolean isLayer() {
+		return (layer != null);
 	}
 	
 	//method

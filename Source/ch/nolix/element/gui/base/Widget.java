@@ -209,14 +209,6 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs directly to a {@link WidgetGUI}.
-	 */
-	public final boolean belongsDirectltyToGUI() {
-		return (parent != null && parent.isGUI());
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link Widget} belongs to a {@link WidgetGUI}, directly or indirectly.
 	 */
 	public final boolean belongsToGUI() {
@@ -449,9 +441,7 @@ TopLeftPositionedRecangular {
 	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link Layer}.
 	 */
 	public final Layer getParentLayer() {
-		
-		//TODO: Add layer to WidgetParent.
-		return getParentGUI().getRefLayers().getRefFirst(l -> l.getRefWidgets().contains(this));
+		return getParent().getRefLayer();
 	}
 	
 	//method
@@ -588,8 +578,8 @@ TopLeftPositionedRecangular {
 			return xPositionOnContentAreaOfParent;
 		}
 		
-		//Handles the case that the parent of the current Widget is a GUI.
-		if (parent.isGUI()) {
+		//Handles the case that the parent of the current Widget is a Layer.
+		if (parent.isLayer()) {
 			return parent.getXPositionOnGUI() + xPositionOnContentAreaOfParent;
 		}
 		
@@ -610,20 +600,19 @@ TopLeftPositionedRecangular {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the y-position of the current {@link Widget} on the parent of the current {@link Widget}.
 	 */
 	public final int getYPositionOnGUI() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		
+				
 		//Handles the case that the current Widget does not belong to a parent.
 		if (parent == null) {
 			return yPositionOnContentAreaOfParent;
 		}
 		
-		//Handles the case that the parent of the current Widget is a GUI.
-		if (parent.isGUI()) {
+		//Handles the case that the parent of the current Widget is a Layer.
+		if (parent.isLayer()) {
 			return parent.getYPositionOnGUI() + yPositionOnContentAreaOfParent;
 		}
 		
@@ -754,6 +743,14 @@ TopLeftPositionedRecangular {
 	 */
 	public final boolean isHovered() {
 		return hovered;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} is a root {@link Widget} on a {@link Layer}.
+	 */
+	public final boolean isRootWidgetOnLayer() {
+		return (parent != null && parent.isLayer());
 	}
 	
 	//method
@@ -1386,14 +1383,14 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Sets the {@link WidgetGUI} the current {@link Widget} will belong.
+	 * Sets the {@link Layer} the current {@link Widget} will belong.
 	 * 
-	 * @param parentGUI
-	 * @throws ArgumentIsNullException if the given parentGUI is null.
+	 * @param parentLayer
+	 * @throws ArgumentIsNullException if the given parentLayer is null.
 	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
-	public final void setParent(final WidgetGUI<?> parentGUI) {
-		setParent(new WidgetParent(parentGUI, this));
+	public final void setParent(final Layer parentLayer) {
+		setParent(new WidgetParent(parentLayer, this));
 	}
 	
 	//method

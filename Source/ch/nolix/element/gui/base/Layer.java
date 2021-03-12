@@ -1116,11 +1116,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		Validator.assertThat(rootWidget).thatIsNamed("root Widget").isNotNull();
 		
-		//Handles the case that the current Layer belongs to a GUI.
-		if (parentGUI != null) {
-			rootWidget.setParent(parentGUI);
-		}
-		
+		rootWidget.setParent(this);
 		this.rootWidget = rootWidget;
 		
 		return this;
@@ -1155,7 +1151,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			rootWidget.setParent(parentGUI);
+			rootWidget.setParent(this);
 		}
 		
 		//Sets the parentGUI of the current Layer.
