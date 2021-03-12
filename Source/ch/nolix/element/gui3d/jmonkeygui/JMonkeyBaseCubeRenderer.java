@@ -8,39 +8,35 @@ import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
+//own import
 import ch.nolix.element.gui3d.shape.BaseCube;
 
 //class
 /**
- * A JMonkey cuboid renderer is a cuboid renderer for JMonkey.
+ * A {@link JMonkeyBaseCubeRenderer} is a base cube renderer for JMonkey.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 90
+ * @date 2017-11-11
+ * @lines 80
  */
 public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<BaseCube, Geometry> {
 	
 	//method
 	/**
-	 * @return a new render object for the cuboid of this JMonkey cuboid renderer.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Geometry createRenderObject() {
 		
 		//Creates box.
-		final Box box = new Box(1, 1, 1);
+		final var box = new Box(1, 1, 1);
 		
-		//TODO: Fill up Geometry.
 		return new Geometry("Box", box);
 	}
 	
 	//method
 	/**
-	 * Lets this JMonkey cuboid renderer
-	 * render the given cuboid on the given geometry.
-	 * 
-	 * @param baseCube
-	 * @param geometry
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void render(final BaseCube baseCube, final Geometry geometry) {
@@ -59,35 +55,31 @@ public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<Base
 			baseCube.getZLengthAsFloat()
 		);
 		
-		//Handles the case that the given cuboid does not have a default texture.
+		//Handles the case that the given baseCube does not have a default texture.
 		if (!baseCube.hasDefaultTexture()) {
 			
-			//Sets the color to the given geometry.
-				final var material =
-				new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Light/Lighting.j3md");
-				
-				material.setBoolean("UseMaterialColors", true);
-								
-				material.setColor(
-					"Diffuse",
-					JMonkeyColorHelper.createColorRGBA(baseCube.getDefaultColor())
-				);
-				
-				geometry.setMaterial(material);
-				
-		//Handles the case that the given cuboid has a default texture.
+			final var material = new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Light/Lighting.j3md");
+			
+			material.setBoolean("UseMaterialColors", true);
+			
+			material.setColor(
+				"Diffuse",
+				JMonkeyColorHelper.createColorRGBA(baseCube.getDefaultColor())
+			);
+			
+			geometry.setMaterial(material);
+			
+		//Handles the case that the given baseCube has a default texture.
 		} else {
-									
-			//Sets the texture to the given geometry.
-				final var material
-				= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
-				
-				final var texture
-				= new Texture2D(new AWTLoader().load(baseCube.getRefDefaultTexture().toBufferedImage(),true));
-				
-				material.setTexture("ColorMap", texture);
-				
-				geometry.setMaterial(material);
+			
+			final var material = new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
+			
+			final var texture =
+			new Texture2D(new AWTLoader().load(baseCube.getRefDefaultTexture().toBufferedImage(),true));
+			
+			material.setTexture("ColorMap", texture);
+			
+			geometry.setMaterial(material);
 		}
 	}
 }
