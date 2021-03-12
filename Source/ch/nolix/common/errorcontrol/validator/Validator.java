@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.independent.independentcontainer.List;
-import ch.nolix.common.independent.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 
 //class
 /**
@@ -56,7 +56,7 @@ public final class Validator {
 	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<Byte> assertThat(final byte[] argument) {
-		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -92,7 +92,7 @@ public final class Validator {
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -118,7 +118,7 @@ public final class Validator {
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -154,7 +154,7 @@ public final class Validator {
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
 	}
 	
 	//static method

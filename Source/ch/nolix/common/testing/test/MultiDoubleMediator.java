@@ -2,7 +2,7 @@
 package ch.nolix.common.testing.test;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.independent.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 
 //class
 /**
@@ -27,7 +27,7 @@ public final class MultiDoubleMediator extends Mediator {
 	MultiDoubleMediator(final Test test, final double[] values) {
 		
 		//Calls other constructor.
-		this(test, ArrayHelper.createIterable(values));
+		this(test, CentralArrayHelper.createIterable(values));
 	}
 
 	//constructor

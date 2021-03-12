@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.independent.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 
 //class
 /**
@@ -40,7 +40,7 @@ public final class MultiLongMediator extends Mediator {
 			
 		//Handles the case that the given values is not null.
 		} else {
-			this.values = ArrayHelper.createIterable(values);
+			this.values = CentralArrayHelper.createIterable(values);
 		}
 	}
 
@@ -80,7 +80,7 @@ public final class MultiLongMediator extends Mediator {
 			
 		//Handles the case that the given values is not null.
 		} else {
-			this.values = ArrayHelper.createIterable(values);
+			this.values = CentralArrayHelper.createIterable(values);
 		}
 	}
 

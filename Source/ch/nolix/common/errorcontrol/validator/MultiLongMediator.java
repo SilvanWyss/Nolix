@@ -3,7 +3,7 @@ package ch.nolix.common.errorcontrol.validator;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.common.independent.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 
 //class
 /**
@@ -31,7 +31,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 	public MultiLongMediator(final long[] arguments) {
 		
 		//Calls constructor if the base class.
-		super(ArrayHelper.createIterable(arguments));
+		super(CentralArrayHelper.createIterable(arguments));
 	}
 
 	//method

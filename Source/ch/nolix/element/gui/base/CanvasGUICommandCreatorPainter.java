@@ -6,7 +6,7 @@ import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.independent.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.Image;
@@ -118,9 +118,9 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_FILLED_POLYGON
 			+ '('
-			+ ArrayHelper.createString(x)
+			+ CentralArrayHelper.createString(x)
 			+ ','
-			+ ArrayHelper.createString(y)
+			+ CentralArrayHelper.createString(y)
 			+ ')'
 		);
 	}

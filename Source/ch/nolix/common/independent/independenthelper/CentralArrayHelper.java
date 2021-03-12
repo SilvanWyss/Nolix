@@ -5,14 +5,14 @@ import ch.nolix.common.independent.independentcontainer.List;
 
 //class
 /**
- * The {@link ArrayHelper} provides functions to handle arrays.
- * Of the {@link ArrayHelper} class an instance cannot be created.
+ * The {@link CentralArrayHelper} provides functions to handle arrays.
+ * Of the {@link CentralArrayHelper} class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
  * @lines 260
  */
-public final class ArrayHelper {
+public final class CentralArrayHelper {
 	
 	//static method
 	/**
@@ -252,7 +252,7 @@ public final class ArrayHelper {
 	
 	//visibility-reduced constructor
 	/**
-	 * Avoids that an instance of the {@link ArrayHelper} can be created.
+	 * Avoids that an instance of the {@link CentralArrayHelper} can be created.
 	 */
-	private ArrayHelper() {}
+	private CentralArrayHelper() {}
 }

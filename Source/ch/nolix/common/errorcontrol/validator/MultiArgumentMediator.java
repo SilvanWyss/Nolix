@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 //own imports
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.common.independent.independenthelper.ArrayHelper;
+import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 
 //class
 /**
@@ -50,7 +50,7 @@ public class MultiArgumentMediator<A> {
 	MultiArgumentMediator(final A[] arguments) {
 
 		//Calls other constructor.
-		this(ArrayHelper.createIterable(arguments));
+		this(CentralArrayHelper.createIterable(arguments));
 	}
 	
 	//method
