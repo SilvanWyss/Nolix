@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.independent.independenthelper;
 
+//own import
 import ch.nolix.common.independent.independentcontainer.List;
 
 //class
@@ -9,8 +10,8 @@ import ch.nolix.common.independent.independentcontainer.List;
  * Of the {@link CentralArrayHelper} class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-08
- * @lines 260
+ * @date 2017-08-14
+ * @lines 250
  */
 public final class CentralArrayHelper {
 	
@@ -32,7 +33,7 @@ public final class CentralArrayHelper {
 		final var valueList = new List<Byte>();
 		
 		//Iterates the given elements.
-		for (final byte v : values) {
+		for (final var v : values) {
 			valueList.addAtEnd(v);
 		}
 		
@@ -57,7 +58,7 @@ public final class CentralArrayHelper {
 		final List<Double> valueList = new List<>();
 		
 		//Iterates the given values.
-		for (final double v : values) {
+		for (final var v : values) {
 			valueList.addAtEnd(v);
 		}
 		
@@ -83,7 +84,7 @@ public final class CentralArrayHelper {
 		final var elementList = new List<E>();
 		
 		//Iterates the given elements.
-		for (final E e : elements) {
+		for (final var e : elements) {
 			elementList.addAtEnd(e);
 		}
 		
@@ -110,7 +111,7 @@ public final class CentralArrayHelper {
 		final List<E> elementList = new List<>();
 		
 		//Iterates the given elements.
-		for (final E e : elements) {
+		for (final var e : elements) {
 			elementList.addAtEnd(e);
 		}
 		
@@ -162,7 +163,7 @@ public final class CentralArrayHelper {
 		final var valueList = new List<Long>();
 		
 		//Iterates the given elements.
-		for (final long v : values) {
+		for (final var v : values) {
 			valueList.addAtEnd(v);
 		}
 		
@@ -185,7 +186,7 @@ public final class CentralArrayHelper {
 		final StringBuilder stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
-		for (int i = 0; i < values.length; i++) {
+		for (var i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
 			} else {
@@ -239,7 +240,7 @@ public final class CentralArrayHelper {
 		final StringBuilder stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
-		for (int i = 0; i < values.length; i++) {
+		for (var i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
 			} else {
