@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
@@ -28,9 +29,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//constructor
 	public InnerGUI() {
-		
-		//TODO: Remove this implementation.
-		internalGUI.noteResize(200, 200);
+		setProposalSize(200, 200);
 	}
 	
 	//method
@@ -287,7 +286,11 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	//method
 	@Override
 	protected void recalculateBorderWidget() {
-		//TODO: internalGUI.noteResize(getTargetContentAreaWidth(), getTargetContentAreaHeight())
+		
+		if (hasTargetWidth() && hasTargetHeight()) {
+			internalGUI.noteResize(getContentArea().getTargetWidth(), getContentArea().getTargetHeight());
+		}
+		
 		internalGUI.recalculate();
 	}
 	
