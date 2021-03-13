@@ -387,18 +387,14 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//method
 	private void generateBufferedImageWhenNeeded() {
 		
-		bufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-		final var raster = bufferedImage.getRaster();
+		bufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
 		
 		for (var y = 0; y < getHeight(); y++) {
 			for (var x = 0; x < getWidth(); x++) {
 				
 				final var pixel = pixels.getRefAt(y + 1, x + 1);
 				
-				//TODO: Apply alpha value.
-				raster.setSample(x, y, 0, pixel.getRedValue());
-				raster.setSample(x, y, 1, pixel.getGreenValue());
-				raster.setSample(x, y, 2, pixel.getBlueValue());
+				bufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlue());
 			}
 		}	
 	}
