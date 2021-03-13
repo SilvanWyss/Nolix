@@ -4,6 +4,7 @@ package ch.nolix.system.client.base;
 //Java import
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
@@ -302,6 +303,24 @@ public abstract class Session<C extends Client<C>> {
 		internalInvokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
 	}
 	
+	//method
+	/**
+	 * Lets the current {@link Session} run the given command.
+	 * 
+	 * @param command
+	 */
+	protected final void run(final ChainedNode command) {
+		
+		//Enumerates the header of the given command.
+		switch (command.getHeader()) {
+			case Protocol.RUN_METHOD_HEADER:
+				internalInvokeSessionUserRunMethod(command.getOneAttributeAsNode());
+				break;
+			default:
+				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
+		}
+	}
+	
 	//method declaration
 	/**
 	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
@@ -376,19 +395,6 @@ public abstract class Session<C extends Client<C>> {
 	}
 	
 	//method
-	protected void run(final ChainedNode command) {
-		
-		//Enumerates the header of the given command.
-		switch (command.getHeader()) {
-			case Protocol.RUN_METHOD_HEADER:
-				internalInvokeSessionUserRunMethod(command.getOneAttributeAsNode());
-				break;
-			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
-		}
-	}
-	
-	//method
 	/**
 	 * Sets the parent client of the current {@link Session}.
 	 * 
@@ -399,10 +405,7 @@ public abstract class Session<C extends Client<C>> {
 	final void setParentClient(C parentClient) {
 		
 		//Asserts that the given client is not null.
-		Validator
-		.assertThat(parentClient)
-		.thatIsNamed("parent client")
-		.isNotNull();
+		Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 		
 		//Asserts that the current session does not belong to a client.
 		suppoeDoesNotBelongToClient();
