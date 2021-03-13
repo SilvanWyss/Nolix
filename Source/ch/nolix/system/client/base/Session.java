@@ -205,7 +205,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final void setNext(final Session<C> session) {
-		getParentClient().setNext(session);
+		getParentClient().setCurrentSession(session);
 	}
 	
 	//method declaration

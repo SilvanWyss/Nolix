@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+//own imports
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalLabelable;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
@@ -30,7 +29,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 740
+ * @lines 640
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -43,6 +42,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	//attributes
 	private final CloseController closeController = new CloseController(this);
 	private EndPoint endPoint;
+	private final ClientSessionManager<C> sessionManager = new ClientSessionManager<>(this);
 	
 	//optional attribute
 	/**
@@ -52,12 +52,8 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 */
 	private Application<C> parentApplication;
 	
-	//optional attributes
-	private Session<C> currentSession;
+	//optional attribute
 	private String infoString;
-	
-	//multi-attribute
-	private final LinkedList<Session<C>> sessions = new LinkedList<>();
 	
 	//method
 	/**
@@ -72,7 +68,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return true if the current {@link Client} contains a current session.
 	 */
 	public final boolean containsCurrentSession() {
-		return (currentSession != null);
+		return sessionManager.containsCurrentSession();
 	}
 	
 	//method
@@ -80,7 +76,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return true if the current {@link Client} contais a next session.
 	 */
 	public final boolean containsNextSession() {
-		return (containsCurrentSession() && getSessionStackSize() > getCurrentSessionIndex());
+		return sessionManager.containsNextSession();
 	}
 	
 	//method
@@ -88,7 +84,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return true if the current {@link Client} contains a previous session.
 	 */
 	public final boolean containsPreviousSession() {
-		return (containsCurrentSession() && getCurrentSessionIndex() > 1);
+		return sessionManager.containsPreviousSession();
 	}
 	
 	//method
@@ -97,11 +93,6 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 */
 	public final String getApplicationName() {
 		return internalGetParentApplication().getName();
-	}
-	
-	//method
-	public final int getCurrentSessionIndex() {
-		return sessions.getIndexOf(internalGetRefCurrentSession());
 	}
 	
 	//method
@@ -148,23 +139,6 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
-	}
-	
-	//method
-	/**
-	 * @return the second top {@link Session} of the current {@link Client}.
-	 * @throws InvalidArgumentException if the current {@link Client} contains less than 2 {@link Session}s.
-	 */
-	public final Session<C> getRefSecondTopSession() {
-		return sessions.getRefSecondLast();
-	}
-	
-	//method
-	/**
-	 * @return the number of sessions on the session stack of the current {@link Client}.
-	 */
-	public final int getSessionStackSize() {
-		return sessions.getElementCount();
 	}
 	
 	//method
@@ -256,15 +230,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * is not the top {@link Session} of the current {@link Client}.
 	 */
 	final void popCurrentSession() {
-		
-		popCurrentSessionFromStack();
-		
-		if (!this.containsCurrentSession()) {
-			close();
-		} else {
-			internalGetRefCurrentSession().initialize();
-			internalGetRefCurrentSession().updateCounterpart();
-		}
+		sessionManager.popCurrentSession();
 	}
 	
 	//method
@@ -278,13 +244,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * is not the top {@link Session} of the current {@link Client}.
 	 */
 	final void popCurrentSession(final Object result) {
-		
-		internalGetRefCurrentSession().setResult(result);
-		popCurrentSessionFromStack();
-		
-		if (!this.containsCurrentSession()) {
-			close();
-		}
+		sessionManager.popCurrentSession(result);
 	}
 	
 	//method
@@ -295,20 +255,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	final void push(final Session<C> session) {
-		
-		//Asserts that the given session is not null.
-		Validator.assertThat(session).isOfType(Session.class);
-		
-		//Sets the given session to the current Client.
-		session.setParentClient(asConcrete());
-		sessions.addAtEnd(session);
-		currentSession = session;
-		
-		//Initializes the given session.
-		session.initialize();
-		if (!isClosed()) {
-			session.updateCounterpart();
-		}
+		sessionManager.pushSession(session);
 	}
 	
 	//method
@@ -320,18 +267,8 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	@SuppressWarnings("unchecked")
 	final <R> R pushAndGetResult(final Session<C> session) {
-		
-		push(session);
-		
-		Sequencer.waitUntil(() -> isClosed() || !session.belongsToClient());
-		
-		if (isClosed()) {
-			throw new ClosedArgumentException(this);
-		}
-		
-		return (R)session.getRefResult();
+		return sessionManager.pushSessionAndGetResult(session);
 	}
 	
 	//method
@@ -344,11 +281,10 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	final void setNext(final Session<C> session) {
-		popCurrentSession();
-		push(session);
+	final void setCurrentSession(final Session<C> session) {
+		sessionManager.setCurrentSession(session);
 	}
-
+	
 	//method
 	/**
 	 * Connects the current {@link Client} to the given application.
@@ -521,10 +457,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * @return the current session of the current {@link Client}.
 	 */
 	protected final Session<C> internalGetRefCurrentSession() {
-		
-		Sequencer.waitUntil(this::containsCurrentSession);
-		
-		return currentSession;
+		return sessionManager.getRefCurrentSession();
 	}
 	
 	//method
@@ -684,29 +617,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		
 		return endPoint;
 	}
-	
-	//method
-	/**
-	 * Lets the current {@link Client} pop its current {@link Session}.
-	 */
-	private void popCurrentSessionFromStack() {
-		
-		//Asserts that the current Session of the current Client is the top Session of the current Client.
-		if (internalGetRefCurrentSession() != sessions.getRefLast()) {
-			throw new InvalidArgumentException(this, "cannot pop a Session that is not the top session.");
-		}
-		
-		//Removes the top Session of the current Client.
-		final var topSession = sessions.removeAndGetRefLast();
-		topSession.removeParentClient();
-		
-		if (sessions.isEmpty()) {
-			currentSession = null;
-		} else {
-			currentSession = sessions.getRefLast();
-		}
-	}
-	
+			
 	//method
 	/**
 	 * @throws InvalidArgumentException if the current {@link Client} is connected.

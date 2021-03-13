@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.main;
 
+//own imports
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;
@@ -19,11 +20,6 @@ public final class StartSession extends BackGUIClientSession {
 		getRefGUI().addLayerOnTop(new Label().setText(MESSAGE).setRole(LabelRole.MAIN_TEXT));
 		
 		final var parentApplication = getParentApplication().as(DatabaseApplication.class);
-		
-		Sequencer
-		.asSoonAs(parentApplication::isReady)
-		
-		//TODO: runInBackgrond(() -> setNext(new LoginSession()))
-		.runInBackground(() -> push(new LoginSession()));
+		Sequencer.asSoonAs(parentApplication::isReady).runInBackground(() -> setNext(new LoginSession()));
 	}
 }
