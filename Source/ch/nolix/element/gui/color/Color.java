@@ -22,7 +22,7 @@ import ch.nolix.element.base.Element;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1350
+ * @lines 1360
  */
 public class Color extends Element<Color> {
 	
@@ -1121,6 +1121,14 @@ public class Color extends Element<Color> {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return new Color(redValue, greenValue, blueValue);
+	}
+	
+	//method
+	/**
+	 * @return an integer that represents the current {@link Color} in the schema alpha-red-green-blue.
+	 */
+	public int toAlphaRedGreenBlue() {
+		return (getAlphaValue() << 24 | getRedValue() << 16 | getGreenValue() << 8 | getBlueValue());
 	}
 	
 	//method
