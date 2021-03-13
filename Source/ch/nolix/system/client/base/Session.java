@@ -216,9 +216,9 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method declaration
 	/**
-	 * Initializes the current {@link Session} after it has been created.
+	 * Initializes the current {@link Session} for the first time.
 	 */
-	protected abstract void initializeAfterCreation();
+	protected abstract void initializeForFirstTime();
 	
 	//method
 	/**
@@ -409,9 +409,12 @@ public abstract class Session<C extends Client<C>> {
 		
 		//Asserts that the current session does not belong to a client.
 		suppoeDoesNotBelongToClient();
-		
+						
 		//Sets the parent client of the current session.
 		this.parentClient = parentClient;
+		
+		//Initializes the current Session the first time.
+		initializeForFirstTime();
 	}
 	
 	//method

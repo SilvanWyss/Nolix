@@ -41,7 +41,7 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	}
 	
 	//method
-	protected final void initializeAfterCreation() {
+	protected final void initializeForFirstTime() {
 		getParentClient().createCloseDependencyTo(mGUI);
 	}
 	

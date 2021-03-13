@@ -14,7 +14,7 @@ public abstract class StandardClientSession extends Session<StandardClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void initializeAfterCreation() {}
+	protected void initializeForFirstTime() {}
 	
 	//method
 	/**
