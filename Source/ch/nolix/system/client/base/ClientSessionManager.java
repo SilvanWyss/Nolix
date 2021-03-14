@@ -11,6 +11,9 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
 //visibility-reduced class
 final class ClientSessionManager<C extends Client<C>> {
 	
+	//constant
+	private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
+	
 	//attribute
 	private final Client<C> parentClient;
 		
@@ -52,6 +55,10 @@ final class ClientSessionManager<C extends Client<C>> {
 	
 	//method
 	public Session<C> getRefCurrentSession() {
+		
+		Sequencer
+		.forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
+		.waitUntil(this::containsCurrentSession);
 		
 		assertContainsCurrentSession();
 		
