@@ -11,6 +11,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.MutableValue;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
@@ -235,6 +236,13 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
 	
 	//method
 	/**

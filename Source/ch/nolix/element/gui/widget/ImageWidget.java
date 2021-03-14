@@ -5,6 +5,7 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.input.Key;
@@ -127,6 +128,10 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	@Override
 	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
+	//method
+	@Override
+	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+		
 	//method
 	@Override
 	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}

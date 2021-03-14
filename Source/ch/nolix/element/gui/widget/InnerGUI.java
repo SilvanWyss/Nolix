@@ -8,6 +8,7 @@ import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.element.configuration.Configuration;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
@@ -258,6 +259,10 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		internalGUI.noteMouseWheelRelease();
 	}
 	
+	//method
+	@Override
+	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+		
 	//method
 	@Override
 	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {

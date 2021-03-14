@@ -6,6 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Calculator;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -234,6 +235,13 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	@Override
 	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+		
 	//method
 	/**
 	 * {@inheritDoc}

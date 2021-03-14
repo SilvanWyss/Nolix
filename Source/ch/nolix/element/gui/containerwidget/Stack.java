@@ -11,6 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.input.Key;
@@ -215,7 +216,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean contentAreaMustBeExpandedToTargetSize() {
+	protected final boolean contentAreaMustBeExpandedToTargetSize() {
 		return false;
 	}
 	
@@ -259,7 +260,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected final void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	/**
@@ -294,22 +295,29 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelClickOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelPressOnContentAreaWhenEnabled() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+		
 	//method
 	/**
 	 * {@inheritDoc}
@@ -336,7 +344,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final StackLook stackLook, final IPainter painter) {}
+	protected final void paintContentArea(final StackLook stackLook, final IPainter painter) {}
 	
 	//method
 	/**

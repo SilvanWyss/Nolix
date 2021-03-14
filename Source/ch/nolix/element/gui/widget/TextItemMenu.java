@@ -14,6 +14,7 @@ import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MultiValue;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
 
 //class
@@ -245,7 +246,7 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected final void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
 	
 	//method
 	@Override
@@ -257,16 +258,20 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelClickOnContentAreaWhenEnabled() {}
 	
 	//method
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelPressOnContentAreaWhenEnabled() {}
 	
 	//method
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected final void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
+	//method
+	@Override
+	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+		
 	//method
 	@Override
 	protected final void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
@@ -277,7 +282,7 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected final void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method declaration
 	protected abstract void noteSelectItem(TextItemMenuItem item);

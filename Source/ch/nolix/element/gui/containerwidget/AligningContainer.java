@@ -6,6 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Calculator;
+import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.input.Key;
@@ -301,6 +302,10 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	@Override
 	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
 	
+	//method
+	@Override
+	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+		
 	//method
 	@Override
 	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}

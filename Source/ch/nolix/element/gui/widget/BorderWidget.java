@@ -1239,9 +1239,18 @@ extends Widget<BW, BWL> {
 				+ rotationDirection.toInt() * SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
 			);
 			
-			//TODO: noteMouseWheelRotationStepOnSelfWhenFocused()
+			noteMouseWheelRotationStepOnSelfWhenFocused(rotationDirection);
 		}
 	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link BorderWidget} note a right mouse wheel rotation step
+	 * for the case when the current {@link BorderWidget} is focused.
+	 * 
+	 * @param rotationDirection
+	 */
+	protected abstract void noteMouseWheelRotationStepOnSelfWhenFocused(RotationDirection rotationDirection);
 	
 	//method declaration
 	/**
