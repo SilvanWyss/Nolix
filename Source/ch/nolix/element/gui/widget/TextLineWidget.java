@@ -22,12 +22,15 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 290
+ * @lines 300
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link TextLineWidgetLook} of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
 extends BorderWidget<TLW, TLWL> {
+	
+	//constant
+	public static final int TEXT_CURSOR_WIDTH = 2;
 	
 	//attribute
 	private MutableValue<String> text =
@@ -182,7 +185,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final int getNaturalContentAreaWidth() {
-		return getTextFormat().getSwingTextWidth(getText());
+		return getTextFormat().getSwingTextWidth(getText() + TEXT_CURSOR_WIDTH);
 	}
 	
 	//method
