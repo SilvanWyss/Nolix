@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
+//own imports
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.system.client.base.Session;
@@ -16,7 +17,6 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 		return mGUI;
 	}
 	
-	//TODO: Rename initialize method to internalInitialize.
 	//method
 	protected final void initialize() {
 		
@@ -48,7 +48,6 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	//method declaration
 	protected abstract void initializeBaseBackGUIClientSession();
 	
-	//TODO: Rename updateCounterpart method to internalUpdateCounterpart.
 	//method
 	@Override
 	protected final void updateCounterpart() {
