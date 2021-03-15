@@ -267,6 +267,20 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+		
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -316,7 +330,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected final void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
 		
 	//method
 	/**

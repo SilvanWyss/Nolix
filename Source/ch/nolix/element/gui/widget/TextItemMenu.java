@@ -250,6 +250,14 @@ implements Clearable {
 	
 	//method
 	@Override
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	@Override
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+		
+	//method
+	@Override
 	protected final void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -270,7 +278,9 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected final void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(
+		final RotationDirection rotationDirection
+	) {}
 		
 	//method
 	@Override

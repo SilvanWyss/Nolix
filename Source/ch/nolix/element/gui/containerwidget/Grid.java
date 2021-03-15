@@ -224,6 +224,20 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+		
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -273,7 +287,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
 		
 	//method
 	/**

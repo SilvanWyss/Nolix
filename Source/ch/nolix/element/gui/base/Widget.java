@@ -44,7 +44,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2120
+ * @lines 2130
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -770,7 +770,10 @@ TopLeftPositionedRecangular {
 		if (isEnabled()) {
 			
 			noteContinuousKeyPressOnSelfWhenEnabled_(key);
-			noteKeyPressOnSelfWhenEnabled(key);
+			
+			if (isFocused()) {
+				noteKeyPressOnSelfWhenFocused(key);
+			}	
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(w -> w.noteKeyPress(key));
@@ -786,7 +789,9 @@ TopLeftPositionedRecangular {
 	public final void noteKeyRelease(final Key key) {
 		if (isEnabled()) {
 			
-			noteKeyReleaseOnSelfWhenEnabled(key);
+			if (isFocused()) {
+				noteKeyReleaseOnSelfWhenFocused(key);
+			}
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(w -> w.noteKeyRelease(key));
@@ -802,7 +807,9 @@ TopLeftPositionedRecangular {
 	public final void noteKeyTyping(final Key key) {
 		if (isEnabled()) {
 			
-			noteKeyTypingOnSelfWhenEnabled(key);
+			if (isFocused()) {
+				noteKeyTypingOnSelfWhenFocused(key);
+			}
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(w -> w.noteKeyTyping(key));
@@ -927,7 +934,9 @@ TopLeftPositionedRecangular {
 	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		if (isEnabled()) {
 			
-			noteMouseWheelRotationStepOnSelfWhenEnabled(rotationDirection);
+			if (isFocused()) {
+				noteMouseWheelRotationStepOnSelfWhenFocused(rotationDirection);
+			}
 			
 			if (redirectsInputsToShownWidgets()) {
 				getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStep(rotationDirection));
@@ -1581,29 +1590,29 @@ TopLeftPositionedRecangular {
 	//method declaration
 	/**
 	 * Lets the current {@link Widget} note a key press on itself
-	 * for the case when the current {@link Widget} is enabled.
+	 * for the case when the current {@link Widget} is focused.
 	 * 
 	 * @param key
 	 */
-	protected abstract void noteKeyPressOnSelfWhenEnabled(Key key);
+	protected abstract void noteKeyPressOnSelfWhenFocused(Key key);
 	
 	//method declaration
 	/**
 	 * Lets the current {@link Widget} note a key release on itself
-	 * for the case when the current {@link Widget} is enabled.
+	 * for the case when the current {@link Widget} is focused.
 	 * 
 	 * @param key
 	 */
-	protected abstract void noteKeyReleaseOnSelfWhenEnabled(Key key);
+	protected abstract void noteKeyReleaseOnSelfWhenFocused(Key key);
 	
 	//method declaration
 	/**
 	 * Lets the current {@link Widget} note a key typing on itself
-	 * for the case when the current {@link Widget} is enabled.
+	 * for the case when the current {@link Widget} is focused.
 	 * 
 	 * @param key
 	 */
-	protected abstract void noteKeyTypingOnSelfWhenEnabled(Key key);
+	protected abstract void noteKeyTypingOnSelfWhenFocused(Key key);
 	
 	//method declaration
 	/**
@@ -1657,11 +1666,11 @@ TopLeftPositionedRecangular {
 	//method declaration
 	/**
 	 * Lets the current {@link Widget} note a mouse wheel rotation step
-	 * for the case when the current {@link Widget} is enabled.
+	 * for the case when the current {@link Widget} is focused.
 	 * 
 	 * @param rotationDirection
 	 */
-	protected abstract void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection);
+	protected abstract void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection);
 	
 	//method declaration
 	/**

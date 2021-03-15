@@ -102,6 +102,14 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	@Override
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+		
+	//method
+	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -130,7 +138,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
 		
 	//method
 	@Override

@@ -276,6 +276,14 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	@Override
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+		
+	//method
+	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -304,7 +312,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
 		
 	//method
 	@Override

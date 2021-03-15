@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -62,7 +63,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1390
+ * @lines 1370
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -1018,39 +1019,6 @@ extends Widget<BW, BWL> {
 	 */
 	protected abstract void noteKeyPressOnSelfWhenFocused(Key key);
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void noteKeyPressOnSelfWhenEnabled(final Key key) {
-		if (isFocused()) {
-			noteKeyPressOnSelfWhenFocused(key);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void noteKeyReleaseOnSelfWhenEnabled(final Key key) {
-		if (isFocused()) {
-			//TODO: noteKeyReleaseOnContentAreaWhenFocused(key)
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void noteKeyTypingOnSelfWhenEnabled(final Key key) {
-		if (isFocused()) {
-			//TODO: noteKeyReleaseOnContentAreaWhenFocused(key)
-		}
-	}
-	
 	//method declaration
 	/**
 	 * Lets the current {@link BorderWidget} note a left mouse button click on the content area
@@ -1231,27 +1199,27 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection) {
-		if (isFocused()) {
-			
-			setShowAreaYPositionOnScrolledArea(
-				getShowAreaYPositionOnScrolledArea()
-				+ rotationDirection.toInt() * SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
-			);
-			
-			noteMouseWheelRotationStepOnSelfWhenFocused(rotationDirection);
-		}
+	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {
+		
+		setShowAreaYPositionOnScrolledArea(
+			getShowAreaYPositionOnScrolledArea()
+			+ rotationDirection.toInt() * SHOW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP
+		);
+		
+		noteMouseWheelRotationStepOnBorderWidgetWhenFocused(rotationDirection);
 	}
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BorderWidget} note a right mouse wheel rotation step
-	 * for the case when the current {@link BorderWidget} is focused.
+	 * Lets the current {@link Widget} note a mouse wheel rotation step
+	 * for the case when the current {@link Widget} is focused.
 	 * 
 	 * @param rotationDirection
 	 */
-	protected abstract void noteMouseWheelRotationStepOnSelfWhenFocused(RotationDirection rotationDirection);
-	
+	protected abstract void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(
+		final RotationDirection rotationDirection
+	);
+		
 	//method declaration
 	/**
 	 * Lets the current {@link BorderWidget} note a right mouse button click on the content area

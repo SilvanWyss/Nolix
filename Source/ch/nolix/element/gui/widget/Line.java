@@ -202,21 +202,21 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteKeyPressOnSelfWhenEnabled(final Key key) {}
+	protected final void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteKeyReleaseOnSelfWhenEnabled(final Key key) {}
+	protected final void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteKeyTypingOnSelfWhenEnabled(final Key key) {}
+	protected final void noteKeyTypingOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**
@@ -272,7 +272,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection) {}
+	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
 	
 	//method
 	/**

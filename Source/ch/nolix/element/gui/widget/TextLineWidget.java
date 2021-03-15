@@ -13,6 +13,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
 
@@ -210,6 +211,20 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -245,7 +260,9 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected final void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(
+		final RotationDirection rotationDirection
+	) {}
 	
 	//method
 	/**

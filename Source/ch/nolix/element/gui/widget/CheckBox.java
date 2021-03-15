@@ -189,6 +189,20 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+		
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -240,7 +254,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
 		
 	//method
 	/**

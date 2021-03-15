@@ -268,21 +268,21 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnSelfWhenEnabled(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyReleaseOnSelfWhenEnabled(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyTypingOnSelfWhenEnabled(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**
@@ -338,7 +338,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepOnSelfWhenEnabled(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
 	
 	//method
 	/**
