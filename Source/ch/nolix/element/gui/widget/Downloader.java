@@ -122,7 +122,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

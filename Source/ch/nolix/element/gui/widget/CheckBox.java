@@ -182,7 +182,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

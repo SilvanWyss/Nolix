@@ -122,7 +122,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {
 		
 		//Enumerates the given key.
 		switch (key) {

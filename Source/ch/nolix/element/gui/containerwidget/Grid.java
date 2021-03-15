@@ -217,7 +217,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

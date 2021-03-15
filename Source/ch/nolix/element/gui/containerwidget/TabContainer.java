@@ -361,7 +361,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

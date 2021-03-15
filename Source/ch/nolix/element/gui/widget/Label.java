@@ -143,7 +143,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

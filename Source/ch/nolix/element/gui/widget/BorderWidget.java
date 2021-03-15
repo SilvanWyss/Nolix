@@ -1016,7 +1016,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param key
 	 */
-	protected abstract void noteKeyPressOnContentAreaWhenFocused(Key key);
+	protected abstract void noteKeyPressOnSelfWhenFocused(Key key);
 	
 	//method
 	/**
@@ -1025,7 +1025,7 @@ extends Widget<BW, BWL> {
 	@Override
 	protected final void noteKeyPressOnSelfWhenEnabled(final Key key) {
 		if (isFocused()) {
-			noteKeyPressOnContentAreaWhenFocused(key);
+			noteKeyPressOnSelfWhenFocused(key);
 		}
 	}
 	

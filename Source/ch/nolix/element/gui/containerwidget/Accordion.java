@@ -304,7 +304,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

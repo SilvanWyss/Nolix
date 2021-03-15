@@ -246,7 +246,7 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected final void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

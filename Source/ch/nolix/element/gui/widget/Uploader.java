@@ -65,7 +65,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	
 	//method
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {}
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

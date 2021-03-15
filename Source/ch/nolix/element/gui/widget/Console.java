@@ -671,7 +671,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnContentAreaWhenFocused(final Key key) {
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {
 				
 		//Handles the case that the current Console is focues.
 		if (isFocused()) {
