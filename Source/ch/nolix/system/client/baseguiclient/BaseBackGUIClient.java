@@ -4,8 +4,8 @@ package ch.nolix.system.client.baseguiclient;
 //Java import
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.BaseNode;
@@ -28,7 +28,7 @@ import ch.nolix.system.client.base.Client;
 /**
  * @author Silvan Wyss
  * @date 2017-10-01
- * @lines 420
+ * @lines 390
  * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends Client<BBGUIC> {
@@ -40,6 +40,8 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	private BaseFrontGUIClientGUIType counterpartGUIType;
 	private boolean isNotingMouseInput;
 	private boolean isWaitingForFileFromCounterpart;
+	private final BaseBackGUIClientCanvasGUICounterpartUpdater canvasGUICounterpartUpdater =
+	new BaseBackGUIClientCanvasGUICounterpartUpdater(this);
 	
 	//optional attribute
 	private Node latestFileDataFromCounterpart;
@@ -95,7 +97,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 				super.internalRun(command);
 		}
 	}
-
+	
 	//method
 	final void configureGUI(final InvisibleGUI pGUI) {
 		
@@ -124,9 +126,26 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	}
 	
 	//method
+	/**
+	 * @return the {@link GUI} of the current {@link BaseBackGUIClientSession} of the current {@link BaseBackGUIClient}.
+	 */
+	IWidgetGUI<?> getRefGUI() {
+		
+		@SuppressWarnings("rawtypes")
+		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
+		
+		return session.getRefGUI();
+	}
+	
+	//method
 	final String getTextFromClipboardFromCounterpart() {
 		return
 		internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
+	}
+	
+	//method
+	void runOnCounterpart(final Iterable<ChainedNode> commands) {
+		internalRunOnCounterpart(commands);
 	}
 	
 	//method
@@ -226,18 +245,6 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		isWaitingForFileFromCounterpart = false;
 		
 		return latestFileDataFromCounterpart;
-	}
-	
-	//method
-	/**
-	 * @return the {@link GUI} of the current {@link BaseBackGUIClientSession} of the current {@link BaseBackGUIClient}.
-	 */
-	private IWidgetGUI<?> getRefGUI() {
-		
-		@SuppressWarnings("rawtypes")
-		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
-		
-		return session.getRefGUI();
 	}
 	
 	//method
@@ -353,11 +360,6 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	}
 	
 	//method
-	private void runGUICommandsOnCounterpart(final IContainer<ChainedNode> pGUICommands) {
-		internalRunOnCounterpart(pGUICommands.to(c -> ChainedNode.withHeaderAndNextNode(ObjectProtocol.GUI, c)));
-	}
-	
-	//method
 	/**
 	 * Lets the current {@link BaseBackGUIClient} run the given GUICommand.
 	 * 
@@ -376,36 +378,13 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		}
 	}
 	
-	//TODO: Create several sub methods for this method.
 	//method
 	/**
 	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
 	 * for the case when it is a {@link CanvasGUI}.
 	 */
 	private void updateCanvasGUIOnCounterpart() {
-		
-		final var canvasGUIUpdateCommands = new LinkedList<ChainedNode>();
-		
-		canvasGUIUpdateCommands.addAtEnd(
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_TITLE, Node.withHeader(getRefGUI().getTitle()))
-		);
-		
-		canvasGUIUpdateCommands.addAtEnd(
-			ChainedNode.withHeaderAndAttributesFromNodes(
-				CommandProtocol.SET_CURSOR_ICON,
-				getRefGUI().getCursorIcon().getSpecification()
-			)
-		);
-		canvasGUIUpdateCommands.addAtEnd();
-		
-		final var paintCommands = getRefGUI().getPaintCommands();
-		if (paintCommands.containsAny()) {
-			canvasGUIUpdateCommands.addAtEnd(
-				ChainedNode.withHeaderAndAttributes(CommandProtocol.SET_PAINT_COMMANDS, paintCommands)
-			);
-		}
-		
-		runGUICommandsOnCounterpart(canvasGUIUpdateCommands);
+		canvasGUICounterpartUpdater.updateCounterpart();
 	}
 	
 	//method
