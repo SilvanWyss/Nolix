@@ -36,7 +36,7 @@ import ch.nolix.common.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2070
+ * @lines 2080
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -221,6 +221,17 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return false;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param container
+	 * @return true if the current {@link IContainer} contains as many elements as the given container.
+	 */
+	default boolean containsAsManyAs(final IContainer<E> container) {
+		return (getElementCount() == container.getElementCount());
 	}
 	
 	//method
