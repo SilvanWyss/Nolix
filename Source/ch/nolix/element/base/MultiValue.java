@@ -24,7 +24,7 @@ import ch.nolix.common.skillapi.Clearable;
  * @lines 230
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
-public final class MultiValue<V> extends Property<V> implements Clearable, IContainer<V> {
+public final class MultiValue<V> extends BaseValue<V> implements Clearable, IContainer<V> {
 	
 	//static method
 	/**

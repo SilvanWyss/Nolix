@@ -18,9 +18,9 @@ import ch.nolix.common.requestapi.MutabilityRequestable;
 * @author Silvan Wyss
 * @date 2017-10-29
 * @lines 90
-* @param <V> is the type of the values of a {@link Property}.
+* @param <V> is the type of the values of a {@link BaseValue}.
 */
-public abstract class Property<V> implements MutabilityRequestable, Named {
+public abstract class BaseValue<V> implements MutabilityRequestable, Named {
 	
 	//attributes
 	private final String name;
@@ -29,7 +29,7 @@ public abstract class Property<V> implements MutabilityRequestable, Named {
 	
 	//visibility-reduced constructor
 	/**
-	 * Creates a new {@link Property} with the given name, valueCreator and specificationCreator.
+	 * Creates a new {@link BaseValue} with the given name, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param valueCreator
@@ -39,7 +39,7 @@ public abstract class Property<V> implements MutabilityRequestable, Named {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	Property(
+	BaseValue(
 		final String name,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
@@ -65,7 +65,7 @@ public abstract class Property<V> implements MutabilityRequestable, Named {
 	
 	//visibility-reduced method
 	/**
-	 * Adds or changes the value from the given attribute to the current {@link Property}.
+	 * Adds or changes the value from the given attribute to the current {@link BaseValue}.
 	 * 
 	 * @param attribute
 	 */
@@ -75,7 +75,7 @@ public abstract class Property<V> implements MutabilityRequestable, Named {
 	
 	//visibility-reduced method declaration
 	/**
-	 * Adds or change the given value to the current {@link Property}.
+	 * Adds or change the given value to the current {@link BaseValue}.
 	 * 
 	 * @param value
 	 */
@@ -83,7 +83,7 @@ public abstract class Property<V> implements MutabilityRequestable, Named {
 	
 	//visibility-reduced method declaration
 	/**
-	 * Fills up the attributes of the values of the current {@link Property} into the given list.
+	 * Fills up the attributes of the values of the current {@link BaseValue} into the given list.
 	 * 
 	 * @param list
 	 */

@@ -23,7 +23,7 @@ import ch.nolix.element.smartelementapi.ISmartElement;
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
 	
 	//multi-attribute
-	private LinkedList<Property<?>> properties;
+	private LinkedList<BaseValue<?>> baseValues;
 	
 	//method
 	/**
@@ -101,14 +101,14 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	/**
 	 * @return the properties of the current {@link Element}.
 	 */
-	private IContainer<Property<?>> getRefProperties() {
+	private IContainer<BaseValue<?>> getRefProperties() {
 		
 		//Handles the case that the properties of the current Entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
 		
-		return properties;
+		return baseValues;
 	}
 	
 	//method
@@ -120,17 +120,17 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	private void extractProbableProperty(final Field field) {
 		
 		//Handles the case that the current field is a property.
-		if (Property.class.isAssignableFrom(field.getType())) {
+		if (BaseValue.class.isAssignableFrom(field.getType())) {
 			try {
 				
 				field.setAccessible(true);
 				
-				final var property = (Property<?>)(field.get(this));
+				final var property = (BaseValue<?>)(field.get(this));
 				
 				//Asserts that the current property is not null.
 				Validator.assertThat(property).isOfType(MutableValue.class);
 				
-				properties.addAtEnd(property);
+				baseValues.addAtEnd(property);
 			} catch (final IllegalAccessException illegalAccessException) {
 				
 				final var message = illegalAccessException.getMessage();
@@ -150,7 +150,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 */
 	private void extractProperties() {
 		
-		properties = new LinkedList<>();
+		baseValues = new LinkedList<>();
 		
 		//Iterates the classes of the current {@link Entity}.
 		Class<?> lClass = getClass();
@@ -179,6 +179,6 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 * @return true if the properties of the current {@link Element} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
-		return (properties != null);
+		return (baseValues != null);
 	}
 }

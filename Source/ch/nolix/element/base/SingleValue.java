@@ -21,7 +21,7 @@ import ch.nolix.common.requestapi.OptionalityRequestable;
  * @lines 140
  * @param <V> is the type of the value of a {@link SingleValue}.
  */
-abstract class SingleValue<V> extends Property<V> implements OptionalityRequestable {
+abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequestable {
 	
 	//attribute
 	private final IElementTaker<V> setterMethod;
