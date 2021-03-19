@@ -23,14 +23,19 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
+import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.LocalFrontEndReader;
+import ch.nolix.element.gui.base.LocalFrontEndWriter;
 import ch.nolix.element.gui.baseapi.IBaseGUI;
+import ch.nolix.element.gui.baseapi.IFrontEndReader;
+import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.color.Color;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 380
+ * @lines 410
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IBaseGUI<G> {
@@ -153,11 +158,29 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		}
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IFrontEndReader fromFrontEnd() {
+		return new LocalFrontEndReader();
+	}
+	
 	/**
 	 * @return the background color of the current {@link GUI3D}.
 	 */
 	public final Color getBackgroundColor() {
 		return backgroundColor.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CursorIcon getCursorIcon() {
+		return CursorIcon.ARROW;
 	}
 	
 	//method
@@ -225,6 +248,15 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	@Override
 	public final boolean isEmpty() {
 		return hasRootShape();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final IFrontEndWriter onFrontEnd() {
+		return new LocalFrontEndWriter();
 	}
 	
 	//method

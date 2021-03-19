@@ -15,9 +15,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.gui.baseapi.IFrontEndReader;
-import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui3d.base.MainFrame;
 import ch.nolix.element.gui3d.base.Shape;
@@ -32,7 +29,7 @@ import ch.nolix.element.gui3d.shape.Sphere;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 450
+ * @lines 410
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
@@ -151,28 +148,6 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	public void close() {
 		closed = true;
 		simpleApplication.destroy();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IFrontEndReader fromFrontEnd() {
-		
-		//TODO: Implement.
-		return null;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CursorIcon getCursorIcon() {
-		
-		//TODO: Implement.
-		return null;
 	}
 	
 	//method
@@ -366,18 +341,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public void noteRightMouseButtonRelease() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IFrontEndWriter onFrontEnd() {
 		
-		//TODO: Implement.
-		return null;
-	}
-	
 	//method
 	/**
 	 * Refreshes this JMonkey main frmae.
