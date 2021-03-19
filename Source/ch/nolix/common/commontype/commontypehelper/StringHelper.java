@@ -19,7 +19,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 390
+ * @lines 380
  */
 public final class StringHelper {
 		
@@ -181,54 +181,13 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return the int the given string represents.
+	 * @return the in the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a int.
 	 */
 	public static int toInt(final String string) {
-		
-		//Asserts that the given string is not null or empty.
-		Validator.assertThat(string).isNotEmpty();
-		
-		int startIndex = 0;
-		
-		boolean negative = false;
-		
-		if (string.charAt(0) == CharacterCatalogue.MINUS) {
-			startIndex++;
-			negative = true;
-		}
-		
-		boolean decimal = true;
-		
-		if (string.length() - startIndex > 2 && string.substring(startIndex, startIndex + 2).equals("0x")) {
-			startIndex += 2;
-			decimal = false;
-		}
-		
-		if (string.length() - startIndex > 10) {
-			throw
-			new InvalidArgumentException(
-				string,
-				"does not represent an integer"
-			);
-		}
-		
-		if (negative) {
-			
-			if (decimal) {
-				return -toIntFromNonNegativeDecimal(string.substring(startIndex));
-			}
-			
-			return -toIntFromNonNegativeHexaDecimal(string.substring(startIndex));
-		} else {
-			if (decimal) {
-				return toIntFromNonNegativeDecimal(string.substring(startIndex));
-			}
-			
-			return toIntFromNonNegativeHexaDecimal(string.substring(startIndex));
-		}
+		return (int)toLong(string);
 	}
-	
+
 	//static method
 	/**
 	 * @param string
@@ -237,8 +196,43 @@ public final class StringHelper {
 	 */
 	public static long toLong(final String string) {
 		
-		//TODO: Implement this method like the toInt method.
-		return Long.valueOf(string);
+		//Asserts that the given string is not null or empty.
+		Validator.assertThat(string).isNotEmpty();
+		
+		var startIndex = 0;
+		
+		var negative = false;
+		
+		if (string.charAt(0) == CharacterCatalogue.MINUS) {
+			startIndex++;
+			negative = true;
+		}
+		
+		var decimal = true;
+		
+		if (string.length() - startIndex > 2 && string.substring(startIndex, startIndex + 2).equals("0x")) {
+			startIndex += 2;
+			decimal = false;
+		}
+		
+		if (string.length() - startIndex > 10) {
+			throw new UnrepresentingArgumentException(string, Long.class);
+		}
+		
+		if (negative) {
+			
+			if (decimal) {
+				return -toLongFromNonNegativeDecimal(string.substring(startIndex));
+			}
+			
+			return -toLongFromNonNegativeHexaDecimal(string.substring(startIndex));
+		}
+		
+		if (decimal) {
+			return toLongFromNonNegativeDecimal(string.substring(startIndex));
+		}
+		
+		return toLongFromNonNegativeHexaDecimal(string.substring(startIndex));
 	}
 	
 	//static method
@@ -265,7 +259,7 @@ public final class StringHelper {
 	 * @return the non negative decimal integer the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a non-negative decimal int.
 	 */
-	private static int toIntFromNonNegativeDecimal(final String string) {
+	private static long toLongFromNonNegativeDecimal(final String string) {
 		
 		int number = 0;
 		
@@ -305,11 +299,7 @@ public final class StringHelper {
 					number += 9;
 					break;
 				default:
-					throw
-					new InvalidArgumentException(
-						string,
-						"does not represent a non-negative decimal int"
-					);
+					throw new UnrepresentingArgumentException(string, Long.class);
 			}
 		}
 		
@@ -322,7 +312,7 @@ public final class StringHelper {
 	 * @return the non-negative hexadecimal int the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a non-negative hexadecimal int.
 	 */
-	private static int toIntFromNonNegativeHexaDecimal(final String string) {
+	private static long toLongFromNonNegativeHexaDecimal(final String string) {
 		
 		int number = 0;
 		
@@ -380,11 +370,7 @@ public final class StringHelper {
 					number += 15;
 					break;
 				default:
-					throw
-					new InvalidArgumentException(
-						string,
-						"does not represents a non-negative hexadecimal decimal int"
-					);
+					throw new UnrepresentingArgumentException(string, Long.class);
 			}
 		}
 		
