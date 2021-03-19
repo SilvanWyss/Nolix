@@ -19,6 +19,7 @@ import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.common.requestapi.EnablingRequestable;
 import ch.nolix.common.requestapi.ExpansionRequestable;
 import ch.nolix.common.skillapi.Recalculable;
+import ch.nolix.element.base.ExchangableExtensionElement;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -44,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2130
+ * @lines 2120
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -77,10 +78,17 @@ TopLeftPositionedRecangular {
 	private boolean focused;
 	private boolean hovered;
 	
-	//attributes
-	private WL baseLook = createLook();
-	private WL hoverLook = createLook();
-	private WL focusLook = createLook();
+	//attribute
+	private final ExchangableExtensionElement<WL> baseLook =
+	new ExchangableExtensionElement<>(BASE_PREFIX, createLook());
+	
+	//attribute
+	private final ExchangableExtensionElement<WL> hoverLook =
+	new ExchangableExtensionElement<>(HOVER_PREFIX, createLook());
+	
+	//attribute
+	private final ExchangableExtensionElement<WL> focusLook =
+	new ExchangableExtensionElement<>(FOCUS_PREFIX, createLook());
 	
 	//attributes
 	private int xPositionOnContentAreaOfParent;
@@ -145,23 +153,9 @@ TopLeftPositionedRecangular {
 				
 				break;
 			default:
-				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
-					final var copy = attribute.getCopy();
-					copy.setHeader(attribute.getHeader().substring(BASE_PREFIX.length()));
-					baseLook.addOrChangeAttribute(copy);
-				} else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
-					final var copy = attribute.getCopy();
-					copy.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
-					hoverLook.addOrChangeAttribute(copy);
-				} else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
-					final var copy = attribute.getCopy();
-					copy.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
-					focusLook.addOrChangeAttribute(copy);
-				} else {
 				
-					//Calls method of the base class.
-					super.addOrChangeAttribute(attribute);
-				}
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -174,7 +168,7 @@ TopLeftPositionedRecangular {
 	 */
 	public final W applyOnBaseLook(final IElementTaker<WL> baseLookMutator) {
 		
-		baseLookMutator.run(baseLook);
+		baseLookMutator.run(getRefBaseLook());
 		
 		return asConcrete();
 	}
@@ -188,7 +182,7 @@ TopLeftPositionedRecangular {
 	 */
 	public final W applyOnFocusLook(final IElementTaker<WL> focusLookMutator) {
 		
-		focusLookMutator.run(focusLook);
+		focusLookMutator.run(getRefFocusLook());
 		
 		return asConcrete();
 	}
@@ -202,7 +196,7 @@ TopLeftPositionedRecangular {
 	 */
 	public final W applyOnHoverLook(final IElementTaker<WL> hoverLookMutator) {
 		
-		hoverLookMutator.run(hoverLook);
+		hoverLookMutator.run(getRefHoverLook());
 		
 		return asConcrete();
 	}
@@ -462,7 +456,7 @@ TopLeftPositionedRecangular {
 	 * @return the base look of the current {@link Widget}.
 	 */
 	public final WL getRefBaseLook() {
-		return baseLook;
+		return baseLook.getExtensionElement();
 	}
 	
 	//method
@@ -470,7 +464,7 @@ TopLeftPositionedRecangular {
 	 * @return the focus look of the current {@link Widget}.
 	 */
 	public final WL getRefFocusLook() {
-		return focusLook;
+		return focusLook.getExtensionElement();
 	}
 	
 	//method
@@ -478,7 +472,7 @@ TopLeftPositionedRecangular {
 	 * @return the hover look of the current {@link Widget}.
 	 */
 	public final WL getRefHoverLook() {
-		return hoverLook;
+		return hoverLook.getExtensionElement();
 	}
 	
 	//method
@@ -1827,8 +1821,8 @@ TopLeftPositionedRecangular {
 	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
 	 */
 	private void connectLooks() {
-		hoverLook.setBaseLook(baseLook);
-		focusLook.setBaseLook(baseLook);
+		getRefHoverLook().setBaseLook(getRefBaseLook());
+		getRefFocusLook().setBaseLook(getRefBaseLook());
 	}
 	
 	//method
@@ -1836,9 +1830,9 @@ TopLeftPositionedRecangular {
 	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
 	 */
 	private void createLooks() {
-		baseLook = createLook();
-		hoverLook = createLook();
-		focusLook = createLook();
+		baseLook.setExtensionElement(createLook());
+		hoverLook.setExtensionElement(createLook());
+		focusLook.setExtensionElement(createLook());
 	}
 	
 	//method
