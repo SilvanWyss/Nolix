@@ -28,8 +28,8 @@ import ch.nolix.element.gui3d.shape.Sphere;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 410
+ * @date 2017-11-11
+ * @lines 390
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
@@ -156,9 +156,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public int getCursorXPositionOnViewArea() {
-		
-		//TODO: Implement.
-		return 0;
+		return (int)simpleApplication.getInputManager().getCursorPosition().y;
 	}
 	
 	//method
@@ -167,9 +165,8 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public int getCursorYPositionOnViewArea() {
-		
-		//TODO: Implement.
-		return 0;
+		return (int)simpleApplication.getInputManager().getCursorPosition().x;
+
 	}
 	
 	//method
@@ -178,9 +175,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public int getHeight() {
-		
-		//TODO: Implement.
-		return 0;
+		return appSettings.getHeight();
 	}
 	
 	//method
@@ -189,9 +184,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public int getViewAreaHeight() {
-		
-		//TODO: Implement.
-		return 0;
+		return simpleApplication.getGuiViewPort().getCamera().getHeight();
 	}
 	
 	//method
@@ -200,9 +193,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public int getViewAreaWidth() {
-		
-		//TODO: Implement.
-		return 0;
+		return simpleApplication.getGuiViewPort().getCamera().getWidth();
 	}
 	
 	//method
@@ -211,9 +202,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	@Override
 	public int getWidth() {
-		
-		//TODO: Implement.
-		return 0;
+		return appSettings.getWidth();
 	}
 	
 	//method
@@ -347,27 +336,17 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * Refreshes this JMonkey main frmae.
 	 */
 	@Override
-	public void refresh() {
+	public void refreshGUI() {
 		enqueue(this::direct_refresh);
 	}
 	
 	//method
 	/**
-	 * Sets the root shape of this 3D GUI.
-	 * 
-	 * @param rootShape
-	 * @return this main frame.
-	 * @throws ArgumentIsNullException if the given root shape is null.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public JMonkeyMainFrame setRootShape(final Shape<?> rootShape) {
-		
-		//Calls method of the base class.
-		super.setRootShape(rootShape);
-		
+	protected void noteSetRootShape(final Shape<?> rootShape) {
 		enqueue(() -> direct_attachRootShape(rootShape));
-		
-		return this;
 	}
 	
 	//method
