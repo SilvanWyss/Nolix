@@ -35,7 +35,7 @@ import ch.nolix.element.gui.color.Color;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 410
+ * @lines 430
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IBaseGUI<G> {
@@ -283,6 +283,8 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		if (hasRootShape()) {
 			getRefRootShape().renderRecursively();
 		}
+		
+		refreshGUI();
 	}
 	
 	//method
@@ -325,6 +327,8 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		//Sets the given root shape to the current {@link _3D_GUI}.
 		this.rootShape = rootShape;
 		
+		noteSetRootShape(rootShape);
+		
 		return asConcrete();
 	}
 	
@@ -361,6 +365,14 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		.getRefElement2();
 	}
 	
+	//method declaration
+	/**
+	 * Notes that the given rootShape was set to the current {@link GUI3D}.
+	 * 
+	 * @param rootShape
+	 */
+	protected abstract void noteSetRootShape(Shape<?> rootShape);
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -369,6 +381,12 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	protected final void resetConfigurationElement() {
 		setTitle(DEFAULT_TITLE);
 	}
+	
+	//method declaration
+	/**
+	 * Refreshes the current {@link GUI3D}.
+	 */
+	protected abstract void refreshGUI();
 	
 	//method
 	/**
