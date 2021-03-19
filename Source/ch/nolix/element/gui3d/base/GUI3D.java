@@ -81,7 +81,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
+	public void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Handles the case that the given attribute specifies a shape.
 		if (canCreateShape(attribute.getHeader())) {
@@ -105,7 +105,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @throws InvalidArgumentException if the current {@link GUI3D} contains already
 	 * a shape class with the same name as the given shape class.
 	 */
-	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
+	public final G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
 		
 		//Asserts that the given shape class is not null.
 		Validator.assertThat(shapeClass).thatIsNamed("shape class").isNotNull();
@@ -163,7 +163,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IFrontEndReader fromFrontEnd() {
+	public final IFrontEndReader fromFrontEnd() {
 		return new LocalFrontEndReader();
 	}
 	
@@ -179,7 +179,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CursorIcon getCursorIcon() {
+	public final CursorIcon getCursorIcon() {
 		return CursorIcon.ARROW;
 	}
 	
@@ -277,7 +277,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void refresh() {
+	public final void refresh() {
 		
 		//Handles the case that the current {@link _3D_GUI} has a root shape.
 		if (hasRootShape()) {
@@ -290,7 +290,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void resetConfigurationOnSelf() {
+	public final void resetConfigurationOnSelf() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	
@@ -317,7 +317,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @return the current {@link GUI3D}.
 	 * @throws ArgumentIsNullException if the given root shape is null.
 	 */
-	public G setRootShape(final Shape<?> rootShape) {
+	public final G setRootShape(final Shape<?> rootShape) {
 		
 		//Sets this GUI to the given root shape.
 		rootShape.setGUI(this);
