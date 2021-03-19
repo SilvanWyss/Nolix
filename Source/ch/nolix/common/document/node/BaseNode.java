@@ -30,7 +30,7 @@ import ch.nolix.common.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 820
+ * @lines 830
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -229,6 +229,17 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		return copy;
+	}
+	
+	//method
+	/**
+	 * @param header
+	 * @return a new copy of the current {@link BaseNode} with the given header.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public Node getCopyWithHeader(final String header) {
+		return getCopy().setHeader(header);
 	}
 	
 	//method
