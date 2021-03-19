@@ -23,7 +23,7 @@ import ch.nolix.element.smartelementapi.ISmartElement;
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
 	
 	//multi-attribute
-	private LinkedList<BaseValue<?>> baseValues;
+	private LinkedList<Property> properties;
 	
 	//method
 	/**
@@ -65,7 +65,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 */
 	@Override
 	public final int hashCode() {
-		return toString().hashCode();
+		return getSpecification().hashCode();
 	}
 	
 	//method
@@ -87,7 +87,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	protected void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Extracts the property with the name of the given attribute.
-		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
+		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasCode(attribute.getHeader()));
 		
 		//Handles the case that the property was not found.
 		if (property == null) {
@@ -95,20 +95,6 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 		}
 		
 		property.addOrChangeAttribute(attribute);
-	}
-	
-	//method
-	/**
-	 * @return the properties of the current {@link Element}.
-	 */
-	private IContainer<BaseValue<?>> getRefProperties() {
-		
-		//Handles the case that the properties of the current Entity are not extracted yet.
-		if (!propertiesAreExtracted()) {
-			extractProperties();
-		}
-		
-		return baseValues;
 	}
 	
 	//method
@@ -130,7 +116,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 				//Asserts that the current property is not null.
 				Validator.assertThat(property).isOfType(MutableValue.class);
 				
-				baseValues.addAtEnd(property);
+				properties.addAtEnd(property);
 			} catch (final IllegalAccessException illegalAccessException) {
 				
 				final var message = illegalAccessException.getMessage();
@@ -150,7 +136,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 */
 	private void extractProperties() {
 		
-		baseValues = new LinkedList<>();
+		properties = new LinkedList<>();
 		
 		//Iterates the classes of the current {@link Entity}.
 		Class<?> lClass = getClass();
@@ -176,9 +162,23 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	
 	//method
 	/**
+	 * @return the properties of the current {@link Element}.
+	 */
+	private IContainer<Property> getRefProperties() {
+		
+		//Handles the case that the properties of the current Entity are not extracted yet.
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
+		
+		return properties;
+	}
+	
+	//method
+	/**
 	 * @return true if the properties of the current {@link Element} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
-		return (baseValues != null);
+		return (properties != null);
 	}
 }

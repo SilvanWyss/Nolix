@@ -4,7 +4,6 @@ package ch.nolix.element.base;
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -20,7 +19,7 @@ import ch.nolix.common.requestapi.MutabilityRequestable;
 * @lines 90
 * @param <V> is the type of the values of a {@link BaseValue}.
 */
-public abstract class BaseValue<V> implements MutabilityRequestable, Named {
+public abstract class BaseValue<V> extends Property implements MutabilityRequestable, Named {
 	
 	//attributes
 	private final String name;
@@ -81,11 +80,12 @@ public abstract class BaseValue<V> implements MutabilityRequestable, Named {
 	 */
 	abstract void addOrChangeValue(V value);
 	
-	//visibility-reduced method declaration
+	//visibility-reduced method
 	/**
-	 * Fills up the attributes of the values of the current {@link BaseValue} into the given list.
-	 * 
-	 * @param list
+	 * {@inheritDoc}
 	 */
-	abstract void fillUpAttributesInto(LinkedList<Node> list);
+	@Override
+	final String getCode() {
+		return name;
+	}
 }

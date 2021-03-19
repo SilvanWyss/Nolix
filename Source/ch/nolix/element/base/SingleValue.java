@@ -83,7 +83,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 	 * @return true if the current {@link SingleValue} does not have a value.
 	 */
 	public final boolean hasValue() {
-		return (value == null);
+		return (value != null);
 	}
 	
 	//method
