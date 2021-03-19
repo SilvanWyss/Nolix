@@ -86,17 +86,17 @@ public final class Background extends Element<Background> implements ISmartMutab
 	
 	//method
 	public boolean hasBackgroundColor() {
-		return backgroundColor.containsAny();
+		return backgroundColor.hasValue();
 	}
 	
 	//method
 	public boolean hasBackgroundColorGradient() {
-		return backgroundColorGradient.containsAny();
+		return backgroundColorGradient.hasValue();
 	}
 	
 	//method
 	public boolean hasBackgroundImage() {
-		return backgroundImage.containsAny();
+		return backgroundImage.hasValue();
 	}
 		
 	//method

@@ -17,7 +17,7 @@ import ch.nolix.element.smartelementapi.ISmartElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 190
+ * @lines 180
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
@@ -50,7 +50,13 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		fillUpPropertiesInto(list);
+		
+		//Iterates the properties of the current Element.
+		for (final var p : getRefProperties()) {
+			
+			//Fills up the attributes of the current Property into the given list.
+			p.fillUpAttributesInto(list);
+		}
 	}
 	
 	//method
@@ -88,19 +94,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 			throw new InvalidArgumentException(this, "cannot not have a " + attribute.getHeaderInQuotes());
 		}
 		
-		property.addOrChangeValueFromSpecification(attribute);
-	}
-	
-	//method
-	/**
-	 * Fills up the properties of the current {@link Element} into the given list.
-	 * 
-	 * @param list
-	 */
-	private void fillUpPropertiesInto(final LinkedList<Node> list) {
-		for (final var p : getRefProperties()) {
-			p.fillUpSpecificationsOfValues(list);
-		}
+		property.addOrChangeAttribute(attribute);
 	}
 	
 	//method

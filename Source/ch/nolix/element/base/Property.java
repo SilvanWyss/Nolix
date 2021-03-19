@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -10,22 +11,23 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.requestapi.MutabilityRequestable;
 
 //class
 /**
 * @author Silvan Wyss
 * @date 2017-10-29
-* @lines 100
+* @lines 90
 * @param <V> is the type of the values of a {@link Property}.
 */
-public abstract class Property<V> implements Named {
+public abstract class Property<V> implements MutabilityRequestable, Named {
 	
 	//attributes
 	private final String name;
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	protected final IElementTakerElementGetter<V, Node> specificationCreator;
 	
-	//constructor
+	//visibility-reduced constructor
 	/**
 	 * Creates a new {@link Property} with the given name, valueCreator and specificationCreator.
 	 * 
@@ -43,13 +45,8 @@ public abstract class Property<V> implements Named {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		//Asserts that the given name is not null or blank.
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-				
-		//Asserts that the given value creator is not null.
 		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		
-		//Asserts that the given specification creator is not null.
 		Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
 		
 		this.name = name;
@@ -66,19 +63,17 @@ public abstract class Property<V> implements Named {
 		return name;
 	}
 	
-	//method declaration
+	//visibility-reduced method
 	/**
-	 * @return true if the current {@link Property} does not contain a value.
+	 * Adds or changes the value from the given attribute to the current {@link Property}.
+	 * 
+	 * @param attribute
 	 */
-	public abstract boolean isEmpty();
+	final void addOrChangeAttribute(final BaseNode attribute) {
+		addOrChangeValue(valueCreator.getOutput(attribute));
+	}
 	
-	//method declaration
-	/**
-	 * @return true if the current {@link Property} is mutable.
-	 */
-	public abstract boolean isMutable();
-		
-	//method declaration
+	//visibility-reduced method declaration
 	/**
 	 * Adds or change the given value to the current {@link Property}.
 	 * 
@@ -86,21 +81,11 @@ public abstract class Property<V> implements Named {
 	 */
 	abstract void addOrChangeValue(V value);
 	
-	//method
+	//visibility-reduced method declaration
 	/**
-	 * Adds or changes the value from the given specification to the current {@link Property}.
-	 * 
-	 * @param specification
-	 */
-	final void addOrChangeValueFromSpecification(final BaseNode specification) {
-		addOrChangeValue(valueCreator.getOutput(specification));
-	}
-	
-	//method declaration
-	/**
-	 * Fills up the specifications of the values of the current {@link Property} into the given list.
+	 * Fills up the attributes of the values of the current {@link Property} into the given list.
 	 * 
 	 * @param list
 	 */
-	abstract void fillUpSpecificationsOfValues(LinkedList<Node> list);
+	abstract void fillUpAttributesInto(LinkedList<Node> list);
 }

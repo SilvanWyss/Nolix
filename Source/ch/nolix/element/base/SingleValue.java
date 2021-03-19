@@ -12,22 +12,23 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.common.requestapi.OptionalityRequestable;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-03
- * @lines 160
+ * @date 2018-03-04
+ * @lines 140
  * @param <V> is the type of the value of a {@link SingleValue}.
  */
-abstract class SingleValue<V> extends Property<V> {
+abstract class SingleValue<V> extends Property<V> implements OptionalityRequestable {
 	
 	//attribute
 	private final IElementTaker<V> setterMethod;
 	
 	//optional attribute
 	private V value;
-
+	
 	//constructor
 	/**
 	 * Creates a new {@link SingleValue} with the given name, setterMethod, valueCreator and specificationCreator.
@@ -38,6 +39,7 @@ abstract class SingleValue<V> extends Property<V> {
 	 * @param specificationCreator
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
@@ -63,14 +65,6 @@ abstract class SingleValue<V> extends Property<V> {
 	
 	//method
 	/**
-	 * @return true if the current {@link SingleValue} has a value.
-	 */
-	public final boolean containsAny() {
-		return (value != null);
-	}
-	
-	//method
-	/**
 	 * @return the value of the current {@link SingleValue}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleValue} does not have a value.
 	 */
@@ -86,26 +80,11 @@ abstract class SingleValue<V> extends Property<V> {
 	
 	//method
 	/**
-	 * @return true if the current {@link SingleValue} has a value.
-	 */
-	public final boolean hasValue() {
-		return (value != null);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link SingleValue} does not have a value.
 	 */
-	@Override
-	public final boolean isEmpty() {
+	public final boolean hasValue() {
 		return (value == null);
 	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link SingleValue} is optional.
-	 */
-	public abstract boolean isOptional();
 	
 	//method
 	/**
@@ -118,10 +97,7 @@ abstract class SingleValue<V> extends Property<V> {
 	public final void setValue(final V value) {
 		
 		//Asserts that the given value is not null.
-		Validator
-		.assertThat(value)
-		.thatIsNamed(LowerCaseCatalogue.VALUE)
-		.isNotNull();
+		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
 		//Asserts that the current SingleProperty is mutable or does not have already a value.
 		if (!isMutable() && hasValue()) {
@@ -132,36 +108,37 @@ abstract class SingleValue<V> extends Property<V> {
 		this.value = value;
 	}
 	
-	//method
+	//visibility-reduced method
 	@Override
 	final void addOrChangeValue(final V value) {
 		setterMethod.run(value);
 	}
 	
-	//method
-	/**
-	 * Removes the value of the current {@link SingleValue}.
-	 */
-	void clear() {	
-		value = null;
-	}
-	
-	//method
+	//visibility-reduced method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpSpecificationsOfValues(final LinkedList<Node> list) {
+	final void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Handles the case that the current SingleProperty has a value.
-		//For a better performance, this implementation does not use all comfortable methods.
 		if (value != null) {
 			
-			//Creates a specification of the current value.
+			//Creates a specification from the current value.
 			final var specification = specificationCreator.getOutput(value);
 			specification.setHeader(getName());
 			
+			//Adds the specification to the given list.
 			list.addAtEnd(specification);
 		}
+	}
+	
+	//visibility-reduced method
+	/**
+	 * Removes the value of the current {@link SingleValue}.
+	 */
+	final void internalClear() {	
+		value = null;
 	}
 }

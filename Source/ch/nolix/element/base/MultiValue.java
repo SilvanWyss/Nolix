@@ -21,7 +21,7 @@ import ch.nolix.common.skillapi.Clearable;
 /**
  * @author Silvan Wyss
  * @date 2018-03-04
- * @lines 240
+ * @lines 230
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
 public final class MultiValue<V> extends Property<V> implements Clearable, IContainer<V> {
@@ -83,10 +83,7 @@ public final class MultiValue<V> extends Property<V> implements Clearable, ICont
 		super(name, valueCreator, specificationCreator);
 		
 		//Asserts that the given adderMethod is not null.
-		Validator
-		.assertThat(adderMethod)
-		.thatIsNamed("adder method")
-		.isNotNull();
+		Validator.assertThat(adderMethod).thatIsNamed("adder method").isNotNull();
 		
 		//Sets the adderMethod of the current MultiProperty.
 		this.adderMethod = adderMethod;
@@ -98,12 +95,12 @@ public final class MultiValue<V> extends Property<V> implements Clearable, ICont
 	 * 
 	 * @param value
 	 * @throws ArgumentIsNullException if the given value is null.
-	 * @throws InvalidArgumentException if the current {@link MultiValue} contains already the given value.
 	 */
 	public void add(final V value) {
-		values.addAtEndRegardingSingularity(value);
+		values.addAtEnd(value);
 	}
 	
+	//method
 	/**
 	 * @return true if the current {@link MultiValue} contains a value.
 	 */
@@ -220,20 +217,21 @@ public final class MultiValue<V> extends Property<V> implements Clearable, ICont
 		adderMethod.run(value);
 	}
 	
-	//method
+	//visibility-reduced method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	void fillUpSpecificationsOfValues(final LinkedList<Node> list) {
+	void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : this) {
 			
-			//Creates a specification of the current value.
+			//Creates a specification from the current value.
 			final var specification = specificationCreator.getOutput(v);
 			specification.setHeader(getName());
 			
+			//Adds the specification to the given list.
 			list.addAtEnd(specification);
 		}
 	}

@@ -114,7 +114,7 @@ public final class TextItemMenuItem extends Element<TextItemMenuItem> {
 	
 	//method
 	public boolean hasId() {
-		return id.containsAny();
+		return id.hasValue();
 	}
 	
 	//method

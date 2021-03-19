@@ -43,7 +43,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	//method
 	@Override
 	public boolean isEmpty() {
-		return image.isEmpty();
+		return !image.hasValue();
 	}
 	
 	//method

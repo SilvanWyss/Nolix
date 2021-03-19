@@ -381,7 +381,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public LayerRole getRole() {
 		
 		//Asserts that the current Layer has a role.
-		if (role.isEmpty()) {
+		if (!role.hasValue()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ROLE);
 		}
 		
@@ -411,7 +411,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return true if the current {@link Layer} has a background {@link Color}.
 	 */
 	public boolean hasBackgroundColor() {
-		return backgroundColor.containsAny();
+		return backgroundColor.hasValue();
 	}
 	
 	//method
@@ -419,7 +419,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return true if the current {@link Layer} has a background {@link ColorGradient}.
 	 */
 	public boolean hasBackgroundColorGradient() {
-		return backgroundColorGradient.containsAny();
+		return backgroundColorGradient.hasValue();
 	}
 	
 	//method
@@ -427,7 +427,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return true if the current {@link Layer} has a role.
 	 */
 	public boolean hasRole() {
-		return role.containsAny();
+		return role.hasValue();
 	}
 	
 	//method

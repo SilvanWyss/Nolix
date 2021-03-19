@@ -89,7 +89,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	 * @return true of the current {@link AtomicShape} has a default texture.
 	 */
 	public final boolean hasDefaultTexture() {
-		return defaultTexture.containsAny();
+		return defaultTexture.hasValue();
 	}
 	
 	//method
