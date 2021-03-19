@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2120
+ * @lines 2160
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -60,8 +60,12 @@ TopLeftPositionedRecangular {
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
-	//constant
+	//constants
 	private static final String GREY_OUT_WHEN_DISABLED_HEADER = "GreyOutWhenDisabled";
+	private static final String ENABLED_HEADER = "Enabled";
+	private static final String EXPANDED_HEADER = "Expanded";
+	private static final String FOCUSED_HEADER = "Focused";
+	private static final String HOVERED_HEADER = "Hovered";
 	
 	//constants
 	private static final String BASE_PREFIX = "Base";
@@ -136,21 +140,25 @@ TopLeftPositionedRecangular {
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		
-		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
-		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case CursorIcon.TYPE_NAME:
 				setCustomCursorIcon(CursorIcon.fromSpecification(attribute));
 				break;
 			case GREY_OUT_WHEN_DISABLED_HEADER:
-				
-				if (!attribute.getOneAttributeAsBoolean()) {
-					removeGreyOutWhenDisabled();
-				} else {
-					setGreyOutWhenDisabled();
-				}
-				
+				setGreyOutState(attribute.getOneAttributeAsBoolean());
+				break;
+			case ENABLED_HEADER:
+				setEnablingState(attribute.getOneAttributeAsBoolean());
+				break;
+			case EXPANDED_HEADER:
+				setExpansionState(attribute.getOneAttributeAsBoolean());
+				break;
+			case FOCUSED_HEADER:
+				setFocusState(attribute.getOneAttributeAsBoolean());
+				break;
+			case HOVERED_HEADER:
+				setHoverState(attribute.getOneAttributeAsBoolean());
 				break;
 			default:
 				
@@ -277,25 +285,13 @@ TopLeftPositionedRecangular {
 		//Calls method of the base class.
 		super.fillUpAttributesInto(list);
 		
-		list.addAtEnd(getCustomCursorIcon().getSpecification());
-		list.addAtEnd(Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()));
-		
-		//TODO: Handle the following attributes: enabled, expanded, focused, hovered.
-		
-		//Extracts the base state attributes of the current Widget.
-		final var baseStateAttributes = getRefBaseLook().getAttributes();
-		baseStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
-		list.addAtEnd(baseStateAttributes);
-		
-		//Extracts the hover state attributes of the current Widget.
-		final var hoverStateAttributes = getRefHoverLook().getAttributes();
-		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
-		list.addAtEnd(hoverStateAttributes);
-		
-		//Extracts focus state attributes of the current Widget.
-		final var focusStateAttributes = getRefFocusLook().getAttributes();
-		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
-		list.addAtEnd(focusStateAttributes);
+		list
+		.addAtEnd(getCustomCursorIcon().getSpecification())
+		.addAtEnd(Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()))
+		.addAtEnd(Node.withHeaderAndAttribute(ENABLED_HEADER, isEnabled()))
+		.addAtEnd(Node.withHeaderAndAttribute(EXPANDED_HEADER, isExpanded()))
+		.addAtEnd(Node.withHeaderAndAttribute(FOCUSED_HEADER, isFocused()))
+		.addAtEnd(Node.withHeaderAndAttribute(HOVERED_HEADER, isHovered()));
 	}
 	
 	//method
@@ -2094,6 +2090,51 @@ TopLeftPositionedRecangular {
 				cursorXPositionOnScrolledArea - w.getXPosition(),
 				cursorYPositionOnScrolledArea - w.getYPosition()
 			);
+		}
+	}
+	
+	//method
+	private void setEnablingState(final boolean enabled) {
+		if (!enabled) {
+			setDisabled();
+		} else {
+			setEnabled();
+		}
+	}
+	
+	//method
+	private void setExpansionState(final boolean expanded) {
+		if (!expanded) {
+			setCollapsed();
+		} else {
+			setExpanded();
+		}
+	}
+	
+	//method
+	private void setGreyOutState(final boolean greysOut) {
+		if (!greysOut) {
+			removeGreyOutWhenDisabled();
+		} else {
+			setGreyOutWhenDisabled();
+		}
+	}
+	
+	//method
+	private void setFocusState(final boolean focused) {
+		if (!focused) {
+			setUnfocused();
+		} else {
+			setFocused();
+		}
+	}
+	
+	//method
+	private void setHoverState(final boolean hovered) {
+		if (!hovered) {
+			setUnhovered();
+		} else {
+			setHovered();
 		}
 	}
 	
