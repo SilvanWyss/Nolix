@@ -106,12 +106,12 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	private void extractProbableProperty(final Field field) {
 		
 		//Handles the case that the current field is a property.
-		if (BaseValue.class.isAssignableFrom(field.getType())) {
+		if (Property.class.isAssignableFrom(field.getType())) {
 			try {
 				
 				field.setAccessible(true);
 				
-				final var property = (BaseValue<?>)(field.get(this));
+				final var property = (Property)(field.get(this));
 				
 				//Asserts that the current property is not null.
 				Validator.assertThat(property).isOfType(MutableValue.class);
