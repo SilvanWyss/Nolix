@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -17,7 +18,7 @@ import ch.nolix.common.skillapi.Clearable;
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
- * @lines 240
+ * @lines 250
  */
 public class Server implements Clearable, ICloseableElement {
 	
@@ -222,6 +223,13 @@ public class Server implements Clearable, ICloseableElement {
 	public final boolean isEmpty() {
 		return applications.isEmpty();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteClose() {}
 	
 	//method
 	/**

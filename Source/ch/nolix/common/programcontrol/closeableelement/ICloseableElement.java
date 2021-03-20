@@ -1,18 +1,17 @@
 //package declaration
 package ch.nolix.common.programcontrol.closeableelement;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-//own imports
-import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.skillapi.Closeable;
 
 //interface
 /**
  * @author Silvan Wyss
  * @date 2020-07-05
- * @lines 90
+ * @lines 80
  */
 public interface ICloseableElement extends Closeable {
 	
@@ -70,14 +69,6 @@ public interface ICloseableElement extends Closeable {
 	
 	//method
 	/**
-	 * @return true if the current {@link ICloseableElement} has a pre-close action.
-	 */
-	default boolean hasPreCloseAction() {
-		return getRefCloseController().hasPreCloseAction();
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -85,15 +76,9 @@ public interface ICloseableElement extends Closeable {
 		return getRefCloseController().isClosed();
 	}
 	
-	//method
+	//method declaration
 	/**
-	 * Sets the pre-close action of the current {@link ICloseableElement}.
-	 * 
-	 * @param preCloseAction
-	 * @throws ArgumentIsNullException if the given preCloseAction is null.
-	 * @throws ClosedArgumentException if the current {@link ICloseableElement} is closed.
+	 * Lets the current {@link ICloseableElement} note a close.
 	 */
-	default void setPreCloseAction(final IAction preCloseAction) {
-		getRefCloseController().setPreCloseAction(preCloseAction);
-	}
+	void noteClose();
 }

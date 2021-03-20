@@ -8,13 +8,14 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.logger.Logger;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2020-07-06
- * @lines 140
+ * @lines 160
  */
 final class ClosePool {
 	
@@ -132,14 +133,28 @@ final class ClosePool {
 	
 	//method
 	/**
+	 * Closes the given closeableElement catching any {@link Exception}.
+	 * 
+	 * @param closeableElement
+	 */
+	private void closeSafely(final ICloseableElement closeableElement) {
+		try {
+			closeableElement.noteClose();
+		} catch (final Exception exception) {
+			Logger.logError(exception);
+		}
+	}
+	
+	//method
+	/**
 	 * Closes the current {@link ClosePool} for the case when it is open.
 	 */
 	private void closeWhenOpen() {
-				
+		
 		//Sets the current CloseController closing.
 		closed = true;
 		
 		//Lets note all elements of the current CloseController run their probable pre-close action.
-		elements.forEachWithContinuing(e -> e.getRefCloseController().runProbablePreCloseAction());
+		elements.forEachWithContinuing(this::closeSafely);
 	}
 }

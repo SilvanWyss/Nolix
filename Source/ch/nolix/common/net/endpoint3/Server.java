@@ -117,6 +117,13 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteClose() {}
+	
+	//method
+	/**
 	 * Removes the {@link IEndPointTaker} with the given name from the current {@link Server}.
 	 * 
 	 * @param name

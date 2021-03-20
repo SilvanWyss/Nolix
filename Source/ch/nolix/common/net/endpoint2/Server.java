@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -14,7 +15,7 @@ import ch.nolix.common.skillapi.Clearable;
  * A {@link Server} is clearable and closable.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-03-05
  * @lines 180
  */
 public class Server implements Clearable, ICloseableElement {
@@ -115,6 +116,13 @@ public class Server implements Clearable, ICloseableElement {
 	public final boolean isEmpty() {
 		return endPointTakers.isEmpty();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteClose() {}
 	
 	//method
 	/**

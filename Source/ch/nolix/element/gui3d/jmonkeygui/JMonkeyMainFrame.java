@@ -145,16 +145,6 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void close() {
-		closed = true;
-		simpleApplication.destroy();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public int getCursorXPositionOnViewArea() {
 		return (int)simpleApplication.getInputManager().getCursorPosition().y;
 	}
@@ -221,6 +211,16 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	@Override
 	public boolean isVisible() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteClose() {
+		closed = true;
+		simpleApplication.destroy();
 	}
 	
 	//method

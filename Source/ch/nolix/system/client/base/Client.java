@@ -29,7 +29,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 640
+ * @lines 650
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -199,6 +199,13 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	public final boolean isWebClient() {
 		return getRefEndPoint().isWebEndPoint();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteClose() {}
 	
 	//method
 	@Override

@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+//own imports
 import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -42,8 +43,6 @@ final class WebEndPoint extends BaseNetEndPoint {
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
 		
-		setPreCloseAction(this::runPreClose);
-		
 		new WebEndPointMessageListener(this).start();
 		
 		waitToTargetInfo();
@@ -59,6 +58,21 @@ final class WebEndPoint extends BaseNetEndPoint {
 	@Override
 	public boolean isWebEndPoint() {
 		return true;
+	}
+	
+	//method
+	@Override
+	public void noteClose() {
+		
+		if (canWork()) {
+			sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+		}
+		
+		try {
+			socket.close();
+		} catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
+		}
 	}
 	
 	//method
@@ -89,20 +103,6 @@ final class WebEndPoint extends BaseNetEndPoint {
 	//method
 	private boolean canWork() {
 		return !socket.isClosed();
-	}
-	
-	//method
-	private void runPreClose() {
-		
-		if (canWork()) {
-			sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
-		}
-		
-		try {
-			socket.close();
-		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
-		}
 	}
 	
 	//method

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -12,7 +13,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * A local end point can send messages to an other local end point.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-05-22
  * @lines 220
  */
 public final class LocalEndPoint extends EndPoint {

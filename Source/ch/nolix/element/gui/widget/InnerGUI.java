@@ -30,6 +30,9 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//constructor
 	public InnerGUI() {
+		
+		createCloseDependencyTo(internalGUI);
+		
 		setProposalSize(200, 200);
 	}
 	
@@ -136,6 +139,10 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	public boolean isVisible() {
 		return true;
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

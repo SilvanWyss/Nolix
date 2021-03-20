@@ -23,8 +23,8 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-05
- * @lines 260
+ * @date 2017-05-06
+ * @lines 250
  */
 public final class NetEndPoint extends BaseNetEndPoint {
 	
@@ -77,8 +77,6 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		setPreCloseAction(this::preClose);
-		
 		try {
 			socket = new Socket(ip, port);
 			socketInputStream = socket.getInputStream();
@@ -111,8 +109,6 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
-		
-		setPreCloseAction(this::preClose);
 		
 		try {
 			socket = new Socket(ip, port);
@@ -150,8 +146,6 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
-		setPreCloseAction(this::preClose);
-		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
@@ -187,8 +181,6 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
-		setPreCloseAction(this::preClose);
-		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
@@ -219,6 +211,22 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void noteClose() {
+		if (canWork()) {
+			try {
+				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+				socket.close();
+			} catch (final IOException pIOException) {
+				throw new WrapperException(pIOException);
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void sendRawMessage(final String rawMessage) {
 		
 		/*
@@ -242,17 +250,5 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	//method
 	private boolean canWork() {
 		return !socket.isClosed();
-	}
-	
-	//method
-	private void preClose() {
-		if (canWork()) {
-			try {
-				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
-				socket.close();
-			} catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
-			}
-		}
 	}
 }

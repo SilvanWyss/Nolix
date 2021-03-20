@@ -12,7 +12,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.skillapi.Recalculable;
@@ -48,7 +47,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 740
+ * @lines 730
  * @param <G> is the type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
@@ -121,7 +120,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		this.visualizer = visualizer;
 		this.inputTaker = inputTaker;
-		setPreCloseAction(this::preClose);
 	}
 	
 	//constructor
@@ -145,7 +143,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		}
 		
 		this.inputTaker = inputTaker;
-		setPreCloseAction(this::preClose);
 	}
 	
 	//constructor
@@ -162,7 +159,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		this.inputTaker = null;
 		this.visualizer = visualizer;
-		setPreCloseAction(this::preClose);
 	}
 	
 	//constructor
@@ -181,8 +177,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		} else {
 			visualizer = new FrameVisualizer();
 		}
-		
-		setPreCloseAction(this::preClose);
 	}
 	
 	//method
@@ -286,6 +280,17 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final boolean isVisible() {
 		return (visualizer != null);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteClose() {
+		if (isVisible()) {
+			visualizer.noteClose();
+		}
 	}
 	
 	//method
@@ -558,17 +563,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void setPreCloseAction(final IAction preCloseAction) {
-		
-		//This implementation just ensures that it cannot be overwritten.
-		IBaseGUI.super.setPreCloseAction(preCloseAction);
-	}
-	
-	//method
-	/**
 	 * Sets the title of the current GUI.
 	 * 
 	 * @param title
@@ -722,16 +716,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		this.viewAreaSize.setValue(new IntPair(viewAreaWidth, viewAreaHeight));
 		viewAreaSizeHasChangedSinceLastRecalculation = true;
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link GUI} do a pre-close.
-	 */
-	private void preClose() {
-		if (isVisible()) {
-			visualizer.noteClose();
-		}
 	}
 	
 	//method

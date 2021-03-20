@@ -7,21 +7,17 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IAction;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2020-07-05
- * @lines 150
+ * @lines 90
  */
 public final class CloseController {
 	
 	//attribute
 	private ClosePool parentClosePool;
-	
-	//optional attribute
-	private IAction preCloseAction;
 	
 	//constructor
 	/**
@@ -68,14 +64,6 @@ public final class CloseController {
 	
 	//method
 	/**
-	 * @return true if the current {@link CloseController} has a pre-close action.
-	 */
-	boolean hasPreCloseAction() {
-		return (preCloseAction != null);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link CloseController} is closed.
 	 */
 	boolean isClosed() {
@@ -89,19 +77,6 @@ public final class CloseController {
 	 */
 	boolean hasCloseDependencyTo(final ICloseableElement element) {
 		return parentClosePool.contains(element);
-	}
-	
-	//method
-	/**
-	 * Runs the pre-close action of the current {@link CloseController}
-	 * if the current {@link CloseController} has a pre-close action.
-	 */
-	void runProbablePreCloseAction() {
-		
-		//Handles the case that the current CloseController has a pre-close action.
-		if (hasPreCloseAction()) {
-			preCloseAction.run();
-		}
 	}
 	
 	//method.
@@ -118,37 +93,5 @@ public final class CloseController {
 		
 		//Sets the parentClosePool of the current CloseController.
 		this.parentClosePool = parentClosePool;
-	}
-
-	//method
-	/**
-	 * Sets the pre-close action of the current {@link CloseController}.
-	 * 
-	 * @param preCloseAction
-	 * @throws ArgumentIsNullException if the given preCloseAction is null.
-	 * @throws ClosedArgumentException if the current {@link CloseController} is closed.
-	 */
-	void setPreCloseAction(final IAction preCloseAction) {
-		
-		//Asserts that the given preCloseAction is not null.
-		Validator.assertThat(preCloseAction).thatIsNamed("pre-close action").isNotNull();
-		
-		//Asserts that the current CloseController is open.
-		assertIsOpen();
-		
-		//Sets the preCloseAction of the current CloseController.
-		this.preCloseAction = preCloseAction;
-	}
-	
-	//method
-	/**
-	 * @throws ClosedArgumentException if the current {@link CloseController} is closed.
-	 */
-	private void assertIsOpen() {
-		
-		//Asserts that the current CloseController is open.
-		if (isClosed()) {
-			throw new ClosedArgumentException(this);
-		}
 	}
 }

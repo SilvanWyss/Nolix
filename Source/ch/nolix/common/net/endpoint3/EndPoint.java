@@ -147,6 +147,13 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteClose() {}
+	
+	//method
+	/**
 	 * Runs the appended commands of the current {@link EndPoint}.
 	 * The appended commands of the current local {@link EndPoint} will be removed in any case.
 	 * 

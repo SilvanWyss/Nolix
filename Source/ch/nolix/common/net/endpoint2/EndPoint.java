@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -14,7 +15,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * An end point is abortable.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-05-21
  * @lines 110
  */
 public abstract class EndPoint implements ICloseableElement, IReplier {
@@ -60,6 +61,13 @@ public abstract class EndPoint implements ICloseableElement, IReplier {
 	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
 	 */
 	public abstract boolean isWebEndPoint();
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteClose() {}
 	
 	//method
 	/**

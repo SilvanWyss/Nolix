@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -12,8 +13,8 @@ import ch.nolix.common.programcontrol.processproperty.ConnectionOrigin;
  * A local end point can send messages to an other local end point.
  * 
  * @author Silvan Wyss
- * @month 2017-05
- * @lines 160
+ * @date 2017-05-06
+ * @lines 170
  */
 public final class LocalEndPoint extends EndPoint {
 	
@@ -153,6 +154,13 @@ public final class LocalEndPoint extends EndPoint {
 		
 		counterpart.receiveRawMessage(message);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteClose() {}
 	
 	//method
 	/**
