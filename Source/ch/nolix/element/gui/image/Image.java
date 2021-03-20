@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.common.commontype.commontypehelper.GlobalBufferedImageHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -56,7 +57,6 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//static method
 	public static Image fromBufferedImage(final BufferedImage bufferedImage) {
 		
-		//TODO: Refactor this implementation.
 		final var image = new Image(bufferedImage.getWidth(), bufferedImage.getHeight());
 		
 		for (var i = 1; i <= image.getWidth(); i++) {
@@ -70,18 +70,11 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//static method
-	public static Image fromFile(final String path) {
+	public static Image fromFile(final String filePath) {
 		
-		//TODO: Refactor this implementation.
-		try {
-			
-			final var bufferedImage = ImageIO.read(new File(path));
-			
-			return fromBufferedImage(bufferedImage);
-			
-		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
-		}
+		final var bufferedImage = GlobalBufferedImageHelper.fromFile(filePath);
+		
+		return fromBufferedImage(bufferedImage);
 	}
 	
 	//static method
@@ -92,14 +85,13 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//static method
 	public static Image fromSpecification(final BaseNode specification) {
 		
-		//TODO: Refactor this implementation.
 		final var image =
 		new Image(
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.WIDTH)).getOneAttributeAsInt(),
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.HEIGHT)).getOneAttributeAsInt()
 		);
 		
-		image.addOrChangeAttribute(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
+		image.setPixelArray(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
 		return image;
 	}
@@ -176,8 +168,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
-				//TODO: Refactor this implementation.
-				setPixelArray(attribute.getRefAttributes().to(a -> Color.fromSpecification(Node.withAttribute(a))));
+				setPixelArray(attribute);
 				break;
 			default:
 				super.addOrChangeAttribute(attribute);
@@ -268,26 +259,37 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//method
-	public Image setPixelArray(final Iterable<Color> pixels) {
+	public void setPixelArray(final BaseNode pixelArray) {
+		
+		final var lPixelArray = pixelArray.getRefAttributes();
+		
+		Validator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
-		final var pixelContainer = ReadContainer.forIterable(pixels);
-		
-		Validator
-		.assertThat(pixelContainer.getElementCount())
-		.thatIsNamed("number of pixels")
-		.isEqualTo(getPixelCount());
-		
 		var i = 1;
-		for (final var p : pixels) {
-			this.pixels.setAt(i, p);
+		for (final var p : lPixelArray) {
+			this.pixels.setAt(i, Color.fromSpecification(p));
 			i++;
 		}
-		
-		return this;
 	}
 	
+	//method
+	public void setPixelArray(final Iterable<Color> pixelArray) {
+		
+		final var lPixelArray = ReadContainer.forIterable(pixelArray);
+		
+		Validator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
+				
+		deletePixelArraySpecificationAndBufferedImage();
+		
+		var i = 1;
+		for (final var p : lPixelArray) {
+			pixels.setAt(i, p);
+			i++;
+		}
+	}
+		
 	//method
 	public BufferedImage toBufferedImage() {
 		
