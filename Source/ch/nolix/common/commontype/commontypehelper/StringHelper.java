@@ -215,7 +215,7 @@ public final class StringHelper {
 			decimal = false;
 		}
 		
-		if (string.length() - startIndex > 10) {
+		if (string.length() - startIndex > 19) {
 			throw new UnrepresentingArgumentException(string, Long.class);
 		}
 		
@@ -261,9 +261,9 @@ public final class StringHelper {
 	 */
 	private static long toLongFromNonNegativeDecimal(final String string) {
 		
-		int number = 0;
+		var number = 0L;
 		
-		for (int i = 0; i < string.length(); i++) {
+		for (var i = 0; i < string.length(); i++) {
 			
 			number *= 10;
 			
