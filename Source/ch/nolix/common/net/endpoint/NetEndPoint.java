@@ -229,10 +229,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	@Override
 	protected void sendRawMessage(final String rawMessage) {
 		
-		/*
-		 * TODO: Call assertIsOpen() here
-		 * TODO: IMPORTANT: Make sure that all GUI clients and console clients can still transfer their close messages.
-		 */
+		assertIsOpen();
 		
 		try {
 			socketOutputStream.write((rawMessage + "\r\n").getBytes(StandardCharsets.UTF_8));

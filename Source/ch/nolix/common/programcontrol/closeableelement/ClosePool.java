@@ -15,12 +15,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2020-07-06
- * @lines 160
+ * @lines 170
  */
 final class ClosePool {
 	
-	//attribute
+	//attributes
 	private boolean closed;
+	private boolean closing;
 	
 	//multi-attribute
 	private final LinkedList<ICloseableElement> elements = new LinkedList<>();
@@ -67,9 +68,9 @@ final class ClosePool {
 	 */
 	public void close() {
 		
-		//Handles the case that the current ClosePool is open.
-		if (isOpen()) {
-			closeWhenOpen();
+		//Handles the case that the current ClosePool is open and not closing.
+		if (isOpen() && !isClosing()) {
+			closeWhenOpenAndNotClosing();
 		}
 	}
 	
@@ -79,6 +80,14 @@ final class ClosePool {
 	 */
 	public boolean isClosed() {
 		return closed;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link ClosePool} is closing.
+	 */
+	public boolean isClosing() {
+		return closing;
 	}
 	
 	//method
@@ -149,12 +158,16 @@ final class ClosePool {
 	/**
 	 * Closes the current {@link ClosePool} for the case when it is open.
 	 */
-	private void closeWhenOpen() {
+	private void closeWhenOpenAndNotClosing() {
 		
-		//Sets the current CloseController closing.
-		closed = true;
+		//Sets the current CloseController as closing.
+		closing = true;
 		
-		//Lets note all elements of the current CloseController run their probable pre-close action.
+		//Lets note all elements of the current CloseController the close.
 		elements.forEachWithContinuing(this::closeSafely);
+		
+		//Sets the current CloseController as closed.
+		closed = true;
+		closing = false;
 	}
 }

@@ -108,10 +108,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 	//method
 	private void sendBytes(final byte[] bytes) {
 		
-		/*
-		 * TODO: Call assertIsOpen() here
-		 * TODO: IMPORTANT: Make sure that all GUI clients and console clients can still transfer their close messages.
-		 */
+		assertIsOpen();
 		
 		try {
 			socketOutputStream.write(bytes);
