@@ -87,7 +87,7 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 	protected void addOrChangeAttribute(final BaseNode attribute) {
 		
 		//Extracts the property with the name of the given attribute.
-		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasCode(attribute.getHeader()));
+		final var property = getRefProperties().getRefFirstOrNull(p -> attribute.getHeader().startsWith(p.getCode()));
 		
 		//Handles the case that the property was not found.
 		if (property == null) {
