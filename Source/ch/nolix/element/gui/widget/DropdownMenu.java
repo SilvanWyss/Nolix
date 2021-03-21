@@ -4,6 +4,7 @@ package ch.nolix.element.gui.widget;
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.color.Color;
@@ -17,15 +18,11 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//constant
 	private static final int MIN_LABEL_WIDTH = 10;
 	
-	//attribute
+	//attributes
+	private final HorizontalStack originHorizontalStack = new HorizontalStack();
 	private final Label originLabel = new Label();
-	
-	//attribute
 	private final Button expandButton = new Button();
 	
-	//attribute
-	private final HorizontalStack originHorizontalStack = new HorizontalStack();
-		
 	//optional attribute
 	private SelectionMenu expandedDropdownMenu;
 	
@@ -34,13 +31,12 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		
 		originHorizontalStack.reset();
 		addChildWidget(originHorizontalStack);
-		originHorizontalStack.addWidget(originLabel, expandButton);
+		originHorizontalStack
+		.addWidget(originLabel, expandButton);
 		
 		expandButton.reset();
 		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
-		
-		expandButton.getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
-		
+				
 		getRefBaseLook()
 		.setHoverItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.LIGHT_GREY))
 		.setSelectionItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.GREY));
@@ -129,24 +125,43 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {
-		
-		//TODO: Apply all possible attributes of the itemMenuLook to the originLabel and expandButton.
-		originHorizontalStack.getRefBaseLook().setBackgroundColor(itemMenuLook.getRecursiveOrDefaultBackgroundColor());
-		
-		originLabel.getRefBaseLook().setTextColor(itemMenuLook.getRecursiveOrDefaultTextColor());
-		expandButton.getRefBaseLook().setTextColor(itemMenuLook.getRecursiveOrDefaultTextColor());
-	}
+	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	@Override
 	protected void recalculateTextItemMenuSelf() {
+		applySizes();
+		applyColors();
+	}
+	
+	//method
+	private void applyColors() {
 		
-		if (hasMinWidth()) {
-			originLabel.setMinWidth(getMinWidth() - expandButton.getWidth());
-			originHorizontalStack.recalculate();
+		final var textItemMenuLook = getRefLook();
+		
+		originLabel
+		.getRefBaseLook()
+		.setTextFont(textItemMenuLook.getRecursiveOrDefaultTextFont())
+		.setTextSize(textItemMenuLook.getRecursiveOrDefaultTextSize())
+		.setTextColor(textItemMenuLook.getRecursiveOrDefaultTextColor());
+		
+		expandButton
+		.getRefBaseLook()
+		.setTextFont(textItemMenuLook.getRecursiveOrDefaultTextFont())
+		.setTextSize(textItemMenuLook.getRecursiveOrDefaultTextSize())
+		.setTextColor(textItemMenuLook.getRecursiveOrDefaultTextColor());
+		
+		if (hasMenuExpanded()) {
+			expandedDropdownMenu
+			.getRefBaseLook()
+			.setTextFont(textItemMenuLook.getRecursiveOrDefaultTextFont())
+			.setTextSize(textItemMenuLook.getRecursiveOrDefaultTextSize())
+			.setTextColor(textItemMenuLook.getRecursiveOrDefaultTextColor());
 		}
-		
+	}
+	
+	//method
+	private void applySizes() {
 		originLabel.setMinWidth(getRefItemLables().getMaxIntOrDefaultValue(Label::getWidth, MIN_LABEL_WIDTH));
 	}
 	
@@ -162,6 +177,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		//Creates expandedDropdownMenu.
 		expandedDropdownMenu =
 		new SelectionMenu()
+		.setCustomCursorIcon(CursorIcon.EDIT)
 		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight())
 		.applyOnBaseLook(bl -> bl.setBorderThicknesses(1))
 		.addItems(getRefItems().to(TextItemMenuItem::getText));
