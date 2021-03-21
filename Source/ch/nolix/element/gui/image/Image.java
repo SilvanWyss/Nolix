@@ -18,7 +18,6 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.container.matrix.Matrix;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.environment.filesystem.FileSystemAccessor;
 import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -38,20 +37,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//static method
 	public static Image fromBytes(final byte[] bytes) {
-		
-		//TODO: Refactor this implementation.
-		try {
-			
-			final var path = "tempImage" + System.currentTimeMillis();
-			FileSystemAccessor.createFile(path).overwriteFile(bytes);			
-			final var bufferedImage = ImageIO.read(new File(path));
-			FileSystemAccessor.deleteFileSystemItem(path);
-			
-			return fromBufferedImage(bufferedImage);
-			
-		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
-		}
+		return fromBufferedImage(GlobalBufferedImageHelper.fromBytes(bytes));
 	}
 	
 	//static method
