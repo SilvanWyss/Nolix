@@ -28,7 +28,7 @@ import ch.nolix.system.client.base.Client;
 /**
  * @author Silvan Wyss
  * @date 2017-10-01
- * @lines 390
+ * @lines 400
  * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
  */
 public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends Client<BBGUIC> {
@@ -279,47 +279,57 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 * 
 	 * @param input
 	 */
-	private void noteInput(final IInput<?> input) {
-		if (!(isNotingMouseInput() && (input instanceof MouseInput))) {
-			noteInputAndLockWhenIsFreeForInput(input);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BaseBackGUIClient} note the given input and lock inputs when it is free for inputs.
-	 * 
-	 * @param input
-	 */
-	private void noteInputAndLockWhenIsFreeForInput(final IInput<?> input) {
-		try {
-			
-			//TODO: Fix that isNotingMouseInput can be set true.
-			/*
-			 * ATTENTION: Now, when isNotingMouseInput is set true, a process of a mouse input can remain.
-			 * And then, isNotingMouseInput will never be set false and all further inputs will not be processed.
-			 * Then the GUI client does not respond to any input anymore.
-			 */
-			//isNotingMouseInput = true
-			
-			noteInputWhenIsFreeForInput(input);
-		} finally {
-			isNotingMouseInput = false;
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BaseBackGUIClient} note the given input when is free for inputs.
-	 * 
-	 * @param input
-	 */
-	private void noteInputWhenIsFreeForInput(final IInput<?> input) {
+	private void noteAnyInput(final IInput<?> input) {
 		
 		getRefGUI().noteInput(input);
 		
+		//There can happen that the action before made that the current BaseBackGUIClient was closed.
 		if (!isClosed()) {
 			updateGUIOnCounterpart();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient} note the given input.
+	 * 
+	 * @param input
+	 */
+	private void noteInput(final IInput<?> input) {
+		if (input instanceof MouseInput) {
+			noteMouseInput((MouseInput)input);
+		} else {
+			noteAnyInput(input);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient} the given mouseInput.
+	 * 
+	 * @param mouseInput
+	 */
+	private void noteMouseInput(final MouseInput mouseInput) {
+		if (!isNotingMouseInput()) {
+			noteMouseInputWhenIsNotNotingMouseInput(mouseInput);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BaseBackGUIClient} the given mouseInput for the case
+	 * that the current {@link BaseBackGUIClient} is not already noting a {@link MouseInput}.
+	 * 
+	 * @param mouseInput
+	 */
+	private void noteMouseInputWhenIsNotNotingMouseInput(final MouseInput mouseInput) {
+		try {
+			
+			isNotingMouseInput = true;
+			
+			noteAnyInput(mouseInput);
+		} finally {
+			isNotingMouseInput = false;
 		}
 	}
 	
