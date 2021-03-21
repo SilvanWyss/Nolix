@@ -4,6 +4,7 @@ package ch.nolix.system.client.baseguiclient;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 
@@ -36,8 +37,6 @@ final class BaseBackGUIClientFrontEndReader implements IFrontEndReader {
 	//method
 	@Override
 	public LinkedList<byte[]> getFilesFromClipboard() {
-		
-		//TODO: Implement.
-		return new LinkedList<>();
+		throw new ArgumentDoesNotSupportMethodException(this, "getFilesFromClipboard");
 	}
 }
