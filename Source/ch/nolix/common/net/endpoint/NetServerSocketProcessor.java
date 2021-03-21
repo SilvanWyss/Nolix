@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.commontype.commontypehelper.InputStreamHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -20,7 +21,7 @@ import ch.nolix.common.net.http.HTTPRequest;
 import ch.nolix.common.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.common.programcontrol.worker.Worker;
 
-//class
+//visibility-reduced class
 final class NetServerSocketProcessor extends Worker {
 	
 	//attributes
@@ -50,12 +51,12 @@ final class NetServerSocketProcessor extends Worker {
 	protected void run() {
 		try {
 			
-			final var netEndPoint = createNetEndPointOrNull();
+			final var netEndPoint = createNetEndPointOptionally();
 			
-			if (netEndPoint == null) {
+			if (netEndPoint.isEmpty()) {
 				closeSocket();
 			} else {
-				parentNetServer.takeEndPoint(netEndPoint);
+				parentNetServer.takeEndPoint(netEndPoint.getRefElement());
 			}
 		} catch (final Exception exception) {
 			
@@ -74,43 +75,43 @@ final class NetServerSocketProcessor extends Worker {
 		}
 	}
 	
-	//TODO: Beautify this method.
 	//method
-	private BaseNetEndPoint createNetEndPointOrNull() {
+	private SingleContainer<BaseNetEndPoint> createNetEndPointOptionally() {
 		
-		final var firstLine = InputStreamHelper.readLineFrom(socketInputStream);
+		final var firstReveivedLine = InputStreamHelper.readLineFrom(socketInputStream);
 		
-		if (firstLine.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
-			return new NetEndPoint(socket, socketInputStream, socketOutputStream);
+		switch (getNetEndPointCreationTypeFromFirstReceivedLine(firstReveivedLine)) {
+			case REGULAR_SOCKET_WITH_DEFAULT_TARGET:
+				return new SingleContainer<>(new NetEndPoint(socket, socketInputStream, socketOutputStream));
+			case REGULAR_SOCKET_WITH_CUSTOM_TARGET:
+				return
+				new SingleContainer<>(
+					new NetEndPoint(
+						socket,
+						socketInputStream,
+						socketOutputStream,
+						Node.fromString(firstReveivedLine).getOneAttributeHeader()
+					)
+				);
+			case WEB_SOCKET_OR_HTTP:
+				
+				final var lines = LinkedList.withElements(firstReveivedLine);
+				fillUpUntilEmptyLineFollows(lines, socketInputStream);
+				
+				if (WebSocketHandShakeRequest.canBe(lines)) {
+					sendRawMessage(new WebSocketHandShakeRequest(lines).getWebSocketHandShakeResponse().toString());
+					return new SingleContainer<>(new WebEndPoint(socket, socketInputStream, socketOutputStream));
+				}
+				
+				if (HTTPRequest.canBe(lines)) {
+					sendRawMessage(parentNetServer.getHTTPMessage());
+					return new SingleContainer<>();
+				}
+				
+				throw new InvalidArgumentException("first received line", firstReveivedLine, "is not valid");
+			default:
+				throw new InvalidArgumentException("first received line", firstReveivedLine, "is not valid");
 		}
-		
-		if (firstLine.startsWith(String.valueOf(NetEndPointProtocol.TARGET_PREFIX))) {
-			return
-			new NetEndPoint(
-				socket,
-				socketInputStream,
-				socketOutputStream,
-				Node.fromString(firstLine).getOneAttributeHeader()
-			);
-		}
-		
-		if (firstLine.startsWith("G")) {
-			
-			final var lines = LinkedList.withElements(firstLine);
-			fillUpUntilEmptyLineFollows(lines, socketInputStream);
-			
-			if (WebSocketHandShakeRequest.canBe(lines)) {
-				sendRawMessage(new WebSocketHandShakeRequest(lines).getWebSocketHandShakeResponse().toString());
-				return new WebEndPoint(socket, socketInputStream, socketOutputStream);
-			}
-			
-			if (HTTPRequest.canBe(lines)) {
-				sendRawMessage(parentNetServer.getHTTPMessage());
-				return null;
-			}
-		}
-		
-		throw new InvalidArgumentException("first line", firstLine, "is not valid");
 	}
 	
 	//method
@@ -129,6 +130,24 @@ final class NetServerSocketProcessor extends Worker {
 			
 			lines.addAtEnd(line);
 		}
+	}
+	
+	//method
+	private NetEndPointCreationType getNetEndPointCreationTypeFromFirstReceivedLine(final String firstReceivedLine) {
+		
+		if (firstReceivedLine.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
+			return NetEndPointCreationType.REGULAR_SOCKET_WITH_DEFAULT_TARGET;
+		}
+		
+		if (firstReceivedLine.startsWith(String.valueOf(NetEndPointProtocol.TARGET_PREFIX))) {
+			return NetEndPointCreationType.REGULAR_SOCKET_WITH_CUSTOM_TARGET;
+		}
+		
+		if (firstReceivedLine.startsWith("G")) {
+			return NetEndPointCreationType.WEB_SOCKET_OR_HTTP;
+		}
+		
+		throw new InvalidArgumentException("first received line", firstReceivedLine, "is not valid");
 	}
 	
 	//method

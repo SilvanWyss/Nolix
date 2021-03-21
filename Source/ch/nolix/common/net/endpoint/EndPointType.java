@@ -5,6 +5,5 @@ package ch.nolix.common.net.endpoint;
 public enum EndPointType {
 	LOCAL,
 	REGULAR_SOCKET,
-	WEB_SOCKET,
-	HTTP
+	WEB_SOCKET
 }
