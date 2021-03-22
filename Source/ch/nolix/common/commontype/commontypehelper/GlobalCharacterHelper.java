@@ -14,7 +14,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * @month 2015-12
  * @lines 90
  */
-public final class CharacterHelper {
+public final class GlobalCharacterHelper {
 	
 	//articles
 	private static final String ARTICLE_A = "a";
@@ -77,5 +77,5 @@ public final class CharacterHelper {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private CharacterHelper() {}
+	private GlobalCharacterHelper() {}
 }

@@ -5,7 +5,7 @@ package ch.nolix.element.time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -92,18 +92,18 @@ public final class Time implements IElement {
 		.isEqualToAny(3, 5, 6, 7);
 		
 		if (array.length >= 3) {
-			time.setYear(StringHelper.toInt(array[0]));
-			time.setMonthOfYear(StringHelper.toInt(array[1]));
-			time.setDayOfMonth(StringHelper.toInt(array[2]));
+			time.setYear(GlobalStringHelper.toInt(array[0]));
+			time.setMonthOfYear(GlobalStringHelper.toInt(array[1]));
+			time.setDayOfMonth(GlobalStringHelper.toInt(array[2]));
 		}
 		if (array.length >= 5) {
-			time.setMinuteOfHour(StringHelper.toInt(array[4]));
+			time.setMinuteOfHour(GlobalStringHelper.toInt(array[4]));
 		}
 		if (array.length >= 6) {
-			time.setSecondOfMinute(StringHelper.toInt(array[5]));
+			time.setSecondOfMinute(GlobalStringHelper.toInt(array[5]));
 		}
 		if (array.length >= 7) {
-			time.setMillisecondOfSecond(StringHelper.toInt(array[6]));
+			time.setMillisecondOfSecond(GlobalStringHelper.toInt(array[6]));
 		}
 		
 		return time;

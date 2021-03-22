@@ -11,7 +11,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 
 //class
-public final class InputStreamHelper {
+public final class GlobalInputStreamHelper {
 	
 	//static method
 	public static String readLineFrom(final InputStream inputStream) {
@@ -39,5 +39,5 @@ public final class InputStreamHelper {
 	}
 	
 	//visibility-reduced constructor
-	private InputStreamHelper() {}
+	private GlobalInputStreamHelper() {}
 }

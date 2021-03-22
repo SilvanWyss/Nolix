@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitComplexSequenceBuilder;
-import ch.nolix.common.commontype.commontypehelper.ArrayHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
@@ -70,7 +70,7 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	@Override
 	public ImplicitComplexSequenceBuilder setStartValues(final IComplexNumber... startValues) {
 		
-		this.startValues = ArrayHelper.createCopyOf(startValues);
+		this.startValues = GlobalArrayHelper.createCopyOf(startValues);
 		
 		return this;
 	}

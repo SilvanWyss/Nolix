@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.common.commontype.commontypehelper.InputStreamHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalInputStreamHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
@@ -78,7 +78,7 @@ final class NetServerSocketProcessor extends Worker {
 	//method
 	private SingleContainer<BaseNetEndPoint> createNetEndPointOptionally() {
 		
-		final var firstReveivedLine = InputStreamHelper.readLineFrom(socketInputStream);
+		final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
 		
 		switch (getNetEndPointCreationTypeFromFirstReceivedLine(firstReveivedLine)) {
 			case REGULAR_SOCKET_WITH_DEFAULT_TARGET:
@@ -118,7 +118,7 @@ final class NetServerSocketProcessor extends Worker {
 	private void fillUpUntilEmptyLineFollows(final LinkedList<String> lines, final InputStream inputStream) {
 		while (true) {
 			
-			final var line = InputStreamHelper.readLineFrom(inputStream);
+			final var line = GlobalInputStreamHelper.readLineFrom(inputStream);
 			
 			if (line == null) {
 				throw new ArgumentIsNullException(LowerCaseCatalogue.LINE);

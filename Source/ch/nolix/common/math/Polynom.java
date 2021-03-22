@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRang
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.commontype.commontypehelper.DoubleHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 
 //class
@@ -352,7 +352,7 @@ public final class Polynom {
 					stringBuilder.append("+");
 				}
 			
-				stringBuilder.append(DoubleHelper.toString(constant));
+				stringBuilder.append(GlobalDoubleHelper.toString(constant));
 			}
 		}
 	}
@@ -373,7 +373,7 @@ public final class Polynom {
 				}
 				
 				if (coefficient != 1.0) {
-					stringBuilder.append(DoubleHelper.toString(coefficient));
+					stringBuilder.append(GlobalDoubleHelper.toString(coefficient));
 				}
 				
 				final var coefficientDegree = degree - i;
@@ -394,7 +394,7 @@ public final class Polynom {
 					stringBuilder.append("+");
 				}
 				
-				stringBuilder.append(DoubleHelper.toString(linearCoefficient) + parameterSymbol);
+				stringBuilder.append(GlobalDoubleHelper.toString(linearCoefficient) + parameterSymbol);
 			}
 		}
 	}

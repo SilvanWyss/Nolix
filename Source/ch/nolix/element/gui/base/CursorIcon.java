@@ -5,7 +5,7 @@ package ch.nolix.element.gui.base;
 import java.awt.Cursor;
 import java.util.Locale;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
@@ -45,7 +45,7 @@ public enum CursorIcon implements IElement {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.withHeader(StringHelper.toPascalCase(toString())));
+		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
 	}
 	
 	//method

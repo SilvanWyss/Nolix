@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.valueholder;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -40,11 +40,11 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		
 		//Handles the case that the given specification specifies a ValueOrPercentageHolder with a percentage.
 		if (attribute.endsWith("%")) {
-			return new ValueOrPercentageHolder(StringHelper.toDouble(attribute.substring(0, attribute.length() - 2)));
+			return new ValueOrPercentageHolder(GlobalStringHelper.toDouble(attribute.substring(0, attribute.length() - 2)));
 		}
 		
 		//Handles the case that the given specification specifies a ValueOrPercentageHolder with a value.
-		return new ValueOrPercentageHolder(StringHelper.toInt(attribute));
+		return new ValueOrPercentageHolder(GlobalStringHelper.toInt(attribute));
 	}
 	
 	//constructor

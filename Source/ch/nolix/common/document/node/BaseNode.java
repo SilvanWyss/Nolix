@@ -2,7 +2,7 @@
 package ch.nolix.common.document.node;
 
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalHeaderable;
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -608,7 +608,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws UnrepresentingArgumentException if the current {@link BaseNode} does not represent a boolean.
 	 */
 	public boolean toBoolean() {
-		return StringHelper.toBoolean(toString());
+		return GlobalStringHelper.toBoolean(toString());
 	}
 	
 	//method
@@ -617,7 +617,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a double.
 	 */
 	public double toDouble() {
-		return StringHelper.toDouble(toString());
+		return GlobalStringHelper.toDouble(toString());
 	}
 	
 	//method
@@ -634,7 +634,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a int.
 	 */
 	public int toInt() {
-		return StringHelper.toInt(toString());
+		return GlobalStringHelper.toInt(toString());
 	}
 	
 	//method
@@ -658,7 +658,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a long.
 	 */
 	public long toLong() {
-		return StringHelper.toLong(toString());
+		return GlobalStringHelper.toLong(toString());
 	}
 	
 	//method
@@ -785,7 +785,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		
 		final var stringBuilder = new StringBuilder();
 		
-		stringBuilder.append(StringHelper.createTabulators(leadingTabulators));
+		stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulators));
 		
 		//Handles the case that the current specification has a header.
 		if (hasHeader()) {
@@ -825,7 +825,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 				}
 				
 				stringBuilder
-				.append(StringHelper.createTabulators(leadingTabulators))
+				.append(GlobalStringHelper.createTabulators(leadingTabulators))
 				.append(CharacterCatalogue.CLOSED_BRACKET);
 			}
 		}

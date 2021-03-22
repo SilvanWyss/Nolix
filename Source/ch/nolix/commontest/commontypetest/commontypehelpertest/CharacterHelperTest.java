@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.commontest.commontypetest.commontypehelpertest;
 
-import ch.nolix.common.commontype.commontypehelper.CharacterHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalCharacterHelper;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.simpletest.SimpleTest;
 
@@ -22,59 +22,59 @@ public class CharacterHelperTest extends SimpleTest {
 	@TestCase
 	public void testIsDigit() {
 		
-		expectTrue(CharacterHelper.isDigit('0'));
-		expectTrue(CharacterHelper.isDigit('1'));
-		expectTrue(CharacterHelper.isDigit('2'));
-		expectTrue(CharacterHelper.isDigit('3'));
-		expectTrue(CharacterHelper.isDigit('4'));
-		expectTrue(CharacterHelper.isDigit('5'));
-		expectTrue(CharacterHelper.isDigit('6'));
-		expectTrue(CharacterHelper.isDigit('7'));
-		expectTrue(CharacterHelper.isDigit('8'));
-		expectTrue(CharacterHelper.isDigit('9'));
+		expectTrue(GlobalCharacterHelper.isDigit('0'));
+		expectTrue(GlobalCharacterHelper.isDigit('1'));
+		expectTrue(GlobalCharacterHelper.isDigit('2'));
+		expectTrue(GlobalCharacterHelper.isDigit('3'));
+		expectTrue(GlobalCharacterHelper.isDigit('4'));
+		expectTrue(GlobalCharacterHelper.isDigit('5'));
+		expectTrue(GlobalCharacterHelper.isDigit('6'));
+		expectTrue(GlobalCharacterHelper.isDigit('7'));
+		expectTrue(GlobalCharacterHelper.isDigit('8'));
+		expectTrue(GlobalCharacterHelper.isDigit('9'));
 		
-		expectFalse(CharacterHelper.isDigit('A'));
-		expectFalse(CharacterHelper.isDigit('a'));
-		expectFalse(CharacterHelper.isDigit('Z'));
-		expectFalse(CharacterHelper.isDigit('z'));
-		expectFalse(CharacterHelper.isDigit('%'));
-		expectFalse(CharacterHelper.isDigit('&'));
-		expectFalse(CharacterHelper.isDigit('.'));
-		expectFalse(CharacterHelper.isDigit(','));
-		expectFalse(CharacterHelper.isDigit('('));
-		expectFalse(CharacterHelper.isDigit(')'));
+		expectFalse(GlobalCharacterHelper.isDigit('A'));
+		expectFalse(GlobalCharacterHelper.isDigit('a'));
+		expectFalse(GlobalCharacterHelper.isDigit('Z'));
+		expectFalse(GlobalCharacterHelper.isDigit('z'));
+		expectFalse(GlobalCharacterHelper.isDigit('%'));
+		expectFalse(GlobalCharacterHelper.isDigit('&'));
+		expectFalse(GlobalCharacterHelper.isDigit('.'));
+		expectFalse(GlobalCharacterHelper.isDigit(','));
+		expectFalse(GlobalCharacterHelper.isDigit('('));
+		expectFalse(GlobalCharacterHelper.isDigit(')'));
 	}
 	
 	//method
 	@TestCase
 	public void testIsHexadeciumalDigit() {
 		
-		expectTrue(CharacterHelper.isHexadecimalDigit('0'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('1'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('2'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('3'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('4'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('5'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('6'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('7'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('8'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('9'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('A'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('B'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('C'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('D'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('E'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('F'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('0'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('1'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('2'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('3'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('4'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('5'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('6'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('7'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('8'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('9'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('A'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('B'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('C'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('D'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('E'));
+		expectTrue(GlobalCharacterHelper.isHexadecimalDigit('F'));
 	
-		expectFalse(CharacterHelper.isHexadecimalDigit('G'));
-		expectFalse(CharacterHelper.isHexadecimalDigit('g'));
-		expectFalse(CharacterHelper.isHexadecimalDigit('Z'));
-		expectFalse(CharacterHelper.isHexadecimalDigit('z'));
-		expectFalse(CharacterHelper.isHexadecimalDigit('%'));
-		expectFalse(CharacterHelper.isHexadecimalDigit('&'));
-		expectFalse(CharacterHelper.isHexadecimalDigit('.'));
-		expectFalse(CharacterHelper.isHexadecimalDigit(','));
-		expectFalse(CharacterHelper.isHexadecimalDigit('('));
-		expectFalse(CharacterHelper.isHexadecimalDigit(')'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('G'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('g'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('Z'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('z'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('%'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('&'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('.'));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit(','));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit('('));
+		expectFalse(GlobalCharacterHelper.isHexadecimalDigit(')'));
 	}
 }

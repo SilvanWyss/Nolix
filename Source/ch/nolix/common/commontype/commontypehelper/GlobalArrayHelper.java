@@ -9,7 +9,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public final class ArrayHelper {
+public final class GlobalArrayHelper {
 	
 	//static method
 	public static double[] createCopyOf(final double[] array) {
@@ -28,5 +28,5 @@ public final class ArrayHelper {
 	}
 	
 	//visibility-reduced constructor
-	private ArrayHelper() {}
+	private GlobalArrayHelper() {}
 }

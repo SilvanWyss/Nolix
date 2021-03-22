@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.elementenum;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
@@ -35,7 +35,7 @@ public enum ContentPosition implements IElement {
 	 * @throws InvalidArgumentException if the given specification does not represent a {@link ContentPosition}.
 	 */
 	public static ContentPosition fromSpecification(final BaseNode specification) {
-		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method
@@ -44,6 +44,6 @@ public enum ContentPosition implements IElement {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.withHeader(StringHelper.toPascalCase(toString())));
+		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
 	}
 }

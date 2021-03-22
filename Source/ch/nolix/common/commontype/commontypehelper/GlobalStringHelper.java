@@ -14,14 +14,14 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
 /**
- * The {@link StringHelper} provides methods to handle {@link String}s.
- * Of the {@link StringHelper} an instance cannot be created.
+ * The {@link GlobalStringHelper} provides methods to handle {@link String}s.
+ * Of the {@link GlobalStringHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 380
  */
-public final class StringHelper {
+public final class GlobalStringHelper {
 		
 	//static method
 	/**
@@ -379,7 +379,7 @@ public final class StringHelper {
 	
 	//visibility-reduced constructor
 	/**
-	 * Avoids that an instance of the {@link StringHelper} can be created.
+	 * Avoids that an instance of the {@link GlobalStringHelper} can be created.
 	 */
-	private StringHelper() {}
+	private GlobalStringHelper() {}
 }

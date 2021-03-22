@@ -4,7 +4,7 @@ package ch.nolix.common.math;
 //Java import
 import java.util.Random;
 
-import ch.nolix.common.commontype.commontypehelper.DoubleHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
@@ -1054,7 +1054,7 @@ public final class Matrix implements ApproximativeEqualing {
 			
 			for (var j = 0; j < getColumnCount(); j++) {
 				
-				stringBuilder.append(DoubleHelper.toString(values[i][j]));
+				stringBuilder.append(GlobalDoubleHelper.toString(values[i][j]));
 				
 				if (j < getColumnCount() - 1) {
 					stringBuilder.append(',');

@@ -15,7 +15,7 @@ import java.util.Locale;
  * @month 2016-07
  * @lines 40
  */
-public final class DoubleHelper {
+public final class GlobalDoubleHelper {
 
 	//static method
 	/**
@@ -38,5 +38,5 @@ public final class DoubleHelper {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private DoubleHelper() {}
+	private GlobalDoubleHelper() {}
 }

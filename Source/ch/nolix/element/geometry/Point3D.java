@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.geometry;
 
-import ch.nolix.common.commontype.commontypehelper.DoubleHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Vector;
@@ -61,9 +61,9 @@ public class Point3D implements IElement {
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		list.addAtEnd(
-			Node.withHeader(DoubleHelper.toString(getX())),
-			Node.withHeader(DoubleHelper.toString(getY())),
-			Node.withHeader(DoubleHelper.toString(getZ()))
+			Node.withHeader(GlobalDoubleHelper.toString(getX())),
+			Node.withHeader(GlobalDoubleHelper.toString(getY())),
+			Node.withHeader(GlobalDoubleHelper.toString(getZ()))
 		);
 	}
 	

@@ -2,7 +2,7 @@
 package ch.nolix.common.document.chainednode;
 
 import ch.nolix.common.attributeapi.optionalattributeapi.OptionalHeadered;
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -508,7 +508,7 @@ public final class ChainedNode implements OptionalHeadered {
 			throw new UnrepresentingArgumentException(this, Integer.class);
 		}
 		
-		return StringHelper.toInt(header);
+		return GlobalStringHelper.toInt(header);
 	}
 	
 	//method

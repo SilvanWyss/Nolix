@@ -3,7 +3,7 @@ package ch.nolix.common.document.xml;
 
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalNamable;
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalValueable;
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -254,7 +254,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 		final var stringBuilder = new StringBuilder();
 		
 		stringBuilder
-		.append(StringHelper.createTabulators(leadingTabulatorCount))
+		.append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
 		.append('<')
 		.append(getName());
 		
@@ -272,7 +272,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 			} else {
 				stringBuilder
 				.append(CharacterCatalogue.NEW_LINE)
-				.append(StringHelper.createTabulators(leadingTabulatorCount + 1))
+				.append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
 				.append(getValue())
 				.append(CharacterCatalogue.NEW_LINE);
 				
@@ -291,7 +291,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 		}
 		
 		if (containsChildNodes()) {
-			stringBuilder.append(StringHelper.createTabulators(leadingTabulatorCount));
+			stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
 		}
 			
 		stringBuilder

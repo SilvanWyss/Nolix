@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.document.node;
 
-import ch.nolix.common.commontype.commontypehelper.BooleanHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalBooleanHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -233,7 +233,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public static Node withHeader(final boolean header) {
 		
 		final var node = new Node();
-		node.setHeader(BooleanHelper.toString(header));
+		node.setHeader(GlobalBooleanHelper.toString(header));
 		
 		return node;
 	}
@@ -332,7 +332,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttribute(BooleanHelper.toString(attribute));
+		node.addAttribute(GlobalBooleanHelper.toString(attribute));
 		
 		return node;
 	}

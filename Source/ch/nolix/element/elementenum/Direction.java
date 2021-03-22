@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.elementenum;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.elementapi.IElement;
@@ -33,6 +33,6 @@ public enum Direction implements IElement {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.withHeader(StringHelper.toPascalCase(toString())));
+		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
 	}
 }

@@ -5,7 +5,7 @@ package ch.nolix.common.commontype.commontypehelper;
 import ch.nolix.common.constant.StringCatalogue;
 
 //class
-public final class BooleanHelper {
+public final class GlobalBooleanHelper {
 	
 	//static method
 	@SuppressWarnings("all")
@@ -14,5 +14,5 @@ public final class BooleanHelper {
 	}
 	
 	//visibility-reduced constructor
-	private BooleanHelper() {}
+	private GlobalBooleanHelper() {}
 }

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.constanttest;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.reflectionhelper.GlobalClassHelper;
@@ -25,7 +25,7 @@ public final class LowerCaseCatalogueTest extends Test {
 			
 			final var stringValue = c.toString();
 			if (!exceptions.containsEqualing(stringValue)) {
-				expect(stringValue).fulfils(StringHelper::isLowerCase);
+				expect(stringValue).fulfils(GlobalStringHelper::isLowerCase);
 			}
 		}
 	}

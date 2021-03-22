@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.geometry;
 
-import ch.nolix.common.commontype.commontypehelper.DoubleHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Vector;
@@ -61,8 +61,8 @@ public final class Point2D extends Element<Point2D> {
 		super.fillUpAttributesInto(list);
 		
 		list.addAtEnd(
-			Node.withHeader(DoubleHelper.toString(getX())),
-			Node.withHeader(DoubleHelper.toString(getY()))
+			Node.withHeader(GlobalDoubleHelper.toString(getX())),
+			Node.withHeader(GlobalDoubleHelper.toString(getY()))
 		);
 	}
 	

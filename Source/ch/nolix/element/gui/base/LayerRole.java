@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
-import ch.nolix.common.commontype.commontypehelper.StringHelper;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
@@ -16,12 +16,12 @@ public enum LayerRole implements IElement {
 	
 	//static method
 	public static LayerRole fromSpecification(final BaseNode specification) {
-		return valueOf(StringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(Node.withHeader(StringHelper.toPascalCase(toString())));
+		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
 	}
 }
