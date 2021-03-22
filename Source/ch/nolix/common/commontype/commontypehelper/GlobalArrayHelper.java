@@ -27,6 +27,11 @@ public final class GlobalArrayHelper {
 		return Arrays.copyOf(array, array.length);
 	}
 	
+	//static method
+	public static ByteArrayMediator on(final byte[] byteArray) {
+		return new ByteArrayMediator(byteArray);
+	}
+	
 	//visibility-reduced constructor
 	private GlobalArrayHelper() {}
 }
