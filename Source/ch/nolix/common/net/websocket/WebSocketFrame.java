@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
+//own imports
+import ch.nolix.common.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -262,20 +264,12 @@ public final class WebSocketFrame {
 				break;
 		}
 		
-		//TODO: ArrayHelper.on(byte[]).fromIndex(int).write(byte).andGetNextIndex()
 		if (firstNibble.getMaskBit()) {
-			for (final var b : maskingKey) {
-				bytes[i] = b;
-				i++;
-			}
+			i = GlobalArrayHelper.on(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
 		}
 		
-		//TODO: ArrayHelper.on(byte[]).fromIndex(int).write(byte)
-		for (final var b : payload) {
-			bytes[i] = b;
-			i++;
-		}
-				
+		GlobalArrayHelper.on(bytes).fromIndex(i).write(payload);
+		
 		return bytes;
 	}
 
