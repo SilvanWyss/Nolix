@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.common.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
@@ -83,7 +84,10 @@ public final class WebSocketFrame {
 				maskingKey = null;
 			}
 			
-			//TODO: Handle payloadLength > MAX_INT.
+			if (payloadLength.getValue() > Integer.MAX_VALUE) {
+				throw new UnsupportedCaseException("The payload is longer than " + Integer.MAX_VALUE);
+			}
+			
 			payload = inputStream.readNBytes((int)getPayloadLength());
 			
 			if (masksPayload()) {
