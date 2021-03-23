@@ -4,6 +4,7 @@ package ch.nolix.common.errorcontrol.validator;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
@@ -13,8 +14,8 @@ import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
  * A {@link ArgumentMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
- * @lines 140
+ * @date 2017-01-01
+ * @lines 150
  * @param <A> is the type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {
@@ -82,7 +83,7 @@ public class ArgumentMediator<A> extends Mediator {
 	public final void isEqualTo(final A object) {
 		
 		//Asserts that the argument of the current ArgumentMediator equals the given object.
-		if (argument != null && !argument.equals(object)) {
+		if ((argument == null && object != null) || !argument.equals(object)) {
 			throw new UnequalArgumentException(argument, object);
 		}
 	}
@@ -97,6 +98,20 @@ public class ArgumentMediator<A> extends Mediator {
 		//Asserts that the argument of the current ArgumentMediator is not the given object.
 		if (argument == object) {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is the given object");
+		}
+	}
+	
+	//method
+	/**
+	 * @param object
+	 * @throws InvalidArgumentException if
+	 * the argument of the current {@link ArgumentMediator} equals the given object.
+	 */
+	public final void isNotEqualTo(final A object) {
+		
+		//Asserts that the argument of the current ArgumentMediator does not equal the given object.
+		if ((argument == null && object == null) || argument.equals(object)) {
+			throw new EqualArgumentException(argument, object);
 		}
 	}
 	
