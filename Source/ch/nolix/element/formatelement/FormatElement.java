@@ -75,6 +75,12 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	}
 	
 	//method
+	@Override
+	public final void reset() {
+		getRefProperties().forEach(CascadingProperty::setUnspecified);
+	}
+	
+	//method
 	public final void switchToState(final S state) {
 		
 		Validator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
