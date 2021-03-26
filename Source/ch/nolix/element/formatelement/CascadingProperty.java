@@ -101,6 +101,13 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
+	public void setUnspecified() {
+		for (final var sp : stateProperties) {
+			sp.setUnspecified();
+		}
+	}
+	
+	//method
 	public void setUnspecifyiedForState(final S state) {
 		stateProperties[(getStateOf(state).getIndex())].setUnspecified();
 	}
