@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
-//Java import
-import java.util.Arrays;
-
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
