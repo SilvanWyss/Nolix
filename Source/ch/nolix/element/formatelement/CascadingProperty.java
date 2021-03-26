@@ -34,8 +34,8 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	//constructor
 	public CascadingProperty(
 		final String name,
-		final Class<S> stateClass,
 		final ValueDetermination valueDetermination,
+		final Class<S> stateClass,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
