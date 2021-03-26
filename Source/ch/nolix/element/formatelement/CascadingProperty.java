@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
+//Java import
+import java.util.Arrays;
+
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -61,6 +64,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 		this.name = name;
 		this.valueDetermination = valueDetermination;
 		stateProperties = new StateProperty[stateCount];
+		Arrays.fill(stateProperties, new StateProperty<>());
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;
 	}
