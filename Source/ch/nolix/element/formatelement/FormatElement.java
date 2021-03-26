@@ -77,7 +77,7 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	//method
 	@Override
 	public final void reset() {
-		getRefProperties().forEach(CascadingProperty::setUnspecified);
+		getRefProperties().forEach(CascadingProperty::setUndefined);
 	}
 	
 	//method

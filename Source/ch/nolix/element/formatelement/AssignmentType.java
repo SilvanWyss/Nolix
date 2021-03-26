@@ -5,5 +5,5 @@ package ch.nolix.element.formatelement;
 public enum AssignmentType {
 	VALUE,
 	NO_VALUE,
-	UNSPECIFIED
+	UNDEFINED
 }

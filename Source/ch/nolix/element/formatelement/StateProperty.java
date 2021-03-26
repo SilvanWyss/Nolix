@@ -10,22 +10,22 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 final class StateProperty<V> {
 	
 	//attribute
-	private boolean specifiesItself;
+	private boolean defined;
 	
 	//optional attribute
 	private V value;
 	
 	//method
 	public void clear() {
-		specifiesItself = true;
+		defined = true;
 		value = null;
 	}
 	
 	//method
 	public AssignmentType getAssignmentType() {
 		
-		if (!specifiesItself()) {
-			return AssignmentType.UNSPECIFIED;
+		if (!isDefined()) {
+			return AssignmentType.UNDEFINED;
 		}
 		
 		if (!hasValue()) {
@@ -39,7 +39,7 @@ final class StateProperty<V> {
 	//method
 	public V getValue() {
 		
-		if (!specifiesItself) {
+		if (!defined) {
 			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
 		}
 		
@@ -52,22 +52,22 @@ final class StateProperty<V> {
 	}
 	
 	//method
+	public boolean isDefined() {
+		return defined;
+	}
+	
+	//method
 	public void setValue(final V value) {
 		
 		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
-		specifiesItself = true;
+		defined = true;
 		this.value = value;
 	}
 	
 	//method
-	public void setUnspecified() {
-		specifiesItself = false;
+	public void setUndefined() {
+		defined = false;
 		value = null;
-	}
-	
-	//method
-	public boolean specifiesItself() {
-		return specifiesItself;
 	}
 }

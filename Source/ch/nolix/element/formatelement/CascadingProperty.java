@@ -101,15 +101,15 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
-	public void setUnspecified() {
+	public void setUndefined() {
 		for (final var sp : stateProperties) {
-			sp.setUnspecified();
+			sp.setUndefined();
 		}
 	}
 	
 	//method
-	public void setUnspecifyiedForState(final S state) {
-		stateProperties[(getStateOf(state).getIndex())].setUnspecified();
+	public void setUndefinedForState(final S state) {
+		stateProperties[(getStateOf(state).getIndex())].setUndefined();
 	}
 	
 	//method
@@ -139,7 +139,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 						list.addAtBegin(Node.withHeaderAndAttribute(s.getPrefix() + getName(), NONE_HEADER));
 						
 						break;
-				case UNSPECIFIED:
+				case UNDEFINED:
 					break;
 				
 			}
@@ -181,12 +181,12 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	private V getValueWhenHasState(final State<S> state) {
 		
 		final var stateProperty = stateProperties[state.getIndex()];
-		if (stateProperty.specifiesItself()) {
+		if (stateProperty.isDefined()) {
 			return stateProperty.getValue();
 		}
 		
 		final var baseStateProperty = getRefBaseStateProperty();
-		if (baseStateProperty.specifiesItself()) {
+		if (baseStateProperty.isDefined()) {
 			return baseStateProperty.getValue();
 		}
 		
@@ -206,12 +206,12 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	private boolean hasValueWhenHasState(final State<S> state) {
 		
 		final var stateProperty = stateProperties[state.getIndex()];
-		if (stateProperty.specifiesItself()) {
+		if (stateProperty.isDefined()) {
 			return stateProperty.hasValue();
 		}
 		
 		final var baseStateProperty = getRefBaseStateProperty();
-		if (baseStateProperty.specifiesItself()) {
+		if (baseStateProperty.isDefined()) {
 			return baseStateProperty.hasValue();
 		}
 				
