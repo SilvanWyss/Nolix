@@ -64,9 +64,12 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 		this.name = name;
 		this.valueDetermination = valueDetermination;
 		stateProperties = new StateProperty[stateCount];
-		Arrays.fill(stateProperties, new StateProperty<>());
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;
+		
+		for (var i = 0; i < stateProperties.length; i++) {
+			stateProperties[i] = new StateProperty<>();
+		}
 	}
 	
 	//method
