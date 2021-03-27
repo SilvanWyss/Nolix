@@ -20,7 +20,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//attributes
 	private final String name;
-	private FormatElement<S> parentElement;
+	private FormatElement<S> parent;
 	private final ValueDetermination valueDetermination;
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
@@ -91,7 +91,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//method
 	public V getValue() {
-		return getValueWhenHasState(parentElement.getCurrentStateObject());
+		return getValueWhenHasState(parent.getCurrentStateObject());
 	}
 	
 	//method
@@ -101,7 +101,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//method
 	public boolean hasValue() {
-		return hasValueWhenHasState(parentElement.getCurrentStateObject());
+		return hasValueWhenHasState(parent.getCurrentStateObject());
 	}
 	
 	//method
@@ -123,7 +123,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//method
 	void fillUpValuesSpecificationInto(final LinkedList<Node> list) {
-		for (final var s : parentElement.getAvailableStates()) {
+		for (final var s : parent.getAvailableStates()) {
 			
 			final var stateProperty = stateProperties[s.getIndex()];
 			
@@ -151,17 +151,26 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
-	void setParentElement(final FormatElement<S> parentElement) {
+	void setParent(final FormatElement<S> parent) {
 		
-		Validator.assertThat(parentElement).thatIsNamed("parent Element").isNotNull();
+		Validator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
 		
-		this.parentElement = parentElement;
+		this.parent = parent;
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
+		
+		Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
+		
+		this.parentProperty = (CascadingProperty<S, V>)parentProperty;
 	}
 	
 	//method
 	void setValueFromSpecification(final BaseNode specification) {
 		
-		for (final var s : parentElement.getAvailableStates()) {
+		for (final var s : parent.getAvailableStates()) {
 			if (specification.getHeader().startsWith(s.getPrefix())) {
 				setValueFromSpecificationToStateProperty(stateProperties[s.getIndex()], specification.getRefOneAttribute());
 				break;
@@ -173,12 +182,12 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//method
 	private StateProperty<V> getRefBaseStateProperty() {
-		return stateProperties[parentElement.getBaseStateObject().getIndex()];
+		return stateProperties[parent.getBaseStateObject().getIndex()];
 	}
 	
 	//method
 	private State<S> getStateOf(final S state) {
-		return parentElement.getStateObjectFor(state);
+		return parent.getStateObjectFor(state);
 	}
 	
 	//method

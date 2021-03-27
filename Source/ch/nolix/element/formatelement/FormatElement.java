@@ -116,6 +116,14 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	}
 	
 	//method
+	protected final void internalAddChild(final FormatElement<S> child) {
+		
+		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
+		
+		child.setParent(this);
+	}
+	
+	//method
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
 			extractPropertiesWhenNotExtracted();
@@ -191,7 +199,19 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	//method
 	private void setItselsAsParentToProperties() {
 		for (final var p : getRefProperties()) {
-			p.setParentElement(this);
+			p.setParent(this);
 		}
+	}
+	
+	//method
+	private void setParent(final FormatElement<S> parentElement) {
+		
+		final var parentProperties = LinkedList.fromIterable(parentElement.getRefProperties());
+		
+		for (final var p: getRefProperties()) {
+			p.setParentProperty(parentProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(p)));
+		}
+		
+		Validator.assertThat(parentProperties).thatIsNamed("remaining parent properties").isEmpty();
 	}
 }
