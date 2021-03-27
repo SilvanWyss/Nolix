@@ -95,6 +95,11 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
+	public V getValueOfState(final S state) {
+		return stateProperties[getStateOf(state).getIndex()].getValue();
+	}
+	
+	//method
 	public boolean hasParentProperty() {
 		return (parentProperty != null);
 	}
@@ -113,12 +118,12 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//method
 	public void setUndefinedForState(final S state) {
-		stateProperties[(getStateOf(state).getIndex())].setUndefined();
+		stateProperties[getStateOf(state).getIndex()].setUndefined();
 	}
 	
 	//method
 	public void setValueForState(final S state, final V value) {
-		stateProperties[(getStateOf(state).getIndex())].setValue(value);
+		stateProperties[getStateOf(state).getIndex()].setValue(value);
 	}
 	
 	//method
@@ -169,8 +174,8 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 		
 		for (final var s : parent.getAvailableStates()) {
 			if (specification.getHeader().startsWith(s.getPrefix())) {
-				setValueFromSpecificationToStateProperty(stateProperties[s.getIndex()], specification.getRefOneAttribute());
-				break;
+				setValueFromSpecificationToStateProperty(stateProperties[s.getIndex()], specification);
+				return;
 			}
 		}
 		
@@ -240,12 +245,10 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 		final StateProperty<V> stateProperty,
 		final BaseNode specification
 	) {
-		switch (specification.getHeader()) {
-			case NONE_HEADER:
-				stateProperty.clear();
-				break;
-			default:
-				stateProperty.setValue(valueCreator.getOutput(specification));
+		if (specification.getOneAttributeHeader().equals(NONE_HEADER)) {
+			stateProperty.clear();
+		} else {
+			stateProperty.setValue(valueCreator.getOutput(specification));
 		}
 	}	
 }
