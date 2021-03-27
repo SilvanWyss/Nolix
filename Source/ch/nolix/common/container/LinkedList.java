@@ -24,10 +24,42 @@ import ch.nolix.common.skillapi.Clearable;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1150
+ * @lines 1180
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> implements Clearable, IContainer<E> {
+	
+	//static method
+	/**
+	 * @param array
+	 * @param <E2> is the type of the elements of the given array.
+	 * @return a new {@link LinkedList} with the elements in the given array.
+	 * @throws ArgumentIsNullException if the given array is null.
+	 * @throws ArgumentIsNullException if one of the elements in the given array is null.
+	 */
+	public static <E2> LinkedList<E2> fromArray(final E2[] array) {
+		
+		final var list = new LinkedList<E2>();
+		list.addAtEnd(array);
+		
+		return list;
+	}
+	
+	//static method
+	/**
+	 * @param container
+	 * @param <E2> is the type of the elements of the given container.
+	 * @return a new {@link LinkedList} with the elements in the given container.
+	 * @throws ArgumentIsNullException if the given container is null.
+	 * @throws ArgumentIsNullException if one of the elements in the given container is null.
+	 */
+	public static <E2> LinkedList<E2> fromIterable(final Iterable<E2> container) {
+		
+		final var list = new LinkedList<E2>();
+		list.addAtEnd(container);
+		
+		return list;
+	}
 	
 	//static method
 	/**
