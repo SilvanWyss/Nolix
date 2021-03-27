@@ -352,8 +352,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 			return new LinkedList<>();
 		}
 		
-		//Handles the case that the current Layer has a root Widget.			
-		return rootWidget.getRefPaintableWidgets().addAtEnd(rootWidget);
+		//Handles the case that the current Layer has a root Widget.
+		final var widgetsForPainting = rootWidget.getRefPaintableWidgets();
+		widgetsForPainting.addAtBegin(rootWidget);
+		return widgetsForPainting;
 	}
 	
 	//method
@@ -369,7 +371,9 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		}
 		
 		//Handles the case that the current Layer has a root Widget.
-		return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
+		final var widgets = rootWidget.getChildWidgets();
+		widgets.addAtEnd(rootWidget);
+		return widgets;
 	}
 	
 	//method

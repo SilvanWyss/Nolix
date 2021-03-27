@@ -252,10 +252,9 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public LinkedList<E> addAtEnd(final E element) {
+	public void addAtEnd(final E element) {
 		
 		//Creates new node.
 		final var node = new LinkedListNode<E>(element);
@@ -268,8 +267,6 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 			lastNode = node;
 		}
 		elementCount++;
-		
-		return this;
 	}
 	
 	//method
@@ -381,11 +378,10 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
-	 * @return the current {@link LinkedList}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws InvalidArgumentException if the current {@link LinkedList} contains already the given element.
 	 */
-	public LinkedList<E> addAtEndRegardingSingularity(final E element) {
+	public void addAtEndRegardingSingularity(final E element) {
 		
 		//Asserts that the current {@link List} contains already the given element.
 		if (contains(element)) {
@@ -396,7 +392,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 			);
 		}
 		
-		return addAtEnd(element);
+		addAtEnd(element);
 	}
 	
 	//method
@@ -506,6 +502,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * @return a new list of groups of the elements of the current {@link LinkedList}
 	 * whereas the value of the given norm is equal for all elements of a group.
 	 */
+	@SuppressWarnings("unchecked")
 	public <E2> LinkedList<LinkedList<E>> getGroups(final IElementTakerElementGetter<E, E2> norm) {
 		
 		final LinkedList<LinkedList<E>> groups = new LinkedList<>();
@@ -521,7 +518,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 			);
 			
 			if (group == null) {
-				groups.addAtEnd(new LinkedList<E>().addAtEnd(e));
+				groups.addAtEnd(LinkedList.withElements(e));
 			} else {
 				group.addAtEnd(e);
 			}
@@ -1105,7 +1102,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
-			return new LinkedList<E>().addAtEnd(startNode.getElement());
+			return LinkedList.withElements(startNode.getElement());
 		}
 		
 		//Handles the case when the sub list contains 2 elements.

@@ -83,9 +83,10 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		//Calls method of base class.
 		super.fillUpAttributesInto(list);
 		
-		list
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.THICKNESS, thickness))
-		.addAtEnd(color.getSpecification());
+		list.addAtEnd(
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.THICKNESS, thickness),
+			color.getSpecification()
+		);
 	}
 	
 	//method

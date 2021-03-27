@@ -82,9 +82,10 @@ public final class Area extends Widget<Area, AreaLook> {
 		//Calls method of base class.
 		super.fillUpAttributesInto(list);
 		
-		list
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.HEIGHT, height))
-		.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.WIDTH, width));
+		list.addAtEnd(
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEIGHT, height),
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.WIDTH, width)
+		);
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {

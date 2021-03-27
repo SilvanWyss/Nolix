@@ -285,13 +285,14 @@ TopLeftPositionedRecangular {
 		//Calls method of the base class.
 		super.fillUpAttributesInto(list);
 		
-		list
-		.addAtEnd(getCustomCursorIcon().getSpecification())
-		.addAtEnd(Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()))
-		.addAtEnd(Node.withHeaderAndAttribute(ENABLED_HEADER, isEnabled()))
-		.addAtEnd(Node.withHeaderAndAttribute(EXPANDED_HEADER, isExpanded()))
-		.addAtEnd(Node.withHeaderAndAttribute(FOCUSED_HEADER, isFocused()))
-		.addAtEnd(Node.withHeaderAndAttribute(HOVERED_HEADER, isHovered()));
+		list.addAtEnd(
+			getCustomCursorIcon().getSpecification(),
+			Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()),
+			Node.withHeaderAndAttribute(ENABLED_HEADER, isEnabled()),
+			Node.withHeaderAndAttribute(EXPANDED_HEADER, isExpanded()),
+			Node.withHeaderAndAttribute(FOCUSED_HEADER, isFocused()),
+			Node.withHeaderAndAttribute(HOVERED_HEADER, isHovered())
+		);
 	}
 	
 	//method
