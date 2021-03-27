@@ -9,6 +9,6 @@ public final class FormatElementTestPool extends TestPool {
 	
 	//constructor
 	public FormatElementTestPool() {
-		super(FormatElementWithNonCascadingPropertyTest.class);
+		super(FormatElementWithCascadingPropertyTest.class, FormatElementWithNonCascadingPropertyTest.class);
 	}
 }
