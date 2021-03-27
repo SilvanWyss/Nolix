@@ -23,8 +23,9 @@ public final class PluralPascalCaseCatalogue {
 	public static final String BYTES = "Bytes";
 	public static final String CAPACITIES = "Capacities";
 	public static final String CAPTIONS = "Captions";
-	public static final String CHARACTERS = "Characters";
 	public static final String CELLS = "Cells";
+	public static final String CHARACTERS = "Characters";
+	public static final String CHILDS = "Childs";
 	public static final String CLASSES = "Classes";
 	public static final String CLEANUPS = "Cleanups";
 	public static final String CODES = "Codes";

@@ -25,6 +25,7 @@ public final class LowerCaseCatalogue {
 	public static final String CAPTION = "caption";
 	public static final String CELL = "cell";
 	public static final String CHARACTER = "character";
+	public static final String CHILD = "child";
 	public static final String CLASS = "class";
 	public static final String CLEANUP = "cleanup";
 	public static final String CODE = "code";

@@ -25,6 +25,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String CAPTIONS = "captions";
 	public static final String CELLS = "cells";
 	public static final String CHARACTERS = "characters";
+	public static final String CHILDS = "childs";
 	public static final String CLASSES = "classes";
 	public static final String CLEANUPS = "cleanups";
 	public static final String CODES = "codes";

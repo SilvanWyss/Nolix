@@ -23,8 +23,9 @@ public final class PascalCaseCatalogue {
 	public static final String BYTE = "Byte";
 	public static final String CAPACITY = "Capacity";
 	public static final String CAPTION = "Caption";
-	public static final String CHARACTER = "Character";
 	public static final String CELL = "Cell";
+	public static final String CHARACTER = "Character";
+	public static final String CHILD = "Child";
 	public static final String CLASS = "Class";
 	public static final String CLEANUP = "Cleanup";
 	public static final String CODE = "Code";
