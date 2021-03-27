@@ -39,7 +39,7 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 		
 		availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
 		this.baseState = availableStates.getRefFirst(s -> s.hasEnumValue(baseState));
-		switchToState(baseState);
+		internalSwitchToState(baseState);
 	}
 	
 	//method
@@ -81,14 +81,6 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	}
 	
 	//method
-	public final void switchToState(final S state) {
-		
-		Validator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
-		
-		currentState = availableStates.getRefFirst(s -> s.hasEnumValue(state));
-	}
-	
-	//method
 	final IContainer<State<S>> getAvailableStates() {
 		return availableStates;
 	}
@@ -121,6 +113,14 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
 		child.setParent(this);
+	}
+	
+	//method
+	protected final void internalSwitchToState(final S state) {
+		
+		Validator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
+		
+		currentState = availableStates.getRefFirst(s -> s.hasEnumValue(state));
 	}
 	
 	//method

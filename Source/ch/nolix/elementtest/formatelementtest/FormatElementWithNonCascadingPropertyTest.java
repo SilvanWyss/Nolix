@@ -39,7 +39,12 @@ public final class FormatElementWithNonCascadingPropertyTest extends Test {
 			super(CustomState.A);
 			
 			reset();
-		}		
+		}
+		
+		//method
+		public void switchToState(final CustomState state) {
+			internalSwitchToState(state);
+		}
 	}
 	
 	//method
