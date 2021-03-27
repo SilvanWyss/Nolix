@@ -130,19 +130,16 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 			switch (stateProperty.getAssignmentType()) {
 				case VALUE:
 					
-					list.addAtBegin(
-						Node.withHeaderAndAttribute(
-							s.getPrefix() + getName(),
-							specificationCreator.getOutput(stateProperty.getValue())
-						)
+					list.addAtEnd(
+						specificationCreator.getOutput(stateProperty.getValue()).setHeader(s.getPrefix() + getName())
 					);
 					
 					break;
 				case NO_VALUE:
 					
-						list.addAtBegin(Node.withHeaderAndAttribute(s.getPrefix() + getName(), NONE_HEADER));
+					list.addAtEnd(Node.withHeaderAndAttribute(s.getPrefix() + getName(), NONE_HEADER));
 						
-						break;
+					break;
 				case UNDEFINED:
 					break;
 				
