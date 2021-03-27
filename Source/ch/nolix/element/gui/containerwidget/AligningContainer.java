@@ -252,11 +252,9 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	@Override
 	protected int getNaturalContentAreaHeight() {
 		return
-		Calculator.getMax(
-			topLeftSlot.getHeight() + leftSlot.getHeight() + bottomLeftSlot.getHeight(),
-			topSlot.getHeight() + centerSlot.getHeight() + bottomSlot.getHeight(),
-			topRightSlot.getHeight() + rightSlot.getHeight() + bottomRightSlot.getHeight()
-		);
+		Calculator.getMax(topLeftSlot.getHeight(), topSlot.getHeight(), topRightSlot.getHeight())
+		+ Calculator.getMax(leftSlot.getHeight(), centerSlot.getHeight(), rightSlot.getHeight())
+		+ Calculator.getMax(bottomLeftSlot.getHeight(), bottomLeftSlot.getHeight(), bottomRightSlot.getHeight());
 	}
 	
 	//method
