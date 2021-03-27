@@ -2,6 +2,7 @@
 package ch.nolix.elementtest.formatelementtest;
 
 //own imports
+import ch.nolix.common.document.node.Node;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 import ch.nolix.element.formatelement.CascadingProperty;
@@ -49,6 +50,62 @@ public final class FormatElementWithNonCascadingPropertyTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_addOrChangeAttribute_1A() {
+		
+		//setup
+		final var testUnit = new CustomFormatElement();
+		
+		//execution
+		testUnit.addOrChangeAttribute(Node.fromString("AColor(0xFF0000)"));
+		
+		//verification
+		expect(testUnit.color.getValueOfState(CustomState.A)).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_addOrChangeAttribute_1B() {
+		
+		//setup
+		final var testUnit = new CustomFormatElement();
+		
+		//execution
+		testUnit.addOrChangeAttribute(Node.fromString("BColor(0xFF0000)"));
+		
+		//verification
+		expect(testUnit.color.getValueOfState(CustomState.B)).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_addOrChangeAttribute_1C() {
+		
+		//setup
+		final var testUnit = new CustomFormatElement();
+		
+		//execution
+		testUnit.addOrChangeAttribute(Node.fromString("CColor(0xFF0000)"));
+		
+		//verification
+		expect(testUnit.color.getValueOfState(CustomState.C)).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_addOrChangeAttribute_1D() {
+		
+		//setup
+		final var testUnit = new CustomFormatElement();
+		
+		//execution
+		testUnit.addOrChangeAttribute(Node.fromString("DColor(0xFF0000)"));
+		
+		//verification
+		expect(testUnit.color.getValueOfState(CustomState.D)).isEqualTo(Color.RED);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
@@ -58,6 +115,26 @@ public final class FormatElementWithNonCascadingPropertyTest extends Test {
 		expect(testUnit.getCurrentState()).isSameAs(CustomState.A);
 		expect(testUnit.color.getName()).isEqualTo("Color");
 		expectNot(testUnit.color.hasValue());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getSpecification() {
+		
+		//setup
+		final var testUnit = new CustomFormatElement();
+		testUnit.color.setValueForState(CustomState.A, Color.BLACK);
+		testUnit.color.setValueForState(CustomState.B, Color.BLUE);
+		testUnit.color.setValueForState(CustomState.C, Color.RED);
+		testUnit.color.setValueForState(CustomState.D, Color.GREEN);
+		
+		//execution
+		final var result = testUnit.getSpecification();
+		
+		//verification
+		expect(result).hasStringRepresentation(
+			"CustomFormatElement(AColor(0x000000),BColor(0x0000FF),CColor(0xFF0000),DColor(0x008000))"
+		);
 	}
 	
 	//method
