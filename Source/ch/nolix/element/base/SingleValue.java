@@ -110,7 +110,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 	
 	//method
 	@Override
-	final void addOrChangeValue(final V value) {
+	protected final void addOrChangeValue(final V value) {
 		setterMethod.run(value);
 	}
 	
@@ -120,7 +120,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void fillUpAttributesInto(final LinkedList<Node> list) {
+	protected final void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Handles the case that the current SingleProperty has a value.
 		if (value != null) {
@@ -138,7 +138,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 	/**
 	 * Removes the value of the current {@link SingleValue}.
 	 */
-	final void internalClear() {	
+	protected final void internalClear() {	
 		value = null;
 	}
 }

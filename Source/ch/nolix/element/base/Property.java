@@ -10,19 +10,25 @@ import ch.nolix.common.document.node.Node;
 public abstract class Property {
 	
 	//constructor
-	Property() {}
+	protected Property() {}
 	
 	//method declaration
-	abstract void addOrChangeAttribute(BaseNode specification);
-	
-	//method declaration
-	abstract void fillUpAttributesInto(LinkedList<Node> list);
-	
-	//method declaration
-	abstract String getCode();
+	protected abstract boolean acceptsAttribute(BaseNode attribute);
 	
 	//method
-	final boolean hasCode(final String code) {
-		return getCode().equals(code);
+	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
+		
+		if (acceptsAttribute(attribute)) {
+			addOrChangeAttribute(attribute);
+			return true;
+		}
+		
+		return false;
 	}
+	
+	//method declaration
+	protected abstract void addOrChangeAttribute(BaseNode attribute);
+	
+	//method declaration
+	protected abstract void fillUpAttributesInto(LinkedList<Node> list);
 }

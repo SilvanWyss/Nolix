@@ -213,7 +213,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 	 * {@inheritDoc}
 	 */
 	@Override
-	void addOrChangeValue(final V value) {
+	protected void addOrChangeValue(final V value) {
 		adderMethod.run(value);
 	}
 	
@@ -222,7 +222,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 	 * {@inheritDoc}
 	 */
 	@Override
-	void fillUpAttributesInto(final LinkedList<Node> list) {
+	protected void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : this) {

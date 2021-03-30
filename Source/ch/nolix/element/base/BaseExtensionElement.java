@@ -7,19 +7,18 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.elementapi.IMutableElement;
 
 //class
-public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> extends Property {
+public abstract class BaseExtensionElement<E extends Element<E>> extends Property {
 	
 	//attributes
 	private final String attributePrefix;
-	private EE internalExtensionElement;
+	private E internalExtensionElement;
 	
 	//constructor
 	BaseExtensionElement(
 		final String attributePrefix,
-		final EE internalExtensionElement
+		final E internalExtensionElement
 	) {
 		
 		Validator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
@@ -35,7 +34,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 	}
 	
 	//method
-	public EE getExtensionElement() {
+	public E getExtensionElement() {
 		return internalExtensionElement;
 	}
 	
@@ -44,7 +43,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 	
 	//method
 	@Override
-	void addOrChangeAttribute(final BaseNode attribute) {
+	protected void addOrChangeAttribute(final BaseNode attribute) {
 		internalExtensionElement.addOrChangeAttribute(
 			Node.withHeaderAndAttributes(
 				attribute.getHeader().substring(attributePrefix.length()),
@@ -55,7 +54,13 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 	
 	//method
 	@Override
-	void fillUpAttributesInto(final LinkedList<Node> list) {
+	protected boolean acceptsAttribute(final BaseNode attribute) {
+		return (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix));
+	}
+	
+	//method
+	@Override
+	protected void fillUpAttributesInto(final LinkedList<Node> list) {
 		for (final var a : internalExtensionElement.getAttributes()) {
 			list.addAtEnd(
 				Node.withHeaderAndAttributes(attributePrefix + a.getHeader(), a.getRefAttributes())
@@ -64,16 +69,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final String getCode() {
-		return attributePrefix;
-	}
-	
-	//visibility-reduced
-	final void internalSetExtensionElement(final EE extensionElement) {
+	final void internalSetExtensionElement(final E extensionElement) {
 		
 		if (!isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");

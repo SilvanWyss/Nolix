@@ -15,7 +15,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.generalskillapi.ISmartObject;
+import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class
@@ -25,7 +25,7 @@ import ch.nolix.element.elementapi.IMutableElement;
  * @lines 230
  * @param <E> is the type of a {@link LayerElement}.
  */
-public abstract class LayerElement<E extends LayerElement<E>> implements IMutableElement<E>, ISmartObject<E> {
+public abstract class LayerElement<E extends LayerElement<E>> extends Element<E> implements IMutableElement<E> {
 	
 	//attribute
 	private LinkedList<LayerProperty<?>> layerProperties;
