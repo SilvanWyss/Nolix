@@ -15,7 +15,7 @@ public final class ImplRegistratorMediator<IN> implements IImplRegistratorMediat
 	private final Class<IN> mInterface;
 	private final WriteMode writeMode;
 	
-	//visibility-reduced constructor
+	//constructor
 	ImplRegistratorMediator(final ImplProvider implProvider, final Class<IN> pInterface, WriteMode writeMode) {
 		
 		Validator.assertThat(implProvider).thatIsNamed(ImplProvider.class).isNotNull();

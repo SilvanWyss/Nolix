@@ -9,6 +9,6 @@ public final class Launcher {
 		new XMLTestPool().run();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private Launcher() {}
 }

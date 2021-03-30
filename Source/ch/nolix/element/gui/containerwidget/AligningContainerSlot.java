@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.gui.base.Widget;
 
-//visibility-reduced class
+//class
 final class AligningContainerSlot implements Clearable {
 	
 	//optional attribute

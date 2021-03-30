@@ -14,7 +14,7 @@ public final class ExtendedImplRegistratorMediator<IN> implements IExtendedImplR
 	private final ImplProvider implProvider;
 	private final Class<IN> mInterface;
 	
-	//visibility-reduced constructor
+	//constructor
 	ExtendedImplRegistratorMediator(final ImplProvider implProvider, final Class<IN> pInterface) {
 		
 		Validator.assertThat(implProvider).thatIsNamed(ImplProvider.class).isNotNull();

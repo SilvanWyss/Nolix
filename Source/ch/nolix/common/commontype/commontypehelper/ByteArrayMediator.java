@@ -10,7 +10,7 @@ public final class ByteArrayMediator {
 	//attribute
 	private final byte[] byteArray;
 	
-	//visibility-reduced constructor
+	//constructor
 	ByteArrayMediator(final byte[] byteArray) {
 		
 		Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();

@@ -17,7 +17,7 @@ public final class WindowsEnvironmentVariableCatalogue {
 	//constant
 	public static final String APP_DATA = "APPDATA";
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link WindowsEnvironmentVariableCatalogue} can be created.
 	 */

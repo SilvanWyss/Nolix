@@ -9,6 +9,6 @@ public final class Launcher {
 		new CommonTypeWrapperTestPool().run();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private Launcher() {}
 }

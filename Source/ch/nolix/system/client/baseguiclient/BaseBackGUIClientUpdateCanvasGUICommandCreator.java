@@ -7,7 +7,7 @@ import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.gui.base.IWidgetGUI;
 
-//visibility-reduced class
+//class
 final class BaseBackGUIClientUpdateCanvasGUICommandCreator {
 	
 	//method

@@ -12,7 +12,7 @@ public final class ActionMediator {
 	//static attribute
 	private static final SequencerMediator sequencerMediator = new SequencerMediator();
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link ActionMediator}.
 	 */

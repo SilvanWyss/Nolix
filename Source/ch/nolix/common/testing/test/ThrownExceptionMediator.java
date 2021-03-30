@@ -23,7 +23,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 	//optional attribute
 	private final Throwable exception;
 	
-	//visibility-reducing constructor
+	//constructor
 	/**
 	 * Creates a new {@link ThrownExceptionMediator} that will belong to the given test.
 	 * 
@@ -39,7 +39,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 		exception = null;
 	}
 	
-	//visibility-reducing constructor
+	//constructor
 	/**
 	 * Creates a new {@link ThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.

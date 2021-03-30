@@ -141,7 +141,7 @@ public final class SequencePattern<E> {
 		return sequences;
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * @param list
 	 * @return true if this {@link SequencePattern} matches the given list.

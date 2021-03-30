@@ -35,6 +35,6 @@ public final class ParametrizedDataTypeFactory {
 		}
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private ParametrizedDataTypeFactory() {}
 }

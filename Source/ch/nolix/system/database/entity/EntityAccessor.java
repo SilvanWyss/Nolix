@@ -76,7 +76,7 @@ public final class EntityAccessor {
 		entity.setValues(valueSpecificationsInOrder, valueCreator);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link EntityAccessor} can be created.
 	 */

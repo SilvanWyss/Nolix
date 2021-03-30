@@ -117,7 +117,7 @@ public final class FunctionCatalogue {
 		return 0L;
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link FunctionCatalogue} can be created.
 	 */

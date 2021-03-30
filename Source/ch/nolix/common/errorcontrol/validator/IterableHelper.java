@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.errorcontrol.validator;
 
-//visibility-reduced class
+//class
 /**
  * The iterable helper provides methods to analyse iterable objects.
  * Methods are called on an object, functions are not.
@@ -34,7 +34,7 @@ final class IterableHelper {
 		return !object.iterator().hasNext();
 	}
 
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

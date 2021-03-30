@@ -187,7 +187,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String WIDTHS = "widths";
 	public static final String YEARS = "years";
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link PluralLowerCaseCatalogue} can be created.
 	 */

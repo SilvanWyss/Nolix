@@ -26,7 +26,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	protected final IElementTakerElementGetter<V, Node> specificationCreator;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BaseValue} with the given name, valueCreator and specificationCreator.
 	 * 
@@ -62,7 +62,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 		return name;
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Adds or changes the value from the given attribute to the current {@link BaseValue}.
 	 * 
@@ -72,7 +72,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 		addOrChangeValue(valueCreator.getOutput(attribute));
 	}
 	
-	//visibility-reduced method declaration
+	//method declaration
 	/**
 	 * Adds or change the given value to the current {@link BaseValue}.
 	 * 
@@ -80,7 +80,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	 */
 	abstract void addOrChangeValue(V value);
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */

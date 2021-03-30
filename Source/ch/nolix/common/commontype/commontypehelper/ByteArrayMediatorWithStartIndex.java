@@ -12,7 +12,7 @@ public final class ByteArrayMediatorWithStartIndex {
 	private final byte[] byteArray;
 	private int index;
 	
-	//visibility-reduced constructor
+	//constructor
 	ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
 		
 		Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();

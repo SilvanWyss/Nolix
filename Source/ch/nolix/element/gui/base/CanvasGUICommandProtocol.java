@@ -15,6 +15,6 @@ final class CanvasGUICommandProtocol {
 	public static final String SET_COLOR_GRADIENT = "SetColorGradient";
 	public static final String TRANSLATE = "Translate";
 	
-	//visibility-reduced constructor
+	//constructor
 	private CanvasGUICommandProtocol() {}
 }

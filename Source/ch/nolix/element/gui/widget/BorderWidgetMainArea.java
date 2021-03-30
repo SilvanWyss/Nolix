@@ -25,7 +25,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetMainArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -199,7 +199,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 		return 0;
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetMainArea} using the given painter and borderWidgetLook.
 	 * 

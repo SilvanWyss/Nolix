@@ -82,7 +82,7 @@ public final class GlobalLicenseManager {
 		return licenseManager.when(value);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link GlobalLicenseManager} can be created.
 	 */

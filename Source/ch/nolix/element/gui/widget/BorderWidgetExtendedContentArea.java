@@ -26,7 +26,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetExtendedContentArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -222,7 +222,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 		&& cursorYPosition < getHeight();
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetExtendedContentArea} using the given painter and borderWidgetLook.
 	 * 

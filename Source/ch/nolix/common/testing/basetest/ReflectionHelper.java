@@ -61,6 +61,6 @@ final class ReflectionHelper {
 		return (constructor != null && constructor.getParameterCount() == 0);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private ReflectionHelper() {}
 }

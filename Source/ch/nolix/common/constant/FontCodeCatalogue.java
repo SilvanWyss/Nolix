@@ -21,7 +21,7 @@ public final class FontCodeCatalogue {
     public static final String TAHOMA = "Tahoma";
     public static final String VERDANA = "Verdana";
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link FontCodeCatalogue} can be created.
 	 */

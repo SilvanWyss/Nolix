@@ -37,6 +37,6 @@ public final class RunningJar {
 		}
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private RunningJar() {}
 }

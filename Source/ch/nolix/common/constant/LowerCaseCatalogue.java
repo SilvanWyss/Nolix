@@ -187,7 +187,7 @@ public final class LowerCaseCatalogue {
 	public static final String WIDTH = "width";
 	public static final String YEAR = "year";
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link LowerCaseCatalogue} can be created.
 	 */

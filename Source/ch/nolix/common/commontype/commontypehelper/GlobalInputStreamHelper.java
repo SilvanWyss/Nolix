@@ -38,6 +38,6 @@ public final class GlobalInputStreamHelper {
 		}
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private GlobalInputStreamHelper() {}
 }

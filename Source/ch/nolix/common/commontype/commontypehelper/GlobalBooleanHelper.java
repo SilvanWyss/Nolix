@@ -13,6 +13,6 @@ public final class GlobalBooleanHelper {
 		return (pBoolean ? StringCatalogue.TRUE_HEADER : StringCatalogue.FALSE_HEADER);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private GlobalBooleanHelper() {}
 }

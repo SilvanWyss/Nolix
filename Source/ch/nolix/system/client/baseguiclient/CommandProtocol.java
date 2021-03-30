@@ -17,6 +17,6 @@ final class CommandProtocol {
 	public static final String SET_TITLE = "SetTitle";
 	public static final String SHOW_ERROR_MESSAGE = "ShowErrorMessage";
 	
-	//visibility-reduced constructor
+	//constructor
 	private CommandProtocol() {}
 }

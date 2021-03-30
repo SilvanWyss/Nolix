@@ -21,7 +21,7 @@ public final class Launcher {
 		new TimeTestPool().run();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

@@ -14,7 +14,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	//attribute
 	private final BaseNode entitySpecification;
 	
-	//visibility-reduced constructor
+	//constructor
 	EntityAdapter(final BaseNode entitySpecification) {
 		
 		Validator.assertThat(entitySpecification).thatIsNamed("entity specification").isNotNull();

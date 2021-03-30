@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
-//visibility-reduced class
+//class
 final class StateProperty<V> {
 	
 	//attribute

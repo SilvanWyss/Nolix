@@ -25,7 +25,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NonEmptyArgumentExc
  */
 public class StringMediator extends ArgumentMediator<String> {
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link StringMediator} for the given argument.
 	 * 
@@ -37,7 +37,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		super(argument);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link StringMediator} for the given argument with the given argument name.
 	 * 

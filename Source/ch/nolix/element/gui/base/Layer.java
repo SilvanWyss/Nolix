@@ -1136,7 +1136,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		clear();
 	}
 	
-	//visibility-reduced method
+	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * Sets the {@link GUI} the current {@link Layer} will belong to.

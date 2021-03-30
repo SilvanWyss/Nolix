@@ -77,6 +77,6 @@ public final class ShellProvider {
 		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private ShellProvider() {}
 }

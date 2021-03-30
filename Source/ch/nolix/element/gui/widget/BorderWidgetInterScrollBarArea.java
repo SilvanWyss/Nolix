@@ -15,7 +15,7 @@ public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<B
 	//attribute
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	BorderWidgetInterScrollBarArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
@@ -90,7 +90,7 @@ public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<B
 		&& parentBorderWidget.getHorizontalScrollBar().isVisible();
 	}
 	
-	//visibility-reduced method
+	//method
 	void paint(final IPainter painter, final BWL borderWidgetLook) {
 		if (isVisible()) {
 			paintWhenVisible(painter, borderWidgetLook);

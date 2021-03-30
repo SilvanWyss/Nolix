@@ -95,7 +95,7 @@ public class NetEndPoint extends EndPoint {
 		this(new ch.nolix.common.net.endpoint2.NetEndPoint(ip, port, target));
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link NetEndPoint} with the given netEndPoint.
 	 * 

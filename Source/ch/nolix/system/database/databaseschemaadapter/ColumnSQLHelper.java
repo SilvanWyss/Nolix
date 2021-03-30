@@ -11,7 +11,7 @@ public abstract class ColumnSQLHelper {
 	//attribute
 	private final Column column;
 	
-	//visibility-reduced constructor
+	//constructor
 	ColumnSQLHelper(final Column column) {
 		
 		Validator.assertThat(column).isOfType(Column.class);

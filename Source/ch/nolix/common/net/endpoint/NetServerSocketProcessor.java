@@ -21,7 +21,7 @@ import ch.nolix.common.net.http.HTTPRequest;
 import ch.nolix.common.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.common.programcontrol.worker.Worker;
 
-//visibility-reduced class
+//class
 final class NetServerSocketProcessor extends Worker {
 	
 	//attributes

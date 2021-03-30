@@ -31,7 +31,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	private int naturalWidth;
 	private int naturalHeight;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetContentArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -219,7 +219,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		height = calculateHeight();
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetContentArea} using the given painter and borderWidgetLook.
 	 * 

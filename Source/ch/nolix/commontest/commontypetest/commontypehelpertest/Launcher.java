@@ -21,7 +21,7 @@ public final class Launcher {
 		new CommonTypeHelpersTestPool().run();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */

@@ -32,6 +32,6 @@ public final class GlobalArrayHelper {
 		return new ByteArrayMediator(byteArray);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private GlobalArrayHelper() {}
 }

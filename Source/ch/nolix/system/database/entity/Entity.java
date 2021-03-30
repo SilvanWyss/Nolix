@@ -293,7 +293,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		}
 	}
 	
-	//visibility-reduced method
+	//method
 	void extractPropertiesWhenNotExtracted() {
 		
 		properties = new PropertyExtractor().getRefPropertiesOf(this);
@@ -303,12 +303,12 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		validatePropertySchema();
 	}
 	
-	//visibility-reduced method
+	//method
 	final void noteUpdate() {
 		noteUpdateActions.forEach(IAction::run);
 	}
 	
-	//visibility-reduced method
+	//method
 	final void setEdited() {
 		switch (getState()) {
 			case NEW:
@@ -332,7 +332,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		}
 	}
 	
-	//visibility-reduced method
+	//method
 	final void setId(final long id) {
 		
 		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isPositive();
@@ -340,7 +340,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		this.id = id;
 	}
 	
-	//visibility-reduced method
+	//method
 	final void setPersisted() {
 		switch (getState()) {
 			case NEW:
@@ -359,7 +359,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 		}
 	}
 	
-	//visibility-reduced method
+	//method
 	final void setRejected() {
 		state = EntityState.REJECTED;
 	}
@@ -416,7 +416,7 @@ public abstract class Entity implements IElement, Identified, ShortDescripted {
 	}
 	
 	//TODO: Refactor this method.
-	//visibility-reduced method
+	//method
 	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
 		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))

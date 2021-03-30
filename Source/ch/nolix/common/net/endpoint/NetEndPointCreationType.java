@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint;
 
-//visibility-reduced enum
+//enum
 enum NetEndPointCreationType {
 	REGULAR_SOCKET_WITH_DEFAULT_TARGET,
 	REGULAR_SOCKET_WITH_CUSTOM_TARGET,

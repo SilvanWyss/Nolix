@@ -32,6 +32,6 @@ public final class GlobalBufferedImageHelper {
 		}
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private GlobalBufferedImageHelper() {}
 }

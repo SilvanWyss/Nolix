@@ -187,7 +187,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String WIDTHS = "Widths";
 	public static final String YEARS = "Years";	
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link PluralPascalCaseCatalogue} can be created.
 	 */

@@ -10,6 +10,6 @@ public final class WidgetIdCatalogue {
 	public static final String MAIN_MENU = "MainMenu";
 	public static final String MENU = "Menu";
 	
-	//visibility-reduced constructor
+	//constructor
 	private WidgetIdCatalogue() {}
 }

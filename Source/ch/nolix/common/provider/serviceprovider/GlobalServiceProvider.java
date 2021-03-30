@@ -28,6 +28,6 @@ public final class GlobalServiceProvider {
 		coreServiceProdiver.register(pInterface, service, writeMode);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private GlobalServiceProvider() {}
 }

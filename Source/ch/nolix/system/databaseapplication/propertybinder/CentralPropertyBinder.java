@@ -15,6 +15,6 @@ public final class CentralPropertyBinder {
 		return propertyBinderFactory.getPropertyBinderFor(property).createWidgetAndBindItWith(property);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private CentralPropertyBinder() {}
 }

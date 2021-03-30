@@ -377,7 +377,7 @@ public final class GlobalStringHelper {
 		return number;
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link GlobalStringHelper} can be created.
 	 */

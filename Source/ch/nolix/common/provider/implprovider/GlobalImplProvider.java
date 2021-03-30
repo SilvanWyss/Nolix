@@ -25,6 +25,6 @@ public final class GlobalImplProvider {
 		return implProvider.ofInterface(pInterface);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private GlobalImplProvider() {}
 }

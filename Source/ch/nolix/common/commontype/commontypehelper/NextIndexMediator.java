@@ -7,7 +7,7 @@ public final class NextIndexMediator {
 	//attribute
 	private final int index;
 	
-	//visibility-reduced constructor
+	//constructor
 	NextIndexMediator(final int index) {
 		this.index = index;
 	}

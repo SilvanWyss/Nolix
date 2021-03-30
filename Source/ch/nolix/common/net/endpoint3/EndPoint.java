@@ -33,7 +33,7 @@ public abstract class EndPoint implements ICloseableElement, IDataProviderContro
 	//multi-attribute
 	private final LinkedList<ChainedNode> appendedCommands = new LinkedList<>();
 	
-	//visibility-reduced constructor
+	//constructor
 	EndPoint() {}
 	
 	//method

@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
-//visibility-reduced class
+//class
 final class BaseBackGUIClientCanvasGUICounterpartUpdater {
 	
 	//static attribute

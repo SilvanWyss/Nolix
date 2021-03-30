@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
-//visibility-reduced class
+//class
 final class ClientSessionManager<C extends Client<C>> {
 	
 	//constant

@@ -12,7 +12,7 @@ public final class WidgetParent {
 	private final Layer layer;
 	private final Widget<?, ?> widget;
 	
-	//visibility-reduced constructor
+	//constructor
 	WidgetParent(final Layer layer, final Widget<?, ?> childWidget) {
 		
 		Validator.assertThat(layer).thatIsNamed(Layer.class).isNotNull();
@@ -22,7 +22,7 @@ public final class WidgetParent {
 		widget = null;
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	WidgetParent(final Widget<?, ?> widget, final Widget<?, ?> childWidget) {
 		
 		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();

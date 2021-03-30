@@ -6,7 +6,7 @@ import ch.nolix.common.independent.independenthelper.IterableHelper;
 //class
 public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
-	//visibility-reduced constructor
+	//constructor
 	ContainerMediator(final Test parentTest, final Iterable<E> container) {
 		super(parentTest, container);
 	}

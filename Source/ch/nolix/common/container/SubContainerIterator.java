@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
-//visibility-reduced class
+//class
 /**
  * @author Silvan Wyss
  * @date 2017-08-27

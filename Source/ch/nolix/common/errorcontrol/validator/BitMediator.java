@@ -10,12 +10,12 @@ public class BitMediator extends Mediator {
 	//attribute
 	private final boolean argument;
 	
-	//visibility-reduced constructor
+	//constructor
 	BitMediator(final boolean argument) {
 		this.argument = argument;
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	BitMediator(final String argumentName, final boolean argument) {
 		
 		super(argumentName);

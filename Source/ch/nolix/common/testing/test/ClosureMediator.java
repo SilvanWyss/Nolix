@@ -18,7 +18,7 @@ public final class ClosureMediator extends Mediator {
 	//attribute
 	private final IAction closure;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link ClosureMediator} that belongs to the given test and is for the given closure.
 	 * 

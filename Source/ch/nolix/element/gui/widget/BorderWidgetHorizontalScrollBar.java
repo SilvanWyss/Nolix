@@ -31,7 +31,7 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetHorizontalScrollBar} that will belong to the given parentBorderWidget.
 	 * 
@@ -170,7 +170,7 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 		|| (parentBorderWidget.hasProposalWidth() && parentBorderWidget.getProposalWidth() < naturalWidth);
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetHorizontalScrollBar} using the given painter.
 	 * 

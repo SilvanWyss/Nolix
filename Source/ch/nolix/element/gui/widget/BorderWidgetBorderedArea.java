@@ -25,7 +25,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetBorderedArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -261,7 +261,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		return parentBorderWidget.getMainArea().getYPosition() +  look.getRecursiveOrDefaultTopBorderThickness();
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetBorderedArea} using the given painter and borderWidgetLook.
 	 * 

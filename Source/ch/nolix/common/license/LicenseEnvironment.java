@@ -26,7 +26,7 @@ public final class LicenseEnvironment {
 		return (NolixEnvironment.getLocalNolixFolderPath() + "/" + LOCAL_LICENSE_FOLDER_NAME);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link LicenseEnvironment} can be created.
 	 */

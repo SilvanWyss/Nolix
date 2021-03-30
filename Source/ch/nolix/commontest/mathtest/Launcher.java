@@ -19,7 +19,7 @@ public final class Launcher {
 		new MathTestPool().run();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

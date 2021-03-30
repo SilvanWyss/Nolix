@@ -38,7 +38,7 @@ public final class IterableHelper {
 		return !container.iterator().hasNext();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

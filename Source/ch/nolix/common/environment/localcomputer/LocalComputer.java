@@ -19,6 +19,6 @@ public final class LocalComputer {
 		}
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private LocalComputer () {}
 }

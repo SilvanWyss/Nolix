@@ -62,14 +62,14 @@ public final class PropertyBinding {
 		return (currentError != null);
 	}
 	
-	//visibility-reduced method
+	//method
 	void removeCurrentError() {
 		currentError = null;
 		errorLabel.emptyText();
 		errorLabel.setCollapsed();
 	}
 	
-	//visibility-reduced method
+	//method
 	void setCurrentError(final Throwable currentError) {
 		
 		Validator.assertThat(currentError).thatIsNamed("current error").isNotNull();

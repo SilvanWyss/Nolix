@@ -16,7 +16,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 	private final String attributePrefix;
 	private EE internalExtensionElement;
 	
-	//visibility-reduced constructor
+	//constructor
 	BaseExtensionElement(
 		final String attributePrefix,
 		final EE internalExtensionElement
@@ -42,7 +42,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 	//method declaration
 	public abstract boolean isExchangable();
 	
-	//visibility-reduced method
+	//method
 	@Override
 	void addOrChangeAttribute(final BaseNode attribute) {
 		internalExtensionElement.addOrChangeAttribute(
@@ -53,7 +53,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 		);
 	}
 	
-	//visibility-reduced method
+	//method
 	@Override
 	void fillUpAttributesInto(final LinkedList<Node> list) {
 		for (final var a : internalExtensionElement.getAttributes()) {
@@ -63,7 +63,7 @@ public abstract class BaseExtensionElement<EE extends IMutableElement<EE>> exten
 		}
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */

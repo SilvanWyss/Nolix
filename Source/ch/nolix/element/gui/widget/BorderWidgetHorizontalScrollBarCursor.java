@@ -33,7 +33,7 @@ implements HoverableByCursor {
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetHorizontalScrollBarCursor} that will belong to the given parentBorderWidget.
 	 * 
@@ -159,7 +159,7 @@ implements HoverableByCursor {
 		return parentBorderWidget.getHorizontalScrollBar().isVisible();
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetHorizontalScrollBarCursor} using the given painter.
 	 * 

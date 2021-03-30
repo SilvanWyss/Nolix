@@ -24,7 +24,7 @@ public final class SubNode extends BaseNode {
 	private final FileNode parentFileNode;
 	private final Node internalSpecification;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link SubNode} that:
 	 * -Belongs to the given parentFileNode.

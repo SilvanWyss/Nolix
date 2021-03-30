@@ -37,12 +37,12 @@ public final class ImplProvider implements IImplProvider {
 		return (IImplProviderMediator<IN>)singleImplProvider;
 	}
 	
-	//visibility-reduced method
+	//method
 	<IN> boolean containsImplementationFor(final Class<IN> pInterface) {
 		return singleImplProviders.containsKey(pInterface);
 	}
 	
-	//visibility-reduced method
+	//method
 	<IN, IM extends IN> void registerImplementation(
 		final Class<IN> pInterface,
 		final Class<IM> implementation,

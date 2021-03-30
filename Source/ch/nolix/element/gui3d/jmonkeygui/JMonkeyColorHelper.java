@@ -31,7 +31,7 @@ public final class JMonkeyColorHelper {
 		);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

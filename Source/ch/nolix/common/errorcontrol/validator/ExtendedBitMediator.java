@@ -7,7 +7,7 @@ public final class ExtendedBitMediator extends BitMediator {
 	//attribute
 	private final boolean argument;
 	
-	//visibility-reduced constructor
+	//constructor
 	ExtendedBitMediator(boolean argument) {
 		
 		super(argument);

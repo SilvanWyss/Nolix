@@ -123,7 +123,7 @@ public final class PopupWindowProvider {
 		return (result == 0);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

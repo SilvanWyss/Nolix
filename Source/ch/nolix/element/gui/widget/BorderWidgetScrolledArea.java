@@ -26,7 +26,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetScrolledArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -200,7 +200,7 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 		- parentBorderWidget.getShowAreaYPositionOnScrolledArea();
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetScrolledArea} using the given painter and borderWidgetLook.
 	 * 

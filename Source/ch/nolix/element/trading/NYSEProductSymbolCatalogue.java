@@ -104,7 +104,7 @@ public final class NYSEProductSymbolCatalogue {
 		YAHOO
 	);
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link NYSEProductSymbolCatalogue} can be created.
 	 */

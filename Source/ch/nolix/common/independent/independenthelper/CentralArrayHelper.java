@@ -251,7 +251,7 @@ public final class CentralArrayHelper {
 		return stringBuilder.toString();
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link CentralArrayHelper} can be created.
 	 */

@@ -15,7 +15,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 	//attributes
 	private final Class<IM> implementation;
 	
-	//visibility-reduced constructor
+	//constructor
 	SingleImplProvider(final Class<IM> implementation) {
 		
 		Validator.assertThat(implementation).thatIsNamed("implementation").isNotNull();

@@ -48,6 +48,6 @@ public final class NolixEnvironment {
 		return System.getenv(APPDATA_HEADER);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	private NolixEnvironment() {}
 }

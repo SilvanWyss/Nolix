@@ -40,7 +40,7 @@ public final class Vector {
 	//attribute
 	private final double[] values;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link Vector} with the given values.
 	 * 

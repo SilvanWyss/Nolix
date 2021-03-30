@@ -217,7 +217,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 		adderMethod.run(value);
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * {@inheritDoc}
 	 */

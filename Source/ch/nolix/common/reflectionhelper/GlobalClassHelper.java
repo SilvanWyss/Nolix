@@ -30,6 +30,6 @@ public final class GlobalClassHelper {
 		return publicStaticFields;
 	}
 	
-	//visibility-reducing constructor
+	//constructor
 	private GlobalClassHelper() {}
 }

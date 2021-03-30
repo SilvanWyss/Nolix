@@ -24,7 +24,7 @@ public final class StringCatalogue {
 	public static final String TRUE_HEADER = "true";
 	public static final String UNDERSCORE = "_";
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link StringCatalogue} can be created.
 	 */

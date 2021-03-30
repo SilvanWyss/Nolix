@@ -34,7 +34,7 @@ public final class GlobalDoubleHelper {
 		return decimalFormat.format(value);
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

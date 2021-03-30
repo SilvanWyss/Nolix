@@ -220,7 +220,7 @@ public final class Sequencer {
 		return actionMediator;
 	}
 
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of the {@link Sequencer} can be created.
 	 */

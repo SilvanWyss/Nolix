@@ -27,7 +27,7 @@ public final class AfterAllMediator {
 	private final Integer maxRunCount;
 	private final IBooleanGetter condition;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link AfterAllMediator} with the given condition and time interval in milliseconds.
 	 * 

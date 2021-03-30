@@ -25,7 +25,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	private final BorderWidget<?, BWL> parentBorderWidget;
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Creates a new {@link BorderWidgetShowArea} that will belong to the given parentBorderWidget.
 	 * 
@@ -204,7 +204,7 @@ public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> imple
 		return parentBorderWidget.getBorderedArea().getYPosition();
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Paints the current {@link BorderWidgetShowArea} using the given painter and borderWidgetLook.
 	 * 

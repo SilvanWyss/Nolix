@@ -73,7 +73,7 @@ public final class GlobalCharacterHelper {
 		return (isDigit(character) || (character >= 65 && character <= 70));
 	}
 	
-	//visibility-reduced constructor
+	//constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */

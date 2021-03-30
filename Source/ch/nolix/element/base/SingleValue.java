@@ -108,13 +108,13 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 		this.value = value;
 	}
 	
-	//visibility-reduced method
+	//method
 	@Override
 	final void addOrChangeValue(final V value) {
 		setterMethod.run(value);
 	}
 	
-	//visibility-reduced method
+	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
@@ -134,7 +134,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 		}
 	}
 	
-	//visibility-reduced method
+	//method
 	/**
 	 * Removes the value of the current {@link SingleValue}.
 	 */
