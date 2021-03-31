@@ -1,11 +1,14 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own import
+import ch.nolix.element.elementapi.IMutableElement;
+
 //class
-public final class ExchangableExtensionElement<E extends Element<E>> extends BaseExtensionElement<E> {
+public final class ExchangableExtensionElement<ME extends IMutableElement<ME>> extends BaseExtensionElement<ME> {
 	
 	//constructor
-	public ExchangableExtensionElement(final String attributePrefix, final E internalExtensionElement) {
+	public ExchangableExtensionElement(final String attributePrefix, final ME internalExtensionElement) {
 		super(attributePrefix, internalExtensionElement);
 	}
 	
@@ -16,7 +19,7 @@ public final class ExchangableExtensionElement<E extends Element<E>> extends Bas
 	}
 	
 	//method
-	public void setExtensionElement(final E extensionElement) {
+	public void setExtensionElement(final ME extensionElement) {
 		internalSetExtensionElement(extensionElement);
 	}
 }

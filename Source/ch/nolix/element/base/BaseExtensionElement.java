@@ -7,18 +7,19 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.elementapi.IMutableElement;
 
 //class
-public abstract class BaseExtensionElement<E extends Element<E>> extends Property {
+public abstract class BaseExtensionElement<ME extends IMutableElement<ME>> extends Property {
 	
 	//attributes
 	private final String attributePrefix;
-	private E internalExtensionElement;
+	private ME internalExtensionElement;
 	
 	//constructor
 	BaseExtensionElement(
 		final String attributePrefix,
-		final E internalExtensionElement
+		final ME internalExtensionElement
 	) {
 		
 		Validator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
@@ -34,7 +35,7 @@ public abstract class BaseExtensionElement<E extends Element<E>> extends Propert
 	}
 	
 	//method
-	public E getExtensionElement() {
+	public ME getExtensionElement() {
 		return internalExtensionElement;
 	}
 	
@@ -71,7 +72,7 @@ public abstract class BaseExtensionElement<E extends Element<E>> extends Propert
 	}
 	
 	//method
-	final void internalSetExtensionElement(final E extensionElement) {
+	final void internalSetExtensionElement(final ME extensionElement) {
 		
 		if (!isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");
