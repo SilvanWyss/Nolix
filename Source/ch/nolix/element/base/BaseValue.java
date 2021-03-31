@@ -64,21 +64,19 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final boolean acceptsAttribute(final BaseNode attribute) {
-		return attribute.hasHeader(getName());
-	}
-	
-	//method
-	/**
 	 * Adds or changes the value from the given attribute to the current {@link BaseValue}.
 	 * 
 	 * @param attribute
 	 */
-	protected final void addOrChangeAttribute(final BaseNode attribute) {
-		addOrChangeValue(valueCreator.getOutput(attribute));
+	@Override
+	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
+		
+		if (attribute.hasHeader(getName())) {
+			addOrChangeValue(valueCreator.getOutput(attribute));
+			return true;
+		}
+		
+		return false;
 	}
 	
 	//method declaration

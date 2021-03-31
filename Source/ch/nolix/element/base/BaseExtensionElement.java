@@ -43,19 +43,21 @@ public abstract class BaseExtensionElement<E extends Element<E>> extends Propert
 	
 	//method
 	@Override
-	protected void addOrChangeAttribute(final BaseNode attribute) {
-		internalExtensionElement.addOrChangeAttribute(
-			Node.withHeaderAndAttributes(
-				attribute.getHeader().substring(attributePrefix.length()),
-				attribute.getRefAttributes()
-			)
-		);
-	}
-	
-	//method
-	@Override
-	protected boolean acceptsAttribute(final BaseNode attribute) {
-		return (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix));
+	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
+		
+		if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
+			
+			internalExtensionElement.addOrChangeAttribute(
+				Node.withHeaderAndAttributes(
+					attribute.getHeader().substring(attributePrefix.length()),
+					attribute.getRefAttributes()
+				)
+			);
+			
+			return true;
+		}
+		
+		return false;
 	}
 	
 	//method

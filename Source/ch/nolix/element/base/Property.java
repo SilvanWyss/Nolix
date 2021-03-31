@@ -13,21 +13,7 @@ public abstract class Property {
 	protected Property() {}
 	
 	//method declaration
-	protected abstract boolean acceptsAttribute(BaseNode attribute);
-	
-	//method
-	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
-		
-		if (acceptsAttribute(attribute)) {
-			addOrChangeAttribute(attribute);
-			return true;
-		}
-		
-		return false;
-	}
-	
-	//method declaration
-	protected abstract void addOrChangeAttribute(BaseNode attribute);
+	protected abstract boolean addedOrChangedAttribute(final BaseNode attribute);
 	
 	//method declaration
 	protected abstract void fillUpAttributesInto(LinkedList<Node> list);
