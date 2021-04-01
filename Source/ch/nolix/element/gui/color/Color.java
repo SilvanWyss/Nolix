@@ -1128,7 +1128,7 @@ public class Color extends Element<Color> {
 	 * @return an integer that represents the current {@link Color} in the schema alpha-red-green-blue.
 	 */
 	public int toAlphaRedGreenBlue() {
-		return (getAlphaValue() << 24 | getRedValue() << 16 | getGreenValue() << 8 | getBlueValue());
+		return ((getAlphaValue() << 24) | (getRedValue() << 16) | (getGreenValue() << 8) | getBlueValue());
 	}
 	
 	//method
