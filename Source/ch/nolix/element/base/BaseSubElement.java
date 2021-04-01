@@ -75,7 +75,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 		
 		Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 		
-		if (this.internalSubElement != null && isExchangable()) {
+		if (this.internalSubElement != null && !isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");
 		}
 		
