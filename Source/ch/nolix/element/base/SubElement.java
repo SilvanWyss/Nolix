@@ -5,10 +5,10 @@ package ch.nolix.element.base;
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class
-public final class ExtensionElement<ME extends IMutableElement<ME>> extends BaseExtensionElement<ME> {
+public final class SubElement<ME extends IMutableElement<ME>> extends BaseSubElement<ME> {
 	
 	//constructor
-	public ExtensionElement(final String attributePrefix, final ME internalExtensionElement) {
+	public SubElement(final String attributePrefix, final ME internalExtensionElement) {
 		super(attributePrefix, internalExtensionElement);
 	}
 	

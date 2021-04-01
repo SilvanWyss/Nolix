@@ -19,7 +19,7 @@ import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.common.requestapi.EnablingRequestable;
 import ch.nolix.common.requestapi.ExpansionRequestable;
 import ch.nolix.common.skillapi.Recalculable;
-import ch.nolix.element.base.ExchangableExtensionElement;
+import ch.nolix.element.base.ExchangableSubElement;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -83,16 +83,16 @@ TopLeftPositionedRecangular {
 	private boolean hovered;
 	
 	//attribute
-	private final ExchangableExtensionElement<WL> baseLook =
-	new ExchangableExtensionElement<>(BASE_PREFIX, createLook());
+	private final ExchangableSubElement<WL> baseLook =
+	new ExchangableSubElement<>(BASE_PREFIX, createLook());
 	
 	//attribute
-	private final ExchangableExtensionElement<WL> hoverLook =
-	new ExchangableExtensionElement<>(HOVER_PREFIX, createLook());
+	private final ExchangableSubElement<WL> hoverLook =
+	new ExchangableSubElement<>(HOVER_PREFIX, createLook());
 	
 	//attribute
-	private final ExchangableExtensionElement<WL> focusLook =
-	new ExchangableExtensionElement<>(FOCUS_PREFIX, createLook());
+	private final ExchangableSubElement<WL> focusLook =
+	new ExchangableSubElement<>(FOCUS_PREFIX, createLook());
 	
 	//attributes
 	private int xPositionOnContentAreaOfParent;

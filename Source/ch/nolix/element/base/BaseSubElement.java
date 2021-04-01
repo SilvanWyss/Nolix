@@ -10,14 +10,14 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class
-public abstract class BaseExtensionElement<ME extends IMutableElement<ME>> extends Property {
+public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Property {
 	
 	//attributes
 	private final String attributePrefix;
 	private ME internalExtensionElement;
 	
 	//constructor
-	BaseExtensionElement(
+	BaseSubElement(
 		final String attributePrefix,
 		final ME internalExtensionElement
 	) {
