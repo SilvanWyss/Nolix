@@ -254,7 +254,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		return
 		Calculator.getMax(topLeftSlot.getHeight(), topSlot.getHeight(), topRightSlot.getHeight())
 		+ Calculator.getMax(leftSlot.getHeight(), centerSlot.getHeight(), rightSlot.getHeight())
-		+ Calculator.getMax(bottomLeftSlot.getHeight(), bottomLeftSlot.getHeight(), bottomRightSlot.getHeight());
+		+ Calculator.getMax(bottomLeftSlot.getHeight(), bottomSlot.getHeight(), bottomRightSlot.getHeight());
 	}
 	
 	//method
