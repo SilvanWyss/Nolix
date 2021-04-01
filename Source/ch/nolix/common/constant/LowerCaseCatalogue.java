@@ -80,6 +80,7 @@ public final class LowerCaseCatalogue {
 	public static final String FILE_PATH = "file path";
 	public static final String FOLDER = "folder";
 	public static final String FOLDER_PATH = "folder path";
+	public static final String FONT = "font";
 	public static final String FUNCTION = "function";
 	public static final String GENERATOR = "generator";
 	public static final String GUI = "GUI";

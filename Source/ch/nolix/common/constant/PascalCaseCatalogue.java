@@ -80,6 +80,7 @@ public final class PascalCaseCatalogue {
 	public static final String FILE_PATH = "FilePath";
 	public static final String FOLDER = "Folder";
 	public static final String FOLDER_PATH = "FolderPath";
+	public static final String FONT = "Font";
 	public static final String FUNCTION = "Function";
 	public static final String GENERATOR = "Generator";
 	public static final String GUI = "GUI";

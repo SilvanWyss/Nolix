@@ -80,6 +80,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String FILE_PATHS = "FilePaths";
 	public static final String FOLDERS = "Folders";
 	public static final String FOLDER_PATHS = "FolderPaths";
+	public static final String FONTS = "Fonts";
 	public static final String FUNCTIONS = "Functions";
 	public static final String GENERATORS = "Generators";
 	public static final String GUIS = "GUIs";

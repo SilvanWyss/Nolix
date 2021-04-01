@@ -80,6 +80,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String FILE_PATHS = "file paths";
 	public static final String FOLDERS = "folders";
 	public static final String FOLDER_PATHS = "folder paths";
+	public static final String FONTS = "fonts";
 	public static final String FUNCTIONS = "functions";
 	public static final String GENERATORS = "generators";
 	public static final String GUIS = "GUIs";
