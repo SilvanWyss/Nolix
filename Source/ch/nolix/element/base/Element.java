@@ -17,7 +17,7 @@ import ch.nolix.element.smartelementapi.ISmartElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 180
+ * @lines 200
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
@@ -93,6 +93,24 @@ public abstract class Element<E extends Element<E>> implements ISmartElement<E> 
 		}
 		
 		throw new InvalidArgumentException(this, "cannot not have a " + attribute.getHeaderInQuotes());
+	}
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to the current {@link Element} if the given attributes matches.
+	 * 
+	 * @param attribute
+	 * @return true if the given attribtue was added or changed to the current {@link Element}.
+	 */
+	final boolean addedOrChangedAttribute(final BaseNode attribute) {
+		
+		for (final var p : getRefProperties()) {
+			if (p.addedOrChangedAttribute(attribute)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	//method
