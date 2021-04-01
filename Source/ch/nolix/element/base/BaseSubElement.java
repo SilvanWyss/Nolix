@@ -14,7 +14,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	
 	//attributes
 	private final String attributePrefix;
-	private ME internalExtensionElement;
+	private ME internalSubElement;
 	
 	//constructor
 	BaseSubElement(
@@ -26,7 +26,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 		Validator.assertThat(internalExtensionElement).thatIsNamed("intenral extension element").isNotNull();
 		
 		this.attributePrefix = attributePrefix;
-		this.internalExtensionElement = internalExtensionElement;
+		this.internalSubElement = internalExtensionElement;
 	}
 	
 	//method
@@ -35,8 +35,8 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	}
 	
 	//method
-	public ME getExtensionElement() {
-		return internalExtensionElement;
+	public ME getSubElement() {
+		return internalSubElement;
 	}
 	
 	//method declaration
@@ -48,7 +48,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 		
 		if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
 			
-			internalExtensionElement.addOrChangeAttribute(
+			internalSubElement.addOrChangeAttribute(
 				Node.withHeaderAndAttributes(
 					attribute.getHeader().substring(attributePrefix.length()),
 					attribute.getRefAttributes()
@@ -64,7 +64,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	//method
 	@Override
 	protected void fillUpAttributesInto(final LinkedList<Node> list) {
-		for (final var a : internalExtensionElement.getAttributes()) {
+		for (final var a : internalSubElement.getAttributes()) {
 			list.addAtEnd(
 				Node.withHeaderAndAttributes(attributePrefix + a.getHeader(), a.getRefAttributes())
 			);
@@ -72,12 +72,12 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	}
 	
 	//method
-	final void internalSetExtensionElement(final ME extensionElement) {
+	final void internalSetSubElement(final ME subElement) {
 		
 		if (!isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");
 		}
 		
-		internalExtensionElement = extensionElement;
+		internalSubElement = subElement;
 	}
 }

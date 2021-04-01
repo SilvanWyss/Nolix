@@ -453,7 +453,7 @@ TopLeftPositionedRecangular {
 	 * @return the base look of the current {@link Widget}.
 	 */
 	public final WL getRefBaseLook() {
-		return baseLook.getExtensionElement();
+		return baseLook.getSubElement();
 	}
 	
 	//method
@@ -461,7 +461,7 @@ TopLeftPositionedRecangular {
 	 * @return the focus look of the current {@link Widget}.
 	 */
 	public final WL getRefFocusLook() {
-		return focusLook.getExtensionElement();
+		return focusLook.getSubElement();
 	}
 	
 	//method
@@ -469,7 +469,7 @@ TopLeftPositionedRecangular {
 	 * @return the hover look of the current {@link Widget}.
 	 */
 	public final WL getRefHoverLook() {
-		return hoverLook.getExtensionElement();
+		return hoverLook.getSubElement();
 	}
 	
 	//method

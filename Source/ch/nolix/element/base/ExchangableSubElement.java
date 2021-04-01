@@ -8,8 +8,8 @@ import ch.nolix.element.elementapi.IMutableElement;
 public final class ExchangableSubElement<ME extends IMutableElement<ME>> extends BaseSubElement<ME> {
 	
 	//constructor
-	public ExchangableSubElement(final String attributePrefix, final ME internalExtensionElement) {
-		super(attributePrefix, internalExtensionElement);
+	public ExchangableSubElement(final String attributePrefix, final ME internalSubElement) {
+		super(attributePrefix, internalSubElement);
 	}
 	
 	//method
@@ -19,7 +19,7 @@ public final class ExchangableSubElement<ME extends IMutableElement<ME>> extends
 	}
 	
 	//method
-	public void setExtensionElement(final ME extensionElement) {
-		internalSetExtensionElement(extensionElement);
+	public void setSubElement(final ME extensionElement) {
+		internalSetSubElement(extensionElement);
 	}
 }
