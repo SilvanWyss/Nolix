@@ -17,16 +17,15 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	private ME internalSubElement;
 	
 	//constructor
-	BaseSubElement(
+	protected BaseSubElement(
 		final String attributePrefix,
-		final ME internalExtensionElement
+		final ME internalSubElement
 	) {
 		
 		Validator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
-		Validator.assertThat(internalExtensionElement).thatIsNamed("intenral extension element").isNotNull();
 		
 		this.attributePrefix = attributePrefix;
-		this.internalSubElement = internalExtensionElement;
+		internalSetSubElement(internalSubElement);
 	}
 	
 	//method
@@ -72,12 +71,14 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	}
 	
 	//method
-	final void internalSetSubElement(final ME subElement) {
+	protected final void internalSetSubElement(final ME internalSubElement) {
 		
-		if (!isExchangable()) {
+		Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
+		
+		if (this.internalSubElement != null && isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");
 		}
 		
-		internalSubElement = subElement;
+		this.internalSubElement = internalSubElement;
 	}
 }
