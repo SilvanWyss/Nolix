@@ -1827,9 +1827,9 @@ TopLeftPositionedRecangular {
 	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
 	 */
 	private void createLooks() {
-		baseLook.setExtensionElement(createLook());
-		hoverLook.setExtensionElement(createLook());
-		focusLook.setExtensionElement(createLook());
+		baseLook.setSubElement(createLook());
+		hoverLook.setSubElement(createLook());
+		focusLook.setSubElement(createLook());
 	}
 	
 	//method
