@@ -18,7 +18,7 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
 
 //class
-public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
+public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, OldTextItemMenuLook>
 implements Clearable {
 	
 	//constant
@@ -229,8 +229,8 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final TextItemMenuLook createLook() {
-		return new TextItemMenuLook();
+	protected final OldTextItemMenuLook createLook() {
+		return new OldTextItemMenuLook();
 	}
 	
 	//method

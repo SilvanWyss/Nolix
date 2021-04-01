@@ -26,7 +26,7 @@ import ch.nolix.element.gui.widget.Label;
  * @date 2016-05-01
  * @lines 550
  */
-public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
+public final class TabContainer extends ContainerWidget<TabContainer, OldTabContainerLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "TabContainer";
@@ -48,17 +48,17 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	public TabContainer() {
 		getRefBaseLook()
 		.setBaseMenuItemLook(
-			new TabContainerMenuItemLook()
+			new OldTabContainerMenuItemLook()
 			.setMinWidth(100)
 			.setPadding(5)
 		)
 		.setHoverMenuItemLook(
-			new TabContainerMenuItemLook()
+			new OldTabContainerMenuItemLook()
 			.setBackgroundColor(Color.LIGHT_GREY)
 			.setPadding(5)
 		)
 		.setSelectionMenuItemLook(
-			new TabContainerMenuItemLook()
+			new OldTabContainerMenuItemLook()
 			.setBackgroundColor(Color.DARK_GREY)
 			.setPadding(5)
 		);
@@ -280,8 +280,8 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected TabContainerLook createLook() {
-		return new TabContainerLook();
+	protected OldTabContainerLook createLook() {
+		return new OldTabContainerLook();
 	}
 	
 	//method
@@ -474,7 +474,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	@Override
 	protected void paintContentArea(
-		final TabContainerLook tabContainerLook,
+		final OldTabContainerLook tabContainerLook,
 		final IPainter painter
 	) {
 		

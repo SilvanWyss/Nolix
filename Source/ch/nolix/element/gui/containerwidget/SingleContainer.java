@@ -21,7 +21,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 280
  */
-public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
+public final class SingleContainer extends ContainerWidget<SingleContainer, OldSingleContainerLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "SingleContainer";
@@ -118,8 +118,8 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected SingleContainerLook createLook() {
-		return new SingleContainerLook();
+	protected OldSingleContainerLook createLook() {
+		return new OldSingleContainerLook();
 	}
 	
 	//method
@@ -283,7 +283,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final SingleContainerLook singleContainerLook, final IPainter painter) {}
+	protected void paintContentArea(final OldSingleContainerLook singleContainerLook, final IPainter painter) {}
 	
 	//method
 	/**

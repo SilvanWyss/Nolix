@@ -24,7 +24,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2018-08-13
  * @lines 440
  */
-public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
+public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook> {
 	
 	//constants
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
@@ -251,8 +251,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected AccordionLook createLook() {
-		return new AccordionLook();
+	protected OldAccordionLook createLook() {
+		return new OldAccordionLook();
 	}
 	
 	//method
@@ -402,7 +402,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final AccordionLook accordionLook, final IPainter painter) {}
+	protected void paintContentArea(final OldAccordionLook accordionLook, final IPainter painter) {}
 	
 	//method
 	/**

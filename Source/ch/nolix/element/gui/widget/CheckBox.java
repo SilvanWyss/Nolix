@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-06-01
  * @lines 340
  */
-public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
+public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "Checkbox";
@@ -141,8 +141,8 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * @return a new widget look for the current {@link CheckBox}.
 	 */
 	@Override
-	protected CheckBoxLook createLook() {
-		return new CheckBoxLook();
+	protected OldCheckBoxLook createLook() {
+		return new OldCheckBoxLook();
 	}
 	
 	//method
@@ -282,7 +282,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final CheckBoxLook checkBoxLook, final IPainter painter) {
+	protected void paintContentArea(final OldCheckBoxLook checkBoxLook, final IPainter painter) {
 				
 		final var s = checkBoxLook.getRecursiveOrDefaultTextSize();
 		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();

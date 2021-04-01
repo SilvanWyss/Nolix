@@ -6,7 +6,7 @@ import ch.nolix.element.gui.baseapi.HoverableByCursor;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetInterScrollBarArea<BWL extends OldBorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//constants
 	public static final int WIDTH_WHEN_VERTICAL_SCROLLBAR_NOT_VISIBLE = 0;

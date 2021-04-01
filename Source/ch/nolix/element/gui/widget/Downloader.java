@@ -15,7 +15,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
+public final class Downloader extends TextLineWidget<Downloader, OldDownloaderLook> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = "Download";
@@ -116,8 +116,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected DownloaderLook createLook() {
-		return new DownloaderLook();
+	protected OldDownloaderLook createLook() {
+		return new OldDownloaderLook();
 	}
 	
 	//method
@@ -138,7 +138,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final DownloaderLook downloaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldDownloaderLook downloaderLook) {}
 	
 	//method
 	@Override

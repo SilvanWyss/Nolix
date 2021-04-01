@@ -4,11 +4,11 @@ package ch.nolix.element.gui.containerwidget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.gui.base.ValueCatalogue;
-import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.OldBorderWidgetLook;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
-public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {
+public final class OldFloatContainerLook extends OldBorderWidgetLook<OldFloatContainerLook> {
 	
 	//constant
 	private static final int DEFAULT_PROPOSE_CONTENT_WIDTH = ValueCatalogue.BIG_WIDGET_WIDTH;
@@ -57,7 +57,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	}
 	
 	//method
-	public FloatContainerLook setProposeContentWidth(final int proposeContentWidth) {
+	public OldFloatContainerLook setProposeContentWidth(final int proposeContentWidth) {
 		
 		this.proposeContentWidth.setValue(proposeContentWidth);
 		
@@ -65,7 +65,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	}
 	
 	//method
-	public FloatContainerLook setWidgetMargin(final int widgetMargin) {
+	public OldFloatContainerLook setWidgetMargin(final int widgetMargin) {
 		
 		this.widgetMargin.setValue(widgetMargin);
 		

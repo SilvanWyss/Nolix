@@ -19,7 +19,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2017-01-01
  * @lines 300
  */
-public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
+public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "TextBox";
@@ -113,8 +113,8 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected TextBoxLook createLook() {
-		return new TextBoxLook();
+	protected OldTextBoxLook createLook() {
+		return new OldTextBoxLook();
 	}
 	
 	//method
@@ -169,7 +169,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final TextBoxLook textBoxLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldTextBoxLook textBoxLook) {
 		if (isFocused()) {
 			paintTextCursor(painter, textBoxLook);
 		}
@@ -277,7 +277,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * @param painter
 	 * @param textBoxLook
 	 */
-	private void paintTextCursor(IPainter painter, final TextBoxLook textBoxLook) {
+	private void paintTextCursor(IPainter painter, final OldTextBoxLook textBoxLook) {
 		
 		painter.setColor(textBoxLook.getRecursiveOrDefaultTextColor());
 		

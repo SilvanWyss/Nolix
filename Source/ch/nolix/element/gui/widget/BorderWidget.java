@@ -65,9 +65,9 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 1370
  * @param <BW> is the type of a {@link BorderWidget}.
- * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
+ * @param <BWL> is the type of the {@link OldBorderWidgetLook}s of a {@link BorderWidget}.
  */
-public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends BorderWidgetLook<BWL>>
+public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends OldBorderWidgetLook<BWL>>
 extends Widget<BW, BWL> {
 	
 	//constants

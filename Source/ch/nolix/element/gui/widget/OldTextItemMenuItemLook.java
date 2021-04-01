@@ -9,7 +9,7 @@ import ch.nolix.element.layerelement.LayerElement;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
-public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLook> {
+public final class OldTextItemMenuItemLook extends LayerElement<OldTextItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "ItemLook";
@@ -19,11 +19,11 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 		
 	//static method
-	public static TextItemMenuItemLook fromSpecification(
+	public static OldTextItemMenuItemLook fromSpecification(
 		final BaseNode specification
 	) {
 		
-		final var selectionMenuItemLook = new TextItemMenuItemLook();
+		final var selectionMenuItemLook = new OldTextItemMenuItemLook();
 		selectionMenuItemLook.resetFrom(specification);
 		
 		return selectionMenuItemLook;
@@ -68,7 +68,7 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	}
 	
 	//method
-	public TextItemMenuItemLook setBackgroundColor(final Color backgroundColor) {
+	public OldTextItemMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
 		this.backgroundColor.setValue(backgroundColor);
 		
@@ -76,7 +76,7 @@ public final class TextItemMenuItemLook extends LayerElement<TextItemMenuItemLoo
 	}
 	
 	//method
-	public TextItemMenuItemLook setTextColor(final Color textColor) {
+	public OldTextItemMenuItemLook setTextColor(final Color textColor) {
 		
 		this.textColor.setValue(textColor);
 		

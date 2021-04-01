@@ -10,11 +10,11 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.ValueCatalogue;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.TextItemMenuItemLook;
+import ch.nolix.element.gui.widget.OldTextItemMenuItemLook;
 import ch.nolix.element.layerelement.LayerElement;
 
 //class
-public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuItemLook> {
+public final class OldTabContainerMenuItemLook extends LayerElement<OldTextItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "MenuItemLook";
@@ -30,11 +30,11 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	
 	//static method
-	public static TabContainerMenuItemLook fromSpecification(
+	public static OldTabContainerMenuItemLook fromSpecification(
 		final BaseNode specification
 	) {
 		
-		final var tabContainerMenuItemLook = new TabContainerMenuItemLook();
+		final var tabContainerMenuItemLook = new OldTabContainerMenuItemLook();
 		tabContainerMenuItemLook.resetFrom(specification);
 		
 		return tabContainerMenuItemLook;
@@ -175,7 +175,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook removeBackgroundColor() {
+	public OldTabContainerMenuItemLook removeBackgroundColor() {
 		
 		backgroundColor = null;
 		
@@ -183,7 +183,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook removeMinWidth() {
+	public OldTabContainerMenuItemLook removeMinWidth() {
 		
 		minWidth = -1;
 		
@@ -191,7 +191,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook removePadding() {
+	public OldTabContainerMenuItemLook removePadding() {
 		
 		padding = -1;
 		
@@ -199,7 +199,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook removeTextColor() {
+	public OldTabContainerMenuItemLook removeTextColor() {
 		
 		textColor = null;
 		
@@ -207,7 +207,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook removeTextSize() {
+	public OldTabContainerMenuItemLook removeTextSize() {
 		
 		textSize = -1;
 		
@@ -215,7 +215,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook setBackgroundColor(final Color backgroundColor) {
+	public OldTabContainerMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
 		Validator
 		.assertThat(backgroundColor)
@@ -228,7 +228,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook setMinWidth(final int minWidth) {
+	public OldTabContainerMenuItemLook setMinWidth(final int minWidth) {
 		
 		Validator.assertThat(minWidth).thatIsNamed("min width").isPositive();
 		
@@ -238,7 +238,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook setPadding(final int padding) {
+	public OldTabContainerMenuItemLook setPadding(final int padding) {
 		
 		Validator.assertThat(padding).thatIsNamed(LowerCaseCatalogue.PADDING).isPositive();
 		
@@ -248,7 +248,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook setTextColor(final Color textColor) {
+	public OldTabContainerMenuItemLook setTextColor(final Color textColor) {
 		
 		Validator
 		.assertThat(textColor)
@@ -261,7 +261,7 @@ public final class TabContainerMenuItemLook extends LayerElement<TextItemMenuIte
 	}
 	
 	//method
-	public TabContainerMenuItemLook setTextSize(final int textSize) {
+	public OldTabContainerMenuItemLook setTextSize(final int textSize) {
 		
 		Validator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		

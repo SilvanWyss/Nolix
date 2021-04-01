@@ -17,7 +17,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * @date 2016-06-01
  * @lines 120
  */
-public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
+public final class OldCheckBoxLook extends OldBorderWidgetLook<OldCheckBoxLook> {
 	
 	//constant
 	public static final int DEFAULT_LINE_THICKNESS = 1;
@@ -27,7 +27,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link CheckBoxLook}.
+	 * Adds or changes the given attribute to the current {@link OldCheckBoxLook}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -65,7 +65,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the recursive or default line thickness of the current {@link CheckBoxLook}.
+	 * @return the recursive or default line thickness of the current {@link OldCheckBoxLook}.
 	 */
 	public int getRecursiveOrDefaultLineThickness() {
 		
@@ -87,7 +87,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return true if the current {@link CheckBoxLook} has a line thickness.
+	 * @return true if the current {@link OldCheckBoxLook} has a line thickness.
 	 */
 	public boolean hasLineThickness() {
 		return (lineThickness != -1);
@@ -95,11 +95,11 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Removes the line thickness of the current {@link CheckBoxLook}.
+	 * Removes the line thickness of the current {@link OldCheckBoxLook}.
 	 * 
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link OldCheckBoxLook}.
 	 */
-	public CheckBoxLook removeLineThickness() {
+	public OldCheckBoxLook removeLineThickness() {
 		
 		lineThickness = -1;
 		
@@ -108,13 +108,13 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Sets the line thickness of the current {@link CheckBoxLook}.
+	 * Sets the line thickness of the current {@link OldCheckBoxLook}.
 	 * 
 	 * @param lineThickness
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link OldCheckBoxLook}.
 	 * @throws NonPositiveArgumentException if the given line thickness is not positive.
 	 */
-	public CheckBoxLook setLineThickness(final int lineThickness) {
+	public OldCheckBoxLook setLineThickness(final int lineThickness) {
 		
 		//Asserts that the given lineThickness is positive.
 		Validator.assertThat(lineThickness).thatIsNamed(LowerCaseCatalogue.LINE_THICKNESS).isPositive();

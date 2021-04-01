@@ -13,7 +13,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {
+public final class AligningContainer extends ContainerWidget<AligningContainer, OldAligningContainerLook> {
 	
 	//constants
 	private static final String TOP_LEFT_HEADER = "TopLeft";
@@ -224,8 +224,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected AligningContainerLook createLook() {
-		return new AligningContainerLook();
+	protected OldAligningContainerLook createLook() {
+		return new OldAligningContainerLook();
 	}
 	
 	//method
@@ -326,7 +326,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void paintContentArea(final AligningContainerLook borderWidgetLook, final IPainter painter) {}
+	protected void paintContentArea(final OldAligningContainerLook borderWidgetLook, final IPainter painter) {}
 	
 	//method
 	@Override

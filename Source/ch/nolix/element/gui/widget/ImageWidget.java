@@ -12,7 +12,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {
+public final class ImageWidget extends BorderWidget<ImageWidget, OldImageWidgetLook> implements Clearable {
 	
 	//attribute
 	private final MutableOptionalValue<Image> image =
@@ -62,8 +62,8 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected ImageWidgetLook createLook() {
-		return new ImageWidgetLook();
+	protected OldImageWidgetLook createLook() {
+		return new OldImageWidgetLook();
 	}
 	
 	//method
@@ -155,7 +155,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	//method
 	@Override
 	protected void paintContentArea(
-		final ImageWidgetLook borderWidgetLook,
+		final OldImageWidgetLook borderWidgetLook,
 		final IPainter painter
 	) {
 		if (containsAny()) {

@@ -17,21 +17,21 @@ import ch.nolix.element.layerelement.LayerProperty;
 
 //class
 /**
- * A {@link WidgetLook} stores the state-dependent attributes of a {@link Widget}.
+ * A {@link OldWidgetLook} stores the state-dependent attributes of a {@link Widget}.
  * 
- * For each attribute A, a {@link WidgetLook} has a getRecursiveOrDefaultA method.
- * Step 1: If the {@link WidgetLook} has a value for A,
+ * For each attribute A, a {@link OldWidgetLook} has a getRecursiveOrDefaultA method.
+ * Step 1: If the {@link OldWidgetLook} has a value for A,
  *         the getRecursiveOrDefaultA method must return the value.
- * Step 2: If the {@link WidgetLook} has a base look,
+ * Step 2: If the {@link OldWidgetLook} has a base look,
  *         the getRecursiveOrDefaultA method must return getRecursiveOrDefaultA() of the base structure.
  * Step 3: The getRecursiveOrDefaultA method must return the default value for A.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 290
- * @param <WL> is the type of a {@link WidgetLook}.
+ * @param <WL> is the type of a {@link OldWidgetLook}.
  */
-public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement<WL> {
+public abstract class OldWidgetLook<WL extends OldWidgetLook<WL>> extends LayerElement<WL> {
 	
 	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;
@@ -79,7 +79,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the recursive or default bold text flag of the current {@link WidgetLook}.
+	 * @return the recursive or default bold text flag of the current {@link OldWidgetLook}.
 	 */
 	public final boolean getRecursiveOrDefaultBoldTextFlag() {
 		return boldTextFlag.getRecursiveOrDefaultValue();
@@ -87,7 +87,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the recursive or default text color of the current {@link WidgetLook}.
+	 * @return the recursive or default text color of the current {@link OldWidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultTextColor() {
 		return textColor.getRecursiveOrDefaultValue();
@@ -95,7 +95,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the recursive or default text font of the current {@link WidgetLook}.
+	 * @return the recursive or default text font of the current {@link OldWidgetLook}.
 	 */
 	public final Font getRecursiveOrDefaultTextFont() {
 		return font.getRecursiveOrDefaultValue();
@@ -103,7 +103,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 	//method
 	/**
-	 * @return the recursive or default text size of the current {@link WidgetLook}.
+	 * @return the recursive or default text size of the current {@link OldWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTextSize() {
 		return textSize.getRecursiveOrDefaultValue();
@@ -111,7 +111,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return true if the current {@link WidgetLook} has a bold text flag.
+	 * @return true if the current {@link OldWidgetLook} has a bold text flag.
 	 */
 	public final boolean hasRecursiveBoldTextFlag() {
 		return boldTextFlag.hasRecursiveValue();
@@ -119,9 +119,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Removes the text color of the current {@link WidgetLook}.
+	 * Removes the text color of the current {@link OldWidgetLook}.
 	 * 
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 */
 	public final WL removeTextColor() {
 		
@@ -132,9 +132,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Removes the text font of the current {@link WidgetLook}.
+	 * Removes the text font of the current {@link OldWidgetLook}.
 	 * 
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 */
 	public final WL removeTextFont() {
 		
@@ -145,9 +145,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Removes the text size of the current {@link WidgetLook}.
+	 * Removes the text size of the current {@link OldWidgetLook}.
 	 * 
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 */
 	public final WL removeTextSize() {
 		
@@ -158,9 +158,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Removes the bold text flag of the current {@link WidgetLook}.
+	 * Removes the bold text flag of the current {@link OldWidgetLook}.
 	 * 
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 */
 	public final WL removeBoldTextFlag() {
 		
@@ -171,10 +171,10 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Sets the bold text to the current {@link WidgetLook}.
+	 * Sets the bold text to the current {@link OldWidgetLook}.
 	 * 
 	 * @param boldTextFlag 
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 */
 	public final WL setBoldTextFlag(final boolean boldTextFlag) {
 		
@@ -185,10 +185,10 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Sets the text color of the current {@link WidgetLook}.
+	 * Sets the text color of the current {@link OldWidgetLook}.
 	 * 
 	 * @param textColor
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 * @throws ArgumentIsNullException if the given text color is null.
 	 */
 	public final WL setTextColor(final Color textColor) {
@@ -200,10 +200,10 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Sets the text font of the current {@link WidgetLook}.
+	 * Sets the text font of the current {@link OldWidgetLook}.
 	 * 
 	 * @param font
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 * @throws ArgumentIsNullException if the given text font is null.
 	 */
 	public final WL setTextFont(final Font font) {
@@ -215,10 +215,10 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 		
 	//method
 	/**
-	 * Sets the text size of the current {@link WidgetLook}.
+	 * Sets the text size of the current {@link OldWidgetLook}.
 	 * 
 	 * @param textSize
-	 * @return the current {@link WidgetLook}.
+	 * @return the current {@link OldWidgetLook}.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 */
 	public final WL setTextSize(final int textSize) {
@@ -233,9 +233,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return the base look of the current {@link WidgetLook}.
+	 * @return the base look of the current {@link OldWidgetLook}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link WidgetLook} does not have a base look.
+	 * if the current {@link OldWidgetLook} does not have a base look.
 	 */
 	protected final WL getRefBaseLook() {
 		
@@ -247,7 +247,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @return true if the current {@link WidgetLook} has a base look.
+	 * @return true if the current {@link OldWidgetLook} has a base look.
 	 */
 	protected final boolean hasBaseLook() {
 		return hasBaseElement();
@@ -262,7 +262,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * Sets the base look of the current {@link WidgetLook}.
+	 * Sets the base look of the current {@link OldWidgetLook}.
 	 * 
 	 * @param baseLook
 	 * @throws ArgumentIsNullException if the given base look is null.
@@ -280,7 +280,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement
 	
 	//method
 	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link WidgetLook} does not have a base look.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link OldWidgetLook} does not have a base look.
 	 */
 	private void supposeHasBaseLook() {
 		if (!hasBaseLook()) {

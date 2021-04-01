@@ -5,11 +5,11 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.gui.base.ValueCatalogue;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.OldBorderWidgetLook;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
-public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
+public final class OldAccordionLook extends OldBorderWidgetLook<OldAccordionLook> {
 	
 	//constant
 	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR = Color.WHITE;
@@ -100,7 +100,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook removeTabBackgroundColor() {
+	public OldAccordionLook removeTabBackgroundColor() {
 		
 		tabBackgroundColor.removeValue();
 		
@@ -108,7 +108,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook removeTabHeaderBackgroundColor() {
+	public OldAccordionLook removeTabHeaderBackgroundColor() {
 		
 		tabHeaderBackgroundColor.removeValue();
 		
@@ -116,7 +116,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook removeTabHeaderTextColor() {
+	public OldAccordionLook removeTabHeaderTextColor() {
 		
 		tabHeaderTextColor.removeValue();
 		
@@ -124,7 +124,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook removeTabHeaderTextSize() {
+	public OldAccordionLook removeTabHeaderTextSize() {
 		
 		tabHeaderTextSize.removeValue();
 		
@@ -132,7 +132,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook setTabBackgroundColor(final Color tabBackgroundColor) {
+	public OldAccordionLook setTabBackgroundColor(final Color tabBackgroundColor) {
 		
 		this.tabBackgroundColor.setValue(tabBackgroundColor);
 		
@@ -140,7 +140,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook setTabHeaderBackgroundColor(final Color tabHeaderBackgroundColor) {
+	public OldAccordionLook setTabHeaderBackgroundColor(final Color tabHeaderBackgroundColor) {
 		
 		this.tabHeaderBackgroundColor.setValue(tabHeaderBackgroundColor);
 		
@@ -148,7 +148,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook setTabHeaderTextColor(final Color tabHeaderTextColor) {
+	public OldAccordionLook setTabHeaderTextColor(final Color tabHeaderTextColor) {
 		
 		this.tabHeaderTextColor.setValue(tabHeaderTextColor);
 		
@@ -156,7 +156,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	}
 	
 	//method
-	public AccordionLook setTabHeaderTextSize(final int tabHeaderTextSize) {
+	public OldAccordionLook setTabHeaderTextSize(final int tabHeaderTextSize) {
 		
 		this.tabHeaderTextSize.setValue(tabHeaderTextSize);
 		

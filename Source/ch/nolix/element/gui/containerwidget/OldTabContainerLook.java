@@ -4,11 +4,11 @@ package ch.nolix.element.gui.containerwidget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.OldBorderWidgetLook;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
-public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
+public final class OldTabContainerLook extends OldBorderWidgetLook<OldTabContainerLook> {
 	
 	//constants
 	public static final int DEFAULT_MENU_MARGIN = 0;
@@ -40,39 +40,39 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final LayerProperty<TabContainerMenuItemLook> baseMenuItemLook =
+	private final LayerProperty<OldTabContainerMenuItemLook> baseMenuItemLook =
 	new LayerProperty<>(
 		BASE_MENU_ITEM_LOOK_HEADER,
-		new TabContainerMenuItemLook(),
-		TabContainerMenuItemLook::fromSpecification,
-		TabContainerMenuItemLook::getSpecification
+		new OldTabContainerMenuItemLook(),
+		OldTabContainerMenuItemLook::fromSpecification,
+		OldTabContainerMenuItemLook::getSpecification
 	);
 	
 	//attribute
-	private final LayerProperty<TabContainerMenuItemLook> hoverMenuItemLook =
+	private final LayerProperty<OldTabContainerMenuItemLook> hoverMenuItemLook =
 	new LayerProperty<>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
-		new TabContainerMenuItemLook(),
-		TabContainerMenuItemLook::fromSpecification,
-		TabContainerMenuItemLook::getSpecification
+		new OldTabContainerMenuItemLook(),
+		OldTabContainerMenuItemLook::fromSpecification,
+		OldTabContainerMenuItemLook::getSpecification
 	);
 	
 	//attribute
-	private final LayerProperty<TabContainerMenuItemLook> selectionMenuItemLook =
+	private final LayerProperty<OldTabContainerMenuItemLook> selectionMenuItemLook =
 	new LayerProperty<>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
-		new TabContainerMenuItemLook(),
-		TabContainerMenuItemLook::fromSpecification,
-		TabContainerMenuItemLook::getSpecification
+		new OldTabContainerMenuItemLook(),
+		OldTabContainerMenuItemLook::fromSpecification,
+		OldTabContainerMenuItemLook::getSpecification
 	);
 	
 	//method
-	public TabContainerMenuItemLook getRefRecursiveOrDefaultBaseMenuItemLook() {
+	public OldTabContainerMenuItemLook getRefRecursiveOrDefaultBaseMenuItemLook() {
 		return baseMenuItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public TabContainerMenuItemLook getRefRecursiveOrDefaultHoverMenuItemLook() {
+	public OldTabContainerMenuItemLook getRefRecursiveOrDefaultHoverMenuItemLook() {
 		return hoverMenuItemLook.getRecursiveOrDefaultValue();
 	}
 	
@@ -87,12 +87,12 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerMenuItemLook getRefRecursiveOrDefaultSelectionMenuItemLook() {
+	public OldTabContainerMenuItemLook getRefRecursiveOrDefaultSelectionMenuItemLook() {
 		return selectionMenuItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public TabContainerLook removeBaseMenuItemLook() {
+	public OldTabContainerLook removeBaseMenuItemLook() {
 		
 		baseMenuItemLook.removeValue();
 		
@@ -100,7 +100,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook removeHoverMenuItemLook() {
+	public OldTabContainerLook removeHoverMenuItemLook() {
 		
 		hoverMenuItemLook.removeValue();
 		
@@ -108,7 +108,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook removeMenuItemMargin() {
+	public OldTabContainerLook removeMenuItemMargin() {
 		
 		menuItemMargin.removeValue();
 		
@@ -116,7 +116,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook removeMenuMargin() {
+	public OldTabContainerLook removeMenuMargin() {
 		
 		menuMargin.removeValue();
 		
@@ -124,7 +124,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook removeSelectionMenuItemLook() {
+	public OldTabContainerLook removeSelectionMenuItemLook() {
 		
 		selectionMenuItemLook.removeValue();
 		
@@ -132,7 +132,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook setBaseMenuItemLook(final TabContainerMenuItemLook baseMenuItemLook) {
+	public OldTabContainerLook setBaseMenuItemLook(final OldTabContainerMenuItemLook baseMenuItemLook) {
 		
 		this.baseMenuItemLook.setValue(baseMenuItemLook);
 		
@@ -140,7 +140,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook setHoverMenuItemLook(final TabContainerMenuItemLook hoverMenuItemLook) {
+	public OldTabContainerLook setHoverMenuItemLook(final OldTabContainerMenuItemLook hoverMenuItemLook) {
 		
 		this.hoverMenuItemLook.setValue(hoverMenuItemLook);
 		
@@ -148,7 +148,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook setMenuItemMargin(final int menuItemMargin) {
+	public OldTabContainerLook setMenuItemMargin(final int menuItemMargin) {
 		
 		Validator.assertThat(menuItemMargin).thatIsNamed("menu item margin").isNotNegative();
 		
@@ -158,7 +158,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook setMenuMargin(final int menuMargin) {
+	public OldTabContainerLook setMenuMargin(final int menuMargin) {
 		
 		Validator.assertThat(menuMargin).thatIsNamed("menu margin").isNotNegative();
 		
@@ -168,7 +168,7 @@ public final class TabContainerLook extends BorderWidgetLook<TabContainerLook> {
 	}
 	
 	//method
-	public TabContainerLook setSelectionMenuItemLook(final TabContainerMenuItemLook selectionMenuItemLook) {
+	public OldTabContainerLook setSelectionMenuItemLook(final OldTabContainerMenuItemLook selectionMenuItemLook) {
 		
 		this.selectionMenuItemLook.setValue(selectionMenuItemLook);
 		

@@ -29,7 +29,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * @date 2017-03-06
  * @lines 870
  */
-public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
+public final class Console extends BorderWidget<Console, OldConsoleLook> implements Clearable {
 	
 	//constants
 	public static final String TYPE_NAME = "Console";
@@ -570,8 +570,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return a new widget look for the current {@link Console}.
 	 */
 	@Override
-	protected ConsoleLook createLook() {
-		return new ConsoleLook();
+	protected OldConsoleLook createLook() {
+		return new OldConsoleLook();
 	}
 	
 	//method
@@ -634,7 +634,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	@Override
 	protected void paintContentArea(
-		final ConsoleLook widgetStructure,
+		final OldConsoleLook widgetStructure,
 		final IPainter painter
 	) {
 		

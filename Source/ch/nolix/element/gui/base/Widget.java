@@ -47,9 +47,9 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 2160
  * @param <W> is the type of a {@link Widget}.
- * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
+ * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
-public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
+public abstract class Widget<W extends Widget<W, WL>, WL extends OldWidgetLook<WL>> extends ConfigurableElement<W>
 implements
 EnablingRequestable,
 ExpansionRequestable,
@@ -1815,7 +1815,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
+	 * Connects the {@link OldWidgetLook}s of the current {@link Widget}.
 	 */
 	private void connectLooks() {
 		getRefHoverLook().setBaseLook(getRefBaseLook());
@@ -1824,7 +1824,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Connects the {@link WidgetLook}s of the current {@link Widget}.
+	 * Connects the {@link OldWidgetLook}s of the current {@link Widget}.
 	 */
 	private void createLooks() {
 		baseLook.setSubElement(createLook());
@@ -1834,7 +1834,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Creates and connects the {@link WidgetLook}s of the current {@link Widget}.
+	 * Creates and connects the {@link OldWidgetLook}s of the current {@link Widget}.
 	 */
 	private final void createAndConnectLooks() {
 		createLooks();

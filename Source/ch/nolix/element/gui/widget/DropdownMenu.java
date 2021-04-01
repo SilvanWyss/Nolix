@@ -38,8 +38,8 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
 				
 		getRefBaseLook()
-		.setHoverItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.LIGHT_GREY))
-		.setSelectionItemLook(new TextItemMenuItemLook().setBackgroundColor(Color.GREY));
+		.setHoverItemLook(new OldTextItemMenuItemLook().setBackgroundColor(Color.LIGHT_GREY))
+		.setSelectionItemLook(new OldTextItemMenuItemLook().setBackgroundColor(Color.GREY));
 	}
 	
 	//method
@@ -125,7 +125,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected void paintContentArea(final OldTextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	@Override

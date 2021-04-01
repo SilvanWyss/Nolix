@@ -263,7 +263,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	}
 	
 	//method
-	void preparePaint(final AccordionLook accordionLook) {
+	void preparePaint(final OldAccordionLook accordionLook) {
 		
 		headerLabel.setText(getHeader());
 		

@@ -7,11 +7,11 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.gui.base.ValueCatalogue;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.OldBorderWidgetLook;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
-public final class GridLook extends BorderWidgetLook<GridLook> {
+public final class OldGridLook extends OldBorderWidgetLook<OldGridLook> {
 	
 	//constants
 	public static final GridLineType DEFAULT_LINE_TYPE = GridLineType.INNER_LINES;
@@ -99,7 +99,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setElementMargin(final int elementMargin) {
+	public OldGridLook setElementMargin(final int elementMargin) {
 		
 		this.elementMargin.setValue(elementMargin);
 		
@@ -107,7 +107,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setLineColor(final Color lineColor) {
+	public OldGridLook setLineColor(final Color lineColor) {
 		
 		this.lineColor.setValue(lineColor);
 		
@@ -115,7 +115,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setLineThickness(final int lineThickness) {
+	public OldGridLook setLineThickness(final int lineThickness) {
 		
 		this.lineThickness.setValue(lineThickness);
 		
@@ -123,7 +123,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setLineType(final GridLineType lineType) {
+	public OldGridLook setLineType(final GridLineType lineType) {
 		
 		this.lineType.setValue(lineType);
 		

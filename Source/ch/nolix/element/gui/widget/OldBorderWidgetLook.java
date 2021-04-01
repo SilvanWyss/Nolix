@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.gui.base.WidgetLook;
+import ch.nolix.element.gui.base.OldWidgetLook;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.Image;
@@ -21,9 +21,9 @@ import ch.nolix.element.gui.image.Image;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 1690
- * @param <BWL> is the type of a {@link BorderWidgetLook}.
+ * @param <BWL> is the type of a {@link OldBorderWidgetLook}.
  */
-public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
+public abstract class OldBorderWidgetLook<BWL extends OldBorderWidgetLook<BWL>> extends OldWidgetLook<BWL> {
 	
 	//constants
 	public static final int DEFAULT_BORDER_THICKNESS = 0;
@@ -109,7 +109,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link BorderWidgetLook}.
+	 * Adds or changes the given attribute to the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -218,7 +218,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 //method
 	 /**
 	 * @return the recursive or default background color
-	 * of the current {@link BorderWidgetLook}.
+	 * of the current {@link OldBorderWidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultBackgroundColor() {
 		
@@ -236,7 +236,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	/**
 	 * @return the recursive or default background color gradient
-	 * of the current {@link BorderWidgetLook}.
+	 * of the current {@link OldBorderWidgetLook}.
 	 */
 	public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
 		
@@ -254,7 +254,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	/**
 	 * @return the recursive or default background image
-	 * of the current {@link BorderWidgetLook}.
+	 * of the current {@link OldBorderWidgetLook}.
 	 */
 	public final Image getRecursiveOrDefaultBackgroundImage() {
 		
@@ -271,7 +271,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default base scroll bar look of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default base scroll bar look of the current {@link OldBorderWidgetLook}.
 	 */
 	public final BorderWidgetScrollBarLook getRecursiveOrDefaultBaseScrollBarLook() {
 		
@@ -293,7 +293,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default bottom border color of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default bottom border color of the current {@link OldBorderWidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultBottomBorderColor() {
 		
@@ -315,7 +315,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default bottom border thickness of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default bottom border thickness of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultBottomBorderThickness() {
 		
@@ -337,7 +337,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default bottom padding of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default bottom padding of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultBottomPadding() {
 		
@@ -359,7 +359,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default hover scroll bar look of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default hover scroll bar look of the current {@link OldBorderWidgetLook}.
 	 */
 	public final BorderWidgetScrollBarLook getRecursiveOrDefaultHoverScrollBarLook() {
 		
@@ -381,7 +381,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default left border color of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default left border color of the current {@link OldBorderWidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultLeftBorderColor() {
 		
@@ -403,7 +403,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default left border thickness of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default left border thickness of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultLeftBorderThickness() {
 		
@@ -425,7 +425,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default left padding of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default left padding of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultLeftPadding() {
 		
@@ -447,7 +447,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default right border color of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default right border color of the current {@link OldBorderWidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultRightBorderColor() {
 		
@@ -469,7 +469,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default right border thickness of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default right border thickness of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultRightBorderThickness() {
 		
@@ -491,7 +491,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default right padding of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default right padding of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultRightPadding() {
 		
@@ -513,7 +513,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default selection scroll bar look of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default selection scroll bar look of the current {@link OldBorderWidgetLook}.
 	 */
 	public final BorderWidgetScrollBarLook getRecursiveOrDefaultSelectionScrollBarLook() {
 		
@@ -535,7 +535,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default top border color of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default top border color of the current {@link OldBorderWidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultTopBorderColor() {
 		
@@ -557,7 +557,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default top border thickness of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default top border thickness of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTopBorderThickness() {
 		
@@ -579,7 +579,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return the recursive or default top padding of the current {@link BorderWidgetLook}.
+	 * @return the recursive or default top padding of the current {@link OldBorderWidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTopPadding() {
 		
@@ -601,7 +601,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a recursive background color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a recursive background color.
 	 */
 	public final boolean hasRecursiveBackgroundColor() {
 		
@@ -618,7 +618,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a recursive background color gradient.
+	 * @return true if the current {@link OldBorderWidgetLook} has a recursive background color gradient.
 	 */
 	public final boolean hasRecursiveBackgroundColorGradient() {
 		
@@ -635,7 +635,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	 
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a recursive background image.
+	 * @return true if the current {@link OldBorderWidgetLook} has a recursive background image.
 	 */
 	public final boolean hasRecursiveBackgroundImage() {
 		
@@ -652,9 +652,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes any background of the current {@link BorderWidgetLook}.
+	 * Removes any background of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeAnyBackground() {
 		
@@ -667,9 +667,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the base {@link BorderWidgetScrollBarLook} of the current {@link BorderWidgetLook}.
+	 * Removes the base {@link BorderWidgetScrollBarLook} of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeBaseScrollBarLook() {
 		
@@ -680,9 +680,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the border colors of the current {@link BorderWidgetLook}.
+	 * Removes the border colors of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeBorderColors() {
 		
@@ -696,9 +696,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the border thicknesss of the current {@link BorderWidgetLook}.
+	 * Removes the border thicknesss of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeBorderThicknesses() {
 		
@@ -712,9 +712,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the bottom border color of the current {@link BorderWidgetLook}.
+	 * Removes the bottom border color of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeBottomBorderColor() {
 		
@@ -725,9 +725,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the bottom border thickness of the current {@link BorderWidgetLook}.
+	 * Removes the bottom border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeBottomBorderThickness() {
 		
@@ -738,9 +738,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the bottom padding of the current {@link BorderWidgetLook}.
+	 * Removes the bottom padding of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeBottomPadding() {
 		
@@ -751,9 +751,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the hover {@link BorderWidgetScrollBarLook} of the current {@link BorderWidgetLook}.
+	 * Removes the hover {@link BorderWidgetScrollBarLook} of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeHoverScrollBarLook() {
 		
@@ -764,9 +764,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the left border color of the current {@link BorderWidgetLook}.
+	 * Removes the left border color of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeLeftBorderColor() {
 		
@@ -777,9 +777,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the left border thickness of the current {@link BorderWidgetLook}.
+	 * Removes the left border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeLeftBorderThickness() {
 		
@@ -790,9 +790,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the left padding of the current {@link BorderWidgetLook}.
+	 * Removes the left padding of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeLeftPadding() {
 		
@@ -803,9 +803,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the paddings of the current {@link BorderWidgetLook}.
+	 * Removes the paddings of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removePaddings() {
 		
@@ -819,9 +819,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the right border color of the current {@link BorderWidgetLook}.
+	 * Removes the right border color of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeRightBorderColor() {
 		
@@ -832,9 +832,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the right border thickness of the current {@link BorderWidgetLook}.
+	 * Removes the right border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeRightBorderThickness() {
 		
@@ -845,9 +845,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the right padding of the current {@link BorderWidgetLook}.
+	 * Removes the right padding of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeRightPadding() {
 		
@@ -858,9 +858,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the {@link BorderWidgetScrollBarLook}s of the current {@link BorderWidgetLook}.
+	 * Removes the {@link BorderWidgetScrollBarLook}s of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeScrollBarLooks() {
 		
@@ -873,9 +873,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the selection {@link BorderWidgetScrollBarLook} of the current {@link BorderWidgetLook}.
+	 * Removes the selection {@link BorderWidgetScrollBarLook} of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeSelectionScrollBarLook() {
 		
@@ -886,9 +886,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the top border color of the current {@link BorderWidgetLook}.
+	 * Removes the top border color of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeTopBorderColor() {
 		
@@ -899,9 +899,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the top border thickness of the current {@link BorderWidgetLook}.
+	 * Removes the top border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeTopBorderThickness() {
 		
@@ -912,9 +912,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Removes the top padding of the current {@link BorderWidgetLook}.
+	 * Removes the top padding of the current {@link OldBorderWidgetLook}.
 	 * 
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 */
 	public final BWL removeTopPadding() {
 		
@@ -925,11 +925,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the background color of the current {@link BorderWidgetLook}.
-	 * Removes any former background of the current {@link BorderWidgetLook}.
+	 * Sets the background color of the current {@link OldBorderWidgetLook}.
+	 * Removes any former background of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param backgroundColor
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public final BWL setBackgroundColor(final Color backgroundColor) {
@@ -944,11 +944,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the background color gradient of the current {@link BorderWidgetLook}.
-	 * Removes any former background of the current {@link BorderWidgetLook}.
+	 * Sets the background color gradient of the current {@link OldBorderWidgetLook}.
+	 * Removes any former background of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param backgroundColorGradient
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given background color is null.
 	 */
 	public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
@@ -963,11 +963,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the background image of the current {@link BorderWidgetLook}.
-	 * Removes any former background of the current {@link BorderWidgetLook}.
+	 * Sets the background image of the current {@link OldBorderWidgetLook}.
+	 * Removes any former background of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param backgroundImage
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given background image is null.
 	 */
 	public final BWL setBackgroundImage(final Image backgroundImage) {
@@ -982,10 +982,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the base scroll bar look of the current {@link BorderWidgetLook}.
+	 * Sets the base scroll bar look of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param baseScrollBarLook
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given base scroll bar look is null.
 	 */
 	public final BWL setBaseScrollBarLook(final BorderWidgetScrollBarLook baseScrollBarLook) {
@@ -1004,10 +1004,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the border colors of the current {@link BorderWidgetLook}.
+	 * Sets the border colors of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param borderColor
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given border color is null.
 	 */
 	public final BWL setBorderColors(final Color borderColor) {
@@ -1027,10 +1027,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the border thicknesses of the current {@link BorderWidgetLook}.
+	 * Sets the border thicknesses of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param borderSize
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given border thickness is negative.
 	 */
 	public final BWL setBorderThicknesses(final int borderSize) {
@@ -1045,10 +1045,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the bottom border color of the current {@link BorderWidgetLook}.
+	 * Sets the bottom border color of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param bottomBorderColor
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given bottom border color is null.
 	 */
 	public final BWL setBottomBorderColor(final Color bottomBorderColor) {
@@ -1067,10 +1067,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 
 	//method
 	/**
-	 * Sets the bottom border thickness of the current {@link BorderWidgetLook}.
+	 * Sets the bottom border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param bottomBorderThickness
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given bottom border thickness is negative.
 	 */
 	public final BWL setBottomBorderThickness(final int bottomBorderThickness) {
@@ -1084,10 +1084,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the bottom padding of the current {@link BorderWidgetLook}
+	 * Sets the bottom padding of the current {@link OldBorderWidgetLook}
 	 * 
 	 * @param bottomPadding
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given bottom padding is negative.
 	 */
 	public final BWL setBottomPadding(final int bottomPadding) {
@@ -1101,10 +1101,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the hover scroll bar look of the current {@link BorderWidgetLook}.
+	 * Sets the hover scroll bar look of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param hoverScrollBarLook
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given hover scroll bar look is null.
 	 */
 	public final BWL setHoverScrollBarLook(final BorderWidgetScrollBarLook hoverScrollBarLook) {
@@ -1123,10 +1123,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the left border color of the current {@link BorderWidgetLook}.
+	 * Sets the left border color of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param leftBorderColor
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given left border color is null.
 	 */
 	public final BWL setLeftBorderColor(final Color leftBorderColor) {
@@ -1145,10 +1145,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the left border thickness of the current {@link BorderWidgetLook}.
+	 * Sets the left border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param leftBorderThickness
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given leftBorderThicknesss is negative.
 	 */
 	public final BWL setLeftBorderThickness(final int leftBorderThickness) {
@@ -1162,10 +1162,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the left padding of the current {@link BorderWidgetLook}.
+	 * Sets the left padding of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param leftPadding
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given left padding is negative.
 	 */
 	public final BWL setLeftPadding(final int leftPadding) {
@@ -1179,10 +1179,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the paddings of the current {@link BorderWidgetLook}.
+	 * Sets the paddings of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param padding
-	 * @return the current {@link BorderWidgetLook}
+	 * @return the current {@link OldBorderWidgetLook}
 	 * @throws NegativeArgumentException if the given padding is negative.
 	 */
 	public final BWL setPaddings(final int padding) {
@@ -1197,10 +1197,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the right border color of the current {@link BorderWidgetLook}.
+	 * Sets the right border color of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param rightBorderColor
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given right border color is null.
 	 */
 	public final BWL setRightBorderColor(final Color rightBorderColor) {
@@ -1219,10 +1219,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the right border thickness of the current {@link BorderWidgetLook}.
+	 * Sets the right border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param rightBorderThickness
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given right border thickness is negative.
 	 */
 	public final BWL setRightBorderThickness(final int rightBorderThickness) {
@@ -1236,10 +1236,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the right padding of the current {@link BorderWidgetLook}.
+	 * Sets the right padding of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param rightPadding
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given right padding is negative.
 	 */
 	public final BWL setRightPadding(final int rightPadding) {
@@ -1253,10 +1253,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the selection scroll bar look of the current {@link BorderWidgetLook}.
+	 * Sets the selection scroll bar look of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param selectionScrollBarLook
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given selection scroll bar look is null.
 	 */
 	public final BWL setSelectionScrollBarLook(final BorderWidgetScrollBarLook selectionScrollBarLook) {
@@ -1275,10 +1275,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the top border color of the current {@link BorderWidgetLook}.
+	 * Sets the top border color of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param topBorderColor
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws ArgumentIsNullException if the given top border color is null.
 	 */
 	public final BWL setTopBorderColor(final Color topBorderColor) {
@@ -1297,10 +1297,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the top border thickness of the current {@link BorderWidgetLook}.
+	 * Sets the top border thickness of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param topBorderThickness
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given top border thickness is negative.
 	 */
 	public final BWL setTopBorderThickness(final int topBorderThickness) {
@@ -1314,10 +1314,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Sets the top padding of the current {@link BorderWidgetLook}.
+	 * Sets the top padding of the current {@link OldBorderWidgetLook}.
 	 * 
 	 * @param topPadding
-	 * @return the current {@link BorderWidgetLook}.
+	 * @return the current {@link OldBorderWidgetLook}.
 	 * @throws NegativeArgumentException if the given topPadding is negative.
 	 */
 	public final BWL setTopPadding(final int topPadding) {
@@ -1331,7 +1331,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Fills up the specification of the border colors of the current {@link BorderWidgetLook} into the given list.
+	 * Fills up the specification of the border colors of the current {@link OldBorderWidgetLook} into the given list.
 	 * 
 	 * @param list
 	 */
@@ -1360,7 +1360,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Fills up the specification of the border thicknesses of the current {@link BorderWidgetLook} into the given list.
+	 * Fills up the specification of the border thicknesses of the current {@link OldBorderWidgetLook} into the given list.
 	 * 
 	 * @param list
 	 */
@@ -1389,7 +1389,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Fills up the specification of the paddings of the current {@link BorderWidgetLook} into the given list.
+	 * Fills up the specification of the paddings of the current {@link OldBorderWidgetLook} into the given list.
 	 * 
 	 * @param list
 	 */
@@ -1418,7 +1418,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * Fills up the specifications of the scroll bar looks of the current {@link BorderWidgetLook} into the given list.
+	 * Fills up the specifications of the scroll bar looks of the current {@link OldBorderWidgetLook} into the given list.
 	 * 
 	 * @param list
 	 */
@@ -1439,7 +1439,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a border color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a border color.
 	 */
 	private boolean hasABorderColor() {
 		return (
@@ -1452,7 +1452,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a border thickness.
+	 * @return true if the current {@link OldBorderWidgetLook} has a border thickness.
 	 */
 	private boolean hasABorderThickness() {
 		return (
@@ -1465,7 +1465,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a padding.
+	 * @return true if the current {@link OldBorderWidgetLook} has a padding.
 	 */
 	private boolean hasAPadding() {
 		return (
@@ -1478,7 +1478,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a background color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a background color.
 	 */
 	private boolean hasBackgroundColor() {
 		return (backgroundColor != null);
@@ -1486,7 +1486,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a background color gradient.
+	 * @return true if the current {@link OldBorderWidgetLook} has a background color gradient.
 	 */
 	private boolean hasBackgroundColorGradient() {
 		return (backgroundColorGradient != null);
@@ -1494,7 +1494,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a background image.
+	 * @return true if the current {@link OldBorderWidgetLook} has a background image.
 	 */
 	private boolean hasBackgroundImage() {
 		return (backgroundImage != null);
@@ -1502,7 +1502,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a base scroll bar look.
+	 * @return true if the current {@link OldBorderWidgetLook} has a base scroll bar look.
 	 */
 	private boolean hasBaseScrollBarLook() {
 		return (baseScrollBarLook != null);
@@ -1510,7 +1510,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a bottom border color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a bottom border color.
 	 */
 	private boolean hasBottomBorderColor() {
 		return (bottomBorderColor != null);
@@ -1518,7 +1518,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a bottom border thickness.
+	 * @return true if the current {@link OldBorderWidgetLook} has a bottom border thickness.
 	 */
 	private boolean hasBottomBorderThickness() {
 		return (bottomBorderThickness != -1);
@@ -1526,7 +1526,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a bottom padding.
+	 * @return true if the current {@link OldBorderWidgetLook} has a bottom padding.
 	 */
 	private boolean hasBottomPadding() {
 		return (bottomPadding != -1);
@@ -1534,7 +1534,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a hover scroll bar look.
+	 * @return true if the current {@link OldBorderWidgetLook} has a hover scroll bar look.
 	 */
 	private boolean hasHoverScrollBarLook() {
 		return (hoverScrollBarLook != null);
@@ -1542,7 +1542,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a left border color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a left border color.
 	 */
 	private boolean hasLeftBorderColor() {
 		return (leftBorderColor != null);
@@ -1550,7 +1550,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a left border thickness.
+	 * @return true if the current {@link OldBorderWidgetLook} has a left border thickness.
 	 */
 	private boolean hasLeftBorderThickness() {
 		return (leftBorderThickness != -1);
@@ -1558,7 +1558,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a left padding.
+	 * @return true if the current {@link OldBorderWidgetLook} has a left padding.
 	 */
 	private boolean hasLeftPadding() {
 		return (leftPadding != -1);
@@ -1566,7 +1566,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a right border color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a right border color.
 	 */
 	private boolean hasRightBorderColor() {
 		return (rightBorderColor != null);
@@ -1574,7 +1574,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a right border thickness.
+	 * @return true if the current {@link OldBorderWidgetLook} has a right border thickness.
 	 */
 	private boolean hasRightBorderThickness() {
 		return (rightBorderThickness != -1);
@@ -1582,7 +1582,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a right padding.
+	 * @return true if the current {@link OldBorderWidgetLook} has a right padding.
 	 */
 	private boolean hasRightPadding() {
 		return (rightPadding != -1);
@@ -1590,7 +1590,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has the same border color at each side.
+	 * @return true if the current {@link OldBorderWidgetLook} has the same border color at each side.
 	 */
 	private boolean hasSameBorderColorAtEachSide() {
 		
@@ -1615,7 +1615,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has the same border thickness at each side.
+	 * @return true if the current {@link OldBorderWidgetLook} has the same border thickness at each side.
 	 */
 	private boolean hasSameBorderThicknessAtEachSide() {
 		
@@ -1640,7 +1640,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has the same padding at each side.
+	 * @return true if the current {@link OldBorderWidgetLook} has the same padding at each side.
 	 */
 	private boolean hasSamePaddingAtEachSide() {
 		
@@ -1665,7 +1665,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a selection scroll bar look.
+	 * @return true if the current {@link OldBorderWidgetLook} has a selection scroll bar look.
 	 */
 	private boolean hasSelectionScrollBarLook() {
 		return (selectionScrollBarLook != null);
@@ -1673,7 +1673,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a topt border color.
+	 * @return true if the current {@link OldBorderWidgetLook} has a topt border color.
 	 */
 	private boolean hasTopBorderColor() {
 		return (topBorderColor != null);
@@ -1681,7 +1681,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a top border thickness.
+	 * @return true if the current {@link OldBorderWidgetLook} has a top border thickness.
 	 */
 	private boolean hasTopBorderThickness() {
 		return (topBorderThickness != -1);
@@ -1689,7 +1689,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	/**
-	 * @return true if the current {@link BorderWidgetLook} has a top padding.
+	 * @return true if the current {@link OldBorderWidgetLook} has a top padding.
 	 */
 	private boolean hasTopPadding() {
 		return (topPadding != -1);

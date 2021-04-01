@@ -11,7 +11,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
+public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
 	
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.GAINSBORO;
@@ -59,8 +59,8 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	
 	//method
 	@Override
-	protected UploaderLook createLook() {
-		return new UploaderLook();
+	protected OldUploaderLook createLook() {
+		return new OldUploaderLook();
 	}
 	
 	//method
@@ -90,7 +90,7 @@ public final class Uploader extends TextLineWidget<Uploader,UploaderLook> {
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldUploaderLook uploaderLook) {}
 	
 	//method
 	@Override

@@ -22,7 +22,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 210
  */
-public final class Button extends TextLineWidget<Button, ButtonLook> {
+public final class Button extends TextLineWidget<Button, OldButtonLook> {
 	
 	//constants
 	public static final String TYPE_NAME = "Button";
@@ -149,8 +149,8 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected ButtonLook createLook() {
-		return new ButtonLook();
+	protected OldButtonLook createLook() {
+		return new OldButtonLook();
 	}
 	
 	//method
@@ -179,7 +179,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final ButtonLook buttonLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldButtonLook buttonLook) {}
 	
 	//method
 	/**

@@ -25,9 +25,9 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * @date 2016-01-01
  * @lines 300
  * @param <TLW> is the type of a {@link TextLineWidget}.
- * @param <TLWL> is the type of the {@link TextLineWidgetLook} of a {@link TextLineWidget}.
+ * @param <TLWL> is the type of the {@link OldTextLineWidgetLook} of a {@link TextLineWidget}.
  */
-public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
+public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends OldTextLineWidgetLook<TLWL>>
 extends BorderWidget<TLW, TLWL> {
 	
 	//constant

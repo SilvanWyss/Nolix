@@ -12,7 +12,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> {
+public final class FloatContainer extends ContainerWidget<FloatContainer, OldFloatContainerLook> {
 	
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
@@ -81,8 +81,8 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 		
 	//method
 	@Override
-	protected FloatContainerLook createLook() {
-		return new FloatContainerLook();
+	protected OldFloatContainerLook createLook() {
+		return new OldFloatContainerLook();
 	}
 	
 	//method
@@ -181,7 +181,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected void paintContentArea(final FloatContainerLook floatContainerLook, final IPainter painter) {}
+	protected void paintContentArea(final OldFloatContainerLook floatContainerLook, final IPainter painter) {}
 	
 	//method
 	@Override

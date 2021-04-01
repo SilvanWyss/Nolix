@@ -22,11 +22,11 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 		getRefBaseLook()
 		.setBackgroundColor(Color.WHITE_SMOKE)
 		.setHoverItemLook(
-			new TextItemMenuItemLook()
+			new OldTextItemMenuItemLook()
 			.setBackgroundColor(Color.LIGHT_GREY)
 		)
 		.setSelectionItemLook(
-			new TextItemMenuItemLook()
+			new OldTextItemMenuItemLook()
 			.setBackgroundColor(Color.GREY)
 		);
 	}
@@ -103,7 +103,7 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected void paintContentArea(final OldTextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	@Override

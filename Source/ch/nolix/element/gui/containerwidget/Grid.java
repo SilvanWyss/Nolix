@@ -18,7 +18,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.Label;
 
 //class
-public final class Grid extends ContainerWidget<Grid, GridLook> {
+public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		
 	//multi-attribute
 	private Matrix<GridCell> cells = new Matrix<>();
@@ -188,8 +188,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 	//method
 	@Override
-	protected GridLook createLook() {
-		return new GridLook();
+	protected OldGridLook createLook() {
+		return new OldGridLook();
 	}
 	
 	//method
@@ -313,7 +313,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	@Override
 	protected void paintContentArea(
-		final GridLook gridStructure,
+		final OldGridLook gridStructure,
 		final IPainter painter
 	) {
 		//Paints the lines of the current grid.

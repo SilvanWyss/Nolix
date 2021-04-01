@@ -23,7 +23,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @lines 330
  * @param <L> is the type of a line.
  */
-public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
+public abstract class Line<L extends Line<L>> extends Widget<L, OldLineLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "Line";
@@ -180,8 +180,8 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @return a new widget look for this line.
 	 */
 	@Override
-	protected final LineLook createLook() {
-		return new LineLook();
+	protected final OldLineLook createLook() {
+		return new OldLineLook();
 	}
 	
 	//method
@@ -304,7 +304,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @param painter
 	 */
 	@Override
-	protected final void paint(final IPainter painter, final LineLook lineLook) {
+	protected final void paint(final IPainter painter, final OldLineLook lineLook) {
 		painter.setColor(color);
 		painter.paintFilledRectangle(
 			getWidth(),
