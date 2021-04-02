@@ -8,7 +8,7 @@ import ch.nolix.system.client.baseguiclient.BaseBackGUIClient;
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  */
 public final class BackGUIClient extends BaseBackGUIClient<BackGUIClient> {

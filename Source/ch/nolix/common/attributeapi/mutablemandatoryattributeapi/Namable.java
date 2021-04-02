@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
  * A {@link Namable} is a {@link Named} whose name can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  * @param <N> is the type of a {@link Namable}.
  */

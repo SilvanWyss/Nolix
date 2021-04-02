@@ -11,7 +11,7 @@ import ch.nolix.common.testing.test.Test;
  * A {@link ChainedNodeTest} is a test for {@link ChainedNode}s.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 290
  */
 public final class ChainedNodeTest extends Test {

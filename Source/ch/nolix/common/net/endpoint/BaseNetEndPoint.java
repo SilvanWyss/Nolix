@@ -17,7 +17,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * -another process on another computer
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 210
  */
 public abstract class BaseNetEndPoint extends EndPoint {

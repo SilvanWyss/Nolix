@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
  * A {@link Labelable} is a {@link Labeled} whose info string can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  * @param <S> is the type of a {@link Labelable}.
  */

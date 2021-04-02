@@ -9,7 +9,7 @@ import ch.nolix.common.language.EnglishNounHelper;
  * A {@link Named} has a name.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 60
  */
 public interface Named {

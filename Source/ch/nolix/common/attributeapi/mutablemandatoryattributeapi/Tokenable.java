@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Tokened;
  * A {@link Tokenable} is a {@link Tokened} whose token can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  * @param <T> is the type of a {@link Tokenable}.
  */

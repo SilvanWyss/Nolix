@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalTokened;
  * A {@link OptionalTokenable} is a {@link OptionalTokened} whose token can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 30
  * @param <OT> is the type of a {@link OptionalTokenable}.
  */

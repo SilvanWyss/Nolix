@@ -6,7 +6,7 @@ package ch.nolix.common.requestapi;
 * A {@link ContainsElementByStringIdRequestable} can be asked if it contains an element with a given id.
 * 
 * @author Silvan Wyss
-* @month 2015-12
+* @date 2016-01-01
 * @lines 20
 */
 public interface ContainsElementByStringIdRequestable {

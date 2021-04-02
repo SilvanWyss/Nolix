@@ -6,7 +6,7 @@ package ch.nolix.common.net.endpoint3;
  * Of the {@link Protocol} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  */
 final class Protocol {

@@ -10,7 +10,7 @@ import ch.nolix.common.net.endpoint3.EndPoint;
  * A standard client is a normal client.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 170
  */
 public final class StandardClient extends Client<StandardClient> {

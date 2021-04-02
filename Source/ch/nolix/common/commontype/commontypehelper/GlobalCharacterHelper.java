@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 90
  */
 public final class GlobalCharacterHelper {

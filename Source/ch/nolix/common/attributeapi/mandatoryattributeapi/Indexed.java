@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Indexed} has an index.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 60
  */
 public interface Indexed {

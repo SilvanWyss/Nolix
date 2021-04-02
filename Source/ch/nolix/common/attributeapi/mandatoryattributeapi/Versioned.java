@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Versioned} has a single version number.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 10
  */
 public interface Versioned {

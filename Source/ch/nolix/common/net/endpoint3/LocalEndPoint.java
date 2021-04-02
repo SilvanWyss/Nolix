@@ -15,7 +15,7 @@ import ch.nolix.common.net.controllerapi.IDataProviderController;
  * A local duplex controller can interact with another local duplex controller.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 210
  */
 public final class LocalEndPoint extends EndPoint {

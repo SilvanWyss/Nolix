@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
  * An end point taker takes end points.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  */
 public interface IEndPointTaker extends Named {

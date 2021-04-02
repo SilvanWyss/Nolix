@@ -25,7 +25,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * The WebSocket protocol was designed this way because of security reasons.
 * 
 * @author Silvan Wyss
-* @month 2015-12
+* @date 2016-01-01
 * @lines 160
 */
 public final class NetServer extends Server {

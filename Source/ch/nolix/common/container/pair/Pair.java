@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * A {@link Pair} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 90
  * @param <E1> is the type of the element 1 of a {@link Pair}.
  * @param <E2> is the type of the element 2 of a {@link Pair}.

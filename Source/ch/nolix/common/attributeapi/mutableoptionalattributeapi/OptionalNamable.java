@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalNamed;
  * A {@link OptionalNamable} is a {@link OptionalNamed} whose name can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 30
  * @param <ON> is the type of a {@link OptionalNamable}.
  */

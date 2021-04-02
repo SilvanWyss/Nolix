@@ -8,7 +8,7 @@ import ch.nolix.common.document.node.Node;
  * A {@link NodeTest} is a test for {@link Node}.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 20
  */
 public final class NodeTest extends BaseNodeTest {

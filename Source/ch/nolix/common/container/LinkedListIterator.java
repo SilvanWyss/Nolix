@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 //class
 /**
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 70
  * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */

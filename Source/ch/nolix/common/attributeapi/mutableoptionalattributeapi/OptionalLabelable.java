@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalLabeled;
  * A {@link OptionalLabelable} is a {@link OptionalLabeled} whose info string can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @date 2016-01-01
  * @lines 30
  * @param <OL> is the type of a {@link OptionalLabelable}.
  */
