@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -8,7 +9,7 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.element.elementapi.IElement;
 
 //enum
-public enum GridLineType implements IElement {
+public enum GridLineType implements IElement<GridLineType> {
 	INNER_LINES,
 	INNER_AND_OUTER_LINES;
 

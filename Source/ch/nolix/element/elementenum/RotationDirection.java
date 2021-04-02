@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementenum;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -14,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2019-07
  * @lines 60
  */
-public enum RotationDirection implements IElement {
+public enum RotationDirection implements IElement<RotationDirection> {
 	FORWARD,
 	BACKWARD;
 	

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -13,7 +14,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2016-08
  * @lines 40
  */
-public enum LabelRole implements IElement {
+public enum LabelRole implements IElement<LabelRole> {
 	TITLE,
 	SUB_TITLE,
 	LEVEL1_HEADER,

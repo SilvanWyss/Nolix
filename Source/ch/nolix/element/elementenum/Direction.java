@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementenum;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
@@ -17,7 +18,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2017-09-16
  * @lines 30
  */
-public enum Direction implements IElement {
+public enum Direction implements IElement<Direction> {
 	LEFT_TO_RIGHT,
 	RIGHT_TO_LEFT,
 	TOP_TO_BOTTOM,

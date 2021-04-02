@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+//own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Identified;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.ShortDescripted;
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -17,7 +18,7 @@ import ch.nolix.common.valuecreator.ValueCreator;
 import ch.nolix.element.elementapi.IElement;
 
 //class
-public abstract class Entity implements IElement, Identified, ShortDescripted {
+public abstract class Entity implements IElement<Entity>, Identified, ShortDescripted {
 	
 	//static attribute
 	private static long latestCreatedId = -1;

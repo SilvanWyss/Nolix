@@ -5,6 +5,7 @@ package ch.nolix.element.time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.TimeUnitCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -31,7 +32,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2016-09-01
  * @lines 730
  */
-public final class Time implements IElement {
+public final class Time implements IElement<Time> {
 	
 	//constant
 	public static final String TYPE_NAME = "Time";

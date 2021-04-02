@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -14,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2018-09
  * @lines 30
  */
-public enum BaseFrontGUIClientGUIType implements IElement {
+public enum BaseFrontGUIClientGUIType implements IElement<BaseFrontGUIClientGUIType> {
 	WIDGET_GUI,
 	CANVAS_GUI;
 	

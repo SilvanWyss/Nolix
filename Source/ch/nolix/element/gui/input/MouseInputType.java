@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.input;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -10,7 +11,7 @@ import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.elementenum.RotationDirection;
 
 //enum
-public enum MouseInputType implements IElement {
+public enum MouseInputType implements IElement<MouseInputType> {
 	MOUSE_MOVE,
 	LEFT_MOUSE_BUTTON_PRESS,
 	LEFT_MOUSE_BUTTON_RELEASE,

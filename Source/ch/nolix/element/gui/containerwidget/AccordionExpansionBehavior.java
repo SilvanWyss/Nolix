@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -16,7 +17,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2018-08-13
  * @lines 40
  */
-public enum AccordionExpansionBehavior implements IElement {
+public enum AccordionExpansionBehavior implements IElement<AccordionExpansionBehavior> {
 	SINGLE_OR_NONE,
 	SINGLE,
 	MULTI_OR_NONE,

@@ -21,7 +21,7 @@ public final class FormatElementWithCascadingPropertyTest extends Test {
 	}
 	
 	//static class
-	private static final class CustomFormatElement extends FormatElement<CustomState> {
+	private static final class CustomFormatElement extends FormatElement<CustomFormatElement, CustomState> {
 		
 		//attribute
 		public final CascadingProperty<CustomState, Color> color =

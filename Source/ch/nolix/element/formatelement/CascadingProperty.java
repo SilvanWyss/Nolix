@@ -20,7 +20,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	
 	//attributes
 	private final String name;
-	private FormatElement<S> parent;
+	private FormatElement<?, S> parent;
 	private final ValueDetermination valueDetermination;
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
@@ -153,7 +153,7 @@ public final class CascadingProperty<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
-	void setParent(final FormatElement<S> parent) {
+	void setParent(final FormatElement<?, S> parent) {
 		
 		Validator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
 		

@@ -8,12 +8,12 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
-import ch.nolix.element.smartelementapi.ISmartMutableElement;
 
 //class
-public final class Background extends Element<Background> implements ISmartMutableElement<Background> {
+public final class Background extends Element<Background> implements IMutableElement<Background> {
 	
 	//constant
 	private static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;

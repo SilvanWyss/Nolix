@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -13,7 +14,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2016-08
  * @lines 40
  */
-public enum ContainerRole implements IElement {
+public enum ContainerRole implements IElement<ContainerRole> {
 	OVERALL_CONTAINTER,
 	MAINT_CONTAINER,
 	DIALOG_CONTAINER,

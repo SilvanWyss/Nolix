@@ -4,6 +4,7 @@ package ch.nolix.system.database.entity;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+//own imports
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.container.IContainer;
@@ -16,7 +17,7 @@ import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
 
 //class
-public abstract class Property<V> implements Headered, IElement {
+public abstract class Property<V> implements Headered, IElement<Property<V>> {
 	
 	//optional attribute
 	private Entity parentEntity;

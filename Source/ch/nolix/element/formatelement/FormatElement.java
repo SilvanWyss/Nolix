@@ -17,7 +17,8 @@ import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
-public abstract class FormatElement<S extends Enum<S>> implements IMutableElement<FormatElement<S>> {
+public abstract class FormatElement<FE extends FormatElement<FE, S>, S extends Enum<S>>
+implements IMutableElement<FE> {
 	
 	//static method
 	private static boolean fieldStoresProperty(final Field field) {
@@ -108,7 +109,7 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	}
 	
 	//method
-	protected final void internalAddChild(final FormatElement<S> child) {
+	protected final void internalAddChild(final FormatElement<?, S> child) {
 		
 		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
@@ -204,7 +205,7 @@ public abstract class FormatElement<S extends Enum<S>> implements IMutableElemen
 	}
 	
 	//method
-	private void setParent(final FormatElement<S> parentElement) {
+	private void setParent(final FormatElement<?, S> parentElement) {
 		
 		final var parentProperties = LinkedList.fromIterable(parentElement.getRefProperties());
 		

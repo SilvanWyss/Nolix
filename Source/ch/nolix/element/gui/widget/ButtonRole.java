@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -14,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2018-05
  * @lines 40
  */
-public enum ButtonRole implements IElement {
+public enum ButtonRole implements IElement<ButtonRole> {
 	ACTION_BUTTON,
 	LINK_BUTTON,
 	CREATE_BUTTON,

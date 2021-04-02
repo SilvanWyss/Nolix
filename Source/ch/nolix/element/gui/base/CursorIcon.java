@@ -5,6 +5,7 @@ package ch.nolix.element.gui.base;
 import java.awt.Cursor;
 import java.util.Locale;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -18,7 +19,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2016-06-01
  * @lines 70
  */
-public enum CursorIcon implements IElement {
+public enum CursorIcon implements IElement<CursorIcon> {
 	ARROW,
 	CROSS,
 	EDIT,

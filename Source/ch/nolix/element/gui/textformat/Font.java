@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.textformat;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.FontCodeCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -17,7 +18,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2017-08
  * @lines 80
  */
-public enum Font implements IElement {
+public enum Font implements IElement<Font> {
 	ARIAL,
 	ARIAL_BLACK,
 	COMIC_SANS_MS,

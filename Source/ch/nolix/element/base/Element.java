@@ -11,7 +11,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.smartelementapi.ISmartElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
@@ -20,7 +20,7 @@ import ch.nolix.element.smartelementapi.ISmartElement;
  * @lines 200
  * @param <E> is the type of a {@link Element}.
  */
-public abstract class Element<E extends Element<E>> implements ISmartElement<E> {
+public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//multi-attribute
 	private LinkedList<Property> properties;

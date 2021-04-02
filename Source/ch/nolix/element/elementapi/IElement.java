@@ -8,6 +8,7 @@ import ch.nolix.common.document.xml.XMLNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.generalskillapi.ISmartObject;
 import ch.nolix.common.programcontrol.processproperty.WriteMode;
 
 //interface
@@ -15,8 +16,9 @@ import ch.nolix.common.programcontrol.processproperty.WriteMode;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @lines 170
+ * @param <E> is the type of a {@link IElement}.
  */
-public interface IElement {
+public interface IElement<E extends IElement<E>> extends ISmartObject<E> {
 	
 	//method declaration
 	/**

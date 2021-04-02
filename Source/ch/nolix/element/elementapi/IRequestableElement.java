@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
+//own import
 import ch.nolix.common.document.node.BaseNode;
 
 //interface
@@ -12,7 +13,7 @@ import ch.nolix.common.document.node.BaseNode;
  * @month 2019-07
  * @lines 30
  */
-public interface IRequestableElement extends IElement {
+public interface IRequestableElement extends IElement<IRequestableElement> {
 	
 	//method
 	/**

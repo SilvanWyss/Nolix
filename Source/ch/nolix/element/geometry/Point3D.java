@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.geometry;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
@@ -18,7 +19,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2016-06-01
  * @lines 140
  */
-public class Point3D implements IElement {
+public class Point3D implements IElement<Point3D> {
 	
 	//constants
 	public static final double DEFAULT_X = 0.0;

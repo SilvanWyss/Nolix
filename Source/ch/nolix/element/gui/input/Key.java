@@ -4,6 +4,7 @@ package ch.nolix.element.gui.input;
 //Java import
 import java.awt.event.KeyEvent;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -13,7 +14,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgum
 import ch.nolix.element.elementapi.IElement;
 
 //enum
-public enum Key implements IElement {
+public enum Key implements IElement<Key> {
 	A,
 	B,
 	C,

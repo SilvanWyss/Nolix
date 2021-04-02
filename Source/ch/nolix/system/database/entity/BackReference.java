@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
+//own imports
 import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 

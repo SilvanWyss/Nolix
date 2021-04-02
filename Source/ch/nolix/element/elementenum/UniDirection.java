@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementenum;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -17,7 +18,7 @@ import ch.nolix.element.elementapi.IElement;
  * @month 2017-09
  * @lines 40
  */
-public enum UniDirection implements IElement {
+public enum UniDirection implements IElement<UniDirection> {
 	HORIZONTAL,
 	VERTICAL,
 	DIAGONAL_UP,

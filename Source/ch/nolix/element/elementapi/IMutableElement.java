@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
+//own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -15,9 +16,9 @@ import ch.nolix.common.skillapi.Resettable;
  * @author Silvan Wyss
  * @date 2017-01-01
  * @lines 130
- * @param <S> is the type of a {@link IMutableElement}.
+ * @param <ME> is the type of a {@link IMutableElement}.
  */
-public interface IMutableElement<S extends IMutableElement<S>> extends Resettable, IElement {
+public interface IMutableElement<ME extends IMutableElement<ME>> extends IElement<ME>, Resettable {
 	
 	//method declaration
 	/**

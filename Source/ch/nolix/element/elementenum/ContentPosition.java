@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementenum;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
@@ -14,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2016-09-01
  * @lines 40
  */
-public enum ContentPosition implements IElement {
+public enum ContentPosition implements IElement<ContentPosition> {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,

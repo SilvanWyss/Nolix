@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
@@ -12,7 +13,7 @@ import ch.nolix.element.elementapi.IElement;
  * @date 2016-05-01
  * @lines 30
  */
-public enum CaptionPosition implements IElement {
+public enum CaptionPosition implements IElement<CaptionPosition> {
 	LEFT_TOP,
 	LEFT,
 	LEFT_BOTTOM,

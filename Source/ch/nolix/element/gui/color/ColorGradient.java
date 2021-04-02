@@ -23,7 +23,7 @@ import ch.nolix.element.elementenum.UniDirection;
  * @date 2016-08-01
  * @lines 240
  */
-public class ColorGradient implements IElement {
+public class ColorGradient implements IElement<ColorGradient> {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
