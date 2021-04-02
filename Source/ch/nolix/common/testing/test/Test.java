@@ -4,6 +4,7 @@ package ch.nolix.common.testing.test;
 //Java import
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.requestapi.ApproximativeEqualing;
 import ch.nolix.common.testing.basetest.TestAccessor;
@@ -69,6 +70,15 @@ public abstract class Test extends ch.nolix.common.testing.basetest.BaseTest {
 				//Increments index.
 				index++;
 			}
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @return a new {@link ByteMediator} for the given value.
+	 */
+	public final ByteMediator expect(final byte value) {
+		return new ByteMediator(this, value);
 	}
 	
 	//method

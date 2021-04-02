@@ -105,8 +105,7 @@ public final class WebSocketFramePayloadLengthTest extends Test {
 		final var result = testUnit.toBytes();
 		
 		//verification
-		//TODO: expect(result[0]).consistsOfBits("00000000")
-		expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("00000000");
+		expect(result[0]).consistsOfBits("00000000");
 	}
 	
 	//method
