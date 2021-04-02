@@ -30,7 +30,6 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	public DropdownMenu() {
 		
 		originHorizontalStack.reset();
-		addChildWidget(originHorizontalStack);
 		originHorizontalStack
 		.addWidget(originLabel, expandButton);
 		

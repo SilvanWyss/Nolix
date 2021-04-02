@@ -90,7 +90,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, OldSt
 		//Asserts that the given widget is not null.
 		Validator.assertThat(widget).isOfType(Widget.class);
 		
-		addChildWidget(widget);
 		widgets.addAtEnd(widget);
 		
 		return asConcrete();

@@ -569,11 +569,4 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 	protected void resetContainerWidget() {
 		clear();
 	}
-	
-	//method
-	void internalAddChildWidget(final Widget<?, ?> childWidget) {
-		
-		//Calls other method.
-		addChildWidget(childWidget);
-	}
 }

@@ -98,7 +98,6 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, OldS
 	 */
 	public SingleContainer setWidget(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		this.widget = widget;
 		
 		return this;

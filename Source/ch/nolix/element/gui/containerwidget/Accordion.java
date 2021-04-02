@@ -58,7 +58,6 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	 */
 	public Accordion() {
 		
-		addChildWidget(accordionVerticalStack);
 		accordionVerticalStack.reset();
 		
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);

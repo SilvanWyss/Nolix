@@ -138,7 +138,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnBottom(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		bottomSlot.setWidget(widget);
 		
 		return this;
@@ -147,7 +146,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnBottomLeft(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		bottomLeftSlot.setWidget(widget);
 		
 		return this;
@@ -156,7 +154,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnBottomRight(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		bottomRightSlot.setWidget(widget);
 		
 		return this;
@@ -165,7 +162,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnCenter(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		centerSlot.setWidget(widget);
 		
 		return this;
@@ -174,7 +170,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnLeft(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		leftSlot.setWidget(widget);
 		
 		return this;
@@ -183,7 +178,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnRight(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		rightSlot.setWidget(widget);
 		
 		return this;
@@ -192,7 +186,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnTop(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		topSlot.setWidget(widget);
 		
 		return this;
@@ -201,7 +194,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnTopLeft(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		topLeftSlot.setWidget(widget);
 		
 		return this;
@@ -210,7 +202,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	public AligningContainer setOnTopRight(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		topRightSlot.setWidget(widget);
 		
 		return this;

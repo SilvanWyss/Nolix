@@ -32,7 +32,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 	//method
 	public FloatContainer addWidget(final Widget<?, ?> widget) {
 		
-		addChildWidget(widget);
 		widgets.addAtEndRegardingSingularity(widget);
 		
 		return this;

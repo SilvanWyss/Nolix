@@ -174,9 +174,8 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 	public Grid setWidget(final int rowIndex, final int columnIndex, final Widget<?, ?> widget) {
 		
 		expandTo(rowIndex, columnIndex);
-		addChildWidget(widget);
 		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
-				
+		
 		return this;
 	}
 	

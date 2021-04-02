@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2160
+ * @lines 2170
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
@@ -1013,7 +1013,13 @@ TopLeftPositionedRecangular {
 	@Override
 	public final void recalculate() {
 		
-		getRefPaintableWidgets().forEach(Widget::recalculate);
+		final var paintableWidgets = getRefPaintableWidgets();
+		
+		if (!paintableWidgets.containsOnly(Widget::belongsToParent)) {
+			setAsParentToWidgets(paintableWidgets);
+		}
+		
+		paintableWidgets.forEach(Widget::recalculate);
 		
 		recalculateSelf();
 	}
@@ -1490,21 +1496,6 @@ TopLeftPositionedRecangular {
 	 * @return true if the view are of the current {@link Widget} is under the cursor.
 	 */
 	public abstract boolean showAreaIsUnderCursor();
-	
-	//method
-	/**
-	 * Adds the given childWidget to the current {@link Widget}.
-	 * 
-	 * @param childWidget
-	 * @throws ArgumentIsNullException if the given childWidget is null.
-	 */
-	protected final void addChildWidget(final Widget<?, ?> childWidget) {
-		
-		//Asserts that the given childWidget is not null.
-		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
-		
-		childWidget.setParent(this);
-	}
 	
 	//method declaration
 	/**
@@ -2069,6 +2060,16 @@ TopLeftPositionedRecangular {
 		if (paintsPaintableWidgetAPriori()) {
 			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));
 		}
+	}
+	
+	//method
+	/**
+	 * Sets the current {@link Widget} as parent to the given widgets.
+	 * 
+	 * @param widgets
+	 */
+	private void setAsParentToWidgets(final IContainer<Widget<?, ?>> widgets) {
+		widgets.forEach(w -> w.setParent(this));
 	}
 	
 	//method
