@@ -172,7 +172,7 @@ public class Server implements Clearable, ICloseableElement {
 	private IEndPointTaker getRefMainEndPointTaker() {
 		
 		//Asserts that the current Server has a main IEndPointTaker.
-		//For a better performance, this method does not use all comfortable methods.
+		//For a better performance, this implementation does not use all comfortable methods.
 		if (mainEndPointTaker == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "main IEndPointTaker");
 		}

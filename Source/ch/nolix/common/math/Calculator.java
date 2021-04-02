@@ -57,7 +57,7 @@ public final class Calculator {
 	 */
 	public static boolean equalsApproximatively(final double value1, final double value2) {
 		
-		//For a better performance, this method does not use all comfortable methods.
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
 	}
 
@@ -388,7 +388,7 @@ public final class Calculator {
 	 */
 	public static boolean isApproximatelyOne(final double value) {
 		
-		//For a better performance, this method does not use all comfortable methods.
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
 	}
 	
@@ -416,7 +416,7 @@ public final class Calculator {
 	 */
 	public static boolean isApproximatelyZero(final double value) {
 		
-		//For a better performance, this method does not use all comfortable methods.
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
 	}
 	

@@ -55,7 +55,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	}
 	
 	//method
-	//For a better performance, this method does not use all comfortable methods.
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
