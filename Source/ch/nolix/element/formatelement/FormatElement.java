@@ -97,6 +97,14 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
+	final IContainer<CascadingProperty<S, ?>> getRefProperties() {
+		
+		extractPropertiesIfNotExtracted();
+		
+		return properties;
+	}
+	
+	//method
 	final State<S> getStateObjectFor(final S state) {
 		
 		for (final var s : availableStates) {
@@ -109,7 +117,19 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
-	protected final void internalAddChild(final FormatElement<?, S> child) {
+	final void setParent(final FormatElement<?, S> parentElement) {
+		
+		final var parentProperties = LinkedList.fromIterable(parentElement.getRefProperties());
+		
+		for (final var p: getRefProperties()) {
+			p.setParentProperty(parentProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(p)));
+		}
+		
+		Validator.assertThat(parentProperties).thatIsNamed("remaining parent properties").isEmpty();
+	}
+
+	//method
+	protected final <FE2 extends FE> void internalAddChild(final FE2 child) {
 		
 		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
@@ -185,14 +205,6 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
-	private IContainer<CascadingProperty<S, ?>> getRefProperties() {
-		
-		extractPropertiesIfNotExtracted();
-		
-		return properties;
-	}
-	
-	//method
 	private boolean propertiesAreExtracted() {
 		return (properties != null);
 	}
@@ -202,17 +214,5 @@ implements IMutableElement<FE> {
 		for (final var p : getRefProperties()) {
 			p.setParent(this);
 		}
-	}
-	
-	//method
-	private void setParent(final FormatElement<?, S> parentElement) {
-		
-		final var parentProperties = LinkedList.fromIterable(parentElement.getRefProperties());
-		
-		for (final var p: getRefProperties()) {
-			p.setParentProperty(parentProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(p)));
-		}
-		
-		Validator.assertThat(parentProperties).thatIsNamed("remaining parent properties").isEmpty();
 	}
 }
