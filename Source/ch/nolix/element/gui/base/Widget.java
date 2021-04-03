@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2170
+ * @lines 2180
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
@@ -1016,7 +1016,7 @@ TopLeftPositionedRecangular {
 		final var paintableWidgets = getRefPaintableWidgets();
 		
 		if (!paintableWidgets.containsOnly(Widget::belongsToParent)) {
-			setAsParentToWidgets(paintableWidgets);
+			addChildWidgets(paintableWidgets);
 		}
 		
 		paintableWidgets.forEach(Widget::recalculate);
@@ -1765,6 +1765,28 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Adds the given widget as child {@link Widget} to the current {@link Widget}.
+	 * 
+	 * @param widget
+	 */
+	private void addChildWidget(final Widget<?, ?> widget) {
+		if (!widget.belongsToWidget()) {
+			widget.setParent(this);
+		}
+	}
+	
+	//method
+	/**
+	 * Adds the given widgets as child {@link Widget}s to the current {@link Widget}.
+	 * 
+	 * @param widgets
+	 */
+	private void addChildWidgets(final IContainer<Widget<?, ?>> widgets) {
+		widgets.forEach(this::addChildWidget);
+	}
+	
+	//method
+	/**
 	 * @throws ArgumentDoesNotBelongToParentException
 	 * if the current {@link Widget} does not belong to a {@link Widget}.
 	 */
@@ -2060,16 +2082,6 @@ TopLeftPositionedRecangular {
 		if (paintsPaintableWidgetAPriori()) {
 			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));
 		}
-	}
-	
-	//method
-	/**
-	 * Sets the current {@link Widget} as parent to the given widgets.
-	 * 
-	 * @param widgets
-	 */
-	private void setAsParentToWidgets(final IContainer<Widget<?, ?>> widgets) {
-		widgets.forEach(w -> w.setParent(this));
 	}
 	
 	//method
