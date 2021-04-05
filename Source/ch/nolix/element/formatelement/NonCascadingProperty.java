@@ -1,21 +1,34 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
-//own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+//own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V> {
+public final class NonCascadingProperty<S extends Enum<S>, V> extends Property<S, V> {
 	
-	//attribute
+	//optional attribute
 	private final V defaultValue;
 	
 	//constructor
-	public CascadingProperty(
+	public NonCascadingProperty(
+		final String name,
+		final Class<S> stateClass,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
+	) {
+		super(name, stateClass, valueCreator, specificationCreator);
+		
+		defaultValue = null;
+	}
+	
+	//constructor
+	public NonCascadingProperty(
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
@@ -27,6 +40,16 @@ public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V
 		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 		
 		this.defaultValue = defaultValue;
+	}
+	
+	//method
+	public boolean hasDefaultValue() {
+		return (defaultValue != null);
+	}
+	
+	//method
+	public void setEmptyForState(final S state) {
+		stateProperties[(getStateOf(state).getIndex())].setEmpty();
 	}
 	
 	//method
@@ -43,11 +66,11 @@ public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V
 			return baseStateProperty.getValue();
 		}
 		
-		if (hasParentProperty()) {
-			return parentProperty.getValueWhenHasState(state);
+		if (hasDefaultValue()) {
+			return defaultValue;
 		}
 		
-		return defaultValue;
+		throw new ArgumentDoesNotHaveAttributeException(this, "value for the" + state.getPrefix() + " state");
 	}
 	
 	//method
@@ -64,6 +87,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V
 			return baseStateProperty.hasValue();
 		}
 		
-		return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
+		return false;
 	}
 }

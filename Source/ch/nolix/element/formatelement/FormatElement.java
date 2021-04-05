@@ -22,7 +22,7 @@ implements IMutableElement<FE> {
 	
 	//static method
 	private static boolean fieldStoresProperty(final Field field) {
-		return field.getType().isAssignableFrom(CascadingProperty.class);
+		return Property.class.isAssignableFrom(field.getType());
 	}
 	
 	//attributes
@@ -31,7 +31,7 @@ implements IMutableElement<FE> {
 	
 	//multi-attributes
 	private final IContainer<State<S>> availableStates;
-	private IContainer<CascadingProperty<S, ?>> properties;
+	private IContainer<Property<S, ?>> properties;
 	
 	//constructor
 	public FormatElement(final S baseState) {
@@ -78,7 +78,7 @@ implements IMutableElement<FE> {
 	//method
 	@Override
 	public final void reset() {
-		getRefProperties().forEach(CascadingProperty::setUndefined);
+		getRefProperties().forEach(Property::setUndefined);
 	}
 	
 	//method
@@ -97,7 +97,7 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
-	final IContainer<CascadingProperty<S, ?>> getRefProperties() {
+	final IContainer<Property<S, ?>> getRefProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
@@ -154,7 +154,7 @@ implements IMutableElement<FE> {
 	//method
 	private void extractPropertiesWhenNotExtracted() {
 		
-		final var lProperties = new LinkedList<CascadingProperty<S, ?>>();
+		final var lProperties = new LinkedList<Property<S, ?>>();
 		fillUpPropertiesIntoList(lProperties);
 		
 		properties = lProperties;
@@ -163,17 +163,14 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
-	private void fillUpPotentialPropertyFromFieldIntoList(
-		final Field field,
-		final LinkedList<CascadingProperty<S, ?>> list
-	) {
+	private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final LinkedList<Property<S, ?>> list) {
 		if (fieldStoresProperty(field)) {
 			list.addAtEnd(getPropertyFromField(field));
 		}
 	}
 	
 	//method
-	private void fillUpPropertiesIntoList(final LinkedList<CascadingProperty<S, ?>> list) {
+	private void fillUpPropertiesIntoList(final LinkedList<Property<S, ?>> list) {
 		Class<?> lClass = getClass();
 		while (lClass != null) {
 			fillUpPropertiesFromClassIntoList(lClass, list);
@@ -182,19 +179,19 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
-	private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final LinkedList<CascadingProperty<S, ?>> list) {
+	private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final LinkedList<Property<S, ?>> list) {
 		for (final var f : pClass.getDeclaredFields()) {
 			fillUpPotentialPropertyFromFieldIntoList(f, list);
 		}
 	}
 	
 	//method
-	private CascadingProperty<S, ?> getPropertyFromField(final Field field) {
+	private Property<S, ?> getPropertyFromField(final Field field) {
 		try {
 			field.setAccessible(true);
 			
 			@SuppressWarnings("unchecked")
-			final var property = (CascadingProperty<S, ?>)(field.get(this));
+			final var property = (Property<S, ?>)(field.get(this));
 			
 			Validator.assertThat(property).isOfType(LayerProperty.class);
 			

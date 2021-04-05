@@ -16,12 +16,6 @@ final class StateProperty<V> {
 	private V value;
 	
 	//method
-	public void clear() {
-		defined = true;
-		value = null;
-	}
-	
-	//method
 	public AssignmentType getAssignmentType() {
 		
 		if (!isDefined()) {
@@ -39,7 +33,7 @@ final class StateProperty<V> {
 	//method
 	public V getValue() {
 		
-		if (!defined) {
+		if (!defined || value == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
 		}
 		
@@ -54,6 +48,12 @@ final class StateProperty<V> {
 	//method
 	public boolean isDefined() {
 		return defined;
+	}
+	
+	//method
+	public void setEmpty() {
+		defined = true;
+		value = null;
 	}
 	
 	//method

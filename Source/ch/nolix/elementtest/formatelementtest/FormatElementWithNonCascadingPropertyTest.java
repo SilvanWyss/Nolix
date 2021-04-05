@@ -5,9 +5,8 @@ package ch.nolix.elementtest.formatelementtest;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
-import ch.nolix.element.formatelement.CascadingProperty;
 import ch.nolix.element.formatelement.FormatElement;
-import ch.nolix.element.formatelement.ValueDetermination;
+import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.color.Color;
 
 //class
@@ -25,10 +24,9 @@ public final class FormatElementWithNonCascadingPropertyTest extends Test {
 	private static final class CustomFormatElement extends FormatElement<CustomFormatElement, CustomState> {
 		
 		//attribute
-		public final CascadingProperty<CustomState, Color> color =
-		new CascadingProperty<>(
+		public final NonCascadingProperty<CustomState, Color> color =
+		new NonCascadingProperty<>(
 			"Color",
-			ValueDetermination.NON_CASCADING,
 			CustomState.class,
 			Color::fromSpecification,
 			Color::getSpecification
