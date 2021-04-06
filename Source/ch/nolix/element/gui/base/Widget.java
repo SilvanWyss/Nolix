@@ -1893,7 +1893,7 @@ TopLeftPositionedRecangular {
 		//Handles the case that the current Widget has a continuous key press action.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (continuousKeyPressAction != null) {
-			continuousKeyPressAction.getOutput(asConcrete(), key);
+			continuousKeyPressAction.run(asConcrete(), key);
 		}
 	}
 	

@@ -473,7 +473,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		//Handles the case that the current Layer has a continuous key press action.
 		if (continuousKeyPressAction != null) {
-			continuousKeyPressAction.getOutput(this, key);
+			continuousKeyPressAction.run(this, key);
 		}
 		
 		//Handles the case that the current Layer has a root Widget.
