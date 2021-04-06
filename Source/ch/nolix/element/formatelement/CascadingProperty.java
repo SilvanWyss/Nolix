@@ -6,6 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.functionapi.I2ElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
@@ -22,7 +23,25 @@ public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final V defaultValue
 	) {
+		
 		super(name, stateClass, valueCreator, specificationCreator);
+		
+		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		
+		this.defaultValue = defaultValue;
+	}
+	
+	//constructor
+	public CascadingProperty(
+		final String name,
+		final Class<S> stateClass,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final I2ElementTaker<S, V> setterMethod,
+		final V defaultValue
+	) {
+		
+		super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 		
 		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 		

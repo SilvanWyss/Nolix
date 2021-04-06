@@ -9,6 +9,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.functionapi.I2ElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
@@ -25,42 +26,55 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	
 	//optional attributes
 	protected CascadingProperty<S, V> parentProperty;
+	private final I2ElementTaker<S, V> setterMethod;
 	
 	//multi-attribute
 	protected final StateProperty<V>[] stateProperties;
 	
 	//constructor
+	@SuppressWarnings("unchecked")
 	public Property(
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
-		this(name, stateClass.getEnumConstants().length, valueCreator, specificationCreator);
-	}
-	
-	//constructor
-	@SuppressWarnings("unchecked")
-	private Property(
-		final String name,
-		final int stateCount,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
-	) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(stateCount).thatIsNamed("number of states").isPositive();
 		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 		Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
 		
 		this.name = name;
-		stateProperties = new StateProperty[stateCount];
+		stateProperties = new StateProperty[stateClass.getEnumConstants().length];
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;
+		setterMethod = null;
 		
-		for (var i = 0; i < stateProperties.length; i++) {
-			stateProperties[i] = new StateProperty<>();
-		}
+		extractStateProperties();
+	}
+	
+	//constructor
+	@SuppressWarnings("unchecked")
+	public Property(
+		final String name,
+		final Class<S> stateClass,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final I2ElementTaker<S, V> setterMethod
+	) {
+		
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+		Validator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
+		
+		this.name = name;
+		stateProperties = new StateProperty[stateClass.getEnumConstants().length];
+		this.valueCreator = valueCreator;
+		this.specificationCreator = specificationCreator;
+		this.setterMethod = setterMethod;
+		
+		extractStateProperties();
 	}
 	
 	//method
@@ -87,6 +101,11 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	//method
 	public final boolean hasValue() {
 		return hasValueWhenHasState(parent.getCurrentStateObject());
+	}
+	
+	//method
+	public final boolean hasSetterMethod() {
+		return (setterMethod != null);
 	}
 	
 	//method
@@ -175,7 +194,7 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 		
 		for (final var s : parent.getAvailableStates()) {
 			if (specification.getHeader().startsWith(s.getPrefix())) {
-				setValueFromSpecificationToStateProperty(stateProperties[s.getIndex()], specification);
+				setValueFromSpecificationToState(s, specification);
 				return;
 			}
 		}
@@ -184,14 +203,28 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
-	private void setValueFromSpecificationToStateProperty(
-		final StateProperty<V> stateProperty,
-		final BaseNode specification
-	) {
-		if (specification.getOneAttributeHeader().equals(NONE_HEADER)) {
-			stateProperty.setEmpty();
-		} else {
-			stateProperty.setValue(valueCreator.getOutput(specification));
+	private void extractStateProperties() {
+		for (var i = 0; i < stateProperties.length; i++) {
+			stateProperties[i] = new StateProperty<>();
 		}
-	}	
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private void setValueForStateUsingSetterMethod(final S state, final V value) {
+		if (setterMethod == null) {
+			setValueForState(state, value);
+		} else {
+			setterMethod.run(state, value);
+		}
+	}
+	
+	//method
+	private void setValueFromSpecificationToState(final State<S> state,	final BaseNode specification) {
+		if (specification.getOneAttributeHeader().equals(NONE_HEADER)) {
+			stateProperties[state.getIndex()].setEmpty();
+		} else {
+			setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));
+		}
+	}
 }
