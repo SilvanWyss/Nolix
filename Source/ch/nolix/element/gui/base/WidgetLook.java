@@ -2,9 +2,11 @@
 package ch.nolix.element.gui.base;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.formatelement.CascadingProperty;
 import ch.nolix.element.formatelement.FormatElement;
 import ch.nolix.element.gui.textformat.Font;
@@ -49,6 +51,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 		WidgetLookState.class,
 		BaseNode::getOneAttributeAsInt,
 		Node::withAttribute,
+		this::setTextSizeForState,
 		DEAULT_TEXT_SIZE
 	);
 	
@@ -105,6 +108,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	
 	//method
 	public final WL setTextSizeForState(final WidgetLookState state, final int textSize) {
+		
+		Validator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		
 		this.textSize.setValueForState(state, textSize);
 		
