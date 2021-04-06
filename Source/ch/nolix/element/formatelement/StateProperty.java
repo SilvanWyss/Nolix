@@ -4,7 +4,7 @@ package ch.nolix.element.formatelement;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
 final class StateProperty<V> {
@@ -29,8 +29,8 @@ final class StateProperty<V> {
 		return AssignmentType.VALUE;
 	}
 	
-	//For a better performance, this implementation does not use all comfortable methods.
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public V getValue() {
 		
 		if (!defined || value == null) {
@@ -57,9 +57,12 @@ final class StateProperty<V> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public void setValue(final V value) {
 		
-		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		if (value == null) {
+			throw new ArgumentIsNullException(LowerCaseCatalogue.VALUE);
+		}
 		
 		defined = true;
 		this.value = value;
