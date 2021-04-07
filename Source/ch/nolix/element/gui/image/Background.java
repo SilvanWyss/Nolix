@@ -22,6 +22,15 @@ public final class Background extends Element<Background> implements IMutableEle
 	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	private static final String BACKGROUND_IMAGE_HEADER = "BackgroundImage";
 	
+	//static method
+	public static Background fromSpecification(final BaseNode specification) {
+		
+		final var background = new Background();
+		background.resetFrom(specification);
+		
+		return background;
+	}
+	
 	//attribute
 	private final MutableOptionalValue<Color> backgroundColor =
 	new MutableOptionalValue<>(
