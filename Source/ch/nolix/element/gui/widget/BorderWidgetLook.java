@@ -275,6 +275,14 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final void removeBorderThicknesses() {
+		removeLeftBorderColors();
+		removeRightBorderColors();
+		removeTopBorderColors();
+		removeBottomBorderColors();
+	}
+	
+	//method
 	public final void removeBottomBorderColors() {
 		bottomBorderColor.setUndefined();
 	}
@@ -378,6 +386,17 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		lBackground.setBackgroundImage(backgroundImage, imageApplication);
 		
 		this.background.setValueForState(state, lBackground);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setBorderThicknessesForState(final WidgetLookState state, final int borderThickness) {
+		
+		setLeftBorderThicknessForState(state, borderThickness);
+		setRightBorderThicknessForState(state, borderThickness);
+		setTopBorderThicknessForState(state, borderThickness);
+		setBottomBorderThicknessForState(state, borderThickness);
 		
 		return asConcrete();
 	}
