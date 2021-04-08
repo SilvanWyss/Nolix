@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
@@ -11,13 +12,10 @@ import ch.nolix.element.gui.color.Color;
 public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook>
 implements IMutableElement<BorderWidgetScrollBarLook> {
 	
-	//constant
-	public static final String TYPE_NAME = "ScrollBarLook";
-	
 	//constants
 	public static final Color DEFAULT_SCROLL_BAR_COLOR = Color.LIGHT_GREY;
 	public static final Color DEFAULT_SCROLL_CURSOR_COLOR = Color.DARK_GREY;
-		
+	
 	//constants
 	private static final String SCROLL_BAR_COLOR_HEADER = "ScrollBarColor";
 	private static final String SCROLL_CURSOR_COLOR_HEADER = "ScrollCursorColor";
@@ -25,10 +23,10 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	//static method
 	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode specification) {
 		
-		final var borderWidgetScrollBarLook = new BorderWidgetScrollBarLook();
-		borderWidgetScrollBarLook.resetFrom(specification);
+		final var scrollBarLook = new BorderWidgetScrollBarLook();
+		scrollBarLook.resetFrom(specification);
 		
-		return borderWidgetScrollBarLook;
+		return scrollBarLook;
 	}
 	
 	//attribute
