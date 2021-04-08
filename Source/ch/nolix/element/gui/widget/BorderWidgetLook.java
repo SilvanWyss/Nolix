@@ -20,6 +20,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//constants
 	public static final int DEFAULT_BORDER_THICKNESS = 0;
 	public static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
+	public static final int DEFAULT_PADDING = 0;
 	
 	//constants
 	private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
@@ -31,6 +32,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private static final String TOP_BORDER_COLOR_HEADER = "TopBorderColor";
 	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";
 	private static final String BACKGROUND_HEADER = "Background";
+	private static final String LEFT_PADDING_HEADER = "LeftPadding";
+	private static final String RIGHT_PADDING_HEADER = "RightPadding";
+	private static final String TOP_PADDING_HEADER = "TopPadding";
+	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
 	
 	//attribute
 	private final NonCascadingProperty<WidgetLookState, Integer> leftBorderThickness =
@@ -125,6 +130,50 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		Background::getSpecification
 	);
 	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Integer> leftPadding =
+	new NonCascadingProperty<>(
+		LEFT_PADDING_HEADER,
+		WidgetLookState.class,
+		BaseNode::getOneAttributeAsInt,
+		Node::withAttribute,
+		this::setLeftPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Integer> rightPadding =
+	new NonCascadingProperty<>(
+		RIGHT_PADDING_HEADER,
+		WidgetLookState.class,
+		BaseNode::getOneAttributeAsInt,
+		Node::withAttribute,
+		this::setRightPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Integer> topPadding =
+	new NonCascadingProperty<>(
+		TOP_PADDING_HEADER,
+		WidgetLookState.class,
+		BaseNode::getOneAttributeAsInt,
+		Node::withAttribute,
+		this::setTopPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Integer> bottomPadding =
+	new NonCascadingProperty<>(
+		BOTTOM_PADDING_HEADER,
+		WidgetLookState.class,
+		BaseNode::getOneAttributeAsInt,
+		Node::withAttribute,
+		this::setBottomPaddingForState,
+		DEFAULT_PADDING
+	);
+	
 	//method
 	public final Color getBackgroundColor() {
 		return background.getValue().getBackgroundColor();
@@ -149,12 +198,17 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	public final Color getBottomBorderColor() {
 		return bottomBorderColor.getValue();
 	}
-
+	
 	//method
 	public final int getBottomBorderThickenss() {
 		return bottomBorderThickness.getValue();
 	}
-
+	
+	//method
+	public final int getBottomPadding() {
+		return bottomPadding.getValue();
+	}
+	
 	//method
 	public final Color getLeftBorderColor() {
 		return leftBorderColor.getValue();
@@ -163,6 +217,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final int getLeftBorderThickenss() {
 		return leftBorderThickness.getValue();
+	}
+	
+	//method
+	public final int getLeftPadding() {
+		return leftPadding.getValue();
 	}
 	
 	//method
@@ -176,6 +235,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final int getRightPadding() {
+		return rightPadding.getValue();
+	}
+	
+	//method
 	public final Color getTopBorderColor() {
 		return topBorderColor.getValue();
 	}
@@ -183,6 +247,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final int getTopBorderThickenss() {
 		return topBorderThickness.getValue();
+	}
+	
+	//method
+	public final int getTopPadding() {
+		return topPadding.getValue();
 	}
 	
 	//method
@@ -209,12 +278,17 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	public final void removeBottomBorderColors() {
 		bottomBorderColor.setUndefined();
 	}
-
+	
 	//method
 	public final void removeBottomBorderThicknesses() {
 		bottomBorderThickness.setUndefined();
 	}
-
+	
+	//method
+	public final void removeBottomPaddings() {
+		bottomPadding.setUndefined();
+	}
+	
 	//method
 	public final void removeLeftBorderColors() {
 		leftBorderColor.setUndefined();
@@ -223,6 +297,19 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final void removeLeftBorderThicknesses() {
 		leftBorderThickness.setUndefined();
+	}
+	
+	//method
+	public final void removeLeftPaddings() {
+		leftPadding.setUndefined();
+	}
+	
+	//method
+	public final void removePaddings() {
+		removeLeftPaddings();
+		removeRightPaddings();
+		removeTopPaddings();
+		removeBottomPaddings();
 	}
 	
 	//method
@@ -236,6 +323,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final void removeRightPaddings() {
+		rightPadding.setUndefined();
+	}
+	
+	//method
 	public final void removeTopBorderColors() {
 		topBorderColor.setUndefined();
 	}
@@ -243,6 +335,11 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final void removeTopBorderThicknesses() {
 		topBorderThickness.setUndefined();
+	}
+	
+	//method
+	public final void removeTopPaddings() {
+		topPadding.setUndefined();
 	}
 	
 	//method
@@ -292,7 +389,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		return asConcrete();
 	}
-
+	
 	//method
 	public final BWL setBottomBorderThicknessForState(final WidgetLookState state, final int bottomBorderThickness) {
 		
@@ -302,7 +399,17 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		
 		return asConcrete();
 	}
-
+	
+	//method
+	public final BWL setBottomPaddingForState(final WidgetLookState state, final int bottomPadding) {
+		
+		Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
+		
+		this.bottomPadding.setValueForState(state, bottomPadding);
+		
+		return asConcrete();
+	}
+	
 	//method
 	public final BWL setLeftBorderColorForState(final WidgetLookState state, final Color leftBorderColor) {
 		
@@ -317,6 +424,27 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 		
 		this.leftBorderThickness.setValueForState(state, leftBorderThickness);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setLeftPaddingForState(final WidgetLookState state, final int leftPadding) {
+		
+		Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
+		
+		this.leftPadding.setValueForState(state, leftPadding);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setPaddingForState(final WidgetLookState state, final int padding) {
+		
+		setLeftPaddingForState(state, padding);
+		setRightPaddingForState(state, padding);
+		setTopPaddingForState(state, padding);
+		setBottomPaddingForState(state, padding);
 		
 		return asConcrete();
 	}
@@ -340,6 +468,16 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final BWL setRightPaddingForState(final WidgetLookState state, final int rightPadding) {
+		
+		Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
+		
+		this.rightPadding.setValueForState(state, rightPadding);
+		
+		return asConcrete();
+	}
+	
+	//method
 	public final BWL setTopBorderColorForState(final WidgetLookState state, final Color topBorderColor) {
 		
 		this.topBorderColor.setValueForState(state, topBorderColor);
@@ -353,6 +491,16 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 		
 		this.topBorderThickness.setValueForState(state, topBorderThickness);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setTopPaddingForState(final WidgetLookState state, final int topPadding) {
+		
+		Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
+		
+		this.topPadding.setValueForState(state, topPadding);
 		
 		return asConcrete();
 	}
