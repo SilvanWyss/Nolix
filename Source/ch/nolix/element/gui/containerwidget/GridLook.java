@@ -2,8 +2,10 @@
 package ch.nolix.element.gui.containerwidget;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
@@ -119,6 +121,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	//method
 	public GridLook setElementMarginForState(final WidgetLookState state, final int elementMargin) {
 		
+		Validator.assertThat(elementMargin).thatIsNamed(LowerCaseCatalogue.ELEMENT_MARGIN).isNotNegative();
+		
 		this.elementMargin.setValueForState(state, elementMargin);
 		
 		return asConcrete();
@@ -126,6 +130,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//method
 	public GridLook setGridThicknessForState(final WidgetLookState state, final int gridThickness) {
+		
+		Validator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
 		
 		this.gridThickness.setValueForState(state, gridThickness);
 		
