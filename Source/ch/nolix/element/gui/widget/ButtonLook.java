@@ -2,4 +2,4 @@
 package ch.nolix.element.gui.widget;
 
 //class
-public final class ButtonLook extends TextLineWidgetLook<ButtonLook> {}
+public final class ButtonLook extends BorderWidgetLook<ButtonLook> {}
