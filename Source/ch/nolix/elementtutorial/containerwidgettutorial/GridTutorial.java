@@ -3,7 +3,7 @@ package ch.nolix.elementtutorial.containerwidgettutorial;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Grid;
-import ch.nolix.element.gui.containerwidget.GridLineType;
+import ch.nolix.element.gui.containerwidget.GridType;
 import ch.nolix.element.gui.widget.Area;
 import ch.nolix.element.gui.widget.Label;
 
@@ -50,7 +50,7 @@ public final class GridTutorial {
 			.setBorderThicknesses(5)
 			.setBackgroundColor(Color.LAVENDER)
 			.setPaddings(20)
-			.setLineType(GridLineType.INNER_LINES)
+			.setLineType(GridType.INNER_LINES)
 			.setElementMargin(10)
 		);
 		

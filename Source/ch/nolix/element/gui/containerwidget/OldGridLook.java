@@ -14,7 +14,7 @@ import ch.nolix.element.layerelement.LayerProperty;
 public final class OldGridLook extends OldBorderWidgetLook<OldGridLook> {
 	
 	//constants
-	public static final GridLineType DEFAULT_LINE_TYPE = GridLineType.INNER_LINES;
+	public static final GridType DEFAULT_LINE_TYPE = GridType.INNER_LINES;
 	public static final int DEFAULT_LINE_THICKNESS = ValueCatalogue.SMALL_LINE_THICKNESS;
 	public static final Color DEFAULT_LINE_COLOR = Color.BLACK;
 	public static final int DEFAULT_ELEMENT_MARGIN = ValueCatalogue.SMALL_WIDGET_MARGIN;
@@ -50,12 +50,12 @@ public final class OldGridLook extends OldBorderWidgetLook<OldGridLook> {
 	);
 	
 	//attribute
-	private final LayerProperty<GridLineType> lineType =
+	private final LayerProperty<GridType> lineType =
 	new LayerProperty<>(
 		LINE_TYPE_HEADER,
 		DEFAULT_LINE_TYPE,
-		GridLineType::fromSpecification,
-		GridLineType::getSpecification
+		GridType::fromSpecification,
+		GridType::getSpecification
 	);
 	
 	//method
@@ -74,7 +74,7 @@ public final class OldGridLook extends OldBorderWidgetLook<OldGridLook> {
 	}
 	
 	//method
-	public GridLineType getRecursiveLineTypeOrDefault() {
+	public GridType getRecursiveLineTypeOrDefault() {
 		return lineType.getRecursiveOrDefaultValue();
 	}
 	
@@ -123,7 +123,7 @@ public final class OldGridLook extends OldBorderWidgetLook<OldGridLook> {
 	}
 	
 	//method
-	public OldGridLook setLineType(final GridLineType lineType) {
+	public OldGridLook setLineType(final GridType lineType) {
 		
 		this.lineType.setValue(lineType);
 		

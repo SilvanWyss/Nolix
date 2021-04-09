@@ -30,7 +30,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		setMaxHeight(500);
 		
 		getRefBaseLook()
-		.setLineType(GridLineType.INNER_LINES)
+		.setLineType(GridType.INNER_LINES)
 		.setElementMargin(10);
 	}
 	
@@ -156,7 +156,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		
 		return (
 			currentStructure.hasRecursiveLineType()
-			&& currentStructure.getRecursiveLineTypeOrDefault() == GridLineType.INNER_AND_OUTER_LINES
+			&& currentStructure.getRecursiveLineTypeOrDefault() == GridType.INNER_AND_OUTER_LINES
 		);
 	}
 	
@@ -321,7 +321,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 			painter.setColor(gridStructure.getRecursiveLineColorOrDefault());
 			
 			final var outerLinesDefined =
-			gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.INNER_AND_OUTER_LINES;
+			gridStructure.getRecursiveLineTypeOrDefault() == GridType.INNER_AND_OUTER_LINES;
 			
 			final var contentAreaWidth = getNaturalContentAreaWidth();
 			final var contentAreaHeight = getNaturalContentAreaHeight();
@@ -349,7 +349,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 			//Paints the vertical lines of the current grid.
 				var x = 0;
 				
-				if (gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.INNER_AND_OUTER_LINES) {
+				if (gridStructure.getRecursiveLineTypeOrDefault() == GridType.INNER_AND_OUTER_LINES) {
 					painter.paintFilledRectangle(lineThickness, contentAreaHeight);
 					x += lineThickness;
 				}

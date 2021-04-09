@@ -9,12 +9,12 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.element.elementapi.IElement;
 
 //enum
-public enum GridLineType implements IElement<GridLineType> {
+public enum GridType implements IElement<GridType> {
 	INNER_LINES,
 	INNER_AND_OUTER_LINES;
 
 	//static method
-	public static GridLineType fromSpecification(final BaseNode specification) {
+	public static GridType fromSpecification(final BaseNode specification) {
 		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
