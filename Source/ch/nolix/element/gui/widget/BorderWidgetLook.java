@@ -21,6 +21,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	public static final int DEFAULT_BORDER_THICKNESS = 0;
 	public static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
 	public static final int DEFAULT_PADDING = 0;
+	public static final Color DEFAULT_SCROLL_CURSOR_COLOR = Color.DARK_GREY;
+	public static final Color DEFAULT_SCROLL_CURSOR_HOVER_COLOR = Color.GREY;
+	public static final Color DEFAULT_SCROLL_CURSOR_MOVE_COLOR = Color.DIM_GREY;
 	
 	//constants
 	private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
@@ -36,6 +39,12 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private static final String RIGHT_PADDING_HEADER = "RightPadding";
 	private static final String TOP_PADDING_HEADER = "TopPadding";
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+	private static final String SCROLL_BAR_COLOR_HEADER = "ScrollBarColor";
+	private static final String SCROLL_BAR_HOVER_COLOR_HEADER = "ScrollBarHoverColor";
+	private static final String SCROLL_BAR_MOVE_COLOR_HEADER = "ScrollBarMoveColor";
+	private static final String SCROLL_CURSOR_COLOR_HEADER = "ScrollCursorColor";
+	private static final String SCROLL_CURSOR_HOVER_COLOR_HEADER = "ScrollCursorHoverColor";
+	private static final String SCROLL_CURSOR_MOVE_COLOR_HEADER = "ScrollCursorMoveColor";
 	
 	//attribute
 	private final NonCascadingProperty<WidgetLookState, Integer> leftBorderThickness =
@@ -174,6 +183,69 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		DEFAULT_PADDING
 	);
 	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Color> scrollBarColor =
+	new NonCascadingProperty<>(
+		SCROLL_BAR_COLOR_HEADER,
+		WidgetLookState.class,
+		Color::fromSpecification,
+		Color::getSpecification,
+		this::setScrollBarColorForState
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Color> scrollBarHoverColor =
+	new NonCascadingProperty<>(
+		SCROLL_BAR_HOVER_COLOR_HEADER,
+		WidgetLookState.class,
+		Color::fromSpecification,
+		Color::getSpecification,
+		this::setScrollBarHoverColorForState
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Color> scrollBarMoveColor =
+	new NonCascadingProperty<>(
+		SCROLL_BAR_MOVE_COLOR_HEADER,
+		WidgetLookState.class,
+		Color::fromSpecification,
+		Color::getSpecification,
+		this::setScrollBarMoveColorForState
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Color> scrollCursorColor =
+	new NonCascadingProperty<>(
+		SCROLL_CURSOR_COLOR_HEADER,
+		WidgetLookState.class,
+		Color::fromSpecification,
+		Color::getSpecification,
+		this::setScrollCursorColorForState,
+		DEFAULT_SCROLL_CURSOR_COLOR
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Color> scrollCursorHoverColor =
+	new NonCascadingProperty<>(
+		SCROLL_CURSOR_HOVER_COLOR_HEADER,
+		WidgetLookState.class,
+		Color::fromSpecification,
+		Color::getSpecification,
+		this::setScrollCursorHoverColorForState,
+		DEFAULT_SCROLL_CURSOR_HOVER_COLOR
+	);
+	
+	//attribute
+	private final NonCascadingProperty<WidgetLookState, Color> scrollCursorMoveColor =
+	new NonCascadingProperty<>(
+		SCROLL_CURSOR_MOVE_COLOR_HEADER,
+		WidgetLookState.class,
+		Color::fromSpecification,
+		Color::getSpecification,
+		this::setScrollCursorMoveColorForState,
+		DEFAULT_SCROLL_CURSOR_MOVE_COLOR
+	);
+	
 	//method
 	public final Color getBackgroundColor() {
 		return background.getValue().getBackgroundColor();
@@ -240,6 +312,36 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final Color getScrollBarColor() {
+		return scrollBarColor.getValue();
+	}
+	
+	//method
+	public final Color getScrollBarHoverColor() {
+		return scrollBarHoverColor.getValue();
+	}
+	
+	//method
+	public final Color getScrollBarMoveColor() {
+		return scrollBarMoveColor.getValue();
+	}
+	
+	//method
+	public final Color getScrollCursorColor() {
+		return scrollCursorColor.getValue();
+	}
+	
+	//method
+	public final Color getScrollCursorHoverColor() {
+		return scrollCursorHoverColor.getValue();
+	}
+	
+	//method
+	public final Color getScrollCursorMoveColor() {
+		return scrollCursorMoveColor.getValue();
+	}
+	
+	//method
 	public final Color getTopBorderColor() {
 		return topBorderColor.getValue();
 	}
@@ -267,6 +369,21 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final boolean hasBackgroundImage() {
 		return background.hasValue() && background.getValue().hasBackgroundImage();
+	}
+	
+	//method
+	public final boolean hasScrollBarColor() {
+		return scrollBarColor.hasValue();
+	}
+	
+	//method
+	public final boolean hasScrollBarHoverColor() {
+		return scrollBarHoverColor.hasValue();
+	}
+	
+	//method
+	public final boolean hasScrollBarMoveColor() {
+		return scrollBarMoveColor.hasValue();
 	}
 	
 	//method
@@ -333,6 +450,36 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final void removeRightPaddings() {
 		rightPadding.setUndefined();
+	}
+	
+	//method
+	public final void removeScrollBarColors() {
+		scrollBarColor.setUndefined();
+	}
+	
+	//method
+	public final void removeScrollBarHoverColors() {
+		scrollBarHoverColor.setUndefined();
+	}
+	
+	//method
+	public final void removeScrollBarMoveColors() {
+		scrollBarMoveColor.setUndefined();
+	}
+	
+	//method
+	public final void removeScrollCursorColors() {
+		scrollCursorColor.setUndefined();
+	}
+	
+	//method
+	public final void removeScrollCursorHoverColors() {
+		scrollCursorHoverColor.setUndefined();
+	}
+	
+	//method
+	public final void removeScrollCursorMoveColors() {
+		scrollCursorMoveColor.setUndefined();
 	}
 	
 	//method
@@ -492,6 +639,54 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 		
 		this.rightPadding.setValueForState(state, rightPadding);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setScrollBarColorForState(final WidgetLookState state, final Color scrollBarColor) {
+		
+		this.scrollBarColor.setValueForState(state, scrollBarColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setScrollBarHoverColorForState(final WidgetLookState state, final Color scrollBarHoverColor) {
+		
+		this.scrollBarHoverColor.setValueForState(state, scrollBarHoverColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setScrollBarMoveColorForState(final WidgetLookState state, final Color scrollBarMoveColor) {
+		
+		this.scrollBarMoveColor.setValueForState(state, scrollBarMoveColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setScrollCursorColorForState(final WidgetLookState state, final Color scrollCursorColor) {
+		
+		this.scrollCursorColor.setValueForState(state, scrollCursorColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setScrollCursorHoverColorForState(final WidgetLookState state, final Color scrollCursorHoverColor) {
+		
+		this.scrollCursorHoverColor.setValueForState(state, scrollCursorHoverColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final BWL setScrollCursorMoveColorForState(final WidgetLookState state, final Color scrollCursorMoveColor) {
+		
+		this.scrollCursorMoveColor.setValueForState(state, scrollCursorMoveColor);
 		
 		return asConcrete();
 	}
