@@ -173,6 +173,24 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
+	final void setFrom(final Property<S, ?> property) {
+		for (var i = 0; i < stateProperties.length; i++) {
+			switch (property.stateProperties[i].getAssignmentType()) {
+				case VALUE:
+					stateProperties[i].setValue((V)property.stateProperties[i].getValue());
+					break;
+				case NO_VALUE:
+					stateProperties[i].setEmpty();
+					break;
+				case UNDEFINED:
+					stateProperties[i].setUndefined();
+					break;
+			}
+		}
+	}
+	
+	//method
 	final void setParent(final FormatElement<?, S> parent) {
 		
 		Validator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();

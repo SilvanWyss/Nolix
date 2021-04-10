@@ -82,6 +82,14 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
+	public final void setFrom(final FE element) {
+		final var iterator = element.getRefProperties().iterator();
+		for (final var p : getRefProperties()) {
+			p.setFrom(iterator.next());
+		}
+	}
+	
+	//method
 	protected final <FE2 extends FE> void internalAddChild(final FE2 child) {
 		
 		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
