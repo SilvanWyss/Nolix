@@ -82,6 +82,22 @@ implements IMutableElement<FE> {
 	}
 	
 	//method
+	protected final <FE2 extends FE> void internalAddChild(final FE2 child) {
+		
+		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
+		
+		child.setParent(this);
+	}
+	
+	//method
+	protected final void internalSwitchToState(final S state) {
+		
+		Validator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
+		
+		currentState = availableStates.getRefFirst(s -> s.hasEnumValue(state));
+	}
+	
+	//method
 	final IContainer<State<S>> getAvailableStates() {
 		return availableStates;
 	}
@@ -128,22 +144,6 @@ implements IMutableElement<FE> {
 		Validator.assertThat(parentProperties).thatIsNamed("remaining parent properties").isEmpty();
 	}
 
-	//method
-	protected final <FE2 extends FE> void internalAddChild(final FE2 child) {
-		
-		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
-		
-		child.setParent(this);
-	}
-	
-	//method
-	protected final void internalSwitchToState(final S state) {
-		
-		Validator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
-		
-		currentState = availableStates.getRefFirst(s -> s.hasEnumValue(state));
-	}
-	
 	//method
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
